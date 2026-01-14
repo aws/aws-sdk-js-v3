@@ -203,12 +203,12 @@ TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var CancelTagSyncTaskInput$: StaticStructureSchema = [3, n0, _CTSTI,
   0,
   [_TA],
-  [0]
+  [0], 1
 ];
 export var CreateGroupInput$: StaticStructureSchema = [3, n0, _CGI,
   0,
   [_N, _D, _RQ, _T, _C, _Cr, _O, _DN],
-  [0, 0, () => ResourceQuery$, 128 | 0, () => GroupConfigurationList, 1, 0, 0]
+  [0, 0, () => ResourceQuery$, 128 | 0, () => GroupConfigurationList, 1, 0, 0], 1
 ];
 export var CreateGroupOutput$: StaticStructureSchema = [3, n0, _CGO,
   0,
@@ -274,7 +274,7 @@ export var GetGroupQueryOutput$: StaticStructureSchema = [3, n0, _GGQO,
 export var GetTagsInput$: StaticStructureSchema = [3, n0, _GTI,
   0,
   [_A],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetTagsOutput$: StaticStructureSchema = [3, n0, _GTO,
   0,
@@ -284,7 +284,7 @@ export var GetTagsOutput$: StaticStructureSchema = [3, n0, _GTO,
 export var GetTagSyncTaskInput$: StaticStructureSchema = [3, n0, _GTSTI,
   0,
   [_TA],
-  [0]
+  [0], 1
 ];
 export var GetTagSyncTaskOutput$: StaticStructureSchema = [3, n0, _GTSTO,
   0,
@@ -294,7 +294,7 @@ export var GetTagSyncTaskOutput$: StaticStructureSchema = [3, n0, _GTSTO,
 export var Group$: StaticStructureSchema = [3, n0, _G,
   0,
   [_GA, _N, _D, _Cr, _O, _DN, _AT],
-  [0, 0, 0, 1, 0, 0, 128 | 0]
+  [0, 0, 0, 1, 0, 0, 128 | 0], 2
 ];
 export var GroupConfiguration$: StaticStructureSchema = [3, n0, _GC,
   0,
@@ -304,17 +304,17 @@ export var GroupConfiguration$: StaticStructureSchema = [3, n0, _GC,
 export var GroupConfigurationItem$: StaticStructureSchema = [3, n0, _GCI,
   0,
   [_Ty, _P],
-  [0, () => GroupParameterList]
+  [0, () => GroupParameterList], 1
 ];
 export var GroupConfigurationParameter$: StaticStructureSchema = [3, n0, _GCP,
   0,
   [_N, _V],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var GroupFilter$: StaticStructureSchema = [3, n0, _GF,
   0,
   [_N, _V],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var GroupIdentifier$: StaticStructureSchema = [3, n0, _GI,
   0,
@@ -329,12 +329,12 @@ export var GroupingStatusesItem$: StaticStructureSchema = [3, n0, _GSI,
 export var GroupQuery$: StaticStructureSchema = [3, n0, _GQ,
   0,
   [_GN, _RQ],
-  [0, () => ResourceQuery$]
+  [0, () => ResourceQuery$], 2
 ];
 export var GroupResourcesInput$: StaticStructureSchema = [3, n0, _GRI,
   0,
   [_G, _RAe],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var GroupResourcesOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
@@ -350,12 +350,12 @@ TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServer
 export var ListGroupingStatusesFilter$: StaticStructureSchema = [3, n0, _LGSF,
   0,
   [_N, _V],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var ListGroupingStatusesInput$: StaticStructureSchema = [3, n0, _LGSI,
   0,
   [_G, _MR, _Fi, _NT],
-  [0, 1, () => ListGroupingStatusesFilterList, 0]
+  [0, 1, () => ListGroupingStatusesFilterList, 0], 1
 ];
 export var ListGroupingStatusesOutput$: StaticStructureSchema = [3, n0, _LGSO,
   0,
@@ -437,7 +437,7 @@ export var QueryError$: StaticStructureSchema = [3, n0, _QEu,
 export var ResourceFilter$: StaticStructureSchema = [3, n0, _RF,
   0,
   [_N, _V],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var ResourceIdentifier$: StaticStructureSchema = [3, n0, _RIe,
   0,
@@ -447,7 +447,7 @@ export var ResourceIdentifier$: StaticStructureSchema = [3, n0, _RIe,
 export var ResourceQuery$: StaticStructureSchema = [3, n0, _RQ,
   0,
   [_Ty, _Q],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ResourceStatus$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -457,7 +457,7 @@ export var ResourceStatus$: StaticStructureSchema = [3, n0, _RS,
 export var SearchResourcesInput$: StaticStructureSchema = [3, n0, _SRI,
   0,
   [_RQ, _MR, _NT],
-  [() => ResourceQuery$, 1, 0]
+  [() => ResourceQuery$, 1, 0], 1
 ];
 export var SearchResourcesOutput$: StaticStructureSchema = [3, n0, _SRO,
   0,
@@ -466,8 +466,8 @@ export var SearchResourcesOutput$: StaticStructureSchema = [3, n0, _SRO,
 ];
 export var StartTagSyncTaskInput$: StaticStructureSchema = [3, n0, _STSTI,
   0,
-  [_G, _TK, _TV, _RQ, _RAo],
-  [0, 0, 0, () => ResourceQuery$, 0]
+  [_G, _RAo, _TK, _TV, _RQ],
+  [0, 0, 0, 0, () => ResourceQuery$], 2
 ];
 export var StartTagSyncTaskOutput$: StaticStructureSchema = [3, n0, _STSTO,
   0,
@@ -477,7 +477,7 @@ export var StartTagSyncTaskOutput$: StaticStructureSchema = [3, n0, _STSTO,
 export var TagInput$: StaticStructureSchema = [3, n0, _TI,
   0,
   [_A, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagOutput$: StaticStructureSchema = [3, n0, _TO,
   0,
@@ -504,7 +504,7 @@ TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException
 export var UngroupResourcesInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_G, _RAe],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UngroupResourcesOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -514,7 +514,7 @@ export var UngroupResourcesOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UntagInput$: StaticStructureSchema = [3, n0, _UI,
   0,
   [_A, _K],
-  [[0, 1], 64 | 0]
+  [[0, 1], 64 | 0], 2
 ];
 export var UntagOutput$: StaticStructureSchema = [3, n0, _UO,
   0,
@@ -543,8 +543,8 @@ export var UpdateGroupOutput$: StaticStructureSchema = [3, n0, _UGO,
 ];
 export var UpdateGroupQueryInput$: StaticStructureSchema = [3, n0, _UGQI,
   0,
-  [_GN, _G, _RQ],
-  [0, 0, () => ResourceQuery$]
+  [_RQ, _GN, _G],
+  [() => ResourceQuery$, 0, 0], 1
 ];
 export var UpdateGroupQueryOutput$: StaticStructureSchema = [3, n0, _UGQO,
   0,

@@ -36,7 +36,7 @@ export var EchoOutput$: StaticStructureSchema = [3, n0, _EO,
 export var LengthInput$: StaticStructureSchema = [3, n0, _LI,
   0,
   [_s],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var LengthOutput$: StaticStructureSchema = [3, n0, _LO,
   0,

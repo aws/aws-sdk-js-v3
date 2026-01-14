@@ -844,7 +844,7 @@ var NameType: StaticSimpleSchema = [0, n0, _NT, 8, 0];
 export var AccessControlConfigurationSummary$: StaticStructureSchema = [3, n0, _ACCS,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var AccessControlListConfiguration$: StaticStructureSchema = [3, n0, _ACLC,
   0,
@@ -860,12 +860,12 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AclConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_AGCN],
-  [0]
+  [0], 1
 ];
 export var AdditionalResultAttribute$: StaticStructureSchema = [3, n0, _ARA,
   0,
   [_K, _VT, _V],
-  [0, 0, () => AdditionalResultAttributeValue$]
+  [0, 0, () => AdditionalResultAttributeValue$], 3
 ];
 export var AdditionalResultAttributeValue$: StaticStructureSchema = [3, n0, _ARAV,
   0,
@@ -875,12 +875,12 @@ export var AdditionalResultAttributeValue$: StaticStructureSchema = [3, n0, _ARA
 export var AlfrescoConfiguration$: StaticStructureSchema = [3, n0, _ACl,
   0,
   [_SU, _SI, _SA, _SCSP, _CSF, _CC, _EF, _DLFM, _BFM, _WFM, _IP, _EP, _VC],
-  [0, 0, 0, () => S3Path$, 2, 2, 64 | 0, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$]
+  [0, 0, 0, () => S3Path$, 2, 2, 64 | 0, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$], 4
 ];
 export var AssociateEntitiesToExperienceRequest$: StaticStructureSchema = [3, n0, _AETER,
   0,
   [_I, _II, _EL],
-  [0, 0, () => AssociateEntityList]
+  [0, 0, () => AssociateEntityList], 3
 ];
 export var AssociateEntitiesToExperienceResponse$: StaticStructureSchema = [3, n0, _AETERs,
   0,
@@ -890,7 +890,7 @@ export var AssociateEntitiesToExperienceResponse$: StaticStructureSchema = [3, n
 export var AssociatePersonasToEntitiesRequest$: StaticStructureSchema = [3, n0, _APTER,
   0,
   [_I, _II, _P],
-  [0, 0, () => EntityPersonaConfigurationList]
+  [0, 0, () => EntityPersonaConfigurationList], 3
 ];
 export var AssociatePersonasToEntitiesResponse$: StaticStructureSchema = [3, n0, _APTERs,
   0,
@@ -925,12 +925,12 @@ export var AuthenticationConfiguration$: StaticStructureSchema = [3, n0, _ACu,
 export var BasicAuthenticationConfiguration$: StaticStructureSchema = [3, n0, _BAC,
   0,
   [_H, _Po, _C],
-  [0, 1, 0]
+  [0, 1, 0], 3
 ];
 export var BatchDeleteDocumentRequest$: StaticStructureSchema = [3, n0, _BDDR,
   0,
   [_II, _DIL, _DSSJMT],
-  [0, 64 | 0, () => DataSourceSyncJobMetricTarget$]
+  [0, 64 | 0, () => DataSourceSyncJobMetricTarget$], 2
 ];
 export var BatchDeleteDocumentResponse$: StaticStructureSchema = [3, n0, _BDDRa,
   0,
@@ -945,22 +945,22 @@ export var BatchDeleteDocumentResponseFailedDocument$: StaticStructureSchema = [
 export var BatchDeleteFeaturedResultsSetError$: StaticStructureSchema = [3, n0, _BDFRSE,
   0,
   [_I, _EC, _EM],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var BatchDeleteFeaturedResultsSetRequest$: StaticStructureSchema = [3, n0, _BDFRSR,
   0,
   [_II, _FRSI],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var BatchDeleteFeaturedResultsSetResponse$: StaticStructureSchema = [3, n0, _BDFRSRa,
   0,
   [_E],
-  [() => BatchDeleteFeaturedResultsSetErrors]
+  [() => BatchDeleteFeaturedResultsSetErrors], 1
 ];
 export var BatchGetDocumentStatusRequest$: StaticStructureSchema = [3, n0, _BGDSR,
   0,
   [_II, _DILo],
-  [0, () => DocumentInfoList]
+  [0, () => DocumentInfoList], 2
 ];
 export var BatchGetDocumentStatusResponse$: StaticStructureSchema = [3, n0, _BGDSRa,
   0,
@@ -974,8 +974,8 @@ export var BatchGetDocumentStatusResponseError$: StaticStructureSchema = [3, n0,
 ];
 export var BatchPutDocumentRequest$: StaticStructureSchema = [3, n0, _BPDR,
   0,
-  [_II, _RA, _D, _CDEC],
-  [0, 0, () => DocumentList, () => CustomDocumentEnrichmentConfiguration$]
+  [_II, _D, _RA, _CDEC],
+  [0, () => DocumentList, 0, () => CustomDocumentEnrichmentConfiguration$], 2
 ];
 export var BatchPutDocumentResponse$: StaticStructureSchema = [3, n0, _BPDRa,
   0,
@@ -990,37 +990,37 @@ export var BatchPutDocumentResponseFailedDocument$: StaticStructureSchema = [3, 
 export var BoxConfiguration$: StaticStructureSchema = [3, n0, _BC,
   0,
   [_EI, _SA, _UCL, _CC, _CT, _CWL, _FFM, _TFM, _CFM, _WLFM, _IP, _EP, _VC],
-  [0, 0, 2, 2, 2, 2, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$]
+  [0, 0, 2, 2, 2, 2, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$], 2
 ];
 export var CapacityUnitsConfiguration$: StaticStructureSchema = [3, n0, _CUC,
   0,
   [_SCU, _QCU],
-  [1, 1]
+  [1, 1], 2
 ];
 export var ClearQuerySuggestionsRequest$: StaticStructureSchema = [3, n0, _CQSR,
   0,
   [_II],
-  [0]
+  [0], 1
 ];
 export var ClickFeedback$: StaticStructureSchema = [3, n0, _CF,
   0,
   [_RI, _CTl],
-  [0, 4]
+  [0, 4], 2
 ];
 export var CollapseConfiguration$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_DAK, _SC, _MAKS, _Ex, _ECx],
-  [0, () => SortingConfigurationList, 0, 2, () => ExpandConfiguration$]
+  [0, () => SortingConfigurationList, 0, 2, () => ExpandConfiguration$], 1
 ];
 export var CollapsedResultDetail$: StaticStructureSchema = [3, n0, _CRD,
   0,
   [_DA, _ER],
-  [() => DocumentAttribute$, () => ExpandedResultList]
+  [() => DocumentAttribute$, () => ExpandedResultList], 1
 ];
 export var ColumnConfiguration$: StaticStructureSchema = [3, n0, _CCol,
   0,
-  [_DICN, _DDCN, _DTCN, _FM, _CDC],
-  [0, 0, 0, () => DataSourceToIndexFieldMappingList, 64 | 0]
+  [_DICN, _DDCN, _CDC, _DTCN, _FM],
+  [0, 0, 64 | 0, 0, () => DataSourceToIndexFieldMappingList], 3
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -1056,7 +1056,7 @@ export var ConfluenceBlogToIndexFieldMapping$: StaticStructureSchema = [3, n0, _
 export var ConfluenceConfiguration$: StaticStructureSchema = [3, n0, _CCon,
   0,
   [_SUe, _SA, _Ve, _SCp, _PC, _BCl, _ACt, _VC, _IP, _EP, _PCr, _AT],
-  [0, 0, 0, () => ConfluenceSpaceConfiguration$, () => ConfluencePageConfiguration$, () => ConfluenceBlogConfiguration$, () => ConfluenceAttachmentConfiguration$, () => DataSourceVpcConfiguration$, 64 | 0, 64 | 0, () => ProxyConfiguration$, 0]
+  [0, 0, 0, () => ConfluenceSpaceConfiguration$, () => ConfluencePageConfiguration$, () => ConfluenceBlogConfiguration$, () => ConfluenceAttachmentConfiguration$, () => DataSourceVpcConfiguration$, 64 | 0, 64 | 0, () => ProxyConfiguration$, 0], 3
 ];
 export var ConfluencePageConfiguration$: StaticStructureSchema = [3, n0, _CPC,
   0,
@@ -1081,7 +1081,7 @@ export var ConfluenceSpaceToIndexFieldMapping$: StaticStructureSchema = [3, n0, 
 export var ConnectionConfiguration$: StaticStructureSchema = [3, n0, _CConn,
   0,
   [_DH, _DP, _DN, _TN, _SA],
-  [0, 1, 0, 0, 0]
+  [0, 1, 0, 0, 0], 5
 ];
 export var ContentSourceConfiguration$: StaticStructureSchema = [3, n0, _CSCo,
   0,
@@ -1096,37 +1096,37 @@ export var Correction$: StaticStructureSchema = [3, n0, _Co,
 export var CreateAccessControlConfigurationRequest$: StaticStructureSchema = [3, n0, _CACCR,
   0,
   [_II, _N, _De, _ACL, _HACL, _CTli],
-  [0, 0, 0, () => PrincipalList, () => HierarchicalPrincipalList, [0, 4]]
+  [0, 0, 0, () => PrincipalList, () => HierarchicalPrincipalList, [0, 4]], 2
 ];
 export var CreateAccessControlConfigurationResponse$: StaticStructureSchema = [3, n0, _CACCRr,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var CreateDataSourceRequest$: StaticStructureSchema = [3, n0, _CDSR,
   0,
   [_N, _II, _Ty, _Con, _VC, _De, _S, _RA, _Ta, _CTli, _LC, _CDEC],
-  [0, 0, 0, () => DataSourceConfiguration$, () => DataSourceVpcConfiguration$, 0, 0, 0, () => TagList, [0, 4], 0, () => CustomDocumentEnrichmentConfiguration$]
+  [0, 0, 0, () => DataSourceConfiguration$, () => DataSourceVpcConfiguration$, 0, 0, 0, () => TagList, [0, 4], 0, () => CustomDocumentEnrichmentConfiguration$], 3
 ];
 export var CreateDataSourceResponse$: StaticStructureSchema = [3, n0, _CDSRr,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var CreateExperienceRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
   [_N, _II, _RA, _Con, _De, _CTli],
-  [0, 0, 0, () => ExperienceConfiguration$, 0, [0, 4]]
+  [0, 0, 0, () => ExperienceConfiguration$, 0, [0, 4]], 2
 ];
 export var CreateExperienceResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var CreateFaqRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_II, _N, _De, _SP, _RA, _Ta, _FF, _CTli, _LC],
-  [0, 0, 0, () => S3Path$, 0, () => TagList, 0, [0, 4], 0]
+  [_II, _N, _SP, _RA, _De, _Ta, _FF, _CTli, _LC],
+  [0, 0, () => S3Path$, 0, 0, () => TagList, 0, [0, 4], 0], 4
 ];
 export var CreateFaqResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -1136,7 +1136,7 @@ export var CreateFaqResponse$: StaticStructureSchema = [3, n0, _CFRr,
 export var CreateFeaturedResultsSetRequest$: StaticStructureSchema = [3, n0, _CFRSR,
   0,
   [_II, _FRSN, _De, _CTli, _St, _QTu, _FDe, _Ta],
-  [0, 0, 0, 0, 0, 64 | 0, () => FeaturedDocumentList, () => TagList]
+  [0, 0, 0, 0, 0, 64 | 0, () => FeaturedDocumentList, () => TagList], 2
 ];
 export var CreateFeaturedResultsSetResponse$: StaticStructureSchema = [3, n0, _CFRSRr,
   0,
@@ -1145,8 +1145,8 @@ export var CreateFeaturedResultsSetResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateIndexRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
-  [_N, _Ed, _RA, _SSEC, _De, _CTli, _Ta, _UTC, _UCP, _UGRC],
-  [0, 0, 0, [() => ServerSideEncryptionConfiguration$, 0], 0, [0, 4], () => TagList, () => UserTokenConfigurationList, 0, () => UserGroupResolutionConfiguration$]
+  [_N, _RA, _Ed, _SSEC, _De, _CTli, _Ta, _UTC, _UCP, _UGRC],
+  [0, 0, 0, [() => ServerSideEncryptionConfiguration$, 0], 0, [0, 4], () => TagList, () => UserTokenConfigurationList, 0, () => UserGroupResolutionConfiguration$], 2
 ];
 export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr,
   0,
@@ -1155,8 +1155,8 @@ export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr,
 ];
 export var CreateQuerySuggestionsBlockListRequest$: StaticStructureSchema = [3, n0, _CQSBLR,
   0,
-  [_II, _N, _De, _SSP, _CTli, _RA, _Ta],
-  [0, 0, 0, () => S3Path$, [0, 4], 0, () => TagList]
+  [_II, _N, _SSP, _RA, _De, _CTli, _Ta],
+  [0, 0, () => S3Path$, 0, 0, [0, 4], () => TagList], 4
 ];
 export var CreateQuerySuggestionsBlockListResponse$: StaticStructureSchema = [3, n0, _CQSBLRr,
   0,
@@ -1165,8 +1165,8 @@ export var CreateQuerySuggestionsBlockListResponse$: StaticStructureSchema = [3,
 ];
 export var CreateThesaurusRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
-  [_II, _N, _De, _RA, _Ta, _SSP, _CTli],
-  [0, 0, 0, 0, () => TagList, () => S3Path$, [0, 4]]
+  [_II, _N, _RA, _SSP, _De, _Ta, _CTli],
+  [0, 0, 0, () => S3Path$, 0, () => TagList, [0, 4]], 4
 ];
 export var CreateThesaurusResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -1180,8 +1180,8 @@ export var CustomDocumentEnrichmentConfiguration$: StaticStructureSchema = [3, n
 ];
 export var DatabaseConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_DET, _CConn, _VC, _CCol, _AC, _SCq],
-  [0, () => ConnectionConfiguration$, () => DataSourceVpcConfiguration$, () => ColumnConfiguration$, () => AclConfiguration$, () => SqlConfiguration$]
+  [_DET, _CConn, _CCol, _VC, _AC, _SCq],
+  [0, () => ConnectionConfiguration$, () => ColumnConfiguration$, () => DataSourceVpcConfiguration$, () => AclConfiguration$, () => SqlConfiguration$], 3
 ];
 export var DataSourceConfiguration$: StaticStructureSchema = [3, n0, _DSC,
   0,
@@ -1191,7 +1191,7 @@ export var DataSourceConfiguration$: StaticStructureSchema = [3, n0, _DSC,
 export var DataSourceGroup$: StaticStructureSchema = [3, n0, _DSG,
   0,
   [_GI, _DSI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DataSourceSummary$: StaticStructureSchema = [3, n0, _DSS,
   0,
@@ -1211,22 +1211,22 @@ export var DataSourceSyncJobMetrics$: StaticStructureSchema = [3, n0, _DSSJM,
 export var DataSourceSyncJobMetricTarget$: StaticStructureSchema = [3, n0, _DSSJMT,
   0,
   [_DSI, _DSSJI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DataSourceToIndexFieldMapping$: StaticStructureSchema = [3, n0, _DSTIFM,
   0,
-  [_DSFN, _DFF, _IFN],
-  [0, 0, 0]
+  [_DSFN, _IFN, _DFF],
+  [0, 0, 0], 2
 ];
 export var DataSourceVpcConfiguration$: StaticStructureSchema = [3, n0, _DSVC,
   0,
   [_SIu, _SGI],
-  [64 | 0, 64 | 0]
+  [64 | 0, 64 | 0], 2
 ];
 export var DeleteAccessControlConfigurationRequest$: StaticStructureSchema = [3, n0, _DACCR,
   0,
   [_II, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteAccessControlConfigurationResponse$: StaticStructureSchema = [3, n0, _DACCRe,
   0,
@@ -1236,12 +1236,12 @@ export var DeleteAccessControlConfigurationResponse$: StaticStructureSchema = [3
 export var DeleteDataSourceRequest$: StaticStructureSchema = [3, n0, _DDSR,
   0,
   [_I, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteExperienceRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_I, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteExperienceResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -1251,42 +1251,42 @@ export var DeleteExperienceResponse$: StaticStructureSchema = [3, n0, _DERe,
 export var DeleteFaqRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_I, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteIndexRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var DeletePrincipalMappingRequest$: StaticStructureSchema = [3, n0, _DPMR,
   0,
-  [_II, _DSI, _GI, _OI],
-  [0, 0, 0, 1]
+  [_II, _GI, _DSI, _OI],
+  [0, 0, 0, 1], 2
 ];
 export var DeleteQuerySuggestionsBlockListRequest$: StaticStructureSchema = [3, n0, _DQSBLR,
   0,
   [_II, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteThesaurusRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_I, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeAccessControlConfigurationRequest$: StaticStructureSchema = [3, n0, _DACCRes,
   0,
   [_II, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeAccessControlConfigurationResponse$: StaticStructureSchema = [3, n0, _DACCResc,
   0,
   [_N, _De, _EM, _ACL, _HACL],
-  [0, 0, 0, () => PrincipalList, () => HierarchicalPrincipalList]
+  [0, 0, 0, () => PrincipalList, () => HierarchicalPrincipalList], 1
 ];
 export var DescribeDataSourceRequest$: StaticStructureSchema = [3, n0, _DDSRe,
   0,
   [_I, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSRes,
   0,
@@ -1296,7 +1296,7 @@ export var DescribeDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSRes,
 export var DescribeExperienceRequest$: StaticStructureSchema = [3, n0, _DERes,
   0,
   [_I, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeExperienceResponse$: StaticStructureSchema = [3, n0, _DEResc,
   0,
@@ -1306,7 +1306,7 @@ export var DescribeExperienceResponse$: StaticStructureSchema = [3, n0, _DEResc,
 export var DescribeFaqRequest$: StaticStructureSchema = [3, n0, _DFRe,
   0,
   [_I, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeFaqResponse$: StaticStructureSchema = [3, n0, _DFRes,
   0,
@@ -1316,7 +1316,7 @@ export var DescribeFaqResponse$: StaticStructureSchema = [3, n0, _DFRes,
 export var DescribeFeaturedResultsSetRequest$: StaticStructureSchema = [3, n0, _DFRSR,
   0,
   [_II, _FRSIe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeFeaturedResultsSetResponse$: StaticStructureSchema = [3, n0, _DFRSRe,
   0,
@@ -1326,7 +1326,7 @@ export var DescribeFeaturedResultsSetResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeIndexRequest$: StaticStructureSchema = [3, n0, _DIRe,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var DescribeIndexResponse$: StaticStructureSchema = [3, n0, _DIRes,
   0,
@@ -1335,8 +1335,8 @@ export var DescribeIndexResponse$: StaticStructureSchema = [3, n0, _DIRes,
 ];
 export var DescribePrincipalMappingRequest$: StaticStructureSchema = [3, n0, _DPMRe,
   0,
-  [_II, _DSI, _GI],
-  [0, 0, 0]
+  [_II, _GI, _DSI],
+  [0, 0, 0], 2
 ];
 export var DescribePrincipalMappingResponse$: StaticStructureSchema = [3, n0, _DPMRes,
   0,
@@ -1346,7 +1346,7 @@ export var DescribePrincipalMappingResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeQuerySuggestionsBlockListRequest$: StaticStructureSchema = [3, n0, _DQSBLRe,
   0,
   [_II, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeQuerySuggestionsBlockListResponse$: StaticStructureSchema = [3, n0, _DQSBLRes,
   0,
@@ -1356,7 +1356,7 @@ export var DescribeQuerySuggestionsBlockListResponse$: StaticStructureSchema = [
 export var DescribeQuerySuggestionsConfigRequest$: StaticStructureSchema = [3, n0, _DQSCR,
   0,
   [_II],
-  [0]
+  [0], 1
 ];
 export var DescribeQuerySuggestionsConfigResponse$: StaticStructureSchema = [3, n0, _DQSCRe,
   0,
@@ -1366,7 +1366,7 @@ export var DescribeQuerySuggestionsConfigResponse$: StaticStructureSchema = [3, 
 export var DescribeThesaurusRequest$: StaticStructureSchema = [3, n0, _DTRe,
   0,
   [_I, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeThesaurusResponse$: StaticStructureSchema = [3, n0, _DTRes,
   0,
@@ -1376,7 +1376,7 @@ export var DescribeThesaurusResponse$: StaticStructureSchema = [3, n0, _DTRes,
 export var DisassociateEntitiesFromExperienceRequest$: StaticStructureSchema = [3, n0, _DEFER,
   0,
   [_I, _II, _EL],
-  [0, 0, () => DisassociateEntityList]
+  [0, 0, () => DisassociateEntityList], 3
 ];
 export var DisassociateEntitiesFromExperienceResponse$: StaticStructureSchema = [3, n0, _DEFERi,
   0,
@@ -1386,7 +1386,7 @@ export var DisassociateEntitiesFromExperienceResponse$: StaticStructureSchema = 
 export var DisassociatePersonasFromEntitiesRequest$: StaticStructureSchema = [3, n0, _DPFER,
   0,
   [_I, _II, _EIn],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var DisassociatePersonasFromEntitiesResponse$: StaticStructureSchema = [3, n0, _DPFERi,
   0,
@@ -1396,17 +1396,17 @@ export var DisassociatePersonasFromEntitiesResponse$: StaticStructureSchema = [3
 export var Document$: StaticStructureSchema = [3, n0, _Do,
   0,
   [_I, _Ti, _B, _SP, _A, _ACL, _HACL, _CTon, _ACCI],
-  [0, 0, 21, () => S3Path$, () => DocumentAttributeList, () => PrincipalList, () => HierarchicalPrincipalList, 0, 0]
+  [0, 0, 21, () => S3Path$, () => DocumentAttributeList, () => PrincipalList, () => HierarchicalPrincipalList, 0, 0], 1
 ];
 export var DocumentAttribute$: StaticStructureSchema = [3, n0, _DA,
   0,
   [_K, _V],
-  [0, () => DocumentAttributeValue$]
+  [0, () => DocumentAttributeValue$], 2
 ];
 export var DocumentAttributeCondition$: StaticStructureSchema = [3, n0, _DAC,
   0,
   [_CDAK, _O, _COV],
-  [0, 0, () => DocumentAttributeValue$]
+  [0, 0, () => DocumentAttributeValue$], 2
 ];
 export var DocumentAttributeTarget$: StaticStructureSchema = [3, n0, _DAT,
   0,
@@ -1426,17 +1426,17 @@ export var DocumentAttributeValueCountPair$: StaticStructureSchema = [3, n0, _DA
 export var DocumentInfo$: StaticStructureSchema = [3, n0, _DIo,
   0,
   [_DI, _A],
-  [0, () => DocumentAttributeList]
+  [0, () => DocumentAttributeList], 1
 ];
 export var DocumentMetadataConfiguration$: StaticStructureSchema = [3, n0, _DMCo,
   0,
   [_N, _Ty, _R, _Se],
-  [0, 0, () => Relevance$, () => Search$]
+  [0, 0, () => Relevance$, () => Search$], 2
 ];
 export var DocumentRelevanceConfiguration$: StaticStructureSchema = [3, n0, _DRC,
   0,
   [_N, _R],
-  [0, () => Relevance$]
+  [0, () => Relevance$], 2
 ];
 export var DocumentsMetadataConfiguration$: StaticStructureSchema = [3, n0, _DMCoc,
   0,
@@ -1446,7 +1446,7 @@ export var DocumentsMetadataConfiguration$: StaticStructureSchema = [3, n0, _DMC
 export var EntityConfiguration$: StaticStructureSchema = [3, n0, _ECn,
   0,
   [_EInt, _ETnt],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EntityDisplayData$: StaticStructureSchema = [3, n0, _EDD,
   0,
@@ -1456,7 +1456,7 @@ export var EntityDisplayData$: StaticStructureSchema = [3, n0, _EDD,
 export var EntityPersonaConfiguration$: StaticStructureSchema = [3, n0, _EPC,
   0,
   [_EInt, _Pe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ExpandConfiguration$: StaticStructureSchema = [3, n0, _ECx,
   0,
@@ -1506,7 +1506,7 @@ export var FailedEntity$: StaticStructureSchema = [3, n0, _FE,
 export var FaqStatistics$: StaticStructureSchema = [3, n0, _FS,
   0,
   [_IQAC],
-  [1]
+  [1], 1
 ];
 export var FaqSummary$: StaticStructureSchema = [3, n0, _FSa,
   0,
@@ -1552,12 +1552,12 @@ export var FeaturedResultsSetSummary$: StaticStructureSchema = [3, n0, _FRSS,
 export var FsxConfiguration$: StaticStructureSchema = [3, n0, _FC,
   0,
   [_FSI, _FST, _VC, _SA, _IP, _EP, _FM],
-  [0, 0, () => DataSourceVpcConfiguration$, 0, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList]
+  [0, 0, () => DataSourceVpcConfiguration$, 0, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList], 3
 ];
 export var GetQuerySuggestionsRequest$: StaticStructureSchema = [3, n0, _GQSR,
   0,
   [_II, _QT, _MSC, _STu, _ASC],
-  [0, 0, 1, 64 | 0, () => AttributeSuggestionsGetConfig$]
+  [0, 0, 1, 64 | 0, () => AttributeSuggestionsGetConfig$], 2
 ];
 export var GetQuerySuggestionsResponse$: StaticStructureSchema = [3, n0, _GQSRe,
   0,
@@ -1567,7 +1567,7 @@ export var GetQuerySuggestionsResponse$: StaticStructureSchema = [3, n0, _GQSRe,
 export var GetSnapshotsRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_II, _In, _MT, _NTe, _MR],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 3
 ];
 export var GetSnapshotsResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -1576,8 +1576,8 @@ export var GetSnapshotsResponse$: StaticStructureSchema = [3, n0, _GSRe,
 ];
 export var GitHubConfiguration$: StaticStructureSchema = [3, n0, _GHC,
   0,
-  [_SSC, _OPC, _Ty, _SA, _UCL, _GHDCP, _RF, _IFNP, _IFTP, _IFNPn, _EFNP, _EFTP, _EFNPx, _VC, _GHRCFM, _GHCCFM, _GHIDCFM, _GHICCFM, _GHIACFM, _GHPRCCFM, _GHPRDCFM, _GHPRDACFM],
-  [() => SaaSConfiguration$, () => OnPremiseConfiguration$, 0, 0, 2, () => GitHubDocumentCrawlProperties$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList]
+  [_SA, _SSC, _OPC, _Ty, _UCL, _GHDCP, _RF, _IFNP, _IFTP, _IFNPn, _EFNP, _EFTP, _EFNPx, _VC, _GHRCFM, _GHCCFM, _GHIDCFM, _GHICCFM, _GHIACFM, _GHPRCCFM, _GHPRDCFM, _GHPRDACFM],
+  [0, () => SaaSConfiguration$, () => OnPremiseConfiguration$, 0, 2, () => GitHubDocumentCrawlProperties$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList], 1
 ];
 export var GitHubDocumentCrawlProperties$: StaticStructureSchema = [3, n0, _GHDCP,
   0,
@@ -1587,7 +1587,7 @@ export var GitHubDocumentCrawlProperties$: StaticStructureSchema = [3, n0, _GHDC
 export var GoogleDriveConfiguration$: StaticStructureSchema = [3, n0, _GDC,
   0,
   [_SA, _IP, _EP, _FM, _EMT, _EUA, _ESD],
-  [0, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList, 64 | 0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var GroupMembers$: StaticStructureSchema = [3, n0, _GM,
   0,
@@ -1607,27 +1607,27 @@ export var GroupSummary$: StaticStructureSchema = [3, n0, _GS,
 export var HierarchicalPrincipal$: StaticStructureSchema = [3, n0, _HP,
   0,
   [_PL],
-  [() => PrincipalList]
+  [() => PrincipalList], 1
 ];
 export var Highlight$: StaticStructureSchema = [3, n0, _Hi,
   0,
   [_BO, _EO, _TA, _Ty],
-  [1, 1, 2, 0]
+  [1, 1, 2, 0], 2
 ];
 export var HookConfiguration$: StaticStructureSchema = [3, n0, _HC,
   0,
-  [_ICn, _LA, _SB],
-  [() => DocumentAttributeCondition$, 0, 0]
+  [_LA, _SB, _ICn],
+  [0, 0, () => DocumentAttributeCondition$], 2
 ];
 export var IndexConfigurationSummary$: StaticStructureSchema = [3, n0, _ICS,
   0,
-  [_N, _I, _Ed, _CAre, _UA, _St],
-  [0, 0, 0, 4, 4, 0]
+  [_CAre, _UA, _St, _N, _I, _Ed],
+  [4, 4, 0, 0, 0, 0], 3
 ];
 export var IndexStatistics$: StaticStructureSchema = [3, n0, _ISn,
   0,
   [_FS, _TDS],
-  [() => FaqStatistics$, () => TextDocumentStatistics$]
+  [() => FaqStatistics$, () => TextDocumentStatistics$], 2
 ];
 export var InlineCustomDocumentEnrichmentConfiguration$: StaticStructureSchema = [3, n0, _ICDEC,
   0,
@@ -1649,32 +1649,32 @@ TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestExcep
 export var JiraConfiguration$: StaticStructureSchema = [3, n0, _JC,
   0,
   [_JAU, _SA, _UCL, _Pr, _IT, _St, _ISEF, _AFM, _CFM, _IFM, _PFMr, _WLFMo, _IP, _EP, _VC],
-  [0, 0, 2, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$]
+  [0, 0, 2, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$], 2
 ];
 export var JsonTokenTypeConfiguration$: StaticStructureSchema = [3, n0, _JTTC,
   0,
   [_UNAF, _GAF],
-  [0, 0]
+  [0, 0], 2
 ];
 export var JwtTokenTypeConfiguration$: StaticStructureSchema = [3, n0, _JTTCw,
   0,
   [_KL, _URL, _SMA, _UNAF, _GAF, _Is, _CR],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var ListAccessControlConfigurationsRequest$: StaticStructureSchema = [3, n0, _LACCR,
   0,
   [_II, _NTe, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAccessControlConfigurationsResponse$: StaticStructureSchema = [3, n0, _LACCRi,
   0,
-  [_NTe, _ACC],
-  [0, () => AccessControlConfigurationSummaryList]
+  [_ACC, _NTe],
+  [() => AccessControlConfigurationSummaryList, 0], 1
 ];
 export var ListDataSourcesRequest$: StaticStructureSchema = [3, n0, _LDSR,
   0,
   [_II, _NTe, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListDataSourcesResponse$: StaticStructureSchema = [3, n0, _LDSRi,
   0,
@@ -1684,7 +1684,7 @@ export var ListDataSourcesResponse$: StaticStructureSchema = [3, n0, _LDSRi,
 export var ListDataSourceSyncJobsRequest$: StaticStructureSchema = [3, n0, _LDSSJR,
   0,
   [_I, _II, _NTe, _MR, _STF, _SF],
-  [0, 0, 0, 1, () => TimeRange$, 0]
+  [0, 0, 0, 1, () => TimeRange$, 0], 2
 ];
 export var ListDataSourceSyncJobsResponse$: StaticStructureSchema = [3, n0, _LDSSJRi,
   0,
@@ -1694,7 +1694,7 @@ export var ListDataSourceSyncJobsResponse$: StaticStructureSchema = [3, n0, _LDS
 export var ListEntityPersonasRequest$: StaticStructureSchema = [3, n0, _LEPR,
   0,
   [_I, _II, _NTe, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListEntityPersonasResponse$: StaticStructureSchema = [3, n0, _LEPRi,
   0,
@@ -1704,7 +1704,7 @@ export var ListEntityPersonasResponse$: StaticStructureSchema = [3, n0, _LEPRi,
 export var ListExperienceEntitiesRequest$: StaticStructureSchema = [3, n0, _LEER,
   0,
   [_I, _II, _NTe],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ListExperienceEntitiesResponse$: StaticStructureSchema = [3, n0, _LEERi,
   0,
@@ -1714,7 +1714,7 @@ export var ListExperienceEntitiesResponse$: StaticStructureSchema = [3, n0, _LEE
 export var ListExperiencesRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
   [_II, _NTe, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListExperiencesResponse$: StaticStructureSchema = [3, n0, _LERi,
   0,
@@ -1724,7 +1724,7 @@ export var ListExperiencesResponse$: StaticStructureSchema = [3, n0, _LERi,
 export var ListFaqsRequest$: StaticStructureSchema = [3, n0, _LFR,
   0,
   [_II, _NTe, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListFaqsResponse$: StaticStructureSchema = [3, n0, _LFRi,
   0,
@@ -1734,7 +1734,7 @@ export var ListFaqsResponse$: StaticStructureSchema = [3, n0, _LFRi,
 export var ListFeaturedResultsSetsRequest$: StaticStructureSchema = [3, n0, _LFRSR,
   0,
   [_II, _NTe, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListFeaturedResultsSetsResponse$: StaticStructureSchema = [3, n0, _LFRSRi,
   0,
@@ -1743,8 +1743,8 @@ export var ListFeaturedResultsSetsResponse$: StaticStructureSchema = [3, n0, _LF
 ];
 export var ListGroupsOlderThanOrderingIdRequest$: StaticStructureSchema = [3, n0, _LGOTOIR,
   0,
-  [_II, _DSI, _OI, _NTe, _MR],
-  [0, 0, 1, 0, 1]
+  [_II, _OI, _DSI, _NTe, _MR],
+  [0, 1, 0, 0, 1], 2
 ];
 export var ListGroupsOlderThanOrderingIdResponse$: StaticStructureSchema = [3, n0, _LGOTOIRi,
   0,
@@ -1764,7 +1764,7 @@ export var ListIndicesResponse$: StaticStructureSchema = [3, n0, _LIRi,
 export var ListQuerySuggestionsBlockListsRequest$: StaticStructureSchema = [3, n0, _LQSBLR,
   0,
   [_II, _NTe, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListQuerySuggestionsBlockListsResponse$: StaticStructureSchema = [3, n0, _LQSBLRi,
   0,
@@ -1774,7 +1774,7 @@ export var ListQuerySuggestionsBlockListsResponse$: StaticStructureSchema = [3, 
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1784,7 +1784,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListThesauriRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_II, _NTe, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListThesauriResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -1794,17 +1794,17 @@ export var ListThesauriResponse$: StaticStructureSchema = [3, n0, _LTRi,
 export var MemberGroup$: StaticStructureSchema = [3, n0, _MGe,
   0,
   [_GI, _DSI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var MemberUser$: StaticStructureSchema = [3, n0, _MUe,
   0,
   [_UI],
-  [0]
+  [0], 1
 ];
 export var OneDriveConfiguration$: StaticStructureSchema = [3, n0, _ODC,
   0,
   [_TD, _SA, _ODU, _IP, _EP, _FM, _DLG],
-  [0, 0, () => OneDriveUsers$, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList, 2]
+  [0, 0, () => OneDriveUsers$, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList, 2], 3
 ];
 export var OneDriveUsers$: StaticStructureSchema = [3, n0, _ODU,
   0,
@@ -1814,7 +1814,7 @@ export var OneDriveUsers$: StaticStructureSchema = [3, n0, _ODU,
 export var OnPremiseConfiguration$: StaticStructureSchema = [3, n0, _OPC,
   0,
   [_HU, _ON, _SCSP],
-  [0, 0, () => S3Path$]
+  [0, 0, () => S3Path$], 3
 ];
 export var PersonasSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
@@ -1824,22 +1824,22 @@ export var PersonasSummary$: StaticStructureSchema = [3, n0, _PS,
 export var Principal$: StaticStructureSchema = [3, n0, _Pri,
   0,
   [_N, _Ty, _Ac, _DSI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var ProxyConfiguration$: StaticStructureSchema = [3, n0, _PCr,
   0,
   [_H, _Po, _C],
-  [0, 1, 0]
+  [0, 1, 0], 2
 ];
 export var PutPrincipalMappingRequest$: StaticStructureSchema = [3, n0, _PPMR,
   0,
-  [_II, _DSI, _GI, _GM, _OI, _RA],
-  [0, 0, 0, () => GroupMembers$, 1, 0]
+  [_II, _GI, _GM, _DSI, _OI, _RA],
+  [0, 0, () => GroupMembers$, 0, 1, 0], 3
 ];
 export var QueryRequest$: StaticStructureSchema = [3, n0, _QR,
   0,
   [_II, _QT, _AF, _Fa, _RDA, _QRTF, _DROC, _PN, _PSa, _SCor, _SC, _UC, _VI, _SCC, _CCo],
-  [0, 0, () => AttributeFilter$, () => FacetList, 64 | 0, 0, () => DocumentRelevanceOverrideConfigurationList, 1, 1, () => SortingConfiguration$, () => SortingConfigurationList, () => UserContext$, 0, () => SpellCorrectionConfiguration$, () => CollapseConfiguration$]
+  [0, 0, () => AttributeFilter$, () => FacetList, 64 | 0, 0, () => DocumentRelevanceOverrideConfigurationList, 1, 1, () => SortingConfiguration$, () => SortingConfigurationList, () => UserContext$, 0, () => SpellCorrectionConfiguration$, () => CollapseConfiguration$], 1
 ];
 export var QueryResult$: StaticStructureSchema = [3, n0, _QRu,
   0,
@@ -1859,7 +1859,7 @@ export var QuerySuggestionsBlockListSummary$: StaticStructureSchema = [3, n0, _Q
 export var QuipConfiguration$: StaticStructureSchema = [3, n0, _QC,
   0,
   [_Dom, _SA, _CFC, _CCR, _CAr, _FIo, _TFMh, _MFM, _AFM, _IP, _EP, _VC],
-  [0, 0, 2, 2, 2, 64 | 0, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$]
+  [0, 0, 2, 2, 2, 64 | 0, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, () => DataSourceToIndexFieldMappingList, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$], 2
 ];
 export var Relevance$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -1869,7 +1869,7 @@ export var Relevance$: StaticStructureSchema = [3, n0, _R,
 export var RelevanceFeedback$: StaticStructureSchema = [3, n0, _RFe,
   0,
   [_RI, _RV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ResourceAlreadyExistException$: StaticErrorSchema = [-3, n0, _RAEE,
   { [_e]: _c, [_hE]: 400 },
@@ -1898,7 +1898,7 @@ TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavai
 export var RetrieveRequest$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_II, _QT, _AF, _RDA, _DROC, _PN, _PSa, _UC],
-  [0, 0, () => AttributeFilter$, 64 | 0, () => DocumentRelevanceOverrideConfigurationList, 1, 1, () => UserContext$]
+  [0, 0, () => AttributeFilter$, 64 | 0, () => DocumentRelevanceOverrideConfigurationList, 1, 1, () => UserContext$], 2
 ];
 export var RetrieveResult$: StaticStructureSchema = [3, n0, _RRe,
   0,
@@ -1913,42 +1913,42 @@ export var RetrieveResultItem$: StaticStructureSchema = [3, n0, _RRI,
 export var S3DataSourceConfiguration$: StaticStructureSchema = [3, n0, _SDSC,
   0,
   [_BN, _IPn, _IP, _EP, _DMCoc, _ACLC],
-  [0, 64 | 0, 64 | 0, 64 | 0, () => DocumentsMetadataConfiguration$, () => AccessControlListConfiguration$]
+  [0, 64 | 0, 64 | 0, 64 | 0, () => DocumentsMetadataConfiguration$, () => AccessControlListConfiguration$], 1
 ];
 export var S3Path$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_Bu, _K],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SaaSConfiguration$: StaticStructureSchema = [3, n0, _SSC,
   0,
   [_ON, _HU],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SalesforceChatterFeedConfiguration$: StaticStructureSchema = [3, n0, _SCFC,
   0,
   [_DDFN, _DTFN, _FM, _IFT],
-  [0, 0, () => DataSourceToIndexFieldMappingList, 64 | 0]
+  [0, 0, () => DataSourceToIndexFieldMappingList, 64 | 0], 1
 ];
 export var SalesforceConfiguration$: StaticStructureSchema = [3, n0, _SCa,
   0,
   [_SUe, _SA, _SOC, _KAC, _CFCh, _CAr, _SOAC, _IAFP, _EAFP],
-  [0, 0, () => SalesforceStandardObjectConfigurationList, () => SalesforceKnowledgeArticleConfiguration$, () => SalesforceChatterFeedConfiguration$, 2, () => SalesforceStandardObjectAttachmentConfiguration$, 64 | 0, 64 | 0]
+  [0, 0, () => SalesforceStandardObjectConfigurationList, () => SalesforceKnowledgeArticleConfiguration$, () => SalesforceChatterFeedConfiguration$, 2, () => SalesforceStandardObjectAttachmentConfiguration$, 64 | 0, 64 | 0], 2
 ];
 export var SalesforceCustomKnowledgeArticleTypeConfiguration$: StaticStructureSchema = [3, n0, _SCKATC,
   0,
   [_N, _DDFN, _DTFN, _FM],
-  [0, 0, 0, () => DataSourceToIndexFieldMappingList]
+  [0, 0, 0, () => DataSourceToIndexFieldMappingList], 2
 ];
 export var SalesforceKnowledgeArticleConfiguration$: StaticStructureSchema = [3, n0, _SKAC,
   0,
   [_ISnc, _SKATC, _CKATC],
-  [64 | 0, () => SalesforceStandardKnowledgeArticleTypeConfiguration$, () => SalesforceCustomKnowledgeArticleTypeConfigurationList]
+  [64 | 0, () => SalesforceStandardKnowledgeArticleTypeConfiguration$, () => SalesforceCustomKnowledgeArticleTypeConfigurationList], 1
 ];
 export var SalesforceStandardKnowledgeArticleTypeConfiguration$: StaticStructureSchema = [3, n0, _SSKATC,
   0,
   [_DDFN, _DTFN, _FM],
-  [0, 0, () => DataSourceToIndexFieldMappingList]
+  [0, 0, () => DataSourceToIndexFieldMappingList], 1
 ];
 export var SalesforceStandardObjectAttachmentConfiguration$: StaticStructureSchema = [3, n0, _SSOAC,
   0,
@@ -1958,7 +1958,7 @@ export var SalesforceStandardObjectAttachmentConfiguration$: StaticStructureSche
 export var SalesforceStandardObjectConfiguration$: StaticStructureSchema = [3, n0, _SSOC,
   0,
   [_N, _DDFN, _DTFN, _FM],
-  [0, 0, 0, () => DataSourceToIndexFieldMappingList]
+  [0, 0, 0, () => DataSourceToIndexFieldMappingList], 2
 ];
 export var ScoreAttributes$: StaticStructureSchema = [3, n0, _SAc,
   0,
@@ -1973,7 +1973,7 @@ export var Search$: StaticStructureSchema = [3, n0, _Se,
 export var SeedUrlConfiguration$: StaticStructureSchema = [3, n0, _SUC,
   0,
   [_SUee, _WCM],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _SSEC,
   0,
@@ -1983,17 +1983,17 @@ export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _
 export var ServiceNowConfiguration$: StaticStructureSchema = [3, n0, _SNC,
   0,
   [_HU, _SA, _SNBV, _KAC, _SCCe, _AT],
-  [0, 0, 0, () => ServiceNowKnowledgeArticleConfiguration$, () => ServiceNowServiceCatalogConfiguration$, 0]
+  [0, 0, 0, () => ServiceNowKnowledgeArticleConfiguration$, () => ServiceNowServiceCatalogConfiguration$, 0], 3
 ];
 export var ServiceNowKnowledgeArticleConfiguration$: StaticStructureSchema = [3, n0, _SNKAC,
   0,
-  [_CAr, _IAFP, _EAFP, _DDFN, _DTFN, _FM, _FQ],
-  [2, 64 | 0, 64 | 0, 0, 0, () => DataSourceToIndexFieldMappingList, 0]
+  [_DDFN, _CAr, _IAFP, _EAFP, _DTFN, _FM, _FQ],
+  [0, 2, 64 | 0, 64 | 0, 0, () => DataSourceToIndexFieldMappingList, 0], 1
 ];
 export var ServiceNowServiceCatalogConfiguration$: StaticStructureSchema = [3, n0, _SNSCC,
   0,
-  [_CAr, _IAFP, _EAFP, _DDFN, _DTFN, _FM],
-  [2, 64 | 0, 64 | 0, 0, 0, () => DataSourceToIndexFieldMappingList]
+  [_DDFN, _CAr, _IAFP, _EAFP, _DTFN, _FM],
+  [0, 2, 64 | 0, 64 | 0, 0, () => DataSourceToIndexFieldMappingList], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -2004,22 +2004,22 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var SharePointConfiguration$: StaticStructureSchema = [3, n0, _SPC,
   0,
   [_SPV, _U, _SA, _CAr, _UCL, _IP, _EP, _VC, _FM, _DTFN, _DLG, _SCSP, _AT, _PCr],
-  [0, 64 | 0, 0, 2, 2, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$, () => DataSourceToIndexFieldMappingList, 0, 2, () => S3Path$, 0, () => ProxyConfiguration$]
+  [0, 64 | 0, 0, 2, 2, 64 | 0, 64 | 0, () => DataSourceVpcConfiguration$, () => DataSourceToIndexFieldMappingList, 0, 2, () => S3Path$, 0, () => ProxyConfiguration$], 3
 ];
 export var SiteMapsConfiguration$: StaticStructureSchema = [3, n0, _SMC,
   0,
   [_SM],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var SlackConfiguration$: StaticStructureSchema = [3, n0, _SCl,
   0,
-  [_TI, _SA, _VC, _SEL, _UCL, _CBM, _EA, _SCD, _LBP, _PCF, _PCFu, _IP, _EP, _FM],
-  [0, 0, () => DataSourceVpcConfiguration$, 64 | 0, 2, 2, 2, 0, 1, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList]
+  [_TI, _SA, _SEL, _SCD, _VC, _UCL, _CBM, _EA, _LBP, _PCF, _PCFu, _IP, _EP, _FM],
+  [0, 0, 64 | 0, 0, () => DataSourceVpcConfiguration$, 2, 2, 2, 1, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList], 4
 ];
 export var SortingConfiguration$: StaticStructureSchema = [3, n0, _SCor,
   0,
   [_DAK, _SO],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SourceDocument$: StaticStructureSchema = [3, n0, _SDo,
   0,
@@ -2034,7 +2034,7 @@ export var SpellCorrectedQuery$: StaticStructureSchema = [3, n0, _SCQp,
 export var SpellCorrectionConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
   [_IQSCS],
-  [2]
+  [2], 1
 ];
 export var SqlConfiguration$: StaticStructureSchema = [3, n0, _SCq,
   0,
@@ -2044,7 +2044,7 @@ export var SqlConfiguration$: StaticStructureSchema = [3, n0, _SCq,
 export var StartDataSourceSyncJobRequest$: StaticStructureSchema = [3, n0, _SDSSJR,
   0,
   [_I, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartDataSourceSyncJobResponse$: StaticStructureSchema = [3, n0, _SDSSJRt,
   0,
@@ -2059,12 +2059,12 @@ export var Status$: StaticStructureSchema = [3, n0, _St,
 export var StopDataSourceSyncJobRequest$: StaticStructureSchema = [3, n0, _SDSSJRto,
   0,
   [_I, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SubmitFeedbackRequest$: StaticStructureSchema = [3, n0, _SFR,
   0,
   [_II, _QI, _CFI, _RFI],
-  [0, 0, () => ClickFeedbackList, () => RelevanceFeedbackList]
+  [0, 0, () => ClickFeedbackList, () => RelevanceFeedbackList], 2
 ];
 export var SuggestableConfig$: StaticStructureSchema = [3, n0, _SCu,
   0,
@@ -2109,12 +2109,12 @@ export var TableRow$: StaticStructureSchema = [3, n0, _TR,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -2129,7 +2129,7 @@ export var TemplateConfiguration$: StaticStructureSchema = [3, n0, _TC,
 export var TextDocumentStatistics$: StaticStructureSchema = [3, n0, _TDS,
   0,
   [_ITDC, _ITB],
-  [1, 1]
+  [1, 1], 2
 ];
 export var TextWithHighlights$: StaticStructureSchema = [3, n0, _TWH,
   0,
@@ -2155,7 +2155,7 @@ export var TimeRange$: StaticStructureSchema = [3, n0, _TRi,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2165,7 +2165,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAccessControlConfigurationRequest$: StaticStructureSchema = [3, n0, _UACCR,
   0,
   [_II, _I, _N, _De, _ACL, _HACL],
-  [0, 0, 0, 0, () => PrincipalList, () => HierarchicalPrincipalList]
+  [0, 0, 0, 0, () => PrincipalList, () => HierarchicalPrincipalList], 2
 ];
 export var UpdateAccessControlConfigurationResponse$: StaticStructureSchema = [3, n0, _UACCRp,
   0,
@@ -2174,18 +2174,18 @@ export var UpdateAccessControlConfigurationResponse$: StaticStructureSchema = [3
 ];
 export var UpdateDataSourceRequest$: StaticStructureSchema = [3, n0, _UDSR,
   0,
-  [_I, _N, _II, _Con, _VC, _De, _S, _RA, _LC, _CDEC],
-  [0, 0, 0, () => DataSourceConfiguration$, () => DataSourceVpcConfiguration$, 0, 0, 0, 0, () => CustomDocumentEnrichmentConfiguration$]
+  [_I, _II, _N, _Con, _VC, _De, _S, _RA, _LC, _CDEC],
+  [0, 0, 0, () => DataSourceConfiguration$, () => DataSourceVpcConfiguration$, 0, 0, 0, 0, () => CustomDocumentEnrichmentConfiguration$], 2
 ];
 export var UpdateExperienceRequest$: StaticStructureSchema = [3, n0, _UER,
   0,
-  [_I, _N, _II, _RA, _Con, _De],
-  [0, 0, 0, 0, () => ExperienceConfiguration$, 0]
+  [_I, _II, _N, _RA, _Con, _De],
+  [0, 0, 0, 0, () => ExperienceConfiguration$, 0], 2
 ];
 export var UpdateFeaturedResultsSetRequest$: StaticStructureSchema = [3, n0, _UFRSR,
   0,
   [_II, _FRSIe, _FRSN, _De, _St, _QTu, _FDe],
-  [0, 0, 0, 0, 0, 64 | 0, () => FeaturedDocumentList]
+  [0, 0, 0, 0, 0, 64 | 0, () => FeaturedDocumentList], 2
 ];
 export var UpdateFeaturedResultsSetResponse$: StaticStructureSchema = [3, n0, _UFRSRp,
   0,
@@ -2195,22 +2195,22 @@ export var UpdateFeaturedResultsSetResponse$: StaticStructureSchema = [3, n0, _U
 export var UpdateIndexRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
   [_I, _N, _RA, _De, _DMCU, _CU, _UTC, _UCP, _UGRC],
-  [0, 0, 0, 0, () => DocumentMetadataConfigurationList, () => CapacityUnitsConfiguration$, () => UserTokenConfigurationList, 0, () => UserGroupResolutionConfiguration$]
+  [0, 0, 0, 0, () => DocumentMetadataConfigurationList, () => CapacityUnitsConfiguration$, () => UserTokenConfigurationList, 0, () => UserGroupResolutionConfiguration$], 1
 ];
 export var UpdateQuerySuggestionsBlockListRequest$: StaticStructureSchema = [3, n0, _UQSBLR,
   0,
   [_II, _I, _N, _De, _SSP, _RA],
-  [0, 0, 0, 0, () => S3Path$, 0]
+  [0, 0, 0, 0, () => S3Path$, 0], 2
 ];
 export var UpdateQuerySuggestionsConfigRequest$: StaticStructureSchema = [3, n0, _UQSCR,
   0,
   [_II, _Mo, _QLLBWID, _IQWUI, _MNOQU, _MQC, _ASC],
-  [0, 0, 1, 2, 1, 1, () => AttributeSuggestionsUpdateConfig$]
+  [0, 0, 1, 2, 1, 1, () => AttributeSuggestionsUpdateConfig$], 1
 ];
 export var UpdateThesaurusRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
-  [_I, _N, _II, _De, _RA, _SSP],
-  [0, 0, 0, 0, 0, () => S3Path$]
+  [_I, _II, _N, _De, _RA, _SSP],
+  [0, 0, 0, 0, 0, () => S3Path$], 2
 ];
 export var Urls$: StaticStructureSchema = [3, n0, _U,
   0,
@@ -2225,7 +2225,7 @@ export var UserContext$: StaticStructureSchema = [3, n0, _UC,
 export var UserGroupResolutionConfiguration$: StaticStructureSchema = [3, n0, _UGRC,
   0,
   [_UGRM],
-  [0]
+  [0], 1
 ];
 export var UserIdentityConfiguration$: StaticStructureSchema = [3, n0, _UIC,
   0,
@@ -2251,12 +2251,12 @@ export var Warning$: StaticStructureSchema = [3, n0, _Wa,
 export var WebCrawlerConfiguration$: StaticStructureSchema = [3, n0, _WCC,
   0,
   [_U, _CD, _MLPP, _MCSPPIMB, _MUPMCR, _UIP, _UEP, _PCr, _ACu],
-  [() => Urls$, 1, 1, 1, 1, 64 | 0, 64 | 0, () => ProxyConfiguration$, () => AuthenticationConfiguration$]
+  [() => Urls$, 1, 1, 1, 1, 64 | 0, 64 | 0, () => ProxyConfiguration$, () => AuthenticationConfiguration$], 1
 ];
 export var WorkDocsConfiguration$: StaticStructureSchema = [3, n0, _WDC,
   0,
   [_OIr, _CC, _UCL, _IP, _EP, _FM],
-  [0, 2, 2, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList]
+  [0, 2, 2, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList], 1
 ];
 var __Unit = "unit" as const;
 export var KendraServiceException$: StaticErrorSchema = [-3, _sm, "KendraServiceException", 0, [], []];

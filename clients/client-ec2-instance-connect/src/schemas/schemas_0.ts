@@ -91,8 +91,8 @@ export var InvalidArgsException$: StaticErrorSchema = [-3, n0, _IAE,
 TypeRegistry.for(n0).registerError(InvalidArgsException$, InvalidArgsException);
 export var SendSerialConsoleSSHPublicKeyRequest$: StaticStructureSchema = [3, n0, _SSCSSHPKR,
   0,
-  [_II, _SP, _SSHPK],
-  [0, 1, 0]
+  [_II, _SSHPK, _SP],
+  [0, 0, 1], 2
 ];
 export var SendSerialConsoleSSHPublicKeyResponse$: StaticStructureSchema = [3, n0, _SSCSSHPKRe,
   0,
@@ -102,7 +102,7 @@ export var SendSerialConsoleSSHPublicKeyResponse$: StaticStructureSchema = [3, n
 export var SendSSHPublicKeyRequest$: StaticStructureSchema = [3, n0, _SSSHPKR,
   0,
   [_II, _IOSU, _SSHPK, _AZ],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var SendSSHPublicKeyResponse$: StaticStructureSchema = [3, n0, _SSSHPKRe,
   0,

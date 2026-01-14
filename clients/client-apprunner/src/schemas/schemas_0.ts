@@ -287,12 +287,12 @@ var StartCommand: StaticSimpleSchema = [0, n0, _SC, 8, 0];
 export var AssociateCustomDomainRequest$: StaticStructureSchema = [3, n0, _ACDR,
   0,
   [_SA, _DN, _EWWWS],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var AssociateCustomDomainResponse$: StaticStructureSchema = [3, n0, _ACDRs,
   0,
   [_DNST, _SA, _CD, _VDNST],
-  [0, 0, () => CustomDomain$, () => VpcDNSTargetList]
+  [0, 0, () => CustomDomain$, () => VpcDNSTargetList], 4
 ];
 export var AuthenticationConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
@@ -317,17 +317,17 @@ export var CertificateValidationRecord$: StaticStructureSchema = [3, n0, _CVR,
 export var CodeConfiguration$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_CS, _CCV],
-  [0, [() => CodeConfigurationValues$, 0]]
+  [0, [() => CodeConfigurationValues$, 0]], 1
 ];
 export var CodeConfigurationValues$: StaticStructureSchema = [3, n0, _CCV,
   0,
   [_R, _BC, _SC, _P, _REV, _RES],
-  [0, [() => BuildCommand, 0], [() => StartCommand, 0], 0, [() => RuntimeEnvironmentVariables, 0], [() => RuntimeEnvironmentSecrets, 0]]
+  [0, [() => BuildCommand, 0], [() => StartCommand, 0], 0, [() => RuntimeEnvironmentVariables, 0], [() => RuntimeEnvironmentSecrets, 0]], 1
 ];
 export var CodeRepository$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_RU, _SCV, _CC, _SD],
-  [0, () => SourceCodeVersion$, [() => CodeConfiguration$, 0], 0]
+  [0, () => SourceCodeVersion$, [() => CodeConfiguration$, 0], 0], 2
 ];
 export var Connection$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -342,82 +342,82 @@ export var ConnectionSummary$: StaticStructureSchema = [3, n0, _CSo,
 export var CreateAutoScalingConfigurationRequest$: StaticStructureSchema = [3, n0, _CASCR,
   0,
   [_ASCN, _MC, _MS, _MSa, _Ta],
-  [0, 1, 1, 1, () => TagList]
+  [0, 1, 1, 1, () => TagList], 1
 ];
 export var CreateAutoScalingConfigurationResponse$: StaticStructureSchema = [3, n0, _CASCRr,
   0,
   [_ASC],
-  [() => AutoScalingConfiguration$]
+  [() => AutoScalingConfiguration$], 1
 ];
 export var CreateConnectionRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_CN, _PT, _Ta],
-  [0, 0, () => TagList]
+  [0, 0, () => TagList], 2
 ];
 export var CreateConnectionResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_C],
-  [() => Connection$]
+  [() => Connection$], 1
 ];
 export var CreateObservabilityConfigurationRequest$: StaticStructureSchema = [3, n0, _COCR,
   0,
   [_OCN, _TC, _Ta],
-  [0, () => TraceConfiguration$, () => TagList]
+  [0, () => TraceConfiguration$, () => TagList], 1
 ];
 export var CreateObservabilityConfigurationResponse$: StaticStructureSchema = [3, n0, _COCRr,
   0,
   [_OC],
-  [() => ObservabilityConfiguration$]
+  [() => ObservabilityConfiguration$], 1
 ];
 export var CreateServiceRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_SN, _SCo, _IC, _Ta, _EC, _HCC, _ASCA, _NC, _OC],
-  [0, [() => SourceConfiguration$, 0], () => InstanceConfiguration$, () => TagList, () => EncryptionConfiguration$, () => HealthCheckConfiguration$, 0, () => NetworkConfiguration$, () => ServiceObservabilityConfiguration$]
+  [0, [() => SourceConfiguration$, 0], () => InstanceConfiguration$, () => TagList, () => EncryptionConfiguration$, () => HealthCheckConfiguration$, 0, () => NetworkConfiguration$, () => ServiceObservabilityConfiguration$], 2
 ];
 export var CreateServiceResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
   [_Se, _OI],
-  [[() => Service$, 0], 0]
+  [[() => Service$, 0], 0], 2
 ];
 export var CreateVpcConnectorRequest$: StaticStructureSchema = [3, n0, _CVCR,
   0,
   [_VCN, _Su, _SG, _Ta],
-  [0, 64 | 0, 64 | 0, () => TagList]
+  [0, 64 | 0, 64 | 0, () => TagList], 2
 ];
 export var CreateVpcConnectorResponse$: StaticStructureSchema = [3, n0, _CVCRr,
   0,
   [_VC],
-  [() => VpcConnector$]
+  [() => VpcConnector$], 1
 ];
 export var CreateVpcIngressConnectionRequest$: StaticStructureSchema = [3, n0, _CVICR,
   0,
   [_SA, _VICN, _IVC, _Ta],
-  [0, 0, () => IngressVpcConfiguration$, () => TagList]
+  [0, 0, () => IngressVpcConfiguration$, () => TagList], 3
 ];
 export var CreateVpcIngressConnectionResponse$: StaticStructureSchema = [3, n0, _CVICRr,
   0,
   [_VIC],
-  [() => VpcIngressConnection$]
+  [() => VpcIngressConnection$], 1
 ];
 export var CustomDomain$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_DN, _EWWWS, _CVRe, _S],
-  [0, 2, () => CertificateValidationRecordList, 0]
+  [_DN, _EWWWS, _S, _CVRe],
+  [0, 2, 0, () => CertificateValidationRecordList], 3
 ];
 export var DeleteAutoScalingConfigurationRequest$: StaticStructureSchema = [3, n0, _DASCR,
   0,
   [_ASCA, _DAR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteAutoScalingConfigurationResponse$: StaticStructureSchema = [3, n0, _DASCRe,
   0,
   [_ASC],
-  [() => AutoScalingConfiguration$]
+  [() => AutoScalingConfiguration$], 1
 ];
 export var DeleteConnectionRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var DeleteConnectionResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -427,112 +427,112 @@ export var DeleteConnectionResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteObservabilityConfigurationRequest$: StaticStructureSchema = [3, n0, _DOCR,
   0,
   [_OCA],
-  [0]
+  [0], 1
 ];
 export var DeleteObservabilityConfigurationResponse$: StaticStructureSchema = [3, n0, _DOCRe,
   0,
   [_OC],
-  [() => ObservabilityConfiguration$]
+  [() => ObservabilityConfiguration$], 1
 ];
 export var DeleteServiceRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var DeleteServiceResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
   [_Se, _OI],
-  [[() => Service$, 0], 0]
+  [[() => Service$, 0], 0], 2
 ];
 export var DeleteVpcConnectorRequest$: StaticStructureSchema = [3, n0, _DVCR,
   0,
   [_VCA],
-  [0]
+  [0], 1
 ];
 export var DeleteVpcConnectorResponse$: StaticStructureSchema = [3, n0, _DVCRe,
   0,
   [_VC],
-  [() => VpcConnector$]
+  [() => VpcConnector$], 1
 ];
 export var DeleteVpcIngressConnectionRequest$: StaticStructureSchema = [3, n0, _DVICR,
   0,
   [_VICA],
-  [0]
+  [0], 1
 ];
 export var DeleteVpcIngressConnectionResponse$: StaticStructureSchema = [3, n0, _DVICRe,
   0,
   [_VIC],
-  [() => VpcIngressConnection$]
+  [() => VpcIngressConnection$], 1
 ];
 export var DescribeAutoScalingConfigurationRequest$: StaticStructureSchema = [3, n0, _DASCRes,
   0,
   [_ASCA],
-  [0]
+  [0], 1
 ];
 export var DescribeAutoScalingConfigurationResponse$: StaticStructureSchema = [3, n0, _DASCResc,
   0,
   [_ASC],
-  [() => AutoScalingConfiguration$]
+  [() => AutoScalingConfiguration$], 1
 ];
 export var DescribeCustomDomainsRequest$: StaticStructureSchema = [3, n0, _DCDR,
   0,
   [_SA, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var DescribeCustomDomainsResponse$: StaticStructureSchema = [3, n0, _DCDRe,
   0,
   [_DNST, _SA, _CDu, _VDNST, _NT],
-  [0, 0, () => CustomDomainList, () => VpcDNSTargetList, 0]
+  [0, 0, () => CustomDomainList, () => VpcDNSTargetList, 0], 4
 ];
 export var DescribeObservabilityConfigurationRequest$: StaticStructureSchema = [3, n0, _DOCRes,
   0,
   [_OCA],
-  [0]
+  [0], 1
 ];
 export var DescribeObservabilityConfigurationResponse$: StaticStructureSchema = [3, n0, _DOCResc,
   0,
   [_OC],
-  [() => ObservabilityConfiguration$]
+  [() => ObservabilityConfiguration$], 1
 ];
 export var DescribeServiceRequest$: StaticStructureSchema = [3, n0, _DSRes,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var DescribeServiceResponse$: StaticStructureSchema = [3, n0, _DSResc,
   0,
   [_Se],
-  [[() => Service$, 0]]
+  [[() => Service$, 0]], 1
 ];
 export var DescribeVpcConnectorRequest$: StaticStructureSchema = [3, n0, _DVCRes,
   0,
   [_VCA],
-  [0]
+  [0], 1
 ];
 export var DescribeVpcConnectorResponse$: StaticStructureSchema = [3, n0, _DVCResc,
   0,
   [_VC],
-  [() => VpcConnector$]
+  [() => VpcConnector$], 1
 ];
 export var DescribeVpcIngressConnectionRequest$: StaticStructureSchema = [3, n0, _DVICRes,
   0,
   [_VICA],
-  [0]
+  [0], 1
 ];
 export var DescribeVpcIngressConnectionResponse$: StaticStructureSchema = [3, n0, _DVICResc,
   0,
   [_VIC],
-  [() => VpcIngressConnection$]
+  [() => VpcIngressConnection$], 1
 ];
 export var DisassociateCustomDomainRequest$: StaticStructureSchema = [3, n0, _DCDRi,
   0,
   [_SA, _DN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateCustomDomainResponse$: StaticStructureSchema = [3, n0, _DCDRis,
   0,
   [_DNST, _SA, _CD, _VDNST],
-  [0, 0, () => CustomDomain$, () => VpcDNSTargetList]
+  [0, 0, () => CustomDomain$, () => VpcDNSTargetList], 4
 ];
 export var EgressConfiguration$: StaticStructureSchema = [3, n0, _ECg,
   0,
@@ -542,7 +542,7 @@ export var EgressConfiguration$: StaticStructureSchema = [3, n0, _ECg,
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_KK],
-  [0]
+  [0], 1
 ];
 export var HealthCheckConfiguration$: StaticStructureSchema = [3, n0, _HCC,
   0,
@@ -556,8 +556,8 @@ export var ImageConfiguration$: StaticStructureSchema = [3, n0, _ICm,
 ];
 export var ImageRepository$: StaticStructureSchema = [3, n0, _IR,
   0,
-  [_II, _ICm, _IRT],
-  [0, [() => ImageConfiguration$, 0], 0]
+  [_II, _IRT, _ICm],
+  [0, 0, [() => ImageConfiguration$, 0]], 2
 ];
 export var IngressConfiguration$: StaticStructureSchema = [3, n0, _ICn,
   0,
@@ -600,7 +600,7 @@ export var ListAutoScalingConfigurationsRequest$: StaticStructureSchema = [3, n0
 export var ListAutoScalingConfigurationsResponse$: StaticStructureSchema = [3, n0, _LASCRi,
   0,
   [_ASCSL, _NT],
-  [() => AutoScalingConfigurationSummaryList, 0]
+  [() => AutoScalingConfigurationSummaryList, 0], 1
 ];
 export var ListConnectionsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
@@ -610,7 +610,7 @@ export var ListConnectionsRequest$: StaticStructureSchema = [3, n0, _LCR,
 export var ListConnectionsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
   [_CSL, _NT],
-  [() => ConnectionSummaryList, 0]
+  [() => ConnectionSummaryList, 0], 1
 ];
 export var ListObservabilityConfigurationsRequest$: StaticStructureSchema = [3, n0, _LOCR,
   0,
@@ -620,12 +620,12 @@ export var ListObservabilityConfigurationsRequest$: StaticStructureSchema = [3, 
 export var ListObservabilityConfigurationsResponse$: StaticStructureSchema = [3, n0, _LOCRi,
   0,
   [_OCSL, _NT],
-  [() => ObservabilityConfigurationSummaryList, 0]
+  [() => ObservabilityConfigurationSummaryList, 0], 1
 ];
 export var ListOperationsRequest$: StaticStructureSchema = [3, n0, _LOR,
   0,
   [_SA, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListOperationsResponse$: StaticStructureSchema = [3, n0, _LORi,
   0,
@@ -635,12 +635,12 @@ export var ListOperationsResponse$: StaticStructureSchema = [3, n0, _LORi,
 export var ListServicesForAutoScalingConfigurationRequest$: StaticStructureSchema = [3, n0, _LSFASCR,
   0,
   [_ASCA, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListServicesForAutoScalingConfigurationResponse$: StaticStructureSchema = [3, n0, _LSFASCRi,
   0,
   [_SAL, _NT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var ListServicesRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
@@ -650,12 +650,12 @@ export var ListServicesRequest$: StaticStructureSchema = [3, n0, _LSR,
 export var ListServicesResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
   [_SSL, _NT],
-  [() => ServiceSummaryList, 0]
+  [() => ServiceSummaryList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -670,7 +670,7 @@ export var ListVpcConnectorsRequest$: StaticStructureSchema = [3, n0, _LVCR,
 export var ListVpcConnectorsResponse$: StaticStructureSchema = [3, n0, _LVCRi,
   0,
   [_VCp, _NT],
-  [() => VpcConnectors, 0]
+  [() => VpcConnectors, 0], 1
 ];
 export var ListVpcIngressConnectionsFilter$: StaticStructureSchema = [3, n0, _LVICF,
   0,
@@ -685,7 +685,7 @@ export var ListVpcIngressConnectionsRequest$: StaticStructureSchema = [3, n0, _L
 export var ListVpcIngressConnectionsResponse$: StaticStructureSchema = [3, n0, _LVICRi,
   0,
   [_VICSL, _NT],
-  [() => VpcIngressConnectionSummaryList, 0]
+  [() => VpcIngressConnectionSummaryList, 0], 1
 ];
 export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
@@ -710,12 +710,12 @@ export var OperationSummary$: StaticStructureSchema = [3, n0, _OS,
 export var PauseServiceRequest$: StaticStructureSchema = [3, n0, _PSR,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var PauseServiceResponse$: StaticStructureSchema = [3, n0, _PSRa,
   0,
   [_Se, _OI],
-  [[() => Service$, 0], 0]
+  [[() => Service$, 0], 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_aQE]: [`ResourceNotfound`, 400], [_e]: _c, [_hE]: 400 },
@@ -726,22 +726,22 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResumeServiceRequest$: StaticStructureSchema = [3, n0, _RSR,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var ResumeServiceResponse$: StaticStructureSchema = [3, n0, _RSRe,
   0,
   [_Se, _OI],
-  [[() => Service$, 0], 0]
+  [[() => Service$, 0], 0], 1
 ];
 export var Service$: StaticStructureSchema = [3, n0, _Se,
   0,
-  [_SN, _SI, _SA, _SU, _CAr, _UA, _DA, _S, _SCo, _IC, _EC, _HCC, _ASCS, _NC, _OC],
-  [0, 0, 0, 0, 4, 4, 4, 0, [() => SourceConfiguration$, 0], () => InstanceConfiguration$, () => EncryptionConfiguration$, () => HealthCheckConfiguration$, () => AutoScalingConfigurationSummary$, () => NetworkConfiguration$, () => ServiceObservabilityConfiguration$]
+  [_SN, _SI, _SA, _CAr, _UA, _S, _SCo, _IC, _ASCS, _NC, _SU, _DA, _EC, _HCC, _OC],
+  [0, 0, 0, 4, 4, 0, [() => SourceConfiguration$, 0], () => InstanceConfiguration$, () => AutoScalingConfigurationSummary$, () => NetworkConfiguration$, 0, 4, () => EncryptionConfiguration$, () => HealthCheckConfiguration$, () => ServiceObservabilityConfiguration$], 10
 ];
 export var ServiceObservabilityConfiguration$: StaticStructureSchema = [3, n0, _SOC,
   0,
   [_OE, _OCA],
-  [2, 0]
+  [2, 0], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_aQE]: [`ServiceQuotaExceeded`, 402], [_e]: _c, [_hE]: 402 },
@@ -757,7 +757,7 @@ export var ServiceSummary$: StaticStructureSchema = [3, n0, _SS,
 export var SourceCodeVersion$: StaticStructureSchema = [3, n0, _SCV,
   0,
   [_T, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SCo,
   0,
@@ -767,12 +767,12 @@ export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SCo,
 export var StartDeploymentRequest$: StaticStructureSchema = [3, n0, _SDR,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var StartDeploymentResponse$: StaticStructureSchema = [3, n0, _SDRt,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
@@ -782,7 +782,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -792,12 +792,12 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TraceConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_Ve],
-  [0]
+  [0], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -807,32 +807,32 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDefaultAutoScalingConfigurationRequest$: StaticStructureSchema = [3, n0, _UDASCR,
   0,
   [_ASCA],
-  [0]
+  [0], 1
 ];
 export var UpdateDefaultAutoScalingConfigurationResponse$: StaticStructureSchema = [3, n0, _UDASCRp,
   0,
   [_ASC],
-  [() => AutoScalingConfiguration$]
+  [() => AutoScalingConfiguration$], 1
 ];
 export var UpdateServiceRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_SA, _SCo, _IC, _ASCA, _HCC, _NC, _OC],
-  [0, [() => SourceConfiguration$, 0], () => InstanceConfiguration$, 0, () => HealthCheckConfiguration$, () => NetworkConfiguration$, () => ServiceObservabilityConfiguration$]
+  [0, [() => SourceConfiguration$, 0], () => InstanceConfiguration$, 0, () => HealthCheckConfiguration$, () => NetworkConfiguration$, () => ServiceObservabilityConfiguration$], 1
 ];
 export var UpdateServiceResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
   [_Se, _OI],
-  [[() => Service$, 0], 0]
+  [[() => Service$, 0], 0], 2
 ];
 export var UpdateVpcIngressConnectionRequest$: StaticStructureSchema = [3, n0, _UVICR,
   0,
   [_VICA, _IVC],
-  [0, () => IngressVpcConfiguration$]
+  [0, () => IngressVpcConfiguration$], 2
 ];
 export var UpdateVpcIngressConnectionResponse$: StaticStructureSchema = [3, n0, _UVICRp,
   0,
   [_VIC],
-  [() => VpcIngressConnection$]
+  [() => VpcIngressConnection$], 1
 ];
 export var VpcConnector$: StaticStructureSchema = [3, n0, _VC,
   0,

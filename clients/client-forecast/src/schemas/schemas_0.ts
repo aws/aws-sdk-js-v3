@@ -445,17 +445,17 @@ var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
   [_AN, _O, _V],
-  [0, 0, 1]
+  [0, 0, 1], 3
 ];
 export var AdditionalDataset$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_N, _C],
-  [0, [2, n0, _C, 0, 0, 64 | 0]]
+  [0, [2, n0, _C, 0, 0, 64 | 0]], 1
 ];
 export var AttributeConfig$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_AN, _T],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var Baseline$: StaticStructureSchema = [3, n0, _B,
   0,
@@ -470,17 +470,17 @@ export var BaselineMetric$: StaticStructureSchema = [3, n0, _BM,
 export var CategoricalParameterRange$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_N, _Va],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var ContinuousParameterRange$: StaticStructureSchema = [3, n0, _CPRo,
   0,
   [_N, _MV, _MVi, _ST],
-  [0, 1, 1, 0]
+  [0, 1, 1, 0], 3
 ];
 export var CreateAutoPredictorRequest$: StaticStructureSchema = [3, n0, _CAPR,
   0,
   [_PN, _FH, _FT, _FD, _FF, _DC, _EC, _RPA, _OM, _EP, _Ta, _MC, _TAB],
-  [0, 1, 64 | 0, 64 | 0, 0, () => DataConfig$, () => EncryptionConfig$, 0, 0, 2, [() => Tags, 0], () => MonitorConfig$, () => TimeAlignmentBoundary$]
+  [0, 1, 64 | 0, 64 | 0, 0, () => DataConfig$, () => EncryptionConfig$, 0, 0, 2, [() => Tags, 0], () => MonitorConfig$, () => TimeAlignmentBoundary$], 1
 ];
 export var CreateAutoPredictorResponse$: StaticStructureSchema = [3, n0, _CAPRr,
   0,
@@ -490,7 +490,7 @@ export var CreateAutoPredictorResponse$: StaticStructureSchema = [3, n0, _CAPRr,
 export var CreateDatasetGroupRequest$: StaticStructureSchema = [3, n0, _CDGR,
   0,
   [_DGN, _D, _DA, _Ta],
-  [0, 0, 64 | 0, [() => Tags, 0]]
+  [0, 0, 64 | 0, [() => Tags, 0]], 2
 ];
 export var CreateDatasetGroupResponse$: StaticStructureSchema = [3, n0, _CDGRr,
   0,
@@ -500,7 +500,7 @@ export var CreateDatasetGroupResponse$: StaticStructureSchema = [3, n0, _CDGRr,
 export var CreateDatasetImportJobRequest$: StaticStructureSchema = [3, n0, _CDIJR,
   0,
   [_DIJN, _DAa, _DS, _TF, _TZ, _UGFTZ, _GF, _Ta, _F, _IM],
-  [0, 0, () => DataSource$, 0, 0, 2, 0, [() => Tags, 0], 0, 0]
+  [0, 0, () => DataSource$, 0, 0, 2, 0, [() => Tags, 0], 0, 0], 3
 ];
 export var CreateDatasetImportJobResponse$: StaticStructureSchema = [3, n0, _CDIJRr,
   0,
@@ -509,8 +509,8 @@ export var CreateDatasetImportJobResponse$: StaticStructureSchema = [3, n0, _CDI
 ];
 export var CreateDatasetRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_DN, _D, _DT, _DF, _S, _EC, _Ta],
-  [0, 0, 0, 0, () => Schema$, () => EncryptionConfig$, [() => Tags, 0]]
+  [_DN, _D, _DT, _S, _DF, _EC, _Ta],
+  [0, 0, 0, () => Schema$, 0, () => EncryptionConfig$, [() => Tags, 0]], 4
 ];
 export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -520,7 +520,7 @@ export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
 export var CreateExplainabilityExportRequest$: StaticStructureSchema = [3, n0, _CEER,
   0,
   [_EEN, _EA, _De, _Ta, _F],
-  [0, 0, () => DataDestination$, [() => Tags, 0], 0]
+  [0, 0, () => DataDestination$, [() => Tags, 0], 0], 3
 ];
 export var CreateExplainabilityExportResponse$: StaticStructureSchema = [3, n0, _CEERr,
   0,
@@ -530,7 +530,7 @@ export var CreateExplainabilityExportResponse$: StaticStructureSchema = [3, n0, 
 export var CreateExplainabilityRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
   [_EN, _RA, _ECx, _DS, _S, _EV, _SDT, _EDT, _Ta],
-  [0, 0, () => ExplainabilityConfig$, () => DataSource$, () => Schema$, 2, 0, 0, [() => Tags, 0]]
+  [0, 0, () => ExplainabilityConfig$, () => DataSource$, () => Schema$, 2, 0, 0, [() => Tags, 0]], 3
 ];
 export var CreateExplainabilityResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
@@ -540,7 +540,7 @@ export var CreateExplainabilityResponse$: StaticStructureSchema = [3, n0, _CERr,
 export var CreateForecastExportJobRequest$: StaticStructureSchema = [3, n0, _CFEJR,
   0,
   [_FEJN, _FA, _De, _Ta, _F],
-  [0, 0, () => DataDestination$, [() => Tags, 0], 0]
+  [0, 0, () => DataDestination$, [() => Tags, 0], 0], 3
 ];
 export var CreateForecastExportJobResponse$: StaticStructureSchema = [3, n0, _CFEJRr,
   0,
@@ -550,7 +550,7 @@ export var CreateForecastExportJobResponse$: StaticStructureSchema = [3, n0, _CF
 export var CreateForecastRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
   [_FN, _PA, _FT, _Ta, _TSS],
-  [0, 0, 64 | 0, [() => Tags, 0], () => TimeSeriesSelector$]
+  [0, 0, 64 | 0, [() => Tags, 0], () => TimeSeriesSelector$], 2
 ];
 export var CreateForecastResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -560,7 +560,7 @@ export var CreateForecastResponse$: StaticStructureSchema = [3, n0, _CFRr,
 export var CreateMonitorRequest$: StaticStructureSchema = [3, n0, _CMR,
   0,
   [_MN, _RA, _Ta],
-  [0, 0, [() => Tags, 0]]
+  [0, 0, [() => Tags, 0]], 2
 ];
 export var CreateMonitorResponse$: StaticStructureSchema = [3, n0, _CMRr,
   0,
@@ -570,7 +570,7 @@ export var CreateMonitorResponse$: StaticStructureSchema = [3, n0, _CMRr,
 export var CreatePredictorBacktestExportJobRequest$: StaticStructureSchema = [3, n0, _CPBEJR,
   0,
   [_PBEJN, _PA, _De, _Ta, _F],
-  [0, 0, () => DataDestination$, [() => Tags, 0], 0]
+  [0, 0, () => DataDestination$, [() => Tags, 0], 0], 3
 ];
 export var CreatePredictorBacktestExportJobResponse$: StaticStructureSchema = [3, n0, _CPBEJRr,
   0,
@@ -579,8 +579,8 @@ export var CreatePredictorBacktestExportJobResponse$: StaticStructureSchema = [3
 ];
 export var CreatePredictorRequest$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_PN, _AA, _FH, _FT, _PAML, _AMLOS, _PHPO, _TP, _EPv, _HPOC, _IDC, _FC, _EC, _Ta, _OM],
-  [0, 0, 1, 64 | 0, 2, 0, 2, 128 | 0, () => EvaluationParameters$, () => HyperParameterTuningJobConfig$, () => InputDataConfig$, () => FeaturizationConfig$, () => EncryptionConfig$, [() => Tags, 0], 0]
+  [_PN, _FH, _IDC, _FC, _AA, _FT, _PAML, _AMLOS, _PHPO, _TP, _EPv, _HPOC, _EC, _Ta, _OM],
+  [0, 1, () => InputDataConfig$, () => FeaturizationConfig$, 0, 64 | 0, 2, 0, 2, 128 | 0, () => EvaluationParameters$, () => HyperParameterTuningJobConfig$, () => EncryptionConfig$, [() => Tags, 0], 0], 4
 ];
 export var CreatePredictorResponse$: StaticStructureSchema = [3, n0, _CPRre,
   0,
@@ -590,7 +590,7 @@ export var CreatePredictorResponse$: StaticStructureSchema = [3, n0, _CPRre,
 export var CreateWhatIfAnalysisRequest$: StaticStructureSchema = [3, n0, _CWIAR,
   0,
   [_WIAN, _FA, _TSS, _Ta],
-  [0, 0, () => TimeSeriesSelector$, [() => Tags, 0]]
+  [0, 0, () => TimeSeriesSelector$, [() => Tags, 0]], 2
 ];
 export var CreateWhatIfAnalysisResponse$: StaticStructureSchema = [3, n0, _CWIARr,
   0,
@@ -600,7 +600,7 @@ export var CreateWhatIfAnalysisResponse$: StaticStructureSchema = [3, n0, _CWIAR
 export var CreateWhatIfForecastExportRequest$: StaticStructureSchema = [3, n0, _CWIFER,
   0,
   [_WIFEN, _WIFA, _De, _Ta, _F],
-  [0, 64 | 0, () => DataDestination$, [() => Tags, 0], 0]
+  [0, 64 | 0, () => DataDestination$, [() => Tags, 0], 0], 3
 ];
 export var CreateWhatIfForecastExportResponse$: StaticStructureSchema = [3, n0, _CWIFERr,
   0,
@@ -610,7 +610,7 @@ export var CreateWhatIfForecastExportResponse$: StaticStructureSchema = [3, n0, 
 export var CreateWhatIfForecastRequest$: StaticStructureSchema = [3, n0, _CWIFR,
   0,
   [_WIFN, _WIAA, _TST, _TSRDS, _Ta],
-  [0, 0, () => TimeSeriesTransformations, () => TimeSeriesReplacementsDataSource$, [() => Tags, 0]]
+  [0, 0, () => TimeSeriesTransformations, () => TimeSeriesReplacementsDataSource$, [() => Tags, 0]], 2
 ];
 export var CreateWhatIfForecastResponse$: StaticStructureSchema = [3, n0, _CWIFRr,
   0,
@@ -620,12 +620,12 @@ export var CreateWhatIfForecastResponse$: StaticStructureSchema = [3, n0, _CWIFR
 export var DataConfig$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_DGA, _ACt, _ADd],
-  [0, () => AttributeConfigs, () => AdditionalDatasets]
+  [0, () => AttributeConfigs, () => AdditionalDatasets], 1
 ];
 export var DataDestination$: StaticStructureSchema = [3, n0, _DD,
   0,
   [_SC],
-  [() => S3Config$]
+  [() => S3Config$], 1
 ];
 export var DatasetGroupSummary$: StaticStructureSchema = [3, n0, _DGS,
   0,
@@ -645,82 +645,82 @@ export var DatasetSummary$: StaticStructureSchema = [3, n0, _DSa,
 export var DataSource$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_SC],
-  [() => S3Config$]
+  [() => S3Config$], 1
 ];
 export var DeleteDatasetGroupRequest$: StaticStructureSchema = [3, n0, _DDGR,
   0,
   [_DGA],
-  [0]
+  [0], 1
 ];
 export var DeleteDatasetImportJobRequest$: StaticStructureSchema = [3, n0, _DDIJR,
   0,
   [_DIJA],
-  [0]
+  [0], 1
 ];
 export var DeleteDatasetRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DAa],
-  [0]
+  [0], 1
 ];
 export var DeleteExplainabilityExportRequest$: StaticStructureSchema = [3, n0, _DEER,
   0,
   [_EEA],
-  [0]
+  [0], 1
 ];
 export var DeleteExplainabilityRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_EA],
-  [0]
+  [0], 1
 ];
 export var DeleteForecastExportJobRequest$: StaticStructureSchema = [3, n0, _DFEJR,
   0,
   [_FEJA],
-  [0]
+  [0], 1
 ];
 export var DeleteForecastRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_FA],
-  [0]
+  [0], 1
 ];
 export var DeleteMonitorRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_MA],
-  [0]
+  [0], 1
 ];
 export var DeletePredictorBacktestExportJobRequest$: StaticStructureSchema = [3, n0, _DPBEJR,
   0,
   [_PBEJA],
-  [0]
+  [0], 1
 ];
 export var DeletePredictorRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PA],
-  [0]
+  [0], 1
 ];
 export var DeleteResourceTreeRequest$: StaticStructureSchema = [3, n0, _DRTR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var DeleteWhatIfAnalysisRequest$: StaticStructureSchema = [3, n0, _DWIAR,
   0,
   [_WIAA],
-  [0]
+  [0], 1
 ];
 export var DeleteWhatIfForecastExportRequest$: StaticStructureSchema = [3, n0, _DWIFER,
   0,
   [_WIFEA],
-  [0]
+  [0], 1
 ];
 export var DeleteWhatIfForecastRequest$: StaticStructureSchema = [3, n0, _DWIFR,
   0,
   [_WIFAh],
-  [0]
+  [0], 1
 ];
 export var DescribeAutoPredictorRequest$: StaticStructureSchema = [3, n0, _DAPR,
   0,
   [_PA],
-  [0]
+  [0], 1
 ];
 export var DescribeAutoPredictorResponse$: StaticStructureSchema = [3, n0, _DAPRe,
   0,
@@ -730,7 +730,7 @@ export var DescribeAutoPredictorResponse$: StaticStructureSchema = [3, n0, _DAPR
 export var DescribeDatasetGroupRequest$: StaticStructureSchema = [3, n0, _DDGRe,
   0,
   [_DGA],
-  [0]
+  [0], 1
 ];
 export var DescribeDatasetGroupResponse$: StaticStructureSchema = [3, n0, _DDGRes,
   0,
@@ -740,7 +740,7 @@ export var DescribeDatasetGroupResponse$: StaticStructureSchema = [3, n0, _DDGRe
 export var DescribeDatasetImportJobRequest$: StaticStructureSchema = [3, n0, _DDIJRe,
   0,
   [_DIJA],
-  [0]
+  [0], 1
 ];
 export var DescribeDatasetImportJobResponse$: StaticStructureSchema = [3, n0, _DDIJRes,
   0,
@@ -750,7 +750,7 @@ export var DescribeDatasetImportJobResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeDatasetRequest$: StaticStructureSchema = [3, n0, _DDRe,
   0,
   [_DAa],
-  [0]
+  [0], 1
 ];
 export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDRes,
   0,
@@ -760,7 +760,7 @@ export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDRes,
 export var DescribeExplainabilityExportRequest$: StaticStructureSchema = [3, n0, _DEERe,
   0,
   [_EEA],
-  [0]
+  [0], 1
 ];
 export var DescribeExplainabilityExportResponse$: StaticStructureSchema = [3, n0, _DEERes,
   0,
@@ -770,7 +770,7 @@ export var DescribeExplainabilityExportResponse$: StaticStructureSchema = [3, n0
 export var DescribeExplainabilityRequest$: StaticStructureSchema = [3, n0, _DERe,
   0,
   [_EA],
-  [0]
+  [0], 1
 ];
 export var DescribeExplainabilityResponse$: StaticStructureSchema = [3, n0, _DERes,
   0,
@@ -780,7 +780,7 @@ export var DescribeExplainabilityResponse$: StaticStructureSchema = [3, n0, _DER
 export var DescribeForecastExportJobRequest$: StaticStructureSchema = [3, n0, _DFEJRe,
   0,
   [_FEJA],
-  [0]
+  [0], 1
 ];
 export var DescribeForecastExportJobResponse$: StaticStructureSchema = [3, n0, _DFEJRes,
   0,
@@ -790,7 +790,7 @@ export var DescribeForecastExportJobResponse$: StaticStructureSchema = [3, n0, _
 export var DescribeForecastRequest$: StaticStructureSchema = [3, n0, _DFRe,
   0,
   [_FA],
-  [0]
+  [0], 1
 ];
 export var DescribeForecastResponse$: StaticStructureSchema = [3, n0, _DFRes,
   0,
@@ -800,7 +800,7 @@ export var DescribeForecastResponse$: StaticStructureSchema = [3, n0, _DFRes,
 export var DescribeMonitorRequest$: StaticStructureSchema = [3, n0, _DMRe,
   0,
   [_MA],
-  [0]
+  [0], 1
 ];
 export var DescribeMonitorResponse$: StaticStructureSchema = [3, n0, _DMRes,
   0,
@@ -810,7 +810,7 @@ export var DescribeMonitorResponse$: StaticStructureSchema = [3, n0, _DMRes,
 export var DescribePredictorBacktestExportJobRequest$: StaticStructureSchema = [3, n0, _DPBEJRe,
   0,
   [_PBEJA],
-  [0]
+  [0], 1
 ];
 export var DescribePredictorBacktestExportJobResponse$: StaticStructureSchema = [3, n0, _DPBEJRes,
   0,
@@ -820,7 +820,7 @@ export var DescribePredictorBacktestExportJobResponse$: StaticStructureSchema = 
 export var DescribePredictorRequest$: StaticStructureSchema = [3, n0, _DPRe,
   0,
   [_PA],
-  [0]
+  [0], 1
 ];
 export var DescribePredictorResponse$: StaticStructureSchema = [3, n0, _DPRes,
   0,
@@ -830,7 +830,7 @@ export var DescribePredictorResponse$: StaticStructureSchema = [3, n0, _DPRes,
 export var DescribeWhatIfAnalysisRequest$: StaticStructureSchema = [3, n0, _DWIARe,
   0,
   [_WIAA],
-  [0]
+  [0], 1
 ];
 export var DescribeWhatIfAnalysisResponse$: StaticStructureSchema = [3, n0, _DWIARes,
   0,
@@ -840,7 +840,7 @@ export var DescribeWhatIfAnalysisResponse$: StaticStructureSchema = [3, n0, _DWI
 export var DescribeWhatIfForecastExportRequest$: StaticStructureSchema = [3, n0, _DWIFERe,
   0,
   [_WIFEA],
-  [0]
+  [0], 1
 ];
 export var DescribeWhatIfForecastExportResponse$: StaticStructureSchema = [3, n0, _DWIFERes,
   0,
@@ -850,7 +850,7 @@ export var DescribeWhatIfForecastExportResponse$: StaticStructureSchema = [3, n0
 export var DescribeWhatIfForecastRequest$: StaticStructureSchema = [3, n0, _DWIFRe,
   0,
   [_WIFAh],
-  [0]
+  [0], 1
 ];
 export var DescribeWhatIfForecastResponse$: StaticStructureSchema = [3, n0, _DWIFRes,
   0,
@@ -860,7 +860,7 @@ export var DescribeWhatIfForecastResponse$: StaticStructureSchema = [3, n0, _DWI
 export var EncryptionConfig$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_RAo, _KMSKA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ErrorMetric$: StaticStructureSchema = [3, n0, _EM,
   0,
@@ -880,7 +880,7 @@ export var EvaluationResult$: StaticStructureSchema = [3, n0, _ER,
 export var ExplainabilityConfig$: StaticStructureSchema = [3, n0, _ECx,
   0,
   [_TSG, _TPG],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ExplainabilityExportSummary$: StaticStructureSchema = [3, n0, _EES,
   0,
@@ -900,22 +900,22 @@ export var ExplainabilitySummary$: StaticStructureSchema = [3, n0, _ES,
 export var Featurization$: StaticStructureSchema = [3, n0, _Fe,
   0,
   [_AN, _FP],
-  [0, () => FeaturizationPipeline]
+  [0, () => FeaturizationPipeline], 1
 ];
 export var FeaturizationConfig$: StaticStructureSchema = [3, n0, _FC,
   0,
   [_FF, _FD, _Fea],
-  [0, 64 | 0, () => Featurizations]
+  [0, 64 | 0, () => Featurizations], 1
 ];
 export var FeaturizationMethod$: StaticStructureSchema = [3, n0, _FM,
   0,
   [_FMN, _FMP],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_K, _V, _Co],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ForecastExportJobSummary$: StaticStructureSchema = [3, n0, _FEJS,
   0,
@@ -930,7 +930,7 @@ export var ForecastSummary$: StaticStructureSchema = [3, n0, _FSo,
 export var GetAccuracyMetricsRequest$: StaticStructureSchema = [3, n0, _GAMR,
   0,
   [_PA],
-  [0]
+  [0], 1
 ];
 export var GetAccuracyMetricsResponse$: StaticStructureSchema = [3, n0, _GAMRe,
   0,
@@ -945,12 +945,12 @@ export var HyperParameterTuningJobConfig$: StaticStructureSchema = [3, n0, _HPTJ
 export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC,
   0,
   [_DGA, _SF],
-  [0, () => SupplementaryFeatures]
+  [0, () => SupplementaryFeatures], 1
 ];
 export var IntegerParameterRange$: StaticStructureSchema = [3, n0, _IPR,
   0,
   [_N, _MV, _MVi, _ST],
-  [0, 1, 1, 0]
+  [0, 1, 1, 0], 3
 ];
 export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
   { [_e]: _c, [_hE]: 400 },
@@ -1042,8 +1042,8 @@ export var ListForecastsResponse$: StaticStructureSchema = [3, n0, _LFRi,
 ];
 export var ListMonitorEvaluationsRequest$: StaticStructureSchema = [3, n0, _LMER,
   0,
-  [_NT, _MR, _MA, _Fil],
-  [0, 1, 0, () => Filters]
+  [_MA, _NT, _MR, _Fil],
+  [0, 0, 1, () => Filters], 1
 ];
 export var ListMonitorEvaluationsResponse$: StaticStructureSchema = [3, n0, _LMERi,
   0,
@@ -1083,7 +1083,7 @@ export var ListPredictorsResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1133,7 +1133,7 @@ export var Metrics$: StaticStructureSchema = [3, n0, _Me,
 export var MonitorConfig$: StaticStructureSchema = [3, n0, _MC,
   0,
   [_MN],
-  [0]
+  [0], 1
 ];
 export var MonitorDataSource$: StaticStructureSchema = [3, n0, _MDS,
   0,
@@ -1216,12 +1216,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResumeResourceRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var S3Config$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_Pa, _RAo, _KMSKA],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var Schema$: StaticStructureSchema = [3, n0, _S,
   0,
@@ -1241,22 +1241,22 @@ export var Statistics$: StaticStructureSchema = [3, n0, _Stat,
 export var StopResourceRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var SupplementaryFeature$: StaticStructureSchema = [3, n0, _SFu,
   0,
   [_N, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [[() => TagKey, 0], [() => TagValue, 0]]
+  [[() => TagKey, 0], [() => TagValue, 0]], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, [() => Tags, 0]]
+  [0, [() => Tags, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1276,7 +1276,7 @@ export var TimeAlignmentBoundary$: StaticStructureSchema = [3, n0, _TAB,
 export var TimeSeriesCondition$: StaticStructureSchema = [3, n0, _TSC,
   0,
   [_AN, _AV, _Co],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var TimeSeriesIdentifiers$: StaticStructureSchema = [3, n0, _TSI,
   0,
@@ -1286,7 +1286,7 @@ export var TimeSeriesIdentifiers$: StaticStructureSchema = [3, n0, _TSI,
 export var TimeSeriesReplacementsDataSource$: StaticStructureSchema = [3, n0, _TSRDS,
   0,
   [_SC, _S, _F, _TF],
-  [() => S3Config$, () => Schema$, 0, 0]
+  [() => S3Config$, () => Schema$, 0, 0], 2
 ];
 export var TimeSeriesSelector$: StaticStructureSchema = [3, n0, _TSS,
   0,
@@ -1301,7 +1301,7 @@ export var TimeSeriesTransformation$: StaticStructureSchema = [3, n0, _TSTi,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TKa],
-  [0, [() => TagKeys, 0]]
+  [0, [() => TagKeys, 0]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1311,7 +1311,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDatasetGroupRequest$: StaticStructureSchema = [3, n0, _UDGR,
   0,
   [_DGA, _DA],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UpdateDatasetGroupResponse$: StaticStructureSchema = [3, n0, _UDGRp,
   0,

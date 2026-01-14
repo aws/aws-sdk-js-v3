@@ -58,7 +58,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var PredictInput$: StaticStructureSchema = [3, n0, _PI,
   0,
   [_MLMI, _R, _PE],
-  [0, 128 | 0, 0]
+  [0, 128 | 0, 0], 3
 ];
 export var Prediction$: StaticStructureSchema = [3, n0, _P,
   0,

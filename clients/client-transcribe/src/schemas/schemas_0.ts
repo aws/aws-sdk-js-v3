@@ -384,12 +384,12 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContentRedaction$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_RT, _RO, _PET],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 2
 ];
 export var CreateCallAnalyticsCategoryRequest$: StaticStructureSchema = [3, n0, _CCACR,
   0,
   [_CN, _R, _Ta, _IT],
-  [[0, 1], () => RuleList, () => TagList, 0]
+  [[0, 1], () => RuleList, () => TagList, 0], 2
 ];
 export var CreateCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0, _CCACRr,
   0,
@@ -399,7 +399,7 @@ export var CreateCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0,
 export var CreateLanguageModelRequest$: StaticStructureSchema = [3, n0, _CLMR,
   0,
   [_LC, _BMN, _MN, _IDC, _Ta],
-  [0, 0, [0, 1], () => InputDataConfig$, () => TagList]
+  [0, 0, [0, 1], () => InputDataConfig$, () => TagList], 4
 ];
 export var CreateLanguageModelResponse$: StaticStructureSchema = [3, n0, _CLMRr,
   0,
@@ -409,7 +409,7 @@ export var CreateLanguageModelResponse$: StaticStructureSchema = [3, n0, _CLMRr,
 export var CreateMedicalVocabularyRequest$: StaticStructureSchema = [3, n0, _CMVR,
   0,
   [_VN, _LC, _VFU, _Ta],
-  [[0, 1], 0, 0, () => TagList]
+  [[0, 1], 0, 0, () => TagList], 3
 ];
 export var CreateMedicalVocabularyResponse$: StaticStructureSchema = [3, n0, _CMVRr,
   0,
@@ -419,7 +419,7 @@ export var CreateMedicalVocabularyResponse$: StaticStructureSchema = [3, n0, _CM
 export var CreateVocabularyFilterRequest$: StaticStructureSchema = [3, n0, _CVFR,
   0,
   [_VFN, _LC, _W, _VFFU, _Ta, _DARA],
-  [[0, 1], 0, 64 | 0, 0, () => TagList, 0]
+  [[0, 1], 0, 64 | 0, 0, () => TagList, 0], 2
 ];
 export var CreateVocabularyFilterResponse$: StaticStructureSchema = [3, n0, _CVFRr,
   0,
@@ -429,7 +429,7 @@ export var CreateVocabularyFilterResponse$: StaticStructureSchema = [3, n0, _CVF
 export var CreateVocabularyRequest$: StaticStructureSchema = [3, n0, _CVR,
   0,
   [_VN, _LC, _Ph, _VFU, _Ta, _DARA],
-  [[0, 1], 0, 64 | 0, 0, () => TagList, 0]
+  [[0, 1], 0, 64 | 0, 0, () => TagList, 0], 2
 ];
 export var CreateVocabularyResponse$: StaticStructureSchema = [3, n0, _CVRr,
   0,
@@ -439,7 +439,7 @@ export var CreateVocabularyResponse$: StaticStructureSchema = [3, n0, _CVRr,
 export var DeleteCallAnalyticsCategoryRequest$: StaticStructureSchema = [3, n0, _DCACR,
   0,
   [_CN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0, _DCACRe,
   0,
@@ -449,7 +449,7 @@ export var DeleteCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0,
 export var DeleteCallAnalyticsJobRequest$: StaticStructureSchema = [3, n0, _DCAJR,
   0,
   [_CAJN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteCallAnalyticsJobResponse$: StaticStructureSchema = [3, n0, _DCAJRe,
   0,
@@ -459,42 +459,42 @@ export var DeleteCallAnalyticsJobResponse$: StaticStructureSchema = [3, n0, _DCA
 export var DeleteLanguageModelRequest$: StaticStructureSchema = [3, n0, _DLMR,
   0,
   [_MN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteMedicalScribeJobRequest$: StaticStructureSchema = [3, n0, _DMSJR,
   0,
   [_MSJN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteMedicalTranscriptionJobRequest$: StaticStructureSchema = [3, n0, _DMTJR,
   0,
   [_MTJN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteMedicalVocabularyRequest$: StaticStructureSchema = [3, n0, _DMVR,
   0,
   [_VN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteTranscriptionJobRequest$: StaticStructureSchema = [3, n0, _DTJR,
   0,
   [_TJN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVocabularyFilterRequest$: StaticStructureSchema = [3, n0, _DVFR,
   0,
   [_VFN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVocabularyRequest$: StaticStructureSchema = [3, n0, _DVR,
   0,
   [_VN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeLanguageModelRequest$: StaticStructureSchema = [3, n0, _DLMRe,
   0,
   [_MN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeLanguageModelResponse$: StaticStructureSchema = [3, n0, _DLMRes,
   0,
@@ -504,7 +504,7 @@ export var DescribeLanguageModelResponse$: StaticStructureSchema = [3, n0, _DLMR
 export var GetCallAnalyticsCategoryRequest$: StaticStructureSchema = [3, n0, _GCACR,
   0,
   [_CN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0, _GCACRe,
   0,
@@ -514,7 +514,7 @@ export var GetCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0, _G
 export var GetCallAnalyticsJobRequest$: StaticStructureSchema = [3, n0, _GCAJR,
   0,
   [_CAJN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCallAnalyticsJobResponse$: StaticStructureSchema = [3, n0, _GCAJRe,
   0,
@@ -524,7 +524,7 @@ export var GetCallAnalyticsJobResponse$: StaticStructureSchema = [3, n0, _GCAJRe
 export var GetMedicalScribeJobRequest$: StaticStructureSchema = [3, n0, _GMSJR,
   0,
   [_MSJN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMedicalScribeJobResponse$: StaticStructureSchema = [3, n0, _GMSJRe,
   0,
@@ -534,7 +534,7 @@ export var GetMedicalScribeJobResponse$: StaticStructureSchema = [3, n0, _GMSJRe
 export var GetMedicalTranscriptionJobRequest$: StaticStructureSchema = [3, n0, _GMTJR,
   0,
   [_MTJN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMedicalTranscriptionJobResponse$: StaticStructureSchema = [3, n0, _GMTJRe,
   0,
@@ -544,7 +544,7 @@ export var GetMedicalTranscriptionJobResponse$: StaticStructureSchema = [3, n0, 
 export var GetMedicalVocabularyRequest$: StaticStructureSchema = [3, n0, _GMVR,
   0,
   [_VN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMedicalVocabularyResponse$: StaticStructureSchema = [3, n0, _GMVRe,
   0,
@@ -554,7 +554,7 @@ export var GetMedicalVocabularyResponse$: StaticStructureSchema = [3, n0, _GMVRe
 export var GetTranscriptionJobRequest$: StaticStructureSchema = [3, n0, _GTJR,
   0,
   [_TJN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetTranscriptionJobResponse$: StaticStructureSchema = [3, n0, _GTJRe,
   0,
@@ -564,7 +564,7 @@ export var GetTranscriptionJobResponse$: StaticStructureSchema = [3, n0, _GTJRe,
 export var GetVocabularyFilterRequest$: StaticStructureSchema = [3, n0, _GVFR,
   0,
   [_VFN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVocabularyFilterResponse$: StaticStructureSchema = [3, n0, _GVFRe,
   0,
@@ -574,7 +574,7 @@ export var GetVocabularyFilterResponse$: StaticStructureSchema = [3, n0, _GVFRe,
 export var GetVocabularyRequest$: StaticStructureSchema = [3, n0, _GVR,
   0,
   [_VN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVocabularyResponse$: StaticStructureSchema = [3, n0, _GVRe,
   0,
@@ -583,8 +583,8 @@ export var GetVocabularyResponse$: StaticStructureSchema = [3, n0, _GVRe,
 ];
 export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC,
   0,
-  [_SU, _TDSU, _DARA],
-  [0, 0, 0]
+  [_SU, _DARA, _TDSU],
+  [0, 0, 0], 2
 ];
 export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
   { [_e]: _s, [_hE]: 500 },
@@ -686,7 +686,7 @@ export var ListMedicalVocabulariesResponse$: StaticStructureSchema = [3, n0, _LM
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -731,7 +731,7 @@ export var Media$: StaticStructureSchema = [3, n0, _Me,
 export var MedicalScribeChannelDefinition$: StaticStructureSchema = [3, n0, _MSCD,
   0,
   [_CI, _PR],
-  [1, 0]
+  [1, 0], 2
 ];
 export var MedicalScribeContext$: StaticStructureSchema = [3, n0, _MSC,
   0,
@@ -751,7 +751,7 @@ export var MedicalScribeJobSummary$: StaticStructureSchema = [3, n0, _MSJSed,
 export var MedicalScribeOutput$: StaticStructureSchema = [3, n0, _MSO,
   0,
   [_TFU, _CDU],
-  [0, 0]
+  [0, 0], 2
 ];
 export var MedicalScribePatientContext$: StaticStructureSchema = [3, n0, _MSPC,
   0,
@@ -807,7 +807,7 @@ export var RelativeTimeRange$: StaticStructureSchema = [3, n0, _RTR,
 export var SentimentFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
   [_Se, _ATR, _RTR, _PR, _N],
-  [64 | 0, () => AbsoluteTimeRange$, () => RelativeTimeRange$, 0, 2]
+  [64 | 0, () => AbsoluteTimeRange$, () => RelativeTimeRange$, 0, 2], 1
 ];
 export var Settings$: StaticStructureSchema = [3, n0, _S,
   0,
@@ -817,7 +817,7 @@ export var Settings$: StaticStructureSchema = [3, n0, _S,
 export var StartCallAnalyticsJobRequest$: StaticStructureSchema = [3, n0, _SCAJR,
   0,
   [_CAJN, _Me, _OL, _OEKMSKI, _DARA, _S, _Ta, _CD],
-  [[0, 1], () => Media$, 0, 0, 0, () => CallAnalyticsJobSettings$, () => TagList, () => ChannelDefinitions]
+  [[0, 1], () => Media$, 0, 0, 0, () => CallAnalyticsJobSettings$, () => TagList, () => ChannelDefinitions], 2
 ];
 export var StartCallAnalyticsJobResponse$: StaticStructureSchema = [3, n0, _SCAJRt,
   0,
@@ -826,8 +826,8 @@ export var StartCallAnalyticsJobResponse$: StaticStructureSchema = [3, n0, _SCAJ
 ];
 export var StartMedicalScribeJobRequest$: StaticStructureSchema = [3, n0, _SMSJR,
   0,
-  [_MSJN, _Me, _OBN, _OEKMSKI, _KMSEC, _DARA, _S, _CD, _Ta, _MSC],
-  [[0, 1], () => Media$, 0, 0, 128 | 0, 0, () => MedicalScribeSettings$, () => MedicalScribeChannelDefinitions, () => TagList, [() => MedicalScribeContext$, 0]]
+  [_MSJN, _Me, _OBN, _DARA, _S, _OEKMSKI, _KMSEC, _CD, _Ta, _MSC],
+  [[0, 1], () => Media$, 0, 0, () => MedicalScribeSettings$, 0, 128 | 0, () => MedicalScribeChannelDefinitions, () => TagList, [() => MedicalScribeContext$, 0]], 5
 ];
 export var StartMedicalScribeJobResponse$: StaticStructureSchema = [3, n0, _SMSJRt,
   0,
@@ -836,8 +836,8 @@ export var StartMedicalScribeJobResponse$: StaticStructureSchema = [3, n0, _SMSJ
 ];
 export var StartMedicalTranscriptionJobRequest$: StaticStructureSchema = [3, n0, _SMTJR,
   0,
-  [_MTJN, _LC, _MSRH, _MF, _Me, _OBN, _OK, _OEKMSKI, _KMSEC, _S, _CIT, _Sp, _Ty, _Ta],
-  [[0, 1], 0, 1, 0, () => Media$, 0, 0, 0, 128 | 0, () => MedicalTranscriptionSetting$, 0, 0, 0, () => TagList]
+  [_MTJN, _LC, _Me, _OBN, _Sp, _Ty, _MSRH, _MF, _OK, _OEKMSKI, _KMSEC, _S, _CIT, _Ta],
+  [[0, 1], 0, () => Media$, 0, 0, 0, 1, 0, 0, 0, 128 | 0, () => MedicalTranscriptionSetting$, 0, () => TagList], 6
 ];
 export var StartMedicalTranscriptionJobResponse$: StaticStructureSchema = [3, n0, _SMTJRt,
   0,
@@ -846,8 +846,8 @@ export var StartMedicalTranscriptionJobResponse$: StaticStructureSchema = [3, n0
 ];
 export var StartTranscriptionJobRequest$: StaticStructureSchema = [3, n0, _STJR,
   0,
-  [_TJN, _LC, _MSRH, _MF, _Me, _OBN, _OK, _OEKMSKI, _KMSEC, _S, _MSo, _JES, _CR, _IL, _IML, _LO, _Sub, _Ta, _LIS, _TD],
-  [[0, 1], 0, 1, 0, () => Media$, 0, 0, 0, 128 | 0, () => Settings$, () => ModelSettings$, () => JobExecutionSettings$, () => ContentRedaction$, 2, 2, 64 | 0, () => Subtitles$, () => TagList, () => LanguageIdSettingsMap, () => ToxicityDetection]
+  [_TJN, _Me, _LC, _MSRH, _MF, _OBN, _OK, _OEKMSKI, _KMSEC, _S, _MSo, _JES, _CR, _IL, _IML, _LO, _Sub, _Ta, _LIS, _TD],
+  [[0, 1], () => Media$, 0, 1, 0, 0, 0, 0, 128 | 0, () => Settings$, () => ModelSettings$, () => JobExecutionSettings$, () => ContentRedaction$, 2, 2, 64 | 0, () => Subtitles$, () => TagList, () => LanguageIdSettingsMap, () => ToxicityDetection], 2
 ];
 export var StartTranscriptionJobResponse$: StaticStructureSchema = [3, n0, _STJRt,
   0,
@@ -867,17 +867,17 @@ export var SubtitlesOutput$: StaticStructureSchema = [3, n0, _SO,
 export var Summarization$: StaticStructureSchema = [3, n0, _Su,
   0,
   [_GAS],
-  [2]
+  [2], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [[0, 1], () => TagList]
+  [[0, 1], () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -887,7 +887,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ToxicityDetectionSettings$: StaticStructureSchema = [3, n0, _TDS,
   0,
   [_TC],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var Transcript$: StaticStructureSchema = [3, n0, _T,
   0,
@@ -896,8 +896,8 @@ export var Transcript$: StaticStructureSchema = [3, n0, _T,
 ];
 export var TranscriptFilter$: StaticStructureSchema = [3, n0, _TF,
   0,
-  [_TFT, _ATR, _RTR, _PR, _N, _Tar],
-  [0, () => AbsoluteTimeRange$, () => RelativeTimeRange$, 0, 2, 64 | 0]
+  [_TFT, _Tar, _ATR, _RTR, _PR, _N],
+  [0, 64 | 0, () => AbsoluteTimeRange$, () => RelativeTimeRange$, 0, 2], 2
 ];
 export var TranscriptionJob$: StaticStructureSchema = [3, n0, _TJ,
   0,
@@ -912,7 +912,7 @@ export var TranscriptionJobSummary$: StaticStructureSchema = [3, n0, _TJSra,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -922,7 +922,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateCallAnalyticsCategoryRequest$: StaticStructureSchema = [3, n0, _UCACR,
   0,
   [_CN, _R, _IT],
-  [[0, 1], () => RuleList, 0]
+  [[0, 1], () => RuleList, 0], 2
 ];
 export var UpdateCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0, _UCACRp,
   0,
@@ -932,7 +932,7 @@ export var UpdateCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0,
 export var UpdateMedicalVocabularyRequest$: StaticStructureSchema = [3, n0, _UMVR,
   0,
   [_VN, _LC, _VFU],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 3
 ];
 export var UpdateMedicalVocabularyResponse$: StaticStructureSchema = [3, n0, _UMVRp,
   0,
@@ -942,7 +942,7 @@ export var UpdateMedicalVocabularyResponse$: StaticStructureSchema = [3, n0, _UM
 export var UpdateVocabularyFilterRequest$: StaticStructureSchema = [3, n0, _UVFR,
   0,
   [_VFN, _W, _VFFU, _DARA],
-  [[0, 1], 64 | 0, 0, 0]
+  [[0, 1], 64 | 0, 0, 0], 1
 ];
 export var UpdateVocabularyFilterResponse$: StaticStructureSchema = [3, n0, _UVFRp,
   0,
@@ -952,7 +952,7 @@ export var UpdateVocabularyFilterResponse$: StaticStructureSchema = [3, n0, _UVF
 export var UpdateVocabularyRequest$: StaticStructureSchema = [3, n0, _UVR,
   0,
   [_VN, _LC, _Ph, _VFU, _DARA],
-  [[0, 1], 0, 64 | 0, 0, 0]
+  [[0, 1], 0, 64 | 0, 0, 0], 2
 ];
 export var UpdateVocabularyResponse$: StaticStructureSchema = [3, n0, _UVRp,
   0,

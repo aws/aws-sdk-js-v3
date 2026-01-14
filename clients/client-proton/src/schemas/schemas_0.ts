@@ -548,17 +548,17 @@ var TemplateSchema: StaticSimpleSchema = [0, n0, _TS, { [_mT]: _a, [_s]: 1 }, 0]
 export var AcceptEnvironmentAccountConnectionInput$: StaticStructureSchema = [3, n0, _AEACI,
   0,
   [_i],
-  [0]
+  [0], 1
 ];
 export var AcceptEnvironmentAccountConnectionOutput$: StaticStructureSchema = [3, n0, _AEACO,
   0,
   [_eAC],
-  [() => EnvironmentAccountConnection$]
+  [() => EnvironmentAccountConnection$], 1
 ];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [[() => ErrorMessage, 0]]
+  [[() => ErrorMessage, 0]], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
@@ -569,57 +569,57 @@ export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
 export var CancelComponentDeploymentInput$: StaticStructureSchema = [3, n0, _CCDI,
   0,
   [_cN],
-  [0]
+  [0], 1
 ];
 export var CancelComponentDeploymentOutput$: StaticStructureSchema = [3, n0, _CCDO,
   0,
   [_co],
-  [[() => Component$, 0]]
+  [[() => Component$, 0]], 1
 ];
 export var CancelEnvironmentDeploymentInput$: StaticStructureSchema = [3, n0, _CEDI,
   0,
   [_eN],
-  [0]
+  [0], 1
 ];
 export var CancelEnvironmentDeploymentOutput$: StaticStructureSchema = [3, n0, _CEDO,
   0,
   [_en],
-  [[() => Environment$, 0]]
+  [[() => Environment$, 0]], 1
 ];
 export var CancelServiceInstanceDeploymentInput$: StaticStructureSchema = [3, n0, _CSIDI,
   0,
   [_sIN, _sN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CancelServiceInstanceDeploymentOutput$: StaticStructureSchema = [3, n0, _CSIDO,
   0,
   [_sI],
-  [[() => ServiceInstance$, 0]]
+  [[() => ServiceInstance$, 0]], 1
 ];
 export var CancelServicePipelineDeploymentInput$: StaticStructureSchema = [3, n0, _CSPDI,
   0,
   [_sN],
-  [0]
+  [0], 1
 ];
 export var CancelServicePipelineDeploymentOutput$: StaticStructureSchema = [3, n0, _CSPDO,
   0,
   [_p],
-  [[() => ServicePipeline$, 0]]
+  [[() => ServicePipeline$, 0]], 1
 ];
 export var CompatibleEnvironmentTemplate$: StaticStructureSchema = [3, n0, _CET,
   0,
   [_tN, _mV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CompatibleEnvironmentTemplateInput$: StaticStructureSchema = [3, n0, _CETI,
   0,
   [_tN, _mV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Component$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_n, _d, _ar, _eN, _sN, _sIN, _cA, _lMA, _lDAA, _lDSA, _dS, _dSM, _sS, _lCRT, _lADI, _lSDI],
-  [0, [() => Description, 0], 0, 0, 0, 0, 4, 4, 4, 4, 0, [() => StatusMessage, 0], [() => SpecContents, 0], 0, 0, 0]
+  [_n, _ar, _eN, _cA, _lMA, _dS, _d, _sN, _sIN, _lDAA, _lDSA, _dSM, _sS, _lCRT, _lADI, _lSDI],
+  [0, 0, 0, 4, 4, 0, [() => Description, 0], 0, 0, 4, 4, [() => StatusMessage, 0], [() => SpecContents, 0], 0, 0, 0], 6
 ];
 export var ComponentState$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -628,13 +628,13 @@ export var ComponentState$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var ComponentSummary$: StaticStructureSchema = [3, n0, _CSo,
   0,
-  [_n, _ar, _eN, _sN, _sIN, _cA, _lMA, _lDAA, _lDSA, _dS, _dSM, _lADI, _lSDI],
-  [0, 0, 0, 0, 0, 4, 4, 4, 4, 0, [() => StatusMessage, 0], 0, 0]
+  [_n, _ar, _eN, _cA, _lMA, _dS, _sN, _sIN, _lDAA, _lDSA, _dSM, _lADI, _lSDI],
+  [0, 0, 0, 4, 4, 0, 0, 0, 4, 4, [() => StatusMessage, 0], 0, 0], 6
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [[() => ErrorMessage, 0]]
+  [[() => ErrorMessage, 0]], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CountsSummary$: StaticStructureSchema = [3, n0, _CSou,
@@ -644,88 +644,88 @@ export var CountsSummary$: StaticStructureSchema = [3, n0, _CSou,
 ];
 export var CreateComponentInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
-  [_n, _d, _sN, _sIN, _eN, _tF, _ma, _sS, _t, _cT],
-  [0, [() => Description, 0], 0, 0, 0, [() => TemplateFileContents, 0], [() => TemplateManifestContents, 0], [() => SpecContents, 0], () => TagList, [0, 4]]
+  [_n, _tF, _ma, _d, _sN, _sIN, _eN, _sS, _t, _cT],
+  [0, [() => TemplateFileContents, 0], [() => TemplateManifestContents, 0], [() => Description, 0], 0, 0, 0, [() => SpecContents, 0], () => TagList, [0, 4]], 3
 ];
 export var CreateComponentOutput$: StaticStructureSchema = [3, n0, _CCO,
   0,
   [_co],
-  [[() => Component$, 0]]
+  [[() => Component$, 0]], 1
 ];
 export var CreateEnvironmentAccountConnectionInput$: StaticStructureSchema = [3, n0, _CEACI,
   0,
-  [_cT, _mAI, _rA, _eN, _t, _cRA, _cRAo],
-  [[0, 4], 0, 0, 0, () => TagList, 0, 0]
+  [_mAI, _eN, _cT, _rA, _t, _cRA, _cRAo],
+  [0, 0, [0, 4], 0, () => TagList, 0, 0], 2
 ];
 export var CreateEnvironmentAccountConnectionOutput$: StaticStructureSchema = [3, n0, _CEACO,
   0,
   [_eAC],
-  [() => EnvironmentAccountConnection$]
+  [() => EnvironmentAccountConnection$], 1
 ];
 export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
   0,
-  [_n, _tN, _tMV, _tMVe, _d, _sp, _pSRAr, _eACI, _t, _pR, _cRA, _cRAo],
-  [0, 0, 0, 0, [() => Description, 0], [() => SpecContents, 0], 0, 0, () => TagList, () => RepositoryBranchInput$, 0, 0]
+  [_n, _tN, _tMV, _sp, _tMVe, _d, _pSRAr, _eACI, _t, _pR, _cRA, _cRAo],
+  [0, 0, 0, [() => SpecContents, 0], 0, [() => Description, 0], 0, 0, () => TagList, () => RepositoryBranchInput$, 0, 0], 4
 ];
 export var CreateEnvironmentOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
   [_en],
-  [[() => Environment$, 0]]
+  [[() => Environment$, 0]], 1
 ];
 export var CreateEnvironmentTemplateInput$: StaticStructureSchema = [3, n0, _CETIr,
   0,
   [_n, _dN, _d, _eK, _pr, _t],
-  [0, [() => DisplayName, 0], [() => Description, 0], 0, 0, () => TagList]
+  [0, [() => DisplayName, 0], [() => Description, 0], 0, 0, () => TagList], 1
 ];
 export var CreateEnvironmentTemplateOutput$: StaticStructureSchema = [3, n0, _CETO,
   0,
   [_eTn],
-  [[() => EnvironmentTemplate$, 0]]
+  [[() => EnvironmentTemplate$, 0]], 1
 ];
 export var CreateEnvironmentTemplateVersionInput$: StaticStructureSchema = [3, n0, _CETVI,
   0,
-  [_cT, _tN, _d, _mV, _so, _t],
-  [[0, 4], 0, [() => Description, 0], 0, () => TemplateVersionSourceInput$, () => TagList]
+  [_tN, _so, _cT, _d, _mV, _t],
+  [0, () => TemplateVersionSourceInput$, [0, 4], [() => Description, 0], 0, () => TagList], 2
 ];
 export var CreateEnvironmentTemplateVersionOutput$: StaticStructureSchema = [3, n0, _CETVO,
   0,
   [_eTV],
-  [[() => EnvironmentTemplateVersion$, 0]]
+  [[() => EnvironmentTemplateVersion$, 0]], 1
 ];
 export var CreateRepositoryInput$: StaticStructureSchema = [3, n0, _CRI,
   0,
   [_pro, _n, _cAo, _eK, _t],
-  [0, 0, 0, 0, () => TagList]
+  [0, 0, 0, 0, () => TagList], 3
 ];
 export var CreateRepositoryOutput$: StaticStructureSchema = [3, n0, _CRO,
   0,
   [_r],
-  [() => Repository$]
+  [() => Repository$], 1
 ];
 export var CreateServiceInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
-  [_n, _d, _tN, _tMV, _tMVe, _sp, _rCA, _rI, _bN, _t],
-  [0, [() => Description, 0], 0, 0, 0, [() => SpecContents, 0], 0, 0, 0, () => TagList]
+  [_n, _tN, _tMV, _sp, _d, _tMVe, _rCA, _rI, _bN, _t],
+  [0, 0, 0, [() => SpecContents, 0], [() => Description, 0], 0, 0, 0, 0, () => TagList], 4
 ];
 export var CreateServiceInstanceInput$: StaticStructureSchema = [3, n0, _CSII,
   0,
   [_n, _sN, _sp, _tMV, _tMVe, _t, _cT],
-  [0, 0, [() => SpecContents, 0], 0, 0, () => TagList, [0, 4]]
+  [0, 0, [() => SpecContents, 0], 0, 0, () => TagList, [0, 4]], 3
 ];
 export var CreateServiceInstanceOutput$: StaticStructureSchema = [3, n0, _CSIO,
   0,
   [_sI],
-  [[() => ServiceInstance$, 0]]
+  [[() => ServiceInstance$, 0]], 1
 ];
 export var CreateServiceOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
   [_ser],
-  [[() => Service$, 0]]
+  [[() => Service$, 0]], 1
 ];
 export var CreateServiceSyncConfigInput$: StaticStructureSchema = [3, n0, _CSSCI,
   0,
   [_sN, _rP, _rN, _b, _fP],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var CreateServiceSyncConfigOutput$: StaticStructureSchema = [3, n0, _CSSCO,
   0,
@@ -735,27 +735,27 @@ export var CreateServiceSyncConfigOutput$: StaticStructureSchema = [3, n0, _CSSC
 export var CreateServiceTemplateInput$: StaticStructureSchema = [3, n0, _CSTI,
   0,
   [_n, _dN, _d, _eK, _pP, _t],
-  [0, [() => DisplayName, 0], [() => Description, 0], 0, 0, () => TagList]
+  [0, [() => DisplayName, 0], [() => Description, 0], 0, 0, () => TagList], 1
 ];
 export var CreateServiceTemplateOutput$: StaticStructureSchema = [3, n0, _CSTO,
   0,
   [_sTe],
-  [[() => ServiceTemplate$, 0]]
+  [[() => ServiceTemplate$, 0]], 1
 ];
 export var CreateServiceTemplateVersionInput$: StaticStructureSchema = [3, n0, _CSTVI,
   0,
-  [_cT, _tN, _d, _mV, _so, _cET, _t, _sCS],
-  [[0, 4], 0, [() => Description, 0], 0, () => TemplateVersionSourceInput$, () => CompatibleEnvironmentTemplateInputList, () => TagList, 64 | 0]
+  [_tN, _so, _cET, _cT, _d, _mV, _t, _sCS],
+  [0, () => TemplateVersionSourceInput$, () => CompatibleEnvironmentTemplateInputList, [0, 4], [() => Description, 0], 0, () => TagList, 64 | 0], 3
 ];
 export var CreateServiceTemplateVersionOutput$: StaticStructureSchema = [3, n0, _CSTVO,
   0,
   [_sTV],
-  [[() => ServiceTemplateVersion$, 0]]
+  [[() => ServiceTemplateVersion$, 0]], 1
 ];
 export var CreateTemplateSyncConfigInput$: StaticStructureSchema = [3, n0, _CTSCI,
   0,
   [_tN, _tT, _rP, _rN, _b, _su],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 5
 ];
 export var CreateTemplateSyncConfigOutput$: StaticStructureSchema = [3, n0, _CTSCO,
   0,
@@ -765,7 +765,7 @@ export var CreateTemplateSyncConfigOutput$: StaticStructureSchema = [3, n0, _CTS
 export var DeleteComponentInput$: StaticStructureSchema = [3, n0, _DCI,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DeleteComponentOutput$: StaticStructureSchema = [3, n0, _DCO,
   0,
@@ -775,7 +775,7 @@ export var DeleteComponentOutput$: StaticStructureSchema = [3, n0, _DCO,
 export var DeleteDeploymentInput$: StaticStructureSchema = [3, n0, _DDI,
   0,
   [_i],
-  [0]
+  [0], 1
 ];
 export var DeleteDeploymentOutput$: StaticStructureSchema = [3, n0, _DDO,
   0,
@@ -785,7 +785,7 @@ export var DeleteDeploymentOutput$: StaticStructureSchema = [3, n0, _DDO,
 export var DeleteEnvironmentAccountConnectionInput$: StaticStructureSchema = [3, n0, _DEACI,
   0,
   [_i],
-  [0]
+  [0], 1
 ];
 export var DeleteEnvironmentAccountConnectionOutput$: StaticStructureSchema = [3, n0, _DEACO,
   0,
@@ -795,7 +795,7 @@ export var DeleteEnvironmentAccountConnectionOutput$: StaticStructureSchema = [3
 export var DeleteEnvironmentInput$: StaticStructureSchema = [3, n0, _DEI,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DeleteEnvironmentOutput$: StaticStructureSchema = [3, n0, _DEO,
   0,
@@ -805,7 +805,7 @@ export var DeleteEnvironmentOutput$: StaticStructureSchema = [3, n0, _DEO,
 export var DeleteEnvironmentTemplateInput$: StaticStructureSchema = [3, n0, _DETI,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DeleteEnvironmentTemplateOutput$: StaticStructureSchema = [3, n0, _DETO,
   0,
@@ -815,7 +815,7 @@ export var DeleteEnvironmentTemplateOutput$: StaticStructureSchema = [3, n0, _DE
 export var DeleteEnvironmentTemplateVersionInput$: StaticStructureSchema = [3, n0, _DETVI,
   0,
   [_tN, _mV, _mVi],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteEnvironmentTemplateVersionOutput$: StaticStructureSchema = [3, n0, _DETVO,
   0,
@@ -825,7 +825,7 @@ export var DeleteEnvironmentTemplateVersionOutput$: StaticStructureSchema = [3, 
 export var DeleteRepositoryInput$: StaticStructureSchema = [3, n0, _DRI,
   0,
   [_pro, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteRepositoryOutput$: StaticStructureSchema = [3, n0, _DRO,
   0,
@@ -835,7 +835,7 @@ export var DeleteRepositoryOutput$: StaticStructureSchema = [3, n0, _DRO,
 export var DeleteServiceInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DeleteServiceOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
@@ -845,7 +845,7 @@ export var DeleteServiceOutput$: StaticStructureSchema = [3, n0, _DSO,
 export var DeleteServiceSyncConfigInput$: StaticStructureSchema = [3, n0, _DSSCI,
   0,
   [_sN],
-  [0]
+  [0], 1
 ];
 export var DeleteServiceSyncConfigOutput$: StaticStructureSchema = [3, n0, _DSSCO,
   0,
@@ -855,7 +855,7 @@ export var DeleteServiceSyncConfigOutput$: StaticStructureSchema = [3, n0, _DSSC
 export var DeleteServiceTemplateInput$: StaticStructureSchema = [3, n0, _DSTI,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DeleteServiceTemplateOutput$: StaticStructureSchema = [3, n0, _DSTO,
   0,
@@ -865,7 +865,7 @@ export var DeleteServiceTemplateOutput$: StaticStructureSchema = [3, n0, _DSTO,
 export var DeleteServiceTemplateVersionInput$: StaticStructureSchema = [3, n0, _DSTVI,
   0,
   [_tN, _mV, _mVi],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteServiceTemplateVersionOutput$: StaticStructureSchema = [3, n0, _DSTVO,
   0,
@@ -875,7 +875,7 @@ export var DeleteServiceTemplateVersionOutput$: StaticStructureSchema = [3, n0, 
 export var DeleteTemplateSyncConfigInput$: StaticStructureSchema = [3, n0, _DTSCI,
   0,
   [_tN, _tT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteTemplateSyncConfigOutput$: StaticStructureSchema = [3, n0, _DTSCO,
   0,
@@ -884,63 +884,63 @@ export var DeleteTemplateSyncConfigOutput$: StaticStructureSchema = [3, n0, _DTS
 ];
 export var Deployment$: StaticStructureSchema = [3, n0, _De,
   0,
-  [_i, _ar, _tA, _tRCA, _tRT, _eN, _sN, _sIN, _cN, _dS, _dSM, _cA, _lMA, _cAom, _lADI, _lSDI, _iS, _tS],
-  [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, [() => StatusMessage, 0], 4, 4, 4, 0, 0, [() => DeploymentState$, 0], [() => DeploymentState$, 0]]
+  [_i, _ar, _tA, _tRCA, _tRT, _eN, _dS, _cA, _lMA, _sN, _sIN, _cN, _dSM, _cAom, _lADI, _lSDI, _iS, _tS],
+  [0, 0, 0, 4, 0, 0, 0, 4, 4, 0, 0, 0, [() => StatusMessage, 0], 4, 0, 0, [() => DeploymentState$, 0], [() => DeploymentState$, 0]], 9
 ];
 export var DeploymentSummary$: StaticStructureSchema = [3, n0, _DS,
   0,
-  [_i, _ar, _tA, _tRCA, _tRT, _cA, _lMA, _cAom, _eN, _sN, _sIN, _cN, _lADI, _lSDI, _dS],
-  [0, 0, 0, 4, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0]
+  [_i, _ar, _tA, _tRCA, _tRT, _cA, _lMA, _eN, _dS, _cAom, _sN, _sIN, _cN, _lADI, _lSDI],
+  [0, 0, 0, 4, 0, 4, 4, 0, 0, 4, 0, 0, 0, 0, 0], 9
 ];
 export var Environment$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_n, _d, _cA, _lDAA, _lDSA, _ar, _tN, _tMV, _tMVe, _dS, _dSM, _pSRAr, _eACI, _eAI, _sp, _pr, _pR, _cRA, _cRAo, _lADI, _lSDI],
-  [0, [() => Description, 0], 4, 4, 4, 0, 0, 0, 0, 0, [() => StatusMessage, 0], 0, 0, 0, [() => SpecContents, 0], 0, () => RepositoryBranch$, 0, 0, 0, 0]
+  [_n, _cA, _lDAA, _lDSA, _ar, _tN, _tMV, _tMVe, _dS, _d, _dSM, _pSRAr, _eACI, _eAI, _sp, _pr, _pR, _cRA, _cRAo, _lADI, _lSDI],
+  [0, 4, 4, 4, 0, 0, 0, 0, 0, [() => Description, 0], [() => StatusMessage, 0], 0, 0, 0, [() => SpecContents, 0], 0, () => RepositoryBranch$, 0, 0, 0, 0], 9
 ];
 export var EnvironmentAccountConnection$: StaticStructureSchema = [3, n0, _EAC,
   0,
   [_i, _ar, _mAI, _eAI, _rA, _eN, _rAe, _lMA, _st, _cRA, _cRAo],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0], 9
 ];
 export var EnvironmentAccountConnectionSummary$: StaticStructureSchema = [3, n0, _EACS,
   0,
   [_i, _ar, _mAI, _eAI, _rA, _eN, _rAe, _lMA, _st, _cRA],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0]
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0], 9
 ];
 export var EnvironmentState$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_sp, _tN, _tMV, _tMVe],
-  [[() => SpecContents, 0], 0, 0, 0]
+  [_tN, _tMV, _tMVe, _sp],
+  [0, 0, 0, [() => SpecContents, 0]], 3
 ];
 export var EnvironmentSummary$: StaticStructureSchema = [3, n0, _ESn,
   0,
-  [_n, _d, _cA, _lDAA, _lDSA, _ar, _tN, _tMV, _tMVe, _dS, _dSM, _pSRAr, _eACI, _eAI, _pr, _cRA, _lADI, _lSDI],
-  [0, [() => Description, 0], 4, 4, 4, 0, 0, 0, 0, 0, [() => StatusMessage, 0], 0, 0, 0, 0, 0, 0, 0]
+  [_n, _cA, _lDAA, _lDSA, _ar, _tN, _tMV, _tMVe, _dS, _d, _dSM, _pSRAr, _eACI, _eAI, _pr, _cRA, _lADI, _lSDI],
+  [0, 4, 4, 4, 0, 0, 0, 0, 0, [() => Description, 0], [() => StatusMessage, 0], 0, 0, 0, 0, 0, 0, 0], 9
 ];
 export var EnvironmentTemplate$: StaticStructureSchema = [3, n0, _ET,
   0,
   [_n, _ar, _cA, _lMA, _dN, _d, _rV, _eK, _pr],
-  [0, 0, 4, 4, [() => DisplayName, 0], [() => Description, 0], 0, 0, 0]
+  [0, 0, 4, 4, [() => DisplayName, 0], [() => Description, 0], 0, 0, 0], 4
 ];
 export var EnvironmentTemplateFilter$: StaticStructureSchema = [3, n0, _ETF,
   0,
   [_tN, _mV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EnvironmentTemplateSummary$: StaticStructureSchema = [3, n0, _ETS,
   0,
   [_n, _ar, _cA, _lMA, _dN, _d, _rV, _pr],
-  [0, 0, 4, 4, [() => DisplayName, 0], [() => Description, 0], 0, 0]
+  [0, 0, 4, 4, [() => DisplayName, 0], [() => Description, 0], 0, 0], 4
 ];
 export var EnvironmentTemplateVersion$: StaticStructureSchema = [3, n0, _ETV,
   0,
-  [_tN, _mV, _mVi, _rMV, _st, _sM, _d, _ar, _cA, _lMA, _sc],
-  [0, 0, 0, 0, 0, [() => StatusMessage, 0], [() => Description, 0], 0, 4, 4, [() => TemplateSchema, 0]]
+  [_tN, _mV, _mVi, _st, _ar, _cA, _lMA, _rMV, _sM, _d, _sc],
+  [0, 0, 0, 0, 0, 4, 4, 0, [() => StatusMessage, 0], [() => Description, 0], [() => TemplateSchema, 0]], 7
 ];
 export var EnvironmentTemplateVersionSummary$: StaticStructureSchema = [3, n0, _ETVS,
   0,
-  [_tN, _mV, _mVi, _rMV, _st, _sM, _d, _ar, _cA, _lMA],
-  [0, 0, 0, 0, 0, [() => StatusMessage, 0], [() => Description, 0], 0, 4, 4]
+  [_tN, _mV, _mVi, _st, _ar, _cA, _lMA, _rMV, _sM, _d],
+  [0, 0, 0, 0, 0, 4, 4, 0, [() => StatusMessage, 0], [() => Description, 0]], 7
 ];
 export var GetAccountSettingsInput$: StaticStructureSchema = [3, n0, _GASI,
   0,
@@ -955,7 +955,7 @@ export var GetAccountSettingsOutput$: StaticStructureSchema = [3, n0, _GASO,
 export var GetComponentInput$: StaticStructureSchema = [3, n0, _GCI,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var GetComponentOutput$: StaticStructureSchema = [3, n0, _GCO,
   0,
@@ -965,7 +965,7 @@ export var GetComponentOutput$: StaticStructureSchema = [3, n0, _GCO,
 export var GetDeploymentInput$: StaticStructureSchema = [3, n0, _GDI,
   0,
   [_i, _eN, _sN, _sIN, _cN],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 1
 ];
 export var GetDeploymentOutput$: StaticStructureSchema = [3, n0, _GDO,
   0,
@@ -975,57 +975,57 @@ export var GetDeploymentOutput$: StaticStructureSchema = [3, n0, _GDO,
 export var GetEnvironmentAccountConnectionInput$: StaticStructureSchema = [3, n0, _GEACI,
   0,
   [_i],
-  [0]
+  [0], 1
 ];
 export var GetEnvironmentAccountConnectionOutput$: StaticStructureSchema = [3, n0, _GEACO,
   0,
   [_eAC],
-  [() => EnvironmentAccountConnection$]
+  [() => EnvironmentAccountConnection$], 1
 ];
 export var GetEnvironmentInput$: StaticStructureSchema = [3, n0, _GEI,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var GetEnvironmentOutput$: StaticStructureSchema = [3, n0, _GEO,
   0,
   [_en],
-  [[() => Environment$, 0]]
+  [[() => Environment$, 0]], 1
 ];
 export var GetEnvironmentTemplateInput$: StaticStructureSchema = [3, n0, _GETI,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var GetEnvironmentTemplateOutput$: StaticStructureSchema = [3, n0, _GETO,
   0,
   [_eTn],
-  [[() => EnvironmentTemplate$, 0]]
+  [[() => EnvironmentTemplate$, 0]], 1
 ];
 export var GetEnvironmentTemplateVersionInput$: StaticStructureSchema = [3, n0, _GETVI,
   0,
   [_tN, _mV, _mVi],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetEnvironmentTemplateVersionOutput$: StaticStructureSchema = [3, n0, _GETVO,
   0,
   [_eTV],
-  [[() => EnvironmentTemplateVersion$, 0]]
+  [[() => EnvironmentTemplateVersion$, 0]], 1
 ];
 export var GetRepositoryInput$: StaticStructureSchema = [3, n0, _GRI,
   0,
   [_pro, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetRepositoryOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
   [_r],
-  [() => Repository$]
+  [() => Repository$], 1
 ];
 export var GetRepositorySyncStatusInput$: StaticStructureSchema = [3, n0, _GRSSI,
   0,
   [_rN, _rP, _b, _sTy],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var GetRepositorySyncStatusOutput$: StaticStructureSchema = [3, n0, _GRSSO,
   0,
@@ -1040,27 +1040,27 @@ export var GetResourcesSummaryInput$: StaticStructureSchema = [3, n0, _GRSI,
 export var GetResourcesSummaryOutput$: StaticStructureSchema = [3, n0, _GRSO,
   0,
   [_cou],
-  [() => CountsSummary$]
+  [() => CountsSummary$], 1
 ];
 export var GetServiceInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var GetServiceInstanceInput$: StaticStructureSchema = [3, n0, _GSII,
   0,
   [_n, _sN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetServiceInstanceOutput$: StaticStructureSchema = [3, n0, _GSIO,
   0,
   [_sI],
-  [[() => ServiceInstance$, 0]]
+  [[() => ServiceInstance$, 0]], 1
 ];
 export var GetServiceInstanceSyncStatusInput$: StaticStructureSchema = [3, n0, _GSISSI,
   0,
   [_sN, _sIN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetServiceInstanceSyncStatusOutput$: StaticStructureSchema = [3, n0, _GSISSO,
   0,
@@ -1075,7 +1075,7 @@ export var GetServiceOutput$: StaticStructureSchema = [3, n0, _GSO,
 export var GetServiceSyncBlockerSummaryInput$: StaticStructureSchema = [3, n0, _GSSBSI,
   0,
   [_sN, _sIN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetServiceSyncBlockerSummaryOutput$: StaticStructureSchema = [3, n0, _GSSBSO,
   0,
@@ -1085,7 +1085,7 @@ export var GetServiceSyncBlockerSummaryOutput$: StaticStructureSchema = [3, n0, 
 export var GetServiceSyncConfigInput$: StaticStructureSchema = [3, n0, _GSSCI,
   0,
   [_sN],
-  [0]
+  [0], 1
 ];
 export var GetServiceSyncConfigOutput$: StaticStructureSchema = [3, n0, _GSSCO,
   0,
@@ -1095,27 +1095,27 @@ export var GetServiceSyncConfigOutput$: StaticStructureSchema = [3, n0, _GSSCO,
 export var GetServiceTemplateInput$: StaticStructureSchema = [3, n0, _GSTI,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var GetServiceTemplateOutput$: StaticStructureSchema = [3, n0, _GSTO,
   0,
   [_sTe],
-  [[() => ServiceTemplate$, 0]]
+  [[() => ServiceTemplate$, 0]], 1
 ];
 export var GetServiceTemplateVersionInput$: StaticStructureSchema = [3, n0, _GSTVI,
   0,
   [_tN, _mV, _mVi],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetServiceTemplateVersionOutput$: StaticStructureSchema = [3, n0, _GSTVO,
   0,
   [_sTV],
-  [[() => ServiceTemplateVersion$, 0]]
+  [[() => ServiceTemplateVersion$, 0]], 1
 ];
 export var GetTemplateSyncConfigInput$: StaticStructureSchema = [3, n0, _GTSCI,
   0,
   [_tN, _tT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetTemplateSyncConfigOutput$: StaticStructureSchema = [3, n0, _GTSCO,
   0,
@@ -1125,7 +1125,7 @@ export var GetTemplateSyncConfigOutput$: StaticStructureSchema = [3, n0, _GTSCO,
 export var GetTemplateSyncStatusInput$: StaticStructureSchema = [3, n0, _GTSSI,
   0,
   [_tN, _tT, _tV],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetTemplateSyncStatusOutput$: StaticStructureSchema = [3, n0, _GTSSO,
   0,
@@ -1135,28 +1135,28 @@ export var GetTemplateSyncStatusOutput$: StaticStructureSchema = [3, n0, _GTSSO,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _serv, [_hE]: 500 },
   [_m],
-  [[() => ErrorMessage, 0]]
+  [[() => ErrorMessage, 0]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListComponentOutputsInput$: StaticStructureSchema = [3, n0, _LCOI,
   0,
   [_cN, _nT, _dI],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ListComponentOutputsOutput$: StaticStructureSchema = [3, n0, _LCOO,
   0,
-  [_nT, _o],
-  [0, [() => OutputsList, 0]]
+  [_o, _nT],
+  [[() => OutputsList, 0], 0], 1
 ];
 export var ListComponentProvisionedResourcesInput$: StaticStructureSchema = [3, n0, _LCPRI,
   0,
   [_cN, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListComponentProvisionedResourcesOutput$: StaticStructureSchema = [3, n0, _LCPRO,
   0,
-  [_nT, _pRr],
-  [0, () => ProvisionedResourceList]
+  [_pRr, _nT],
+  [() => ProvisionedResourceList, 0], 1
 ];
 export var ListComponentsInput$: StaticStructureSchema = [3, n0, _LCI,
   0,
@@ -1165,8 +1165,8 @@ export var ListComponentsInput$: StaticStructureSchema = [3, n0, _LCI,
 ];
 export var ListComponentsOutput$: StaticStructureSchema = [3, n0, _LCO,
   0,
-  [_nT, _com],
-  [0, [() => ComponentSummaryList, 0]]
+  [_com, _nT],
+  [[() => ComponentSummaryList, 0], 0], 1
 ];
 export var ListDeploymentsInput$: StaticStructureSchema = [3, n0, _LDI,
   0,
@@ -1175,38 +1175,38 @@ export var ListDeploymentsInput$: StaticStructureSchema = [3, n0, _LDI,
 ];
 export var ListDeploymentsOutput$: StaticStructureSchema = [3, n0, _LDO,
   0,
-  [_nT, _dep],
-  [0, () => DeploymentSummaryList]
+  [_dep, _nT],
+  [() => DeploymentSummaryList, 0], 1
 ];
 export var ListEnvironmentAccountConnectionsInput$: StaticStructureSchema = [3, n0, _LEACI,
   0,
   [_rB, _eN, _sta, _nT, _mR],
-  [0, 0, 64 | 0, 0, 1]
+  [0, 0, 64 | 0, 0, 1], 1
 ];
 export var ListEnvironmentAccountConnectionsOutput$: StaticStructureSchema = [3, n0, _LEACO,
   0,
   [_eACn, _nT],
-  [() => EnvironmentAccountConnectionSummaryList, 0]
+  [() => EnvironmentAccountConnectionSummaryList, 0], 1
 ];
 export var ListEnvironmentOutputsInput$: StaticStructureSchema = [3, n0, _LEOI,
   0,
   [_eN, _nT, _dI],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ListEnvironmentOutputsOutput$: StaticStructureSchema = [3, n0, _LEOO,
   0,
-  [_nT, _o],
-  [0, [() => OutputsList, 0]]
+  [_o, _nT],
+  [[() => OutputsList, 0], 0], 1
 ];
 export var ListEnvironmentProvisionedResourcesInput$: StaticStructureSchema = [3, n0, _LEPRI,
   0,
   [_eN, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListEnvironmentProvisionedResourcesOutput$: StaticStructureSchema = [3, n0, _LEPRO,
   0,
-  [_nT, _pRr],
-  [0, () => ProvisionedResourceList]
+  [_pRr, _nT],
+  [() => ProvisionedResourceList, 0], 1
 ];
 export var ListEnvironmentsInput$: StaticStructureSchema = [3, n0, _LEI,
   0,
@@ -1215,8 +1215,8 @@ export var ListEnvironmentsInput$: StaticStructureSchema = [3, n0, _LEI,
 ];
 export var ListEnvironmentsOutput$: StaticStructureSchema = [3, n0, _LEO,
   0,
-  [_nT, _env],
-  [0, [() => EnvironmentSummaryList, 0]]
+  [_env, _nT],
+  [[() => EnvironmentSummaryList, 0], 0], 1
 ];
 export var ListEnvironmentTemplatesInput$: StaticStructureSchema = [3, n0, _LETI,
   0,
@@ -1225,18 +1225,18 @@ export var ListEnvironmentTemplatesInput$: StaticStructureSchema = [3, n0, _LETI
 ];
 export var ListEnvironmentTemplatesOutput$: StaticStructureSchema = [3, n0, _LETO,
   0,
-  [_nT, _te],
-  [0, [() => EnvironmentTemplateSummaryList, 0]]
+  [_te, _nT],
+  [[() => EnvironmentTemplateSummaryList, 0], 0], 1
 ];
 export var ListEnvironmentTemplateVersionsInput$: StaticStructureSchema = [3, n0, _LETVI,
   0,
-  [_nT, _mR, _tN, _mV],
-  [0, 1, 0, 0]
+  [_tN, _nT, _mR, _mV],
+  [0, 0, 1, 0], 1
 ];
 export var ListEnvironmentTemplateVersionsOutput$: StaticStructureSchema = [3, n0, _LETVO,
   0,
-  [_nT, _tVe],
-  [0, [() => EnvironmentTemplateVersionSummaryList, 0]]
+  [_tVe, _nT],
+  [[() => EnvironmentTemplateVersionSummaryList, 0], 0], 1
 ];
 export var ListRepositoriesInput$: StaticStructureSchema = [3, n0, _LRI,
   0,
@@ -1245,38 +1245,38 @@ export var ListRepositoriesInput$: StaticStructureSchema = [3, n0, _LRI,
 ];
 export var ListRepositoriesOutput$: StaticStructureSchema = [3, n0, _LRO,
   0,
-  [_nT, _re],
-  [0, () => RepositorySummaryList]
+  [_re, _nT],
+  [() => RepositorySummaryList, 0], 1
 ];
 export var ListRepositorySyncDefinitionsInput$: StaticStructureSchema = [3, n0, _LRSDI,
   0,
   [_rN, _rP, _sTy, _nT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var ListRepositorySyncDefinitionsOutput$: StaticStructureSchema = [3, n0, _LRSDO,
   0,
-  [_nT, _sD],
-  [0, () => RepositorySyncDefinitionList]
+  [_sD, _nT],
+  [() => RepositorySyncDefinitionList, 0], 1
 ];
 export var ListServiceInstanceOutputsInput$: StaticStructureSchema = [3, n0, _LSIOI,
   0,
   [_sIN, _sN, _nT, _dI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var ListServiceInstanceOutputsOutput$: StaticStructureSchema = [3, n0, _LSIOO,
   0,
-  [_nT, _o],
-  [0, [() => OutputsList, 0]]
+  [_o, _nT],
+  [[() => OutputsList, 0], 0], 1
 ];
 export var ListServiceInstanceProvisionedResourcesInput$: StaticStructureSchema = [3, n0, _LSIPRI,
   0,
   [_sN, _sIN, _nT],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ListServiceInstanceProvisionedResourcesOutput$: StaticStructureSchema = [3, n0, _LSIPRO,
   0,
-  [_nT, _pRr],
-  [0, () => ProvisionedResourceList]
+  [_pRr, _nT],
+  [() => ProvisionedResourceList, 0], 1
 ];
 export var ListServiceInstancesFilter$: StaticStructureSchema = [3, n0, _LSIF,
   0,
@@ -1290,28 +1290,28 @@ export var ListServiceInstancesInput$: StaticStructureSchema = [3, n0, _LSII,
 ];
 export var ListServiceInstancesOutput$: StaticStructureSchema = [3, n0, _LSIO,
   0,
-  [_nT, _sIe],
-  [0, [() => ServiceInstanceSummaryList, 0]]
+  [_sIe, _nT],
+  [[() => ServiceInstanceSummaryList, 0], 0], 1
 ];
 export var ListServicePipelineOutputsInput$: StaticStructureSchema = [3, n0, _LSPOI,
   0,
   [_sN, _nT, _dI],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ListServicePipelineOutputsOutput$: StaticStructureSchema = [3, n0, _LSPOO,
   0,
-  [_nT, _o],
-  [0, [() => OutputsList, 0]]
+  [_o, _nT],
+  [[() => OutputsList, 0], 0], 1
 ];
 export var ListServicePipelineProvisionedResourcesInput$: StaticStructureSchema = [3, n0, _LSPPRI,
   0,
   [_sN, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListServicePipelineProvisionedResourcesOutput$: StaticStructureSchema = [3, n0, _LSPPRO,
   0,
-  [_nT, _pRr],
-  [0, () => ProvisionedResourceList]
+  [_pRr, _nT],
+  [() => ProvisionedResourceList, 0], 1
 ];
 export var ListServicesInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
@@ -1320,8 +1320,8 @@ export var ListServicesInput$: StaticStructureSchema = [3, n0, _LSI,
 ];
 export var ListServicesOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
-  [_nT, _se],
-  [0, [() => ServiceSummaryList, 0]]
+  [_se, _nT],
+  [[() => ServiceSummaryList, 0], 0], 1
 ];
 export var ListServiceTemplatesInput$: StaticStructureSchema = [3, n0, _LSTI,
   0,
@@ -1330,33 +1330,33 @@ export var ListServiceTemplatesInput$: StaticStructureSchema = [3, n0, _LSTI,
 ];
 export var ListServiceTemplatesOutput$: StaticStructureSchema = [3, n0, _LSTO,
   0,
-  [_nT, _te],
-  [0, [() => ServiceTemplateSummaryList, 0]]
+  [_te, _nT],
+  [[() => ServiceTemplateSummaryList, 0], 0], 1
 ];
 export var ListServiceTemplateVersionsInput$: StaticStructureSchema = [3, n0, _LSTVI,
   0,
-  [_nT, _mR, _tN, _mV],
-  [0, 1, 0, 0]
+  [_tN, _nT, _mR, _mV],
+  [0, 0, 1, 0], 1
 ];
 export var ListServiceTemplateVersionsOutput$: StaticStructureSchema = [3, n0, _LSTVO,
   0,
-  [_nT, _tVe],
-  [0, [() => ServiceTemplateVersionSummaryList, 0]]
+  [_tVe, _nT],
+  [[() => ServiceTemplateVersionSummaryList, 0], 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rAes, _nT, _mR],
-  [[0, { [_hQ]: _rAes }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, { [_hQ]: _rAes }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
   [_t, _nT],
-  [() => TagList, 0]
+  [() => TagList, 0], 1
 ];
 export var NotifyResourceDeploymentStatusChangeInput$: StaticStructureSchema = [3, n0, _NRDSCI,
   0,
   [_rAes, _st, _o, _dI, _sM],
-  [0, 0, [() => OutputsList, 0], 0, [() => StatusMessage, 0]]
+  [0, 0, [() => OutputsList, 0], 0, [() => StatusMessage, 0]], 1
 ];
 export var NotifyResourceDeploymentStatusChangeOutput$: StaticStructureSchema = [3, n0, _NRDSCO,
   0,
@@ -1376,169 +1376,169 @@ export var ProvisionedResource$: StaticStructureSchema = [3, n0, _PR,
 export var RejectEnvironmentAccountConnectionInput$: StaticStructureSchema = [3, n0, _REACI,
   0,
   [_i],
-  [0]
+  [0], 1
 ];
 export var RejectEnvironmentAccountConnectionOutput$: StaticStructureSchema = [3, n0, _REACO,
   0,
   [_eAC],
-  [() => EnvironmentAccountConnection$]
+  [() => EnvironmentAccountConnection$], 1
 ];
 export var Repository$: StaticStructureSchema = [3, n0, _R,
   0,
   [_ar, _pro, _n, _cAo, _eK],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var RepositoryBranch$: StaticStructureSchema = [3, n0, _RB,
   0,
   [_ar, _pro, _n, _b],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var RepositoryBranchInput$: StaticStructureSchema = [3, n0, _RBI,
   0,
   [_pro, _n, _b],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var RepositorySummary$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_ar, _pro, _n, _cAo],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var RepositorySyncAttempt$: StaticStructureSchema = [3, n0, _RSA,
   0,
   [_sA, _st, _ev],
-  [4, 0, () => RepositorySyncEvents]
+  [4, 0, () => RepositorySyncEvents], 3
 ];
 export var RepositorySyncDefinition$: StaticStructureSchema = [3, n0, _RSD,
   0,
   [_ta, _pa, _b, _di],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var RepositorySyncEvent$: StaticStructureSchema = [3, n0, _RSE,
   0,
-  [_ty, _eI, _ti, _eve],
-  [0, 0, 4, 0]
+  [_ty, _ti, _eve, _eI],
+  [0, 4, 0, 0], 3
 ];
 export var ResourceCountsSummary$: StaticStructureSchema = [3, n0, _RCS,
   0,
   [_to, _fa, _uTD, _bM, _bMe],
-  [1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [[() => ErrorMessage, 0]]
+  [[() => ErrorMessage, 0]], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceSyncAttempt$: StaticStructureSchema = [3, n0, _RSAe,
   0,
   [_iR, _tR, _ta, _sA, _st, _ev],
-  [() => Revision$, () => Revision$, 0, 4, 0, () => ResourceSyncEvents]
+  [() => Revision$, () => Revision$, 0, 4, 0, () => ResourceSyncEvents], 6
 ];
 export var ResourceSyncEvent$: StaticStructureSchema = [3, n0, _RSEe,
   0,
-  [_ty, _eI, _ti, _eve],
-  [0, 0, 4, 0]
+  [_ty, _ti, _eve, _eI],
+  [0, 4, 0, 0], 3
 ];
 export var Revision$: StaticStructureSchema = [3, n0, _Re,
   0,
   [_rN, _rP, _sh, _di, _b],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var S3ObjectSource$: StaticStructureSchema = [3, n0, _SOS,
   0,
   [_bu, _k],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Service$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_n, _d, _ar, _tN, _cA, _lMA, _st, _sM, _sp, _p, _rCA, _rI, _bN],
-  [0, [() => Description, 0], 0, 0, 4, 4, 0, [() => StatusMessage, 0], [() => SpecContents, 0], [() => ServicePipeline$, 0], 0, 0, 0]
+  [_n, _ar, _tN, _cA, _lMA, _st, _sp, _d, _sM, _p, _rCA, _rI, _bN],
+  [0, 0, 0, 4, 4, 0, [() => SpecContents, 0], [() => Description, 0], [() => StatusMessage, 0], [() => ServicePipeline$, 0], 0, 0, 0], 7
 ];
 export var ServiceInstance$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_n, _ar, _cA, _lDAA, _lDSA, _sN, _eN, _tN, _tMV, _tMVe, _dS, _dSM, _sp, _lCRT, _lADI, _lSDI],
-  [0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, [() => StatusMessage, 0], [() => SpecContents, 0], 0, 0, 0]
+  [0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, [() => StatusMessage, 0], [() => SpecContents, 0], 0, 0, 0], 11
 ];
 export var ServiceInstanceState$: StaticStructureSchema = [3, n0, _SIS,
   0,
   [_sp, _tN, _tMV, _tMVe, _lSCDI, _lSEDI, _lSSPDI],
-  [[() => SpecContents, 0], 0, 0, 0, 64 | 0, 0, 0]
+  [[() => SpecContents, 0], 0, 0, 0, 64 | 0, 0, 0], 4
 ];
 export var ServiceInstanceSummary$: StaticStructureSchema = [3, n0, _SISe,
   0,
   [_n, _ar, _cA, _lDAA, _lDSA, _sN, _eN, _tN, _tMV, _tMVe, _dS, _dSM, _lADI, _lSDI],
-  [0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, [() => StatusMessage, 0], 0, 0]
+  [0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, [() => StatusMessage, 0], 0, 0], 11
 ];
 export var ServicePipeline$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_ar, _cA, _lDAA, _lDSA, _tN, _tMV, _tMVe, _dS, _dSM, _sp, _lADI, _lSDI],
-  [0, 4, 4, 4, 0, 0, 0, 0, [() => StatusMessage, 0], [() => SpecContents, 0], 0, 0]
+  [0, 4, 4, 4, 0, 0, 0, 0, [() => StatusMessage, 0], [() => SpecContents, 0], 0, 0], 8
 ];
 export var ServicePipelineState$: StaticStructureSchema = [3, n0, _SPS,
   0,
-  [_sp, _tN, _tMV, _tMVe],
-  [[() => SpecContents, 0], 0, 0, 0]
+  [_tN, _tMV, _tMVe, _sp],
+  [0, 0, 0, [() => SpecContents, 0]], 3
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [[() => ErrorMessage, 0]]
+  [[() => ErrorMessage, 0]], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_n, _d, _ar, _tN, _cA, _lMA, _st, _sM],
-  [0, [() => Description, 0], 0, 0, 4, 4, 0, [() => StatusMessage, 0]]
+  [_n, _ar, _tN, _cA, _lMA, _st, _d, _sM],
+  [0, 0, 0, 4, 4, 0, [() => Description, 0], [() => StatusMessage, 0]], 6
 ];
 export var ServiceSyncBlockerSummary$: StaticStructureSchema = [3, n0, _SSBS,
   0,
   [_sN, _sIN, _lB],
-  [0, 0, () => LatestSyncBlockers]
+  [0, 0, () => LatestSyncBlockers], 1
 ];
 export var ServiceSyncConfig$: StaticStructureSchema = [3, n0, _SSC,
   0,
   [_sN, _rP, _rN, _b, _fP],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var ServiceTemplate$: StaticStructureSchema = [3, n0, _ST,
   0,
   [_n, _ar, _cA, _lMA, _dN, _d, _rV, _eK, _pP],
-  [0, 0, 4, 4, [() => DisplayName, 0], [() => Description, 0], 0, 0, 0]
+  [0, 0, 4, 4, [() => DisplayName, 0], [() => Description, 0], 0, 0, 0], 4
 ];
 export var ServiceTemplateSummary$: StaticStructureSchema = [3, n0, _STS,
   0,
   [_n, _ar, _cA, _lMA, _dN, _d, _rV, _pP],
-  [0, 0, 4, 4, [() => DisplayName, 0], [() => Description, 0], 0, 0]
+  [0, 0, 4, 4, [() => DisplayName, 0], [() => Description, 0], 0, 0], 4
 ];
 export var ServiceTemplateVersion$: StaticStructureSchema = [3, n0, _STV,
   0,
-  [_tN, _mV, _mVi, _rMV, _st, _sM, _d, _ar, _cA, _lMA, _cET, _sc, _sCS],
-  [0, 0, 0, 0, 0, [() => StatusMessage, 0], [() => Description, 0], 0, 4, 4, () => CompatibleEnvironmentTemplateList, [() => TemplateSchema, 0], 64 | 0]
+  [_tN, _mV, _mVi, _st, _ar, _cA, _lMA, _cET, _rMV, _sM, _d, _sc, _sCS],
+  [0, 0, 0, 0, 0, 4, 4, () => CompatibleEnvironmentTemplateList, 0, [() => StatusMessage, 0], [() => Description, 0], [() => TemplateSchema, 0], 64 | 0], 8
 ];
 export var ServiceTemplateVersionSummary$: StaticStructureSchema = [3, n0, _STVS,
   0,
-  [_tN, _mV, _mVi, _rMV, _st, _sM, _d, _ar, _cA, _lMA],
-  [0, 0, 0, 0, 0, [() => StatusMessage, 0], [() => Description, 0], 0, 4, 4]
+  [_tN, _mV, _mVi, _st, _ar, _cA, _lMA, _rMV, _sM, _d],
+  [0, 0, 0, 0, 0, 4, 4, 0, [() => StatusMessage, 0], [() => Description, 0]], 7
 ];
 export var SyncBlocker$: StaticStructureSchema = [3, n0, _SB,
   0,
   [_i, _ty, _st, _cR, _cA, _con, _rR, _rAeso],
-  [0, 0, 0, 0, 4, () => SyncBlockerContexts, 0, 4]
+  [0, 0, 0, 0, 4, () => SyncBlockerContexts, 0, 4], 5
 ];
 export var SyncBlockerContext$: StaticStructureSchema = [3, n0, _SBC,
   0,
   [_k, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rAes, _t],
-  [[0, { [_hQ]: _rAes }], () => TagList]
+  [[0, { [_hQ]: _rAes }], () => TagList], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -1548,18 +1548,18 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 export var TemplateSyncConfig$: StaticStructureSchema = [3, n0, _TSC,
   0,
   [_tN, _tT, _rP, _rN, _b, _su],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 5
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [[() => ErrorMessage, 0]]
+  [[() => ErrorMessage, 0]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rAes, _tK],
-  [[0, { [_hQ]: _rAes }], 64 | 0]
+  [[0, { [_hQ]: _rAes }], 64 | 0], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -1574,102 +1574,102 @@ export var UpdateAccountSettingsInput$: StaticStructureSchema = [3, n0, _UASI,
 export var UpdateAccountSettingsOutput$: StaticStructureSchema = [3, n0, _UASO,
   0,
   [_aS],
-  [() => AccountSettings$]
+  [() => AccountSettings$], 1
 ];
 export var UpdateComponentInput$: StaticStructureSchema = [3, n0, _UCI,
   0,
   [_n, _dT, _d, _sN, _sIN, _sS, _tF, _cT],
-  [0, 0, [() => Description, 0], 0, 0, [() => SpecContents, 0], [() => TemplateFileContents, 0], [0, 4]]
+  [0, 0, [() => Description, 0], 0, 0, [() => SpecContents, 0], [() => TemplateFileContents, 0], [0, 4]], 2
 ];
 export var UpdateComponentOutput$: StaticStructureSchema = [3, n0, _UCO,
   0,
   [_co],
-  [[() => Component$, 0]]
+  [[() => Component$, 0]], 1
 ];
 export var UpdateEnvironmentAccountConnectionInput$: StaticStructureSchema = [3, n0, _UEACI,
   0,
   [_i, _rA, _cRA, _cRAo],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var UpdateEnvironmentAccountConnectionOutput$: StaticStructureSchema = [3, n0, _UEACO,
   0,
   [_eAC],
-  [() => EnvironmentAccountConnection$]
+  [() => EnvironmentAccountConnection$], 1
 ];
 export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
   0,
-  [_n, _d, _sp, _tMV, _tMVe, _pSRAr, _dT, _eACI, _pR, _cRA, _cRAo],
-  [0, [() => Description, 0], [() => SpecContents, 0], 0, 0, 0, 0, 0, () => RepositoryBranchInput$, 0, 0]
+  [_n, _dT, _d, _sp, _tMV, _tMVe, _pSRAr, _eACI, _pR, _cRA, _cRAo],
+  [0, 0, [() => Description, 0], [() => SpecContents, 0], 0, 0, 0, 0, () => RepositoryBranchInput$, 0, 0], 2
 ];
 export var UpdateEnvironmentOutput$: StaticStructureSchema = [3, n0, _UEO,
   0,
   [_en],
-  [[() => Environment$, 0]]
+  [[() => Environment$, 0]], 1
 ];
 export var UpdateEnvironmentTemplateInput$: StaticStructureSchema = [3, n0, _UETI,
   0,
   [_n, _dN, _d],
-  [0, [() => DisplayName, 0], [() => Description, 0]]
+  [0, [() => DisplayName, 0], [() => Description, 0]], 1
 ];
 export var UpdateEnvironmentTemplateOutput$: StaticStructureSchema = [3, n0, _UETO,
   0,
   [_eTn],
-  [[() => EnvironmentTemplate$, 0]]
+  [[() => EnvironmentTemplate$, 0]], 1
 ];
 export var UpdateEnvironmentTemplateVersionInput$: StaticStructureSchema = [3, n0, _UETVI,
   0,
   [_tN, _mV, _mVi, _d, _st],
-  [0, 0, 0, [() => Description, 0], 0]
+  [0, 0, 0, [() => Description, 0], 0], 3
 ];
 export var UpdateEnvironmentTemplateVersionOutput$: StaticStructureSchema = [3, n0, _UETVO,
   0,
   [_eTV],
-  [[() => EnvironmentTemplateVersion$, 0]]
+  [[() => EnvironmentTemplateVersion$, 0]], 1
 ];
 export var UpdateServiceInput$: StaticStructureSchema = [3, n0, _USI,
   0,
   [_n, _d, _sp],
-  [0, [() => Description, 0], [() => SpecContents, 0]]
+  [0, [() => Description, 0], [() => SpecContents, 0]], 1
 ];
 export var UpdateServiceInstanceInput$: StaticStructureSchema = [3, n0, _USII,
   0,
   [_n, _sN, _dT, _sp, _tMV, _tMVe, _cT],
-  [0, 0, 0, [() => SpecContents, 0], 0, 0, [0, 4]]
+  [0, 0, 0, [() => SpecContents, 0], 0, 0, [0, 4]], 3
 ];
 export var UpdateServiceInstanceOutput$: StaticStructureSchema = [3, n0, _USIO,
   0,
   [_sI],
-  [[() => ServiceInstance$, 0]]
+  [[() => ServiceInstance$, 0]], 1
 ];
 export var UpdateServiceOutput$: StaticStructureSchema = [3, n0, _USO,
   0,
   [_ser],
-  [[() => Service$, 0]]
+  [[() => Service$, 0]], 1
 ];
 export var UpdateServicePipelineInput$: StaticStructureSchema = [3, n0, _USPI,
   0,
   [_sN, _sp, _dT, _tMV, _tMVe],
-  [0, [() => SpecContents, 0], 0, 0, 0]
+  [0, [() => SpecContents, 0], 0, 0, 0], 3
 ];
 export var UpdateServicePipelineOutput$: StaticStructureSchema = [3, n0, _USPO,
   0,
   [_p],
-  [[() => ServicePipeline$, 0]]
+  [[() => ServicePipeline$, 0]], 1
 ];
 export var UpdateServiceSyncBlockerInput$: StaticStructureSchema = [3, n0, _USSBI,
   0,
   [_i, _rR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateServiceSyncBlockerOutput$: StaticStructureSchema = [3, n0, _USSBO,
   0,
-  [_sN, _sIN, _sSB],
-  [0, 0, () => SyncBlocker$]
+  [_sN, _sSB, _sIN],
+  [0, () => SyncBlocker$, 0], 2
 ];
 export var UpdateServiceSyncConfigInput$: StaticStructureSchema = [3, n0, _USSCI,
   0,
   [_sN, _rP, _rN, _b, _fP],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var UpdateServiceSyncConfigOutput$: StaticStructureSchema = [3, n0, _USSCO,
   0,
@@ -1679,27 +1679,27 @@ export var UpdateServiceSyncConfigOutput$: StaticStructureSchema = [3, n0, _USSC
 export var UpdateServiceTemplateInput$: StaticStructureSchema = [3, n0, _USTI,
   0,
   [_n, _dN, _d],
-  [0, [() => DisplayName, 0], [() => Description, 0]]
+  [0, [() => DisplayName, 0], [() => Description, 0]], 1
 ];
 export var UpdateServiceTemplateOutput$: StaticStructureSchema = [3, n0, _USTO,
   0,
   [_sTe],
-  [[() => ServiceTemplate$, 0]]
+  [[() => ServiceTemplate$, 0]], 1
 ];
 export var UpdateServiceTemplateVersionInput$: StaticStructureSchema = [3, n0, _USTVI,
   0,
   [_tN, _mV, _mVi, _d, _st, _cET, _sCS],
-  [0, 0, 0, [() => Description, 0], 0, () => CompatibleEnvironmentTemplateInputList, 64 | 0]
+  [0, 0, 0, [() => Description, 0], 0, () => CompatibleEnvironmentTemplateInputList, 64 | 0], 3
 ];
 export var UpdateServiceTemplateVersionOutput$: StaticStructureSchema = [3, n0, _USTVO,
   0,
   [_sTV],
-  [[() => ServiceTemplateVersion$, 0]]
+  [[() => ServiceTemplateVersion$, 0]], 1
 ];
 export var UpdateTemplateSyncConfigInput$: StaticStructureSchema = [3, n0, _UTSCI,
   0,
   [_tN, _tT, _rP, _rN, _b, _su],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 5
 ];
 export var UpdateTemplateSyncConfigOutput$: StaticStructureSchema = [3, n0, _UTSCO,
   0,
@@ -1709,7 +1709,7 @@ export var UpdateTemplateSyncConfigOutput$: StaticStructureSchema = [3, n0, _UTS
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [[() => ErrorMessage, 0]]
+  [[() => ErrorMessage, 0]], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ProtonServiceException$: StaticErrorSchema = [-3, _sm, "ProtonServiceException", 0, [], []];

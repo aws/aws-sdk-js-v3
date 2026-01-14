@@ -119,13 +119,13 @@ var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var Challenge$: StaticStructureSchema = [3, n0, _C,
@@ -146,7 +146,7 @@ export var ChallengeMetadataSummary$: StaticStructureSchema = [3, n0, _CMS,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Connector$: StaticStructureSchema = [3, n0, _Co,
@@ -162,7 +162,7 @@ export var ConnectorSummary$: StaticStructureSchema = [3, n0, _CS,
 export var CreateChallengeRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_CA, _CT, _Ta],
-  [0, [0, 4], 128 | 0]
+  [0, [0, 4], 128 | 0], 1
 ];
 export var CreateChallengeResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -172,7 +172,7 @@ export var CreateChallengeResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateConnectorRequest$: StaticStructureSchema = [3, n0, _CCRre,
   0,
   [_CAA, _MDM, _CT, _Ta],
-  [0, () => MobileDeviceManagement$, [0, 4], 128 | 0]
+  [0, () => MobileDeviceManagement$, [0, 4], 128 | 0], 1
 ];
 export var CreateConnectorResponse$: StaticStructureSchema = [3, n0, _CCRrea,
   0,
@@ -182,17 +182,17 @@ export var CreateConnectorResponse$: StaticStructureSchema = [3, n0, _CCRrea,
 export var DeleteChallengeRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CAh],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteConnectorRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_CA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetChallengeMetadataRequest$: StaticStructureSchema = [3, n0, _GCMR,
   0,
   [_CAh],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetChallengeMetadataResponse$: StaticStructureSchema = [3, n0, _GCMRe,
   0,
@@ -202,7 +202,7 @@ export var GetChallengeMetadataResponse$: StaticStructureSchema = [3, n0, _GCMRe
 export var GetChallengePasswordRequest$: StaticStructureSchema = [3, n0, _GCPR,
   0,
   [_CAh],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetChallengePasswordResponse$: StaticStructureSchema = [3, n0, _GCPRe,
   0,
@@ -212,7 +212,7 @@ export var GetChallengePasswordResponse$: StaticStructureSchema = [3, n0, _GCPRe
 export var GetConnectorRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_CA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConnectorResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -222,18 +222,18 @@ export var GetConnectorResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IntuneConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_AAI, _D],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ListChallengeMetadataRequest$: StaticStructureSchema = [3, n0, _LCMR,
   0,
-  [_MR, _NT, _CA],
-  [[1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [0, { [_hQ]: _CA }]]
+  [_CA, _MR, _NT],
+  [[0, { [_hQ]: _CA }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListChallengeMetadataResponse$: StaticStructureSchema = [3, n0, _LCMRi,
   0,
@@ -253,7 +253,7 @@ export var ListConnectorsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -268,35 +268,35 @@ export var OpenIdConfiguration$: StaticStructureSchema = [3, n0, _OIC,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M, _RT, _SC, _QC],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _R],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;

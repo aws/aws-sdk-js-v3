@@ -241,7 +241,7 @@ import { SQSServiceException } from "../models/SQSServiceException";
 export var AddPermissionRequest$: StaticStructureSchema = [3, n0, _APR,
   0,
   [_QU, _L, _AWSAI, _A],
-  [0, 0, [64 | 0, { [_xF]: 1, [_xN]: _AWSAIc }], [64 | 0, { [_xF]: 1, [_xN]: _AN }]]
+  [0, 0, [64 | 0, { [_xF]: 1, [_xN]: _AWSAIc }], [64 | 0, { [_xF]: 1, [_xN]: _AN }]], 4
 ];
 export var BatchEntryIdsNotDistinct$: StaticErrorSchema = [-3, n0, _BEIND,
   { [_aQE]: [`AWS.SimpleQueueService.BatchEntryIdsNotDistinct`, 400], [_e]: _c, [_hE]: 400 },
@@ -258,12 +258,12 @@ TypeRegistry.for(n0).registerError(BatchRequestTooLong$, BatchRequestTooLong);
 export var BatchResultErrorEntry$: StaticStructureSchema = [3, n0, _BREE,
   0,
   [_I, _SF, _C, _M],
-  [0, 2, 0, 0]
+  [0, 2, 0, 0], 3
 ];
 export var CancelMessageMoveTaskRequest$: StaticStructureSchema = [3, n0, _CMMTR,
   0,
   [_TH],
-  [0]
+  [0], 1
 ];
 export var CancelMessageMoveTaskResult$: StaticStructureSchema = [3, n0, _CMMTRa,
   0,
@@ -273,32 +273,32 @@ export var CancelMessageMoveTaskResult$: StaticStructureSchema = [3, n0, _CMMTRa
 export var ChangeMessageVisibilityBatchRequest$: StaticStructureSchema = [3, n0, _CMVBR,
   0,
   [_QU, _E],
-  [0, [() => ChangeMessageVisibilityBatchRequestEntryList, { [_xF]: 1, [_xN]: _CMVBRE }]]
+  [0, [() => ChangeMessageVisibilityBatchRequestEntryList, { [_xF]: 1, [_xN]: _CMVBRE }]], 2
 ];
 export var ChangeMessageVisibilityBatchRequestEntry$: StaticStructureSchema = [3, n0, _CMVBRE,
   0,
   [_I, _RH, _VT],
-  [0, 0, 1]
+  [0, 0, 1], 2
 ];
 export var ChangeMessageVisibilityBatchResult$: StaticStructureSchema = [3, n0, _CMVBRh,
   0,
   [_S, _F],
-  [[() => ChangeMessageVisibilityBatchResultEntryList, { [_xF]: 1, [_xN]: _CMVBREh }], [() => BatchResultErrorEntryList, { [_xF]: 1, [_xN]: _BREE }]]
+  [[() => ChangeMessageVisibilityBatchResultEntryList, { [_xF]: 1, [_xN]: _CMVBREh }], [() => BatchResultErrorEntryList, { [_xF]: 1, [_xN]: _BREE }]], 2
 ];
 export var ChangeMessageVisibilityBatchResultEntry$: StaticStructureSchema = [3, n0, _CMVBREh,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var ChangeMessageVisibilityRequest$: StaticStructureSchema = [3, n0, _CMVR,
   0,
   [_QU, _RH, _VT],
-  [0, 0, 1]
+  [0, 0, 1], 3
 ];
 export var CreateQueueRequest$: StaticStructureSchema = [3, n0, _CQR,
   0,
   [_QN, _At, _t],
-  [0, [() => QueueAttributeMap, { [_xF]: 1, [_xN]: _Att }], [() => TagMap, { [_xF]: 1, [_xN]: _T }]]
+  [0, [() => QueueAttributeMap, { [_xF]: 1, [_xN]: _Att }], [() => TagMap, { [_xF]: 1, [_xN]: _T }]], 1
 ];
 export var CreateQueueResult$: StaticStructureSchema = [3, n0, _CQRr,
   0,
@@ -308,32 +308,32 @@ export var CreateQueueResult$: StaticStructureSchema = [3, n0, _CQRr,
 export var DeleteMessageBatchRequest$: StaticStructureSchema = [3, n0, _DMBR,
   0,
   [_QU, _E],
-  [0, [() => DeleteMessageBatchRequestEntryList, { [_xF]: 1, [_xN]: _DMBRE }]]
+  [0, [() => DeleteMessageBatchRequestEntryList, { [_xF]: 1, [_xN]: _DMBRE }]], 2
 ];
 export var DeleteMessageBatchRequestEntry$: StaticStructureSchema = [3, n0, _DMBRE,
   0,
   [_I, _RH],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteMessageBatchResult$: StaticStructureSchema = [3, n0, _DMBRe,
   0,
   [_S, _F],
-  [[() => DeleteMessageBatchResultEntryList, { [_xF]: 1, [_xN]: _DMBREe }], [() => BatchResultErrorEntryList, { [_xF]: 1, [_xN]: _BREE }]]
+  [[() => DeleteMessageBatchResultEntryList, { [_xF]: 1, [_xN]: _DMBREe }], [() => BatchResultErrorEntryList, { [_xF]: 1, [_xN]: _BREE }]], 2
 ];
 export var DeleteMessageBatchResultEntry$: StaticStructureSchema = [3, n0, _DMBREe,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var DeleteMessageRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_QU, _RH],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteQueueRequest$: StaticStructureSchema = [3, n0, _DQR,
   0,
   [_QU],
-  [0]
+  [0], 1
 ];
 export var EmptyBatchRequest$: StaticErrorSchema = [-3, n0, _EBR,
   { [_aQE]: [`AWS.SimpleQueueService.EmptyBatchRequest`, 400], [_e]: _c, [_hE]: 400 },
@@ -344,7 +344,7 @@ TypeRegistry.for(n0).registerError(EmptyBatchRequest$, EmptyBatchRequest);
 export var GetQueueAttributesRequest$: StaticStructureSchema = [3, n0, _GQAR,
   0,
   [_QU, _ANt],
-  [0, [64 | 0, { [_xF]: 1, [_xN]: _ANtt }]]
+  [0, [64 | 0, { [_xF]: 1, [_xN]: _ANtt }]], 1
 ];
 export var GetQueueAttributesResult$: StaticStructureSchema = [3, n0, _GQARe,
   0,
@@ -354,7 +354,7 @@ export var GetQueueAttributesResult$: StaticStructureSchema = [3, n0, _GQARe,
 export var GetQueueUrlRequest$: StaticStructureSchema = [3, n0, _GQUR,
   0,
   [_QN, _QOAWSAI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetQueueUrlResult$: StaticStructureSchema = [3, n0, _GQURe,
   0,
@@ -448,17 +448,17 @@ TypeRegistry.for(n0).registerError(KmsThrottled$, KmsThrottled);
 export var ListDeadLetterSourceQueuesRequest$: StaticStructureSchema = [3, n0, _LDLSQR,
   0,
   [_QU, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListDeadLetterSourceQueuesResult$: StaticStructureSchema = [3, n0, _LDLSQRi,
   0,
   [_qU, _NT],
-  [[64 | 0, { [_xF]: 1, [_xN]: _QU }], 0]
+  [[64 | 0, { [_xF]: 1, [_xN]: _QU }], 0], 1
 ];
 export var ListMessageMoveTasksRequest$: StaticStructureSchema = [3, n0, _LMMTR,
   0,
   [_SA, _MR],
-  [0, 1]
+  [0, 1], 1
 ];
 export var ListMessageMoveTasksResult$: StaticStructureSchema = [3, n0, _LMMTRi,
   { [_xN]: _LMMTRi },
@@ -483,7 +483,7 @@ export var ListQueuesResult$: StaticStructureSchema = [3, n0, _LQRi,
 export var ListQueueTagsRequest$: StaticStructureSchema = [3, n0, _LQTR,
   0,
   [_QU],
-  [0]
+  [0], 1
 ];
 export var ListQueueTagsResult$: StaticStructureSchema = [3, n0, _LQTRi,
   0,
@@ -497,8 +497,8 @@ export var Message$: StaticStructureSchema = [3, n0, _M,
 ];
 export var MessageAttributeValue$: StaticStructureSchema = [3, n0, _MAV,
   0,
-  [_SV, _BV, _SLV, _BLV, _DT],
-  [0, 21, [() => StringList, { [_xF]: 1, [_xN]: _SLVt }], [() => BinaryList, { [_xF]: 1, [_xN]: _BLVi }], 0]
+  [_DT, _SV, _BV, _SLV, _BLV],
+  [0, 0, 21, [() => StringList, { [_xF]: 1, [_xN]: _SLVt }], [() => BinaryList, { [_xF]: 1, [_xN]: _BLVi }]], 1
 ];
 export var MessageNotInflight$: StaticErrorSchema = [-3, n0, _MNI,
   { [_aQE]: [`AWS.SimpleQueueService.MessageNotInflight`, 400], [_e]: _c, [_hE]: 400 },
@@ -508,8 +508,8 @@ export var MessageNotInflight$: StaticErrorSchema = [-3, n0, _MNI,
 TypeRegistry.for(n0).registerError(MessageNotInflight$, MessageNotInflight);
 export var MessageSystemAttributeValue$: StaticStructureSchema = [3, n0, _MSAV,
   0,
-  [_SV, _BV, _SLV, _BLV, _DT],
-  [0, 21, [() => StringList, { [_xF]: 1, [_xN]: _SLVt }], [() => BinaryList, { [_xF]: 1, [_xN]: _BLVi }], 0]
+  [_DT, _SV, _BV, _SLV, _BLV],
+  [0, 0, 21, [() => StringList, { [_xF]: 1, [_xN]: _SLVt }], [() => BinaryList, { [_xF]: 1, [_xN]: _BLVi }]], 1
 ];
 export var OverLimit$: StaticErrorSchema = [-3, n0, _OL,
   { [_aQE]: [`OverLimit`, 403], [_e]: _c, [_hE]: 403 },
@@ -526,7 +526,7 @@ TypeRegistry.for(n0).registerError(PurgeQueueInProgress$, PurgeQueueInProgress);
 export var PurgeQueueRequest$: StaticStructureSchema = [3, n0, _PQR,
   0,
   [_QU],
-  [0]
+  [0], 1
 ];
 export var QueueDeletedRecently$: StaticErrorSchema = [-3, n0, _QDR,
   { [_aQE]: [`AWS.SimpleQueueService.QueueDeletedRecently`, 400], [_e]: _c, [_hE]: 400 },
@@ -555,7 +555,7 @@ TypeRegistry.for(n0).registerError(ReceiptHandleIsInvalid$, ReceiptHandleIsInval
 export var ReceiveMessageRequest$: StaticStructureSchema = [3, n0, _RMR,
   0,
   [_QU, _ANt, _MSAN, _MAN, _MNOM, _VT, _WTS, _RRAI],
-  [0, [64 | 0, { [_xF]: 1, [_xN]: _ANtt }], [64 | 0, { [_xF]: 1, [_xN]: _ANtt }], [64 | 0, { [_xF]: 1, [_xN]: _MANe }], 1, 1, 1, 0]
+  [0, [64 | 0, { [_xF]: 1, [_xN]: _ANtt }], [64 | 0, { [_xF]: 1, [_xN]: _ANtt }], [64 | 0, { [_xF]: 1, [_xN]: _MANe }], 1, 1, 1, 0], 1
 ];
 export var ReceiveMessageResult$: StaticStructureSchema = [3, n0, _RMRe,
   0,
@@ -565,7 +565,7 @@ export var ReceiveMessageResult$: StaticStructureSchema = [3, n0, _RMRe,
 export var RemovePermissionRequest$: StaticStructureSchema = [3, n0, _RPR,
   0,
   [_QU, _L],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RequestThrottled$: StaticErrorSchema = [-3, n0, _RT,
   { [_aQE]: [`RequestThrottled`, 403], [_e]: _c, [_hE]: 403 },
@@ -582,27 +582,27 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var SendMessageBatchRequest$: StaticStructureSchema = [3, n0, _SMBR,
   0,
   [_QU, _E],
-  [0, [() => SendMessageBatchRequestEntryList, { [_xF]: 1, [_xN]: _SMBRE }]]
+  [0, [() => SendMessageBatchRequestEntryList, { [_xF]: 1, [_xN]: _SMBRE }]], 2
 ];
 export var SendMessageBatchRequestEntry$: StaticStructureSchema = [3, n0, _SMBRE,
   0,
   [_I, _MB, _DS, _MA, _MSA, _MDI, _MGI],
-  [0, 0, 1, [() => MessageBodyAttributeMap, { [_xF]: 1, [_xN]: _MAe }], [() => MessageBodySystemAttributeMap, { [_xF]: 1, [_xN]: _MSAe }], 0, 0]
+  [0, 0, 1, [() => MessageBodyAttributeMap, { [_xF]: 1, [_xN]: _MAe }], [() => MessageBodySystemAttributeMap, { [_xF]: 1, [_xN]: _MSAe }], 0, 0], 2
 ];
 export var SendMessageBatchResult$: StaticStructureSchema = [3, n0, _SMBRe,
   0,
   [_S, _F],
-  [[() => SendMessageBatchResultEntryList, { [_xF]: 1, [_xN]: _SMBREe }], [() => BatchResultErrorEntryList, { [_xF]: 1, [_xN]: _BREE }]]
+  [[() => SendMessageBatchResultEntryList, { [_xF]: 1, [_xN]: _SMBREe }], [() => BatchResultErrorEntryList, { [_xF]: 1, [_xN]: _BREE }]], 2
 ];
 export var SendMessageBatchResultEntry$: StaticStructureSchema = [3, n0, _SMBREe,
   0,
   [_I, _MI, _MDOMB, _MDOMA, _MDOMSA, _SN],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 3
 ];
 export var SendMessageRequest$: StaticStructureSchema = [3, n0, _SMR,
   0,
   [_QU, _MB, _DS, _MA, _MSA, _MDI, _MGI],
-  [0, 0, 1, [() => MessageBodyAttributeMap, { [_xF]: 1, [_xN]: _MAe }], [() => MessageBodySystemAttributeMap, { [_xF]: 1, [_xN]: _MSAe }], 0, 0]
+  [0, 0, 1, [() => MessageBodyAttributeMap, { [_xF]: 1, [_xN]: _MAe }], [() => MessageBodySystemAttributeMap, { [_xF]: 1, [_xN]: _MSAe }], 0, 0], 2
 ];
 export var SendMessageResult$: StaticStructureSchema = [3, n0, _SMRe,
   0,
@@ -612,12 +612,12 @@ export var SendMessageResult$: StaticStructureSchema = [3, n0, _SMRe,
 export var SetQueueAttributesRequest$: StaticStructureSchema = [3, n0, _SQAR,
   0,
   [_QU, _At],
-  [0, [() => QueueAttributeMap, { [_xF]: 1, [_xN]: _Att }]]
+  [0, [() => QueueAttributeMap, { [_xF]: 1, [_xN]: _Att }]], 2
 ];
 export var StartMessageMoveTaskRequest$: StaticStructureSchema = [3, n0, _SMMTR,
   0,
   [_SA, _DA, _MNOMPS],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var StartMessageMoveTaskResult$: StaticStructureSchema = [3, n0, _SMMTRt,
   0,
@@ -627,7 +627,7 @@ export var StartMessageMoveTaskResult$: StaticStructureSchema = [3, n0, _SMMTRt,
 export var TagQueueRequest$: StaticStructureSchema = [3, n0, _TQR,
   0,
   [_QU, _Ta],
-  [0, [() => TagMap, { [_xF]: 1, [_xN]: _T }]]
+  [0, [() => TagMap, { [_xF]: 1, [_xN]: _T }]], 2
 ];
 export var TooManyEntriesInBatchRequest$: StaticErrorSchema = [-3, n0, _TMEIBR,
   { [_aQE]: [`AWS.SimpleQueueService.TooManyEntriesInBatchRequest`, 400], [_e]: _c, [_hE]: 400 },
@@ -644,7 +644,7 @@ TypeRegistry.for(n0).registerError(UnsupportedOperation$, UnsupportedOperation);
 export var UntagQueueRequest$: StaticStructureSchema = [3, n0, _UQR,
   0,
   [_QU, _TK],
-  [0, [64 | 0, { [_xF]: 1, [_xN]: _TKa }]]
+  [0, [64 | 0, { [_xF]: 1, [_xN]: _TKa }]], 2
 ];
 var __Unit = "unit" as const;
 export var SQSServiceException$: StaticErrorSchema = [-3, _s, "SQSServiceException", 0, [], []];

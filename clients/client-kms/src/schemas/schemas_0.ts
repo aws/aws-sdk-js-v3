@@ -447,7 +447,7 @@ TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsExcepti
 export var CancelKeyDeletionRequest$: StaticStructureSchema = [3, n0, _CKDR,
   0,
   [_KI],
-  [0]
+  [0], 1
 ];
 export var CancelKeyDeletionResponse$: StaticStructureSchema = [3, n0, _CKDRa,
   0,
@@ -493,7 +493,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectCustomKeyStoreRequest$: StaticStructureSchema = [3, n0, _CCKSR,
   0,
   [_CKSI],
-  [0]
+  [0], 1
 ];
 export var ConnectCustomKeyStoreResponse$: StaticStructureSchema = [3, n0, _CCKSRo,
   0,
@@ -503,12 +503,12 @@ export var ConnectCustomKeyStoreResponse$: StaticStructureSchema = [3, n0, _CCKS
 export var CreateAliasRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_AN, _TKI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateCustomKeyStoreRequest$: StaticStructureSchema = [3, n0, _CCKSRr,
   0,
   [_CKSN, _CHCI, _TAC, _KSP, _CKST, _XPUE, _XPUP, _XPVESN, _XPVESO, _XPAC, _XPC],
-  [0, 0, 0, [() => KeyStorePasswordType, 0], 0, 0, 0, 0, 0, [() => XksProxyAuthenticationCredentialType$, 0], 0]
+  [0, 0, 0, [() => KeyStorePasswordType, 0], 0, 0, 0, 0, 0, [() => XksProxyAuthenticationCredentialType$, 0], 0], 1
 ];
 export var CreateCustomKeyStoreResponse$: StaticStructureSchema = [3, n0, _CCKSRre,
   0,
@@ -517,8 +517,8 @@ export var CreateCustomKeyStoreResponse$: StaticStructureSchema = [3, n0, _CCKSR
 ];
 export var CreateGrantRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
-  [_KI, _GP, _RP, _O, _C, _GT, _N, _DR],
-  [0, 0, 0, 64 | 0, () => GrantConstraints$, 64 | 0, 0, 2]
+  [_KI, _GP, _O, _RP, _C, _GT, _N, _DR],
+  [0, 0, 64 | 0, 0, () => GrantConstraints$, 64 | 0, 0, 2], 3
 ];
 export var CreateGrantResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
@@ -567,7 +567,7 @@ export var CustomKeyStoresListEntry$: StaticStructureSchema = [3, n0, _CKSLE,
 export var DecryptRequest$: StaticStructureSchema = [3, n0, _DRe,
   0,
   [_CB, _EC, _GT, _KI, _EA, _R, _DR],
-  [21, 128 | 0, 64 | 0, 0, 0, () => RecipientInfo$, 2]
+  [21, 128 | 0, 64 | 0, 0, 0, () => RecipientInfo$, 2], 1
 ];
 export var DecryptResponse$: StaticStructureSchema = [3, n0, _DRec,
   0,
@@ -577,12 +577,12 @@ export var DecryptResponse$: StaticStructureSchema = [3, n0, _DRec,
 export var DeleteAliasRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AN],
-  [0]
+  [0], 1
 ];
 export var DeleteCustomKeyStoreRequest$: StaticStructureSchema = [3, n0, _DCKSR,
   0,
   [_CKSI],
-  [0]
+  [0], 1
 ];
 export var DeleteCustomKeyStoreResponse$: StaticStructureSchema = [3, n0, _DCKSRe,
   0,
@@ -592,7 +592,7 @@ export var DeleteCustomKeyStoreResponse$: StaticStructureSchema = [3, n0, _DCKSR
 export var DeleteImportedKeyMaterialRequest$: StaticStructureSchema = [3, n0, _DIKMR,
   0,
   [_KI, _KMI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteImportedKeyMaterialResponse$: StaticStructureSchema = [3, n0, _DIKMRe,
   0,
@@ -608,7 +608,7 @@ TypeRegistry.for(n0).registerError(DependencyTimeoutException$, DependencyTimeou
 export var DeriveSharedSecretRequest$: StaticStructureSchema = [3, n0, _DSSR,
   0,
   [_KI, _KAA, _PK, _GT, _DR, _R],
-  [0, 0, 21, 64 | 0, 2, () => RecipientInfo$]
+  [0, 0, 21, 64 | 0, 2, () => RecipientInfo$], 3
 ];
 export var DeriveSharedSecretResponse$: StaticStructureSchema = [3, n0, _DSSRe,
   0,
@@ -628,7 +628,7 @@ export var DescribeCustomKeyStoresResponse$: StaticStructureSchema = [3, n0, _DC
 export var DescribeKeyRequest$: StaticStructureSchema = [3, n0, _DKR,
   0,
   [_KI, _GT],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var DescribeKeyResponse$: StaticStructureSchema = [3, n0, _DKRe,
   0,
@@ -644,17 +644,17 @@ TypeRegistry.for(n0).registerError(DisabledException$, DisabledException);
 export var DisableKeyRequest$: StaticStructureSchema = [3, n0, _DKRi,
   0,
   [_KI],
-  [0]
+  [0], 1
 ];
 export var DisableKeyRotationRequest$: StaticStructureSchema = [3, n0, _DKRR,
   0,
   [_KI],
-  [0]
+  [0], 1
 ];
 export var DisconnectCustomKeyStoreRequest$: StaticStructureSchema = [3, n0, _DCKSRi,
   0,
   [_CKSI],
-  [0]
+  [0], 1
 ];
 export var DisconnectCustomKeyStoreResponse$: StaticStructureSchema = [3, n0, _DCKSRis,
   0,
@@ -670,17 +670,17 @@ TypeRegistry.for(n0).registerError(DryRunOperationException$, DryRunOperationExc
 export var EnableKeyRequest$: StaticStructureSchema = [3, n0, _EKR,
   0,
   [_KI],
-  [0]
+  [0], 1
 ];
 export var EnableKeyRotationRequest$: StaticStructureSchema = [3, n0, _EKRR,
   0,
   [_KI, _RPID],
-  [0, 1]
+  [0, 1], 1
 ];
 export var EncryptRequest$: StaticStructureSchema = [3, n0, _ER,
   0,
   [_KI, _Pl, _EC, _GT, _EA, _DR],
-  [0, [() => PlaintextType, 0], 128 | 0, 64 | 0, 0, 2]
+  [0, [() => PlaintextType, 0], 128 | 0, 64 | 0, 0, 2], 2
 ];
 export var EncryptResponse$: StaticStructureSchema = [3, n0, _ERn,
   0,
@@ -695,8 +695,8 @@ export var ExpiredImportTokenException$: StaticErrorSchema = [-3, n0, _EITE,
 TypeRegistry.for(n0).registerError(ExpiredImportTokenException$, ExpiredImportTokenException);
 export var GenerateDataKeyPairRequest$: StaticStructureSchema = [3, n0, _GDKPR,
   0,
-  [_EC, _KI, _KPS, _GT, _R, _DR],
-  [128 | 0, 0, 0, 64 | 0, () => RecipientInfo$, 2]
+  [_KI, _KPS, _EC, _GT, _R, _DR],
+  [0, 0, 128 | 0, 64 | 0, () => RecipientInfo$, 2], 2
 ];
 export var GenerateDataKeyPairResponse$: StaticStructureSchema = [3, n0, _GDKPRe,
   0,
@@ -705,8 +705,8 @@ export var GenerateDataKeyPairResponse$: StaticStructureSchema = [3, n0, _GDKPRe
 ];
 export var GenerateDataKeyPairWithoutPlaintextRequest$: StaticStructureSchema = [3, n0, _GDKPWPR,
   0,
-  [_EC, _KI, _KPS, _GT, _DR],
-  [128 | 0, 0, 0, 64 | 0, 2]
+  [_KI, _KPS, _EC, _GT, _DR],
+  [0, 0, 128 | 0, 64 | 0, 2], 2
 ];
 export var GenerateDataKeyPairWithoutPlaintextResponse$: StaticStructureSchema = [3, n0, _GDKPWPRe,
   0,
@@ -716,7 +716,7 @@ export var GenerateDataKeyPairWithoutPlaintextResponse$: StaticStructureSchema =
 export var GenerateDataKeyRequest$: StaticStructureSchema = [3, n0, _GDKR,
   0,
   [_KI, _EC, _NOB, _KS, _GT, _R, _DR],
-  [0, 128 | 0, 1, 0, 64 | 0, () => RecipientInfo$, 2]
+  [0, 128 | 0, 1, 0, 64 | 0, () => RecipientInfo$, 2], 1
 ];
 export var GenerateDataKeyResponse$: StaticStructureSchema = [3, n0, _GDKRe,
   0,
@@ -726,7 +726,7 @@ export var GenerateDataKeyResponse$: StaticStructureSchema = [3, n0, _GDKRe,
 export var GenerateDataKeyWithoutPlaintextRequest$: StaticStructureSchema = [3, n0, _GDKWPR,
   0,
   [_KI, _EC, _KS, _NOB, _GT, _DR],
-  [0, 128 | 0, 0, 1, 64 | 0, 2]
+  [0, 128 | 0, 0, 1, 64 | 0, 2], 1
 ];
 export var GenerateDataKeyWithoutPlaintextResponse$: StaticStructureSchema = [3, n0, _GDKWPRe,
   0,
@@ -736,7 +736,7 @@ export var GenerateDataKeyWithoutPlaintextResponse$: StaticStructureSchema = [3,
 export var GenerateMacRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
   [_Me, _KI, _MA, _GT, _DR],
-  [[() => PlaintextType, 0], 0, 0, 64 | 0, 2]
+  [[() => PlaintextType, 0], 0, 0, 64 | 0, 2], 3
 ];
 export var GenerateMacResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
@@ -756,7 +756,7 @@ export var GenerateRandomResponse$: StaticStructureSchema = [3, n0, _GRRe,
 export var GetKeyPolicyRequest$: StaticStructureSchema = [3, n0, _GKPR,
   0,
   [_KI, _PN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetKeyPolicyResponse$: StaticStructureSchema = [3, n0, _GKPRe,
   0,
@@ -766,7 +766,7 @@ export var GetKeyPolicyResponse$: StaticStructureSchema = [3, n0, _GKPRe,
 export var GetKeyRotationStatusRequest$: StaticStructureSchema = [3, n0, _GKRSR,
   0,
   [_KI],
-  [0]
+  [0], 1
 ];
 export var GetKeyRotationStatusResponse$: StaticStructureSchema = [3, n0, _GKRSRe,
   0,
@@ -776,7 +776,7 @@ export var GetKeyRotationStatusResponse$: StaticStructureSchema = [3, n0, _GKRSR
 export var GetParametersForImportRequest$: StaticStructureSchema = [3, n0, _GPFIR,
   0,
   [_KI, _WA, _WKS],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetParametersForImportResponse$: StaticStructureSchema = [3, n0, _GPFIRe,
   0,
@@ -786,7 +786,7 @@ export var GetParametersForImportResponse$: StaticStructureSchema = [3, n0, _GPF
 export var GetPublicKeyRequest$: StaticStructureSchema = [3, n0, _GPKR,
   0,
   [_KI, _GT],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var GetPublicKeyResponse$: StaticStructureSchema = [3, n0, _GPKRe,
   0,
@@ -806,7 +806,7 @@ export var GrantListEntry$: StaticStructureSchema = [3, n0, _GLE,
 export var ImportKeyMaterialRequest$: StaticStructureSchema = [3, n0, _IKMR,
   0,
   [_KI, _IT, _EKM, _VT, _EM, _ITm, _KMD, _KMI],
-  [0, 21, 21, 4, 0, 0, 0, 0]
+  [0, 21, 21, 4, 0, 0, 0, 0], 3
 ];
 export var ImportKeyMaterialResponse$: StaticStructureSchema = [3, n0, _IKMRm,
   0,
@@ -886,8 +886,8 @@ export var KeyListEntry$: StaticStructureSchema = [3, n0, _KLE,
 ];
 export var KeyMetadata$: StaticStructureSchema = [3, n0, _KM,
   0,
-  [_AWSAI, _KI, _A, _CD, _E, _D, _KU, _KSe, _DD, _VT, _Or, _CKSI, _CHCI, _EM, _KMe, _CMKS, _KS, _EAn, _SA, _KAAe, _MR, _MRC, _PDWID, _MAa, _XKC, _CKMI],
-  [0, 0, 0, 4, 2, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 2, () => MultiRegionConfiguration$, 1, 64 | 0, () => XksKeyConfigurationType$, 0]
+  [_KI, _AWSAI, _A, _CD, _E, _D, _KU, _KSe, _DD, _VT, _Or, _CKSI, _CHCI, _EM, _KMe, _CMKS, _KS, _EAn, _SA, _KAAe, _MR, _MRC, _PDWID, _MAa, _XKC, _CKMI],
+  [0, 0, 0, 4, 2, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 2, () => MultiRegionConfiguration$, 1, 64 | 0, () => XksKeyConfigurationType$, 0], 1
 ];
 export var KeyUnavailableException$: StaticErrorSchema = [-3, n0, _KUE,
   { [_aQE]: [`KeyUnavailable`, 500], [_e]: _s, [_hE]: 500 },
@@ -937,8 +937,8 @@ export var ListAliasesResponse$: StaticStructureSchema = [3, n0, _LARi,
 ];
 export var ListGrantsRequest$: StaticStructureSchema = [3, n0, _LGR,
   0,
-  [_L, _M, _KI, _GI, _GP],
-  [1, 0, 0, 0, 0]
+  [_KI, _L, _M, _GI, _GP],
+  [0, 1, 0, 0, 0], 1
 ];
 export var ListGrantsResponse$: StaticStructureSchema = [3, n0, _LGRi,
   0,
@@ -948,7 +948,7 @@ export var ListGrantsResponse$: StaticStructureSchema = [3, n0, _LGRi,
 export var ListKeyPoliciesRequest$: StaticStructureSchema = [3, n0, _LKPR,
   0,
   [_KI, _L, _M],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListKeyPoliciesResponse$: StaticStructureSchema = [3, n0, _LKPRi,
   0,
@@ -958,7 +958,7 @@ export var ListKeyPoliciesResponse$: StaticStructureSchema = [3, n0, _LKPRi,
 export var ListKeyRotationsRequest$: StaticStructureSchema = [3, n0, _LKRR,
   0,
   [_KI, _IKM, _L, _M],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListKeyRotationsResponse$: StaticStructureSchema = [3, n0, _LKRRi,
   0,
@@ -978,7 +978,7 @@ export var ListKeysResponse$: StaticStructureSchema = [3, n0, _LKRi,
 export var ListResourceTagsRequest$: StaticStructureSchema = [3, n0, _LRTR,
   0,
   [_KI, _L, _M],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListResourceTagsResponse$: StaticStructureSchema = [3, n0, _LRTRi,
   0,
@@ -987,8 +987,8 @@ export var ListResourceTagsResponse$: StaticStructureSchema = [3, n0, _LRTRi,
 ];
 export var ListRetirableGrantsRequest$: StaticStructureSchema = [3, n0, _LRGR,
   0,
-  [_L, _M, _RP],
-  [1, 0, 0]
+  [_RP, _L, _M],
+  [0, 1, 0], 1
 ];
 export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
   { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
@@ -1014,8 +1014,8 @@ export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
 TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PutKeyPolicyRequest$: StaticStructureSchema = [3, n0, _PKPR,
   0,
-  [_KI, _PN, _P, _BPLSC],
-  [0, 0, 0, 2]
+  [_KI, _P, _PN, _BPLSC],
+  [0, 0, 0, 2], 2
 ];
 export var RecipientInfo$: StaticStructureSchema = [3, n0, _RI,
   0,
@@ -1024,8 +1024,8 @@ export var RecipientInfo$: StaticStructureSchema = [3, n0, _RI,
 ];
 export var ReEncryptRequest$: StaticStructureSchema = [3, n0, _RER,
   0,
-  [_CB, _SEC, _SKI, _DKI, _DEC, _SEA, _DEA, _GT, _DR],
-  [21, 128 | 0, 0, 0, 128 | 0, 0, 0, 64 | 0, 2]
+  [_CB, _DKI, _SEC, _SKI, _DEC, _SEA, _DEA, _GT, _DR],
+  [21, 0, 128 | 0, 0, 128 | 0, 0, 0, 64 | 0, 2], 2
 ];
 export var ReEncryptResponse$: StaticStructureSchema = [3, n0, _RERe,
   0,
@@ -1035,7 +1035,7 @@ export var ReEncryptResponse$: StaticStructureSchema = [3, n0, _RERe,
 export var ReplicateKeyRequest$: StaticStructureSchema = [3, n0, _RKR,
   0,
   [_KI, _RR, _P, _BPLSC, _D, _T],
-  [0, 0, 0, 2, 0, () => TagList]
+  [0, 0, 0, 2, 0, () => TagList], 2
 ];
 export var ReplicateKeyResponse$: StaticStructureSchema = [3, n0, _RKRe,
   0,
@@ -1050,12 +1050,12 @@ export var RetireGrantRequest$: StaticStructureSchema = [3, n0, _RGR,
 export var RevokeGrantRequest$: StaticStructureSchema = [3, n0, _RGRe,
   0,
   [_KI, _GI, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var RotateKeyOnDemandRequest$: StaticStructureSchema = [3, n0, _RKODR,
   0,
   [_KI],
-  [0]
+  [0], 1
 ];
 export var RotateKeyOnDemandResponse$: StaticStructureSchema = [3, n0, _RKODRo,
   0,
@@ -1070,7 +1070,7 @@ export var RotationsListEntry$: StaticStructureSchema = [3, n0, _RLE,
 export var ScheduleKeyDeletionRequest$: StaticStructureSchema = [3, n0, _SKDR,
   0,
   [_KI, _PWID],
-  [0, 1]
+  [0, 1], 1
 ];
 export var ScheduleKeyDeletionResponse$: StaticStructureSchema = [3, n0, _SKDRc,
   0,
@@ -1079,8 +1079,8 @@ export var ScheduleKeyDeletionResponse$: StaticStructureSchema = [3, n0, _SKDRc,
 ];
 export var SignRequest$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_KI, _Me, _MT, _GT, _SAi, _DR],
-  [0, [() => PlaintextType, 0], 0, 64 | 0, 0, 2]
+  [_KI, _Me, _SAi, _MT, _GT, _DR],
+  [0, [() => PlaintextType, 0], 0, 0, 64 | 0, 2], 3
 ];
 export var SignResponse$: StaticStructureSchema = [3, n0, _SRi,
   0,
@@ -1090,7 +1090,7 @@ export var SignResponse$: StaticStructureSchema = [3, n0, _SRi,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_TK, _TV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagException$: StaticErrorSchema = [-3, n0, _TE,
   { [_aQE]: [`TagException`, 400], [_e]: _c, [_hE]: 400 },
@@ -1101,7 +1101,7 @@ TypeRegistry.for(n0).registerError(TagException$, TagException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_KI, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
   { [_aQE]: [`UnsupportedOperation`, 400], [_e]: _c, [_hE]: 400 },
@@ -1112,17 +1112,17 @@ TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOp
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_KI, _TKa],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UpdateAliasRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_AN, _TKI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateCustomKeyStoreRequest$: StaticStructureSchema = [3, n0, _UCKSR,
   0,
   [_CKSI, _NCKSN, _KSP, _CHCI, _XPUE, _XPUP, _XPVESN, _XPVESO, _XPAC, _XPC],
-  [0, 0, [() => KeyStorePasswordType, 0], 0, 0, 0, 0, 0, [() => XksProxyAuthenticationCredentialType$, 0], 0]
+  [0, 0, [() => KeyStorePasswordType, 0], 0, 0, 0, 0, 0, [() => XksProxyAuthenticationCredentialType$, 0], 0], 1
 ];
 export var UpdateCustomKeyStoreResponse$: StaticStructureSchema = [3, n0, _UCKSRp,
   0,
@@ -1132,17 +1132,17 @@ export var UpdateCustomKeyStoreResponse$: StaticStructureSchema = [3, n0, _UCKSR
 export var UpdateKeyDescriptionRequest$: StaticStructureSchema = [3, n0, _UKDR,
   0,
   [_KI, _D],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdatePrimaryRegionRequest$: StaticStructureSchema = [3, n0, _UPRR,
   0,
   [_KI, _PR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VerifyMacRequest$: StaticStructureSchema = [3, n0, _VMR,
   0,
   [_Me, _KI, _MA, _Ma, _GT, _DR],
-  [[() => PlaintextType, 0], 0, 0, 21, 64 | 0, 2]
+  [[() => PlaintextType, 0], 0, 0, 21, 64 | 0, 2], 4
 ];
 export var VerifyMacResponse$: StaticStructureSchema = [3, n0, _VMRe,
   0,
@@ -1151,8 +1151,8 @@ export var VerifyMacResponse$: StaticStructureSchema = [3, n0, _VMRe,
 ];
 export var VerifyRequest$: StaticStructureSchema = [3, n0, _VR,
   0,
-  [_KI, _Me, _MT, _S, _SAi, _GT, _DR],
-  [0, [() => PlaintextType, 0], 0, 21, 0, 64 | 0, 2]
+  [_KI, _Me, _S, _SAi, _MT, _GT, _DR],
+  [0, [() => PlaintextType, 0], 21, 0, 0, 64 | 0, 2], 4
 ];
 export var VerifyResponse$: StaticStructureSchema = [3, n0, _VRe,
   0,
@@ -1185,7 +1185,7 @@ TypeRegistry.for(n0).registerError(XksKeyNotFoundException$, XksKeyNotFoundExcep
 export var XksProxyAuthenticationCredentialType$: StaticStructureSchema = [3, n0, _XPACT,
   0,
   [_AKI, _RSAK],
-  [[() => XksProxyAuthenticationAccessKeyIdType, 0], [() => XksProxyAuthenticationRawSecretAccessKeyType, 0]]
+  [[() => XksProxyAuthenticationAccessKeyIdType, 0], [() => XksProxyAuthenticationRawSecretAccessKeyType, 0]], 2
 ];
 export var XksProxyConfigurationType$: StaticStructureSchema = [3, n0, _XPCT,
   0,

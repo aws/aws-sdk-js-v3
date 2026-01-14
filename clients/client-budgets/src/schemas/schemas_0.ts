@@ -257,27 +257,27 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
   [_AI, _BN, _NT, _AT, _ATc, _D, _ERA, _AM, _S, _Su],
-  [0, 0, 0, 0, () => ActionThreshold$, () => Definition$, 0, 0, 0, [() => Subscribers, 0]]
+  [0, 0, 0, 0, () => ActionThreshold$, () => Definition$, 0, 0, 0, [() => Subscribers, 0]], 10
 ];
 export var ActionHistory$: StaticStructureSchema = [3, n0, _AH,
   0,
   [_T, _S, _ET, _AHD],
-  [4, 0, 0, [() => ActionHistoryDetails$, 0]]
+  [4, 0, 0, [() => ActionHistoryDetails$, 0]], 4
 ];
 export var ActionHistoryDetails$: StaticStructureSchema = [3, n0, _AHD,
   0,
   [_M, _A],
-  [0, [() => Action$, 0]]
+  [0, [() => Action$, 0]], 2
 ];
 export var ActionThreshold$: StaticStructureSchema = [3, n0, _ATc,
   0,
   [_ATV, _ATT],
-  [1, 0]
+  [1, 0], 2
 ];
 export var AutoAdjustData$: StaticStructureSchema = [3, n0, _AAD,
   0,
   [_AAT, _HO, _LAAT],
-  [0, () => HistoricalOptions$, 4]
+  [0, () => HistoricalOptions$, 4], 1
 ];
 export var BillingViewHealthStatusException$: StaticErrorSchema = [-3, n0, _BVHSE,
   { [_e]: _c, [_hE]: 400 },
@@ -287,8 +287,8 @@ export var BillingViewHealthStatusException$: StaticErrorSchema = [-3, n0, _BVHS
 TypeRegistry.for(n0).registerError(BillingViewHealthStatusException$, BillingViewHealthStatusException);
 export var Budget$: StaticStructureSchema = [3, n0, _B,
   0,
-  [_BN, _BL, _PBL, _CF, _CT, _TU, _TP, _CS, _BT, _LUT, _AAD, _FE, _Me, _BVA, _HS],
-  [0, () => Spend$, () => PlannedBudgetLimits, [2, n0, _CF, 0, 0, 64 | 0], () => CostTypes$, 0, () => TimePeriod$, () => CalculatedSpend$, 0, 4, () => AutoAdjustData$, () => Expression$, 64 | 0, 0, () => HealthStatus$]
+  [_BN, _TU, _BT, _BL, _PBL, _CF, _CT, _TP, _CS, _LUT, _AAD, _FE, _Me, _BVA, _HS],
+  [0, 0, 0, () => Spend$, () => PlannedBudgetLimits, [2, n0, _CF, 0, 0, 64 | 0], () => CostTypes$, () => TimePeriod$, () => CalculatedSpend$, 4, () => AutoAdjustData$, () => Expression$, 64 | 0, 0, () => HealthStatus$], 3
 ];
 export var BudgetedAndActualAmounts$: StaticStructureSchema = [3, n0, _BAAA,
   0,
@@ -308,7 +308,7 @@ export var BudgetPerformanceHistory$: StaticStructureSchema = [3, n0, _BPH,
 export var CalculatedSpend$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_AS, _FS],
-  [() => Spend$, () => Spend$]
+  [() => Spend$, () => Spend$], 1
 ];
 export var CostCategoryValues$: StaticStructureSchema = [3, n0, _CCV,
   0,
@@ -323,17 +323,17 @@ export var CostTypes$: StaticStructureSchema = [3, n0, _CT,
 export var CreateBudgetActionRequest$: StaticStructureSchema = [3, n0, _CBAR,
   0,
   [_AIc, _BN, _NT, _AT, _ATc, _D, _ERA, _AM, _Su, _RT],
-  [0, 0, 0, 0, () => ActionThreshold$, () => Definition$, 0, 0, [() => Subscribers, 0], () => ResourceTagList]
+  [0, 0, 0, 0, () => ActionThreshold$, () => Definition$, 0, 0, [() => Subscribers, 0], () => ResourceTagList], 9
 ];
 export var CreateBudgetActionResponse$: StaticStructureSchema = [3, n0, _CBARr,
   0,
   [_AIc, _BN, _AI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreateBudgetRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
   [_AIc, _B, _NWS, _RT],
-  [0, () => Budget$, [() => NotificationWithSubscribersList, 0], () => ResourceTagList]
+  [0, () => Budget$, [() => NotificationWithSubscribersList, 0], () => ResourceTagList], 2
 ];
 export var CreateBudgetResponse$: StaticStructureSchema = [3, n0, _CBRr,
   0,
@@ -343,7 +343,7 @@ export var CreateBudgetResponse$: StaticStructureSchema = [3, n0, _CBRr,
 export var CreateNotificationRequest$: StaticStructureSchema = [3, n0, _CNR,
   0,
   [_AIc, _BN, _No, _Su],
-  [0, 0, () => Notification$, [() => Subscribers, 0]]
+  [0, 0, () => Notification$, [() => Subscribers, 0]], 4
 ];
 export var CreateNotificationResponse$: StaticStructureSchema = [3, n0, _CNRr,
   0,
@@ -353,7 +353,7 @@ export var CreateNotificationResponse$: StaticStructureSchema = [3, n0, _CNRr,
 export var CreateSubscriberRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_AIc, _BN, _No, _Sub],
-  [0, 0, () => Notification$, [() => Subscriber$, 0]]
+  [0, 0, () => Notification$, [() => Subscriber$, 0]], 4
 ];
 export var CreateSubscriberResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -374,17 +374,17 @@ export var Definition$: StaticStructureSchema = [3, n0, _D,
 export var DeleteBudgetActionRequest$: StaticStructureSchema = [3, n0, _DBAR,
   0,
   [_AIc, _BN, _AI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteBudgetActionResponse$: StaticStructureSchema = [3, n0, _DBARe,
   0,
   [_AIc, _BN, _A],
-  [0, 0, [() => Action$, 0]]
+  [0, 0, [() => Action$, 0]], 3
 ];
 export var DeleteBudgetRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
   [_AIc, _BN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteBudgetResponse$: StaticStructureSchema = [3, n0, _DBRe,
   0,
@@ -394,7 +394,7 @@ export var DeleteBudgetResponse$: StaticStructureSchema = [3, n0, _DBRe,
 export var DeleteNotificationRequest$: StaticStructureSchema = [3, n0, _DNR,
   0,
   [_AIc, _BN, _No],
-  [0, 0, () => Notification$]
+  [0, 0, () => Notification$], 3
 ];
 export var DeleteNotificationResponse$: StaticStructureSchema = [3, n0, _DNRe,
   0,
@@ -404,7 +404,7 @@ export var DeleteNotificationResponse$: StaticStructureSchema = [3, n0, _DNRe,
 export var DeleteSubscriberRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_AIc, _BN, _No, _Sub],
-  [0, 0, () => Notification$, [() => Subscriber$, 0]]
+  [0, 0, () => Notification$, [() => Subscriber$, 0]], 4
 ];
 export var DeleteSubscriberResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -414,47 +414,47 @@ export var DeleteSubscriberResponse$: StaticStructureSchema = [3, n0, _DSRe,
 export var DescribeBudgetActionHistoriesRequest$: StaticStructureSchema = [3, n0, _DBAHR,
   0,
   [_AIc, _BN, _AI, _TP, _MR, _NTe],
-  [0, 0, 0, () => TimePeriod$, 1, 0]
+  [0, 0, 0, () => TimePeriod$, 1, 0], 3
 ];
 export var DescribeBudgetActionHistoriesResponse$: StaticStructureSchema = [3, n0, _DBAHRe,
   0,
   [_AHc, _NTe],
-  [[() => ActionHistories, 0], 0]
+  [[() => ActionHistories, 0], 0], 1
 ];
 export var DescribeBudgetActionRequest$: StaticStructureSchema = [3, n0, _DBARes,
   0,
   [_AIc, _BN, _AI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DescribeBudgetActionResponse$: StaticStructureSchema = [3, n0, _DBAResc,
   0,
   [_AIc, _BN, _A],
-  [0, 0, [() => Action$, 0]]
+  [0, 0, [() => Action$, 0]], 3
 ];
 export var DescribeBudgetActionsForAccountRequest$: StaticStructureSchema = [3, n0, _DBAFAR,
   0,
   [_AIc, _MR, _NTe],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeBudgetActionsForAccountResponse$: StaticStructureSchema = [3, n0, _DBAFARe,
   0,
   [_Ac, _NTe],
-  [[() => Actions, 0], 0]
+  [[() => Actions, 0], 0], 1
 ];
 export var DescribeBudgetActionsForBudgetRequest$: StaticStructureSchema = [3, n0, _DBAFBR,
   0,
   [_AIc, _BN, _MR, _NTe],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 2
 ];
 export var DescribeBudgetActionsForBudgetResponse$: StaticStructureSchema = [3, n0, _DBAFBRe,
   0,
   [_Ac, _NTe],
-  [[() => Actions, 0], 0]
+  [[() => Actions, 0], 0], 1
 ];
 export var DescribeBudgetNotificationsForAccountRequest$: StaticStructureSchema = [3, n0, _DBNFAR,
   0,
   [_AIc, _MR, _NTe],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeBudgetNotificationsForAccountResponse$: StaticStructureSchema = [3, n0, _DBNFARe,
   0,
@@ -464,7 +464,7 @@ export var DescribeBudgetNotificationsForAccountResponse$: StaticStructureSchema
 export var DescribeBudgetPerformanceHistoryRequest$: StaticStructureSchema = [3, n0, _DBPHR,
   0,
   [_AIc, _BN, _TP, _MR, _NTe],
-  [0, 0, () => TimePeriod$, 1, 0]
+  [0, 0, () => TimePeriod$, 1, 0], 2
 ];
 export var DescribeBudgetPerformanceHistoryResponse$: StaticStructureSchema = [3, n0, _DBPHRe,
   0,
@@ -474,7 +474,7 @@ export var DescribeBudgetPerformanceHistoryResponse$: StaticStructureSchema = [3
 export var DescribeBudgetRequest$: StaticStructureSchema = [3, n0, _DBRes,
   0,
   [_AIc, _BN, _SFE],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DescribeBudgetResponse$: StaticStructureSchema = [3, n0, _DBResc,
   0,
@@ -484,7 +484,7 @@ export var DescribeBudgetResponse$: StaticStructureSchema = [3, n0, _DBResc,
 export var DescribeBudgetsRequest$: StaticStructureSchema = [3, n0, _DBRescr,
   0,
   [_AIc, _MR, _NTe, _SFE],
-  [0, 1, 0, 2]
+  [0, 1, 0, 2], 1
 ];
 export var DescribeBudgetsResponse$: StaticStructureSchema = [3, n0, _DBRescri,
   0,
@@ -494,7 +494,7 @@ export var DescribeBudgetsResponse$: StaticStructureSchema = [3, n0, _DBRescri,
 export var DescribeNotificationsForBudgetRequest$: StaticStructureSchema = [3, n0, _DNFBR,
   0,
   [_AIc, _BN, _MR, _NTe],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 2
 ];
 export var DescribeNotificationsForBudgetResponse$: StaticStructureSchema = [3, n0, _DNFBRe,
   0,
@@ -504,7 +504,7 @@ export var DescribeNotificationsForBudgetResponse$: StaticStructureSchema = [3, 
 export var DescribeSubscribersForNotificationRequest$: StaticStructureSchema = [3, n0, _DSFNR,
   0,
   [_AIc, _BN, _No, _MR, _NTe],
-  [0, 0, () => Notification$, 1, 0]
+  [0, 0, () => Notification$, 1, 0], 3
 ];
 export var DescribeSubscribersForNotificationResponse$: StaticStructureSchema = [3, n0, _DSFNRe,
   0,
@@ -520,12 +520,12 @@ TypeRegistry.for(n0).registerError(DuplicateRecordException$, DuplicateRecordExc
 export var ExecuteBudgetActionRequest$: StaticStructureSchema = [3, n0, _EBAR,
   0,
   [_AIc, _BN, _AI, _ETx],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ExecuteBudgetActionResponse$: StaticStructureSchema = [3, n0, _EBARx,
   0,
   [_AIc, _BN, _AI, _ETx],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ExpiredNextTokenException$: StaticErrorSchema = [-3, n0, _ENTE,
   { [_e]: _c, [_hE]: 400 },
@@ -541,7 +541,7 @@ export var Expression$: StaticStructureSchema = [3, n0, _E,
 export var ExpressionDimensionValues$: StaticStructureSchema = [3, n0, _EDV,
   0,
   [_K, _V, _MO],
-  [0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0], 2
 ];
 export var HealthStatus$: StaticStructureSchema = [3, n0, _HS,
   0,
@@ -551,12 +551,12 @@ export var HealthStatus$: StaticStructureSchema = [3, n0, _HS,
 export var HistoricalOptions$: StaticStructureSchema = [3, n0, _HO,
   0,
   [_BAP, _LBAP],
-  [1, 1]
+  [1, 1], 1
 ];
 export var IamActionDefinition$: StaticStructureSchema = [3, n0, _IAD,
   0,
   [_PA, _R, _G, _U],
-  [0, 64 | 0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
   { [_e]: _s, [_hE]: 500 },
@@ -579,7 +579,7 @@ TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterE
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -595,12 +595,12 @@ TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var Notification$: StaticStructureSchema = [3, n0, _No,
   0,
   [_NT, _CO, _Th, _TT, _NS],
-  [0, 0, 1, 0, 0]
+  [0, 0, 1, 0, 0], 3
 ];
 export var NotificationWithSubscribers$: StaticStructureSchema = [3, n0, _NWSo,
   0,
   [_No, _Su],
-  [() => Notification$, [() => Subscribers, 0]]
+  [() => Notification$, [() => Subscribers, 0]], 2
 ];
 export var ResourceLockedException$: StaticErrorSchema = [-3, n0, _RLE,
   { [_e]: _c, [_hE]: 423 },
@@ -611,12 +611,12 @@ TypeRegistry.for(n0).registerError(ResourceLockedException$, ResourceLockedExcep
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTe,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ScpActionDefinition$: StaticStructureSchema = [3, n0, _SAD,
   0,
   [_PI, _TI],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -627,22 +627,22 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var Spend$: StaticStructureSchema = [3, n0, _Sp,
   0,
   [_Am, _Un],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SsmActionDefinition$: StaticStructureSchema = [3, n0, _SADs,
   0,
   [_AST, _Re, _II],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var Subscriber$: StaticStructureSchema = [3, n0, _Sub,
   0,
   [_ST, _Ad],
-  [0, [() => SubscriberAddress, 0]]
+  [0, [() => SubscriberAddress, 0]], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _RT],
-  [0, () => ResourceTagList]
+  [0, () => ResourceTagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -668,7 +668,7 @@ export var TimePeriod$: StaticStructureSchema = [3, n0, _TP,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _RTK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -678,17 +678,17 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateBudgetActionRequest$: StaticStructureSchema = [3, n0, _UBAR,
   0,
   [_AIc, _BN, _AI, _NT, _ATc, _D, _ERA, _AM, _Su],
-  [0, 0, 0, 0, () => ActionThreshold$, () => Definition$, 0, 0, [() => Subscribers, 0]]
+  [0, 0, 0, 0, () => ActionThreshold$, () => Definition$, 0, 0, [() => Subscribers, 0]], 3
 ];
 export var UpdateBudgetActionResponse$: StaticStructureSchema = [3, n0, _UBARp,
   0,
   [_AIc, _BN, _OA, _NA],
-  [0, 0, [() => Action$, 0], [() => Action$, 0]]
+  [0, 0, [() => Action$, 0], [() => Action$, 0]], 4
 ];
 export var UpdateBudgetRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
   [_AIc, _NB],
-  [0, () => Budget$]
+  [0, () => Budget$], 2
 ];
 export var UpdateBudgetResponse$: StaticStructureSchema = [3, n0, _UBRp,
   0,
@@ -698,7 +698,7 @@ export var UpdateBudgetResponse$: StaticStructureSchema = [3, n0, _UBRp,
 export var UpdateNotificationRequest$: StaticStructureSchema = [3, n0, _UNR,
   0,
   [_AIc, _BN, _ON, _NN],
-  [0, 0, () => Notification$, () => Notification$]
+  [0, 0, () => Notification$, () => Notification$], 4
 ];
 export var UpdateNotificationResponse$: StaticStructureSchema = [3, n0, _UNRp,
   0,
@@ -708,7 +708,7 @@ export var UpdateNotificationResponse$: StaticStructureSchema = [3, n0, _UNRp,
 export var UpdateSubscriberRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_AIc, _BN, _No, _OS, _NSe],
-  [0, 0, () => Notification$, [() => Subscriber$, 0], [() => Subscriber$, 0]]
+  [0, 0, () => Notification$, [() => Subscriber$, 0], [() => Subscriber$, 0]], 5
 ];
 export var UpdateSubscriberResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,

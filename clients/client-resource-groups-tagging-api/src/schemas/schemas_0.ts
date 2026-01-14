@@ -177,8 +177,8 @@ export var GetTagKeysOutput$: StaticStructureSchema = [3, n0, _GTKO,
 ];
 export var GetTagValuesInput$: StaticStructureSchema = [3, n0, _GTVI,
   0,
-  [_PT, _K],
-  [0, 0]
+  [_K, _PT],
+  [0, 0], 1
 ];
 export var GetTagValuesOutput$: StaticStructureSchema = [3, n0, _GTVO,
   0,
@@ -226,7 +226,7 @@ export var ResourceTagMapping$: StaticStructureSchema = [3, n0, _RTM,
 export var StartReportCreationInput$: StaticStructureSchema = [3, n0, _SRCI,
   0,
   [_SB],
-  [0]
+  [0], 1
 ];
 export var StartReportCreationOutput$: StaticStructureSchema = [3, n0, _SRCO,
   0,
@@ -241,7 +241,7 @@ export var Summary$: StaticStructureSchema = [3, n0, _Su,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagFilter$: StaticStructureSchema = [3, n0, _TFa,
   0,
@@ -251,7 +251,7 @@ export var TagFilter$: StaticStructureSchema = [3, n0, _TFa,
 export var TagResourcesInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RARNL, _T],
-  [64 | 0, 128 | 0]
+  [64 | 0, 128 | 0], 2
 ];
 export var TagResourcesOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -267,7 +267,7 @@ TypeRegistry.for(n0).registerError(ThrottledException$, ThrottledException);
 export var UntagResourcesInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RARNL, _TK],
-  [64 | 0, 64 | 0]
+  [64 | 0, 64 | 0], 2
 ];
 export var UntagResourcesOutput$: StaticStructureSchema = [3, n0, _URO,
   0,

@@ -207,7 +207,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var BufferOptions$: StaticStructureSchema = [3, n0, _BO,
   0,
   [_PBE],
-  [2]
+  [2], 1
 ];
 export var ChangeProgressStage$: StaticStructureSchema = [3, n0, _CPS,
   0,
@@ -222,7 +222,7 @@ export var ChangeProgressStatus$: StaticStructureSchema = [3, n0, _CPSh,
 export var CloudWatchLogDestination$: StaticStructureSchema = [3, n0, _CWLD,
   0,
   [_LG],
-  [0]
+  [0], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -233,7 +233,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreatePipelineEndpointRequest$: StaticStructureSchema = [3, n0, _CPER,
   0,
   [_PA, _VO],
-  [0, () => PipelineEndpointVpcOptions$]
+  [0, () => PipelineEndpointVpcOptions$], 2
 ];
 export var CreatePipelineEndpointResponse$: StaticStructureSchema = [3, n0, _CPERr,
   0,
@@ -243,7 +243,7 @@ export var CreatePipelineEndpointResponse$: StaticStructureSchema = [3, n0, _CPE
 export var CreatePipelineRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_PN, _MU, _MUa, _PCB, _LPO, _VO, _BO, _EARO, _T, _PRA],
-  [0, 1, 1, 0, () => LogPublishingOptions$, () => VpcOptions$, () => BufferOptions$, () => EncryptionAtRestOptions$, () => TagList, 0]
+  [0, 1, 1, 0, () => LogPublishingOptions$, () => VpcOptions$, () => BufferOptions$, () => EncryptionAtRestOptions$, () => TagList, 0], 4
 ];
 export var CreatePipelineResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -253,7 +253,7 @@ export var CreatePipelineResponse$: StaticStructureSchema = [3, n0, _CPRr,
 export var DeletePipelineEndpointRequest$: StaticStructureSchema = [3, n0, _DPER,
   0,
   [_EI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeletePipelineEndpointResponse$: StaticStructureSchema = [3, n0, _DPERe,
   0,
@@ -263,7 +263,7 @@ export var DeletePipelineEndpointResponse$: StaticStructureSchema = [3, n0, _DPE
 export var DeletePipelineRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeletePipelineResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -273,7 +273,7 @@ export var DeletePipelineResponse$: StaticStructureSchema = [3, n0, _DPRe,
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -289,12 +289,12 @@ TypeRegistry.for(n0).registerError(DisabledOperationException$, DisabledOperatio
 export var EncryptionAtRestOptions$: StaticStructureSchema = [3, n0, _EARO,
   0,
   [_KKA],
-  [0]
+  [0], 1
 ];
 export var GetPipelineBlueprintRequest$: StaticStructureSchema = [3, n0, _GPBR,
   0,
   [_BN, _F],
-  [[0, 1], [0, { [_hQ]: _f }]]
+  [[0, 1], [0, { [_hQ]: _f }]], 1
 ];
 export var GetPipelineBlueprintResponse$: StaticStructureSchema = [3, n0, _GPBRe,
   0,
@@ -304,7 +304,7 @@ export var GetPipelineBlueprintResponse$: StaticStructureSchema = [3, n0, _GPBRe
 export var GetPipelineChangeProgressRequest$: StaticStructureSchema = [3, n0, _GPCPR,
   0,
   [_PN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPipelineChangeProgressResponse$: StaticStructureSchema = [3, n0, _GPCPRe,
   0,
@@ -314,7 +314,7 @@ export var GetPipelineChangeProgressResponse$: StaticStructureSchema = [3, n0, _
 export var GetPipelineRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_PN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPipelineResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -324,7 +324,7 @@ export var GetPipelineResponse$: StaticStructureSchema = [3, n0, _GPRe,
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
@@ -392,7 +392,7 @@ export var ListPipelinesResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_A],
-  [[0, { [_hQ]: _a }]]
+  [[0, { [_hQ]: _a }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -452,7 +452,7 @@ export var PipelineSummary$: StaticStructureSchema = [3, n0, _PS,
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_RA, _Po],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -474,7 +474,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var RevokePipelineEndpointConnectionsRequest$: StaticStructureSchema = [3, n0, _RPECR,
   0,
   [_PA, _EIn],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RevokePipelineEndpointConnectionsResponse$: StaticStructureSchema = [3, n0, _RPECRe,
   0,
@@ -489,7 +489,7 @@ export var ServiceVpcEndpoint$: StaticStructureSchema = [3, n0, _SVEe,
 export var StartPipelineRequest$: StaticStructureSchema = [3, n0, _SPR,
   0,
   [_PN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StartPipelineResponse$: StaticStructureSchema = [3, n0, _SPRt,
   0,
@@ -499,7 +499,7 @@ export var StartPipelineResponse$: StaticStructureSchema = [3, n0, _SPRt,
 export var StopPipelineRequest$: StaticStructureSchema = [3, n0, _SPRto,
   0,
   [_PN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StopPipelineResponse$: StaticStructureSchema = [3, n0, _SPRtop,
   0,
@@ -509,12 +509,12 @@ export var StopPipelineResponse$: StaticStructureSchema = [3, n0, _SPRtop,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_A, _T],
-  [[0, { [_hQ]: _a }], () => TagList]
+  [[0, { [_hQ]: _a }], () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -524,7 +524,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_A, _TK],
-  [[0, { [_hQ]: _a }], 64 | 0]
+  [[0, { [_hQ]: _a }], 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -534,7 +534,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdatePipelineRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_PN, _MU, _MUa, _PCB, _LPO, _BO, _EARO, _PRA],
-  [[0, 1], 1, 1, 0, () => LogPublishingOptions$, () => BufferOptions$, () => EncryptionAtRestOptions$, 0]
+  [[0, 1], 1, 1, 0, () => LogPublishingOptions$, () => BufferOptions$, () => EncryptionAtRestOptions$, 0], 1
 ];
 export var UpdatePipelineResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -544,7 +544,7 @@ export var UpdatePipelineResponse$: StaticStructureSchema = [3, n0, _UPRp,
 export var ValidatePipelineRequest$: StaticStructureSchema = [3, n0, _VPR,
   0,
   [_PCB],
-  [0]
+  [0], 1
 ];
 export var ValidatePipelineResponse$: StaticStructureSchema = [3, n0, _VPRa,
   0,
@@ -565,7 +565,7 @@ export var ValidationMessage$: StaticStructureSchema = [3, n0, _VM,
 export var VpcAttachmentOptions$: StaticStructureSchema = [3, n0, _VAO,
   0,
   [_ATV, _CB],
-  [2, 0]
+  [2, 0], 1
 ];
 export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VEp,
   0,
@@ -575,7 +575,7 @@ export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VEp,
 export var VpcOptions$: StaticStructureSchema = [3, n0, _VO,
   0,
   [_SI, _SGI, _VAO, _VEM],
-  [64 | 0, 64 | 0, () => VpcAttachmentOptions$, 0]
+  [64 | 0, 64 | 0, () => VpcAttachmentOptions$, 0], 1
 ];
 export var OSISServiceException$: StaticErrorSchema = [-3, _sm, "OSISServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(OSISServiceException$, OSISServiceException);

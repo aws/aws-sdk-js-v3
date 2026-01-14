@@ -242,7 +242,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AssociateFraudsterRequest$: StaticStructureSchema = [3, n0, _AFR,
   0,
   [_DI, _WI, _FI],
-  [0, 0, [() => FraudsterId, 0]]
+  [0, 0, [() => FraudsterId, 0]], 3
 ];
 export var AssociateFraudsterResponse$: StaticStructureSchema = [3, n0, _AFRs,
   0,
@@ -252,7 +252,7 @@ export var AssociateFraudsterResponse$: StaticStructureSchema = [3, n0, _AFRs,
 export var AuthenticationConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_AT],
-  [1]
+  [1], 1
 ];
 export var AuthenticationResult$: StaticStructureSchema = [3, n0, _AR,
   0,
@@ -267,8 +267,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateDomainRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_N, _D, _SSEC, _CTl, _T],
-  [[() => DomainName, 0], [() => Description, 0], () => ServerSideEncryptionConfiguration$, [0, 4], [() => TagList, 0]]
+  [_N, _SSEC, _D, _CTl, _T],
+  [[() => DomainName, 0], () => ServerSideEncryptionConfiguration$, [() => Description, 0], [0, 4], [() => TagList, 0]], 2
 ];
 export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -278,7 +278,7 @@ export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRr,
 export var CreateWatchlistRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
   [_DI, _N, _D, _CTl],
-  [0, [() => WatchlistName, 0], [() => WatchlistDescription, 0], [0, 4]]
+  [0, [() => WatchlistName, 0], [() => WatchlistDescription, 0], [0, 4]], 2
 ];
 export var CreateWatchlistResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
@@ -288,27 +288,27 @@ export var CreateWatchlistResponse$: StaticStructureSchema = [3, n0, _CWRr,
 export var DeleteDomainRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var DeleteFraudsterRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_DI, _FI],
-  [0, [() => FraudsterId, 0]]
+  [0, [() => FraudsterId, 0]], 2
 ];
 export var DeleteSpeakerRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_DI, _SI],
-  [0, [() => SpeakerId, 0]]
+  [0, [() => SpeakerId, 0]], 2
 ];
 export var DeleteWatchlistRequest$: StaticStructureSchema = [3, n0, _DWR,
   0,
   [_DI, _WI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeDomainRequest$: StaticStructureSchema = [3, n0, _DDRe,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var DescribeDomainResponse$: StaticStructureSchema = [3, n0, _DDRes,
   0,
@@ -318,7 +318,7 @@ export var DescribeDomainResponse$: StaticStructureSchema = [3, n0, _DDRes,
 export var DescribeFraudsterRegistrationJobRequest$: StaticStructureSchema = [3, n0, _DFRJR,
   0,
   [_DI, _JI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeFraudsterRegistrationJobResponse$: StaticStructureSchema = [3, n0, _DFRJRe,
   0,
@@ -328,7 +328,7 @@ export var DescribeFraudsterRegistrationJobResponse$: StaticStructureSchema = [3
 export var DescribeFraudsterRequest$: StaticStructureSchema = [3, n0, _DFRe,
   0,
   [_DI, _FI],
-  [0, [() => FraudsterId, 0]]
+  [0, [() => FraudsterId, 0]], 2
 ];
 export var DescribeFraudsterResponse$: StaticStructureSchema = [3, n0, _DFRes,
   0,
@@ -338,7 +338,7 @@ export var DescribeFraudsterResponse$: StaticStructureSchema = [3, n0, _DFRes,
 export var DescribeSpeakerEnrollmentJobRequest$: StaticStructureSchema = [3, n0, _DSEJR,
   0,
   [_DI, _JI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeSpeakerEnrollmentJobResponse$: StaticStructureSchema = [3, n0, _DSEJRe,
   0,
@@ -348,7 +348,7 @@ export var DescribeSpeakerEnrollmentJobResponse$: StaticStructureSchema = [3, n0
 export var DescribeSpeakerRequest$: StaticStructureSchema = [3, n0, _DSRe,
   0,
   [_DI, _SI],
-  [0, [() => SpeakerId, 0]]
+  [0, [() => SpeakerId, 0]], 2
 ];
 export var DescribeSpeakerResponse$: StaticStructureSchema = [3, n0, _DSRes,
   0,
@@ -358,7 +358,7 @@ export var DescribeSpeakerResponse$: StaticStructureSchema = [3, n0, _DSRes,
 export var DescribeWatchlistRequest$: StaticStructureSchema = [3, n0, _DWRe,
   0,
   [_DI, _WI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeWatchlistResponse$: StaticStructureSchema = [3, n0, _DWRes,
   0,
@@ -368,7 +368,7 @@ export var DescribeWatchlistResponse$: StaticStructureSchema = [3, n0, _DWRes,
 export var DisassociateFraudsterRequest$: StaticStructureSchema = [3, n0, _DFRi,
   0,
   [_DI, _WI, _FI],
-  [0, 0, [() => FraudsterId, 0]]
+  [0, 0, [() => FraudsterId, 0]], 3
 ];
 export var DisassociateFraudsterResponse$: StaticStructureSchema = [3, n0, _DFRis,
   0,
@@ -398,7 +398,7 @@ export var EnrollmentJobFraudDetectionConfig$: StaticStructureSchema = [3, n0, _
 export var EvaluateSessionRequest$: StaticStructureSchema = [3, n0, _ESR,
   0,
   [_DI, _SNOI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EvaluateSessionResponse$: StaticStructureSchema = [3, n0, _ESRv,
   0,
@@ -423,7 +423,7 @@ export var FraudDetectionResult$: StaticStructureSchema = [3, n0, _FDR,
 export var FraudRiskDetails$: StaticStructureSchema = [3, n0, _FRD,
   0,
   [_KFR, _VSR],
-  [() => KnownFraudsterRisk$, () => VoiceSpoofingRisk$]
+  [() => KnownFraudsterRisk$, () => VoiceSpoofingRisk$], 2
 ];
 export var Fraudster$: StaticStructureSchema = [3, n0, _F,
   0,
@@ -448,7 +448,7 @@ export var FraudsterSummary$: StaticStructureSchema = [3, n0, _FS,
 export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC,
   0,
   [_SU],
-  [0]
+  [0], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -464,7 +464,7 @@ export var JobProgress$: StaticStructureSchema = [3, n0, _JP,
 export var KnownFraudsterRisk$: StaticStructureSchema = [3, n0, _KFR,
   0,
   [_RS, _GFI],
-  [1, 0]
+  [1, 0], 1
 ];
 export var ListDomainsRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
@@ -479,7 +479,7 @@ export var ListDomainsResponse$: StaticStructureSchema = [3, n0, _LDRi,
 export var ListFraudsterRegistrationJobsRequest$: StaticStructureSchema = [3, n0, _LFRJR,
   0,
   [_DI, _JS, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListFraudsterRegistrationJobsResponse$: StaticStructureSchema = [3, n0, _LFRJRi,
   0,
@@ -489,7 +489,7 @@ export var ListFraudsterRegistrationJobsResponse$: StaticStructureSchema = [3, n
 export var ListFraudstersRequest$: StaticStructureSchema = [3, n0, _LFR,
   0,
   [_DI, _WI, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListFraudstersResponse$: StaticStructureSchema = [3, n0, _LFRi,
   0,
@@ -499,7 +499,7 @@ export var ListFraudstersResponse$: StaticStructureSchema = [3, n0, _LFRi,
 export var ListSpeakerEnrollmentJobsRequest$: StaticStructureSchema = [3, n0, _LSEJR,
   0,
   [_DI, _JS, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListSpeakerEnrollmentJobsResponse$: StaticStructureSchema = [3, n0, _LSEJRi,
   0,
@@ -509,7 +509,7 @@ export var ListSpeakerEnrollmentJobsResponse$: StaticStructureSchema = [3, n0, _
 export var ListSpeakersRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_DI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListSpeakersResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
@@ -519,7 +519,7 @@ export var ListSpeakersResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -529,7 +529,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListWatchlistsRequest$: StaticStructureSchema = [3, n0, _LWR,
   0,
   [_DI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListWatchlistsResponse$: StaticStructureSchema = [3, n0, _LWRi,
   0,
@@ -539,7 +539,7 @@ export var ListWatchlistsResponse$: StaticStructureSchema = [3, n0, _LWRi,
 export var OptOutSpeakerRequest$: StaticStructureSchema = [3, n0, _OOSR,
   0,
   [_DI, _SI],
-  [0, [() => SpeakerId, 0]]
+  [0, [() => SpeakerId, 0]], 2
 ];
 export var OptOutSpeakerResponse$: StaticStructureSchema = [3, n0, _OOSRp,
   0,
@@ -549,7 +549,7 @@ export var OptOutSpeakerResponse$: StaticStructureSchema = [3, n0, _OOSRp,
 export var OutputDataConfig$: StaticStructureSchema = [3, n0, _ODC,
   0,
   [_SU, _KKI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RegistrationConfig$: StaticStructureSchema = [3, n0, _RC,
   0,
@@ -565,7 +565,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _SSEC,
   0,
   [_KKI],
-  [0]
+  [0], 1
 ];
 export var ServerSideEncryptionUpdateDetails$: StaticStructureSchema = [3, n0, _SSEUD,
   0,
@@ -600,8 +600,8 @@ export var SpeakerSummary$: StaticStructureSchema = [3, n0, _SSpe,
 ];
 export var StartFraudsterRegistrationJobRequest$: StaticStructureSchema = [3, n0, _SFRJR,
   0,
-  [_CTl, _JN, _DI, _DARA, _RC, _IDC, _ODC],
-  [[0, 4], [() => JobName, 0], 0, 0, () => RegistrationConfig$, () => InputDataConfig$, () => OutputDataConfig$]
+  [_DI, _DARA, _IDC, _ODC, _CTl, _JN, _RC],
+  [0, 0, () => InputDataConfig$, () => OutputDataConfig$, [0, 4], [() => JobName, 0], () => RegistrationConfig$], 4
 ];
 export var StartFraudsterRegistrationJobResponse$: StaticStructureSchema = [3, n0, _SFRJRt,
   0,
@@ -610,8 +610,8 @@ export var StartFraudsterRegistrationJobResponse$: StaticStructureSchema = [3, n
 ];
 export var StartSpeakerEnrollmentJobRequest$: StaticStructureSchema = [3, n0, _SSEJR,
   0,
-  [_CTl, _JN, _DI, _DARA, _EC, _IDC, _ODC],
-  [[0, 4], [() => JobName, 0], 0, 0, () => EnrollmentConfig$, () => InputDataConfig$, () => OutputDataConfig$]
+  [_DI, _DARA, _IDC, _ODC, _CTl, _JN, _EC],
+  [0, 0, () => InputDataConfig$, () => OutputDataConfig$, [0, 4], [() => JobName, 0], () => EnrollmentConfig$], 4
 ];
 export var StartSpeakerEnrollmentJobResponse$: StaticStructureSchema = [3, n0, _SSEJRt,
   0,
@@ -621,12 +621,12 @@ export var StartSpeakerEnrollmentJobResponse$: StaticStructureSchema = [3, n0, _
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [[() => TagKey, 0], [() => TagValue, 0]]
+  [[() => TagKey, 0], [() => TagValue, 0]], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [0, [() => TagList, 0]]
+  [0, [() => TagList, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -642,7 +642,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TKa],
-  [0, [() => TagKeyList, 0]]
+  [0, [() => TagKeyList, 0]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -651,8 +651,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateDomainRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_DI, _N, _D, _SSEC],
-  [0, [() => DomainName, 0], [() => Description, 0], () => ServerSideEncryptionConfiguration$]
+  [_DI, _N, _SSEC, _D],
+  [0, [() => DomainName, 0], () => ServerSideEncryptionConfiguration$, [() => Description, 0]], 3
 ];
 export var UpdateDomainResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -662,7 +662,7 @@ export var UpdateDomainResponse$: StaticStructureSchema = [3, n0, _UDRp,
 export var UpdateWatchlistRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
   [_DI, _WI, _N, _D],
-  [0, 0, [() => WatchlistName, 0], [() => WatchlistDescription, 0]]
+  [0, 0, [() => WatchlistName, 0], [() => WatchlistDescription, 0]], 2
 ];
 export var UpdateWatchlistResponse$: StaticStructureSchema = [3, n0, _UWRp,
   0,
@@ -678,7 +678,7 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VoiceSpoofingRisk$: StaticStructureSchema = [3, n0, _VSR,
   0,
   [_RS],
-  [1]
+  [1], 1
 ];
 export var Watchlist$: StaticStructureSchema = [3, n0, _W,
   0,
@@ -688,7 +688,7 @@ export var Watchlist$: StaticStructureSchema = [3, n0, _W,
 export var WatchlistDetails$: StaticStructureSchema = [3, n0, _WDa,
   0,
   [_DWI],
-  [0]
+  [0], 1
 ];
 export var WatchlistSummary$: StaticStructureSchema = [3, n0, _WSa,
   0,

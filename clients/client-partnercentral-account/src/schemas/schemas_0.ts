@@ -245,33 +245,33 @@ var SensitiveUnicodeString: StaticSimpleSchema = [0, n0, _SUS, 8, 0];
 export var AcceptConnectionInvitationRequest$: StaticStructureSchema = [3, n0, _ACIR,
   0,
   [_C, _I, _CT],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 2
 ];
 export var AcceptConnectionInvitationResponse$: StaticStructureSchema = [3, n0, _ACIRc,
   0,
   [_Co],
-  [[() => Connection$, 0]]
+  [[() => Connection$, 0]], 1
 ];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M, _R],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var AllianceLeadContact$: StaticStructureSchema = [3, n0, _ALC,
   0,
   [_FN, _LNa, _E, _BT],
-  [[() => SensitiveUnicodeString, 0], [() => SensitiveUnicodeString, 0], 0, [() => SensitiveUnicodeString, 0]]
+  [[() => SensitiveUnicodeString, 0], [() => SensitiveUnicodeString, 0], 0, [() => SensitiveUnicodeString, 0]], 4
 ];
 export var AssociateAwsTrainingCertificationEmailDomainRequest$: StaticStructureSchema = [3, n0, _AATCEDR,
   0,
-  [_C, _I, _CT, _E, _EVC],
-  [0, 0, [0, 4], 0, [() => EmailVerificationCode, 0]]
+  [_C, _I, _E, _EVC, _CT],
+  [0, 0, 0, [() => EmailVerificationCode, 0], [0, 4]], 4
 ];
 export var AssociateAwsTrainingCertificationEmailDomainResponse$: StaticStructureSchema = [3, n0, _AATCEDRs,
   0,
@@ -281,103 +281,103 @@ export var AssociateAwsTrainingCertificationEmailDomainResponse$: StaticStructur
 export var BusinessValidationError$: StaticStructureSchema = [3, n0, _BVE,
   0,
   [_M, _Cod],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BusinessVerificationDetails$: StaticStructureSchema = [3, n0, _BVD,
   0,
   [_LN, _RI, _CC, _JOI],
-  [[() => LegalName, 0], [() => RegistrationId, 0], 0, 0]
+  [[() => LegalName, 0], [() => RegistrationId, 0], 0, 0], 3
 ];
 export var BusinessVerificationResponse$: StaticStructureSchema = [3, n0, _BVR,
   0,
   [_BVD],
-  [[() => BusinessVerificationDetails$, 0]]
+  [[() => BusinessVerificationDetails$, 0]], 1
 ];
 export var CancelConnectionInvitationRequest$: StaticStructureSchema = [3, n0, _CCIR,
   0,
   [_C, _I, _CT],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 2
 ];
 export var CancelConnectionInvitationResponse$: StaticStructureSchema = [3, n0, _CCIRa,
   0,
-  [_C, _Id, _A, _CI, _CTo, _CA, _UA, _EA, _OPI, _PT, _S, _IM, _IE, _IN],
-  [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, [() => SensitiveUnicodeString, 0]]
+  [_C, _Id, _A, _CTo, _CA, _UA, _OPI, _PT, _S, _IM, _IE, _IN, _CI, _EA],
+  [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, [() => SensitiveUnicodeString, 0], 0, 5], 12
 ];
 export var CancelConnectionRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_C, _I, _CTo, _R, _CT],
-  [0, 0, 0, 0, [0, 4]]
+  [0, 0, 0, 0, [0, 4]], 4
 ];
 export var CancelConnectionResponse$: StaticStructureSchema = [3, n0, _CCRa,
   0,
   [_C, _Id, _A, _OPAI, _UA, _CTon],
-  [0, 0, 0, 0, 5, [() => ConnectionTypeDetailMap, 0]]
+  [0, 0, 0, 0, 5, [() => ConnectionTypeDetailMap, 0]], 6
 ];
 export var CancelProfileUpdateTaskRequest$: StaticStructureSchema = [3, n0, _CPUTR,
   0,
-  [_C, _I, _CT, _TI],
-  [0, 0, [0, 4], 0]
+  [_C, _I, _TI, _CT],
+  [0, 0, 0, [0, 4]], 3
 ];
 export var CancelProfileUpdateTaskResponse$: StaticStructureSchema = [3, n0, _CPUTRa,
   0,
   [_C, _A, _Id, _TI, _TD, _SA, _S, _EAn, _EDL],
-  [0, 0, 0, 0, () => TaskDetails$, 5, 0, 5, () => ErrorDetailList]
+  [0, 0, 0, 0, () => TaskDetails$, 5, 0, 5, () => ErrorDetailList], 7
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _R],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Connection$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_C, _Id, _A, _OPAI, _UA, _CTon],
-  [0, 0, 0, 0, 5, [() => ConnectionTypeDetailMap, 0]]
+  [0, 0, 0, 0, 5, [() => ConnectionTypeDetailMap, 0]], 6
 ];
 export var ConnectionInvitationSummary$: StaticStructureSchema = [3, n0, _CIS,
   0,
-  [_C, _Id, _A, _CI, _CTo, _CA, _UA, _EA, _OPI, _PT, _S],
-  [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0]
+  [_C, _Id, _A, _CTo, _CA, _UA, _OPI, _PT, _S, _CI, _EA],
+  [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 5], 9
 ];
 export var ConnectionSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_C, _Id, _A, _OPAI, _UA, _CTon],
-  [0, 0, 0, 0, 5, () => ConnectionTypeSummaryMap]
+  [0, 0, 0, 0, 5, () => ConnectionTypeSummaryMap], 6
 ];
 export var ConnectionTypeDetail$: StaticStructureSchema = [3, n0, _CTD,
   0,
-  [_CA, _IE, _IN, _S, _CAa, _CB, _OP],
-  [5, 0, [() => SensitiveUnicodeString, 0], 0, 5, 0, () => Participant$]
+  [_CA, _IE, _IN, _S, _OP, _CAa, _CB],
+  [5, 0, [() => SensitiveUnicodeString, 0], 0, () => Participant$, 5, 0], 5
 ];
 export var ConnectionTypeSummary$: StaticStructureSchema = [3, n0, _CTS,
   0,
   [_S, _OP],
-  [0, () => Participant$]
+  [0, () => Participant$], 2
 ];
 export var CreateConnectionInvitationRequest$: StaticStructureSchema = [3, n0, _CCIRr,
   0,
-  [_C, _CT, _CTo, _E, _M, _N, _RIe],
-  [0, [0, 4], 0, 0, 0, [() => SensitiveUnicodeString, 0], 0]
+  [_C, _CTo, _E, _M, _N, _RIe, _CT],
+  [0, 0, 0, 0, [() => SensitiveUnicodeString, 0], 0, [0, 4]], 6
 ];
 export var CreateConnectionInvitationResponse$: StaticStructureSchema = [3, n0, _CCIRre,
   0,
-  [_C, _Id, _A, _CI, _CTo, _CA, _UA, _EA, _OPI, _PT, _S, _IM, _IE, _IN],
-  [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, [() => SensitiveUnicodeString, 0]]
+  [_C, _Id, _A, _CTo, _CA, _UA, _OPI, _PT, _S, _IM, _IE, _IN, _CI, _EA],
+  [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, [() => SensitiveUnicodeString, 0], 0, 5], 12
 ];
 export var CreatePartnerRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_C, _CT, _LN, _PST, _ALC, _EVC, _T],
-  [0, [0, 4], [() => SensitiveUnicodeString, 0], 0, [() => AllianceLeadContact$, 0], [() => EmailVerificationCode, 0], () => TagList]
+  [_C, _LN, _PST, _ALC, _EVC, _CT, _T],
+  [0, [() => SensitiveUnicodeString, 0], 0, [() => AllianceLeadContact$, 0], [() => EmailVerificationCode, 0], [0, 4], () => TagList], 5
 ];
 export var CreatePartnerResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_C, _A, _Id, _LN, _CA, _P, _ATCED, _ALC],
-  [0, 0, 0, [() => SensitiveUnicodeString, 0], 5, () => PartnerProfile$, () => PartnerDomainList, [() => AllianceLeadContact$, 0]]
+  [_C, _A, _Id, _LN, _CA, _P, _ALC, _ATCED],
+  [0, 0, 0, [() => SensitiveUnicodeString, 0], 5, () => PartnerProfile$, [() => AllianceLeadContact$, 0], () => PartnerDomainList], 7
 ];
 export var DisassociateAwsTrainingCertificationEmailDomainRequest$: StaticStructureSchema = [3, n0, _DATCEDR,
   0,
-  [_C, _I, _CT, _DN],
-  [0, 0, [0, 4], 0]
+  [_C, _I, _DN, _CT],
+  [0, 0, 0, [0, 4]], 3
 ];
 export var DisassociateAwsTrainingCertificationEmailDomainResponse$: StaticStructureSchema = [3, n0, _DATCEDRi,
   0,
@@ -387,183 +387,183 @@ export var DisassociateAwsTrainingCertificationEmailDomainResponse$: StaticStruc
 export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
   0,
   [_L, _M, _R],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var FieldValidationError$: StaticStructureSchema = [3, n0, _FVE,
   0,
   [_N, _M, _Cod],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetAllianceLeadContactRequest$: StaticStructureSchema = [3, n0, _GALCR,
   0,
   [_C, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetAllianceLeadContactResponse$: StaticStructureSchema = [3, n0, _GALCRe,
   0,
   [_C, _A, _Id, _ALC],
-  [0, 0, 0, [() => AllianceLeadContact$, 0]]
+  [0, 0, 0, [() => AllianceLeadContact$, 0]], 4
 ];
 export var GetConnectionInvitationRequest$: StaticStructureSchema = [3, n0, _GCIR,
   0,
   [_C, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetConnectionInvitationResponse$: StaticStructureSchema = [3, n0, _GCIRe,
   0,
-  [_C, _Id, _A, _CI, _CTo, _CA, _UA, _EA, _OPI, _PT, _S, _IM, _IE, _IN],
-  [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, [() => SensitiveUnicodeString, 0]]
+  [_C, _Id, _A, _CTo, _CA, _UA, _OPI, _PT, _S, _IM, _IE, _IN, _CI, _EA],
+  [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, [() => SensitiveUnicodeString, 0], 0, 5], 12
 ];
 export var GetConnectionPreferencesRequest$: StaticStructureSchema = [3, n0, _GCPR,
   0,
   [_C],
-  [0]
+  [0], 1
 ];
 export var GetConnectionPreferencesResponse$: StaticStructureSchema = [3, n0, _GCPRe,
   0,
-  [_C, _A, _AT, _EPI, _UA, _Re],
-  [0, 0, 0, 64 | 0, 5, 1]
+  [_C, _A, _AT, _UA, _Re, _EPI],
+  [0, 0, 0, 5, 1, 64 | 0], 5
 ];
 export var GetConnectionRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_C, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetConnectionResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
   [_C, _Id, _A, _OPAI, _UA, _CTon],
-  [0, 0, 0, 0, 5, [() => ConnectionTypeDetailMap, 0]]
+  [0, 0, 0, 0, 5, [() => ConnectionTypeDetailMap, 0]], 6
 ];
 export var GetPartnerRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_C, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPartnerResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
   [_C, _A, _Id, _LN, _CA, _P, _ATCED],
-  [0, 0, 0, [() => SensitiveUnicodeString, 0], 5, () => PartnerProfile$, () => PartnerDomainList]
+  [0, 0, 0, [() => SensitiveUnicodeString, 0], 5, () => PartnerProfile$, () => PartnerDomainList], 6
 ];
 export var GetProfileUpdateTaskRequest$: StaticStructureSchema = [3, n0, _GPUTR,
   0,
   [_C, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetProfileUpdateTaskResponse$: StaticStructureSchema = [3, n0, _GPUTRe,
   0,
   [_C, _A, _Id, _TI, _TD, _SA, _S, _EAn, _EDL],
-  [0, 0, 0, 0, () => TaskDetails$, 5, 0, 5, () => ErrorDetailList]
+  [0, 0, 0, 0, () => TaskDetails$, 5, 0, 5, () => ErrorDetailList], 7
 ];
 export var GetProfileVisibilityRequest$: StaticStructureSchema = [3, n0, _GPVR,
   0,
   [_C, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetProfileVisibilityResponse$: StaticStructureSchema = [3, n0, _GPVRe,
   0,
   [_C, _A, _Id, _V, _PI],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var GetVerificationRequest$: StaticStructureSchema = [3, n0, _GVR,
   0,
   [_VT],
-  [0]
+  [0], 1
 ];
 export var GetVerificationResponse$: StaticStructureSchema = [3, n0, _GVRe,
   0,
-  [_VT, _VS, _VSR, _VRD, _SA, _CAo],
-  [0, 0, 0, [() => VerificationResponseDetails$, 0], 5, 5]
+  [_VT, _VS, _VRD, _SA, _VSR, _CAo],
+  [0, 0, [() => VerificationResponseDetails$, 0], 5, 0, 5], 4
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListConnectionInvitationsRequest$: StaticStructureSchema = [3, n0, _LCIR,
   0,
   [_C, _NT, _CTo, _MR, _OPIt, _PT, _S],
-  [0, 0, 0, 1, 64 | 0, 0, 0]
+  [0, 0, 0, 1, 64 | 0, 0, 0], 1
 ];
 export var ListConnectionInvitationsResponse$: StaticStructureSchema = [3, n0, _LCIRi,
   0,
   [_CISo, _NT],
-  [() => ConnectionInvitationSummaryList, 0]
+  [() => ConnectionInvitationSummaryList, 0], 1
 ];
 export var ListConnectionsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_C, _NT, _CTo, _MR, _OPIt],
-  [0, 0, 0, 1, 64 | 0]
+  [0, 0, 0, 1, 64 | 0], 1
 ];
 export var ListConnectionsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
   [_CSo, _NT],
-  [() => ConnectionSummaryList, 0]
+  [() => ConnectionSummaryList, 0], 1
 ];
 export var ListPartnersRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
   [_C, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListPartnersResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
   [_PSL, _NT],
-  [[() => PartnerSummaryList, 0], 0]
+  [[() => PartnerSummaryList, 0], 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_RA, _T],
-  [0, () => TagList]
+  [0, () => TagList], 1
 ];
 export var LocalizedContent$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_DNi, _D, _WU, _LU, _L],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var PartnerDomain$: StaticStructureSchema = [3, n0, _PD,
   0,
   [_DN, _RAe],
-  [0, 5]
+  [0, 5], 2
 ];
 export var PartnerProfile$: StaticStructureSchema = [3, n0, _PP,
   0,
   [_DNi, _D, _WU, _LU, _PST, _IS, _TSL, _LCo, _PI],
-  [0, 0, 0, 0, 0, 64 | 0, 0, () => LocalizedContentList, 0]
+  [0, 0, 0, 0, 0, 64 | 0, 0, () => LocalizedContentList, 0], 7
 ];
 export var PartnerProfileSummary$: StaticStructureSchema = [3, n0, _PPS,
   0,
   [_Id, _N],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PartnerSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_C, _A, _Id, _LN, _CA],
-  [0, 0, 0, [() => SensitiveUnicodeString, 0], 5]
+  [0, 0, 0, [() => SensitiveUnicodeString, 0], 5], 5
 ];
 export var PutAllianceLeadContactRequest$: StaticStructureSchema = [3, n0, _PALCR,
   0,
   [_C, _I, _ALC, _EVC],
-  [0, 0, [() => AllianceLeadContact$, 0], [() => EmailVerificationCode, 0]]
+  [0, 0, [() => AllianceLeadContact$, 0], [() => EmailVerificationCode, 0]], 3
 ];
 export var PutAllianceLeadContactResponse$: StaticStructureSchema = [3, n0, _PALCRu,
   0,
   [_C, _A, _Id, _ALC],
-  [0, 0, 0, [() => AllianceLeadContact$, 0]]
+  [0, 0, 0, [() => AllianceLeadContact$, 0]], 4
 ];
 export var PutProfileVisibilityRequest$: StaticStructureSchema = [3, n0, _PPVR,
   0,
   [_C, _I, _V],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var PutProfileVisibilityResponse$: StaticStructureSchema = [3, n0, _PPVRu,
   0,
   [_C, _A, _Id, _V, _PI],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var RegistrantVerificationDetails$: StaticStructureSchema = [3, n0, _RVD,
   0,
@@ -573,33 +573,33 @@ export var RegistrantVerificationDetails$: StaticStructureSchema = [3, n0, _RVD,
 export var RegistrantVerificationResponse$: StaticStructureSchema = [3, n0, _RVR,
   0,
   [_CU, _CUEA],
-  [0, 5]
+  [0, 5], 2
 ];
 export var RejectConnectionInvitationRequest$: StaticStructureSchema = [3, n0, _RCIR,
   0,
   [_C, _I, _CT, _R],
-  [0, 0, [0, 4], 0]
+  [0, 0, [0, 4], 0], 2
 ];
 export var RejectConnectionInvitationResponse$: StaticStructureSchema = [3, n0, _RCIRe,
   0,
-  [_C, _Id, _A, _CI, _CTo, _CA, _UA, _EA, _OPI, _PT, _S, _IM, _IE, _IN],
-  [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, [() => SensitiveUnicodeString, 0]]
+  [_C, _Id, _A, _CTo, _CA, _UA, _OPI, _PT, _S, _IM, _IE, _IN, _CI, _EA],
+  [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, [() => SensitiveUnicodeString, 0], 0, 5], 12
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M, _R],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SellerProfileSummary$: StaticStructureSchema = [3, n0, _SPS,
   0,
   [_Id, _N],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SendEmailVerificationCodeRequest$: StaticStructureSchema = [3, n0, _SEVCR,
   0,
   [_C, _E],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SendEmailVerificationCodeResponse$: StaticStructureSchema = [3, n0, _SEVCRe,
   0,
@@ -609,18 +609,18 @@ export var SendEmailVerificationCodeResponse$: StaticStructureSchema = [3, n0, _
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M, _R],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartProfileUpdateTaskRequest$: StaticStructureSchema = [3, n0, _SPUTR,
   0,
-  [_C, _I, _CT, _TD],
-  [0, 0, [0, 4], () => TaskDetails$]
+  [_C, _I, _TD, _CT],
+  [0, 0, () => TaskDetails$, [0, 4]], 3
 ];
 export var StartProfileUpdateTaskResponse$: StaticStructureSchema = [3, n0, _SPUTRt,
   0,
   [_C, _A, _Id, _TI, _TD, _SA, _S, _EAn, _EDL],
-  [0, 0, 0, 0, () => TaskDetails$, 5, 0, 5, () => ErrorDetailList]
+  [0, 0, 0, 0, () => TaskDetails$, 5, 0, 5, () => ErrorDetailList], 7
 ];
 export var StartVerificationRequest$: StaticStructureSchema = [3, n0, _SVR,
   0,
@@ -629,18 +629,18 @@ export var StartVerificationRequest$: StaticStructureSchema = [3, n0, _SVR,
 ];
 export var StartVerificationResponse$: StaticStructureSchema = [3, n0, _SVRt,
   0,
-  [_VT, _VS, _VSR, _VRD, _SA, _CAo],
-  [0, 0, 0, [() => VerificationResponseDetails$, 0], 5, 5]
+  [_VT, _VS, _VRD, _SA, _VSR, _CAo],
+  [0, 0, [() => VerificationResponseDetails$, 0], 5, 0, 5], 4
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -650,18 +650,18 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TaskDetails$: StaticStructureSchema = [3, n0, _TD,
   0,
   [_DNi, _D, _WU, _LU, _PST, _IS, _TSL, _LCo],
-  [0, 0, 0, 0, 0, 64 | 0, 0, () => LocalizedContentList]
+  [0, 0, 0, 0, 0, 64 | 0, 0, () => LocalizedContentList], 7
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M, _SC, _QC],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -671,17 +671,17 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateConnectionPreferencesRequest$: StaticStructureSchema = [3, n0, _UCPR,
   0,
   [_C, _Re, _AT, _EPIx],
-  [0, 1, 0, 64 | 0]
+  [0, 1, 0, 64 | 0], 3
 ];
 export var UpdateConnectionPreferencesResponse$: StaticStructureSchema = [3, n0, _UCPRp,
   0,
-  [_C, _A, _AT, _EPI, _UA, _Re],
-  [0, 0, 0, 64 | 0, 5, 1]
+  [_C, _A, _AT, _UA, _Re, _EPI],
+  [0, 0, 0, 5, 1, 64 | 0], 5
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _R, _EDr],
-  [0, 0, () => ValidationErrorList]
+  [0, 0, () => ValidationErrorList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var PartnerCentralAccountServiceException$: StaticErrorSchema = [-3, _sm, "PartnerCentralAccountServiceException", 0, [], []];

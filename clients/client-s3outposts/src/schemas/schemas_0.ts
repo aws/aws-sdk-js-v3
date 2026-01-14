@@ -91,7 +91,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateEndpointRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
   [_OI, _SI, _SGI, _AT, _COIP],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 3
 ];
 export var CreateEndpointResult$: StaticStructureSchema = [3, n0, _CERr,
   0,
@@ -101,7 +101,7 @@ export var CreateEndpointResult$: StaticStructureSchema = [3, n0, _CERr,
 export var DeleteEndpointRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_EI, _OI],
-  [[0, { [_hQ]: _eI }], [0, { [_hQ]: _oI }]]
+  [[0, { [_hQ]: _eI }], [0, { [_hQ]: _oI }]], 2
 ];
 export var Endpoint$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -141,8 +141,8 @@ export var ListOutpostsWithS3Result$: StaticStructureSchema = [3, n0, _LOWSRi,
 ];
 export var ListSharedEndpointsRequest$: StaticStructureSchema = [3, n0, _LSER,
   0,
-  [_NT, _MR, _OI],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _oI }]]
+  [_OI, _NT, _MR],
+  [[0, { [_hQ]: _oI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListSharedEndpointsResult$: StaticStructureSchema = [3, n0, _LSERi,
   0,

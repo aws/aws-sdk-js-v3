@@ -214,7 +214,7 @@ export var ComprehendMedicalAsyncJobProperties$: StaticStructureSchema = [3, n0,
 export var DescribeEntitiesDetectionV2JobRequest$: StaticStructureSchema = [3, n0, _DEDVJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeEntitiesDetectionV2JobResponse$: StaticStructureSchema = [3, n0, _DEDVJRe,
   0,
@@ -224,7 +224,7 @@ export var DescribeEntitiesDetectionV2JobResponse$: StaticStructureSchema = [3, 
 export var DescribeICD10CMInferenceJobRequest$: StaticStructureSchema = [3, n0, _DICDCMIJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeICD10CMInferenceJobResponse$: StaticStructureSchema = [3, n0, _DICDCMIJRe,
   0,
@@ -234,7 +234,7 @@ export var DescribeICD10CMInferenceJobResponse$: StaticStructureSchema = [3, n0,
 export var DescribePHIDetectionJobRequest$: StaticStructureSchema = [3, n0, _DPHIDJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribePHIDetectionJobResponse$: StaticStructureSchema = [3, n0, _DPHIDJRe,
   0,
@@ -244,7 +244,7 @@ export var DescribePHIDetectionJobResponse$: StaticStructureSchema = [3, n0, _DP
 export var DescribeRxNormInferenceJobRequest$: StaticStructureSchema = [3, n0, _DRNIJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeRxNormInferenceJobResponse$: StaticStructureSchema = [3, n0, _DRNIJRe,
   0,
@@ -254,7 +254,7 @@ export var DescribeRxNormInferenceJobResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeSNOMEDCTInferenceJobRequest$: StaticStructureSchema = [3, n0, _DSNOMEDCTIJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeSNOMEDCTInferenceJobResponse$: StaticStructureSchema = [3, n0, _DSNOMEDCTIJRe,
   0,
@@ -264,32 +264,32 @@ export var DescribeSNOMEDCTInferenceJobResponse$: StaticStructureSchema = [3, n0
 export var DetectEntitiesRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_Te],
-  [0]
+  [0], 1
 ];
 export var DetectEntitiesResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
-  [_E, _UA, _PT, _MV],
-  [() => EntityList, () => UnmappedAttributeList, 0, 0]
+  [_E, _MV, _UA, _PT],
+  [() => EntityList, 0, () => UnmappedAttributeList, 0], 2
 ];
 export var DetectEntitiesV2Request$: StaticStructureSchema = [3, n0, _DEVR,
   0,
   [_Te],
-  [0]
+  [0], 1
 ];
 export var DetectEntitiesV2Response$: StaticStructureSchema = [3, n0, _DEVRe,
   0,
-  [_E, _UA, _PT, _MV],
-  [() => EntityList, () => UnmappedAttributeList, 0, 0]
+  [_E, _MV, _UA, _PT],
+  [() => EntityList, 0, () => UnmappedAttributeList, 0], 2
 ];
 export var DetectPHIRequest$: StaticStructureSchema = [3, n0, _DPHIR,
   0,
   [_Te],
-  [0]
+  [0], 1
 ];
 export var DetectPHIResponse$: StaticStructureSchema = [3, n0, _DPHIRe,
   0,
-  [_E, _PT, _MV],
-  [() => EntityList, 0, 0]
+  [_E, _MV, _PT],
+  [() => EntityList, 0, 0], 2
 ];
 export var Entity$: StaticStructureSchema = [3, n0, _En,
   0,
@@ -319,37 +319,37 @@ export var ICD10CMTrait$: StaticStructureSchema = [3, n0, _ICDCMT,
 export var InferICD10CMRequest$: StaticStructureSchema = [3, n0, _IICDCMR,
   0,
   [_Te],
-  [0]
+  [0], 1
 ];
 export var InferICD10CMResponse$: StaticStructureSchema = [3, n0, _IICDCMRn,
   0,
   [_E, _PT, _MV],
-  [() => ICD10CMEntityList, 0, 0]
+  [() => ICD10CMEntityList, 0, 0], 1
 ];
 export var InferRxNormRequest$: StaticStructureSchema = [3, n0, _IRNR,
   0,
   [_Te],
-  [0]
+  [0], 1
 ];
 export var InferRxNormResponse$: StaticStructureSchema = [3, n0, _IRNRn,
   0,
   [_E, _PT, _MV],
-  [() => RxNormEntityList, 0, 0]
+  [() => RxNormEntityList, 0, 0], 1
 ];
 export var InferSNOMEDCTRequest$: StaticStructureSchema = [3, n0, _ISNOMEDCTR,
   0,
   [_Te],
-  [0]
+  [0], 1
 ];
 export var InferSNOMEDCTResponse$: StaticStructureSchema = [3, n0, _ISNOMEDCTRn,
   0,
   [_E, _PT, _MV, _SNOMEDCTD, _Ch],
-  [() => SNOMEDCTEntityList, 0, 0, () => SNOMEDCTDetails$, () => Characters$]
+  [() => SNOMEDCTEntityList, 0, 0, () => SNOMEDCTDetails$, () => Characters$], 1
 ];
 export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC,
   0,
   [_SB, _SK],
-  [0, 0]
+  [0, 0], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -422,7 +422,7 @@ export var ListSNOMEDCTInferenceJobsResponse$: StaticStructureSchema = [3, n0, _
 export var OutputDataConfig$: StaticStructureSchema = [3, n0, _ODC,
   0,
   [_SB, _SK],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -483,8 +483,8 @@ export var SNOMEDCTTrait$: StaticStructureSchema = [3, n0, _SNOMEDCTT,
 ];
 export var StartEntitiesDetectionV2JobRequest$: StaticStructureSchema = [3, n0, _SEDVJR,
   0,
-  [_IDC, _ODC, _DARA, _JN, _CRT, _KMSK, _LC],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, [0, 4], 0, 0]
+  [_IDC, _ODC, _DARA, _LC, _JN, _CRT, _KMSK],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0], 4
 ];
 export var StartEntitiesDetectionV2JobResponse$: StaticStructureSchema = [3, n0, _SEDVJRt,
   0,
@@ -493,8 +493,8 @@ export var StartEntitiesDetectionV2JobResponse$: StaticStructureSchema = [3, n0,
 ];
 export var StartICD10CMInferenceJobRequest$: StaticStructureSchema = [3, n0, _SICDCMIJR,
   0,
-  [_IDC, _ODC, _DARA, _JN, _CRT, _KMSK, _LC],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, [0, 4], 0, 0]
+  [_IDC, _ODC, _DARA, _LC, _JN, _CRT, _KMSK],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0], 4
 ];
 export var StartICD10CMInferenceJobResponse$: StaticStructureSchema = [3, n0, _SICDCMIJRt,
   0,
@@ -503,8 +503,8 @@ export var StartICD10CMInferenceJobResponse$: StaticStructureSchema = [3, n0, _S
 ];
 export var StartPHIDetectionJobRequest$: StaticStructureSchema = [3, n0, _SPHIDJR,
   0,
-  [_IDC, _ODC, _DARA, _JN, _CRT, _KMSK, _LC],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, [0, 4], 0, 0]
+  [_IDC, _ODC, _DARA, _LC, _JN, _CRT, _KMSK],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0], 4
 ];
 export var StartPHIDetectionJobResponse$: StaticStructureSchema = [3, n0, _SPHIDJRt,
   0,
@@ -513,8 +513,8 @@ export var StartPHIDetectionJobResponse$: StaticStructureSchema = [3, n0, _SPHID
 ];
 export var StartRxNormInferenceJobRequest$: StaticStructureSchema = [3, n0, _SRNIJR,
   0,
-  [_IDC, _ODC, _DARA, _JN, _CRT, _KMSK, _LC],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, [0, 4], 0, 0]
+  [_IDC, _ODC, _DARA, _LC, _JN, _CRT, _KMSK],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0], 4
 ];
 export var StartRxNormInferenceJobResponse$: StaticStructureSchema = [3, n0, _SRNIJRt,
   0,
@@ -523,8 +523,8 @@ export var StartRxNormInferenceJobResponse$: StaticStructureSchema = [3, n0, _SR
 ];
 export var StartSNOMEDCTInferenceJobRequest$: StaticStructureSchema = [3, n0, _SSNOMEDCTIJR,
   0,
-  [_IDC, _ODC, _DARA, _JN, _CRT, _KMSK, _LC],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, [0, 4], 0, 0]
+  [_IDC, _ODC, _DARA, _LC, _JN, _CRT, _KMSK],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0], 4
 ];
 export var StartSNOMEDCTInferenceJobResponse$: StaticStructureSchema = [3, n0, _SSNOMEDCTIJRt,
   0,
@@ -534,7 +534,7 @@ export var StartSNOMEDCTInferenceJobResponse$: StaticStructureSchema = [3, n0, _
 export var StopEntitiesDetectionV2JobRequest$: StaticStructureSchema = [3, n0, _SEDVJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopEntitiesDetectionV2JobResponse$: StaticStructureSchema = [3, n0, _SEDVJRtop,
   0,
@@ -544,7 +544,7 @@ export var StopEntitiesDetectionV2JobResponse$: StaticStructureSchema = [3, n0, 
 export var StopICD10CMInferenceJobRequest$: StaticStructureSchema = [3, n0, _SICDCMIJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopICD10CMInferenceJobResponse$: StaticStructureSchema = [3, n0, _SICDCMIJRtop,
   0,
@@ -554,7 +554,7 @@ export var StopICD10CMInferenceJobResponse$: StaticStructureSchema = [3, n0, _SI
 export var StopPHIDetectionJobRequest$: StaticStructureSchema = [3, n0, _SPHIDJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopPHIDetectionJobResponse$: StaticStructureSchema = [3, n0, _SPHIDJRtop,
   0,
@@ -564,7 +564,7 @@ export var StopPHIDetectionJobResponse$: StaticStructureSchema = [3, n0, _SPHIDJ
 export var StopRxNormInferenceJobRequest$: StaticStructureSchema = [3, n0, _SRNIJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopRxNormInferenceJobResponse$: StaticStructureSchema = [3, n0, _SRNIJRtop,
   0,
@@ -574,7 +574,7 @@ export var StopRxNormInferenceJobResponse$: StaticStructureSchema = [3, n0, _SRN
 export var StopSNOMEDCTInferenceJobRequest$: StaticStructureSchema = [3, n0, _SSNOMEDCTIJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopSNOMEDCTInferenceJobResponse$: StaticStructureSchema = [3, n0, _SSNOMEDCTIJRtop,
   0,

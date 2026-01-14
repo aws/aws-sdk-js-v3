@@ -236,7 +236,7 @@ var EmailMessage: StaticSimpleSchema = [0, n0, _EM, 8, 0];
 export var AcceptInvitationRequest$: StaticStructureSchema = [3, n0, _AIR,
   0,
   [_GA],
-  [0]
+  [0], 1
 ];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
@@ -247,7 +247,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var Account$: StaticStructureSchema = [3, n0, _A,
   0,
   [_AI, _EA],
-  [0, [() => EmailAddress, 0]]
+  [0, [() => EmailAddress, 0]], 2
 ];
 export var Administrator$: StaticStructureSchema = [3, n0, _Ad,
   0,
@@ -257,7 +257,7 @@ export var Administrator$: StaticStructureSchema = [3, n0, _Ad,
 export var BatchGetGraphMemberDatasourcesRequest$: StaticStructureSchema = [3, n0, _BGGMDR,
   0,
   [_GA, _AIc],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var BatchGetGraphMemberDatasourcesResponse$: StaticStructureSchema = [3, n0, _BGGMDRa,
   0,
@@ -267,7 +267,7 @@ export var BatchGetGraphMemberDatasourcesResponse$: StaticStructureSchema = [3, 
 export var BatchGetMembershipDatasourcesRequest$: StaticStructureSchema = [3, n0, _BGMDR,
   0,
   [_GAr],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetMembershipDatasourcesResponse$: StaticStructureSchema = [3, n0, _BGMDRa,
   0,
@@ -292,8 +292,8 @@ export var CreateGraphResponse$: StaticStructureSchema = [3, n0, _CGRr,
 ];
 export var CreateMembersRequest$: StaticStructureSchema = [3, n0, _CMR,
   0,
-  [_GA, _M, _DEN, _Ac],
-  [0, [() => EmailMessage, 0], 2, [() => AccountList, 0]]
+  [_GA, _Ac, _M, _DEN],
+  [0, [() => AccountList, 0], [() => EmailMessage, 0], 2], 2
 ];
 export var CreateMembersResponse$: StaticStructureSchema = [3, n0, _CMRr,
   0,
@@ -313,17 +313,17 @@ export var DatasourcePackageUsageInfo$: StaticStructureSchema = [3, n0, _DPUI,
 export var DateFilter$: StaticStructureSchema = [3, n0, _DF,
   0,
   [_SI, _EI],
-  [5, 5]
+  [5, 5], 2
 ];
 export var DeleteGraphRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
   [_GA],
-  [0]
+  [0], 1
 ];
 export var DeleteMembersRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_GA, _AIc],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DeleteMembersResponse$: StaticStructureSchema = [3, n0, _DMRe,
   0,
@@ -333,7 +333,7 @@ export var DeleteMembersResponse$: StaticStructureSchema = [3, n0, _DMRe,
 export var DescribeOrganizationConfigurationRequest$: StaticStructureSchema = [3, n0, _DOCR,
   0,
   [_GA],
-  [0]
+  [0], 1
 ];
 export var DescribeOrganizationConfigurationResponse$: StaticStructureSchema = [3, n0, _DOCRe,
   0,
@@ -343,12 +343,12 @@ export var DescribeOrganizationConfigurationResponse$: StaticStructureSchema = [
 export var DisassociateMembershipRequest$: StaticStructureSchema = [3, n0, _DMRi,
   0,
   [_GA],
-  [0]
+  [0], 1
 ];
 export var EnableOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _EOAAR,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var FilterCriteria$: StaticStructureSchema = [3, n0, _FC,
   0,
@@ -363,7 +363,7 @@ export var FlaggedIpAddressDetail$: StaticStructureSchema = [3, n0, _FIAD,
 export var GetInvestigationRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
   [_GA, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetInvestigationResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
@@ -373,7 +373,7 @@ export var GetInvestigationResponse$: StaticStructureSchema = [3, n0, _GIRe,
 export var GetMembersRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
   [_GA, _AIc],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var GetMembersResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
@@ -414,7 +414,7 @@ export var InvestigationDetail$: StaticStructureSchema = [3, n0, _IDn,
 export var ListDatasourcePackagesRequest$: StaticStructureSchema = [3, n0, _LDPR,
   0,
   [_GA, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListDatasourcePackagesResponse$: StaticStructureSchema = [3, n0, _LDPRi,
   0,
@@ -434,7 +434,7 @@ export var ListGraphsResponse$: StaticStructureSchema = [3, n0, _LGRi,
 export var ListIndicatorsRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
   [_GA, _II, _IT, _NT, _MR],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 2
 ];
 export var ListIndicatorsResponse$: StaticStructureSchema = [3, n0, _LIRi,
   0,
@@ -444,7 +444,7 @@ export var ListIndicatorsResponse$: StaticStructureSchema = [3, n0, _LIRi,
 export var ListInvestigationsRequest$: StaticStructureSchema = [3, n0, _LIRis,
   0,
   [_GA, _NT, _MR, _FC, _SC],
-  [0, 0, 1, () => FilterCriteria$, () => SortCriteria$]
+  [0, 0, 1, () => FilterCriteria$, () => SortCriteria$], 1
 ];
 export var ListInvestigationsResponse$: StaticStructureSchema = [3, n0, _LIRist,
   0,
@@ -464,7 +464,7 @@ export var ListInvitationsResponse$: StaticStructureSchema = [3, n0, _LIRistnv,
 export var ListMembersRequest$: StaticStructureSchema = [3, n0, _LMR,
   0,
   [_GA, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListMembersResponse$: StaticStructureSchema = [3, n0, _LMRi,
   0,
@@ -484,7 +484,7 @@ export var ListOrganizationAdminAccountsResponse$: StaticStructureSchema = [3, n
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -519,7 +519,7 @@ export var NewUserAgentDetail$: StaticStructureSchema = [3, n0, _NUAD,
 export var RejectInvitationRequest$: StaticStructureSchema = [3, n0, _RIR,
   0,
   [_GA],
-  [0]
+  [0], 1
 ];
 export var RelatedFindingDetail$: StaticStructureSchema = [3, n0, _RFD,
   0,
@@ -551,7 +551,7 @@ export var SortCriteria$: StaticStructureSchema = [3, n0, _SC,
 export var StartInvestigationRequest$: StaticStructureSchema = [3, n0, _SIR,
   0,
   [_GA, _EAn, _SST, _SET],
-  [0, 0, 5, 5]
+  [0, 0, 5, 5], 4
 ];
 export var StartInvestigationResponse$: StaticStructureSchema = [3, n0, _SIRt,
   0,
@@ -561,17 +561,17 @@ export var StartInvestigationResponse$: StaticStructureSchema = [3, n0, _SIRt,
 export var StartMonitoringMemberRequest$: StaticStructureSchema = [3, n0, _SMMR,
   0,
   [_GA, _AI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StringFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
   [_V],
-  [0]
+  [0], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -607,7 +607,7 @@ export var UnprocessedGraph$: StaticStructureSchema = [3, n0, _UGn,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -617,17 +617,17 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDatasourcePackagesRequest$: StaticStructureSchema = [3, n0, _UDPR,
   0,
   [_GA, _DP],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UpdateInvestigationStateRequest$: StaticStructureSchema = [3, n0, _UISR,
   0,
   [_GA, _II, _Sta],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UpdateOrganizationConfigurationRequest$: StaticStructureSchema = [3, n0, _UOCR,
   0,
   [_GA, _AE],
-  [0, 2]
+  [0, 2], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

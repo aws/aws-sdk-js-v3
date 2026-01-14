@@ -75,7 +75,7 @@ TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var GetLatestConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR,
   0,
   [_CT],
-  [[0, { [_hQ]: _ct }]]
+  [[0, { [_hQ]: _ct }]], 1
 ];
 export var GetLatestConfigurationResponse$: StaticStructureSchema = [3, n0, _GLCRe,
   0,
@@ -102,7 +102,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var StartConfigurationSessionRequest$: StaticStructureSchema = [3, n0, _SCSR,
   0,
   [_AI, _EI, _CPI, _RMPIIS],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 3
 ];
 export var StartConfigurationSessionResponse$: StaticStructureSchema = [3, n0, _SCSRt,
   0,

@@ -378,22 +378,22 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AppIntegrationsConfiguration$: StaticStructureSchema = [3, n0, _AIC,
   0,
   [_aIA, _oF],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var AssistantAssociationData$: StaticStructureSchema = [3, n0, _AAD,
   0,
   [_aAI, _aAA, _aI, _aA, _aT, _aD, _t],
-  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData$, 128 | 0]
+  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData$, 128 | 0], 6
 ];
 export var AssistantAssociationSummary$: StaticStructureSchema = [3, n0, _AAS,
   0,
   [_aAI, _aAA, _aI, _aA, _aT, _aD, _t],
-  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData$, 128 | 0]
+  [0, 0, 0, 0, 0, () => AssistantAssociationOutputData$, 128 | 0], 6
 ];
 export var AssistantData$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_aI, _aA, _n, _ty, _s, _d, _t, _sSEC, _iC],
-  [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$]
+  [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$], 5
 ];
 export var AssistantIntegrationConfiguration$: StaticStructureSchema = [3, n0, _AICs,
   0,
@@ -403,7 +403,7 @@ export var AssistantIntegrationConfiguration$: StaticStructureSchema = [3, n0, _
 export var AssistantSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_aI, _aA, _n, _ty, _s, _d, _t, _sSEC, _iC],
-  [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$]
+  [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$], 5
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -418,8 +418,8 @@ export var ConnectConfiguration$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var ContentData$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_cA, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _s, _me, _t, _lOU, _u, _uE],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, [() => Url, 0], 7]
+  [_cA, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _s, _me, _u, _uE, _t, _lOU],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, [() => Url, 0], 7, 128 | 0, 0], 12
 ];
 export var ContentReference$: StaticStructureSchema = [3, n0, _CR,
   0,
@@ -429,12 +429,12 @@ export var ContentReference$: StaticStructureSchema = [3, n0, _CR,
 export var ContentSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_cA, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _s, _me, _t],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0], 10
 ];
 export var CreateAssistantAssociationRequest$: StaticStructureSchema = [3, n0, _CAAR,
   0,
   [_aI, _aT, _a, _cTl, _t],
-  [[0, 1], 0, () => AssistantAssociationInputData$, [0, 4], 128 | 0]
+  [[0, 1], 0, () => AssistantAssociationInputData$, [0, 4], 128 | 0], 3
 ];
 export var CreateAssistantAssociationResponse$: StaticStructureSchema = [3, n0, _CAARr,
   0,
@@ -443,8 +443,8 @@ export var CreateAssistantAssociationResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateAssistantRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_cTl, _n, _ty, _d, _t, _sSEC],
-  [[0, 4], 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$]
+  [_n, _ty, _cTl, _d, _t, _sSEC],
+  [0, 0, [0, 4], 0, 128 | 0, () => ServerSideEncryptionConfiguration$], 2
 ];
 export var CreateAssistantResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -453,8 +453,8 @@ export var CreateAssistantResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateContentRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_kBI, _n, _ti, _oLOU, _me, _uI, _cTl, _t],
-  [[0, 1], 0, 0, 0, 128 | 0, 0, [0, 4], 128 | 0]
+  [_kBI, _n, _uI, _ti, _oLOU, _me, _cTl, _t],
+  [[0, 1], 0, 0, 0, 0, 128 | 0, [0, 4], 128 | 0], 3
 ];
 export var CreateContentResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -463,8 +463,8 @@ export var CreateContentResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateKnowledgeBaseRequest$: StaticStructureSchema = [3, n0, _CKBR,
   0,
-  [_cTl, _n, _kBT, _sC, _rC, _sSEC, _d, _t],
-  [[0, 4], 0, 0, () => SourceConfiguration$, () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0]
+  [_n, _kBT, _cTl, _sC, _rC, _sSEC, _d, _t],
+  [0, 0, [0, 4], () => SourceConfiguration$, () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0], 2
 ];
 export var CreateKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _CKBRr,
   0,
@@ -474,7 +474,7 @@ export var CreateKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _CKBRr,
 export var CreateQuickResponseRequest$: StaticStructureSchema = [3, n0, _CQRR,
   0,
   [_kBI, _n, _co, _cT, _gC, _d, _sK, _iA, _ch, _l, _cTl, _t],
-  [[0, 1], 0, [() => QuickResponseDataProvider$, 0], 0, [() => GroupingConfiguration$, 0], 0, 0, 2, [() => Channels, 0], 0, [0, 4], 128 | 0]
+  [[0, 1], 0, [() => QuickResponseDataProvider$, 0], 0, [() => GroupingConfiguration$, 0], 0, 0, 2, [() => Channels, 0], 0, [0, 4], 128 | 0], 3
 ];
 export var CreateQuickResponseResponse$: StaticStructureSchema = [3, n0, _CQRRr,
   0,
@@ -483,8 +483,8 @@ export var CreateQuickResponseResponse$: StaticStructureSchema = [3, n0, _CQRRr,
 ];
 export var CreateSessionRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_cTl, _aI, _n, _d, _t],
-  [[0, 4], [0, 1], 0, 0, 128 | 0]
+  [_aI, _n, _cTl, _d, _t],
+  [[0, 1], 0, [0, 4], 0, 128 | 0], 2
 ];
 export var CreateSessionResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -494,7 +494,7 @@ export var CreateSessionResponse$: StaticStructureSchema = [3, n0, _CSRr,
 export var DeleteAssistantAssociationRequest$: StaticStructureSchema = [3, n0, _DAAR,
   0,
   [_aAI, _aI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteAssistantAssociationResponse$: StaticStructureSchema = [3, n0, _DAARe,
   0,
@@ -504,7 +504,7 @@ export var DeleteAssistantAssociationResponse$: StaticStructureSchema = [3, n0, 
 export var DeleteAssistantRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAssistantResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -514,7 +514,7 @@ export var DeleteAssistantResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteContentRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_kBI, _cI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteContentResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -524,7 +524,7 @@ export var DeleteContentResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteImportJobRequest$: StaticStructureSchema = [3, n0, _DIJR,
   0,
   [_kBI, _iJI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteImportJobResponse$: StaticStructureSchema = [3, n0, _DIJRe,
   0,
@@ -534,7 +534,7 @@ export var DeleteImportJobResponse$: StaticStructureSchema = [3, n0, _DIJRe,
 export var DeleteKnowledgeBaseRequest$: StaticStructureSchema = [3, n0, _DKBR,
   0,
   [_kBI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _DKBRe,
   0,
@@ -544,7 +544,7 @@ export var DeleteKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _DKBRe,
 export var DeleteQuickResponseRequest$: StaticStructureSchema = [3, n0, _DQRR,
   0,
   [_kBI, _qRI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteQuickResponseResponse$: StaticStructureSchema = [3, n0, _DQRRe,
   0,
@@ -554,7 +554,7 @@ export var DeleteQuickResponseResponse$: StaticStructureSchema = [3, n0, _DQRRe,
 export var Document$: StaticStructureSchema = [3, n0, _D,
   0,
   [_cR, _ti, _ex],
-  [() => ContentReference$, [() => DocumentText$, 0], [() => DocumentText$, 0]]
+  [() => ContentReference$, [() => DocumentText$, 0], [() => DocumentText$, 0]], 1
 ];
 export var DocumentText$: StaticStructureSchema = [3, n0, _DT,
   0,
@@ -564,17 +564,17 @@ export var DocumentText$: StaticStructureSchema = [3, n0, _DT,
 export var ExternalSourceConfiguration$: StaticStructureSchema = [3, n0, _ESC,
   0,
   [_so, _con],
-  [0, () => Configuration$]
+  [0, () => Configuration$], 2
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_f, _o, _v],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetAssistantAssociationRequest$: StaticStructureSchema = [3, n0, _GAAR,
   0,
   [_aAI, _aI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetAssistantAssociationResponse$: StaticStructureSchema = [3, n0, _GAARe,
   0,
@@ -584,7 +584,7 @@ export var GetAssistantAssociationResponse$: StaticStructureSchema = [3, n0, _GA
 export var GetAssistantRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAssistantResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -594,7 +594,7 @@ export var GetAssistantResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetContentRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_cI, _kBI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetContentResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -604,7 +604,7 @@ export var GetContentResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var GetContentSummaryRequest$: StaticStructureSchema = [3, n0, _GCSR,
   0,
   [_cI, _kBI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetContentSummaryResponse$: StaticStructureSchema = [3, n0, _GCSRe,
   0,
@@ -614,7 +614,7 @@ export var GetContentSummaryResponse$: StaticStructureSchema = [3, n0, _GCSRe,
 export var GetImportJobRequest$: StaticStructureSchema = [3, n0, _GIJR,
   0,
   [_iJI, _kBI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetImportJobResponse$: StaticStructureSchema = [3, n0, _GIJRe,
   0,
@@ -624,7 +624,7 @@ export var GetImportJobResponse$: StaticStructureSchema = [3, n0, _GIJRe,
 export var GetKnowledgeBaseRequest$: StaticStructureSchema = [3, n0, _GKBR,
   0,
   [_kBI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _GKBRe,
   0,
@@ -634,7 +634,7 @@ export var GetKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _GKBRe,
 export var GetQuickResponseRequest$: StaticStructureSchema = [3, n0, _GQRR,
   0,
   [_qRI, _kBI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetQuickResponseResponse$: StaticStructureSchema = [3, n0, _GQRRe,
   0,
@@ -644,17 +644,17 @@ export var GetQuickResponseResponse$: StaticStructureSchema = [3, n0, _GQRRe,
 export var GetRecommendationsRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_aI, _sI, _mR, _wTS],
-  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [1, { [_hQ]: _wTS }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [1, { [_hQ]: _wTS }]], 2
 ];
 export var GetRecommendationsResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
   [_r, _tr],
-  [[() => RecommendationList, 0], [() => RecommendationTriggerList, 0]]
+  [[() => RecommendationList, 0], [() => RecommendationTriggerList, 0]], 1
 ];
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_aI, _sI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -673,13 +673,13 @@ export var Highlight$: StaticStructureSchema = [3, n0, _H,
 ];
 export var ImportJobData$: StaticStructureSchema = [3, n0, _IJD,
   0,
-  [_iJI, _kBI, _uI, _kBA, _iJT, _s, _u, _fRR, _uE, _cTr, _lMT, _me, _eSC],
-  [0, 0, 0, 0, 0, 0, [() => Url, 0], [() => Url, 0], 7, 7, 7, 128 | 0, () => ExternalSourceConfiguration$]
+  [_iJI, _kBI, _uI, _kBA, _iJT, _s, _u, _uE, _cTr, _lMT, _fRR, _me, _eSC],
+  [0, 0, 0, 0, 0, 0, [() => Url, 0], 7, 7, 7, [() => Url, 0], 128 | 0, () => ExternalSourceConfiguration$], 10
 ];
 export var ImportJobSummary$: StaticStructureSchema = [3, n0, _IJS,
   0,
   [_iJI, _kBI, _uI, _kBA, _iJT, _s, _cTr, _lMT, _me, _eSC],
-  [0, 0, 0, 0, 0, 0, 7, 7, 128 | 0, () => ExternalSourceConfiguration$]
+  [0, 0, 0, 0, 0, 0, 7, 7, 128 | 0, () => ExternalSourceConfiguration$], 8
 ];
 export var KnowledgeBaseAssociationData$: StaticStructureSchema = [3, n0, _KBAD,
   0,
@@ -689,22 +689,22 @@ export var KnowledgeBaseAssociationData$: StaticStructureSchema = [3, n0, _KBAD,
 export var KnowledgeBaseData$: StaticStructureSchema = [3, n0, _KBD,
   0,
   [_kBI, _kBA, _n, _kBT, _s, _lCMT, _sC, _rC, _sSEC, _d, _t],
-  [0, 0, 0, 0, 0, 7, () => SourceConfiguration$, () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0]
+  [0, 0, 0, 0, 0, 7, () => SourceConfiguration$, () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0], 5
 ];
 export var KnowledgeBaseSummary$: StaticStructureSchema = [3, n0, _KBS,
   0,
   [_kBI, _kBA, _n, _kBT, _s, _sC, _rC, _sSEC, _d, _t],
-  [0, 0, 0, 0, 0, () => SourceConfiguration$, () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0]
+  [0, 0, 0, 0, 0, () => SourceConfiguration$, () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0], 5
 ];
 export var ListAssistantAssociationsRequest$: StaticStructureSchema = [3, n0, _LAAR,
   0,
-  [_nT, _mR, _aI],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+  [_aI, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListAssistantAssociationsResponse$: StaticStructureSchema = [3, n0, _LAARi,
   0,
   [_aAS, _nT],
-  [() => AssistantAssociationSummaryList, 0]
+  [() => AssistantAssociationSummaryList, 0], 1
 ];
 export var ListAssistantsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
@@ -714,27 +714,27 @@ export var ListAssistantsRequest$: StaticStructureSchema = [3, n0, _LAR,
 export var ListAssistantsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
   [_aS, _nT],
-  [() => AssistantList, 0]
+  [() => AssistantList, 0], 1
 ];
 export var ListContentsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
-  [_nT, _mR, _kBI],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+  [_kBI, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListContentsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
   [_cSo, _nT],
-  [() => ContentSummaryList, 0]
+  [() => ContentSummaryList, 0], 1
 ];
 export var ListImportJobsRequest$: StaticStructureSchema = [3, n0, _LIJR,
   0,
-  [_nT, _mR, _kBI],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+  [_kBI, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListImportJobsResponse$: StaticStructureSchema = [3, n0, _LIJRi,
   0,
   [_iJS, _nT],
-  [() => ImportJobList, 0]
+  [() => ImportJobList, 0], 1
 ];
 export var ListKnowledgeBasesRequest$: StaticStructureSchema = [3, n0, _LKBR,
   0,
@@ -744,22 +744,22 @@ export var ListKnowledgeBasesRequest$: StaticStructureSchema = [3, n0, _LKBR,
 export var ListKnowledgeBasesResponse$: StaticStructureSchema = [3, n0, _LKBRi,
   0,
   [_kBS, _nT],
-  [() => KnowledgeBaseList, 0]
+  [() => KnowledgeBaseList, 0], 1
 ];
 export var ListQuickResponsesRequest$: StaticStructureSchema = [3, n0, _LQRR,
   0,
-  [_nT, _mR, _kBI],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+  [_kBI, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListQuickResponsesResponse$: StaticStructureSchema = [3, n0, _LQRRi,
   0,
   [_qRS, _nT],
-  [[() => QuickResponseSummaryList, 0], 0]
+  [[() => QuickResponseSummaryList, 0], 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -774,7 +774,7 @@ export var NotifyRecommendationsReceivedError$: StaticStructureSchema = [3, n0, 
 export var NotifyRecommendationsReceivedRequest$: StaticStructureSchema = [3, n0, _NRRR,
   0,
   [_aI, _sI, _rIec],
-  [[0, 1], [0, 1], 64 | 0]
+  [[0, 1], [0, 1], 64 | 0], 3
 ];
 export var NotifyRecommendationsReceivedResponse$: StaticStructureSchema = [3, n0, _NRRRo,
   0,
@@ -790,12 +790,12 @@ TypeRegistry.for(n0).registerError(PreconditionFailedException$, PreconditionFai
 export var QueryAssistantRequest$: StaticStructureSchema = [3, n0, _QAR,
   0,
   [_aI, _qT, _nT, _mR],
-  [[0, 1], [() => QueryText, 0], 0, 1]
+  [[0, 1], [() => QueryText, 0], 0, 1], 2
 ];
 export var QueryAssistantResponse$: StaticStructureSchema = [3, n0, _QARu,
   0,
   [_re, _nT],
-  [[() => QueryResultsList, 0], 0]
+  [[() => QueryResultsList, 0], 0], 1
 ];
 export var QueryRecommendationTriggerData$: StaticStructureSchema = [3, n0, _QRTD,
   0,
@@ -810,22 +810,22 @@ export var QuickResponseContents$: StaticStructureSchema = [3, n0, _QRCu,
 export var QuickResponseData$: StaticStructureSchema = [3, n0, _QRD,
   0,
   [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cTr, _lMT, _cont, _d, _gC, _sK, _lMB, _iA, _ch, _l, _t],
-  [0, 0, 0, 0, 0, 0, 0, 7, 7, [() => QuickResponseContents$, 0], 0, [() => GroupingConfiguration$, 0], 0, 0, 2, [() => Channels, 0], 0, 128 | 0]
+  [0, 0, 0, 0, 0, 0, 0, 7, 7, [() => QuickResponseContents$, 0], 0, [() => GroupingConfiguration$, 0], 0, 0, 2, [() => Channels, 0], 0, 128 | 0], 9
 ];
 export var QuickResponseFilterField$: StaticStructureSchema = [3, n0, _QRFF,
   0,
-  [_n, _va, _o, _iNE],
-  [0, 64 | 0, 0, 2]
+  [_n, _o, _va, _iNE],
+  [0, 0, 64 | 0, 2], 2
 ];
 export var QuickResponseOrderField$: StaticStructureSchema = [3, n0, _QROF,
   0,
   [_n, _or],
-  [0, 0]
+  [0, 0], 1
 ];
 export var QuickResponseQueryField$: StaticStructureSchema = [3, n0, _QRQF,
   0,
   [_n, _va, _o, _aF, _p],
-  [0, 64 | 0, 0, 2, 0]
+  [0, 64 | 0, 0, 2, 0], 3
 ];
 export var QuickResponseSearchExpression$: StaticStructureSchema = [3, n0, _QRSE,
   0,
@@ -835,27 +835,27 @@ export var QuickResponseSearchExpression$: StaticStructureSchema = [3, n0, _QRSE
 export var QuickResponseSearchResultData$: StaticStructureSchema = [3, n0, _QRSRD,
   0,
   [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cont, _cTr, _lMT, _iA, _d, _gC, _sK, _lMB, _ch, _l, _aNI, _aIt, _t],
-  [0, 0, 0, 0, 0, 0, 0, [() => QuickResponseContents$, 0], 7, 7, 2, 0, [() => GroupingConfiguration$, 0], 0, 0, [() => Channels, 0], 0, [() => ContactAttributeKeys, 0], [() => ContactAttributeKeys, 0], 128 | 0]
+  [0, 0, 0, 0, 0, 0, 0, [() => QuickResponseContents$, 0], 7, 7, 2, 0, [() => GroupingConfiguration$, 0], 0, 0, [() => Channels, 0], 0, [() => ContactAttributeKeys, 0], [() => ContactAttributeKeys, 0], 128 | 0], 11
 ];
 export var QuickResponseSummary$: StaticStructureSchema = [3, n0, _QRS,
   0,
   [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cTr, _lMT, _d, _lMB, _iA, _ch, _t],
-  [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 2, [() => Channels, 0], 128 | 0]
+  [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 2, [() => Channels, 0], 128 | 0], 9
 ];
 export var RecommendationData$: StaticStructureSchema = [3, n0, _RD,
   0,
   [_rIe, _do, _rS, _rL, _ty],
-  [0, [() => Document$, 0], 1, 0, 0]
+  [0, [() => Document$, 0], 1, 0, 0], 2
 ];
 export var RecommendationTrigger$: StaticStructureSchema = [3, n0, _RT,
   0,
   [_i, _ty, _so, _da, _rIec],
-  [0, 0, 0, [() => RecommendationTriggerData$, 0], 64 | 0]
+  [0, 0, 0, [() => RecommendationTriggerData$, 0], 64 | 0], 5
 ];
 export var RemoveKnowledgeBaseTemplateUriRequest$: StaticStructureSchema = [3, n0, _RKBTUR,
   0,
   [_kBI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var RemoveKnowledgeBaseTemplateUriResponse$: StaticStructureSchema = [3, n0, _RKBTURe,
   0,
@@ -882,42 +882,42 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResultData$: StaticStructureSchema = [3, n0, _RDe,
   0,
   [_rIes, _do, _rS],
-  [0, [() => Document$, 0], 1]
+  [0, [() => Document$, 0], 1], 2
 ];
 export var SearchContentRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
-  [_nT, _mR, _kBI, _sE],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1], () => SearchExpression$]
+  [_kBI, _sE, _nT, _mR],
+  [[0, 1], () => SearchExpression$, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var SearchContentResponse$: StaticStructureSchema = [3, n0, _SCRe,
   0,
   [_cSo, _nT],
-  [() => ContentSummaryList, 0]
+  [() => ContentSummaryList, 0], 1
 ];
 export var SearchExpression$: StaticStructureSchema = [3, n0, _SE,
   0,
   [_fi],
-  [() => FilterList]
+  [() => FilterList], 1
 ];
 export var SearchQuickResponsesRequest$: StaticStructureSchema = [3, n0, _SQRR,
   0,
   [_kBI, _sE, _nT, _mR, _at],
-  [[0, 1], () => QuickResponseSearchExpression$, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [() => ContactAttributes, 0]]
+  [[0, 1], () => QuickResponseSearchExpression$, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [() => ContactAttributes, 0]], 2
 ];
 export var SearchQuickResponsesResponse$: StaticStructureSchema = [3, n0, _SQRRe,
   0,
   [_re, _nT],
-  [[() => QuickResponseSearchResultsList, 0], 0]
+  [[() => QuickResponseSearchResultsList, 0], 0], 1
 ];
 export var SearchSessionsRequest$: StaticStructureSchema = [3, n0, _SSR,
   0,
-  [_nT, _mR, _aI, _sE],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1], () => SearchExpression$]
+  [_aI, _sE, _nT, _mR],
+  [[0, 1], () => SearchExpression$, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var SearchSessionsResponse$: StaticStructureSchema = [3, n0, _SSRe,
   0,
   [_sS, _nT],
-  [() => SessionSummaries, 0]
+  [() => SessionSummaries, 0], 1
 ];
 export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _SSEC,
   0,
@@ -933,7 +933,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var SessionData$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_sA, _sI, _n, _d, _t, _iC],
-  [0, 0, 0, 0, 128 | 0, () => SessionIntegrationConfiguration$]
+  [0, 0, 0, 0, 128 | 0, () => SessionIntegrationConfiguration$], 3
 ];
 export var SessionIntegrationConfiguration$: StaticStructureSchema = [3, n0, _SIC,
   0,
@@ -943,22 +943,22 @@ export var SessionIntegrationConfiguration$: StaticStructureSchema = [3, n0, _SI
 export var SessionSummary$: StaticStructureSchema = [3, n0, _SSe,
   0,
   [_sI, _sA, _aI, _aA],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var StartContentUploadRequest$: StaticStructureSchema = [3, n0, _SCUR,
   0,
   [_kBI, _cT, _pUTTL],
-  [[0, 1], 0, 1]
+  [[0, 1], 0, 1], 2
 ];
 export var StartContentUploadResponse$: StaticStructureSchema = [3, n0, _SCURt,
   0,
   [_uI, _u, _uE, _hTI],
-  [0, [() => Url, 0], 7, 128 | 0]
+  [0, [() => Url, 0], 7, 128 | 0], 4
 ];
 export var StartImportJobRequest$: StaticStructureSchema = [3, n0, _SIJR,
   0,
   [_kBI, _iJT, _uI, _cTl, _me, _eSC],
-  [[0, 1], 0, 0, [0, 4], 128 | 0, () => ExternalSourceConfiguration$]
+  [[0, 1], 0, 0, [0, 4], 128 | 0, () => ExternalSourceConfiguration$], 3
 ];
 export var StartImportJobResponse$: StaticStructureSchema = [3, n0, _SIJRt,
   0,
@@ -968,7 +968,7 @@ export var StartImportJobResponse$: StaticStructureSchema = [3, n0, _SIJRt,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -984,7 +984,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -994,7 +994,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateContentRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_kBI, _cI, _rI, _ti, _oLOU, _rOLOU, _me, _uI],
-  [[0, 1], [0, 1], 0, 0, 0, 2, 128 | 0, 0]
+  [[0, 1], [0, 1], 0, 0, 0, 2, 128 | 0, 0], 2
 ];
 export var UpdateContentResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -1004,7 +1004,7 @@ export var UpdateContentResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateKnowledgeBaseTemplateUriRequest$: StaticStructureSchema = [3, n0, _UKBTUR,
   0,
   [_kBI, _tU],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateKnowledgeBaseTemplateUriResponse$: StaticStructureSchema = [3, n0, _UKBTURp,
   0,
@@ -1014,7 +1014,7 @@ export var UpdateKnowledgeBaseTemplateUriResponse$: StaticStructureSchema = [3, 
 export var UpdateQuickResponseRequest$: StaticStructureSchema = [3, n0, _UQRR,
   0,
   [_kBI, _qRI, _n, _co, _cT, _gC, _rGC, _d, _rD, _sK, _rSK, _iA, _ch, _l],
-  [[0, 1], [0, 1], 0, [() => QuickResponseDataProvider$, 0], 0, [() => GroupingConfiguration$, 0], 2, 0, 2, 0, 2, 2, [() => Channels, 0], 0]
+  [[0, 1], [0, 1], 0, [() => QuickResponseDataProvider$, 0], 0, [() => GroupingConfiguration$, 0], 2, 0, 2, 0, 2, 2, [() => Channels, 0], 0], 2
 ];
 export var UpdateQuickResponseResponse$: StaticStructureSchema = [3, n0, _UQRRp,
   0,

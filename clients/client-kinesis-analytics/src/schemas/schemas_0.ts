@@ -230,7 +230,7 @@ import { KinesisAnalyticsServiceException } from "../models/KinesisAnalyticsServ
 export var AddApplicationCloudWatchLoggingOptionRequest$: StaticStructureSchema = [3, n0, _AACWLOR,
   0,
   [_AN, _CAVI, _CWLO],
-  [0, 1, () => CloudWatchLoggingOption$]
+  [0, 1, () => CloudWatchLoggingOption$], 3
 ];
 export var AddApplicationCloudWatchLoggingOptionResponse$: StaticStructureSchema = [3, n0, _AACWLORd,
   0,
@@ -240,7 +240,7 @@ export var AddApplicationCloudWatchLoggingOptionResponse$: StaticStructureSchema
 export var AddApplicationInputProcessingConfigurationRequest$: StaticStructureSchema = [3, n0, _AAIPCR,
   0,
   [_AN, _CAVI, _II, _IPC],
-  [0, 1, 0, () => InputProcessingConfiguration$]
+  [0, 1, 0, () => InputProcessingConfiguration$], 4
 ];
 export var AddApplicationInputProcessingConfigurationResponse$: StaticStructureSchema = [3, n0, _AAIPCRd,
   0,
@@ -250,7 +250,7 @@ export var AddApplicationInputProcessingConfigurationResponse$: StaticStructureS
 export var AddApplicationInputRequest$: StaticStructureSchema = [3, n0, _AAIR,
   0,
   [_AN, _CAVI, _I],
-  [0, 1, () => Input$]
+  [0, 1, () => Input$], 3
 ];
 export var AddApplicationInputResponse$: StaticStructureSchema = [3, n0, _AAIRd,
   0,
@@ -260,7 +260,7 @@ export var AddApplicationInputResponse$: StaticStructureSchema = [3, n0, _AAIRd,
 export var AddApplicationOutputRequest$: StaticStructureSchema = [3, n0, _AAOR,
   0,
   [_AN, _CAVI, _O],
-  [0, 1, () => Output$]
+  [0, 1, () => Output$], 3
 ];
 export var AddApplicationOutputResponse$: StaticStructureSchema = [3, n0, _AAORd,
   0,
@@ -270,7 +270,7 @@ export var AddApplicationOutputResponse$: StaticStructureSchema = [3, n0, _AAORd
 export var AddApplicationReferenceDataSourceRequest$: StaticStructureSchema = [3, n0, _AARDSR,
   0,
   [_AN, _CAVI, _RDS],
-  [0, 1, () => ReferenceDataSource$]
+  [0, 1, () => ReferenceDataSource$], 3
 ];
 export var AddApplicationReferenceDataSourceResponse$: StaticStructureSchema = [3, n0, _AARDSRd,
   0,
@@ -279,13 +279,13 @@ export var AddApplicationReferenceDataSourceResponse$: StaticStructureSchema = [
 ];
 export var ApplicationDetail$: StaticStructureSchema = [3, n0, _AD,
   0,
-  [_AN, _ADp, _AARN, _AS, _CT, _LUT, _ID, _OD, _RDSD, _CWLOD, _AC, _AVI],
-  [0, 0, 0, 0, 4, 4, () => InputDescriptions, () => OutputDescriptions, () => ReferenceDataSourceDescriptions, () => CloudWatchLoggingOptionDescriptions, 0, 1]
+  [_AN, _AARN, _AS, _AVI, _ADp, _CT, _LUT, _ID, _OD, _RDSD, _CWLOD, _AC],
+  [0, 0, 0, 1, 0, 4, 4, () => InputDescriptions, () => OutputDescriptions, () => ReferenceDataSourceDescriptions, () => CloudWatchLoggingOptionDescriptions, 0], 4
 ];
 export var ApplicationSummary$: StaticStructureSchema = [3, n0, _ASp,
   0,
   [_AN, _AARN, _AS],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ApplicationUpdate$: StaticStructureSchema = [3, n0, _AU,
   0,
@@ -295,17 +295,17 @@ export var ApplicationUpdate$: StaticStructureSchema = [3, n0, _AU,
 export var CloudWatchLoggingOption$: StaticStructureSchema = [3, n0, _CWLO,
   0,
   [_LSARN, _RARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CloudWatchLoggingOptionDescription$: StaticStructureSchema = [3, n0, _CWLODl,
   0,
-  [_CWLOI, _LSARN, _RARN],
-  [0, 0, 0]
+  [_LSARN, _RARN, _CWLOI],
+  [0, 0, 0], 2
 ];
 export var CloudWatchLoggingOptionUpdate$: StaticStructureSchema = [3, n0, _CWLOUl,
   0,
   [_CWLOI, _LSARNU, _RARNU],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var CodeValidationException$: StaticErrorSchema = [-3, n0, _CVE,
   { [_e]: _c },
@@ -322,22 +322,22 @@ TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentM
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_AN, _ADp, _In, _Ou, _CWLOl, _AC, _T],
-  [0, 0, () => Inputs, () => Outputs, () => CloudWatchLoggingOptions, 0, () => Tags]
+  [0, 0, () => Inputs, () => Outputs, () => CloudWatchLoggingOptions, 0, () => Tags], 1
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
   [_ASp],
-  [() => ApplicationSummary$]
+  [() => ApplicationSummary$], 1
 ];
 export var CSVMappingParameters$: StaticStructureSchema = [3, n0, _CSVMP,
   0,
   [_RRD, _RCD],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteApplicationCloudWatchLoggingOptionRequest$: StaticStructureSchema = [3, n0, _DACWLOR,
   0,
   [_AN, _CAVI, _CWLOI],
-  [0, 1, 0]
+  [0, 1, 0], 3
 ];
 export var DeleteApplicationCloudWatchLoggingOptionResponse$: StaticStructureSchema = [3, n0, _DACWLORe,
   0,
@@ -347,7 +347,7 @@ export var DeleteApplicationCloudWatchLoggingOptionResponse$: StaticStructureSch
 export var DeleteApplicationInputProcessingConfigurationRequest$: StaticStructureSchema = [3, n0, _DAIPCR,
   0,
   [_AN, _CAVI, _II],
-  [0, 1, 0]
+  [0, 1, 0], 3
 ];
 export var DeleteApplicationInputProcessingConfigurationResponse$: StaticStructureSchema = [3, n0, _DAIPCRe,
   0,
@@ -357,7 +357,7 @@ export var DeleteApplicationInputProcessingConfigurationResponse$: StaticStructu
 export var DeleteApplicationOutputRequest$: StaticStructureSchema = [3, n0, _DAOR,
   0,
   [_AN, _CAVI, _OI],
-  [0, 1, 0]
+  [0, 1, 0], 3
 ];
 export var DeleteApplicationOutputResponse$: StaticStructureSchema = [3, n0, _DAORe,
   0,
@@ -367,7 +367,7 @@ export var DeleteApplicationOutputResponse$: StaticStructureSchema = [3, n0, _DA
 export var DeleteApplicationReferenceDataSourceRequest$: StaticStructureSchema = [3, n0, _DARDSR,
   0,
   [_AN, _CAVI, _RI],
-  [0, 1, 0]
+  [0, 1, 0], 3
 ];
 export var DeleteApplicationReferenceDataSourceResponse$: StaticStructureSchema = [3, n0, _DARDSRe,
   0,
@@ -377,7 +377,7 @@ export var DeleteApplicationReferenceDataSourceResponse$: StaticStructureSchema 
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AN, _CT],
-  [0, 4]
+  [0, 4], 2
 ];
 export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -387,17 +387,17 @@ export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DescribeApplicationRequest$: StaticStructureSchema = [3, n0, _DARes,
   0,
   [_AN],
-  [0]
+  [0], 1
 ];
 export var DescribeApplicationResponse$: StaticStructureSchema = [3, n0, _DAResc,
   0,
   [_AD],
-  [() => ApplicationDetail$]
+  [() => ApplicationDetail$], 1
 ];
 export var DestinationSchema$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_RFT],
-  [0]
+  [0], 1
 ];
 export var DiscoverInputSchemaRequest$: StaticStructureSchema = [3, n0, _DISR,
   0,
@@ -411,13 +411,13 @@ export var DiscoverInputSchemaResponse$: StaticStructureSchema = [3, n0, _DISRi,
 ];
 export var Input$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_NP, _IPC, _KSI, _KFI, _IP, _IS],
-  [0, () => InputProcessingConfiguration$, () => KinesisStreamsInput$, () => KinesisFirehoseInput$, () => InputParallelism$, () => SourceSchema$]
+  [_NP, _IS, _IPC, _KSI, _KFI, _IP],
+  [0, () => SourceSchema$, () => InputProcessingConfiguration$, () => KinesisStreamsInput$, () => KinesisFirehoseInput$, () => InputParallelism$], 2
 ];
 export var InputConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_Id, _ISPC],
-  [0, () => InputStartingPositionConfiguration$]
+  [0, () => InputStartingPositionConfiguration$], 2
 ];
 export var InputDescription$: StaticStructureSchema = [3, n0, _IDn,
   0,
@@ -427,7 +427,7 @@ export var InputDescription$: StaticStructureSchema = [3, n0, _IDn,
 export var InputLambdaProcessor$: StaticStructureSchema = [3, n0, _ILP,
   0,
   [_RARNe, _RARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InputLambdaProcessorDescription$: StaticStructureSchema = [3, n0, _ILPD,
   0,
@@ -452,7 +452,7 @@ export var InputParallelismUpdate$: StaticStructureSchema = [3, n0, _IPU,
 export var InputProcessingConfiguration$: StaticStructureSchema = [3, n0, _IPC,
   0,
   [_ILP],
-  [() => InputLambdaProcessor$]
+  [() => InputLambdaProcessor$], 1
 ];
 export var InputProcessingConfigurationDescription$: StaticStructureSchema = [3, n0, _IPCD,
   0,
@@ -462,7 +462,7 @@ export var InputProcessingConfigurationDescription$: StaticStructureSchema = [3,
 export var InputProcessingConfigurationUpdate$: StaticStructureSchema = [3, n0, _IPCU,
   0,
   [_ILPU],
-  [() => InputLambdaProcessorUpdate$]
+  [() => InputLambdaProcessorUpdate$], 1
 ];
 export var InputSchemaUpdate$: StaticStructureSchema = [3, n0, _ISU,
   0,
@@ -477,7 +477,7 @@ export var InputStartingPositionConfiguration$: StaticStructureSchema = [3, n0, 
 export var InputUpdate$: StaticStructureSchema = [3, n0, _IUn,
   0,
   [_II, _NPU, _IPCU, _KSIU, _KFIU, _ISU, _IPU],
-  [0, 0, () => InputProcessingConfigurationUpdate$, () => KinesisStreamsInputUpdate$, () => KinesisFirehoseInputUpdate$, () => InputSchemaUpdate$, () => InputParallelismUpdate$]
+  [0, 0, () => InputProcessingConfigurationUpdate$, () => KinesisStreamsInputUpdate$, () => KinesisFirehoseInputUpdate$, () => InputSchemaUpdate$, () => InputParallelismUpdate$], 1
 ];
 export var InvalidApplicationConfigurationException$: StaticErrorSchema = [-3, n0, _IACE,
   { [_e]: _c },
@@ -494,12 +494,12 @@ TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentExc
 export var JSONMappingParameters$: StaticStructureSchema = [3, n0, _JSONMP,
   0,
   [_RRP],
-  [0]
+  [0], 1
 ];
 export var KinesisFirehoseInput$: StaticStructureSchema = [3, n0, _KFI,
   0,
   [_RARNe, _RARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var KinesisFirehoseInputDescription$: StaticStructureSchema = [3, n0, _KFID,
   0,
@@ -514,7 +514,7 @@ export var KinesisFirehoseInputUpdate$: StaticStructureSchema = [3, n0, _KFIU,
 export var KinesisFirehoseOutput$: StaticStructureSchema = [3, n0, _KFO,
   0,
   [_RARNe, _RARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var KinesisFirehoseOutputDescription$: StaticStructureSchema = [3, n0, _KFOD,
   0,
@@ -529,7 +529,7 @@ export var KinesisFirehoseOutputUpdate$: StaticStructureSchema = [3, n0, _KFOU,
 export var KinesisStreamsInput$: StaticStructureSchema = [3, n0, _KSI,
   0,
   [_RARNe, _RARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var KinesisStreamsInputDescription$: StaticStructureSchema = [3, n0, _KSID,
   0,
@@ -544,7 +544,7 @@ export var KinesisStreamsInputUpdate$: StaticStructureSchema = [3, n0, _KSIU,
 export var KinesisStreamsOutput$: StaticStructureSchema = [3, n0, _KSO,
   0,
   [_RARNe, _RARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var KinesisStreamsOutputDescription$: StaticStructureSchema = [3, n0, _KSOD,
   0,
@@ -559,7 +559,7 @@ export var KinesisStreamsOutputUpdate$: StaticStructureSchema = [3, n0, _KSOU,
 export var LambdaOutput$: StaticStructureSchema = [3, n0, _LO,
   0,
   [_RARNe, _RARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LambdaOutputDescription$: StaticStructureSchema = [3, n0, _LOD,
   0,
@@ -585,12 +585,12 @@ export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
 export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
   [_ASpp, _HMA],
-  [() => ApplicationSummaries, 2]
+  [() => ApplicationSummaries, 2], 2
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARNe],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -604,8 +604,8 @@ export var MappingParameters$: StaticStructureSchema = [3, n0, _MP,
 ];
 export var Output$: StaticStructureSchema = [3, n0, _O,
   0,
-  [_N, _KSO, _KFO, _LO, _DS],
-  [0, () => KinesisStreamsOutput$, () => KinesisFirehoseOutput$, () => LambdaOutput$, () => DestinationSchema$]
+  [_N, _DS, _KSO, _KFO, _LO],
+  [0, () => DestinationSchema$, () => KinesisStreamsOutput$, () => KinesisFirehoseOutput$, () => LambdaOutput$], 2
 ];
 export var OutputDescription$: StaticStructureSchema = [3, n0, _ODu,
   0,
@@ -615,32 +615,32 @@ export var OutputDescription$: StaticStructureSchema = [3, n0, _ODu,
 export var OutputUpdate$: StaticStructureSchema = [3, n0, _OUu,
   0,
   [_OI, _NU, _KSOU, _KFOU, _LOU, _DSU],
-  [0, 0, () => KinesisStreamsOutputUpdate$, () => KinesisFirehoseOutputUpdate$, () => LambdaOutputUpdate$, () => DestinationSchema$]
+  [0, 0, () => KinesisStreamsOutputUpdate$, () => KinesisFirehoseOutputUpdate$, () => LambdaOutputUpdate$, () => DestinationSchema$], 1
 ];
 export var RecordColumn$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_N, _M, _ST],
-  [0, 0, 0]
+  [_N, _ST, _M],
+  [0, 0, 0], 2
 ];
 export var RecordFormat$: StaticStructureSchema = [3, n0, _RF,
   0,
   [_RFT, _MP],
-  [0, () => MappingParameters$]
+  [0, () => MappingParameters$], 1
 ];
 export var ReferenceDataSource$: StaticStructureSchema = [3, n0, _RDS,
   0,
-  [_TN, _SRDS, _RS],
-  [0, () => S3ReferenceDataSource$, () => SourceSchema$]
+  [_TN, _RS, _SRDS],
+  [0, () => SourceSchema$, () => S3ReferenceDataSource$], 2
 ];
 export var ReferenceDataSourceDescription$: StaticStructureSchema = [3, n0, _RDSDe,
   0,
   [_RI, _TN, _SRDSD, _RS],
-  [0, 0, () => S3ReferenceDataSourceDescription$, () => SourceSchema$]
+  [0, 0, () => S3ReferenceDataSourceDescription$, () => SourceSchema$], 3
 ];
 export var ReferenceDataSourceUpdate$: StaticStructureSchema = [3, n0, _RDSUe,
   0,
   [_RI, _TNU, _SRDSU, _RSU],
-  [0, 0, () => S3ReferenceDataSourceUpdate$, () => SourceSchema$]
+  [0, 0, () => S3ReferenceDataSourceUpdate$, () => SourceSchema$], 1
 ];
 export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
   { [_e]: _c },
@@ -663,17 +663,17 @@ TypeRegistry.for(n0).registerError(ResourceProvisionedThroughputExceededExceptio
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_RARN, _BARN, _FK],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var S3ReferenceDataSource$: StaticStructureSchema = [3, n0, _SRDS,
   0,
   [_BARN, _FK, _RRARN],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var S3ReferenceDataSourceDescription$: StaticStructureSchema = [3, n0, _SRDSD,
   0,
   [_BARN, _FK, _RRARN],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var S3ReferenceDataSourceUpdate$: StaticStructureSchema = [3, n0, _SRDSU,
   0,
@@ -688,13 +688,13 @@ export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
 TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SourceSchema$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_RF, _RE, _RCe],
-  [() => RecordFormat$, 0, () => RecordColumns]
+  [_RF, _RCe, _RE],
+  [() => RecordFormat$, () => RecordColumns, 0], 2
 ];
 export var StartApplicationRequest$: StaticStructureSchema = [3, n0, _SAR,
   0,
   [_AN, _ICn],
-  [0, () => InputConfigurations]
+  [0, () => InputConfigurations], 2
 ];
 export var StartApplicationResponse$: StaticStructureSchema = [3, n0, _SARt,
   0,
@@ -704,7 +704,7 @@ export var StartApplicationResponse$: StaticStructureSchema = [3, n0, _SARt,
 export var StopApplicationRequest$: StaticStructureSchema = [3, n0, _SARto,
   0,
   [_AN],
-  [0]
+  [0], 1
 ];
 export var StopApplicationResponse$: StaticStructureSchema = [3, n0, _SARtop,
   0,
@@ -714,12 +714,12 @@ export var StopApplicationResponse$: StaticStructureSchema = [3, n0, _SARtop,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARNe, _T],
-  [0, () => Tags]
+  [0, () => Tags], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -747,7 +747,7 @@ TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOp
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARNe, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -757,7 +757,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_AN, _CAVI, _AU],
-  [0, 1, () => ApplicationUpdate$]
+  [0, 1, () => ApplicationUpdate$], 3
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,

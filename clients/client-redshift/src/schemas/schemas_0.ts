@@ -1314,7 +1314,7 @@ var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AcceptReservedNodeExchangeInputMessage$: StaticStructureSchema = [3, n0, _ARNEIM,
   0,
   [_RNI, _TRNOI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AcceptReservedNodeExchangeOutputMessage$: StaticStructureSchema = [3, n0, _ARNEOM,
   0,
@@ -1356,7 +1356,7 @@ export var AquaConfiguration$: StaticStructureSchema = [3, n0, _AC,
 export var AssociateDataShareConsumerMessage$: StaticStructureSchema = [3, n0, _ADSCM,
   0,
   [_DSA, _AEA, _CA, _CR, _AW],
-  [0, 2, 0, 0, 2]
+  [0, 2, 0, 0, 2], 1
 ];
 export var Association$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -1412,7 +1412,7 @@ TypeRegistry.for(n0).registerError(AuthorizationQuotaExceededFault$, Authorizati
 export var AuthorizeClusterSecurityGroupIngressMessage$: StaticStructureSchema = [3, n0, _ACSGIM,
   0,
   [_CSGN, _CIDRIP, _ECSGN, _ECSGOI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var AuthorizeClusterSecurityGroupIngressResult$: StaticStructureSchema = [3, n0, _ACSGIR,
   0,
@@ -1422,7 +1422,7 @@ export var AuthorizeClusterSecurityGroupIngressResult$: StaticStructureSchema = 
 export var AuthorizeDataShareMessage$: StaticStructureSchema = [3, n0, _ADSM,
   0,
   [_DSA, _CI, _AW],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var AuthorizedTokenIssuer$: StaticStructureSchema = [3, n0, _ATI,
   0,
@@ -1431,13 +1431,13 @@ export var AuthorizedTokenIssuer$: StaticStructureSchema = [3, n0, _ATI,
 ];
 export var AuthorizeEndpointAccessMessage$: StaticStructureSchema = [3, n0, _AEAM,
   0,
-  [_CIl, _Ac, _VI],
-  [0, 0, [() => VpcIdentifierList, 0]]
+  [_Ac, _CIl, _VI],
+  [0, 0, [() => VpcIdentifierList, 0]], 1
 ];
 export var AuthorizeSnapshotAccessMessage$: StaticStructureSchema = [3, n0, _ASAM,
   0,
-  [_SI, _SA, _SCI, _AWRA],
-  [0, 0, 0, 0]
+  [_AWRA, _SI, _SA, _SCI],
+  [0, 0, 0, 0], 1
 ];
 export var AuthorizeSnapshotAccessResult$: StaticStructureSchema = [3, n0, _ASAR,
   0,
@@ -1452,7 +1452,7 @@ export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ,
 export var BatchDeleteClusterSnapshotsRequest$: StaticStructureSchema = [3, n0, _BDCSR,
   0,
   [_I],
-  [[() => DeleteClusterSnapshotMessageList, 0]]
+  [[() => DeleteClusterSnapshotMessageList, 0]], 1
 ];
 export var BatchDeleteClusterSnapshotsResult$: StaticStructureSchema = [3, n0, _BDCSRa,
   0,
@@ -1474,7 +1474,7 @@ TypeRegistry.for(n0).registerError(BatchModifyClusterSnapshotsLimitExceededFault
 export var BatchModifyClusterSnapshotsMessage$: StaticStructureSchema = [3, n0, _BMCSM,
   0,
   [_SIL, _MSRP, _F],
-  [[() => SnapshotIdentifierList, 0], 1, 2]
+  [[() => SnapshotIdentifierList, 0], 1, 2], 1
 ];
 export var BatchModifyClusterSnapshotsOutputMessage$: StaticStructureSchema = [3, n0, _BMCSOM,
   0,
@@ -1490,7 +1490,7 @@ TypeRegistry.for(n0).registerError(BucketNotFoundFault$, BucketNotFoundFault);
 export var CancelResizeMessage$: StaticStructureSchema = [3, n0, _CRM,
   0,
   [_CIl],
-  [0]
+  [0], 1
 ];
 export var CertificateAssociation$: StaticStructureSchema = [3, n0, _CAer,
   0,
@@ -1723,12 +1723,12 @@ TypeRegistry.for(n0).registerError(ConflictPolicyUpdateFault$, ConflictPolicyUpd
 export var Connect$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_Au],
-  [0]
+  [0], 1
 ];
 export var CopyClusterSnapshotMessage$: StaticStructureSchema = [3, n0, _CCSM,
   0,
-  [_SSIo, _SSCI, _TSI, _MSRP],
-  [0, 0, 0, 1]
+  [_SSIo, _TSI, _SSCI, _MSRP],
+  [0, 0, 0, 1], 2
 ];
 export var CopyClusterSnapshotResult$: StaticStructureSchema = [3, n0, _CCSR,
   0,
@@ -1744,7 +1744,7 @@ TypeRegistry.for(n0).registerError(CopyToRegionDisabledFault$, CopyToRegionDisab
 export var CreateAuthenticationProfileMessage$: StaticStructureSchema = [3, n0, _CAPM,
   0,
   [_APN, _APC],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateAuthenticationProfileResult$: StaticStructureSchema = [3, n0, _CAPR,
   0,
@@ -1753,13 +1753,13 @@ export var CreateAuthenticationProfileResult$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateClusterMessage$: StaticStructureSchema = [3, n0, _CCM,
   0,
-  [_DBN, _CIl, _CT, _NT, _MU, _MUP, _CSGl, _VSGI, _CSGNl, _AZ, _PMW, _CPGN, _ASRP, _MSRP, _Po, _CV, _AVU, _NON, _PA, _Enc, _HCCI, _HCI, _EI, _T, _KKI, _EVR, _AId, _IR, _MTN, _SSI, _AZR, _ACS, _DIRA, _LSD, _MMP, _MPSKKI, _IAT, _MAZ, _RIAA, _CNa],
-  [0, 0, 0, 0, 0, [() => SensitiveString, 0], [() => ClusterSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 1, 1, 1, 0, 2, 1, 2, 2, 0, 0, 0, [() => TagList, 0], 0, 2, 0, [() => IamRoleArnList, 0], 0, 0, 2, 0, 0, 0, 2, 0, 0, 2, 0, 0]
+  [_CIl, _NT, _MU, _DBN, _CT, _MUP, _CSGl, _VSGI, _CSGNl, _AZ, _PMW, _CPGN, _ASRP, _MSRP, _Po, _CV, _AVU, _NON, _PA, _Enc, _HCCI, _HCI, _EI, _T, _KKI, _EVR, _AId, _IR, _MTN, _SSI, _AZR, _ACS, _DIRA, _LSD, _MMP, _MPSKKI, _IAT, _MAZ, _RIAA, _CNa],
+  [0, 0, 0, 0, 0, [() => SensitiveString, 0], [() => ClusterSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 1, 1, 1, 0, 2, 1, 2, 2, 0, 0, 0, [() => TagList, 0], 0, 2, 0, [() => IamRoleArnList, 0], 0, 0, 2, 0, 0, 0, 2, 0, 0, 2, 0, 0], 3
 ];
 export var CreateClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _CCPGM,
   0,
   [_PGN, _PGF, _D, _T],
-  [0, 0, 0, [() => TagList, 0]]
+  [0, 0, 0, [() => TagList, 0]], 3
 ];
 export var CreateClusterParameterGroupResult$: StaticStructureSchema = [3, n0, _CCPGR,
   0,
@@ -1774,7 +1774,7 @@ export var CreateClusterResult$: StaticStructureSchema = [3, n0, _CCR,
 export var CreateClusterSecurityGroupMessage$: StaticStructureSchema = [3, n0, _CCSGM,
   0,
   [_CSGN, _D, _T],
-  [0, 0, [() => TagList, 0]]
+  [0, 0, [() => TagList, 0]], 2
 ];
 export var CreateClusterSecurityGroupResult$: StaticStructureSchema = [3, n0, _CCSGR,
   0,
@@ -1784,7 +1784,7 @@ export var CreateClusterSecurityGroupResult$: StaticStructureSchema = [3, n0, _C
 export var CreateClusterSnapshotMessage$: StaticStructureSchema = [3, n0, _CCSMr,
   0,
   [_SI, _CIl, _MSRP, _T],
-  [0, 0, 1, [() => TagList, 0]]
+  [0, 0, 1, [() => TagList, 0]], 2
 ];
 export var CreateClusterSnapshotResult$: StaticStructureSchema = [3, n0, _CCSRr,
   0,
@@ -1794,7 +1794,7 @@ export var CreateClusterSnapshotResult$: StaticStructureSchema = [3, n0, _CCSRr,
 export var CreateClusterSubnetGroupMessage$: StaticStructureSchema = [3, n0, _CCSGMr,
   0,
   [_CSGNl, _D, _SIu, _T],
-  [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]]
+  [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]], 3
 ];
 export var CreateClusterSubnetGroupResult$: StaticStructureSchema = [3, n0, _CCSGRr,
   0,
@@ -1804,7 +1804,7 @@ export var CreateClusterSubnetGroupResult$: StaticStructureSchema = [3, n0, _CCS
 export var CreateCustomDomainAssociationMessage$: StaticStructureSchema = [3, n0, _CCDAM,
   0,
   [_CDN, _CDCA, _CIl],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreateCustomDomainAssociationResult$: StaticStructureSchema = [3, n0, _CCDAR,
   0,
@@ -1813,13 +1813,13 @@ export var CreateCustomDomainAssociationResult$: StaticStructureSchema = [3, n0,
 ];
 export var CreateEndpointAccessMessage$: StaticStructureSchema = [3, n0, _CEAM,
   0,
-  [_CIl, _RO, _EN, _SGN, _VSGI],
-  [0, 0, 0, 0, [() => VpcSecurityGroupIdList, 0]]
+  [_EN, _SGN, _CIl, _RO, _VSGI],
+  [0, 0, 0, 0, [() => VpcSecurityGroupIdList, 0]], 2
 ];
 export var CreateEventSubscriptionMessage$: StaticStructureSchema = [3, n0, _CESM,
   0,
   [_SN, _STA, _ST, _SIo, _EC, _Se, _Ena, _T],
-  [0, 0, 0, [() => SourceIdsList, 0], [() => EventCategoriesList, 0], 0, 2, [() => TagList, 0]]
+  [0, 0, 0, [() => SourceIdsList, 0], [() => EventCategoriesList, 0], 0, 2, [() => TagList, 0]], 2
 ];
 export var CreateEventSubscriptionResult$: StaticStructureSchema = [3, n0, _CESR,
   0,
@@ -1829,7 +1829,7 @@ export var CreateEventSubscriptionResult$: StaticStructureSchema = [3, n0, _CESR
 export var CreateHsmClientCertificateMessage$: StaticStructureSchema = [3, n0, _CHCCM,
   0,
   [_HCCI, _T],
-  [0, [() => TagList, 0]]
+  [0, [() => TagList, 0]], 1
 ];
 export var CreateHsmClientCertificateResult$: StaticStructureSchema = [3, n0, _CHCCR,
   0,
@@ -1839,7 +1839,7 @@ export var CreateHsmClientCertificateResult$: StaticStructureSchema = [3, n0, _C
 export var CreateHsmConfigurationMessage$: StaticStructureSchema = [3, n0, _CHCM,
   0,
   [_HCI, _D, _HIA, _HPN, _HPP, _HSPC, _T],
-  [0, 0, 0, 0, 0, 0, [() => TagList, 0]]
+  [0, 0, 0, 0, 0, 0, [() => TagList, 0]], 6
 ];
 export var CreateHsmConfigurationResult$: StaticStructureSchema = [3, n0, _CHCR,
   0,
@@ -1849,12 +1849,12 @@ export var CreateHsmConfigurationResult$: StaticStructureSchema = [3, n0, _CHCR,
 export var CreateIntegrationMessage$: StaticStructureSchema = [3, n0, _CIM,
   0,
   [_SAo, _TA, _IN, _KMSKI, _TL, _AEC, _D],
-  [0, 0, 0, 0, [() => TagList, 0], 128 | 0, 0]
+  [0, 0, 0, 0, [() => TagList, 0], 128 | 0, 0], 3
 ];
 export var CreateRedshiftIdcApplicationMessage$: StaticStructureSchema = [3, n0, _CRIAM,
   0,
-  [_IIA, _RIAN, _INd, _IDN, _IRA, _ATIL, _SIe, _AT, _T, _STK],
-  [0, 0, 0, 0, 0, () => AuthorizedTokenIssuerList, () => ServiceIntegrationList, 0, [() => TagList, 0], [() => TagKeyList, 0]]
+  [_IIA, _RIAN, _IDN, _IRA, _INd, _ATIL, _SIe, _AT, _T, _STK],
+  [0, 0, 0, 0, 0, () => AuthorizedTokenIssuerList, () => ServiceIntegrationList, 0, [() => TagList, 0], [() => TagKeyList, 0]], 4
 ];
 export var CreateRedshiftIdcApplicationResult$: StaticStructureSchema = [3, n0, _CRIAR,
   0,
@@ -1864,12 +1864,12 @@ export var CreateRedshiftIdcApplicationResult$: StaticStructureSchema = [3, n0, 
 export var CreateScheduledActionMessage$: StaticStructureSchema = [3, n0, _CSAM,
   0,
   [_SAN, _TAa, _Sc, _IRa, _SAD, _STt, _ET, _Enab],
-  [0, () => ScheduledActionType$, 0, 0, 0, 4, 4, 2]
+  [0, () => ScheduledActionType$, 0, 0, 0, 4, 4, 2], 4
 ];
 export var CreateSnapshotCopyGrantMessage$: StaticStructureSchema = [3, n0, _CSCGM,
   0,
   [_SCGN, _KKI, _T],
-  [0, 0, [() => TagList, 0]]
+  [0, 0, [() => TagList, 0]], 1
 ];
 export var CreateSnapshotCopyGrantResult$: StaticStructureSchema = [3, n0, _CSCGR,
   0,
@@ -1884,12 +1884,12 @@ export var CreateSnapshotScheduleMessage$: StaticStructureSchema = [3, n0, _CSSM
 export var CreateTagsMessage$: StaticStructureSchema = [3, n0, _CTM,
   0,
   [_RN, _T],
-  [0, [() => TagList, 0]]
+  [0, [() => TagList, 0]], 2
 ];
 export var CreateUsageLimitMessage$: StaticStructureSchema = [3, n0, _CULM,
   0,
   [_CIl, _FT, _LT, _Am, _Pe, _BA, _T],
-  [0, 0, 0, 1, 0, 0, [() => TagList, 0]]
+  [0, 0, 0, 1, 0, 0, [() => TagList, 0]], 4
 ];
 export var CustomCnameAssociationFault$: StaticErrorSchema = [-3, n0, _CCAF,
   { [_aQE]: [`CustomCnameAssociationFault`, 400], [_e]: _c, [_hE]: 400 },
@@ -1931,7 +1931,7 @@ export var DataTransferProgress$: StaticStructureSchema = [3, n0, _DTP,
 export var DeauthorizeDataShareMessage$: StaticStructureSchema = [3, n0, _DDSM,
   0,
   [_DSA, _CI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DefaultClusterParameters$: StaticStructureSchema = [3, n0, _DCP,
   0,
@@ -1946,7 +1946,7 @@ export var DeferredMaintenanceWindow$: StaticStructureSchema = [3, n0, _DMWe,
 export var DeleteAuthenticationProfileMessage$: StaticStructureSchema = [3, n0, _DAPM,
   0,
   [_APN],
-  [0]
+  [0], 1
 ];
 export var DeleteAuthenticationProfileResult$: StaticStructureSchema = [3, n0, _DAPR,
   0,
@@ -1956,12 +1956,12 @@ export var DeleteAuthenticationProfileResult$: StaticStructureSchema = [3, n0, _
 export var DeleteClusterMessage$: StaticStructureSchema = [3, n0, _DCM,
   0,
   [_CIl, _SFCS, _FCSI, _FCSRP],
-  [0, 2, 0, 1]
+  [0, 2, 0, 1], 1
 ];
 export var DeleteClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _DCPGM,
   0,
   [_PGN],
-  [0]
+  [0], 1
 ];
 export var DeleteClusterResult$: StaticStructureSchema = [3, n0, _DCR,
   0,
@@ -1971,12 +1971,12 @@ export var DeleteClusterResult$: StaticStructureSchema = [3, n0, _DCR,
 export var DeleteClusterSecurityGroupMessage$: StaticStructureSchema = [3, n0, _DCSGM,
   0,
   [_CSGN],
-  [0]
+  [0], 1
 ];
 export var DeleteClusterSnapshotMessage$: StaticStructureSchema = [3, n0, _DCSM,
   0,
   [_SI, _SCI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteClusterSnapshotResult$: StaticStructureSchema = [3, n0, _DCSR,
   0,
@@ -1986,72 +1986,72 @@ export var DeleteClusterSnapshotResult$: StaticStructureSchema = [3, n0, _DCSR,
 export var DeleteClusterSubnetGroupMessage$: StaticStructureSchema = [3, n0, _DCSGMe,
   0,
   [_CSGNl],
-  [0]
+  [0], 1
 ];
 export var DeleteCustomDomainAssociationMessage$: StaticStructureSchema = [3, n0, _DCDAM,
   0,
   [_CIl, _CDN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteEndpointAccessMessage$: StaticStructureSchema = [3, n0, _DEAM,
   0,
   [_EN],
-  [0]
+  [0], 1
 ];
 export var DeleteEventSubscriptionMessage$: StaticStructureSchema = [3, n0, _DESM,
   0,
   [_SN],
-  [0]
+  [0], 1
 ];
 export var DeleteHsmClientCertificateMessage$: StaticStructureSchema = [3, n0, _DHCCM,
   0,
   [_HCCI],
-  [0]
+  [0], 1
 ];
 export var DeleteHsmConfigurationMessage$: StaticStructureSchema = [3, n0, _DHCM,
   0,
   [_HCI],
-  [0]
+  [0], 1
 ];
 export var DeleteIntegrationMessage$: StaticStructureSchema = [3, n0, _DIM,
   0,
   [_IA],
-  [0]
+  [0], 1
 ];
 export var DeleteRedshiftIdcApplicationMessage$: StaticStructureSchema = [3, n0, _DRIAM,
   0,
   [_RIAA],
-  [0]
+  [0], 1
 ];
 export var DeleteResourcePolicyMessage$: StaticStructureSchema = [3, n0, _DRPM,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var DeleteScheduledActionMessage$: StaticStructureSchema = [3, n0, _DSAM,
   0,
   [_SAN],
-  [0]
+  [0], 1
 ];
 export var DeleteSnapshotCopyGrantMessage$: StaticStructureSchema = [3, n0, _DSCGM,
   0,
   [_SCGN],
-  [0]
+  [0], 1
 ];
 export var DeleteSnapshotScheduleMessage$: StaticStructureSchema = [3, n0, _DSSM,
   0,
   [_SIc],
-  [0]
+  [0], 1
 ];
 export var DeleteTagsMessage$: StaticStructureSchema = [3, n0, _DTM,
   0,
   [_RN, _TK],
-  [0, [() => TagKeyList, 0]]
+  [0, [() => TagKeyList, 0]], 2
 ];
 export var DeleteUsageLimitMessage$: StaticStructureSchema = [3, n0, _DULM,
   0,
   [_ULI],
-  [0]
+  [0], 1
 ];
 export var DependentServiceAccessDeniedFault$: StaticErrorSchema = [-3, n0, _DSADF,
   { [_aQE]: [`DependentServiceAccessDenied`, 403], [_e]: _c, [_hE]: 403 },
@@ -2074,7 +2074,7 @@ TypeRegistry.for(n0).registerError(DependentServiceUnavailableFault$, DependentS
 export var DeregisterNamespaceInputMessage$: StaticStructureSchema = [3, n0, _DNIM,
   0,
   [_NIa, _CIo],
-  [() => NamespaceIdentifierUnion$, 64 | 0]
+  [() => NamespaceIdentifierUnion$, 64 | 0], 2
 ];
 export var DeregisterNamespaceOutputMessage$: StaticStructureSchema = [3, n0, _DNOM,
   0,
@@ -2109,7 +2109,7 @@ export var DescribeClusterParameterGroupsMessage$: StaticStructureSchema = [3, n
 export var DescribeClusterParametersMessage$: StaticStructureSchema = [3, n0, _DCPM,
   0,
   [_PGN, _So, _MR, _M],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var DescribeClusterSecurityGroupsMessage$: StaticStructureSchema = [3, n0, _DCSGMes,
   0,
@@ -2179,7 +2179,7 @@ export var DescribeDataSharesResult$: StaticStructureSchema = [3, n0, _DDSR,
 export var DescribeDefaultClusterParametersMessage$: StaticStructureSchema = [3, n0, _DDCPM,
   0,
   [_PGF, _MR, _M],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeDefaultClusterParametersResult$: StaticStructureSchema = [3, n0, _DDCPR,
   0,
@@ -2229,7 +2229,7 @@ export var DescribeInboundIntegrationsMessage$: StaticStructureSchema = [3, n0, 
 export var DescribeIntegrationsFilter$: StaticStructureSchema = [3, n0, _DIF,
   0,
   [_N, _V],
-  [0, [() => DescribeIntegrationsFilterValueList, 0]]
+  [0, [() => DescribeIntegrationsFilterValueList, 0]], 2
 ];
 export var DescribeIntegrationsMessage$: StaticStructureSchema = [3, n0, _DIMe,
   0,
@@ -2239,12 +2239,12 @@ export var DescribeIntegrationsMessage$: StaticStructureSchema = [3, n0, _DIMe,
 export var DescribeLoggingStatusMessage$: StaticStructureSchema = [3, n0, _DLSM,
   0,
   [_CIl],
-  [0]
+  [0], 1
 ];
 export var DescribeNodeConfigurationOptionsMessage$: StaticStructureSchema = [3, n0, _DNCOM,
   0,
   [_ATc, _CIl, _SI, _SA, _OA, _Fi, _M, _MR],
-  [0, 0, 0, 0, 0, [() => NodeConfigurationOptionsFilterList, { [_xN]: _Fil }], 0, 1]
+  [0, 0, 0, 0, 0, [() => NodeConfigurationOptionsFilterList, { [_xN]: _Fil }], 0, 1], 1
 ];
 export var DescribeOrderableClusterOptionsMessage$: StaticStructureSchema = [3, n0, _DOCOM,
   0,
@@ -2254,7 +2254,7 @@ export var DescribeOrderableClusterOptionsMessage$: StaticStructureSchema = [3, 
 export var DescribePartnersInputMessage$: StaticStructureSchema = [3, n0, _DPIM,
   0,
   [_AI, _CIl, _DN, _PNa],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var DescribePartnersOutputMessage$: StaticStructureSchema = [3, n0, _DPOM,
   0,
@@ -2294,7 +2294,7 @@ export var DescribeReservedNodesMessage$: StaticStructureSchema = [3, n0, _DRNM,
 export var DescribeResizeMessage$: StaticStructureSchema = [3, n0, _DRM,
   0,
   [_CIl],
-  [0]
+  [0], 1
 ];
 export var DescribeScheduledActionsMessage$: StaticStructureSchema = [3, n0, _DSAMe,
   0,
@@ -2334,12 +2334,12 @@ export var DescribeUsageLimitsMessage$: StaticStructureSchema = [3, n0, _DULMe,
 export var DisableLoggingMessage$: StaticStructureSchema = [3, n0, _DLM,
   0,
   [_CIl],
-  [0]
+  [0], 1
 ];
 export var DisableSnapshotCopyMessage$: StaticStructureSchema = [3, n0, _DSCM,
   0,
   [_CIl],
-  [0]
+  [0], 1
 ];
 export var DisableSnapshotCopyResult$: StaticStructureSchema = [3, n0, _DSCR,
   0,
@@ -2349,7 +2349,7 @@ export var DisableSnapshotCopyResult$: StaticStructureSchema = [3, n0, _DSCR,
 export var DisassociateDataShareConsumerMessage$: StaticStructureSchema = [3, n0, _DDSCM,
   0,
   [_DSA, _DEA, _CA, _CR],
-  [0, 2, 0, 0]
+  [0, 2, 0, 0], 1
 ];
 export var EC2SecurityGroup$: StaticStructureSchema = [3, n0, _ECSGe,
   0,
@@ -2364,12 +2364,12 @@ export var ElasticIpStatus$: StaticStructureSchema = [3, n0, _EIS,
 export var EnableLoggingMessage$: StaticStructureSchema = [3, n0, _ELM,
   0,
   [_CIl, _BN, _SKP, _LDT, _LE],
-  [0, 0, 0, 0, 64 | 0]
+  [0, 0, 0, 0, 64 | 0], 1
 ];
 export var EnableSnapshotCopyMessage$: StaticStructureSchema = [3, n0, _ESCM,
   0,
   [_CIl, _DR, _RP, _SCGN, _MSRP],
-  [0, 0, 1, 0, 1]
+  [0, 0, 1, 0, 1], 2
 ];
 export var EnableSnapshotCopyResult$: StaticStructureSchema = [3, n0, _ESCR,
   0,
@@ -2487,7 +2487,7 @@ export var EventSubscriptionsMessage$: StaticStructureSchema = [3, n0, _ESM,
 export var FailoverPrimaryComputeInputMessage$: StaticStructureSchema = [3, n0, _FPCIM,
   0,
   [_CIl],
-  [0]
+  [0], 1
 ];
 export var FailoverPrimaryComputeResult$: StaticStructureSchema = [3, n0, _FPCR,
   0,
@@ -2497,7 +2497,7 @@ export var FailoverPrimaryComputeResult$: StaticStructureSchema = [3, n0, _FPCR,
 export var GetClusterCredentialsMessage$: StaticStructureSchema = [3, n0, _GCCM,
   0,
   [_DU, _DNb, _CIl, _DSu, _ACu, _DG, _CDN],
-  [0, 0, 0, 1, 2, [() => DbGroupList, 0], 0]
+  [0, 0, 0, 1, 2, [() => DbGroupList, 0], 0], 1
 ];
 export var GetClusterCredentialsWithIAMMessage$: StaticStructureSchema = [3, n0, _GCCWIAMM,
   0,
@@ -2507,7 +2507,7 @@ export var GetClusterCredentialsWithIAMMessage$: StaticStructureSchema = [3, n0,
 export var GetIdentityCenterAuthTokenRequest$: StaticStructureSchema = [3, n0, _GICATR,
   0,
   [_CIlu],
-  [[() => ClusterIdentifierList, 0]]
+  [[() => ClusterIdentifierList, 0]], 1
 ];
 export var GetIdentityCenterAuthTokenResponse$: StaticStructureSchema = [3, n0, _GICATRe,
   0,
@@ -2517,7 +2517,7 @@ export var GetIdentityCenterAuthTokenResponse$: StaticStructureSchema = [3, n0, 
 export var GetReservedNodeExchangeConfigurationOptionsInputMessage$: StaticStructureSchema = [3, n0, _GRNECOIM,
   0,
   [_ATc, _CIl, _SI, _MR, _M],
-  [0, 0, 0, 1, 0]
+  [0, 0, 0, 1, 0], 1
 ];
 export var GetReservedNodeExchangeConfigurationOptionsOutputMessage$: StaticStructureSchema = [3, n0, _GRNECOOM,
   0,
@@ -2527,7 +2527,7 @@ export var GetReservedNodeExchangeConfigurationOptionsOutputMessage$: StaticStru
 export var GetReservedNodeExchangeOfferingsInputMessage$: StaticStructureSchema = [3, n0, _GRNEOIM,
   0,
   [_RNI, _MR, _M],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetReservedNodeExchangeOfferingsOutputMessage$: StaticStructureSchema = [3, n0, _GRNEOOM,
   0,
@@ -2537,7 +2537,7 @@ export var GetReservedNodeExchangeOfferingsOutputMessage$: StaticStructureSchema
 export var GetResourcePolicyMessage$: StaticStructureSchema = [3, n0, _GRPM,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var GetResourcePolicyResult$: StaticStructureSchema = [3, n0, _GRPR,
   0,
@@ -2665,7 +2665,7 @@ TypeRegistry.for(n0).registerError(IntegrationConflictStateFault$, IntegrationCo
 export var IntegrationError$: StaticStructureSchema = [3, n0, _IE,
   0,
   [_ECr, _EMr],
-  [0, 0]
+  [0, 0], 1
 ];
 export var IntegrationNotFoundFault$: StaticErrorSchema = [-3, n0, _INFF,
   { [_aQE]: [`IntegrationNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
@@ -2896,7 +2896,7 @@ TypeRegistry.for(n0).registerError(Ipv6CidrBlockNotFoundFault$, Ipv6CidrBlockNot
 export var LakeFormationQuery$: StaticStructureSchema = [3, n0, _LFQ,
   0,
   [_Au],
-  [0]
+  [0], 1
 ];
 export var LakehouseConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
@@ -2932,7 +2932,7 @@ export var MaintenanceTrack$: StaticStructureSchema = [3, n0, _MT,
 export var ModifyAquaInputMessage$: StaticStructureSchema = [3, n0, _MAIM,
   0,
   [_CIl, _ACS],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ModifyAquaOutputMessage$: StaticStructureSchema = [3, n0, _MAOM,
   0,
@@ -2942,7 +2942,7 @@ export var ModifyAquaOutputMessage$: StaticStructureSchema = [3, n0, _MAOM,
 export var ModifyAuthenticationProfileMessage$: StaticStructureSchema = [3, n0, _MAPM,
   0,
   [_APN, _APC],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ModifyAuthenticationProfileResult$: StaticStructureSchema = [3, n0, _MAPR,
   0,
@@ -2952,7 +2952,7 @@ export var ModifyAuthenticationProfileResult$: StaticStructureSchema = [3, n0, _
 export var ModifyClusterDbRevisionMessage$: StaticStructureSchema = [3, n0, _MCDRM,
   0,
   [_CIl, _RTev],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ModifyClusterDbRevisionResult$: StaticStructureSchema = [3, n0, _MCDRR,
   0,
@@ -2962,7 +2962,7 @@ export var ModifyClusterDbRevisionResult$: StaticStructureSchema = [3, n0, _MCDR
 export var ModifyClusterIamRolesMessage$: StaticStructureSchema = [3, n0, _MCIRM,
   0,
   [_CIl, _AIR, _RIR, _DIRA],
-  [0, [() => IamRoleArnList, 0], [() => IamRoleArnList, 0], 0]
+  [0, [() => IamRoleArnList, 0], [() => IamRoleArnList, 0], 0], 1
 ];
 export var ModifyClusterIamRolesResult$: StaticStructureSchema = [3, n0, _MCIRR,
   0,
@@ -2972,7 +2972,7 @@ export var ModifyClusterIamRolesResult$: StaticStructureSchema = [3, n0, _MCIRR,
 export var ModifyClusterMaintenanceMessage$: StaticStructureSchema = [3, n0, _MCMM,
   0,
   [_CIl, _DM, _DMI, _DMST, _DMET, _DMD],
-  [0, 2, 0, 4, 4, 1]
+  [0, 2, 0, 4, 4, 1], 1
 ];
 export var ModifyClusterMaintenanceResult$: StaticStructureSchema = [3, n0, _MCMR,
   0,
@@ -2982,12 +2982,12 @@ export var ModifyClusterMaintenanceResult$: StaticStructureSchema = [3, n0, _MCM
 export var ModifyClusterMessage$: StaticStructureSchema = [3, n0, _MCM,
   0,
   [_CIl, _CT, _NT, _NON, _CSGl, _VSGI, _MUP, _CPGN, _ASRP, _MSRP, _PMW, _CV, _AVU, _HCCI, _HCI, _NCI, _PA, _EI, _EVR, _MTN, _Enc, _KKI, _AZR, _AZ, _Po, _MMP, _MPSKKI, _IAT, _MAZ],
-  [0, 0, 0, 1, [() => ClusterSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], [() => SensitiveString, 0], 0, 1, 1, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 2, 0, 2, 0, 1, 2, 0, 0, 2]
+  [0, 0, 0, 1, [() => ClusterSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], [() => SensitiveString, 0], 0, 1, 1, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 2, 0, 2, 0, 1, 2, 0, 0, 2], 1
 ];
 export var ModifyClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _MCPGM,
   0,
   [_PGN, _P],
-  [0, [() => ParametersList, 0]]
+  [0, [() => ParametersList, 0]], 2
 ];
 export var ModifyClusterResult$: StaticStructureSchema = [3, n0, _MCR,
   0,
@@ -2997,7 +2997,7 @@ export var ModifyClusterResult$: StaticStructureSchema = [3, n0, _MCR,
 export var ModifyClusterSnapshotMessage$: StaticStructureSchema = [3, n0, _MCSM,
   0,
   [_SI, _MSRP, _F],
-  [0, 1, 2]
+  [0, 1, 2], 1
 ];
 export var ModifyClusterSnapshotResult$: StaticStructureSchema = [3, n0, _MCSR,
   0,
@@ -3007,12 +3007,12 @@ export var ModifyClusterSnapshotResult$: StaticStructureSchema = [3, n0, _MCSR,
 export var ModifyClusterSnapshotScheduleMessage$: StaticStructureSchema = [3, n0, _MCSSM,
   0,
   [_CIl, _SIc, _DSi],
-  [0, 0, 2]
+  [0, 0, 2], 1
 ];
 export var ModifyClusterSubnetGroupMessage$: StaticStructureSchema = [3, n0, _MCSGM,
   0,
-  [_CSGNl, _D, _SIu],
-  [0, 0, [() => SubnetIdentifierList, 0]]
+  [_CSGNl, _SIu, _D],
+  [0, [() => SubnetIdentifierList, 0], 0], 2
 ];
 export var ModifyClusterSubnetGroupResult$: StaticStructureSchema = [3, n0, _MCSGR,
   0,
@@ -3022,7 +3022,7 @@ export var ModifyClusterSubnetGroupResult$: StaticStructureSchema = [3, n0, _MCS
 export var ModifyCustomDomainAssociationMessage$: StaticStructureSchema = [3, n0, _MCDAM,
   0,
   [_CDN, _CDCA, _CIl],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ModifyCustomDomainAssociationResult$: StaticStructureSchema = [3, n0, _MCDAR,
   0,
@@ -3032,12 +3032,12 @@ export var ModifyCustomDomainAssociationResult$: StaticStructureSchema = [3, n0,
 export var ModifyEndpointAccessMessage$: StaticStructureSchema = [3, n0, _MEAM,
   0,
   [_EN, _VSGI],
-  [0, [() => VpcSecurityGroupIdList, 0]]
+  [0, [() => VpcSecurityGroupIdList, 0]], 1
 ];
 export var ModifyEventSubscriptionMessage$: StaticStructureSchema = [3, n0, _MESM,
   0,
   [_SN, _STA, _ST, _SIo, _EC, _Se, _Ena],
-  [0, 0, 0, [() => SourceIdsList, 0], [() => EventCategoriesList, 0], 0, 2]
+  [0, 0, 0, [() => SourceIdsList, 0], [() => EventCategoriesList, 0], 0, 2], 1
 ];
 export var ModifyEventSubscriptionResult$: StaticStructureSchema = [3, n0, _MESR,
   0,
@@ -3047,17 +3047,17 @@ export var ModifyEventSubscriptionResult$: StaticStructureSchema = [3, n0, _MESR
 export var ModifyIntegrationMessage$: StaticStructureSchema = [3, n0, _MIM,
   0,
   [_IA, _D, _IN],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ModifyLakehouseConfigurationMessage$: StaticStructureSchema = [3, n0, _MLCM,
   0,
   [_CIl, _LR, _CNa, _LIR, _LIAA, _DRr],
-  [0, 0, 0, 0, 0, 2]
+  [0, 0, 0, 0, 0, 2], 1
 ];
 export var ModifyRedshiftIdcApplicationMessage$: StaticStructureSchema = [3, n0, _MRIAM,
   0,
   [_RIAA, _INd, _IRA, _IDN, _ATIL, _SIe],
-  [0, 0, 0, 0, () => AuthorizedTokenIssuerList, () => ServiceIntegrationList]
+  [0, 0, 0, 0, () => AuthorizedTokenIssuerList, () => ServiceIntegrationList], 1
 ];
 export var ModifyRedshiftIdcApplicationResult$: StaticStructureSchema = [3, n0, _MRIAR,
   0,
@@ -3067,12 +3067,12 @@ export var ModifyRedshiftIdcApplicationResult$: StaticStructureSchema = [3, n0, 
 export var ModifyScheduledActionMessage$: StaticStructureSchema = [3, n0, _MSAM,
   0,
   [_SAN, _TAa, _Sc, _IRa, _SAD, _STt, _ET, _Enab],
-  [0, () => ScheduledActionType$, 0, 0, 0, 4, 4, 2]
+  [0, () => ScheduledActionType$, 0, 0, 0, 4, 4, 2], 1
 ];
 export var ModifySnapshotCopyRetentionPeriodMessage$: StaticStructureSchema = [3, n0, _MSCRPM,
   0,
   [_CIl, _RP, _Ma],
-  [0, 1, 2]
+  [0, 1, 2], 2
 ];
 export var ModifySnapshotCopyRetentionPeriodResult$: StaticStructureSchema = [3, n0, _MSCRPR,
   0,
@@ -3082,12 +3082,12 @@ export var ModifySnapshotCopyRetentionPeriodResult$: StaticStructureSchema = [3,
 export var ModifySnapshotScheduleMessage$: StaticStructureSchema = [3, n0, _MSSM,
   0,
   [_SIc, _SD],
-  [0, [() => ScheduleDefinitionList, 0]]
+  [0, [() => ScheduleDefinitionList, 0]], 2
 ];
 export var ModifyUsageLimitMessage$: StaticStructureSchema = [3, n0, _MULM,
   0,
   [_ULI, _Am, _BA],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var NetworkInterface$: StaticStructureSchema = [3, n0, _NIe,
   0,
@@ -3144,7 +3144,7 @@ export var PartnerIntegrationInfo$: StaticStructureSchema = [3, n0, _PII,
 export var PartnerIntegrationInputMessage$: StaticStructureSchema = [3, n0, _PIIM,
   0,
   [_AI, _CIl, _DN, _PNa],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var PartnerIntegrationOutputMessage$: StaticStructureSchema = [3, n0, _PIOM,
   0,
@@ -3160,7 +3160,7 @@ TypeRegistry.for(n0).registerError(PartnerNotFoundFault$, PartnerNotFoundFault);
 export var PauseClusterMessage$: StaticStructureSchema = [3, n0, _PCM,
   0,
   [_CIl],
-  [0]
+  [0], 1
 ];
 export var PauseClusterResult$: StaticStructureSchema = [3, n0, _PCR,
   0,
@@ -3175,12 +3175,12 @@ export var PendingModifiedValues$: StaticStructureSchema = [3, n0, _PMV,
 export var ProvisionedIdentifier$: StaticStructureSchema = [3, n0, _PI,
   0,
   [_CIl],
-  [0]
+  [0], 1
 ];
 export var PurchaseReservedNodeOfferingMessage$: StaticStructureSchema = [3, n0, _PRNOM,
   0,
   [_RNOI, _NC],
-  [0, 1]
+  [0, 1], 1
 ];
 export var PurchaseReservedNodeOfferingResult$: StaticStructureSchema = [3, n0, _PRNOR,
   0,
@@ -3190,7 +3190,7 @@ export var PurchaseReservedNodeOfferingResult$: StaticStructureSchema = [3, n0, 
 export var PutResourcePolicyMessage$: StaticStructureSchema = [3, n0, _PRPM,
   0,
   [_RA, _Pol],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutResourcePolicyResult$: StaticStructureSchema = [3, n0, _PRPR,
   0,
@@ -3200,12 +3200,12 @@ export var PutResourcePolicyResult$: StaticStructureSchema = [3, n0, _PRPR,
 export var ReadWriteAccess$: StaticStructureSchema = [3, n0, _RWA,
   0,
   [_Au],
-  [0]
+  [0], 1
 ];
 export var RebootClusterMessage$: StaticStructureSchema = [3, n0, _RCM,
   0,
   [_CIl],
-  [0]
+  [0], 1
 ];
 export var RebootClusterResult$: StaticStructureSchema = [3, n0, _RCR,
   0,
@@ -3264,7 +3264,7 @@ export var ReferenceLink$: StaticStructureSchema = [3, n0, _RLe,
 export var RegisterNamespaceInputMessage$: StaticStructureSchema = [3, n0, _RNIM,
   0,
   [_NIa, _CIo],
-  [() => NamespaceIdentifierUnion$, 64 | 0]
+  [() => NamespaceIdentifierUnion$, 64 | 0], 2
 ];
 export var RegisterNamespaceOutputMessage$: StaticStructureSchema = [3, n0, _RNOM,
   0,
@@ -3274,7 +3274,7 @@ export var RegisterNamespaceOutputMessage$: StaticStructureSchema = [3, n0, _RNO
 export var RejectDataShareMessage$: StaticStructureSchema = [3, n0, _RDSM,
   0,
   [_DSA],
-  [0]
+  [0], 1
 ];
 export var ReservedNode$: StaticStructureSchema = [3, n0, _RNe,
   0,
@@ -3345,12 +3345,12 @@ export var ReservedNodesMessage$: StaticStructureSchema = [3, n0, _RNM,
 export var ResetClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _RCPGM,
   0,
   [_PGN, _RAP, _P],
-  [0, 2, [() => ParametersList, 0]]
+  [0, 2, [() => ParametersList, 0]], 1
 ];
 export var ResizeClusterMessage$: StaticStructureSchema = [3, n0, _RCMe,
   0,
   [_CIl, _CT, _NT, _NON, _Cla, _RNI, _TRNOI],
-  [0, 0, 0, 1, 2, 0, 0]
+  [0, 0, 0, 1, 2, 0, 0], 1
 ];
 export var ResizeClusterResult$: StaticStructureSchema = [3, n0, _RCRe,
   0,
@@ -3387,7 +3387,7 @@ export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RPe,
 export var RestoreFromClusterSnapshotMessage$: StaticStructureSchema = [3, n0, _RFCSM,
   0,
   [_CIl, _SI, _SA, _SCI, _Po, _AZ, _AVU, _CSGNl, _PA, _OA, _HCCI, _HCI, _EI, _CPGN, _CSGl, _VSGI, _PMW, _ASRP, _MSRP, _KKI, _NT, _EVR, _AId, _IR, _MTN, _SSI, _NON, _AZR, _ACS, _DIRA, _RNI, _TRNOI, _Enc, _MMP, _MPSKKI, _IAT, _MAZ, _CNa, _RIAA],
-  [0, 0, 0, 0, 1, 0, 2, 0, 2, 0, 0, 0, 0, 0, [() => ClusterSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 1, 1, 0, 0, 2, 0, [() => IamRoleArnList, 0], 0, 0, 1, 2, 0, 0, 0, 0, 2, 2, 0, 0, 2, 0, 0]
+  [0, 0, 0, 0, 1, 0, 2, 0, 2, 0, 0, 0, 0, 0, [() => ClusterSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 1, 1, 0, 0, 2, 0, [() => IamRoleArnList, 0], 0, 0, 1, 2, 0, 0, 0, 0, 2, 2, 0, 0, 2, 0, 0], 1
 ];
 export var RestoreFromClusterSnapshotResult$: StaticStructureSchema = [3, n0, _RFCSR,
   0,
@@ -3401,8 +3401,8 @@ export var RestoreStatus$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var RestoreTableFromClusterSnapshotMessage$: StaticStructureSchema = [3, n0, _RTFCSM,
   0,
-  [_CIl, _SI, _SDN, _SSN, _STN, _TDN, _TSN, _NTN, _ECSI],
-  [0, 0, 0, 0, 0, 0, 0, 0, 2]
+  [_CIl, _SI, _SDN, _STN, _NTN, _SSN, _TDN, _TSN, _ECSI],
+  [0, 0, 0, 0, 0, 0, 0, 0, 2], 5
 ];
 export var RestoreTableFromClusterSnapshotResult$: StaticStructureSchema = [3, n0, _RTFCSR,
   0,
@@ -3412,7 +3412,7 @@ export var RestoreTableFromClusterSnapshotResult$: StaticStructureSchema = [3, n
 export var ResumeClusterMessage$: StaticStructureSchema = [3, n0, _RCMes,
   0,
   [_CIl],
-  [0]
+  [0], 1
 ];
 export var ResumeClusterResult$: StaticStructureSchema = [3, n0, _RCRes,
   0,
@@ -3427,7 +3427,7 @@ export var RevisionTarget$: StaticStructureSchema = [3, n0, _RTev,
 export var RevokeClusterSecurityGroupIngressMessage$: StaticStructureSchema = [3, n0, _RCSGIM,
   0,
   [_CSGN, _CIDRIP, _ECSGN, _ECSGOI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var RevokeClusterSecurityGroupIngressResult$: StaticStructureSchema = [3, n0, _RCSGIR,
   0,
@@ -3441,8 +3441,8 @@ export var RevokeEndpointAccessMessage$: StaticStructureSchema = [3, n0, _REAM,
 ];
 export var RevokeSnapshotAccessMessage$: StaticStructureSchema = [3, n0, _RSAM,
   0,
-  [_SI, _SA, _SCI, _AWRA],
-  [0, 0, 0, 0]
+  [_AWRA, _SI, _SA, _SCI],
+  [0, 0, 0, 0], 1
 ];
 export var RevokeSnapshotAccessResult$: StaticStructureSchema = [3, n0, _RSAR,
   0,
@@ -3452,7 +3452,7 @@ export var RevokeSnapshotAccessResult$: StaticStructureSchema = [3, n0, _RSAR,
 export var RotateEncryptionKeyMessage$: StaticStructureSchema = [3, n0, _REKM,
   0,
   [_CIl],
-  [0]
+  [0], 1
 ];
 export var RotateEncryptionKeyResult$: StaticStructureSchema = [3, n0, _REKR,
   0,
@@ -3473,7 +3473,7 @@ TypeRegistry.for(n0).registerError(ScheduledActionAlreadyExistsFault$, Scheduled
 export var ScheduledActionFilter$: StaticStructureSchema = [3, n0, _SAF,
   0,
   [_N, _V],
-  [0, [() => ValueStringList, 0]]
+  [0, [() => ValueStringList, 0]], 2
 ];
 export var ScheduledActionNotFoundFault$: StaticErrorSchema = [-3, n0, _SANFF,
   { [_aQE]: [`ScheduledActionNotFound`, 400], [_e]: _c, [_hE]: 400 },
@@ -3517,7 +3517,7 @@ export var SecondaryClusterInfo$: StaticStructureSchema = [3, n0, _SCIe,
 export var ServerlessIdentifier$: StaticStructureSchema = [3, n0, _SIer,
   0,
   [_NIa, _WI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Snapshot$: StaticStructureSchema = [3, n0, _S,
   0,
@@ -3612,7 +3612,7 @@ TypeRegistry.for(n0).registerError(SnapshotScheduleUpdateInProgressFault$, Snaps
 export var SnapshotSortingEntity$: StaticStructureSchema = [3, n0, _SSE,
   0,
   [_At, _SO],
-  [0, 0]
+  [0, 0], 1
 ];
 export var SNSInvalidTopicFault$: StaticErrorSchema = [-3, n0, _SNSITF,
   { [_aQE]: [`SNSInvalidTopic`, 400], [_e]: _c, [_hE]: 400 },
@@ -3770,7 +3770,7 @@ TypeRegistry.for(n0).registerError(UnsupportedOptionFault$, UnsupportedOptionFau
 export var UpdatePartnerStatusInputMessage$: StaticStructureSchema = [3, n0, _UPSIM,
   0,
   [_AI, _CIl, _DN, _PNa, _St, _SM],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 5
 ];
 export var UpdateTarget$: StaticStructureSchema = [3, n0, _UTp,
   0,

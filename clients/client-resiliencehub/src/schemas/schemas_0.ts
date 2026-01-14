@@ -551,17 +551,17 @@ import { ResiliencehubServiceException } from "../models/ResiliencehubServiceExc
 export var AcceptGroupingRecommendationEntry$: StaticStructureSchema = [3, n0, _AGRE,
   0,
   [_gRI],
-  [0]
+  [0], 1
 ];
 export var AcceptResourceGroupingRecommendationsRequest$: StaticStructureSchema = [3, n0, _ARGRR,
   0,
   [_aA, _e],
-  [0, () => AcceptGroupingRecommendationEntries]
+  [0, () => AcceptGroupingRecommendationEntries], 2
 ];
 export var AcceptResourceGroupingRecommendationsResponse$: StaticStructureSchema = [3, n0, _ARGRRc,
   0,
   [_aA, _fE],
-  [0, () => FailedGroupingRecommendationEntries]
+  [0, () => FailedGroupingRecommendationEntries], 2
 ];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_er]: _c, [_hE]: 403 },
@@ -572,12 +572,12 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AddDraftAppVersionResourceMappingsRequest$: StaticStructureSchema = [3, n0, _ADAVRMR,
   0,
   [_aA, _rM],
-  [0, () => ResourceMappingList]
+  [0, () => ResourceMappingList], 2
 ];
 export var AddDraftAppVersionResourceMappingsResponse$: StaticStructureSchema = [3, n0, _ADAVRMRd,
   0,
   [_aA, _aV, _rM],
-  [0, 0, () => ResourceMappingList]
+  [0, 0, () => ResourceMappingList], 3
 ];
 export var Alarm$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -586,28 +586,28 @@ export var Alarm$: StaticStructureSchema = [3, n0, _A,
 ];
 export var AlarmRecommendation$: StaticStructureSchema = [3, n0, _AR,
   0,
-  [_rI, _rIe, _n, _d, _t, _aCN, _i, _p, _aCNp, _rS],
-  [0, 0, 0, 0, 0, 0, () => RecommendationItemList, 0, 64 | 0, 0]
+  [_rI, _rIe, _n, _t, _d, _aCN, _i, _p, _aCNp, _rS],
+  [0, 0, 0, 0, 0, 0, () => RecommendationItemList, 0, 64 | 0, 0], 4
 ];
 export var App$: StaticStructureSchema = [3, n0, _Ap,
   0,
-  [_aA, _n, _d, _pA, _cT, _st, _cS, _lACET, _rSe, _lRSET, _ta, _aS, _pM, _eS, _dS, _lDET, _rIS, _rISp, _aAA],
-  [0, 0, 0, 0, 4, 0, 0, 4, 1, 4, [() => TagMap, 0], 0, () => PermissionModel$, () => EventSubscriptionList, 0, 4, 1, 1, 0]
+  [_aA, _n, _cT, _d, _pA, _st, _cS, _lACET, _rSe, _lRSET, _ta, _aS, _pM, _eS, _dS, _lDET, _rIS, _rISp, _aAA],
+  [0, 0, 4, 0, 0, 0, 0, 4, 1, 4, [() => TagMap, 0], 0, () => PermissionModel$, () => EventSubscriptionList, 0, 4, 1, 1, 0], 3
 ];
 export var AppAssessment$: StaticStructureSchema = [3, n0, _AA,
   0,
-  [_aA, _aV, _in, _co, _rSe, _com, _cS, _aSs, _sT, _eT, _m, _aN, _aAs, _po, _ta, _rED, _vN, _dS, _su],
-  [0, 0, 0, () => Cost$, () => ResiliencyScore$, () => AssessmentCompliance, 0, 0, 4, 4, 0, 0, 0, [() => ResiliencyPolicy$, 0], [() => TagMap, 0], () => ResourceErrorsDetails$, 0, 0, () => AssessmentSummary$]
+  [_in, _aSs, _aAs, _aA, _aV, _co, _rSe, _com, _cS, _sT, _eT, _m, _aN, _po, _ta, _rED, _vN, _dS, _su],
+  [0, 0, 0, 0, 0, () => Cost$, () => ResiliencyScore$, () => AssessmentCompliance, 0, 4, 4, 0, 0, [() => ResiliencyPolicy$, 0], [() => TagMap, 0], () => ResourceErrorsDetails$, 0, 0, () => AssessmentSummary$], 3
 ];
 export var AppAssessmentSummary$: StaticStructureSchema = [3, n0, _AAS,
   0,
-  [_aA, _aV, _aSs, _in, _sT, _eT, _m, _aN, _aAs, _cS, _co, _rSe, _vN, _dS],
-  [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, () => Cost$, 1, 0, 0]
+  [_aSs, _aAs, _aA, _aV, _in, _sT, _eT, _m, _aN, _cS, _co, _rSe, _vN, _dS],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, () => Cost$, 1, 0, 0], 2
 ];
 export var AppComponent$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_n, _t, _id, _aI],
-  [0, 0, 0, [2, n0, _AIM, 0, 0, 64 | 0]]
+  [0, 0, 0, [2, n0, _AIM, 0, 0, 64 | 0]], 2
 ];
 export var AppComponentCompliance$: StaticStructureSchema = [3, n0, _ACC,
   0,
@@ -616,18 +616,18 @@ export var AppComponentCompliance$: StaticStructureSchema = [3, n0, _ACC,
 ];
 export var AppInputSource$: StaticStructureSchema = [3, n0, _AIS,
   0,
-  [_sN, _iT, _sA, _tS, _rC, _eSCN],
-  [0, 0, 0, () => TerraformSource$, 1, () => EksSourceClusterNamespace$]
+  [_iT, _sN, _sA, _tS, _rC, _eSCN],
+  [0, 0, 0, () => TerraformSource$, 1, () => EksSourceClusterNamespace$], 1
 ];
 export var AppSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_aA, _n, _d, _cT, _cS, _rSe, _aS, _st, _dS, _lACET, _rIS, _rISp, _aAA],
-  [0, 0, 0, 4, 0, 1, 0, 0, 0, 4, 1, 1, 0]
+  [_aA, _n, _cT, _d, _cS, _rSe, _aS, _st, _dS, _lACET, _rIS, _rISp, _aAA],
+  [0, 0, 4, 0, 0, 1, 0, 0, 0, 4, 1, 1, 0], 3
 ];
 export var AppVersionSummary$: StaticStructureSchema = [3, n0, _AVS,
   0,
   [_aV, _ide, _cT, _vN],
-  [0, 1, 4, 0]
+  [0, 1, 4, 0], 1
 ];
 export var AssessmentRiskRecommendation$: StaticStructureSchema = [3, n0, _ARR,
   0,
@@ -642,22 +642,22 @@ export var AssessmentSummary$: StaticStructureSchema = [3, n0, _ASs,
 export var BatchUpdateRecommendationStatusFailedEntry$: StaticStructureSchema = [3, n0, _BURSFE,
   0,
   [_eI, _eM],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BatchUpdateRecommendationStatusRequest$: StaticStructureSchema = [3, n0, _BURSR,
   0,
   [_aA, _rE],
-  [0, () => UpdateRecommendationStatusRequestEntries]
+  [0, () => UpdateRecommendationStatusRequestEntries], 2
 ];
 export var BatchUpdateRecommendationStatusResponse$: StaticStructureSchema = [3, n0, _BURSRa,
   0,
   [_aA, _sE, _fE],
-  [0, () => BatchUpdateRecommendationStatusSuccessfulEntries, () => BatchUpdateRecommendationStatusFailedEntries]
+  [0, () => BatchUpdateRecommendationStatusSuccessfulEntries, () => BatchUpdateRecommendationStatusFailedEntries], 3
 ];
 export var BatchUpdateRecommendationStatusSuccessfulEntry$: StaticStructureSchema = [3, n0, _BURSSE,
   0,
-  [_eI, _rIe, _it, _ex, _aCI, _eR],
-  [0, 0, () => UpdateRecommendationStatusItem$, 2, 0, 0]
+  [_eI, _rIe, _ex, _it, _aCI, _eR],
+  [0, 0, 2, () => UpdateRecommendationStatusItem$, 0, 0], 3
 ];
 export var ComplianceDrift$: StaticStructureSchema = [3, n0, _CD,
   0,
@@ -667,17 +667,17 @@ export var ComplianceDrift$: StaticStructureSchema = [3, n0, _CD,
 export var ComponentRecommendation$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_aCN, _rS, _cR],
-  [0, 0, () => ConfigRecommendationList]
+  [0, 0, () => ConfigRecommendationList], 3
 ];
 export var Condition$: StaticStructureSchema = [3, n0, _C,
   0,
   [_f, _o, _v],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ConfigRecommendation$: StaticStructureSchema = [3, n0, _CRo,
   0,
-  [_co, _aCN, _com, _rCe, _oT, _n, _d, _sC, _hA, _rIe],
-  [() => Cost$, 0, () => AssessmentCompliance, () => RecommendationCompliance, 0, 0, 0, 64 | 0, 0, 0]
+  [_oT, _n, _rIe, _co, _aCN, _com, _rCe, _d, _sC, _hA],
+  [0, 0, 0, () => Cost$, 0, () => AssessmentCompliance, () => RecommendationCompliance, 0, 64 | 0, 0], 3
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_er]: _c, [_hE]: 409 },
@@ -688,42 +688,42 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Cost$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_a, _cu, _fr],
-  [1, 0, 0]
+  [1, 0, 0], 3
 ];
 export var CreateAppRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_n, _d, _pA, _ta, _cTl, _aS, _pM, _eS, _aAA],
-  [0, 0, 0, [() => TagMap, 0], [0, 4], 0, () => PermissionModel$, () => EventSubscriptionList, 0]
+  [0, 0, 0, [() => TagMap, 0], [0, 4], 0, () => PermissionModel$, () => EventSubscriptionList, 0], 1
 ];
 export var CreateAppResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
   [_ap],
-  [[() => App$, 0]]
+  [[() => App$, 0]], 1
 ];
 export var CreateAppVersionAppComponentRequest$: StaticStructureSchema = [3, n0, _CAVACR,
   0,
-  [_aA, _id, _n, _t, _aI, _cTl],
-  [0, 0, 0, 0, [2, n0, _AIM, 0, 0, 64 | 0], [0, 4]]
+  [_aA, _n, _t, _id, _aI, _cTl],
+  [0, 0, 0, 0, [2, n0, _AIM, 0, 0, 64 | 0], [0, 4]], 3
 ];
 export var CreateAppVersionAppComponentResponse$: StaticStructureSchema = [3, n0, _CAVACRr,
   0,
   [_aA, _aV, _aCp],
-  [0, 0, () => AppComponent$]
+  [0, 0, () => AppComponent$], 2
 ];
 export var CreateAppVersionResourceRequest$: StaticStructureSchema = [3, n0, _CAVRR,
   0,
-  [_aA, _rN, _lRI, _pRI, _aR, _aAI, _rT, _aC, _aI, _cTl],
-  [0, 0, () => LogicalResourceId$, 0, 0, 0, 0, 64 | 0, [2, n0, _AIM, 0, 0, 64 | 0], [0, 4]]
+  [_aA, _lRI, _pRI, _rT, _aC, _rN, _aR, _aAI, _aI, _cTl],
+  [0, () => LogicalResourceId$, 0, 0, 64 | 0, 0, 0, 0, [2, n0, _AIM, 0, 0, 64 | 0], [0, 4]], 5
 ];
 export var CreateAppVersionResourceResponse$: StaticStructureSchema = [3, n0, _CAVRRr,
   0,
   [_aA, _aV, _pR],
-  [0, 0, () => PhysicalResource$]
+  [0, 0, () => PhysicalResource$], 2
 ];
 export var CreateRecommendationTemplateRequest$: StaticStructureSchema = [3, n0, _CRTR,
   0,
-  [_rIec, _fo, _rTe, _aAs, _n, _cTl, _ta, _bN],
-  [64 | 0, 0, 64 | 0, 0, 0, [0, 4], [() => TagMap, 0], 0]
+  [_aAs, _n, _rIec, _fo, _rTe, _cTl, _ta, _bN],
+  [0, 0, 64 | 0, 0, 64 | 0, [0, 4], [() => TagMap, 0], 0], 2
 ];
 export var CreateRecommendationTemplateResponse$: StaticStructureSchema = [3, n0, _CRTRr,
   0,
@@ -732,28 +732,28 @@ export var CreateRecommendationTemplateResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreateResiliencyPolicyRequest$: StaticStructureSchema = [3, n0, _CRPR,
   0,
-  [_pN, _pD, _dLC, _ti, _po, _cTl, _ta],
-  [0, 0, 0, 0, () => DisruptionPolicy, [0, 4], [() => TagMap, 0]]
+  [_pN, _ti, _po, _pD, _dLC, _cTl, _ta],
+  [0, 0, () => DisruptionPolicy, 0, 0, [0, 4], [() => TagMap, 0]], 3
 ];
 export var CreateResiliencyPolicyResponse$: StaticStructureSchema = [3, n0, _CRPRr,
   0,
   [_po],
-  [[() => ResiliencyPolicy$, 0]]
+  [[() => ResiliencyPolicy$, 0]], 1
 ];
 export var DeleteAppAssessmentRequest$: StaticStructureSchema = [3, n0, _DAAR,
   0,
   [_aAs, _cTl],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var DeleteAppAssessmentResponse$: StaticStructureSchema = [3, n0, _DAARe,
   0,
   [_aAs, _aSs],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteAppInputSourceRequest$: StaticStructureSchema = [3, n0, _DAISR,
   0,
   [_aA, _sA, _tS, _cTl, _eSCN],
-  [0, 0, () => TerraformSource$, [0, 4], () => EksSourceClusterNamespace$]
+  [0, 0, () => TerraformSource$, [0, 4], () => EksSourceClusterNamespace$], 1
 ];
 export var DeleteAppInputSourceResponse$: StaticStructureSchema = [3, n0, _DAISRe,
   0,
@@ -763,177 +763,177 @@ export var DeleteAppInputSourceResponse$: StaticStructureSchema = [3, n0, _DAISR
 export var DeleteAppRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_aA, _fD, _cTl],
-  [0, 2, [0, 4]]
+  [0, 2, [0, 4]], 1
 ];
 export var DeleteAppResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
   [_aA],
-  [0]
+  [0], 1
 ];
 export var DeleteAppVersionAppComponentRequest$: StaticStructureSchema = [3, n0, _DAVACR,
   0,
   [_aA, _id, _cTl],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 2
 ];
 export var DeleteAppVersionAppComponentResponse$: StaticStructureSchema = [3, n0, _DAVACRe,
   0,
   [_aA, _aV, _aCp],
-  [0, 0, () => AppComponent$]
+  [0, 0, () => AppComponent$], 2
 ];
 export var DeleteAppVersionResourceRequest$: StaticStructureSchema = [3, n0, _DAVRR,
   0,
   [_aA, _rN, _lRI, _pRI, _aR, _aAI, _cTl],
-  [0, 0, () => LogicalResourceId$, 0, 0, 0, [0, 4]]
+  [0, 0, () => LogicalResourceId$, 0, 0, 0, [0, 4]], 1
 ];
 export var DeleteAppVersionResourceResponse$: StaticStructureSchema = [3, n0, _DAVRRe,
   0,
   [_aA, _aV, _pR],
-  [0, 0, () => PhysicalResource$]
+  [0, 0, () => PhysicalResource$], 2
 ];
 export var DeleteRecommendationTemplateRequest$: StaticStructureSchema = [3, n0, _DRTR,
   0,
   [_rTA, _cTl],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var DeleteRecommendationTemplateResponse$: StaticStructureSchema = [3, n0, _DRTRe,
   0,
   [_rTA, _st],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteResiliencyPolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_pA, _cTl],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var DeleteResiliencyPolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
   [_pA],
-  [0]
+  [0], 1
 ];
 export var DescribeAppAssessmentRequest$: StaticStructureSchema = [3, n0, _DAARes,
   0,
   [_aAs],
-  [0]
+  [0], 1
 ];
 export var DescribeAppAssessmentResponse$: StaticStructureSchema = [3, n0, _DAAResc,
   0,
   [_as],
-  [[() => AppAssessment$, 0]]
+  [[() => AppAssessment$, 0]], 1
 ];
 export var DescribeAppRequest$: StaticStructureSchema = [3, n0, _DARes,
   0,
   [_aA],
-  [0]
+  [0], 1
 ];
 export var DescribeAppResponse$: StaticStructureSchema = [3, n0, _DAResc,
   0,
   [_ap],
-  [[() => App$, 0]]
+  [[() => App$, 0]], 1
 ];
 export var DescribeAppVersionAppComponentRequest$: StaticStructureSchema = [3, n0, _DAVACRes,
   0,
   [_aA, _aV, _id],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DescribeAppVersionAppComponentResponse$: StaticStructureSchema = [3, n0, _DAVACResc,
   0,
   [_aA, _aV, _aCp],
-  [0, 0, () => AppComponent$]
+  [0, 0, () => AppComponent$], 2
 ];
 export var DescribeAppVersionRequest$: StaticStructureSchema = [3, n0, _DAVR,
   0,
   [_aA, _aV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeAppVersionResourceRequest$: StaticStructureSchema = [3, n0, _DAVRRes,
   0,
   [_aA, _aV, _rN, _lRI, _pRI, _aR, _aAI],
-  [0, 0, 0, () => LogicalResourceId$, 0, 0, 0]
+  [0, 0, 0, () => LogicalResourceId$, 0, 0, 0], 2
 ];
 export var DescribeAppVersionResourceResponse$: StaticStructureSchema = [3, n0, _DAVRResc,
   0,
   [_aA, _aV, _pR],
-  [0, 0, () => PhysicalResource$]
+  [0, 0, () => PhysicalResource$], 2
 ];
 export var DescribeAppVersionResourcesResolutionStatusRequest$: StaticStructureSchema = [3, n0, _DAVRRSR,
   0,
   [_aA, _aV, _rIeso],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DescribeAppVersionResourcesResolutionStatusResponse$: StaticStructureSchema = [3, n0, _DAVRRSRe,
   0,
   [_aA, _aV, _rIeso, _st, _eM],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var DescribeAppVersionResponse$: StaticStructureSchema = [3, n0, _DAVRe,
   0,
   [_aA, _aV, _aI],
-  [0, 0, [2, n0, _AIM, 0, 0, 64 | 0]]
+  [0, 0, [2, n0, _AIM, 0, 0, 64 | 0]], 2
 ];
 export var DescribeAppVersionTemplateRequest$: StaticStructureSchema = [3, n0, _DAVTR,
   0,
   [_aA, _aV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeAppVersionTemplateResponse$: StaticStructureSchema = [3, n0, _DAVTRe,
   0,
   [_aA, _aV, _aTB],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DescribeDraftAppVersionResourcesImportStatusRequest$: StaticStructureSchema = [3, n0, _DDAVRISR,
   0,
   [_aA],
-  [0]
+  [0], 1
 ];
 export var DescribeDraftAppVersionResourcesImportStatusResponse$: StaticStructureSchema = [3, n0, _DDAVRISRe,
   0,
   [_aA, _aV, _st, _sCT, _eM, _eD],
-  [0, 0, 0, 4, 0, () => ErrorDetailList]
+  [0, 0, 0, 4, 0, () => ErrorDetailList], 4
 ];
 export var DescribeMetricsExportRequest$: StaticStructureSchema = [3, n0, _DMER,
   0,
   [_mEI],
-  [0]
+  [0], 1
 ];
 export var DescribeMetricsExportResponse$: StaticStructureSchema = [3, n0, _DMERe,
   0,
   [_mEI, _st, _eL, _eM],
-  [0, 0, () => S3Location$, 0]
+  [0, 0, () => S3Location$, 0], 2
 ];
 export var DescribeResiliencyPolicyRequest$: StaticStructureSchema = [3, n0, _DRPRes,
   0,
   [_pA],
-  [0]
+  [0], 1
 ];
 export var DescribeResiliencyPolicyResponse$: StaticStructureSchema = [3, n0, _DRPResc,
   0,
   [_po],
-  [[() => ResiliencyPolicy$, 0]]
+  [[() => ResiliencyPolicy$, 0]], 1
 ];
 export var DescribeResourceGroupingRecommendationTaskRequest$: StaticStructureSchema = [3, n0, _DRGRTR,
   0,
   [_aA, _gI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeResourceGroupingRecommendationTaskResponse$: StaticStructureSchema = [3, n0, _DRGRTRe,
   0,
   [_gI, _st, _eM],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DisruptionCompliance$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_aRIS, _cRIS, _rRI, _rD, _cRISu, _rRIp, _rDp, _cS, _aRISc, _m],
-  [1, 1, 0, 0, 1, 0, 0, 0, 1, 0]
+  [_cS, _aRIS, _cRIS, _rRI, _rD, _cRISu, _rRIp, _rDp, _aRISc, _m],
+  [0, 1, 1, 0, 0, 1, 0, 0, 1, 0], 1
 ];
 export var EksSource$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_eCA, _na],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var EksSourceClusterNamespace$: StaticStructureSchema = [3, n0, _ESCN,
   0,
   [_eCA, _nam],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
   0,
@@ -943,7 +943,7 @@ export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
 export var EventSubscription$: StaticStructureSchema = [3, n0, _ESv,
   0,
   [_n, _eTv, _sTA],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var Experiment$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -953,42 +953,42 @@ export var Experiment$: StaticStructureSchema = [3, n0, _E,
 export var FailedGroupingRecommendationEntry$: StaticStructureSchema = [3, n0, _FGRE,
   0,
   [_gRI, _eM],
-  [0, 0]
+  [0, 0], 2
 ];
 export var FailurePolicy$: StaticStructureSchema = [3, n0, _FP,
   0,
   [_rIS, _rISp],
-  [1, 1]
+  [1, 1], 2
 ];
 export var Field$: StaticStructureSchema = [3, n0, _F,
   0,
   [_n, _ag],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GroupingAppComponent$: StaticStructureSchema = [3, n0, _GAC,
   0,
   [_aCI, _aCT, _aCN],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GroupingRecommendation$: StaticStructureSchema = [3, n0, _GR,
   0,
   [_gRI, _gAC, _res, _sc, _rRe, _st, _cL, _cT, _rRej],
-  [0, () => GroupingAppComponent$, () => GroupingResourceList, 1, 64 | 0, 0, 0, 4, 0]
+  [0, () => GroupingAppComponent$, () => GroupingResourceList, 1, 64 | 0, 0, 0, 4, 0], 8
 ];
 export var GroupingResource$: StaticStructureSchema = [3, n0, _GRr,
   0,
   [_rN, _rT, _pRI, _lRI, _sACI],
-  [0, 0, () => PhysicalResourceId$, () => LogicalResourceId$, 64 | 0]
+  [0, 0, () => PhysicalResourceId$, () => LogicalResourceId$, 64 | 0], 5
 ];
 export var ImportResourcesToDraftAppVersionRequest$: StaticStructureSchema = [3, n0, _IRTDAVR,
   0,
   [_aA, _sAo, _tSe, _iS, _eSk],
-  [0, 64 | 0, () => TerraformSourceList, 0, () => EksSourceList]
+  [0, 64 | 0, () => TerraformSourceList, 0, () => EksSourceList], 1
 ];
 export var ImportResourcesToDraftAppVersionResponse$: StaticStructureSchema = [3, n0, _IRTDAVRm,
   0,
-  [_aA, _aV, _sAo, _st, _tSe, _eSk],
-  [0, 0, 64 | 0, 0, () => TerraformSourceList, () => EksSourceList]
+  [_aA, _aV, _st, _sAo, _tSe, _eSk],
+  [0, 0, 0, 64 | 0, () => TerraformSourceList, () => EksSourceList], 3
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_er]: _se, [_hE]: 500 },
@@ -999,32 +999,32 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var ListAlarmRecommendationsRequest$: StaticStructureSchema = [3, n0, _LARR,
   0,
   [_aAs, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAlarmRecommendationsResponse$: StaticStructureSchema = [3, n0, _LARRi,
   0,
   [_aRl, _nT],
-  [() => AlarmRecommendationList, 0]
+  [() => AlarmRecommendationList, 0], 1
 ];
 export var ListAppAssessmentComplianceDriftsRequest$: StaticStructureSchema = [3, n0, _LAACDR,
   0,
   [_aAs, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAppAssessmentComplianceDriftsResponse$: StaticStructureSchema = [3, n0, _LAACDRi,
   0,
   [_cD, _nT],
-  [() => ComplianceDriftList, 0]
+  [() => ComplianceDriftList, 0], 1
 ];
 export var ListAppAssessmentResourceDriftsRequest$: StaticStructureSchema = [3, n0, _LAARDR,
   0,
   [_aAs, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAppAssessmentResourceDriftsResponse$: StaticStructureSchema = [3, n0, _LAARDRi,
   0,
   [_rDe, _nT],
-  [() => ResourceDriftList, 0]
+  [() => ResourceDriftList, 0], 1
 ];
 export var ListAppAssessmentsRequest$: StaticStructureSchema = [3, n0, _LAAR,
   0,
@@ -1033,38 +1033,38 @@ export var ListAppAssessmentsRequest$: StaticStructureSchema = [3, n0, _LAAR,
 ];
 export var ListAppAssessmentsResponse$: StaticStructureSchema = [3, n0, _LAARi,
   0,
-  [_nT, _aSss],
-  [0, () => AppAssessmentSummaryList]
+  [_aSss, _nT],
+  [() => AppAssessmentSummaryList, 0], 1
 ];
 export var ListAppComponentCompliancesRequest$: StaticStructureSchema = [3, n0, _LACCR,
   0,
-  [_nT, _mR, _aAs],
-  [0, 1, 0]
+  [_aAs, _nT, _mR],
+  [0, 0, 1], 1
 ];
 export var ListAppComponentCompliancesResponse$: StaticStructureSchema = [3, n0, _LACCRi,
   0,
   [_cC, _nT],
-  [() => ComponentCompliancesList, 0]
+  [() => ComponentCompliancesList, 0], 1
 ];
 export var ListAppComponentRecommendationsRequest$: StaticStructureSchema = [3, n0, _LACRR,
   0,
   [_aAs, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAppComponentRecommendationsResponse$: StaticStructureSchema = [3, n0, _LACRRi,
   0,
   [_cRo, _nT],
-  [() => ComponentRecommendationList, 0]
+  [() => ComponentRecommendationList, 0], 1
 ];
 export var ListAppInputSourcesRequest$: StaticStructureSchema = [3, n0, _LAISR,
   0,
   [_aA, _aV, _nT, _mR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListAppInputSourcesResponse$: StaticStructureSchema = [3, n0, _LAISRi,
   0,
   [_aISp, _nT],
-  [() => AppInputSourceList, 0]
+  [() => AppInputSourceList, 0], 1
 ];
 export var ListAppsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
@@ -1074,47 +1074,47 @@ export var ListAppsRequest$: StaticStructureSchema = [3, n0, _LAR,
 export var ListAppsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
   [_aSp, _nT],
-  [() => AppSummaryList, 0]
+  [() => AppSummaryList, 0], 1
 ];
 export var ListAppVersionAppComponentsRequest$: StaticStructureSchema = [3, n0, _LAVACR,
   0,
   [_aA, _aV, _nT, _mR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListAppVersionAppComponentsResponse$: StaticStructureSchema = [3, n0, _LAVACRi,
   0,
   [_aA, _aV, _aC, _nT],
-  [0, 0, () => AppComponentList, 0]
+  [0, 0, () => AppComponentList, 0], 2
 ];
 export var ListAppVersionResourceMappingsRequest$: StaticStructureSchema = [3, n0, _LAVRMR,
   0,
   [_aA, _aV, _nT, _mR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListAppVersionResourceMappingsResponse$: StaticStructureSchema = [3, n0, _LAVRMRi,
   0,
   [_rM, _nT],
-  [() => ResourceMappingList, 0]
+  [() => ResourceMappingList, 0], 1
 ];
 export var ListAppVersionResourcesRequest$: StaticStructureSchema = [3, n0, _LAVRR,
   0,
   [_aA, _aV, _rIeso, _nT, _mR],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 2
 ];
 export var ListAppVersionResourcesResponse$: StaticStructureSchema = [3, n0, _LAVRRi,
   0,
   [_pRh, _rIeso, _nT],
-  [() => PhysicalResourceList, 0, 0]
+  [() => PhysicalResourceList, 0, 0], 2
 ];
 export var ListAppVersionsRequest$: StaticStructureSchema = [3, n0, _LAVR,
   0,
   [_aA, _nT, _mR, _sT, _eT],
-  [0, 0, 1, 4, 4]
+  [0, 0, 1, 4, 4], 1
 ];
 export var ListAppVersionsResponse$: StaticStructureSchema = [3, n0, _LAVRi,
   0,
   [_aVp, _nT],
-  [() => AppVersionList, 0]
+  [() => AppVersionList, 0], 1
 ];
 export var ListMetricsRequest$: StaticStructureSchema = [3, n0, _LMR,
   0,
@@ -1124,7 +1124,7 @@ export var ListMetricsRequest$: StaticStructureSchema = [3, n0, _LMR,
 export var ListMetricsResponse$: StaticStructureSchema = [3, n0, _LMRi,
   0,
   [_ro, _nT],
-  [[1, n0, _RL, 0, 64 | 0], 0]
+  [[1, n0, _RL, 0, 64 | 0], 0], 1
 ];
 export var ListRecommendationTemplatesRequest$: StaticStructureSchema = [3, n0, _LRTR,
   0,
@@ -1144,7 +1144,7 @@ export var ListResiliencyPoliciesRequest$: StaticStructureSchema = [3, n0, _LRPR
 export var ListResiliencyPoliciesResponse$: StaticStructureSchema = [3, n0, _LRPRi,
   0,
   [_rP, _nT],
-  [[() => ResiliencyPolicies, 0], 0]
+  [[() => ResiliencyPolicies, 0], 0], 1
 ];
 export var ListResourceGroupingRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRGRR,
   0,
@@ -1154,17 +1154,17 @@ export var ListResourceGroupingRecommendationsRequest$: StaticStructureSchema = 
 export var ListResourceGroupingRecommendationsResponse$: StaticStructureSchema = [3, n0, _LRGRRi,
   0,
   [_gR, _nT],
-  [() => GroupingRecommendationList, 0]
+  [() => GroupingRecommendationList, 0], 1
 ];
 export var ListSopRecommendationsRequest$: StaticStructureSchema = [3, n0, _LSRR,
   0,
-  [_nT, _mR, _aAs],
-  [0, 1, 0]
+  [_aAs, _nT, _mR],
+  [0, 0, 1], 1
 ];
 export var ListSopRecommendationsResponse$: StaticStructureSchema = [3, n0, _LSRRi,
   0,
-  [_nT, _sR],
-  [0, () => SopRecommendationList]
+  [_sR, _nT],
+  [() => SopRecommendationList, 0], 1
 ];
 export var ListSuggestedResiliencyPoliciesRequest$: StaticStructureSchema = [3, n0, _LSRPR,
   0,
@@ -1174,12 +1174,12 @@ export var ListSuggestedResiliencyPoliciesRequest$: StaticStructureSchema = [3, 
 export var ListSuggestedResiliencyPoliciesResponse$: StaticStructureSchema = [3, n0, _LSRPRi,
   0,
   [_rP, _nT],
-  [[() => ResiliencyPolicies, 0], 0]
+  [[() => ResiliencyPolicies, 0], 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1188,58 +1188,58 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListTestRecommendationsRequest$: StaticStructureSchema = [3, n0, _LTRR,
   0,
-  [_nT, _mR, _aAs],
-  [0, 1, 0]
+  [_aAs, _nT, _mR],
+  [0, 0, 1], 1
 ];
 export var ListTestRecommendationsResponse$: StaticStructureSchema = [3, n0, _LTRRi,
   0,
-  [_nT, _tR],
-  [0, () => TestRecommendationList]
+  [_tR, _nT],
+  [() => TestRecommendationList, 0], 1
 ];
 export var ListUnsupportedAppVersionResourcesRequest$: StaticStructureSchema = [3, n0, _LUAVRR,
   0,
   [_aA, _aV, _rIeso, _nT, _mR],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 2
 ];
 export var ListUnsupportedAppVersionResourcesResponse$: StaticStructureSchema = [3, n0, _LUAVRRi,
   0,
   [_uR, _rIeso, _nT],
-  [() => UnsupportedResourceList, 0, 0]
+  [() => UnsupportedResourceList, 0, 0], 2
 ];
 export var LogicalResourceId$: StaticStructureSchema = [3, n0, _LRI,
   0,
   [_ide, _lSN, _rGN, _tSN, _eSN],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 1
 ];
 export var PermissionModel$: StaticStructureSchema = [3, n0, _PM,
   0,
   [_t, _iRN, _cARA],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 1
 ];
 export var PhysicalResource$: StaticStructureSchema = [3, n0, _PR,
   0,
-  [_rN, _lRI, _pRI, _rT, _aC, _aI, _ex, _sTo, _pRN],
-  [0, () => LogicalResourceId$, () => PhysicalResourceId$, 0, () => AppComponentList, [2, n0, _AIM, 0, 0, 64 | 0], 2, 0, 0]
+  [_lRI, _pRI, _rT, _rN, _aC, _aI, _ex, _sTo, _pRN],
+  [() => LogicalResourceId$, () => PhysicalResourceId$, 0, 0, () => AppComponentList, [2, n0, _AIM, 0, 0, 64 | 0], 2, 0, 0], 3
 ];
 export var PhysicalResourceId$: StaticStructureSchema = [3, n0, _PRI,
   0,
   [_ide, _t, _aR, _aAI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var PublishAppVersionRequest$: StaticStructureSchema = [3, n0, _PAVR,
   0,
   [_aA, _vN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PublishAppVersionResponse$: StaticStructureSchema = [3, n0, _PAVRu,
   0,
   [_aA, _aV, _ide, _vN],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var PutDraftAppVersionTemplateRequest$: StaticStructureSchema = [3, n0, _PDAVTR,
   0,
   [_aA, _aTB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutDraftAppVersionTemplateResponse$: StaticStructureSchema = [3, n0, _PDAVTRu,
   0,
@@ -1249,7 +1249,7 @@ export var PutDraftAppVersionTemplateResponse$: StaticStructureSchema = [3, n0, 
 export var RecommendationDisruptionCompliance$: StaticStructureSchema = [3, n0, _RDC,
   0,
   [_eCS, _eRIS, _eRD, _eRISx, _eRDx],
-  [0, 1, 0, 1, 0]
+  [0, 1, 0, 1, 0], 1
 ];
 export var RecommendationItem$: StaticStructureSchema = [3, n0, _RI,
   0,
@@ -1258,28 +1258,28 @@ export var RecommendationItem$: StaticStructureSchema = [3, n0, _RI,
 ];
 export var RecommendationTemplate$: StaticStructureSchema = [3, n0, _RT,
   0,
-  [_tL, _aAs, _aA, _rIec, _rTe, _fo, _rTA, _m, _st, _n, _sT, _eT, _ta, _nR],
-  [() => S3Location$, 0, 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 0, 4, 4, [() => TagMap, 0], 2]
+  [_aAs, _rTe, _fo, _rTA, _st, _n, _tL, _aA, _rIec, _m, _sT, _eT, _ta, _nR],
+  [0, 64 | 0, 0, 0, 0, 0, () => S3Location$, 0, 64 | 0, 0, 4, 4, [() => TagMap, 0], 2], 6
 ];
 export var RejectGroupingRecommendationEntry$: StaticStructureSchema = [3, n0, _RGRE,
   0,
   [_gRI, _rRej],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RejectResourceGroupingRecommendationsRequest$: StaticStructureSchema = [3, n0, _RRGRR,
   0,
   [_aA, _e],
-  [0, () => RejectGroupingRecommendationEntries]
+  [0, () => RejectGroupingRecommendationEntries], 2
 ];
 export var RejectResourceGroupingRecommendationsResponse$: StaticStructureSchema = [3, n0, _RRGRRe,
   0,
   [_aA, _fE],
-  [0, () => FailedGroupingRecommendationEntries]
+  [0, () => FailedGroupingRecommendationEntries], 2
 ];
 export var RemoveDraftAppVersionResourceMappingsRequest$: StaticStructureSchema = [3, n0, _RDAVRMR,
   0,
   [_aA, _rNe, _lSNo, _aRAN, _rGNe, _tSNe, _eSNk],
-  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var RemoveDraftAppVersionResourceMappingsResponse$: StaticStructureSchema = [3, n0, _RDAVRMRe,
   0,
@@ -1294,17 +1294,17 @@ export var ResiliencyPolicy$: StaticStructureSchema = [3, n0, _RP,
 export var ResiliencyScore$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_sc, _dSi, _cSo],
-  [1, 128 | 1, () => ScoringComponentResiliencyScores]
+  [1, 128 | 1, () => ScoringComponentResiliencyScores], 2
 ];
 export var ResolveAppVersionResourcesRequest$: StaticStructureSchema = [3, n0, _RAVRR,
   0,
   [_aA, _aV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ResolveAppVersionResourcesResponse$: StaticStructureSchema = [3, n0, _RAVRRe,
   0,
   [_aA, _aV, _rIeso, _st],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ResourceDrift$: StaticStructureSchema = [3, n0, _RD,
   0,
@@ -1328,8 +1328,8 @@ export var ResourceIdentifier$: StaticStructureSchema = [3, n0, _RIe,
 ];
 export var ResourceMapping$: StaticStructureSchema = [3, n0, _RM,
   0,
-  [_rN, _lSN, _aRANp, _rGN, _mT, _pRI, _tSN, _eSN],
-  [0, 0, 0, 0, 0, () => PhysicalResourceId$, 0, 0]
+  [_mT, _pRI, _rN, _lSN, _aRANp, _rGN, _tSN, _eSN],
+  [0, () => PhysicalResourceId$, 0, 0, 0, 0, 0, 0], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_er]: _c, [_hE]: 404 },
@@ -1355,23 +1355,23 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SopRecommendation$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_sTe, _aCN, _d, _rI, _n, _i, _rIe, _p, _rS],
-  [0, 0, 0, 0, 0, () => RecommendationItemList, 0, 0, 0]
+  [_sTe, _rI, _rIe, _aCN, _d, _n, _i, _p, _rS],
+  [0, 0, 0, 0, 0, 0, () => RecommendationItemList, 0, 0], 3
 ];
 export var Sort$: StaticStructureSchema = [3, n0, _S,
   0,
   [_f, _asc],
-  [0, 2]
+  [0, 2], 1
 ];
 export var StartAppAssessmentRequest$: StaticStructureSchema = [3, n0, _SAAR,
   0,
   [_aA, _aV, _aN, _cTl, _ta],
-  [0, 0, 0, [0, 4], [() => TagMap, 0]]
+  [0, 0, 0, [0, 4], [() => TagMap, 0]], 3
 ];
 export var StartAppAssessmentResponse$: StaticStructureSchema = [3, n0, _SAARt,
   0,
   [_as],
-  [[() => AppAssessment$, 0]]
+  [[() => AppAssessment$, 0]], 1
 ];
 export var StartMetricsExportRequest$: StaticStructureSchema = [3, n0, _SMER,
   0,
@@ -1381,22 +1381,22 @@ export var StartMetricsExportRequest$: StaticStructureSchema = [3, n0, _SMER,
 export var StartMetricsExportResponse$: StaticStructureSchema = [3, n0, _SMERt,
   0,
   [_mEI, _st],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartResourceGroupingRecommendationTaskRequest$: StaticStructureSchema = [3, n0, _SRGRTR,
   0,
   [_aA],
-  [0]
+  [0], 1
 ];
 export var StartResourceGroupingRecommendationTaskResponse$: StaticStructureSchema = [3, n0, _SRGRTRt,
   0,
   [_aA, _gI, _st, _eM],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
-  [[0, 1], [() => TagMap, 0]]
+  [[0, 1], [() => TagMap, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1406,12 +1406,12 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TerraformSource$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_sSFU],
-  [0]
+  [0], 1
 ];
 export var TestRecommendation$: StaticStructureSchema = [3, n0, _TR,
   0,
-  [_rI, _rIe, _aCI, _aCN, _n, _int, _r, _t, _d, _i, _p, _dOA, _rS],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => RecommendationItemList, 0, 64 | 0, 0]
+  [_rIe, _rI, _aCI, _aCN, _n, _int, _r, _t, _d, _i, _p, _dOA, _rS],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => RecommendationItemList, 0, 64 | 0, 0], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_er]: _c, [_hE]: 429 },
@@ -1422,12 +1422,12 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UnsupportedResource$: StaticStructureSchema = [3, n0, _UR,
   0,
   [_lRI, _pRI, _rT, _uRS],
-  [() => LogicalResourceId$, () => PhysicalResourceId$, 0, 0]
+  [() => LogicalResourceId$, () => PhysicalResourceId$, 0, 0], 3
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [() => TagKeyList, { [_hQ]: _tK }]]
+  [[0, 1], [() => TagKeyList, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1437,42 +1437,42 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAppRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_aA, _d, _pA, _cRPA, _aS, _pM, _eS],
-  [0, 0, 0, 2, 0, () => PermissionModel$, () => EventSubscriptionList]
+  [0, 0, 0, 2, 0, () => PermissionModel$, () => EventSubscriptionList], 1
 ];
 export var UpdateAppResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
   [_ap],
-  [[() => App$, 0]]
+  [[() => App$, 0]], 1
 ];
 export var UpdateAppVersionAppComponentRequest$: StaticStructureSchema = [3, n0, _UAVACR,
   0,
   [_aA, _id, _n, _t, _aI],
-  [0, 0, 0, 0, [2, n0, _AIM, 0, 0, 64 | 0]]
+  [0, 0, 0, 0, [2, n0, _AIM, 0, 0, 64 | 0]], 2
 ];
 export var UpdateAppVersionAppComponentResponse$: StaticStructureSchema = [3, n0, _UAVACRp,
   0,
   [_aA, _aV, _aCp],
-  [0, 0, () => AppComponent$]
+  [0, 0, () => AppComponent$], 2
 ];
 export var UpdateAppVersionRequest$: StaticStructureSchema = [3, n0, _UAVR,
   0,
   [_aA, _aI],
-  [0, [2, n0, _AIM, 0, 0, 64 | 0]]
+  [0, [2, n0, _AIM, 0, 0, 64 | 0]], 1
 ];
 export var UpdateAppVersionResourceRequest$: StaticStructureSchema = [3, n0, _UAVRR,
   0,
   [_aA, _rN, _lRI, _pRI, _aR, _aAI, _rT, _aC, _aI, _ex],
-  [0, 0, () => LogicalResourceId$, 0, 0, 0, 0, 64 | 0, [2, n0, _AIM, 0, 0, 64 | 0], 2]
+  [0, 0, () => LogicalResourceId$, 0, 0, 0, 0, 64 | 0, [2, n0, _AIM, 0, 0, 64 | 0], 2], 1
 ];
 export var UpdateAppVersionResourceResponse$: StaticStructureSchema = [3, n0, _UAVRRp,
   0,
   [_aA, _aV, _pR],
-  [0, 0, () => PhysicalResource$]
+  [0, 0, () => PhysicalResource$], 2
 ];
 export var UpdateAppVersionResponse$: StaticStructureSchema = [3, n0, _UAVRp,
   0,
   [_aA, _aV, _aI],
-  [0, 0, [2, n0, _AIM, 0, 0, 64 | 0]]
+  [0, 0, [2, n0, _AIM, 0, 0, 64 | 0]], 2
 ];
 export var UpdateRecommendationStatusItem$: StaticStructureSchema = [3, n0, _URSI,
   0,
@@ -1481,18 +1481,18 @@ export var UpdateRecommendationStatusItem$: StaticStructureSchema = [3, n0, _URS
 ];
 export var UpdateRecommendationStatusRequestEntry$: StaticStructureSchema = [3, n0, _URSRE,
   0,
-  [_eI, _rIe, _it, _ex, _aCI, _eR],
-  [0, 0, () => UpdateRecommendationStatusItem$, 2, 0, 0]
+  [_eI, _rIe, _ex, _it, _aCI, _eR],
+  [0, 0, 2, () => UpdateRecommendationStatusItem$, 0, 0], 3
 ];
 export var UpdateResiliencyPolicyRequest$: StaticStructureSchema = [3, n0, _URPR,
   0,
   [_pA, _pN, _pD, _dLC, _ti, _po],
-  [0, 0, 0, 0, 0, () => DisruptionPolicy]
+  [0, 0, 0, 0, 0, () => DisruptionPolicy], 1
 ];
 export var UpdateResiliencyPolicyResponse$: StaticStructureSchema = [3, n0, _URPRp,
   0,
   [_po],
-  [[() => ResiliencyPolicy$, 0]]
+  [[() => ResiliencyPolicy$, 0]], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_er]: _c, [_hE]: 400 },

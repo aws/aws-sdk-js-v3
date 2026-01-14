@@ -350,72 +350,72 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_N, _D, _Ta],
-  [0, 0, 128 | 0]
+  [0, 0, 128 | 0], 1
 ];
 export var CreateConfigurationProfileRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
-  [_AIp, _N, _D, _LU, _RRA, _V, _Ta, _T, _KKI],
-  [[0, 1], 0, 0, 0, 0, [() => ValidatorList, 0], 128 | 0, 0, 0]
+  [_AIp, _N, _LU, _D, _RRA, _V, _Ta, _T, _KKI],
+  [[0, 1], 0, 0, 0, 0, [() => ValidatorList, 0], 128 | 0, 0, 0], 3
 ];
 export var CreateDeploymentStrategyRequest$: StaticStructureSchema = [3, n0, _CDSR,
   0,
-  [_N, _D, _DDIM, _FBTIM, _GF, _GT, _RT, _Ta],
-  [0, 0, 1, 1, 1, 0, 0, 128 | 0]
+  [_N, _DDIM, _GF, _D, _FBTIM, _GT, _RT, _Ta],
+  [0, 1, 1, 0, 1, 0, 0, 128 | 0], 3
 ];
 export var CreateEnvironmentRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
   [_AIp, _N, _D, _Mo, _Ta],
-  [[0, 1], 0, 0, () => MonitorList, 128 | 0]
+  [[0, 1], 0, 0, () => MonitorList, 128 | 0], 2
 ];
 export var CreateExtensionAssociationRequest$: StaticStructureSchema = [3, n0, _CEAR,
   0,
-  [_EI, _EVN, _RI, _P, _Ta],
-  [0, 1, 0, 128 | 0, 128 | 0]
+  [_EI, _RI, _EVN, _P, _Ta],
+  [0, 0, 1, 128 | 0, 128 | 0], 2
 ];
 export var CreateExtensionRequest$: StaticStructureSchema = [3, n0, _CERr,
   0,
-  [_N, _D, _Ac, _P, _Ta, _LVN],
-  [0, 0, () => ActionsMap, () => ParameterMap, 128 | 0, [1, { [_hH]: _LVN_ }]]
+  [_N, _Ac, _D, _P, _Ta, _LVN],
+  [0, () => ActionsMap, 0, () => ParameterMap, 128 | 0, [1, { [_hH]: _LVN_ }]], 2
 ];
 export var CreateHostedConfigurationVersionRequest$: StaticStructureSchema = [3, n0, _CHCVR,
   0,
-  [_AIp, _CPI, _D, _Co, _CT, _LVN, _VL],
-  [[0, 1], [0, 1], [0, { [_hH]: _D }], [() => _Blob, 16], [0, { [_hH]: _CT_ }], [1, { [_hH]: _LVN_ }], [0, { [_hH]: _VL }]]
+  [_AIp, _CPI, _Co, _CT, _D, _LVN, _VL],
+  [[0, 1], [0, 1], [() => _Blob, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _D }], [1, { [_hH]: _LVN_ }], [0, { [_hH]: _VL }]], 4
 ];
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AIp],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteConfigurationProfileRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
   [_AIp, _CPI, _DPC],
-  [[0, 1], [0, 1], [0, { [_hH]: _xadpc }]]
+  [[0, 1], [0, 1], [0, { [_hH]: _xadpc }]], 2
 ];
 export var DeleteDeploymentStrategyRequest$: StaticStructureSchema = [3, n0, _DDSR,
   0,
   [_DSI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteEnvironmentRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_EIn, _AIp, _DPC],
-  [[0, 1], [0, 1], [0, { [_hH]: _xadpc }]]
+  [[0, 1], [0, 1], [0, { [_hH]: _xadpc }]], 2
 ];
 export var DeleteExtensionAssociationRequest$: StaticStructureSchema = [3, n0, _DEAR,
   0,
   [_EAI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteExtensionRequest$: StaticStructureSchema = [3, n0, _DERe,
   0,
   [_EI, _VN],
-  [[0, 1], [1, { [_hQ]: _v }]]
+  [[0, 1], [1, { [_hQ]: _v }]], 1
 ];
 export var DeleteHostedConfigurationVersionRequest$: StaticStructureSchema = [3, n0, _DHCVR,
   0,
   [_AIp, _CPI, _VN],
-  [[0, 1], [0, 1], [1, 1]]
+  [[0, 1], [0, 1], [1, 1]], 3
 ];
 export var DeletionProtectionSettings$: StaticStructureSchema = [3, n0, _DPS,
   0,
@@ -495,47 +495,47 @@ export var ExtensionSummary$: StaticStructureSchema = [3, n0, _ES,
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_AIp],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConfigurationProfileRequest$: StaticStructureSchema = [3, n0, _GCPR,
   0,
   [_AIp, _CPI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetConfigurationRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_Ap, _En, _C, _CI, _CCV],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _ci }], [0, { [_hQ]: _ccv }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _ci }], [0, { [_hQ]: _ccv }]], 4
 ];
 export var GetDeploymentRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_AIp, _EIn, _DN],
-  [[0, 1], [0, 1], [1, 1]]
+  [[0, 1], [0, 1], [1, 1]], 3
 ];
 export var GetDeploymentStrategyRequest$: StaticStructureSchema = [3, n0, _GDSR,
   0,
   [_DSI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetEnvironmentRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_AIp, _EIn],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetExtensionAssociationRequest$: StaticStructureSchema = [3, n0, _GEAR,
   0,
   [_EAI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetExtensionRequest$: StaticStructureSchema = [3, n0, _GERe,
   0,
   [_EI, _VN],
-  [[0, 1], [1, { [_hQ]: _vn }]]
+  [[0, 1], [1, { [_hQ]: _vn }]], 1
 ];
 export var GetHostedConfigurationVersionRequest$: StaticStructureSchema = [3, n0, _GHCVR,
   0,
   [_AIp, _CPI, _VN],
-  [[0, 1], [0, 1], [1, 1]]
+  [[0, 1], [0, 1], [1, 1]], 3
 ];
 export var HostedConfigurationVersion$: StaticStructureSchema = [3, n0, _HCV,
   0,
@@ -571,12 +571,12 @@ export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
 export var ListConfigurationProfilesRequest$: StaticStructureSchema = [3, n0, _LCPR,
   0,
   [_AIp, _MR, _NT, _T],
-  [[0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _t }]]
+  [[0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _t }]], 1
 ];
 export var ListDeploymentsRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_AIp, _EIn, _MR, _NT],
-  [[0, 1], [0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]], 2
 ];
 export var ListDeploymentStrategiesRequest$: StaticStructureSchema = [3, n0, _LDSR,
   0,
@@ -586,7 +586,7 @@ export var ListDeploymentStrategiesRequest$: StaticStructureSchema = [3, n0, _LD
 export var ListEnvironmentsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
   [_AIp, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
+  [[0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]], 1
 ];
 export var ListExtensionAssociationsRequest$: StaticStructureSchema = [3, n0, _LEAR,
   0,
@@ -601,17 +601,17 @@ export var ListExtensionsRequest$: StaticStructureSchema = [3, n0, _LERi,
 export var ListHostedConfigurationVersionsRequest$: StaticStructureSchema = [3, n0, _LHCVR,
   0,
   [_AIp, _CPI, _MR, _NT, _VL],
-  [[0, 1], [0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _vl }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _vl }]], 2
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var Monitor$: StaticStructureSchema = [3, n0, _Mon,
   0,
   [_AA, _ARA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Parameter$: StaticStructureSchema = [3, n0, _Pa,
   0,
@@ -644,22 +644,22 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var StartDeploymentRequest$: StaticStructureSchema = [3, n0, _SDR,
   0,
   [_AIp, _EIn, _DSI, _CPI, _CV, _D, _Ta, _KKI, _DEP],
-  [[0, 1], [0, 1], 0, 0, 0, 0, 128 | 0, 0, [() => DynamicParameterMap, 0]]
+  [[0, 1], [0, 1], 0, 0, 0, 0, 128 | 0, 0, [() => DynamicParameterMap, 0]], 5
 ];
 export var StopDeploymentRequest$: StaticStructureSchema = [3, n0, _SDRt,
   0,
   [_AIp, _EIn, _DN, _AR],
-  [[0, 1], [0, 1], [1, 1], [2, { [_hH]: _AR_ }]]
+  [[0, 1], [0, 1], [1, 1], [2, { [_hH]: _AR_ }]], 3
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _Ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateAccountSettingsRequest$: StaticStructureSchema = [3, n0, _UASR,
   0,
@@ -669,42 +669,42 @@ export var UpdateAccountSettingsRequest$: StaticStructureSchema = [3, n0, _UASR,
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_AIp, _N, _D],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateConfigurationProfileRequest$: StaticStructureSchema = [3, n0, _UCPR,
   0,
   [_AIp, _CPI, _N, _D, _RRA, _V, _KKI],
-  [[0, 1], [0, 1], 0, 0, 0, [() => ValidatorList, 0], 0]
+  [[0, 1], [0, 1], 0, 0, 0, [() => ValidatorList, 0], 0], 2
 ];
 export var UpdateDeploymentStrategyRequest$: StaticStructureSchema = [3, n0, _UDSR,
   0,
   [_DSI, _D, _DDIM, _FBTIM, _GF, _GT],
-  [[0, 1], 0, 1, 1, 1, 0]
+  [[0, 1], 0, 1, 1, 1, 0], 1
 ];
 export var UpdateEnvironmentRequest$: StaticStructureSchema = [3, n0, _UER,
   0,
   [_AIp, _EIn, _N, _D, _Mo],
-  [[0, 1], [0, 1], 0, 0, () => MonitorList]
+  [[0, 1], [0, 1], 0, 0, () => MonitorList], 2
 ];
 export var UpdateExtensionAssociationRequest$: StaticStructureSchema = [3, n0, _UEAR,
   0,
   [_EAI, _P],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 1
 ];
 export var UpdateExtensionRequest$: StaticStructureSchema = [3, n0, _UERp,
   0,
   [_EI, _D, _Ac, _P, _VN],
-  [[0, 1], 0, () => ActionsMap, () => ParameterMap, 1]
+  [[0, 1], 0, () => ActionsMap, () => ParameterMap, 1], 1
 ];
 export var ValidateConfigurationRequest$: StaticStructureSchema = [3, n0, _VCR,
   0,
   [_AIp, _CPI, _CV],
-  [[0, 1], [0, 1], [0, { [_hQ]: _cv }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _cv }]], 3
 ];
 export var Validator$: StaticStructureSchema = [3, n0, _Val,
   0,
   [_T, _Co],
-  [0, [() => StringWithLengthBetween0And32768, 0]]
+  [0, [() => StringWithLengthBetween0And32768, 0]], 2
 ];
 var __Unit = "unit" as const;
 export var AppConfigServiceException$: StaticErrorSchema = [-3, _sm, "AppConfigServiceException", 0, [], []];

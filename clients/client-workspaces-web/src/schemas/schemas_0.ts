@@ -557,92 +557,92 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AssociateBrowserSettingsRequest$: StaticStructureSchema = [3, n0, _ABSR,
   0,
   [_pA, _bSA],
-  [[0, 1], [0, { [_hQ]: _bSA }]]
+  [[0, 1], [0, { [_hQ]: _bSA }]], 2
 ];
 export var AssociateBrowserSettingsResponse$: StaticStructureSchema = [3, n0, _ABSRs,
   0,
   [_pA, _bSA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateDataProtectionSettingsRequest$: StaticStructureSchema = [3, n0, _ADPSR,
   0,
   [_pA, _dPSA],
-  [[0, 1], [0, { [_hQ]: _dPSA }]]
+  [[0, 1], [0, { [_hQ]: _dPSA }]], 2
 ];
 export var AssociateDataProtectionSettingsResponse$: StaticStructureSchema = [3, n0, _ADPSRs,
   0,
   [_pA, _dPSA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateIpAccessSettingsRequest$: StaticStructureSchema = [3, n0, _AIASR,
   0,
   [_pA, _iASA],
-  [[0, 1], [0, { [_hQ]: _iASA }]]
+  [[0, 1], [0, { [_hQ]: _iASA }]], 2
 ];
 export var AssociateIpAccessSettingsResponse$: StaticStructureSchema = [3, n0, _AIASRs,
   0,
   [_pA, _iASA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateNetworkSettingsRequest$: StaticStructureSchema = [3, n0, _ANSR,
   0,
   [_pA, _nSA],
-  [[0, 1], [0, { [_hQ]: _nSA }]]
+  [[0, 1], [0, { [_hQ]: _nSA }]], 2
 ];
 export var AssociateNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _ANSRs,
   0,
   [_pA, _nSA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateSessionLoggerRequest$: StaticStructureSchema = [3, n0, _ASLR,
   0,
   [_pA, _sLA],
-  [[0, 1], [0, { [_hQ]: _sLA }]]
+  [[0, 1], [0, { [_hQ]: _sLA }]], 2
 ];
 export var AssociateSessionLoggerResponse$: StaticStructureSchema = [3, n0, _ASLRs,
   0,
   [_pA, _sLA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateTrustStoreRequest$: StaticStructureSchema = [3, n0, _ATSR,
   0,
   [_pA, _tSA],
-  [[0, 1], [0, { [_hQ]: _tSA }]]
+  [[0, 1], [0, { [_hQ]: _tSA }]], 2
 ];
 export var AssociateTrustStoreResponse$: StaticStructureSchema = [3, n0, _ATSRs,
   0,
   [_pA, _tSA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateUserAccessLoggingSettingsRequest$: StaticStructureSchema = [3, n0, _AUALSR,
   0,
   [_pA, _uALSA],
-  [[0, 1], [0, { [_hQ]: _uALSA }]]
+  [[0, 1], [0, { [_hQ]: _uALSA }]], 2
 ];
 export var AssociateUserAccessLoggingSettingsResponse$: StaticStructureSchema = [3, n0, _AUALSRs,
   0,
   [_pA, _uALSA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateUserSettingsRequest$: StaticStructureSchema = [3, n0, _AUSR,
   0,
   [_pA, _uSA],
-  [[0, 1], [0, { [_hQ]: _uSA }]]
+  [[0, 1], [0, { [_hQ]: _uSA }]], 2
 ];
 export var AssociateUserSettingsResponse$: StaticStructureSchema = [3, n0, _AUSRs,
   0,
   [_pA, _uSA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BrandingConfiguration$: StaticStructureSchema = [3, n0, _BC,
   0,
   [_l, _w, _f, _lS, _cT, _tOS],
-  [() => ImageMetadata$, () => ImageMetadata$, () => ImageMetadata$, () => LocalizedBrandingStringMap, 0, [() => Markdown, 0]]
+  [() => ImageMetadata$, () => ImageMetadata$, () => ImageMetadata$, () => LocalizedBrandingStringMap, 0, [() => Markdown, 0]], 5
 ];
 export var BrandingConfigurationCreateInput$: StaticStructureSchema = [3, n0, _BCCI,
   0,
   [_l, _w, _f, _lS, _cT, _tOS],
-  [[() => IconImageInput$, 0], [() => WallpaperImageInput$, 0], [() => IconImageInput$, 0], () => LocalizedBrandingStringMap, 0, [() => Markdown, 0]]
+  [[() => IconImageInput$, 0], [() => WallpaperImageInput$, 0], [() => IconImageInput$, 0], () => LocalizedBrandingStringMap, 0, [() => Markdown, 0]], 5
 ];
 export var BrandingConfigurationUpdateInput$: StaticStructureSchema = [3, n0, _BCUI,
   0,
@@ -652,12 +652,12 @@ export var BrandingConfigurationUpdateInput$: StaticStructureSchema = [3, n0, _B
 export var BrowserSettings$: StaticStructureSchema = [3, n0, _BS,
   0,
   [_bSA, _aPA, _bP, _cMK, _aEC, _wCFP],
-  [0, 64 | 0, [() => BrowserPolicy, 0], 0, 128 | 0, [() => WebContentFilteringPolicy$, 0]]
+  [0, 64 | 0, [() => BrowserPolicy, 0], 0, 128 | 0, [() => WebContentFilteringPolicy$, 0]], 1
 ];
 export var BrowserSettingsSummary$: StaticStructureSchema = [3, n0, _BSS,
   0,
   [_bSA],
-  [0]
+  [0], 1
 ];
 export var Certificate$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -678,12 +678,12 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CookieSpecification$: StaticStructureSchema = [3, n0, _CSo,
   0,
   [_d, _n, _p],
-  [[() => CookieDomain, 0], [() => CookieName, 0], [() => CookiePath, 0]]
+  [[() => CookieDomain, 0], [() => CookieName, 0], [() => CookiePath, 0]], 1
 ];
 export var CookieSynchronizationConfiguration$: StaticStructureSchema = [3, n0, _CSC,
   8,
   [_a, _bl],
-  [[() => CookieSpecifications, 0], [() => CookieSpecifications, 0]]
+  [[() => CookieSpecifications, 0], [() => CookieSpecifications, 0]], 1
 ];
 export var CreateBrowserSettingsRequest$: StaticStructureSchema = [3, n0, _CBSR,
   0,
@@ -693,7 +693,7 @@ export var CreateBrowserSettingsRequest$: StaticStructureSchema = [3, n0, _CBSR,
 export var CreateBrowserSettingsResponse$: StaticStructureSchema = [3, n0, _CBSRr,
   0,
   [_bSA],
-  [0]
+  [0], 1
 ];
 export var CreateDataProtectionSettingsRequest$: StaticStructureSchema = [3, n0, _CDPSR,
   0,
@@ -703,37 +703,37 @@ export var CreateDataProtectionSettingsRequest$: StaticStructureSchema = [3, n0,
 export var CreateDataProtectionSettingsResponse$: StaticStructureSchema = [3, n0, _CDPSRr,
   0,
   [_dPSA],
-  [0]
+  [0], 1
 ];
 export var CreateIdentityProviderRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
   [_pA, _iPN, _iPT, _iPD, _cTl, _ta],
-  [0, [() => IdentityProviderName, 0], 0, [() => IdentityProviderDetails, 0], [0, 4], [() => TagList, 0]]
+  [0, [() => IdentityProviderName, 0], 0, [() => IdentityProviderDetails, 0], [0, 4], [() => TagList, 0]], 4
 ];
 export var CreateIdentityProviderResponse$: StaticStructureSchema = [3, n0, _CIPRr,
   0,
   [_iPA],
-  [0]
+  [0], 1
 ];
 export var CreateIpAccessSettingsRequest$: StaticStructureSchema = [3, n0, _CIASR,
   0,
-  [_dN, _de, _ta, _cMK, _aEC, _iR, _cTl],
-  [[() => DisplayName, 0], [() => Description, 0], [() => TagList, 0], 0, 128 | 0, [() => IpRuleList, 0], [0, 4]]
+  [_iR, _dN, _de, _ta, _cMK, _aEC, _cTl],
+  [[() => IpRuleList, 0], [() => DisplayName, 0], [() => Description, 0], [() => TagList, 0], 0, 128 | 0, [0, 4]], 1
 ];
 export var CreateIpAccessSettingsResponse$: StaticStructureSchema = [3, n0, _CIASRr,
   0,
   [_iASA],
-  [0]
+  [0], 1
 ];
 export var CreateNetworkSettingsRequest$: StaticStructureSchema = [3, n0, _CNSR,
   0,
   [_vI, _sI, _sGI, _ta, _cTl],
-  [0, 64 | 0, 64 | 0, [() => TagList, 0], [0, 4]]
+  [0, 64 | 0, 64 | 0, [() => TagList, 0], [0, 4]], 3
 ];
 export var CreateNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _CNSRr,
   0,
   [_nSA],
-  [0]
+  [0], 1
 ];
 export var CreatePortalRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
@@ -743,67 +743,67 @@ export var CreatePortalRequest$: StaticStructureSchema = [3, n0, _CPR,
 export var CreatePortalResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
   [_pA, _pE],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateSessionLoggerRequest$: StaticStructureSchema = [3, n0, _CSLR,
   0,
   [_eF, _lC, _dN, _cMK, _aEC, _ta, _cTl],
-  [() => EventFilter$, [() => LogConfiguration$, 0], [() => DisplayNameSafe, 0], 0, 128 | 0, [() => TagList, 0], [0, 4]]
+  [() => EventFilter$, [() => LogConfiguration$, 0], [() => DisplayNameSafe, 0], 0, 128 | 0, [() => TagList, 0], [0, 4]], 2
 ];
 export var CreateSessionLoggerResponse$: StaticStructureSchema = [3, n0, _CSLRr,
   0,
   [_sLA],
-  [0]
+  [0], 1
 ];
 export var CreateTrustStoreRequest$: StaticStructureSchema = [3, n0, _CTSR,
   0,
   [_cL, _ta, _cTl],
-  [64 | 21, [() => TagList, 0], [0, 4]]
+  [64 | 21, [() => TagList, 0], [0, 4]], 1
 ];
 export var CreateTrustStoreResponse$: StaticStructureSchema = [3, n0, _CTSRr,
   0,
   [_tSA],
-  [0]
+  [0], 1
 ];
 export var CreateUserAccessLoggingSettingsRequest$: StaticStructureSchema = [3, n0, _CUALSR,
   0,
   [_kSA, _ta, _cTl],
-  [0, [() => TagList, 0], [0, 4]]
+  [0, [() => TagList, 0], [0, 4]], 1
 ];
 export var CreateUserAccessLoggingSettingsResponse$: StaticStructureSchema = [3, n0, _CUALSRr,
   0,
   [_uALSA],
-  [0]
+  [0], 1
 ];
 export var CreateUserSettingsRequest$: StaticStructureSchema = [3, n0, _CUSR,
   0,
   [_cA, _pAa, _dA, _uA, _pAr, _ta, _dTIM, _iDTIM, _cTl, _cSC, _cMK, _aEC, _dLA, _tC, _bCI, _wAA],
-  [0, 0, 0, 0, 0, [() => TagList, 0], 1, 1, [0, 4], [() => CookieSynchronizationConfiguration$, 0], 0, 128 | 0, 0, () => ToolbarConfiguration$, [() => BrandingConfigurationCreateInput$, 0], 0]
+  [0, 0, 0, 0, 0, [() => TagList, 0], 1, 1, [0, 4], [() => CookieSynchronizationConfiguration$, 0], 0, 128 | 0, 0, () => ToolbarConfiguration$, [() => BrandingConfigurationCreateInput$, 0], 0], 5
 ];
 export var CreateUserSettingsResponse$: StaticStructureSchema = [3, n0, _CUSRr,
   0,
   [_uSA],
-  [0]
+  [0], 1
 ];
 export var CustomPattern$: StaticStructureSchema = [3, n0, _CPu,
   0,
   [_pN, _pR, _pD, _kR],
-  [[() => PatternName, 0], [() => Regex, 0], [() => DescriptionSafe, 0], [() => Regex, 0]]
+  [[() => PatternName, 0], [() => Regex, 0], [() => DescriptionSafe, 0], [() => Regex, 0]], 2
 ];
 export var DataProtectionSettings$: StaticStructureSchema = [3, n0, _DPS,
   0,
   [_dPSA, _iRC, _aPA, _dN, _de, _cD, _cMK, _aEC],
-  [0, [() => InlineRedactionConfiguration$, 0], 64 | 0, [() => DisplayNameSafe, 0], [() => DescriptionSafe, 0], 4, 0, 128 | 0]
+  [0, [() => InlineRedactionConfiguration$, 0], 64 | 0, [() => DisplayNameSafe, 0], [() => DescriptionSafe, 0], 4, 0, 128 | 0], 1
 ];
 export var DataProtectionSettingsSummary$: StaticStructureSchema = [3, n0, _DPSS,
   0,
   [_dPSA, _dN, _de, _cD],
-  [0, [() => DisplayNameSafe, 0], [() => DescriptionSafe, 0], 4]
+  [0, [() => DisplayNameSafe, 0], [() => DescriptionSafe, 0], 4], 1
 ];
 export var DeleteBrowserSettingsRequest$: StaticStructureSchema = [3, n0, _DBSR,
   0,
   [_bSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteBrowserSettingsResponse$: StaticStructureSchema = [3, n0, _DBSRe,
   0,
@@ -813,7 +813,7 @@ export var DeleteBrowserSettingsResponse$: StaticStructureSchema = [3, n0, _DBSR
 export var DeleteDataProtectionSettingsRequest$: StaticStructureSchema = [3, n0, _DDPSR,
   0,
   [_dPSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDataProtectionSettingsResponse$: StaticStructureSchema = [3, n0, _DDPSRe,
   0,
@@ -823,7 +823,7 @@ export var DeleteDataProtectionSettingsResponse$: StaticStructureSchema = [3, n0
 export var DeleteIdentityProviderRequest$: StaticStructureSchema = [3, n0, _DIPR,
   0,
   [_iPA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteIdentityProviderResponse$: StaticStructureSchema = [3, n0, _DIPRe,
   0,
@@ -833,7 +833,7 @@ export var DeleteIdentityProviderResponse$: StaticStructureSchema = [3, n0, _DIP
 export var DeleteIpAccessSettingsRequest$: StaticStructureSchema = [3, n0, _DIASR,
   0,
   [_iASA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteIpAccessSettingsResponse$: StaticStructureSchema = [3, n0, _DIASRe,
   0,
@@ -843,7 +843,7 @@ export var DeleteIpAccessSettingsResponse$: StaticStructureSchema = [3, n0, _DIA
 export var DeleteNetworkSettingsRequest$: StaticStructureSchema = [3, n0, _DNSR,
   0,
   [_nSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _DNSRe,
   0,
@@ -853,7 +853,7 @@ export var DeleteNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _DNSR
 export var DeletePortalRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_pA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeletePortalResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -863,7 +863,7 @@ export var DeletePortalResponse$: StaticStructureSchema = [3, n0, _DPRe,
 export var DeleteSessionLoggerRequest$: StaticStructureSchema = [3, n0, _DSLR,
   0,
   [_sLA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSessionLoggerResponse$: StaticStructureSchema = [3, n0, _DSLRe,
   0,
@@ -873,7 +873,7 @@ export var DeleteSessionLoggerResponse$: StaticStructureSchema = [3, n0, _DSLRe,
 export var DeleteTrustStoreRequest$: StaticStructureSchema = [3, n0, _DTSR,
   0,
   [_tSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteTrustStoreResponse$: StaticStructureSchema = [3, n0, _DTSRe,
   0,
@@ -883,7 +883,7 @@ export var DeleteTrustStoreResponse$: StaticStructureSchema = [3, n0, _DTSRe,
 export var DeleteUserAccessLoggingSettingsRequest$: StaticStructureSchema = [3, n0, _DUALSR,
   0,
   [_uALSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteUserAccessLoggingSettingsResponse$: StaticStructureSchema = [3, n0, _DUALSRe,
   0,
@@ -893,7 +893,7 @@ export var DeleteUserAccessLoggingSettingsResponse$: StaticStructureSchema = [3,
 export var DeleteUserSettingsRequest$: StaticStructureSchema = [3, n0, _DUSR,
   0,
   [_uSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteUserSettingsResponse$: StaticStructureSchema = [3, n0, _DUSRe,
   0,
@@ -903,7 +903,7 @@ export var DeleteUserSettingsResponse$: StaticStructureSchema = [3, n0, _DUSRe,
 export var DisassociateBrowserSettingsRequest$: StaticStructureSchema = [3, n0, _DBSRi,
   0,
   [_pA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateBrowserSettingsResponse$: StaticStructureSchema = [3, n0, _DBSRis,
   0,
@@ -913,7 +913,7 @@ export var DisassociateBrowserSettingsResponse$: StaticStructureSchema = [3, n0,
 export var DisassociateDataProtectionSettingsRequest$: StaticStructureSchema = [3, n0, _DDPSRi,
   0,
   [_pA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateDataProtectionSettingsResponse$: StaticStructureSchema = [3, n0, _DDPSRis,
   0,
@@ -923,7 +923,7 @@ export var DisassociateDataProtectionSettingsResponse$: StaticStructureSchema = 
 export var DisassociateIpAccessSettingsRequest$: StaticStructureSchema = [3, n0, _DIASRi,
   0,
   [_pA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateIpAccessSettingsResponse$: StaticStructureSchema = [3, n0, _DIASRis,
   0,
@@ -933,7 +933,7 @@ export var DisassociateIpAccessSettingsResponse$: StaticStructureSchema = [3, n0
 export var DisassociateNetworkSettingsRequest$: StaticStructureSchema = [3, n0, _DNSRi,
   0,
   [_pA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _DNSRis,
   0,
@@ -943,7 +943,7 @@ export var DisassociateNetworkSettingsResponse$: StaticStructureSchema = [3, n0,
 export var DisassociateSessionLoggerRequest$: StaticStructureSchema = [3, n0, _DSLRi,
   0,
   [_pA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateSessionLoggerResponse$: StaticStructureSchema = [3, n0, _DSLRis,
   0,
@@ -953,7 +953,7 @@ export var DisassociateSessionLoggerResponse$: StaticStructureSchema = [3, n0, _
 export var DisassociateTrustStoreRequest$: StaticStructureSchema = [3, n0, _DTSRi,
   0,
   [_pA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateTrustStoreResponse$: StaticStructureSchema = [3, n0, _DTSRis,
   0,
@@ -963,7 +963,7 @@ export var DisassociateTrustStoreResponse$: StaticStructureSchema = [3, n0, _DTS
 export var DisassociateUserAccessLoggingSettingsRequest$: StaticStructureSchema = [3, n0, _DUALSRi,
   0,
   [_pA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateUserAccessLoggingSettingsResponse$: StaticStructureSchema = [3, n0, _DUALSRis,
   0,
@@ -973,7 +973,7 @@ export var DisassociateUserAccessLoggingSettingsResponse$: StaticStructureSchema
 export var DisassociateUserSettingsRequest$: StaticStructureSchema = [3, n0, _DUSRi,
   0,
   [_pA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateUserSettingsResponse$: StaticStructureSchema = [3, n0, _DUSRis,
   0,
@@ -983,7 +983,7 @@ export var DisassociateUserSettingsResponse$: StaticStructureSchema = [3, n0, _D
 export var ExpireSessionRequest$: StaticStructureSchema = [3, n0, _ESR,
   0,
   [_pI, _sIe],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var ExpireSessionResponse$: StaticStructureSchema = [3, n0, _ESRx,
   0,
@@ -993,7 +993,7 @@ export var ExpireSessionResponse$: StaticStructureSchema = [3, n0, _ESRx,
 export var GetBrowserSettingsRequest$: StaticStructureSchema = [3, n0, _GBSR,
   0,
   [_bSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetBrowserSettingsResponse$: StaticStructureSchema = [3, n0, _GBSRe,
   0,
@@ -1003,7 +1003,7 @@ export var GetBrowserSettingsResponse$: StaticStructureSchema = [3, n0, _GBSRe,
 export var GetDataProtectionSettingsRequest$: StaticStructureSchema = [3, n0, _GDPSR,
   0,
   [_dPSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDataProtectionSettingsResponse$: StaticStructureSchema = [3, n0, _GDPSRe,
   0,
@@ -1013,7 +1013,7 @@ export var GetDataProtectionSettingsResponse$: StaticStructureSchema = [3, n0, _
 export var GetIdentityProviderRequest$: StaticStructureSchema = [3, n0, _GIPR,
   0,
   [_iPA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetIdentityProviderResponse$: StaticStructureSchema = [3, n0, _GIPRe,
   0,
@@ -1023,7 +1023,7 @@ export var GetIdentityProviderResponse$: StaticStructureSchema = [3, n0, _GIPRe,
 export var GetIpAccessSettingsRequest$: StaticStructureSchema = [3, n0, _GIASR,
   0,
   [_iASA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetIpAccessSettingsResponse$: StaticStructureSchema = [3, n0, _GIASRe,
   0,
@@ -1033,7 +1033,7 @@ export var GetIpAccessSettingsResponse$: StaticStructureSchema = [3, n0, _GIASRe
 export var GetNetworkSettingsRequest$: StaticStructureSchema = [3, n0, _GNSR,
   0,
   [_nSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _GNSRe,
   0,
@@ -1043,7 +1043,7 @@ export var GetNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _GNSRe,
 export var GetPortalRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_pA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPortalResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -1053,17 +1053,17 @@ export var GetPortalResponse$: StaticStructureSchema = [3, n0, _GPRe,
 export var GetPortalServiceProviderMetadataRequest$: StaticStructureSchema = [3, n0, _GPSPMR,
   0,
   [_pA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPortalServiceProviderMetadataResponse$: StaticStructureSchema = [3, n0, _GPSPMRe,
   0,
   [_pA, _sPSM],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetSessionLoggerRequest$: StaticStructureSchema = [3, n0, _GSLR,
   0,
   [_sLA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSessionLoggerResponse$: StaticStructureSchema = [3, n0, _GSLRe,
   0,
@@ -1073,7 +1073,7 @@ export var GetSessionLoggerResponse$: StaticStructureSchema = [3, n0, _GSLRe,
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_pI, _sIe],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -1083,17 +1083,17 @@ export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
 export var GetTrustStoreCertificateRequest$: StaticStructureSchema = [3, n0, _GTSCR,
   0,
   [_tSA, _th],
-  [[0, 1], [0, { [_hQ]: _th }]]
+  [[0, 1], [0, { [_hQ]: _th }]], 2
 ];
 export var GetTrustStoreCertificateResponse$: StaticStructureSchema = [3, n0, _GTSCRe,
   0,
   [_tSA, _ce],
-  [0, () => Certificate$]
+  [0, () => Certificate$], 1
 ];
 export var GetTrustStoreRequest$: StaticStructureSchema = [3, n0, _GTSR,
   0,
   [_tSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetTrustStoreResponse$: StaticStructureSchema = [3, n0, _GTSRe,
   0,
@@ -1103,7 +1103,7 @@ export var GetTrustStoreResponse$: StaticStructureSchema = [3, n0, _GTSRe,
 export var GetUserAccessLoggingSettingsRequest$: StaticStructureSchema = [3, n0, _GUALSR,
   0,
   [_uALSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetUserAccessLoggingSettingsResponse$: StaticStructureSchema = [3, n0, _GUALSRe,
   0,
@@ -1113,7 +1113,7 @@ export var GetUserAccessLoggingSettingsResponse$: StaticStructureSchema = [3, n0
 export var GetUserSettingsRequest$: StaticStructureSchema = [3, n0, _GUSR,
   0,
   [_uSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetUserSettingsResponse$: StaticStructureSchema = [3, n0, _GUSRe,
   0,
@@ -1123,27 +1123,27 @@ export var GetUserSettingsResponse$: StaticStructureSchema = [3, n0, _GUSRe,
 export var IdentityProvider$: StaticStructureSchema = [3, n0, _IP,
   0,
   [_iPA, _iPN, _iPT, _iPD],
-  [0, [() => IdentityProviderName, 0], 0, [() => IdentityProviderDetails, 0]]
+  [0, [() => IdentityProviderName, 0], 0, [() => IdentityProviderDetails, 0]], 1
 ];
 export var IdentityProviderSummary$: StaticStructureSchema = [3, n0, _IPS,
   0,
   [_iPA, _iPN, _iPT],
-  [0, [() => IdentityProviderName, 0], 0]
+  [0, [() => IdentityProviderName, 0], 0], 1
 ];
 export var ImageMetadata$: StaticStructureSchema = [3, n0, _IM,
   0,
   [_mTi, _fE, _lUT],
-  [0, 0, 4]
+  [0, 0, 4], 3
 ];
 export var InlineRedactionConfiguration$: StaticStructureSchema = [3, n0, _IRC,
   0,
   [_iRP, _gEU, _gEUl, _gCL],
-  [[() => InlineRedactionPatterns, 0], [() => GlobalInlineRedactionUrls, 0], [() => GlobalInlineRedactionUrls, 0], 1]
+  [[() => InlineRedactionPatterns, 0], [() => GlobalInlineRedactionUrls, 0], [() => GlobalInlineRedactionUrls, 0], 1], 1
 ];
 export var InlineRedactionPattern$: StaticStructureSchema = [3, n0, _IRP,
   0,
-  [_bIPI, _cP, _rPH, _eU, _eUx, _cLo],
-  [[() => BuiltInPatternId, 0], [() => CustomPattern$, 0], [() => RedactionPlaceHolder$, 0], [() => InlineRedactionUrls, 0], [() => InlineRedactionUrls, 0], 1]
+  [_rPH, _bIPI, _cP, _eU, _eUx, _cLo],
+  [[() => RedactionPlaceHolder$, 0], [() => BuiltInPatternId, 0], [() => CustomPattern$, 0], [() => InlineRedactionUrls, 0], [() => InlineRedactionUrls, 0], 1], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _ser, [_hE]: 500 },
@@ -1154,17 +1154,17 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var IpAccessSettings$: StaticStructureSchema = [3, n0, _IAS,
   0,
   [_iASA, _aPA, _iR, _dN, _de, _cD, _cMK, _aEC],
-  [0, 64 | 0, [() => IpRuleList, 0], [() => DisplayName, 0], [() => Description, 0], 4, 0, 128 | 0]
+  [0, 64 | 0, [() => IpRuleList, 0], [() => DisplayName, 0], [() => Description, 0], 4, 0, 128 | 0], 1
 ];
 export var IpAccessSettingsSummary$: StaticStructureSchema = [3, n0, _IASS,
   0,
   [_iASA, _dN, _de, _cD],
-  [0, [() => DisplayName, 0], [() => Description, 0], 4]
+  [0, [() => DisplayName, 0], [() => Description, 0], 4], 1
 ];
 export var IpRule$: StaticStructureSchema = [3, n0, _IRp,
   0,
   [_iRp, _de],
-  [[() => IpRange, 0], [() => Description, 0]]
+  [[() => IpRange, 0], [() => Description, 0]], 1
 ];
 export var ListBrowserSettingsRequest$: StaticStructureSchema = [3, n0, _LBSR,
   0,
@@ -1188,8 +1188,8 @@ export var ListDataProtectionSettingsResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListIdentityProvidersRequest$: StaticStructureSchema = [3, n0, _LIPR,
   0,
-  [_nT, _mR, _pA],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+  [_pA, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListIdentityProvidersResponse$: StaticStructureSchema = [3, n0, _LIPRi,
   0,
@@ -1239,17 +1239,17 @@ export var ListSessionLoggersResponse$: StaticStructureSchema = [3, n0, _LSLRi,
 export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_pI, _u, _sIe, _sB, _st, _mR, _nT],
-  [[0, 1], [() => Username, { [_hQ]: _u }], [0, { [_hQ]: _sIe }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [() => Username, { [_hQ]: _u }], [0, { [_hQ]: _sIe }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
   [_ses, _nT],
-  [[() => SessionSummaryList, 0], 0]
+  [[() => SessionSummaryList, 0], 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1259,12 +1259,12 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListTrustStoreCertificatesRequest$: StaticStructureSchema = [3, n0, _LTSCR,
   0,
   [_tSA, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListTrustStoreCertificatesResponse$: StaticStructureSchema = [3, n0, _LTSCRi,
   0,
-  [_cL, _tSA, _nT],
-  [() => CertificateSummaryList, 0, 0]
+  [_tSA, _cL, _nT],
+  [0, () => CertificateSummaryList, 0], 1
 ];
 export var ListTrustStoresRequest$: StaticStructureSchema = [3, n0, _LTSR,
   0,
@@ -1299,7 +1299,7 @@ export var ListUserSettingsResponse$: StaticStructureSchema = [3, n0, _LUSRi,
 export var LocalizedBrandingStrings$: StaticStructureSchema = [3, n0, _LBS,
   0,
   [_bTT, _wT, _lT, _lD, _lBT, _cLon, _cBT, _lTo],
-  [0, 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0], 2
 ];
 export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
@@ -1309,27 +1309,27 @@ export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC,
 export var NetworkSettings$: StaticStructureSchema = [3, n0, _NS,
   0,
   [_nSA, _aPA, _vI, _sI, _sGI],
-  [0, 64 | 0, 0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 0, 64 | 0, 64 | 0], 1
 ];
 export var NetworkSettingsSummary$: StaticStructureSchema = [3, n0, _NSS,
   0,
   [_nSA, _vI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Portal$: StaticStructureSchema = [3, n0, _P,
   0,
   [_pA, _rTe, _bT, _pS, _pE, _dN, _cD, _bSA, _dPSA, _uSA, _nSA, _sLA, _tSA, _sR, _uALSA, _aT, _iASA, _cMK, _aEC, _iT, _mCS],
-  [0, 0, 0, 0, 0, [() => DisplayName, 0], 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 1]
+  [0, 0, 0, 0, 0, [() => DisplayName, 0], 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 1], 1
 ];
 export var PortalSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_pA, _rTe, _bT, _pS, _pE, _dN, _cD, _bSA, _dPSA, _uSA, _nSA, _sLA, _tSA, _uALSA, _aT, _iASA, _iT, _mCS],
-  [0, 0, 0, 0, 0, [() => DisplayName, 0], 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 0, [() => DisplayName, 0], 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 1
 ];
 export var RedactionPlaceHolder$: StaticStructureSchema = [3, n0, _RPH,
   0,
   [_rPHT, _rPHTe],
-  [0, [() => RedactionPlaceHolderText, 0]]
+  [0, [() => RedactionPlaceHolderText, 0]], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -1339,8 +1339,8 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3LogConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
-  [_bu, _kP, _bO, _lFF, _fS],
-  [[() => S3Bucket, 0], [() => S3KeyPrefix, 0], 0, 0, 0]
+  [_bu, _lFF, _fS, _kP, _bO],
+  [[() => S3Bucket, 0], 0, 0, [() => S3KeyPrefix, 0], 0], 3
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -1356,12 +1356,12 @@ export var Session$: StaticStructureSchema = [3, n0, _S,
 export var SessionLogger$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_sLA, _eF, _lC, _cMK, _aEC, _aPA, _dN, _cD],
-  [0, () => EventFilter$, [() => LogConfiguration$, 0], 0, 128 | 0, 64 | 0, [() => DisplayNameSafe, 0], 4]
+  [0, () => EventFilter$, [() => LogConfiguration$, 0], 0, 128 | 0, 64 | 0, [() => DisplayNameSafe, 0], 4], 1
 ];
 export var SessionLoggerSummary$: StaticStructureSchema = [3, n0, _SLS,
   0,
   [_sLA, _lC, _dN, _cD],
-  [0, [() => LogConfiguration$, 0], [() => DisplayNameSafe, 0], 4]
+  [0, [() => LogConfiguration$, 0], [() => DisplayNameSafe, 0], 4], 1
 ];
 export var SessionSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
@@ -1371,12 +1371,12 @@ export var SessionSummary$: StaticStructureSchema = [3, n0, _SS,
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   8,
   [_K, _V],
-  [[() => TagKey, 0], [() => TagValue, 0]]
+  [[() => TagKey, 0], [() => TagValue, 0]], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta, _cTl],
-  [[0, 1], [() => TagList, 0], [0, 4]]
+  [[0, 1], [() => TagList, 0], [0, 4]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1402,8 +1402,8 @@ export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
 TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var TrustStore$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_aPA, _tSA],
-  [64 | 0, 0]
+  [_tSA, _aPA],
+  [0, 64 | 0], 1
 ];
 export var TrustStoreSummary$: StaticStructureSchema = [3, n0, _TSS,
   0,
@@ -1413,7 +1413,7 @@ export var TrustStoreSummary$: StaticStructureSchema = [3, n0, _TSS,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [() => TagKeyList, { [_hQ]: _tK }]]
+  [[0, 1], [() => TagKeyList, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1423,57 +1423,57 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateBrowserSettingsRequest$: StaticStructureSchema = [3, n0, _UBSR,
   0,
   [_bSA, _bP, _cTl, _wCFP],
-  [[0, 1], [() => BrowserPolicy, 0], [0, 4], [() => WebContentFilteringPolicy$, 0]]
+  [[0, 1], [() => BrowserPolicy, 0], [0, 4], [() => WebContentFilteringPolicy$, 0]], 1
 ];
 export var UpdateBrowserSettingsResponse$: StaticStructureSchema = [3, n0, _UBSRp,
   0,
   [_bS],
-  [[() => BrowserSettings$, 0]]
+  [[() => BrowserSettings$, 0]], 1
 ];
 export var UpdateDataProtectionSettingsRequest$: StaticStructureSchema = [3, n0, _UDPSR,
   0,
   [_dPSA, _iRC, _dN, _de, _cTl],
-  [[0, 1], [() => InlineRedactionConfiguration$, 0], [() => DisplayNameSafe, 0], [() => DescriptionSafe, 0], [0, 4]]
+  [[0, 1], [() => InlineRedactionConfiguration$, 0], [() => DisplayNameSafe, 0], [() => DescriptionSafe, 0], [0, 4]], 1
 ];
 export var UpdateDataProtectionSettingsResponse$: StaticStructureSchema = [3, n0, _UDPSRp,
   0,
   [_dPS],
-  [[() => DataProtectionSettings$, 0]]
+  [[() => DataProtectionSettings$, 0]], 1
 ];
 export var UpdateIdentityProviderRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
   [_iPA, _iPN, _iPT, _iPD, _cTl],
-  [[0, 1], [() => IdentityProviderName, 0], 0, [() => IdentityProviderDetails, 0], [0, 4]]
+  [[0, 1], [() => IdentityProviderName, 0], 0, [() => IdentityProviderDetails, 0], [0, 4]], 1
 ];
 export var UpdateIdentityProviderResponse$: StaticStructureSchema = [3, n0, _UIPRp,
   0,
   [_iP],
-  [[() => IdentityProvider$, 0]]
+  [[() => IdentityProvider$, 0]], 1
 ];
 export var UpdateIpAccessSettingsRequest$: StaticStructureSchema = [3, n0, _UIASR,
   0,
   [_iASA, _dN, _de, _iR, _cTl],
-  [[0, 1], [() => DisplayName, 0], [() => Description, 0], [() => IpRuleList, 0], [0, 4]]
+  [[0, 1], [() => DisplayName, 0], [() => Description, 0], [() => IpRuleList, 0], [0, 4]], 1
 ];
 export var UpdateIpAccessSettingsResponse$: StaticStructureSchema = [3, n0, _UIASRp,
   0,
   [_iAS],
-  [[() => IpAccessSettings$, 0]]
+  [[() => IpAccessSettings$, 0]], 1
 ];
 export var UpdateNetworkSettingsRequest$: StaticStructureSchema = [3, n0, _UNSR,
   0,
   [_nSA, _vI, _sI, _sGI, _cTl],
-  [[0, 1], 0, 64 | 0, 64 | 0, [0, 4]]
+  [[0, 1], 0, 64 | 0, 64 | 0, [0, 4]], 1
 ];
 export var UpdateNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _UNSRp,
   0,
   [_nS],
-  [() => NetworkSettings$]
+  [() => NetworkSettings$], 1
 ];
 export var UpdatePortalRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_pA, _dN, _aT, _iT, _mCS],
-  [[0, 1], [() => DisplayName, 0], 0, 0, 1]
+  [[0, 1], [() => DisplayName, 0], 0, 0, 1], 1
 ];
 export var UpdatePortalResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -1483,62 +1483,62 @@ export var UpdatePortalResponse$: StaticStructureSchema = [3, n0, _UPRp,
 export var UpdateSessionLoggerRequest$: StaticStructureSchema = [3, n0, _USLR,
   0,
   [_sLA, _eF, _lC, _dN],
-  [[0, 1], () => EventFilter$, [() => LogConfiguration$, 0], [() => DisplayNameSafe, 0]]
+  [[0, 1], () => EventFilter$, [() => LogConfiguration$, 0], [() => DisplayNameSafe, 0]], 1
 ];
 export var UpdateSessionLoggerResponse$: StaticStructureSchema = [3, n0, _USLRp,
   0,
   [_sL],
-  [[() => SessionLogger$, 0]]
+  [[() => SessionLogger$, 0]], 1
 ];
 export var UpdateTrustStoreRequest$: StaticStructureSchema = [3, n0, _UTSR,
   0,
   [_tSA, _cTA, _cTD, _cTl],
-  [[0, 1], 64 | 21, 64 | 0, [0, 4]]
+  [[0, 1], 64 | 21, 64 | 0, [0, 4]], 1
 ];
 export var UpdateTrustStoreResponse$: StaticStructureSchema = [3, n0, _UTSRp,
   0,
   [_tSA],
-  [0]
+  [0], 1
 ];
 export var UpdateUserAccessLoggingSettingsRequest$: StaticStructureSchema = [3, n0, _UUALSR,
   0,
   [_uALSA, _kSA, _cTl],
-  [[0, 1], 0, [0, 4]]
+  [[0, 1], 0, [0, 4]], 1
 ];
 export var UpdateUserAccessLoggingSettingsResponse$: StaticStructureSchema = [3, n0, _UUALSRp,
   0,
   [_uALS],
-  [() => UserAccessLoggingSettings$]
+  [() => UserAccessLoggingSettings$], 1
 ];
 export var UpdateUserSettingsRequest$: StaticStructureSchema = [3, n0, _UUSR,
   0,
   [_uSA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cTl, _cSC, _dLA, _tC, _bCI, _wAA],
-  [[0, 1], 0, 0, 0, 0, 0, 1, 1, [0, 4], [() => CookieSynchronizationConfiguration$, 0], 0, () => ToolbarConfiguration$, [() => BrandingConfigurationUpdateInput$, 0], 0]
+  [[0, 1], 0, 0, 0, 0, 0, 1, 1, [0, 4], [() => CookieSynchronizationConfiguration$, 0], 0, () => ToolbarConfiguration$, [() => BrandingConfigurationUpdateInput$, 0], 0], 1
 ];
 export var UpdateUserSettingsResponse$: StaticStructureSchema = [3, n0, _UUSRp,
   0,
   [_uS],
-  [[() => UserSettings$, 0]]
+  [[() => UserSettings$, 0]], 1
 ];
 export var UserAccessLoggingSettings$: StaticStructureSchema = [3, n0, _UALS,
   0,
   [_uALSA, _aPA, _kSA],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 1
 ];
 export var UserAccessLoggingSettingsSummary$: StaticStructureSchema = [3, n0, _UALSS,
   0,
   [_uALSA, _kSA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UserSettings$: StaticStructureSchema = [3, n0, _US,
   0,
   [_uSA, _aPA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cSC, _cMK, _aEC, _dLA, _tC, _bC, _wAA],
-  [0, 64 | 0, 0, 0, 0, 0, 0, 1, 1, [() => CookieSynchronizationConfiguration$, 0], 0, 128 | 0, 0, () => ToolbarConfiguration$, [() => BrandingConfiguration$, 0], 0]
+  [0, 64 | 0, 0, 0, 0, 0, 0, 1, 1, [() => CookieSynchronizationConfiguration$, 0], 0, 128 | 0, 0, () => ToolbarConfiguration$, [() => BrandingConfiguration$, 0], 0], 1
 ];
 export var UserSettingsSummary$: StaticStructureSchema = [3, n0, _USS,
   0,
   [_uSA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cSC, _dLA, _tC, _bC, _wAA],
-  [0, 0, 0, 0, 0, 0, 1, 1, [() => CookieSynchronizationConfiguration$, 0], 0, () => ToolbarConfiguration$, [() => BrandingConfiguration$, 0], 0]
+  [0, 0, 0, 0, 0, 0, 1, 1, [() => CookieSynchronizationConfiguration$, 0], 0, () => ToolbarConfiguration$, [() => BrandingConfiguration$, 0], 0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
@@ -1549,7 +1549,7 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var WebContentFilteringPolicy$: StaticStructureSchema = [3, n0, _WCFP,
   0,

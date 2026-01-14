@@ -706,8 +706,8 @@ const _mP = "meteredProducts";
 const _mR = "maxResults";
 const _mRPT = "maxRetriesPerTask";
 const _mT = "matchType";
-const _mWC = "minWorkerCount";
-const _mWCa = "maxWorkerCount";
+const _mWC = "maxWorkerCount";
+const _mWCi = "minWorkerCount";
 const _ma = "max";
 const _man = "manifests";
 const _me = "message";
@@ -897,53 +897,53 @@ var StepDescription: StaticSimpleSchema = [0, n0, _SD, 8, 0];
 export var AcceleratorCapabilities$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_s, _c],
-  [() => AcceleratorSelections, () => AcceleratorCountRange$]
+  [() => AcceleratorSelections, () => AcceleratorCountRange$], 1
 ];
 export var AcceleratorCountRange$: StaticStructureSchema = [3, n0, _ACR,
   0,
   [_m, _ma],
-  [1, 1]
+  [1, 1], 1
 ];
 export var AcceleratorSelection$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_n, _r],
-  [0, 0]
+  [0, 0], 1
 ];
 export var AcceleratorTotalMemoryMiBRange$: StaticStructureSchema = [3, n0, _ATMMBR,
   0,
   [_m, _ma],
-  [1, 1]
+  [1, 1], 1
 ];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _cl, [_hE]: 403 },
   [_me, _co],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AcquiredLimit$: StaticStructureSchema = [3, n0, _AL,
   0,
   [_lI, _c],
-  [0, 1]
+  [0, 1], 2
 ];
 export var AssignedEnvironmentEnterSessionActionDefinition$: StaticStructureSchema = [3, n0, _AEESAD,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var AssignedEnvironmentExitSessionActionDefinition$: StaticStructureSchema = [3, n0, _AEESADs,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var AssignedSession$: StaticStructureSchema = [3, n0, _ASs,
   0,
   [_qI, _jI, _sA, _lC],
-  [0, 0, [() => AssignedSessionActions, 0], () => LogConfiguration$]
+  [0, 0, [() => AssignedSessionActions, 0], () => LogConfiguration$], 4
 ];
 export var AssignedSessionAction$: StaticStructureSchema = [3, n0, _ASA,
   0,
   [_sAI, _d],
-  [0, [() => AssignedSessionActionDefinition$, 0]]
+  [0, [() => AssignedSessionActionDefinition$, 0]], 2
 ];
 export var AssignedSyncInputJobAttachmentsSessionActionDefinition$: StaticStructureSchema = [3, n0, _ASIJASAD,
   0,
@@ -952,13 +952,13 @@ export var AssignedSyncInputJobAttachmentsSessionActionDefinition$: StaticStruct
 ];
 export var AssignedTaskRunSessionActionDefinition$: StaticStructureSchema = [3, n0, _ATRSAD,
   0,
-  [_tI, _sI, _p],
-  [0, 0, [() => TaskParameters, 0]]
+  [_sI, _p, _tI],
+  [0, [() => TaskParameters, 0], 0], 2
 ];
 export var AssociateMemberToFarmRequest$: StaticStructureSchema = [3, n0, _AMTFR,
   0,
   [_fI, _pI, _pT, _iSI, _mL],
-  [[0, 1], [0, 1], 0, 0, 0]
+  [[0, 1], [0, 1], 0, 0, 0], 5
 ];
 export var AssociateMemberToFarmResponse$: StaticStructureSchema = [3, n0, _AMTFRs,
   0,
@@ -968,7 +968,7 @@ export var AssociateMemberToFarmResponse$: StaticStructureSchema = [3, n0, _AMTF
 export var AssociateMemberToFleetRequest$: StaticStructureSchema = [3, n0, _AMTFRss,
   0,
   [_fI, _fIl, _pI, _pT, _iSI, _mL],
-  [[0, 1], [0, 1], [0, 1], 0, 0, 0]
+  [[0, 1], [0, 1], [0, 1], 0, 0, 0], 6
 ];
 export var AssociateMemberToFleetResponse$: StaticStructureSchema = [3, n0, _AMTFRsso,
   0,
@@ -978,7 +978,7 @@ export var AssociateMemberToFleetResponse$: StaticStructureSchema = [3, n0, _AMT
 export var AssociateMemberToJobRequest$: StaticStructureSchema = [3, n0, _AMTJR,
   0,
   [_fI, _qI, _jI, _pI, _pT, _iSI, _mL],
-  [[0, 1], [0, 1], [0, 1], [0, 1], 0, 0, 0]
+  [[0, 1], [0, 1], [0, 1], [0, 1], 0, 0, 0], 7
 ];
 export var AssociateMemberToJobResponse$: StaticStructureSchema = [3, n0, _AMTJRs,
   0,
@@ -988,7 +988,7 @@ export var AssociateMemberToJobResponse$: StaticStructureSchema = [3, n0, _AMTJR
 export var AssociateMemberToQueueRequest$: StaticStructureSchema = [3, n0, _AMTQR,
   0,
   [_fI, _qI, _pI, _pT, _iSI, _mL],
-  [[0, 1], [0, 1], [0, 1], 0, 0, 0]
+  [[0, 1], [0, 1], [0, 1], 0, 0, 0], 6
 ];
 export var AssociateMemberToQueueResponse$: StaticStructureSchema = [3, n0, _AMTQRs,
   0,
@@ -998,47 +998,47 @@ export var AssociateMemberToQueueResponse$: StaticStructureSchema = [3, n0, _AMT
 export var AssumeFleetRoleForReadRequest$: StaticStructureSchema = [3, n0, _AFRFRR,
   0,
   [_fI, _fIl],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var AssumeFleetRoleForReadResponse$: StaticStructureSchema = [3, n0, _AFRFRRs,
   8,
   [_cr],
-  [[() => AwsCredentials$, 0]]
+  [[() => AwsCredentials$, 0]], 1
 ];
 export var AssumeFleetRoleForWorkerRequest$: StaticStructureSchema = [3, n0, _AFRFWR,
   0,
   [_fI, _fIl, _wI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var AssumeFleetRoleForWorkerResponse$: StaticStructureSchema = [3, n0, _AFRFWRs,
   8,
   [_cr],
-  [[() => AwsCredentials$, 0]]
+  [[() => AwsCredentials$, 0]], 1
 ];
 export var AssumeQueueRoleForReadRequest$: StaticStructureSchema = [3, n0, _AQRFRR,
   0,
   [_fI, _qI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var AssumeQueueRoleForReadResponse$: StaticStructureSchema = [3, n0, _AQRFRRs,
   8,
   [_cr],
-  [[() => AwsCredentials$, 0]]
+  [[() => AwsCredentials$, 0]], 1
 ];
 export var AssumeQueueRoleForUserRequest$: StaticStructureSchema = [3, n0, _AQRFUR,
   0,
   [_fI, _qI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var AssumeQueueRoleForUserResponse$: StaticStructureSchema = [3, n0, _AQRFURs,
   8,
   [_cr],
-  [[() => AwsCredentials$, 0]]
+  [[() => AwsCredentials$, 0]], 1
 ];
 export var AssumeQueueRoleForWorkerRequest$: StaticStructureSchema = [3, n0, _AQRFWR,
   0,
   [_fI, _fIl, _wI, _qI],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _qI }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _qI }]], 4
 ];
 export var AssumeQueueRoleForWorkerResponse$: StaticStructureSchema = [3, n0, _AQRFWRs,
   8,
@@ -1048,143 +1048,143 @@ export var AssumeQueueRoleForWorkerResponse$: StaticStructureSchema = [3, n0, _A
 export var Attachments$: StaticStructureSchema = [3, n0, _A,
   0,
   [_man, _fS],
-  [[() => ManifestPropertiesList, 0], 0]
+  [[() => ManifestPropertiesList, 0], 0], 1
 ];
 export var AwsCredentials$: StaticStructureSchema = [3, n0, _ACw,
   8,
   [_aKI, _sAK, _sT, _ex],
-  [[() => AccessKeyId, 0], [() => SecretAccessKey, 0], [() => SessionToken, 0], 5]
+  [[() => AccessKeyId, 0], [() => SecretAccessKey, 0], [() => SessionToken, 0], 5], 4
 ];
 export var BatchGetJobEntityRequest$: StaticStructureSchema = [3, n0, _BGJER,
   0,
   [_fI, _fIl, _wI, _i],
-  [[0, 1], [0, 1], [0, 1], () => JobEntityIdentifiers]
+  [[0, 1], [0, 1], [0, 1], () => JobEntityIdentifiers], 4
 ];
 export var BatchGetJobEntityResponse$: StaticStructureSchema = [3, n0, _BGJERa,
   0,
   [_en, _er],
-  [[() => BatchGetJobEntityList, 0], () => BatchGetJobEntityErrors]
+  [[() => BatchGetJobEntityList, 0], () => BatchGetJobEntityErrors], 2
 ];
 export var BudgetActionToAdd$: StaticStructureSchema = [3, n0, _BATA,
   0,
   [_t, _tP, _de],
-  [0, 1, [() => Description, 0]]
+  [0, 1, [() => Description, 0]], 2
 ];
 export var BudgetActionToRemove$: StaticStructureSchema = [3, n0, _BATR,
   0,
   [_t, _tP],
-  [0, 1]
+  [0, 1], 2
 ];
 export var BudgetSummary$: StaticStructureSchema = [3, n0, _BS,
   0,
-  [_bI, _uTR, _st, _dN, _de, _aDL, _u, _cB, _cA, _uB, _uA],
-  [0, () => UsageTrackingResource$, 0, 0, [() => Description, 0], 1, () => ConsumedUsages$, 0, 5, 0, 5]
+  [_bI, _uTR, _st, _dN, _aDL, _u, _cB, _cA, _de, _uB, _uA],
+  [0, () => UsageTrackingResource$, 0, 0, 1, () => ConsumedUsages$, 0, 5, [() => Description, 0], 0, 5], 8
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _cl, [_hE]: 409 },
   [_me, _re, _rI, _rT, _co],
-  [0, 0, 0, 0, 128 | 0]
+  [0, 0, 0, 0, 128 | 0], 4
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConsumedUsages$: StaticStructureSchema = [3, n0, _CU,
   0,
   [_aDU],
-  [1]
+  [1], 1
 ];
 export var CopyJobTemplateRequest$: StaticStructureSchema = [3, n0, _CJTR,
   0,
   [_fI, _jI, _qI, _tSL],
-  [[0, 1], [0, 1], [0, 1], () => S3Location$]
+  [[0, 1], [0, 1], [0, 1], () => S3Location$], 4
 ];
 export var CopyJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRo,
   0,
   [_tT],
-  [0]
+  [0], 1
 ];
 export var CreateBudgetRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_cT, _fI, _uTR, _dN, _de, _aDL, _a, _sc],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], () => UsageTrackingResource$, 0, [() => Description, 0], 1, [() => BudgetActionsToAdd, 0], () => BudgetSchedule$]
+  [_fI, _uTR, _dN, _aDL, _a, _sc, _cT, _de],
+  [[0, 1], () => UsageTrackingResource$, 0, 1, [() => BudgetActionsToAdd, 0], () => BudgetSchedule$, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => Description, 0]], 6
 ];
 export var CreateBudgetResponse$: StaticStructureSchema = [3, n0, _CBRr,
   0,
   [_bI],
-  [0]
+  [0], 1
 ];
 export var CreateFarmRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_cT, _dN, _de, _kKA, _ta],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, [() => Description, 0], 0, 128 | 0]
+  [_dN, _cT, _de, _kKA, _ta],
+  [0, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => Description, 0], 0, 128 | 0], 1
 ];
 export var CreateFarmResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
   [_fI],
-  [0]
+  [0], 1
 ];
 export var CreateFleetRequest$: StaticStructureSchema = [3, n0, _CFRre,
   0,
-  [_cT, _fI, _dN, _de, _rA, _mWC, _mWCa, _con, _ta, _hC],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], 0, [() => Description, 0], 0, 1, 1, () => FleetConfiguration$, 128 | 0, [() => HostConfiguration$, 0]]
+  [_fI, _dN, _rA, _mWC, _con, _cT, _de, _mWCi, _ta, _hC],
+  [[0, 1], 0, 0, 1, () => FleetConfiguration$, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => Description, 0], 1, 128 | 0, [() => HostConfiguration$, 0]], 5
 ];
 export var CreateFleetResponse$: StaticStructureSchema = [3, n0, _CFRrea,
   0,
   [_fIl],
-  [0]
+  [0], 1
 ];
 export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJR,
   0,
-  [_fI, _qI, _cT, _te, _tT, _pr, _p, _at, _sPI, _tTRS, _mFTC, _mRPT, _mWCa, _sJI],
-  [[0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], [() => JobTemplate, 0], 0, 1, [() => JobParameters, 0], [() => Attachments$, 0], 0, 0, 1, 1, 1, 0]
+  [_fI, _qI, _pr, _cT, _te, _tT, _p, _at, _sPI, _tTRS, _mFTC, _mRPT, _mWC, _sJI],
+  [[0, 1], [0, 1], 1, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => JobTemplate, 0], 0, [() => JobParameters, 0], [() => Attachments$, 0], 0, 0, 1, 1, 1, 0], 3
 ];
 export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRr,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var CreateLicenseEndpointRequest$: StaticStructureSchema = [3, n0, _CLER,
   0,
-  [_cT, _vI, _sIu, _sGI, _ta],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, 64 | 0, 64 | 0, 128 | 0]
+  [_vI, _sIu, _sGI, _cT, _ta],
+  [0, 64 | 0, 64 | 0, [0, { [_hH]: _XACT, [_iT]: 1 }], 128 | 0], 3
 ];
 export var CreateLicenseEndpointResponse$: StaticStructureSchema = [3, n0, _CLERr,
   0,
   [_lEI],
-  [0]
+  [0], 1
 ];
 export var CreateLimitRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
-  [_cT, _dN, _aRN, _mC, _fI, _de],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, 0, 1, [0, 1], [() => Description, 0]]
+  [_dN, _aRN, _mC, _fI, _cT, _de],
+  [0, 0, 1, [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], [() => Description, 0]], 4
 ];
 export var CreateLimitResponse$: StaticStructureSchema = [3, n0, _CLRr,
   0,
   [_lI],
-  [0]
+  [0], 1
 ];
 export var CreateMonitorRequest$: StaticStructureSchema = [3, n0, _CMR,
   0,
-  [_cT, _dN, _iCIA, _su, _rA, _ta],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, 0, 0, 0, 128 | 0]
+  [_dN, _iCIA, _su, _rA, _cT, _ta],
+  [0, 0, 0, 0, [0, { [_hH]: _XACT, [_iT]: 1 }], 128 | 0], 4
 ];
 export var CreateMonitorResponse$: StaticStructureSchema = [3, n0, _CMRr,
   0,
   [_mI, _iCAA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateQueueEnvironmentRequest$: StaticStructureSchema = [3, n0, _CQER,
   0,
-  [_cT, _fI, _qI, _pr, _tT, _te],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], [0, 1], 1, 0, [() => EnvironmentTemplate, 0]]
+  [_fI, _qI, _pr, _tT, _te, _cT],
+  [[0, 1], [0, 1], 1, 0, [() => EnvironmentTemplate, 0], [0, { [_hH]: _XACT, [_iT]: 1 }]], 5
 ];
 export var CreateQueueEnvironmentResponse$: StaticStructureSchema = [3, n0, _CQERr,
   0,
   [_qEI],
-  [0]
+  [0], 1
 ];
 export var CreateQueueFleetAssociationRequest$: StaticStructureSchema = [3, n0, _CQFAR,
   0,
   [_fI, _qI, _fIl],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 3
 ];
 export var CreateQueueFleetAssociationResponse$: StaticStructureSchema = [3, n0, _CQFARr,
   0,
@@ -1194,7 +1194,7 @@ export var CreateQueueFleetAssociationResponse$: StaticStructureSchema = [3, n0,
 export var CreateQueueLimitAssociationRequest$: StaticStructureSchema = [3, n0, _CQLAR,
   0,
   [_fI, _qI, _lI],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 3
 ];
 export var CreateQueueLimitAssociationResponse$: StaticStructureSchema = [3, n0, _CQLARr,
   0,
@@ -1203,53 +1203,53 @@ export var CreateQueueLimitAssociationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateQueueRequest$: StaticStructureSchema = [3, n0, _CQR,
   0,
-  [_cT, _fI, _dN, _de, _dBA, _jAS, _rA, _jRAU, _rFSLN, _aSPI, _ta],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], 0, [() => Description, 0], 0, () => JobAttachmentSettings$, 0, () => JobRunAsUser$, 64 | 0, 64 | 0, 128 | 0]
+  [_fI, _dN, _cT, _de, _dBA, _jAS, _rA, _jRAU, _rFSLN, _aSPI, _ta],
+  [[0, 1], 0, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => Description, 0], 0, () => JobAttachmentSettings$, 0, () => JobRunAsUser$, 64 | 0, 64 | 0, 128 | 0], 2
 ];
 export var CreateQueueResponse$: StaticStructureSchema = [3, n0, _CQRr,
   0,
   [_qI],
-  [0]
+  [0], 1
 ];
 export var CreateStorageProfileRequest$: StaticStructureSchema = [3, n0, _CSPR,
   0,
-  [_cT, _fI, _dN, _oF, _fSL],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], 0, 0, [() => FileSystemLocationsList, 0]]
+  [_fI, _dN, _oF, _cT, _fSL],
+  [[0, 1], 0, 0, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => FileSystemLocationsList, 0]], 3
 ];
 export var CreateStorageProfileResponse$: StaticStructureSchema = [3, n0, _CSPRr,
   0,
   [_sPI],
-  [0]
+  [0], 1
 ];
 export var CreateWorkerRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
   [_fI, _fIl, _hP, _cT, _ta],
-  [[0, 1], [0, 1], () => HostPropertiesRequest$, [0, { [_hH]: _XACT, [_iT]: 1 }], 128 | 0]
+  [[0, 1], [0, 1], () => HostPropertiesRequest$, [0, { [_hH]: _XACT, [_iT]: 1 }], 128 | 0], 2
 ];
 export var CreateWorkerResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
   [_wI],
-  [0]
+  [0], 1
 ];
 export var CustomerManagedFleetConfiguration$: StaticStructureSchema = [3, n0, _CMFC,
   0,
   [_mo, _wC, _sPI, _tPM],
-  [0, () => CustomerManagedWorkerCapabilities$, 0, 0]
+  [0, () => CustomerManagedWorkerCapabilities$, 0, 0], 2
 ];
 export var CustomerManagedWorkerCapabilities$: StaticStructureSchema = [3, n0, _CMWC,
   0,
-  [_vCC, _mMB, _aT, _aC, _aTMMB, _oF, _cAT, _cAu, _cAus],
-  [() => VCpuCountRange$, () => MemoryMiBRange$, 64 | 0, () => AcceleratorCountRange$, () => AcceleratorTotalMemoryMiBRange$, 0, 0, () => CustomFleetAmountCapabilities, () => CustomFleetAttributeCapabilities]
+  [_vCC, _mMB, _oF, _cAT, _aT, _aC, _aTMMB, _cAu, _cAus],
+  [() => VCpuCountRange$, () => MemoryMiBRange$, 0, 0, 64 | 0, () => AcceleratorCountRange$, () => AcceleratorTotalMemoryMiBRange$, () => CustomFleetAmountCapabilities, () => CustomFleetAttributeCapabilities], 4
 ];
 export var DateTimeFilterExpression$: StaticStructureSchema = [3, n0, _DTFE,
   0,
   [_n, _o, _dT],
-  [0, 0, 5]
+  [0, 0, 5], 3
 ];
 export var DeleteBudgetRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
   [_fI, _bI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteBudgetResponse$: StaticStructureSchema = [3, n0, _DBRe,
   0,
@@ -1259,7 +1259,7 @@ export var DeleteBudgetResponse$: StaticStructureSchema = [3, n0, _DBRe,
 export var DeleteFarmRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_fI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteFarmResponse$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -1268,8 +1268,8 @@ export var DeleteFarmResponse$: StaticStructureSchema = [3, n0, _DFRe,
 ];
 export var DeleteFleetRequest$: StaticStructureSchema = [3, n0, _DFRel,
   0,
-  [_cT, _fI, _fIl],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], [0, 1]]
+  [_fI, _fIl, _cT],
+  [[0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }]], 2
 ];
 export var DeleteFleetResponse$: StaticStructureSchema = [3, n0, _DFRele,
   0,
@@ -1279,7 +1279,7 @@ export var DeleteFleetResponse$: StaticStructureSchema = [3, n0, _DFRele,
 export var DeleteLicenseEndpointRequest$: StaticStructureSchema = [3, n0, _DLER,
   0,
   [_lEI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteLicenseEndpointResponse$: StaticStructureSchema = [3, n0, _DLERe,
   0,
@@ -1289,7 +1289,7 @@ export var DeleteLicenseEndpointResponse$: StaticStructureSchema = [3, n0, _DLER
 export var DeleteLimitRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_fI, _lI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteLimitResponse$: StaticStructureSchema = [3, n0, _DLRe,
   0,
@@ -1299,7 +1299,7 @@ export var DeleteLimitResponse$: StaticStructureSchema = [3, n0, _DLRe,
 export var DeleteMeteredProductRequest$: StaticStructureSchema = [3, n0, _DMPR,
   0,
   [_lEI, _pIr],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteMeteredProductResponse$: StaticStructureSchema = [3, n0, _DMPRe,
   0,
@@ -1309,7 +1309,7 @@ export var DeleteMeteredProductResponse$: StaticStructureSchema = [3, n0, _DMPRe
 export var DeleteMonitorRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_mI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteMonitorResponse$: StaticStructureSchema = [3, n0, _DMRe,
   0,
@@ -1319,7 +1319,7 @@ export var DeleteMonitorResponse$: StaticStructureSchema = [3, n0, _DMRe,
 export var DeleteQueueEnvironmentRequest$: StaticStructureSchema = [3, n0, _DQER,
   0,
   [_fI, _qI, _qEI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteQueueEnvironmentResponse$: StaticStructureSchema = [3, n0, _DQERe,
   0,
@@ -1329,7 +1329,7 @@ export var DeleteQueueEnvironmentResponse$: StaticStructureSchema = [3, n0, _DQE
 export var DeleteQueueFleetAssociationRequest$: StaticStructureSchema = [3, n0, _DQFAR,
   0,
   [_fI, _qI, _fIl],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteQueueFleetAssociationResponse$: StaticStructureSchema = [3, n0, _DQFARe,
   0,
@@ -1339,7 +1339,7 @@ export var DeleteQueueFleetAssociationResponse$: StaticStructureSchema = [3, n0,
 export var DeleteQueueLimitAssociationRequest$: StaticStructureSchema = [3, n0, _DQLAR,
   0,
   [_fI, _qI, _lI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteQueueLimitAssociationResponse$: StaticStructureSchema = [3, n0, _DQLARe,
   0,
@@ -1349,7 +1349,7 @@ export var DeleteQueueLimitAssociationResponse$: StaticStructureSchema = [3, n0,
 export var DeleteQueueRequest$: StaticStructureSchema = [3, n0, _DQR,
   0,
   [_fI, _qI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteQueueResponse$: StaticStructureSchema = [3, n0, _DQRe,
   0,
@@ -1359,7 +1359,7 @@ export var DeleteQueueResponse$: StaticStructureSchema = [3, n0, _DQRe,
 export var DeleteStorageProfileRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_fI, _sPI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteStorageProfileResponse$: StaticStructureSchema = [3, n0, _DSPRe,
   0,
@@ -1369,7 +1369,7 @@ export var DeleteStorageProfileResponse$: StaticStructureSchema = [3, n0, _DSPRe
 export var DeleteWorkerRequest$: StaticStructureSchema = [3, n0, _DWR,
   0,
   [_fI, _fIl, _wI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteWorkerResponse$: StaticStructureSchema = [3, n0, _DWRe,
   0,
@@ -1379,12 +1379,12 @@ export var DeleteWorkerResponse$: StaticStructureSchema = [3, n0, _DWRe,
 export var DependencyCounts$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_dR, _dU, _cR, _cU],
-  [1, 1, 1, 1]
+  [1, 1, 1, 1], 4
 ];
 export var DisassociateMemberFromFarmRequest$: StaticStructureSchema = [3, n0, _DMFFR,
   0,
   [_fI, _pI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DisassociateMemberFromFarmResponse$: StaticStructureSchema = [3, n0, _DMFFRi,
   0,
@@ -1394,7 +1394,7 @@ export var DisassociateMemberFromFarmResponse$: StaticStructureSchema = [3, n0, 
 export var DisassociateMemberFromFleetRequest$: StaticStructureSchema = [3, n0, _DMFFRis,
   0,
   [_fI, _fIl, _pI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DisassociateMemberFromFleetResponse$: StaticStructureSchema = [3, n0, _DMFFRisa,
   0,
@@ -1404,7 +1404,7 @@ export var DisassociateMemberFromFleetResponse$: StaticStructureSchema = [3, n0,
 export var DisassociateMemberFromJobRequest$: StaticStructureSchema = [3, n0, _DMFJR,
   0,
   [_fI, _qI, _jI, _pI],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var DisassociateMemberFromJobResponse$: StaticStructureSchema = [3, n0, _DMFJRi,
   0,
@@ -1414,7 +1414,7 @@ export var DisassociateMemberFromJobResponse$: StaticStructureSchema = [3, n0, _
 export var DisassociateMemberFromQueueRequest$: StaticStructureSchema = [3, n0, _DMFQR,
   0,
   [_fI, _qI, _pI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DisassociateMemberFromQueueResponse$: StaticStructureSchema = [3, n0, _DMFQRi,
   0,
@@ -1429,72 +1429,72 @@ export var Ec2EbsVolume$: StaticStructureSchema = [3, n0, _EEV,
 export var EnvironmentDetailsEntity$: StaticStructureSchema = [3, n0, _EDE,
   0,
   [_jI, _eI, _sV, _te],
-  [0, 0, 0, [() => Document, 0]]
+  [0, 0, 0, [() => Document, 0]], 4
 ];
 export var EnvironmentDetailsError$: StaticStructureSchema = [3, n0, _EDEn,
   0,
   [_jI, _eI, _cod, _me],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var EnvironmentDetailsIdentifiers$: StaticStructureSchema = [3, n0, _EDI,
   0,
   [_jI, _eI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EnvironmentEnterSessionActionDefinition$: StaticStructureSchema = [3, n0, _EESAD,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var EnvironmentEnterSessionActionDefinitionSummary$: StaticStructureSchema = [3, n0, _EESADS,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var EnvironmentExitSessionActionDefinition$: StaticStructureSchema = [3, n0, _EESADn,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var EnvironmentExitSessionActionDefinitionSummary$: StaticStructureSchema = [3, n0, _EESADSn,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var FarmMember$: StaticStructureSchema = [3, n0, _FM,
   0,
   [_fI, _pI, _pT, _iSI, _mL],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var FarmSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
-  [_fI, _dN, _kKA, _cA, _cB, _uA, _uB],
-  [0, 0, 0, 5, 0, 5, 0]
+  [_fI, _dN, _cA, _cB, _kKA, _uA, _uB],
+  [0, 0, 5, 0, 0, 5, 0], 4
 ];
 export var FieldSortExpression$: StaticStructureSchema = [3, n0, _FSE,
   0,
   [_sO, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var FileSystemLocation$: StaticStructureSchema = [3, n0, _FSL,
   8,
   [_n, _pa, _t],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var FixedBudgetSchedule$: StaticStructureSchema = [3, n0, _FBS,
   0,
   [_sTt, _eT],
-  [5, 5]
+  [5, 5], 2
 ];
 export var FleetAmountCapability$: StaticStructureSchema = [3, n0, _FAC,
   0,
   [_n, _m, _ma],
-  [0, 1, 1]
+  [0, 1, 1], 2
 ];
 export var FleetAttributeCapability$: StaticStructureSchema = [3, n0, _FACl,
   0,
   [_n, _v],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var FleetCapabilities$: StaticStructureSchema = [3, n0, _FC,
   0,
@@ -1504,207 +1504,207 @@ export var FleetCapabilities$: StaticStructureSchema = [3, n0, _FC,
 export var FleetMember$: StaticStructureSchema = [3, n0, _FMl,
   0,
   [_fI, _fIl, _pI, _pT, _iSI, _mL],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 6
 ];
 export var FleetSummary$: StaticStructureSchema = [3, n0, _FSl,
   0,
-  [_fIl, _fI, _dN, _st, _sM, _aSS, _tWC, _wCo, _mWC, _mWCa, _con, _cA, _cB, _uA, _uB],
-  [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, () => FleetConfiguration$, 5, 0, 5, 0]
+  [_fIl, _fI, _dN, _st, _wCo, _mWCi, _mWC, _con, _cA, _cB, _sM, _aSS, _tWC, _uA, _uB],
+  [0, 0, 0, 0, 1, 1, 1, () => FleetConfiguration$, 5, 0, 0, 0, 1, 5, 0], 10
 ];
 export var GetBudgetRequest$: StaticStructureSchema = [3, n0, _GBR,
   0,
   [_fI, _bI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetBudgetResponse$: StaticStructureSchema = [3, n0, _GBRe,
   0,
-  [_bI, _uTR, _st, _dN, _de, _aDL, _u, _a, _sc, _cB, _cA, _uB, _uA, _qSA],
-  [0, () => UsageTrackingResource$, 0, 0, [() => Description, 0], 1, () => ConsumedUsages$, [() => ResponseBudgetActionList, 0], () => BudgetSchedule$, 0, 5, 0, 5, 5]
+  [_bI, _uTR, _st, _dN, _aDL, _u, _a, _sc, _cB, _cA, _de, _uB, _uA, _qSA],
+  [0, () => UsageTrackingResource$, 0, 0, 1, () => ConsumedUsages$, [() => ResponseBudgetActionList, 0], () => BudgetSchedule$, 0, 5, [() => Description, 0], 0, 5, 5], 10
 ];
 export var GetFarmRequest$: StaticStructureSchema = [3, n0, _GFR,
   0,
   [_fI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetFarmResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
-  [_fI, _dN, _de, _kKA, _cA, _cB, _uA, _uB],
-  [0, 0, [() => Description, 0], 0, 5, 0, 5, 0]
+  [_fI, _dN, _kKA, _cA, _cB, _de, _uA, _uB],
+  [0, 0, 0, 5, 0, [() => Description, 0], 5, 0], 5
 ];
 export var GetFleetRequest$: StaticStructureSchema = [3, n0, _GFRet,
   0,
   [_fI, _fIl],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetFleetResponse$: StaticStructureSchema = [3, n0, _GFRetl,
   0,
-  [_fIl, _fI, _dN, _de, _st, _sM, _aSS, _tWC, _wCo, _mWC, _mWCa, _con, _hC, _ca, _rA, _cA, _cB, _uA, _uB],
-  [0, 0, 0, [() => Description, 0], 0, 0, 0, 1, 1, 1, 1, () => FleetConfiguration$, [() => HostConfiguration$, 0], () => FleetCapabilities$, 0, 5, 0, 5, 0]
+  [_fIl, _fI, _dN, _st, _wCo, _mWCi, _mWC, _con, _rA, _cA, _cB, _de, _sM, _aSS, _tWC, _hC, _ca, _uA, _uB],
+  [0, 0, 0, 0, 1, 1, 1, () => FleetConfiguration$, 0, 5, 0, [() => Description, 0], 0, 0, 1, [() => HostConfiguration$, 0], () => FleetCapabilities$, 5, 0], 11
 ];
 export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR,
   0,
   [_fI, _qI, _jI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetJobResponse$: StaticStructureSchema = [3, n0, _GJRe,
   0,
-  [_jI, _n, _lS, _lSM, _pr, _cA, _cB, _uA, _uB, _sAt, _eA, _tRS, _tTRS, _tRSC, _tFRC, _sPI, _mFTC, _mRPT, _p, _at, _de, _mWCa, _sJI],
-  [0, 0, 0, 0, 1, 5, 0, 5, 0, 5, 5, 0, 0, 128 | 1, 1, 0, 1, 1, [() => JobParameters, 0], [() => Attachments$, 0], [() => JobDescription, 0], 1, 0]
+  [_jI, _n, _lS, _lSM, _pr, _cA, _cB, _uA, _uB, _sAt, _eA, _tRS, _tTRS, _tRSC, _tFRC, _sPI, _mFTC, _mRPT, _p, _at, _de, _mWC, _sJI],
+  [0, 0, 0, 0, 1, 5, 0, 5, 0, 5, 5, 0, 0, 128 | 1, 1, 0, 1, 1, [() => JobParameters, 0], [() => Attachments$, 0], [() => JobDescription, 0], 1, 0], 7
 ];
 export var GetLicenseEndpointRequest$: StaticStructureSchema = [3, n0, _GLER,
   0,
   [_lEI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetLicenseEndpointResponse$: StaticStructureSchema = [3, n0, _GLERe,
   0,
   [_lEI, _st, _sM, _vI, _dNn, _sIu, _sGI],
-  [0, 0, 0, 0, 0, 64 | 0, 64 | 0]
+  [0, 0, 0, 0, 0, 64 | 0, 64 | 0], 3
 ];
 export var GetLimitRequest$: StaticStructureSchema = [3, n0, _GLR,
   0,
   [_fI, _lI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetLimitResponse$: StaticStructureSchema = [3, n0, _GLRe,
   0,
-  [_dN, _aRN, _mC, _cA, _cB, _uA, _uB, _fI, _lI, _cC, _de],
-  [0, 0, 1, 5, 0, 5, 0, 0, 0, 1, [() => Description, 0]]
+  [_dN, _aRN, _mC, _cA, _cB, _fI, _lI, _cC, _uA, _uB, _de],
+  [0, 0, 1, 5, 0, 0, 0, 1, 5, 0, [() => Description, 0]], 8
 ];
 export var GetMonitorRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
   [_mI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMonitorResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
   [_mI, _dN, _su, _ur, _rA, _iCIA, _iCAA, _cA, _cB, _uA, _uB],
-  [0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0]
+  [0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0], 9
 ];
 export var GetQueueEnvironmentRequest$: StaticStructureSchema = [3, n0, _GQER,
   0,
   [_fI, _qI, _qEI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetQueueEnvironmentResponse$: StaticStructureSchema = [3, n0, _GQERe,
   0,
   [_qEI, _n, _pr, _tT, _te, _cA, _cB, _uA, _uB],
-  [0, 0, 1, 0, [() => EnvironmentTemplate, 0], 5, 0, 5, 0]
+  [0, 0, 1, 0, [() => EnvironmentTemplate, 0], 5, 0, 5, 0], 7
 ];
 export var GetQueueFleetAssociationRequest$: StaticStructureSchema = [3, n0, _GQFAR,
   0,
   [_fI, _qI, _fIl],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetQueueFleetAssociationResponse$: StaticStructureSchema = [3, n0, _GQFARe,
   0,
   [_qI, _fIl, _st, _cA, _cB, _uA, _uB],
-  [0, 0, 0, 5, 0, 5, 0]
+  [0, 0, 0, 5, 0, 5, 0], 5
 ];
 export var GetQueueLimitAssociationRequest$: StaticStructureSchema = [3, n0, _GQLAR,
   0,
   [_fI, _qI, _lI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetQueueLimitAssociationResponse$: StaticStructureSchema = [3, n0, _GQLARe,
   0,
-  [_cA, _cB, _uA, _uB, _qI, _lI, _st],
-  [5, 0, 5, 0, 0, 0, 0]
+  [_cA, _cB, _qI, _lI, _st, _uA, _uB],
+  [5, 0, 0, 0, 0, 5, 0], 5
 ];
 export var GetQueueRequest$: StaticStructureSchema = [3, n0, _GQR,
   0,
   [_fI, _qI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetQueueResponse$: StaticStructureSchema = [3, n0, _GQRe,
   0,
-  [_qI, _dN, _de, _fI, _st, _dBA, _bR, _jAS, _rA, _rFSLN, _aSPI, _jRAU, _cA, _cB, _uA, _uB],
-  [0, 0, [() => Description, 0], 0, 0, 0, 0, () => JobAttachmentSettings$, 0, 64 | 0, 64 | 0, () => JobRunAsUser$, 5, 0, 5, 0]
+  [_qI, _dN, _fI, _st, _dBA, _cA, _cB, _de, _bR, _jAS, _rA, _rFSLN, _aSPI, _jRAU, _uA, _uB],
+  [0, 0, 0, 0, 0, 5, 0, [() => Description, 0], 0, () => JobAttachmentSettings$, 0, 64 | 0, 64 | 0, () => JobRunAsUser$, 5, 0], 7
 ];
 export var GetSessionActionRequest$: StaticStructureSchema = [3, n0, _GSAR,
   0,
   [_fI, _qI, _jI, _sAI],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var GetSessionActionResponse$: StaticStructureSchema = [3, n0, _GSARe,
   0,
-  [_sAI, _st, _sAt, _eA, _wUA, _pP, _sIe, _pEC, _pM, _d, _aL, _man],
-  [0, 0, 5, 5, 5, 1, 0, 1, [() => SessionActionProgressMessage, 0], [() => SessionActionDefinition$, 0], () => AcquiredLimits, () => TaskRunManifestPropertiesListResponse]
+  [_sAI, _st, _sIe, _d, _sAt, _eA, _wUA, _pP, _pEC, _pM, _aL, _man],
+  [0, 0, 0, [() => SessionActionDefinition$, 0], 5, 5, 5, 1, 1, [() => SessionActionProgressMessage, 0], () => AcquiredLimits, () => TaskRunManifestPropertiesListResponse], 4
 ];
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_fI, _qI, _jI, _sIe],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
   [_sIe, _fIl, _wI, _sAt, _l, _lS, _eA, _uA, _uB, _tLS, _hP, _wL],
-  [0, 0, 0, 5, () => LogConfiguration$, 0, 5, 5, 0, 0, () => HostPropertiesResponse$, () => LogConfiguration$]
+  [0, 0, 0, 5, () => LogConfiguration$, 0, 5, 5, 0, 0, () => HostPropertiesResponse$, () => LogConfiguration$], 6
 ];
 export var GetSessionsStatisticsAggregationRequest$: StaticStructureSchema = [3, n0, _GSSAR,
   0,
   [_fI, _aI, _mR, _nT],
-  [[0, 1], [0, { [_hQ]: _aI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _aI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var GetSessionsStatisticsAggregationResponse$: StaticStructureSchema = [3, n0, _GSSARe,
   0,
-  [_sta, _nT, _st, _sM],
-  [() => StatisticsList, 0, 0, 0]
+  [_st, _sta, _nT, _sM],
+  [0, () => StatisticsList, 0, 0], 1
 ];
 export var GetStepRequest$: StaticStructureSchema = [3, n0, _GSRet,
   0,
   [_fI, _qI, _jI, _sI],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var GetStepResponse$: StaticStructureSchema = [3, n0, _GSRett,
   0,
-  [_sI, _n, _lS, _lSM, _tRS, _tRSC, _tFRC, _tTRS, _cA, _cB, _uA, _uB, _sAt, _eA, _dC, _rC, _pS, _de],
-  [0, 0, 0, 0, 0, 128 | 1, 1, 0, 5, 0, 5, 0, 5, 5, () => DependencyCounts$, () => StepRequiredCapabilities$, () => ParameterSpace$, [() => StepDescription, 0]]
+  [_sI, _n, _lS, _tRS, _tRSC, _cA, _cB, _lSM, _tFRC, _tTRS, _uA, _uB, _sAt, _eA, _dC, _rC, _pS, _de],
+  [0, 0, 0, 0, 128 | 1, 5, 0, 0, 1, 0, 5, 0, 5, 5, () => DependencyCounts$, () => StepRequiredCapabilities$, () => ParameterSpace$, [() => StepDescription, 0]], 7
 ];
 export var GetStorageProfileForQueueRequest$: StaticStructureSchema = [3, n0, _GSPFQR,
   0,
   [_fI, _qI, _sPI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetStorageProfileForQueueResponse$: StaticStructureSchema = [3, n0, _GSPFQRe,
   0,
   [_sPI, _dN, _oF, _fSL],
-  [0, 0, 0, [() => FileSystemLocationsList, 0]]
+  [0, 0, 0, [() => FileSystemLocationsList, 0]], 3
 ];
 export var GetStorageProfileRequest$: StaticStructureSchema = [3, n0, _GSPR,
   0,
   [_fI, _sPI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetStorageProfileResponse$: StaticStructureSchema = [3, n0, _GSPRe,
   0,
   [_sPI, _dN, _oF, _cA, _cB, _uA, _uB, _fSL],
-  [0, 0, 0, 5, 0, 5, 0, [() => FileSystemLocationsList, 0]]
+  [0, 0, 0, 5, 0, 5, 0, [() => FileSystemLocationsList, 0]], 5
 ];
 export var GetTaskRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_fI, _qI, _jI, _sI, _tI],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1], [0, 1]], 5
 ];
 export var GetTaskResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
   [_tI, _cA, _cB, _rS, _tRSa, _fRC, _p, _sAt, _eA, _uA, _uB, _lSAI],
-  [0, 5, 0, 0, 0, 1, [() => TaskParameters, 0], 5, 5, 5, 0, 0]
+  [0, 5, 0, 0, 0, 1, [() => TaskParameters, 0], 5, 5, 5, 0, 0], 4
 ];
 export var GetWorkerRequest$: StaticStructureSchema = [3, n0, _GWR,
   0,
   [_fI, _fIl, _wI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetWorkerResponse$: StaticStructureSchema = [3, n0, _GWRe,
   0,
-  [_fI, _fIl, _wI, _hP, _st, _l, _cA, _cB, _uA, _uB],
-  [0, 0, 0, () => HostPropertiesResponse$, 0, () => LogConfiguration$, 5, 0, 5, 0]
+  [_fI, _fIl, _wI, _st, _cA, _cB, _hP, _l, _uA, _uB],
+  [0, 0, 0, 0, 5, 0, () => HostPropertiesResponse$, () => LogConfiguration$, 5, 0], 6
 ];
 export var HostConfiguration$: StaticStructureSchema = [3, n0, _HC,
   0,
   [_sB, _sTS],
-  [[() => HostConfigurationScript, 0], 1]
+  [[() => HostConfigurationScript, 0], 1], 1
 ];
 export var HostPropertiesRequest$: StaticStructureSchema = [3, n0, _HPR,
   0,
@@ -1719,7 +1719,7 @@ export var HostPropertiesResponse$: StaticStructureSchema = [3, n0, _HPRo,
 export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
   { [_e]: _se, [_hE]: 500 },
   [_me, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var IpAddresses$: StaticStructureSchema = [3, n0, _IA,
@@ -1730,57 +1730,57 @@ export var IpAddresses$: StaticStructureSchema = [3, n0, _IA,
 export var JobAttachmentDetailsEntity$: StaticStructureSchema = [3, n0, _JADE,
   0,
   [_jI, _at],
-  [0, [() => Attachments$, 0]]
+  [0, [() => Attachments$, 0]], 2
 ];
 export var JobAttachmentDetailsError$: StaticStructureSchema = [3, n0, _JADEo,
   0,
   [_jI, _cod, _me],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var JobAttachmentDetailsIdentifiers$: StaticStructureSchema = [3, n0, _JADI,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var JobAttachmentSettings$: StaticStructureSchema = [3, n0, _JAS,
   0,
   [_sBN, _rP],
-  [0, 0]
+  [0, 0], 2
 ];
 export var JobDetailsEntity$: StaticStructureSchema = [3, n0, _JDE,
   0,
-  [_jI, _jAS, _jRAU, _lGN, _qRA, _p, _sV, _pMR],
-  [0, () => JobAttachmentSettings$, () => JobRunAsUser$, 0, 0, [() => JobParameters, 0], 0, [() => PathMappingRules, 0]]
+  [_jI, _lGN, _sV, _jAS, _jRAU, _qRA, _p, _pMR],
+  [0, 0, 0, () => JobAttachmentSettings$, () => JobRunAsUser$, 0, [() => JobParameters, 0], [() => PathMappingRules, 0]], 3
 ];
 export var JobDetailsError$: StaticStructureSchema = [3, n0, _JDEo,
   0,
   [_jI, _cod, _me],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var JobDetailsIdentifiers$: StaticStructureSchema = [3, n0, _JDI,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var JobMember$: StaticStructureSchema = [3, n0, _JM,
   0,
   [_fI, _qI, _jI, _pI, _pT, _iSI, _mL],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0], 7
 ];
 export var JobRunAsUser$: StaticStructureSchema = [3, n0, _JRAU,
   0,
-  [_po, _w, _rAu],
-  [() => PosixUser$, () => WindowsUser$, 0]
+  [_rAu, _po, _w],
+  [0, () => PosixUser$, () => WindowsUser$], 1
 ];
 export var JobSearchSummary$: StaticStructureSchema = [3, n0, _JSS,
   0,
-  [_jI, _qI, _n, _lS, _lSM, _tRS, _tTRS, _tRSC, _tFRC, _pr, _mFTC, _mRPT, _cB, _cA, _eA, _sAt, _uA, _uB, _jP, _mWCa, _sJI],
+  [_jI, _qI, _n, _lS, _lSM, _tRS, _tTRS, _tRSC, _tFRC, _pr, _mFTC, _mRPT, _cB, _cA, _eA, _sAt, _uA, _uB, _jP, _mWC, _sJI],
   [0, 0, 0, 0, 0, 0, 0, 128 | 1, 1, 1, 1, 1, 0, 5, 5, 5, 5, 0, [() => JobParameters, 0], 1, 0]
 ];
 export var JobSummary$: StaticStructureSchema = [3, n0, _JS,
   0,
-  [_jI, _n, _lS, _lSM, _pr, _cA, _cB, _uA, _uB, _sAt, _eA, _tRS, _tTRS, _tRSC, _tFRC, _mFTC, _mRPT, _mWCa, _sJI],
-  [0, 0, 0, 0, 1, 5, 0, 5, 0, 5, 5, 0, 0, 128 | 1, 1, 1, 1, 1, 0]
+  [_jI, _n, _lS, _lSM, _pr, _cA, _cB, _uA, _uB, _sAt, _eA, _tRS, _tTRS, _tRSC, _tFRC, _mFTC, _mRPT, _mWC, _sJI],
+  [0, 0, 0, 0, 1, 5, 0, 5, 0, 5, 5, 0, 0, 128 | 1, 1, 1, 1, 1, 0], 7
 ];
 export var LicenseEndpointSummary$: StaticStructureSchema = [3, n0, _LES,
   0,
@@ -1789,8 +1789,8 @@ export var LicenseEndpointSummary$: StaticStructureSchema = [3, n0, _LES,
 ];
 export var LimitSummary$: StaticStructureSchema = [3, n0, _LS,
   0,
-  [_dN, _aRN, _mC, _cA, _cB, _uA, _uB, _fI, _lI, _cC],
-  [0, 0, 1, 5, 0, 5, 0, 0, 0, 1]
+  [_dN, _aRN, _mC, _cA, _cB, _fI, _lI, _cC, _uA, _uB],
+  [0, 0, 1, 5, 0, 0, 0, 1, 5, 0], 8
 ];
 export var ListAvailableMeteredProductsRequest$: StaticStructureSchema = [3, n0, _LAMPR,
   0,
@@ -1800,27 +1800,27 @@ export var ListAvailableMeteredProductsRequest$: StaticStructureSchema = [3, n0,
 export var ListAvailableMeteredProductsResponse$: StaticStructureSchema = [3, n0, _LAMPRi,
   0,
   [_mP, _nT],
-  [() => MeteredProductSummaryList, 0]
+  [() => MeteredProductSummaryList, 0], 1
 ];
 export var ListBudgetsRequest$: StaticStructureSchema = [3, n0, _LBR,
   0,
-  [_nT, _fI, _mR, _st],
-  [[0, { [_hQ]: _nT }], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _st }]]
+  [_fI, _nT, _mR, _st],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _st }]], 1
 ];
 export var ListBudgetsResponse$: StaticStructureSchema = [3, n0, _LBRi,
   0,
-  [_nT, _b],
-  [0, [() => BudgetSummaries, 0]]
+  [_b, _nT],
+  [[() => BudgetSummaries, 0], 0], 1
 ];
 export var ListFarmMembersRequest$: StaticStructureSchema = [3, n0, _LFMR,
   0,
   [_fI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListFarmMembersResponse$: StaticStructureSchema = [3, n0, _LFMRi,
   0,
   [_mem, _nT],
-  [() => FarmMembers, 0]
+  [() => FarmMembers, 0], 1
 ];
 export var ListFarmsRequest$: StaticStructureSchema = [3, n0, _LFR,
   0,
@@ -1829,58 +1829,58 @@ export var ListFarmsRequest$: StaticStructureSchema = [3, n0, _LFR,
 ];
 export var ListFarmsResponse$: StaticStructureSchema = [3, n0, _LFRi,
   0,
-  [_nT, _f],
-  [0, () => FarmSummaries]
+  [_f, _nT],
+  [() => FarmSummaries, 0], 1
 ];
 export var ListFleetMembersRequest$: StaticStructureSchema = [3, n0, _LFMRis,
   0,
   [_fI, _fIl, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListFleetMembersResponse$: StaticStructureSchema = [3, n0, _LFMRist,
   0,
   [_mem, _nT],
-  [() => FleetMembers, 0]
+  [() => FleetMembers, 0], 1
 ];
 export var ListFleetsRequest$: StaticStructureSchema = [3, n0, _LFRis,
   0,
   [_fI, _pI, _dN, _st, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _pI }], [0, { [_hQ]: _dN }], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _pI }], [0, { [_hQ]: _dN }], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListFleetsResponse$: StaticStructureSchema = [3, n0, _LFRist,
   0,
   [_fl, _nT],
-  [() => FleetSummaries, 0]
+  [() => FleetSummaries, 0], 1
 ];
 export var ListJobMembersRequest$: StaticStructureSchema = [3, n0, _LJMR,
   0,
   [_fI, _qI, _jI, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 3
 ];
 export var ListJobMembersResponse$: StaticStructureSchema = [3, n0, _LJMRi,
   0,
   [_mem, _nT],
-  [() => JobMembers, 0]
+  [() => JobMembers, 0], 1
 ];
 export var ListJobParameterDefinitionsRequest$: StaticStructureSchema = [3, n0, _LJPDR,
   0,
   [_fI, _jI, _qI, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 3
 ];
 export var ListJobParameterDefinitionsResponse$: StaticStructureSchema = [3, n0, _LJPDRi,
   0,
   [_jPD, _nT],
-  [64 | 15, 0]
+  [64 | 15, 0], 1
 ];
 export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
   0,
-  [_fI, _pI, _qI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _pI }], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [_fI, _qI, _pI, _nT, _mR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _pI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListJobsResponse$: StaticStructureSchema = [3, n0, _LJRi,
   0,
   [_j, _nT],
-  [() => JobSummaries, 0]
+  [() => JobSummaries, 0], 1
 ];
 export var ListLicenseEndpointsRequest$: StaticStructureSchema = [3, n0, _LLER,
   0,
@@ -1890,27 +1890,27 @@ export var ListLicenseEndpointsRequest$: StaticStructureSchema = [3, n0, _LLER,
 export var ListLicenseEndpointsResponse$: StaticStructureSchema = [3, n0, _LLERi,
   0,
   [_lE, _nT],
-  [() => LicenseEndpointSummaries, 0]
+  [() => LicenseEndpointSummaries, 0], 1
 ];
 export var ListLimitsRequest$: StaticStructureSchema = [3, n0, _LLR,
   0,
   [_fI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListLimitsResponse$: StaticStructureSchema = [3, n0, _LLRi,
   0,
   [_li, _nT],
-  [() => LimitSummaries, 0]
+  [() => LimitSummaries, 0], 1
 ];
 export var ListMeteredProductsRequest$: StaticStructureSchema = [3, n0, _LMPR,
   0,
   [_lEI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListMeteredProductsResponse$: StaticStructureSchema = [3, n0, _LMPRi,
   0,
   [_mP, _nT],
-  [() => MeteredProductSummaryList, 0]
+  [() => MeteredProductSummaryList, 0], 1
 ];
 export var ListMonitorsRequest$: StaticStructureSchema = [3, n0, _LMR,
   0,
@@ -1919,143 +1919,143 @@ export var ListMonitorsRequest$: StaticStructureSchema = [3, n0, _LMR,
 ];
 export var ListMonitorsResponse$: StaticStructureSchema = [3, n0, _LMRi,
   0,
-  [_nT, _mon],
-  [0, () => MonitorSummaries]
+  [_mon, _nT],
+  [() => MonitorSummaries, 0], 1
 ];
 export var ListQueueEnvironmentsRequest$: StaticStructureSchema = [3, n0, _LQER,
   0,
   [_fI, _qI, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListQueueEnvironmentsResponse$: StaticStructureSchema = [3, n0, _LQERi,
   0,
   [_env, _nT],
-  [() => QueueEnvironmentSummaries, 0]
+  [() => QueueEnvironmentSummaries, 0], 1
 ];
 export var ListQueueFleetAssociationsRequest$: StaticStructureSchema = [3, n0, _LQFAR,
   0,
   [_fI, _qI, _fIl, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _qI }], [0, { [_hQ]: _fIl }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _qI }], [0, { [_hQ]: _fIl }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListQueueFleetAssociationsResponse$: StaticStructureSchema = [3, n0, _LQFARi,
   0,
   [_qFA, _nT],
-  [() => QueueFleetAssociationSummaries, 0]
+  [() => QueueFleetAssociationSummaries, 0], 1
 ];
 export var ListQueueLimitAssociationsRequest$: StaticStructureSchema = [3, n0, _LQLAR,
   0,
   [_fI, _qI, _lI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _qI }], [0, { [_hQ]: _lI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _qI }], [0, { [_hQ]: _lI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListQueueLimitAssociationsResponse$: StaticStructureSchema = [3, n0, _LQLARi,
   0,
   [_qLA, _nT],
-  [() => QueueLimitAssociationSummaries, 0]
+  [() => QueueLimitAssociationSummaries, 0], 1
 ];
 export var ListQueueMembersRequest$: StaticStructureSchema = [3, n0, _LQMR,
   0,
   [_fI, _qI, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListQueueMembersResponse$: StaticStructureSchema = [3, n0, _LQMRi,
   0,
   [_mem, _nT],
-  [() => QueueMemberList, 0]
+  [() => QueueMemberList, 0], 1
 ];
 export var ListQueuesRequest$: StaticStructureSchema = [3, n0, _LQR,
   0,
   [_fI, _pI, _st, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _pI }], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _pI }], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListQueuesResponse$: StaticStructureSchema = [3, n0, _LQRi,
   0,
   [_q, _nT],
-  [() => QueueSummaries, 0]
+  [() => QueueSummaries, 0], 1
 ];
 export var ListSessionActionsRequest$: StaticStructureSchema = [3, n0, _LSAR,
   0,
   [_fI, _qI, _jI, _sIe, _tI, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _sIe }], [0, { [_hQ]: _tI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _sIe }], [0, { [_hQ]: _tI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 3
 ];
 export var ListSessionActionsResponse$: StaticStructureSchema = [3, n0, _LSARi,
   0,
   [_sA, _nT],
-  [[() => SessionActionSummaries, 0], 0]
+  [[() => SessionActionSummaries, 0], 0], 1
 ];
 export var ListSessionsForWorkerRequest$: StaticStructureSchema = [3, n0, _LSFWR,
   0,
   [_fI, _fIl, _wI, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 3
 ];
 export var ListSessionsForWorkerResponse$: StaticStructureSchema = [3, n0, _LSFWRi,
   0,
   [_ses, _nT],
-  [() => ListSessionsForWorkerSummaries, 0]
+  [() => ListSessionsForWorkerSummaries, 0], 1
 ];
 export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_fI, _qI, _jI, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 3
 ];
 export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
   [_ses, _nT],
-  [() => SessionSummaries, 0]
+  [() => SessionSummaries, 0], 1
 ];
 export var ListStepConsumersRequest$: StaticStructureSchema = [3, n0, _LSCR,
   0,
   [_fI, _qI, _jI, _sI, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 4
 ];
 export var ListStepConsumersResponse$: StaticStructureSchema = [3, n0, _LSCRi,
   0,
   [_cons, _nT],
-  [() => StepConsumers, 0]
+  [() => StepConsumers, 0], 1
 ];
 export var ListStepDependenciesRequest$: StaticStructureSchema = [3, n0, _LSDR,
   0,
   [_fI, _qI, _jI, _sI, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 4
 ];
 export var ListStepDependenciesResponse$: StaticStructureSchema = [3, n0, _LSDRi,
   0,
   [_dep, _nT],
-  [() => StepDependencies, 0]
+  [() => StepDependencies, 0], 1
 ];
 export var ListStepsRequest$: StaticStructureSchema = [3, n0, _LSRis,
   0,
   [_fI, _qI, _jI, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 3
 ];
 export var ListStepsResponse$: StaticStructureSchema = [3, n0, _LSRist,
   0,
   [_ste, _nT],
-  [() => StepSummaries, 0]
+  [() => StepSummaries, 0], 1
 ];
 export var ListStorageProfilesForQueueRequest$: StaticStructureSchema = [3, n0, _LSPFQR,
   0,
   [_fI, _qI, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListStorageProfilesForQueueResponse$: StaticStructureSchema = [3, n0, _LSPFQRi,
   0,
   [_sP, _nT],
-  [() => StorageProfileSummaries, 0]
+  [() => StorageProfileSummaries, 0], 1
 ];
 export var ListStorageProfilesRequest$: StaticStructureSchema = [3, n0, _LSPR,
   0,
   [_fI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListStorageProfilesResponse$: StaticStructureSchema = [3, n0, _LSPRi,
   0,
   [_sP, _nT],
-  [() => StorageProfileSummaries, 0]
+  [() => StorageProfileSummaries, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -2065,77 +2065,77 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListTasksRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_fI, _qI, _jI, _sI, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 4
 ];
 export var ListTasksResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
   [_tas, _nT],
-  [[() => TaskSummaries, 0], 0]
+  [[() => TaskSummaries, 0], 0], 1
 ];
 export var ListWorkersRequest$: StaticStructureSchema = [3, n0, _LWR,
   0,
   [_fI, _fIl, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListWorkersResponse$: StaticStructureSchema = [3, n0, _LWRi,
   0,
-  [_nT, _wo],
-  [0, () => WorkerSummaries]
+  [_wo, _nT],
+  [() => WorkerSummaries, 0], 1
 ];
 export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_lD, _op, _p, _e],
-  [0, 128 | 0, 128 | 0, 0]
+  [0, 128 | 0, 128 | 0, 0], 1
 ];
 export var ManifestProperties$: StaticStructureSchema = [3, n0, _MP,
   8,
-  [_fSLN, _rPo, _rPF, _oRD, _iMP, _iMH],
-  [0, 0, 0, 64 | 0, 0, 0]
+  [_rPo, _rPF, _fSLN, _oRD, _iMP, _iMH],
+  [0, 0, 0, 64 | 0, 0, 0], 2
 ];
 export var MemoryMiBRange$: StaticStructureSchema = [3, n0, _MMBR,
   0,
   [_m, _ma],
-  [1, 1]
+  [1, 1], 1
 ];
 export var MeteredProductSummary$: StaticStructureSchema = [3, n0, _MPS,
   0,
   [_pIr, _fa, _ve, _por],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 4
 ];
 export var MonitorSummary$: StaticStructureSchema = [3, n0, _MS,
   0,
   [_mI, _dN, _su, _ur, _rA, _iCIA, _iCAA, _cA, _cB, _uA, _uB],
-  [0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0]
+  [0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0], 9
 ];
 export var ParameterFilterExpression$: StaticStructureSchema = [3, n0, _PFE,
   0,
   [_n, _o, _va],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ParameterSortExpression$: StaticStructureSchema = [3, n0, _PSE,
   0,
   [_sO, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ParameterSpace$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_p, _com],
-  [() => StepParameterList, 0]
+  [() => StepParameterList, 0], 1
 ];
 export var PathMappingRule$: StaticStructureSchema = [3, n0, _PMR,
   8,
   [_sPF, _sPo, _dP],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var PosixUser$: StaticStructureSchema = [3, n0, _PU,
   0,
   [_us, _g],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutMeteredProductRequest$: StaticStructureSchema = [3, n0, _PMPR,
   0,
   [_lEI, _pIr],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var PutMeteredProductResponse$: StaticStructureSchema = [3, n0, _PMPRu,
   0,
@@ -2145,139 +2145,139 @@ export var PutMeteredProductResponse$: StaticStructureSchema = [3, n0, _PMPRu,
 export var QueueEnvironmentSummary$: StaticStructureSchema = [3, n0, _QES,
   0,
   [_qEI, _n, _pr],
-  [0, 0, 1]
+  [0, 0, 1], 3
 ];
 export var QueueFleetAssociationSummary$: StaticStructureSchema = [3, n0, _QFAS,
   0,
   [_qI, _fIl, _st, _cA, _cB, _uA, _uB],
-  [0, 0, 0, 5, 0, 5, 0]
+  [0, 0, 0, 5, 0, 5, 0], 5
 ];
 export var QueueLimitAssociationSummary$: StaticStructureSchema = [3, n0, _QLAS,
   0,
-  [_cA, _cB, _uA, _uB, _qI, _lI, _st],
-  [5, 0, 5, 0, 0, 0, 0]
+  [_cA, _cB, _qI, _lI, _st, _uA, _uB],
+  [5, 0, 0, 0, 0, 5, 0], 5
 ];
 export var QueueMember$: StaticStructureSchema = [3, n0, _QM,
   0,
   [_fI, _qI, _pI, _pT, _iSI, _mL],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 6
 ];
 export var QueueSummary$: StaticStructureSchema = [3, n0, _QS,
   0,
-  [_fI, _qI, _dN, _st, _dBA, _bR, _cA, _cB, _uA, _uB],
-  [0, 0, 0, 0, 0, 0, 5, 0, 5, 0]
+  [_fI, _qI, _dN, _st, _dBA, _cA, _cB, _bR, _uA, _uB],
+  [0, 0, 0, 0, 0, 5, 0, 0, 5, 0], 7
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _cl, [_hE]: 404 },
   [_me, _rI, _rT, _co],
-  [0, 0, 0, 128 | 0]
+  [0, 0, 0, 128 | 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResponseBudgetAction$: StaticStructureSchema = [3, n0, _RBA,
   0,
   [_t, _tP, _de],
-  [0, 1, [() => Description, 0]]
+  [0, 1, [() => Description, 0]], 2
 ];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_bN, _k],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SearchGroupedFilterExpressions$: StaticStructureSchema = [3, n0, _SGFE,
   0,
   [_fi, _o],
-  [() => SearchFilterExpressions, 0]
+  [() => SearchFilterExpressions, 0], 2
 ];
 export var SearchJobsRequest$: StaticStructureSchema = [3, n0, _SJR,
   0,
-  [_fI, _qIu, _fE, _sE, _iO, _pSa],
-  [[0, 1], 64 | 0, () => SearchGroupedFilterExpressions$, () => SearchSortExpressions, 1, 1]
+  [_fI, _qIu, _iO, _fE, _sE, _pSa],
+  [[0, 1], 64 | 0, 1, () => SearchGroupedFilterExpressions$, () => SearchSortExpressions, 1], 3
 ];
 export var SearchJobsResponse$: StaticStructureSchema = [3, n0, _SJRe,
   0,
-  [_j, _nIO, _tR],
-  [[() => JobSearchSummaries, 0], 1, 1]
+  [_j, _tR, _nIO],
+  [[() => JobSearchSummaries, 0], 1, 1], 2
 ];
 export var SearchStepsRequest$: StaticStructureSchema = [3, n0, _SSR,
   0,
-  [_fI, _qIu, _jI, _fE, _sE, _iO, _pSa],
-  [[0, 1], 64 | 0, 0, () => SearchGroupedFilterExpressions$, () => SearchSortExpressions, 1, 1]
+  [_fI, _qIu, _iO, _jI, _fE, _sE, _pSa],
+  [[0, 1], 64 | 0, 1, 0, () => SearchGroupedFilterExpressions$, () => SearchSortExpressions, 1], 3
 ];
 export var SearchStepsResponse$: StaticStructureSchema = [3, n0, _SSRe,
   0,
-  [_ste, _nIO, _tR],
-  [() => StepSearchSummaries, 1, 1]
+  [_ste, _tR, _nIO],
+  [() => StepSearchSummaries, 1, 1], 2
 ];
 export var SearchTasksRequest$: StaticStructureSchema = [3, n0, _STR,
   0,
-  [_fI, _qIu, _jI, _fE, _sE, _iO, _pSa],
-  [[0, 1], 64 | 0, 0, () => SearchGroupedFilterExpressions$, () => SearchSortExpressions, 1, 1]
+  [_fI, _qIu, _iO, _jI, _fE, _sE, _pSa],
+  [[0, 1], 64 | 0, 1, 0, () => SearchGroupedFilterExpressions$, () => SearchSortExpressions, 1], 3
 ];
 export var SearchTasksResponse$: StaticStructureSchema = [3, n0, _STRe,
   0,
-  [_tas, _nIO, _tR],
-  [[() => TaskSearchSummaries, 0], 1, 1]
+  [_tas, _tR, _nIO],
+  [[() => TaskSearchSummaries, 0], 1, 1], 2
 ];
 export var SearchTermFilterExpression$: StaticStructureSchema = [3, n0, _STFE,
   0,
   [_sTe, _mT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var SearchWorkersRequest$: StaticStructureSchema = [3, n0, _SWR,
   0,
-  [_fI, _fIle, _fE, _sE, _iO, _pSa],
-  [[0, 1], 64 | 0, () => SearchGroupedFilterExpressions$, () => SearchSortExpressions, 1, 1]
+  [_fI, _fIle, _iO, _fE, _sE, _pSa],
+  [[0, 1], 64 | 0, 1, () => SearchGroupedFilterExpressions$, () => SearchSortExpressions, 1], 3
 ];
 export var SearchWorkersResponse$: StaticStructureSchema = [3, n0, _SWRe,
   0,
-  [_wo, _nIO, _tR],
-  [() => WorkerSearchSummaries, 1, 1]
+  [_wo, _tR, _nIO],
+  [() => WorkerSearchSummaries, 1, 1], 2
 ];
 export var ServiceManagedEc2FleetConfiguration$: StaticStructureSchema = [3, n0, _SMEFC,
   0,
   [_iC, _iMO, _vC, _sPI],
-  [() => ServiceManagedEc2InstanceCapabilities$, () => ServiceManagedEc2InstanceMarketOptions$, () => VpcConfiguration$, 0]
+  [() => ServiceManagedEc2InstanceCapabilities$, () => ServiceManagedEc2InstanceMarketOptions$, () => VpcConfiguration$, 0], 2
 ];
 export var ServiceManagedEc2InstanceCapabilities$: StaticStructureSchema = [3, n0, _SMEIC,
   0,
   [_vCC, _mMB, _oF, _cAT, _rEV, _aCc, _aIT, _eITx, _cAu, _cAus],
-  [() => VCpuCountRange$, () => MemoryMiBRange$, 0, 0, () => Ec2EbsVolume$, () => AcceleratorCapabilities$, 64 | 0, 64 | 0, () => CustomFleetAmountCapabilities, () => CustomFleetAttributeCapabilities]
+  [() => VCpuCountRange$, () => MemoryMiBRange$, 0, 0, () => Ec2EbsVolume$, () => AcceleratorCapabilities$, 64 | 0, 64 | 0, () => CustomFleetAmountCapabilities, () => CustomFleetAttributeCapabilities], 4
 ];
 export var ServiceManagedEc2InstanceMarketOptions$: StaticStructureSchema = [3, n0, _SMEIMO,
   0,
   [_t],
-  [0]
+  [0], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _cl, [_hE]: 402 },
   [_me, _re, _rT, _sC, _qC, _rI, _co],
-  [0, 0, 0, 0, 0, 0, 128 | 0]
+  [0, 0, 0, 0, 0, 0, 128 | 0], 5
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SessionActionSummary$: StaticStructureSchema = [3, n0, _SAS,
   0,
-  [_sAI, _st, _sAt, _eA, _wUA, _pP, _d, _man],
-  [0, 0, 5, 5, 5, 1, [() => SessionActionDefinitionSummary$, 0], () => TaskRunManifestPropertiesListResponse]
+  [_sAI, _st, _d, _sAt, _eA, _wUA, _pP, _man],
+  [0, 0, [() => SessionActionDefinitionSummary$, 0], 5, 5, 5, 1, () => TaskRunManifestPropertiesListResponse], 3
 ];
 export var SessionSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_sIe, _fIl, _wI, _sAt, _lS, _eA, _uA, _uB, _tLS],
-  [0, 0, 0, 5, 0, 5, 5, 0, 0]
+  [0, 0, 0, 5, 0, 5, 5, 0, 0], 5
 ];
 export var StartSessionsStatisticsAggregationRequest$: StaticStructureSchema = [3, n0, _SSSAR,
   0,
-  [_fI, _rIe, _sTt, _eT, _ti, _pe, _gB, _sta],
-  [[0, 1], () => SessionsStatisticsResources$, 5, 5, 0, 0, 64 | 0, 64 | 0]
+  [_fI, _rIe, _sTt, _eT, _gB, _sta, _ti, _pe],
+  [[0, 1], () => SessionsStatisticsResources$, 5, 5, 64 | 0, 64 | 0, 0, 0], 6
 ];
 export var StartSessionsStatisticsAggregationResponse$: StaticStructureSchema = [3, n0, _SSSARt,
   0,
   [_aI],
-  [0]
+  [0], 1
 ];
 export var Statistics$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_qI, _fIl, _jI, _jN, _uI, _uT, _lP, _iTn, _c, _cIU, _rIS, _aST, _aET],
-  [0, 0, 0, 0, 0, 0, 0, 0, 1, () => Stats$, () => Stats$, 5, 5]
+  [_c, _cIU, _rIS, _qI, _fIl, _jI, _jN, _uI, _uT, _lP, _iTn, _aST, _aET],
+  [1, () => Stats$, () => Stats$, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5], 3
 ];
 export var Stats$: StaticStructureSchema = [3, n0, _St,
   0,
@@ -2287,47 +2287,47 @@ export var Stats$: StaticStructureSchema = [3, n0, _St,
 export var StepAmountCapability$: StaticStructureSchema = [3, n0, _SAC,
   0,
   [_n, _m, _ma, _va],
-  [0, 1, 1, 1]
+  [0, 1, 1, 1], 1
 ];
 export var StepAttributeCapability$: StaticStructureSchema = [3, n0, _SACt,
   0,
   [_n, _aO, _aOl],
-  [0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0], 1
 ];
 export var StepConsumer$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_sI, _st],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StepDependency$: StaticStructureSchema = [3, n0, _SDt,
   0,
   [_sI, _st],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StepDetailsEntity$: StaticStructureSchema = [3, n0, _SDE,
   0,
   [_jI, _sI, _sV, _te, _dep],
-  [0, 0, 0, [() => Document, 0], 64 | 0]
+  [0, 0, 0, [() => Document, 0], 64 | 0], 5
 ];
 export var StepDetailsError$: StaticStructureSchema = [3, n0, _SDEt,
   0,
   [_jI, _sI, _cod, _me],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var StepDetailsIdentifiers$: StaticStructureSchema = [3, n0, _SDI,
   0,
   [_jI, _sI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StepParameter$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_n, _t],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StepRequiredCapabilities$: StaticStructureSchema = [3, n0, _SRC,
   0,
   [_att, _am],
-  [() => StepAttributeCapabilities, () => StepAmountCapabilities]
+  [() => StepAttributeCapabilities, () => StepAmountCapabilities], 2
 ];
 export var StepSearchSummary$: StaticStructureSchema = [3, n0, _SSS,
   0,
@@ -2336,18 +2336,18 @@ export var StepSearchSummary$: StaticStructureSchema = [3, n0, _SSS,
 ];
 export var StepSummary$: StaticStructureSchema = [3, n0, _SSt,
   0,
-  [_sI, _n, _lS, _lSM, _tRS, _tRSC, _tFRC, _tTRS, _cA, _cB, _uA, _uB, _sAt, _eA, _dC],
-  [0, 0, 0, 0, 0, 128 | 1, 1, 0, 5, 0, 5, 0, 5, 5, () => DependencyCounts$]
+  [_sI, _n, _lS, _tRS, _tRSC, _cA, _cB, _lSM, _tFRC, _tTRS, _uA, _uB, _sAt, _eA, _dC],
+  [0, 0, 0, 0, 128 | 1, 5, 0, 0, 1, 0, 5, 0, 5, 5, () => DependencyCounts$], 7
 ];
 export var StorageProfileSummary$: StaticStructureSchema = [3, n0, _SPS,
   0,
   [_sPI, _dN, _oF],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var StringFilterExpression$: StaticStructureSchema = [3, n0, _SFE,
   0,
   [_n, _o, _va],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var SyncInputJobAttachmentsSessionActionDefinition$: StaticStructureSchema = [3, n0, _SIJASAD,
   0,
@@ -2362,7 +2362,7 @@ export var SyncInputJobAttachmentsSessionActionDefinitionSummary$: StaticStructu
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAe, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 1
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -2381,13 +2381,13 @@ export var TaskRunManifestPropertiesResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var TaskRunSessionActionDefinition$: StaticStructureSchema = [3, n0, _TRSAD,
   0,
-  [_tI, _sI, _p],
-  [0, 0, [() => TaskParameters, 0]]
+  [_sI, _p, _tI],
+  [0, [() => TaskParameters, 0], 0], 2
 ];
 export var TaskRunSessionActionDefinitionSummary$: StaticStructureSchema = [3, n0, _TRSADS,
   0,
-  [_tI, _sI, _p],
-  [0, 0, [() => TaskParameters, 0]]
+  [_sI, _tI, _p],
+  [0, 0, [() => TaskParameters, 0]], 1
 ];
 export var TaskSearchSummary$: StaticStructureSchema = [3, n0, _TSS,
   0,
@@ -2397,18 +2397,18 @@ export var TaskSearchSummary$: StaticStructureSchema = [3, n0, _TSS,
 export var TaskSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_tI, _cA, _cB, _rS, _tRSa, _fRC, _p, _sAt, _eA, _uA, _uB, _lSAI],
-  [0, 5, 0, 0, 0, 1, [() => TaskParameters, 0], 5, 5, 5, 0, 0]
+  [0, 5, 0, 0, 0, 1, [() => TaskParameters, 0], 5, 5, 5, 0, 0], 4
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _cl, [_hE]: 429 },
   [_me, _sC, _qC, _rAS, _co],
-  [0, 0, 0, [1, { [_hH]: _RA }], 128 | 0]
+  [0, 0, 0, [1, { [_hH]: _RA }], 128 | 0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2417,8 +2417,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateBudgetRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
-  [_cT, _fI, _bI, _dN, _de, _st, _aDL, _aTA, _aTR, _sc],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], [0, 1], 0, [() => Description, 0], 0, 1, [() => BudgetActionsToAdd, 0], () => BudgetActionsToRemove, () => BudgetSchedule$]
+  [_fI, _bI, _cT, _dN, _de, _st, _aDL, _aTA, _aTR, _sc],
+  [[0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], 0, [() => Description, 0], 0, 1, [() => BudgetActionsToAdd, 0], () => BudgetActionsToRemove, () => BudgetSchedule$], 2
 ];
 export var UpdateBudgetResponse$: StaticStructureSchema = [3, n0, _UBRp,
   0,
@@ -2433,7 +2433,7 @@ export var UpdatedSessionActionInfo$: StaticStructureSchema = [3, n0, _USAI,
 export var UpdateFarmRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
   [_fI, _dN, _de],
-  [[0, 1], 0, [() => Description, 0]]
+  [[0, 1], 0, [() => Description, 0]], 1
 ];
 export var UpdateFarmResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
@@ -2442,8 +2442,8 @@ export var UpdateFarmResponse$: StaticStructureSchema = [3, n0, _UFRp,
 ];
 export var UpdateFleetRequest$: StaticStructureSchema = [3, n0, _UFRpd,
   0,
-  [_cT, _fI, _fIl, _dN, _de, _rA, _mWC, _mWCa, _con, _hC],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], [0, 1], 0, [() => Description, 0], 0, 1, 1, () => FleetConfiguration$, [() => HostConfiguration$, 0]]
+  [_fI, _fIl, _cT, _dN, _de, _rA, _mWCi, _mWC, _con, _hC],
+  [[0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], 0, [() => Description, 0], 0, 1, 1, () => FleetConfiguration$, [() => HostConfiguration$, 0]], 2
 ];
 export var UpdateFleetResponse$: StaticStructureSchema = [3, n0, _UFRpda,
   0,
@@ -2452,8 +2452,8 @@ export var UpdateFleetResponse$: StaticStructureSchema = [3, n0, _UFRpda,
 ];
 export var UpdateJobRequest$: StaticStructureSchema = [3, n0, _UJR,
   0,
-  [_cT, _tTRS, _pr, _mFTC, _mRPT, _lS, _mWCa, _fI, _qI, _jI],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, 1, 1, 1, 0, 1, [0, 1], [0, 1], [0, 1]]
+  [_fI, _qI, _jI, _cT, _tTRS, _pr, _mFTC, _mRPT, _lS, _mWC],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], 0, 1, 1, 1, 0, 1], 3
 ];
 export var UpdateJobResponse$: StaticStructureSchema = [3, n0, _UJRp,
   0,
@@ -2463,7 +2463,7 @@ export var UpdateJobResponse$: StaticStructureSchema = [3, n0, _UJRp,
 export var UpdateLimitRequest$: StaticStructureSchema = [3, n0, _ULR,
   0,
   [_fI, _lI, _dN, _de, _mC],
-  [[0, 1], [0, 1], 0, [() => Description, 0], 1]
+  [[0, 1], [0, 1], 0, [() => Description, 0], 1], 2
 ];
 export var UpdateLimitResponse$: StaticStructureSchema = [3, n0, _ULRp,
   0,
@@ -2473,7 +2473,7 @@ export var UpdateLimitResponse$: StaticStructureSchema = [3, n0, _ULRp,
 export var UpdateMonitorRequest$: StaticStructureSchema = [3, n0, _UMR,
   0,
   [_mI, _su, _dN, _rA],
-  [[0, 1], 0, 0, 0]
+  [[0, 1], 0, 0, 0], 1
 ];
 export var UpdateMonitorResponse$: StaticStructureSchema = [3, n0, _UMRp,
   0,
@@ -2482,8 +2482,8 @@ export var UpdateMonitorResponse$: StaticStructureSchema = [3, n0, _UMRp,
 ];
 export var UpdateQueueEnvironmentRequest$: StaticStructureSchema = [3, n0, _UQER,
   0,
-  [_cT, _fI, _qI, _qEI, _pr, _tT, _te],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], [0, 1], [0, 1], 1, 0, [() => EnvironmentTemplate, 0]]
+  [_fI, _qI, _qEI, _cT, _pr, _tT, _te],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], 1, 0, [() => EnvironmentTemplate, 0]], 3
 ];
 export var UpdateQueueEnvironmentResponse$: StaticStructureSchema = [3, n0, _UQERp,
   0,
@@ -2493,7 +2493,7 @@ export var UpdateQueueEnvironmentResponse$: StaticStructureSchema = [3, n0, _UQE
 export var UpdateQueueFleetAssociationRequest$: StaticStructureSchema = [3, n0, _UQFAR,
   0,
   [_fI, _qI, _fIl, _st],
-  [[0, 1], [0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], [0, 1], 0], 4
 ];
 export var UpdateQueueFleetAssociationResponse$: StaticStructureSchema = [3, n0, _UQFARp,
   0,
@@ -2503,7 +2503,7 @@ export var UpdateQueueFleetAssociationResponse$: StaticStructureSchema = [3, n0,
 export var UpdateQueueLimitAssociationRequest$: StaticStructureSchema = [3, n0, _UQLAR,
   0,
   [_fI, _qI, _lI, _st],
-  [[0, 1], [0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], [0, 1], 0], 4
 ];
 export var UpdateQueueLimitAssociationResponse$: StaticStructureSchema = [3, n0, _UQLARp,
   0,
@@ -2512,8 +2512,8 @@ export var UpdateQueueLimitAssociationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateQueueRequest$: StaticStructureSchema = [3, n0, _UQR,
   0,
-  [_cT, _fI, _qI, _dN, _de, _dBA, _jAS, _rA, _jRAU, _rFSLNTA, _rFSLNTR, _aSPITA, _aSPITR],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], [0, 1], 0, [() => Description, 0], 0, () => JobAttachmentSettings$, 0, () => JobRunAsUser$, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [_fI, _qI, _cT, _dN, _de, _dBA, _jAS, _rA, _jRAU, _rFSLNTA, _rFSLNTR, _aSPITA, _aSPITR],
+  [[0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], 0, [() => Description, 0], 0, () => JobAttachmentSettings$, 0, () => JobRunAsUser$, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 2
 ];
 export var UpdateQueueResponse$: StaticStructureSchema = [3, n0, _UQRp,
   0,
@@ -2522,8 +2522,8 @@ export var UpdateQueueResponse$: StaticStructureSchema = [3, n0, _UQRp,
 ];
 export var UpdateSessionRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_cT, _tLS, _fI, _qI, _jI, _sIe],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, [0, 1], [0, 1], [0, 1], [0, 1]]
+  [_tLS, _fI, _qI, _jI, _sIe, _cT],
+  [0, [0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }]], 5
 ];
 export var UpdateSessionResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -2532,8 +2532,8 @@ export var UpdateSessionResponse$: StaticStructureSchema = [3, n0, _USRp,
 ];
 export var UpdateStepRequest$: StaticStructureSchema = [3, n0, _USRpd,
   0,
-  [_tTRS, _cT, _fI, _qI, _jI, _sI],
-  [0, [0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], [0, 1], [0, 1], [0, 1]]
+  [_tTRS, _fI, _qI, _jI, _sI, _cT],
+  [0, [0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }]], 5
 ];
 export var UpdateStepResponse$: StaticStructureSchema = [3, n0, _USRpda,
   0,
@@ -2542,8 +2542,8 @@ export var UpdateStepResponse$: StaticStructureSchema = [3, n0, _USRpda,
 ];
 export var UpdateStorageProfileRequest$: StaticStructureSchema = [3, n0, _USPR,
   0,
-  [_cT, _fI, _sPI, _dN, _oF, _fSLTA, _fSLTR],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [0, 1], [0, 1], 0, 0, [() => FileSystemLocationsList, 0], [() => FileSystemLocationsList, 0]]
+  [_fI, _sPI, _cT, _dN, _oF, _fSLTA, _fSLTR],
+  [[0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], 0, 0, [() => FileSystemLocationsList, 0], [() => FileSystemLocationsList, 0]], 2
 ];
 export var UpdateStorageProfileResponse$: StaticStructureSchema = [3, n0, _USPRp,
   0,
@@ -2552,8 +2552,8 @@ export var UpdateStorageProfileResponse$: StaticStructureSchema = [3, n0, _USPRp
 ];
 export var UpdateTaskRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
-  [_cT, _tRSa, _fI, _qI, _jI, _sI, _tI],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], 0, [0, 1], [0, 1], [0, 1], [0, 1], [0, 1]]
+  [_tRSa, _fI, _qI, _jI, _sI, _tI, _cT],
+  [0, [0, 1], [0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }]], 6
 ];
 export var UpdateTaskResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
@@ -2563,7 +2563,7 @@ export var UpdateTaskResponse$: StaticStructureSchema = [3, n0, _UTRp,
 export var UpdateWorkerRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
   [_fI, _fIl, _wI, _st, _ca, _hP],
-  [[0, 1], [0, 1], [0, 1], 0, () => WorkerCapabilities$, () => HostPropertiesRequest$]
+  [[0, 1], [0, 1], [0, 1], 0, () => WorkerCapabilities$, () => HostPropertiesRequest$], 3
 ];
 export var UpdateWorkerResponse$: StaticStructureSchema = [3, n0, _UWRp,
   0,
@@ -2573,33 +2573,33 @@ export var UpdateWorkerResponse$: StaticStructureSchema = [3, n0, _UWRp,
 export var UpdateWorkerScheduleRequest$: StaticStructureSchema = [3, n0, _UWSR,
   0,
   [_fI, _fIl, _wI, _uSA],
-  [[0, 1], [0, 1], [0, 1], [() => UpdatedSessionActions, 0]]
+  [[0, 1], [0, 1], [0, 1], [() => UpdatedSessionActions, 0]], 3
 ];
 export var UpdateWorkerScheduleResponse$: StaticStructureSchema = [3, n0, _UWSRp,
   0,
-  [_aS, _cSA, _dWS, _uIS],
-  [[() => AssignedSessions, 0], [2, n0, _CSA, 0, 0, 64 | 0], 0, 1]
+  [_aS, _cSA, _uIS, _dWS],
+  [[() => AssignedSessions, 0], [2, n0, _CSA, 0, 0, 64 | 0], 1, 0], 3
 ];
 export var UserJobsFirst$: StaticStructureSchema = [3, n0, _UJF,
   0,
   [_uII],
-  [0]
+  [0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _cl, [_hE]: 400 },
   [_me, _re, _fL, _co],
-  [0, 0, () => ValidationExceptionFieldList, 128 | 0]
+  [0, 0, () => ValidationExceptionFieldList, 128 | 0], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _me],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VCpuCountRange$: StaticStructureSchema = [3, n0, _VCCR,
   0,
   [_m, _ma],
-  [1, 1]
+  [1, 1], 1
 ];
 export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,
@@ -2609,22 +2609,22 @@ export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
 export var WindowsUser$: StaticStructureSchema = [3, n0, _WU,
   0,
   [_us, _pA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var WorkerAmountCapability$: StaticStructureSchema = [3, n0, _WAC,
   0,
   [_n, _va],
-  [0, 1]
+  [0, 1], 2
 ];
 export var WorkerAttributeCapability$: StaticStructureSchema = [3, n0, _WACo,
   0,
   [_n, _v],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var WorkerCapabilities$: StaticStructureSchema = [3, n0, _WC,
   0,
   [_am, _att],
-  [() => WorkerAmountCapabilityList, () => WorkerAttributeCapabilityList]
+  [() => WorkerAmountCapabilityList, () => WorkerAttributeCapabilityList], 2
 ];
 export var WorkerSearchSummary$: StaticStructureSchema = [3, n0, _WSS,
   0,
@@ -2634,12 +2634,12 @@ export var WorkerSearchSummary$: StaticStructureSchema = [3, n0, _WSS,
 export var WorkerSessionSummary$: StaticStructureSchema = [3, n0, _WSSo,
   0,
   [_sIe, _qI, _jI, _sAt, _lS, _eA, _tLS],
-  [0, 0, 0, 5, 0, 5, 0]
+  [0, 0, 0, 5, 0, 5, 0], 5
 ];
 export var WorkerSummary$: StaticStructureSchema = [3, n0, _WS,
   0,
-  [_wI, _fI, _fIl, _st, _hP, _l, _cA, _cB, _uA, _uB],
-  [0, 0, 0, 0, () => HostPropertiesResponse$, () => LogConfiguration$, 5, 0, 5, 0]
+  [_wI, _fI, _fIl, _st, _cA, _cB, _hP, _l, _uA, _uB],
+  [0, 0, 0, 0, 5, 0, () => HostPropertiesResponse$, () => LogConfiguration$, 5, 0], 6
 ];
 export var DeadlineServiceException$: StaticErrorSchema = [-3, _sm, "DeadlineServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DeadlineServiceException$, DeadlineServiceException);

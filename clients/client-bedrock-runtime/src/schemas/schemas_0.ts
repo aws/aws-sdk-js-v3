@@ -501,27 +501,27 @@ export var AppliedGuardrailDetails$: StaticStructureSchema = [3, n0, _AGD,
 export var ApplyGuardrailRequest$: StaticStructureSchema = [3, n0, _AGR,
   0,
   [_gIu, _gV, _s, _co, _oS],
-  [[0, 1], [0, 1], 0, [() => GuardrailContentBlockList, 0], 0]
+  [[0, 1], [0, 1], 0, [() => GuardrailContentBlockList, 0], 0], 4
 ];
 export var ApplyGuardrailResponse$: StaticStructureSchema = [3, n0, _AGRp,
   0,
-  [_u, _a, _aR, _o, _as, _gC],
-  [() => GuardrailUsage$, 0, 0, () => GuardrailOutputContentList, [() => GuardrailAssessmentList, 0], () => GuardrailCoverage$]
+  [_u, _a, _o, _as, _aR, _gC],
+  [() => GuardrailUsage$, 0, () => GuardrailOutputContentList, [() => GuardrailAssessmentList, 0], 0, () => GuardrailCoverage$], 4
 ];
 export var AsyncInvokeS3OutputDataConfig$: StaticStructureSchema = [3, n0, _AISODC,
   0,
   [_sU, _kKI, _bO],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var AsyncInvokeSummary$: StaticStructureSchema = [3, n0, _AIS,
   0,
-  [_iA, _mA, _cRT, _st, _fM, _sT, _lMT, _eT, _oDC],
-  [0, 0, 0, 0, [() => AsyncInvokeMessage, 0], 5, 5, 5, () => AsyncInvokeOutputDataConfig$]
+  [_iA, _mA, _sT, _oDC, _cRT, _st, _fM, _lMT, _eT],
+  [0, 0, 5, () => AsyncInvokeOutputDataConfig$, 0, 0, [() => AsyncInvokeMessage, 0], 5, 5], 4
 ];
 export var AudioBlock$: StaticStructureSchema = [3, n0, _AB,
   0,
   [_f, _s, _e],
-  [0, [() => AudioSource$, 0], [() => ErrorBlock$, 0]]
+  [0, [() => AudioSource$, 0], [() => ErrorBlock$, 0]], 2
 ];
 export var AutoToolChoice$: StaticStructureSchema = [3, n0, _ATCu,
   0,
@@ -541,7 +541,7 @@ export var BidirectionalOutputPayloadPart$: StaticStructureSchema = [3, n0, _BOP
 export var CachePointBlock$: StaticStructureSchema = [3, n0, _CPB,
   0,
   [_t],
-  [0]
+  [0], 1
 ];
 export var Citation$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -551,7 +551,7 @@ export var Citation$: StaticStructureSchema = [3, n0, _C,
 export var CitationsConfig$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_en],
-  [2]
+  [2], 1
 ];
 export var CitationsContentBlock$: StaticStructureSchema = [3, n0, _CCB,
   0,
@@ -577,47 +577,47 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContentBlockDeltaEvent$: StaticStructureSchema = [3, n0, _CBDE,
   0,
   [_d, _cBI],
-  [[() => ContentBlockDelta$, 0], 1]
+  [[() => ContentBlockDelta$, 0], 1], 2
 ];
 export var ContentBlockStartEvent$: StaticStructureSchema = [3, n0, _CBSE,
   0,
   [_sta, _cBI],
-  [() => ContentBlockStart$, 1]
+  [() => ContentBlockStart$, 1], 2
 ];
 export var ContentBlockStopEvent$: StaticStructureSchema = [3, n0, _CBSEo,
   0,
   [_cBI],
-  [1]
+  [1], 1
 ];
 export var ConverseMetrics$: StaticStructureSchema = [3, n0, _CM,
   0,
   [_lM],
-  [1]
+  [1], 1
 ];
 export var ConverseRequest$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe],
-  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$]
+  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$], 1
 ];
 export var ConverseResponse$: StaticStructureSchema = [3, n0, _CRo,
   0,
   [_ou, _sR, _u, _met, _aMRFd, _tr, _pC, _sTe],
-  [[() => ConverseOutput$, 0], 0, () => TokenUsage$, () => ConverseMetrics$, 15, [() => ConverseTrace$, 0], () => PerformanceConfiguration$, () => ServiceTier$]
+  [[() => ConverseOutput$, 0], 0, () => TokenUsage$, () => ConverseMetrics$, 15, [() => ConverseTrace$, 0], () => PerformanceConfiguration$, () => ServiceTier$], 4
 ];
 export var ConverseStreamMetadataEvent$: StaticStructureSchema = [3, n0, _CSME,
   0,
   [_u, _met, _tr, _pC, _sTe],
-  [() => TokenUsage$, () => ConverseStreamMetrics$, [() => ConverseStreamTrace$, 0], () => PerformanceConfiguration$, () => ServiceTier$]
+  [() => TokenUsage$, () => ConverseStreamMetrics$, [() => ConverseStreamTrace$, 0], () => PerformanceConfiguration$, () => ServiceTier$], 2
 ];
 export var ConverseStreamMetrics$: StaticStructureSchema = [3, n0, _CSM,
   0,
   [_lM],
-  [1]
+  [1], 1
 ];
 export var ConverseStreamRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe],
-  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailStreamConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$]
+  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailStreamConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$], 1
 ];
 export var ConverseStreamResponse$: StaticStructureSchema = [3, n0, _CSRo,
   0,
@@ -642,17 +642,17 @@ export var ConverseTrace$: StaticStructureSchema = [3, n0, _CT,
 export var CountTokensRequest$: StaticStructureSchema = [3, n0, _CTRo,
   0,
   [_mI, _i],
-  [[0, 1], [() => CountTokensInput$, 0]]
+  [[0, 1], [() => CountTokensInput$, 0]], 2
 ];
 export var CountTokensResponse$: StaticStructureSchema = [3, n0, _CTRou,
   0,
   [_iT],
-  [1]
+  [1], 1
 ];
 export var DocumentBlock$: StaticStructureSchema = [3, n0, _DB,
   0,
-  [_f, _n, _s, _con, _ci],
-  [0, 0, () => DocumentSource$, 0, () => CitationsConfig$]
+  [_n, _s, _f, _con, _ci],
+  [0, () => DocumentSource$, 0, 0, () => CitationsConfig$], 2
 ];
 export var DocumentCharLocation$: StaticStructureSchema = [3, n0, _DCL,
   0,
@@ -677,12 +677,12 @@ export var ErrorBlock$: StaticStructureSchema = [3, n0, _EB,
 export var GetAsyncInvokeRequest$: StaticStructureSchema = [3, n0, _GAIR,
   0,
   [_iA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAsyncInvokeResponse$: StaticStructureSchema = [3, n0, _GAIRe,
   0,
-  [_iA, _mA, _cRT, _st, _fM, _sT, _lMT, _eT, _oDC],
-  [0, 0, 0, 0, [() => AsyncInvokeMessage, 0], 5, 5, 5, () => AsyncInvokeOutputDataConfig$]
+  [_iA, _mA, _st, _sT, _oDC, _cRT, _fM, _lMT, _eT],
+  [0, 0, 0, 5, () => AsyncInvokeOutputDataConfig$, 0, [() => AsyncInvokeMessage, 0], 5, 5], 5
 ];
 export var GuardrailAssessment$: StaticStructureSchema = [3, n0, _GA,
   0,
@@ -771,18 +771,18 @@ export var GuardrailConfiguration$: StaticStructureSchema = [3, n0, _GC,
 ];
 export var GuardrailContentFilter$: StaticStructureSchema = [3, n0, _GCF,
   0,
-  [_t, _conf, _fS, _a, _de],
-  [0, 0, 0, 0, 2]
+  [_t, _conf, _a, _fS, _de],
+  [0, 0, 0, 0, 2], 3
 ];
 export var GuardrailContentPolicyAssessment$: StaticStructureSchema = [3, n0, _GCPA,
   0,
   [_fil],
-  [() => GuardrailContentFilterList]
+  [() => GuardrailContentFilterList], 1
 ];
 export var GuardrailContextualGroundingFilter$: StaticStructureSchema = [3, n0, _GCGF,
   0,
   [_t, _th, _sc, _a, _de],
-  [0, 1, 1, 0, 2]
+  [0, 1, 1, 0, 2], 4
 ];
 export var GuardrailContextualGroundingPolicyAssessment$: StaticStructureSchema = [3, n0, _GCGPA,
   0,
@@ -792,12 +792,12 @@ export var GuardrailContextualGroundingPolicyAssessment$: StaticStructureSchema 
 export var GuardrailConverseImageBlock$: StaticStructureSchema = [3, n0, _GCIB,
   8,
   [_f, _s],
-  [0, [() => GuardrailConverseImageSource$, 0]]
+  [0, [() => GuardrailConverseImageSource$, 0]], 2
 ];
 export var GuardrailConverseTextBlock$: StaticStructureSchema = [3, n0, _GCTB,
   0,
   [_te, _q],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var GuardrailCoverage$: StaticStructureSchema = [3, n0, _GCu,
   0,
@@ -807,12 +807,12 @@ export var GuardrailCoverage$: StaticStructureSchema = [3, n0, _GCu,
 export var GuardrailCustomWord$: StaticStructureSchema = [3, n0, _GCW,
   0,
   [_ma, _a, _de],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var GuardrailImageBlock$: StaticStructureSchema = [3, n0, _GIB,
   8,
   [_f, _s],
-  [0, [() => GuardrailImageSource$, 0]]
+  [0, [() => GuardrailImageSource$, 0]], 2
 ];
 export var GuardrailImageCoverage$: StaticStructureSchema = [3, n0, _GIC,
   0,
@@ -827,7 +827,7 @@ export var GuardrailInvocationMetrics$: StaticStructureSchema = [3, n0, _GIM,
 export var GuardrailManagedWord$: StaticStructureSchema = [3, n0, _GMW,
   0,
   [_ma, _t, _a, _de],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 3
 ];
 export var GuardrailOutputContent$: StaticStructureSchema = [3, n0, _GOC,
   0,
@@ -837,17 +837,17 @@ export var GuardrailOutputContent$: StaticStructureSchema = [3, n0, _GOC,
 export var GuardrailPiiEntityFilter$: StaticStructureSchema = [3, n0, _GPEF,
   0,
   [_ma, _t, _a, _de],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 3
 ];
 export var GuardrailRegexFilter$: StaticStructureSchema = [3, n0, _GRF,
   0,
-  [_n, _ma, _r, _a, _de],
-  [0, 0, 0, 0, 2]
+  [_a, _n, _ma, _r, _de],
+  [0, 0, 0, 0, 2], 1
 ];
 export var GuardrailSensitiveInformationPolicyAssessment$: StaticStructureSchema = [3, n0, _GSIPA,
   0,
   [_pE, _re],
-  [() => GuardrailPiiEntityFilterList, () => GuardrailRegexFilterList]
+  [() => GuardrailPiiEntityFilterList, () => GuardrailRegexFilterList], 2
 ];
 export var GuardrailStreamConfiguration$: StaticStructureSchema = [3, n0, _GSC,
   0,
@@ -857,7 +857,7 @@ export var GuardrailStreamConfiguration$: StaticStructureSchema = [3, n0, _GSC,
 export var GuardrailTextBlock$: StaticStructureSchema = [3, n0, _GTB,
   0,
   [_te, _q],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var GuardrailTextCharactersCoverage$: StaticStructureSchema = [3, n0, _GTCC,
   0,
@@ -867,12 +867,12 @@ export var GuardrailTextCharactersCoverage$: StaticStructureSchema = [3, n0, _GT
 export var GuardrailTopic$: StaticStructureSchema = [3, n0, _GT,
   0,
   [_n, _t, _a, _de],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 3
 ];
 export var GuardrailTopicPolicyAssessment$: StaticStructureSchema = [3, n0, _GTPA,
   0,
   [_top],
-  [() => GuardrailTopicList]
+  [() => GuardrailTopicList], 1
 ];
 export var GuardrailTraceAssessment$: StaticStructureSchema = [3, n0, _GTA,
   0,
@@ -882,17 +882,17 @@ export var GuardrailTraceAssessment$: StaticStructureSchema = [3, n0, _GTA,
 export var GuardrailUsage$: StaticStructureSchema = [3, n0, _GU,
   0,
   [_tPU, _cPU, _wPU, _sIPU, _sIPFU, _cGPU, _cPIU, _aRPU, _aRPu],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1, 1, 1, 1, 1], 6
 ];
 export var GuardrailWordPolicyAssessment$: StaticStructureSchema = [3, n0, _GWPA,
   0,
   [_cW, _mWL],
-  [() => GuardrailCustomWordList, () => GuardrailManagedWordList]
+  [() => GuardrailCustomWordList, () => GuardrailManagedWordList], 2
 ];
 export var ImageBlock$: StaticStructureSchema = [3, n0, _IB,
   0,
   [_f, _s, _e],
-  [0, [() => ImageSource$, 0], [() => ErrorBlock$, 0]]
+  [0, [() => ImageSource$, 0], [() => ErrorBlock$, 0]], 2
 ];
 export var ImageBlockDelta$: StaticStructureSchema = [3, n0, _IBD,
   0,
@@ -902,7 +902,7 @@ export var ImageBlockDelta$: StaticStructureSchema = [3, n0, _IBD,
 export var ImageBlockStart$: StaticStructureSchema = [3, n0, _IBS,
   0,
   [_f],
-  [0]
+  [0], 1
 ];
 export var InferenceConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
@@ -917,38 +917,38 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvokeModelRequest$: StaticStructureSchema = [3, n0, _IMR,
   0,
-  [_bo, _cT, _ac, _mI, _tr, _gIu, _gV, _pCL, _sTe],
-  [[() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _A }], [0, 1], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]]
+  [_mI, _bo, _cT, _ac, _tr, _gIu, _gV, _pCL, _sTe],
+  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _A }], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]], 1
 ];
 export var InvokeModelResponse$: StaticStructureSchema = [3, n0, _IMRn,
   0,
   [_bo, _cT, _pCL, _sTe],
-  [[() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]]
+  [[() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]], 2
 ];
 export var InvokeModelTokensRequest$: StaticStructureSchema = [3, n0, _IMTR,
   0,
   [_bo],
-  [[() => Body, 0]]
+  [[() => Body, 0]], 1
 ];
 export var InvokeModelWithBidirectionalStreamRequest$: StaticStructureSchema = [3, n0, _IMWBSR,
   0,
   [_mI, _bo],
-  [[0, 1], [() => InvokeModelWithBidirectionalStreamInput$, 16]]
+  [[0, 1], [() => InvokeModelWithBidirectionalStreamInput$, 16]], 2
 ];
 export var InvokeModelWithBidirectionalStreamResponse$: StaticStructureSchema = [3, n0, _IMWBSRn,
   0,
   [_bo],
-  [[() => InvokeModelWithBidirectionalStreamOutput$, 16]]
+  [[() => InvokeModelWithBidirectionalStreamOutput$, 16]], 1
 ];
 export var InvokeModelWithResponseStreamRequest$: StaticStructureSchema = [3, n0, _IMWRSR,
   0,
-  [_bo, _cT, _ac, _mI, _tr, _gIu, _gV, _pCL, _sTe],
-  [[() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XABA }], [0, 1], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]]
+  [_mI, _bo, _cT, _ac, _tr, _gIu, _gV, _pCL, _sTe],
+  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XABA }], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]], 1
 ];
 export var InvokeModelWithResponseStreamResponse$: StaticStructureSchema = [3, n0, _IMWRSRn,
   0,
   [_bo, _cT, _pCL, _sTe],
-  [[() => ResponseStream$, 16], [0, { [_hH]: _XABCT }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]]
+  [[() => ResponseStream$, 16], [0, { [_hH]: _XABCT }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]], 2
 ];
 export var ListAsyncInvokesRequest$: StaticStructureSchema = [3, n0, _LAIR,
   0,
@@ -963,17 +963,17 @@ export var ListAsyncInvokesResponse$: StaticStructureSchema = [3, n0, _LAIRi,
 export var Message$: StaticStructureSchema = [3, n0, _M,
   0,
   [_ro, _co],
-  [0, [() => ContentBlocks, 0]]
+  [0, [() => ContentBlocks, 0]], 2
 ];
 export var MessageStartEvent$: StaticStructureSchema = [3, n0, _MSE,
   0,
   [_ro],
-  [0]
+  [0], 1
 ];
 export var MessageStopEvent$: StaticStructureSchema = [3, n0, _MSEe,
   0,
   [_sR, _aMRFd],
-  [0, 15]
+  [0, 15], 1
 ];
 export var ModelErrorException$: StaticErrorSchema = [-3, n0, _MEE,
   { [_e]: _c, [_hE]: 424 },
@@ -1017,7 +1017,7 @@ export var PromptRouterTrace$: StaticStructureSchema = [3, n0, _PRT,
 export var ReasoningTextBlock$: StaticStructureSchema = [3, n0, _RTB,
   8,
   [_te, _si],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -1028,17 +1028,17 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_ur, _bO],
-  [0, 0]
+  [0, 0], 1
 ];
 export var SearchResultBlock$: StaticStructureSchema = [3, n0, _SRB,
   0,
   [_s, _ti, _co, _ci],
-  [0, 0, () => SearchResultContentBlocks, () => CitationsConfig$]
+  [0, 0, () => SearchResultContentBlocks, () => CitationsConfig$], 3
 ];
 export var SearchResultContentBlock$: StaticStructureSchema = [3, n0, _SRCB,
   0,
   [_te],
-  [0]
+  [0], 1
 ];
 export var SearchResultLocation$: StaticStructureSchema = [3, n0, _SRL,
   0,
@@ -1054,7 +1054,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var ServiceTier$: StaticStructureSchema = [3, n0, _ST,
   0,
   [_t],
-  [0]
+  [0], 1
 ];
 export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
   { [_e]: _se, [_hE]: 503 },
@@ -1065,27 +1065,27 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var SpecificToolChoice$: StaticStructureSchema = [3, n0, _STC,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var StartAsyncInvokeRequest$: StaticStructureSchema = [3, n0, _SAIR,
   0,
-  [_cRT, _mI, _mIo, _oDC, _ta],
-  [[0, 4], 0, [() => ModelInputPayload, 0], () => AsyncInvokeOutputDataConfig$, () => TagList]
+  [_mI, _mIo, _oDC, _cRT, _ta],
+  [0, [() => ModelInputPayload, 0], () => AsyncInvokeOutputDataConfig$, [0, 4], () => TagList], 3
 ];
 export var StartAsyncInvokeResponse$: StaticStructureSchema = [3, n0, _SAIRt,
   0,
   [_iA],
-  [0]
+  [0], 1
 ];
 export var SystemTool$: StaticStructureSchema = [3, n0, _STy,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
@@ -1096,42 +1096,42 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TokenUsage$: StaticStructureSchema = [3, n0, _TU,
   0,
   [_iT, _oT, _tT, _cRIT, _cWIT],
-  [1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1], 3
 ];
 export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_too, _tCo],
-  [() => Tools, () => ToolChoice$]
+  [() => Tools, () => ToolChoice$], 1
 ];
 export var ToolResultBlock$: StaticStructureSchema = [3, n0, _TRB,
   0,
   [_tUI, _co, _st, _t],
-  [0, [() => ToolResultContentBlocks, 0], 0, 0]
+  [0, [() => ToolResultContentBlocks, 0], 0, 0], 2
 ];
 export var ToolResultBlockStart$: StaticStructureSchema = [3, n0, _TRBS,
   0,
   [_tUI, _t, _st],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ToolSpecification$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_n, _des, _iS],
-  [0, 0, () => ToolInputSchema$]
+  [_n, _iS, _des],
+  [0, () => ToolInputSchema$, 0], 2
 ];
 export var ToolUseBlock$: StaticStructureSchema = [3, n0, _TUB,
   0,
   [_tUI, _n, _i, _t],
-  [0, 0, 15, 0]
+  [0, 0, 15, 0], 3
 ];
 export var ToolUseBlockDelta$: StaticStructureSchema = [3, n0, _TUBD,
   0,
   [_i],
-  [0]
+  [0], 1
 ];
 export var ToolUseBlockStart$: StaticStructureSchema = [3, n0, _TUBS,
   0,
   [_tUI, _n, _t],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
@@ -1142,7 +1142,7 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VideoBlock$: StaticStructureSchema = [3, n0, _VB,
   0,
   [_f, _s],
-  [0, () => VideoSource$]
+  [0, () => VideoSource$], 2
 ];
 export var WebLocation$: StaticStructureSchema = [3, n0, _WL,
   0,

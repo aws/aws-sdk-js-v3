@@ -260,7 +260,7 @@ export var AssociateWhatsAppBusinessAccountOutput$: StaticStructureSchema = [3, 
 export var CreateWhatsAppMessageTemplateFromLibraryInput$: StaticStructureSchema = [3, n0, _CWAMTFLI,
   0,
   [_mLT, _i],
-  [() => MetaLibraryTemplate$, 0]
+  [() => MetaLibraryTemplate$, 0], 2
 ];
 export var CreateWhatsAppMessageTemplateFromLibraryOutput$: StaticStructureSchema = [3, n0, _CWAMTFLO,
   0,
@@ -270,12 +270,12 @@ export var CreateWhatsAppMessageTemplateFromLibraryOutput$: StaticStructureSchem
 export var CreateWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, _CWAMTI,
   0,
   [_tD, _i],
-  [21, 0]
+  [21, 0], 2
 ];
 export var CreateWhatsAppMessageTemplateMediaInput$: StaticStructureSchema = [3, n0, _CWAMTMI,
   0,
   [_i, _sSF],
-  [0, [() => S3File$, 0]]
+  [0, [() => S3File$, 0]], 1
 ];
 export var CreateWhatsAppMessageTemplateMediaOutput$: StaticStructureSchema = [3, n0, _CWAMTMO,
   0,
@@ -290,7 +290,7 @@ export var CreateWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0,
 export var DeleteWhatsAppMessageMediaInput$: StaticStructureSchema = [3, n0, _DWAMMI,
   0,
   [_mI, _oPNI],
-  [[0, { [_hQ]: _mI }], [0, { [_hQ]: _oPNI }]]
+  [[0, { [_hQ]: _mI }], [0, { [_hQ]: _oPNI }]], 2
 ];
 export var DeleteWhatsAppMessageMediaOutput$: StaticStructureSchema = [3, n0, _DWAMMO,
   0,
@@ -299,8 +299,8 @@ export var DeleteWhatsAppMessageMediaOutput$: StaticStructureSchema = [3, n0, _D
 ];
 export var DeleteWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, _DWAMTI,
   0,
-  [_mTI, _dAL, _i, _tN],
-  [[0, { [_hQ]: _mTI }], [2, { [_hQ]: _dAT }], [0, { [_hQ]: _i }], [0, { [_hQ]: _tN }]]
+  [_i, _tN, _mTI, _dAL],
+  [[0, { [_hQ]: _i }], [0, { [_hQ]: _tN }], [0, { [_hQ]: _mTI }], [2, { [_hQ]: _dAT }]], 2
 ];
 export var DeleteWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0, _DWAMTO,
   0,
@@ -316,7 +316,7 @@ TypeRegistry.for(n0).registerError(DependencyException$, DependencyException);
 export var DisassociateWhatsAppBusinessAccountInput$: StaticStructureSchema = [3, n0, _DWABAI,
   0,
   [_i],
-  [[0, { [_hQ]: _i }]]
+  [[0, { [_hQ]: _i }]], 1
 ];
 export var DisassociateWhatsAppBusinessAccountOutput$: StaticStructureSchema = [3, n0, _DWABAO,
   0,
@@ -326,7 +326,7 @@ export var DisassociateWhatsAppBusinessAccountOutput$: StaticStructureSchema = [
 export var GetLinkedWhatsAppBusinessAccountInput$: StaticStructureSchema = [3, n0, _GLWABAI,
   0,
   [_i],
-  [[0, { [_hQ]: _i }]]
+  [[0, { [_hQ]: _i }]], 1
 ];
 export var GetLinkedWhatsAppBusinessAccountOutput$: StaticStructureSchema = [3, n0, _GLWABAO,
   0,
@@ -336,7 +336,7 @@ export var GetLinkedWhatsAppBusinessAccountOutput$: StaticStructureSchema = [3, 
 export var GetLinkedWhatsAppBusinessAccountPhoneNumberInput$: StaticStructureSchema = [3, n0, _GLWABAPNI,
   0,
   [_i],
-  [[0, { [_hQ]: _i }]]
+  [[0, { [_hQ]: _i }]], 1
 ];
 export var GetLinkedWhatsAppBusinessAccountPhoneNumberOutput$: StaticStructureSchema = [3, n0, _GLWABAPNO,
   0,
@@ -346,7 +346,7 @@ export var GetLinkedWhatsAppBusinessAccountPhoneNumberOutput$: StaticStructureSc
 export var GetWhatsAppMessageMediaInput$: StaticStructureSchema = [3, n0, _GWAMMI,
   0,
   [_mI, _oPNI, _mO, _dSPU, _dSF],
-  [0, 0, 2, [() => S3PresignedUrl$, 0], [() => S3File$, 0]]
+  [0, 0, 2, [() => S3PresignedUrl$, 0], [() => S3File$, 0]], 2
 ];
 export var GetWhatsAppMessageMediaOutput$: StaticStructureSchema = [3, n0, _GWAMMO,
   0,
@@ -356,7 +356,7 @@ export var GetWhatsAppMessageMediaOutput$: StaticStructureSchema = [3, n0, _GWAM
 export var GetWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, _GWAMTI,
   0,
   [_mTI, _i],
-  [[0, { [_hQ]: _mTI }], [0, { [_hQ]: _i }]]
+  [[0, { [_hQ]: _mTI }], [0, { [_hQ]: _i }]], 2
 ];
 export var GetWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0, _GWAMTO,
   0,
@@ -399,7 +399,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var LinkedWhatsAppBusinessAccount$: StaticStructureSchema = [3, n0, _LWABA,
   0,
   [_ar, _i, _wI, _rS, _lD, _wN, _eD, _pNh],
-  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, () => WhatsAppPhoneNumberSummaryList]
+  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, () => WhatsAppPhoneNumberSummaryList], 8
 ];
 export var LinkedWhatsAppBusinessAccountIdMetaData$: StaticStructureSchema = [3, n0, _LWABAIMD,
   0,
@@ -409,7 +409,7 @@ export var LinkedWhatsAppBusinessAccountIdMetaData$: StaticStructureSchema = [3,
 export var LinkedWhatsAppBusinessAccountSummary$: StaticStructureSchema = [3, n0, _LWABAS,
   0,
   [_ar, _i, _wI, _rS, _lD, _wN, _eD],
-  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations]
+  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations], 7
 ];
 export var ListLinkedWhatsAppBusinessAccountsInput$: StaticStructureSchema = [3, n0, _LLWABAI,
   0,
@@ -424,7 +424,7 @@ export var ListLinkedWhatsAppBusinessAccountsOutput$: StaticStructureSchema = [3
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rA],
-  [[0, { [_hQ]: _rA }]]
+  [[0, { [_hQ]: _rA }]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -434,7 +434,7 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 export var ListWhatsAppMessageTemplatesInput$: StaticStructureSchema = [3, n0, _LWAMTI,
   0,
   [_i, _nT, _mR],
-  [[0, { [_hQ]: _i }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, { [_hQ]: _i }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListWhatsAppMessageTemplatesOutput$: StaticStructureSchema = [3, n0, _LWAMTO,
   0,
@@ -443,8 +443,8 @@ export var ListWhatsAppMessageTemplatesOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var ListWhatsAppTemplateLibraryInput$: StaticStructureSchema = [3, n0, _LWATLI,
   0,
-  [_nT, _mR, _i, _f],
-  [0, 1, [0, { [_hQ]: _i }], 128 | 0]
+  [_i, _nT, _mR, _f],
+  [[0, { [_hQ]: _i }], 0, 1, 128 | 0], 1
 ];
 export var ListWhatsAppTemplateLibraryOutput$: StaticStructureSchema = [3, n0, _LWATLO,
   0,
@@ -454,7 +454,7 @@ export var ListWhatsAppTemplateLibraryOutput$: StaticStructureSchema = [3, n0, _
 export var MetaLibraryTemplate$: StaticStructureSchema = [3, n0, _MLT,
   0,
   [_tN, _lTN, _tC, _tL, _lTBI, _lTBIi],
-  [0, 0, 0, 0, () => MetaLibraryTemplateButtonInputs, () => LibraryTemplateBodyInputs$]
+  [0, 0, 0, 0, () => MetaLibraryTemplateButtonInputs, () => LibraryTemplateBodyInputs$], 4
 ];
 export var MetaLibraryTemplateDefinition$: StaticStructureSchema = [3, n0, _MLTD,
   0,
@@ -464,7 +464,7 @@ export var MetaLibraryTemplateDefinition$: StaticStructureSchema = [3, n0, _MLTD
 export var PostWhatsAppMessageMediaInput$: StaticStructureSchema = [3, n0, _PWAMMI,
   0,
   [_oPNI, _sSPU, _sSF],
-  [0, [() => S3PresignedUrl$, 0], [() => S3File$, 0]]
+  [0, [() => S3PresignedUrl$, 0], [() => S3File$, 0]], 1
 ];
 export var PostWhatsAppMessageMediaOutput$: StaticStructureSchema = [3, n0, _PWAMMO,
   0,
@@ -474,7 +474,7 @@ export var PostWhatsAppMessageMediaOutput$: StaticStructureSchema = [3, n0, _PWA
 export var PutWhatsAppBusinessAccountEventDestinationsInput$: StaticStructureSchema = [3, n0, _PWABAEDI,
   0,
   [_i, _eD],
-  [0, () => WhatsAppBusinessAccountEventDestinations]
+  [0, () => WhatsAppBusinessAccountEventDestinations], 2
 ];
 export var PutWhatsAppBusinessAccountEventDestinationsOutput$: StaticStructureSchema = [3, n0, _PWABAEDO,
   0,
@@ -490,17 +490,17 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var S3File$: StaticStructureSchema = [3, n0, _SF,
   8,
   [_bN, _k],
-  [0, 0]
+  [0, 0], 2
 ];
 export var S3PresignedUrl$: StaticStructureSchema = [3, n0, _SPU,
   8,
   [_u, _h],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var SendWhatsAppMessageInput$: StaticStructureSchema = [3, n0, _SWAMI,
   0,
   [_oPNI, _m, _mAV],
-  [0, [() => WhatsAppMessageBlob, 0], 0]
+  [0, [() => WhatsAppMessageBlob, 0], 0], 3
 ];
 export var SendWhatsAppMessageOutput$: StaticStructureSchema = [3, n0, _SWAMO,
   0,
@@ -510,12 +510,12 @@ export var SendWhatsAppMessageOutput$: StaticStructureSchema = [3, n0, _SWAMO,
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -536,7 +536,7 @@ TypeRegistry.for(n0).registerError(ThrottledRequestException$, ThrottledRequestE
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -546,7 +546,7 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, _UWAMTI,
   0,
   [_i, _mTI, _tC, _tCe],
-  [0, 0, 0, 21]
+  [0, 0, 0, 21], 2
 ];
 export var UpdateWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0, _UWAMTO,
   0,
@@ -562,7 +562,7 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WabaPhoneNumberSetupFinalization$: StaticStructureSchema = [3, n0, _WPNSF,
   0,
   [_i, _tFP, _dLR, _ta],
-  [0, [() => TwoFactorPin, 0], 0, () => TagList]
+  [0, [() => TwoFactorPin, 0], 0, () => TagList], 2
 ];
 export var WabaSetupFinalization$: StaticStructureSchema = [3, n0, _WSF,
   0,
@@ -572,27 +572,27 @@ export var WabaSetupFinalization$: StaticStructureSchema = [3, n0, _WSF,
 export var WhatsAppBusinessAccountEventDestination$: StaticStructureSchema = [3, n0, _WABAED,
   0,
   [_eDA, _rAo],
-  [0, 0]
+  [0, 0], 1
 ];
 export var WhatsAppPhoneNumberDetail$: StaticStructureSchema = [3, n0, _WAPND,
   0,
   [_ar, _pN, _pNI, _mPNI, _dPNN, _dPN, _qR, _dLR],
-  [0, 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0], 7
 ];
 export var WhatsAppPhoneNumberSummary$: StaticStructureSchema = [3, n0, _WAPNS,
   0,
   [_ar, _pN, _pNI, _mPNI, _dPNN, _dPN, _qR, _dLR],
-  [0, 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0], 7
 ];
 export var WhatsAppSetupFinalization$: StaticStructureSchema = [3, n0, _WASF,
   0,
   [_aIPT, _pNh, _pNP, _w],
-  [[() => AssociateInProgressToken, 0], [() => WabaPhoneNumberSetupFinalizationList, 0], 0, () => WabaSetupFinalization$]
+  [[() => AssociateInProgressToken, 0], [() => WabaPhoneNumberSetupFinalizationList, 0], 0, () => WabaSetupFinalization$], 2
 ];
 export var WhatsAppSignupCallback$: StaticStructureSchema = [3, n0, _WASC,
   0,
   [_aT, _cU],
-  [0, 0]
+  [0, 0], 1
 ];
 export var WhatsAppSignupCallbackResult$: StaticStructureSchema = [3, n0, _WASCR,
   0,

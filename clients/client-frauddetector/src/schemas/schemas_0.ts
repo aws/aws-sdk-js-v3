@@ -564,13 +564,13 @@ var variableValue: StaticSimpleSchema = [0, n0, _vV, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AggregatedLogOddsMetric$: StaticStructureSchema = [3, n0, _ALOM,
   0,
   [_vN, _aVI],
-  [64 | 0, 1]
+  [64 | 0, 1], 2
 ];
 export var AggregatedVariablesImpactExplanation$: StaticStructureSchema = [3, n0, _AVIE,
   0,
@@ -585,7 +585,7 @@ export var AggregatedVariablesImportanceMetrics$: StaticStructureSchema = [3, n0
 export var AllowDenyList$: StaticStructureSchema = [3, n0, _ADL,
   0,
   [_n, _d, _vT, _cT, _uT, _a],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 1
 ];
 export var ATIMetricDataPoint$: StaticStructureSchema = [3, n0, _ATIMDP,
   0,
@@ -610,7 +610,7 @@ export var BatchCreateVariableError$: StaticStructureSchema = [3, n0, _BCVE,
 export var BatchCreateVariableRequest$: StaticStructureSchema = [3, n0, _BCVR,
   0,
   [_vE, _ta],
-  [() => VariableEntryList, () => tagList]
+  [() => VariableEntryList, () => tagList], 1
 ];
 export var BatchCreateVariableResult$: StaticStructureSchema = [3, n0, _BCVRa,
   0,
@@ -625,7 +625,7 @@ export var BatchGetVariableError$: StaticStructureSchema = [3, n0, _BGVE,
 export var BatchGetVariableRequest$: StaticStructureSchema = [3, n0, _BGVR,
   0,
   [_na],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetVariableResult$: StaticStructureSchema = [3, n0, _BGVRa,
   0,
@@ -645,7 +645,7 @@ export var BatchPrediction$: StaticStructureSchema = [3, n0, _BP,
 export var CancelBatchImportJobRequest$: StaticStructureSchema = [3, n0, _CBIJR,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var CancelBatchImportJobResult$: StaticStructureSchema = [3, n0, _CBIJRa,
   0,
@@ -655,7 +655,7 @@ export var CancelBatchImportJobResult$: StaticStructureSchema = [3, n0, _CBIJRa,
 export var CancelBatchPredictionJobRequest$: StaticStructureSchema = [3, n0, _CBPJR,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var CancelBatchPredictionJobResult$: StaticStructureSchema = [3, n0, _CBPJRa,
   0,
@@ -665,13 +665,13 @@ export var CancelBatchPredictionJobResult$: StaticStructureSchema = [3, n0, _CBP
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateBatchImportJobRequest$: StaticStructureSchema = [3, n0, _CBIJRr,
   0,
   [_jI, _iP, _oP, _eTN, _iRA, _ta],
-  [0, 0, 0, 0, 0, () => tagList]
+  [0, 0, 0, 0, 0, () => tagList], 5
 ];
 export var CreateBatchImportJobResult$: StaticStructureSchema = [3, n0, _CBIJRre,
   0,
@@ -680,8 +680,8 @@ export var CreateBatchImportJobResult$: StaticStructureSchema = [3, n0, _CBIJRre
 ];
 export var CreateBatchPredictionJobRequest$: StaticStructureSchema = [3, n0, _CBPJRr,
   0,
-  [_jI, _iP, _oP, _eTN, _dN, _dV, _iRA, _ta],
-  [0, 0, 0, 0, 0, 0, 0, () => tagList]
+  [_jI, _iP, _oP, _eTN, _dN, _iRA, _dV, _ta],
+  [0, 0, 0, 0, 0, 0, 0, () => tagList], 6
 ];
 export var CreateBatchPredictionJobResult$: StaticStructureSchema = [3, n0, _CBPJRre,
   0,
@@ -690,8 +690,8 @@ export var CreateBatchPredictionJobResult$: StaticStructureSchema = [3, n0, _CBP
 ];
 export var CreateDetectorVersionRequest$: StaticStructureSchema = [3, n0, _CDVR,
   0,
-  [_dI, _d, _eME, _r, _mV, _rEM, _ta],
-  [0, 0, 64 | 0, () => RuleList, () => ListOfModelVersions, 0, () => tagList]
+  [_dI, _r, _d, _eME, _mV, _rEM, _ta],
+  [0, () => RuleList, 0, 64 | 0, () => ListOfModelVersions, 0, () => tagList], 2
 ];
 export var CreateDetectorVersionResult$: StaticStructureSchema = [3, n0, _CDVRr,
   0,
@@ -701,7 +701,7 @@ export var CreateDetectorVersionResult$: StaticStructureSchema = [3, n0, _CDVRr,
 export var CreateListRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
   [_n, _el, _vT, _d, _ta],
-  [0, [() => ElementsList, 0], 0, 0, () => tagList]
+  [0, [() => ElementsList, 0], 0, 0, () => tagList], 1
 ];
 export var CreateListResult$: StaticStructureSchema = [3, n0, _CLRr,
   0,
@@ -710,8 +710,8 @@ export var CreateListResult$: StaticStructureSchema = [3, n0, _CLRr,
 ];
 export var CreateModelRequest$: StaticStructureSchema = [3, n0, _CMR,
   0,
-  [_mI, _mT, _d, _eTN, _ta],
-  [0, 0, 0, 0, () => tagList]
+  [_mI, _mT, _eTN, _d, _ta],
+  [0, 0, 0, 0, () => tagList], 3
 ];
 export var CreateModelResult$: StaticStructureSchema = [3, n0, _CMRr,
   0,
@@ -721,7 +721,7 @@ export var CreateModelResult$: StaticStructureSchema = [3, n0, _CMRr,
 export var CreateModelVersionRequest$: StaticStructureSchema = [3, n0, _CMVR,
   0,
   [_mI, _mT, _tDS, _tDSr, _eED, _iED, _ta],
-  [0, 0, 0, () => TrainingDataSchema$, () => ExternalEventsDetail$, () => IngestedEventsDetail$, () => tagList]
+  [0, 0, 0, () => TrainingDataSchema$, () => ExternalEventsDetail$, () => IngestedEventsDetail$, () => tagList], 4
 ];
 export var CreateModelVersionResult$: StaticStructureSchema = [3, n0, _CMVRr,
   0,
@@ -730,8 +730,8 @@ export var CreateModelVersionResult$: StaticStructureSchema = [3, n0, _CMVRr,
 ];
 export var CreateRuleRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_rIu, _dI, _d, _ex, _l, _o, _ta],
-  [0, 0, 0, [() => ruleExpression, 0], 0, 64 | 0, () => tagList]
+  [_rIu, _dI, _ex, _l, _o, _d, _ta],
+  [0, 0, [() => ruleExpression, 0], 0, 64 | 0, 0, () => tagList], 5
 ];
 export var CreateRuleResult$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -741,7 +741,7 @@ export var CreateRuleResult$: StaticStructureSchema = [3, n0, _CRRr,
 export var CreateVariableRequest$: StaticStructureSchema = [3, n0, _CVR,
   0,
   [_n, _dT, _dS, _dVe, _d, _vT, _ta],
-  [0, 0, 0, 0, 0, 0, () => tagList]
+  [0, 0, 0, 0, 0, 0, () => tagList], 4
 ];
 export var CreateVariableResult$: StaticStructureSchema = [3, n0, _CVRr,
   0,
@@ -756,7 +756,7 @@ export var DataValidationMetrics$: StaticStructureSchema = [3, n0, _DVM,
 export var DeleteBatchImportJobRequest$: StaticStructureSchema = [3, n0, _DBIJR,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var DeleteBatchImportJobResult$: StaticStructureSchema = [3, n0, _DBIJRe,
   0,
@@ -766,7 +766,7 @@ export var DeleteBatchImportJobResult$: StaticStructureSchema = [3, n0, _DBIJRe,
 export var DeleteBatchPredictionJobRequest$: StaticStructureSchema = [3, n0, _DBPJR,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var DeleteBatchPredictionJobResult$: StaticStructureSchema = [3, n0, _DBPJRe,
   0,
@@ -776,7 +776,7 @@ export var DeleteBatchPredictionJobResult$: StaticStructureSchema = [3, n0, _DBP
 export var DeleteDetectorRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_dI],
-  [0]
+  [0], 1
 ];
 export var DeleteDetectorResult$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -786,7 +786,7 @@ export var DeleteDetectorResult$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeleteDetectorVersionRequest$: StaticStructureSchema = [3, n0, _DDVR,
   0,
   [_dI, _dVI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteDetectorVersionResult$: StaticStructureSchema = [3, n0, _DDVRe,
   0,
@@ -796,7 +796,7 @@ export var DeleteDetectorVersionResult$: StaticStructureSchema = [3, n0, _DDVRe,
 export var DeleteEntityTypeRequest$: StaticStructureSchema = [3, n0, _DETR,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DeleteEntityTypeResult$: StaticStructureSchema = [3, n0, _DETRe,
   0,
@@ -806,7 +806,7 @@ export var DeleteEntityTypeResult$: StaticStructureSchema = [3, n0, _DETRe,
 export var DeleteEventRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_eI, _eTN, _dAH],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DeleteEventResult$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -816,7 +816,7 @@ export var DeleteEventResult$: StaticStructureSchema = [3, n0, _DERe,
 export var DeleteEventsByEventTypeRequest$: StaticStructureSchema = [3, n0, _DEBETR,
   0,
   [_eTN],
-  [0]
+  [0], 1
 ];
 export var DeleteEventsByEventTypeResult$: StaticStructureSchema = [3, n0, _DEBETRe,
   0,
@@ -826,7 +826,7 @@ export var DeleteEventsByEventTypeResult$: StaticStructureSchema = [3, n0, _DEBE
 export var DeleteEventTypeRequest$: StaticStructureSchema = [3, n0, _DETRel,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DeleteEventTypeResult$: StaticStructureSchema = [3, n0, _DETRele,
   0,
@@ -836,7 +836,7 @@ export var DeleteEventTypeResult$: StaticStructureSchema = [3, n0, _DETRele,
 export var DeleteExternalModelRequest$: StaticStructureSchema = [3, n0, _DEMR,
   0,
   [_mE],
-  [0]
+  [0], 1
 ];
 export var DeleteExternalModelResult$: StaticStructureSchema = [3, n0, _DEMRe,
   0,
@@ -846,7 +846,7 @@ export var DeleteExternalModelResult$: StaticStructureSchema = [3, n0, _DEMRe,
 export var DeleteLabelRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DeleteLabelResult$: StaticStructureSchema = [3, n0, _DLRe,
   0,
@@ -856,7 +856,7 @@ export var DeleteLabelResult$: StaticStructureSchema = [3, n0, _DLRe,
 export var DeleteListRequest$: StaticStructureSchema = [3, n0, _DLRel,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DeleteListResult$: StaticStructureSchema = [3, n0, _DLRele,
   0,
@@ -866,7 +866,7 @@ export var DeleteListResult$: StaticStructureSchema = [3, n0, _DLRele,
 export var DeleteModelRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_mI, _mT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteModelResult$: StaticStructureSchema = [3, n0, _DMRe,
   0,
@@ -876,7 +876,7 @@ export var DeleteModelResult$: StaticStructureSchema = [3, n0, _DMRe,
 export var DeleteModelVersionRequest$: StaticStructureSchema = [3, n0, _DMVR,
   0,
   [_mI, _mT, _mVN],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteModelVersionResult$: StaticStructureSchema = [3, n0, _DMVRe,
   0,
@@ -886,7 +886,7 @@ export var DeleteModelVersionResult$: StaticStructureSchema = [3, n0, _DMVRe,
 export var DeleteOutcomeRequest$: StaticStructureSchema = [3, n0, _DOR,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DeleteOutcomeResult$: StaticStructureSchema = [3, n0, _DORe,
   0,
@@ -896,7 +896,7 @@ export var DeleteOutcomeResult$: StaticStructureSchema = [3, n0, _DORe,
 export var DeleteRuleRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_ru],
-  [() => Rule$]
+  [() => Rule$], 1
 ];
 export var DeleteRuleResult$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -906,7 +906,7 @@ export var DeleteRuleResult$: StaticStructureSchema = [3, n0, _DRRe,
 export var DeleteVariableRequest$: StaticStructureSchema = [3, n0, _DVR,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var DeleteVariableResult$: StaticStructureSchema = [3, n0, _DVRe,
   0,
@@ -916,7 +916,7 @@ export var DeleteVariableResult$: StaticStructureSchema = [3, n0, _DVRe,
 export var DescribeDetectorRequest$: StaticStructureSchema = [3, n0, _DDRes,
   0,
   [_dI, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var DescribeDetectorResult$: StaticStructureSchema = [3, n0, _DDResc,
   0,
@@ -946,7 +946,7 @@ export var DetectorVersionSummary$: StaticStructureSchema = [3, n0, _DVS,
 export var Entity$: StaticStructureSchema = [3, n0, _En,
   8,
   [_eT, _eIn],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EntityType$: StaticStructureSchema = [3, n0, _ET,
   0,
@@ -976,7 +976,7 @@ export var Event$: StaticStructureSchema = [3, n0, _Ev,
 export var EventOrchestration$: StaticStructureSchema = [3, n0, _EO,
   0,
   [_eBE],
-  [2]
+  [2], 1
 ];
 export var EventPredictionSummary$: StaticStructureSchema = [3, n0, _EPS,
   0,
@@ -996,7 +996,7 @@ export var EventVariableSummary$: StaticStructureSchema = [3, n0, _EVS,
 export var ExternalEventsDetail$: StaticStructureSchema = [3, n0, _EED,
   0,
   [_dL, _dARA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ExternalModel$: StaticStructureSchema = [3, n0, _EM,
   0,
@@ -1051,7 +1051,7 @@ export var GetBatchPredictionJobsResult$: StaticStructureSchema = [3, n0, _GBPJR
 export var GetDeleteEventsByEventTypeStatusRequest$: StaticStructureSchema = [3, n0, _GDEBETSR,
   0,
   [_eTN],
-  [0]
+  [0], 1
 ];
 export var GetDeleteEventsByEventTypeStatusResult$: StaticStructureSchema = [3, n0, _GDEBETSRe,
   0,
@@ -1071,7 +1071,7 @@ export var GetDetectorsResult$: StaticStructureSchema = [3, n0, _GDRe,
 export var GetDetectorVersionRequest$: StaticStructureSchema = [3, n0, _GDVR,
   0,
   [_dI, _dVI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetDetectorVersionResult$: StaticStructureSchema = [3, n0, _GDVRe,
   0,
@@ -1091,7 +1091,7 @@ export var GetEntityTypesResult$: StaticStructureSchema = [3, n0, _GETRe,
 export var GetEventPredictionMetadataRequest$: StaticStructureSchema = [3, n0, _GEPMR,
   0,
   [_eI, _eTN, _dI, _dVI, _pT],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var GetEventPredictionMetadataResult$: StaticStructureSchema = [3, n0, _GEPMRe,
   0,
@@ -1100,8 +1100,8 @@ export var GetEventPredictionMetadataResult$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetEventPredictionRequest$: StaticStructureSchema = [3, n0, _GEPR,
   0,
-  [_dI, _dVI, _eI, _eTN, _en, _eTv, _eV, _eMEDB],
-  [0, 0, 0, 0, [() => listOfEntities, 0], 0, [() => EventVariableMap, 0], [() => ExternalModelEndpointDataBlobMap, 0]]
+  [_dI, _eI, _eTN, _en, _eTv, _eV, _dVI, _eMEDB],
+  [0, 0, 0, [() => listOfEntities, 0], 0, [() => EventVariableMap, 0], 0, [() => ExternalModelEndpointDataBlobMap, 0]], 6
 ];
 export var GetEventPredictionResult$: StaticStructureSchema = [3, n0, _GEPRe,
   0,
@@ -1111,7 +1111,7 @@ export var GetEventPredictionResult$: StaticStructureSchema = [3, n0, _GEPRe,
 export var GetEventRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_eI, _eTN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetEventResult$: StaticStructureSchema = [3, n0, _GERe,
   0,
@@ -1156,7 +1156,7 @@ export var GetLabelsResult$: StaticStructureSchema = [3, n0, _GLRe,
 export var GetListElementsRequest$: StaticStructureSchema = [3, n0, _GLER,
   0,
   [_n, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var GetListElementsResult$: StaticStructureSchema = [3, n0, _GLERe,
   0,
@@ -1186,7 +1186,7 @@ export var GetModelsResult$: StaticStructureSchema = [3, n0, _GMRe,
 export var GetModelVersionRequest$: StaticStructureSchema = [3, n0, _GMVR,
   0,
   [_mI, _mT, _mVN],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetModelVersionResult$: StaticStructureSchema = [3, n0, _GMVRe,
   0,
@@ -1205,8 +1205,8 @@ export var GetOutcomesResult$: StaticStructureSchema = [3, n0, _GORe,
 ];
 export var GetRulesRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
-  [_rIu, _dI, _rV, _nT, _mR],
-  [0, 0, 0, 0, 1]
+  [_dI, _rIu, _rV, _nT, _mR],
+  [0, 0, 0, 0, 1], 1
 ];
 export var GetRulesResult$: StaticStructureSchema = [3, n0, _GRRe,
   0,
@@ -1226,7 +1226,7 @@ export var GetVariablesResult$: StaticStructureSchema = [3, n0, _GVRe,
 export var IngestedEventsDetail$: StaticStructureSchema = [3, n0, _IED,
   0,
   [_iETW],
-  [() => IngestedEventsTimeWindow$]
+  [() => IngestedEventsTimeWindow$], 1
 ];
 export var IngestedEventStatistics$: StaticStructureSchema = [3, n0, _IES,
   0,
@@ -1236,12 +1236,12 @@ export var IngestedEventStatistics$: StaticStructureSchema = [3, n0, _IES,
 export var IngestedEventsTimeWindow$: StaticStructureSchema = [3, n0, _IETW,
   0,
   [_sT, _eTnd],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KMSKey$: StaticStructureSchema = [3, n0, _KMSK,
@@ -1272,7 +1272,7 @@ export var ListEventPredictionsResult$: StaticStructureSchema = [3, n0, _LEPRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rARN, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1282,7 +1282,7 @@ export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
 export var LogOddsMetric$: StaticStructureSchema = [3, n0, _LOM,
   0,
   [_vNa, _vT, _vI],
-  [0, 0, 1]
+  [0, 0, 1], 3
 ];
 export var MetricDataPoint$: StaticStructureSchema = [3, n0, _MDP,
   0,
@@ -1301,13 +1301,13 @@ export var ModelEndpointDataBlob$: StaticStructureSchema = [3, n0, _MEDB,
 ];
 export var ModelInputConfiguration$: StaticStructureSchema = [3, n0, _MIC,
   0,
-  [_eTN, _fo, _uEV, _jIT, _cIT],
-  [0, 0, 2, 0, 0]
+  [_uEV, _eTN, _fo, _jIT, _cIT],
+  [2, 0, 0, 0, 0], 1
 ];
 export var ModelOutputConfiguration$: StaticStructureSchema = [3, n0, _MOC,
   0,
   [_fo, _jKTVM, _cITVM],
-  [0, 128 | 0, 128 | 0]
+  [0, 128 | 0, 128 | 0], 1
 ];
 export var ModelScores$: StaticStructureSchema = [3, n0, _MS,
   0,
@@ -1317,7 +1317,7 @@ export var ModelScores$: StaticStructureSchema = [3, n0, _MS,
 export var ModelVersion$: StaticStructureSchema = [3, n0, _MV,
   0,
   [_mI, _mT, _mVN, _a],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var ModelVersionDetail$: StaticStructureSchema = [3, n0, _MVD,
   0,
@@ -1357,12 +1357,12 @@ export var PredictionExplanations$: StaticStructureSchema = [3, n0, _PE,
 export var PredictionTimeRange$: StaticStructureSchema = [3, n0, _PTR,
   0,
   [_sT, _eTnd],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutDetectorRequest$: StaticStructureSchema = [3, n0, _PDR,
   0,
-  [_dI, _d, _eTN, _ta],
-  [0, 0, 0, () => tagList]
+  [_dI, _eTN, _d, _ta],
+  [0, 0, 0, () => tagList], 2
 ];
 export var PutDetectorResult$: StaticStructureSchema = [3, n0, _PDRu,
   0,
@@ -1372,7 +1372,7 @@ export var PutDetectorResult$: StaticStructureSchema = [3, n0, _PDRu,
 export var PutEntityTypeRequest$: StaticStructureSchema = [3, n0, _PETR,
   0,
   [_n, _d, _ta],
-  [0, 0, () => tagList]
+  [0, 0, () => tagList], 1
 ];
 export var PutEntityTypeResult$: StaticStructureSchema = [3, n0, _PETRu,
   0,
@@ -1381,8 +1381,8 @@ export var PutEntityTypeResult$: StaticStructureSchema = [3, n0, _PETRu,
 ];
 export var PutEventTypeRequest$: StaticStructureSchema = [3, n0, _PETRut,
   0,
-  [_n, _d, _eV, _la, _eTn, _eIv, _ta, _eO],
-  [0, 0, 64 | 0, 64 | 0, 64 | 0, 0, () => tagList, () => EventOrchestration$]
+  [_n, _eV, _eTn, _d, _la, _eIv, _ta, _eO],
+  [0, 64 | 0, 64 | 0, 0, 64 | 0, 0, () => tagList, () => EventOrchestration$], 3
 ];
 export var PutEventTypeResult$: StaticStructureSchema = [3, n0, _PETRutv,
   0,
@@ -1392,7 +1392,7 @@ export var PutEventTypeResult$: StaticStructureSchema = [3, n0, _PETRutv,
 export var PutExternalModelRequest$: StaticStructureSchema = [3, n0, _PEMR,
   0,
   [_mE, _mS, _iMERA, _iC, _oC, _mES, _ta],
-  [0, 0, 0, () => ModelInputConfiguration$, () => ModelOutputConfiguration$, 0, () => tagList]
+  [0, 0, 0, () => ModelInputConfiguration$, () => ModelOutputConfiguration$, 0, () => tagList], 6
 ];
 export var PutExternalModelResult$: StaticStructureSchema = [3, n0, _PEMRu,
   0,
@@ -1402,7 +1402,7 @@ export var PutExternalModelResult$: StaticStructureSchema = [3, n0, _PEMRu,
 export var PutKMSEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _PKMSEKR,
   0,
   [_kEKA],
-  [0]
+  [0], 1
 ];
 export var PutKMSEncryptionKeyResult$: StaticStructureSchema = [3, n0, _PKMSEKRu,
   0,
@@ -1412,7 +1412,7 @@ export var PutKMSEncryptionKeyResult$: StaticStructureSchema = [3, n0, _PKMSEKRu
 export var PutLabelRequest$: StaticStructureSchema = [3, n0, _PLR,
   0,
   [_n, _d, _ta],
-  [0, 0, () => tagList]
+  [0, 0, () => tagList], 1
 ];
 export var PutLabelResult$: StaticStructureSchema = [3, n0, _PLRu,
   0,
@@ -1422,7 +1422,7 @@ export var PutLabelResult$: StaticStructureSchema = [3, n0, _PLRu,
 export var PutOutcomeRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
   [_n, _d, _ta],
-  [0, 0, () => tagList]
+  [0, 0, () => tagList], 1
 ];
 export var PutOutcomeResult$: StaticStructureSchema = [3, n0, _PORu,
   0,
@@ -1432,7 +1432,7 @@ export var PutOutcomeResult$: StaticStructureSchema = [3, n0, _PORu,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
@@ -1444,7 +1444,7 @@ TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavai
 export var Rule$: StaticStructureSchema = [3, n0, _R,
   0,
   [_dI, _rIu, _rV],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var RuleDetail$: StaticStructureSchema = [3, n0, _RD,
   0,
@@ -1458,8 +1458,8 @@ export var RuleResult$: StaticStructureSchema = [3, n0, _RR,
 ];
 export var SendEventRequest$: StaticStructureSchema = [3, n0, _SER,
   0,
-  [_eI, _eTN, _eTv, _eV, _aL, _lT, _en],
-  [0, 0, 0, [() => EventVariableMap, 0], 0, 0, [() => listOfEntities, 0]]
+  [_eI, _eTN, _eTv, _eV, _en, _aL, _lT],
+  [0, 0, 0, [() => EventVariableMap, 0], [() => listOfEntities, 0], 0, 0], 5
 ];
 export var SendEventResult$: StaticStructureSchema = [3, n0, _SERe,
   0,
@@ -1469,12 +1469,12 @@ export var SendEventResult$: StaticStructureSchema = [3, n0, _SERe,
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rARN, _ta],
-  [0, () => tagList]
+  [0, () => tagList], 2
 ];
 export var TagResourceResult$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1499,13 +1499,13 @@ export var TFITrainingMetricsValue$: StaticStructureSchema = [3, n0, _TFITMV,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrainingDataSchema$: StaticStructureSchema = [3, n0, _TDS,
   0,
   [_mVod, _lS],
-  [64 | 0, () => LabelSchema$]
+  [64 | 0, () => LabelSchema$], 1
 ];
 export var TrainingMetrics$: StaticStructureSchema = [3, n0, _TM,
   0,
@@ -1530,12 +1530,12 @@ export var TrainingResultV2$: StaticStructureSchema = [3, n0, _TRV,
 export var UncertaintyRange$: StaticStructureSchema = [3, n0, _UR,
   0,
   [_lBV, _uBV],
-  [1, 1]
+  [1, 1], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rARN, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResult$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1545,7 +1545,7 @@ export var UntagResourceResult$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDetectorVersionMetadataRequest$: StaticStructureSchema = [3, n0, _UDVMR,
   0,
   [_dI, _dVI, _d],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UpdateDetectorVersionMetadataResult$: StaticStructureSchema = [3, n0, _UDVMRp,
   0,
@@ -1555,7 +1555,7 @@ export var UpdateDetectorVersionMetadataResult$: StaticStructureSchema = [3, n0,
 export var UpdateDetectorVersionRequest$: StaticStructureSchema = [3, n0, _UDVR,
   0,
   [_dI, _dVI, _eME, _r, _d, _mV, _rEM],
-  [0, 0, 64 | 0, () => RuleList, 0, () => ListOfModelVersions, 0]
+  [0, 0, 64 | 0, () => RuleList, 0, () => ListOfModelVersions, 0], 4
 ];
 export var UpdateDetectorVersionResult$: StaticStructureSchema = [3, n0, _UDVRp,
   0,
@@ -1565,7 +1565,7 @@ export var UpdateDetectorVersionResult$: StaticStructureSchema = [3, n0, _UDVRp,
 export var UpdateDetectorVersionStatusRequest$: StaticStructureSchema = [3, n0, _UDVSR,
   0,
   [_dI, _dVI, _s],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UpdateDetectorVersionStatusResult$: StaticStructureSchema = [3, n0, _UDVSRp,
   0,
@@ -1575,7 +1575,7 @@ export var UpdateDetectorVersionStatusResult$: StaticStructureSchema = [3, n0, _
 export var UpdateEventLabelRequest$: StaticStructureSchema = [3, n0, _UELR,
   0,
   [_eI, _eTN, _aL, _lT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var UpdateEventLabelResult$: StaticStructureSchema = [3, n0, _UELRp,
   0,
@@ -1585,7 +1585,7 @@ export var UpdateEventLabelResult$: StaticStructureSchema = [3, n0, _UELRp,
 export var UpdateListRequest$: StaticStructureSchema = [3, n0, _ULR,
   0,
   [_n, _el, _d, _uM, _vT],
-  [0, [() => ElementsList, 0], 0, 0, 0]
+  [0, [() => ElementsList, 0], 0, 0, 0], 1
 ];
 export var UpdateListResult$: StaticStructureSchema = [3, n0, _ULRp,
   0,
@@ -1595,7 +1595,7 @@ export var UpdateListResult$: StaticStructureSchema = [3, n0, _ULRp,
 export var UpdateModelRequest$: StaticStructureSchema = [3, n0, _UMR,
   0,
   [_mI, _mT, _d],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var UpdateModelResult$: StaticStructureSchema = [3, n0, _UMRp,
   0,
@@ -1605,7 +1605,7 @@ export var UpdateModelResult$: StaticStructureSchema = [3, n0, _UMRp,
 export var UpdateModelVersionRequest$: StaticStructureSchema = [3, n0, _UMVR,
   0,
   [_mI, _mT, _mVNa, _eED, _iED, _ta],
-  [0, 0, 0, () => ExternalEventsDetail$, () => IngestedEventsDetail$, () => tagList]
+  [0, 0, 0, () => ExternalEventsDetail$, () => IngestedEventsDetail$, () => tagList], 3
 ];
 export var UpdateModelVersionResult$: StaticStructureSchema = [3, n0, _UMVRp,
   0,
@@ -1615,7 +1615,7 @@ export var UpdateModelVersionResult$: StaticStructureSchema = [3, n0, _UMVRp,
 export var UpdateModelVersionStatusRequest$: StaticStructureSchema = [3, n0, _UMVSR,
   0,
   [_mI, _mT, _mVN, _s],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var UpdateModelVersionStatusResult$: StaticStructureSchema = [3, n0, _UMVSRp,
   0,
@@ -1625,7 +1625,7 @@ export var UpdateModelVersionStatusResult$: StaticStructureSchema = [3, n0, _UMV
 export var UpdateRuleMetadataRequest$: StaticStructureSchema = [3, n0, _URMR,
   0,
   [_ru, _d],
-  [() => Rule$, 0]
+  [() => Rule$, 0], 2
 ];
 export var UpdateRuleMetadataResult$: StaticStructureSchema = [3, n0, _URMRp,
   0,
@@ -1634,8 +1634,8 @@ export var UpdateRuleMetadataResult$: StaticStructureSchema = [3, n0, _URMRp,
 ];
 export var UpdateRuleVersionRequest$: StaticStructureSchema = [3, n0, _URVR,
   0,
-  [_ru, _d, _ex, _l, _o, _ta],
-  [() => Rule$, 0, [() => ruleExpression, 0], 0, 64 | 0, () => tagList]
+  [_ru, _ex, _l, _o, _d, _ta],
+  [() => Rule$, [() => ruleExpression, 0], 0, 64 | 0, 0, () => tagList], 4
 ];
 export var UpdateRuleVersionResult$: StaticStructureSchema = [3, n0, _URVRp,
   0,
@@ -1645,7 +1645,7 @@ export var UpdateRuleVersionResult$: StaticStructureSchema = [3, n0, _URVRp,
 export var UpdateVariableRequest$: StaticStructureSchema = [3, n0, _UVR,
   0,
   [_n, _dVe, _d, _vT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var UpdateVariableResult$: StaticStructureSchema = [3, n0, _UVRp,
   0,
@@ -1655,7 +1655,7 @@ export var UpdateVariableResult$: StaticStructureSchema = [3, n0, _UVRp,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Variable$: StaticStructureSchema = [3, n0, _V,

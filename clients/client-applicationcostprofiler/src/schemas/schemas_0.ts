@@ -75,7 +75,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var DeleteReportDefinitionRequest$: StaticStructureSchema = [3, n0, _DRDR,
   0,
   [_rI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteReportDefinitionResult$: StaticStructureSchema = [3, n0, _DRDRe,
   0,
@@ -85,22 +85,22 @@ export var DeleteReportDefinitionResult$: StaticStructureSchema = [3, n0, _DRDRe
 export var GetReportDefinitionRequest$: StaticStructureSchema = [3, n0, _GRDR,
   0,
   [_rI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetReportDefinitionResult$: StaticStructureSchema = [3, n0, _GRDRe,
   0,
   [_rI, _rD, _rF, _f, _dSL, _cA, _lU],
-  [0, 0, 0, 0, () => S3Location$, 4, 4]
+  [0, 0, 0, 0, () => S3Location$, 4, 4], 7
 ];
 export var ImportApplicationUsageRequest$: StaticStructureSchema = [3, n0, _IAUR,
   0,
   [_sSL],
-  [() => SourceS3Location$]
+  [() => SourceS3Location$], 1
 ];
 export var ImportApplicationUsageResult$: StaticStructureSchema = [3, n0, _IAURm,
   0,
   [_iI],
-  [0]
+  [0], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -121,7 +121,7 @@ export var ListReportDefinitionsResult$: StaticStructureSchema = [3, n0, _LRDRi,
 export var PutReportDefinitionRequest$: StaticStructureSchema = [3, n0, _PRDR,
   0,
   [_rI, _rD, _rF, _f, _dSL],
-  [0, 0, 0, 0, () => S3Location$]
+  [0, 0, 0, 0, () => S3Location$], 5
 ];
 export var PutReportDefinitionResult$: StaticStructureSchema = [3, n0, _PRDRu,
   0,
@@ -136,7 +136,7 @@ export var ReportDefinition$: StaticStructureSchema = [3, n0, _RD,
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_b, _p],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -147,7 +147,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var SourceS3Location$: StaticStructureSchema = [3, n0, _SSL,
   0,
   [_b, _k, _r],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
@@ -158,7 +158,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateReportDefinitionRequest$: StaticStructureSchema = [3, n0, _URDR,
   0,
   [_rI, _rD, _rF, _f, _dSL],
-  [[0, 1], 0, 0, 0, () => S3Location$]
+  [[0, 1], 0, 0, 0, () => S3Location$], 5
 ];
 export var UpdateReportDefinitionResult$: StaticStructureSchema = [3, n0, _URDRp,
   0,

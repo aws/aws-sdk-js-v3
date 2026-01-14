@@ -868,7 +868,7 @@ export var BatchDescribeTypeConfigurationsError$: StaticStructureSchema = [3, n0
 export var BatchDescribeTypeConfigurationsInput$: StaticStructureSchema = [3, n0, _BDTCI,
   0,
   [_TCIy],
-  [() => TypeConfigurationIdentifiers]
+  [() => TypeConfigurationIdentifiers], 1
 ];
 export var BatchDescribeTypeConfigurationsOutput$: StaticStructureSchema = [3, n0, _BDTCO,
   0,
@@ -878,7 +878,7 @@ export var BatchDescribeTypeConfigurationsOutput$: StaticStructureSchema = [3, n
 export var CancelUpdateStackInput$: StaticStructureSchema = [3, n0, _CUSI,
   0,
   [_SN, _CRT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CFNRegistryException$: StaticErrorSchema = [-3, n0, _CFNRE,
   { [_aQE]: [`CFNRegistryException`, 400], [_e]: _c, [_hE]: 400 },
@@ -926,7 +926,7 @@ TypeRegistry.for(n0).registerError(ConcurrentResourcesLimitExceededException$, C
 export var ContinueUpdateRollbackInput$: StaticStructureSchema = [3, n0, _CURI,
   0,
   [_SN, _RARN, _RTS, _CRT],
-  [0, 0, 64 | 0, 0]
+  [0, 0, 64 | 0, 0], 1
 ];
 export var ContinueUpdateRollbackOutput$: StaticStructureSchema = [3, n0, _CURO,
   0,
@@ -935,8 +935,8 @@ export var ContinueUpdateRollbackOutput$: StaticStructureSchema = [3, n0, _CURO,
 ];
 export var CreateChangeSetInput$: StaticStructureSchema = [3, n0, _CCSI,
   0,
-  [_SN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CSN, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER, _DM],
-  [0, 0, 0, 2, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 64 | 0, () => Tags, 0, 0, 0, 0, () => ResourcesToImport, 2, 0, 2, 0]
+  [_SN, _CSN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER, _DM],
+  [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 64 | 0, () => Tags, 0, 0, 0, () => ResourcesToImport, 2, 0, 2, 0], 2
 ];
 export var CreateChangeSetOutput$: StaticStructureSchema = [3, n0, _CCSO,
   0,
@@ -951,8 +951,8 @@ export var CreatedButModifiedException$: StaticErrorSchema = [-3, n0, _CBME,
 TypeRegistry.for(n0).registerError(CreatedButModifiedException$, CreatedButModifiedException);
 export var CreateGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _CGTI,
   0,
-  [_R, _GTN, _SN, _TCe],
-  [() => ResourceDefinitions, 0, 0, () => TemplateConfiguration$]
+  [_GTN, _R, _SN, _TCe],
+  [0, () => ResourceDefinitions, 0, () => TemplateConfiguration$], 1
 ];
 export var CreateGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _CGTO,
   0,
@@ -962,12 +962,12 @@ export var CreateGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _CGTO
 export var CreateStackInput$: StaticStructureSchema = [3, n0, _CSIr,
   0,
   [_SN, _TB, _TURL, _P, _DR, _RCo, _TIM, _NARN, _Ca, _RTe, _RARN, _OF, _SPB, _SPURL, _Ta, _CRT, _ETP, _REOC],
-  [0, 0, 0, () => _Parameters, 2, () => RollbackConfiguration$, 1, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Tags, 0, 2, 2]
+  [0, 0, 0, () => _Parameters, 2, () => RollbackConfiguration$, 1, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Tags, 0, 2, 2], 1
 ];
 export var CreateStackInstancesInput$: StaticStructureSchema = [3, n0, _CSII,
   0,
-  [_SSN, _Ac, _DT, _Re, _PO, _OP, _OI, _CA],
-  [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0]
+  [_SSN, _Re, _Ac, _DT, _PO, _OP, _OI, _CA],
+  [0, 64 | 0, 64 | 0, () => DeploymentTargets$, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0], 2
 ];
 export var CreateStackInstancesOutput$: StaticStructureSchema = [3, n0, _CSIO,
   0,
@@ -981,18 +981,18 @@ export var CreateStackOutput$: StaticStructureSchema = [3, n0, _CSO,
 ];
 export var CreateStackRefactorInput$: StaticStructureSchema = [3, n0, _CSRI,
   0,
-  [_D, _ESC, _RMe, _SD],
-  [0, 2, () => ResourceMappings, () => StackDefinitions]
+  [_SD, _D, _ESC, _RMe],
+  [() => StackDefinitions, 0, 2, () => ResourceMappings], 1
 ];
 export var CreateStackRefactorOutput$: StaticStructureSchema = [3, n0, _CSRO,
   0,
   [_SRI],
-  [0]
+  [0], 1
 ];
 export var CreateStackSetInput$: StaticStructureSchema = [3, n0, _CSSI,
   0,
   [_SSN, _D, _TB, _TURL, _SI, _P, _Ca, _Ta, _ARARN, _ERN, _PM, _AD, _CA, _CRT, _ME],
-  [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => AutoDeployment$, 0, [0, 4], () => ManagedExecution$]
+  [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => AutoDeployment$, 0, [0, 4], () => ManagedExecution$], 1
 ];
 export var CreateStackSetOutput$: StaticStructureSchema = [3, n0, _CSSO,
   0,
@@ -1022,7 +1022,7 @@ export var DeactivateTypeOutput$: StaticStructureSchema = [3, n0, _DTO,
 export var DeleteChangeSetInput$: StaticStructureSchema = [3, n0, _DCSI,
   0,
   [_CSN, _SN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteChangeSetOutput$: StaticStructureSchema = [3, n0, _DCSO,
   0,
@@ -1032,17 +1032,17 @@ export var DeleteChangeSetOutput$: StaticStructureSchema = [3, n0, _DCSO,
 export var DeleteGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _DGTI,
   0,
   [_GTN],
-  [0]
+  [0], 1
 ];
 export var DeleteStackInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_SN, _RR, _RARN, _CRT, _DMe],
-  [0, 64 | 0, 0, 0, 0]
+  [0, 64 | 0, 0, 0, 0], 1
 ];
 export var DeleteStackInstancesInput$: StaticStructureSchema = [3, n0, _DSII,
   0,
-  [_SSN, _Ac, _DT, _Re, _OP, _RS, _OI, _CA],
-  [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => StackSetOperationPreferences$, 2, [0, 4], 0]
+  [_SSN, _Re, _RS, _Ac, _DT, _OP, _OI, _CA],
+  [0, 64 | 0, 2, 64 | 0, () => DeploymentTargets$, () => StackSetOperationPreferences$, [0, 4], 0], 3
 ];
 export var DeleteStackInstancesOutput$: StaticStructureSchema = [3, n0, _DSIO,
   0,
@@ -1052,7 +1052,7 @@ export var DeleteStackInstancesOutput$: StaticStructureSchema = [3, n0, _DSIO,
 export var DeleteStackSetInput$: StaticStructureSchema = [3, n0, _DSSI,
   0,
   [_SSN, _CA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteStackSetOutput$: StaticStructureSchema = [3, n0, _DSSO,
   0,
@@ -1087,7 +1087,7 @@ export var DescribeAccountLimitsOutput$: StaticStructureSchema = [3, n0, _DALO,
 export var DescribeChangeSetHooksInput$: StaticStructureSchema = [3, n0, _DCSHI,
   0,
   [_CSN, _SN, _NT, _LRI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var DescribeChangeSetHooksOutput$: StaticStructureSchema = [3, n0, _DCSHO,
   0,
@@ -1097,7 +1097,7 @@ export var DescribeChangeSetHooksOutput$: StaticStructureSchema = [3, n0, _DCSHO
 export var DescribeChangeSetInput$: StaticStructureSchema = [3, n0, _DCSIe,
   0,
   [_CSN, _SN, _NT, _IPV],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 1
 ];
 export var DescribeChangeSetOutput$: StaticStructureSchema = [3, n0, _DCSOe,
   0,
@@ -1117,7 +1117,7 @@ export var DescribeEventsOutput$: StaticStructureSchema = [3, n0, _DEO,
 export var DescribeGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _DGTIe,
   0,
   [_GTN],
-  [0]
+  [0], 1
 ];
 export var DescribeGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _DGTO,
   0,
@@ -1147,7 +1147,7 @@ export var DescribePublisherOutput$: StaticStructureSchema = [3, n0, _DPO,
 export var DescribeResourceScanInput$: StaticStructureSchema = [3, n0, _DRSI,
   0,
   [_RSI],
-  [0]
+  [0], 1
 ];
 export var DescribeResourceScanOutput$: StaticStructureSchema = [3, n0, _DRSO,
   0,
@@ -1157,17 +1157,17 @@ export var DescribeResourceScanOutput$: StaticStructureSchema = [3, n0, _DRSO,
 export var DescribeStackDriftDetectionStatusInput$: StaticStructureSchema = [3, n0, _DSDDSI,
   0,
   [_SDDI],
-  [0]
+  [0], 1
 ];
 export var DescribeStackDriftDetectionStatusOutput$: StaticStructureSchema = [3, n0, _DSDDSO,
   0,
-  [_SI, _SDDI, _SDS, _DS, _DSR, _DSRC, _Ti],
-  [0, 0, 0, 0, 0, 1, 4]
+  [_SI, _SDDI, _DS, _Ti, _SDS, _DSR, _DSRC],
+  [0, 0, 0, 4, 0, 0, 1], 4
 ];
 export var DescribeStackEventsInput$: StaticStructureSchema = [3, n0, _DSEI,
   0,
   [_SN, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeStackEventsOutput$: StaticStructureSchema = [3, n0, _DSEO,
   0,
@@ -1177,7 +1177,7 @@ export var DescribeStackEventsOutput$: StaticStructureSchema = [3, n0, _DSEO,
 export var DescribeStackInstanceInput$: StaticStructureSchema = [3, n0, _DSIIe,
   0,
   [_SSN, _SIA, _SIR, _CA],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var DescribeStackInstanceOutput$: StaticStructureSchema = [3, n0, _DSIOe,
   0,
@@ -1187,7 +1187,7 @@ export var DescribeStackInstanceOutput$: StaticStructureSchema = [3, n0, _DSIOe,
 export var DescribeStackRefactorInput$: StaticStructureSchema = [3, n0, _DSRI,
   0,
   [_SRI],
-  [0]
+  [0], 1
 ];
 export var DescribeStackRefactorOutput$: StaticStructureSchema = [3, n0, _DSRO,
   0,
@@ -1197,17 +1197,17 @@ export var DescribeStackRefactorOutput$: StaticStructureSchema = [3, n0, _DSRO,
 export var DescribeStackResourceDriftsInput$: StaticStructureSchema = [3, n0, _DSRDI,
   0,
   [_SN, _SRDSF, _NT, _MR],
-  [0, 64 | 0, 0, 1]
+  [0, 64 | 0, 0, 1], 1
 ];
 export var DescribeStackResourceDriftsOutput$: StaticStructureSchema = [3, n0, _DSRDO,
   0,
   [_SRD, _NT],
-  [() => StackResourceDrifts, 0]
+  [() => StackResourceDrifts, 0], 1
 ];
 export var DescribeStackResourceInput$: StaticStructureSchema = [3, n0, _DSRIe,
   0,
   [_SN, _LRI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeStackResourceOutput$: StaticStructureSchema = [3, n0, _DSROe,
   0,
@@ -1227,12 +1227,12 @@ export var DescribeStackResourcesOutput$: StaticStructureSchema = [3, n0, _DSROe
 export var DescribeStackSetInput$: StaticStructureSchema = [3, n0, _DSSIe,
   0,
   [_SSN, _CA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeStackSetOperationInput$: StaticStructureSchema = [3, n0, _DSSOI,
   0,
   [_SSN, _OI, _CA],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DescribeStackSetOperationOutput$: StaticStructureSchema = [3, n0, _DSSOO,
   0,
@@ -1267,7 +1267,7 @@ export var DescribeTypeOutput$: StaticStructureSchema = [3, n0, _DTOes,
 export var DescribeTypeRegistrationInput$: StaticStructureSchema = [3, n0, _DTRI,
   0,
   [_RTeg],
-  [0]
+  [0], 1
 ];
 export var DescribeTypeRegistrationOutput$: StaticStructureSchema = [3, n0, _DTRO,
   0,
@@ -1277,27 +1277,27 @@ export var DescribeTypeRegistrationOutput$: StaticStructureSchema = [3, n0, _DTR
 export var DetectStackDriftInput$: StaticStructureSchema = [3, n0, _DSDI,
   0,
   [_SN, _LRIo],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var DetectStackDriftOutput$: StaticStructureSchema = [3, n0, _DSDO,
   0,
   [_SDDI],
-  [0]
+  [0], 1
 ];
 export var DetectStackResourceDriftInput$: StaticStructureSchema = [3, n0, _DSRDIe,
   0,
   [_SN, _LRI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DetectStackResourceDriftOutput$: StaticStructureSchema = [3, n0, _DSRDOe,
   0,
   [_SRDta],
-  [() => StackResourceDrift$]
+  [() => StackResourceDrift$], 1
 ];
 export var DetectStackSetDriftInput$: StaticStructureSchema = [3, n0, _DSSDI,
   0,
   [_SSN, _OP, _OI, _CA],
-  [0, () => StackSetOperationPreferences$, [0, 4], 0]
+  [0, () => StackSetOperationPreferences$, [0, 4], 0], 1
 ];
 export var DetectStackSetDriftOutput$: StaticStructureSchema = [3, n0, _DSSDO,
   0,
@@ -1322,7 +1322,7 @@ export var EventFilter$: StaticStructureSchema = [3, n0, _EF,
 export var ExecuteChangeSetInput$: StaticStructureSchema = [3, n0, _ECSI,
   0,
   [_CSN, _SN, _CRT, _DR, _REOC],
-  [0, 0, 0, 2, 2]
+  [0, 0, 0, 2, 2], 1
 ];
 export var ExecuteChangeSetOutput$: StaticStructureSchema = [3, n0, _ECSO,
   0,
@@ -1332,7 +1332,7 @@ export var ExecuteChangeSetOutput$: StaticStructureSchema = [3, n0, _ECSO,
 export var ExecuteStackRefactorInput$: StaticStructureSchema = [3, n0, _ESRI,
   0,
   [_SRI],
-  [0]
+  [0], 1
 ];
 export var Export$: StaticStructureSchema = [3, n0, _Ex,
   0,
@@ -1347,8 +1347,8 @@ export var GeneratedTemplateNotFoundException$: StaticErrorSchema = [-3, n0, _GT
 TypeRegistry.for(n0).registerError(GeneratedTemplateNotFoundException$, GeneratedTemplateNotFoundException);
 export var GetGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _GGTI,
   0,
-  [_Fo, _GTN],
-  [0, 0]
+  [_GTN, _Fo],
+  [0, 0], 1
 ];
 export var GetGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _GGTO,
   0,
@@ -1368,7 +1368,7 @@ export var GetHookResultOutput$: StaticStructureSchema = [3, n0, _GHRO,
 export var GetStackPolicyInput$: StaticStructureSchema = [3, n0, _GSPI,
   0,
   [_SN],
-  [0]
+  [0], 1
 ];
 export var GetStackPolicyOutput$: StaticStructureSchema = [3, n0, _GSPO,
   0,
@@ -1409,12 +1409,12 @@ export var HookResultSummary$: StaticStructureSchema = [3, n0, _HRS,
 export var HookTarget$: StaticStructureSchema = [3, n0, _HT,
   0,
   [_TT, _TTN, _TI, _Act],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ImportStacksToStackSetInput$: StaticStructureSchema = [3, n0, _ISTSSI,
   0,
   [_SSN, _SIta, _SIU, _OUI, _OP, _OI, _CA],
-  [0, 64 | 0, 0, 64 | 0, () => StackSetOperationPreferences$, [0, 4], 0]
+  [0, 64 | 0, 0, 64 | 0, () => StackSetOperationPreferences$, [0, 4], 0], 1
 ];
 export var ImportStacksToStackSetOutput$: StaticStructureSchema = [3, n0, _ISTSSO,
   0,
@@ -1454,7 +1454,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListChangeSetsInput$: StaticStructureSchema = [3, n0, _LCSI,
   0,
   [_SN, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListChangeSetsOutput$: StaticStructureSchema = [3, n0, _LCSO,
   0,
@@ -1494,7 +1494,7 @@ export var ListHookResultsOutput$: StaticStructureSchema = [3, n0, _LHRO,
 export var ListImportsInput$: StaticStructureSchema = [3, n0, _LII,
   0,
   [_EN, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListImportsOutput$: StaticStructureSchema = [3, n0, _LIO,
   0,
@@ -1504,7 +1504,7 @@ export var ListImportsOutput$: StaticStructureSchema = [3, n0, _LIO,
 export var ListResourceScanRelatedResourcesInput$: StaticStructureSchema = [3, n0, _LRSRRI,
   0,
   [_RSI, _R, _NT, _MR],
-  [0, () => ScannedResourceIdentifiers, 0, 1]
+  [0, () => ScannedResourceIdentifiers, 0, 1], 2
 ];
 export var ListResourceScanRelatedResourcesOutput$: StaticStructureSchema = [3, n0, _LRSRRO,
   0,
@@ -1514,7 +1514,7 @@ export var ListResourceScanRelatedResourcesOutput$: StaticStructureSchema = [3, 
 export var ListResourceScanResourcesInput$: StaticStructureSchema = [3, n0, _LRSRI,
   0,
   [_RSI, _RI, _RTP, _TK, _TV, _NT, _MR],
-  [0, 0, 0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 0, 0, 1], 1
 ];
 export var ListResourceScanResourcesOutput$: StaticStructureSchema = [3, n0, _LRSRO,
   0,
@@ -1533,8 +1533,8 @@ export var ListResourceScansOutput$: StaticStructureSchema = [3, n0, _LRSO,
 ];
 export var ListStackInstanceResourceDriftsInput$: StaticStructureSchema = [3, n0, _LSIRDI,
   0,
-  [_SSN, _NT, _MR, _SIRDS, _SIA, _SIR, _OI, _CA],
-  [0, 0, 1, 64 | 0, 0, 0, 0, 0]
+  [_SSN, _SIA, _SIR, _OI, _NT, _MR, _SIRDS, _CA],
+  [0, 0, 0, 0, 0, 1, 64 | 0, 0], 4
 ];
 export var ListStackInstanceResourceDriftsOutput$: StaticStructureSchema = [3, n0, _LSIRDO,
   0,
@@ -1544,7 +1544,7 @@ export var ListStackInstanceResourceDriftsOutput$: StaticStructureSchema = [3, n
 export var ListStackInstancesInput$: StaticStructureSchema = [3, n0, _LSII,
   0,
   [_SSN, _NT, _MR, _F, _SIA, _SIR, _CA],
-  [0, 0, 1, () => StackInstanceFilters, 0, 0, 0]
+  [0, 0, 1, () => StackInstanceFilters, 0, 0, 0], 1
 ];
 export var ListStackInstancesOutput$: StaticStructureSchema = [3, n0, _LSIO,
   0,
@@ -1554,12 +1554,12 @@ export var ListStackInstancesOutput$: StaticStructureSchema = [3, n0, _LSIO,
 export var ListStackRefactorActionsInput$: StaticStructureSchema = [3, n0, _LSRAI,
   0,
   [_SRI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListStackRefactorActionsOutput$: StaticStructureSchema = [3, n0, _LSRAO,
   0,
   [_SRA, _NT],
-  [() => StackRefactorActions, 0]
+  [() => StackRefactorActions, 0], 1
 ];
 export var ListStackRefactorsInput$: StaticStructureSchema = [3, n0, _LSRI,
   0,
@@ -1569,12 +1569,12 @@ export var ListStackRefactorsInput$: StaticStructureSchema = [3, n0, _LSRI,
 export var ListStackRefactorsOutput$: StaticStructureSchema = [3, n0, _LSRO,
   0,
   [_SRS, _NT],
-  [() => StackRefactorSummaries, 0]
+  [() => StackRefactorSummaries, 0], 1
 ];
 export var ListStackResourcesInput$: StaticStructureSchema = [3, n0, _LSRIi,
   0,
   [_SN, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListStackResourcesOutput$: StaticStructureSchema = [3, n0, _LSROi,
   0,
@@ -1584,7 +1584,7 @@ export var ListStackResourcesOutput$: StaticStructureSchema = [3, n0, _LSROi,
 export var ListStackSetAutoDeploymentTargetsInput$: StaticStructureSchema = [3, n0, _LSSADTI,
   0,
   [_SSN, _NT, _MR, _CA],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListStackSetAutoDeploymentTargetsOutput$: StaticStructureSchema = [3, n0, _LSSADTO,
   0,
@@ -1594,7 +1594,7 @@ export var ListStackSetAutoDeploymentTargetsOutput$: StaticStructureSchema = [3,
 export var ListStackSetOperationResultsInput$: StaticStructureSchema = [3, n0, _LSSORI,
   0,
   [_SSN, _OI, _NT, _MR, _CA, _F],
-  [0, 0, 0, 1, 0, () => OperationResultFilters]
+  [0, 0, 0, 1, 0, () => OperationResultFilters], 2
 ];
 export var ListStackSetOperationResultsOutput$: StaticStructureSchema = [3, n0, _LSSORO,
   0,
@@ -1604,7 +1604,7 @@ export var ListStackSetOperationResultsOutput$: StaticStructureSchema = [3, n0, 
 export var ListStackSetOperationsInput$: StaticStructureSchema = [3, n0, _LSSOI,
   0,
   [_SSN, _NT, _MR, _CA],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListStackSetOperationsOutput$: StaticStructureSchema = [3, n0, _LSSOO,
   0,
@@ -1669,7 +1669,7 @@ export var LiveResourceDrift$: StaticStructureSchema = [3, n0, _LRD,
 export var LoggingConfig$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_LRA, _LGN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ManagedExecution$: StaticStructureSchema = [3, n0, _ME,
   0,
@@ -1749,12 +1749,12 @@ export var ParameterDeclaration$: StaticStructureSchema = [3, n0, _PD,
 export var PhysicalResourceIdContextKeyValuePair$: StaticStructureSchema = [3, n0, _PRICKVP,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PropertyDifference$: StaticStructureSchema = [3, n0, _PDr,
   0,
   [_PPr, _EV, _AV, _DTi],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var PublishTypeInput$: StaticStructureSchema = [3, n0, _PTI,
   0,
@@ -1769,7 +1769,7 @@ export var PublishTypeOutput$: StaticStructureSchema = [3, n0, _PTO,
 export var RecordHandlerProgressInput$: StaticStructureSchema = [3, n0, _RHPI,
   0,
   [_BT, _OS, _COS, _SM, _EC, _RMes, _CRT],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0], 2
 ];
 export var RecordHandlerProgressOutput$: StaticStructureSchema = [3, n0, _RHPO,
   0,
@@ -1788,8 +1788,8 @@ export var RegisterPublisherOutput$: StaticStructureSchema = [3, n0, _RPO,
 ];
 export var RegisterTypeInput$: StaticStructureSchema = [3, n0, _RTIe,
   0,
-  [_T, _TN, _SHP, _LC, _ERA, _CRT],
-  [0, 0, 0, () => LoggingConfig$, 0, 0]
+  [_TN, _SHP, _T, _LC, _ERA, _CRT],
+  [0, 0, 0, () => LoggingConfig$, 0, 0], 2
 ];
 export var RegisterTypeOutput$: StaticStructureSchema = [3, n0, _RTO,
   0,
@@ -1813,8 +1813,8 @@ export var ResourceChangeDetail$: StaticStructureSchema = [3, n0, _RCD,
 ];
 export var ResourceDefinition$: StaticStructureSchema = [3, n0, _RD,
   0,
-  [_RT, _LRI, _RI],
-  [0, 0, 128 | 0]
+  [_RT, _RI, _LRI],
+  [0, 128 | 0, 0], 2
 ];
 export var ResourceDetail$: StaticStructureSchema = [3, n0, _RDe,
   0,
@@ -1834,12 +1834,12 @@ export var ResourceIdentifierSummary$: StaticStructureSchema = [3, n0, _RISe,
 export var ResourceLocation$: StaticStructureSchema = [3, n0, _RLe,
   0,
   [_SN, _LRI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ResourceMapping$: StaticStructureSchema = [3, n0, _RMeso,
   0,
   [_So, _Des],
-  [() => ResourceLocation$, () => ResourceLocation$]
+  [() => ResourceLocation$, () => ResourceLocation$], 2
 ];
 export var ResourceScanInProgressException$: StaticErrorSchema = [-3, n0, _RSIPE,
   { [_aQE]: [`ResourceScanInProgress`, 400], [_e]: _c, [_hE]: 400 },
@@ -1872,7 +1872,7 @@ export var ResourceTargetDefinition$: StaticStructureSchema = [3, n0, _RTDe,
 export var ResourceToImport$: StaticStructureSchema = [3, n0, _RTIes,
   0,
   [_RT, _LRI, _RI],
-  [0, 0, 128 | 0]
+  [0, 0, 128 | 0], 3
 ];
 export var RollbackConfiguration$: StaticStructureSchema = [3, n0, _RCo,
   0,
@@ -1882,7 +1882,7 @@ export var RollbackConfiguration$: StaticStructureSchema = [3, n0, _RCo,
 export var RollbackStackInput$: StaticStructureSchema = [3, n0, _RSIo,
   0,
   [_SN, _RARN, _CRT, _REOC],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 1
 ];
 export var RollbackStackOutput$: StaticStructureSchema = [3, n0, _RSO,
   0,
@@ -1892,7 +1892,7 @@ export var RollbackStackOutput$: StaticStructureSchema = [3, n0, _RSO,
 export var RollbackTrigger$: StaticStructureSchema = [3, n0, _RTol,
   0,
   [_A, _T],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ScanFilter$: StaticStructureSchema = [3, n0, _SFc,
   0,
@@ -1907,17 +1907,17 @@ export var ScannedResource$: StaticStructureSchema = [3, n0, _SRc,
 export var ScannedResourceIdentifier$: StaticStructureSchema = [3, n0, _SRIc,
   0,
   [_RT, _RI],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var SetStackPolicyInput$: StaticStructureSchema = [3, n0, _SSPI,
   0,
   [_SN, _SPB, _SPURL],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var SetTypeConfigurationInput$: StaticStructureSchema = [3, n0, _STCI,
   0,
-  [_TA, _Co, _CAon, _TN, _T],
-  [0, 0, 0, 0, 0]
+  [_Co, _TA, _CAon, _TN, _T],
+  [0, 0, 0, 0, 0], 1
 ];
 export var SetTypeConfigurationOutput$: StaticStructureSchema = [3, n0, _STCO,
   0,
@@ -1937,12 +1937,12 @@ export var SetTypeDefaultVersionOutput$: StaticStructureSchema = [3, n0, _STDVO,
 export var SignalResourceInput$: StaticStructureSchema = [3, n0, _SRIi,
   0,
   [_SN, _LRI, _UI, _S],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var Stack$: StaticStructureSchema = [3, n0, _Sta,
   0,
-  [_SI, _SN, _CSI, _D, _P, _CT, _DTel, _LUT, _RCo, _SSta, _SSR, _DR, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO],
-  [0, 0, 0, 0, () => _Parameters, 4, 4, 4, () => RollbackConfiguration$, 0, 0, 2, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations]
+  [_SN, _CT, _SSta, _SI, _CSI, _D, _P, _DTel, _LUT, _RCo, _SSR, _DR, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO],
+  [0, 4, 0, 0, 0, 0, () => _Parameters, 4, 4, () => RollbackConfiguration$, 0, 2, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations], 3
 ];
 export var StackDefinition$: StaticStructureSchema = [3, n0, _SDt,
   0,
@@ -1952,17 +1952,17 @@ export var StackDefinition$: StaticStructureSchema = [3, n0, _SDt,
 export var StackDriftInformation$: StaticStructureSchema = [3, n0, _SDI,
   0,
   [_SDS, _LCT],
-  [0, 4]
+  [0, 4], 1
 ];
 export var StackDriftInformationSummary$: StaticStructureSchema = [3, n0, _SDIS,
   0,
   [_SDS, _LCT],
-  [0, 4]
+  [0, 4], 1
 ];
 export var StackEvent$: StaticStructureSchema = [3, n0, _SEt,
   0,
-  [_SI, _EI, _SN, _OI, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
-  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_SI, _EI, _SN, _Ti, _OI, _LRI, _PRI, _RT, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
+  [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 4
 ];
 export var StackInstance$: StaticStructureSchema = [3, n0, _SIt,
   0,
@@ -1987,8 +1987,8 @@ export var StackInstanceNotFoundException$: StaticErrorSchema = [-3, n0, _SINFE,
 TypeRegistry.for(n0).registerError(StackInstanceNotFoundException$, StackInstanceNotFoundException);
 export var StackInstanceResourceDriftsSummary$: StaticStructureSchema = [3, n0, _SIRDSt,
   0,
-  [_SI, _LRI, _PRI, _PRIC, _RT, _PDro, _SRDS, _Ti],
-  [0, 0, 0, () => PhysicalResourceIdContext, 0, () => PropertyDifferences, 0, 4]
+  [_SI, _LRI, _RT, _SRDS, _Ti, _PRI, _PRIC, _PDro],
+  [0, 0, 0, 0, 4, 0, () => PhysicalResourceIdContext, () => PropertyDifferences], 5
 ];
 export var StackInstanceSummary$: StaticStructureSchema = [3, n0, _SISt,
   0,
@@ -2019,33 +2019,33 @@ export var StackRefactorSummary$: StaticStructureSchema = [3, n0, _SRSta,
 ];
 export var StackResource$: StaticStructureSchema = [3, n0, _SRta,
   0,
-  [_SN, _SI, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _D, _DI, _MI],
-  [0, 0, 0, 0, 0, 4, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$]
+  [_LRI, _RT, _Ti, _RSes, _SN, _SI, _PRI, _RSR, _D, _DI, _MI],
+  [0, 0, 4, 0, 0, 0, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$], 4
 ];
 export var StackResourceDetail$: StaticStructureSchema = [3, n0, _SRDt,
   0,
-  [_SN, _SI, _LRI, _PRI, _RT, _LUTa, _RSes, _RSR, _D, _Me, _DI, _MI],
-  [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$]
+  [_LRI, _RT, _LUTa, _RSes, _SN, _SI, _PRI, _RSR, _D, _Me, _DI, _MI],
+  [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$], 4
 ];
 export var StackResourceDrift$: StaticStructureSchema = [3, n0, _SRDta,
   0,
-  [_SI, _LRI, _PRI, _PRIC, _RT, _EP, _AP, _PDro, _SRDS, _Ti, _MI, _DSRr],
-  [0, 0, 0, () => PhysicalResourceIdContext, 0, 0, 0, () => PropertyDifferences, 0, 4, () => ModuleInfo$, 0]
+  [_SI, _LRI, _RT, _SRDS, _Ti, _PRI, _PRIC, _EP, _AP, _PDro, _MI, _DSRr],
+  [0, 0, 0, 0, 4, 0, () => PhysicalResourceIdContext, 0, 0, () => PropertyDifferences, () => ModuleInfo$, 0], 5
 ];
 export var StackResourceDriftInformation$: StaticStructureSchema = [3, n0, _SRDI,
   0,
   [_SRDS, _LCT],
-  [0, 4]
+  [0, 4], 1
 ];
 export var StackResourceDriftInformationSummary$: StaticStructureSchema = [3, n0, _SRDIS,
   0,
   [_SRDS, _LCT],
-  [0, 4]
+  [0, 4], 1
 ];
 export var StackResourceSummary$: StaticStructureSchema = [3, n0, _SRStac,
   0,
-  [_LRI, _PRI, _RT, _LUTa, _RSes, _RSR, _DI, _MI],
-  [0, 0, 0, 4, 0, 0, () => StackResourceDriftInformationSummary$, () => ModuleInfo$]
+  [_LRI, _RT, _LUTa, _RSes, _PRI, _RSR, _DI, _MI],
+  [0, 0, 4, 0, 0, 0, () => StackResourceDriftInformationSummary$, () => ModuleInfo$], 4
 ];
 export var StackSet$: StaticStructureSchema = [3, n0, _SS,
   0,
@@ -2106,8 +2106,8 @@ export var StackSetSummary$: StaticStructureSchema = [3, n0, _SSS,
 ];
 export var StackSummary$: StaticStructureSchema = [3, n0, _SStac,
   0,
-  [_SI, _SN, _TDe, _CT, _LUT, _DTel, _SSta, _SSR, _PIa, _RIo, _DI, _LO],
-  [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, () => StackDriftInformationSummary$, () => LastOperations]
+  [_SN, _CT, _SSta, _SI, _TDe, _LUT, _DTel, _SSR, _PIa, _RIo, _DI, _LO],
+  [0, 4, 0, 0, 0, 4, 4, 0, 0, 0, () => StackDriftInformationSummary$, () => LastOperations], 3
 ];
 export var StaleRequestException$: StaticErrorSchema = [-3, n0, _SRE,
   { [_aQE]: [`StaleRequestException`, 409], [_e]: _c, [_hE]: 409 },
@@ -2128,7 +2128,7 @@ export var StartResourceScanOutput$: StaticStructureSchema = [3, n0, _SRSO,
 export var StopStackSetOperationInput$: StaticStructureSchema = [3, n0, _SSSOI,
   0,
   [_SSN, _OI, _CA],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var StopStackSetOperationOutput$: StaticStructureSchema = [3, n0, _SSSOO,
   0,
@@ -2138,7 +2138,7 @@ export var StopStackSetOperationOutput$: StaticStructureSchema = [3, n0, _SSSOO,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TemplateConfiguration$: StaticStructureSchema = [3, n0, _TCe,
   0,
@@ -2221,7 +2221,7 @@ export var TypeVersionSummary$: StaticStructureSchema = [3, n0, _TVSy,
 export var UpdateGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _UGTI,
   0,
   [_GTN, _NGTN, _AR, _RRem, _RAR, _TCe],
-  [0, 0, () => ResourceDefinitions, 64 | 0, 2, () => TemplateConfiguration$]
+  [0, 0, () => ResourceDefinitions, 64 | 0, 2, () => TemplateConfiguration$], 1
 ];
 export var UpdateGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _UGTO,
   0,
@@ -2231,12 +2231,12 @@ export var UpdateGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _UGTO
 export var UpdateStackInput$: StaticStructureSchema = [3, n0, _USI,
   0,
   [_SN, _TB, _TURL, _UPT, _SPDUB, _SPDUURL, _P, _Ca, _RTe, _RARN, _RCo, _SPB, _SPURL, _NARN, _Ta, _DR, _CRT, _REOC],
-  [0, 0, 0, 2, 0, 0, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 0, 0, 64 | 0, () => Tags, 2, 0, 2]
+  [0, 0, 0, 2, 0, 0, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 0, 0, 64 | 0, () => Tags, 2, 0, 2], 1
 ];
 export var UpdateStackInstancesInput$: StaticStructureSchema = [3, n0, _USII,
   0,
-  [_SSN, _Ac, _DT, _Re, _PO, _OP, _OI, _CA],
-  [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0]
+  [_SSN, _Re, _Ac, _DT, _PO, _OP, _OI, _CA],
+  [0, 64 | 0, 64 | 0, () => DeploymentTargets$, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0], 2
 ];
 export var UpdateStackInstancesOutput$: StaticStructureSchema = [3, n0, _USIO,
   0,
@@ -2251,7 +2251,7 @@ export var UpdateStackOutput$: StaticStructureSchema = [3, n0, _USO,
 export var UpdateStackSetInput$: StaticStructureSchema = [3, n0, _USSI,
   0,
   [_SSN, _D, _TB, _TURL, _UPT, _P, _Ca, _Ta, _OP, _ARARN, _ERN, _DT, _PM, _AD, _OI, _Ac, _Re, _CA, _ME],
-  [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, () => Tags, () => StackSetOperationPreferences$, 0, 0, () => DeploymentTargets$, 0, () => AutoDeployment$, [0, 4], 64 | 0, 64 | 0, 0, () => ManagedExecution$]
+  [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, () => Tags, () => StackSetOperationPreferences$, 0, 0, () => DeploymentTargets$, 0, () => AutoDeployment$, [0, 4], 64 | 0, 64 | 0, 0, () => ManagedExecution$], 1
 ];
 export var UpdateStackSetOutput$: StaticStructureSchema = [3, n0, _USSO,
   0,
@@ -2261,7 +2261,7 @@ export var UpdateStackSetOutput$: StaticStructureSchema = [3, n0, _USSO,
 export var UpdateTerminationProtectionInput$: StaticStructureSchema = [3, n0, _UTPI,
   0,
   [_ETP, _SN],
-  [2, 0]
+  [2, 0], 2
 ];
 export var UpdateTerminationProtectionOutput$: StaticStructureSchema = [3, n0, _UTPO,
   0,

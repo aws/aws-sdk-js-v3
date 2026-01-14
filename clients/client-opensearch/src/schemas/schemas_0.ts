@@ -813,7 +813,7 @@ var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
 export var AcceptInboundConnectionRequest$: StaticStructureSchema = [3, n0, _AICR,
   0,
   [_CI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var AcceptInboundConnectionResponse$: StaticStructureSchema = [3, n0, _AICRc,
   0,
@@ -829,12 +829,12 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AccessPoliciesStatus$: StaticStructureSchema = [3, n0, _APS,
   0,
   [_O, _S],
-  [0, () => OptionStatus$]
+  [0, () => OptionStatus$], 2
 ];
 export var AddDataSourceRequest$: StaticStructureSchema = [3, n0, _ADSR,
   0,
   [_DN, _N, _DST, _D],
-  [[0, 1], 0, () => DataSourceType$, 0]
+  [[0, 1], 0, () => DataSourceType$, 0], 3
 ];
 export var AddDataSourceResponse$: StaticStructureSchema = [3, n0, _ADSRd,
   0,
@@ -843,8 +843,8 @@ export var AddDataSourceResponse$: StaticStructureSchema = [3, n0, _ADSRd,
 ];
 export var AddDirectQueryDataSourceRequest$: StaticStructureSchema = [3, n0, _ADQDSR,
   0,
-  [_DSN, _DST, _D, _OSA, _TL],
-  [0, () => DirectQueryDataSourceType$, 0, 64 | 0, () => TagList]
+  [_DSN, _DST, _OSA, _D, _TL],
+  [0, () => DirectQueryDataSourceType$, 64 | 0, 0, () => TagList], 3
 ];
 export var AddDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0, _ADQDSRd,
   0,
@@ -859,12 +859,12 @@ export var AdditionalLimit$: StaticStructureSchema = [3, n0, _AL,
 export var AddTagsRequest$: StaticStructureSchema = [3, n0, _ATR,
   0,
   [_ARN, _TL],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var AdvancedOptionsStatus$: StaticStructureSchema = [3, n0, _AOS,
   0,
   [_O, _S],
-  [128 | 0, () => OptionStatus$]
+  [128 | 0, () => OptionStatus$], 2
 ];
 export var AdvancedSecurityOptions$: StaticStructureSchema = [3, n0, _ASO,
   0,
@@ -879,7 +879,7 @@ export var AdvancedSecurityOptionsInput$: StaticStructureSchema = [3, n0, _ASOI,
 export var AdvancedSecurityOptionsStatus$: StaticStructureSchema = [3, n0, _ASOS,
   0,
   [_O, _S],
-  [() => AdvancedSecurityOptions$, () => OptionStatus$]
+  [() => AdvancedSecurityOptions$, () => OptionStatus$], 2
 ];
 export var AIMLOptionsInput$: StaticStructureSchema = [3, n0, _AIMLOI,
   0,
@@ -909,7 +909,7 @@ export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
 export var AssociatePackageRequest$: StaticStructureSchema = [3, n0, _APR,
   0,
   [_PID, _DN, _PPIDL, _ACs],
-  [[0, 1], [0, 1], 64 | 0, () => PackageAssociationConfiguration$]
+  [[0, 1], [0, 1], 64 | 0, () => PackageAssociationConfiguration$], 2
 ];
 export var AssociatePackageResponse$: StaticStructureSchema = [3, n0, _APRs,
   0,
@@ -919,7 +919,7 @@ export var AssociatePackageResponse$: StaticStructureSchema = [3, n0, _APRs,
 export var AssociatePackagesRequest$: StaticStructureSchema = [3, n0, _APRss,
   0,
   [_PL, _DN],
-  [() => PackageDetailsForAssociationList, 0]
+  [() => PackageDetailsForAssociationList, 0], 2
 ];
 export var AssociatePackagesResponse$: StaticStructureSchema = [3, n0, _APRsso,
   0,
@@ -934,12 +934,12 @@ export var AuthorizedPrincipal$: StaticStructureSchema = [3, n0, _AP,
 export var AuthorizeVpcEndpointAccessRequest$: StaticStructureSchema = [3, n0, _AVEAR,
   0,
   [_DN, _A, _Se],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var AuthorizeVpcEndpointAccessResponse$: StaticStructureSchema = [3, n0, _AVEARu,
   0,
   [_AP],
-  [() => AuthorizedPrincipal$]
+  [() => AuthorizedPrincipal$], 1
 ];
 export var AutoTune$: StaticStructureSchema = [3, n0, _AT,
   0,
@@ -978,8 +978,8 @@ export var AutoTuneOptionsStatus$: StaticStructureSchema = [3, n0, _ATOS,
 ];
 export var AutoTuneStatus$: StaticStructureSchema = [3, n0, _ATS,
   0,
-  [_CD, _UD, _UV, _St, _EM, _PD],
-  [4, 4, 1, 0, 0, 2]
+  [_CD, _UD, _St, _UV, _EM, _PD],
+  [4, 4, 0, 1, 0, 2], 3
 ];
 export var AvailabilityZoneInfo$: StaticStructureSchema = [3, n0, _AZI,
   0,
@@ -988,8 +988,8 @@ export var AvailabilityZoneInfo$: StaticStructureSchema = [3, n0, _AZI,
 ];
 export var AWSDomainInformation$: StaticStructureSchema = [3, n0, _AWSDI,
   0,
-  [_OI, _DN, _R],
-  [0, 0, 0]
+  [_DN, _OI, _R],
+  [0, 0, 0], 1
 ];
 export var BaseException$: StaticErrorSchema = [-3, n0, _BE,
   { [_e]: _c },
@@ -1000,7 +1000,7 @@ TypeRegistry.for(n0).registerError(BaseException$, BaseException);
 export var CancelDomainConfigChangeRequest$: StaticStructureSchema = [3, n0, _CDCCR,
   0,
   [_DN, _DR],
-  [[0, 1], 2]
+  [[0, 1], 2], 1
 ];
 export var CancelDomainConfigChangeResponse$: StaticStructureSchema = [3, n0, _CDCCRa,
   0,
@@ -1015,7 +1015,7 @@ export var CancelledChangeProperty$: StaticStructureSchema = [3, n0, _CCPa,
 export var CancelServiceSoftwareUpdateRequest$: StaticStructureSchema = [3, n0, _CSSUR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var CancelServiceSoftwareUpdateResponse$: StaticStructureSchema = [3, n0, _CSSURa,
   0,
@@ -1040,7 +1040,7 @@ export var ChangeProgressStatusDetails$: StaticStructureSchema = [3, n0, _CPSD,
 export var CloudWatchDirectQueryDataSource$: StaticStructureSchema = [3, n0, _CWDQDS,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ClusterConfig$: StaticStructureSchema = [3, n0, _CC,
   0,
@@ -1050,7 +1050,7 @@ export var ClusterConfig$: StaticStructureSchema = [3, n0, _CC,
 export var ClusterConfigStatus$: StaticStructureSchema = [3, n0, _CCSl,
   0,
   [_O, _S],
-  [() => ClusterConfig$, () => OptionStatus$]
+  [() => ClusterConfig$, () => OptionStatus$], 2
 ];
 export var CognitoOptions$: StaticStructureSchema = [3, n0, _CO,
   0,
@@ -1060,12 +1060,12 @@ export var CognitoOptions$: StaticStructureSchema = [3, n0, _CO,
 export var CognitoOptionsStatus$: StaticStructureSchema = [3, n0, _COS,
   0,
   [_O, _S],
-  [() => CognitoOptions$, () => OptionStatus$]
+  [() => CognitoOptions$, () => OptionStatus$], 2
 ];
 export var ColdStorageOptions$: StaticStructureSchema = [3, n0, _CSO,
   0,
   [_E],
-  [2]
+  [2], 1
 ];
 export var CompatibleVersionsMap$: StaticStructureSchema = [3, n0, _CVM,
   0,
@@ -1085,8 +1085,8 @@ export var ConnectionProperties$: StaticStructureSchema = [3, n0, _CPo,
 ];
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_cT, _n, _dS, _iICO, _aC, _tL, _kKA],
-  [[0, 4], 0, () => DataSources, () => IamIdentityCenterOptionsInput$, () => AppConfigs, () => TagList, 0]
+  [_n, _cT, _dS, _iICO, _aC, _tL, _kKA],
+  [0, [0, 4], () => DataSources, () => IamIdentityCenterOptionsInput$, () => AppConfigs, () => TagList, 0], 1
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -1096,7 +1096,7 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateDomainRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_DN, _EV, _CC, _EBSO, _APc, _IPAT, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ICO, _TL, _ATO, _OPWO, _SUO, _AIMLO],
-  [0, 0, () => ClusterConfig$, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => TagList, () => AutoTuneOptionsInput$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$]
+  [0, 0, () => ClusterConfig$, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => TagList, () => AutoTuneOptionsInput$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$], 1
 ];
 export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -1106,17 +1106,17 @@ export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRr,
 export var CreateIndexRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_DN, _IN, _IS],
-  [[0, 1], 0, 15]
+  [[0, 1], 0, 15], 3
 ];
 export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var CreateOutboundConnectionRequest$: StaticStructureSchema = [3, n0, _COCR,
   0,
   [_LDI, _RDI, _CA, _CM, _CPo],
-  [() => DomainInformationContainer$, () => DomainInformationContainer$, 0, 0, () => ConnectionProperties$]
+  [() => DomainInformationContainer$, () => DomainInformationContainer$, 0, 0, () => ConnectionProperties$], 3
 ];
 export var CreateOutboundConnectionResponse$: StaticStructureSchema = [3, n0, _COCRr,
   0,
@@ -1125,8 +1125,8 @@ export var CreateOutboundConnectionResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreatePackageRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_PNa, _PTa, _PDa, _PS, _PC, _EV, _PVO, _PEO],
-  [0, 0, 0, () => PackageSource$, () => PackageConfiguration$, 0, () => PackageVendingOptions$, () => PackageEncryptionOptions$]
+  [_PNa, _PTa, _PS, _PDa, _PC, _EV, _PVO, _PEO],
+  [0, 0, () => PackageSource$, 0, () => PackageConfiguration$, 0, () => PackageVendingOptions$, () => PackageEncryptionOptions$], 3
 ];
 export var CreatePackageResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -1136,12 +1136,12 @@ export var CreatePackageResponse$: StaticStructureSchema = [3, n0, _CPRr,
 export var CreateVpcEndpointRequest$: StaticStructureSchema = [3, n0, _CVER,
   0,
   [_DA, _VO, _CT],
-  [0, () => VPCOptions$, 0]
+  [0, () => VPCOptions$, 0], 2
 ];
 export var CreateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _CVERr,
   0,
   [_VE],
-  [() => VpcEndpoint$]
+  [() => VpcEndpoint$], 1
 ];
 export var CrossClusterSearchConnectionProperties$: StaticStructureSchema = [3, n0, _CCSCP,
   0,
@@ -1161,7 +1161,7 @@ export var DataSourceDetails$: StaticStructureSchema = [3, n0, _DSD,
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -1171,7 +1171,7 @@ export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteDataSourceRequest$: StaticStructureSchema = [3, n0, _DDSR,
   0,
   [_DN, _N],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSRe,
   0,
@@ -1181,12 +1181,12 @@ export var DeleteDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSRe,
 export var DeleteDirectQueryDataSourceRequest$: StaticStructureSchema = [3, n0, _DDQDSR,
   0,
   [_DSN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDomainRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDomainResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -1196,7 +1196,7 @@ export var DeleteDomainResponse$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeleteInboundConnectionRequest$: StaticStructureSchema = [3, n0, _DICR,
   0,
   [_CI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteInboundConnectionResponse$: StaticStructureSchema = [3, n0, _DICRe,
   0,
@@ -1206,17 +1206,17 @@ export var DeleteInboundConnectionResponse$: StaticStructureSchema = [3, n0, _DI
 export var DeleteIndexRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_DN, _IN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteIndexResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var DeleteOutboundConnectionRequest$: StaticStructureSchema = [3, n0, _DOCR,
   0,
   [_CI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteOutboundConnectionResponse$: StaticStructureSchema = [3, n0, _DOCRe,
   0,
@@ -1226,7 +1226,7 @@ export var DeleteOutboundConnectionResponse$: StaticStructureSchema = [3, n0, _D
 export var DeletePackageRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PID],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeletePackageResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -1236,12 +1236,12 @@ export var DeletePackageResponse$: StaticStructureSchema = [3, n0, _DPRe,
 export var DeleteVpcEndpointRequest$: StaticStructureSchema = [3, n0, _DVER,
   0,
   [_VEI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVpcEndpointResponse$: StaticStructureSchema = [3, n0, _DVERe,
   0,
   [_VES],
-  [() => VpcEndpointSummary$]
+  [() => VpcEndpointSummary$], 1
 ];
 export var DependencyFailureException$: StaticErrorSchema = [-3, n0, _DFE,
   { [_e]: _c, [_hE]: 424 },
@@ -1252,7 +1252,7 @@ TypeRegistry.for(n0).registerError(DependencyFailureException$, DependencyFailur
 export var DescribeDomainAutoTunesRequest$: StaticStructureSchema = [3, n0, _DDATR,
   0,
   [_DN, _MR, _NT],
-  [[0, 1], 1, 0]
+  [[0, 1], 1, 0], 1
 ];
 export var DescribeDomainAutoTunesResponse$: StaticStructureSchema = [3, n0, _DDATRe,
   0,
@@ -1262,7 +1262,7 @@ export var DescribeDomainAutoTunesResponse$: StaticStructureSchema = [3, n0, _DD
 export var DescribeDomainChangeProgressRequest$: StaticStructureSchema = [3, n0, _DDCPR,
   0,
   [_DN, _CIh],
-  [[0, 1], [0, { [_hQ]: _ch }]]
+  [[0, 1], [0, { [_hQ]: _ch }]], 1
 ];
 export var DescribeDomainChangeProgressResponse$: StaticStructureSchema = [3, n0, _DDCPRe,
   0,
@@ -1272,17 +1272,17 @@ export var DescribeDomainChangeProgressResponse$: StaticStructureSchema = [3, n0
 export var DescribeDomainConfigRequest$: StaticStructureSchema = [3, n0, _DDCR,
   0,
   [_DN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeDomainConfigResponse$: StaticStructureSchema = [3, n0, _DDCRe,
   0,
   [_DC],
-  [() => DomainConfig$]
+  [() => DomainConfig$], 1
 ];
 export var DescribeDomainHealthRequest$: StaticStructureSchema = [3, n0, _DDHR,
   0,
   [_DN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeDomainHealthResponse$: StaticStructureSchema = [3, n0, _DDHRe,
   0,
@@ -1292,7 +1292,7 @@ export var DescribeDomainHealthResponse$: StaticStructureSchema = [3, n0, _DDHRe
 export var DescribeDomainNodesRequest$: StaticStructureSchema = [3, n0, _DDNR,
   0,
   [_DN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeDomainNodesResponse$: StaticStructureSchema = [3, n0, _DDNRe,
   0,
@@ -1302,27 +1302,27 @@ export var DescribeDomainNodesResponse$: StaticStructureSchema = [3, n0, _DDNRe,
 export var DescribeDomainRequest$: StaticStructureSchema = [3, n0, _DDRes,
   0,
   [_DN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeDomainResponse$: StaticStructureSchema = [3, n0, _DDResc,
   0,
   [_DSo],
-  [() => DomainStatus$]
+  [() => DomainStatus$], 1
 ];
 export var DescribeDomainsRequest$: StaticStructureSchema = [3, n0, _DDRescr,
   0,
   [_DNo],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeDomainsResponse$: StaticStructureSchema = [3, n0, _DDRescri,
   0,
   [_DSL],
-  [() => DomainStatusList]
+  [() => DomainStatusList], 1
 ];
 export var DescribeDryRunProgressRequest$: StaticStructureSchema = [3, n0, _DDRPR,
   0,
   [_DN, _DRI, _LDRC],
-  [[0, 1], [0, { [_hQ]: _dRI }], [2, { [_hQ]: _lDRC }]]
+  [[0, 1], [0, { [_hQ]: _dRI }], [2, { [_hQ]: _lDRC }]], 1
 ];
 export var DescribeDryRunProgressResponse$: StaticStructureSchema = [3, n0, _DDRPRe,
   0,
@@ -1341,8 +1341,8 @@ export var DescribeInboundConnectionsResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeInstanceTypeLimitsRequest$: StaticStructureSchema = [3, n0, _DITLR,
   0,
-  [_DN, _IT, _EV],
-  [[0, { [_hQ]: _dN }], [0, 1], [0, 1]]
+  [_IT, _EV, _DN],
+  [[0, 1], [0, 1], [0, { [_hQ]: _dN }]], 2
 ];
 export var DescribeInstanceTypeLimitsResponse$: StaticStructureSchema = [3, n0, _DITLRe,
   0,
@@ -1397,12 +1397,12 @@ export var DescribeReservedInstancesResponse$: StaticStructureSchema = [3, n0, _
 export var DescribeVpcEndpointsRequest$: StaticStructureSchema = [3, n0, _DVERes,
   0,
   [_VEIp],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeVpcEndpointsResponse$: StaticStructureSchema = [3, n0, _DVEResc,
   0,
   [_VEp, _VEE],
-  [() => VpcEndpoints, () => VpcEndpointErrorList]
+  [() => VpcEndpoints, () => VpcEndpointErrorList], 2
 ];
 export var DirectQueryDataSource$: StaticStructureSchema = [3, n0, _DQDS,
   0,
@@ -1418,7 +1418,7 @@ TypeRegistry.for(n0).registerError(DisabledOperationException$, DisabledOperatio
 export var DissociatePackageRequest$: StaticStructureSchema = [3, n0, _DPRi,
   0,
   [_PID, _DN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DissociatePackageResponse$: StaticStructureSchema = [3, n0, _DPRis,
   0,
@@ -1428,7 +1428,7 @@ export var DissociatePackageResponse$: StaticStructureSchema = [3, n0, _DPRis,
 export var DissociatePackagesRequest$: StaticStructureSchema = [3, n0, _DPRiss,
   0,
   [_PL, _DN],
-  [64 | 0, 0]
+  [64 | 0, 0], 2
 ];
 export var DissociatePackagesResponse$: StaticStructureSchema = [3, n0, _DPRisso,
   0,
@@ -1448,7 +1448,7 @@ export var DomainEndpointOptions$: StaticStructureSchema = [3, n0, _DEO,
 export var DomainEndpointOptionsStatus$: StaticStructureSchema = [3, n0, _DEOS,
   0,
   [_O, _S],
-  [() => DomainEndpointOptions$, () => OptionStatus$]
+  [() => DomainEndpointOptions$, () => OptionStatus$], 2
 ];
 export var DomainInfo$: StaticStructureSchema = [3, n0, _DI,
   0,
@@ -1477,13 +1477,13 @@ export var DomainPackageDetails$: StaticStructureSchema = [3, n0, _DPD,
 ];
 export var DomainStatus$: StaticStructureSchema = [3, n0, _DSo,
   0,
-  [_DIo, _DN, _ARN, _Cr, _De, _En, _EVn, _End, _DEVHZI, _Pro, _UP, _EV, _CC, _EBSO, _APc, _IPAT, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _SSO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _DPSo, _MP, _AIMLO],
-  [0, 0, 0, 2, 2, 0, 0, 128 | 0, 0, 2, 2, 0, () => ClusterConfig$, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCDerivedInfo$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => ServiceSoftwareOptions$, () => DomainEndpointOptions$, () => AdvancedSecurityOptions$, () => IdentityCenterOptions$, () => AutoTuneOptionsOutput$, () => ChangeProgressDetails$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, 0, () => ModifyingPropertiesList, () => AIMLOptionsOutput$]
+  [_DIo, _DN, _ARN, _CC, _Cr, _De, _En, _EVn, _End, _DEVHZI, _Pro, _UP, _EV, _EBSO, _APc, _IPAT, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _SSO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _DPSo, _MP, _AIMLO],
+  [0, 0, 0, () => ClusterConfig$, 2, 2, 0, 0, 128 | 0, 0, 2, 2, 0, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCDerivedInfo$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => ServiceSoftwareOptions$, () => DomainEndpointOptions$, () => AdvancedSecurityOptions$, () => IdentityCenterOptions$, () => AutoTuneOptionsOutput$, () => ChangeProgressDetails$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, 0, () => ModifyingPropertiesList, () => AIMLOptionsOutput$], 4
 ];
 export var DryRunProgressStatus$: StaticStructureSchema = [3, n0, _DRPS,
   0,
   [_DRI, _DRS, _CD, _UD, _VF],
-  [0, 0, 0, 0, () => ValidationFailures]
+  [0, 0, 0, 0, () => ValidationFailures], 4
 ];
 export var DryRunResults$: StaticStructureSchema = [3, n0, _DRR,
   0,
@@ -1503,7 +1503,7 @@ export var EBSOptions$: StaticStructureSchema = [3, n0, _EBSO,
 export var EBSOptionsStatus$: StaticStructureSchema = [3, n0, _EBSOS,
   0,
   [_O, _S],
-  [() => EBSOptions$, () => OptionStatus$]
+  [() => EBSOptions$, () => OptionStatus$], 2
 ];
 export var EncryptionAtRestOptions$: StaticStructureSchema = [3, n0, _EARO,
   0,
@@ -1513,7 +1513,7 @@ export var EncryptionAtRestOptions$: StaticStructureSchema = [3, n0, _EARO,
 export var EncryptionAtRestOptionsStatus$: StaticStructureSchema = [3, n0, _EAROS,
   0,
   [_O, _S],
-  [() => EncryptionAtRestOptions$, () => OptionStatus$]
+  [() => EncryptionAtRestOptions$, () => OptionStatus$], 2
 ];
 export var EnvironmentInfo$: StaticStructureSchema = [3, n0, _EIn,
   0,
@@ -1533,7 +1533,7 @@ export var Filter$: StaticStructureSchema = [3, n0, _Fi,
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -1553,7 +1553,7 @@ export var GetCompatibleVersionsResponse$: StaticStructureSchema = [3, n0, _GCVR
 export var GetDataSourceRequest$: StaticStructureSchema = [3, n0, _GDSR,
   0,
   [_DN, _N],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetDataSourceResponse$: StaticStructureSchema = [3, n0, _GDSRe,
   0,
@@ -1573,7 +1573,7 @@ export var GetDefaultApplicationSettingResponse$: StaticStructureSchema = [3, n0
 export var GetDirectQueryDataSourceRequest$: StaticStructureSchema = [3, n0, _GDQDSR,
   0,
   [_DSN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0, _GDQDSRe,
   0,
@@ -1583,7 +1583,7 @@ export var GetDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0, _G
 export var GetDomainMaintenanceStatusRequest$: StaticStructureSchema = [3, n0, _GDMSR,
   0,
   [_DN, _MI],
-  [[0, 1], [0, { [_hQ]: _mI }]]
+  [[0, 1], [0, { [_hQ]: _mI }]], 2
 ];
 export var GetDomainMaintenanceStatusResponse$: StaticStructureSchema = [3, n0, _GDMSRe,
   0,
@@ -1593,17 +1593,17 @@ export var GetDomainMaintenanceStatusResponse$: StaticStructureSchema = [3, n0, 
 export var GetIndexRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
   [_DN, _IN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetIndexResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
   [_IS],
-  [15]
+  [15], 1
 ];
 export var GetPackageVersionHistoryRequest$: StaticStructureSchema = [3, n0, _GPVHR,
   0,
   [_PID, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var GetPackageVersionHistoryResponse$: StaticStructureSchema = [3, n0, _GPVHRe,
   0,
@@ -1613,7 +1613,7 @@ export var GetPackageVersionHistoryResponse$: StaticStructureSchema = [3, n0, _G
 export var GetUpgradeHistoryRequest$: StaticStructureSchema = [3, n0, _GUHR,
   0,
   [_DN, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var GetUpgradeHistoryResponse$: StaticStructureSchema = [3, n0, _GUHRe,
   0,
@@ -1623,7 +1623,7 @@ export var GetUpgradeHistoryResponse$: StaticStructureSchema = [3, n0, _GUHRe,
 export var GetUpgradeStatusRequest$: StaticStructureSchema = [3, n0, _GUSR,
   0,
   [_DN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetUpgradeStatusResponse$: StaticStructureSchema = [3, n0, _GUSRe,
   0,
@@ -1663,7 +1663,7 @@ export var IdentityCenterOptionsInput$: StaticStructureSchema = [3, n0, _ICOI,
 export var IdentityCenterOptionsStatus$: StaticStructureSchema = [3, n0, _ICOS,
   0,
   [_O, _S],
-  [() => IdentityCenterOptions$, () => OptionStatus$]
+  [() => IdentityCenterOptions$, () => OptionStatus$], 2
 ];
 export var InboundConnection$: StaticStructureSchema = [3, n0, _ICn,
   0,
@@ -1711,7 +1711,7 @@ TypeRegistry.for(n0).registerError(InvalidTypeException$, InvalidTypeException);
 export var IPAddressTypeStatus$: StaticStructureSchema = [3, n0, _IPATS,
   0,
   [_O, _S],
-  [0, () => OptionStatus$]
+  [0, () => OptionStatus$], 2
 ];
 export var JWTOptionsInput$: StaticStructureSchema = [3, n0, _JWTOI,
   0,
@@ -1725,8 +1725,8 @@ export var JWTOptionsOutput$: StaticStructureSchema = [3, n0, _JWTOO,
 ];
 export var KeyStoreAccessOption$: StaticStructureSchema = [3, n0, _KSAO,
   0,
-  [_KARA, _KSAE],
-  [0, 2]
+  [_KSAE, _KARA],
+  [2, 0], 1
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _c, [_hE]: 409 },
@@ -1752,7 +1752,7 @@ export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListDataSourcesRequest$: StaticStructureSchema = [3, n0, _LDSR,
   0,
   [_DN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListDataSourcesResponse$: StaticStructureSchema = [3, n0, _LDSRi,
   0,
@@ -1772,7 +1772,7 @@ export var ListDirectQueryDataSourcesResponse$: StaticStructureSchema = [3, n0, 
 export var ListDomainMaintenancesRequest$: StaticStructureSchema = [3, n0, _LDMR,
   0,
   [_DN, _Ac, _S, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _ac }], [0, { [_hQ]: _s }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _ac }], [0, { [_hQ]: _s }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListDomainMaintenancesResponse$: StaticStructureSchema = [3, n0, _LDMRi,
   0,
@@ -1792,7 +1792,7 @@ export var ListDomainNamesResponse$: StaticStructureSchema = [3, n0, _LDNRi,
 export var ListDomainsForPackageRequest$: StaticStructureSchema = [3, n0, _LDFPR,
   0,
   [_PID, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListDomainsForPackageResponse$: StaticStructureSchema = [3, n0, _LDFPRi,
   0,
@@ -1802,7 +1802,7 @@ export var ListDomainsForPackageResponse$: StaticStructureSchema = [3, n0, _LDFP
 export var ListInstanceTypeDetailsRequest$: StaticStructureSchema = [3, n0, _LITDR,
   0,
   [_EV, _DN, _MR, _NT, _RAZ, _IT],
-  [[0, 1], [0, { [_hQ]: _dN }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [2, { [_hQ]: _rAZ }], [0, { [_hQ]: _iT }]]
+  [[0, 1], [0, { [_hQ]: _dN }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [2, { [_hQ]: _rAZ }], [0, { [_hQ]: _iT }]], 1
 ];
 export var ListInstanceTypeDetailsResponse$: StaticStructureSchema = [3, n0, _LITDRi,
   0,
@@ -1812,7 +1812,7 @@ export var ListInstanceTypeDetailsResponse$: StaticStructureSchema = [3, n0, _LI
 export var ListPackagesForDomainRequest$: StaticStructureSchema = [3, n0, _LPFDR,
   0,
   [_DN, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListPackagesForDomainResponse$: StaticStructureSchema = [3, n0, _LPFDRi,
   0,
@@ -1822,7 +1822,7 @@ export var ListPackagesForDomainResponse$: StaticStructureSchema = [3, n0, _LPFD
 export var ListScheduledActionsRequest$: StaticStructureSchema = [3, n0, _LSAR,
   0,
   [_DN, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListScheduledActionsResponse$: StaticStructureSchema = [3, n0, _LSARi,
   0,
@@ -1832,7 +1832,7 @@ export var ListScheduledActionsResponse$: StaticStructureSchema = [3, n0, _LSARi
 export var ListTagsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_ARN],
-  [[0, { [_hQ]: _a }]]
+  [[0, { [_hQ]: _a }]], 1
 ];
 export var ListTagsResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -1852,22 +1852,22 @@ export var ListVersionsResponse$: StaticStructureSchema = [3, n0, _LVRi,
 export var ListVpcEndpointAccessRequest$: StaticStructureSchema = [3, n0, _LVEAR,
   0,
   [_DN, _NT],
-  [[0, 1], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListVpcEndpointAccessResponse$: StaticStructureSchema = [3, n0, _LVEARi,
   0,
   [_APL, _NT],
-  [() => AuthorizedPrincipalList, 0]
+  [() => AuthorizedPrincipalList, 0], 2
 ];
 export var ListVpcEndpointsForDomainRequest$: StaticStructureSchema = [3, n0, _LVEFDR,
   0,
   [_DN, _NT],
-  [[0, 1], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListVpcEndpointsForDomainResponse$: StaticStructureSchema = [3, n0, _LVEFDRi,
   0,
   [_VESL, _NT],
-  [() => VpcEndpointSummaryList, 0]
+  [() => VpcEndpointSummaryList, 0], 2
 ];
 export var ListVpcEndpointsRequest$: StaticStructureSchema = [3, n0, _LVER,
   0,
@@ -1877,7 +1877,7 @@ export var ListVpcEndpointsRequest$: StaticStructureSchema = [3, n0, _LVER,
 export var ListVpcEndpointsResponse$: StaticStructureSchema = [3, n0, _LVERi,
   0,
   [_VESL, _NT],
-  [() => VpcEndpointSummaryList, 0]
+  [() => VpcEndpointSummaryList, 0], 2
 ];
 export var LogPublishingOption$: StaticStructureSchema = [3, n0, _LPOo,
   0,
@@ -1927,7 +1927,7 @@ export var NodeToNodeEncryptionOptions$: StaticStructureSchema = [3, n0, _NTNEO,
 export var NodeToNodeEncryptionOptionsStatus$: StaticStructureSchema = [3, n0, _NTNEOS,
   0,
   [_O, _S],
-  [() => NodeToNodeEncryptionOptions$, () => OptionStatus$]
+  [() => NodeToNodeEncryptionOptions$, () => OptionStatus$], 2
 ];
 export var OffPeakWindow$: StaticStructureSchema = [3, n0, _OPW,
   0,
@@ -1946,8 +1946,8 @@ export var OffPeakWindowOptionsStatus$: StaticStructureSchema = [3, n0, _OPWOS,
 ];
 export var OptionStatus$: StaticStructureSchema = [3, n0, _OS,
   0,
-  [_CD, _UD, _UV, _St, _PD],
-  [4, 4, 1, 0, 2]
+  [_CD, _UD, _St, _UV, _PD],
+  [4, 4, 0, 1, 2], 3
 ];
 export var OutboundConnection$: StaticStructureSchema = [3, n0, _OC,
   0,
@@ -1966,8 +1966,8 @@ export var PackageAssociationConfiguration$: StaticStructureSchema = [3, n0, _PA
 ];
 export var PackageConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_LR, _LF, _CR, _RRFCU],
-  [0, 0, 0, 2]
+  [_LR, _CR, _LF, _RRFCU],
+  [0, 0, 0, 2], 2
 ];
 export var PackageDetails$: StaticStructureSchema = [3, n0, _PDac,
   0,
@@ -1977,12 +1977,12 @@ export var PackageDetails$: StaticStructureSchema = [3, n0, _PDac,
 export var PackageDetailsForAssociation$: StaticStructureSchema = [3, n0, _PDFA,
   0,
   [_PID, _PPIDL, _ACs],
-  [0, 64 | 0, () => PackageAssociationConfiguration$]
+  [0, 64 | 0, () => PackageAssociationConfiguration$], 1
 ];
 export var PackageEncryptionOptions$: StaticStructureSchema = [3, n0, _PEO,
   0,
-  [_KKIm, _EE],
-  [0, 2]
+  [_EE, _KKIm],
+  [2, 0], 1
 ];
 export var PackageSource$: StaticStructureSchema = [3, n0, _PS,
   0,
@@ -1992,7 +1992,7 @@ export var PackageSource$: StaticStructureSchema = [3, n0, _PS,
 export var PackageVendingOptions$: StaticStructureSchema = [3, n0, _PVO,
   0,
   [_VEe],
-  [2]
+  [2], 1
 ];
 export var PackageVersionHistory$: StaticStructureSchema = [3, n0, _PVH,
   0,
@@ -2007,7 +2007,7 @@ export var PluginProperties$: StaticStructureSchema = [3, n0, _PPl,
 export var PurchaseReservedInstanceOfferingRequest$: StaticStructureSchema = [3, n0, _PRIOR,
   0,
   [_RIOI, _RN, _IC],
-  [0, 0, 1]
+  [0, 0, 1], 2
 ];
 export var PurchaseReservedInstanceOfferingResponse$: StaticStructureSchema = [3, n0, _PRIORu,
   0,
@@ -2017,7 +2017,7 @@ export var PurchaseReservedInstanceOfferingResponse$: StaticStructureSchema = [3
 export var PutDefaultApplicationSettingRequest$: StaticStructureSchema = [3, n0, _PDASR,
   0,
   [_aA, _sAD],
-  [0, 2]
+  [0, 2], 2
 ];
 export var PutDefaultApplicationSettingResponse$: StaticStructureSchema = [3, n0, _PDASRu,
   0,
@@ -2032,7 +2032,7 @@ export var RecurringCharge$: StaticStructureSchema = [3, n0, _RC,
 export var RejectInboundConnectionRequest$: StaticStructureSchema = [3, n0, _RICR,
   0,
   [_CI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var RejectInboundConnectionResponse$: StaticStructureSchema = [3, n0, _RICRe,
   0,
@@ -2042,7 +2042,7 @@ export var RejectInboundConnectionResponse$: StaticStructureSchema = [3, n0, _RI
 export var RemoveTagsRequest$: StaticStructureSchema = [3, n0, _RTR,
   0,
   [_ARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var ReservedInstance$: StaticStructureSchema = [3, n0, _RIe,
   0,
@@ -2069,7 +2069,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var RevokeVpcEndpointAccessRequest$: StaticStructureSchema = [3, n0, _RVEAR,
   0,
   [_DN, _A, _Se],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var RevokeVpcEndpointAccessResponse$: StaticStructureSchema = [3, n0, _RVEARe,
   0,
@@ -2089,7 +2089,7 @@ export var S3VectorsEngine$: StaticStructureSchema = [3, n0, _SVE,
 export var SAMLIdp$: StaticStructureSchema = [3, n0, _SAMLI,
   0,
   [_MC, _EInt],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SAMLOptionsInput$: StaticStructureSchema = [3, n0, _SAMLOI,
   0,
@@ -2104,7 +2104,7 @@ export var SAMLOptionsOutput$: StaticStructureSchema = [3, n0, _SAMLOO,
 export var ScheduledAction$: StaticStructureSchema = [3, n0, _SAch,
   0,
   [_Id_, _Ty, _Sev, _STc, _D, _SB, _S, _Ma, _Ca],
-  [0, 0, 0, 1, 0, 0, 0, 2, 2]
+  [0, 0, 0, 1, 0, 0, 0, 2, 2], 4
 ];
 export var ScheduledAutoTuneDetails$: StaticStructureSchema = [3, n0, _SATD,
   0,
@@ -2114,7 +2114,7 @@ export var ScheduledAutoTuneDetails$: StaticStructureSchema = [3, n0, _SATD,
 export var SecurityLakeDirectQueryDataSource$: StaticStructureSchema = [3, n0, _SLDQDS,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ServerlessVectorAcceleration$: StaticStructureSchema = [3, n0, _SVA,
   0,
@@ -2140,7 +2140,7 @@ export var SnapshotOptions$: StaticStructureSchema = [3, n0, _SO,
 export var SnapshotOptionsStatus$: StaticStructureSchema = [3, n0, _SOS,
   0,
   [_O, _S],
-  [() => SnapshotOptions$, () => OptionStatus$]
+  [() => SnapshotOptions$, () => OptionStatus$], 2
 ];
 export var SoftwareUpdateOptions$: StaticStructureSchema = [3, n0, _SUO,
   0,
@@ -2155,7 +2155,7 @@ export var SoftwareUpdateOptionsStatus$: StaticStructureSchema = [3, n0, _SUOS,
 export var StartDomainMaintenanceRequest$: StaticStructureSchema = [3, n0, _SDMR,
   0,
   [_DN, _Ac, _NI],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 2
 ];
 export var StartDomainMaintenanceResponse$: StaticStructureSchema = [3, n0, _SDMRt,
   0,
@@ -2165,7 +2165,7 @@ export var StartDomainMaintenanceResponse$: StaticStructureSchema = [3, n0, _SDM
 export var StartServiceSoftwareUpdateRequest$: StaticStructureSchema = [3, n0, _SSSUR,
   0,
   [_DN, _SAche, _DSTe],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var StartServiceSoftwareUpdateResponse$: StaticStructureSchema = [3, n0, _SSSURt,
   0,
@@ -2185,7 +2185,7 @@ export var StorageTypeLimit$: StaticStructureSchema = [3, n0, _STLt,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
@@ -2196,7 +2196,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_i, _dS, _aC],
-  [[0, 1], () => DataSources, () => AppConfigs]
+  [[0, 1], () => DataSources, () => AppConfigs], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -2206,7 +2206,7 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateDataSourceRequest$: StaticStructureSchema = [3, n0, _UDSR,
   0,
   [_DN, _N, _DST, _D, _S],
-  [[0, 1], [0, 1], () => DataSourceType$, 0, 0]
+  [[0, 1], [0, 1], () => DataSourceType$, 0, 0], 3
 ];
 export var UpdateDataSourceResponse$: StaticStructureSchema = [3, n0, _UDSRp,
   0,
@@ -2215,8 +2215,8 @@ export var UpdateDataSourceResponse$: StaticStructureSchema = [3, n0, _UDSRp,
 ];
 export var UpdateDirectQueryDataSourceRequest$: StaticStructureSchema = [3, n0, _UDQDSR,
   0,
-  [_DSN, _DST, _D, _OSA],
-  [[0, 1], () => DirectQueryDataSourceType$, 0, 64 | 0]
+  [_DSN, _DST, _OSA, _D],
+  [[0, 1], () => DirectQueryDataSourceType$, 64 | 0, 0], 3
 ];
 export var UpdateDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0, _UDQDSRp,
   0,
@@ -2226,27 +2226,27 @@ export var UpdateDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0,
 export var UpdateDomainConfigRequest$: StaticStructureSchema = [3, n0, _UDCR,
   0,
   [_DN, _CC, _EBSO, _SO, _VPCO, _CO, _AO, _APc, _IPAT, _LPO, _EARO, _DEO, _NTNEO, _ASO, _ICO, _ATO, _DR, _DRM, _OPWO, _SUO, _AIMLO],
-  [[0, 1], () => ClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, 0, () => LogPublishingOptions, () => EncryptionAtRestOptions$, () => DomainEndpointOptions$, () => NodeToNodeEncryptionOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => AutoTuneOptions$, 2, 0, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$]
+  [[0, 1], () => ClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, 0, () => LogPublishingOptions, () => EncryptionAtRestOptions$, () => DomainEndpointOptions$, () => NodeToNodeEncryptionOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => AutoTuneOptions$, 2, 0, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$], 1
 ];
 export var UpdateDomainConfigResponse$: StaticStructureSchema = [3, n0, _UDCRp,
   0,
   [_DC, _DRR, _DRPS],
-  [() => DomainConfig$, () => DryRunResults$, () => DryRunProgressStatus$]
+  [() => DomainConfig$, () => DryRunResults$, () => DryRunProgressStatus$], 1
 ];
 export var UpdateIndexRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
   [_DN, _IN, _IS],
-  [[0, 1], [0, 1], 15]
+  [[0, 1], [0, 1], 15], 3
 ];
 export var UpdateIndexResponse$: StaticStructureSchema = [3, n0, _UIRp,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var UpdatePackageRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_PID, _PS, _PDa, _CMo, _PC, _PEO],
-  [0, () => PackageSource$, 0, 0, () => PackageConfiguration$, () => PackageEncryptionOptions$]
+  [0, () => PackageSource$, 0, 0, () => PackageConfiguration$, () => PackageEncryptionOptions$], 2
 ];
 export var UpdatePackageResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -2256,7 +2256,7 @@ export var UpdatePackageResponse$: StaticStructureSchema = [3, n0, _UPRp,
 export var UpdatePackageScopeRequest$: StaticStructureSchema = [3, n0, _UPSR,
   0,
   [_PID, _Op, _PUL],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var UpdatePackageScopeResponse$: StaticStructureSchema = [3, n0, _UPSRp,
   0,
@@ -2266,7 +2266,7 @@ export var UpdatePackageScopeResponse$: StaticStructureSchema = [3, n0, _UPSRp,
 export var UpdateScheduledActionRequest$: StaticStructureSchema = [3, n0, _USAR,
   0,
   [_DN, _AID, _ATc, _SAche, _DSTe],
-  [[0, 1], 0, 0, 0, 1]
+  [[0, 1], 0, 0, 0, 1], 4
 ];
 export var UpdateScheduledActionResponse$: StaticStructureSchema = [3, n0, _USARp,
   0,
@@ -2276,17 +2276,17 @@ export var UpdateScheduledActionResponse$: StaticStructureSchema = [3, n0, _USAR
 export var UpdateVpcEndpointRequest$: StaticStructureSchema = [3, n0, _UVER,
   0,
   [_VEI, _VO],
-  [0, () => VPCOptions$]
+  [0, () => VPCOptions$], 2
 ];
 export var UpdateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _UVERp,
   0,
   [_VE],
-  [() => VpcEndpoint$]
+  [() => VpcEndpoint$], 1
 ];
 export var UpgradeDomainRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_DN, _TVa, _PCO, _AO],
-  [0, 0, 2, 128 | 0]
+  [0, 0, 2, 128 | 0], 2
 ];
 export var UpgradeDomainResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -2317,7 +2317,7 @@ export var ValidationFailure$: StaticStructureSchema = [3, n0, _VFa,
 export var VersionStatus$: StaticStructureSchema = [3, n0, _VSe,
   0,
   [_O, _S],
-  [0, () => OptionStatus$]
+  [0, () => OptionStatus$], 2
 ];
 export var VPCDerivedInfo$: StaticStructureSchema = [3, n0, _VPCDI,
   0,
@@ -2327,7 +2327,7 @@ export var VPCDerivedInfo$: StaticStructureSchema = [3, n0, _VPCDI,
 export var VPCDerivedInfoStatus$: StaticStructureSchema = [3, n0, _VPCDIS,
   0,
   [_O, _S],
-  [() => VPCDerivedInfo$, () => OptionStatus$]
+  [() => VPCDerivedInfo$, () => OptionStatus$], 2
 ];
 export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VE,
   0,
@@ -2352,7 +2352,7 @@ export var VPCOptions$: StaticStructureSchema = [3, n0, _VPCO,
 export var WindowStartTime$: StaticStructureSchema = [3, n0, _WST,
   0,
   [_H, _Mi],
-  [1, 1]
+  [1, 1], 2
 ];
 export var ZoneAwarenessConfig$: StaticStructureSchema = [3, n0, _ZAC,
   0,

@@ -273,7 +273,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AddWorkloadRequest$: StaticStructureSchema = [3, n0, _AWR,
   0,
   [_RGN, _CN, _WC],
-  [0, 0, () => WorkloadConfiguration$]
+  [0, 0, () => WorkloadConfiguration$], 3
 ];
 export var AddWorkloadResponse$: StaticStructureSchema = [3, n0, _AWRd,
   0,
@@ -314,7 +314,7 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateComponentRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_RGN, _CN, _RL],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var CreateComponentResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -324,7 +324,7 @@ export var CreateComponentResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateLogPatternRequest$: StaticStructureSchema = [3, n0, _CLPR,
   0,
   [_RGN, _PSN, _PN, _P, _Ra],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 5
 ];
 export var CreateLogPatternResponse$: StaticStructureSchema = [3, n0, _CLPRr,
   0,
@@ -334,7 +334,7 @@ export var CreateLogPatternResponse$: StaticStructureSchema = [3, n0, _CLPRr,
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_RGN],
-  [0]
+  [0], 1
 ];
 export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -344,7 +344,7 @@ export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteComponentRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_RGN, _CN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteComponentResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -354,7 +354,7 @@ export var DeleteComponentResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteLogPatternRequest$: StaticStructureSchema = [3, n0, _DLPR,
   0,
   [_RGN, _PSN, _PN],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteLogPatternResponse$: StaticStructureSchema = [3, n0, _DLPRe,
   0,
@@ -364,7 +364,7 @@ export var DeleteLogPatternResponse$: StaticStructureSchema = [3, n0, _DLPRe,
 export var DescribeApplicationRequest$: StaticStructureSchema = [3, n0, _DARes,
   0,
   [_RGN, _AIc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeApplicationResponse$: StaticStructureSchema = [3, n0, _DAResc,
   0,
@@ -374,7 +374,7 @@ export var DescribeApplicationResponse$: StaticStructureSchema = [3, n0, _DAResc
 export var DescribeComponentConfigurationRecommendationRequest$: StaticStructureSchema = [3, n0, _DCCRR,
   0,
   [_RGN, _CN, _T, _WN, _RTe],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 3
 ];
 export var DescribeComponentConfigurationRecommendationResponse$: StaticStructureSchema = [3, n0, _DCCRRe,
   0,
@@ -384,7 +384,7 @@ export var DescribeComponentConfigurationRecommendationResponse$: StaticStructur
 export var DescribeComponentConfigurationRequest$: StaticStructureSchema = [3, n0, _DCCR,
   0,
   [_RGN, _CN, _AIc],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DescribeComponentConfigurationResponse$: StaticStructureSchema = [3, n0, _DCCRe,
   0,
@@ -394,7 +394,7 @@ export var DescribeComponentConfigurationResponse$: StaticStructureSchema = [3, 
 export var DescribeComponentRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_RGN, _CN, _AIc],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DescribeComponentResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
@@ -404,7 +404,7 @@ export var DescribeComponentResponse$: StaticStructureSchema = [3, n0, _DCResc,
 export var DescribeLogPatternRequest$: StaticStructureSchema = [3, n0, _DLPRes,
   0,
   [_RGN, _PSN, _PN, _AIc],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var DescribeLogPatternResponse$: StaticStructureSchema = [3, n0, _DLPResc,
   0,
@@ -414,7 +414,7 @@ export var DescribeLogPatternResponse$: StaticStructureSchema = [3, n0, _DLPResc
 export var DescribeObservationRequest$: StaticStructureSchema = [3, n0, _DOR,
   0,
   [_OI, _AIc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeObservationResponse$: StaticStructureSchema = [3, n0, _DORe,
   0,
@@ -424,7 +424,7 @@ export var DescribeObservationResponse$: StaticStructureSchema = [3, n0, _DORe,
 export var DescribeProblemObservationsRequest$: StaticStructureSchema = [3, n0, _DPOR,
   0,
   [_PI, _AIc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeProblemObservationsResponse$: StaticStructureSchema = [3, n0, _DPORe,
   0,
@@ -434,7 +434,7 @@ export var DescribeProblemObservationsResponse$: StaticStructureSchema = [3, n0,
 export var DescribeProblemRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PI, _AIc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeProblemResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -444,7 +444,7 @@ export var DescribeProblemResponse$: StaticStructureSchema = [3, n0, _DPRe,
 export var DescribeWorkloadRequest$: StaticStructureSchema = [3, n0, _DWR,
   0,
   [_RGN, _CN, _WI, _AIc],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var DescribeWorkloadResponse$: StaticStructureSchema = [3, n0, _DWRe,
   0,
@@ -470,7 +470,7 @@ export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListComponentsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_RGN, _MR, _NT, _AIc],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0], 1
 ];
 export var ListComponentsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -490,7 +490,7 @@ export var ListConfigurationHistoryResponse$: StaticStructureSchema = [3, n0, _L
 export var ListLogPatternSetsRequest$: StaticStructureSchema = [3, n0, _LLPSR,
   0,
   [_RGN, _MR, _NT, _AIc],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0], 1
 ];
 export var ListLogPatternSetsResponse$: StaticStructureSchema = [3, n0, _LLPSRi,
   0,
@@ -500,7 +500,7 @@ export var ListLogPatternSetsResponse$: StaticStructureSchema = [3, n0, _LLPSRi,
 export var ListLogPatternsRequest$: StaticStructureSchema = [3, n0, _LLPR,
   0,
   [_RGN, _PSN, _MR, _NT, _AIc],
-  [0, 0, 1, 0, 0]
+  [0, 0, 1, 0, 0], 1
 ];
 export var ListLogPatternsResponse$: StaticStructureSchema = [3, n0, _LLPRi,
   0,
@@ -520,7 +520,7 @@ export var ListProblemsResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -530,7 +530,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListWorkloadsRequest$: StaticStructureSchema = [3, n0, _LWR,
   0,
   [_RGN, _CN, _MR, _NT, _AIc],
-  [0, 0, 1, 0, 0]
+  [0, 0, 1, 0, 0], 2
 ];
 export var ListWorkloadsResponse$: StaticStructureSchema = [3, n0, _LWRi,
   0,
@@ -560,7 +560,7 @@ export var RelatedObservations$: StaticStructureSchema = [3, n0, _RO,
 export var RemoveWorkloadRequest$: StaticStructureSchema = [3, n0, _RWR,
   0,
   [_RGN, _CN, _WI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var RemoveWorkloadResponse$: StaticStructureSchema = [3, n0, _RWRe,
   0,
@@ -582,12 +582,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -609,7 +609,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -619,7 +619,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_RGN, _OCE, _CWEME, _OISNSTA, _SNSNA, _RSNST, _ACE, _AMP],
-  [0, 2, 2, 0, 0, 2, 2, 2]
+  [0, 2, 2, 0, 0, 2, 2, 2], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -629,7 +629,7 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateComponentConfigurationRequest$: StaticStructureSchema = [3, n0, _UCCR,
   0,
   [_RGN, _CN, _Mo, _T, _CC, _ACE],
-  [0, 0, 2, 0, 0, 2]
+  [0, 0, 2, 0, 0, 2], 2
 ];
 export var UpdateComponentConfigurationResponse$: StaticStructureSchema = [3, n0, _UCCRp,
   0,
@@ -639,7 +639,7 @@ export var UpdateComponentConfigurationResponse$: StaticStructureSchema = [3, n0
 export var UpdateComponentRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_RGN, _CN, _NCN, _RL],
-  [0, 0, 0, 64 | 0]
+  [0, 0, 0, 64 | 0], 2
 ];
 export var UpdateComponentResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -649,7 +649,7 @@ export var UpdateComponentResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateLogPatternRequest$: StaticStructureSchema = [3, n0, _ULPR,
   0,
   [_RGN, _PSN, _PN, _P, _Ra],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 3
 ];
 export var UpdateLogPatternResponse$: StaticStructureSchema = [3, n0, _ULPRp,
   0,
@@ -659,7 +659,7 @@ export var UpdateLogPatternResponse$: StaticStructureSchema = [3, n0, _ULPRp,
 export var UpdateProblemRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_PI, _US, _V],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var UpdateProblemResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -668,8 +668,8 @@ export var UpdateProblemResponse$: StaticStructureSchema = [3, n0, _UPRp,
 ];
 export var UpdateWorkloadRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
-  [_RGN, _CN, _WI, _WC],
-  [0, 0, 0, () => WorkloadConfiguration$]
+  [_RGN, _CN, _WC, _WI],
+  [0, 0, () => WorkloadConfiguration$, 0], 3
 ];
 export var UpdateWorkloadResponse$: StaticStructureSchema = [3, n0, _UWRp,
   0,

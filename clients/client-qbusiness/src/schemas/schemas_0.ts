@@ -886,43 +886,43 @@ var Payload: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var AccessConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_aC, _mR],
-  [() => AccessControls, 0]
+  [() => AccessControls, 0], 1
 ];
 export var AccessControl$: StaticStructureSchema = [3, n0, _ACc,
   0,
   [_p, _mR],
-  [() => Principals, 0]
+  [() => Principals, 0], 1
 ];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActionConfiguration$: StaticStructureSchema = [3, n0, _ACct,
   0,
   [_a, _fC],
-  [0, () => ActionFilterConfiguration$]
+  [0, () => ActionFilterConfiguration$], 1
 ];
 export var ActionExecution$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_pI, _pa, _pFNS],
-  [0, () => ActionExecutionPayload, 0]
+  [0, () => ActionExecutionPayload, 0], 3
 ];
 export var ActionExecutionEvent$: StaticStructureSchema = [3, n0, _AEE,
   0,
   [_pI, _pa, _pFNS],
-  [0, () => ActionExecutionPayload, 0]
+  [0, () => ActionExecutionPayload, 0], 3
 ];
 export var ActionExecutionPayloadField$: StaticStructureSchema = [3, n0, _AEPF,
   0,
   [_v],
-  [15]
+  [15], 1
 ];
 export var ActionFilterConfiguration$: StaticStructureSchema = [3, n0, _AFC,
   0,
   [_dAF],
-  [() => AttributeFilter$]
+  [() => AttributeFilter$], 1
 ];
 export var ActionReview$: StaticStructureSchema = [3, n0, _AR,
   0,
@@ -962,12 +962,12 @@ export var AppliedAttachmentsConfiguration$: StaticStructureSchema = [3, n0, _AA
 export var AppliedCreatorModeConfiguration$: StaticStructureSchema = [3, n0, _ACMC,
   0,
   [_cMC],
-  [0]
+  [0], 1
 ];
 export var AppliedOrchestrationConfiguration$: StaticStructureSchema = [3, n0, _AOC,
   0,
   [_co],
-  [0]
+  [0], 1
 ];
 export var AssociatedGroup$: StaticStructureSchema = [3, n0, _AG,
   0,
@@ -981,8 +981,8 @@ export var AssociatedUser$: StaticStructureSchema = [3, n0, _AU,
 ];
 export var AssociatePermissionRequest$: StaticStructureSchema = [3, n0, _APR,
   0,
-  [_aIp, _sI, _ac, _con, _pr],
-  [[0, 1], 0, 64 | 0, () => PermissionConditions, 0]
+  [_aIp, _sI, _ac, _pr, _con],
+  [[0, 1], 0, 64 | 0, 0, () => PermissionConditions], 4
 ];
 export var AssociatePermissionResponse$: StaticStructureSchema = [3, n0, _APRs,
   0,
@@ -1012,7 +1012,7 @@ export var AttachmentOutput$: StaticStructureSchema = [3, n0, _AO,
 export var AttachmentsConfiguration$: StaticStructureSchema = [3, n0, _ACt,
   0,
   [_aCM],
-  [0]
+  [0], 1
 ];
 export var AttributeFilter$: StaticStructureSchema = [3, n0, _AF,
   0,
@@ -1022,7 +1022,7 @@ export var AttributeFilter$: StaticStructureSchema = [3, n0, _AF,
 export var AudioExtractionConfiguration$: StaticStructureSchema = [3, n0, _AEC,
   0,
   [_aES],
-  [0]
+  [0], 1
 ];
 export var AudioSourceDetails$: StaticStructureSchema = [3, n0, _ASD,
   0,
@@ -1032,37 +1032,37 @@ export var AudioSourceDetails$: StaticStructureSchema = [3, n0, _ASD,
 export var AuthChallengeRequest$: StaticStructureSchema = [3, n0, _ACR,
   0,
   [_aU],
-  [0]
+  [0], 1
 ];
 export var AuthChallengeRequestEvent$: StaticStructureSchema = [3, n0, _ACRE,
   0,
   [_aU],
-  [0]
+  [0], 1
 ];
 export var AuthChallengeResponse$: StaticStructureSchema = [3, n0, _ACRu,
   0,
   [_rM],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var AuthChallengeResponseEvent$: StaticStructureSchema = [3, n0, _ACREu,
   0,
   [_rM],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var AutoSubscriptionConfiguration$: StaticStructureSchema = [3, n0, _ASC,
   0,
   [_aS, _dST],
-  [0, 0]
+  [0, 0], 1
 ];
 export var BasicAuthConfiguration$: StaticStructureSchema = [3, n0, _BAC,
   0,
   [_sA, _rA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BatchDeleteDocumentRequest$: StaticStructureSchema = [3, n0, _BDDR,
   0,
   [_aIp, _iI, _do, _dSSI],
-  [[0, 1], [0, 1], () => DeleteDocuments, 0]
+  [[0, 1], [0, 1], () => DeleteDocuments, 0], 3
 ];
 export var BatchDeleteDocumentResponse$: StaticStructureSchema = [3, n0, _BDDRa,
   0,
@@ -1072,7 +1072,7 @@ export var BatchDeleteDocumentResponse$: StaticStructureSchema = [3, n0, _BDDRa,
 export var BatchPutDocumentRequest$: StaticStructureSchema = [3, n0, _BPDR,
   0,
   [_aIp, _iI, _do, _rA, _dSSI],
-  [[0, 1], [0, 1], () => Documents, 0, 0]
+  [[0, 1], [0, 1], () => Documents, 0, 0], 3
 ];
 export var BatchPutDocumentResponse$: StaticStructureSchema = [3, n0, _BPDRa,
   0,
@@ -1092,12 +1092,12 @@ export var BlockedPhrasesConfigurationUpdate$: StaticStructureSchema = [3, n0, _
 export var BrowserExtensionConfiguration$: StaticStructureSchema = [3, n0, _BEC,
   0,
   [_eBE],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var CancelSubscriptionRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_aIp, _sIu],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var CancelSubscriptionResponse$: StaticStructureSchema = [3, n0, _CSRa,
   0,
@@ -1107,7 +1107,7 @@ export var CancelSubscriptionResponse$: StaticStructureSchema = [3, n0, _CSRa,
 export var ChatInput$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_aIp, _uI, _uG, _cI, _pMI, _cT, _iS],
-  [[0, 1], [0, { [_hQ]: _uI }], [64 | 0, { [_hQ]: _uG }], [0, { [_hQ]: _cI }], [0, { [_hQ]: _pMI }], [0, { [_hQ]: _cT, [_iTd]: 1 }], [() => ChatInputStream$, 16]]
+  [[0, 1], [0, { [_hQ]: _uI }], [64 | 0, { [_hQ]: _uG }], [0, { [_hQ]: _cI }], [0, { [_hQ]: _pMI }], [0, { [_hQ]: _cT, [_iTd]: 1 }], [() => ChatInputStream$, 16]], 1
 ];
 export var ChatOutput$: StaticStructureSchema = [3, n0, _CO,
   0,
@@ -1116,8 +1116,8 @@ export var ChatOutput$: StaticStructureSchema = [3, n0, _CO,
 ];
 export var ChatResponseConfiguration$: StaticStructureSchema = [3, n0, _CRC,
   0,
-  [_cRCI, _cRCA, _dN, _rCS, _s, _cA, _uA],
-  [0, 0, 0, 0, 0, 4, 4]
+  [_cRCI, _cRCA, _dN, _s, _rCS, _cA, _uA],
+  [0, 0, 0, 0, 0, 4, 4], 4
 ];
 export var ChatResponseConfigurationDetail$: StaticStructureSchema = [3, n0, _CRCD,
   0,
@@ -1127,7 +1127,7 @@ export var ChatResponseConfigurationDetail$: StaticStructureSchema = [3, n0, _CR
 export var ChatSyncInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_aIp, _uI, _uG, _uM, _att, _aE, _aCR, _cI, _pMI, _aFt, _cM, _cMCh, _cT],
-  [[0, 1], [0, { [_hQ]: _uI }], [64 | 0, { [_hQ]: _uG }], 0, () => AttachmentsInput, () => ActionExecution$, () => AuthChallengeResponse$, 0, 0, () => AttributeFilter$, 0, () => ChatModeConfiguration$, [0, 4]]
+  [[0, 1], [0, { [_hQ]: _uI }], [64 | 0, { [_hQ]: _uG }], 0, () => AttachmentsInput, () => ActionExecution$, () => AuthChallengeResponse$, 0, 0, () => AttributeFilter$, 0, () => ChatModeConfiguration$, [0, 4]], 1
 ];
 export var ChatSyncOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
@@ -1137,7 +1137,7 @@ export var ChatSyncOutput$: StaticStructureSchema = [3, n0, _CSO,
 export var CheckDocumentAccessRequest$: StaticStructureSchema = [3, n0, _CDAR,
   0,
   [_aIp, _iI, _uI, _dI, _dSI],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hQ]: _dSI }]]
+  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hQ]: _dSI }]], 4
 ];
 export var CheckDocumentAccessResponse$: StaticStructureSchema = [3, n0, _CDARh,
   0,
@@ -1152,7 +1152,7 @@ export var ConfigurationEvent$: StaticStructureSchema = [3, n0, _CE,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContentBlockerRule$: StaticStructureSchema = [3, n0, _CBR,
@@ -1173,12 +1173,12 @@ export var Conversation$: StaticStructureSchema = [3, n0, _C,
 export var ConversationSource$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_cI, _aIt],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateAnonymousWebExperienceUrlRequest$: StaticStructureSchema = [3, n0, _CAWEUR,
   0,
   [_aIp, _wEI, _sDIM],
-  [[0, 1], [0, 1], 1]
+  [[0, 1], [0, 1], 1], 2
 ];
 export var CreateAnonymousWebExperienceUrlResponse$: StaticStructureSchema = [3, n0, _CAWEURr,
   0,
@@ -1188,7 +1188,7 @@ export var CreateAnonymousWebExperienceUrlResponse$: StaticStructureSchema = [3,
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_dN, _rA, _iT, _iIPA, _iCIA, _cIFOIDC, _d, _eC, _ta, _cT, _aCt, _qAC, _pC, _qSC],
-  [0, 0, 0, 0, 0, 64 | 0, 0, [() => EncryptionConfiguration$, 0], () => Tags, [0, 4], () => AttachmentsConfiguration$, () => QAppsConfiguration$, () => PersonalizationConfiguration$, () => QuickSightConfiguration$]
+  [0, 0, 0, 0, 0, 64 | 0, 0, [() => EncryptionConfiguration$, 0], () => Tags, [0, 4], () => AttachmentsConfiguration$, () => QAppsConfiguration$, () => PersonalizationConfiguration$, () => QuickSightConfiguration$], 1
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -1197,28 +1197,28 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateChatResponseConfigurationRequest$: StaticStructureSchema = [3, n0, _CCRCR,
   0,
-  [_aIp, _dN, _cT, _rC, _ta],
-  [[0, 1], 0, [0, 4], () => ResponseConfigurations, () => Tags]
+  [_aIp, _dN, _rC, _cT, _ta],
+  [[0, 1], 0, () => ResponseConfigurations, [0, 4], () => Tags], 3
 ];
 export var CreateChatResponseConfigurationResponse$: StaticStructureSchema = [3, n0, _CCRCRr,
   0,
   [_cRCI, _cRCA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateDataAccessorRequest$: StaticStructureSchema = [3, n0, _CDARr,
   0,
-  [_aIp, _pr, _aCc, _cT, _dN, _aD, _ta],
-  [[0, 1], 0, () => ActionConfigurationList, [0, 4], [() => DataAccessorName, 0], () => DataAccessorAuthenticationDetail$, () => Tags]
+  [_aIp, _pr, _aCc, _dN, _cT, _aD, _ta],
+  [[0, 1], 0, () => ActionConfigurationList, [() => DataAccessorName, 0], [0, 4], () => DataAccessorAuthenticationDetail$, () => Tags], 4
 ];
 export var CreateDataAccessorResponse$: StaticStructureSchema = [3, n0, _CDARre,
   0,
   [_dAI, _iAA, _dAA],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreateDataSourceRequest$: StaticStructureSchema = [3, n0, _CDSR,
   0,
   [_aIp, _iI, _dN, _conf, _vC, _d, _ta, _sS, _rA, _cT, _dEC, _mEC],
-  [[0, 1], [0, 1], 0, 15, () => DataSourceVpcConfiguration$, 0, () => Tags, 0, 0, [0, 4], () => DocumentEnrichmentConfiguration$, () => MediaExtractionConfiguration$]
+  [[0, 1], [0, 1], 0, 15, () => DataSourceVpcConfiguration$, 0, () => Tags, 0, 0, [0, 4], () => DocumentEnrichmentConfiguration$, () => MediaExtractionConfiguration$], 4
 ];
 export var CreateDataSourceResponse$: StaticStructureSchema = [3, n0, _CDSRr,
   0,
@@ -1228,7 +1228,7 @@ export var CreateDataSourceResponse$: StaticStructureSchema = [3, n0, _CDSRr,
 export var CreateIndexRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_aIp, _dN, _d, _t, _ta, _cC, _cT],
-  [[0, 1], 0, 0, 0, () => Tags, () => IndexCapacityConfiguration$, [0, 4]]
+  [[0, 1], 0, 0, 0, () => Tags, () => IndexCapacityConfiguration$, [0, 4]], 2
 ];
 export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr,
   0,
@@ -1238,7 +1238,7 @@ export var CreateIndexResponse$: StaticStructureSchema = [3, n0, _CIRr,
 export var CreatePluginRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_aIp, _dN, _t, _aCu, _sU, _cPC, _ta, _cT],
-  [[0, 1], 0, 0, () => PluginAuthConfiguration$, 0, [() => CustomPluginConfiguration$, 0], () => Tags, [0, 4]]
+  [[0, 1], 0, 0, () => PluginAuthConfiguration$, 0, [() => CustomPluginConfiguration$, 0], () => Tags, [0, 4]], 4
 ];
 export var CreatePluginResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -1248,7 +1248,7 @@ export var CreatePluginResponse$: StaticStructureSchema = [3, n0, _CPRr,
 export var CreateRetrieverRequest$: StaticStructureSchema = [3, n0, _CRRr,
   0,
   [_aIp, _t, _dN, _conf, _rA, _cT, _ta],
-  [[0, 1], 0, 0, () => RetrieverConfiguration$, 0, [0, 4], () => Tags]
+  [[0, 1], 0, 0, () => RetrieverConfiguration$, 0, [0, 4], () => Tags], 4
 ];
 export var CreateRetrieverResponse$: StaticStructureSchema = [3, n0, _CRRre,
   0,
@@ -1258,7 +1258,7 @@ export var CreateRetrieverResponse$: StaticStructureSchema = [3, n0, _CRRre,
 export var CreateSubscriptionRequest$: StaticStructureSchema = [3, n0, _CSRr,
   0,
   [_aIp, _pr, _t, _cT],
-  [[0, 1], () => SubscriptionPrincipal$, 0, [0, 4]]
+  [[0, 1], () => SubscriptionPrincipal$, 0, [0, 4]], 3
 ];
 export var CreateSubscriptionResponse$: StaticStructureSchema = [3, n0, _CSRre,
   0,
@@ -1268,7 +1268,7 @@ export var CreateSubscriptionResponse$: StaticStructureSchema = [3, n0, _CSRre,
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
   [_aIp, _uI, _uAs, _cT],
-  [[0, 1], 0, () => UserAliases, [0, 4]]
+  [[0, 1], 0, () => UserAliases, [0, 4]], 2
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
@@ -1278,7 +1278,7 @@ export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
 export var CreateWebExperienceRequest$: StaticStructureSchema = [3, n0, _CWER,
   0,
   [_aIp, _ti, _su, _wM, _sPCM, _o, _rA, _ta, _cT, _iPC, _bEC, _cCu],
-  [[0, 1], 0, 0, 0, 0, 64 | 0, 0, () => Tags, [0, 4], () => IdentityProviderConfiguration$, () => BrowserExtensionConfiguration$, () => CustomizationConfiguration$]
+  [[0, 1], 0, 0, 0, 0, 64 | 0, 0, () => Tags, [0, 4], () => IdentityProviderConfiguration$, () => BrowserExtensionConfiguration$, () => CustomizationConfiguration$], 1
 ];
 export var CreateWebExperienceResponse$: StaticStructureSchema = [3, n0, _CWERr,
   0,
@@ -1288,7 +1288,7 @@ export var CreateWebExperienceResponse$: StaticStructureSchema = [3, n0, _CWERr,
 export var CreatorModeConfiguration$: StaticStructureSchema = [3, n0, _CMC,
   0,
   [_cMC],
-  [0]
+  [0], 1
 ];
 export var CustomizationConfiguration$: StaticStructureSchema = [3, n0, _CC,
   0,
@@ -1298,7 +1298,7 @@ export var CustomizationConfiguration$: StaticStructureSchema = [3, n0, _CC,
 export var CustomPluginConfiguration$: StaticStructureSchema = [3, n0, _CPC,
   0,
   [_d, _aST, _aSp],
-  [0, 0, [() => APISchema$, 0]]
+  [0, 0, [() => APISchema$, 0]], 2
 ];
 export var DataAccessor$: StaticStructureSchema = [3, n0, _DA,
   0,
@@ -1308,12 +1308,12 @@ export var DataAccessor$: StaticStructureSchema = [3, n0, _DA,
 export var DataAccessorAuthenticationDetail$: StaticStructureSchema = [3, n0, _DAAD,
   0,
   [_aT, _aCut, _eI],
-  [0, () => DataAccessorAuthenticationConfiguration$, 64 | 0]
+  [0, () => DataAccessorAuthenticationConfiguration$, 64 | 0], 1
 ];
 export var DataAccessorIdcTrustedTokenIssuerConfiguration$: StaticStructureSchema = [3, n0, _DAITTIC,
   0,
   [_iTTIA],
-  [0]
+  [0], 1
 ];
 export var DataSource$: StaticStructureSchema = [3, n0, _DS,
   0,
@@ -1333,17 +1333,17 @@ export var DataSourceSyncJobMetrics$: StaticStructureSchema = [3, n0, _DSSJM,
 export var DataSourceVpcConfiguration$: StaticStructureSchema = [3, n0, _DSVC,
   0,
   [_sIub, _sGI],
-  [64 | 0, 64 | 0]
+  [64 | 0, 64 | 0], 2
 ];
 export var DateAttributeBoostingConfiguration$: StaticStructureSchema = [3, n0, _DABC,
   0,
   [_bL, _bDIS],
-  [0, 1]
+  [0, 1], 1
 ];
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_aIp],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -1353,7 +1353,7 @@ export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteAttachmentRequest$: StaticStructureSchema = [3, n0, _DARel,
   0,
   [_aIp, _cI, _aIt, _uI],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _uI }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _uI }]], 3
 ];
 export var DeleteAttachmentResponse$: StaticStructureSchema = [3, n0, _DARele,
   0,
@@ -1363,7 +1363,7 @@ export var DeleteAttachmentResponse$: StaticStructureSchema = [3, n0, _DARele,
 export var DeleteChatControlsConfigurationRequest$: StaticStructureSchema = [3, n0, _DCCCR,
   0,
   [_aIp],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteChatControlsConfigurationResponse$: StaticStructureSchema = [3, n0, _DCCCRe,
   0,
@@ -1373,7 +1373,7 @@ export var DeleteChatControlsConfigurationResponse$: StaticStructureSchema = [3,
 export var DeleteChatResponseConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRCR,
   0,
   [_aIp, _cRCI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteChatResponseConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRCRe,
   0,
@@ -1383,7 +1383,7 @@ export var DeleteChatResponseConfigurationResponse$: StaticStructureSchema = [3,
 export var DeleteConversationRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cI, _aIp, _uI],
-  [[0, 1], [0, 1], [0, { [_hQ]: _uI }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _uI }]], 2
 ];
 export var DeleteConversationResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -1393,7 +1393,7 @@ export var DeleteConversationResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteDataAccessorRequest$: StaticStructureSchema = [3, n0, _DDAR,
   0,
   [_aIp, _dAI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteDataAccessorResponse$: StaticStructureSchema = [3, n0, _DDARe,
   0,
@@ -1403,7 +1403,7 @@ export var DeleteDataAccessorResponse$: StaticStructureSchema = [3, n0, _DDARe,
 export var DeleteDataSourceRequest$: StaticStructureSchema = [3, n0, _DDSR,
   0,
   [_aIp, _iI, _dSI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSRe,
   0,
@@ -1413,12 +1413,12 @@ export var DeleteDataSourceResponse$: StaticStructureSchema = [3, n0, _DDSRe,
 export var DeleteDocument$: StaticStructureSchema = [3, n0, _DD,
   0,
   [_dI],
-  [0]
+  [0], 1
 ];
 export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
   [_aIp, _iI, _gN, _dSI],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _dSI }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _dSI }]], 3
 ];
 export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe,
   0,
@@ -1428,7 +1428,7 @@ export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe,
 export var DeleteIndexRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_aIp, _iI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteIndexResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
@@ -1438,7 +1438,7 @@ export var DeleteIndexResponse$: StaticStructureSchema = [3, n0, _DIRe,
 export var DeletePluginRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_aIp, _pI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeletePluginResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -1448,7 +1448,7 @@ export var DeletePluginResponse$: StaticStructureSchema = [3, n0, _DPRe,
 export var DeleteRetrieverRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_aIp, _rIe],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteRetrieverResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -1458,7 +1458,7 @@ export var DeleteRetrieverResponse$: StaticStructureSchema = [3, n0, _DRRe,
 export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_aIp, _uI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe,
   0,
@@ -1468,7 +1468,7 @@ export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe,
 export var DeleteWebExperienceRequest$: StaticStructureSchema = [3, n0, _DWER,
   0,
   [_aIp, _wEI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteWebExperienceResponse$: StaticStructureSchema = [3, n0, _DWERe,
   0,
@@ -1478,7 +1478,7 @@ export var DeleteWebExperienceResponse$: StaticStructureSchema = [3, n0, _DWERe,
 export var DisassociatePermissionRequest$: StaticStructureSchema = [3, n0, _DPRi,
   0,
   [_aIp, _sI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DisassociatePermissionResponse$: StaticStructureSchema = [3, n0, _DPRis,
   0,
@@ -1488,7 +1488,7 @@ export var DisassociatePermissionResponse$: StaticStructureSchema = [3, n0, _DPR
 export var Document$: StaticStructureSchema = [3, n0, _D,
   0,
   [_i, _attr, _cont, _cTo, _ti, _aCcc, _dEC, _mEC],
-  [0, () => DocumentAttributes, () => DocumentContent$, 0, 0, () => AccessConfiguration$, () => DocumentEnrichmentConfiguration$, () => MediaExtractionConfiguration$]
+  [0, () => DocumentAttributes, () => DocumentContent$, 0, 0, () => AccessConfiguration$, () => DocumentEnrichmentConfiguration$, () => MediaExtractionConfiguration$], 1
 ];
 export var DocumentAcl$: StaticStructureSchema = [3, n0, _DAo,
   0,
@@ -1518,12 +1518,12 @@ export var DocumentAclUser$: StaticStructureSchema = [3, n0, _DAU,
 export var DocumentAttribute$: StaticStructureSchema = [3, n0, _DAoc,
   0,
   [_n, _v],
-  [0, () => DocumentAttributeValue$]
+  [0, () => DocumentAttributeValue$], 2
 ];
 export var DocumentAttributeCondition$: StaticStructureSchema = [3, n0, _DACo,
   0,
   [_k, _op, _v],
-  [0, 0, () => DocumentAttributeValue$]
+  [0, 0, () => DocumentAttributeValue$], 2
 ];
 export var DocumentAttributeConfiguration$: StaticStructureSchema = [3, n0, _DACoc,
   0,
@@ -1533,7 +1533,7 @@ export var DocumentAttributeConfiguration$: StaticStructureSchema = [3, n0, _DAC
 export var DocumentAttributeTarget$: StaticStructureSchema = [3, n0, _DAT,
   0,
   [_k, _v, _aVO],
-  [0, () => DocumentAttributeValue$, 0]
+  [0, () => DocumentAttributeValue$, 0], 1
 ];
 export var DocumentDetails$: StaticStructureSchema = [3, n0, _DDo,
   0,
@@ -1568,7 +1568,7 @@ export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
 export var ExternalResourceException$: StaticErrorSchema = [-3, n0, _ERE,
   { [_e]: _c, [_hE]: 424 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ExternalResourceException$, ExternalResourceException);
 export var FailedAttachmentEvent$: StaticStructureSchema = [3, n0, _FAE,
@@ -1584,7 +1584,7 @@ export var FailedDocument$: StaticStructureSchema = [3, n0, _FD,
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_aIp],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -1594,7 +1594,7 @@ export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetChatControlsConfigurationRequest$: StaticStructureSchema = [3, n0, _GCCCR,
   0,
   [_aIp, _mRa, _nT],
-  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
 ];
 export var GetChatControlsConfigurationResponse$: StaticStructureSchema = [3, n0, _GCCCRe,
   0,
@@ -1604,7 +1604,7 @@ export var GetChatControlsConfigurationResponse$: StaticStructureSchema = [3, n0
 export var GetChatResponseConfigurationRequest$: StaticStructureSchema = [3, n0, _GCRCR,
   0,
   [_aIp, _cRCI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetChatResponseConfigurationResponse$: StaticStructureSchema = [3, n0, _GCRCRe,
   0,
@@ -1614,7 +1614,7 @@ export var GetChatResponseConfigurationResponse$: StaticStructureSchema = [3, n0
 export var GetDataAccessorRequest$: StaticStructureSchema = [3, n0, _GDAR,
   0,
   [_aIp, _dAI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetDataAccessorResponse$: StaticStructureSchema = [3, n0, _GDARe,
   0,
@@ -1624,7 +1624,7 @@ export var GetDataAccessorResponse$: StaticStructureSchema = [3, n0, _GDARe,
 export var GetDataSourceRequest$: StaticStructureSchema = [3, n0, _GDSR,
   0,
   [_aIp, _iI, _dSI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetDataSourceResponse$: StaticStructureSchema = [3, n0, _GDSRe,
   0,
@@ -1633,18 +1633,18 @@ export var GetDataSourceResponse$: StaticStructureSchema = [3, n0, _GDSRe,
 ];
 export var GetDocumentContentRequest$: StaticStructureSchema = [3, n0, _GDCR,
   0,
-  [_aIp, _iI, _dSI, _dI, _oF],
-  [[0, 1], [0, 1], [0, { [_hQ]: _dSI }], [0, 1], [0, { [_hQ]: _oF }]]
+  [_aIp, _iI, _dI, _dSI, _oF],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _dSI }], [0, { [_hQ]: _oF }]], 3
 ];
 export var GetDocumentContentResponse$: StaticStructureSchema = [3, n0, _GDCRe,
   0,
   [_pU, _mT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetGroupRequest$: StaticStructureSchema = [3, n0, _GGR,
   0,
   [_aIp, _iI, _gN, _dSI],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _dSI }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _dSI }]], 3
 ];
 export var GetGroupResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
@@ -1654,7 +1654,7 @@ export var GetGroupResponse$: StaticStructureSchema = [3, n0, _GGRe,
 export var GetIndexRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
   [_aIp, _iI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetIndexResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
@@ -1664,7 +1664,7 @@ export var GetIndexResponse$: StaticStructureSchema = [3, n0, _GIRe,
 export var GetMediaRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
   [_aIp, _cI, _mIe, _mI],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var GetMediaResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
@@ -1674,7 +1674,7 @@ export var GetMediaResponse$: StaticStructureSchema = [3, n0, _GMRe,
 export var GetPluginRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_aIp, _pI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetPluginResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -1684,7 +1684,7 @@ export var GetPluginResponse$: StaticStructureSchema = [3, n0, _GPRe,
 export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPRet,
   0,
   [_aIp],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPReto,
   0,
@@ -1694,7 +1694,7 @@ export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPReto,
 export var GetRetrieverRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_aIp, _rIe],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetRetrieverResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
@@ -1704,7 +1704,7 @@ export var GetRetrieverResponse$: StaticStructureSchema = [3, n0, _GRRe,
 export var GetUserRequest$: StaticStructureSchema = [3, n0, _GUR,
   0,
   [_aIp, _uI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetUserResponse$: StaticStructureSchema = [3, n0, _GURe,
   0,
@@ -1714,7 +1714,7 @@ export var GetUserResponse$: StaticStructureSchema = [3, n0, _GURe,
 export var GetWebExperienceRequest$: StaticStructureSchema = [3, n0, _GWER,
   0,
   [_aIp, _wEI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetWebExperienceResponse$: StaticStructureSchema = [3, n0, _GWERe,
   0,
@@ -1749,12 +1749,12 @@ export var HookConfiguration$: StaticStructureSchema = [3, n0, _HC,
 export var IdcAuthConfiguration$: StaticStructureSchema = [3, n0, _IAC,
   0,
   [_iAA, _rA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ImageExtractionConfiguration$: StaticStructureSchema = [3, n0, _IEC,
   0,
   [_iES],
-  [0]
+  [0], 1
 ];
 export var ImageSourceDetails$: StaticStructureSchema = [3, n0, _ISD,
   0,
@@ -1789,18 +1789,18 @@ export var InstructionCollection$: StaticStructureSchema = [3, n0, _IC,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _ser, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KendraIndexConfiguration$: StaticStructureSchema = [3, n0, _KIC,
   0,
   [_iI],
-  [0]
+  [0], 1
 ];
 export var LicenseNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(LicenseNotFoundException$, LicenseNotFoundException);
 export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
@@ -1816,7 +1816,7 @@ export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListAttachmentsRequest$: StaticStructureSchema = [3, n0, _LARis,
   0,
   [_aIp, _cI, _uI, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _cI }], [0, { [_hQ]: _uI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, { [_hQ]: _cI }], [0, { [_hQ]: _uI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListAttachmentsResponse$: StaticStructureSchema = [3, n0, _LARist,
   0,
@@ -1826,7 +1826,7 @@ export var ListAttachmentsResponse$: StaticStructureSchema = [3, n0, _LARist,
 export var ListChatResponseConfigurationsRequest$: StaticStructureSchema = [3, n0, _LCRCR,
   0,
   [_aIp, _mRa, _nT],
-  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListChatResponseConfigurationsResponse$: StaticStructureSchema = [3, n0, _LCRCRi,
   0,
@@ -1836,7 +1836,7 @@ export var ListChatResponseConfigurationsResponse$: StaticStructureSchema = [3, 
 export var ListConversationsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_aIp, _uI, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _uI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, { [_hQ]: _uI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListConversationsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -1846,7 +1846,7 @@ export var ListConversationsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListDataAccessorsRequest$: StaticStructureSchema = [3, n0, _LDAR,
   0,
   [_aIp, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListDataAccessorsResponse$: StaticStructureSchema = [3, n0, _LDARi,
   0,
@@ -1856,7 +1856,7 @@ export var ListDataAccessorsResponse$: StaticStructureSchema = [3, n0, _LDARi,
 export var ListDataSourcesRequest$: StaticStructureSchema = [3, n0, _LDSR,
   0,
   [_aIp, _iI, _nT, _mRa],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
 ];
 export var ListDataSourcesResponse$: StaticStructureSchema = [3, n0, _LDSRi,
   0,
@@ -1866,7 +1866,7 @@ export var ListDataSourcesResponse$: StaticStructureSchema = [3, n0, _LDSRi,
 export var ListDataSourceSyncJobsRequest$: StaticStructureSchema = [3, n0, _LDSSJR,
   0,
   [_dSI, _aIp, _iI, _nT, _mRa, _sT, _eTn, _sF],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }], [4, { [_hQ]: _sT }], [4, { [_hQ]: _eTn }], [0, { [_hQ]: _sSy }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }], [4, { [_hQ]: _sT }], [4, { [_hQ]: _eTn }], [0, { [_hQ]: _sSy }]], 3
 ];
 export var ListDataSourceSyncJobsResponse$: StaticStructureSchema = [3, n0, _LDSSJRi,
   0,
@@ -1876,7 +1876,7 @@ export var ListDataSourceSyncJobsResponse$: StaticStructureSchema = [3, n0, _LDS
 export var ListDocumentsRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_aIp, _iI, _dSIa, _nT, _mRa],
-  [[0, 1], [0, 1], [64 | 0, { [_hQ]: _dSIa }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, 1], [64 | 0, { [_hQ]: _dSIa }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
 ];
 export var ListDocumentsResponse$: StaticStructureSchema = [3, n0, _LDRi,
   0,
@@ -1886,7 +1886,7 @@ export var ListDocumentsResponse$: StaticStructureSchema = [3, n0, _LDRi,
 export var ListGroupsRequest$: StaticStructureSchema = [3, n0, _LGR,
   0,
   [_aIp, _iI, _uET, _dSI, _nT, _mRa],
-  [[0, 1], [0, 1], [4, { [_hQ]: _uET }], [0, { [_hQ]: _dSI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, 1], [4, { [_hQ]: _uET }], [0, { [_hQ]: _dSI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 3
 ];
 export var ListGroupsResponse$: StaticStructureSchema = [3, n0, _LGRi,
   0,
@@ -1896,7 +1896,7 @@ export var ListGroupsResponse$: StaticStructureSchema = [3, n0, _LGRi,
 export var ListIndicesRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
   [_aIp, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListIndicesResponse$: StaticStructureSchema = [3, n0, _LIRi,
   0,
@@ -1906,7 +1906,7 @@ export var ListIndicesResponse$: StaticStructureSchema = [3, n0, _LIRi,
 export var ListMessagesRequest$: StaticStructureSchema = [3, n0, _LMR,
   0,
   [_cI, _aIp, _uI, _nT, _mRa],
-  [[0, 1], [0, 1], [0, { [_hQ]: _uI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _uI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
 ];
 export var ListMessagesResponse$: StaticStructureSchema = [3, n0, _LMRi,
   0,
@@ -1916,7 +1916,7 @@ export var ListMessagesResponse$: StaticStructureSchema = [3, n0, _LMRi,
 export var ListPluginActionsRequest$: StaticStructureSchema = [3, n0, _LPAR,
   0,
   [_aIp, _pI, _nT, _mRa],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
 ];
 export var ListPluginActionsResponse$: StaticStructureSchema = [3, n0, _LPARi,
   0,
@@ -1926,7 +1926,7 @@ export var ListPluginActionsResponse$: StaticStructureSchema = [3, n0, _LPARi,
 export var ListPluginsRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
   [_aIp, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListPluginsResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
@@ -1936,7 +1936,7 @@ export var ListPluginsResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListPluginTypeActionsRequest$: StaticStructureSchema = [3, n0, _LPTAR,
   0,
   [_pT, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListPluginTypeActionsResponse$: StaticStructureSchema = [3, n0, _LPTARi,
   0,
@@ -1956,7 +1956,7 @@ export var ListPluginTypeMetadataResponse$: StaticStructureSchema = [3, n0, _LPT
 export var ListRetrieversRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_aIp, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListRetrieversResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
@@ -1966,7 +1966,7 @@ export var ListRetrieversResponse$: StaticStructureSchema = [3, n0, _LRRi,
 export var ListSubscriptionsRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_aIp, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListSubscriptionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
@@ -1976,7 +1976,7 @@ export var ListSubscriptionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rARN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1986,7 +1986,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListWebExperiencesRequest$: StaticStructureSchema = [3, n0, _LWER,
   0,
   [_aIp, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListWebExperiencesResponse$: StaticStructureSchema = [3, n0, _LWERi,
   0,
@@ -2001,18 +2001,18 @@ export var MediaExtractionConfiguration$: StaticStructureSchema = [3, n0, _MEC,
 export var MediaTooLargeException$: StaticErrorSchema = [-3, n0, _MTLE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(MediaTooLargeException$, MediaTooLargeException);
 export var MemberGroup$: StaticStructureSchema = [3, n0, _MG,
   0,
   [_gN, _t],
-  [0, 0]
+  [0, 0], 1
 ];
 export var MemberUser$: StaticStructureSchema = [3, n0, _MU,
   0,
   [_uI, _t],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Message$: StaticStructureSchema = [3, n0, _M,
   0,
@@ -2021,8 +2021,8 @@ export var Message$: StaticStructureSchema = [3, n0, _M,
 ];
 export var MessageUsefulnessFeedback$: StaticStructureSchema = [3, n0, _MUF,
   0,
-  [_us, _rea, _com, _sAub],
-  [0, 0, 0, 4]
+  [_us, _sAub, _rea, _com],
+  [0, 4, 0, 0], 2
 ];
 export var MetadataEvent$: StaticStructureSchema = [3, n0, _ME,
   0,
@@ -2032,7 +2032,7 @@ export var MetadataEvent$: StaticStructureSchema = [3, n0, _ME,
 export var NativeIndexConfiguration$: StaticStructureSchema = [3, n0, _NIC,
   0,
   [_iI, _ve, _bO],
-  [0, 1, () => DocumentAttributeBoostingOverrideMap]
+  [0, 1, () => DocumentAttributeBoostingOverrideMap], 1
 ];
 export var NoAuthConfiguration$: StaticStructureSchema = [3, n0, _NAC,
   0,
@@ -2042,32 +2042,32 @@ export var NoAuthConfiguration$: StaticStructureSchema = [3, n0, _NAC,
 export var NumberAttributeBoostingConfiguration$: StaticStructureSchema = [3, n0, _NABC,
   0,
   [_bL, _bT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var OAuth2ClientCredentialConfiguration$: StaticStructureSchema = [3, n0, _OACCC,
   0,
   [_sA, _rA, _aU, _tU],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var OpenIDConnectProviderConfiguration$: StaticStructureSchema = [3, n0, _OIDCPC,
   0,
   [_sAe, _sR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var OrchestrationConfiguration$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_co],
-  [0]
+  [0], 1
 ];
 export var PermissionCondition$: StaticStructureSchema = [3, n0, _PC,
   0,
   [_cO, _cK, _cV],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var PersonalizationConfiguration$: StaticStructureSchema = [3, n0, _PCe,
   0,
   [_pCM],
-  [0]
+  [0], 1
 ];
 export var Plugin$: StaticStructureSchema = [3, n0, _Pl,
   0,
@@ -2077,7 +2077,7 @@ export var Plugin$: StaticStructureSchema = [3, n0, _Pl,
 export var PluginConfiguration$: StaticStructureSchema = [3, n0, _PCl,
   0,
   [_pI],
-  [0]
+  [0], 1
 ];
 export var PluginTypeMetadataSummary$: StaticStructureSchema = [3, n0, _PTMS,
   0,
@@ -2086,23 +2086,23 @@ export var PluginTypeMetadataSummary$: StaticStructureSchema = [3, n0, _PTMS,
 ];
 export var PrincipalGroup$: StaticStructureSchema = [3, n0, _PG,
   0,
-  [_n, _acc, _mTe],
-  [0, 0, 0]
+  [_acc, _n, _mTe],
+  [0, 0, 0], 1
 ];
 export var PrincipalUser$: StaticStructureSchema = [3, n0, _PU,
   0,
-  [_i, _acc, _mTe],
-  [0, 0, 0]
+  [_acc, _i, _mTe],
+  [0, 0, 0], 1
 ];
 export var PutFeedbackRequest$: StaticStructureSchema = [3, n0, _PFR,
   0,
-  [_aIp, _uI, _cI, _mIe, _mCA, _mUe],
-  [[0, 1], [0, { [_hQ]: _uI }], [0, 1], [0, 1], 4, () => MessageUsefulnessFeedback$]
+  [_aIp, _cI, _mIe, _uI, _mCA, _mUe],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _uI }], 4, () => MessageUsefulnessFeedback$], 3
 ];
 export var PutGroupRequest$: StaticStructureSchema = [3, n0, _PGR,
   0,
-  [_aIp, _iI, _gN, _dSI, _t, _gM, _rA],
-  [[0, 1], [0, 1], 0, 0, 0, () => GroupMembers$, 0]
+  [_aIp, _iI, _gN, _t, _gM, _dSI, _rA],
+  [[0, 1], [0, 1], 0, 0, () => GroupMembers$, 0, 0], 5
 ];
 export var PutGroupResponse$: StaticStructureSchema = [3, n0, _PGRu,
   0,
@@ -2112,12 +2112,12 @@ export var PutGroupResponse$: StaticStructureSchema = [3, n0, _PGRu,
 export var QAppsConfiguration$: StaticStructureSchema = [3, n0, _QAC,
   0,
   [_qACM],
-  [0]
+  [0], 1
 ];
 export var QuickSightConfiguration$: StaticStructureSchema = [3, n0, _QSC,
   0,
   [_cN],
-  [0]
+  [0], 1
 ];
 export var RelevantContent$: StaticStructureSchema = [3, n0, _RC,
   0,
@@ -2127,7 +2127,7 @@ export var RelevantContent$: StaticStructureSchema = [3, n0, _RC,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResponseConfiguration$: StaticStructureSchema = [3, n0, _RCe,
@@ -2143,27 +2143,27 @@ export var Retriever$: StaticStructureSchema = [3, n0, _R,
 export var RetrieverContentSource$: StaticStructureSchema = [3, n0, _RCS,
   0,
   [_rIe],
-  [0]
+  [0], 1
 ];
 export var Rule$: StaticStructureSchema = [3, n0, _Ru,
   0,
-  [_iUAG, _eUAG, _rTu, _rCu],
-  [() => UsersAndGroups$, () => UsersAndGroups$, 0, () => RuleConfiguration$]
+  [_rTu, _iUAG, _eUAG, _rCu],
+  [0, () => UsersAndGroups$, () => UsersAndGroups$, () => RuleConfiguration$], 1
 ];
 export var S3$: StaticStructureSchema = [3, n0, _S,
   0,
   [_bu, _k],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SamlConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_mXML, _rA, _uIA, _uGA],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var SamlProviderConfiguration$: StaticStructureSchema = [3, n0, _SPC,
   0,
   [_aUu],
-  [0]
+  [0], 1
 ];
 export var ScoreAttributes$: StaticStructureSchema = [3, n0, _SA,
   0,
@@ -2173,7 +2173,7 @@ export var ScoreAttributes$: StaticStructureSchema = [3, n0, _SA,
 export var SearchRelevantContentRequest$: StaticStructureSchema = [3, n0, _SRCR,
   0,
   [_aIp, _qT, _cSo, _aFt, _mRa, _nT],
-  [[0, 1], 0, () => ContentSource$, () => AttributeFilter$, 1, 0]
+  [[0, 1], 0, () => ContentSource$, () => AttributeFilter$, 1, 0], 3
 ];
 export var SearchRelevantContentResponse$: StaticStructureSchema = [3, n0, _SRCRe,
   0,
@@ -2183,7 +2183,7 @@ export var SearchRelevantContentResponse$: StaticStructureSchema = [3, n0, _SRCR
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SnippetExcerpt$: StaticStructureSchema = [3, n0, _SE,
@@ -2199,7 +2199,7 @@ export var SourceAttribution$: StaticStructureSchema = [3, n0, _SAo,
 export var StartDataSourceSyncJobRequest$: StaticStructureSchema = [3, n0, _SDSSJR,
   0,
   [_dSI, _aIp, _iI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var StartDataSourceSyncJobResponse$: StaticStructureSchema = [3, n0, _SDSSJRt,
   0,
@@ -2209,7 +2209,7 @@ export var StartDataSourceSyncJobResponse$: StaticStructureSchema = [3, n0, _SDS
 export var StopDataSourceSyncJobRequest$: StaticStructureSchema = [3, n0, _SDSSJRto,
   0,
   [_dSI, _aIp, _iI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var StopDataSourceSyncJobResponse$: StaticStructureSchema = [3, n0, _SDSSJRtop,
   0,
@@ -2219,12 +2219,12 @@ export var StopDataSourceSyncJobResponse$: StaticStructureSchema = [3, n0, _SDSS
 export var StringAttributeBoostingConfiguration$: StaticStructureSchema = [3, n0, _SABC,
   0,
   [_bL, _aVB],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var StringListAttributeBoostingConfiguration$: StaticStructureSchema = [3, n0, _SLABC,
   0,
   [_bL],
-  [0]
+  [0], 1
 ];
 export var Subscription$: StaticStructureSchema = [3, n0, _Su,
   0,
@@ -2239,12 +2239,12 @@ export var SubscriptionDetails$: StaticStructureSchema = [3, n0, _SD,
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rARN, _ta],
-  [[0, 1], () => Tags]
+  [[0, 1], () => Tags], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -2259,7 +2259,7 @@ export var TextDocumentStatistics$: StaticStructureSchema = [3, n0, _TDS,
 export var TextInputEvent$: StaticStructureSchema = [3, n0, _TIE,
   0,
   [_uM],
-  [0]
+  [0], 1
 ];
 export var TextOutputEvent$: StaticStructureSchema = [3, n0, _TOE,
   0,
@@ -2274,18 +2274,18 @@ export var TextSegment$: StaticStructureSchema = [3, n0, _TS,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TopicConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
-  [_n, _d, _eCM, _ru],
-  [0, 0, 64 | 0, () => Rules]
+  [_n, _ru, _d, _eCM],
+  [0, () => Rules, 0, 64 | 0], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rARN, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2295,7 +2295,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_aIp, _iCIA, _dN, _d, _rA, _aCt, _qAC, _pC, _aSC],
-  [[0, 1], 0, 0, 0, 0, () => AttachmentsConfiguration$, () => QAppsConfiguration$, () => PersonalizationConfiguration$, () => AutoSubscriptionConfiguration$]
+  [[0, 1], 0, 0, 0, 0, () => AttachmentsConfiguration$, () => QAppsConfiguration$, () => PersonalizationConfiguration$, () => AutoSubscriptionConfiguration$], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -2305,7 +2305,7 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateChatControlsConfigurationRequest$: StaticStructureSchema = [3, n0, _UCCCR,
   0,
   [_aIp, _cT, _rS, _oC, _bPCU, _tCTCOU, _tCTD, _cMCr, _hRC],
-  [[0, 1], [0, 4], 0, () => OrchestrationConfiguration$, () => BlockedPhrasesConfigurationUpdate$, () => TopicConfigurations, () => TopicConfigurations, () => CreatorModeConfiguration$, () => HallucinationReductionConfiguration$]
+  [[0, 1], [0, 4], 0, () => OrchestrationConfiguration$, () => BlockedPhrasesConfigurationUpdate$, () => TopicConfigurations, () => TopicConfigurations, () => CreatorModeConfiguration$, () => HallucinationReductionConfiguration$], 1
 ];
 export var UpdateChatControlsConfigurationResponse$: StaticStructureSchema = [3, n0, _UCCCRp,
   0,
@@ -2314,8 +2314,8 @@ export var UpdateChatControlsConfigurationResponse$: StaticStructureSchema = [3,
 ];
 export var UpdateChatResponseConfigurationRequest$: StaticStructureSchema = [3, n0, _UCRCR,
   0,
-  [_aIp, _cRCI, _dN, _rC, _cT],
-  [[0, 1], [0, 1], 0, () => ResponseConfigurations, [0, 4]]
+  [_aIp, _cRCI, _rC, _dN, _cT],
+  [[0, 1], [0, 1], () => ResponseConfigurations, 0, [0, 4]], 3
 ];
 export var UpdateChatResponseConfigurationResponse$: StaticStructureSchema = [3, n0, _UCRCRp,
   0,
@@ -2325,7 +2325,7 @@ export var UpdateChatResponseConfigurationResponse$: StaticStructureSchema = [3,
 export var UpdateDataAccessorRequest$: StaticStructureSchema = [3, n0, _UDAR,
   0,
   [_aIp, _dAI, _aCc, _aD, _dN],
-  [[0, 1], [0, 1], () => ActionConfigurationList, () => DataAccessorAuthenticationDetail$, [() => DataAccessorName, 0]]
+  [[0, 1], [0, 1], () => ActionConfigurationList, () => DataAccessorAuthenticationDetail$, [() => DataAccessorName, 0]], 3
 ];
 export var UpdateDataAccessorResponse$: StaticStructureSchema = [3, n0, _UDARp,
   0,
@@ -2335,7 +2335,7 @@ export var UpdateDataAccessorResponse$: StaticStructureSchema = [3, n0, _UDARp,
 export var UpdateDataSourceRequest$: StaticStructureSchema = [3, n0, _UDSR,
   0,
   [_aIp, _iI, _dSI, _dN, _conf, _vC, _d, _sS, _rA, _dEC, _mEC],
-  [[0, 1], [0, 1], [0, 1], 0, 15, () => DataSourceVpcConfiguration$, 0, 0, 0, () => DocumentEnrichmentConfiguration$, () => MediaExtractionConfiguration$]
+  [[0, 1], [0, 1], [0, 1], 0, 15, () => DataSourceVpcConfiguration$, 0, 0, 0, () => DocumentEnrichmentConfiguration$, () => MediaExtractionConfiguration$], 3
 ];
 export var UpdateDataSourceResponse$: StaticStructureSchema = [3, n0, _UDSRp,
   0,
@@ -2345,7 +2345,7 @@ export var UpdateDataSourceResponse$: StaticStructureSchema = [3, n0, _UDSRp,
 export var UpdateIndexRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
   [_aIp, _iI, _dN, _d, _cC, _dAC],
-  [[0, 1], [0, 1], 0, 0, () => IndexCapacityConfiguration$, () => DocumentAttributeConfigurations]
+  [[0, 1], [0, 1], 0, 0, () => IndexCapacityConfiguration$, () => DocumentAttributeConfigurations], 2
 ];
 export var UpdateIndexResponse$: StaticStructureSchema = [3, n0, _UIRp,
   0,
@@ -2355,7 +2355,7 @@ export var UpdateIndexResponse$: StaticStructureSchema = [3, n0, _UIRp,
 export var UpdatePluginRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_aIp, _pI, _dN, _sta, _sU, _cPC, _aCu],
-  [[0, 1], [0, 1], 0, 0, 0, [() => CustomPluginConfiguration$, 0], () => PluginAuthConfiguration$]
+  [[0, 1], [0, 1], 0, 0, 0, [() => CustomPluginConfiguration$, 0], () => PluginAuthConfiguration$], 2
 ];
 export var UpdatePluginResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -2365,7 +2365,7 @@ export var UpdatePluginResponse$: StaticStructureSchema = [3, n0, _UPRp,
 export var UpdateRetrieverRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_aIp, _rIe, _conf, _dN, _rA],
-  [[0, 1], [0, 1], () => RetrieverConfiguration$, 0, 0]
+  [[0, 1], [0, 1], () => RetrieverConfiguration$, 0, 0], 2
 ];
 export var UpdateRetrieverResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -2375,7 +2375,7 @@ export var UpdateRetrieverResponse$: StaticStructureSchema = [3, n0, _URRpd,
 export var UpdateSubscriptionRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_aIp, _sIu, _t],
-  [[0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], 0], 3
 ];
 export var UpdateSubscriptionResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -2385,7 +2385,7 @@ export var UpdateSubscriptionResponse$: StaticStructureSchema = [3, n0, _USRp,
 export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
   [_aIp, _uI, _uATU, _uATD],
-  [[0, 1], [0, 1], () => UserAliases, () => UserAliases]
+  [[0, 1], [0, 1], () => UserAliases, () => UserAliases], 2
 ];
 export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
   0,
@@ -2395,7 +2395,7 @@ export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
 export var UpdateWebExperienceRequest$: StaticStructureSchema = [3, n0, _UWER,
   0,
   [_aIp, _wEI, _rA, _aCut, _ti, _su, _wM, _sPCM, _iPC, _o, _bEC, _cCu],
-  [[0, 1], [0, 1], 0, () => WebExperienceAuthConfiguration$, 0, 0, 0, 0, () => IdentityProviderConfiguration$, 64 | 0, () => BrowserExtensionConfiguration$, () => CustomizationConfiguration$]
+  [[0, 1], [0, 1], 0, () => WebExperienceAuthConfiguration$, 0, 0, 0, 0, () => IdentityProviderConfiguration$, 64 | 0, () => BrowserExtensionConfiguration$, () => CustomizationConfiguration$], 2
 ];
 export var UpdateWebExperienceResponse$: StaticStructureSchema = [3, n0, _UWERp,
   0,
@@ -2404,8 +2404,8 @@ export var UpdateWebExperienceResponse$: StaticStructureSchema = [3, n0, _UWERp,
 ];
 export var UserAlias$: StaticStructureSchema = [3, n0, _UA,
   0,
-  [_iI, _dSI, _uI],
-  [0, 0, 0]
+  [_uI, _iI, _dSI],
+  [0, 0, 0], 1
 ];
 export var UsersAndGroups$: StaticStructureSchema = [3, n0, _UAG,
   0,
@@ -2415,18 +2415,18 @@ export var UsersAndGroups$: StaticStructureSchema = [3, n0, _UAG,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _rea, _f],
-  [0, 0, () => ValidationExceptionFields]
+  [0, 0, () => ValidationExceptionFields], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VideoExtractionConfiguration$: StaticStructureSchema = [3, n0, _VEC,
   0,
   [_vES],
-  [0]
+  [0], 1
 ];
 export var VideoSourceDetails$: StaticStructureSchema = [3, n0, _VSD,
   0,

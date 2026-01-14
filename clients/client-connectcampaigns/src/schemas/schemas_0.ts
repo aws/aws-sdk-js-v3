@@ -176,7 +176,7 @@ var DestinationPhoneNumber: StaticSimpleSchema = [0, n0, _DPN, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AgentlessDialerConfig$: StaticStructureSchema = [3, n0, _ADC,
@@ -187,12 +187,12 @@ export var AgentlessDialerConfig$: StaticStructureSchema = [3, n0, _ADC,
 export var AnswerMachineDetectionConfig$: StaticStructureSchema = [3, n0, _AMDC,
   0,
   [_eAMD, _aAMP],
-  [2, 2]
+  [2, 2], 1
 ];
 export var Campaign$: StaticStructureSchema = [3, n0, _C,
   0,
   [_i, _a, _n, _cII, _dCi, _oCC, _t],
-  [0, 0, 0, 0, () => DialerConfig$, () => OutboundCallConfig$, 128 | 0]
+  [0, 0, 0, 0, () => DialerConfig$, () => OutboundCallConfig$, 128 | 0], 6
 ];
 export var CampaignFilters$: StaticStructureSchema = [3, n0, _CF,
   0,
@@ -202,18 +202,18 @@ export var CampaignFilters$: StaticStructureSchema = [3, n0, _CF,
 export var CampaignSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_i, _a, _n, _cII],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCampaignRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_n, _cII, _dCi, _oCC, _t],
-  [0, 0, () => DialerConfig$, () => OutboundCallConfig$, 128 | 0]
+  [0, 0, () => DialerConfig$, () => OutboundCallConfig$, 128 | 0], 4
 ];
 export var CreateCampaignResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -223,22 +223,22 @@ export var CreateCampaignResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var DeleteCampaignRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteConnectInstanceConfigRequest$: StaticStructureSchema = [3, n0, _DCICR,
   0,
   [_cII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteInstanceOnboardingJobRequest$: StaticStructureSchema = [3, n0, _DIOJR,
   0,
   [_cII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeCampaignRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeCampaignResponse$: StaticStructureSchema = [3, n0, _DCRes,
   0,
@@ -248,12 +248,12 @@ export var DescribeCampaignResponse$: StaticStructureSchema = [3, n0, _DCRes,
 export var DialRequest$: StaticStructureSchema = [3, n0, _DR,
   0,
   [_cT, _pN, _eT, _at],
-  [0, [() => DestinationPhoneNumber, 0], 5, [() => Attributes, 0]]
+  [0, [() => DestinationPhoneNumber, 0], 5, [() => Attributes, 0]], 4
 ];
 export var EncryptionConfig$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_en, _eTn, _kA],
-  [2, 0, 0]
+  [2, 0, 0], 1
 ];
 export var FailedCampaignStateResponse$: StaticStructureSchema = [3, n0, _FCSR,
   0,
@@ -268,7 +268,7 @@ export var FailedRequest$: StaticStructureSchema = [3, n0, _FR,
 export var GetCampaignStateBatchRequest$: StaticStructureSchema = [3, n0, _GCSBR,
   0,
   [_cIa],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var GetCampaignStateBatchResponse$: StaticStructureSchema = [3, n0, _GCSBRe,
   0,
@@ -278,7 +278,7 @@ export var GetCampaignStateBatchResponse$: StaticStructureSchema = [3, n0, _GCSB
 export var GetCampaignStateRequest$: StaticStructureSchema = [3, n0, _GCSR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCampaignStateResponse$: StaticStructureSchema = [3, n0, _GCSRe,
   0,
@@ -288,7 +288,7 @@ export var GetCampaignStateResponse$: StaticStructureSchema = [3, n0, _GCSRe,
 export var GetConnectInstanceConfigRequest$: StaticStructureSchema = [3, n0, _GCICR,
   0,
   [_cII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConnectInstanceConfigResponse$: StaticStructureSchema = [3, n0, _GCICRe,
   0,
@@ -298,7 +298,7 @@ export var GetConnectInstanceConfigResponse$: StaticStructureSchema = [3, n0, _G
 export var GetInstanceOnboardingJobStatusRequest$: StaticStructureSchema = [3, n0, _GIOJSR,
   0,
   [_cII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetInstanceOnboardingJobStatusResponse$: StaticStructureSchema = [3, n0, _GIOJSRe,
   0,
@@ -308,34 +308,34 @@ export var GetInstanceOnboardingJobStatusResponse$: StaticStructureSchema = [3, 
 export var InstanceConfig$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_cII, _sLRA, _eC],
-  [0, 0, () => EncryptionConfig$]
+  [0, 0, () => EncryptionConfig$], 3
 ];
 export var InstanceIdFilter$: StaticStructureSchema = [3, n0, _IIF,
   0,
   [_v, _o],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InstanceOnboardingJobStatus$: StaticStructureSchema = [3, n0, _IOJS,
   0,
   [_cII, _st, _fC],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidCampaignStateException$: StaticErrorSchema = [-3, n0, _ICSE,
   { [_e]: _c, [_hE]: 409 },
   [_s, _m, _xAET],
-  [0, 0, [0, { [_hH]: _xaE }]]
+  [0, 0, [0, { [_hH]: _xaE }]], 2
 ];
 TypeRegistry.for(n0).registerError(InvalidCampaignStateException$, InvalidCampaignStateException);
 export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn,
   { [_e]: _c, [_hE]: 409 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
 export var ListCampaignsRequest$: StaticStructureSchema = [3, n0, _LCR,
@@ -351,7 +351,7 @@ export var ListCampaignsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_a],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -361,27 +361,27 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var OutboundCallConfig$: StaticStructureSchema = [3, n0, _OCC,
   0,
   [_cCFI, _cSPN, _cQI, _aMDC],
-  [0, 0, 0, () => AnswerMachineDetectionConfig$]
+  [0, 0, 0, () => AnswerMachineDetectionConfig$], 1
 ];
 export var PauseCampaignRequest$: StaticStructureSchema = [3, n0, _PCR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var PredictiveDialerConfig$: StaticStructureSchema = [3, n0, _PDC,
   0,
   [_bA, _dC],
-  [1, 1]
+  [1, 1], 1
 ];
 export var ProgressiveDialerConfig$: StaticStructureSchema = [3, n0, _PDCr,
   0,
   [_bA, _dC],
-  [1, 1]
+  [1, 1], 1
 ];
 export var PutDialRequestBatchRequest$: StaticStructureSchema = [3, n0, _PDRBR,
   0,
   [_i, _dR],
-  [[0, 1], [() => DialRequestList, 0]]
+  [[0, 1], [() => DialRequestList, 0]], 2
 ];
 export var PutDialRequestBatchResponse$: StaticStructureSchema = [3, n0, _PDRBRu,
   0,
@@ -391,29 +391,29 @@ export var PutDialRequestBatchResponse$: StaticStructureSchema = [3, n0, _PDRBRu
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResumeCampaignRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartCampaignRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StartInstanceOnboardingJobRequest$: StaticStructureSchema = [3, n0, _SIOJR,
   0,
   [_cII, _eC],
-  [[0, 1], () => EncryptionConfig$]
+  [[0, 1], () => EncryptionConfig$], 2
 ];
 export var StartInstanceOnboardingJobResponse$: StaticStructureSchema = [3, n0, _SIOJRt,
   0,
@@ -423,7 +423,7 @@ export var StartInstanceOnboardingJobResponse$: StaticStructureSchema = [3, n0, 
 export var StopCampaignRequest$: StaticStructureSchema = [3, n0, _SCRt,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var SuccessfulCampaignStateResponse$: StaticStructureSchema = [3, n0, _SCSR,
   0,
@@ -438,38 +438,38 @@ export var SuccessfulRequest$: StaticStructureSchema = [3, n0, _SR,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_a, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_a, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateCampaignDialerConfigRequest$: StaticStructureSchema = [3, n0, _UCDCR,
   0,
   [_i, _dCi],
-  [[0, 1], () => DialerConfig$]
+  [[0, 1], () => DialerConfig$], 2
 ];
 export var UpdateCampaignNameRequest$: StaticStructureSchema = [3, n0, _UCNR,
   0,
   [_i, _n],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateCampaignOutboundCallConfigRequest$: StaticStructureSchema = [3, n0, _UCOCCR,
   0,
   [_i, _cCFI, _cSPN, _aMDC],
-  [[0, 1], 0, 0, () => AnswerMachineDetectionConfig$]
+  [[0, 1], 0, 0, () => AnswerMachineDetectionConfig$], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;

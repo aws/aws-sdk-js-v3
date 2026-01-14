@@ -258,7 +258,7 @@ export var AccessControlEntrySummary$: StaticStructureSchema = [3, n0, _ACES,
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccessRights$: StaticStructureSchema = [3, n0, _AR,
@@ -268,18 +268,18 @@ export var AccessRights$: StaticStructureSchema = [3, n0, _AR,
 ];
 export var ApplicationPolicies$: StaticStructureSchema = [3, n0, _AP,
   0,
-  [_C, _P],
-  [2, () => ApplicationPolicyList]
+  [_P, _C],
+  [() => ApplicationPolicyList, 2], 1
 ];
 export var CertificateValidity$: StaticStructureSchema = [3, n0, _CV,
   0,
   [_VP, _RP],
-  [() => ValidityPeriod$, () => ValidityPeriod$]
+  [() => ValidityPeriod$, () => ValidityPeriod$], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Connector$: StaticStructureSchema = [3, n0, _Co,
@@ -295,7 +295,7 @@ export var ConnectorSummary$: StaticStructureSchema = [3, n0, _CS,
 export var CreateConnectorRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_DI, _CAA, _VI, _CT, _T],
-  [0, 0, () => VpcInformation$, [0, 4], 128 | 0]
+  [0, 0, () => VpcInformation$, [0, 4], 128 | 0], 3
 ];
 export var CreateConnectorResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -305,7 +305,7 @@ export var CreateConnectorResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateDirectoryRegistrationRequest$: StaticStructureSchema = [3, n0, _CDRR,
   0,
   [_DI, _CT, _T],
-  [0, [0, 4], 128 | 0]
+  [0, [0, 4], 128 | 0], 1
 ];
 export var CreateDirectoryRegistrationResponse$: StaticStructureSchema = [3, n0, _CDRRr,
   0,
@@ -315,17 +315,17 @@ export var CreateDirectoryRegistrationResponse$: StaticStructureSchema = [3, n0,
 export var CreateServicePrincipalNameRequest$: StaticStructureSchema = [3, n0, _CSPNR,
   0,
   [_DRA, _CAo, _CT],
-  [[0, 1], [0, 1], [0, 4]]
+  [[0, 1], [0, 1], [0, 4]], 2
 ];
 export var CreateTemplateGroupAccessControlEntryRequest$: StaticStructureSchema = [3, n0, _CTGACER,
   0,
   [_TA, _GSI, _GDN, _AR, _CT],
-  [[0, 1], 0, 0, () => AccessRights$, [0, 4]]
+  [[0, 1], 0, 0, () => AccessRights$, [0, 4]], 4
 ];
 export var CreateTemplateRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_CAo, _N, _D, _CT, _T],
-  [0, 0, () => TemplateDefinition$, [0, 4], 128 | 0]
+  [0, 0, () => TemplateDefinition$, [0, 4], 128 | 0], 3
 ];
 export var CreateTemplateResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -335,27 +335,27 @@ export var CreateTemplateResponse$: StaticStructureSchema = [3, n0, _CTRr,
 export var DeleteConnectorRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CAo],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDirectoryRegistrationRequest$: StaticStructureSchema = [3, n0, _DDRR,
   0,
   [_DRA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteServicePrincipalNameRequest$: StaticStructureSchema = [3, n0, _DSPNR,
   0,
   [_DRA, _CAo],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteTemplateGroupAccessControlEntryRequest$: StaticStructureSchema = [3, n0, _DTGACER,
   0,
   [_TA, _GSI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteTemplateRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_TA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DirectoryRegistration$: StaticStructureSchema = [3, n0, _DR,
   0,
@@ -385,17 +385,17 @@ export var EnrollmentFlagsV4$: StaticStructureSchema = [3, n0, _EFVnr,
 export var ExtensionsV2$: StaticStructureSchema = [3, n0, _EV,
   0,
   [_KU, _AP],
-  [() => KeyUsage$, () => ApplicationPolicies$]
+  [() => KeyUsage$, () => ApplicationPolicies$], 1
 ];
 export var ExtensionsV3$: StaticStructureSchema = [3, n0, _EVx,
   0,
   [_KU, _AP],
-  [() => KeyUsage$, () => ApplicationPolicies$]
+  [() => KeyUsage$, () => ApplicationPolicies$], 1
 ];
 export var ExtensionsV4$: StaticStructureSchema = [3, n0, _EVxt,
   0,
   [_KU, _AP],
-  [() => KeyUsage$, () => ApplicationPolicies$]
+  [() => KeyUsage$, () => ApplicationPolicies$], 1
 ];
 export var GeneralFlagsV2$: StaticStructureSchema = [3, n0, _GFV,
   0,
@@ -415,7 +415,7 @@ export var GeneralFlagsV4$: StaticStructureSchema = [3, n0, _GFVen,
 export var GetConnectorRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_CAo],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConnectorResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -425,7 +425,7 @@ export var GetConnectorResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var GetDirectoryRegistrationRequest$: StaticStructureSchema = [3, n0, _GDRR,
   0,
   [_DRA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDirectoryRegistrationResponse$: StaticStructureSchema = [3, n0, _GDRRe,
   0,
@@ -435,7 +435,7 @@ export var GetDirectoryRegistrationResponse$: StaticStructureSchema = [3, n0, _G
 export var GetServicePrincipalNameRequest$: StaticStructureSchema = [3, n0, _GSPNR,
   0,
   [_DRA, _CAo],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetServicePrincipalNameResponse$: StaticStructureSchema = [3, n0, _GSPNRe,
   0,
@@ -445,7 +445,7 @@ export var GetServicePrincipalNameResponse$: StaticStructureSchema = [3, n0, _GS
 export var GetTemplateGroupAccessControlEntryRequest$: StaticStructureSchema = [3, n0, _GTGACER,
   0,
   [_TA, _GSI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetTemplateGroupAccessControlEntryResponse$: StaticStructureSchema = [3, n0, _GTGACERe,
   0,
@@ -455,7 +455,7 @@ export var GetTemplateGroupAccessControlEntryResponse$: StaticStructureSchema = 
 export var GetTemplateRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_TA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetTemplateResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
@@ -465,13 +465,13 @@ export var GetTemplateResponse$: StaticStructureSchema = [3, n0, _GTRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KeyUsage$: StaticStructureSchema = [3, n0, _KU,
   0,
-  [_C, _UF],
-  [2, () => KeyUsageFlags$]
+  [_UF, _C],
+  [() => KeyUsageFlags$, 2], 1
 ];
 export var KeyUsageFlags$: StaticStructureSchema = [3, n0, _KUF,
   0,
@@ -505,8 +505,8 @@ export var ListDirectoryRegistrationsResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListServicePrincipalNamesRequest$: StaticStructureSchema = [3, n0, _LSPNR,
   0,
-  [_MR, _NT, _DRA],
-  [[1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [0, 1]]
+  [_DRA, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListServicePrincipalNamesResponse$: StaticStructureSchema = [3, n0, _LSPNRi,
   0,
@@ -516,7 +516,7 @@ export var ListServicePrincipalNamesResponse$: StaticStructureSchema = [3, n0, _
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -525,8 +525,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListTemplateGroupAccessControlEntriesRequest$: StaticStructureSchema = [3, n0, _LTGACER,
   0,
-  [_MR, _NT, _TA],
-  [[1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [0, 1]]
+  [_TA, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListTemplateGroupAccessControlEntriesResponse$: StaticStructureSchema = [3, n0, _LTGACERi,
   0,
@@ -535,8 +535,8 @@ export var ListTemplateGroupAccessControlEntriesResponse$: StaticStructureSchema
 ];
 export var ListTemplatesRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
-  [_MR, _NT, _CAo],
-  [[1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [0, { [_hQ]: _CAo }]]
+  [_CAo, _MR, _NT],
+  [[0, { [_hQ]: _CAo }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListTemplatesResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -546,37 +546,37 @@ export var ListTemplatesResponse$: StaticStructureSchema = [3, n0, _LTRi,
 export var PrivateKeyAttributesV2$: StaticStructureSchema = [3, n0, _PKAV,
   0,
   [_MKL, _KS, _CP],
-  [1, 0, 64 | 0]
+  [1, 0, 64 | 0], 2
 ];
 export var PrivateKeyAttributesV3$: StaticStructureSchema = [3, n0, _PKAVr,
   0,
-  [_MKL, _KS, _CP, _KUP, _Al],
-  [1, 0, 64 | 0, () => KeyUsageProperty$, 0]
+  [_MKL, _KS, _KUP, _Al, _CP],
+  [1, 0, () => KeyUsageProperty$, 0, 64 | 0], 4
 ];
 export var PrivateKeyAttributesV4$: StaticStructureSchema = [3, n0, _PKAVri,
   0,
   [_MKL, _KS, _CP, _KUP, _Al],
-  [1, 0, 64 | 0, () => KeyUsageProperty$, 0]
+  [1, 0, 64 | 0, () => KeyUsageProperty$, 0], 2
 ];
 export var PrivateKeyFlagsV2$: StaticStructureSchema = [3, n0, _PKFV,
   0,
-  [_EK, _SKPR, _CVl],
-  [2, 2, 0]
+  [_CVl, _EK, _SKPR],
+  [0, 2, 2], 1
 ];
 export var PrivateKeyFlagsV3$: StaticStructureSchema = [3, n0, _PKFVr,
   0,
-  [_EK, _SKPR, _RASA, _CVl],
-  [2, 2, 2, 0]
+  [_CVl, _EK, _SKPR, _RASA],
+  [0, 2, 2, 2], 1
 ];
 export var PrivateKeyFlagsV4$: StaticStructureSchema = [3, n0, _PKFVri,
   0,
-  [_EK, _SKPR, _RASA, _RSKR, _ULP, _CVl],
-  [2, 2, 2, 2, 2, 0]
+  [_CVl, _EK, _SKPR, _RASA, _RSKR, _ULP],
+  [0, 2, 2, 2, 2, 2], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServicePrincipalName$: StaticStructureSchema = [3, n0, _SPN,
@@ -592,7 +592,7 @@ export var ServicePrincipalNameSummary$: StaticStructureSchema = [3, n0, _SPNS,
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M, _RI, _RT, _SC, _QC],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SubjectNameFlagsV2$: StaticStructureSchema = [3, n0, _SNFV,
@@ -613,7 +613,7 @@ export var SubjectNameFlagsV4$: StaticStructureSchema = [3, n0, _SNFVub,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var Template$: StaticStructureSchema = [3, n0, _Te,
   0,
@@ -623,7 +623,7 @@ export var Template$: StaticStructureSchema = [3, n0, _Te,
 export var TemplateRevision$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_MRa, _MRi],
-  [1, 1]
+  [1, 1], 2
 ];
 export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
@@ -632,55 +632,55 @@ export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
 ];
 export var TemplateV2$: StaticStructureSchema = [3, n0, _TV,
   0,
-  [_CV, _ST, _PKA, _PKF, _EF, _SNF, _GF, _Ex],
-  [() => CertificateValidity$, 64 | 0, () => PrivateKeyAttributesV2$, () => PrivateKeyFlagsV2$, () => EnrollmentFlagsV2$, () => SubjectNameFlagsV2$, () => GeneralFlagsV2$, () => ExtensionsV2$]
+  [_CV, _PKA, _PKF, _EF, _SNF, _GF, _Ex, _ST],
+  [() => CertificateValidity$, () => PrivateKeyAttributesV2$, () => PrivateKeyFlagsV2$, () => EnrollmentFlagsV2$, () => SubjectNameFlagsV2$, () => GeneralFlagsV2$, () => ExtensionsV2$, 64 | 0], 7
 ];
 export var TemplateV3$: StaticStructureSchema = [3, n0, _TVe,
   0,
-  [_CV, _ST, _PKA, _PKF, _EF, _SNF, _GF, _HA, _Ex],
-  [() => CertificateValidity$, 64 | 0, () => PrivateKeyAttributesV3$, () => PrivateKeyFlagsV3$, () => EnrollmentFlagsV3$, () => SubjectNameFlagsV3$, () => GeneralFlagsV3$, 0, () => ExtensionsV3$]
+  [_CV, _PKA, _PKF, _EF, _SNF, _GF, _HA, _Ex, _ST],
+  [() => CertificateValidity$, () => PrivateKeyAttributesV3$, () => PrivateKeyFlagsV3$, () => EnrollmentFlagsV3$, () => SubjectNameFlagsV3$, () => GeneralFlagsV3$, 0, () => ExtensionsV3$, 64 | 0], 8
 ];
 export var TemplateV4$: StaticStructureSchema = [3, n0, _TVem,
   0,
-  [_CV, _ST, _PKA, _PKF, _EF, _SNF, _GF, _HA, _Ex],
-  [() => CertificateValidity$, 64 | 0, () => PrivateKeyAttributesV4$, () => PrivateKeyFlagsV4$, () => EnrollmentFlagsV4$, () => SubjectNameFlagsV4$, () => GeneralFlagsV4$, 0, () => ExtensionsV4$]
+  [_CV, _PKA, _PKF, _EF, _SNF, _GF, _Ex, _ST, _HA],
+  [() => CertificateValidity$, () => PrivateKeyAttributesV4$, () => PrivateKeyFlagsV4$, () => EnrollmentFlagsV4$, () => SubjectNameFlagsV4$, () => GeneralFlagsV4$, () => ExtensionsV4$, 64 | 0, 0], 7
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M, _SC, _QC],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateTemplateGroupAccessControlEntryRequest$: StaticStructureSchema = [3, n0, _UTGACER,
   0,
   [_TA, _GSI, _GDN, _AR],
-  [[0, 1], [0, 1], 0, () => AccessRights$]
+  [[0, 1], [0, 1], 0, () => AccessRights$], 2
 ];
 export var UpdateTemplateRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
   [_TA, _D, _RACH],
-  [[0, 1], () => TemplateDefinition$, 2]
+  [[0, 1], () => TemplateDefinition$, 2], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _Re],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidityPeriod$: StaticStructureSchema = [3, n0, _VP,
   0,
   [_PT, _Pe],
-  [0, 1]
+  [0, 1], 2
 ];
 export var VpcInformation$: StaticStructureSchema = [3, n0, _VI,
   0,
-  [_IAT, _SGI],
-  [0, 64 | 0]
+  [_SGI, _IAT],
+  [64 | 0, 0], 1
 ];
 var __Unit = "unit" as const;
 export var PcaConnectorAdServiceException$: StaticErrorSchema = [-3, _sm, "PcaConnectorAdServiceException", 0, [], []];

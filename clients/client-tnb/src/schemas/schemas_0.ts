@@ -268,13 +268,13 @@ var SensitiveBlob: StaticSimpleSchema = [0, n0, _SB, 8, 21];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var CancelSolNetworkOperationInput$: StaticStructureSchema = [3, n0, _CSNOI,
   0,
   [_nLOOI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CreateSolFunctionPackageInput$: StaticStructureSchema = [3, n0, _CSFPI,
   0,
@@ -284,17 +284,17 @@ export var CreateSolFunctionPackageInput$: StaticStructureSchema = [3, n0, _CSFP
 export var CreateSolFunctionPackageOutput$: StaticStructureSchema = [3, n0, _CSFPO,
   0,
   [_i, _a, _oS, _oSp, _uS, _t],
-  [0, 0, 0, 0, 0, [() => TagMap, 0]]
+  [0, 0, 0, 0, 0, [() => TagMap, 0]], 5
 ];
 export var CreateSolNetworkInstanceInput$: StaticStructureSchema = [3, n0, _CSNII,
   0,
   [_nII, _nN, _nD, _t],
-  [0, 0, 0, [() => TagMap, 0]]
+  [0, 0, 0, [() => TagMap, 0]], 2
 ];
 export var CreateSolNetworkInstanceOutput$: StaticStructureSchema = [3, n0, _CSNIO,
   0,
   [_i, _a, _nII, _nIN, _t],
-  [0, 0, 0, 0, [() => TagMap, 0]]
+  [0, 0, 0, 0, [() => TagMap, 0]], 4
 ];
 export var CreateSolNetworkPackageInput$: StaticStructureSchema = [3, n0, _CSNPI,
   0,
@@ -304,22 +304,22 @@ export var CreateSolNetworkPackageInput$: StaticStructureSchema = [3, n0, _CSNPI
 export var CreateSolNetworkPackageOutput$: StaticStructureSchema = [3, n0, _CSNPO,
   0,
   [_i, _a, _nOS, _nOSs, _nUS, _t],
-  [0, 0, 0, 0, 0, [() => TagMap, 0]]
+  [0, 0, 0, 0, 0, [() => TagMap, 0]], 5
 ];
 export var DeleteSolFunctionPackageInput$: StaticStructureSchema = [3, n0, _DSFPI,
   0,
   [_vPI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSolNetworkInstanceInput$: StaticStructureSchema = [3, n0, _DSNII,
   0,
   [_nIIs],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSolNetworkPackageInput$: StaticStructureSchema = [3, n0, _DSNPI,
   0,
   [_nII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ErrorInfo$: StaticStructureSchema = [3, n0, _EI,
   0,
@@ -334,22 +334,22 @@ export var FunctionArtifactMeta$: StaticStructureSchema = [3, n0, _FAM,
 export var GetSolFunctionInstanceInput$: StaticStructureSchema = [3, n0, _GSFII,
   0,
   [_vII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSolFunctionInstanceMetadata$: StaticStructureSchema = [3, n0, _GSFIM,
   0,
   [_cA, _lM],
-  [5, 5]
+  [5, 5], 2
 ];
 export var GetSolFunctionInstanceOutput$: StaticStructureSchema = [3, n0, _GSFIO,
   0,
-  [_i, _a, _nIIs, _vPI, _vI, _vP, _vPN, _vV, _iS, _iVI, _me, _t],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => GetSolVnfInfo$, () => GetSolFunctionInstanceMetadata$, [() => TagMap, 0]]
+  [_i, _a, _nIIs, _vPI, _vI, _iS, _me, _vP, _vPN, _vV, _iVI, _t],
+  [0, 0, 0, 0, 0, 0, () => GetSolFunctionInstanceMetadata$, 0, 0, 0, () => GetSolVnfInfo$, [() => TagMap, 0]], 7
 ];
 export var GetSolFunctionPackageContentInput$: StaticStructureSchema = [3, n0, _GSFPCI,
   0,
   [_vPI, _ac],
-  [[0, 1], [0, { [_hH]: _A }]]
+  [[0, 1], [0, { [_hH]: _A }]], 2
 ];
 export var GetSolFunctionPackageContentOutput$: StaticStructureSchema = [3, n0, _GSFPCO,
   0,
@@ -359,7 +359,7 @@ export var GetSolFunctionPackageContentOutput$: StaticStructureSchema = [3, n0, 
 export var GetSolFunctionPackageDescriptorInput$: StaticStructureSchema = [3, n0, _GSFPDI,
   0,
   [_vPI, _ac],
-  [[0, 1], [0, { [_hH]: _A }]]
+  [[0, 1], [0, { [_hH]: _A }]], 2
 ];
 export var GetSolFunctionPackageDescriptorOutput$: StaticStructureSchema = [3, n0, _GSFPDO,
   0,
@@ -369,17 +369,17 @@ export var GetSolFunctionPackageDescriptorOutput$: StaticStructureSchema = [3, n
 export var GetSolFunctionPackageInput$: StaticStructureSchema = [3, n0, _GSFPI,
   0,
   [_vPI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSolFunctionPackageMetadata$: StaticStructureSchema = [3, n0, _GSFPM,
   0,
-  [_v, _cA, _lM],
-  [() => FunctionArtifactMeta$, 5, 5]
+  [_cA, _lM, _v],
+  [5, 5, () => FunctionArtifactMeta$], 2
 ];
 export var GetSolFunctionPackageOutput$: StaticStructureSchema = [3, n0, _GSFPO,
   0,
   [_i, _a, _oS, _oSp, _uS, _vI, _vP, _vPN, _vV, _me, _t],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => GetSolFunctionPackageMetadata$, [() => TagMap, 0]]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => GetSolFunctionPackageMetadata$, [() => TagMap, 0]], 5
 ];
 export var GetSolInstantiatedVnfInfo$: StaticStructureSchema = [3, n0, _GSIVI,
   0,
@@ -389,32 +389,32 @@ export var GetSolInstantiatedVnfInfo$: StaticStructureSchema = [3, n0, _GSIVI,
 export var GetSolNetworkInstanceInput$: StaticStructureSchema = [3, n0, _GSNII,
   0,
   [_nIIs],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSolNetworkInstanceMetadata$: StaticStructureSchema = [3, n0, _GSNIM,
   0,
   [_cA, _lM],
-  [5, 5]
+  [5, 5], 2
 ];
 export var GetSolNetworkInstanceOutput$: StaticStructureSchema = [3, n0, _GSNIO,
   0,
-  [_i, _a, _nIN, _nID, _nI, _nII, _nS, _lOI, _me, _t],
-  [0, 0, 0, 0, 0, 0, 0, () => LcmOperationInfo$, () => GetSolNetworkInstanceMetadata$, [() => TagMap, 0]]
+  [_i, _a, _nIN, _nID, _nI, _nII, _me, _nS, _lOI, _t],
+  [0, 0, 0, 0, 0, 0, () => GetSolNetworkInstanceMetadata$, 0, () => LcmOperationInfo$, [() => TagMap, 0]], 7
 ];
 export var GetSolNetworkOperationInput$: StaticStructureSchema = [3, n0, _GSNOI,
   0,
   [_nLOOI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSolNetworkOperationMetadata$: StaticStructureSchema = [3, n0, _GSNOM,
   0,
-  [_uNM, _mVIM, _iM, _cA, _lM],
-  [() => UpdateNsMetadata$, () => ModifyVnfInfoMetadata$, () => InstantiateMetadata$, 5, 5]
+  [_cA, _lM, _uNM, _mVIM, _iM],
+  [5, 5, () => UpdateNsMetadata$, () => ModifyVnfInfoMetadata$, () => InstantiateMetadata$], 2
 ];
 export var GetSolNetworkOperationOutput$: StaticStructureSchema = [3, n0, _GSNOO,
   0,
-  [_i, _a, _oSpe, _nIIs, _lOT, _uT, _e, _me, _ta, _t],
-  [0, 0, 0, 0, 0, 0, () => ProblemDetails$, () => GetSolNetworkOperationMetadata$, () => GetSolNetworkOperationTasksList, [() => TagMap, 0]]
+  [_a, _i, _oSpe, _nIIs, _lOT, _uT, _e, _me, _ta, _t],
+  [0, 0, 0, 0, 0, 0, () => ProblemDetails$, () => GetSolNetworkOperationMetadata$, () => GetSolNetworkOperationTasksList, [() => TagMap, 0]], 1
 ];
 export var GetSolNetworkOperationTaskDetails$: StaticStructureSchema = [3, n0, _GSNOTD,
   0,
@@ -424,7 +424,7 @@ export var GetSolNetworkOperationTaskDetails$: StaticStructureSchema = [3, n0, _
 export var GetSolNetworkPackageContentInput$: StaticStructureSchema = [3, n0, _GSNPCI,
   0,
   [_nII, _ac],
-  [[0, 1], [0, { [_hH]: _A }]]
+  [[0, 1], [0, { [_hH]: _A }]], 2
 ];
 export var GetSolNetworkPackageContentOutput$: StaticStructureSchema = [3, n0, _GSNPCO,
   0,
@@ -434,7 +434,7 @@ export var GetSolNetworkPackageContentOutput$: StaticStructureSchema = [3, n0, _
 export var GetSolNetworkPackageDescriptorInput$: StaticStructureSchema = [3, n0, _GSNPDI,
   0,
   [_nII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSolNetworkPackageDescriptorOutput$: StaticStructureSchema = [3, n0, _GSNPDO,
   0,
@@ -444,17 +444,17 @@ export var GetSolNetworkPackageDescriptorOutput$: StaticStructureSchema = [3, n0
 export var GetSolNetworkPackageInput$: StaticStructureSchema = [3, n0, _GSNPI,
   0,
   [_nII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSolNetworkPackageMetadata$: StaticStructureSchema = [3, n0, _GSNPM,
   0,
-  [_n, _cA, _lM],
-  [() => NetworkArtifactMeta$, 5, 5]
+  [_cA, _lM, _n],
+  [5, 5, () => NetworkArtifactMeta$], 2
 ];
 export var GetSolNetworkPackageOutput$: StaticStructureSchema = [3, n0, _GSNPO,
   0,
   [_i, _a, _nOS, _nOSs, _nUS, _nI, _nNs, _nV, _vPIn, _me, _t],
-  [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, () => GetSolNetworkPackageMetadata$, [() => TagMap, 0]]
+  [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, () => GetSolNetworkPackageMetadata$, [() => TagMap, 0]], 10
 ];
 export var GetSolVnfcResourceInfo$: StaticStructureSchema = [3, n0, _GSVRI,
   0,
@@ -474,38 +474,38 @@ export var GetSolVnfInfo$: StaticStructureSchema = [3, n0, _GSVI,
 export var InstantiateMetadata$: StaticStructureSchema = [3, n0, _IM,
   0,
   [_nII, _aPFN],
-  [0, 15]
+  [0, 15], 1
 ];
 export var InstantiateSolNetworkInstanceInput$: StaticStructureSchema = [3, n0, _ISNII,
   0,
   [_nIIs, _dR, _aPFN, _t],
-  [[0, 1], [2, { [_hQ]: _dr }], 15, [() => TagMap, 0]]
+  [[0, 1], [2, { [_hQ]: _dr }], 15, [() => TagMap, 0]], 1
 ];
 export var InstantiateSolNetworkInstanceOutput$: StaticStructureSchema = [3, n0, _ISNIO,
   0,
   [_nLOOI, _t],
-  [0, [() => TagMap, 0]]
+  [0, [() => TagMap, 0]], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LcmOperationInfo$: StaticStructureSchema = [3, n0, _LOI,
   0,
   [_nLOOI],
-  [0]
+  [0], 1
 ];
 export var ListSolFunctionInstanceInfo$: StaticStructureSchema = [3, n0, _LSFII,
   0,
-  [_i, _a, _nIIs, _vPI, _vPNn, _iS, _iVI, _me],
-  [0, 0, 0, 0, 0, 0, () => GetSolInstantiatedVnfInfo$, () => ListSolFunctionInstanceMetadata$]
+  [_i, _a, _nIIs, _vPI, _iS, _me, _vPNn, _iVI],
+  [0, 0, 0, 0, 0, () => ListSolFunctionInstanceMetadata$, 0, () => GetSolInstantiatedVnfInfo$], 6
 ];
 export var ListSolFunctionInstanceMetadata$: StaticStructureSchema = [3, n0, _LSFIM,
   0,
   [_cA, _lM],
-  [5, 5]
+  [5, 5], 2
 ];
 export var ListSolFunctionInstancesInput$: StaticStructureSchema = [3, n0, _LSFIIi,
   0,
@@ -520,12 +520,12 @@ export var ListSolFunctionInstancesOutput$: StaticStructureSchema = [3, n0, _LSF
 export var ListSolFunctionPackageInfo$: StaticStructureSchema = [3, n0, _LSFPI,
   0,
   [_i, _a, _oS, _oSp, _uS, _vI, _vP, _vPN, _vV, _me],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ListSolFunctionPackageMetadata$]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ListSolFunctionPackageMetadata$], 5
 ];
 export var ListSolFunctionPackageMetadata$: StaticStructureSchema = [3, n0, _LSFPM,
   0,
   [_cA, _lM],
-  [5, 5]
+  [5, 5], 2
 ];
 export var ListSolFunctionPackagesInput$: StaticStructureSchema = [3, n0, _LSFPIi,
   0,
@@ -534,18 +534,18 @@ export var ListSolFunctionPackagesInput$: StaticStructureSchema = [3, n0, _LSFPI
 ];
 export var ListSolFunctionPackagesOutput$: StaticStructureSchema = [3, n0, _LSFPO,
   0,
-  [_nT, _fP],
-  [0, () => ListSolFunctionPackageResources]
+  [_fP, _nT],
+  [() => ListSolFunctionPackageResources, 0], 1
 ];
 export var ListSolNetworkInstanceInfo$: StaticStructureSchema = [3, n0, _LSNII,
   0,
   [_i, _a, _nIN, _nID, _nI, _nII, _nS, _me],
-  [0, 0, 0, 0, 0, 0, 0, () => ListSolNetworkInstanceMetadata$]
+  [0, 0, 0, 0, 0, 0, 0, () => ListSolNetworkInstanceMetadata$], 8
 ];
 export var ListSolNetworkInstanceMetadata$: StaticStructureSchema = [3, n0, _LSNIM,
   0,
   [_cA, _lM],
-  [5, 5]
+  [5, 5], 2
 ];
 export var ListSolNetworkInstancesInput$: StaticStructureSchema = [3, n0, _LSNIIi,
   0,
@@ -560,7 +560,7 @@ export var ListSolNetworkInstancesOutput$: StaticStructureSchema = [3, n0, _LSNI
 export var ListSolNetworkOperationsInfo$: StaticStructureSchema = [3, n0, _LSNOI,
   0,
   [_i, _a, _oSpe, _nIIs, _lOT, _uT, _e, _me],
-  [0, 0, 0, 0, 0, 0, () => ProblemDetails$, () => ListSolNetworkOperationsMetadata$]
+  [0, 0, 0, 0, 0, 0, () => ProblemDetails$, () => ListSolNetworkOperationsMetadata$], 5
 ];
 export var ListSolNetworkOperationsInput$: StaticStructureSchema = [3, n0, _LSNOIi,
   0,
@@ -569,8 +569,8 @@ export var ListSolNetworkOperationsInput$: StaticStructureSchema = [3, n0, _LSNO
 ];
 export var ListSolNetworkOperationsMetadata$: StaticStructureSchema = [3, n0, _LSNOM,
   0,
-  [_nII, _vII, _cA, _lM],
-  [0, 0, 5, 5]
+  [_cA, _lM, _nII, _vII],
+  [5, 5, 0, 0], 2
 ];
 export var ListSolNetworkOperationsOutput$: StaticStructureSchema = [3, n0, _LSNOO,
   0,
@@ -579,13 +579,13 @@ export var ListSolNetworkOperationsOutput$: StaticStructureSchema = [3, n0, _LSN
 ];
 export var ListSolNetworkPackageInfo$: StaticStructureSchema = [3, n0, _LSNPI,
   0,
-  [_i, _a, _nOS, _nOSs, _nUS, _nI, _nNs, _nV, _nDs, _nIIsd, _vPIn, _me],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, () => ListSolNetworkPackageMetadata$]
+  [_i, _a, _nOS, _nOSs, _nUS, _me, _nI, _nNs, _nV, _nDs, _nIIsd, _vPIn],
+  [0, 0, 0, 0, 0, () => ListSolNetworkPackageMetadata$, 0, 0, 0, 0, 0, 64 | 0], 6
 ];
 export var ListSolNetworkPackageMetadata$: StaticStructureSchema = [3, n0, _LSNPM,
   0,
   [_cA, _lM],
-  [5, 5]
+  [5, 5], 2
 ];
 export var ListSolNetworkPackagesInput$: StaticStructureSchema = [3, n0, _LSNPIi,
   0,
@@ -594,23 +594,23 @@ export var ListSolNetworkPackagesInput$: StaticStructureSchema = [3, n0, _LSNPIi
 ];
 export var ListSolNetworkPackagesOutput$: StaticStructureSchema = [3, n0, _LSNPO,
   0,
-  [_nT, _nP],
-  [0, () => ListSolNetworkPackageResources]
+  [_nP, _nT],
+  [() => ListSolNetworkPackageResources, 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
   [_t],
-  [[() => TagMap, 0]]
+  [[() => TagMap, 0]], 1
 ];
 export var ModifyVnfInfoMetadata$: StaticStructureSchema = [3, n0, _MVIM,
   0,
   [_vII, _vCP],
-  [0, 15]
+  [0, 15], 2
 ];
 export var NetworkArtifactMeta$: StaticStructureSchema = [3, n0, _NAM,
   0,
@@ -620,12 +620,12 @@ export var NetworkArtifactMeta$: StaticStructureSchema = [3, n0, _NAM,
 export var ProblemDetails$: StaticStructureSchema = [3, n0, _PD,
   0,
   [_de, _ti],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PutSolFunctionPackageContentInput$: StaticStructureSchema = [3, n0, _PSFPCI,
   0,
-  [_vPI, _cT, _f],
-  [[0, 1], [0, { [_hH]: _CT }], [() => SensitiveBlob, 16]]
+  [_vPI, _f, _cT],
+  [[0, 1], [() => SensitiveBlob, 16], [0, { [_hH]: _CT }]], 2
 ];
 export var PutSolFunctionPackageContentMetadata$: StaticStructureSchema = [3, n0, _PSFPCM,
   0,
@@ -635,12 +635,12 @@ export var PutSolFunctionPackageContentMetadata$: StaticStructureSchema = [3, n0
 export var PutSolFunctionPackageContentOutput$: StaticStructureSchema = [3, n0, _PSFPCO,
   0,
   [_i, _vI, _vPN, _vP, _vV, _me],
-  [0, 0, 0, 0, 0, () => PutSolFunctionPackageContentMetadata$]
+  [0, 0, 0, 0, 0, () => PutSolFunctionPackageContentMetadata$], 6
 ];
 export var PutSolNetworkPackageContentInput$: StaticStructureSchema = [3, n0, _PSNPCI,
   0,
-  [_nII, _cT, _f],
-  [[0, 1], [0, { [_hH]: _CT }], [() => SensitiveBlob, 16]]
+  [_nII, _f, _cT],
+  [[0, 1], [() => SensitiveBlob, 16], [0, { [_hH]: _CT }]], 2
 ];
 export var PutSolNetworkPackageContentMetadata$: StaticStructureSchema = [3, n0, _PSNPCM,
   0,
@@ -650,24 +650,24 @@ export var PutSolNetworkPackageContentMetadata$: StaticStructureSchema = [3, n0,
 export var PutSolNetworkPackageContentOutput$: StaticStructureSchema = [3, n0, _PSNPCO,
   0,
   [_i, _a, _nI, _nNs, _nV, _vPIn, _me],
-  [0, 0, 0, 0, 0, 64 | 0, () => PutSolNetworkPackageContentMetadata$]
+  [0, 0, 0, 0, 0, 64 | 0, () => PutSolNetworkPackageContentMetadata$], 7
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _t],
-  [[0, 1], [() => TagMap, 0]]
+  [[0, 1], [() => TagMap, 0]], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -677,7 +677,7 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 export var TerminateSolNetworkInstanceInput$: StaticStructureSchema = [3, n0, _TSNII,
   0,
   [_nIIs, _t],
-  [[0, 1], [() => TagMap, 0]]
+  [[0, 1], [() => TagMap, 0]], 1
 ];
 export var TerminateSolNetworkInstanceOutput$: StaticStructureSchema = [3, n0, _TSNIO,
   0,
@@ -687,7 +687,7 @@ export var TerminateSolNetworkInstanceOutput$: StaticStructureSchema = [3, n0, _
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ToscaOverride$: StaticStructureSchema = [3, n0, _TO,
@@ -698,7 +698,7 @@ export var ToscaOverride$: StaticStructureSchema = [3, n0, _TO,
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -708,22 +708,22 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateNsMetadata$: StaticStructureSchema = [3, n0, _UNM,
   0,
   [_nII, _aPFN],
-  [0, 15]
+  [0, 15], 1
 ];
 export var UpdateSolFunctionPackageInput$: StaticStructureSchema = [3, n0, _USFPI,
   0,
   [_vPI, _oSp],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateSolFunctionPackageOutput$: StaticStructureSchema = [3, n0, _USFPO,
   0,
   [_oSp],
-  [0]
+  [0], 1
 ];
 export var UpdateSolNetworkInstanceInput$: StaticStructureSchema = [3, n0, _USNII,
   0,
   [_nIIs, _uT, _mVID, _uN, _t],
-  [[0, 1], 0, () => UpdateSolNetworkModify$, () => UpdateSolNetworkServiceData$, [() => TagMap, 0]]
+  [[0, 1], 0, () => UpdateSolNetworkModify$, () => UpdateSolNetworkServiceData$, [() => TagMap, 0]], 2
 ];
 export var UpdateSolNetworkInstanceOutput$: StaticStructureSchema = [3, n0, _USNIO,
   0,
@@ -733,27 +733,27 @@ export var UpdateSolNetworkInstanceOutput$: StaticStructureSchema = [3, n0, _USN
 export var UpdateSolNetworkModify$: StaticStructureSchema = [3, n0, _USNM,
   0,
   [_vII, _vCP],
-  [0, 15]
+  [0, 15], 2
 ];
 export var UpdateSolNetworkPackageInput$: StaticStructureSchema = [3, n0, _USNPI,
   0,
   [_nII, _nOSs],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateSolNetworkPackageOutput$: StaticStructureSchema = [3, n0, _USNPO,
   0,
   [_nOSs],
-  [0]
+  [0], 1
 ];
 export var UpdateSolNetworkServiceData$: StaticStructureSchema = [3, n0, _USNSD,
   0,
   [_nII, _aPFN],
-  [0, 15]
+  [0, 15], 1
 ];
 export var ValidateSolFunctionPackageContentInput$: StaticStructureSchema = [3, n0, _VSFPCI,
   0,
-  [_vPI, _cT, _f],
-  [[0, 1], [0, { [_hH]: _CT }], [() => SensitiveBlob, 16]]
+  [_vPI, _f, _cT],
+  [[0, 1], [() => SensitiveBlob, 16], [0, { [_hH]: _CT }]], 2
 ];
 export var ValidateSolFunctionPackageContentMetadata$: StaticStructureSchema = [3, n0, _VSFPCM,
   0,
@@ -763,12 +763,12 @@ export var ValidateSolFunctionPackageContentMetadata$: StaticStructureSchema = [
 export var ValidateSolFunctionPackageContentOutput$: StaticStructureSchema = [3, n0, _VSFPCO,
   0,
   [_i, _vI, _vPN, _vP, _vV, _me],
-  [0, 0, 0, 0, 0, () => ValidateSolFunctionPackageContentMetadata$]
+  [0, 0, 0, 0, 0, () => ValidateSolFunctionPackageContentMetadata$], 6
 ];
 export var ValidateSolNetworkPackageContentInput$: StaticStructureSchema = [3, n0, _VSNPCI,
   0,
-  [_nII, _cT, _f],
-  [[0, 1], [0, { [_hH]: _CT }], [() => SensitiveBlob, 16]]
+  [_nII, _f, _cT],
+  [[0, 1], [() => SensitiveBlob, 16], [0, { [_hH]: _CT }]], 2
 ];
 export var ValidateSolNetworkPackageContentMetadata$: StaticStructureSchema = [3, n0, _VSNPCM,
   0,
@@ -778,12 +778,12 @@ export var ValidateSolNetworkPackageContentMetadata$: StaticStructureSchema = [3
 export var ValidateSolNetworkPackageContentOutput$: StaticStructureSchema = [3, n0, _VSNPCO,
   0,
   [_i, _a, _nI, _nNs, _nV, _vPIn, _me],
-  [0, 0, 0, 0, 0, 64 | 0, () => ValidateSolNetworkPackageContentMetadata$]
+  [0, 0, 0, 0, 0, 64 | 0, () => ValidateSolNetworkPackageContentMetadata$], 7
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;

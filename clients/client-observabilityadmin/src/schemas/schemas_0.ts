@@ -307,28 +307,28 @@ export var ActionCondition$: StaticStructureSchema = [3, n0, _AC,
 ];
 export var AdvancedEventSelector$: StaticStructureSchema = [3, n0, _AES,
   0,
-  [_N, _FS],
-  [0, () => FieldSelectors]
+  [_FS, _N],
+  [() => FieldSelectors, 0], 1
 ];
 export var AdvancedFieldSelector$: StaticStructureSchema = [3, n0, _AFS,
   0,
   [_F, _E, _SW, _EW, _NE, _NSW, _NEW],
-  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var CentralizationRule$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_S, _D],
-  [() => CentralizationRuleSource$, () => CentralizationRuleDestination$]
+  [() => CentralizationRuleSource$, () => CentralizationRuleDestination$], 2
 ];
 export var CentralizationRuleDestination$: StaticStructureSchema = [3, n0, _CRD,
   0,
   [_R, _Ac, _DLC],
-  [0, 0, () => DestinationLogsConfiguration$]
+  [0, 0, () => DestinationLogsConfiguration$], 1
 ];
 export var CentralizationRuleSource$: StaticStructureSchema = [3, n0, _CRS,
   0,
   [_Re, _Sc, _SLC],
-  [64 | 0, 0, () => SourceLogsConfiguration$]
+  [64 | 0, 0, () => SourceLogsConfiguration$], 1
 ];
 export var CentralizationRuleSummary$: StaticStructureSchema = [3, n0, _CRSe,
   0,
@@ -338,7 +338,7 @@ export var CentralizationRuleSummary$: StaticStructureSchema = [3, n0, _CRSe,
 export var CloudtrailParameters$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_AESd],
-  [() => AdvancedEventSelectors]
+  [() => AdvancedEventSelectors], 1
 ];
 export var Condition$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -359,7 +359,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCentralizationRuleForOrganizationInput$: StaticStructureSchema = [3, n0, _CCRFOI,
   0,
   [_RN, _Ru, _T],
-  [0, () => CentralizationRule$, 128 | 0]
+  [0, () => CentralizationRule$, 128 | 0], 2
 ];
 export var CreateCentralizationRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _CCRFOO,
   0,
@@ -369,7 +369,7 @@ export var CreateCentralizationRuleForOrganizationOutput$: StaticStructureSchema
 export var CreateS3TableIntegrationInput$: StaticStructureSchema = [3, n0, _CSTII,
   0,
   [_En, _RAo, _T],
-  [() => Encryption$, 0, 128 | 0]
+  [() => Encryption$, 0, 128 | 0], 2
 ];
 export var CreateS3TableIntegrationOutput$: StaticStructureSchema = [3, n0, _CSTIO,
   0,
@@ -379,7 +379,7 @@ export var CreateS3TableIntegrationOutput$: StaticStructureSchema = [3, n0, _CST
 export var CreateTelemetryPipelineInput$: StaticStructureSchema = [3, n0, _CTPI,
   0,
   [_N, _Co, _T],
-  [0, () => TelemetryPipelineConfiguration$, 128 | 0]
+  [0, () => TelemetryPipelineConfiguration$, 128 | 0], 2
 ];
 export var CreateTelemetryPipelineOutput$: StaticStructureSchema = [3, n0, _CTPO,
   0,
@@ -389,7 +389,7 @@ export var CreateTelemetryPipelineOutput$: StaticStructureSchema = [3, n0, _CTPO
 export var CreateTelemetryRuleForOrganizationInput$: StaticStructureSchema = [3, n0, _CTRFOI,
   0,
   [_RN, _Ru, _T],
-  [0, () => TelemetryRule$, 128 | 0]
+  [0, () => TelemetryRule$, 128 | 0], 2
 ];
 export var CreateTelemetryRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _CTRFOO,
   0,
@@ -399,7 +399,7 @@ export var CreateTelemetryRuleForOrganizationOutput$: StaticStructureSchema = [3
 export var CreateTelemetryRuleInput$: StaticStructureSchema = [3, n0, _CTRI,
   0,
   [_RN, _Ru, _T],
-  [0, () => TelemetryRule$, 128 | 0]
+  [0, () => TelemetryRule$, 128 | 0], 2
 ];
 export var CreateTelemetryRuleOutput$: StaticStructureSchema = [3, n0, _CTRO,
   0,
@@ -414,17 +414,17 @@ export var DataSource$: StaticStructureSchema = [3, n0, _DSa,
 export var DeleteCentralizationRuleForOrganizationInput$: StaticStructureSchema = [3, n0, _DCRFOI,
   0,
   [_RIu],
-  [0]
+  [0], 1
 ];
 export var DeleteS3TableIntegrationInput$: StaticStructureSchema = [3, n0, _DSTII,
   0,
   [_Ar],
-  [0]
+  [0], 1
 ];
 export var DeleteTelemetryPipelineInput$: StaticStructureSchema = [3, n0, _DTPI,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var DeleteTelemetryPipelineOutput$: StaticStructureSchema = [3, n0, _DTPO,
   0,
@@ -434,12 +434,12 @@ export var DeleteTelemetryPipelineOutput$: StaticStructureSchema = [3, n0, _DTPO
 export var DeleteTelemetryRuleForOrganizationInput$: StaticStructureSchema = [3, n0, _DTRFOI,
   0,
   [_RIu],
-  [0]
+  [0], 1
 ];
 export var DeleteTelemetryRuleInput$: StaticStructureSchema = [3, n0, _DTRI,
   0,
   [_RIu],
-  [0]
+  [0], 1
 ];
 export var DestinationLogsConfiguration$: StaticStructureSchema = [3, n0, _DLC,
   0,
@@ -454,7 +454,7 @@ export var ELBLoadBalancerLoggingParameters$: StaticStructureSchema = [3, n0, _E
 export var Encryption$: StaticStructureSchema = [3, n0, _En,
   0,
   [_SA, _KKA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var FieldToMatch$: StaticStructureSchema = [3, n0, _FTM,
   0,
@@ -469,7 +469,7 @@ export var Filter$: StaticStructureSchema = [3, n0, _Fi,
 export var GetCentralizationRuleForOrganizationInput$: StaticStructureSchema = [3, n0, _GCRFOI,
   0,
   [_RIu],
-  [0]
+  [0], 1
 ];
 export var GetCentralizationRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _GCRFOO,
   0,
@@ -479,7 +479,7 @@ export var GetCentralizationRuleForOrganizationOutput$: StaticStructureSchema = 
 export var GetS3TableIntegrationInput$: StaticStructureSchema = [3, n0, _GSTII,
   0,
   [_Ar],
-  [0]
+  [0], 1
 ];
 export var GetS3TableIntegrationOutput$: StaticStructureSchema = [3, n0, _GSTIO,
   0,
@@ -504,7 +504,7 @@ export var GetTelemetryEvaluationStatusOutput$: StaticStructureSchema = [3, n0, 
 export var GetTelemetryPipelineInput$: StaticStructureSchema = [3, n0, _GTPI,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var GetTelemetryPipelineOutput$: StaticStructureSchema = [3, n0, _GTPO,
   0,
@@ -514,7 +514,7 @@ export var GetTelemetryPipelineOutput$: StaticStructureSchema = [3, n0, _GTPO,
 export var GetTelemetryRuleForOrganizationInput$: StaticStructureSchema = [3, n0, _GTRFOI,
   0,
   [_RIu],
-  [0]
+  [0], 1
 ];
 export var GetTelemetryRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _GTRFOO,
   0,
@@ -524,7 +524,7 @@ export var GetTelemetryRuleForOrganizationOutput$: StaticStructureSchema = [3, n
 export var GetTelemetryRuleInput$: StaticStructureSchema = [3, n0, _GTRI,
   0,
   [_RIu],
-  [0]
+  [0], 1
 ];
 export var GetTelemetryRuleOutput$: StaticStructureSchema = [3, n0, _GTRO,
   0,
@@ -596,12 +596,12 @@ export var ListS3TableIntegrationsOutput$: StaticStructureSchema = [3, n0, _LSTI
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
   [_T],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var ListTelemetryPipelinesInput$: StaticStructureSchema = [3, n0, _LTPI,
   0,
@@ -646,12 +646,12 @@ export var LoggingFilter$: StaticStructureSchema = [3, n0, _LF,
 export var LogsBackupConfiguration$: StaticStructureSchema = [3, n0, _LBC,
   0,
   [_R, _KKA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var LogsEncryptionConfiguration$: StaticStructureSchema = [3, n0, _LEC,
   0,
   [_ES, _KKA, _ECRS],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var PipelineOutput$: StaticStructureSchema = [3, n0, _PO,
   0,
@@ -693,7 +693,7 @@ export var Source$: StaticStructureSchema = [3, n0, _S,
 export var SourceLogsConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
   [_LGSC, _ELGS],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartTelemetryEnrichmentOutput$: StaticStructureSchema = [3, n0, _STEO,
   0,
@@ -708,7 +708,7 @@ export var StopTelemetryEnrichmentOutput$: StaticStructureSchema = [3, n0, _STEO
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RARN, _T],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TelemetryConfiguration$: StaticStructureSchema = [3, n0, _TCe,
   0,
@@ -728,7 +728,7 @@ export var TelemetryPipeline$: StaticStructureSchema = [3, n0, _TP,
 export var TelemetryPipelineConfiguration$: StaticStructureSchema = [3, n0, _TPC,
   0,
   [_Bo],
-  [0]
+  [0], 1
 ];
 export var TelemetryPipelineStatusReason$: StaticStructureSchema = [3, n0, _TPSR,
   0,
@@ -742,8 +742,8 @@ export var TelemetryPipelineSummary$: StaticStructureSchema = [3, n0, _TPS,
 ];
 export var TelemetryRule$: StaticStructureSchema = [3, n0, _TR,
   0,
-  [_RT, _TT, _TST, _DC, _Sc, _SCe],
-  [0, 0, 64 | 0, () => TelemetryDestinationConfiguration$, 0, 0]
+  [_TT, _RT, _TST, _DC, _Sc, _SCe],
+  [0, 0, 64 | 0, () => TelemetryDestinationConfiguration$, 0, 0], 1
 ];
 export var TelemetryRuleSummary$: StaticStructureSchema = [3, n0, _TRSe,
   0,
@@ -753,7 +753,7 @@ export var TelemetryRuleSummary$: StaticStructureSchema = [3, n0, _TRSe,
 export var TestTelemetryPipelineInput$: StaticStructureSchema = [3, n0, _TTPI,
   0,
   [_Reco, _Co],
-  [() => Records, () => TelemetryPipelineConfiguration$]
+  [() => Records, () => TelemetryPipelineConfiguration$], 2
 ];
 export var TestTelemetryPipelineOutput$: StaticStructureSchema = [3, n0, _TTPO,
   0,
@@ -769,12 +769,12 @@ TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsExc
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UpdateCentralizationRuleForOrganizationInput$: StaticStructureSchema = [3, n0, _UCRFOI,
   0,
   [_RIu, _Ru],
-  [0, () => CentralizationRule$]
+  [0, () => CentralizationRule$], 2
 ];
 export var UpdateCentralizationRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _UCRFOO,
   0,
@@ -784,7 +784,7 @@ export var UpdateCentralizationRuleForOrganizationOutput$: StaticStructureSchema
 export var UpdateTelemetryPipelineInput$: StaticStructureSchema = [3, n0, _UTPI,
   0,
   [_PI, _Co],
-  [0, () => TelemetryPipelineConfiguration$]
+  [0, () => TelemetryPipelineConfiguration$], 2
 ];
 export var UpdateTelemetryPipelineOutput$: StaticStructureSchema = [3, n0, _UTPO,
   0,
@@ -794,7 +794,7 @@ export var UpdateTelemetryPipelineOutput$: StaticStructureSchema = [3, n0, _UTPO
 export var UpdateTelemetryRuleForOrganizationInput$: StaticStructureSchema = [3, n0, _UTRFOI,
   0,
   [_RIu, _Ru],
-  [0, () => TelemetryRule$]
+  [0, () => TelemetryRule$], 2
 ];
 export var UpdateTelemetryRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _UTRFOO,
   0,
@@ -804,7 +804,7 @@ export var UpdateTelemetryRuleForOrganizationOutput$: StaticStructureSchema = [3
 export var UpdateTelemetryRuleInput$: StaticStructureSchema = [3, n0, _UTRI,
   0,
   [_RIu, _Ru],
-  [0, () => TelemetryRule$]
+  [0, () => TelemetryRule$], 2
 ];
 export var UpdateTelemetryRuleOutput$: StaticStructureSchema = [3, n0, _UTRO,
   0,
@@ -814,7 +814,7 @@ export var UpdateTelemetryRuleOutput$: StaticStructureSchema = [3, n0, _UTRO,
 export var ValidateTelemetryPipelineConfigurationInput$: StaticStructureSchema = [3, n0, _VTPCI,
   0,
   [_Co],
-  [() => TelemetryPipelineConfiguration$]
+  [() => TelemetryPipelineConfiguration$], 1
 ];
 export var ValidateTelemetryPipelineConfigurationOutput$: StaticStructureSchema = [3, n0, _VTPCO,
   0,

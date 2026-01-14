@@ -56,50 +56,50 @@ var RefreshToken: StaticSimpleSchema = [0, n0, _RT, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_e, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccessToken$: StaticStructureSchema = [3, n0, _AT,
   8,
   [_aKI, _sAK, _sT],
-  [[0, { [_jN]: _aKI }], [0, { [_jN]: _sAK }], [0, { [_jN]: _sT }]]
+  [[0, { [_jN]: _aKI }], [0, { [_jN]: _sAK }], [0, { [_jN]: _sT }]], 3
 ];
 export var CreateOAuth2TokenRequest$: StaticStructureSchema = [3, n0, _COATR,
   0,
   [_tI],
-  [[() => CreateOAuth2TokenRequestBody$, 16]]
+  [[() => CreateOAuth2TokenRequestBody$, 16]], 1
 ];
 export var CreateOAuth2TokenRequestBody$: StaticStructureSchema = [3, n0, _COATRB,
   0,
   [_cI, _gT, _co, _rU, _cV, _rT],
-  [[0, { [_jN]: _cI }], [0, { [_jN]: _gT }], 0, [0, { [_jN]: _rU }], [0, { [_jN]: _cV }], [() => RefreshToken, { [_jN]: _rT }]]
+  [[0, { [_jN]: _cI }], [0, { [_jN]: _gT }], 0, [0, { [_jN]: _rU }], [0, { [_jN]: _cV }], [() => RefreshToken, { [_jN]: _rT }]], 2
 ];
 export var CreateOAuth2TokenResponse$: StaticStructureSchema = [3, n0, _COATRr,
   0,
   [_tO],
-  [[() => CreateOAuth2TokenResponseBody$, 16]]
+  [[() => CreateOAuth2TokenResponseBody$, 16]], 1
 ];
 export var CreateOAuth2TokenResponseBody$: StaticStructureSchema = [3, n0, _COATRBr,
   0,
   [_aT, _tT, _eI, _rT, _iT],
-  [[() => AccessToken$, { [_jN]: _aT }], [0, { [_jN]: _tT }], [1, { [_jN]: _eI }], [() => RefreshToken, { [_jN]: _rT }], [0, { [_jN]: _iT }]]
+  [[() => AccessToken$, { [_jN]: _aT }], [0, { [_jN]: _tT }], [1, { [_jN]: _eI }], [() => RefreshToken, { [_jN]: _rT }], [0, { [_jN]: _iT }]], 4
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_e, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var TooManyRequestsError$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c, [_hE]: 429 },
   [_e, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsError$, TooManyRequestsError);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_e, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var SigninServiceException$: StaticErrorSchema = [-3, _sm, "SigninServiceException", 0, [], []];

@@ -354,22 +354,22 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AmexAttributes$: StaticStructureSchema = [3, n0, _AA,
   0,
   [_MKDM, _PAN, _PSN, _ATC, _ARKI, _CPA],
-  [0, [() => PrimaryAccountNumberType, 0], 0, 0, 0, [() => CurrentPinAttributes$, 0]]
+  [0, [() => PrimaryAccountNumberType, 0], 0, 0, 0, [() => CurrentPinAttributes$, 0]], 5
 ];
 export var AmexCardSecurityCodeVersion1$: StaticStructureSchema = [3, n0, _ACSCV,
   0,
   [_CED],
-  [[() => CardExpiryDateType, 0]]
+  [[() => CardExpiryDateType, 0]], 1
 ];
 export var AmexCardSecurityCodeVersion2$: StaticStructureSchema = [3, n0, _ACSCVm,
   0,
   [_CED, _SC],
-  [[() => CardExpiryDateType, 0], [() => ServiceCodeType, 0]]
+  [[() => CardExpiryDateType, 0], [() => ServiceCodeType, 0]], 2
 ];
 export var As2805PekDerivationAttributes$: StaticStructureSchema = [3, n0, _APDA,
   0,
   [_STAN, _TA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AsymmetricEncryptionAttributes$: StaticStructureSchema = [3, n0, _AEA,
   0,
@@ -379,182 +379,182 @@ export var AsymmetricEncryptionAttributes$: StaticStructureSchema = [3, n0, _AEA
 export var CardHolderVerificationValue$: StaticStructureSchema = [3, n0, _CHVV,
   0,
   [_UN, _PSN, _ATC],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CardVerificationValue1$: StaticStructureSchema = [3, n0, _CVV,
   0,
   [_CED, _SC],
-  [[() => CardExpiryDateType, 0], [() => ServiceCodeType, 0]]
+  [[() => CardExpiryDateType, 0], [() => ServiceCodeType, 0]], 2
 ];
 export var CardVerificationValue2$: StaticStructureSchema = [3, n0, _CVVa,
   0,
   [_CED],
-  [[() => CardExpiryDateType, 0]]
+  [[() => CardExpiryDateType, 0]], 1
 ];
 export var CryptogramVerificationArpcMethod1$: StaticStructureSchema = [3, n0, _CVAM,
   0,
   [_ARC],
-  [0]
+  [0], 1
 ];
 export var CryptogramVerificationArpcMethod2$: StaticStructureSchema = [3, n0, _CVAMr,
   0,
   [_CSU, _PAD],
-  [0, [() => ProprietaryAuthenticationDataType, 0]]
+  [0, [() => ProprietaryAuthenticationDataType, 0]], 1
 ];
 export var CurrentPinAttributes$: StaticStructureSchema = [3, n0, _CPA,
   0,
   [_CPPI, _CEPB],
-  [0, [() => PinBlockLengthEquals16, 0]]
+  [0, [() => PinBlockLengthEquals16, 0]], 2
 ];
 export var DecryptDataInput$: StaticStructureSchema = [3, n0, _DDI,
   0,
   [_KI, _CT, _DA, _WK],
-  [[0, 1], [() => CipherTextType, 0], [() => EncryptionDecryptionAttributes$, 0], [() => WrappedKey$, 0]]
+  [[0, 1], [() => CipherTextType, 0], [() => EncryptionDecryptionAttributes$, 0], [() => WrappedKey$, 0]], 3
 ];
 export var DecryptDataOutput$: StaticStructureSchema = [3, n0, _DDO,
   0,
   [_KA, _KCV, _PTl],
-  [0, 0, [() => PlainTextOutputType, 0]]
+  [0, 0, [() => PlainTextOutputType, 0]], 3
 ];
 export var DiscoverDynamicCardVerificationCode$: StaticStructureSchema = [3, n0, _DDCVC,
   0,
   [_CED, _UN, _ATC],
-  [[() => CardExpiryDateType, 0], 0, 0]
+  [[() => CardExpiryDateType, 0], 0, 0], 3
 ];
 export var DukptAttributes$: StaticStructureSchema = [3, n0, _DAu,
   0,
   [_KSN, _DDT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DukptDerivationAttributes$: StaticStructureSchema = [3, n0, _DDA,
   0,
   [_KSN, _DKDT, _DKV],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DukptEncryptionAttributes$: StaticStructureSchema = [3, n0, _DEA,
   0,
   [_KSN, _Mo, _DKDT, _DKV, _IV],
-  [0, 0, 0, 0, [() => InitializationVectorType, 0]]
+  [0, 0, 0, 0, [() => InitializationVectorType, 0]], 1
 ];
 export var DynamicCardVerificationCode$: StaticStructureSchema = [3, n0, _DCVC,
   0,
   [_UN, _PSN, _ATC, _TD],
-  [0, 0, 0, [() => TrackDataType, 0]]
+  [0, 0, 0, [() => TrackDataType, 0]], 4
 ];
 export var DynamicCardVerificationValue$: StaticStructureSchema = [3, n0, _DCVV,
   0,
   [_PSN, _CED, _SC, _ATC],
-  [0, [() => CardExpiryDateType, 0], [() => ServiceCodeType, 0], 0]
+  [0, [() => CardExpiryDateType, 0], [() => ServiceCodeType, 0], 0], 4
 ];
 export var EcdhDerivationAttributes$: StaticStructureSchema = [3, n0, _EDA,
   0,
   [_CAPKI, _PKC, _KAe, _KDF, _KDHA, _SI],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 6
 ];
 export var Emv2000Attributes$: StaticStructureSchema = [3, n0, _EA,
   0,
   [_MKDM, _PAN, _PSN, _ATC],
-  [0, [() => PrimaryAccountNumberType, 0], 0, 0]
+  [0, [() => PrimaryAccountNumberType, 0], 0, 0], 4
 ];
 export var EmvCommonAttributes$: StaticStructureSchema = [3, n0, _ECA,
   0,
   [_MKDM, _PAN, _PSN, _AC, _Mo, _PBPT, _PBLP],
-  [0, [() => PrimaryAccountNumberType, 0], 0, [() => ApplicationCryptogramType, 0], 0, 0, 0]
+  [0, [() => PrimaryAccountNumberType, 0], 0, [() => ApplicationCryptogramType, 0], 0, 0, 0], 7
 ];
 export var EmvEncryptionAttributes$: StaticStructureSchema = [3, n0, _EEA,
   0,
   [_MKDM, _PAN, _PSN, _SDD, _Mo, _IV],
-  [0, [() => PrimaryAccountNumberType, 0], 0, [() => SessionDerivationDataType, 0], 0, [() => InitializationVectorType, 0]]
+  [0, [() => PrimaryAccountNumberType, 0], 0, [() => SessionDerivationDataType, 0], 0, [() => InitializationVectorType, 0]], 4
 ];
 export var EncryptDataInput$: StaticStructureSchema = [3, n0, _EDI,
   0,
   [_KI, _PTl, _EAn, _WK],
-  [[0, 1], [() => PlainTextType, 0], [() => EncryptionDecryptionAttributes$, 0], [() => WrappedKey$, 0]]
+  [[0, 1], [() => PlainTextType, 0], [() => EncryptionDecryptionAttributes$, 0], [() => WrappedKey$, 0]], 3
 ];
 export var EncryptDataOutput$: StaticStructureSchema = [3, n0, _EDO,
   0,
-  [_KA, _KCV, _CT],
-  [0, 0, [() => CipherTextType, 0]]
+  [_KA, _CT, _KCV],
+  [0, [() => CipherTextType, 0], 0], 2
 ];
 export var GenerateAs2805KekValidationInput$: StaticStructureSchema = [3, n0, _GAKVI,
   0,
   [_KI, _KVT, _RKSVM],
-  [0, [() => As2805KekValidationType$, 0], 0]
+  [0, [() => As2805KekValidationType$, 0], 0], 3
 ];
 export var GenerateAs2805KekValidationOutput$: StaticStructureSchema = [3, n0, _GAKVO,
   0,
   [_KA, _KCV, _RKS, _RKR],
-  [0, 0, [() => As2805RandomKeyMaterial, 0], [() => As2805RandomKeyMaterial, 0]]
+  [0, 0, [() => As2805RandomKeyMaterial, 0], [() => As2805RandomKeyMaterial, 0]], 4
 ];
 export var GenerateCardValidationDataInput$: StaticStructureSchema = [3, n0, _GCVDI,
   0,
   [_KI, _PAN, _GA, _VDL],
-  [0, [() => PrimaryAccountNumberType, 0], [() => CardGenerationAttributes$, 0], 1]
+  [0, [() => PrimaryAccountNumberType, 0], [() => CardGenerationAttributes$, 0], 1], 3
 ];
 export var GenerateCardValidationDataOutput$: StaticStructureSchema = [3, n0, _GCVDO,
   0,
   [_KA, _KCV, _VD],
-  [0, 0, [() => ValidationDataType, 0]]
+  [0, 0, [() => ValidationDataType, 0]], 3
 ];
 export var GenerateMacEmvPinChangeInput$: StaticStructureSchema = [3, n0, _GMEPCI,
   0,
   [_NPPI, _NEPB, _PBF, _SMIKI, _SMCKI, _MD, _DMA],
-  [0, [() => PinBlockLengthEquals16, 0], 0, 0, 0, [() => CommandMessageDataType, 0], [() => DerivationMethodAttributes$, 0]]
+  [0, [() => PinBlockLengthEquals16, 0], 0, 0, 0, [() => CommandMessageDataType, 0], [() => DerivationMethodAttributes$, 0]], 7
 ];
 export var GenerateMacEmvPinChangeOutput$: StaticStructureSchema = [3, n0, _GMEPCO,
   0,
   [_NPPA, _SMIKA, _SMCKA, _Ma, _EPB, _NPPKCV, _SMIKCV, _SMCKCV, _VADO],
-  [0, 0, 0, [() => PinChangeMacOutputType, 0], [() => EncryptedPinBlockType, 0], 0, 0, 0, () => VisaAmexDerivationOutputs$]
+  [0, 0, 0, [() => PinChangeMacOutputType, 0], [() => EncryptedPinBlockType, 0], 0, 0, 0, () => VisaAmexDerivationOutputs$], 8
 ];
 export var GenerateMacInput$: StaticStructureSchema = [3, n0, _GMI,
   0,
   [_KI, _MD, _GA, _ML],
-  [0, [() => MessageDataType, 0], [() => MacAttributes$, 0], 1]
+  [0, [() => MessageDataType, 0], [() => MacAttributes$, 0], 1], 3
 ];
 export var GenerateMacOutput$: StaticStructureSchema = [3, n0, _GMO,
   0,
   [_KA, _KCV, _Ma],
-  [0, 0, [() => MacOutputType, 0]]
+  [0, 0, [() => MacOutputType, 0]], 3
 ];
 export var GeneratePinDataInput$: StaticStructureSchema = [3, n0, _GPDI,
   0,
-  [_GKI, _EKI, _GA, _PDL, _PAN, _PBF, _EWK],
-  [0, 0, [() => PinGenerationAttributes$, 0], 1, [() => PrimaryAccountNumberType, 0], 0, [() => WrappedKey$, 0]]
+  [_GKI, _EKI, _GA, _PBF, _PDL, _PAN, _EWK],
+  [0, 0, [() => PinGenerationAttributes$, 0], 0, 1, [() => PrimaryAccountNumberType, 0], [() => WrappedKey$, 0]], 4
 ];
 export var GeneratePinDataOutput$: StaticStructureSchema = [3, n0, _GPDO,
   0,
   [_GKA, _GKCV, _EKA, _EKCV, _EPB, _PD],
-  [0, 0, 0, 0, [() => EncryptedPinBlockType, 0], [() => PinData$, 0]]
+  [0, 0, 0, 0, [() => EncryptedPinBlockType, 0], [() => PinData$, 0]], 6
 ];
 export var Ibm3624NaturalPin$: StaticStructureSchema = [3, n0, _INP,
   0,
   [_DT, _PVDPC, _PVD],
-  [[() => DecimalizationTableType, 0], 0, [() => PinValidationDataType, 0]]
+  [[() => DecimalizationTableType, 0], 0, [() => PinValidationDataType, 0]], 3
 ];
 export var Ibm3624PinFromOffset$: StaticStructureSchema = [3, n0, _IPFO,
   0,
   [_DT, _PVDPC, _PVD, _PO],
-  [[() => DecimalizationTableType, 0], 0, [() => PinValidationDataType, 0], [() => PinOffsetType, 0]]
+  [[() => DecimalizationTableType, 0], 0, [() => PinValidationDataType, 0], [() => PinOffsetType, 0]], 4
 ];
 export var Ibm3624PinOffset$: StaticStructureSchema = [3, n0, _IPO,
   0,
   [_EPB, _DT, _PVDPC, _PVD],
-  [[() => EncryptedPinBlockType, 0], [() => DecimalizationTableType, 0], 0, [() => PinValidationDataType, 0]]
+  [[() => EncryptedPinBlockType, 0], [() => DecimalizationTableType, 0], 0, [() => PinValidationDataType, 0]], 4
 ];
 export var Ibm3624PinVerification$: StaticStructureSchema = [3, n0, _IPV,
   0,
   [_DT, _PVDPC, _PVD, _PO],
-  [[() => DecimalizationTableType, 0], 0, [() => PinValidationDataType, 0], [() => PinOffsetType, 0]]
+  [[() => DecimalizationTableType, 0], 0, [() => PinValidationDataType, 0], [() => PinOffsetType, 0]], 4
 ];
 export var Ibm3624RandomPin$: StaticStructureSchema = [3, n0, _IRP,
   0,
   [_DT, _PVDPC, _PVD],
-  [[() => DecimalizationTableType, 0], 0, [() => PinValidationDataType, 0]]
+  [[() => DecimalizationTableType, 0], 0, [() => PinValidationDataType, 0]], 3
 ];
 export var IncomingDiffieHellmanTr31KeyBlock$: StaticStructureSchema = [3, n0, _IDHTKB,
   0,
   [_PKI, _CAPKI, _PKC, _DKA, _KDF, _KDHA, _DD, _WKB],
-  [0, 0, 0, 0, 0, 0, () => DiffieHellmanDerivationData$, [() => Tr31WrappedKeyBlock, 0]]
+  [0, 0, 0, 0, 0, 0, () => DiffieHellmanDerivationData$, [() => Tr31WrappedKeyBlock, 0]], 8
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -565,42 +565,42 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var KekValidationRequest$: StaticStructureSchema = [3, n0, _KVR,
   0,
   [_DKA],
-  [0]
+  [0], 1
 ];
 export var KekValidationResponse$: StaticStructureSchema = [3, n0, _KVRe,
   0,
   [_RKS],
-  [[() => As2805RandomKeyMaterial, 0]]
+  [[() => As2805RandomKeyMaterial, 0]], 1
 ];
 export var MacAlgorithmDukpt$: StaticStructureSchema = [3, n0, _MAD,
   0,
   [_KSN, _DKV, _DDT],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var MacAlgorithmEmv$: StaticStructureSchema = [3, n0, _MAE,
   0,
   [_MKDM, _PAN, _PSN, _SKDM, _SKDV],
-  [0, [() => PrimaryAccountNumberType, 0], 0, 0, [() => SessionKeyDerivationValue$, 0]]
+  [0, [() => PrimaryAccountNumberType, 0], 0, 0, [() => SessionKeyDerivationValue$, 0]], 5
 ];
 export var MasterCardAttributes$: StaticStructureSchema = [3, n0, _MCA,
   0,
   [_MKDM, _PAN, _PSN, _AC],
-  [0, [() => PrimaryAccountNumberType, 0], 0, [() => ApplicationCryptogramType, 0]]
+  [0, [() => PrimaryAccountNumberType, 0], 0, [() => ApplicationCryptogramType, 0]], 4
 ];
 export var OutgoingTr31KeyBlock$: StaticStructureSchema = [3, n0, _OTKB,
   0,
   [_WKI],
-  [0]
+  [0], 1
 ];
 export var ReEncryptDataInput$: StaticStructureSchema = [3, n0, _REDI,
   0,
   [_IKI, _OKI, _CT, _IEA, _OEA, _IWK, _OWK],
-  [[0, 1], 0, [() => CipherTextType, 0], [() => ReEncryptionAttributes$, 0], [() => ReEncryptionAttributes$, 0], [() => WrappedKey$, 0], [() => WrappedKey$, 0]]
+  [[0, 1], 0, [() => CipherTextType, 0], [() => ReEncryptionAttributes$, 0], [() => ReEncryptionAttributes$, 0], [() => WrappedKey$, 0], [() => WrappedKey$, 0]], 5
 ];
 export var ReEncryptDataOutput$: StaticStructureSchema = [3, n0, _REDO,
   0,
   [_KA, _KCV, _CT],
-  [0, 0, [() => CipherTextType, 0]]
+  [0, 0, [() => CipherTextType, 0]], 3
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -611,32 +611,32 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var SessionKeyAmex$: StaticStructureSchema = [3, n0, _SKA,
   0,
   [_PAN, _PSN],
-  [[() => PrimaryAccountNumberType, 0], 0]
+  [[() => PrimaryAccountNumberType, 0], 0], 2
 ];
 export var SessionKeyEmv2000$: StaticStructureSchema = [3, n0, _SKE,
   0,
   [_PAN, _PSN, _ATC],
-  [[() => PrimaryAccountNumberType, 0], 0, 0]
+  [[() => PrimaryAccountNumberType, 0], 0, 0], 3
 ];
 export var SessionKeyEmvCommon$: StaticStructureSchema = [3, n0, _SKEC,
   0,
   [_PAN, _PSN, _ATC],
-  [[() => PrimaryAccountNumberType, 0], 0, 0]
+  [[() => PrimaryAccountNumberType, 0], 0, 0], 3
 ];
 export var SessionKeyMastercard$: StaticStructureSchema = [3, n0, _SKM,
   0,
   [_PAN, _PSN, _ATC, _UN],
-  [[() => PrimaryAccountNumberType, 0], 0, 0, 0]
+  [[() => PrimaryAccountNumberType, 0], 0, 0, 0], 4
 ];
 export var SessionKeyVisa$: StaticStructureSchema = [3, n0, _SKV,
   0,
   [_PAN, _PSN],
-  [[() => PrimaryAccountNumberType, 0], 0]
+  [[() => PrimaryAccountNumberType, 0], 0], 2
 ];
 export var SymmetricEncryptionAttributes$: StaticStructureSchema = [3, n0, _SEA,
   0,
   [_Mo, _IV, _PT],
-  [0, [() => InitializationVectorType, 0], 0]
+  [0, [() => InitializationVectorType, 0], 0], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
@@ -647,32 +647,32 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TranslateKeyMaterialInput$: StaticStructureSchema = [3, n0, _TKMI,
   0,
   [_IKM, _OKM, _KCVA],
-  [[() => IncomingKeyMaterial$, 0], () => OutgoingKeyMaterial$, 0]
+  [[() => IncomingKeyMaterial$, 0], () => OutgoingKeyMaterial$, 0], 2
 ];
 export var TranslateKeyMaterialOutput$: StaticStructureSchema = [3, n0, _TKMO,
   0,
   [_WK],
-  [[() => WrappedWorkingKey$, 0]]
+  [[() => WrappedWorkingKey$, 0]], 1
 ];
 export var TranslatePinDataInput$: StaticStructureSchema = [3, n0, _TPDI,
   0,
   [_IKI, _OKI, _ITA, _OTA, _EPB, _IDA, _ODA, _IWK, _OWK, _IAA],
-  [0, 0, [() => TranslationIsoFormats$, 0], [() => TranslationIsoFormats$, 0], [() => HexEvenLengthBetween16And32, 0], () => DukptDerivationAttributes$, () => DukptDerivationAttributes$, [() => WrappedKey$, 0], [() => WrappedKey$, 0], () => As2805PekDerivationAttributes$]
+  [0, 0, [() => TranslationIsoFormats$, 0], [() => TranslationIsoFormats$, 0], [() => HexEvenLengthBetween16And32, 0], () => DukptDerivationAttributes$, () => DukptDerivationAttributes$, [() => WrappedKey$, 0], [() => WrappedKey$, 0], () => As2805PekDerivationAttributes$], 5
 ];
 export var TranslatePinDataOutput$: StaticStructureSchema = [3, n0, _TPDO,
   0,
   [_PB, _KA, _KCV],
-  [[() => EncryptedPinBlockType, 0], 0, 0]
+  [[() => EncryptedPinBlockType, 0], 0, 0], 3
 ];
 export var TranslationPinDataAs2805Format0$: StaticStructureSchema = [3, n0, _TPDAF,
   0,
   [_PAN],
-  [[() => PrimaryAccountNumberType, 0]]
+  [[() => PrimaryAccountNumberType, 0]], 1
 ];
 export var TranslationPinDataIsoFormat034$: StaticStructureSchema = [3, n0, _TPDIF,
   0,
   [_PAN],
-  [[() => PrimaryAccountNumberType, 0]]
+  [[() => PrimaryAccountNumberType, 0]], 1
 ];
 export var TranslationPinDataIsoFormat1$: StaticStructureSchema = [3, n0, _TPDIFr,
   0,
@@ -682,94 +682,94 @@ export var TranslationPinDataIsoFormat1$: StaticStructureSchema = [3, n0, _TPDIF
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c },
   [_m, _fL],
-  [0, () => ValidationExceptionFieldList]
+  [0, () => ValidationExceptionFieldList], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_p, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VerificationFailedException$: StaticErrorSchema = [-3, n0, _VFE,
   { [_e]: _c, [_hE]: 400 },
   [_R, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(VerificationFailedException$, VerificationFailedException);
 export var VerifyAuthRequestCryptogramInput$: StaticStructureSchema = [3, n0, _VARCI,
   0,
   [_KI, _TDr, _ARCu, _MKDM, _SKDA, _ARA],
-  [0, [() => TransactionDataType, 0], [() => AuthRequestCryptogramType, 0], 0, [() => SessionKeyDerivation$, 0], [() => CryptogramAuthResponse$, 0]]
+  [0, [() => TransactionDataType, 0], [() => AuthRequestCryptogramType, 0], 0, [() => SessionKeyDerivation$, 0], [() => CryptogramAuthResponse$, 0]], 5
 ];
 export var VerifyAuthRequestCryptogramOutput$: StaticStructureSchema = [3, n0, _VARCO,
   0,
   [_KA, _KCV, _ARV],
-  [0, 0, [() => AuthResponseValueType, 0]]
+  [0, 0, [() => AuthResponseValueType, 0]], 2
 ];
 export var VerifyCardValidationDataInput$: StaticStructureSchema = [3, n0, _VCVDI,
   0,
   [_KI, _PAN, _VA, _VD],
-  [0, [() => PrimaryAccountNumberType, 0], [() => CardVerificationAttributes$, 0], [() => ValidationDataType, 0]]
+  [0, [() => PrimaryAccountNumberType, 0], [() => CardVerificationAttributes$, 0], [() => ValidationDataType, 0]], 4
 ];
 export var VerifyCardValidationDataOutput$: StaticStructureSchema = [3, n0, _VCVDO,
   0,
   [_KA, _KCV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VerifyMacInput$: StaticStructureSchema = [3, n0, _VMI,
   0,
   [_KI, _MD, _Ma, _VA, _ML],
-  [0, [() => MessageDataType, 0], [() => MacType, 0], [() => MacAttributes$, 0], 1]
+  [0, [() => MessageDataType, 0], [() => MacType, 0], [() => MacAttributes$, 0], 1], 4
 ];
 export var VerifyMacOutput$: StaticStructureSchema = [3, n0, _VMO,
   0,
   [_KA, _KCV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VerifyPinDataInput$: StaticStructureSchema = [3, n0, _VPDI,
   0,
-  [_VKI, _EKI, _VA, _EPB, _PAN, _PBF, _PDL, _DAu, _EWK],
-  [0, 0, [() => PinVerificationAttributes$, 0], [() => EncryptedPinBlockType, 0], [() => PrimaryAccountNumberType, 0], 0, 1, () => DukptAttributes$, [() => WrappedKey$, 0]]
+  [_VKI, _EKI, _VA, _EPB, _PBF, _PAN, _PDL, _DAu, _EWK],
+  [0, 0, [() => PinVerificationAttributes$, 0], [() => EncryptedPinBlockType, 0], 0, [() => PrimaryAccountNumberType, 0], 1, () => DukptAttributes$, [() => WrappedKey$, 0]], 5
 ];
 export var VerifyPinDataOutput$: StaticStructureSchema = [3, n0, _VPDO,
   0,
   [_VKA, _VKCV, _EKA, _EKCV],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var VisaAmexDerivationOutputs$: StaticStructureSchema = [3, n0, _VADO,
   0,
   [_ARKA, _ARKCV, _CPPA, _CPPKCV],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var VisaAttributes$: StaticStructureSchema = [3, n0, _VAi,
   0,
   [_MKDM, _PAN, _PSN, _ATC, _ARKI, _CPA],
-  [0, [() => PrimaryAccountNumberType, 0], 0, 0, 0, [() => CurrentPinAttributes$, 0]]
+  [0, [() => PrimaryAccountNumberType, 0], 0, 0, 0, [() => CurrentPinAttributes$, 0]], 5
 ];
 export var VisaPin$: StaticStructureSchema = [3, n0, _VP,
   0,
   [_PVKI],
-  [1]
+  [1], 1
 ];
 export var VisaPinVerification$: StaticStructureSchema = [3, n0, _VPV,
   0,
   [_PVKI, _VV],
-  [1, [() => VerificationValueType, 0]]
+  [1, [() => VerificationValueType, 0]], 2
 ];
 export var VisaPinVerificationValue$: StaticStructureSchema = [3, n0, _VPVV,
   0,
   [_EPB, _PVKI],
-  [[() => EncryptedPinBlockType, 0], 1]
+  [[() => EncryptedPinBlockType, 0], 1], 2
 ];
 export var WrappedKey$: StaticStructureSchema = [3, n0, _WK,
   0,
   [_WKM, _KCVA],
-  [[() => WrappedKeyMaterial$, 0], 0]
+  [[() => WrappedKeyMaterial$, 0], 0], 1
 ];
 export var WrappedWorkingKey$: StaticStructureSchema = [3, n0, _WWK,
   0,
   [_WKM, _KCV, _WKMF],
-  [[() => KeyMaterial, 0], 0, 0]
+  [[() => KeyMaterial, 0], 0, 0], 3
 ];
 export var PaymentCryptographyDataServiceException$: StaticErrorSchema = [-3, _sm, "PaymentCryptographyDataServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PaymentCryptographyDataServiceException$, PaymentCryptographyDataServiceException);

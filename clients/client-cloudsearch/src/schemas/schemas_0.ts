@@ -217,7 +217,7 @@ import {
 export var AccessPoliciesStatus$: StaticStructureSchema = [3, n0, _APS,
   0,
   [_O, _S],
-  [0, () => OptionStatus$]
+  [0, () => OptionStatus$], 2
 ];
 export var AnalysisOptions$: StaticStructureSchema = [3, n0, _AO,
   0,
@@ -227,17 +227,17 @@ export var AnalysisOptions$: StaticStructureSchema = [3, n0, _AO,
 export var AnalysisScheme$: StaticStructureSchema = [3, n0, _ASn,
   0,
   [_ASN, _ASL, _AO],
-  [0, 0, () => AnalysisOptions$]
+  [0, 0, () => AnalysisOptions$], 2
 ];
 export var AnalysisSchemeStatus$: StaticStructureSchema = [3, n0, _ASS,
   0,
   [_O, _S],
-  [() => AnalysisScheme$, () => OptionStatus$]
+  [() => AnalysisScheme$, () => OptionStatus$], 2
 ];
 export var AvailabilityOptionsStatus$: StaticStructureSchema = [3, n0, _AOS,
   0,
   [_O, _S],
-  [2, () => OptionStatus$]
+  [2, () => OptionStatus$], 2
 ];
 export var BaseException$: StaticErrorSchema = [-3, n0, _BE,
   { [_e]: _c },
@@ -248,7 +248,7 @@ TypeRegistry.for(n0).registerError(BaseException$, BaseException);
 export var BuildSuggestersRequest$: StaticStructureSchema = [3, n0, _BSR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var BuildSuggestersResponse$: StaticStructureSchema = [3, n0, _BSRu,
   0,
@@ -258,7 +258,7 @@ export var BuildSuggestersResponse$: StaticStructureSchema = [3, n0, _BSRu,
 export var CreateDomainRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -278,57 +278,57 @@ export var DateOptions$: StaticStructureSchema = [3, n0, _DO,
 export var DefineAnalysisSchemeRequest$: StaticStructureSchema = [3, n0, _DASR,
   0,
   [_DN, _ASn],
-  [0, () => AnalysisScheme$]
+  [0, () => AnalysisScheme$], 2
 ];
 export var DefineAnalysisSchemeResponse$: StaticStructureSchema = [3, n0, _DASRe,
   0,
   [_ASn],
-  [() => AnalysisSchemeStatus$]
+  [() => AnalysisSchemeStatus$], 1
 ];
 export var DefineExpressionRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_DN, _E],
-  [0, () => Expression$]
+  [0, () => Expression$], 2
 ];
 export var DefineExpressionResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
   [_E],
-  [() => ExpressionStatus$]
+  [() => ExpressionStatus$], 1
 ];
 export var DefineIndexFieldRequest$: StaticStructureSchema = [3, n0, _DIFR,
   0,
   [_DN, _IF],
-  [0, () => IndexField$]
+  [0, () => IndexField$], 2
 ];
 export var DefineIndexFieldResponse$: StaticStructureSchema = [3, n0, _DIFRe,
   0,
   [_IF],
-  [() => IndexFieldStatus$]
+  [() => IndexFieldStatus$], 1
 ];
 export var DefineSuggesterRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_DN, _Su],
-  [0, () => Suggester$]
+  [0, () => Suggester$], 2
 ];
 export var DefineSuggesterResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
   [_Su],
-  [() => SuggesterStatus$]
+  [() => SuggesterStatus$], 1
 ];
 export var DeleteAnalysisSchemeRequest$: StaticStructureSchema = [3, n0, _DASRel,
   0,
   [_DN, _ASN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteAnalysisSchemeResponse$: StaticStructureSchema = [3, n0, _DASRele,
   0,
   [_ASn],
-  [() => AnalysisSchemeStatus$]
+  [() => AnalysisSchemeStatus$], 1
 ];
 export var DeleteDomainRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var DeleteDomainResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -338,47 +338,47 @@ export var DeleteDomainResponse$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeleteExpressionRequest$: StaticStructureSchema = [3, n0, _DERel,
   0,
   [_DN, _EN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteExpressionResponse$: StaticStructureSchema = [3, n0, _DERele,
   0,
   [_E],
-  [() => ExpressionStatus$]
+  [() => ExpressionStatus$], 1
 ];
 export var DeleteIndexFieldRequest$: StaticStructureSchema = [3, n0, _DIFRel,
   0,
   [_DN, _IFN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteIndexFieldResponse$: StaticStructureSchema = [3, n0, _DIFRele,
   0,
   [_IF],
-  [() => IndexFieldStatus$]
+  [() => IndexFieldStatus$], 1
 ];
 export var DeleteSuggesterRequest$: StaticStructureSchema = [3, n0, _DSRel,
   0,
   [_DN, _SN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteSuggesterResponse$: StaticStructureSchema = [3, n0, _DSRele,
   0,
   [_Su],
-  [() => SuggesterStatus$]
+  [() => SuggesterStatus$], 1
 ];
 export var DescribeAnalysisSchemesRequest$: StaticStructureSchema = [3, n0, _DASRes,
   0,
   [_DN, _ASNn, _D],
-  [0, 64 | 0, 2]
+  [0, 64 | 0, 2], 1
 ];
 export var DescribeAnalysisSchemesResponse$: StaticStructureSchema = [3, n0, _DASResc,
   0,
   [_ASna],
-  [() => AnalysisSchemeStatusList]
+  [() => AnalysisSchemeStatusList], 1
 ];
 export var DescribeAvailabilityOptionsRequest$: StaticStructureSchema = [3, n0, _DAOR,
   0,
   [_DN, _D],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DescribeAvailabilityOptionsResponse$: StaticStructureSchema = [3, n0, _DAORe,
   0,
@@ -388,7 +388,7 @@ export var DescribeAvailabilityOptionsResponse$: StaticStructureSchema = [3, n0,
 export var DescribeDomainEndpointOptionsRequest$: StaticStructureSchema = [3, n0, _DDEOR,
   0,
   [_DN, _D],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DescribeDomainEndpointOptionsResponse$: StaticStructureSchema = [3, n0, _DDEORe,
   0,
@@ -403,57 +403,57 @@ export var DescribeDomainsRequest$: StaticStructureSchema = [3, n0, _DDRes,
 export var DescribeDomainsResponse$: StaticStructureSchema = [3, n0, _DDResc,
   0,
   [_DSL],
-  [() => DomainStatusList]
+  [() => DomainStatusList], 1
 ];
 export var DescribeExpressionsRequest$: StaticStructureSchema = [3, n0, _DERes,
   0,
   [_DN, _ENx, _D],
-  [0, 64 | 0, 2]
+  [0, 64 | 0, 2], 1
 ];
 export var DescribeExpressionsResponse$: StaticStructureSchema = [3, n0, _DEResc,
   0,
   [_Ex],
-  [() => ExpressionStatusList]
+  [() => ExpressionStatusList], 1
 ];
 export var DescribeIndexFieldsRequest$: StaticStructureSchema = [3, n0, _DIFRes,
   0,
   [_DN, _FN, _D],
-  [0, 64 | 0, 2]
+  [0, 64 | 0, 2], 1
 ];
 export var DescribeIndexFieldsResponse$: StaticStructureSchema = [3, n0, _DIFResc,
   0,
   [_IFn],
-  [() => IndexFieldStatusList]
+  [() => IndexFieldStatusList], 1
 ];
 export var DescribeScalingParametersRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var DescribeScalingParametersResponse$: StaticStructureSchema = [3, n0, _DSPRe,
   0,
   [_SP],
-  [() => ScalingParametersStatus$]
+  [() => ScalingParametersStatus$], 1
 ];
 export var DescribeServiceAccessPoliciesRequest$: StaticStructureSchema = [3, n0, _DSAPR,
   0,
   [_DN, _D],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DescribeServiceAccessPoliciesResponse$: StaticStructureSchema = [3, n0, _DSAPRe,
   0,
   [_AP],
-  [() => AccessPoliciesStatus$]
+  [() => AccessPoliciesStatus$], 1
 ];
 export var DescribeSuggestersRequest$: StaticStructureSchema = [3, n0, _DSRes,
   0,
   [_DN, _SNu, _D],
-  [0, 64 | 0, 2]
+  [0, 64 | 0, 2], 1
 ];
 export var DescribeSuggestersResponse$: StaticStructureSchema = [3, n0, _DSResc,
   0,
   [_Sug],
-  [() => SuggesterStatusList]
+  [() => SuggesterStatusList], 1
 ];
 export var DisabledOperationException$: StaticErrorSchema = [-3, n0, _DOE,
   { [_aQE]: [`DisabledAction`, 409], [_e]: _c, [_hE]: 409 },
@@ -464,7 +464,7 @@ TypeRegistry.for(n0).registerError(DisabledOperationException$, DisabledOperatio
 export var DocumentSuggesterOptions$: StaticStructureSchema = [3, n0, _DSO,
   0,
   [_SFo, _FM, _SEor],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DomainEndpointOptions$: StaticStructureSchema = [3, n0, _DEO,
   0,
@@ -474,12 +474,12 @@ export var DomainEndpointOptions$: StaticStructureSchema = [3, n0, _DEO,
 export var DomainEndpointOptionsStatus$: StaticStructureSchema = [3, n0, _DEOS,
   0,
   [_O, _S],
-  [() => DomainEndpointOptions$, () => OptionStatus$]
+  [() => DomainEndpointOptions$, () => OptionStatus$], 2
 ];
 export var DomainStatus$: StaticStructureSchema = [3, n0, _DS,
   0,
-  [_DI, _DN, _ARN, _Cr, _De, _DSo, _SS, _RID, _P, _SIT, _SPC, _SIC, _L],
-  [0, 0, 0, 2, 2, () => ServiceEndpoint$, () => ServiceEndpoint$, 2, 2, 0, 1, 1, () => Limits$]
+  [_DI, _DN, _RID, _ARN, _Cr, _De, _DSo, _SS, _P, _SIT, _SPC, _SIC, _L],
+  [0, 0, 2, 0, 2, 2, () => ServiceEndpoint$, () => ServiceEndpoint$, 2, 0, 1, 1, () => Limits$], 3
 ];
 export var DoubleArrayOptions$: StaticStructureSchema = [3, n0, _DAOo,
   0,
@@ -494,17 +494,17 @@ export var DoubleOptions$: StaticStructureSchema = [3, n0, _DOo,
 export var Expression$: StaticStructureSchema = [3, n0, _E,
   0,
   [_EN, _EV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ExpressionStatus$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_O, _S],
-  [() => Expression$, () => OptionStatus$]
+  [() => Expression$, () => OptionStatus$], 2
 ];
 export var IndexDocumentsRequest$: StaticStructureSchema = [3, n0, _IDR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var IndexDocumentsResponse$: StaticStructureSchema = [3, n0, _IDRn,
   0,
@@ -514,12 +514,12 @@ export var IndexDocumentsResponse$: StaticStructureSchema = [3, n0, _IDRn,
 export var IndexField$: StaticStructureSchema = [3, n0, _IF,
   0,
   [_IFN, _IFT, _IO, _DOo, _LO, _TO, _DO, _LLO, _IAO, _DAOo, _LAO, _TAO, _DAO],
-  [0, 0, () => IntOptions$, () => DoubleOptions$, () => LiteralOptions$, () => TextOptions$, () => DateOptions$, () => LatLonOptions$, () => IntArrayOptions$, () => DoubleArrayOptions$, () => LiteralArrayOptions$, () => TextArrayOptions$, () => DateArrayOptions$]
+  [0, 0, () => IntOptions$, () => DoubleOptions$, () => LiteralOptions$, () => TextOptions$, () => DateOptions$, () => LatLonOptions$, () => IntArrayOptions$, () => DoubleArrayOptions$, () => LiteralArrayOptions$, () => TextArrayOptions$, () => DateArrayOptions$], 2
 ];
 export var IndexFieldStatus$: StaticStructureSchema = [3, n0, _IFS,
   0,
   [_O, _S],
-  [() => IndexField$, () => OptionStatus$]
+  [() => IndexField$, () => OptionStatus$], 2
 ];
 export var IntArrayOptions$: StaticStructureSchema = [3, n0, _IAO,
   0,
@@ -557,7 +557,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var Limits$: StaticStructureSchema = [3, n0, _L,
   0,
   [_MRC, _MPC],
-  [1, 1]
+  [1, 1], 2
 ];
 export var ListDomainNamesResponse$: StaticStructureSchema = [3, n0, _LDNR,
   0,
@@ -576,8 +576,8 @@ export var LiteralOptions$: StaticStructureSchema = [3, n0, _LO,
 ];
 export var OptionStatus$: StaticStructureSchema = [3, n0, _OS,
   0,
-  [_CD, _UD, _UV, _Sta, _PD],
-  [4, 4, 1, 0, 2]
+  [_CD, _UD, _Sta, _UV, _PD],
+  [4, 4, 0, 1, 2], 3
 ];
 export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
   { [_aQE]: [`ResourceAlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
@@ -599,7 +599,7 @@ export var ScalingParameters$: StaticStructureSchema = [3, n0, _SP,
 export var ScalingParametersStatus$: StaticStructureSchema = [3, n0, _SPS,
   0,
   [_O, _S],
-  [() => ScalingParameters$, () => OptionStatus$]
+  [() => ScalingParameters$, () => OptionStatus$], 2
 ];
 export var ServiceEndpoint$: StaticStructureSchema = [3, n0, _SEe,
   0,
@@ -609,12 +609,12 @@ export var ServiceEndpoint$: StaticStructureSchema = [3, n0, _SEe,
 export var Suggester$: StaticStructureSchema = [3, n0, _Su,
   0,
   [_SN, _DSO],
-  [0, () => DocumentSuggesterOptions$]
+  [0, () => DocumentSuggesterOptions$], 2
 ];
 export var SuggesterStatus$: StaticStructureSchema = [3, n0, _SSu,
   0,
   [_O, _S],
-  [() => Suggester$, () => OptionStatus$]
+  [() => Suggester$, () => OptionStatus$], 2
 ];
 export var TextArrayOptions$: StaticStructureSchema = [3, n0, _TAO,
   0,
@@ -629,7 +629,7 @@ export var TextOptions$: StaticStructureSchema = [3, n0, _TO,
 export var UpdateAvailabilityOptionsRequest$: StaticStructureSchema = [3, n0, _UAOR,
   0,
   [_DN, _MAZ],
-  [0, 2]
+  [0, 2], 2
 ];
 export var UpdateAvailabilityOptionsResponse$: StaticStructureSchema = [3, n0, _UAORp,
   0,
@@ -639,7 +639,7 @@ export var UpdateAvailabilityOptionsResponse$: StaticStructureSchema = [3, n0, _
 export var UpdateDomainEndpointOptionsRequest$: StaticStructureSchema = [3, n0, _UDEOR,
   0,
   [_DN, _DEO],
-  [0, () => DomainEndpointOptions$]
+  [0, () => DomainEndpointOptions$], 2
 ];
 export var UpdateDomainEndpointOptionsResponse$: StaticStructureSchema = [3, n0, _UDEORp,
   0,
@@ -649,22 +649,22 @@ export var UpdateDomainEndpointOptionsResponse$: StaticStructureSchema = [3, n0,
 export var UpdateScalingParametersRequest$: StaticStructureSchema = [3, n0, _USPR,
   0,
   [_DN, _SP],
-  [0, () => ScalingParameters$]
+  [0, () => ScalingParameters$], 2
 ];
 export var UpdateScalingParametersResponse$: StaticStructureSchema = [3, n0, _USPRp,
   0,
   [_SP],
-  [() => ScalingParametersStatus$]
+  [() => ScalingParametersStatus$], 1
 ];
 export var UpdateServiceAccessPoliciesRequest$: StaticStructureSchema = [3, n0, _USAPR,
   0,
   [_DN, _AP],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateServiceAccessPoliciesResponse$: StaticStructureSchema = [3, n0, _USAPRp,
   0,
   [_AP],
-  [() => AccessPoliciesStatus$]
+  [() => AccessPoliciesStatus$], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

@@ -476,8 +476,8 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AddLFTagsToResourceRequest$: StaticStructureSchema = [3, n0, _ALFTTRR,
   0,
-  [_CI, _R, _LFT],
-  [0, () => Resource$, () => LFTagsList]
+  [_R, _LFT, _CI],
+  [() => Resource$, () => LFTagsList, 0], 2
 ];
 export var AddLFTagsToResourceResponse$: StaticStructureSchema = [3, n0, _ALFTTRRd,
   0,
@@ -487,7 +487,7 @@ export var AddLFTagsToResourceResponse$: StaticStructureSchema = [3, n0, _ALFTTR
 export var AddObjectInput$: StaticStructureSchema = [3, n0, _AOI,
   0,
   [_U, _ET, _S, _PV],
-  [0, 0, 1, 64 | 0]
+  [0, 0, 1, 64 | 0], 3
 ];
 export var AllRowsWildcard$: StaticStructureSchema = [3, n0, _ARW,
   0,
@@ -503,7 +503,7 @@ TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsExcepti
 export var AssumeDecoratedRoleWithSAMLRequest$: StaticStructureSchema = [3, n0, _ADRWSAMLR,
   0,
   [_SAMLA, _RA, _PA, _DS],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 3
 ];
 export var AssumeDecoratedRoleWithSAMLResponse$: StaticStructureSchema = [3, n0, _ADRWSAMLRs,
   0,
@@ -517,8 +517,8 @@ export var AuditContext$: StaticStructureSchema = [3, n0, _AC,
 ];
 export var BatchGrantPermissionsRequest$: StaticStructureSchema = [3, n0, _BGPR,
   0,
-  [_CI, _En],
-  [0, () => BatchPermissionsRequestEntryList]
+  [_En, _CI],
+  [() => BatchPermissionsRequestEntryList, 0], 1
 ];
 export var BatchGrantPermissionsResponse$: StaticStructureSchema = [3, n0, _BGPRa,
   0,
@@ -533,12 +533,12 @@ export var BatchPermissionsFailureEntry$: StaticStructureSchema = [3, n0, _BPFE,
 export var BatchPermissionsRequestEntry$: StaticStructureSchema = [3, n0, _BPRE,
   0,
   [_I, _P, _R, _Pe, _C, _PWGO],
-  [0, () => DataLakePrincipal$, () => Resource$, 64 | 0, () => Condition$, 64 | 0]
+  [0, () => DataLakePrincipal$, () => Resource$, 64 | 0, () => Condition$, 64 | 0], 1
 ];
 export var BatchRevokePermissionsRequest$: StaticStructureSchema = [3, n0, _BRPR,
   0,
-  [_CI, _En],
-  [0, () => BatchPermissionsRequestEntryList]
+  [_En, _CI],
+  [() => BatchPermissionsRequestEntryList, 0], 1
 ];
 export var BatchRevokePermissionsResponse$: StaticStructureSchema = [3, n0, _BRPRa,
   0,
@@ -548,7 +548,7 @@ export var BatchRevokePermissionsResponse$: StaticStructureSchema = [3, n0, _BRP
 export var CancelTransactionRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var CancelTransactionResponse$: StaticStructureSchema = [3, n0, _CTRa,
   0,
@@ -573,7 +573,7 @@ export var ColumnWildcard$: StaticStructureSchema = [3, n0, _CW,
 export var CommitTransactionRequest$: StaticStructureSchema = [3, n0, _CTRo,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var CommitTransactionResponse$: StaticStructureSchema = [3, n0, _CTRom,
   0,
@@ -594,7 +594,7 @@ export var Condition$: StaticStructureSchema = [3, n0, _C,
 export var CreateDataCellsFilterRequest$: StaticStructureSchema = [3, n0, _CDCFR,
   0,
   [_TD],
-  [() => DataCellsFilter$]
+  [() => DataCellsFilter$], 1
 ];
 export var CreateDataCellsFilterResponse$: StaticStructureSchema = [3, n0, _CDCFRr,
   0,
@@ -614,7 +614,7 @@ export var CreateLakeFormationIdentityCenterConfigurationResponse$: StaticStruct
 export var CreateLakeFormationOptInRequest$: StaticStructureSchema = [3, n0, _CLFOIR,
   0,
   [_P, _R, _C],
-  [() => DataLakePrincipal$, () => Resource$, () => Condition$]
+  [() => DataLakePrincipal$, () => Resource$, () => Condition$], 2
 ];
 export var CreateLakeFormationOptInResponse$: StaticStructureSchema = [3, n0, _CLFOIRr,
   0,
@@ -623,8 +623,8 @@ export var CreateLakeFormationOptInResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateLFTagExpressionRequest$: StaticStructureSchema = [3, n0, _CLFTER,
   0,
-  [_N, _D, _CI, _Ex],
-  [0, 0, 0, () => Expression]
+  [_N, _Ex, _D, _CI],
+  [0, () => Expression, 0, 0], 2
 ];
 export var CreateLFTagExpressionResponse$: StaticStructureSchema = [3, n0, _CLFTERr,
   0,
@@ -633,8 +633,8 @@ export var CreateLFTagExpressionResponse$: StaticStructureSchema = [3, n0, _CLFT
 ];
 export var CreateLFTagRequest$: StaticStructureSchema = [3, n0, _CLFTR,
   0,
-  [_CI, _TK, _TV],
-  [0, 0, 64 | 0]
+  [_TK, _TV, _CI],
+  [0, 64 | 0, 0], 2
 ];
 export var CreateLFTagResponse$: StaticStructureSchema = [3, n0, _CLFTRr,
   0,
@@ -643,13 +643,13 @@ export var CreateLFTagResponse$: StaticStructureSchema = [3, n0, _CLFTRr,
 ];
 export var DatabaseResource$: StaticStructureSchema = [3, n0, _DR,
   0,
-  [_CI, _N],
-  [0, 0]
+  [_N, _CI],
+  [0, 0], 1
 ];
 export var DataCellsFilter$: StaticStructureSchema = [3, n0, _DCF,
   0,
   [_TCI, _DN, _TN, _N, _RF, _CN, _CW, _VI],
-  [0, 0, 0, 0, () => RowFilter$, 64 | 0, () => ColumnWildcard$, 0]
+  [0, 0, 0, 0, () => RowFilter$, 64 | 0, () => ColumnWildcard$, 0], 4
 ];
 export var DataCellsFilterResource$: StaticStructureSchema = [3, n0, _DCFR,
   0,
@@ -668,8 +668,8 @@ export var DataLakeSettings$: StaticStructureSchema = [3, n0, _DLS,
 ];
 export var DataLocationResource$: StaticStructureSchema = [3, n0, _DLR,
   0,
-  [_CI, _RAe],
-  [0, 0]
+  [_RAe, _CI],
+  [0, 0], 1
 ];
 export var DeleteDataCellsFilterRequest$: StaticStructureSchema = [3, n0, _DDCFR,
   0,
@@ -694,7 +694,7 @@ export var DeleteLakeFormationIdentityCenterConfigurationResponse$: StaticStruct
 export var DeleteLakeFormationOptInRequest$: StaticStructureSchema = [3, n0, _DLFOIR,
   0,
   [_P, _R, _C],
-  [() => DataLakePrincipal$, () => Resource$, () => Condition$]
+  [() => DataLakePrincipal$, () => Resource$, () => Condition$], 2
 ];
 export var DeleteLakeFormationOptInResponse$: StaticStructureSchema = [3, n0, _DLFOIRe,
   0,
@@ -704,7 +704,7 @@ export var DeleteLakeFormationOptInResponse$: StaticStructureSchema = [3, n0, _D
 export var DeleteLFTagExpressionRequest$: StaticStructureSchema = [3, n0, _DLFTER,
   0,
   [_N, _CI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteLFTagExpressionResponse$: StaticStructureSchema = [3, n0, _DLFTERe,
   0,
@@ -713,8 +713,8 @@ export var DeleteLFTagExpressionResponse$: StaticStructureSchema = [3, n0, _DLFT
 ];
 export var DeleteLFTagRequest$: StaticStructureSchema = [3, n0, _DLFTR,
   0,
-  [_CI, _TK],
-  [0, 0]
+  [_TK, _CI],
+  [0, 0], 1
 ];
 export var DeleteLFTagResponse$: StaticStructureSchema = [3, n0, _DLFTRe,
   0,
@@ -724,12 +724,12 @@ export var DeleteLFTagResponse$: StaticStructureSchema = [3, n0, _DLFTRe,
 export var DeleteObjectInput$: StaticStructureSchema = [3, n0, _DOI,
   0,
   [_U, _ET, _PV],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 1
 ];
 export var DeleteObjectsOnCancelRequest$: StaticStructureSchema = [3, n0, _DOOCR,
   0,
-  [_CI, _DN, _TN, _TI, _O],
-  [0, 0, 0, 0, () => VirtualObjectList]
+  [_DN, _TN, _TI, _O, _CI],
+  [0, 0, 0, () => VirtualObjectList, 0], 4
 ];
 export var DeleteObjectsOnCancelResponse$: StaticStructureSchema = [3, n0, _DOOCRe,
   0,
@@ -739,7 +739,7 @@ export var DeleteObjectsOnCancelResponse$: StaticStructureSchema = [3, n0, _DOOC
 export var DeregisterResourceRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_RAe],
-  [0]
+  [0], 1
 ];
 export var DeregisterResourceResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -759,7 +759,7 @@ export var DescribeLakeFormationIdentityCenterConfigurationResponse$: StaticStru
 export var DescribeResourceRequest$: StaticStructureSchema = [3, n0, _DRRes,
   0,
   [_RAe],
-  [0]
+  [0], 1
 ];
 export var DescribeResourceResponse$: StaticStructureSchema = [3, n0, _DRResc,
   0,
@@ -769,7 +769,7 @@ export var DescribeResourceResponse$: StaticStructureSchema = [3, n0, _DRResc,
 export var DescribeTransactionRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var DescribeTransactionResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -816,7 +816,7 @@ export var ExtendTransactionResponse$: StaticStructureSchema = [3, n0, _ETRx,
 export var ExternalFilteringConfiguration$: StaticStructureSchema = [3, n0, _EFC,
   0,
   [_St, _AT],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var FilterCondition$: StaticStructureSchema = [3, n0, _FC,
   0,
@@ -826,7 +826,7 @@ export var FilterCondition$: StaticStructureSchema = [3, n0, _FC,
 export var GetDataCellsFilterRequest$: StaticStructureSchema = [3, n0, _GDCFR,
   0,
   [_TCI, _DN, _TN, _N],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var GetDataCellsFilterResponse$: StaticStructureSchema = [3, n0, _GDCFRe,
   0,
@@ -855,8 +855,8 @@ export var GetDataLakeSettingsResponse$: StaticStructureSchema = [3, n0, _GDLSRe
 ];
 export var GetEffectivePermissionsForPathRequest$: StaticStructureSchema = [3, n0, _GEPFPR,
   0,
-  [_CI, _RAe, _NT, _MR],
-  [0, 0, 0, 1]
+  [_RAe, _CI, _NT, _MR],
+  [0, 0, 0, 1], 1
 ];
 export var GetEffectivePermissionsForPathResponse$: StaticStructureSchema = [3, n0, _GEPFPRe,
   0,
@@ -866,7 +866,7 @@ export var GetEffectivePermissionsForPathResponse$: StaticStructureSchema = [3, 
 export var GetLFTagExpressionRequest$: StaticStructureSchema = [3, n0, _GLFTER,
   0,
   [_N, _CI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetLFTagExpressionResponse$: StaticStructureSchema = [3, n0, _GLFTERe,
   0,
@@ -875,8 +875,8 @@ export var GetLFTagExpressionResponse$: StaticStructureSchema = [3, n0, _GLFTERe
 ];
 export var GetLFTagRequest$: StaticStructureSchema = [3, n0, _GLFTR,
   0,
-  [_CI, _TK],
-  [0, 0]
+  [_TK, _CI],
+  [0, 0], 1
 ];
 export var GetLFTagResponse$: StaticStructureSchema = [3, n0, _GLFTRe,
   0,
@@ -886,17 +886,17 @@ export var GetLFTagResponse$: StaticStructureSchema = [3, n0, _GLFTRe,
 export var GetQueryStateRequest$: StaticStructureSchema = [3, n0, _GQSR,
   0,
   [_QI],
-  [0]
+  [0], 1
 ];
 export var GetQueryStateResponse$: StaticStructureSchema = [3, n0, _GQSRe,
   0,
-  [_Er, _Sta],
-  [0, 0]
+  [_Sta, _Er],
+  [0, 0], 1
 ];
 export var GetQueryStatisticsRequest$: StaticStructureSchema = [3, n0, _GQSRet,
   0,
   [_QI],
-  [0]
+  [0], 1
 ];
 export var GetQueryStatisticsResponse$: StaticStructureSchema = [3, n0, _GQSRetu,
   0,
@@ -905,8 +905,8 @@ export var GetQueryStatisticsResponse$: StaticStructureSchema = [3, n0, _GQSRetu
 ];
 export var GetResourceLFTagsRequest$: StaticStructureSchema = [3, n0, _GRLFTR,
   0,
-  [_CI, _R, _SALFT],
-  [0, () => Resource$, 2]
+  [_R, _CI, _SALFT],
+  [() => Resource$, 0, 2], 1
 ];
 export var GetResourceLFTagsResponse$: StaticStructureSchema = [3, n0, _GRLFTRe,
   0,
@@ -915,8 +915,8 @@ export var GetResourceLFTagsResponse$: StaticStructureSchema = [3, n0, _GRLFTRe,
 ];
 export var GetTableObjectsRequest$: StaticStructureSchema = [3, n0, _GTOR,
   0,
-  [_CI, _DN, _TN, _TI, _QAOT, _PP, _MR, _NT],
-  [0, 0, 0, 0, 4, 0, 1, 0]
+  [_DN, _TN, _CI, _TI, _QAOT, _PP, _MR, _NT],
+  [0, 0, 0, 0, 4, 0, 1, 0], 2
 ];
 export var GetTableObjectsResponse$: StaticStructureSchema = [3, n0, _GTORe,
   0,
@@ -926,7 +926,7 @@ export var GetTableObjectsResponse$: StaticStructureSchema = [3, n0, _GTORe,
 export var GetTemporaryGluePartitionCredentialsRequest$: StaticStructureSchema = [3, n0, _GTGPCR,
   0,
   [_TA, _Par, _Pe, _DS, _AC, _SPT],
-  [0, () => PartitionValueList$, 64 | 0, 1, () => AuditContext$, 64 | 0]
+  [0, () => PartitionValueList$, 64 | 0, 1, () => AuditContext$, 64 | 0], 2
 ];
 export var GetTemporaryGluePartitionCredentialsResponse$: StaticStructureSchema = [3, n0, _GTGPCRe,
   0,
@@ -936,7 +936,7 @@ export var GetTemporaryGluePartitionCredentialsResponse$: StaticStructureSchema 
 export var GetTemporaryGlueTableCredentialsRequest$: StaticStructureSchema = [3, n0, _GTGTCR,
   0,
   [_TA, _Pe, _DS, _AC, _SPT, _SP, _QSC],
-  [0, 64 | 0, 1, () => AuditContext$, 64 | 0, 0, () => QuerySessionContext$]
+  [0, 64 | 0, 1, () => AuditContext$, 64 | 0, 0, () => QuerySessionContext$], 1
 ];
 export var GetTemporaryGlueTableCredentialsResponse$: StaticStructureSchema = [3, n0, _GTGTCRe,
   0,
@@ -946,7 +946,7 @@ export var GetTemporaryGlueTableCredentialsResponse$: StaticStructureSchema = [3
 export var GetWorkUnitResultsRequest$: StaticStructureSchema = [3, n0, _GWURR,
   0,
   [_QI, _WUI, _WUT],
-  [0, 1, [() => SyntheticGetWorkUnitResultsRequestWorkUnitTokenString, 0]]
+  [0, 1, [() => SyntheticGetWorkUnitResultsRequestWorkUnitTokenString, 0]], 3
 ];
 export var GetWorkUnitResultsResponse$: StaticStructureSchema = [3, n0, _GWURRe,
   0,
@@ -955,13 +955,13 @@ export var GetWorkUnitResultsResponse$: StaticStructureSchema = [3, n0, _GWURRe,
 ];
 export var GetWorkUnitsRequest$: StaticStructureSchema = [3, n0, _GWUR,
   0,
-  [_NT, _PSa, _QI],
-  [0, 1, 0]
+  [_QI, _NT, _PSa],
+  [0, 0, 1], 1
 ];
 export var GetWorkUnitsResponse$: StaticStructureSchema = [3, n0, _GWURe,
   0,
-  [_NT, _QI, _WUR],
-  [0, 0, () => WorkUnitRangeList]
+  [_QI, _WUR, _NT],
+  [0, () => WorkUnitRangeList, 0], 2
 ];
 export var GlueEncryptionException$: StaticErrorSchema = [-3, n0, _GEE,
   { [_e]: _c },
@@ -971,8 +971,8 @@ export var GlueEncryptionException$: StaticErrorSchema = [-3, n0, _GEE,
 TypeRegistry.for(n0).registerError(GlueEncryptionException$, GlueEncryptionException);
 export var GrantPermissionsRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
-  [_CI, _P, _R, _Pe, _C, _PWGO],
-  [0, () => DataLakePrincipal$, () => Resource$, 64 | 0, () => Condition$, 64 | 0]
+  [_P, _R, _Pe, _CI, _C, _PWGO],
+  [() => DataLakePrincipal$, () => Resource$, 64 | 0, 0, () => Condition$, 64 | 0], 3
 ];
 export var GrantPermissionsResponse$: StaticStructureSchema = [3, n0, _GPRr,
   0,
@@ -999,7 +999,7 @@ export var LakeFormationOptInsInfo$: StaticStructureSchema = [3, n0, _LFOII,
 export var LFTag$: StaticStructureSchema = [3, n0, _LFTa,
   0,
   [_TK, _TV],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var LFTagError$: StaticStructureSchema = [3, n0, _LFTE,
   0,
@@ -1013,23 +1013,23 @@ export var LFTagExpression$: StaticStructureSchema = [3, n0, _LFTEa,
 ];
 export var LFTagExpressionResource$: StaticStructureSchema = [3, n0, _LFTER,
   0,
-  [_CI, _N],
-  [0, 0]
+  [_N, _CI],
+  [0, 0], 1
 ];
 export var LFTagKeyResource$: StaticStructureSchema = [3, n0, _LFTKR,
   0,
-  [_CI, _TK, _TV],
-  [0, 0, 64 | 0]
+  [_TK, _TV, _CI],
+  [0, 64 | 0, 0], 2
 ];
 export var LFTagPair$: StaticStructureSchema = [3, n0, _LFTP,
   0,
-  [_CI, _TK, _TV],
-  [0, 0, 64 | 0]
+  [_TK, _TV, _CI],
+  [0, 64 | 0, 0], 2
 ];
 export var LFTagPolicyResource$: StaticStructureSchema = [3, n0, _LFTPR,
   0,
-  [_CI, _RT, _Ex, _EN],
-  [0, 0, () => Expression, 0]
+  [_RT, _CI, _Ex, _EN],
+  [0, 0, () => Expression, 0], 1
 ];
 export var ListDataCellsFilterRequest$: StaticStructureSchema = [3, n0, _LDCFR,
   0,
@@ -1093,8 +1093,8 @@ export var ListResourcesResponse$: StaticStructureSchema = [3, n0, _LRRi,
 ];
 export var ListTableStorageOptimizersRequest$: StaticStructureSchema = [3, n0, _LTSOR,
   0,
-  [_CI, _DN, _TN, _SOT, _MR, _NT],
-  [0, 0, 0, 0, 1, 0]
+  [_DN, _TN, _CI, _SOT, _MR, _NT],
+  [0, 0, 0, 0, 1, 0], 2
 ];
 export var ListTableStorageOptimizersResponse$: StaticStructureSchema = [3, n0, _LTSORi,
   0,
@@ -1125,7 +1125,7 @@ export var PartitionObjects$: StaticStructureSchema = [3, n0, _PO,
 export var PartitionValueList$: StaticStructureSchema = [3, n0, _PVL,
   0,
   [_V],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var PermissionTypeMismatchException$: StaticErrorSchema = [-3, n0, _PTME,
   { [_e]: _c },
@@ -1150,8 +1150,8 @@ export var PrincipalResourcePermissions$: StaticStructureSchema = [3, n0, _PRP,
 ];
 export var PutDataLakeSettingsRequest$: StaticStructureSchema = [3, n0, _PDLSR,
   0,
-  [_CI, _DLS],
-  [0, () => DataLakeSettings$]
+  [_DLS, _CI],
+  [() => DataLakeSettings$, 0], 1
 ];
 export var PutDataLakeSettingsResponse$: StaticStructureSchema = [3, n0, _PDLSRu,
   0,
@@ -1160,8 +1160,8 @@ export var PutDataLakeSettingsResponse$: StaticStructureSchema = [3, n0, _PDLSRu
 ];
 export var QueryPlanningContext$: StaticStructureSchema = [3, n0, _QPC,
   0,
-  [_CI, _DN, _QAOT, _QP, _TI],
-  [0, 0, 4, 128 | 0, 0]
+  [_DN, _CI, _QAOT, _QP, _TI],
+  [0, 0, 4, 128 | 0, 0], 1
 ];
 export var QuerySessionContext$: StaticStructureSchema = [3, n0, _QSC,
   0,
@@ -1171,12 +1171,12 @@ export var QuerySessionContext$: StaticStructureSchema = [3, n0, _QSC,
 export var RedshiftConnect$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var RegisterResourceRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
   [_RAe, _USLR, _RA, _WF, _HAE, _WPA],
-  [0, 2, 0, 2, 2, 2]
+  [0, 2, 0, 2, 2, 2], 1
 ];
 export var RegisterResourceResponse$: StaticStructureSchema = [3, n0, _RRRe,
   0,
@@ -1185,8 +1185,8 @@ export var RegisterResourceResponse$: StaticStructureSchema = [3, n0, _RRRe,
 ];
 export var RemoveLFTagsFromResourceRequest$: StaticStructureSchema = [3, n0, _RLFTFRR,
   0,
-  [_CI, _R, _LFT],
-  [0, () => Resource$, () => LFTagsList]
+  [_R, _LFT, _CI],
+  [() => Resource$, () => LFTagsList, 0], 2
 ];
 export var RemoveLFTagsFromResourceResponse$: StaticStructureSchema = [3, n0, _RLFTFRRe,
   0,
@@ -1217,8 +1217,8 @@ export var ResourceNumberLimitExceededException$: StaticErrorSchema = [-3, n0, _
 TypeRegistry.for(n0).registerError(ResourceNumberLimitExceededException$, ResourceNumberLimitExceededException);
 export var RevokePermissionsRequest$: StaticStructureSchema = [3, n0, _RPR,
   0,
-  [_CI, _P, _R, _Pe, _C, _PWGO],
-  [0, () => DataLakePrincipal$, () => Resource$, 64 | 0, () => Condition$, 64 | 0]
+  [_P, _R, _Pe, _CI, _C, _PWGO],
+  [() => DataLakePrincipal$, () => Resource$, 64 | 0, 0, () => Condition$, 64 | 0], 3
 ];
 export var RevokePermissionsResponse$: StaticStructureSchema = [3, n0, _RPRe,
   0,
@@ -1232,8 +1232,8 @@ export var RowFilter$: StaticStructureSchema = [3, n0, _RF,
 ];
 export var SearchDatabasesByLFTagsRequest$: StaticStructureSchema = [3, n0, _SDBLFTR,
   0,
-  [_NT, _MR, _CI, _Ex],
-  [0, 1, 0, () => Expression]
+  [_Ex, _NT, _MR, _CI],
+  [() => Expression, 0, 1, 0], 1
 ];
 export var SearchDatabasesByLFTagsResponse$: StaticStructureSchema = [3, n0, _SDBLFTRe,
   0,
@@ -1242,8 +1242,8 @@ export var SearchDatabasesByLFTagsResponse$: StaticStructureSchema = [3, n0, _SD
 ];
 export var SearchTablesByLFTagsRequest$: StaticStructureSchema = [3, n0, _STBLFTR,
   0,
-  [_NT, _MR, _CI, _Ex],
-  [0, 1, 0, () => Expression]
+  [_Ex, _NT, _MR, _CI],
+  [() => Expression, 0, 1, 0], 1
 ];
 export var SearchTablesByLFTagsResponse$: StaticStructureSchema = [3, n0, _STBLFTRe,
   0,
@@ -1253,12 +1253,12 @@ export var SearchTablesByLFTagsResponse$: StaticStructureSchema = [3, n0, _STBLF
 export var StartQueryPlanningRequest$: StaticStructureSchema = [3, n0, _SQPR,
   0,
   [_QPC, _QS],
-  [() => QueryPlanningContext$, [() => SyntheticStartQueryPlanningRequestQueryString, 0]]
+  [() => QueryPlanningContext$, [() => SyntheticStartQueryPlanningRequestQueryString, 0]], 2
 ];
 export var StartQueryPlanningResponse$: StaticStructureSchema = [3, n0, _SQPRt,
   0,
   [_QI],
-  [0]
+  [0], 1
 ];
 export var StartTransactionRequest$: StaticStructureSchema = [3, n0, _STR,
   0,
@@ -1288,8 +1288,8 @@ export var TableObject$: StaticStructureSchema = [3, n0, _TO,
 ];
 export var TableResource$: StaticStructureSchema = [3, n0, _TR,
   0,
-  [_CI, _DN, _N, _TW],
-  [0, 0, 0, () => TableWildcard$]
+  [_DN, _CI, _N, _TW],
+  [0, 0, 0, () => TableWildcard$], 1
 ];
 export var TableWildcard$: StaticStructureSchema = [3, n0, _TW,
   0,
@@ -1298,8 +1298,8 @@ export var TableWildcard$: StaticStructureSchema = [3, n0, _TW,
 ];
 export var TableWithColumnsResource$: StaticStructureSchema = [3, n0, _TWCR,
   0,
-  [_CI, _DN, _N, _CN, _CW],
-  [0, 0, 0, 64 | 0, () => ColumnWildcard$]
+  [_DN, _N, _CI, _CN, _CW],
+  [0, 0, 0, 64 | 0, () => ColumnWildcard$], 2
 ];
 export var TaggedDatabase$: StaticStructureSchema = [3, n0, _TDa,
   0,
@@ -1343,7 +1343,7 @@ export var TransactionDescription$: StaticStructureSchema = [3, n0, _TDr,
 export var UpdateDataCellsFilterRequest$: StaticStructureSchema = [3, n0, _UDCFR,
   0,
   [_TD],
-  [() => DataCellsFilter$]
+  [() => DataCellsFilter$], 1
 ];
 export var UpdateDataCellsFilterResponse$: StaticStructureSchema = [3, n0, _UDCFRp,
   0,
@@ -1362,8 +1362,8 @@ export var UpdateLakeFormationIdentityCenterConfigurationResponse$: StaticStruct
 ];
 export var UpdateLFTagExpressionRequest$: StaticStructureSchema = [3, n0, _ULFTER,
   0,
-  [_N, _D, _CI, _Ex],
-  [0, 0, 0, () => Expression]
+  [_N, _Ex, _D, _CI],
+  [0, () => Expression, 0, 0], 2
 ];
 export var UpdateLFTagExpressionResponse$: StaticStructureSchema = [3, n0, _ULFTERp,
   0,
@@ -1372,8 +1372,8 @@ export var UpdateLFTagExpressionResponse$: StaticStructureSchema = [3, n0, _ULFT
 ];
 export var UpdateLFTagRequest$: StaticStructureSchema = [3, n0, _ULFTR,
   0,
-  [_CI, _TK, _TVTD, _TVTA],
-  [0, 0, 64 | 0, 64 | 0]
+  [_TK, _CI, _TVTD, _TVTA],
+  [0, 0, 64 | 0, 64 | 0], 1
 ];
 export var UpdateLFTagResponse$: StaticStructureSchema = [3, n0, _ULFTRp,
   0,
@@ -1383,7 +1383,7 @@ export var UpdateLFTagResponse$: StaticStructureSchema = [3, n0, _ULFTRp,
 export var UpdateResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _RAe, _WF, _HAE],
-  [0, 0, 2, 2]
+  [0, 0, 2, 2], 2
 ];
 export var UpdateResourceResponse$: StaticStructureSchema = [3, n0, _URRp,
   0,
@@ -1392,8 +1392,8 @@ export var UpdateResourceResponse$: StaticStructureSchema = [3, n0, _URRp,
 ];
 export var UpdateTableObjectsRequest$: StaticStructureSchema = [3, n0, _UTOR,
   0,
-  [_CI, _DN, _TN, _TI, _WO],
-  [0, 0, 0, 0, () => WriteOperationList]
+  [_DN, _TN, _WO, _CI, _TI],
+  [0, 0, () => WriteOperationList, 0, 0], 3
 ];
 export var UpdateTableObjectsResponse$: StaticStructureSchema = [3, n0, _UTORp,
   0,
@@ -1402,8 +1402,8 @@ export var UpdateTableObjectsResponse$: StaticStructureSchema = [3, n0, _UTORp,
 ];
 export var UpdateTableStorageOptimizerRequest$: StaticStructureSchema = [3, n0, _UTSOR,
   0,
-  [_CI, _DN, _TN, _SOC],
-  [0, 0, 0, [2, n0, _SOCM, 0, 0, 128 | 0]]
+  [_DN, _TN, _SOC, _CI],
+  [0, 0, [2, n0, _SOCM, 0, 0, 128 | 0], 0], 3
 ];
 export var UpdateTableStorageOptimizerResponse$: StaticStructureSchema = [3, n0, _UTSORp,
   0,
@@ -1413,12 +1413,12 @@ export var UpdateTableStorageOptimizerResponse$: StaticStructureSchema = [3, n0,
 export var VirtualObject$: StaticStructureSchema = [3, n0, _VO,
   0,
   [_U, _ET],
-  [0, 0]
+  [0, 0], 1
 ];
 export var WorkUnitRange$: StaticStructureSchema = [3, n0, _WURo,
   0,
   [_WUIM, _WUIMo, _WUT],
-  [1, 1, 0]
+  [1, 1, 0], 3
 ];
 export var WorkUnitsNotReadyYetException$: StaticErrorSchema = [-3, n0, _WUNRYE,
   { [_e]: _c, [_hE]: 420 },

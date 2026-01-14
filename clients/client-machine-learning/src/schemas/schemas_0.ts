@@ -245,7 +245,7 @@ var RedshiftDatabasePassword: StaticSimpleSchema = [0, n0, _RDP, 8, 0];
 export var AddTagsInput$: StaticStructureSchema = [3, n0, _ATI,
   0,
   [_T, _RI, _RT],
-  [() => TagList, 0, 0]
+  [() => TagList, 0, 0], 3
 ];
 export var AddTagsOutput$: StaticStructureSchema = [3, n0, _ATO,
   0,
@@ -259,8 +259,8 @@ export var BatchPrediction$: StaticStructureSchema = [3, n0, _BP,
 ];
 export var CreateBatchPredictionInput$: StaticStructureSchema = [3, n0, _CBPI,
   0,
-  [_BPI, _BPN, _MLMI, _BPDSI, _OU],
-  [0, 0, 0, 0, 0]
+  [_BPI, _MLMI, _BPDSI, _OU, _BPN],
+  [0, 0, 0, 0, 0], 4
 ];
 export var CreateBatchPredictionOutput$: StaticStructureSchema = [3, n0, _CBPO,
   0,
@@ -269,8 +269,8 @@ export var CreateBatchPredictionOutput$: StaticStructureSchema = [3, n0, _CBPO,
 ];
 export var CreateDataSourceFromRDSInput$: StaticStructureSchema = [3, n0, _CDSFRDSI,
   0,
-  [_DSI, _DSN, _RDSD, _RARN, _CS],
-  [0, 0, [() => RDSDataSpec$, 0], 0, 2]
+  [_DSI, _RDSD, _RARN, _DSN, _CS],
+  [0, [() => RDSDataSpec$, 0], 0, 0, 2], 3
 ];
 export var CreateDataSourceFromRDSOutput$: StaticStructureSchema = [3, n0, _CDSFRDSO,
   0,
@@ -279,8 +279,8 @@ export var CreateDataSourceFromRDSOutput$: StaticStructureSchema = [3, n0, _CDSF
 ];
 export var CreateDataSourceFromRedshiftInput$: StaticStructureSchema = [3, n0, _CDSFRI,
   0,
-  [_DSI, _DSN, _DS, _RARN, _CS],
-  [0, 0, [() => RedshiftDataSpec$, 0], 0, 2]
+  [_DSI, _DS, _RARN, _DSN, _CS],
+  [0, [() => RedshiftDataSpec$, 0], 0, 0, 2], 3
 ];
 export var CreateDataSourceFromRedshiftOutput$: StaticStructureSchema = [3, n0, _CDSFRO,
   0,
@@ -289,8 +289,8 @@ export var CreateDataSourceFromRedshiftOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateDataSourceFromS3Input$: StaticStructureSchema = [3, n0, _CDSFSI,
   0,
-  [_DSI, _DSN, _DS, _CS],
-  [0, 0, () => S3DataSpec$, 2]
+  [_DSI, _DS, _DSN, _CS],
+  [0, () => S3DataSpec$, 0, 2], 2
 ];
 export var CreateDataSourceFromS3Output$: StaticStructureSchema = [3, n0, _CDSFSO,
   0,
@@ -299,8 +299,8 @@ export var CreateDataSourceFromS3Output$: StaticStructureSchema = [3, n0, _CDSFS
 ];
 export var CreateEvaluationInput$: StaticStructureSchema = [3, n0, _CEI,
   0,
-  [_EI, _EN, _MLMI, _EDSI],
-  [0, 0, 0, 0]
+  [_EI, _MLMI, _EDSI, _EN],
+  [0, 0, 0, 0], 3
 ];
 export var CreateEvaluationOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
@@ -309,8 +309,8 @@ export var CreateEvaluationOutput$: StaticStructureSchema = [3, n0, _CEO,
 ];
 export var CreateMLModelInput$: StaticStructureSchema = [3, n0, _CMLMI,
   0,
-  [_MLMI, _MLMN, _MLMT, _P, _TDSI, _R, _RU],
-  [0, 0, 0, 128 | 0, 0, 0, 0]
+  [_MLMI, _MLMT, _TDSI, _MLMN, _P, _R, _RU],
+  [0, 0, 0, 0, 128 | 0, 0, 0], 3
 ];
 export var CreateMLModelOutput$: StaticStructureSchema = [3, n0, _CMLMO,
   0,
@@ -320,7 +320,7 @@ export var CreateMLModelOutput$: StaticStructureSchema = [3, n0, _CMLMO,
 export var CreateRealtimeEndpointInput$: StaticStructureSchema = [3, n0, _CREI,
   0,
   [_MLMI],
-  [0]
+  [0], 1
 ];
 export var CreateRealtimeEndpointOutput$: StaticStructureSchema = [3, n0, _CREO,
   0,
@@ -335,7 +335,7 @@ export var DataSource$: StaticStructureSchema = [3, n0, _DSa,
 export var DeleteBatchPredictionInput$: StaticStructureSchema = [3, n0, _DBPI,
   0,
   [_BPI],
-  [0]
+  [0], 1
 ];
 export var DeleteBatchPredictionOutput$: StaticStructureSchema = [3, n0, _DBPO,
   0,
@@ -345,7 +345,7 @@ export var DeleteBatchPredictionOutput$: StaticStructureSchema = [3, n0, _DBPO,
 export var DeleteDataSourceInput$: StaticStructureSchema = [3, n0, _DDSI,
   0,
   [_DSI],
-  [0]
+  [0], 1
 ];
 export var DeleteDataSourceOutput$: StaticStructureSchema = [3, n0, _DDSO,
   0,
@@ -355,7 +355,7 @@ export var DeleteDataSourceOutput$: StaticStructureSchema = [3, n0, _DDSO,
 export var DeleteEvaluationInput$: StaticStructureSchema = [3, n0, _DEI,
   0,
   [_EI],
-  [0]
+  [0], 1
 ];
 export var DeleteEvaluationOutput$: StaticStructureSchema = [3, n0, _DEO,
   0,
@@ -365,7 +365,7 @@ export var DeleteEvaluationOutput$: StaticStructureSchema = [3, n0, _DEO,
 export var DeleteMLModelInput$: StaticStructureSchema = [3, n0, _DMLMI,
   0,
   [_MLMI],
-  [0]
+  [0], 1
 ];
 export var DeleteMLModelOutput$: StaticStructureSchema = [3, n0, _DMLMO,
   0,
@@ -375,7 +375,7 @@ export var DeleteMLModelOutput$: StaticStructureSchema = [3, n0, _DMLMO,
 export var DeleteRealtimeEndpointInput$: StaticStructureSchema = [3, n0, _DREI,
   0,
   [_MLMI],
-  [0]
+  [0], 1
 ];
 export var DeleteRealtimeEndpointOutput$: StaticStructureSchema = [3, n0, _DREO,
   0,
@@ -385,7 +385,7 @@ export var DeleteRealtimeEndpointOutput$: StaticStructureSchema = [3, n0, _DREO,
 export var DeleteTagsInput$: StaticStructureSchema = [3, n0, _DTI,
   0,
   [_TK, _RI, _RT],
-  [64 | 0, 0, 0]
+  [64 | 0, 0, 0], 3
 ];
 export var DeleteTagsOutput$: StaticStructureSchema = [3, n0, _DTO,
   0,
@@ -435,7 +435,7 @@ export var DescribeMLModelsOutput$: StaticStructureSchema = [3, n0, _DMLMOe,
 export var DescribeTagsInput$: StaticStructureSchema = [3, n0, _DTIe,
   0,
   [_RI, _RT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeTagsOutput$: StaticStructureSchema = [3, n0, _DTOe,
   0,
@@ -450,7 +450,7 @@ export var Evaluation$: StaticStructureSchema = [3, n0, _E,
 export var GetBatchPredictionInput$: StaticStructureSchema = [3, n0, _GBPI,
   0,
   [_BPI],
-  [0]
+  [0], 1
 ];
 export var GetBatchPredictionOutput$: StaticStructureSchema = [3, n0, _GBPO,
   0,
@@ -460,7 +460,7 @@ export var GetBatchPredictionOutput$: StaticStructureSchema = [3, n0, _GBPO,
 export var GetDataSourceInput$: StaticStructureSchema = [3, n0, _GDSI,
   0,
   [_DSI, _V],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetDataSourceOutput$: StaticStructureSchema = [3, n0, _GDSO,
   0,
@@ -470,7 +470,7 @@ export var GetDataSourceOutput$: StaticStructureSchema = [3, n0, _GDSO,
 export var GetEvaluationInput$: StaticStructureSchema = [3, n0, _GEI,
   0,
   [_EI],
-  [0]
+  [0], 1
 ];
 export var GetEvaluationOutput$: StaticStructureSchema = [3, n0, _GEO,
   0,
@@ -480,7 +480,7 @@ export var GetEvaluationOutput$: StaticStructureSchema = [3, n0, _GEO,
 export var GetMLModelInput$: StaticStructureSchema = [3, n0, _GMLMI,
   0,
   [_MLMI, _V],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetMLModelOutput$: StaticStructureSchema = [3, n0, _GMLMO,
   0,
@@ -530,7 +530,7 @@ export var PerformanceMetrics$: StaticStructureSchema = [3, n0, _PM,
 export var PredictInput$: StaticStructureSchema = [3, n0, _PI,
   0,
   [_MLMI, _Rec, _PE],
-  [0, 128 | 0, 0]
+  [0, 128 | 0, 0], 3
 ];
 export var Prediction$: StaticStructureSchema = [3, n0, _Pre,
   0,
@@ -551,17 +551,17 @@ export var PredictOutput$: StaticStructureSchema = [3, n0, _PO,
 export var RDSDatabase$: StaticStructureSchema = [3, n0, _RDSDa,
   0,
   [_II, _DN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RDSDatabaseCredentials$: StaticStructureSchema = [3, n0, _RDSDC,
   0,
   [_U, _Pa],
-  [0, [() => RDSDatabasePassword, 0]]
+  [0, [() => RDSDatabasePassword, 0]], 2
 ];
 export var RDSDataSpec$: StaticStructureSchema = [3, n0, _RDSDS,
   0,
-  [_DI, _SSQ, _DC, _SSL, _DR, _DSat, _DSU, _RR, _SR, _SI, _SGI],
-  [() => RDSDatabase$, 0, [() => RDSDatabaseCredentials$, 0], 0, 0, 0, 0, 0, 0, 0, 64 | 0]
+  [_DI, _SSQ, _DC, _SSL, _RR, _SR, _SI, _SGI, _DR, _DSat, _DSU],
+  [() => RDSDatabase$, 0, [() => RDSDatabaseCredentials$, 0], 0, 0, 0, 0, 64 | 0, 0, 0, 0], 8
 ];
 export var RDSMetadata$: StaticStructureSchema = [3, n0, _RDSM,
   0,
@@ -576,17 +576,17 @@ export var RealtimeEndpointInfo$: StaticStructureSchema = [3, n0, _REI,
 export var RedshiftDatabase$: StaticStructureSchema = [3, n0, _RD,
   0,
   [_DN, _CI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RedshiftDatabaseCredentials$: StaticStructureSchema = [3, n0, _RDC,
   0,
   [_U, _Pa],
-  [0, [() => RedshiftDatabasePassword, 0]]
+  [0, [() => RedshiftDatabasePassword, 0]], 2
 ];
 export var RedshiftDataSpec$: StaticStructureSchema = [3, n0, _RDS,
   0,
   [_DI, _SSQ, _DC, _SSL, _DR, _DSat, _DSU],
-  [() => RedshiftDatabase$, 0, [() => RedshiftDatabaseCredentials$, 0], 0, 0, 0, 0]
+  [() => RedshiftDatabase$, 0, [() => RedshiftDatabaseCredentials$, 0], 0, 0, 0, 0], 4
 ];
 export var RedshiftMetadata$: StaticStructureSchema = [3, n0, _RM,
   0,
@@ -602,7 +602,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var S3DataSpec$: StaticStructureSchema = [3, n0, _SDS,
   0,
   [_DLS, _DR, _DSat, _DSLS],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
@@ -618,7 +618,7 @@ TypeRegistry.for(n0).registerError(TagLimitExceededException$, TagLimitExceededE
 export var UpdateBatchPredictionInput$: StaticStructureSchema = [3, n0, _UBPI,
   0,
   [_BPI, _BPN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateBatchPredictionOutput$: StaticStructureSchema = [3, n0, _UBPO,
   0,
@@ -628,7 +628,7 @@ export var UpdateBatchPredictionOutput$: StaticStructureSchema = [3, n0, _UBPO,
 export var UpdateDataSourceInput$: StaticStructureSchema = [3, n0, _UDSI,
   0,
   [_DSI, _DSN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateDataSourceOutput$: StaticStructureSchema = [3, n0, _UDSO,
   0,
@@ -638,7 +638,7 @@ export var UpdateDataSourceOutput$: StaticStructureSchema = [3, n0, _UDSO,
 export var UpdateEvaluationInput$: StaticStructureSchema = [3, n0, _UEI,
   0,
   [_EI, _EN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateEvaluationOutput$: StaticStructureSchema = [3, n0, _UEO,
   0,
@@ -648,7 +648,7 @@ export var UpdateEvaluationOutput$: StaticStructureSchema = [3, n0, _UEO,
 export var UpdateMLModelInput$: StaticStructureSchema = [3, n0, _UMLMI,
   0,
   [_MLMI, _MLMN, _ST],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var UpdateMLModelOutput$: StaticStructureSchema = [3, n0, _UMLMO,
   0,

@@ -380,12 +380,12 @@ export var BackendAuthSocialProviderConfig$: StaticStructureSchema = [3, n0, _BA
 export var BackendJobRespObj$: StaticStructureSchema = [3, n0, _BJRO,
   0,
   [_AI, _BEN, _CT, _E, _JI, _O, _St, _UT],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _bEN }], [0, { [_jN]: _cT }], [0, { [_jN]: _e }], [0, { [_jN]: _jI }], [0, { [_jN]: _o }], [0, { [_jN]: _st }], [0, { [_jN]: _uT }]]
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _bEN }], [0, { [_jN]: _cT }], [0, { [_jN]: _e }], [0, { [_jN]: _jI }], [0, { [_jN]: _o }], [0, { [_jN]: _st }], [0, { [_jN]: _uT }]], 2
 ];
 export var BackendStoragePermissions$: StaticStructureSchema = [3, n0, _BSP,
   0,
   [_A, _UA],
-  [[64 | 0, { [_jN]: _a }], [64 | 0, { [_jN]: _uA }]]
+  [[64 | 0, { [_jN]: _a }], [64 | 0, { [_jN]: _uA }]], 1
 ];
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
@@ -396,7 +396,7 @@ TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var CloneBackendRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
   [_AI, _BEN, _TEN],
-  [[0, 1], [0, 1], [0, { [_jN]: _tEN }]]
+  [[0, 1], [0, 1], [0, { [_jN]: _tEN }]], 3
 ];
 export var CloneBackendResponse$: StaticStructureSchema = [3, n0, _CBRl,
   0,
@@ -406,7 +406,7 @@ export var CloneBackendResponse$: StaticStructureSchema = [3, n0, _CBRl,
 export var CreateBackendAPIRequest$: StaticStructureSchema = [3, n0, _CBAPIR,
   0,
   [_AI, _BEN, _RC, _RN],
-  [[0, 1], [0, { [_jN]: _bEN }], [() => BackendAPIResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]]
+  [[0, 1], [0, { [_jN]: _bEN }], [() => BackendAPIResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]], 4
 ];
 export var CreateBackendAPIResponse$: StaticStructureSchema = [3, n0, _CBAPIRr,
   0,
@@ -416,37 +416,37 @@ export var CreateBackendAPIResponse$: StaticStructureSchema = [3, n0, _CBAPIRr,
 export var CreateBackendAuthForgotPasswordConfig$: StaticStructureSchema = [3, n0, _CBAFPC,
   0,
   [_DM, _ES, _SS],
-  [[0, { [_jN]: _dM }], [() => EmailSettings$, { [_jN]: _eS }], [() => SmsSettings$, { [_jN]: _sS }]]
+  [[0, { [_jN]: _dM }], [() => EmailSettings$, { [_jN]: _eS }], [() => SmsSettings$, { [_jN]: _sS }]], 1
 ];
 export var CreateBackendAuthIdentityPoolConfig$: StaticStructureSchema = [3, n0, _CBAIPC,
   0,
   [_IPN, _UL],
-  [[0, { [_jN]: _iPN }], [2, { [_jN]: _uL }]]
+  [[0, { [_jN]: _iPN }], [2, { [_jN]: _uL }]], 2
 ];
 export var CreateBackendAuthMFAConfig$: StaticStructureSchema = [3, n0, _CBAMFAC,
   0,
   [_MFAM, _S],
-  [0, [() => Settings$, { [_jN]: _s }]]
+  [0, [() => Settings$, { [_jN]: _s }]], 1
 ];
 export var CreateBackendAuthOAuthConfig$: StaticStructureSchema = [3, n0, _CBAOAC,
   0,
-  [_DP, _OAGT, _OAS, _RSIURI, _RSOURI, _SPS],
-  [[0, { [_jN]: _dP }], [0, { [_jN]: _oAGT }], [64 | 0, { [_jN]: _oAS }], [64 | 0, { [_jN]: _rSIURI }], [64 | 0, { [_jN]: _rSOURI }], [() => SocialProviderSettings$, { [_jN]: _sPS }]]
+  [_OAGT, _OAS, _RSIURI, _RSOURI, _DP, _SPS],
+  [[0, { [_jN]: _oAGT }], [64 | 0, { [_jN]: _oAS }], [64 | 0, { [_jN]: _rSIURI }], [64 | 0, { [_jN]: _rSOURI }], [0, { [_jN]: _dP }], [() => SocialProviderSettings$, { [_jN]: _sPS }]], 4
 ];
 export var CreateBackendAuthPasswordPolicyConfig$: StaticStructureSchema = [3, n0, _CBAPPC,
   0,
-  [_AC, _ML],
-  [[64 | 0, { [_jN]: _aC }], [1, { [_jN]: _mL }]]
+  [_ML, _AC],
+  [[1, { [_jN]: _mL }], [64 | 0, { [_jN]: _aC }]], 1
 ];
 export var CreateBackendAuthRequest$: StaticStructureSchema = [3, n0, _CBAR,
   0,
   [_AI, _BEN, _RC, _RN],
-  [[0, 1], [0, { [_jN]: _bEN }], [() => CreateBackendAuthResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]]
+  [[0, 1], [0, { [_jN]: _bEN }], [() => CreateBackendAuthResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]], 4
 ];
 export var CreateBackendAuthResourceConfig$: StaticStructureSchema = [3, n0, _CBARC,
   0,
-  [_AR, _IPC, _Se, _UPC],
-  [[0, { [_jN]: _aR }], [() => CreateBackendAuthIdentityPoolConfig$, { [_jN]: _iPC }], [0, { [_jN]: _se }], [() => CreateBackendAuthUserPoolConfig$, { [_jN]: _uPC }]]
+  [_AR, _Se, _UPC, _IPC],
+  [[0, { [_jN]: _aR }], [0, { [_jN]: _se }], [() => CreateBackendAuthUserPoolConfig$, { [_jN]: _uPC }], [() => CreateBackendAuthIdentityPoolConfig$, { [_jN]: _iPC }]], 3
 ];
 export var CreateBackendAuthResponse$: StaticStructureSchema = [3, n0, _CBARr,
   0,
@@ -455,18 +455,18 @@ export var CreateBackendAuthResponse$: StaticStructureSchema = [3, n0, _CBARr,
 ];
 export var CreateBackendAuthUserPoolConfig$: StaticStructureSchema = [3, n0, _CBAUPC,
   0,
-  [_FP, _Mf, _OA, _PP, _RSUA, _SIM, _UPN, _VM],
-  [[() => CreateBackendAuthForgotPasswordConfig$, { [_jN]: _fP }], [() => CreateBackendAuthMFAConfig$, { [_jN]: _mf }], [() => CreateBackendAuthOAuthConfig$, { [_jN]: _oA }], [() => CreateBackendAuthPasswordPolicyConfig$, { [_jN]: _pP }], [64 | 0, { [_jN]: _rSUA }], [0, { [_jN]: _sIM }], [0, { [_jN]: _uPN }], [() => CreateBackendAuthVerificationMessageConfig$, { [_jN]: _vM }]]
+  [_RSUA, _SIM, _UPN, _FP, _Mf, _OA, _PP, _VM],
+  [[64 | 0, { [_jN]: _rSUA }], [0, { [_jN]: _sIM }], [0, { [_jN]: _uPN }], [() => CreateBackendAuthForgotPasswordConfig$, { [_jN]: _fP }], [() => CreateBackendAuthMFAConfig$, { [_jN]: _mf }], [() => CreateBackendAuthOAuthConfig$, { [_jN]: _oA }], [() => CreateBackendAuthPasswordPolicyConfig$, { [_jN]: _pP }], [() => CreateBackendAuthVerificationMessageConfig$, { [_jN]: _vM }]], 3
 ];
 export var CreateBackendAuthVerificationMessageConfig$: StaticStructureSchema = [3, n0, _CBAVMC,
   0,
   [_DM, _ES, _SS],
-  [[0, { [_jN]: _dM }], [() => EmailSettings$, { [_jN]: _eS }], [() => SmsSettings$, { [_jN]: _sS }]]
+  [[0, { [_jN]: _dM }], [() => EmailSettings$, { [_jN]: _eS }], [() => SmsSettings$, { [_jN]: _sS }]], 1
 ];
 export var CreateBackendConfigRequest$: StaticStructureSchema = [3, n0, _CBCR,
   0,
   [_AI, _BMAI],
-  [[0, 1], [0, { [_jN]: _bMAI }]]
+  [[0, 1], [0, { [_jN]: _bMAI }]], 1
 ];
 export var CreateBackendConfigResponse$: StaticStructureSchema = [3, n0, _CBCRr,
   0,
@@ -476,7 +476,7 @@ export var CreateBackendConfigResponse$: StaticStructureSchema = [3, n0, _CBCRr,
 export var CreateBackendRequest$: StaticStructureSchema = [3, n0, _CBRr,
   0,
   [_AI, _ANp, _BEN, _RC, _RN],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _aNp }], [0, { [_jN]: _bEN }], [() => ResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]]
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _aNp }], [0, { [_jN]: _bEN }], [() => ResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]], 3
 ];
 export var CreateBackendResponse$: StaticStructureSchema = [3, n0, _CBRre,
   0,
@@ -486,12 +486,12 @@ export var CreateBackendResponse$: StaticStructureSchema = [3, n0, _CBRre,
 export var CreateBackendStorageRequest$: StaticStructureSchema = [3, n0, _CBSR,
   0,
   [_AI, _BEN, _RC, _RN],
-  [[0, 1], [0, { [_jN]: _bEN }], [() => CreateBackendStorageResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]]
+  [[0, 1], [0, { [_jN]: _bEN }], [() => CreateBackendStorageResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]], 4
 ];
 export var CreateBackendStorageResourceConfig$: StaticStructureSchema = [3, n0, _CBSRC,
   0,
-  [_BN, _P, _SN],
-  [[0, { [_jN]: _bN }], [() => BackendStoragePermissions$, { [_jN]: _p }], [0, { [_jN]: _sN }]]
+  [_P, _SN, _BN],
+  [[() => BackendStoragePermissions$, { [_jN]: _p }], [0, { [_jN]: _sN }], [0, { [_jN]: _bN }]], 2
 ];
 export var CreateBackendStorageResponse$: StaticStructureSchema = [3, n0, _CBSRr,
   0,
@@ -501,7 +501,7 @@ export var CreateBackendStorageResponse$: StaticStructureSchema = [3, n0, _CBSRr
 export var CreateTokenRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CreateTokenResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -510,8 +510,8 @@ export var CreateTokenResponse$: StaticStructureSchema = [3, n0, _CTRr,
 ];
 export var DeleteBackendAPIRequest$: StaticStructureSchema = [3, n0, _DBAPIR,
   0,
-  [_AI, _BEN, _RC, _RN],
-  [[0, 1], [0, 1], [() => BackendAPIResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]]
+  [_AI, _BEN, _RN, _RC],
+  [[0, 1], [0, 1], [0, { [_jN]: _rN }], [() => BackendAPIResourceConfig$, { [_jN]: _rC }]], 3
 ];
 export var DeleteBackendAPIResponse$: StaticStructureSchema = [3, n0, _DBAPIRe,
   0,
@@ -521,7 +521,7 @@ export var DeleteBackendAPIResponse$: StaticStructureSchema = [3, n0, _DBAPIRe,
 export var DeleteBackendAuthRequest$: StaticStructureSchema = [3, n0, _DBAR,
   0,
   [_AI, _BEN, _RN],
-  [[0, 1], [0, 1], [0, { [_jN]: _rN }]]
+  [[0, 1], [0, 1], [0, { [_jN]: _rN }]], 3
 ];
 export var DeleteBackendAuthResponse$: StaticStructureSchema = [3, n0, _DBARe,
   0,
@@ -531,7 +531,7 @@ export var DeleteBackendAuthResponse$: StaticStructureSchema = [3, n0, _DBARe,
 export var DeleteBackendRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
   [_AI, _BEN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteBackendResponse$: StaticStructureSchema = [3, n0, _DBRe,
   0,
@@ -541,7 +541,7 @@ export var DeleteBackendResponse$: StaticStructureSchema = [3, n0, _DBRe,
 export var DeleteBackendStorageRequest$: StaticStructureSchema = [3, n0, _DBSR,
   0,
   [_AI, _BEN, _RN, _SN],
-  [[0, 1], [0, 1], [0, { [_jN]: _rN }], [0, { [_jN]: _sN }]]
+  [[0, 1], [0, 1], [0, { [_jN]: _rN }], [0, { [_jN]: _sN }]], 4
 ];
 export var DeleteBackendStorageResponse$: StaticStructureSchema = [3, n0, _DBSRe,
   0,
@@ -551,7 +551,7 @@ export var DeleteBackendStorageResponse$: StaticStructureSchema = [3, n0, _DBSRe
 export var DeleteTokenRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_AI, _SI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteTokenResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -572,7 +572,7 @@ TypeRegistry.for(n0).registerError(GatewayTimeoutException$, GatewayTimeoutExcep
 export var GenerateBackendAPIModelsRequest$: StaticStructureSchema = [3, n0, _GBAPIMR,
   0,
   [_AI, _BEN, _RN],
-  [[0, 1], [0, 1], [0, { [_jN]: _rN }]]
+  [[0, 1], [0, 1], [0, { [_jN]: _rN }]], 3
 ];
 export var GenerateBackendAPIModelsResponse$: StaticStructureSchema = [3, n0, _GBAPIMRe,
   0,
@@ -582,7 +582,7 @@ export var GenerateBackendAPIModelsResponse$: StaticStructureSchema = [3, n0, _G
 export var GetBackendAPIModelsRequest$: StaticStructureSchema = [3, n0, _GBAPIMRet,
   0,
   [_AI, _BEN, _RN],
-  [[0, 1], [0, 1], [0, { [_jN]: _rN }]]
+  [[0, 1], [0, 1], [0, { [_jN]: _rN }]], 3
 ];
 export var GetBackendAPIModelsResponse$: StaticStructureSchema = [3, n0, _GBAPIMReta,
   0,
@@ -591,8 +591,8 @@ export var GetBackendAPIModelsResponse$: StaticStructureSchema = [3, n0, _GBAPIM
 ];
 export var GetBackendAPIRequest$: StaticStructureSchema = [3, n0, _GBAPIR,
   0,
-  [_AI, _BEN, _RC, _RN],
-  [[0, 1], [0, 1], [() => BackendAPIResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]]
+  [_AI, _BEN, _RN, _RC],
+  [[0, 1], [0, 1], [0, { [_jN]: _rN }], [() => BackendAPIResourceConfig$, { [_jN]: _rC }]], 3
 ];
 export var GetBackendAPIResponse$: StaticStructureSchema = [3, n0, _GBAPIRe,
   0,
@@ -602,7 +602,7 @@ export var GetBackendAPIResponse$: StaticStructureSchema = [3, n0, _GBAPIRe,
 export var GetBackendAuthRequest$: StaticStructureSchema = [3, n0, _GBAR,
   0,
   [_AI, _BEN, _RN],
-  [[0, 1], [0, 1], [0, { [_jN]: _rN }]]
+  [[0, 1], [0, 1], [0, { [_jN]: _rN }]], 3
 ];
 export var GetBackendAuthResponse$: StaticStructureSchema = [3, n0, _GBARe,
   0,
@@ -612,7 +612,7 @@ export var GetBackendAuthResponse$: StaticStructureSchema = [3, n0, _GBARe,
 export var GetBackendJobRequest$: StaticStructureSchema = [3, n0, _GBJR,
   0,
   [_AI, _BEN, _JI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetBackendJobResponse$: StaticStructureSchema = [3, n0, _GBJRe,
   0,
@@ -622,7 +622,7 @@ export var GetBackendJobResponse$: StaticStructureSchema = [3, n0, _GBJRe,
 export var GetBackendRequest$: StaticStructureSchema = [3, n0, _GBR,
   0,
   [_AI, _BEN],
-  [[0, 1], [0, { [_jN]: _bEN }]]
+  [[0, 1], [0, { [_jN]: _bEN }]], 1
 ];
 export var GetBackendResponse$: StaticStructureSchema = [3, n0, _GBRe,
   0,
@@ -632,12 +632,12 @@ export var GetBackendResponse$: StaticStructureSchema = [3, n0, _GBRe,
 export var GetBackendStorageRequest$: StaticStructureSchema = [3, n0, _GBSR,
   0,
   [_AI, _BEN, _RN],
-  [[0, 1], [0, 1], [0, { [_jN]: _rN }]]
+  [[0, 1], [0, 1], [0, { [_jN]: _rN }]], 3
 ];
 export var GetBackendStorageResourceConfig$: StaticStructureSchema = [3, n0, _GBSRC,
   0,
-  [_BN, _I, _P, _SN],
-  [[0, { [_jN]: _bN }], [2, { [_jN]: _i }], [() => BackendStoragePermissions$, { [_jN]: _p }], [0, { [_jN]: _sN }]]
+  [_I, _SN, _BN, _P],
+  [[2, { [_jN]: _i }], [0, { [_jN]: _sN }], [0, { [_jN]: _bN }], [() => BackendStoragePermissions$, { [_jN]: _p }]], 2
 ];
 export var GetBackendStorageResponse$: StaticStructureSchema = [3, n0, _GBSRe,
   0,
@@ -647,7 +647,7 @@ export var GetBackendStorageResponse$: StaticStructureSchema = [3, n0, _GBSRe,
 export var GetTokenRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_AI, _SI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetTokenResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
@@ -656,8 +656,8 @@ export var GetTokenResponse$: StaticStructureSchema = [3, n0, _GTRe,
 ];
 export var ImportBackendAuthRequest$: StaticStructureSchema = [3, n0, _IBAR,
   0,
-  [_AI, _BEN, _IPI, _NCI, _UPI, _WCI],
-  [[0, 1], [0, 1], [0, { [_jN]: _iPI }], [0, { [_jN]: _nCI }], [0, { [_jN]: _uPI }], [0, { [_jN]: _wCI }]]
+  [_AI, _BEN, _NCI, _UPI, _WCI, _IPI],
+  [[0, 1], [0, 1], [0, { [_jN]: _nCI }], [0, { [_jN]: _uPI }], [0, { [_jN]: _wCI }], [0, { [_jN]: _iPI }]], 5
 ];
 export var ImportBackendAuthResponse$: StaticStructureSchema = [3, n0, _IBARm,
   0,
@@ -666,8 +666,8 @@ export var ImportBackendAuthResponse$: StaticStructureSchema = [3, n0, _IBARm,
 ];
 export var ImportBackendStorageRequest$: StaticStructureSchema = [3, n0, _IBSR,
   0,
-  [_AI, _BEN, _BN, _SN],
-  [[0, 1], [0, 1], [0, { [_jN]: _bN }], [0, { [_jN]: _sN }]]
+  [_AI, _BEN, _SN, _BN],
+  [[0, 1], [0, 1], [0, { [_jN]: _sN }], [0, { [_jN]: _bN }]], 3
 ];
 export var ImportBackendStorageResponse$: StaticStructureSchema = [3, n0, _IBSRm,
   0,
@@ -677,7 +677,7 @@ export var ImportBackendStorageResponse$: StaticStructureSchema = [3, n0, _IBSRm
 export var ListBackendJobsRequest$: StaticStructureSchema = [3, n0, _LBJR,
   0,
   [_AI, _BEN, _JI, _MR, _NT, _O, _St],
-  [[0, 1], [0, 1], [0, { [_jN]: _jI }], [1, { [_jN]: _mR }], [0, { [_jN]: _nT }], [0, { [_jN]: _o }], [0, { [_jN]: _st }]]
+  [[0, 1], [0, 1], [0, { [_jN]: _jI }], [1, { [_jN]: _mR }], [0, { [_jN]: _nT }], [0, { [_jN]: _o }], [0, { [_jN]: _st }]], 2
 ];
 export var ListBackendJobsResponse$: StaticStructureSchema = [3, n0, _LBJRi,
   0,
@@ -708,7 +708,7 @@ TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var RemoveAllBackendsRequest$: StaticStructureSchema = [3, n0, _RABR,
   0,
   [_AI, _CAA],
-  [[0, 1], [2, { [_jN]: _cAA }]]
+  [[0, 1], [2, { [_jN]: _cAA }]], 1
 ];
 export var RemoveAllBackendsResponse$: StaticStructureSchema = [3, n0, _RABRe,
   0,
@@ -718,7 +718,7 @@ export var RemoveAllBackendsResponse$: StaticStructureSchema = [3, n0, _RABRe,
 export var RemoveBackendConfigRequest$: StaticStructureSchema = [3, n0, _RBCR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var RemoveBackendConfigResponse$: StaticStructureSchema = [3, n0, _RBCRe,
   0,
@@ -758,8 +758,8 @@ export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
 TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UpdateBackendAPIRequest$: StaticStructureSchema = [3, n0, _UBAPIR,
   0,
-  [_AI, _BEN, _RC, _RN],
-  [[0, 1], [0, 1], [() => BackendAPIResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]]
+  [_AI, _BEN, _RN, _RC],
+  [[0, 1], [0, 1], [0, { [_jN]: _rN }], [() => BackendAPIResourceConfig$, { [_jN]: _rC }]], 3
 ];
 export var UpdateBackendAPIResponse$: StaticStructureSchema = [3, n0, _UBAPIRp,
   0,
@@ -794,12 +794,12 @@ export var UpdateBackendAuthPasswordPolicyConfig$: StaticStructureSchema = [3, n
 export var UpdateBackendAuthRequest$: StaticStructureSchema = [3, n0, _UBAR,
   0,
   [_AI, _BEN, _RC, _RN],
-  [[0, 1], [0, 1], [() => UpdateBackendAuthResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]]
+  [[0, 1], [0, 1], [() => UpdateBackendAuthResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]], 4
 ];
 export var UpdateBackendAuthResourceConfig$: StaticStructureSchema = [3, n0, _UBARC,
   0,
-  [_AR, _IPC, _Se, _UPC],
-  [[0, { [_jN]: _aR }], [() => UpdateBackendAuthIdentityPoolConfig$, { [_jN]: _iPC }], [0, { [_jN]: _se }], [() => UpdateBackendAuthUserPoolConfig$, { [_jN]: _uPC }]]
+  [_AR, _Se, _UPC, _IPC],
+  [[0, { [_jN]: _aR }], [0, { [_jN]: _se }], [() => UpdateBackendAuthUserPoolConfig$, { [_jN]: _uPC }], [() => UpdateBackendAuthIdentityPoolConfig$, { [_jN]: _iPC }]], 3
 ];
 export var UpdateBackendAuthResponse$: StaticStructureSchema = [3, n0, _UBARp,
   0,
@@ -814,12 +814,12 @@ export var UpdateBackendAuthUserPoolConfig$: StaticStructureSchema = [3, n0, _UB
 export var UpdateBackendAuthVerificationMessageConfig$: StaticStructureSchema = [3, n0, _UBAVMC,
   0,
   [_DM, _ES, _SS],
-  [[0, { [_jN]: _dM }], [() => EmailSettings$, { [_jN]: _eS }], [() => SmsSettings$, { [_jN]: _sS }]]
+  [[0, { [_jN]: _dM }], [() => EmailSettings$, { [_jN]: _eS }], [() => SmsSettings$, { [_jN]: _sS }]], 1
 ];
 export var UpdateBackendConfigRequest$: StaticStructureSchema = [3, n0, _UBCR,
   0,
   [_AI, _LAC],
-  [[0, 1], [() => LoginAuthConfigReqObj$, { [_jN]: _lAC }]]
+  [[0, 1], [() => LoginAuthConfigReqObj$, { [_jN]: _lAC }]], 1
 ];
 export var UpdateBackendConfigResponse$: StaticStructureSchema = [3, n0, _UBCRp,
   0,
@@ -829,7 +829,7 @@ export var UpdateBackendConfigResponse$: StaticStructureSchema = [3, n0, _UBCRp,
 export var UpdateBackendJobRequest$: StaticStructureSchema = [3, n0, _UBJR,
   0,
   [_AI, _BEN, _JI, _O, _St],
-  [[0, 1], [0, 1], [0, 1], [0, { [_jN]: _o }], [0, { [_jN]: _st }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_jN]: _o }], [0, { [_jN]: _st }]], 3
 ];
 export var UpdateBackendJobResponse$: StaticStructureSchema = [3, n0, _UBJRp,
   0,
@@ -839,12 +839,12 @@ export var UpdateBackendJobResponse$: StaticStructureSchema = [3, n0, _UBJRp,
 export var UpdateBackendStorageRequest$: StaticStructureSchema = [3, n0, _UBSR,
   0,
   [_AI, _BEN, _RC, _RN],
-  [[0, 1], [0, 1], [() => UpdateBackendStorageResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]]
+  [[0, 1], [0, 1], [() => UpdateBackendStorageResourceConfig$, { [_jN]: _rC }], [0, { [_jN]: _rN }]], 4
 ];
 export var UpdateBackendStorageResourceConfig$: StaticStructureSchema = [3, n0, _UBSRC,
   0,
   [_P, _SN],
-  [[() => BackendStoragePermissions$, { [_jN]: _p }], [0, { [_jN]: _sN }]]
+  [[() => BackendStoragePermissions$, { [_jN]: _p }], [0, { [_jN]: _sN }]], 2
 ];
 export var UpdateBackendStorageResponse$: StaticStructureSchema = [3, n0, _UBSRp,
   0,

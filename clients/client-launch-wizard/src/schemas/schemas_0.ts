@@ -128,7 +128,7 @@ import { LaunchWizardServiceException } from "../models/LaunchWizardServiceExcep
 export var CreateDeploymentInput$: StaticStructureSchema = [3, n0, _CDI,
   0,
   [_wN, _dPN, _n, _s, _dR, _t],
-  [0, 0, 0, [() => DeploymentSpecifications, 0], 2, 128 | 0]
+  [0, 0, 0, [() => DeploymentSpecifications, 0], 2, 128 | 0], 4
 ];
 export var CreateDeploymentOutput$: StaticStructureSchema = [3, n0, _CDO,
   0,
@@ -138,7 +138,7 @@ export var CreateDeploymentOutput$: StaticStructureSchema = [3, n0, _CDO,
 export var DeleteDeploymentInput$: StaticStructureSchema = [3, n0, _DDI,
   0,
   [_dI],
-  [0]
+  [0], 1
 ];
 export var DeleteDeploymentOutput$: StaticStructureSchema = [3, n0, _DDO,
   0,
@@ -178,7 +178,7 @@ export var DeploymentSpecificationsField$: StaticStructureSchema = [3, n0, _DSF,
 export var GetDeploymentInput$: StaticStructureSchema = [3, n0, _GDI,
   0,
   [_dI],
-  [0]
+  [0], 1
 ];
 export var GetDeploymentOutput$: StaticStructureSchema = [3, n0, _GDO,
   0,
@@ -188,7 +188,7 @@ export var GetDeploymentOutput$: StaticStructureSchema = [3, n0, _GDO,
 export var GetWorkloadDeploymentPatternInput$: StaticStructureSchema = [3, n0, _GWDPI,
   0,
   [_wN, _dPN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetWorkloadDeploymentPatternOutput$: StaticStructureSchema = [3, n0, _GWDPO,
   0,
@@ -198,7 +198,7 @@ export var GetWorkloadDeploymentPatternOutput$: StaticStructureSchema = [3, n0, 
 export var GetWorkloadInput$: StaticStructureSchema = [3, n0, _GWI,
   0,
   [_wN],
-  [0]
+  [0], 1
 ];
 export var GetWorkloadOutput$: StaticStructureSchema = [3, n0, _GWO,
   0,
@@ -214,7 +214,7 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var ListDeploymentEventsInput$: StaticStructureSchema = [3, n0, _LDEI,
   0,
   [_dI, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListDeploymentEventsOutput$: StaticStructureSchema = [3, n0, _LDEO,
   0,
@@ -234,7 +234,7 @@ export var ListDeploymentsOutput$: StaticStructureSchema = [3, n0, _LDO,
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -244,7 +244,7 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 export var ListWorkloadDeploymentPatternsInput$: StaticStructureSchema = [3, n0, _LWDPI,
   0,
   [_wN, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListWorkloadDeploymentPatternsOutput$: StaticStructureSchema = [3, n0, _LWDPO,
   0,
@@ -276,7 +276,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -286,7 +286,7 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,

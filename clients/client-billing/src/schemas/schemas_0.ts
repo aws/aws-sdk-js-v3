@@ -150,23 +150,23 @@ var BillingViewName: StaticSimpleSchema = [0, n0, _BVN, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_aQE]: [`BillingAccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActiveTimeRange$: StaticStructureSchema = [3, n0, _ATR,
   0,
   [_aAI, _aBI],
-  [4, 4]
+  [4, 4], 2
 ];
 export var AssociateSourceViewsRequest$: StaticStructureSchema = [3, n0, _ASVR,
   0,
   [_a, _sV],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AssociateSourceViewsResponse$: StaticStructureSchema = [3, n0, _ASVRs,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var BillingViewElement$: StaticStructureSchema = [3, n0, _BVE,
   0,
@@ -181,7 +181,7 @@ export var BillingViewHealthStatus$: StaticStructureSchema = [3, n0, _BVHS,
 export var BillingViewHealthStatusException$: StaticErrorSchema = [-3, n0, _BVHSE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(BillingViewHealthStatusException$, BillingViewHealthStatusException);
 export var BillingViewListElement$: StaticStructureSchema = [3, n0, _BVLE,
@@ -192,48 +192,48 @@ export var BillingViewListElement$: StaticStructureSchema = [3, n0, _BVLE,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_aQE]: [`BillingConflict`, 409], [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CostCategoryValues$: StaticStructureSchema = [3, n0, _CCV,
   0,
   [_k, _v],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var CreateBillingViewRequest$: StaticStructureSchema = [3, n0, _CBVR,
   0,
-  [_n, _d, _sV, _dFE, _cT, _rTe],
-  [[() => BillingViewName, 0], [() => BillingViewDescription, 0], 64 | 0, () => Expression$, [0, { [_hH]: _XACT, [_iT]: 1 }], () => ResourceTagList]
+  [_n, _sV, _d, _dFE, _cT, _rTe],
+  [[() => BillingViewName, 0], 64 | 0, [() => BillingViewDescription, 0], () => Expression$, [0, { [_hH]: _XACT, [_iT]: 1 }], () => ResourceTagList], 2
 ];
 export var CreateBillingViewResponse$: StaticStructureSchema = [3, n0, _CBVRr,
   0,
   [_a, _cA],
-  [0, 4]
+  [0, 4], 1
 ];
 export var DeleteBillingViewRequest$: StaticStructureSchema = [3, n0, _DBVR,
   0,
   [_a, _f],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteBillingViewResponse$: StaticStructureSchema = [3, n0, _DBVRe,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DimensionValues$: StaticStructureSchema = [3, n0, _DV,
   0,
   [_k, _v],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DisassociateSourceViewsRequest$: StaticStructureSchema = [3, n0, _DSVR,
   0,
   [_a, _sV],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DisassociateSourceViewsResponse$: StaticStructureSchema = [3, n0, _DSVRi,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var Expression$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -243,27 +243,27 @@ export var Expression$: StaticStructureSchema = [3, n0, _E,
 export var GetBillingViewRequest$: StaticStructureSchema = [3, n0, _GBVR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetBillingViewResponse$: StaticStructureSchema = [3, n0, _GBVRe,
   0,
   [_bV],
-  [[() => BillingViewElement$, 0]]
+  [[() => BillingViewElement$, 0]], 1
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
   [_rA, _p],
-  [0, 0]
+  [0, 0], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_aQE]: [`BillingInternalServer`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListBillingViewsRequest$: StaticStructureSchema = [3, n0, _LBVR,
@@ -274,22 +274,22 @@ export var ListBillingViewsRequest$: StaticStructureSchema = [3, n0, _LBVR,
 export var ListBillingViewsResponse$: StaticStructureSchema = [3, n0, _LBVRi,
   0,
   [_bVi, _nT],
-  [[() => BillingViewList, 0], 0]
+  [[() => BillingViewList, 0], 0], 1
 ];
 export var ListSourceViewsForBillingViewRequest$: StaticStructureSchema = [3, n0, _LSVFBVR,
   0,
   [_a, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListSourceViewsForBillingViewResponse$: StaticStructureSchema = [3, n0, _LSVFBVRi,
   0,
   [_sV, _nT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -299,29 +299,29 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_aQE]: [`BillingResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RT,
   0,
   [_k, _va],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_aQE]: [`BillingServiceQuotaExceeded`, 402], [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sCe, _qC],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StringSearch$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_sO, _sVe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _rTe],
-  [0, () => ResourceTagList]
+  [0, () => ResourceTagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -331,12 +331,12 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TagValues$: StaticStructureSchema = [3, n0, _TV,
   0,
   [_k, _v],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_aQE]: [`BillingThrottling`, 429], [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeRange$: StaticStructureSchema = [3, n0, _TR,
@@ -347,7 +347,7 @@ export var TimeRange$: StaticStructureSchema = [3, n0, _TR,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _rTK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -357,23 +357,23 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateBillingViewRequest$: StaticStructureSchema = [3, n0, _UBVR,
   0,
   [_a, _n, _d, _dFE],
-  [0, [() => BillingViewName, 0], [() => BillingViewDescription, 0], () => Expression$]
+  [0, [() => BillingViewName, 0], [() => BillingViewDescription, 0], () => Expression$], 1
 ];
 export var UpdateBillingViewResponse$: StaticStructureSchema = [3, n0, _UBVRp,
   0,
   [_a, _uA],
-  [0, 4]
+  [0, 4], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_aQE]: [`BillingValidation`, 400], [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BillingServiceException$: StaticErrorSchema = [-3, _sm, "BillingServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BillingServiceException$, BillingServiceException);

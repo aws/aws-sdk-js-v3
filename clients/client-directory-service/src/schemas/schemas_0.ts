@@ -610,7 +610,7 @@ var UserPassword: StaticSimpleSchema = [0, n0, _UP, 8, 0];
 export var AcceptSharedDirectoryRequest$: StaticStructureSchema = [3, n0, _ASDR,
   0,
   [_SDI],
-  [0]
+  [0], 1
 ];
 export var AcceptSharedDirectoryResult$: StaticStructureSchema = [3, n0, _ASDRc,
   0,
@@ -632,7 +632,7 @@ TypeRegistry.for(n0).registerError(ADAssessmentLimitExceededException$, ADAssess
 export var AddIpRoutesRequest$: StaticStructureSchema = [3, n0, _AIRR,
   0,
   [_DI, _IR, _USGFDC],
-  [0, () => IpRoutes, 2]
+  [0, () => IpRoutes, 2], 2
 ];
 export var AddIpRoutesResult$: StaticStructureSchema = [3, n0, _AIRRd,
   0,
@@ -642,7 +642,7 @@ export var AddIpRoutesResult$: StaticStructureSchema = [3, n0, _AIRRd,
 export var AddRegionRequest$: StaticStructureSchema = [3, n0, _ARR,
   0,
   [_DI, _RN, _VPCS],
-  [0, 0, () => DirectoryVpcSettings$]
+  [0, 0, () => DirectoryVpcSettings$], 3
 ];
 export var AddRegionResult$: StaticStructureSchema = [3, n0, _ARRd,
   0,
@@ -652,7 +652,7 @@ export var AddRegionResult$: StaticStructureSchema = [3, n0, _ARRd,
 export var AddTagsToResourceRequest$: StaticStructureSchema = [3, n0, _ATTRR,
   0,
   [_RIe, _T],
-  [0, () => Tags]
+  [0, () => Tags], 2
 ];
 export var AddTagsToResourceResult$: StaticStructureSchema = [3, n0, _ATTRRd,
   0,
@@ -667,7 +667,7 @@ export var Assessment$: StaticStructureSchema = [3, n0, _A,
 export var AssessmentConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_CDI, _DN, _VS, _II, _SGI],
-  [64 | 0, 0, () => DirectoryVpcSettings$, 64 | 0, 64 | 0]
+  [64 | 0, 0, () => DirectoryVpcSettings$, 64 | 0, 64 | 0], 4
 ];
 export var AssessmentReport$: StaticStructureSchema = [3, n0, _AR,
   0,
@@ -698,7 +698,7 @@ TypeRegistry.for(n0).registerError(AuthenticationFailedException$, Authenticatio
 export var CancelSchemaExtensionRequest$: StaticStructureSchema = [3, n0, _CSER,
   0,
   [_DI, _SEI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CancelSchemaExtensionResult$: StaticStructureSchema = [3, n0, _CSERa,
   0,
@@ -767,8 +767,8 @@ export var ConditionalForwarder$: StaticStructureSchema = [3, n0, _CF,
 ];
 export var ConnectDirectoryRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_Na, _SN, _P, _D, _Si, _CS, _T, _NT],
-  [0, 0, [() => ConnectPassword, 0], 0, 0, () => DirectoryConnectSettings$, () => Tags, 0]
+  [_Na, _P, _Si, _CS, _SN, _D, _T, _NT],
+  [0, [() => ConnectPassword, 0], 0, () => DirectoryConnectSettings$, 0, 0, () => Tags, 0], 4
 ];
 export var ConnectDirectoryResult$: StaticStructureSchema = [3, n0, _CDRo,
   0,
@@ -778,7 +778,7 @@ export var ConnectDirectoryResult$: StaticStructureSchema = [3, n0, _CDRo,
 export var CreateAliasRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_DI, _Al],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateAliasResult$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -788,7 +788,7 @@ export var CreateAliasResult$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateComputerRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_DI, _CNo, _P, _OUDN, _CA],
-  [0, 0, [() => ComputerPassword, 0], 0, () => Attributes]
+  [0, 0, [() => ComputerPassword, 0], 0, () => Attributes], 3
 ];
 export var CreateComputerResult$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -798,7 +798,7 @@ export var CreateComputerResult$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateConditionalForwarderRequest$: StaticStructureSchema = [3, n0, _CCFR,
   0,
   [_DI, _RDN, _DIA, _DIAn],
-  [0, 0, 64 | 0, 64 | 0]
+  [0, 0, 64 | 0, 64 | 0], 2
 ];
 export var CreateConditionalForwarderResult$: StaticStructureSchema = [3, n0, _CCFRr,
   0,
@@ -807,8 +807,8 @@ export var CreateConditionalForwarderResult$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateDirectoryRequest$: StaticStructureSchema = [3, n0, _CDRr,
   0,
-  [_Na, _SN, _P, _D, _Si, _VS, _T, _NT],
-  [0, 0, [() => Password, 0], 0, 0, () => DirectoryVpcSettings$, () => Tags, 0]
+  [_Na, _P, _Si, _SN, _D, _VS, _T, _NT],
+  [0, [() => Password, 0], 0, 0, 0, () => DirectoryVpcSettings$, () => Tags, 0], 3
 ];
 export var CreateDirectoryResult$: StaticStructureSchema = [3, n0, _CDRre,
   0,
@@ -818,7 +818,7 @@ export var CreateDirectoryResult$: StaticStructureSchema = [3, n0, _CDRre,
 export var CreateHybridADRequest$: StaticStructureSchema = [3, n0, _CHADR,
   0,
   [_SA, _AI, _T],
-  [0, 0, () => Tags]
+  [0, 0, () => Tags], 2
 ];
 export var CreateHybridADResult$: StaticStructureSchema = [3, n0, _CHADRr,
   0,
@@ -828,7 +828,7 @@ export var CreateHybridADResult$: StaticStructureSchema = [3, n0, _CHADRr,
 export var CreateLogSubscriptionRequest$: StaticStructureSchema = [3, n0, _CLSR,
   0,
   [_DI, _LGN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateLogSubscriptionResult$: StaticStructureSchema = [3, n0, _CLSRr,
   0,
@@ -837,8 +837,8 @@ export var CreateLogSubscriptionResult$: StaticStructureSchema = [3, n0, _CLSRr,
 ];
 export var CreateMicrosoftADRequest$: StaticStructureSchema = [3, n0, _CMADR,
   0,
-  [_Na, _SN, _P, _D, _VS, _E, _T, _NT],
-  [0, 0, [() => Password, 0], 0, () => DirectoryVpcSettings$, 0, () => Tags, 0]
+  [_Na, _P, _VS, _SN, _D, _E, _T, _NT],
+  [0, [() => Password, 0], () => DirectoryVpcSettings$, 0, 0, 0, () => Tags, 0], 3
 ];
 export var CreateMicrosoftADResult$: StaticStructureSchema = [3, n0, _CMADRr,
   0,
@@ -848,7 +848,7 @@ export var CreateMicrosoftADResult$: StaticStructureSchema = [3, n0, _CMADRr,
 export var CreateSnapshotRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_DI, _Na],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CreateSnapshotResult$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -858,7 +858,7 @@ export var CreateSnapshotResult$: StaticStructureSchema = [3, n0, _CSRr,
 export var CreateTrustRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_DI, _RDN, _TP, _TD, _TT, _CFIA, _CFIAo, _SAe],
-  [0, 0, [() => TrustPassword, 0], 0, 0, 64 | 0, 64 | 0, 0]
+  [0, 0, [() => TrustPassword, 0], 0, 0, 64 | 0, 64 | 0, 0], 4
 ];
 export var CreateTrustResult$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -868,7 +868,7 @@ export var CreateTrustResult$: StaticStructureSchema = [3, n0, _CTRr,
 export var DeleteADAssessmentRequest$: StaticStructureSchema = [3, n0, _DADAR,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var DeleteADAssessmentResult$: StaticStructureSchema = [3, n0, _DADARe,
   0,
@@ -878,7 +878,7 @@ export var DeleteADAssessmentResult$: StaticStructureSchema = [3, n0, _DADARe,
 export var DeleteConditionalForwarderRequest$: StaticStructureSchema = [3, n0, _DCFR,
   0,
   [_DI, _RDN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteConditionalForwarderResult$: StaticStructureSchema = [3, n0, _DCFRe,
   0,
@@ -888,7 +888,7 @@ export var DeleteConditionalForwarderResult$: StaticStructureSchema = [3, n0, _D
 export var DeleteDirectoryRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var DeleteDirectoryResult$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -898,7 +898,7 @@ export var DeleteDirectoryResult$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeleteLogSubscriptionRequest$: StaticStructureSchema = [3, n0, _DLSR,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var DeleteLogSubscriptionResult$: StaticStructureSchema = [3, n0, _DLSRe,
   0,
@@ -908,7 +908,7 @@ export var DeleteLogSubscriptionResult$: StaticStructureSchema = [3, n0, _DLSRe,
 export var DeleteSnapshotRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_SIn],
-  [0]
+  [0], 1
 ];
 export var DeleteSnapshotResult$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -918,7 +918,7 @@ export var DeleteSnapshotResult$: StaticStructureSchema = [3, n0, _DSRe,
 export var DeleteTrustRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_TI, _DACF],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTrustResult$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -928,7 +928,7 @@ export var DeleteTrustResult$: StaticStructureSchema = [3, n0, _DTRe,
 export var DeregisterCertificateRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_DI, _CI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeregisterCertificateResult$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -938,7 +938,7 @@ export var DeregisterCertificateResult$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeregisterEventTopicRequest$: StaticStructureSchema = [3, n0, _DETR,
   0,
   [_DI, _TN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeregisterEventTopicResult$: StaticStructureSchema = [3, n0, _DETRe,
   0,
@@ -948,7 +948,7 @@ export var DeregisterEventTopicResult$: StaticStructureSchema = [3, n0, _DETRe,
 export var DescribeADAssessmentRequest$: StaticStructureSchema = [3, n0, _DADARes,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var DescribeADAssessmentResult$: StaticStructureSchema = [3, n0, _DADAResc,
   0,
@@ -958,7 +958,7 @@ export var DescribeADAssessmentResult$: StaticStructureSchema = [3, n0, _DADARes
 export var DescribeCAEnrollmentPolicyRequest$: StaticStructureSchema = [3, n0, _DCAEPR,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var DescribeCAEnrollmentPolicyResult$: StaticStructureSchema = [3, n0, _DCAEPRe,
   0,
@@ -968,7 +968,7 @@ export var DescribeCAEnrollmentPolicyResult$: StaticStructureSchema = [3, n0, _D
 export var DescribeCertificateRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_DI, _CI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeCertificateResult$: StaticStructureSchema = [3, n0, _DCResc,
   0,
@@ -978,7 +978,7 @@ export var DescribeCertificateResult$: StaticStructureSchema = [3, n0, _DCResc,
 export var DescribeClientAuthenticationSettingsRequest$: StaticStructureSchema = [3, n0, _DCASR,
   0,
   [_DI, _Ty, _NTe, _L],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 1
 ];
 export var DescribeClientAuthenticationSettingsResult$: StaticStructureSchema = [3, n0, _DCASRe,
   0,
@@ -988,7 +988,7 @@ export var DescribeClientAuthenticationSettingsResult$: StaticStructureSchema = 
 export var DescribeConditionalForwardersRequest$: StaticStructureSchema = [3, n0, _DCFRes,
   0,
   [_DI, _RDNe],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var DescribeConditionalForwardersResult$: StaticStructureSchema = [3, n0, _DCFResc,
   0,
@@ -1008,7 +1008,7 @@ export var DescribeDirectoriesResult$: StaticStructureSchema = [3, n0, _DDResc,
 export var DescribeDirectoryDataAccessRequest$: StaticStructureSchema = [3, n0, _DDDAR,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var DescribeDirectoryDataAccessResult$: StaticStructureSchema = [3, n0, _DDDARe,
   0,
@@ -1018,7 +1018,7 @@ export var DescribeDirectoryDataAccessResult$: StaticStructureSchema = [3, n0, _
 export var DescribeDomainControllersRequest$: StaticStructureSchema = [3, n0, _DDCR,
   0,
   [_DI, _DCIo, _NTe, _L],
-  [0, 64 | 0, 0, 1]
+  [0, 64 | 0, 0, 1], 1
 ];
 export var DescribeDomainControllersResult$: StaticStructureSchema = [3, n0, _DDCRe,
   0,
@@ -1038,7 +1038,7 @@ export var DescribeEventTopicsResult$: StaticStructureSchema = [3, n0, _DETResc,
 export var DescribeHybridADUpdateRequest$: StaticStructureSchema = [3, n0, _DHADUR,
   0,
   [_DI, _UT, _NTe],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DescribeHybridADUpdateResult$: StaticStructureSchema = [3, n0, _DHADURe,
   0,
@@ -1048,7 +1048,7 @@ export var DescribeHybridADUpdateResult$: StaticStructureSchema = [3, n0, _DHADU
 export var DescribeLDAPSSettingsRequest$: StaticStructureSchema = [3, n0, _DLDAPSSR,
   0,
   [_DI, _Ty, _NTe, _L],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 1
 ];
 export var DescribeLDAPSSettingsResult$: StaticStructureSchema = [3, n0, _DLDAPSSRe,
   0,
@@ -1058,7 +1058,7 @@ export var DescribeLDAPSSettingsResult$: StaticStructureSchema = [3, n0, _DLDAPS
 export var DescribeRegionsRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_DI, _RN, _NTe],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DescribeRegionsResult$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -1068,7 +1068,7 @@ export var DescribeRegionsResult$: StaticStructureSchema = [3, n0, _DRRe,
 export var DescribeSettingsRequest$: StaticStructureSchema = [3, n0, _DSRes,
   0,
   [_DI, _S, _NTe],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DescribeSettingsResult$: StaticStructureSchema = [3, n0, _DSResc,
   0,
@@ -1078,7 +1078,7 @@ export var DescribeSettingsResult$: StaticStructureSchema = [3, n0, _DSResc,
 export var DescribeSharedDirectoriesRequest$: StaticStructureSchema = [3, n0, _DSDR,
   0,
   [_ODI, _SDIh, _NTe, _L],
-  [0, 64 | 0, 0, 1]
+  [0, 64 | 0, 0, 1], 1
 ];
 export var DescribeSharedDirectoriesResult$: StaticStructureSchema = [3, n0, _DSDRe,
   0,
@@ -1108,7 +1108,7 @@ export var DescribeTrustsResult$: StaticStructureSchema = [3, n0, _DTResc,
 export var DescribeUpdateDirectoryRequest$: StaticStructureSchema = [3, n0, _DUDR,
   0,
   [_DI, _UT, _RN, _NTe],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var DescribeUpdateDirectoryResult$: StaticStructureSchema = [3, n0, _DUDRe,
   0,
@@ -1129,8 +1129,8 @@ export var DirectoryAlreadySharedException$: StaticErrorSchema = [-3, n0, _DASE,
 TypeRegistry.for(n0).registerError(DirectoryAlreadySharedException$, DirectoryAlreadySharedException);
 export var DirectoryConnectSettings$: StaticStructureSchema = [3, n0, _DCS,
   0,
-  [_VI, _SI, _CDI, _CDIV, _CUN],
-  [0, 64 | 0, 64 | 0, 64 | 0, 0]
+  [_VI, _SI, _CUN, _CDI, _CDIV],
+  [0, 64 | 0, 0, 64 | 0, 64 | 0], 3
 ];
 export var DirectoryConnectSettingsDescription$: StaticStructureSchema = [3, n0, _DCSD,
   0,
@@ -1185,7 +1185,7 @@ TypeRegistry.for(n0).registerError(DirectoryUnavailableException$, DirectoryUnav
 export var DirectoryVpcSettings$: StaticStructureSchema = [3, n0, _DVS,
   0,
   [_VI, _SI],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DirectoryVpcSettingsDescription$: StaticStructureSchema = [3, n0, _DVSD,
   0,
@@ -1201,7 +1201,7 @@ TypeRegistry.for(n0).registerError(DisableAlreadyInProgressException$, DisableAl
 export var DisableCAEnrollmentPolicyRequest$: StaticStructureSchema = [3, n0, _DCAEPRi,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var DisableCAEnrollmentPolicyResult$: StaticStructureSchema = [3, n0, _DCAEPRis,
   0,
@@ -1211,7 +1211,7 @@ export var DisableCAEnrollmentPolicyResult$: StaticStructureSchema = [3, n0, _DC
 export var DisableClientAuthenticationRequest$: StaticStructureSchema = [3, n0, _DCAR,
   0,
   [_DI, _Ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisableClientAuthenticationResult$: StaticStructureSchema = [3, n0, _DCARi,
   0,
@@ -1221,7 +1221,7 @@ export var DisableClientAuthenticationResult$: StaticStructureSchema = [3, n0, _
 export var DisableDirectoryDataAccessRequest$: StaticStructureSchema = [3, n0, _DDDARi,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var DisableDirectoryDataAccessResult$: StaticStructureSchema = [3, n0, _DDDARis,
   0,
@@ -1231,7 +1231,7 @@ export var DisableDirectoryDataAccessResult$: StaticStructureSchema = [3, n0, _D
 export var DisableLDAPSRequest$: StaticStructureSchema = [3, n0, _DLDAPSR,
   0,
   [_DI, _Ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisableLDAPSResult$: StaticStructureSchema = [3, n0, _DLDAPSRi,
   0,
@@ -1241,7 +1241,7 @@ export var DisableLDAPSResult$: StaticStructureSchema = [3, n0, _DLDAPSRi,
 export var DisableRadiusRequest$: StaticStructureSchema = [3, n0, _DRRi,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var DisableRadiusResult$: StaticStructureSchema = [3, n0, _DRRis,
   0,
@@ -1251,7 +1251,7 @@ export var DisableRadiusResult$: StaticStructureSchema = [3, n0, _DRRis,
 export var DisableSsoRequest$: StaticStructureSchema = [3, n0, _DSRi,
   0,
   [_DI, _UN, _P],
-  [0, 0, [() => ConnectPassword, 0]]
+  [0, 0, [() => ConnectPassword, 0]], 1
 ];
 export var DisableSsoResult$: StaticStructureSchema = [3, n0, _DSRis,
   0,
@@ -1278,7 +1278,7 @@ TypeRegistry.for(n0).registerError(EnableAlreadyInProgressException$, EnableAlre
 export var EnableCAEnrollmentPolicyRequest$: StaticStructureSchema = [3, n0, _ECAEPR,
   0,
   [_DI, _PCA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EnableCAEnrollmentPolicyResult$: StaticStructureSchema = [3, n0, _ECAEPRn,
   0,
@@ -1288,7 +1288,7 @@ export var EnableCAEnrollmentPolicyResult$: StaticStructureSchema = [3, n0, _ECA
 export var EnableClientAuthenticationRequest$: StaticStructureSchema = [3, n0, _ECAR,
   0,
   [_DI, _Ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EnableClientAuthenticationResult$: StaticStructureSchema = [3, n0, _ECARn,
   0,
@@ -1298,7 +1298,7 @@ export var EnableClientAuthenticationResult$: StaticStructureSchema = [3, n0, _E
 export var EnableDirectoryDataAccessRequest$: StaticStructureSchema = [3, n0, _EDDAR,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var EnableDirectoryDataAccessResult$: StaticStructureSchema = [3, n0, _EDDARn,
   0,
@@ -1308,7 +1308,7 @@ export var EnableDirectoryDataAccessResult$: StaticStructureSchema = [3, n0, _ED
 export var EnableLDAPSRequest$: StaticStructureSchema = [3, n0, _ELDAPSR,
   0,
   [_DI, _Ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EnableLDAPSResult$: StaticStructureSchema = [3, n0, _ELDAPSRn,
   0,
@@ -1318,7 +1318,7 @@ export var EnableLDAPSResult$: StaticStructureSchema = [3, n0, _ELDAPSRn,
 export var EnableRadiusRequest$: StaticStructureSchema = [3, n0, _ERR,
   0,
   [_DI, _RSa],
-  [0, [() => RadiusSettings$, 0]]
+  [0, [() => RadiusSettings$, 0]], 2
 ];
 export var EnableRadiusResult$: StaticStructureSchema = [3, n0, _ERRn,
   0,
@@ -1328,7 +1328,7 @@ export var EnableRadiusResult$: StaticStructureSchema = [3, n0, _ERRn,
 export var EnableSsoRequest$: StaticStructureSchema = [3, n0, _ESR,
   0,
   [_DI, _UN, _P],
-  [0, 0, [() => ConnectPassword, 0]]
+  [0, 0, [() => ConnectPassword, 0]], 1
 ];
 export var EnableSsoResult$: StaticStructureSchema = [3, n0, _ESRn,
   0,
@@ -1365,7 +1365,7 @@ export var GetDirectoryLimitsResult$: StaticStructureSchema = [3, n0, _GDLRe,
 export var GetSnapshotLimitsRequest$: StaticStructureSchema = [3, n0, _GSLR,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var GetSnapshotLimitsResult$: StaticStructureSchema = [3, n0, _GSLRe,
   0,
@@ -1375,12 +1375,12 @@ export var GetSnapshotLimitsResult$: StaticStructureSchema = [3, n0, _GSLRe,
 export var HybridAdministratorAccountUpdate$: StaticStructureSchema = [3, n0, _HAAU,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var HybridCustomerInstancesSettings$: StaticStructureSchema = [3, n0, _HCIS,
   0,
   [_CDI, _II],
-  [64 | 0, 64 | 0]
+  [64 | 0, 64 | 0], 2
 ];
 export var HybridSettingsDescription$: StaticStructureSchema = [3, n0, _HSD,
   0,
@@ -1490,7 +1490,7 @@ export var ListADAssessmentsResult$: StaticStructureSchema = [3, n0, _LADARi,
 export var ListCertificatesRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_DI, _NTe, _L],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListCertificatesResult$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -1500,7 +1500,7 @@ export var ListCertificatesResult$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListIpRoutesRequest$: StaticStructureSchema = [3, n0, _LIRR,
   0,
   [_DI, _NTe, _L],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListIpRoutesResult$: StaticStructureSchema = [3, n0, _LIRRi,
   0,
@@ -1520,7 +1520,7 @@ export var ListLogSubscriptionsResult$: StaticStructureSchema = [3, n0, _LLSRi,
 export var ListSchemaExtensionsRequest$: StaticStructureSchema = [3, n0, _LSER,
   0,
   [_DI, _NTe, _L],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListSchemaExtensionsResult$: StaticStructureSchema = [3, n0, _LSERi,
   0,
@@ -1530,7 +1530,7 @@ export var ListSchemaExtensionsResult$: StaticStructureSchema = [3, n0, _LSERi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RIe, _NTe, _L],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1593,7 +1593,7 @@ export var RegionsInfo$: StaticStructureSchema = [3, n0, _RIeg,
 export var RegisterCertificateRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_DI, _CD, _Ty, _CCAS],
-  [0, 0, 0, () => ClientCertAuthSettings$]
+  [0, 0, 0, () => ClientCertAuthSettings$], 2
 ];
 export var RegisterCertificateResult$: StaticStructureSchema = [3, n0, _RCRe,
   0,
@@ -1603,7 +1603,7 @@ export var RegisterCertificateResult$: StaticStructureSchema = [3, n0, _RCRe,
 export var RegisterEventTopicRequest$: StaticStructureSchema = [3, n0, _RETR,
   0,
   [_DI, _TN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RegisterEventTopicResult$: StaticStructureSchema = [3, n0, _RETRe,
   0,
@@ -1613,7 +1613,7 @@ export var RegisterEventTopicResult$: StaticStructureSchema = [3, n0, _RETRe,
 export var RejectSharedDirectoryRequest$: StaticStructureSchema = [3, n0, _RSDR,
   0,
   [_SDI],
-  [0]
+  [0], 1
 ];
 export var RejectSharedDirectoryResult$: StaticStructureSchema = [3, n0, _RSDRe,
   0,
@@ -1623,7 +1623,7 @@ export var RejectSharedDirectoryResult$: StaticStructureSchema = [3, n0, _RSDRe,
 export var RemoveIpRoutesRequest$: StaticStructureSchema = [3, n0, _RIRR,
   0,
   [_DI, _CIidr, _CIidrp],
-  [0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0], 1
 ];
 export var RemoveIpRoutesResult$: StaticStructureSchema = [3, n0, _RIRRe,
   0,
@@ -1633,7 +1633,7 @@ export var RemoveIpRoutesResult$: StaticStructureSchema = [3, n0, _RIRRe,
 export var RemoveRegionRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var RemoveRegionResult$: StaticStructureSchema = [3, n0, _RRRe,
   0,
@@ -1643,7 +1643,7 @@ export var RemoveRegionResult$: StaticStructureSchema = [3, n0, _RRRe,
 export var RemoveTagsFromResourceRequest$: StaticStructureSchema = [3, n0, _RTFRR,
   0,
   [_RIe, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RemoveTagsFromResourceResult$: StaticStructureSchema = [3, n0, _RTFRRe,
   0,
@@ -1653,7 +1653,7 @@ export var RemoveTagsFromResourceResult$: StaticStructureSchema = [3, n0, _RTFRR
 export var ResetUserPasswordRequest$: StaticStructureSchema = [3, n0, _RUPR,
   0,
   [_DI, _UN, _NP],
-  [0, 0, [() => UserPassword, 0]]
+  [0, 0, [() => UserPassword, 0]], 3
 ];
 export var ResetUserPasswordResult$: StaticStructureSchema = [3, n0, _RUPRe,
   0,
@@ -1663,7 +1663,7 @@ export var ResetUserPasswordResult$: StaticStructureSchema = [3, n0, _RUPRe,
 export var RestoreFromSnapshotRequest$: StaticStructureSchema = [3, n0, _RFSR,
   0,
   [_SIn],
-  [0]
+  [0], 1
 ];
 export var RestoreFromSnapshotResult$: StaticStructureSchema = [3, n0, _RFSRe,
   0,
@@ -1684,7 +1684,7 @@ TypeRegistry.for(n0).registerError(ServiceException$, ServiceException);
 export var Setting$: StaticStructureSchema = [3, n0, _Se,
   0,
   [_Na, _Val],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SettingEntry$: StaticStructureSchema = [3, n0, _SEet,
   0,
@@ -1698,8 +1698,8 @@ export var SharedDirectory$: StaticStructureSchema = [3, n0, _SD,
 ];
 export var ShareDirectoryRequest$: StaticStructureSchema = [3, n0, _SDR,
   0,
-  [_DI, _SNh, _STh, _SM],
-  [0, [() => Notes, 0], () => ShareTarget$, 0]
+  [_DI, _STh, _SM, _SNh],
+  [0, () => ShareTarget$, 0, [() => Notes, 0]], 3
 ];
 export var ShareDirectoryResult$: StaticStructureSchema = [3, n0, _SDRh,
   0,
@@ -1715,7 +1715,7 @@ TypeRegistry.for(n0).registerError(ShareLimitExceededException$, ShareLimitExcee
 export var ShareTarget$: StaticStructureSchema = [3, n0, _STh,
   0,
   [_I, _Ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Snapshot$: StaticStructureSchema = [3, n0, _Sna,
   0,
@@ -1746,7 +1746,7 @@ export var StartADAssessmentResult$: StaticStructureSchema = [3, n0, _SADARt,
 export var StartSchemaExtensionRequest$: StaticStructureSchema = [3, n0, _SSER,
   0,
   [_DI, _CSBSE, _LC, _D],
-  [0, 2, 0, 0]
+  [0, 2, 0, 0], 4
 ];
 export var StartSchemaExtensionResult$: StaticStructureSchema = [3, n0, _SSERt,
   0,
@@ -1756,7 +1756,7 @@ export var StartSchemaExtensionResult$: StaticStructureSchema = [3, n0, _SSERt,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _Val],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
   { [_e]: _c },
@@ -1772,7 +1772,7 @@ export var Trust$: StaticStructureSchema = [3, n0, _Tru,
 export var UnshareDirectoryRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_DI, _UTn],
-  [0, () => UnshareTarget$]
+  [0, () => UnshareTarget$], 2
 ];
 export var UnshareDirectoryResult$: StaticStructureSchema = [3, n0, _UDRn,
   0,
@@ -1782,7 +1782,7 @@ export var UnshareDirectoryResult$: StaticStructureSchema = [3, n0, _UDRn,
 export var UnshareTarget$: StaticStructureSchema = [3, n0, _UTn,
   0,
   [_I, _Ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
   { [_e]: _c },
@@ -1799,7 +1799,7 @@ TypeRegistry.for(n0).registerError(UnsupportedSettingsException$, UnsupportedSet
 export var UpdateConditionalForwarderRequest$: StaticStructureSchema = [3, n0, _UCFR,
   0,
   [_DI, _RDN, _DIA, _DIAn],
-  [0, 0, 64 | 0, 64 | 0]
+  [0, 0, 64 | 0, 64 | 0], 2
 ];
 export var UpdateConditionalForwarderResult$: StaticStructureSchema = [3, n0, _UCFRp,
   0,
@@ -1809,7 +1809,7 @@ export var UpdateConditionalForwarderResult$: StaticStructureSchema = [3, n0, _U
 export var UpdateDirectorySetupRequest$: StaticStructureSchema = [3, n0, _UDSR,
   0,
   [_DI, _UT, _OSUS, _DSUS, _NUS, _CSBU],
-  [0, 0, () => OSUpdateSettings$, () => DirectorySizeUpdateSettings$, () => NetworkUpdateSettings$, 2]
+  [0, 0, () => OSUpdateSettings$, () => DirectorySizeUpdateSettings$, () => NetworkUpdateSettings$, 2], 2
 ];
 export var UpdateDirectorySetupResult$: StaticStructureSchema = [3, n0, _UDSRp,
   0,
@@ -1819,7 +1819,7 @@ export var UpdateDirectorySetupResult$: StaticStructureSchema = [3, n0, _UDSRp,
 export var UpdateHybridADRequest$: StaticStructureSchema = [3, n0, _UHADR,
   0,
   [_DI, _HAAU, _SMIS],
-  [0, () => HybridAdministratorAccountUpdate$, () => HybridCustomerInstancesSettings$]
+  [0, () => HybridAdministratorAccountUpdate$, () => HybridCustomerInstancesSettings$], 1
 ];
 export var UpdateHybridADResult$: StaticStructureSchema = [3, n0, _UHADRp,
   0,
@@ -1834,7 +1834,7 @@ export var UpdateInfoEntry$: StaticStructureSchema = [3, n0, _UIE,
 export var UpdateNumberOfDomainControllersRequest$: StaticStructureSchema = [3, n0, _UNODCR,
   0,
   [_DI, _DNe],
-  [0, 1]
+  [0, 1], 2
 ];
 export var UpdateNumberOfDomainControllersResult$: StaticStructureSchema = [3, n0, _UNODCRp,
   0,
@@ -1844,7 +1844,7 @@ export var UpdateNumberOfDomainControllersResult$: StaticStructureSchema = [3, n
 export var UpdateRadiusRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_DI, _RSa],
-  [0, [() => RadiusSettings$, 0]]
+  [0, [() => RadiusSettings$, 0]], 2
 ];
 export var UpdateRadiusResult$: StaticStructureSchema = [3, n0, _URRp,
   0,
@@ -1854,7 +1854,7 @@ export var UpdateRadiusResult$: StaticStructureSchema = [3, n0, _URRp,
 export var UpdateSettingsRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_DI, _Set],
-  [0, () => Settings]
+  [0, () => Settings], 2
 ];
 export var UpdateSettingsResult$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -1864,7 +1864,7 @@ export var UpdateSettingsResult$: StaticStructureSchema = [3, n0, _USRp,
 export var UpdateTrustRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
   [_TI, _SAe],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UpdateTrustResult$: StaticStructureSchema = [3, n0, _UTRp,
   0,
@@ -1885,7 +1885,7 @@ TypeRegistry.for(n0).registerError(UserDoesNotExistException$, UserDoesNotExistE
 export var VerifyTrustRequest$: StaticStructureSchema = [3, n0, _VTR,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var VerifyTrustResult$: StaticStructureSchema = [3, n0, _VTRe,
   0,

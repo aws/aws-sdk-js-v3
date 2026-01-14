@@ -1,8 +1,8 @@
 const _A = "Attachments";
 const _AL = "AssociationListing";
 const _ALs = "AssociationList";
-const _AN = "AliasName";
-const _ANc = "ActionName";
+const _AN = "ActionName";
+const _ANl = "AliasName";
 const _AP = "AccountPreferences";
 const _ATC = "AssociateToConfiguration";
 const _ATCR = "AssociateToConfigurationRequest";
@@ -292,7 +292,7 @@ export var AccountPreferences$: StaticStructureSchema = [3, n0, _AP,
 export var AssociateToConfigurationRequest$: StaticStructureSchema = [3, n0, _ATCR,
   0,
   [_R, _CC],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateToConfigurationResult$: StaticStructureSchema = [3, n0, _ATCRs,
   0,
@@ -302,17 +302,17 @@ export var AssociateToConfigurationResult$: StaticStructureSchema = [3, n0, _ATC
 export var AssociationListing$: StaticStructureSchema = [3, n0, _AL,
   0,
   [_R],
-  [0]
+  [0], 1
 ];
 export var ChimeWebhookConfiguration$: StaticStructureSchema = [3, n0, _CWC,
   0,
   [_WD, _CCA, _IRA, _STA, _CN, _LL, _T, _S, _SR],
-  [[() => ChimeWebhookDescription, 0], 0, 0, 64 | 0, 0, 0, () => Tags, 0, 0]
+  [[() => ChimeWebhookDescription, 0], 0, 0, 64 | 0, 0, 0, () => Tags, 0, 0], 4
 ];
 export var ConfiguredTeam$: StaticStructureSchema = [3, n0, _CT,
   0,
   [_TI, _TIe, _TN, _S, _SR],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -329,7 +329,7 @@ TypeRegistry.for(n0).registerError(CreateChimeWebhookConfigurationException$, Cr
 export var CreateChimeWebhookConfigurationRequest$: StaticStructureSchema = [3, n0, _CCWCR,
   0,
   [_WD, _WU, _STA, _IRA, _CN, _LL, _T],
-  [[() => ChimeWebhookDescription, 0], [() => ChimeWebhookUrl, 0], 64 | 0, 0, 0, 0, () => Tags]
+  [[() => ChimeWebhookDescription, 0], [() => ChimeWebhookUrl, 0], 64 | 0, 0, 0, 0, () => Tags], 5
 ];
 export var CreateChimeWebhookConfigurationResult$: StaticStructureSchema = [3, n0, _CCWCRr,
   0,
@@ -338,13 +338,13 @@ export var CreateChimeWebhookConfigurationResult$: StaticStructureSchema = [3, n
 ];
 export var CreateCustomActionRequest$: StaticStructureSchema = [3, n0, _CCAR,
   0,
-  [_D, _AN, _A, _T, _CTl, _ANc],
-  [() => CustomActionDefinition$, 0, () => CustomActionAttachmentList, () => TagList, [0, 4], 0]
+  [_D, _AN, _ANl, _A, _T, _CTl],
+  [() => CustomActionDefinition$, 0, 0, () => CustomActionAttachmentList, () => TagList, [0, 4]], 2
 ];
 export var CreateCustomActionResult$: StaticStructureSchema = [3, n0, _CCARr,
   0,
   [_CAA],
-  [0]
+  [0], 1
 ];
 export var CreateSlackChannelConfigurationException$: StaticErrorSchema = [-3, n0, _CSCCE,
   { [_e]: _s, [_hE]: 500 },
@@ -354,8 +354,8 @@ export var CreateSlackChannelConfigurationException$: StaticErrorSchema = [-3, n
 TypeRegistry.for(n0).registerError(CreateSlackChannelConfigurationException$, CreateSlackChannelConfigurationException);
 export var CreateSlackChannelConfigurationRequest$: StaticStructureSchema = [3, n0, _CSCCR,
   0,
-  [_STI, _SCI, _SCN, _STA, _IRA, _CN, _LL, _GPA, _UAR, _T],
-  [0, 0, [() => SlackChannelDisplayName, 0], 64 | 0, 0, 0, 0, 64 | 0, 2, () => Tags]
+  [_STI, _SCI, _IRA, _CN, _SCN, _STA, _LL, _GPA, _UAR, _T],
+  [0, 0, 0, 0, [() => SlackChannelDisplayName, 0], 64 | 0, 0, 64 | 0, 2, () => Tags], 4
 ];
 export var CreateSlackChannelConfigurationResult$: StaticStructureSchema = [3, n0, _CSCCRr,
   0,
@@ -370,8 +370,8 @@ export var CreateTeamsChannelConfigurationException$: StaticErrorSchema = [-3, n
 TypeRegistry.for(n0).registerError(CreateTeamsChannelConfigurationException$, CreateTeamsChannelConfigurationException);
 export var CreateTeamsChannelConfigurationRequest$: StaticStructureSchema = [3, n0, _CTCCR,
   0,
-  [_CI, _CNh, _TIe, _TN, _TI, _STA, _IRA, _CN, _LL, _GPA, _UAR, _T],
-  [0, [() => TeamsChannelName, 0], 0, [() => TeamName, 0], 0, 64 | 0, 0, 0, 0, 64 | 0, 2, () => Tags]
+  [_CI, _TIe, _TI, _IRA, _CN, _CNh, _TN, _STA, _LL, _GPA, _UAR, _T],
+  [0, 0, 0, 0, 0, [() => TeamsChannelName, 0], [() => TeamName, 0], 64 | 0, 0, 64 | 0, 2, () => Tags], 5
 ];
 export var CreateTeamsChannelConfigurationResult$: StaticStructureSchema = [3, n0, _CTCCRr,
   0,
@@ -380,8 +380,8 @@ export var CreateTeamsChannelConfigurationResult$: StaticStructureSchema = [3, n
 ];
 export var CustomAction$: StaticStructureSchema = [3, n0, _CA,
   0,
-  [_CAA, _D, _AN, _A, _ANc],
-  [0, () => CustomActionDefinition$, 0, () => CustomActionAttachmentList, 0]
+  [_CAA, _D, _ANl, _A, _AN],
+  [0, () => CustomActionDefinition$, 0, () => CustomActionAttachmentList, 0], 2
 ];
 export var CustomActionAttachment$: StaticStructureSchema = [3, n0, _CAAu,
   0,
@@ -391,12 +391,12 @@ export var CustomActionAttachment$: StaticStructureSchema = [3, n0, _CAAu,
 export var CustomActionAttachmentCriteria$: StaticStructureSchema = [3, n0, _CAAC,
   0,
   [_O, _VN, _Va],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var CustomActionDefinition$: StaticStructureSchema = [3, n0, _CAD,
   0,
   [_CTo],
-  [0]
+  [0], 1
 ];
 export var DeleteChimeWebhookConfigurationException$: StaticErrorSchema = [-3, n0, _DCWCE,
   { [_e]: _s, [_hE]: 500 },
@@ -407,7 +407,7 @@ TypeRegistry.for(n0).registerError(DeleteChimeWebhookConfigurationException$, De
 export var DeleteChimeWebhookConfigurationRequest$: StaticStructureSchema = [3, n0, _DCWCR,
   0,
   [_CCA],
-  [0]
+  [0], 1
 ];
 export var DeleteChimeWebhookConfigurationResult$: StaticStructureSchema = [3, n0, _DCWCRe,
   0,
@@ -417,7 +417,7 @@ export var DeleteChimeWebhookConfigurationResult$: StaticStructureSchema = [3, n
 export var DeleteCustomActionRequest$: StaticStructureSchema = [3, n0, _DCAR,
   0,
   [_CAA],
-  [0]
+  [0], 1
 ];
 export var DeleteCustomActionResult$: StaticStructureSchema = [3, n0, _DCARe,
   0,
@@ -433,7 +433,7 @@ TypeRegistry.for(n0).registerError(DeleteMicrosoftTeamsUserIdentityException$, D
 export var DeleteMicrosoftTeamsUserIdentityRequest$: StaticStructureSchema = [3, n0, _DMTUIR,
   0,
   [_CCA, _UI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteMicrosoftTeamsUserIdentityResult$: StaticStructureSchema = [3, n0, _DMTUIRe,
   0,
@@ -449,7 +449,7 @@ TypeRegistry.for(n0).registerError(DeleteSlackChannelConfigurationException$, De
 export var DeleteSlackChannelConfigurationRequest$: StaticStructureSchema = [3, n0, _DSCCR,
   0,
   [_CCA],
-  [0]
+  [0], 1
 ];
 export var DeleteSlackChannelConfigurationResult$: StaticStructureSchema = [3, n0, _DSCCRe,
   0,
@@ -465,7 +465,7 @@ TypeRegistry.for(n0).registerError(DeleteSlackUserIdentityException$, DeleteSlac
 export var DeleteSlackUserIdentityRequest$: StaticStructureSchema = [3, n0, _DSUIR,
   0,
   [_CCA, _STI, _SUI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteSlackUserIdentityResult$: StaticStructureSchema = [3, n0, _DSUIRe,
   0,
@@ -481,7 +481,7 @@ TypeRegistry.for(n0).registerError(DeleteSlackWorkspaceAuthorizationFault$, Dele
 export var DeleteSlackWorkspaceAuthorizationRequest$: StaticStructureSchema = [3, n0, _DSWAR,
   0,
   [_STI],
-  [0]
+  [0], 1
 ];
 export var DeleteSlackWorkspaceAuthorizationResult$: StaticStructureSchema = [3, n0, _DSWARe,
   0,
@@ -497,7 +497,7 @@ TypeRegistry.for(n0).registerError(DeleteTeamsChannelConfigurationException$, De
 export var DeleteTeamsChannelConfigurationRequest$: StaticStructureSchema = [3, n0, _DTCCR,
   0,
   [_CCA],
-  [0]
+  [0], 1
 ];
 export var DeleteTeamsChannelConfigurationResult$: StaticStructureSchema = [3, n0, _DTCCRe,
   0,
@@ -513,7 +513,7 @@ TypeRegistry.for(n0).registerError(DeleteTeamsConfiguredTeamException$, DeleteTe
 export var DeleteTeamsConfiguredTeamRequest$: StaticStructureSchema = [3, n0, _DTCTR,
   0,
   [_TIe],
-  [0]
+  [0], 1
 ];
 export var DeleteTeamsConfiguredTeamResult$: StaticStructureSchema = [3, n0, _DTCTRe,
   0,
@@ -587,7 +587,7 @@ export var DescribeSlackWorkspacesResult$: StaticStructureSchema = [3, n0, _DSWR
 export var DisassociateFromConfigurationRequest$: StaticStructureSchema = [3, n0, _DFCR,
   0,
   [_R, _CC],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateFromConfigurationResult$: StaticStructureSchema = [3, n0, _DFCRi,
   0,
@@ -613,7 +613,7 @@ export var GetAccountPreferencesResult$: StaticStructureSchema = [3, n0, _GAPRe,
 export var GetCustomActionRequest$: StaticStructureSchema = [3, n0, _GCAR,
   0,
   [_CAA],
-  [0]
+  [0], 1
 ];
 export var GetCustomActionResult$: StaticStructureSchema = [3, n0, _GCARe,
   0,
@@ -629,7 +629,7 @@ TypeRegistry.for(n0).registerError(GetTeamsChannelConfigurationException$, GetTe
 export var GetTeamsChannelConfigurationRequest$: StaticStructureSchema = [3, n0, _GTCCR,
   0,
   [_CCA],
-  [0]
+  [0], 1
 ];
 export var GetTeamsChannelConfigurationResult$: StaticStructureSchema = [3, n0, _GTCCRe,
   0,
@@ -663,12 +663,12 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListAssociationsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_CC, _MR, _NTe],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListAssociationsResult$: StaticStructureSchema = [3, n0, _LARi,
   0,
   [_As, _NTe],
-  [() => AssociationList, 0]
+  [() => AssociationList, 0], 1
 ];
 export var ListCustomActionsRequest$: StaticStructureSchema = [3, n0, _LCAR,
   0,
@@ -678,7 +678,7 @@ export var ListCustomActionsRequest$: StaticStructureSchema = [3, n0, _LCAR,
 export var ListCustomActionsResult$: StaticStructureSchema = [3, n0, _LCARi,
   0,
   [_CAu, _NTe],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var ListMicrosoftTeamsConfiguredTeamsException$: StaticErrorSchema = [-3, n0, _LMTCTE,
   { [_e]: _s, [_hE]: 500 },
@@ -715,7 +715,7 @@ export var ListMicrosoftTeamsUserIdentitiesResult$: StaticStructureSchema = [3, 
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -753,27 +753,27 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var SlackChannelConfiguration$: StaticStructureSchema = [3, n0, _SCCl,
   0,
   [_STN, _STI, _SCI, _SCN, _CCA, _IRA, _STA, _CN, _LL, _GPA, _UAR, _T, _S, _SR],
-  [0, 0, 0, [() => SlackChannelDisplayName, 0], 0, 0, 64 | 0, 0, 0, 64 | 0, 2, () => Tags, 0, 0]
+  [0, 0, 0, [() => SlackChannelDisplayName, 0], 0, 0, 64 | 0, 0, 0, 64 | 0, 2, () => Tags, 0, 0], 7
 ];
 export var SlackUserIdentity$: StaticStructureSchema = [3, n0, _SUIla,
   0,
   [_IRA, _CCA, _STI, _SUI, _AUI],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var SlackWorkspace$: StaticStructureSchema = [3, n0, _SWl,
   0,
   [_STI, _STN, _S, _SR],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_TK, _TV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -782,13 +782,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TeamsChannelConfiguration$: StaticStructureSchema = [3, n0, _TCCe,
   0,
-  [_CI, _CNh, _TIe, _TN, _TI, _CCA, _IRA, _STA, _CN, _LL, _GPA, _UAR, _T, _S, _SR],
-  [0, [() => TeamsChannelName, 0], 0, [() => TeamName, 0], 0, 0, 0, 64 | 0, 0, 0, 64 | 0, 2, () => Tags, 0, 0]
+  [_CI, _TIe, _TI, _CCA, _IRA, _STA, _CNh, _TN, _CN, _LL, _GPA, _UAR, _T, _S, _SR],
+  [0, 0, 0, 0, 0, 64 | 0, [() => TeamsChannelName, 0], [() => TeamName, 0], 0, 0, 64 | 0, 2, () => Tags, 0, 0], 6
 ];
 export var TeamsUserIdentity$: StaticStructureSchema = [3, n0, _TUIe,
   0,
   [_IRA, _CCA, _TIe, _UI, _AUI, _TCI, _TTI],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0], 3
 ];
 export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
   { [_e]: _c, [_hE]: 400 },
@@ -805,7 +805,7 @@ TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TKa],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -837,7 +837,7 @@ TypeRegistry.for(n0).registerError(UpdateChimeWebhookConfigurationException$, Up
 export var UpdateChimeWebhookConfigurationRequest$: StaticStructureSchema = [3, n0, _UCWCR,
   0,
   [_CCA, _WD, _WU, _STA, _IRA, _LL],
-  [0, [() => ChimeWebhookDescription, 0], [() => ChimeWebhookUrl, 0], 64 | 0, 0, 0]
+  [0, [() => ChimeWebhookDescription, 0], [() => ChimeWebhookUrl, 0], 64 | 0, 0, 0], 1
 ];
 export var UpdateChimeWebhookConfigurationResult$: StaticStructureSchema = [3, n0, _UCWCRp,
   0,
@@ -846,13 +846,13 @@ export var UpdateChimeWebhookConfigurationResult$: StaticStructureSchema = [3, n
 ];
 export var UpdateCustomActionRequest$: StaticStructureSchema = [3, n0, _UCAR,
   0,
-  [_CAA, _D, _AN, _A],
-  [0, () => CustomActionDefinition$, 0, () => CustomActionAttachmentList]
+  [_CAA, _D, _ANl, _A],
+  [0, () => CustomActionDefinition$, 0, () => CustomActionAttachmentList], 2
 ];
 export var UpdateCustomActionResult$: StaticStructureSchema = [3, n0, _UCARp,
   0,
   [_CAA],
-  [0]
+  [0], 1
 ];
 export var UpdateSlackChannelConfigurationException$: StaticErrorSchema = [-3, n0, _USCCE,
   { [_e]: _s, [_hE]: 500 },
@@ -863,7 +863,7 @@ TypeRegistry.for(n0).registerError(UpdateSlackChannelConfigurationException$, Up
 export var UpdateSlackChannelConfigurationRequest$: StaticStructureSchema = [3, n0, _USCCR,
   0,
   [_CCA, _SCI, _SCN, _STA, _IRA, _LL, _GPA, _UAR],
-  [0, 0, [() => SlackChannelDisplayName, 0], 64 | 0, 0, 0, 64 | 0, 2]
+  [0, 0, [() => SlackChannelDisplayName, 0], 64 | 0, 0, 0, 64 | 0, 2], 2
 ];
 export var UpdateSlackChannelConfigurationResult$: StaticStructureSchema = [3, n0, _USCCRp,
   0,
@@ -879,7 +879,7 @@ TypeRegistry.for(n0).registerError(UpdateTeamsChannelConfigurationException$, Up
 export var UpdateTeamsChannelConfigurationRequest$: StaticStructureSchema = [3, n0, _UTCCR,
   0,
   [_CCA, _CI, _CNh, _STA, _IRA, _LL, _GPA, _UAR],
-  [0, 0, [() => TeamsChannelName, 0], 64 | 0, 0, 0, 64 | 0, 2]
+  [0, 0, [() => TeamsChannelName, 0], 64 | 0, 0, 0, 64 | 0, 2], 2
 ];
 export var UpdateTeamsChannelConfigurationResult$: StaticStructureSchema = [3, n0, _UTCCRp,
   0,

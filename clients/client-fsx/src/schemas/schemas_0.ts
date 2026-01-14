@@ -640,7 +640,7 @@ export var ActiveDirectoryBackupAttributes$: StaticStructureSchema = [3, n0, _AD
 export var ActiveDirectoryError$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_ADI, _T, _M],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ActiveDirectoryError$, ActiveDirectoryError);
 export var AdministrativeAction$: StaticStructureSchema = [3, n0, _AA,
@@ -665,8 +665,8 @@ export var Alias$: StaticStructureSchema = [3, n0, _Al,
 ];
 export var AssociateFileSystemAliasesRequest$: StaticStructureSchema = [3, n0, _AFSAR,
   0,
-  [_CRT, _FSI, _Ali],
-  [[0, 4], 0, 64 | 0]
+  [_FSI, _Ali, _CRT],
+  [0, 64 | 0, [0, 4]], 2
 ];
 export var AssociateFileSystemAliasesResponse$: StaticStructureSchema = [3, n0, _AFSARs,
   0,
@@ -676,7 +676,7 @@ export var AssociateFileSystemAliasesResponse$: StaticStructureSchema = [3, n0, 
 export var AutocommitPeriod$: StaticStructureSchema = [3, n0, _APu,
   0,
   [_T, _V],
-  [0, 1]
+  [0, 1], 1
 ];
 export var AutoExportPolicy$: StaticStructureSchema = [3, n0, _AEP,
   0,
@@ -690,8 +690,8 @@ export var AutoImportPolicy$: StaticStructureSchema = [3, n0, _AIP,
 ];
 export var Backup$: StaticStructureSchema = [3, n0, _B,
   0,
-  [_BI, _L, _FD, _T, _PP, _CT, _KKI, _RARN, _Ta, _FS, _DI, _OI, _SBI, _SBR, _RTe, _Vo, _SIB],
-  [0, 0, () => BackupFailureDetails$, 0, 1, 4, 0, 0, () => Tags, [() => FileSystem$, 0], () => ActiveDirectoryBackupAttributes$, 0, 0, 0, 0, () => Volume$, 1]
+  [_BI, _L, _T, _CT, _FS, _FD, _PP, _KKI, _RARN, _Ta, _DI, _OI, _SBI, _SBR, _RTe, _Vo, _SIB],
+  [0, 0, 0, 4, [() => FileSystem$, 0], () => BackupFailureDetails$, 1, 0, 0, () => Tags, () => ActiveDirectoryBackupAttributes$, 0, 0, 0, 0, () => Volume$, 1], 5
 ];
 export var BackupBeingCopied$: StaticErrorSchema = [-3, n0, _BBC,
   { [_e]: _c },
@@ -731,7 +731,7 @@ TypeRegistry.for(n0).registerError(BadRequest$, BadRequest);
 export var CancelDataRepositoryTaskRequest$: StaticStructureSchema = [3, n0, _CDRTR,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var CancelDataRepositoryTaskResponse$: StaticStructureSchema = [3, n0, _CDRTRa,
   0,
@@ -741,12 +741,12 @@ export var CancelDataRepositoryTaskResponse$: StaticStructureSchema = [3, n0, _C
 export var CompletionReport$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_En, _P, _F, _Sc],
-  [2, 0, 0, 0]
+  [2, 0, 0, 0], 1
 ];
 export var CopyBackupRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_CRT, _SBI, _SR, _KKI, _CTo, _Ta],
-  [[0, 4], 0, 0, 0, 2, () => Tags]
+  [_SBI, _CRT, _SR, _KKI, _CTo, _Ta],
+  [0, [0, 4], 0, 0, 2, () => Tags], 1
 ];
 export var CopyBackupResponse$: StaticStructureSchema = [3, n0, _CBRo,
   0,
@@ -755,8 +755,8 @@ export var CopyBackupResponse$: StaticStructureSchema = [3, n0, _CBRo,
 ];
 export var CopySnapshotAndUpdateVolumeRequest$: StaticStructureSchema = [3, n0, _CSAUVR,
   0,
-  [_CRT, _VI, _SSARN, _CS, _O],
-  [[0, 4], 0, 0, 0, 64 | 0]
+  [_VI, _SSARN, _CRT, _CS, _O],
+  [0, 0, [0, 4], 0, 64 | 0], 2
 ];
 export var CopySnapshotAndUpdateVolumeResponse$: StaticStructureSchema = [3, n0, _CSAUVRo,
   0,
@@ -771,17 +771,17 @@ export var CreateAggregateConfiguration$: StaticStructureSchema = [3, n0, _CAC,
 export var CreateAndAttachS3AccessPointOntapConfiguration$: StaticStructureSchema = [3, n0, _CAASAPOC,
   0,
   [_VI, _FSIi],
-  [0, () => OntapFileSystemIdentity$]
+  [0, () => OntapFileSystemIdentity$], 2
 ];
 export var CreateAndAttachS3AccessPointOpenZFSConfiguration$: StaticStructureSchema = [3, n0, _CAASAPOZFSC,
   0,
   [_VI, _FSIi],
-  [0, () => OpenZFSFileSystemIdentity$]
+  [0, () => OpenZFSFileSystemIdentity$], 2
 ];
 export var CreateAndAttachS3AccessPointRequest$: StaticStructureSchema = [3, n0, _CAASAPR,
   0,
-  [_CRT, _N, _T, _OZFSC, _OC, _SAP],
-  [[0, 4], 0, 0, () => CreateAndAttachS3AccessPointOpenZFSConfiguration$, () => CreateAndAttachS3AccessPointOntapConfiguration$, () => CreateAndAttachS3AccessPointS3Configuration$]
+  [_N, _T, _CRT, _OZFSC, _OC, _SAP],
+  [0, 0, [0, 4], () => CreateAndAttachS3AccessPointOpenZFSConfiguration$, () => CreateAndAttachS3AccessPointOntapConfiguration$, () => CreateAndAttachS3AccessPointS3Configuration$], 2
 ];
 export var CreateAndAttachS3AccessPointResponse$: StaticStructureSchema = [3, n0, _CAASAPRr,
   0,
@@ -805,8 +805,8 @@ export var CreateBackupResponse$: StaticStructureSchema = [3, n0, _CBRre,
 ];
 export var CreateDataRepositoryAssociationRequest$: StaticStructureSchema = [3, n0, _CDRAR,
   0,
-  [_FSI, _FSP, _DRP, _BIMDOC, _IFCS, _S_, _CRT, _Ta],
-  [0, 0, 0, 2, 1, () => S3DataRepositoryConfiguration$, [0, 4], () => Tags]
+  [_FSI, _DRP, _FSP, _BIMDOC, _IFCS, _S_, _CRT, _Ta],
+  [0, 0, 0, 2, 1, () => S3DataRepositoryConfiguration$, [0, 4], () => Tags], 2
 ];
 export var CreateDataRepositoryAssociationResponse$: StaticStructureSchema = [3, n0, _CDRARr,
   0,
@@ -815,8 +815,8 @@ export var CreateDataRepositoryAssociationResponse$: StaticStructureSchema = [3,
 ];
 export var CreateDataRepositoryTaskRequest$: StaticStructureSchema = [3, n0, _CDRTRr,
   0,
-  [_T, _Pa, _FSI, _R, _CRT, _Ta, _CTR, _RC],
-  [0, 64 | 0, 0, () => CompletionReport$, [0, 4], () => Tags, 1, () => ReleaseConfiguration$]
+  [_T, _FSI, _R, _Pa, _CRT, _Ta, _CTR, _RC],
+  [0, 0, () => CompletionReport$, 64 | 0, [0, 4], () => Tags, 1, () => ReleaseConfiguration$], 3
 ];
 export var CreateDataRepositoryTaskResponse$: StaticStructureSchema = [3, n0, _CDRTRre,
   0,
@@ -825,13 +825,13 @@ export var CreateDataRepositoryTaskResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateFileCacheLustreConfiguration$: StaticStructureSchema = [3, n0, _CFCLC,
   0,
-  [_PUST, _DT, _WMST, _MC],
-  [1, 0, 0, () => FileCacheLustreMetadataConfiguration$]
+  [_PUST, _DT, _MC, _WMST],
+  [1, 0, () => FileCacheLustreMetadataConfiguration$, 0], 3
 ];
 export var CreateFileCacheRequest$: StaticStructureSchema = [3, n0, _CFCR,
   0,
-  [_CRT, _FCT, _FCTV, _SC, _SI, _SGI, _Ta, _CTTDRA, _KKI, _LC, _DRA],
-  [[0, 4], 0, 0, 1, 64 | 0, 64 | 0, () => Tags, 2, 0, () => CreateFileCacheLustreConfiguration$, () => CreateFileCacheDataRepositoryAssociations]
+  [_FCT, _FCTV, _SC, _SI, _CRT, _SGI, _Ta, _CTTDRA, _KKI, _LC, _DRA],
+  [0, 0, 1, 64 | 0, [0, 4], 64 | 0, () => Tags, 2, 0, () => CreateFileCacheLustreConfiguration$, () => CreateFileCacheDataRepositoryAssociations], 4
 ];
 export var CreateFileCacheResponse$: StaticStructureSchema = [3, n0, _CFCRr,
   0,
@@ -840,8 +840,8 @@ export var CreateFileCacheResponse$: StaticStructureSchema = [3, n0, _CFCRr,
 ];
 export var CreateFileSystemFromBackupRequest$: StaticStructureSchema = [3, n0, _CFSFBR,
   0,
-  [_BI, _CRT, _SI, _SGI, _Ta, _WC, _LC, _ST, _KKI, _FSTV, _OZFSC, _SC, _NT],
-  [0, [0, 4], 64 | 0, 64 | 0, () => Tags, [() => CreateFileSystemWindowsConfiguration$, 0], () => CreateFileSystemLustreConfiguration$, 0, 0, 0, () => CreateFileSystemOpenZFSConfiguration$, 1, 0]
+  [_BI, _SI, _CRT, _SGI, _Ta, _WC, _LC, _ST, _KKI, _FSTV, _OZFSC, _SC, _NT],
+  [0, 64 | 0, [0, 4], 64 | 0, () => Tags, [() => CreateFileSystemWindowsConfiguration$, 0], () => CreateFileSystemLustreConfiguration$, 0, 0, 0, () => CreateFileSystemOpenZFSConfiguration$, 1, 0], 2
 ];
 export var CreateFileSystemFromBackupResponse$: StaticStructureSchema = [3, n0, _CFSFBRr,
   0,
@@ -855,23 +855,23 @@ export var CreateFileSystemLustreConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var CreateFileSystemLustreMetadataConfiguration$: StaticStructureSchema = [3, n0, _CFSLMC,
   0,
-  [_I, _Mo],
-  [1, 0]
+  [_Mo, _I],
+  [0, 1], 1
 ];
 export var CreateFileSystemOntapConfiguration$: StaticStructureSchema = [3, n0, _CFSOC,
   0,
-  [_ABRD, _DABST, _DT, _EIAR, _FAP, _DIC, _PSI, _RTI, _TCh, _WMST, _HAP, _TCPHAP, _EIARn],
-  [1, 0, 0, 0, [() => AdminPassword, 0], () => DiskIopsConfiguration$, 0, 64 | 0, 1, 0, 1, 1, 0]
+  [_DT, _ABRD, _DABST, _EIAR, _FAP, _DIC, _PSI, _RTI, _TCh, _WMST, _HAP, _TCPHAP, _EIARn],
+  [0, 1, 0, 0, [() => AdminPassword, 0], () => DiskIopsConfiguration$, 0, 64 | 0, 1, 0, 1, 1, 0], 1
 ];
 export var CreateFileSystemOpenZFSConfiguration$: StaticStructureSchema = [3, n0, _CFSOZFSC,
   0,
-  [_ABRD, _CTTB, _CTTV, _DABST, _DT, _TCh, _WMST, _DIC, _RVC, _PSI, _EIAR, _EIARn, _RTI, _RCC],
-  [1, 2, 2, 0, 0, 1, 0, () => DiskIopsConfiguration$, () => OpenZFSCreateRootVolumeConfiguration$, 0, 0, 0, 64 | 0, () => OpenZFSReadCacheConfiguration$]
+  [_DT, _TCh, _ABRD, _CTTB, _CTTV, _DABST, _WMST, _DIC, _RVC, _PSI, _EIAR, _EIARn, _RTI, _RCC],
+  [0, 1, 1, 2, 2, 0, 0, () => DiskIopsConfiguration$, () => OpenZFSCreateRootVolumeConfiguration$, 0, 0, 0, 64 | 0, () => OpenZFSReadCacheConfiguration$], 2
 ];
 export var CreateFileSystemRequest$: StaticStructureSchema = [3, n0, _CFSR,
   0,
-  [_CRT, _FST, _SC, _ST, _SI, _SGI, _Ta, _KKI, _WC, _LC, _OC, _FSTV, _OZFSC, _NT],
-  [[0, 4], 0, 1, 0, 64 | 0, 64 | 0, () => Tags, 0, [() => CreateFileSystemWindowsConfiguration$, 0], () => CreateFileSystemLustreConfiguration$, [() => CreateFileSystemOntapConfiguration$, 0], 0, () => CreateFileSystemOpenZFSConfiguration$, 0]
+  [_FST, _SI, _CRT, _SC, _ST, _SGI, _Ta, _KKI, _WC, _LC, _OC, _FSTV, _OZFSC, _NT],
+  [0, 64 | 0, [0, 4], 1, 0, 64 | 0, () => Tags, 0, [() => CreateFileSystemWindowsConfiguration$, 0], () => CreateFileSystemLustreConfiguration$, [() => CreateFileSystemOntapConfiguration$, 0], 0, () => CreateFileSystemOpenZFSConfiguration$, 0], 2
 ];
 export var CreateFileSystemResponse$: StaticStructureSchema = [3, n0, _CFSRr,
   0,
@@ -880,33 +880,33 @@ export var CreateFileSystemResponse$: StaticStructureSchema = [3, n0, _CFSRr,
 ];
 export var CreateFileSystemWindowsConfiguration$: StaticStructureSchema = [3, n0, _CFSWC,
   0,
-  [_ADI, _SMADC, _DT, _PSI, _TCh, _WMST, _DABST, _ABRD, _CTTB, _Ali, _ALC, _DIC, _FCs],
-  [0, [() => SelfManagedActiveDirectoryConfiguration$, 0], 0, 0, 1, 0, 0, 1, 2, 64 | 0, () => WindowsAuditLogCreateConfiguration$, () => DiskIopsConfiguration$, () => WindowsFsrmConfiguration$]
+  [_TCh, _ADI, _SMADC, _DT, _PSI, _WMST, _DABST, _ABRD, _CTTB, _Ali, _ALC, _DIC, _FCs],
+  [1, 0, [() => SelfManagedActiveDirectoryConfiguration$, 0], 0, 0, 0, 0, 1, 2, 64 | 0, () => WindowsAuditLogCreateConfiguration$, () => DiskIopsConfiguration$, () => WindowsFsrmConfiguration$], 1
 ];
 export var CreateOntapVolumeConfiguration$: StaticStructureSchema = [3, n0, _COVC,
   0,
-  [_JP, _SS, _SIM, _SEE, _SVMI, _TP, _OVT, _SP, _CTTB, _SCn, _VS, _AC, _SIB],
-  [0, 0, 1, 2, 0, () => TieringPolicy$, 0, 0, 2, () => CreateSnaplockConfiguration$, 0, () => CreateAggregateConfiguration$, 1]
+  [_SVMI, _JP, _SS, _SIM, _SEE, _TP, _OVT, _SP, _CTTB, _SCn, _VS, _AC, _SIB],
+  [0, 0, 0, 1, 2, () => TieringPolicy$, 0, 0, 2, () => CreateSnaplockConfiguration$, 0, () => CreateAggregateConfiguration$, 1], 1
 ];
 export var CreateOpenZFSOriginSnapshotConfiguration$: StaticStructureSchema = [3, n0, _COZFSOSC,
   0,
   [_SARN, _CS],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateOpenZFSVolumeConfiguration$: StaticStructureSchema = [3, n0, _COZFSVC,
   0,
   [_PVI, _SCRGB, _SCQGB, _RSKB, _DCTa, _CTTS, _OS, _RO, _NE, _UAGQ],
-  [0, 1, 1, 1, 0, 2, () => CreateOpenZFSOriginSnapshotConfiguration$, 2, () => OpenZFSNfsExports, () => OpenZFSUserAndGroupQuotas]
+  [0, 1, 1, 1, 0, 2, () => CreateOpenZFSOriginSnapshotConfiguration$, 2, () => OpenZFSNfsExports, () => OpenZFSUserAndGroupQuotas], 1
 ];
 export var CreateSnaplockConfiguration$: StaticStructureSchema = [3, n0, _CSC,
   0,
-  [_ALV, _APu, _PD, _RP, _STn, _VAME],
-  [2, () => AutocommitPeriod$, 0, () => SnaplockRetentionPeriod$, 0, 2]
+  [_STn, _ALV, _APu, _PD, _RP, _VAME],
+  [0, 2, () => AutocommitPeriod$, 0, () => SnaplockRetentionPeriod$, 2], 1
 ];
 export var CreateSnapshotRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_CRT, _N, _VI, _Ta],
-  [[0, 4], 0, 0, () => Tags]
+  [_N, _VI, _CRT, _Ta],
+  [0, 0, [0, 4], () => Tags], 2
 ];
 export var CreateSnapshotResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -915,8 +915,8 @@ export var CreateSnapshotResponse$: StaticStructureSchema = [3, n0, _CSRr,
 ];
 export var CreateStorageVirtualMachineRequest$: StaticStructureSchema = [3, n0, _CSVMR,
   0,
-  [_ADC, _CRT, _FSI, _N, _SAPv, _Ta, _RVSS],
-  [[() => CreateSvmActiveDirectoryConfiguration$, 0], [0, 4], 0, 0, [() => AdminPassword, 0], () => Tags, 0]
+  [_FSI, _N, _ADC, _CRT, _SAPv, _Ta, _RVSS],
+  [0, 0, [() => CreateSvmActiveDirectoryConfiguration$, 0], [0, 4], [() => AdminPassword, 0], () => Tags, 0], 2
 ];
 export var CreateStorageVirtualMachineResponse$: StaticStructureSchema = [3, n0, _CSVMRr,
   0,
@@ -926,12 +926,12 @@ export var CreateStorageVirtualMachineResponse$: StaticStructureSchema = [3, n0,
 export var CreateSvmActiveDirectoryConfiguration$: StaticStructureSchema = [3, n0, _CSADC,
   0,
   [_NBN, _SMADC],
-  [0, [() => SelfManagedActiveDirectoryConfiguration$, 0]]
+  [0, [() => SelfManagedActiveDirectoryConfiguration$, 0]], 1
 ];
 export var CreateVolumeFromBackupRequest$: StaticStructureSchema = [3, n0, _CVFBR,
   0,
-  [_BI, _CRT, _N, _OC, _Ta],
-  [0, [0, 4], 0, () => CreateOntapVolumeConfiguration$, () => Tags]
+  [_BI, _N, _CRT, _OC, _Ta],
+  [0, 0, [0, 4], () => CreateOntapVolumeConfiguration$, () => Tags], 2
 ];
 export var CreateVolumeFromBackupResponse$: StaticStructureSchema = [3, n0, _CVFBRr,
   0,
@@ -940,8 +940,8 @@ export var CreateVolumeFromBackupResponse$: StaticStructureSchema = [3, n0, _CVF
 ];
 export var CreateVolumeRequest$: StaticStructureSchema = [3, n0, _CVR,
   0,
-  [_CRT, _VT, _N, _OC, _Ta, _OZFSC],
-  [[0, 4], 0, 0, () => CreateOntapVolumeConfiguration$, () => Tags, () => CreateOpenZFSVolumeConfiguration$]
+  [_VT, _N, _CRT, _OC, _Ta, _OZFSC],
+  [0, 0, [0, 4], () => CreateOntapVolumeConfiguration$, () => Tags, () => CreateOpenZFSVolumeConfiguration$], 2
 ];
 export var CreateVolumeResponse$: StaticStructureSchema = [3, n0, _CVRr,
   0,
@@ -972,7 +972,7 @@ export var DataRepositoryFailureDetails$: StaticStructureSchema = [3, n0, _DRFD,
 export var DataRepositoryTask$: StaticStructureSchema = [3, n0, _DRT,
   0,
   [_TI, _L, _T, _CT, _STt, _ET, _RARN, _Ta, _FSI, _Pa, _FD, _S, _R, _CTR, _FCI, _RC],
-  [0, 0, 0, 4, 4, 4, 0, () => Tags, 0, 64 | 0, () => DataRepositoryTaskFailureDetails$, () => DataRepositoryTaskStatus$, () => CompletionReport$, 1, 0, () => ReleaseConfiguration$]
+  [0, 0, 0, 4, 4, 4, 0, () => Tags, 0, 64 | 0, () => DataRepositoryTaskFailureDetails$, () => DataRepositoryTaskStatus$, () => CompletionReport$, 1, 0, () => ReleaseConfiguration$], 4
 ];
 export var DataRepositoryTaskEnded$: StaticErrorSchema = [-3, n0, _DRTE,
   { [_e]: _c },
@@ -1010,7 +1010,7 @@ export var DataRepositoryTaskStatus$: StaticStructureSchema = [3, n0, _DRTS,
 export var DeleteBackupRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
   [_BI, _CRT],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var DeleteBackupResponse$: StaticStructureSchema = [3, n0, _DBRe,
   0,
@@ -1020,7 +1020,7 @@ export var DeleteBackupResponse$: StaticStructureSchema = [3, n0, _DBRe,
 export var DeleteDataRepositoryAssociationRequest$: StaticStructureSchema = [3, n0, _DDRAR,
   0,
   [_AI, _CRT, _DDIFS],
-  [0, [0, 4], 2]
+  [0, [0, 4], 2], 1
 ];
 export var DeleteDataRepositoryAssociationResponse$: StaticStructureSchema = [3, n0, _DDRARe,
   0,
@@ -1030,7 +1030,7 @@ export var DeleteDataRepositoryAssociationResponse$: StaticStructureSchema = [3,
 export var DeleteFileCacheRequest$: StaticStructureSchema = [3, n0, _DFCR,
   0,
   [_FCI, _CRT],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var DeleteFileCacheResponse$: StaticStructureSchema = [3, n0, _DFCRe,
   0,
@@ -1060,7 +1060,7 @@ export var DeleteFileSystemOpenZFSResponse$: StaticStructureSchema = [3, n0, _DF
 export var DeleteFileSystemRequest$: StaticStructureSchema = [3, n0, _DFSR,
   0,
   [_FSI, _CRT, _WC, _LC, _OZFSC],
-  [0, [0, 4], () => DeleteFileSystemWindowsConfiguration$, () => DeleteFileSystemLustreConfiguration$, () => DeleteFileSystemOpenZFSConfiguration$]
+  [0, [0, 4], () => DeleteFileSystemWindowsConfiguration$, () => DeleteFileSystemLustreConfiguration$, () => DeleteFileSystemOpenZFSConfiguration$], 1
 ];
 export var DeleteFileSystemResponse$: StaticStructureSchema = [3, n0, _DFSRe,
   0,
@@ -1079,8 +1079,8 @@ export var DeleteFileSystemWindowsResponse$: StaticStructureSchema = [3, n0, _DF
 ];
 export var DeleteSnapshotRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
-  [_CRT, _SIn],
-  [[0, 4], 0]
+  [_SIn, _CRT],
+  [0, [0, 4]], 1
 ];
 export var DeleteSnapshotResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -1089,8 +1089,8 @@ export var DeleteSnapshotResponse$: StaticStructureSchema = [3, n0, _DSRe,
 ];
 export var DeleteStorageVirtualMachineRequest$: StaticStructureSchema = [3, n0, _DSVMR,
   0,
-  [_CRT, _SVMI],
-  [[0, 4], 0]
+  [_SVMI, _CRT],
+  [0, [0, 4]], 1
 ];
 export var DeleteStorageVirtualMachineResponse$: StaticStructureSchema = [3, n0, _DSVMRe,
   0,
@@ -1114,8 +1114,8 @@ export var DeleteVolumeOpenZFSConfiguration$: StaticStructureSchema = [3, n0, _D
 ];
 export var DeleteVolumeRequest$: StaticStructureSchema = [3, n0, _DVR,
   0,
-  [_CRT, _VI, _OC, _OZFSC],
-  [[0, 4], 0, () => DeleteVolumeOntapConfiguration$, () => DeleteVolumeOpenZFSConfiguration$]
+  [_VI, _CRT, _OC, _OZFSC],
+  [0, [0, 4], () => DeleteVolumeOntapConfiguration$, () => DeleteVolumeOpenZFSConfiguration$], 1
 ];
 export var DeleteVolumeResponse$: StaticStructureSchema = [3, n0, _DVRe,
   0,
@@ -1164,8 +1164,8 @@ export var DescribeFileCachesResponse$: StaticStructureSchema = [3, n0, _DFCResc
 ];
 export var DescribeFileSystemAliasesRequest$: StaticStructureSchema = [3, n0, _DFSAR,
   0,
-  [_CRT, _FSI, _MR, _NTe],
-  [[0, 4], 0, 1, 0]
+  [_FSI, _CRT, _MR, _NTe],
+  [0, [0, 4], 1, 0], 1
 ];
 export var DescribeFileSystemAliasesResponse$: StaticStructureSchema = [3, n0, _DFSARe,
   0,
@@ -1234,8 +1234,8 @@ export var DescribeVolumesResponse$: StaticStructureSchema = [3, n0, _DVResc,
 ];
 export var DetachAndDeleteS3AccessPointRequest$: StaticStructureSchema = [3, n0, _DADSAPR,
   0,
-  [_CRT, _N],
-  [[0, 4], 0]
+  [_N, _CRT],
+  [0, [0, 4]], 1
 ];
 export var DetachAndDeleteS3AccessPointResponse$: StaticStructureSchema = [3, n0, _DADSAPRe,
   0,
@@ -1244,8 +1244,8 @@ export var DetachAndDeleteS3AccessPointResponse$: StaticStructureSchema = [3, n0
 ];
 export var DisassociateFileSystemAliasesRequest$: StaticStructureSchema = [3, n0, _DFSARi,
   0,
-  [_CRT, _FSI, _Ali],
-  [[0, 4], 0, 64 | 0]
+  [_FSI, _Ali, _CRT],
+  [0, 64 | 0, [0, 4]], 2
 ];
 export var DisassociateFileSystemAliasesResponse$: StaticStructureSchema = [3, n0, _DFSARis,
   0,
@@ -1275,7 +1275,7 @@ export var FileCacheCreating$: StaticStructureSchema = [3, n0, _FCC,
 export var FileCacheDataRepositoryAssociation$: StaticStructureSchema = [3, n0, _FCDRA,
   0,
   [_FCP, _DRP, _DRS, _NFS],
-  [0, 0, 64 | 0, () => FileCacheNFSConfiguration$]
+  [0, 0, 64 | 0, () => FileCacheNFSConfiguration$], 2
 ];
 export var FileCacheFailureDetails$: StaticStructureSchema = [3, n0, _FCFD,
   0,
@@ -1290,12 +1290,12 @@ export var FileCacheLustreConfiguration$: StaticStructureSchema = [3, n0, _FCLC,
 export var FileCacheLustreMetadataConfiguration$: StaticStructureSchema = [3, n0, _FCLMC,
   0,
   [_SC],
-  [1]
+  [1], 1
 ];
 export var FileCacheNFSConfiguration$: StaticStructureSchema = [3, n0, _FCNFSC,
   0,
   [_Ve, _DIn],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var FileCacheNotFound$: StaticErrorSchema = [-3, n0, _FCNF,
   { [_e]: _c },
@@ -1325,8 +1325,8 @@ export var FileSystemFailureDetails$: StaticStructureSchema = [3, n0, _FSFD,
 ];
 export var FileSystemLustreMetadataConfiguration$: StaticStructureSchema = [3, n0, _FSLMC,
   0,
-  [_I, _Mo],
-  [1, 0]
+  [_Mo, _I],
+  [0, 1], 1
 ];
 export var FileSystemNotFound$: StaticErrorSchema = [-3, n0, _FSNF,
   { [_e]: _c },
@@ -1342,7 +1342,7 @@ export var Filter$: StaticStructureSchema = [3, n0, _Fil,
 export var IncompatibleParameterError$: StaticErrorSchema = [-3, n0, _IPE,
   { [_e]: _c },
   [_Par, _M],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(IncompatibleParameterError$, IncompatibleParameterError);
 export var IncompatibleRegionForMultiAZ$: StaticErrorSchema = [-3, n0, _IRFMAZ,
@@ -1425,7 +1425,7 @@ export var LifecycleTransitionReason$: StaticStructureSchema = [3, n0, _LTR,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN, _MR, _NTe],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1440,12 +1440,12 @@ export var LustreFileSystemConfiguration$: StaticStructureSchema = [3, n0, _LFSC
 export var LustreLogConfiguration$: StaticStructureSchema = [3, n0, _LLC,
   0,
   [_Le, _D],
-  [0, 0]
+  [0, 0], 1
 ];
 export var LustreLogCreateConfiguration$: StaticStructureSchema = [3, n0, _LLCC,
   0,
   [_Le, _D],
-  [0, 0]
+  [0, 0], 1
 ];
 export var LustreReadCacheConfiguration$: StaticStructureSchema = [3, n0, _LRCC,
   0,
@@ -1478,12 +1478,12 @@ TypeRegistry.for(n0).registerError(MissingVolumeConfiguration$, MissingVolumeCon
 export var NFSDataRepositoryConfiguration$: StaticStructureSchema = [3, n0, _NFSDRC,
   0,
   [_Ve, _DIn, _AEP],
-  [0, 64 | 0, () => AutoExportPolicy$]
+  [0, 64 | 0, () => AutoExportPolicy$], 1
 ];
 export var NotServiceResourceError$: StaticErrorSchema = [-3, n0, _NSRE,
   { [_e]: _c },
   [_RARN, _M],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(NotServiceResourceError$, NotServiceResourceError);
 export var OntapFileSystemConfiguration$: StaticStructureSchema = [3, n0, _OFSC,
@@ -1494,12 +1494,12 @@ export var OntapFileSystemConfiguration$: StaticStructureSchema = [3, n0, _OFSC,
 export var OntapFileSystemIdentity$: StaticStructureSchema = [3, n0, _OFSI,
   0,
   [_T, _UU, _WU],
-  [0, () => OntapUnixFileSystemUser$, () => OntapWindowsFileSystemUser$]
+  [0, () => OntapUnixFileSystemUser$, () => OntapWindowsFileSystemUser$], 1
 ];
 export var OntapUnixFileSystemUser$: StaticStructureSchema = [3, n0, _OUFSU,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var OntapVolumeConfiguration$: StaticStructureSchema = [3, n0, _OVC,
   0,
@@ -1509,12 +1509,12 @@ export var OntapVolumeConfiguration$: StaticStructureSchema = [3, n0, _OVC,
 export var OntapWindowsFileSystemUser$: StaticStructureSchema = [3, n0, _OWFSU,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var OpenZFSClientConfiguration$: StaticStructureSchema = [3, n0, _OZFSCC,
   0,
   [_C, _O],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var OpenZFSCreateRootVolumeConfiguration$: StaticStructureSchema = [3, n0, _OZFSCRVC,
   0,
@@ -1529,12 +1529,12 @@ export var OpenZFSFileSystemConfiguration$: StaticStructureSchema = [3, n0, _OZF
 export var OpenZFSFileSystemIdentity$: StaticStructureSchema = [3, n0, _OZFSFSI,
   0,
   [_T, _PU],
-  [0, () => OpenZFSPosixFileSystemUser$]
+  [0, () => OpenZFSPosixFileSystemUser$], 1
 ];
 export var OpenZFSNfsExport$: StaticStructureSchema = [3, n0, _OZFSNE,
   0,
   [_CC],
-  [() => OpenZFSClientConfigurations]
+  [() => OpenZFSClientConfigurations], 1
 ];
 export var OpenZFSOriginSnapshotConfiguration$: StaticStructureSchema = [3, n0, _OZFSOSC,
   0,
@@ -1544,7 +1544,7 @@ export var OpenZFSOriginSnapshotConfiguration$: StaticStructureSchema = [3, n0, 
 export var OpenZFSPosixFileSystemUser$: StaticStructureSchema = [3, n0, _OZFSPFSU,
   0,
   [_Ui, _G, _SG],
-  [1, 1, 64 | 1]
+  [1, 1, 64 | 1], 2
 ];
 export var OpenZFSReadCacheConfiguration$: StaticStructureSchema = [3, n0, _OZFSRCC,
   0,
@@ -1554,7 +1554,7 @@ export var OpenZFSReadCacheConfiguration$: StaticStructureSchema = [3, n0, _OZFS
 export var OpenZFSUserOrGroupQuota$: StaticStructureSchema = [3, n0, _OZFSUOGQ,
   0,
   [_T, _Id, _SCQGB],
-  [0, 1, 1]
+  [0, 1, 1], 3
 ];
 export var OpenZFSVolumeConfiguration$: StaticStructureSchema = [3, n0, _OZFSVC,
   0,
@@ -1569,7 +1569,7 @@ export var ReleaseConfiguration$: StaticStructureSchema = [3, n0, _RC,
 export var ReleaseFileSystemNfsV3LocksRequest$: StaticStructureSchema = [3, n0, _RFSNVLR,
   0,
   [_FSI, _CRT],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var ReleaseFileSystemNfsV3LocksResponse$: StaticStructureSchema = [3, n0, _RFSNVLRe,
   0,
@@ -1579,19 +1579,19 @@ export var ReleaseFileSystemNfsV3LocksResponse$: StaticStructureSchema = [3, n0,
 export var ResourceDoesNotSupportTagging$: StaticErrorSchema = [-3, n0, _RDNST,
   { [_e]: _c },
   [_RARN, _M],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceDoesNotSupportTagging$, ResourceDoesNotSupportTagging);
 export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
   { [_e]: _c },
   [_RARN, _M],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFound$, ResourceNotFound);
 export var RestoreVolumeFromSnapshotRequest$: StaticStructureSchema = [3, n0, _RVFSR,
   0,
-  [_CRT, _VI, _SIn, _O],
-  [[0, 4], 0, 0, 64 | 0]
+  [_VI, _SIn, _CRT, _O],
+  [0, 0, [0, 4], 64 | 0], 2
 ];
 export var RestoreVolumeFromSnapshotResponse$: StaticStructureSchema = [3, n0, _RVFSRe,
   0,
@@ -1601,7 +1601,7 @@ export var RestoreVolumeFromSnapshotResponse$: StaticStructureSchema = [3, n0, _
 export var RetentionPeriod$: StaticStructureSchema = [3, n0, _RP,
   0,
   [_T, _V],
-  [0, 1]
+  [0, 1], 1
 ];
 export var S3AccessPoint$: StaticStructureSchema = [3, n0, _SAP,
   0,
@@ -1651,8 +1651,8 @@ export var SelfManagedActiveDirectoryAttributes$: StaticStructureSchema = [3, n0
 ];
 export var SelfManagedActiveDirectoryConfiguration$: StaticStructureSchema = [3, n0, _SMADC,
   0,
-  [_DN, _OUDN, _FSAG, _UN, _Pas, _DIn, _DJSAS],
-  [0, 0, 0, 0, [() => DirectoryPassword, 0], 64 | 0, 0]
+  [_DN, _DIn, _OUDN, _FSAG, _UN, _Pas, _DJSAS],
+  [0, 64 | 0, 0, 0, 0, [() => DirectoryPassword, 0], 0], 2
 ];
 export var SelfManagedActiveDirectoryConfigurationUpdates$: StaticStructureSchema = [3, n0, _SMADCU,
   0,
@@ -1662,7 +1662,7 @@ export var SelfManagedActiveDirectoryConfigurationUpdates$: StaticStructureSchem
 export var ServiceLimitExceeded$: StaticErrorSchema = [-3, n0, _SLE,
   { [_e]: _c },
   [_Li, _M],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceLimitExceeded$, ServiceLimitExceeded);
 export var SnaplockConfiguration$: StaticStructureSchema = [3, n0, _SCn,
@@ -1673,7 +1673,7 @@ export var SnaplockConfiguration$: StaticStructureSchema = [3, n0, _SCn,
 export var SnaplockRetentionPeriod$: StaticStructureSchema = [3, n0, _SRP,
   0,
   [_DR, _MRi, _MRa],
-  [() => RetentionPeriod$, () => RetentionPeriod$, () => RetentionPeriod$]
+  [() => RetentionPeriod$, () => RetentionPeriod$, () => RetentionPeriod$], 3
 ];
 export var Snapshot$: StaticStructureSchema = [3, n0, _Sn,
   0,
@@ -1699,8 +1699,8 @@ export var SourceBackupUnavailable$: StaticErrorSchema = [-3, n0, _SBU,
 TypeRegistry.for(n0).registerError(SourceBackupUnavailable$, SourceBackupUnavailable);
 export var StartMisconfiguredStateRecoveryRequest$: StaticStructureSchema = [3, n0, _SMSRR,
   0,
-  [_CRT, _FSI],
-  [[0, 4], 0]
+  [_FSI, _CRT],
+  [0, [0, 4]], 1
 ];
 export var StartMisconfiguredStateRecoveryResponse$: StaticStructureSchema = [3, n0, _SMSRRt,
   0,
@@ -1741,12 +1741,12 @@ export var SvmEndpoints$: StaticStructureSchema = [3, n0, _SEv,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
-  [0, () => Tags]
+  [0, () => Tags], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1773,7 +1773,7 @@ TypeRegistry.for(n0).registerError(UnsupportedOperation$, UnsupportedOperation);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1783,7 +1783,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDataRepositoryAssociationRequest$: StaticStructureSchema = [3, n0, _UDRAR,
   0,
   [_AI, _CRT, _IFCS, _S_],
-  [0, [0, 4], 1, () => S3DataRepositoryConfiguration$]
+  [0, [0, 4], 1, () => S3DataRepositoryConfiguration$], 1
 ];
 export var UpdateDataRepositoryAssociationResponse$: StaticStructureSchema = [3, n0, _UDRARp,
   0,
@@ -1798,7 +1798,7 @@ export var UpdateFileCacheLustreConfiguration$: StaticStructureSchema = [3, n0, 
 export var UpdateFileCacheRequest$: StaticStructureSchema = [3, n0, _UFCR,
   0,
   [_FCI, _CRT, _LC],
-  [0, [0, 4], () => UpdateFileCacheLustreConfiguration$]
+  [0, [0, 4], () => UpdateFileCacheLustreConfiguration$], 1
 ];
 export var UpdateFileCacheResponse$: StaticStructureSchema = [3, n0, _UFCRp,
   0,
@@ -1828,7 +1828,7 @@ export var UpdateFileSystemOpenZFSConfiguration$: StaticStructureSchema = [3, n0
 export var UpdateFileSystemRequest$: StaticStructureSchema = [3, n0, _UFSR,
   0,
   [_FSI, _CRT, _SC, _WC, _LC, _OC, _OZFSC, _ST, _FSTV, _NT],
-  [0, [0, 4], 1, [() => UpdateFileSystemWindowsConfiguration$, 0], () => UpdateFileSystemLustreConfiguration$, [() => UpdateFileSystemOntapConfiguration$, 0], () => UpdateFileSystemOpenZFSConfiguration$, 0, 0, 0]
+  [0, [0, 4], 1, [() => UpdateFileSystemWindowsConfiguration$, 0], () => UpdateFileSystemLustreConfiguration$, [() => UpdateFileSystemOntapConfiguration$, 0], () => UpdateFileSystemOpenZFSConfiguration$, 0, 0, 0], 1
 ];
 export var UpdateFileSystemResponse$: StaticStructureSchema = [3, n0, _UFSRp,
   0,
@@ -1867,8 +1867,8 @@ export var UpdateSnaplockConfiguration$: StaticStructureSchema = [3, n0, _USC,
 ];
 export var UpdateSnapshotRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_CRT, _N, _SIn],
-  [[0, 4], 0, 0]
+  [_N, _SIn, _CRT],
+  [0, 0, [0, 4]], 2
 ];
 export var UpdateSnapshotResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -1877,8 +1877,8 @@ export var UpdateSnapshotResponse$: StaticStructureSchema = [3, n0, _USRp,
 ];
 export var UpdateStorageVirtualMachineRequest$: StaticStructureSchema = [3, n0, _USVMR,
   0,
-  [_ADC, _CRT, _SVMI, _SAPv],
-  [[() => UpdateSvmActiveDirectoryConfiguration$, 0], [0, 4], 0, [() => AdminPassword, 0]]
+  [_SVMI, _ADC, _CRT, _SAPv],
+  [0, [() => UpdateSvmActiveDirectoryConfiguration$, 0], [0, 4], [() => AdminPassword, 0]], 1
 ];
 export var UpdateStorageVirtualMachineResponse$: StaticStructureSchema = [3, n0, _USVMRp,
   0,
@@ -1892,8 +1892,8 @@ export var UpdateSvmActiveDirectoryConfiguration$: StaticStructureSchema = [3, n
 ];
 export var UpdateVolumeRequest$: StaticStructureSchema = [3, n0, _UVR,
   0,
-  [_CRT, _VI, _OC, _N, _OZFSC],
-  [[0, 4], 0, () => UpdateOntapVolumeConfiguration$, 0, () => UpdateOpenZFSVolumeConfiguration$]
+  [_VI, _CRT, _OC, _N, _OZFSC],
+  [0, [0, 4], () => UpdateOntapVolumeConfiguration$, 0, () => UpdateOpenZFSVolumeConfiguration$], 1
 ];
 export var UpdateVolumeResponse$: StaticStructureSchema = [3, n0, _UVRp,
   0,
@@ -1919,12 +1919,12 @@ TypeRegistry.for(n0).registerError(VolumeNotFound$, VolumeNotFound);
 export var WindowsAuditLogConfiguration$: StaticStructureSchema = [3, n0, _WALC,
   0,
   [_FAALL, _FSAALL, _ALD],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var WindowsAuditLogCreateConfiguration$: StaticStructureSchema = [3, n0, _WALCC,
   0,
   [_FAALL, _FSAALL, _ALD],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var WindowsFileSystemConfiguration$: StaticStructureSchema = [3, n0, _WFSC,
   0,
@@ -1934,7 +1934,7 @@ export var WindowsFileSystemConfiguration$: StaticStructureSchema = [3, n0, _WFS
 export var WindowsFsrmConfiguration$: StaticStructureSchema = [3, n0, _WFC,
   0,
   [_FSEs, _ELD],
-  [2, 0]
+  [2, 0], 1
 ];
 export var FSxServiceException$: StaticErrorSchema = [-3, _sm, "FSxServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(FSxServiceException$, FSxServiceException);

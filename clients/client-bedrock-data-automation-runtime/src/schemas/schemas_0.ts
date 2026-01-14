@@ -126,27 +126,27 @@ export var AssetProcessingConfiguration$: StaticStructureSchema = [3, n0, _APC,
 export var Blueprint$: StaticStructureSchema = [3, n0, _B,
   0,
   [_bA, _ve, _s],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DataAutomationConfiguration$: StaticStructureSchema = [3, n0, _DAC,
   0,
   [_dAPA, _s],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_kKI, _kEC],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var EventBridgeConfiguration$: StaticStructureSchema = [3, n0, _EBC,
   0,
   [_eBE],
-  [2]
+  [2], 1
 ];
 export var GetDataAutomationStatusRequest$: StaticStructureSchema = [3, n0, _GDASR,
   0,
   [_iA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDataAutomationStatusResponse$: StaticStructureSchema = [3, n0, _GDASRe,
   0,
@@ -156,7 +156,7 @@ export var GetDataAutomationStatusResponse$: StaticStructureSchema = [3, n0, _GD
 export var InputConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_sU, _aPC],
-  [0, () => AssetProcessingConfiguration$]
+  [0, () => AssetProcessingConfiguration$], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
@@ -166,28 +166,28 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvokeDataAutomationAsyncRequest$: StaticStructureSchema = [3, n0, _IDAAR,
   0,
-  [_cT, _iC, _oC, _dAC, _eC, _nC, _b, _dAPAa, _t],
-  [[0, 4], () => InputConfiguration$, () => OutputConfiguration$, () => DataAutomationConfiguration$, () => EncryptionConfiguration$, () => NotificationConfiguration$, () => BlueprintList, 0, () => TagList]
+  [_iC, _oC, _dAPAa, _cT, _dAC, _eC, _nC, _b, _t],
+  [() => InputConfiguration$, () => OutputConfiguration$, 0, [0, 4], () => DataAutomationConfiguration$, () => EncryptionConfiguration$, () => NotificationConfiguration$, () => BlueprintList, () => TagList], 3
 ];
 export var InvokeDataAutomationAsyncResponse$: StaticStructureSchema = [3, n0, _IDAARn,
   0,
   [_iA],
-  [0]
+  [0], 1
 ];
 export var InvokeDataAutomationRequest$: StaticStructureSchema = [3, n0, _IDAR,
   0,
-  [_iC, _dAC, _b, _dAPAa, _eC],
-  [() => SyncInputConfiguration$, () => DataAutomationConfiguration$, () => BlueprintList, 0, () => EncryptionConfiguration$]
+  [_iC, _dAPAa, _dAC, _b, _eC],
+  [() => SyncInputConfiguration$, 0, () => DataAutomationConfiguration$, () => BlueprintList, () => EncryptionConfiguration$], 2
 ];
 export var InvokeDataAutomationResponse$: StaticStructureSchema = [3, n0, _IDARn,
   0,
   [_sM, _oS],
-  [0, () => OutputSegmentList]
+  [0, () => OutputSegmentList], 2
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -197,12 +197,12 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var NotificationConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
   [_eBC],
-  [() => EventBridgeConfiguration$]
+  [() => EventBridgeConfiguration$], 1
 ];
 export var OutputConfiguration$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_sU],
-  [0]
+  [0], 1
 ];
 export var OutputSegment$: StaticStructureSchema = [3, n0, _OS,
   0,
@@ -235,12 +235,12 @@ export var SyncInputConfiguration$: StaticStructureSchema = [3, n0, _SIC,
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rARN, _t],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -256,12 +256,12 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimestampSegment$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_sTM, _eTM],
-  [1, 1]
+  [1, 1], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rARN, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,

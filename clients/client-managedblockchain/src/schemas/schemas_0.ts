@@ -278,8 +278,8 @@ export var ApprovalThresholdPolicy$: StaticStructureSchema = [3, n0, _ATP,
 ];
 export var CreateAccessorInput$: StaticStructureSchema = [3, n0, _CAI,
   0,
-  [_CRT, _AT, _Ta, _NT],
-  [[0, 4], 0, 128 | 0, 0]
+  [_AT, _CRT, _Ta, _NT],
+  [0, [0, 4], 128 | 0, 0], 1
 ];
 export var CreateAccessorOutput$: StaticStructureSchema = [3, n0, _CAO,
   0,
@@ -288,8 +288,8 @@ export var CreateAccessorOutput$: StaticStructureSchema = [3, n0, _CAO,
 ];
 export var CreateMemberInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
-  [_CRT, _II, _NI, _MC],
-  [[0, 4], 0, [0, 1], [() => MemberConfiguration$, 0]]
+  [_II, _NI, _MC, _CRT],
+  [0, [0, 1], [() => MemberConfiguration$, 0], [0, 4]], 3
 ];
 export var CreateMemberOutput$: StaticStructureSchema = [3, n0, _CMO,
   0,
@@ -298,8 +298,8 @@ export var CreateMemberOutput$: StaticStructureSchema = [3, n0, _CMO,
 ];
 export var CreateNetworkInput$: StaticStructureSchema = [3, n0, _CNI,
   0,
-  [_CRT, _N, _D, _F, _FV, _FC, _VP, _MC, _Ta],
-  [[0, 4], 0, 0, 0, 0, () => NetworkFrameworkConfiguration$, () => VotingPolicy$, [() => MemberConfiguration$, 0], 128 | 0]
+  [_N, _F, _FV, _VP, _MC, _CRT, _D, _FC, _Ta],
+  [0, 0, 0, () => VotingPolicy$, [() => MemberConfiguration$, 0], [0, 4], 0, () => NetworkFrameworkConfiguration$, 128 | 0], 5
 ];
 export var CreateNetworkOutput$: StaticStructureSchema = [3, n0, _CNO,
   0,
@@ -308,8 +308,8 @@ export var CreateNetworkOutput$: StaticStructureSchema = [3, n0, _CNO,
 ];
 export var CreateNodeInput$: StaticStructureSchema = [3, n0, _CNIr,
   0,
-  [_CRT, _NI, _MI, _NC, _Ta],
-  [[0, 4], [0, 1], 0, () => NodeConfiguration$, 128 | 0]
+  [_NI, _NC, _CRT, _MI, _Ta],
+  [[0, 1], () => NodeConfiguration$, [0, 4], 0, 128 | 0], 2
 ];
 export var CreateNodeOutput$: StaticStructureSchema = [3, n0, _CNOr,
   0,
@@ -318,8 +318,8 @@ export var CreateNodeOutput$: StaticStructureSchema = [3, n0, _CNOr,
 ];
 export var CreateProposalInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
-  [_CRT, _NI, _MI, _Ac, _D, _Ta],
-  [[0, 4], [0, 1], 0, () => ProposalActions$, 0, 128 | 0]
+  [_NI, _MI, _Ac, _CRT, _D, _Ta],
+  [[0, 1], 0, () => ProposalActions$, [0, 4], 0, 128 | 0], 3
 ];
 export var CreateProposalOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
@@ -329,7 +329,7 @@ export var CreateProposalOutput$: StaticStructureSchema = [3, n0, _CPO,
 export var DeleteAccessorInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAccessorOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
@@ -339,7 +339,7 @@ export var DeleteAccessorOutput$: StaticStructureSchema = [3, n0, _DAO,
 export var DeleteMemberInput$: StaticStructureSchema = [3, n0, _DMI,
   0,
   [_NI, _MI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteMemberOutput$: StaticStructureSchema = [3, n0, _DMO,
   0,
@@ -348,8 +348,8 @@ export var DeleteMemberOutput$: StaticStructureSchema = [3, n0, _DMO,
 ];
 export var DeleteNodeInput$: StaticStructureSchema = [3, n0, _DNI,
   0,
-  [_NI, _MI, _NIo],
-  [[0, 1], [0, { [_hQ]: _mI }], [0, 1]]
+  [_NI, _NIo, _MI],
+  [[0, 1], [0, 1], [0, { [_hQ]: _mI }]], 2
 ];
 export var DeleteNodeOutput$: StaticStructureSchema = [3, n0, _DNO,
   0,
@@ -359,7 +359,7 @@ export var DeleteNodeOutput$: StaticStructureSchema = [3, n0, _DNO,
 export var GetAccessorInput$: StaticStructureSchema = [3, n0, _GAI,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAccessorOutput$: StaticStructureSchema = [3, n0, _GAO,
   0,
@@ -369,7 +369,7 @@ export var GetAccessorOutput$: StaticStructureSchema = [3, n0, _GAO,
 export var GetMemberInput$: StaticStructureSchema = [3, n0, _GMI,
   0,
   [_NI, _MI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetMemberOutput$: StaticStructureSchema = [3, n0, _GMO,
   0,
@@ -379,7 +379,7 @@ export var GetMemberOutput$: StaticStructureSchema = [3, n0, _GMO,
 export var GetNetworkInput$: StaticStructureSchema = [3, n0, _GNI,
   0,
   [_NI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetNetworkOutput$: StaticStructureSchema = [3, n0, _GNO,
   0,
@@ -388,8 +388,8 @@ export var GetNetworkOutput$: StaticStructureSchema = [3, n0, _GNO,
 ];
 export var GetNodeInput$: StaticStructureSchema = [3, n0, _GNIe,
   0,
-  [_NI, _MI, _NIo],
-  [[0, 1], [0, { [_hQ]: _mI }], [0, 1]]
+  [_NI, _NIo, _MI],
+  [[0, 1], [0, 1], [0, { [_hQ]: _mI }]], 2
 ];
 export var GetNodeOutput$: StaticStructureSchema = [3, n0, _GNOe,
   0,
@@ -399,7 +399,7 @@ export var GetNodeOutput$: StaticStructureSchema = [3, n0, _GNOe,
 export var GetProposalInput$: StaticStructureSchema = [3, n0, _GPI,
   0,
   [_NI, _PI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetProposalOutput$: StaticStructureSchema = [3, n0, _GPO,
   0,
@@ -432,7 +432,7 @@ export var Invitation$: StaticStructureSchema = [3, n0, _In,
 export var InviteAction$: StaticStructureSchema = [3, n0, _IA,
   0,
   [_Pr],
-  [0]
+  [0], 1
 ];
 export var ListAccessorsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
@@ -457,7 +457,7 @@ export var ListInvitationsOutput$: StaticStructureSchema = [3, n0, _LIO,
 export var ListMembersInput$: StaticStructureSchema = [3, n0, _LMI,
   0,
   [_NI, _N, _S, _IO, _MR, _NTe],
-  [[0, 1], [0, { [_hQ]: _n }], [0, { [_hQ]: _st }], [2, { [_hQ]: _iO }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _n }], [0, { [_hQ]: _st }], [2, { [_hQ]: _iO }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListMembersOutput$: StaticStructureSchema = [3, n0, _LMO,
   0,
@@ -477,7 +477,7 @@ export var ListNetworksOutput$: StaticStructureSchema = [3, n0, _LNO,
 export var ListNodesInput$: StaticStructureSchema = [3, n0, _LNIi,
   0,
   [_NI, _MI, _S, _MR, _NTe],
-  [[0, 1], [0, { [_hQ]: _mI }], [0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _mI }], [0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListNodesOutput$: StaticStructureSchema = [3, n0, _LNOi,
   0,
@@ -487,7 +487,7 @@ export var ListNodesOutput$: StaticStructureSchema = [3, n0, _LNOi,
 export var ListProposalsInput$: StaticStructureSchema = [3, n0, _LPI,
   0,
   [_NI, _MR, _NTe],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListProposalsOutput$: StaticStructureSchema = [3, n0, _LPO,
   0,
@@ -497,7 +497,7 @@ export var ListProposalsOutput$: StaticStructureSchema = [3, n0, _LPO,
 export var ListProposalVotesInput$: StaticStructureSchema = [3, n0, _LPVI,
   0,
   [_NI, _PI, _MR, _NTe],
-  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListProposalVotesOutput$: StaticStructureSchema = [3, n0, _LPVO,
   0,
@@ -507,7 +507,7 @@ export var ListProposalVotesOutput$: StaticStructureSchema = [3, n0, _LPVO,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -531,8 +531,8 @@ export var Member$: StaticStructureSchema = [3, n0, _Me,
 ];
 export var MemberConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
-  [_N, _D, _FC, _LPC, _Ta, _KKA],
-  [0, 0, [() => MemberFrameworkConfiguration$, 0], () => MemberLogPublishingConfiguration$, 128 | 0, 0]
+  [_N, _FC, _D, _LPC, _Ta, _KKA],
+  [0, [() => MemberFrameworkConfiguration$, 0], 0, () => MemberLogPublishingConfiguration$, 128 | 0, 0], 2
 ];
 export var MemberFabricAttributes$: StaticStructureSchema = [3, n0, _MFA,
   0,
@@ -542,7 +542,7 @@ export var MemberFabricAttributes$: StaticStructureSchema = [3, n0, _MFA,
 export var MemberFabricConfiguration$: StaticStructureSchema = [3, n0, _MFC,
   0,
   [_AU, _AP],
-  [0, [() => PasswordString, 0]]
+  [0, [() => PasswordString, 0]], 2
 ];
 export var MemberFabricLogPublishingConfiguration$: StaticStructureSchema = [3, n0, _MFLPC,
   0,
@@ -587,7 +587,7 @@ export var NetworkFabricAttributes$: StaticStructureSchema = [3, n0, _NFA,
 export var NetworkFabricConfiguration$: StaticStructureSchema = [3, n0, _NFC,
   0,
   [_Ed],
-  [0]
+  [0], 1
 ];
 export var NetworkFrameworkAttributes$: StaticStructureSchema = [3, n0, _NFAe,
   0,
@@ -612,7 +612,7 @@ export var Node$: StaticStructureSchema = [3, n0, _No,
 export var NodeConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
   [_IT, _AZ, _LPC, _SDB],
-  [0, 0, () => NodeLogPublishingConfiguration$, 0]
+  [0, 0, () => NodeLogPublishingConfiguration$, 0], 1
 ];
 export var NodeEthereumAttributes$: StaticStructureSchema = [3, n0, _NEAo,
   0,
@@ -662,7 +662,7 @@ export var ProposalSummary$: StaticStructureSchema = [3, n0, _PSr,
 export var RejectInvitationInput$: StaticStructureSchema = [3, n0, _RII,
   0,
   [_II],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var RejectInvitationOutput$: StaticStructureSchema = [3, n0, _RIO,
   0,
@@ -672,7 +672,7 @@ export var RejectInvitationOutput$: StaticStructureSchema = [3, n0, _RIO,
 export var RemoveAction$: StaticStructureSchema = [3, n0, _RAe,
   0,
   [_MI],
-  [0]
+  [0], 1
 ];
 export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
   { [_e]: _c, [_hE]: 409 },
@@ -701,7 +701,7 @@ TypeRegistry.for(n0).registerError(ResourceNotReadyException$, ResourceNotReadyE
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -723,7 +723,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -733,7 +733,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateMemberInput$: StaticStructureSchema = [3, n0, _UMI,
   0,
   [_NI, _MI, _LPC],
-  [[0, 1], [0, 1], () => MemberLogPublishingConfiguration$]
+  [[0, 1], [0, 1], () => MemberLogPublishingConfiguration$], 2
 ];
 export var UpdateMemberOutput$: StaticStructureSchema = [3, n0, _UMO,
   0,
@@ -742,8 +742,8 @@ export var UpdateMemberOutput$: StaticStructureSchema = [3, n0, _UMO,
 ];
 export var UpdateNodeInput$: StaticStructureSchema = [3, n0, _UNI,
   0,
-  [_NI, _MI, _NIo, _LPC],
-  [[0, 1], 0, [0, 1], () => NodeLogPublishingConfiguration$]
+  [_NI, _NIo, _MI, _LPC],
+  [[0, 1], [0, 1], 0, () => NodeLogPublishingConfiguration$], 2
 ];
 export var UpdateNodeOutput$: StaticStructureSchema = [3, n0, _UNO,
   0,
@@ -753,7 +753,7 @@ export var UpdateNodeOutput$: StaticStructureSchema = [3, n0, _UNO,
 export var VoteOnProposalInput$: StaticStructureSchema = [3, n0, _VOPI,
   0,
   [_NI, _PI, _VMI, _V],
-  [[0, 1], [0, 1], 0, 0]
+  [[0, 1], [0, 1], 0, 0], 4
 ];
 export var VoteOnProposalOutput$: StaticStructureSchema = [3, n0, _VOPO,
   0,

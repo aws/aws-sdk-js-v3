@@ -327,7 +327,7 @@ var PricingRuleName: StaticSimpleSchema = [0, n0, _PRN, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountAssociationsListElement$: StaticStructureSchema = [3, n0, _AALE,
@@ -343,7 +343,7 @@ export var AccountGrouping$: StaticStructureSchema = [3, n0, _AG,
 export var AssociateAccountsInput$: StaticStructureSchema = [3, n0, _AAI,
   0,
   [_A, _AIc],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AssociateAccountsOutput$: StaticStructureSchema = [3, n0, _AAO,
   0,
@@ -353,7 +353,7 @@ export var AssociateAccountsOutput$: StaticStructureSchema = [3, n0, _AAO,
 export var AssociatePricingRulesInput$: StaticStructureSchema = [3, n0, _APRI,
   0,
   [_A, _PRA],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AssociatePricingRulesOutput$: StaticStructureSchema = [3, n0, _APRO,
   0,
@@ -378,7 +378,7 @@ export var Attribute$: StaticStructureSchema = [3, n0, _At,
 export var BatchAssociateResourcesToCustomLineItemInput$: StaticStructureSchema = [3, n0, _BARTCLII,
   0,
   [_TA, _RA, _BPR],
-  [0, 64 | 0, () => CustomLineItemBillingPeriodRange$]
+  [0, 64 | 0, () => CustomLineItemBillingPeriodRange$], 2
 ];
 export var BatchAssociateResourcesToCustomLineItemOutput$: StaticStructureSchema = [3, n0, _BARTCLIO,
   0,
@@ -388,7 +388,7 @@ export var BatchAssociateResourcesToCustomLineItemOutput$: StaticStructureSchema
 export var BatchDisassociateResourcesFromCustomLineItemInput$: StaticStructureSchema = [3, n0, _BDRFCLII,
   0,
   [_TA, _RA, _BPR],
-  [0, 64 | 0, () => CustomLineItemBillingPeriodRange$]
+  [0, 64 | 0, () => CustomLineItemBillingPeriodRange$], 2
 ];
 export var BatchDisassociateResourcesFromCustomLineItemOutput$: StaticStructureSchema = [3, n0, _BDRFCLIO,
   0,
@@ -413,23 +413,23 @@ export var BillingGroupListElement$: StaticStructureSchema = [3, n0, _BGLE,
 export var BillingPeriodRange$: StaticStructureSchema = [3, n0, _BPR,
   0,
   [_ISBP, _EEBP],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ComputationPreference$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_PPA],
-  [0]
+  [0], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _RI, _RT, _R],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateBillingGroupInput$: StaticStructureSchema = [3, n0, _CBGI,
   0,
-  [_CTl, _N, _AG, _CP, _PAI, _D, _T],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [() => BillingGroupName, 0], () => AccountGrouping$, () => ComputationPreference$, 0, [() => BillingGroupDescription, 0], 128 | 0]
+  [_N, _AG, _CP, _CTl, _PAI, _D, _T],
+  [[() => BillingGroupName, 0], () => AccountGrouping$, () => ComputationPreference$, [0, { [_hH]: _XACT, [_iT]: 1 }], 0, [() => BillingGroupDescription, 0], 128 | 0], 3
 ];
 export var CreateBillingGroupOutput$: StaticStructureSchema = [3, n0, _CBGO,
   0,
@@ -438,8 +438,8 @@ export var CreateBillingGroupOutput$: StaticStructureSchema = [3, n0, _CBGO,
 ];
 export var CreateCustomLineItemInput$: StaticStructureSchema = [3, n0, _CCLII,
   0,
-  [_CTl, _N, _D, _BGA, _BPR, _T, _CD, _AI, _CR, _PD],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [() => CustomLineItemName, 0], [() => CustomLineItemDescription, 0], 0, () => CustomLineItemBillingPeriodRange$, 128 | 0, () => CustomLineItemChargeDetails$, 0, 0, () => PresentationObject$]
+  [_N, _D, _BGA, _CD, _CTl, _BPR, _T, _AI, _CR, _PD],
+  [[() => CustomLineItemName, 0], [() => CustomLineItemDescription, 0], 0, () => CustomLineItemChargeDetails$, [0, { [_hH]: _XACT, [_iT]: 1 }], () => CustomLineItemBillingPeriodRange$, 128 | 0, 0, 0, () => PresentationObject$], 4
 ];
 export var CreateCustomLineItemOutput$: StaticStructureSchema = [3, n0, _CCLIO,
   0,
@@ -449,12 +449,12 @@ export var CreateCustomLineItemOutput$: StaticStructureSchema = [3, n0, _CCLIO,
 export var CreateFreeTierConfig$: StaticStructureSchema = [3, n0, _CFTC,
   0,
   [_Ac],
-  [2]
+  [2], 1
 ];
 export var CreatePricingPlanInput$: StaticStructureSchema = [3, n0, _CPPI,
   0,
-  [_CTl, _N, _D, _PRA, _T],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [() => PricingPlanName, 0], [() => PricingPlanDescription, 0], 64 | 0, 128 | 0]
+  [_N, _CTl, _D, _PRA, _T],
+  [[() => PricingPlanName, 0], [0, { [_hH]: _XACT, [_iT]: 1 }], [() => PricingPlanDescription, 0], 64 | 0, 128 | 0], 1
 ];
 export var CreatePricingPlanOutput$: StaticStructureSchema = [3, n0, _CPPO,
   0,
@@ -463,8 +463,8 @@ export var CreatePricingPlanOutput$: StaticStructureSchema = [3, n0, _CPPO,
 ];
 export var CreatePricingRuleInput$: StaticStructureSchema = [3, n0, _CPRI,
   0,
-  [_CTl, _N, _D, _Sc, _Ty, _MPo, _Se, _T, _BE, _Ti, _UT, _O],
-  [[0, { [_hH]: _XACT, [_iT]: 1 }], [() => PricingRuleName, 0], [() => PricingRuleDescription, 0], 0, 0, 1, 0, 128 | 0, 0, () => CreateTieringInput$, 0, 0]
+  [_N, _Sc, _Ty, _CTl, _D, _MPo, _Se, _T, _BE, _Ti, _UT, _O],
+  [[() => PricingRuleName, 0], 0, 0, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => PricingRuleDescription, 0], 1, 0, 128 | 0, 0, () => CreateTieringInput$, 0, 0], 3
 ];
 export var CreatePricingRuleOutput$: StaticStructureSchema = [3, n0, _CPRO,
   0,
@@ -474,22 +474,22 @@ export var CreatePricingRuleOutput$: StaticStructureSchema = [3, n0, _CPRO,
 export var CreateTieringInput$: StaticStructureSchema = [3, n0, _CTI,
   0,
   [_FT],
-  [() => CreateFreeTierConfig$]
+  [() => CreateFreeTierConfig$], 1
 ];
 export var CustomLineItemBillingPeriodRange$: StaticStructureSchema = [3, n0, _CLIBPR,
   0,
   [_ISBP, _EEBP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CustomLineItemChargeDetails$: StaticStructureSchema = [3, n0, _CLICD,
   0,
-  [_F, _P, _Ty, _LIF],
-  [() => CustomLineItemFlatChargeDetails$, () => CustomLineItemPercentageChargeDetails$, 0, () => LineItemFiltersList]
+  [_Ty, _F, _P, _LIF],
+  [0, () => CustomLineItemFlatChargeDetails$, () => CustomLineItemPercentageChargeDetails$, () => LineItemFiltersList], 1
 ];
 export var CustomLineItemFlatChargeDetails$: StaticStructureSchema = [3, n0, _CLIFCD,
   0,
   [_CV],
-  [1]
+  [1], 1
 ];
 export var CustomLineItemListElement$: StaticStructureSchema = [3, n0, _CLILE,
   0,
@@ -499,7 +499,7 @@ export var CustomLineItemListElement$: StaticStructureSchema = [3, n0, _CLILE,
 export var CustomLineItemPercentageChargeDetails$: StaticStructureSchema = [3, n0, _CLIPCD,
   0,
   [_PV, _AV],
-  [1, 64 | 0]
+  [1, 64 | 0], 1
 ];
 export var CustomLineItemVersionListElement$: StaticStructureSchema = [3, n0, _CLIVLE,
   0,
@@ -509,7 +509,7 @@ export var CustomLineItemVersionListElement$: StaticStructureSchema = [3, n0, _C
 export var DeleteBillingGroupInput$: StaticStructureSchema = [3, n0, _DBGI,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var DeleteBillingGroupOutput$: StaticStructureSchema = [3, n0, _DBGO,
   0,
@@ -519,7 +519,7 @@ export var DeleteBillingGroupOutput$: StaticStructureSchema = [3, n0, _DBGO,
 export var DeleteCustomLineItemInput$: StaticStructureSchema = [3, n0, _DCLII,
   0,
   [_A, _BPR],
-  [0, () => CustomLineItemBillingPeriodRange$]
+  [0, () => CustomLineItemBillingPeriodRange$], 1
 ];
 export var DeleteCustomLineItemOutput$: StaticStructureSchema = [3, n0, _DCLIO,
   0,
@@ -529,7 +529,7 @@ export var DeleteCustomLineItemOutput$: StaticStructureSchema = [3, n0, _DCLIO,
 export var DeletePricingPlanInput$: StaticStructureSchema = [3, n0, _DPPI,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var DeletePricingPlanOutput$: StaticStructureSchema = [3, n0, _DPPO,
   0,
@@ -539,7 +539,7 @@ export var DeletePricingPlanOutput$: StaticStructureSchema = [3, n0, _DPPO,
 export var DeletePricingRuleInput$: StaticStructureSchema = [3, n0, _DPRI,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var DeletePricingRuleOutput$: StaticStructureSchema = [3, n0, _DPRO,
   0,
@@ -549,7 +549,7 @@ export var DeletePricingRuleOutput$: StaticStructureSchema = [3, n0, _DPRO,
 export var DisassociateAccountsInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_A, _AIc],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DisassociateAccountsOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
@@ -559,7 +559,7 @@ export var DisassociateAccountsOutput$: StaticStructureSchema = [3, n0, _DAO,
 export var DisassociatePricingRulesInput$: StaticStructureSchema = [3, n0, _DPRIi,
   0,
   [_A, _PRA],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DisassociatePricingRulesOutput$: StaticStructureSchema = [3, n0, _DPROi,
   0,
@@ -574,12 +574,12 @@ export var DisassociateResourceResponseElement$: StaticStructureSchema = [3, n0,
 export var FreeTierConfig$: StaticStructureSchema = [3, n0, _FTC,
   0,
   [_Ac],
-  [2]
+  [2], 1
 ];
 export var GetBillingGroupCostReportInput$: StaticStructureSchema = [3, n0, _GBGCRI,
   0,
   [_A, _BPR, _GB, _MR, _NT],
-  [0, () => BillingPeriodRange$, 64 | 0, 1, 0]
+  [0, () => BillingPeriodRange$, 64 | 0, 1, 0], 1
 ];
 export var GetBillingGroupCostReportOutput$: StaticStructureSchema = [3, n0, _GBGCRO,
   0,
@@ -589,13 +589,13 @@ export var GetBillingGroupCostReportOutput$: StaticStructureSchema = [3, n0, _GB
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M, _RAS],
-  [0, [1, { [_hH]: _RA_ }]]
+  [0, [1, { [_hH]: _RA_ }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LineItemFilter$: StaticStructureSchema = [3, n0, _LIFi,
   0,
   [_At, _MO, _Va, _AVt],
-  [0, 0, 64 | 0, 64 | 0]
+  [0, 0, 64 | 0, 64 | 0], 2
 ];
 export var ListAccountAssociationsFilter$: StaticStructureSchema = [3, n0, _LAAF,
   0,
@@ -649,18 +649,18 @@ export var ListBillingGroupsOutput$: StaticStructureSchema = [3, n0, _LBGO,
 ];
 export var ListCustomLineItemChargeDetails$: StaticStructureSchema = [3, n0, _LCLICD,
   0,
-  [_F, _P, _Ty, _LIF],
-  [() => ListCustomLineItemFlatChargeDetails$, () => ListCustomLineItemPercentageChargeDetails$, 0, () => LineItemFiltersList]
+  [_Ty, _F, _P, _LIF],
+  [0, () => ListCustomLineItemFlatChargeDetails$, () => ListCustomLineItemPercentageChargeDetails$, () => LineItemFiltersList], 1
 ];
 export var ListCustomLineItemFlatChargeDetails$: StaticStructureSchema = [3, n0, _LCLIFCD,
   0,
   [_CV],
-  [1]
+  [1], 1
 ];
 export var ListCustomLineItemPercentageChargeDetails$: StaticStructureSchema = [3, n0, _LCLIPCD,
   0,
   [_PV],
-  [1]
+  [1], 1
 ];
 export var ListCustomLineItemsFilter$: StaticStructureSchema = [3, n0, _LCLIF,
   0,
@@ -690,7 +690,7 @@ export var ListCustomLineItemVersionsFilter$: StaticStructureSchema = [3, n0, _L
 export var ListCustomLineItemVersionsInput$: StaticStructureSchema = [3, n0, _LCLIVI,
   0,
   [_A, _MR, _NT, _Fi],
-  [0, 1, 0, () => ListCustomLineItemVersionsFilter$]
+  [0, 1, 0, () => ListCustomLineItemVersionsFilter$], 1
 ];
 export var ListCustomLineItemVersionsOutput$: StaticStructureSchema = [3, n0, _LCLIVO,
   0,
@@ -699,8 +699,8 @@ export var ListCustomLineItemVersionsOutput$: StaticStructureSchema = [3, n0, _L
 ];
 export var ListPricingPlansAssociatedWithPricingRuleInput$: StaticStructureSchema = [3, n0, _LPPAWPRI,
   0,
-  [_BP, _PRAr, _MR, _NT],
-  [0, 0, 1, 0]
+  [_PRAr, _BP, _MR, _NT],
+  [0, 0, 1, 0], 1
 ];
 export var ListPricingPlansAssociatedWithPricingRuleOutput$: StaticStructureSchema = [3, n0, _LPPAWPRO,
   0,
@@ -724,8 +724,8 @@ export var ListPricingPlansOutput$: StaticStructureSchema = [3, n0, _LPPO,
 ];
 export var ListPricingRulesAssociatedToPricingPlanInput$: StaticStructureSchema = [3, n0, _LPRATPPI,
   0,
-  [_BP, _PPA, _MR, _NT],
-  [0, 0, 1, 0]
+  [_PPA, _BP, _MR, _NT],
+  [0, 0, 1, 0], 1
 ];
 export var ListPricingRulesAssociatedToPricingPlanOutput$: StaticStructureSchema = [3, n0, _LPRATPPO,
   0,
@@ -754,8 +754,8 @@ export var ListResourcesAssociatedToCustomLineItemFilter$: StaticStructureSchema
 ];
 export var ListResourcesAssociatedToCustomLineItemInput$: StaticStructureSchema = [3, n0, _LRATCLII,
   0,
-  [_BP, _A, _MR, _NT, _Fi],
-  [0, 0, 1, 0, () => ListResourcesAssociatedToCustomLineItemFilter$]
+  [_A, _BP, _MR, _NT, _Fi],
+  [0, 0, 1, 0, () => ListResourcesAssociatedToCustomLineItemFilter$], 1
 ];
 export var ListResourcesAssociatedToCustomLineItemOutput$: StaticStructureSchema = [3, n0, _LRATCLIO,
   0,
@@ -770,7 +770,7 @@ export var ListResourcesAssociatedToCustomLineItemResponseElement$: StaticStruct
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -780,7 +780,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var PresentationObject$: StaticStructureSchema = [3, n0, _PO,
   0,
   [_Se],
-  [0]
+  [0], 1
 ];
 export var PricingPlanListElement$: StaticStructureSchema = [3, n0, _PPLE,
   0,
@@ -795,24 +795,24 @@ export var PricingRuleListElement$: StaticStructureSchema = [3, n0, _PRLE,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
   { [_e]: _c, [_hE]: 402 },
-  [_M, _RI, _RT, _LC, _SC],
-  [0, 0, 0, 0, 0]
+  [_M, _LC, _SC, _RI, _RT],
+  [0, 0, 0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
 export var StringSearch$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_SO, _SV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -822,18 +822,18 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M, _RAS],
-  [0, [1, { [_hH]: _RA_ }]]
+  [0, [1, { [_hH]: _RA_ }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Tiering$: StaticStructureSchema = [3, n0, _Ti,
   0,
   [_FT],
-  [() => FreeTierConfig$]
+  [() => FreeTierConfig$], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -848,7 +848,7 @@ export var UpdateBillingGroupAccountGrouping$: StaticStructureSchema = [3, n0, _
 export var UpdateBillingGroupInput$: StaticStructureSchema = [3, n0, _UBGI,
   0,
   [_A, _N, _St, _CP, _D, _AG],
-  [0, [() => BillingGroupName, 0], 0, () => ComputationPreference$, [() => BillingGroupDescription, 0], () => UpdateBillingGroupAccountGrouping$]
+  [0, [() => BillingGroupName, 0], 0, () => ComputationPreference$, [() => BillingGroupDescription, 0], () => UpdateBillingGroupAccountGrouping$], 1
 ];
 export var UpdateBillingGroupOutput$: StaticStructureSchema = [3, n0, _UBGO,
   0,
@@ -863,12 +863,12 @@ export var UpdateCustomLineItemChargeDetails$: StaticStructureSchema = [3, n0, _
 export var UpdateCustomLineItemFlatChargeDetails$: StaticStructureSchema = [3, n0, _UCLIFCD,
   0,
   [_CV],
-  [1]
+  [1], 1
 ];
 export var UpdateCustomLineItemInput$: StaticStructureSchema = [3, n0, _UCLII,
   0,
   [_A, _N, _D, _CD, _BPR],
-  [0, [() => CustomLineItemName, 0], [() => CustomLineItemDescription, 0], () => UpdateCustomLineItemChargeDetails$, () => CustomLineItemBillingPeriodRange$]
+  [0, [() => CustomLineItemName, 0], [() => CustomLineItemDescription, 0], () => UpdateCustomLineItemChargeDetails$, () => CustomLineItemBillingPeriodRange$], 1
 ];
 export var UpdateCustomLineItemOutput$: StaticStructureSchema = [3, n0, _UCLIO,
   0,
@@ -878,17 +878,17 @@ export var UpdateCustomLineItemOutput$: StaticStructureSchema = [3, n0, _UCLIO,
 export var UpdateCustomLineItemPercentageChargeDetails$: StaticStructureSchema = [3, n0, _UCLIPCD,
   0,
   [_PV],
-  [1]
+  [1], 1
 ];
 export var UpdateFreeTierConfig$: StaticStructureSchema = [3, n0, _UFTC,
   0,
   [_Ac],
-  [2]
+  [2], 1
 ];
 export var UpdatePricingPlanInput$: StaticStructureSchema = [3, n0, _UPPI,
   0,
   [_A, _N, _D],
-  [0, [() => PricingPlanName, 0], [() => PricingPlanDescription, 0]]
+  [0, [() => PricingPlanName, 0], [() => PricingPlanDescription, 0]], 1
 ];
 export var UpdatePricingPlanOutput$: StaticStructureSchema = [3, n0, _UPPO,
   0,
@@ -898,7 +898,7 @@ export var UpdatePricingPlanOutput$: StaticStructureSchema = [3, n0, _UPPO,
 export var UpdatePricingRuleInput$: StaticStructureSchema = [3, n0, _UPRI,
   0,
   [_A, _N, _D, _Ty, _MPo, _Ti],
-  [0, [() => PricingRuleName, 0], [() => PricingRuleDescription, 0], 0, 1, () => UpdateTieringInput$]
+  [0, [() => PricingRuleName, 0], [() => PricingRuleDescription, 0], 0, 1, () => UpdateTieringInput$], 1
 ];
 export var UpdatePricingRuleOutput$: StaticStructureSchema = [3, n0, _UPRO,
   0,
@@ -908,18 +908,18 @@ export var UpdatePricingRuleOutput$: StaticStructureSchema = [3, n0, _UPRO,
 export var UpdateTieringInput$: StaticStructureSchema = [3, n0, _UTI,
   0,
   [_FT],
-  [() => UpdateFreeTierConfig$]
+  [() => UpdateFreeTierConfig$], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _R, _Fie],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BillingconductorServiceException$: StaticErrorSchema = [-3, _sm, "BillingconductorServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BillingconductorServiceException$, BillingconductorServiceException);

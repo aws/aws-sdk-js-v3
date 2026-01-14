@@ -897,22 +897,22 @@ var servicePassword: StaticSimpleSchema = [0, n0, _sP, 8, 0];
 export var AcceptDelegationRequestRequest$: StaticStructureSchema = [3, n0, _ADRR,
   0,
   [_DRI],
-  [0]
+  [0], 1
 ];
 export var AccessDetail$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_SN, _SNe, _R, _EP, _LAT, _TAE],
-  [0, 0, 0, 0, 4, 1]
+  [0, 0, 0, 0, 4, 1], 2
 ];
 export var AccessKey$: StaticStructureSchema = [3, n0, _AK,
   0,
   [_UN, _AKI, _S, _SAK, _CD],
-  [0, 0, 0, [() => accessKeySecretType, 0], 4]
+  [0, 0, 0, [() => accessKeySecretType, 0], 4], 4
 ];
 export var AccessKeyLastUsed$: StaticStructureSchema = [3, n0, _AKLU,
   0,
-  [_LUD, _SN, _R],
-  [4, 0, 0]
+  [_SN, _R, _LUD],
+  [0, 0, 4], 2
 ];
 export var AccessKeyMetadata$: StaticStructureSchema = [3, n0, _AKM,
   0,
@@ -928,22 +928,22 @@ TypeRegistry.for(n0).registerError(AccountNotManagementOrDelegatedAdministratorE
 export var AddClientIDToOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _ACIDTOIDCPR,
   0,
   [_OIDCPA, _CID],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AddRoleToInstanceProfileRequest$: StaticStructureSchema = [3, n0, _ARTIPR,
   0,
   [_IPN, _RN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AddUserToGroupRequest$: StaticStructureSchema = [3, n0, _AUTGR,
   0,
   [_GN, _UN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateDelegationRequestRequest$: StaticStructureSchema = [3, n0, _ADRRs,
   0,
   [_DRI],
-  [0]
+  [0], 1
 ];
 export var AttachedPermissionsBoundary$: StaticStructureSchema = [3, n0, _APB,
   0,
@@ -958,17 +958,17 @@ export var AttachedPolicy$: StaticStructureSchema = [3, n0, _AP,
 export var AttachGroupPolicyRequest$: StaticStructureSchema = [3, n0, _AGPR,
   0,
   [_GN, _PA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AttachRolePolicyRequest$: StaticStructureSchema = [3, n0, _ARPR,
   0,
   [_RN, _PA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AttachUserPolicyRequest$: StaticStructureSchema = [3, n0, _AUPR,
   0,
   [_UN, _PA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CallerIsNotManagementAccountException$: StaticErrorSchema = [-3, n0, _CINMAE,
   { [_e]: _c, [_hE]: 400 },
@@ -979,7 +979,7 @@ TypeRegistry.for(n0).registerError(CallerIsNotManagementAccountException$, Calle
 export var ChangePasswordRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_OP, _NP],
-  [[() => passwordType, 0], [() => passwordType, 0]]
+  [[() => passwordType, 0], [() => passwordType, 0]], 2
 ];
 export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
   { [_aQE]: [`ConcurrentModification`, 409], [_e]: _c, [_hE]: 409 },
@@ -1000,17 +1000,17 @@ export var CreateAccessKeyRequest$: StaticStructureSchema = [3, n0, _CAKR,
 export var CreateAccessKeyResponse$: StaticStructureSchema = [3, n0, _CAKRr,
   0,
   [_AK],
-  [[() => AccessKey$, 0]]
+  [[() => AccessKey$, 0]], 1
 ];
 export var CreateAccountAliasRequest$: StaticStructureSchema = [3, n0, _CAAR,
   0,
   [_AA],
-  [0]
+  [0], 1
 ];
 export var CreateDelegationRequestRequest$: StaticStructureSchema = [3, n0, _CDRR,
   0,
-  [_OAI, _D, _P, _RM, _RWI, _RU, _NC, _SD, _OSBO],
-  [0, 0, () => DelegationPermission$, 0, 0, 0, 0, 1, 2]
+  [_D, _P, _RWI, _NC, _SD, _OAI, _RM, _RU, _OSBO],
+  [0, () => DelegationPermission$, 0, 0, 1, 0, 0, 0, 2], 5
 ];
 export var CreateDelegationRequestResponse$: StaticStructureSchema = [3, n0, _CDRRr,
   0,
@@ -1019,23 +1019,23 @@ export var CreateDelegationRequestResponse$: StaticStructureSchema = [3, n0, _CD
 ];
 export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
-  [_Pa, _GN],
-  [0, 0]
+  [_GN, _Pa],
+  [0, 0], 1
 ];
 export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
   [_G],
-  [() => Group$]
+  [() => Group$], 1
 ];
 export var CreateInstanceProfileRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
   [_IPN, _Pa, _T],
-  [0, 0, () => tagListType]
+  [0, 0, () => tagListType], 1
 ];
 export var CreateInstanceProfileResponse$: StaticStructureSchema = [3, n0, _CIPRr,
   0,
   [_IP],
-  [() => InstanceProfile$]
+  [() => InstanceProfile$], 1
 ];
 export var CreateLoginProfileRequest$: StaticStructureSchema = [3, n0, _CLPR,
   0,
@@ -1045,12 +1045,12 @@ export var CreateLoginProfileRequest$: StaticStructureSchema = [3, n0, _CLPR,
 export var CreateLoginProfileResponse$: StaticStructureSchema = [3, n0, _CLPRr,
   0,
   [_LP],
-  [() => LoginProfile$]
+  [() => LoginProfile$], 1
 ];
 export var CreateOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _COIDCPR,
   0,
   [_U, _CIDL, _TL, _T],
-  [0, 64 | 0, 64 | 0, () => tagListType]
+  [0, 64 | 0, 64 | 0, () => tagListType], 1
 ];
 export var CreateOpenIDConnectProviderResponse$: StaticStructureSchema = [3, n0, _COIDCPRr,
   0,
@@ -1059,8 +1059,8 @@ export var CreateOpenIDConnectProviderResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_PN, _Pa, _PD, _D, _T],
-  [0, 0, 0, 0, () => tagListType]
+  [_PN, _PD, _Pa, _D, _T],
+  [0, 0, 0, 0, () => tagListType], 2
 ];
 export var CreatePolicyResponse$: StaticStructureSchema = [3, n0, _CPRre,
   0,
@@ -1070,7 +1070,7 @@ export var CreatePolicyResponse$: StaticStructureSchema = [3, n0, _CPRre,
 export var CreatePolicyVersionRequest$: StaticStructureSchema = [3, n0, _CPVR,
   0,
   [_PA, _PD, _SAD],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var CreatePolicyVersionResponse$: StaticStructureSchema = [3, n0, _CPVRr,
   0,
@@ -1079,18 +1079,18 @@ export var CreatePolicyVersionResponse$: StaticStructureSchema = [3, n0, _CPVRr,
 ];
 export var CreateRoleRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_Pa, _RN, _ARPD, _D, _MSD, _PB, _T],
-  [0, 0, 0, 0, 1, 0, () => tagListType]
+  [_RN, _ARPD, _Pa, _D, _MSD, _PB, _T],
+  [0, 0, 0, 0, 1, 0, () => tagListType], 2
 ];
 export var CreateRoleResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
   [_Ro],
-  [() => Role$]
+  [() => Role$], 1
 ];
 export var CreateSAMLProviderRequest$: StaticStructureSchema = [3, n0, _CSAMLPR,
   0,
   [_SAMLMD, _N, _T, _AEM, _APK],
-  [0, 0, () => tagListType, 0, [() => privateKeyType, 0]]
+  [0, 0, () => tagListType, 0, [() => privateKeyType, 0]], 2
 ];
 export var CreateSAMLProviderResponse$: StaticStructureSchema = [3, n0, _CSAMLPRr,
   0,
@@ -1100,7 +1100,7 @@ export var CreateSAMLProviderResponse$: StaticStructureSchema = [3, n0, _CSAMLPR
 export var CreateServiceLinkedRoleRequest$: StaticStructureSchema = [3, n0, _CSLRR,
   0,
   [_AWSSN, _D, _CS],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var CreateServiceLinkedRoleResponse$: StaticStructureSchema = [3, n0, _CSLRRr,
   0,
@@ -1110,7 +1110,7 @@ export var CreateServiceLinkedRoleResponse$: StaticStructureSchema = [3, n0, _CS
 export var CreateServiceSpecificCredentialRequest$: StaticStructureSchema = [3, n0, _CSSCR,
   0,
   [_UN, _SN, _CAD],
-  [0, 0, 1]
+  [0, 0, 1], 2
 ];
 export var CreateServiceSpecificCredentialResponse$: StaticStructureSchema = [3, n0, _CSSCRr,
   0,
@@ -1119,8 +1119,8 @@ export var CreateServiceSpecificCredentialResponse$: StaticStructureSchema = [3,
 ];
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
-  [_Pa, _UN, _PB, _T],
-  [0, 0, 0, () => tagListType]
+  [_UN, _Pa, _PB, _T],
+  [0, 0, 0, () => tagListType], 1
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
@@ -1129,13 +1129,13 @@ export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
 ];
 export var CreateVirtualMFADeviceRequest$: StaticStructureSchema = [3, n0, _CVMFADR,
   0,
-  [_Pa, _VMFADN, _T],
-  [0, 0, () => tagListType]
+  [_VMFADN, _Pa, _T],
+  [0, 0, () => tagListType], 1
 ];
 export var CreateVirtualMFADeviceResponse$: StaticStructureSchema = [3, n0, _CVMFADRr,
   0,
   [_VMFAD],
-  [[() => VirtualMFADevice$, 0]]
+  [[() => VirtualMFADevice$, 0]], 1
 ];
 export var CredentialReportExpiredException$: StaticErrorSchema = [-3, n0, _CREE,
   { [_aQE]: [`ReportExpired`, 410], [_e]: _c, [_hE]: 410 },
@@ -1157,8 +1157,8 @@ export var CredentialReportNotReadyException$: StaticErrorSchema = [-3, n0, _CRN
 TypeRegistry.for(n0).registerError(CredentialReportNotReadyException$, CredentialReportNotReadyException);
 export var DeactivateMFADeviceRequest$: StaticStructureSchema = [3, n0, _DMFADR,
   0,
-  [_UN, _SNer],
-  [0, 0]
+  [_SNer, _UN],
+  [0, 0], 1
 ];
 export var DelegationPermission$: StaticStructureSchema = [3, n0, _DP,
   0,
@@ -1172,13 +1172,13 @@ export var DelegationRequest$: StaticStructureSchema = [3, n0, _DR,
 ];
 export var DeleteAccessKeyRequest$: StaticStructureSchema = [3, n0, _DAKR,
   0,
-  [_UN, _AKI],
-  [0, 0]
+  [_AKI, _UN],
+  [0, 0], 1
 ];
 export var DeleteAccountAliasRequest$: StaticStructureSchema = [3, n0, _DAAR,
   0,
   [_AA],
-  [0]
+  [0], 1
 ];
 export var DeleteConflictException$: StaticErrorSchema = [-3, n0, _DCE,
   { [_aQE]: [`DeleteConflict`, 409], [_e]: _c, [_hE]: 409 },
@@ -1189,17 +1189,17 @@ TypeRegistry.for(n0).registerError(DeleteConflictException$, DeleteConflictExcep
 export var DeleteGroupPolicyRequest$: StaticStructureSchema = [3, n0, _DGPR,
   0,
   [_GN, _PN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
   [_GN],
-  [0]
+  [0], 1
 ];
 export var DeleteInstanceProfileRequest$: StaticStructureSchema = [3, n0, _DIPR,
   0,
   [_IPN],
-  [0]
+  [0], 1
 ];
 export var DeleteLoginProfileRequest$: StaticStructureSchema = [3, n0, _DLPR,
   0,
@@ -1209,87 +1209,87 @@ export var DeleteLoginProfileRequest$: StaticStructureSchema = [3, n0, _DLPR,
 export var DeleteOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _DOIDCPR,
   0,
   [_OIDCPA],
-  [0]
+  [0], 1
 ];
 export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PA],
-  [0]
+  [0], 1
 ];
 export var DeletePolicyVersionRequest$: StaticStructureSchema = [3, n0, _DPVR,
   0,
   [_PA, _VI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteRolePermissionsBoundaryRequest$: StaticStructureSchema = [3, n0, _DRPBR,
   0,
   [_RN],
-  [0]
+  [0], 1
 ];
 export var DeleteRolePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_RN, _PN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteRoleRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_RN],
-  [0]
+  [0], 1
 ];
 export var DeleteSAMLProviderRequest$: StaticStructureSchema = [3, n0, _DSAMLPR,
   0,
   [_SAMLPA],
-  [0]
+  [0], 1
 ];
 export var DeleteServerCertificateRequest$: StaticStructureSchema = [3, n0, _DSCR,
   0,
   [_SCN],
-  [0]
+  [0], 1
 ];
 export var DeleteServiceLinkedRoleRequest$: StaticStructureSchema = [3, n0, _DSLRR,
   0,
   [_RN],
-  [0]
+  [0], 1
 ];
 export var DeleteServiceLinkedRoleResponse$: StaticStructureSchema = [3, n0, _DSLRRe,
   0,
   [_DTI],
-  [0]
+  [0], 1
 ];
 export var DeleteServiceSpecificCredentialRequest$: StaticStructureSchema = [3, n0, _DSSCR,
   0,
-  [_UN, _SSCI],
-  [0, 0]
+  [_SSCI, _UN],
+  [0, 0], 1
 ];
 export var DeleteSigningCertificateRequest$: StaticStructureSchema = [3, n0, _DSCRe,
   0,
-  [_UN, _CI],
-  [0, 0]
+  [_CI, _UN],
+  [0, 0], 1
 ];
 export var DeleteSSHPublicKeyRequest$: StaticStructureSchema = [3, n0, _DSSHPKR,
   0,
   [_UN, _SSHPKI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteUserPermissionsBoundaryRequest$: StaticStructureSchema = [3, n0, _DUPBR,
   0,
   [_UN],
-  [0]
+  [0], 1
 ];
 export var DeleteUserPolicyRequest$: StaticStructureSchema = [3, n0, _DUPR,
   0,
   [_UN, _PN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_UN],
-  [0]
+  [0], 1
 ];
 export var DeleteVirtualMFADeviceRequest$: StaticStructureSchema = [3, n0, _DVMFADR,
   0,
   [_SNer],
-  [0]
+  [0], 1
 ];
 export var DeletionTaskFailureReasonType$: StaticStructureSchema = [3, n0, _DTFRT,
   0,
@@ -1299,17 +1299,17 @@ export var DeletionTaskFailureReasonType$: StaticStructureSchema = [3, n0, _DTFR
 export var DetachGroupPolicyRequest$: StaticStructureSchema = [3, n0, _DGPRe,
   0,
   [_GN, _PA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DetachRolePolicyRequest$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
   [_RN, _PA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DetachUserPolicyRequest$: StaticStructureSchema = [3, n0, _DUPRe,
   0,
   [_UN, _PA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisableOrganizationsRootCredentialsManagementRequest$: StaticStructureSchema = [3, n0, _DORCMR,
   0,
@@ -1346,7 +1346,7 @@ TypeRegistry.for(n0).registerError(DuplicateSSHPublicKeyException$, DuplicateSSH
 export var EnableMFADeviceRequest$: StaticStructureSchema = [3, n0, _EMFADR,
   0,
   [_UN, _SNer, _AC, _ACu],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var EnableOrganizationsRootCredentialsManagementRequest$: StaticStructureSchema = [3, n0, _EORCMR,
   0,
@@ -1382,12 +1382,12 @@ TypeRegistry.for(n0).registerError(EntityAlreadyExistsException$, EntityAlreadyE
 export var EntityDetails$: StaticStructureSchema = [3, n0, _ED,
   0,
   [_EI, _LA],
-  [() => EntityInfo$, 4]
+  [() => EntityInfo$, 4], 1
 ];
 export var EntityInfo$: StaticStructureSchema = [3, n0, _EI,
   0,
   [_A, _N, _Ty, _I, _Pa],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var EntityTemporarilyUnmodifiableException$: StaticErrorSchema = [-3, n0, _ETUE,
   { [_aQE]: [`EntityTemporarilyUnmodifiable`, 409], [_e]: _c, [_hE]: 409 },
@@ -1398,12 +1398,12 @@ TypeRegistry.for(n0).registerError(EntityTemporarilyUnmodifiableException$, Enti
 export var ErrorDetails$: StaticStructureSchema = [3, n0, _EDr,
   0,
   [_M, _C],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EvaluationResult$: StaticStructureSchema = [3, n0, _ER,
   0,
-  [_EAN, _ERN, _EDv, _MS, _MCV, _ODD, _PBDD, _EDD, _RSR],
-  [0, 0, 0, () => StatementListType, 64 | 0, () => OrganizationsDecisionDetail$, () => PermissionsBoundaryDecisionDetail$, 128 | 0, () => ResourceSpecificResultListType]
+  [_EAN, _EDv, _ERN, _MS, _MCV, _ODD, _PBDD, _EDD, _RSR],
+  [0, 0, 0, () => StatementListType, 64 | 0, () => OrganizationsDecisionDetail$, () => PermissionsBoundaryDecisionDetail$, 128 | 0, () => ResourceSpecificResultListType], 2
 ];
 export var FeatureDisabledException$: StaticErrorSchema = [-3, n0, _FDE,
   { [_aQE]: [`FeatureDisabled`, 404], [_e]: _c, [_hE]: 404 },
@@ -1425,7 +1425,7 @@ export var GenerateCredentialReportResponse$: StaticStructureSchema = [3, n0, _G
 export var GenerateOrganizationsAccessReportRequest$: StaticStructureSchema = [3, n0, _GOARR,
   0,
   [_EP, _OPI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GenerateOrganizationsAccessReportResponse$: StaticStructureSchema = [3, n0, _GOARRe,
   0,
@@ -1435,7 +1435,7 @@ export var GenerateOrganizationsAccessReportResponse$: StaticStructureSchema = [
 export var GenerateServiceLastAccessedDetailsRequest$: StaticStructureSchema = [3, n0, _GSLADR,
   0,
   [_A, _Gr],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GenerateServiceLastAccessedDetailsResponse$: StaticStructureSchema = [3, n0, _GSLADRe,
   0,
@@ -1445,7 +1445,7 @@ export var GenerateServiceLastAccessedDetailsResponse$: StaticStructureSchema = 
 export var GetAccessKeyLastUsedRequest$: StaticStructureSchema = [3, n0, _GAKLUR,
   0,
   [_AKI],
-  [0]
+  [0], 1
 ];
 export var GetAccessKeyLastUsedResponse$: StaticStructureSchema = [3, n0, _GAKLURe,
   0,
@@ -1465,7 +1465,7 @@ export var GetAccountAuthorizationDetailsResponse$: StaticStructureSchema = [3, 
 export var GetAccountPasswordPolicyResponse$: StaticStructureSchema = [3, n0, _GAPPR,
   0,
   [_PPa],
-  [() => PasswordPolicy$]
+  [() => PasswordPolicy$], 1
 ];
 export var GetAccountSummaryResponse$: StaticStructureSchema = [3, n0, _GASR,
   0,
@@ -1475,7 +1475,7 @@ export var GetAccountSummaryResponse$: StaticStructureSchema = [3, n0, _GASR,
 export var GetContextKeysForCustomPolicyRequest$: StaticStructureSchema = [3, n0, _GCKFCPR,
   0,
   [_PIL],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var GetContextKeysForPolicyResponse$: StaticStructureSchema = [3, n0, _GCKFPR,
   0,
@@ -1485,7 +1485,7 @@ export var GetContextKeysForPolicyResponse$: StaticStructureSchema = [3, n0, _GC
 export var GetContextKeysForPrincipalPolicyRequest$: StaticStructureSchema = [3, n0, _GCKFPPR,
   0,
   [_PSA, _PIL],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var GetCredentialReportResponse$: StaticStructureSchema = [3, n0, _GCRRe,
   0,
@@ -1495,7 +1495,7 @@ export var GetCredentialReportResponse$: StaticStructureSchema = [3, n0, _GCRRe,
 export var GetDelegationRequestRequest$: StaticStructureSchema = [3, n0, _GDRR,
   0,
   [_DRI, _DPC],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetDelegationRequestResponse$: StaticStructureSchema = [3, n0, _GDRRe,
   0,
@@ -1505,27 +1505,27 @@ export var GetDelegationRequestResponse$: StaticStructureSchema = [3, n0, _GDRRe
 export var GetGroupPolicyRequest$: StaticStructureSchema = [3, n0, _GGPR,
   0,
   [_GN, _PN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetGroupPolicyResponse$: StaticStructureSchema = [3, n0, _GGPRe,
   0,
   [_GN, _PN, _PD],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetGroupRequest$: StaticStructureSchema = [3, n0, _GGR,
   0,
   [_GN, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var GetGroupResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
   [_G, _Use, _IT, _Ma],
-  [() => Group$, () => userListType, 2, 0]
+  [() => Group$, () => userListType, 2, 0], 2
 ];
 export var GetHumanReadableSummaryRequest$: StaticStructureSchema = [3, n0, _GHRSR,
   0,
   [_EA, _L],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetHumanReadableSummaryResponse$: StaticStructureSchema = [3, n0, _GHRSRe,
   0,
@@ -1535,12 +1535,12 @@ export var GetHumanReadableSummaryResponse$: StaticStructureSchema = [3, n0, _GH
 export var GetInstanceProfileRequest$: StaticStructureSchema = [3, n0, _GIPR,
   0,
   [_IPN],
-  [0]
+  [0], 1
 ];
 export var GetInstanceProfileResponse$: StaticStructureSchema = [3, n0, _GIPRe,
   0,
   [_IP],
-  [() => InstanceProfile$]
+  [() => InstanceProfile$], 1
 ];
 export var GetLoginProfileRequest$: StaticStructureSchema = [3, n0, _GLPR,
   0,
@@ -1550,22 +1550,22 @@ export var GetLoginProfileRequest$: StaticStructureSchema = [3, n0, _GLPR,
 export var GetLoginProfileResponse$: StaticStructureSchema = [3, n0, _GLPRe,
   0,
   [_LP],
-  [() => LoginProfile$]
+  [() => LoginProfile$], 1
 ];
 export var GetMFADeviceRequest$: StaticStructureSchema = [3, n0, _GMFADR,
   0,
   [_SNer, _UN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetMFADeviceResponse$: StaticStructureSchema = [3, n0, _GMFADRe,
   0,
-  [_UN, _SNer, _EDn, _Ce],
-  [0, 0, 4, 128 | 0]
+  [_SNer, _UN, _EDn, _Ce],
+  [0, 0, 4, 128 | 0], 1
 ];
 export var GetOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _GOIDCPR,
   0,
   [_OIDCPA],
-  [0]
+  [0], 1
 ];
 export var GetOpenIDConnectProviderResponse$: StaticStructureSchema = [3, n0, _GOIDCPRe,
   0,
@@ -1575,12 +1575,12 @@ export var GetOpenIDConnectProviderResponse$: StaticStructureSchema = [3, n0, _G
 export var GetOrganizationsAccessReportRequest$: StaticStructureSchema = [3, n0, _GOARRet,
   0,
   [_JI, _MI, _Ma, _SK],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0], 1
 ];
 export var GetOrganizationsAccessReportResponse$: StaticStructureSchema = [3, n0, _GOARRetr,
   0,
   [_JS, _JCD, _JCDo, _NOSA, _NOSNA, _ADc, _IT, _Ma, _EDr],
-  [0, 4, 4, 1, 1, () => AccessDetails, 2, 0, () => ErrorDetails$]
+  [0, 4, 4, 1, 1, () => AccessDetails, 2, 0, () => ErrorDetails$], 2
 ];
 export var GetOutboundWebIdentityFederationInfoResponse$: StaticStructureSchema = [3, n0, _GOWIFIR,
   0,
@@ -1590,7 +1590,7 @@ export var GetOutboundWebIdentityFederationInfoResponse$: StaticStructureSchema 
 export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_PA],
-  [0]
+  [0], 1
 ];
 export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -1600,7 +1600,7 @@ export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
 export var GetPolicyVersionRequest$: StaticStructureSchema = [3, n0, _GPVR,
   0,
   [_PA, _VI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPolicyVersionResponse$: StaticStructureSchema = [3, n0, _GPVRe,
   0,
@@ -1610,27 +1610,27 @@ export var GetPolicyVersionResponse$: StaticStructureSchema = [3, n0, _GPVRe,
 export var GetRolePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_RN, _PN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetRolePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
   [_RN, _PN, _PD],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetRoleRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_RN],
-  [0]
+  [0], 1
 ];
 export var GetRoleResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
   [_Ro],
-  [() => Role$]
+  [() => Role$], 1
 ];
 export var GetSAMLProviderRequest$: StaticStructureSchema = [3, n0, _GSAMLPR,
   0,
   [_SAMLPA],
-  [0]
+  [0], 1
 ];
 export var GetSAMLProviderResponse$: StaticStructureSchema = [3, n0, _GSAMLPRe,
   0,
@@ -1640,47 +1640,47 @@ export var GetSAMLProviderResponse$: StaticStructureSchema = [3, n0, _GSAMLPRe,
 export var GetServerCertificateRequest$: StaticStructureSchema = [3, n0, _GSCR,
   0,
   [_SCN],
-  [0]
+  [0], 1
 ];
 export var GetServerCertificateResponse$: StaticStructureSchema = [3, n0, _GSCRe,
   0,
   [_SCe],
-  [() => ServerCertificate$]
+  [() => ServerCertificate$], 1
 ];
 export var GetServiceLastAccessedDetailsRequest$: StaticStructureSchema = [3, n0, _GSLADRet,
   0,
   [_JI, _MI, _Ma],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetServiceLastAccessedDetailsResponse$: StaticStructureSchema = [3, n0, _GSLADRete,
   0,
-  [_JS, _JT, _JCD, _SLA, _JCDo, _IT, _Ma, _E],
-  [0, 0, 4, () => ServicesLastAccessed, 4, 2, 0, () => ErrorDetails$]
+  [_JS, _JCD, _SLA, _JCDo, _JT, _IT, _Ma, _E],
+  [0, 4, () => ServicesLastAccessed, 4, 0, 2, 0, () => ErrorDetails$], 4
 ];
 export var GetServiceLastAccessedDetailsWithEntitiesRequest$: StaticStructureSchema = [3, n0, _GSLADWER,
   0,
   [_JI, _SNe, _MI, _Ma],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 2
 ];
 export var GetServiceLastAccessedDetailsWithEntitiesResponse$: StaticStructureSchema = [3, n0, _GSLADWERe,
   0,
   [_JS, _JCD, _JCDo, _EDL, _IT, _Ma, _E],
-  [0, 4, 4, () => entityDetailsListType, 2, 0, () => ErrorDetails$]
+  [0, 4, 4, () => entityDetailsListType, 2, 0, () => ErrorDetails$], 4
 ];
 export var GetServiceLinkedRoleDeletionStatusRequest$: StaticStructureSchema = [3, n0, _GSLRDSR,
   0,
   [_DTI],
-  [0]
+  [0], 1
 ];
 export var GetServiceLinkedRoleDeletionStatusResponse$: StaticStructureSchema = [3, n0, _GSLRDSRe,
   0,
   [_S, _Re],
-  [0, () => DeletionTaskFailureReasonType$]
+  [0, () => DeletionTaskFailureReasonType$], 1
 ];
 export var GetSSHPublicKeyRequest$: StaticStructureSchema = [3, n0, _GSSHPKR,
   0,
   [_UN, _SSHPKI, _En],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetSSHPublicKeyResponse$: StaticStructureSchema = [3, n0, _GSSHPKRe,
   0,
@@ -1690,12 +1690,12 @@ export var GetSSHPublicKeyResponse$: StaticStructureSchema = [3, n0, _GSSHPKRe,
 export var GetUserPolicyRequest$: StaticStructureSchema = [3, n0, _GUPR,
   0,
   [_UN, _PN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetUserPolicyResponse$: StaticStructureSchema = [3, n0, _GUPRe,
   0,
   [_UN, _PN, _PD],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetUserRequest$: StaticStructureSchema = [3, n0, _GUR,
   0,
@@ -1705,12 +1705,12 @@ export var GetUserRequest$: StaticStructureSchema = [3, n0, _GUR,
 export var GetUserResponse$: StaticStructureSchema = [3, n0, _GURe,
   0,
   [_Us],
-  [() => User$]
+  [() => User$], 1
 ];
 export var Group$: StaticStructureSchema = [3, n0, _G,
   0,
   [_Pa, _GN, _GI, _A, _CD],
-  [0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 4], 5
 ];
 export var GroupDetail$: StaticStructureSchema = [3, n0, _GD,
   0,
@@ -1720,7 +1720,7 @@ export var GroupDetail$: StaticStructureSchema = [3, n0, _GD,
 export var InstanceProfile$: StaticStructureSchema = [3, n0, _IP,
   0,
   [_Pa, _IPN, _IPI, _A, _CD, _Rol, _T],
-  [0, 0, 0, 0, 4, () => roleListType, () => tagListType]
+  [0, 0, 0, 0, 4, () => roleListType, () => tagListType], 6
 ];
 export var InvalidAuthenticationCodeException$: StaticErrorSchema = [-3, n0, _IACE,
   { [_aQE]: [`InvalidAuthenticationCode`, 403], [_e]: _c, [_hE]: 403 },
@@ -1772,7 +1772,7 @@ export var ListAccessKeysRequest$: StaticStructureSchema = [3, n0, _LAKR,
 export var ListAccessKeysResponse$: StaticStructureSchema = [3, n0, _LAKRi,
   0,
   [_AKM, _IT, _Ma],
-  [() => accessKeyMetadataListType, 2, 0]
+  [() => accessKeyMetadataListType, 2, 0], 1
 ];
 export var ListAccountAliasesRequest$: StaticStructureSchema = [3, n0, _LAAR,
   0,
@@ -1782,12 +1782,12 @@ export var ListAccountAliasesRequest$: StaticStructureSchema = [3, n0, _LAAR,
 export var ListAccountAliasesResponse$: StaticStructureSchema = [3, n0, _LAARi,
   0,
   [_AAc, _IT, _Ma],
-  [64 | 0, 2, 0]
+  [64 | 0, 2, 0], 1
 ];
 export var ListAttachedGroupPoliciesRequest$: StaticStructureSchema = [3, n0, _LAGPR,
   0,
   [_GN, _PPat, _Ma, _MI],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 1
 ];
 export var ListAttachedGroupPoliciesResponse$: StaticStructureSchema = [3, n0, _LAGPRi,
   0,
@@ -1797,7 +1797,7 @@ export var ListAttachedGroupPoliciesResponse$: StaticStructureSchema = [3, n0, _
 export var ListAttachedRolePoliciesRequest$: StaticStructureSchema = [3, n0, _LARPR,
   0,
   [_RN, _PPat, _Ma, _MI],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 1
 ];
 export var ListAttachedRolePoliciesResponse$: StaticStructureSchema = [3, n0, _LARPRi,
   0,
@@ -1807,7 +1807,7 @@ export var ListAttachedRolePoliciesResponse$: StaticStructureSchema = [3, n0, _L
 export var ListAttachedUserPoliciesRequest$: StaticStructureSchema = [3, n0, _LAUPR,
   0,
   [_UN, _PPat, _Ma, _MI],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 1
 ];
 export var ListAttachedUserPoliciesResponse$: StaticStructureSchema = [3, n0, _LAUPRi,
   0,
@@ -1827,7 +1827,7 @@ export var ListDelegationRequestsResponse$: StaticStructureSchema = [3, n0, _LDR
 export var ListEntitiesForPolicyRequest$: StaticStructureSchema = [3, n0, _LEFPR,
   0,
   [_PA, _EFn, _PPat, _PUF, _Ma, _MI],
-  [0, 0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 0, 1], 1
 ];
 export var ListEntitiesForPolicyResponse$: StaticStructureSchema = [3, n0, _LEFPRi,
   0,
@@ -1837,22 +1837,22 @@ export var ListEntitiesForPolicyResponse$: StaticStructureSchema = [3, n0, _LEFP
 export var ListGroupPoliciesRequest$: StaticStructureSchema = [3, n0, _LGPR,
   0,
   [_GN, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListGroupPoliciesResponse$: StaticStructureSchema = [3, n0, _LGPRi,
   0,
   [_PNo, _IT, _Ma],
-  [64 | 0, 2, 0]
+  [64 | 0, 2, 0], 1
 ];
 export var ListGroupsForUserRequest$: StaticStructureSchema = [3, n0, _LGFUR,
   0,
   [_UN, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListGroupsForUserResponse$: StaticStructureSchema = [3, n0, _LGFURi,
   0,
   [_Gro, _IT, _Ma],
-  [() => groupListType, 2, 0]
+  [() => groupListType, 2, 0], 1
 ];
 export var ListGroupsRequest$: StaticStructureSchema = [3, n0, _LGR,
   0,
@@ -1862,17 +1862,17 @@ export var ListGroupsRequest$: StaticStructureSchema = [3, n0, _LGR,
 export var ListGroupsResponse$: StaticStructureSchema = [3, n0, _LGRi,
   0,
   [_Gro, _IT, _Ma],
-  [() => groupListType, 2, 0]
+  [() => groupListType, 2, 0], 1
 ];
 export var ListInstanceProfilesForRoleRequest$: StaticStructureSchema = [3, n0, _LIPFRR,
   0,
   [_RN, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListInstanceProfilesForRoleResponse$: StaticStructureSchema = [3, n0, _LIPFRRi,
   0,
   [_IPn, _IT, _Ma],
-  [() => instanceProfileListType, 2, 0]
+  [() => instanceProfileListType, 2, 0], 1
 ];
 export var ListInstanceProfilesRequest$: StaticStructureSchema = [3, n0, _LIPR,
   0,
@@ -1882,17 +1882,17 @@ export var ListInstanceProfilesRequest$: StaticStructureSchema = [3, n0, _LIPR,
 export var ListInstanceProfilesResponse$: StaticStructureSchema = [3, n0, _LIPRi,
   0,
   [_IPn, _IT, _Ma],
-  [() => instanceProfileListType, 2, 0]
+  [() => instanceProfileListType, 2, 0], 1
 ];
 export var ListInstanceProfileTagsRequest$: StaticStructureSchema = [3, n0, _LIPTR,
   0,
   [_IPN, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListInstanceProfileTagsResponse$: StaticStructureSchema = [3, n0, _LIPTRi,
   0,
   [_T, _IT, _Ma],
-  [() => tagListType, 2, 0]
+  [() => tagListType, 2, 0], 1
 ];
 export var ListMFADevicesRequest$: StaticStructureSchema = [3, n0, _LMFADR,
   0,
@@ -1902,17 +1902,17 @@ export var ListMFADevicesRequest$: StaticStructureSchema = [3, n0, _LMFADR,
 export var ListMFADevicesResponse$: StaticStructureSchema = [3, n0, _LMFADRi,
   0,
   [_MFAD, _IT, _Ma],
-  [() => mfaDeviceListType, 2, 0]
+  [() => mfaDeviceListType, 2, 0], 1
 ];
 export var ListMFADeviceTagsRequest$: StaticStructureSchema = [3, n0, _LMFADTR,
   0,
   [_SNer, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListMFADeviceTagsResponse$: StaticStructureSchema = [3, n0, _LMFADTRi,
   0,
   [_T, _IT, _Ma],
-  [() => tagListType, 2, 0]
+  [() => tagListType, 2, 0], 1
 ];
 export var ListOpenIDConnectProvidersRequest$: StaticStructureSchema = [3, n0, _LOIDCPR,
   0,
@@ -1927,12 +1927,12 @@ export var ListOpenIDConnectProvidersResponse$: StaticStructureSchema = [3, n0, 
 export var ListOpenIDConnectProviderTagsRequest$: StaticStructureSchema = [3, n0, _LOIDCPTR,
   0,
   [_OIDCPA, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListOpenIDConnectProviderTagsResponse$: StaticStructureSchema = [3, n0, _LOIDCPTRi,
   0,
   [_T, _IT, _Ma],
-  [() => tagListType, 2, 0]
+  [() => tagListType, 2, 0], 1
 ];
 export var ListOrganizationsFeaturesRequest$: StaticStructureSchema = [3, n0, _LOFR,
   0,
@@ -1951,13 +1951,13 @@ export var ListPoliciesGrantingServiceAccessEntry$: StaticStructureSchema = [3, 
 ];
 export var ListPoliciesGrantingServiceAccessRequest$: StaticStructureSchema = [3, n0, _LPGSAR,
   0,
-  [_Ma, _A, _SNerv],
-  [0, 0, 64 | 0]
+  [_A, _SNerv, _Ma],
+  [0, 64 | 0, 0], 2
 ];
 export var ListPoliciesGrantingServiceAccessResponse$: StaticStructureSchema = [3, n0, _LPGSARi,
   0,
   [_PGSA, _IT, _Ma],
-  [() => listPolicyGrantingServiceAccessResponseListType, 2, 0]
+  [() => listPolicyGrantingServiceAccessResponseListType, 2, 0], 1
 ];
 export var ListPoliciesRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
@@ -1972,17 +1972,17 @@ export var ListPoliciesResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListPolicyTagsRequest$: StaticStructureSchema = [3, n0, _LPTR,
   0,
   [_PA, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListPolicyTagsResponse$: StaticStructureSchema = [3, n0, _LPTRi,
   0,
   [_T, _IT, _Ma],
-  [() => tagListType, 2, 0]
+  [() => tagListType, 2, 0], 1
 ];
 export var ListPolicyVersionsRequest$: StaticStructureSchema = [3, n0, _LPVR,
   0,
   [_PA, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListPolicyVersionsResponse$: StaticStructureSchema = [3, n0, _LPVRi,
   0,
@@ -1992,12 +1992,12 @@ export var ListPolicyVersionsResponse$: StaticStructureSchema = [3, n0, _LPVRi,
 export var ListRolePoliciesRequest$: StaticStructureSchema = [3, n0, _LRPR,
   0,
   [_RN, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListRolePoliciesResponse$: StaticStructureSchema = [3, n0, _LRPRi,
   0,
   [_PNo, _IT, _Ma],
-  [64 | 0, 2, 0]
+  [64 | 0, 2, 0], 1
 ];
 export var ListRolesRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
@@ -2007,17 +2007,17 @@ export var ListRolesRequest$: StaticStructureSchema = [3, n0, _LRR,
 export var ListRolesResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
   [_Rol, _IT, _Ma],
-  [() => roleListType, 2, 0]
+  [() => roleListType, 2, 0], 1
 ];
 export var ListRoleTagsRequest$: StaticStructureSchema = [3, n0, _LRTR,
   0,
   [_RN, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListRoleTagsResponse$: StaticStructureSchema = [3, n0, _LRTRi,
   0,
   [_T, _IT, _Ma],
-  [() => tagListType, 2, 0]
+  [() => tagListType, 2, 0], 1
 ];
 export var ListSAMLProvidersRequest$: StaticStructureSchema = [3, n0, _LSAMLPR,
   0,
@@ -2032,12 +2032,12 @@ export var ListSAMLProvidersResponse$: StaticStructureSchema = [3, n0, _LSAMLPRi
 export var ListSAMLProviderTagsRequest$: StaticStructureSchema = [3, n0, _LSAMLPTR,
   0,
   [_SAMLPA, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListSAMLProviderTagsResponse$: StaticStructureSchema = [3, n0, _LSAMLPTRi,
   0,
   [_T, _IT, _Ma],
-  [() => tagListType, 2, 0]
+  [() => tagListType, 2, 0], 1
 ];
 export var ListServerCertificatesRequest$: StaticStructureSchema = [3, n0, _LSCR,
   0,
@@ -2047,17 +2047,17 @@ export var ListServerCertificatesRequest$: StaticStructureSchema = [3, n0, _LSCR
 export var ListServerCertificatesResponse$: StaticStructureSchema = [3, n0, _LSCRi,
   0,
   [_SCML, _IT, _Ma],
-  [() => serverCertificateMetadataListType, 2, 0]
+  [() => serverCertificateMetadataListType, 2, 0], 1
 ];
 export var ListServerCertificateTagsRequest$: StaticStructureSchema = [3, n0, _LSCTR,
   0,
   [_SCN, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListServerCertificateTagsResponse$: StaticStructureSchema = [3, n0, _LSCTRi,
   0,
   [_T, _IT, _Ma],
-  [() => tagListType, 2, 0]
+  [() => tagListType, 2, 0], 1
 ];
 export var ListServiceSpecificCredentialsRequest$: StaticStructureSchema = [3, n0, _LSSCR,
   0,
@@ -2077,7 +2077,7 @@ export var ListSigningCertificatesRequest$: StaticStructureSchema = [3, n0, _LSC
 export var ListSigningCertificatesResponse$: StaticStructureSchema = [3, n0, _LSCRist,
   0,
   [_Cer, _IT, _Ma],
-  [() => certificateListType, 2, 0]
+  [() => certificateListType, 2, 0], 1
 ];
 export var ListSSHPublicKeysRequest$: StaticStructureSchema = [3, n0, _LSSHPKR,
   0,
@@ -2092,12 +2092,12 @@ export var ListSSHPublicKeysResponse$: StaticStructureSchema = [3, n0, _LSSHPKRi
 export var ListUserPoliciesRequest$: StaticStructureSchema = [3, n0, _LUPR,
   0,
   [_UN, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListUserPoliciesResponse$: StaticStructureSchema = [3, n0, _LUPRi,
   0,
   [_PNo, _IT, _Ma],
-  [64 | 0, 2, 0]
+  [64 | 0, 2, 0], 1
 ];
 export var ListUsersRequest$: StaticStructureSchema = [3, n0, _LUR,
   0,
@@ -2107,17 +2107,17 @@ export var ListUsersRequest$: StaticStructureSchema = [3, n0, _LUR,
 export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
   0,
   [_Use, _IT, _Ma],
-  [() => userListType, 2, 0]
+  [() => userListType, 2, 0], 1
 ];
 export var ListUserTagsRequest$: StaticStructureSchema = [3, n0, _LUTR,
   0,
   [_UN, _Ma, _MI],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListUserTagsResponse$: StaticStructureSchema = [3, n0, _LUTRi,
   0,
   [_T, _IT, _Ma],
-  [() => tagListType, 2, 0]
+  [() => tagListType, 2, 0], 1
 ];
 export var ListVirtualMFADevicesRequest$: StaticStructureSchema = [3, n0, _LVMFADR,
   0,
@@ -2127,12 +2127,12 @@ export var ListVirtualMFADevicesRequest$: StaticStructureSchema = [3, n0, _LVMFA
 export var ListVirtualMFADevicesResponse$: StaticStructureSchema = [3, n0, _LVMFADRi,
   0,
   [_VMFADi, _IT, _Ma],
-  [[() => virtualMFADeviceListType, 0], 2, 0]
+  [[() => virtualMFADeviceListType, 0], 2, 0], 1
 ];
 export var LoginProfile$: StaticStructureSchema = [3, n0, _LP,
   0,
   [_UN, _CD, _PRR],
-  [0, 4, 2]
+  [0, 4, 2], 2
 ];
 export var MalformedCertificateException$: StaticErrorSchema = [-3, n0, _MCE,
   { [_aQE]: [`MalformedCertificate`, 400], [_e]: _c, [_hE]: 400 },
@@ -2154,7 +2154,7 @@ export var ManagedPolicyDetail$: StaticStructureSchema = [3, n0, _MPD,
 export var MFADevice$: StaticStructureSchema = [3, n0, _MFADe,
   0,
   [_UN, _SNer, _EDn],
-  [0, 0, 4]
+  [0, 0, 4], 3
 ];
 export var NoSuchEntityException$: StaticErrorSchema = [-3, n0, _NSEE,
   { [_aQE]: [`NoSuchEntity`, 404], [_e]: _c, [_hE]: 404 },
@@ -2225,7 +2225,7 @@ TypeRegistry.for(n0).registerError(PolicyEvaluationException$, PolicyEvaluationE
 export var PolicyGrantingServiceAccess$: StaticStructureSchema = [3, n0, _PGSAo,
   0,
   [_PN, _PT, _PA, _ETn, _EN],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 2
 ];
 export var PolicyGroup$: StaticStructureSchema = [3, n0, _PGo,
   0,
@@ -2266,47 +2266,47 @@ export var Position$: StaticStructureSchema = [3, n0, _Pos,
 export var PutGroupPolicyRequest$: StaticStructureSchema = [3, n0, _PGPR,
   0,
   [_GN, _PN, _PD],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var PutRolePermissionsBoundaryRequest$: StaticStructureSchema = [3, n0, _PRPBR,
   0,
   [_RN, _PB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutRolePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_RN, _PN, _PD],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var PutUserPermissionsBoundaryRequest$: StaticStructureSchema = [3, n0, _PUPBR,
   0,
   [_UN, _PB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutUserPolicyRequest$: StaticStructureSchema = [3, n0, _PUPR,
   0,
   [_UN, _PN, _PD],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var RejectDelegationRequestRequest$: StaticStructureSchema = [3, n0, _RDRR,
   0,
   [_DRI, _No],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RemoveClientIDFromOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _RCIDFOIDCPR,
   0,
   [_OIDCPA, _CID],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RemoveRoleFromInstanceProfileRequest$: StaticStructureSchema = [3, n0, _RRFIPR,
   0,
   [_IPN, _RN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RemoveUserFromGroupRequest$: StaticStructureSchema = [3, n0, _RUFGR,
   0,
   [_GN, _UN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ReportGenerationLimitExceededException$: StaticErrorSchema = [-3, n0, _RGLEE,
   { [_aQE]: [`ReportGenerationLimitExceeded`, 409], [_e]: _c, [_hE]: 409 },
@@ -2316,8 +2316,8 @@ export var ReportGenerationLimitExceededException$: StaticErrorSchema = [-3, n0,
 TypeRegistry.for(n0).registerError(ReportGenerationLimitExceededException$, ReportGenerationLimitExceededException);
 export var ResetServiceSpecificCredentialRequest$: StaticStructureSchema = [3, n0, _RSSCR,
   0,
-  [_UN, _SSCI],
-  [0, 0]
+  [_SSCI, _UN],
+  [0, 0], 1
 ];
 export var ResetServiceSpecificCredentialResponse$: StaticStructureSchema = [3, n0, _RSSCRe,
   0,
@@ -2327,17 +2327,17 @@ export var ResetServiceSpecificCredentialResponse$: StaticStructureSchema = [3, 
 export var ResourceSpecificResult$: StaticStructureSchema = [3, n0, _RSRe,
   0,
   [_ERN, _ERD, _MS, _MCV, _EDD, _PBDD],
-  [0, 0, () => StatementListType, 64 | 0, 128 | 0, () => PermissionsBoundaryDecisionDetail$]
+  [0, 0, () => StatementListType, 64 | 0, 128 | 0, () => PermissionsBoundaryDecisionDetail$], 2
 ];
 export var ResyncMFADeviceRequest$: StaticStructureSchema = [3, n0, _RMFADR,
   0,
   [_UN, _SNer, _AC, _ACu],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var Role$: StaticStructureSchema = [3, n0, _Ro,
   0,
   [_Pa, _RN, _RIo, _A, _CD, _ARPD, _D, _MSD, _PB, _T, _RLU],
-  [0, 0, 0, 0, 4, 0, 0, 1, () => AttachedPermissionsBoundary$, () => tagListType, () => RoleLastUsed$]
+  [0, 0, 0, 0, 4, 0, 0, 1, () => AttachedPermissionsBoundary$, () => tagListType, () => RoleLastUsed$], 5
 ];
 export var RoleDetail$: StaticStructureSchema = [3, n0, _RD,
   0,
@@ -2367,17 +2367,17 @@ export var SAMLProviderListEntry$: StaticStructureSchema = [3, n0, _SAMLPLE,
 export var SendDelegationTokenRequest$: StaticStructureSchema = [3, n0, _SDTR,
   0,
   [_DRI],
-  [0]
+  [0], 1
 ];
 export var ServerCertificate$: StaticStructureSchema = [3, n0, _SCe,
   0,
   [_SCM, _CB, _CC, _T],
-  [() => ServerCertificateMetadata$, 0, 0, () => tagListType]
+  [() => ServerCertificateMetadata$, 0, 0, () => tagListType], 2
 ];
 export var ServerCertificateMetadata$: StaticStructureSchema = [3, n0, _SCM,
   0,
   [_Pa, _SCN, _SCI, _A, _UDp, _Ex],
-  [0, 0, 0, 0, 4, 4]
+  [0, 0, 0, 0, 4, 4], 4
 ];
 export var ServiceAccessNotEnabledException$: StaticErrorSchema = [-3, n0, _SANEE,
   { [_e]: _c, [_hE]: 400 },
@@ -2393,8 +2393,8 @@ export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
 TypeRegistry.for(n0).registerError(ServiceFailureException$, ServiceFailureException);
 export var ServiceLastAccessed$: StaticStructureSchema = [3, n0, _SLAe,
   0,
-  [_SN, _LA, _SNe, _LAE, _LAR, _TAE, _TALA],
-  [0, 4, 0, 0, 0, 1, () => TrackedActionsLastAccessed]
+  [_SN, _SNe, _LA, _LAE, _LAR, _TAE, _TALA],
+  [0, 0, 4, 0, 0, 1, () => TrackedActionsLastAccessed], 2
 ];
 export var ServiceNotSupportedException$: StaticErrorSchema = [-3, n0, _SNSE,
   { [_aQE]: [`NotSupportedService`, 404], [_e]: _c, [_hE]: 404 },
@@ -2404,33 +2404,33 @@ export var ServiceNotSupportedException$: StaticErrorSchema = [-3, n0, _SNSE,
 TypeRegistry.for(n0).registerError(ServiceNotSupportedException$, ServiceNotSupportedException);
 export var ServiceSpecificCredential$: StaticStructureSchema = [3, n0, _SSC,
   0,
-  [_CD, _EDx, _SN, _SUN, _SP, _SCA, _SCS, _SSCI, _UN, _S],
-  [4, 4, 0, 0, [() => servicePassword, 0], 0, [() => serviceCredentialSecret, 0], 0, 0, 0]
+  [_CD, _SN, _SSCI, _UN, _S, _EDx, _SUN, _SP, _SCA, _SCS],
+  [4, 0, 0, 0, 0, 4, 0, [() => servicePassword, 0], 0, [() => serviceCredentialSecret, 0]], 5
 ];
 export var ServiceSpecificCredentialMetadata$: StaticStructureSchema = [3, n0, _SSCM,
   0,
-  [_UN, _S, _SUN, _SCA, _CD, _EDx, _SSCI, _SN],
-  [0, 0, 0, 0, 4, 4, 0, 0]
+  [_UN, _S, _CD, _SSCI, _SN, _SUN, _SCA, _EDx],
+  [0, 0, 4, 0, 0, 0, 0, 4], 5
 ];
 export var SetDefaultPolicyVersionRequest$: StaticStructureSchema = [3, n0, _SDPVR,
   0,
   [_PA, _VI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SetSecurityTokenServicePreferencesRequest$: StaticStructureSchema = [3, n0, _SSTSPR,
   0,
   [_GETV],
-  [0]
+  [0], 1
 ];
 export var SigningCertificate$: StaticStructureSchema = [3, n0, _SCi,
   0,
   [_UN, _CI, _CB, _S, _UDp],
-  [0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 4], 4
 ];
 export var SimulateCustomPolicyRequest$: StaticStructureSchema = [3, n0, _SCPR,
   0,
-  [_PIL, _PBPIL, _AN, _RA, _RP, _RO, _CA, _CEo, _RHO, _MI, _Ma],
-  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => ContextEntryListType, 0, 1, 0]
+  [_PIL, _AN, _PBPIL, _RA, _RP, _RO, _CA, _CEo, _RHO, _MI, _Ma],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => ContextEntryListType, 0, 1, 0], 2
 ];
 export var SimulatePolicyResponse$: StaticStructureSchema = [3, n0, _SPR,
   0,
@@ -2439,18 +2439,18 @@ export var SimulatePolicyResponse$: StaticStructureSchema = [3, n0, _SPR,
 ];
 export var SimulatePrincipalPolicyRequest$: StaticStructureSchema = [3, n0, _SPPR,
   0,
-  [_PSA, _PIL, _PBPIL, _AN, _RA, _RP, _RO, _CA, _CEo, _RHO, _MI, _Ma],
-  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => ContextEntryListType, 0, 1, 0]
+  [_PSA, _AN, _PIL, _PBPIL, _RA, _RP, _RO, _CA, _CEo, _RHO, _MI, _Ma],
+  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => ContextEntryListType, 0, 1, 0], 2
 ];
 export var SSHPublicKey$: StaticStructureSchema = [3, n0, _SSHPK,
   0,
   [_UN, _SSHPKI, _Fi, _SSHPKB, _S, _UDp],
-  [0, 0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 0, 4], 5
 ];
 export var SSHPublicKeyMetadata$: StaticStructureSchema = [3, n0, _SSHPKM,
   0,
   [_UN, _SSHPKI, _S, _UDp],
-  [0, 0, 0, 4]
+  [0, 0, 0, 4], 4
 ];
 export var Statement$: StaticStructureSchema = [3, n0, _Sta,
   0,
@@ -2460,47 +2460,47 @@ export var Statement$: StaticStructureSchema = [3, n0, _Sta,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _Val],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagInstanceProfileRequest$: StaticStructureSchema = [3, n0, _TIPR,
   0,
   [_IPN, _T],
-  [0, () => tagListType]
+  [0, () => tagListType], 2
 ];
 export var TagMFADeviceRequest$: StaticStructureSchema = [3, n0, _TMFADR,
   0,
   [_SNer, _T],
-  [0, () => tagListType]
+  [0, () => tagListType], 2
 ];
 export var TagOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _TOIDCPR,
   0,
   [_OIDCPA, _T],
-  [0, () => tagListType]
+  [0, () => tagListType], 2
 ];
 export var TagPolicyRequest$: StaticStructureSchema = [3, n0, _TPR,
   0,
   [_PA, _T],
-  [0, () => tagListType]
+  [0, () => tagListType], 2
 ];
 export var TagRoleRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RN, _T],
-  [0, () => tagListType]
+  [0, () => tagListType], 2
 ];
 export var TagSAMLProviderRequest$: StaticStructureSchema = [3, n0, _TSAMLPR,
   0,
   [_SAMLPA, _T],
-  [0, () => tagListType]
+  [0, () => tagListType], 2
 ];
 export var TagServerCertificateRequest$: StaticStructureSchema = [3, n0, _TSCR,
   0,
   [_SCN, _T],
-  [0, () => tagListType]
+  [0, () => tagListType], 2
 ];
 export var TagUserRequest$: StaticStructureSchema = [3, n0, _TUR,
   0,
   [_UN, _T],
-  [0, () => tagListType]
+  [0, () => tagListType], 2
 ];
 export var TrackedActionLastAccessed$: StaticStructureSchema = [3, n0, _TALAr,
   0,
@@ -2522,47 +2522,47 @@ TypeRegistry.for(n0).registerError(UnrecognizedPublicKeyEncodingException$, Unre
 export var UntagInstanceProfileRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
   [_IPN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagMFADeviceRequest$: StaticStructureSchema = [3, n0, _UMFADR,
   0,
   [_SNer, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _UOIDCPR,
   0,
   [_OIDCPA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagPolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_PA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagRoleRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagSAMLProviderRequest$: StaticStructureSchema = [3, n0, _USAMLPR,
   0,
   [_SAMLPA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagServerCertificateRequest$: StaticStructureSchema = [3, n0, _USCR,
   0,
   [_SCN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
   [_UN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UpdateAccessKeyRequest$: StaticStructureSchema = [3, n0, _UAKR,
   0,
-  [_UN, _AKI, _S],
-  [0, 0, 0]
+  [_AKI, _S, _UN],
+  [0, 0, 0], 2
 ];
 export var UpdateAccountPasswordPolicyRequest$: StaticStructureSchema = [3, n0, _UAPPR,
   0,
@@ -2572,32 +2572,32 @@ export var UpdateAccountPasswordPolicyRequest$: StaticStructureSchema = [3, n0, 
 export var UpdateAssumeRolePolicyRequest$: StaticStructureSchema = [3, n0, _UARPR,
   0,
   [_RN, _PD],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateDelegationRequestRequest$: StaticStructureSchema = [3, n0, _UDRR,
   0,
   [_DRI, _No],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UpdateGroupRequest$: StaticStructureSchema = [3, n0, _UGR,
   0,
   [_GN, _NPe, _NGN],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var UpdateLoginProfileRequest$: StaticStructureSchema = [3, n0, _ULPR,
   0,
   [_UN, _Pas, _PRR],
-  [0, [() => passwordType, 0], 2]
+  [0, [() => passwordType, 0], 2], 1
 ];
 export var UpdateOpenIDConnectProviderThumbprintRequest$: StaticStructureSchema = [3, n0, _UOIDCPTR,
   0,
   [_OIDCPA, _TL],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UpdateRoleDescriptionRequest$: StaticStructureSchema = [3, n0, _URDR,
   0,
   [_RN, _D],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateRoleDescriptionResponse$: StaticStructureSchema = [3, n0, _URDRp,
   0,
@@ -2607,7 +2607,7 @@ export var UpdateRoleDescriptionResponse$: StaticStructureSchema = [3, n0, _URDR
 export var UpdateRoleRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_RN, _D, _MSD],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var UpdateRoleResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -2616,8 +2616,8 @@ export var UpdateRoleResponse$: StaticStructureSchema = [3, n0, _URRpd,
 ];
 export var UpdateSAMLProviderRequest$: StaticStructureSchema = [3, n0, _USAMLPRp,
   0,
-  [_SAMLMD, _SAMLPA, _AEM, _APK, _RPK],
-  [0, 0, 0, [() => privateKeyType, 0], 0]
+  [_SAMLPA, _SAMLMD, _AEM, _APK, _RPK],
+  [0, 0, 0, [() => privateKeyType, 0], 0], 1
 ];
 export var UpdateSAMLProviderResponse$: StaticStructureSchema = [3, n0, _USAMLPRpd,
   0,
@@ -2627,32 +2627,32 @@ export var UpdateSAMLProviderResponse$: StaticStructureSchema = [3, n0, _USAMLPR
 export var UpdateServerCertificateRequest$: StaticStructureSchema = [3, n0, _USCRp,
   0,
   [_SCN, _NPe, _NSCN],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var UpdateServiceSpecificCredentialRequest$: StaticStructureSchema = [3, n0, _USSCR,
   0,
-  [_UN, _SSCI, _S],
-  [0, 0, 0]
+  [_SSCI, _S, _UN],
+  [0, 0, 0], 2
 ];
 export var UpdateSigningCertificateRequest$: StaticStructureSchema = [3, n0, _USCRpd,
   0,
-  [_UN, _CI, _S],
-  [0, 0, 0]
+  [_CI, _S, _UN],
+  [0, 0, 0], 2
 ];
 export var UpdateSSHPublicKeyRequest$: StaticStructureSchema = [3, n0, _USSHPKR,
   0,
   [_UN, _SSHPKI, _S],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UURp,
   0,
   [_UN, _NPe, _NUN],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var UploadServerCertificateRequest$: StaticStructureSchema = [3, n0, _USCRpl,
   0,
-  [_Pa, _SCN, _CB, _PK, _CC, _T],
-  [0, 0, 0, [() => privateKeyType, 0], 0, () => tagListType]
+  [_SCN, _CB, _PK, _Pa, _CC, _T],
+  [0, 0, [() => privateKeyType, 0], 0, 0, () => tagListType], 3
 ];
 export var UploadServerCertificateResponse$: StaticStructureSchema = [3, n0, _USCRplo,
   0,
@@ -2661,18 +2661,18 @@ export var UploadServerCertificateResponse$: StaticStructureSchema = [3, n0, _US
 ];
 export var UploadSigningCertificateRequest$: StaticStructureSchema = [3, n0, _USCRploa,
   0,
-  [_UN, _CB],
-  [0, 0]
+  [_CB, _UN],
+  [0, 0], 1
 ];
 export var UploadSigningCertificateResponse$: StaticStructureSchema = [3, n0, _USCRpload,
   0,
   [_Cert],
-  [() => SigningCertificate$]
+  [() => SigningCertificate$], 1
 ];
 export var UploadSSHPublicKeyRequest$: StaticStructureSchema = [3, n0, _USSHPKRp,
   0,
   [_UN, _SSHPKB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UploadSSHPublicKeyResponse$: StaticStructureSchema = [3, n0, _USSHPKRpl,
   0,
@@ -2682,7 +2682,7 @@ export var UploadSSHPublicKeyResponse$: StaticStructureSchema = [3, n0, _USSHPKR
 export var User$: StaticStructureSchema = [3, n0, _Us,
   0,
   [_Pa, _UN, _UI, _A, _CD, _PLU, _PB, _T],
-  [0, 0, 0, 0, 4, 4, () => AttachedPermissionsBoundary$, () => tagListType]
+  [0, 0, 0, 0, 4, 4, () => AttachedPermissionsBoundary$, () => tagListType], 5
 ];
 export var UserDetail$: StaticStructureSchema = [3, n0, _UDs,
   0,
@@ -2692,7 +2692,7 @@ export var UserDetail$: StaticStructureSchema = [3, n0, _UDs,
 export var VirtualMFADevice$: StaticStructureSchema = [3, n0, _VMFAD,
   0,
   [_SNer, _BSS, _QRCPNG, _Us, _EDn, _T],
-  [0, [() => BootstrapDatum, 0], [() => BootstrapDatum, 0], () => User$, 4, () => tagListType]
+  [0, [() => BootstrapDatum, 0], [() => BootstrapDatum, 0], () => User$, 4, () => tagListType], 1
 ];
 var __Unit = "unit" as const;
 export var IAMServiceException$: StaticErrorSchema = [-3, _sm, "IAMServiceException", 0, [], []];

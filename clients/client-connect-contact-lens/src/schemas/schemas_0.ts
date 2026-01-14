@@ -67,23 +67,23 @@ import {
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Categories$: StaticStructureSchema = [3, n0, _C,
   0,
   [_MC, _MD],
-  [64 | 0, () => MatchedDetails]
+  [64 | 0, () => MatchedDetails], 2
 ];
 export var CategoryDetails$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_POI],
-  [() => PointsOfInterest]
+  [() => PointsOfInterest], 1
 ];
 export var CharacterOffsets$: StaticStructureSchema = [3, n0, _CO,
   0,
   [_BOC, _EOC],
-  [1, 1]
+  [1, 1], 2
 ];
 export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -100,27 +100,27 @@ TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestExcep
 export var IssueDetected$: StaticStructureSchema = [3, n0, _ID,
   0,
   [_CO],
-  [() => CharacterOffsets$]
+  [() => CharacterOffsets$], 1
 ];
 export var ListRealtimeContactAnalysisSegmentsRequest$: StaticStructureSchema = [3, n0, _LRCASR,
   0,
   [_II, _CI, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 2
 ];
 export var ListRealtimeContactAnalysisSegmentsResponse$: StaticStructureSchema = [3, n0, _LRCASRi,
   0,
   [_S, _NT],
-  [() => RealtimeContactAnalysisSegments, 0]
+  [() => RealtimeContactAnalysisSegments, 0], 1
 ];
 export var PointOfInterest$: StaticStructureSchema = [3, n0, _POIo,
   0,
   [_BOM, _EOM],
-  [1, 1]
+  [1, 1], 2
 ];
 export var PostContactSummary$: StaticStructureSchema = [3, n0, _PCS,
   0,
-  [_Co, _St, _FC],
-  [0, 0, 0]
+  [_St, _Co, _FC],
+  [0, 0, 0], 1
 ];
 export var RealtimeContactAnalysisSegment$: StaticStructureSchema = [3, n0, _RCAS,
   0,
@@ -136,13 +136,13 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Transcript$: StaticStructureSchema = [3, n0, _T,
   0,
   [_I, _PI, _PR, _Co, _BOM, _EOM, _Se, _IDs],
-  [0, 0, 0, 0, 1, 1, 0, () => IssuesDetected]
+  [0, 0, 0, 0, 1, 1, 0, () => IssuesDetected], 6
 ];
 export var ConnectContactLensServiceException$: StaticErrorSchema = [-3, _sm, "ConnectContactLensServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ConnectContactLensServiceException$, ConnectContactLensServiceException);

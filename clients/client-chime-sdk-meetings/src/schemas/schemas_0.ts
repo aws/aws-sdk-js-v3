@@ -198,7 +198,7 @@ export var Attendee$: StaticStructureSchema = [3, n0, _At,
 export var AttendeeCapabilities$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_Au, _V, _Co],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var AttendeeFeatures$: StaticStructureSchema = [3, n0, _AF,
   0,
@@ -208,7 +208,7 @@ export var AttendeeFeatures$: StaticStructureSchema = [3, n0, _AF,
 export var AttendeeIdItem$: StaticStructureSchema = [3, n0, _AII,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var AudioFeatures$: StaticStructureSchema = [3, n0, _AFu,
   0,
@@ -224,7 +224,7 @@ TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BatchCreateAttendeeRequest$: StaticStructureSchema = [3, n0, _BCAR,
   0,
   [_MI, _Att],
-  [[0, 1], [() => CreateAttendeeRequestItemList, 0]]
+  [[0, 1], [() => CreateAttendeeRequestItemList, 0]], 2
 ];
 export var BatchCreateAttendeeResponse$: StaticStructureSchema = [3, n0, _BCARa,
   0,
@@ -234,7 +234,7 @@ export var BatchCreateAttendeeResponse$: StaticStructureSchema = [3, n0, _BCARa,
 export var BatchUpdateAttendeeCapabilitiesExceptRequest$: StaticStructureSchema = [3, n0, _BUACER,
   0,
   [_MI, _EAI, _C],
-  [[0, 1], () => AttendeeIdsList, () => AttendeeCapabilities$]
+  [[0, 1], () => AttendeeIdsList, () => AttendeeCapabilities$], 3
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -255,12 +255,12 @@ export var CreateAttendeeError$: StaticStructureSchema = [3, n0, _CAE,
 export var CreateAttendeeRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_MI, _EUI, _C],
-  [[0, 1], [() => ExternalUserId, 0], () => AttendeeCapabilities$]
+  [[0, 1], [() => ExternalUserId, 0], () => AttendeeCapabilities$], 2
 ];
 export var CreateAttendeeRequestItem$: StaticStructureSchema = [3, n0, _CARI,
   0,
   [_EUI, _C],
-  [[() => ExternalUserId, 0], () => AttendeeCapabilities$]
+  [[() => ExternalUserId, 0], () => AttendeeCapabilities$], 1
 ];
 export var CreateAttendeeResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -269,8 +269,8 @@ export var CreateAttendeeResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateMeetingRequest$: StaticStructureSchema = [3, n0, _CMR,
   0,
-  [_CRT, _MRe, _MHI, _EMI, _NC, _MF, _PMI, _TI, _T, _MPNT],
-  [[() => ClientRequestToken, 4], 0, [() => ExternalUserId, 0], [() => ExternalMeetingId, 0], [() => NotificationsConfiguration$, 0], () => MeetingFeaturesConfiguration$, 0, 64 | 0, () => TagList, 0]
+  [_MRe, _EMI, _CRT, _MHI, _NC, _MF, _PMI, _TI, _T, _MPNT],
+  [0, [() => ExternalMeetingId, 0], [() => ClientRequestToken, 4], [() => ExternalUserId, 0], [() => NotificationsConfiguration$, 0], () => MeetingFeaturesConfiguration$, 0, 64 | 0, () => TagList, 0], 2
 ];
 export var CreateMeetingResponse$: StaticStructureSchema = [3, n0, _CMRr,
   0,
@@ -279,8 +279,8 @@ export var CreateMeetingResponse$: StaticStructureSchema = [3, n0, _CMRr,
 ];
 export var CreateMeetingWithAttendeesRequest$: StaticStructureSchema = [3, n0, _CMWAR,
   0,
-  [_CRT, _MRe, _MHI, _EMI, _MF, _NC, _Att, _PMI, _TI, _T, _MPNT],
-  [[() => ClientRequestToken, 4], 0, [() => ExternalUserId, 0], [() => ExternalMeetingId, 0], () => MeetingFeaturesConfiguration$, [() => NotificationsConfiguration$, 0], [() => CreateMeetingWithAttendeesRequestItemList, 0], 0, 64 | 0, () => TagList, 0]
+  [_MRe, _EMI, _Att, _CRT, _MHI, _MF, _NC, _PMI, _TI, _T, _MPNT],
+  [0, [() => ExternalMeetingId, 0], [() => CreateMeetingWithAttendeesRequestItemList, 0], [() => ClientRequestToken, 4], [() => ExternalUserId, 0], () => MeetingFeaturesConfiguration$, [() => NotificationsConfiguration$, 0], 0, 64 | 0, () => TagList, 0], 3
 ];
 export var CreateMeetingWithAttendeesResponse$: StaticStructureSchema = [3, n0, _CMWARr,
   0,
@@ -290,17 +290,17 @@ export var CreateMeetingWithAttendeesResponse$: StaticStructureSchema = [3, n0, 
 export var DeleteAttendeeRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_MI, _AI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteMeetingRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_MI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var EngineTranscribeMedicalSettings$: StaticStructureSchema = [3, n0, _ETMS,
   0,
   [_LC, _S, _Ty, _VN, _R, _CIT],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 3
 ];
 export var EngineTranscribeSettings$: StaticStructureSchema = [3, n0, _ETS,
   0,
@@ -316,7 +316,7 @@ TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetAttendeeRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_MI, _AI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetAttendeeResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -326,7 +326,7 @@ export var GetAttendeeResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetMeetingRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
   [_MI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMeetingResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
@@ -342,7 +342,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListAttendeesRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_MI, _NT, _MRa],
-  [[0, 1], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]]
+  [[0, 1], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]], 1
 ];
 export var ListAttendeesResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -352,7 +352,7 @@ export var ListAttendeesResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [[0, { [_hQ]: _a }]]
+  [[0, { [_hQ]: _a }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -406,22 +406,22 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var StartMeetingTranscriptionRequest$: StaticStructureSchema = [3, n0, _SMTR,
   0,
   [_MI, _TC],
-  [[0, 1], () => TranscriptionConfiguration$]
+  [[0, 1], () => TranscriptionConfiguration$], 2
 ];
 export var StopMeetingTranscriptionRequest$: StaticStructureSchema = [3, n0, _SMTRt,
   0,
   [_MI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -460,7 +460,7 @@ TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableE
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -470,7 +470,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAttendeeCapabilitiesRequest$: StaticStructureSchema = [3, n0, _UACR,
   0,
   [_MI, _AI, _C],
-  [[0, 1], [0, 1], () => AttendeeCapabilities$]
+  [[0, 1], [0, 1], () => AttendeeCapabilities$], 3
 ];
 export var UpdateAttendeeCapabilitiesResponse$: StaticStructureSchema = [3, n0, _UACRp,
   0,

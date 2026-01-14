@@ -265,13 +265,13 @@ var UserData: StaticSimpleSchema = [0, n0, _UD, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AssociateVolumeRequest$: StaticStructureSchema = [3, n0, _AVR,
   0,
   [_WII, _VI, _D],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var AssociateVolumeResponse$: StaticStructureSchema = [3, n0, _AVRs,
   0,
@@ -296,7 +296,7 @@ export var CapacityReservationTarget$: StaticStructureSchema = [3, n0, _CRT,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectionTrackingSpecificationRequest$: StaticStructureSchema = [3, n0, _CTSR,
@@ -312,7 +312,7 @@ export var CpuOptionsRequest$: StaticStructureSchema = [3, n0, _COR,
 export var CreateVolumeRequest$: StaticStructureSchema = [3, n0, _CVR,
   0,
   [_AZ, _CT, _En, _I, _KKI, _SIGB, _SI, _TS, _T, _VT],
-  [0, [() => ClientToken, 4], 2, 1, [() => KmsKeyId, 0], 1, 0, () => TagSpecifications, 1, 0]
+  [0, [() => ClientToken, 4], 2, 1, [() => KmsKeyId, 0], 1, 0, () => TagSpecifications, 1, 0], 1
 ];
 export var CreateVolumeResponse$: StaticStructureSchema = [3, n0, _CVRr,
   0,
@@ -321,8 +321,8 @@ export var CreateVolumeResponse$: StaticStructureSchema = [3, n0, _CVRr,
 ];
 export var CreateWorkspaceInstanceRequest$: StaticStructureSchema = [3, n0, _CWIR,
   0,
-  [_CT, _Ta, _MI],
-  [[() => ClientToken, 4], () => TagList, [() => ManagedInstanceRequest$, 0]]
+  [_MI, _CT, _Ta],
+  [[() => ManagedInstanceRequest$, 0], [() => ClientToken, 4], () => TagList], 1
 ];
 export var CreateWorkspaceInstanceResponse$: StaticStructureSchema = [3, n0, _CWIRr,
   0,
@@ -337,7 +337,7 @@ export var CreditSpecificationRequest$: StaticStructureSchema = [3, n0, _CSR,
 export var DeleteVolumeRequest$: StaticStructureSchema = [3, n0, _DVR,
   0,
   [_VI],
-  [0]
+  [0], 1
 ];
 export var DeleteVolumeResponse$: StaticStructureSchema = [3, n0, _DVRe,
   0,
@@ -347,7 +347,7 @@ export var DeleteVolumeResponse$: StaticStructureSchema = [3, n0, _DVRe,
 export var DeleteWorkspaceInstanceRequest$: StaticStructureSchema = [3, n0, _DWIR,
   0,
   [_WII],
-  [0]
+  [0], 1
 ];
 export var DeleteWorkspaceInstanceResponse$: StaticStructureSchema = [3, n0, _DWIRe,
   0,
@@ -357,7 +357,7 @@ export var DeleteWorkspaceInstanceResponse$: StaticStructureSchema = [3, n0, _DW
 export var DisassociateVolumeRequest$: StaticStructureSchema = [3, n0, _DVRi,
   0,
   [_WII, _VI, _D, _DM],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var DisassociateVolumeResponse$: StaticStructureSchema = [3, n0, _DVRis,
   0,
@@ -397,7 +397,7 @@ export var EnclaveOptionsRequest$: StaticStructureSchema = [3, n0, _EOR,
 export var GetWorkspaceInstanceRequest$: StaticStructureSchema = [3, n0, _GWIR,
   0,
   [_WII],
-  [0]
+  [0], 1
 ];
 export var GetWorkspaceInstanceResponse$: StaticStructureSchema = [3, n0, _GWIRe,
   0,
@@ -452,7 +452,7 @@ export var InstanceTypeInfo$: StaticStructureSchema = [3, n0, _ITI,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M, _RAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Ipv4PrefixSpecificationRequest$: StaticStructureSchema = [3, n0, _IPSR,
@@ -478,7 +478,7 @@ export var ListInstanceTypesRequest$: StaticStructureSchema = [3, n0, _LITR,
 export var ListInstanceTypesResponse$: StaticStructureSchema = [3, n0, _LITRi,
   0,
   [_ITns, _NT],
-  [() => InstanceTypes, [() => NextToken, 0]]
+  [() => InstanceTypes, [() => NextToken, 0]], 1
 ];
 export var ListRegionsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
@@ -488,12 +488,12 @@ export var ListRegionsRequest$: StaticStructureSchema = [3, n0, _LRR,
 export var ListRegionsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
   [_R, _NT],
-  [() => RegionList, [() => NextToken, 0]]
+  [() => RegionList, [() => NextToken, 0]], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_WII],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -508,7 +508,7 @@ export var ListWorkspaceInstancesRequest$: StaticStructureSchema = [3, n0, _LWIR
 export var ListWorkspaceInstancesResponse$: StaticStructureSchema = [3, n0, _LWIRi,
   0,
   [_WI, _NT],
-  [() => WorkspaceInstances, [() => NextToken, 0]]
+  [() => WorkspaceInstances, [() => NextToken, 0]], 1
 ];
 export var ManagedInstanceRequest$: StaticStructureSchema = [3, n0, _MIR,
   0,
@@ -538,7 +538,7 @@ export var Region$: StaticStructureSchema = [3, n0, _Re,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RunInstancesMonitoringEnabled$: StaticStructureSchema = [3, n0, _RIME,
@@ -549,7 +549,7 @@ export var RunInstancesMonitoringEnabled$: StaticStructureSchema = [3, n0, _RIME
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M, _RI, _RT, _SC, _QC],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SpotMarketOptions$: StaticStructureSchema = [3, n0, _SMO,
@@ -565,7 +565,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_WII, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -580,13 +580,13 @@ export var TagSpecification$: StaticStructureSchema = [3, n0, _TSa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M, _SC, _QC, _RAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_WII, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -596,13 +596,13 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _Rea, _FL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _Rea, _M],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var WorkspaceInstance$: StaticStructureSchema = [3, n0, _WIo,
   0,

@@ -258,7 +258,7 @@ export var ArtifactConfigOutput$: StaticStructureSchema = [3, n0, _ACO,
 export var AssociateResourceRequest$: StaticStructureSchema = [3, n0, _ARR,
   0,
   [_GI, _RA],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var AssociateResourceResponse$: StaticStructureSchema = [3, n0, _ARRs,
   0,
@@ -274,7 +274,7 @@ TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BaseScreenshot$: StaticStructureSchema = [3, n0, _BS,
   0,
   [_SN, _IC],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var BrowserConfig$: StaticStructureSchema = [3, n0, _BC,
   0,
@@ -334,7 +334,7 @@ export var CanaryRunTimeline$: StaticStructureSchema = [3, n0, _CRT,
 export var CanaryScheduleInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_E, _DIS, _RCe],
-  [0, 1, () => RetryConfigInput$]
+  [0, 1, () => RetryConfigInput$], 1
 ];
 export var CanaryScheduleOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
@@ -359,8 +359,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCanaryRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_N, _Co, _ASL, _ERA, _S, _RC, _SRPID, _FRPID, _RV, _VC, _RTRT, _PRC, _BCr, _Ta, _AC],
-  [0, () => CanaryCodeInput$, 0, 0, () => CanaryScheduleInput$, () => CanaryRunConfigInput$, 1, 1, 0, () => VpcConfigInput$, 64 | 0, 0, () => BrowserConfigs, 128 | 0, () => ArtifactConfigInput$]
+  [_N, _Co, _ASL, _ERA, _S, _RV, _RC, _SRPID, _FRPID, _VC, _RTRT, _PRC, _BCr, _Ta, _AC],
+  [0, () => CanaryCodeInput$, 0, 0, () => CanaryScheduleInput$, 0, () => CanaryRunConfigInput$, 1, 1, () => VpcConfigInput$, 64 | 0, 0, () => BrowserConfigs, 128 | 0, () => ArtifactConfigInput$], 6
 ];
 export var CreateCanaryResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -370,7 +370,7 @@ export var CreateCanaryResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
   [_N, _Ta],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
@@ -380,7 +380,7 @@ export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr,
 export var DeleteCanaryRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_N, _DL],
-  [[0, 1], [2, { [_hQ]: _dL }]]
+  [[0, 1], [2, { [_hQ]: _dL }]], 1
 ];
 export var DeleteCanaryResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -390,7 +390,7 @@ export var DeleteCanaryResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
   [_GI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe,
   0,
@@ -399,8 +399,8 @@ export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe,
 ];
 export var Dependency$: StaticStructureSchema = [3, n0, _De,
   0,
-  [_Ty, _R],
-  [0, 0]
+  [_R, _Ty],
+  [0, 0], 1
 ];
 export var DescribeCanariesLastRunRequest$: StaticStructureSchema = [3, n0, _DCLRR,
   0,
@@ -435,7 +435,7 @@ export var DescribeRuntimeVersionsResponse$: StaticStructureSchema = [3, n0, _DR
 export var DisassociateResourceRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_GI, _RA],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var DisassociateResourceResponse$: StaticStructureSchema = [3, n0, _DRRi,
   0,
@@ -455,7 +455,7 @@ export var EngineConfig$: StaticStructureSchema = [3, n0, _ECn,
 export var GetCanaryRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_N, _DRI],
-  [[0, 1], [0, { [_hQ]: _dRI }]]
+  [[0, 1], [0, { [_hQ]: _dRI }]], 1
 ];
 export var GetCanaryResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -465,7 +465,7 @@ export var GetCanaryResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var GetCanaryRunsRequest$: StaticStructureSchema = [3, n0, _GCRR,
   0,
   [_N, _NT, _MR, _DRI, _RT],
-  [[0, 1], 0, 1, 0, 0]
+  [[0, 1], 0, 1, 0, 0], 1
 ];
 export var GetCanaryRunsResponse$: StaticStructureSchema = [3, n0, _GCRRe,
   0,
@@ -475,7 +475,7 @@ export var GetCanaryRunsResponse$: StaticStructureSchema = [3, n0, _GCRRe,
 export var GetGroupRequest$: StaticStructureSchema = [3, n0, _GGR,
   0,
   [_GI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetGroupResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
@@ -506,8 +506,8 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListAssociatedGroupsRequest$: StaticStructureSchema = [3, n0, _LAGR,
   0,
-  [_NT, _MR, _RA],
-  [0, 1, [0, 1]]
+  [_RA, _NT, _MR],
+  [[0, 1], 0, 1], 1
 ];
 export var ListAssociatedGroupsResponse$: StaticStructureSchema = [3, n0, _LAGRi,
   0,
@@ -516,8 +516,8 @@ export var ListAssociatedGroupsResponse$: StaticStructureSchema = [3, n0, _LAGRi
 ];
 export var ListGroupResourcesRequest$: StaticStructureSchema = [3, n0, _LGRR,
   0,
-  [_NT, _MR, _GI],
-  [0, 1, [0, 1]]
+  [_GI, _NT, _MR],
+  [[0, 1], 0, 1], 1
 ];
 export var ListGroupResourcesResponse$: StaticStructureSchema = [3, n0, _LGRRi,
   0,
@@ -537,7 +537,7 @@ export var ListGroupsResponse$: StaticStructureSchema = [3, n0, _LGRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -565,7 +565,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var RetryConfigInput$: StaticStructureSchema = [3, n0, _RCI,
   0,
   [_MRa],
-  [1]
+  [1], 1
 ];
 export var RetryConfigOutput$: StaticStructureSchema = [3, n0, _RCO,
   0,
@@ -591,7 +591,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var StartCanaryDryRunRequest$: StaticStructureSchema = [3, n0, _SCDRR,
   0,
   [_N, _Co, _RV, _RC, _VC, _ERA, _SRPID, _FRPID, _VR, _ASL, _AC, _PRC, _BCr, _VRi],
-  [[0, 1], () => CanaryCodeInput$, 0, () => CanaryRunConfigInput$, () => VpcConfigInput$, 0, 1, 1, () => VisualReferenceInput$, 0, () => ArtifactConfigInput$, 0, () => BrowserConfigs, () => VisualReferences]
+  [[0, 1], () => CanaryCodeInput$, 0, () => CanaryRunConfigInput$, () => VpcConfigInput$, 0, 1, 1, () => VisualReferenceInput$, 0, () => ArtifactConfigInput$, 0, () => BrowserConfigs, () => VisualReferences], 1
 ];
 export var StartCanaryDryRunResponse$: StaticStructureSchema = [3, n0, _SCDRRt,
   0,
@@ -601,7 +601,7 @@ export var StartCanaryDryRunResponse$: StaticStructureSchema = [3, n0, _SCDRRt,
 export var StartCanaryRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StartCanaryResponse$: StaticStructureSchema = [3, n0, _SCRt,
   0,
@@ -611,7 +611,7 @@ export var StartCanaryResponse$: StaticStructureSchema = [3, n0, _SCRt,
 export var StopCanaryRequest$: StaticStructureSchema = [3, n0, _SCRto,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StopCanaryResponse$: StaticStructureSchema = [3, n0, _SCRtop,
   0,
@@ -621,7 +621,7 @@ export var StopCanaryResponse$: StaticStructureSchema = [3, n0, _SCRtop,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -637,7 +637,7 @@ TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsExc
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -647,7 +647,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateCanaryRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_N, _Co, _ERA, _RV, _S, _RC, _SRPID, _FRPID, _VC, _VR, _ASL, _AC, _PRC, _DRI, _VRi, _BCr],
-  [[0, 1], () => CanaryCodeInput$, 0, 0, () => CanaryScheduleInput$, () => CanaryRunConfigInput$, 1, 1, () => VpcConfigInput$, () => VisualReferenceInput$, 0, () => ArtifactConfigInput$, 0, 0, () => VisualReferences, () => BrowserConfigs]
+  [[0, 1], () => CanaryCodeInput$, 0, 0, () => CanaryScheduleInput$, () => CanaryRunConfigInput$, 1, 1, () => VpcConfigInput$, () => VisualReferenceInput$, 0, () => ArtifactConfigInput$, 0, 0, () => VisualReferences, () => BrowserConfigs], 1
 ];
 export var UpdateCanaryResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -662,8 +662,8 @@ export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VisualReferenceInput$: StaticStructureSchema = [3, n0, _VRI,
   0,
-  [_BSa, _BCRI, _BT],
-  [() => BaseScreenshots, 0, 0]
+  [_BCRI, _BSa, _BT],
+  [0, () => BaseScreenshots, 0], 1
 ];
 export var VisualReferenceOutput$: StaticStructureSchema = [3, n0, _VRO,
   0,

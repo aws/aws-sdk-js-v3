@@ -1013,13 +1013,13 @@ var InstanceUrl: StaticSimpleSchema = [0, n0, _IU, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Account$: StaticStructureSchema = [3, n0, _A,
   0,
   [_aI, _s, _rS],
-  [0, 0, () => ResourceStatus$]
+  [0, 0, () => ResourceStatus$], 3
 ];
 export var AccountAggregation$: StaticStructureSchema = [3, n0, _AA,
   0,
@@ -1034,7 +1034,7 @@ export var AccountAggregationResponse$: StaticStructureSchema = [3, n0, _AAR,
 export var AccountState$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_aI, _st, _rSe],
-  [0, () => State$, () => ResourceState$]
+  [0, () => State$, () => ResourceState$], 3
 ];
 export var AmiAggregation$: StaticStructureSchema = [3, n0, _AAm,
   0,
@@ -1044,22 +1044,22 @@ export var AmiAggregation$: StaticStructureSchema = [3, n0, _AAm,
 export var AmiAggregationResponse$: StaticStructureSchema = [3, n0, _AARm,
   0,
   [_am, _aI, _sC, _aIf],
-  [0, 0, () => SeverityCounts$, 1]
+  [0, 0, () => SeverityCounts$, 1], 1
 ];
 export var AssociateConfigurationRequest$: StaticStructureSchema = [3, n0, _ACR,
   0,
   [_sCA, _r],
-  [0, () => CodeSecurityResource$]
+  [0, () => CodeSecurityResource$], 2
 ];
 export var AssociateMemberRequest$: StaticStructureSchema = [3, n0, _AMR,
   0,
   [_aI],
-  [0]
+  [0], 1
 ];
 export var AssociateMemberResponse$: StaticStructureSchema = [3, n0, _AMRs,
   0,
   [_aI],
-  [0]
+  [0], 1
 ];
 export var AtigData$: StaticStructureSchema = [3, n0, _AD,
   0,
@@ -1069,7 +1069,7 @@ export var AtigData$: StaticStructureSchema = [3, n0, _AD,
 export var AutoEnable$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_ec, _ecr, _l, _lC, _cR],
-  [2, 2, 2, 2, 2]
+  [2, 2, 2, 2, 2], 2
 ];
 export var AwsEc2InstanceDetails$: StaticStructureSchema = [3, n0, _AEID,
   0,
@@ -1084,17 +1084,17 @@ export var AwsEcrContainerAggregation$: StaticStructureSchema = [3, n0, _AECA,
 export var AwsEcrContainerAggregationResponse$: StaticStructureSchema = [3, n0, _AECAR,
   0,
   [_rIe, _iSm, _rep, _arc, _iT, _aI, _sC, _lIUA, _iUC],
-  [0, 0, 0, 0, 64 | 0, 0, () => SeverityCounts$, 4, 1]
+  [0, 0, 0, 0, 64 | 0, 0, () => SeverityCounts$, 4, 1], 1
 ];
 export var AwsEcrContainerImageDetails$: StaticStructureSchema = [3, n0, _AECID,
   0,
-  [_rN, _iT, _pA, _au, _arc, _iH, _reg, _p, _lIUA, _iUC],
-  [0, 64 | 0, 4, 0, 0, 0, 0, 0, 4, 1]
+  [_rN, _iH, _reg, _iT, _pA, _au, _arc, _p, _lIUA, _iUC],
+  [0, 0, 0, 64 | 0, 4, 0, 0, 0, 4, 1], 3
 ];
 export var AwsEcsMetadataDetails$: StaticStructureSchema = [3, n0, _AEMD,
   0,
   [_dG, _tDA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AwsEksMetadataDetails$: StaticStructureSchema = [3, n0, _AEMDw,
   0,
@@ -1104,23 +1104,23 @@ export var AwsEksMetadataDetails$: StaticStructureSchema = [3, n0, _AEMDw,
 export var AwsEksWorkloadInfo$: StaticStructureSchema = [3, n0, _AEWI,
   0,
   [_na, _ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AwsLambdaFunctionDetails$: StaticStructureSchema = [3, n0, _ALFD,
   0,
   [_fN, _ru, _cS, _v, _eRA, _la, _vC, _pT, _ar, _lMA],
-  [0, 0, 0, 0, 0, 64 | 0, () => LambdaVpcConfig$, 0, 64 | 0, 4]
+  [0, 0, 0, 0, 0, 64 | 0, () => LambdaVpcConfig$, 0, 64 | 0, 4], 5
 ];
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BatchAssociateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _BACSSCR,
   0,
   [_aCR],
-  [() => AssociateConfigurationRequestList]
+  [() => AssociateConfigurationRequestList], 1
 ];
 export var BatchAssociateCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3, n0, _BACSSCRa,
   0,
@@ -1130,7 +1130,7 @@ export var BatchAssociateCodeSecurityScanConfigurationResponse$: StaticStructure
 export var BatchDisassociateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _BDCSSCR,
   0,
   [_dCR],
-  [() => DisassociateConfigurationRequestList]
+  [() => DisassociateConfigurationRequestList], 1
 ];
 export var BatchDisassociateCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3, n0, _BDCSSCRa,
   0,
@@ -1145,12 +1145,12 @@ export var BatchGetAccountStatusRequest$: StaticStructureSchema = [3, n0, _BGASR
 export var BatchGetAccountStatusResponse$: StaticStructureSchema = [3, n0, _BGASRa,
   0,
   [_ac, _fAa],
-  [() => AccountStateList, () => FailedAccountList]
+  [() => AccountStateList, () => FailedAccountList], 1
 ];
 export var BatchGetCodeSnippetRequest$: StaticStructureSchema = [3, n0, _BGCSR,
   0,
   [_fAi],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetCodeSnippetResponse$: StaticStructureSchema = [3, n0, _BGCSRa,
   0,
@@ -1160,7 +1160,7 @@ export var BatchGetCodeSnippetResponse$: StaticStructureSchema = [3, n0, _BGCSRa
 export var BatchGetFindingDetailsRequest$: StaticStructureSchema = [3, n0, _BGFDR,
   0,
   [_fAi],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetFindingDetailsResponse$: StaticStructureSchema = [3, n0, _BGFDRa,
   0,
@@ -1170,12 +1170,12 @@ export var BatchGetFindingDetailsResponse$: StaticStructureSchema = [3, n0, _BGF
 export var BatchGetFreeTrialInfoRequest$: StaticStructureSchema = [3, n0, _BGFTIR,
   0,
   [_aIc],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetFreeTrialInfoResponse$: StaticStructureSchema = [3, n0, _BGFTIRa,
   0,
   [_ac, _fAa],
-  [() => FreeTrialAccountInfoList, () => FreeTrialInfoErrorList]
+  [() => FreeTrialAccountInfoList, () => FreeTrialInfoErrorList], 2
 ];
 export var BatchGetMemberEc2DeepInspectionStatusRequest$: StaticStructureSchema = [3, n0, _BGMEDISR,
   0,
@@ -1190,7 +1190,7 @@ export var BatchGetMemberEc2DeepInspectionStatusResponse$: StaticStructureSchema
 export var BatchUpdateMemberEc2DeepInspectionStatusRequest$: StaticStructureSchema = [3, n0, _BUMEDISR,
   0,
   [_aIc],
-  [() => MemberAccountEc2DeepInspectionStatusList]
+  [() => MemberAccountEc2DeepInspectionStatusList], 1
 ];
 export var BatchUpdateMemberEc2DeepInspectionStatusResponse$: StaticStructureSchema = [3, n0, _BUMEDISRa,
   0,
@@ -1200,17 +1200,17 @@ export var BatchUpdateMemberEc2DeepInspectionStatusResponse$: StaticStructureSch
 export var CancelFindingsReportRequest$: StaticStructureSchema = [3, n0, _CFRR,
   0,
   [_rIep],
-  [0]
+  [0], 1
 ];
 export var CancelFindingsReportResponse$: StaticStructureSchema = [3, n0, _CFRRa,
   0,
   [_rIep],
-  [0]
+  [0], 1
 ];
 export var CancelSbomExportRequest$: StaticStructureSchema = [3, n0, _CSER,
   0,
   [_rIep],
-  [0]
+  [0], 1
 ];
 export var CancelSbomExportResponse$: StaticStructureSchema = [3, n0, _CSERa,
   0,
@@ -1225,7 +1225,7 @@ export var CisaData$: StaticStructureSchema = [3, n0, _CD,
 export var CisCheckAggregation$: StaticStructureSchema = [3, n0, _CCA,
   0,
   [_sAc, _cI, _ti, _cD, _le, _aI, _sCt, _p],
-  [0, 0, 0, 0, 0, 0, () => StatusCounts$, 0]
+  [0, 0, 0, 0, 0, 0, () => StatusCounts$, 0], 1
 ];
 export var CisDateFilter$: StaticStructureSchema = [3, n0, _CDF,
   0,
@@ -1235,7 +1235,7 @@ export var CisDateFilter$: StaticStructureSchema = [3, n0, _CDF,
 export var CisFindingStatusFilter$: StaticStructureSchema = [3, n0, _CFSF,
   0,
   [_co, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CisNumberFilter$: StaticStructureSchema = [3, n0, _CNF,
   0,
@@ -1245,22 +1245,22 @@ export var CisNumberFilter$: StaticStructureSchema = [3, n0, _CNF,
 export var CisResultStatusFilter$: StaticStructureSchema = [3, n0, _CRSF,
   0,
   [_co, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CisScan$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_sAc, _sCA, _s, _sN, _sD, _fC, _tC, _t, _sBc, _sL],
-  [0, 0, 0, 0, 4, 1, 1, () => CisTargets$, 0, 0]
+  [0, 0, 0, 0, 4, 1, 1, () => CisTargets$, 0, 0], 2
 ];
 export var CisScanConfiguration$: StaticStructureSchema = [3, n0, _CSC,
   0,
   [_sCA, _oI, _sN, _sL, _sc, _t, _ta],
-  [0, 0, 0, 0, () => Schedule$, () => CisTargets$, 128 | 0]
+  [0, 0, 0, 0, () => Schedule$, () => CisTargets$, 128 | 0], 1
 ];
 export var CisScanResultDetails$: StaticStructureSchema = [3, n0, _CSRD,
   0,
   [_sAc, _aI, _tRI, _p, _s, _sR, _cI, _ti, _cD, _rem, _le, _fAin],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var CisScanResultDetailsFilterCriteria$: StaticStructureSchema = [3, n0, _CSRDFC,
   0,
@@ -1280,27 +1280,27 @@ export var CisScanResultsAggregatedByTargetResourceFilterCriteria$: StaticStruct
 export var CisScanStatusFilter$: StaticStructureSchema = [3, n0, _CSSF,
   0,
   [_co, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CisSecurityLevelFilter$: StaticStructureSchema = [3, n0, _CSLF,
   0,
   [_co, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CisSessionMessage$: StaticStructureSchema = [3, n0, _CSM,
   0,
   [_rIu, _s, _cRD],
-  [0, 0, 21]
+  [0, 0, 21], 3
 ];
 export var CisStringFilter$: StaticStructureSchema = [3, n0, _CSF,
   0,
   [_co, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CisTargetResourceAggregation$: StaticStructureSchema = [3, n0, _CTRA,
   0,
   [_sAc, _tRI, _aI, _tRT, _sCt, _p, _tS, _tSR],
-  [0, 0, 0, [2, n0, _TRT, 0, 0, 64 | 0], () => StatusCounts$, 0, 0, 0]
+  [0, 0, 0, [2, n0, _TRT, 0, 0, 64 | 0], () => StatusCounts$, 0, 0, 0], 1
 ];
 export var CisTargets$: StaticStructureSchema = [3, n0, _CT,
   0,
@@ -1310,37 +1310,37 @@ export var CisTargets$: StaticStructureSchema = [3, n0, _CT,
 export var CisTargetStatusFilter$: StaticStructureSchema = [3, n0, _CTSF,
   0,
   [_co, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CisTargetStatusReasonFilter$: StaticStructureSchema = [3, n0, _CTSRF,
   0,
   [_co, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ClusterDetails$: StaticStructureSchema = [3, n0, _CDl,
   0,
-  [_lIU, _rUC, _sUC, _cM],
-  [4, 1, 1, () => ClusterMetadata$]
+  [_lIU, _cM, _rUC, _sUC],
+  [4, () => ClusterMetadata$, 1, 1], 2
 ];
 export var ClusterForImageFilterCriteria$: StaticStructureSchema = [3, n0, _CFIFC,
   0,
   [_rIe],
-  [0]
+  [0], 1
 ];
 export var ClusterInformation$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_cA, _cDl],
-  [0, () => ClusterDetailsList]
+  [0, () => ClusterDetailsList], 1
 ];
 export var CodeFilePath$: StaticStructureSchema = [3, n0, _CFP,
   0,
   [_fNi, _fP, _sLt, _eL],
-  [0, 0, 1, 1]
+  [0, 0, 1, 1], 4
 ];
 export var CodeLine$: StaticStructureSchema = [3, n0, _CL,
   0,
   [_con, _lN],
-  [0, 1]
+  [0, 1], 2
 ];
 export var CodeRepositoryAggregation$: StaticStructureSchema = [3, n0, _CRA,
   0,
@@ -1350,7 +1350,7 @@ export var CodeRepositoryAggregation$: StaticStructureSchema = [3, n0, _CRA,
 export var CodeRepositoryAggregationResponse$: StaticStructureSchema = [3, n0, _CRAR,
   0,
   [_pN, _pTro, _sC, _eAAFC, _fAAFC, _aI, _rIe],
-  [0, 0, () => SeverityCounts$, 1, 1, 0, 0]
+  [0, 0, () => SeverityCounts$, 1, 1, 0, 0], 1
 ];
 export var CodeRepositoryDetails$: StaticStructureSchema = [3, n0, _CRD,
   0,
@@ -1359,8 +1359,8 @@ export var CodeRepositoryDetails$: StaticStructureSchema = [3, n0, _CRD,
 ];
 export var CodeRepositoryMetadata$: StaticStructureSchema = [3, n0, _CRM,
   0,
-  [_pNr, _iA, _pTro, _pTV, _lSCI, _sCc, _oDS],
-  [0, 0, 0, 0, 0, () => ProjectCodeSecurityScanConfiguration$, () => CodeRepositoryOnDemandScan$]
+  [_pNr, _pTro, _pTV, _iA, _lSCI, _sCc, _oDS],
+  [0, 0, 0, 0, 0, () => ProjectCodeSecurityScanConfiguration$, () => CodeRepositoryOnDemandScan$], 3
 ];
 export var CodeRepositoryOnDemandScan$: StaticStructureSchema = [3, n0, _CRODS,
   0,
@@ -1370,12 +1370,12 @@ export var CodeRepositoryOnDemandScan$: StaticStructureSchema = [3, n0, _CRODS,
 export var CodeSecurityIntegrationSummary$: StaticStructureSchema = [3, n0, _CSIS,
   0,
   [_iA, _na, _ty, _s, _sR, _cO, _lUO, _ta],
-  [0, 0, 0, 0, 0, 4, 4, 128 | 0]
+  [0, 0, 0, 0, 0, 4, 4, 128 | 0], 7
 ];
 export var CodeSecurityScanConfiguration$: StaticStructureSchema = [3, n0, _CSSC,
   0,
-  [_pSC, _cISC, _rSC],
-  [() => PeriodicScanConfiguration$, () => ContinuousIntegrationScanConfiguration$, 64 | 0]
+  [_rSC, _pSC, _cISC],
+  [64 | 0, () => PeriodicScanConfiguration$, () => ContinuousIntegrationScanConfiguration$], 1
 ];
 export var CodeSecurityScanConfigurationAssociationSummary$: StaticStructureSchema = [3, n0, _CSSCAS,
   0,
@@ -1384,13 +1384,13 @@ export var CodeSecurityScanConfigurationAssociationSummary$: StaticStructureSche
 ];
 export var CodeSecurityScanConfigurationSummary$: StaticStructureSchema = [3, n0, _CSSCS,
   0,
-  [_sCA, _na, _oAI, _pSF, _fE, _cISSE, _rSC, _sSc, _ta],
-  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ScopeSettings$, 128 | 0]
+  [_sCA, _na, _oAI, _rSC, _pSF, _fE, _cISSE, _sSc, _ta],
+  [0, 0, 0, 64 | 0, 0, 0, 64 | 0, () => ScopeSettings$, 128 | 0], 4
 ];
 export var CodeSnippetError$: StaticStructureSchema = [3, n0, _CSE,
   0,
   [_fAin, _eC, _eM],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CodeSnippetResult$: StaticStructureSchema = [3, n0, _CSR,
   0,
@@ -1399,8 +1399,8 @@ export var CodeSnippetResult$: StaticStructureSchema = [3, n0, _CSR,
 ];
 export var CodeVulnerabilityDetails$: StaticStructureSchema = [3, n0, _CVD,
   0,
-  [_fP, _dT, _rU, _rIu, _sLLA, _dI, _dN, _cw],
-  [() => CodeFilePath$, 64 | 0, 64 | 0, 0, 0, 0, 0, 64 | 0]
+  [_fP, _dI, _dN, _cw, _dT, _rU, _rIu, _sLLA],
+  [() => CodeFilePath$, 0, 0, 64 | 0, 64 | 0, 64 | 0, 0, 0], 4
 ];
 export var ComputePlatform$: StaticStructureSchema = [3, n0, _CP,
   0,
@@ -1410,13 +1410,13 @@ export var ComputePlatform$: StaticStructureSchema = [3, n0, _CP,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rIe, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContinuousIntegrationScanConfiguration$: StaticStructureSchema = [3, n0, _CISC,
   0,
   [_sE],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var Counts$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -1436,7 +1436,7 @@ export var CoverageFilterCriteria$: StaticStructureSchema = [3, n0, _CFC,
 export var CoverageMapFilter$: StaticStructureSchema = [3, n0, _CMF,
   0,
   [_co, _k, _va],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var CoverageNumberFilter$: StaticStructureSchema = [3, n0, _CNFo,
   0,
@@ -1446,17 +1446,17 @@ export var CoverageNumberFilter$: StaticStructureSchema = [3, n0, _CNFo,
 export var CoverageStringFilter$: StaticStructureSchema = [3, n0, _CSFo,
   0,
   [_co, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CoveredResource$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_rT, _rIe, _aI, _sT, _sS, _rM, _lSAa, _sM],
-  [0, 0, 0, 0, () => ScanStatus$, () => ResourceScanMetadata$, 4, 0]
+  [0, 0, 0, 0, () => ScanStatus$, () => ResourceScanMetadata$, 4, 0], 4
 ];
 export var CreateCisScanConfigurationRequest$: StaticStructureSchema = [3, n0, _CCSCR,
   0,
   [_sN, _sL, _sc, _t, _ta],
-  [0, 0, () => Schedule$, () => CreateCisTargets$, 128 | 0]
+  [0, 0, () => Schedule$, () => CreateCisTargets$, 128 | 0], 4
 ];
 export var CreateCisScanConfigurationResponse$: StaticStructureSchema = [3, n0, _CCSCRr,
   0,
@@ -1466,42 +1466,42 @@ export var CreateCisScanConfigurationResponse$: StaticStructureSchema = [3, n0, 
 export var CreateCisTargets$: StaticStructureSchema = [3, n0, _CCT,
   0,
   [_aIc, _tRT],
-  [64 | 0, [2, n0, _TRT, 0, 0, 64 | 0]]
+  [64 | 0, [2, n0, _TRT, 0, 0, 64 | 0]], 2
 ];
 export var CreateCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0, _CCSIR,
   0,
   [_na, _ty, _d, _ta],
-  [0, 0, [() => CreateIntegrationDetail$, 0], 128 | 0]
+  [0, 0, [() => CreateIntegrationDetail$, 0], 128 | 0], 2
 ];
 export var CreateCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _CCSIRr,
   0,
   [_iA, _s, _aU],
-  [0, 0, [() => AuthorizationUrl, 0]]
+  [0, 0, [() => AuthorizationUrl, 0]], 2
 ];
 export var CreateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _CCSSCR,
   0,
   [_na, _le, _conf, _sSc, _ta],
-  [0, 0, () => CodeSecurityScanConfiguration$, () => ScopeSettings$, 128 | 0]
+  [0, 0, () => CodeSecurityScanConfiguration$, () => ScopeSettings$, 128 | 0], 3
 ];
 export var CreateCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3, n0, _CCSSCRr,
   0,
   [_sCA],
-  [0]
+  [0], 1
 ];
 export var CreateFilterRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_act, _de, _fCi, _na, _ta, _rea],
-  [0, 0, () => FilterCriteria$, 0, 128 | 0, 0]
+  [_act, _fCi, _na, _de, _ta, _rea],
+  [0, () => FilterCriteria$, 0, 0, 128 | 0, 0], 3
 ];
 export var CreateFilterResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
   [_arn],
-  [0]
+  [0], 1
 ];
 export var CreateFindingsReportRequest$: StaticStructureSchema = [3, n0, _CFRRr,
   0,
-  [_fCi, _rF, _sDe],
-  [() => FilterCriteria$, 0, () => Destination$]
+  [_rF, _sDe, _fCi],
+  [0, () => Destination$, () => FilterCriteria$], 2
 ];
 export var CreateFindingsReportResponse$: StaticStructureSchema = [3, n0, _CFRRre,
   0,
@@ -1511,12 +1511,12 @@ export var CreateFindingsReportResponse$: StaticStructureSchema = [3, n0, _CFRRr
 export var CreateGitLabSelfManagedIntegrationDetail$: StaticStructureSchema = [3, n0, _CGLSMID,
   0,
   [_iU, _aT],
-  [[() => InstanceUrl, 0], [() => GitLabAccessToken, 0]]
+  [[() => InstanceUrl, 0], [() => GitLabAccessToken, 0]], 2
 ];
 export var CreateSbomExportRequest$: StaticStructureSchema = [3, n0, _CSERr,
   0,
-  [_rFC, _rF, _sDe],
-  [() => ResourceFilterCriteria$, 0, () => Destination$]
+  [_rF, _sDe, _rFC],
+  [0, () => Destination$, () => ResourceFilterCriteria$], 2
 ];
 export var CreateSbomExportResponse$: StaticStructureSchema = [3, n0, _CSERre,
   0,
@@ -1541,22 +1541,22 @@ export var Cvss4$: StaticStructureSchema = [3, n0, _Cvss,
 export var CvssScore$: StaticStructureSchema = [3, n0, _CSv,
   0,
   [_bS, _sV, _v, _so],
-  [1, 0, 0, 0]
+  [1, 0, 0, 0], 4
 ];
 export var CvssScoreAdjustment$: StaticStructureSchema = [3, n0, _CSA,
   0,
   [_me, _rea],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CvssScoreDetails$: StaticStructureSchema = [3, n0, _CSD,
   0,
-  [_sSco, _cSv, _v, _sco, _sV, _ad],
-  [0, 0, 0, 1, 0, () => CvssScoreAdjustmentList]
+  [_sSco, _v, _sco, _sV, _cSv, _ad],
+  [0, 0, 1, 0, 0, () => CvssScoreAdjustmentList], 4
 ];
 export var DailySchedule$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_sTt],
-  [() => Time$]
+  [() => Time$], 1
 ];
 export var DateFilter$: StaticStructureSchema = [3, n0, _DF,
   0,
@@ -1576,17 +1576,17 @@ export var DelegatedAdminAccount$: StaticStructureSchema = [3, n0, _DAA,
 export var DeleteCisScanConfigurationRequest$: StaticStructureSchema = [3, n0, _DCSCR,
   0,
   [_sCA],
-  [0]
+  [0], 1
 ];
 export var DeleteCisScanConfigurationResponse$: StaticStructureSchema = [3, n0, _DCSCRe,
   0,
   [_sCA],
-  [0]
+  [0], 1
 ];
 export var DeleteCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0, _DCSIR,
   0,
   [_iA],
-  [0]
+  [0], 1
 ];
 export var DeleteCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _DCSIRe,
   0,
@@ -1596,7 +1596,7 @@ export var DeleteCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n
 export var DeleteCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _DCSSCR,
   0,
   [_sCA],
-  [0]
+  [0], 1
 ];
 export var DeleteCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3, n0, _DCSSCRe,
   0,
@@ -1606,12 +1606,12 @@ export var DeleteCodeSecurityScanConfigurationResponse$: StaticStructureSchema =
 export var DeleteFilterRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_arn],
-  [0]
+  [0], 1
 ];
 export var DeleteFilterResponse$: StaticStructureSchema = [3, n0, _DFRe,
   0,
   [_arn],
-  [0]
+  [0], 1
 ];
 export var DescribeOrganizationConfigurationRequest$: StaticStructureSchema = [3, n0, _DOCR,
   0,
@@ -1625,18 +1625,18 @@ export var DescribeOrganizationConfigurationResponse$: StaticStructureSchema = [
 ];
 export var Destination$: StaticStructureSchema = [3, n0, _D,
   0,
-  [_bN, _kP, _kKA],
-  [0, 0, 0]
+  [_bN, _kKA, _kP],
+  [0, 0, 0], 2
 ];
 export var DisableDelegatedAdminAccountRequest$: StaticStructureSchema = [3, n0, _DDAAR,
   0,
   [_dAAI],
-  [0]
+  [0], 1
 ];
 export var DisableDelegatedAdminAccountResponse$: StaticStructureSchema = [3, n0, _DDAARi,
   0,
   [_dAAI],
-  [0]
+  [0], 1
 ];
 export var DisableRequest$: StaticStructureSchema = [3, n0, _DR,
   0,
@@ -1646,27 +1646,27 @@ export var DisableRequest$: StaticStructureSchema = [3, n0, _DR,
 export var DisableResponse$: StaticStructureSchema = [3, n0, _DRi,
   0,
   [_ac, _fAa],
-  [() => AccountList, () => FailedAccountList]
+  [() => AccountList, () => FailedAccountList], 1
 ];
 export var DisassociateConfigurationRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_sCA, _r],
-  [0, () => CodeSecurityResource$]
+  [0, () => CodeSecurityResource$], 2
 ];
 export var DisassociateMemberRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_aI],
-  [0]
+  [0], 1
 ];
 export var DisassociateMemberResponse$: StaticStructureSchema = [3, n0, _DMRi,
   0,
   [_aI],
-  [0]
+  [0], 1
 ];
 export var Ec2Configuration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_sM],
-  [0]
+  [0], 1
 ];
 export var Ec2ConfigurationState$: StaticStructureSchema = [3, n0, _ECS,
   0,
@@ -1681,7 +1681,7 @@ export var Ec2InstanceAggregation$: StaticStructureSchema = [3, n0, _EIA,
 export var Ec2InstanceAggregationResponse$: StaticStructureSchema = [3, n0, _EIAR,
   0,
   [_iIns, _am, _oSp, _iTn, _aI, _sC, _nF],
-  [0, 0, 0, 128 | 0, 0, () => SeverityCounts$, 1]
+  [0, 0, 0, 128 | 0, 0, () => SeverityCounts$, 1], 1
 ];
 export var Ec2Metadata$: StaticStructureSchema = [3, n0, _EM,
   0,
@@ -1696,7 +1696,7 @@ export var Ec2ScanModeState$: StaticStructureSchema = [3, n0, _ESMS,
 export var EcrConfiguration$: StaticStructureSchema = [3, n0, _ECc,
   0,
   [_rD, _pDRD, _pDRM],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var EcrConfigurationState$: StaticStructureSchema = [3, n0, _ECSc,
   0,
@@ -1721,22 +1721,22 @@ export var EcrRescanDurationState$: StaticStructureSchema = [3, n0, _ERDS,
 export var EnableDelegatedAdminAccountRequest$: StaticStructureSchema = [3, n0, _EDAAR,
   0,
   [_dAAI, _cT],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var EnableDelegatedAdminAccountResponse$: StaticStructureSchema = [3, n0, _EDAARn,
   0,
   [_dAAI],
-  [0]
+  [0], 1
 ];
 export var EnableRequest$: StaticStructureSchema = [3, n0, _ER,
   0,
-  [_aIc, _rTe, _cT],
-  [64 | 0, 64 | 0, [0, 4]]
+  [_rTe, _aIc, _cT],
+  [64 | 0, 64 | 0, [0, 4]], 1
 ];
 export var EnableResponse$: StaticStructureSchema = [3, n0, _ERn,
   0,
   [_ac, _fAa],
-  [() => AccountList, () => FailedAccountList]
+  [() => AccountList, () => FailedAccountList], 1
 ];
 export var Epss$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -1765,8 +1765,8 @@ export var ExploitObserved$: StaticStructureSchema = [3, n0, _EO,
 ];
 export var FailedAccount$: StaticStructureSchema = [3, n0, _FA,
   0,
-  [_aI, _s, _rS, _eC, _eM],
-  [0, 0, () => ResourceStatus$, 0, 0]
+  [_aI, _eC, _eM, _s, _rS],
+  [0, 0, 0, 0, () => ResourceStatus$], 3
 ];
 export var FailedAssociationResult$: StaticStructureSchema = [3, n0, _FAR,
   0,
@@ -1776,12 +1776,12 @@ export var FailedAssociationResult$: StaticStructureSchema = [3, n0, _FAR,
 export var FailedMemberAccountEc2DeepInspectionStatusState$: StaticStructureSchema = [3, n0, _FMAEDISS,
   0,
   [_aI, _eSS, _eM],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_arn, _oI, _na, _cr, _act, _cAr, _uA, _de, _rea, _ta],
-  [0, 0, 0, () => FilterCriteria$, 0, 4, 4, 0, 0, 128 | 0]
+  [0, 0, 0, () => FilterCriteria$, 0, 4, 4, 0, 0, 128 | 0], 7
 ];
 export var FilterCriteria$: StaticStructureSchema = [3, n0, _FC,
   0,
@@ -1790,8 +1790,8 @@ export var FilterCriteria$: StaticStructureSchema = [3, n0, _FC,
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _Fi,
   0,
-  [_fAin, _aAI, _ty, _de, _ti, _rem, _se, _fOA, _lOA, _uA, _s, _res, _iSn, _iSD, _nRD, _pVD, _fAix, _eA, _eDx, _cVD, _ep],
-  [0, 0, 0, 0, 0, () => Remediation$, 0, 4, 4, 4, 0, () => ResourceList, 1, () => InspectorScoreDetails$, () => NetworkReachabilityDetails$, () => PackageVulnerabilityDetails$, 0, 0, () => ExploitabilityDetails$, () => CodeVulnerabilityDetails$, () => EpssDetails$]
+  [_fAin, _aAI, _ty, _de, _rem, _se, _fOA, _lOA, _s, _res, _ti, _uA, _iSn, _iSD, _nRD, _pVD, _fAix, _eA, _eDx, _cVD, _ep],
+  [0, 0, 0, 0, () => Remediation$, 0, 4, 4, 0, () => ResourceList, 0, 4, 1, () => InspectorScoreDetails$, () => NetworkReachabilityDetails$, () => PackageVulnerabilityDetails$, 0, 0, () => ExploitabilityDetails$, () => CodeVulnerabilityDetails$, () => EpssDetails$], 10
 ];
 export var FindingDetail$: StaticStructureSchema = [3, n0, _FD,
   0,
@@ -1801,7 +1801,7 @@ export var FindingDetail$: StaticStructureSchema = [3, n0, _FD,
 export var FindingDetailsError$: StaticStructureSchema = [3, n0, _FDE,
   0,
   [_fAin, _eC, _eM],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var FindingTypeAggregation$: StaticStructureSchema = [3, n0, _FTA,
   0,
@@ -1816,22 +1816,22 @@ export var FindingTypeAggregationResponse$: StaticStructureSchema = [3, n0, _FTA
 export var FreeTrialAccountInfo$: StaticStructureSchema = [3, n0, _FTAI,
   0,
   [_aI, _fTI],
-  [0, () => FreeTrialInfoList]
+  [0, () => FreeTrialInfoList], 2
 ];
 export var FreeTrialInfo$: StaticStructureSchema = [3, n0, _FTI,
   0,
   [_ty, _sta, _en, _s],
-  [0, 4, 4, 0]
+  [0, 4, 4, 0], 4
 ];
 export var FreeTrialInfoError$: StaticStructureSchema = [3, n0, _FTIE,
   0,
   [_aI, _cod, _m],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetCisScanReportRequest$: StaticStructureSchema = [3, n0, _GCSRR,
   0,
   [_sAc, _tA, _rF],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 1
 ];
 export var GetCisScanReportResponse$: StaticStructureSchema = [3, n0, _GCSRRe,
   0,
@@ -1841,7 +1841,7 @@ export var GetCisScanReportResponse$: StaticStructureSchema = [3, n0, _GCSRRe,
 export var GetCisScanResultDetailsRequest$: StaticStructureSchema = [3, n0, _GCSRDR,
   0,
   [_sAc, _tRI, _aI, _fCi, _sB, _sO, _nT, _mR],
-  [0, 0, 0, () => CisScanResultDetailsFilterCriteria$, 0, 0, 0, 1]
+  [0, 0, 0, () => CisScanResultDetailsFilterCriteria$, 0, 0, 0, 1], 3
 ];
 export var GetCisScanResultDetailsResponse$: StaticStructureSchema = [3, n0, _GCSRDRe,
   0,
@@ -1851,27 +1851,27 @@ export var GetCisScanResultDetailsResponse$: StaticStructureSchema = [3, n0, _GC
 export var GetClustersForImageRequest$: StaticStructureSchema = [3, n0, _GCFIR,
   0,
   [_f, _mR, _nT],
-  [() => ClusterForImageFilterCriteria$, 1, 0]
+  [() => ClusterForImageFilterCriteria$, 1, 0], 1
 ];
 export var GetClustersForImageResponse$: StaticStructureSchema = [3, n0, _GCFIRe,
   0,
   [_cl, _nT],
-  [() => ClusterInformationList, 0]
+  [() => ClusterInformationList, 0], 1
 ];
 export var GetCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0, _GCSIR,
   0,
   [_iA, _ta],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var GetCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _GCSIRe,
   0,
   [_iA, _na, _ty, _s, _sR, _cO, _lUO, _ta, _aU],
-  [0, 0, 0, 0, 0, 4, 4, 128 | 0, [() => AuthorizationUrl, 0]]
+  [0, 0, 0, 0, 0, 4, 4, 128 | 0, [() => AuthorizationUrl, 0]], 7
 ];
 export var GetCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _GCSSCR,
   0,
   [_sCA],
-  [0]
+  [0], 1
 ];
 export var GetCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3, n0, _GCSSCRe,
   0,
@@ -1881,7 +1881,7 @@ export var GetCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3
 export var GetCodeSecurityScanRequest$: StaticStructureSchema = [3, n0, _GCSSR,
   0,
   [_r, _sIc],
-  [() => CodeSecurityResource$, 0]
+  [() => CodeSecurityResource$, 0], 2
 ];
 export var GetCodeSecurityScanResponse$: StaticStructureSchema = [3, n0, _GCSSRe,
   0,
@@ -1921,12 +1921,12 @@ export var GetEc2DeepInspectionConfigurationResponse$: StaticStructureSchema = [
 export var GetEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _GEKR,
   0,
   [_sT, _rT],
-  [[0, { [_hQ]: _sT }], [0, { [_hQ]: _rT }]]
+  [[0, { [_hQ]: _sT }], [0, { [_hQ]: _rT }]], 2
 ];
 export var GetEncryptionKeyResponse$: StaticStructureSchema = [3, n0, _GEKRe,
   0,
   [_kKI],
-  [0]
+  [0], 1
 ];
 export var GetFindingsReportStatusRequest$: StaticStructureSchema = [3, n0, _GFRSR,
   0,
@@ -1941,7 +1941,7 @@ export var GetFindingsReportStatusResponse$: StaticStructureSchema = [3, n0, _GF
 export var GetMemberRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
   [_aI],
-  [0]
+  [0], 1
 ];
 export var GetMemberResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
@@ -1951,7 +1951,7 @@ export var GetMemberResponse$: StaticStructureSchema = [3, n0, _GMRe,
 export var GetSbomExportRequest$: StaticStructureSchema = [3, n0, _GSER,
   0,
   [_rIep],
-  [0]
+  [0], 1
 ];
 export var GetSbomExportResponse$: StaticStructureSchema = [3, n0, _GSERe,
   0,
@@ -1966,7 +1966,7 @@ export var ImageLayerAggregation$: StaticStructureSchema = [3, n0, _ILA,
 export var ImageLayerAggregationResponse$: StaticStructureSchema = [3, n0, _ILAR,
   0,
   [_rep, _rIe, _lHa, _aI, _sC],
-  [0, 0, 0, 0, () => SeverityCounts$]
+  [0, 0, 0, 0, () => SeverityCounts$], 4
 ];
 export var InspectorScoreDetails$: StaticStructureSchema = [3, n0, _ISD,
   0,
@@ -1976,7 +1976,7 @@ export var InspectorScoreDetails$: StaticStructureSchema = [3, n0, _ISD,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _ser, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LambdaFunctionAggregation$: StaticStructureSchema = [3, n0, _LFA,
@@ -1987,7 +1987,7 @@ export var LambdaFunctionAggregation$: StaticStructureSchema = [3, n0, _LFA,
 export var LambdaFunctionAggregationResponse$: StaticStructureSchema = [3, n0, _LFAR,
   0,
   [_rIe, _fN, _ru, _lT, _aI, _sC, _lMA],
-  [0, 0, 0, 128 | 0, 0, () => SeverityCounts$, 4]
+  [0, 0, 0, 128 | 0, 0, () => SeverityCounts$, 4], 1
 ];
 export var LambdaFunctionMetadata$: StaticStructureSchema = [3, n0, _LFM,
   0,
@@ -2002,7 +2002,7 @@ export var LambdaLayerAggregation$: StaticStructureSchema = [3, n0, _LLA,
 export var LambdaLayerAggregationResponse$: StaticStructureSchema = [3, n0, _LLAR,
   0,
   [_fN, _rIe, _lAay, _aI, _sC],
-  [0, 0, 0, 0, () => SeverityCounts$]
+  [0, 0, 0, 0, () => SeverityCounts$], 4
 ];
 export var LambdaVpcConfig$: StaticStructureSchema = [3, n0, _LVC,
   0,
@@ -2017,7 +2017,7 @@ export var ListAccountPermissionsRequest$: StaticStructureSchema = [3, n0, _LAPR
 export var ListAccountPermissionsResponse$: StaticStructureSchema = [3, n0, _LAPRi,
   0,
   [_pe, _nT],
-  [() => Permissions, 0]
+  [() => Permissions, 0], 1
 ];
 export var ListCisScanConfigurationsFilterCriteria$: StaticStructureSchema = [3, n0, _LCSCFC,
   0,
@@ -2037,7 +2037,7 @@ export var ListCisScanConfigurationsResponse$: StaticStructureSchema = [3, n0, _
 export var ListCisScanResultsAggregatedByChecksRequest$: StaticStructureSchema = [3, n0, _LCSRABCR,
   0,
   [_sAc, _fCi, _sB, _sO, _nT, _mR],
-  [0, () => CisScanResultsAggregatedByChecksFilterCriteria$, 0, 0, 0, 1]
+  [0, () => CisScanResultsAggregatedByChecksFilterCriteria$, 0, 0, 0, 1], 1
 ];
 export var ListCisScanResultsAggregatedByChecksResponse$: StaticStructureSchema = [3, n0, _LCSRABCRi,
   0,
@@ -2047,7 +2047,7 @@ export var ListCisScanResultsAggregatedByChecksResponse$: StaticStructureSchema 
 export var ListCisScanResultsAggregatedByTargetResourceRequest$: StaticStructureSchema = [3, n0, _LCSRABTRR,
   0,
   [_sAc, _fCi, _sB, _sO, _nT, _mR],
-  [0, () => CisScanResultsAggregatedByTargetResourceFilterCriteria$, 0, 0, 0, 1]
+  [0, () => CisScanResultsAggregatedByTargetResourceFilterCriteria$, 0, 0, 0, 1], 1
 ];
 export var ListCisScanResultsAggregatedByTargetResourceResponse$: StaticStructureSchema = [3, n0, _LCSRABTRRi,
   0,
@@ -2082,7 +2082,7 @@ export var ListCodeSecurityIntegrationsResponse$: StaticStructureSchema = [3, n0
 export var ListCodeSecurityScanConfigurationAssociationsRequest$: StaticStructureSchema = [3, n0, _LCSSCAR,
   0,
   [_sCA, _nT, _mR],
-  [0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListCodeSecurityScanConfigurationAssociationsResponse$: StaticStructureSchema = [3, n0, _LCSSCARi,
   0,
@@ -2116,8 +2116,8 @@ export var ListCoverageStatisticsRequest$: StaticStructureSchema = [3, n0, _LCSR
 ];
 export var ListCoverageStatisticsResponse$: StaticStructureSchema = [3, n0, _LCSRist,
   0,
-  [_cBG, _tCo, _nT],
-  [() => CountsList, 1, 0]
+  [_tCo, _cBG, _nT],
+  [1, () => CountsList, 0], 1
 ];
 export var ListDelegatedAdminAccountsRequest$: StaticStructureSchema = [3, n0, _LDAAR,
   0,
@@ -2137,17 +2137,17 @@ export var ListFiltersRequest$: StaticStructureSchema = [3, n0, _LFR,
 export var ListFiltersResponse$: StaticStructureSchema = [3, n0, _LFRi,
   0,
   [_fi, _nT],
-  [() => FilterList, 0]
+  [() => FilterList, 0], 1
 ];
 export var ListFindingAggregationsRequest$: StaticStructureSchema = [3, n0, _LFARi,
   0,
   [_aTg, _nT, _mR, _aIc, _aR],
-  [0, 0, 1, () => StringFilterList, () => AggregationRequest$]
+  [0, 0, 1, () => StringFilterList, () => AggregationRequest$], 1
 ];
 export var ListFindingAggregationsResponse$: StaticStructureSchema = [3, n0, _LFARis,
   0,
   [_aTg, _resp, _nT],
-  [0, () => AggregationResponseList, 0]
+  [0, () => AggregationResponseList, 0], 1
 ];
 export var ListFindingsRequest$: StaticStructureSchema = [3, n0, _LFRis,
   0,
@@ -2172,7 +2172,7 @@ export var ListMembersResponse$: StaticStructureSchema = [3, n0, _LMRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -2192,7 +2192,7 @@ export var ListUsageTotalsResponse$: StaticStructureSchema = [3, n0, _LUTRi,
 export var MapFilter$: StaticStructureSchema = [3, n0, _MF,
   0,
   [_co, _k, _va],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var Member$: StaticStructureSchema = [3, n0, _M,
   0,
@@ -2202,17 +2202,17 @@ export var Member$: StaticStructureSchema = [3, n0, _M,
 export var MemberAccountEc2DeepInspectionStatus$: StaticStructureSchema = [3, n0, _MAEDIS,
   0,
   [_aI, _aDI],
-  [0, 2]
+  [0, 2], 2
 ];
 export var MemberAccountEc2DeepInspectionStatusState$: StaticStructureSchema = [3, n0, _MAEDISS,
   0,
   [_aI, _s, _eM],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var MonthlySchedule$: StaticStructureSchema = [3, n0, _MS,
   0,
   [_sTt, _da],
-  [() => Time$, 0]
+  [() => Time$, 0], 2
 ];
 export var NetworkPath$: StaticStructureSchema = [3, n0, _NP,
   0,
@@ -2222,7 +2222,7 @@ export var NetworkPath$: StaticStructureSchema = [3, n0, _NP,
 export var NetworkReachabilityDetails$: StaticStructureSchema = [3, n0, _NRD,
   0,
   [_oPR, _pro, _nPe],
-  [() => PortRange$, 0, () => NetworkPath$]
+  [() => PortRange$, 0, () => NetworkPath$], 3
 ];
 export var NumberFilter$: StaticStructureSchema = [3, n0, _NF,
   0,
@@ -2242,7 +2242,7 @@ export var PackageAggregation$: StaticStructureSchema = [3, n0, _PA,
 export var PackageAggregationResponse$: StaticStructureSchema = [3, n0, _PAR,
   0,
   [_pNac, _aI, _sC],
-  [0, 0, () => SeverityCounts$]
+  [0, 0, () => SeverityCounts$], 1
 ];
 export var PackageFilter$: StaticStructureSchema = [3, n0, _PF,
   0,
@@ -2251,8 +2251,8 @@ export var PackageFilter$: StaticStructureSchema = [3, n0, _PF,
 ];
 export var PackageVulnerabilityDetails$: StaticStructureSchema = [3, n0, _PVD,
   0,
-  [_vIu, _vP, _so, _cv, _rV, _sU, _vSe, _vCA, _vUA, _rU],
-  [0, () => VulnerablePackageList, 0, () => CvssScoreList, 64 | 0, 0, 0, 4, 4, 64 | 0]
+  [_vIu, _so, _vP, _cv, _rV, _sU, _vSe, _vCA, _vUA, _rU],
+  [0, 0, () => VulnerablePackageList, () => CvssScoreList, 64 | 0, 0, 0, 4, 4, 64 | 0], 2
 ];
 export var PeriodicScanConfiguration$: StaticStructureSchema = [3, n0, _PSC,
   0,
@@ -2262,12 +2262,12 @@ export var PeriodicScanConfiguration$: StaticStructureSchema = [3, n0, _PSC,
 export var Permission$: StaticStructureSchema = [3, n0, _P,
   0,
   [_serv, _o],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PortRange$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_b, _en],
-  [1, 1]
+  [1, 1], 2
 ];
 export var PortRangeFilter$: StaticStructureSchema = [3, n0, _PRF,
   0,
@@ -2307,12 +2307,12 @@ export var RepositoryAggregation$: StaticStructureSchema = [3, n0, _RAe,
 export var RepositoryAggregationResponse$: StaticStructureSchema = [3, n0, _RAR,
   0,
   [_rep, _aI, _sC, _aIff],
-  [0, 0, () => SeverityCounts$, 1]
+  [0, 0, () => SeverityCounts$, 1], 1
 ];
 export var ResetEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _REKR,
   0,
   [_sT, _rT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ResetEncryptionKeyResponse$: StaticStructureSchema = [3, n0, _REKRe,
   0,
@@ -2322,7 +2322,7 @@ export var ResetEncryptionKeyResponse$: StaticStructureSchema = [3, n0, _REKRe,
 export var Resource$: StaticStructureSchema = [3, n0, _Res,
   0,
   [_ty, _id, _pa, _regi, _ta, _d],
-  [0, 0, 0, 0, 128 | 0, () => ResourceDetails$]
+  [0, 0, 0, 0, 128 | 0, () => ResourceDetails$], 2
 ];
 export var ResourceDetails$: StaticStructureSchema = [3, n0, _RD,
   0,
@@ -2337,12 +2337,12 @@ export var ResourceFilterCriteria$: StaticStructureSchema = [3, n0, _RFC,
 export var ResourceMapFilter$: StaticStructureSchema = [3, n0, _RMF,
   0,
   [_co, _k, _va],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceScanMetadata$: StaticStructureSchema = [3, n0, _RSM,
@@ -2353,22 +2353,22 @@ export var ResourceScanMetadata$: StaticStructureSchema = [3, n0, _RSM,
 export var ResourceState$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_ec, _ecr, _l, _lC, _cR],
-  [() => State$, () => State$, () => State$, () => State$, () => State$]
+  [() => State$, () => State$, () => State$, () => State$, () => State$], 2
 ];
 export var ResourceStatus$: StaticStructureSchema = [3, n0, _RSe,
   0,
   [_ec, _ecr, _l, _lC, _cR],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 2
 ];
 export var ResourceStringFilter$: StaticStructureSchema = [3, n0, _RSF,
   0,
   [_co, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ScanStatus$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_sCta, _rea],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ScopeSettings$: StaticStructureSchema = [3, n0, _SSc,
   0,
@@ -2378,22 +2378,22 @@ export var ScopeSettings$: StaticStructureSchema = [3, n0, _SSc,
 export var SearchVulnerabilitiesFilterCriteria$: StaticStructureSchema = [3, n0, _SVFC,
   0,
   [_vIul],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var SearchVulnerabilitiesRequest$: StaticStructureSchema = [3, n0, _SVR,
   0,
   [_fCi, _nT],
-  [() => SearchVulnerabilitiesFilterCriteria$, 0]
+  [() => SearchVulnerabilitiesFilterCriteria$, 0], 1
 ];
 export var SearchVulnerabilitiesResponse$: StaticStructureSchema = [3, n0, _SVRe,
   0,
   [_vu, _nT],
-  [() => Vulnerabilities, 0]
+  [() => Vulnerabilities, 0], 1
 ];
 export var SendCisSessionHealthRequest$: StaticStructureSchema = [3, n0, _SCSHR,
   0,
   [_sJI, _sTe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SendCisSessionHealthResponse$: StaticStructureSchema = [3, n0, _SCSHRe,
   0,
@@ -2403,7 +2403,7 @@ export var SendCisSessionHealthResponse$: StaticStructureSchema = [3, n0, _SCSHR
 export var SendCisSessionTelemetryRequest$: StaticStructureSchema = [3, n0, _SCSTR,
   0,
   [_sJI, _sTe, _mes],
-  [0, 0, () => CisSessionMessages]
+  [0, 0, () => CisSessionMessages], 3
 ];
 export var SendCisSessionTelemetryResponse$: StaticStructureSchema = [3, n0, _SCSTRe,
   0,
@@ -2413,7 +2413,7 @@ export var SendCisSessionTelemetryResponse$: StaticStructureSchema = [3, n0, _SC
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rIe],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SeverityCounts$: StaticStructureSchema = [3, n0, _SC,
@@ -2424,17 +2424,17 @@ export var SeverityCounts$: StaticStructureSchema = [3, n0, _SC,
 export var SortCriteria$: StaticStructureSchema = [3, n0, _SCo,
   0,
   [_fie, _sO],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartCisSessionMessage$: StaticStructureSchema = [3, n0, _SCSM,
   0,
   [_sTe],
-  [0]
+  [0], 1
 ];
 export var StartCisSessionRequest$: StaticStructureSchema = [3, n0, _SCSR,
   0,
   [_sJI, _m],
-  [0, () => StartCisSessionMessage$]
+  [0, () => StartCisSessionMessage$], 2
 ];
 export var StartCisSessionResponse$: StaticStructureSchema = [3, n0, _SCSRt,
   0,
@@ -2443,8 +2443,8 @@ export var StartCisSessionResponse$: StaticStructureSchema = [3, n0, _SCSRt,
 ];
 export var StartCodeSecurityScanRequest$: StaticStructureSchema = [3, n0, _SCSSR,
   0,
-  [_cT, _r],
-  [[0, 4], () => CodeSecurityResource$]
+  [_r, _cT],
+  [() => CodeSecurityResource$, [0, 4]], 1
 ];
 export var StartCodeSecurityScanResponse$: StaticStructureSchema = [3, n0, _SCSSRt,
   0,
@@ -2454,7 +2454,7 @@ export var StartCodeSecurityScanResponse$: StaticStructureSchema = [3, n0, _SCSS
 export var State$: StaticStructureSchema = [3, n0, _S,
   0,
   [_s, _eC, _eM],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var StatusCounts$: StaticStructureSchema = [3, n0, _SCt,
   0,
@@ -2464,7 +2464,7 @@ export var StatusCounts$: StaticStructureSchema = [3, n0, _SCt,
 export var Step$: StaticStructureSchema = [3, n0, _St,
   0,
   [_cIo, _cTo, _cAo],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var StopCisMessageProgress$: StaticStructureSchema = [3, n0, _SCMP,
   0,
@@ -2473,13 +2473,13 @@ export var StopCisMessageProgress$: StaticStructureSchema = [3, n0, _SCMP,
 ];
 export var StopCisSessionMessage$: StaticStructureSchema = [3, n0, _SCSMt,
   0,
-  [_s, _rea, _prog, _cP, _bV, _bP],
-  [0, 0, () => StopCisMessageProgress$, () => ComputePlatform$, 0, 0]
+  [_s, _prog, _rea, _cP, _bV, _bP],
+  [0, () => StopCisMessageProgress$, 0, () => ComputePlatform$, 0, 0], 2
 ];
 export var StopCisSessionRequest$: StaticStructureSchema = [3, n0, _SCSRto,
   0,
   [_sJI, _sTe, _m],
-  [0, 0, () => StopCisSessionMessage$]
+  [0, 0, () => StopCisSessionMessage$], 3
 ];
 export var StopCisSessionResponse$: StaticStructureSchema = [3, n0, _SCSRtop,
   0,
@@ -2489,7 +2489,7 @@ export var StopCisSessionResponse$: StaticStructureSchema = [3, n0, _SCSRtop,
 export var StringFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
   [_co, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SuccessfulAssociationResult$: StaticStructureSchema = [3, n0, _SAR,
   0,
@@ -2504,12 +2504,12 @@ export var SuggestedFix$: StaticStructureSchema = [3, n0, _SFu,
 export var TagFilter$: StaticStructureSchema = [3, n0, _TF,
   0,
   [_co, _k, _va],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -2519,13 +2519,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Time$: StaticStructureSchema = [3, n0, _T,
   0,
   [_tOD, _tim],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TitleAggregation$: StaticStructureSchema = [3, n0, _TA,
   0,
@@ -2535,12 +2535,12 @@ export var TitleAggregation$: StaticStructureSchema = [3, n0, _TA,
 export var TitleAggregationResponse$: StaticStructureSchema = [3, n0, _TAR,
   0,
   [_ti, _vIu, _aI, _sC],
-  [0, 0, 0, () => SeverityCounts$]
+  [0, 0, 0, () => SeverityCounts$], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2550,12 +2550,12 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateCisScanConfigurationRequest$: StaticStructureSchema = [3, n0, _UCSCR,
   0,
   [_sCA, _sN, _sL, _sc, _t],
-  [0, 0, 0, () => Schedule$, () => UpdateCisTargets$]
+  [0, 0, 0, () => Schedule$, () => UpdateCisTargets$], 1
 ];
 export var UpdateCisScanConfigurationResponse$: StaticStructureSchema = [3, n0, _UCSCRp,
   0,
   [_sCA],
-  [0]
+  [0], 1
 ];
 export var UpdateCisTargets$: StaticStructureSchema = [3, n0, _UCT,
   0,
@@ -2565,17 +2565,17 @@ export var UpdateCisTargets$: StaticStructureSchema = [3, n0, _UCT,
 export var UpdateCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0, _UCSIR,
   0,
   [_iA, _d],
-  [0, [() => UpdateIntegrationDetails$, 0]]
+  [0, [() => UpdateIntegrationDetails$, 0]], 2
 ];
 export var UpdateCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _UCSIRp,
   0,
   [_iA, _s],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _UCSSCR,
   0,
   [_sCA, _conf],
-  [0, () => CodeSecurityScanConfiguration$]
+  [0, () => CodeSecurityScanConfiguration$], 2
 ];
 export var UpdateCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3, n0, _UCSSCRp,
   0,
@@ -2605,7 +2605,7 @@ export var UpdateEc2DeepInspectionConfigurationResponse$: StaticStructureSchema 
 export var UpdateEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _UEKR,
   0,
   [_kKI, _sT, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UpdateEncryptionKeyResponse$: StaticStructureSchema = [3, n0, _UEKRp,
   0,
@@ -2614,38 +2614,38 @@ export var UpdateEncryptionKeyResponse$: StaticStructureSchema = [3, n0, _UEKRp,
 ];
 export var UpdateFilterRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_act, _de, _fCi, _na, _fAil, _rea],
-  [0, 0, () => FilterCriteria$, 0, 0, 0]
+  [_fAil, _act, _de, _fCi, _na, _rea],
+  [0, 0, 0, () => FilterCriteria$, 0, 0], 1
 ];
 export var UpdateFilterResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
   [_arn],
-  [0]
+  [0], 1
 ];
 export var UpdateGitHubIntegrationDetail$: StaticStructureSchema = [3, n0, _UGHID,
   0,
   [_cod, _iInst],
-  [[() => GitHubAuthCode, 0], 0]
+  [[() => GitHubAuthCode, 0], 0], 2
 ];
 export var UpdateGitLabSelfManagedIntegrationDetail$: StaticStructureSchema = [3, n0, _UGLSMID,
   0,
   [_aCu],
-  [[() => GitLabAuthCode, 0]]
+  [[() => GitLabAuthCode, 0]], 1
 ];
 export var UpdateOrganizationConfigurationRequest$: StaticStructureSchema = [3, n0, _UOCR,
   0,
   [_aE],
-  [() => AutoEnable$]
+  [() => AutoEnable$], 1
 ];
 export var UpdateOrganizationConfigurationResponse$: StaticStructureSchema = [3, n0, _UOCRp,
   0,
   [_aE],
-  [() => AutoEnable$]
+  [() => AutoEnable$], 1
 ];
 export var UpdateOrgEc2DeepInspectionConfigurationRequest$: StaticStructureSchema = [3, n0, _UOEDICR,
   0,
   [_oPP],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var UpdateOrgEc2DeepInspectionConfigurationResponse$: StaticStructureSchema = [3, n0, _UOEDICRp,
   0,
@@ -2665,28 +2665,28 @@ export var UsageTotal$: StaticStructureSchema = [3, n0, _UT,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _rea, _fiel],
-  [0, 0, () => ValidationExceptionFields]
+  [0, 0, () => ValidationExceptionFields], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_na, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Vulnerability$: StaticStructureSchema = [3, n0, _V,
   0,
   [_id, _cw, _cDi, _so, _de, _aD, _vSe, _cvs, _cvss, _rV, _cvss_, _vCA, _vUA, _sU, _rU, _eO, _dP, _ep],
-  [0, 64 | 0, () => CisaData$, 0, 0, () => AtigData$, 0, () => Cvss4$, () => Cvss3$, 64 | 0, () => Cvss2$, 4, 4, 0, 64 | 0, () => ExploitObserved$, 64 | 0, () => Epss$]
+  [0, 64 | 0, () => CisaData$, 0, 0, () => AtigData$, 0, () => Cvss4$, () => Cvss3$, 64 | 0, () => Cvss2$, 4, 4, 0, 64 | 0, () => ExploitObserved$, 64 | 0, () => Epss$], 1
 ];
 export var VulnerablePackage$: StaticStructureSchema = [3, n0, _VP,
   0,
   [_na, _v, _sLH, _epo, _rel, _arch, _pM, _fP, _fIV, _rem, _sLLA],
-  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], 2
 ];
 export var WeeklySchedule$: StaticStructureSchema = [3, n0, _WS,
   0,
   [_sTt, _day],
-  [() => Time$, 64 | 0]
+  [() => Time$, 64 | 0], 2
 ];
 export var Inspector2ServiceException$: StaticErrorSchema = [-3, _sm, "Inspector2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(Inspector2ServiceException$, Inspector2ServiceException);

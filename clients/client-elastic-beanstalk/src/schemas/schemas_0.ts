@@ -527,8 +527,8 @@ export var ApplicationVersionLifecycleConfig$: StaticStructureSchema = [3, n0, _
 ];
 export var ApplyEnvironmentManagedActionRequest$: StaticStructureSchema = [3, n0, _AEMAR,
   0,
-  [_EN, _EI, _AI],
-  [0, 0, 0]
+  [_AI, _EN, _EI],
+  [0, 0, 0], 1
 ];
 export var ApplyEnvironmentManagedActionResult$: StaticStructureSchema = [3, n0, _AEMARp,
   0,
@@ -538,7 +538,7 @@ export var ApplyEnvironmentManagedActionResult$: StaticStructureSchema = [3, n0,
 export var AssociateEnvironmentOperationsRoleMessage$: StaticStructureSchema = [3, n0, _AEORM,
   0,
   [_EN, _OR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AutoScalingGroup$: StaticStructureSchema = [3, n0, _ASG,
   0,
@@ -547,8 +547,8 @@ export var AutoScalingGroup$: StaticStructureSchema = [3, n0, _ASG,
 ];
 export var BuildConfiguration$: StaticStructureSchema = [3, n0, _BC,
   0,
-  [_ANr, _CBSR, _CTo, _I, _TIM],
-  [0, 0, 0, 0, 1]
+  [_CBSR, _I, _ANr, _CTo, _TIM],
+  [0, 0, 0, 0, 1], 2
 ];
 export var Builder$: StaticStructureSchema = [3, n0, _B,
   0,
@@ -558,7 +558,7 @@ export var Builder$: StaticStructureSchema = [3, n0, _B,
 export var CheckDNSAvailabilityMessage$: StaticStructureSchema = [3, n0, _CDNSAM,
   0,
   [_CNAMEP],
-  [0]
+  [0], 1
 ];
 export var CheckDNSAvailabilityResultMessage$: StaticStructureSchema = [3, n0, _CDNSARM,
   0,
@@ -614,27 +614,27 @@ export var CPUUtilization$: StaticStructureSchema = [3, n0, _CPUU,
 export var CreateApplicationMessage$: StaticStructureSchema = [3, n0, _CAM,
   0,
   [_AN, _D, _RLC, _T],
-  [0, 0, () => ApplicationResourceLifecycleConfig$, () => Tags]
+  [0, 0, () => ApplicationResourceLifecycleConfig$, () => Tags], 1
 ];
 export var CreateApplicationVersionMessage$: StaticStructureSchema = [3, n0, _CAVM,
   0,
   [_AN, _VL, _D, _SBI, _SB, _BC, _ACA, _Pr, _T],
-  [0, 0, 0, () => SourceBuildInformation$, () => S3Location$, () => BuildConfiguration$, 2, 2, () => Tags]
+  [0, 0, 0, () => SourceBuildInformation$, () => S3Location$, () => BuildConfiguration$, 2, 2, () => Tags], 2
 ];
 export var CreateConfigurationTemplateMessage$: StaticStructureSchema = [3, n0, _CCTM,
   0,
   [_AN, _TN, _SSN, _PA, _SCo, _EI, _D, _OS, _T],
-  [0, 0, 0, 0, () => SourceConfiguration$, 0, 0, () => ConfigurationOptionSettingsList, () => Tags]
+  [0, 0, 0, 0, () => SourceConfiguration$, 0, 0, () => ConfigurationOptionSettingsList, () => Tags], 2
 ];
 export var CreateEnvironmentMessage$: StaticStructureSchema = [3, n0, _CEMr,
   0,
   [_AN, _EN, _GN, _D, _CNAMEP, _Ti, _T, _VL, _TN, _SSN, _PA, _OS, _OTR, _OR],
-  [0, 0, 0, 0, 0, () => EnvironmentTier$, () => Tags, 0, 0, 0, 0, () => ConfigurationOptionSettingsList, () => OptionsSpecifierList, 0]
+  [0, 0, 0, 0, 0, () => EnvironmentTier$, () => Tags, 0, 0, 0, 0, () => ConfigurationOptionSettingsList, () => OptionsSpecifierList, 0], 1
 ];
 export var CreatePlatformVersionRequest$: StaticStructureSchema = [3, n0, _CPVR,
   0,
   [_PN, _PV, _PDB, _EN, _OS, _T],
-  [0, 0, () => S3Location$, 0, () => ConfigurationOptionSettingsList, () => Tags]
+  [0, 0, () => S3Location$, 0, () => ConfigurationOptionSettingsList, () => Tags], 3
 ];
 export var CreatePlatformVersionResult$: StaticStructureSchema = [3, n0, _CPVRr,
   0,
@@ -654,22 +654,22 @@ export var CustomAmi$: StaticStructureSchema = [3, n0, _CA,
 export var DeleteApplicationMessage$: StaticStructureSchema = [3, n0, _DAM,
   0,
   [_AN, _TEBF],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteApplicationVersionMessage$: StaticStructureSchema = [3, n0, _DAVM,
   0,
   [_AN, _VL, _DSB],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DeleteConfigurationTemplateMessage$: StaticStructureSchema = [3, n0, _DCTM,
   0,
   [_AN, _TN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteEnvironmentConfigurationMessage$: StaticStructureSchema = [3, n0, _DECM,
   0,
   [_AN, _EN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeletePlatformVersionRequest$: StaticStructureSchema = [3, n0, _DPVR,
   0,
@@ -709,7 +709,7 @@ export var DescribeConfigurationOptionsMessage$: StaticStructureSchema = [3, n0,
 export var DescribeConfigurationSettingsMessage$: StaticStructureSchema = [3, n0, _DCSM,
   0,
   [_AN, _TN, _EN],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DescribeEnvironmentHealthRequest$: StaticStructureSchema = [3, n0, _DEHR,
   0,
@@ -779,7 +779,7 @@ export var DescribePlatformVersionResult$: StaticStructureSchema = [3, n0, _DPVR
 export var DisassociateEnvironmentOperationsRoleMessage$: StaticStructureSchema = [3, n0, _DEORM,
   0,
   [_EN],
-  [0]
+  [0], 1
 ];
 export var ElasticBeanstalkServiceException$: StaticErrorSchema = [-3, n0, _EBSE,
   { [_e]: _c },
@@ -907,7 +907,7 @@ export var ListPlatformVersionsResult$: StaticStructureSchema = [3, n0, _LPVRi,
 export var ListTagsForResourceMessage$: StaticStructureSchema = [3, n0, _LTFRM,
   0,
   [_RAe],
-  [0]
+  [0], 1
 ];
 export var LoadBalancer$: StaticStructureSchema = [3, n0, _LBo,
   0,
@@ -938,12 +938,12 @@ TypeRegistry.for(n0).registerError(ManagedActionInvalidStateException$, ManagedA
 export var MaxAgeRule$: StaticStructureSchema = [3, n0, _MAR,
   0,
   [_En, _MAID, _DSFS],
-  [2, 1, 2]
+  [2, 1, 2], 1
 ];
 export var MaxCountRule$: StaticStructureSchema = [3, n0, _MCR,
   0,
   [_En, _MC, _DSFS],
-  [2, 1, 2]
+  [2, 1, 2], 1
 ];
 export var OperationInProgressException$: StaticErrorSchema = [-3, n0, _OIPE,
   { [_aQE]: [`OperationInProgressFailure`, 400], [_e]: _c, [_hE]: 400 },
@@ -1009,8 +1009,8 @@ export var RebuildEnvironmentMessage$: StaticStructureSchema = [3, n0, _REM,
 ];
 export var RequestEnvironmentInfoMessage$: StaticStructureSchema = [3, n0, _REIM,
   0,
-  [_EI, _EN, _IT],
-  [0, 0, 0]
+  [_IT, _EI, _EN],
+  [0, 0, 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_aQE]: [`ResourceNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
@@ -1046,8 +1046,8 @@ export var RestartAppServerMessage$: StaticStructureSchema = [3, n0, _RASM,
 ];
 export var RetrieveEnvironmentInfoMessage$: StaticStructureSchema = [3, n0, _REIMe,
   0,
-  [_EI, _EN, _IT],
-  [0, 0, 0]
+  [_IT, _EI, _EN],
+  [0, 0, 0], 1
 ];
 export var RetrieveEnvironmentInfoResultMessage$: StaticStructureSchema = [3, n0, _REIRM,
   0,
@@ -1089,7 +1089,7 @@ export var SolutionStackDescription$: StaticStructureSchema = [3, n0, _SSDo,
 export var SourceBuildInformation$: StaticStructureSchema = [3, n0, _SBI,
   0,
   [_STo, _SRo, _SLo],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var SourceBundleDeletionException$: StaticErrorSchema = [-3, n0, _SBDE,
   { [_aQE]: [`SourceBundleDeletionFailure`, 400], [_e]: _c, [_hE]: 400 },
@@ -1177,22 +1177,22 @@ export var Trigger$: StaticStructureSchema = [3, n0, _Tri,
 export var UpdateApplicationMessage$: StaticStructureSchema = [3, n0, _UAM,
   0,
   [_AN, _D],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UpdateApplicationResourceLifecycleMessage$: StaticStructureSchema = [3, n0, _UARLM,
   0,
   [_AN, _RLC],
-  [0, () => ApplicationResourceLifecycleConfig$]
+  [0, () => ApplicationResourceLifecycleConfig$], 2
 ];
 export var UpdateApplicationVersionMessage$: StaticStructureSchema = [3, n0, _UAVM,
   0,
   [_AN, _VL, _D],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var UpdateConfigurationTemplateMessage$: StaticStructureSchema = [3, n0, _UCTM,
   0,
   [_AN, _TN, _D, _OS, _OTR],
-  [0, 0, 0, () => ConfigurationOptionSettingsList, () => OptionsSpecifierList]
+  [0, 0, 0, () => ConfigurationOptionSettingsList, () => OptionsSpecifierList], 2
 ];
 export var UpdateEnvironmentMessage$: StaticStructureSchema = [3, n0, _UEM,
   0,
@@ -1202,12 +1202,12 @@ export var UpdateEnvironmentMessage$: StaticStructureSchema = [3, n0, _UEM,
 export var UpdateTagsForResourceMessage$: StaticStructureSchema = [3, n0, _UTFRM,
   0,
   [_RAe, _TTA, _TTR],
-  [0, () => TagList, 64 | 0]
+  [0, () => TagList, 64 | 0], 1
 ];
 export var ValidateConfigurationSettingsMessage$: StaticStructureSchema = [3, n0, _VCSM,
   0,
-  [_AN, _TN, _EN, _OS],
-  [0, 0, 0, () => ConfigurationOptionSettingsList]
+  [_AN, _OS, _TN, _EN],
+  [0, () => ConfigurationOptionSettingsList, 0, 0], 2
 ];
 export var ValidationMessage$: StaticStructureSchema = [3, n0, _VM,
   0,

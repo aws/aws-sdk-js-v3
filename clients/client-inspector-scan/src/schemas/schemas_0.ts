@@ -40,19 +40,19 @@ import { InspectorScanServiceException } from "../models/InspectorScanServiceExc
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_m, _r, _rAS],
-  [0, 0, [1, { [_hH]: _RA }]]
+  [0, 0, [1, { [_hH]: _RA }]], 2
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ScanSbomRequest$: StaticStructureSchema = [3, n0, _SSR,
   0,
   [_sb, _oF],
-  [15, 0]
+  [15, 0], 1
 ];
 export var ScanSbomResponse$: StaticStructureSchema = [3, n0, _SSRc,
   0,
@@ -62,19 +62,19 @@ export var ScanSbomResponse$: StaticStructureSchema = [3, n0, _SSRc,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _r, _f],
-  [0, 0, () => ValidationExceptionFields]
+  [0, 0, () => ValidationExceptionFields], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InspectorScanServiceException$: StaticErrorSchema = [-3, _sm, "InspectorScanServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(InspectorScanServiceException$, InspectorScanServiceException);

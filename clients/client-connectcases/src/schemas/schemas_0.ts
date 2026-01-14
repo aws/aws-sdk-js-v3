@@ -412,23 +412,23 @@ var SlaName: StaticSimpleSchema = [0, n0, _SN, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AuditEvent$: StaticStructureSchema = [3, n0, _AE,
   0,
-  [_eI, _t, _rIT, _pT, _f, _pB],
-  [0, 0, 0, 5, [() => AuditEventFieldList, 0], [() => AuditEventPerformedBy$, 0]]
+  [_eI, _t, _pT, _f, _rIT, _pB],
+  [0, 0, 5, [() => AuditEventFieldList, 0], 0, [() => AuditEventPerformedBy$, 0]], 4
 ];
 export var AuditEventField$: StaticStructureSchema = [3, n0, _AEF,
   0,
-  [_eFI, _oV, _nV],
-  [0, () => AuditEventFieldValueUnion$, () => AuditEventFieldValueUnion$]
+  [_eFI, _nV, _oV],
+  [0, () => AuditEventFieldValueUnion$, () => AuditEventFieldValueUnion$], 2
 ];
 export var AuditEventPerformedBy$: StaticStructureSchema = [3, n0, _AEPB,
   0,
-  [_u, _iPA],
-  [[() => UserUnion$, 0], 0]
+  [_iPA, _u],
+  [0, [() => UserUnion$, 0]], 1
 ];
 export var BasicLayout$: StaticStructureSchema = [3, n0, _BL,
   0,
@@ -438,27 +438,27 @@ export var BasicLayout$: StaticStructureSchema = [3, n0, _BL,
 export var BatchGetCaseRuleRequest$: StaticStructureSchema = [3, n0, _BGCRR,
   0,
   [_dI, _cR],
-  [[0, 1], () => CaseRuleIdentifierList]
+  [[0, 1], () => CaseRuleIdentifierList], 2
 ];
 export var BatchGetCaseRuleResponse$: StaticStructureSchema = [3, n0, _BGCRRa,
   0,
   [_cR, _er, _uCR],
-  [[() => BatchGetCaseRuleList, 0], () => BatchGetCaseRuleErrorList, 64 | 0]
+  [[() => BatchGetCaseRuleList, 0], () => BatchGetCaseRuleErrorList, 64 | 0], 2
 ];
 export var BatchGetFieldRequest$: StaticStructureSchema = [3, n0, _BGFR,
   0,
   [_dI, _f],
-  [[0, 1], () => BatchGetFieldIdentifierList]
+  [[0, 1], () => BatchGetFieldIdentifierList], 2
 ];
 export var BatchGetFieldResponse$: StaticStructureSchema = [3, n0, _BGFRa,
   0,
   [_f, _er],
-  [[() => BatchGetFieldList, 0], () => BatchGetFieldErrorList]
+  [[() => BatchGetFieldList, 0], () => BatchGetFieldErrorList], 2
 ];
 export var BatchPutFieldOptionsRequest$: StaticStructureSchema = [3, n0, _BPFOR,
   0,
   [_dI, _fI, _o],
-  [[0, 1], [0, 1], () => FieldOptionsList]
+  [[0, 1], [0, 1], () => FieldOptionsList], 3
 ];
 export var BatchPutFieldOptionsResponse$: StaticStructureSchema = [3, n0, _BPFORa,
   0,
@@ -468,37 +468,37 @@ export var BatchPutFieldOptionsResponse$: StaticStructureSchema = [3, n0, _BPFOR
 export var BooleanOperands$: StaticStructureSchema = [3, n0, _BO,
   0,
   [_oO, _oT, _r],
-  [() => OperandOne$, () => OperandTwo$, 2]
+  [() => OperandOne$, () => OperandTwo$, 2], 3
 ];
 export var CaseEventIncludedData$: StaticStructureSchema = [3, n0, _CEID,
   0,
   [_f],
-  [() => FieldIdentifierList]
+  [() => FieldIdentifierList], 1
 ];
 export var CaseRuleError$: StaticStructureSchema = [3, n0, _CRE,
   0,
   [_i, _eC, _m],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var CaseRuleIdentifier$: StaticStructureSchema = [3, n0, _CRI,
   0,
   [_i],
-  [0]
+  [0], 1
 ];
 export var CaseRuleSummary$: StaticStructureSchema = [3, n0, _CRS,
   0,
   [_cRI, _n, _cRA, _rT, _d],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var CaseSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_cI, _tI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CommentContent$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_b, _cT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CommentFilter$: StaticStructureSchema = [3, n0, _CF,
   0,
@@ -508,13 +508,13 @@ export var CommentFilter$: StaticStructureSchema = [3, n0, _CF,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectCaseContent$: StaticStructureSchema = [3, n0, _CCC,
   0,
   [_cI],
-  [0]
+  [0], 1
 ];
 export var ConnectCaseFilter$: StaticStructureSchema = [3, n0, _CCF,
   0,
@@ -524,17 +524,17 @@ export var ConnectCaseFilter$: StaticStructureSchema = [3, n0, _CCF,
 export var ConnectCaseInputContent$: StaticStructureSchema = [3, n0, _CCIC,
   0,
   [_cI],
-  [0]
+  [0], 1
 ];
 export var Contact$: StaticStructureSchema = [3, n0, _C,
   0,
   [_cA],
-  [0]
+  [0], 1
 ];
 export var ContactContent$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_cA, _ch, _cTST],
-  [0, 0, 5]
+  [0, 0, 5], 3
 ];
 export var ContactFilter$: StaticStructureSchema = [3, n0, _CFo,
   0,
@@ -544,77 +544,77 @@ export var ContactFilter$: StaticStructureSchema = [3, n0, _CFo,
 export var CreateCaseRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_dI, _tI, _f, _cTl, _pB],
-  [[0, 1], 0, () => FieldValueList, [0, 4], [() => UserUnion$, 0]]
+  [[0, 1], 0, () => FieldValueList, [0, 4], [() => UserUnion$, 0]], 3
 ];
 export var CreateCaseResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_cI, _cAa],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateCaseRuleRequest$: StaticStructureSchema = [3, n0, _CCRR,
   0,
-  [_dI, _n, _d, _ru],
-  [[0, 1], 0, 0, () => CaseRuleDetails$]
+  [_dI, _n, _ru, _d],
+  [[0, 1], 0, () => CaseRuleDetails$, 0], 3
 ];
 export var CreateCaseRuleResponse$: StaticStructureSchema = [3, n0, _CCRRr,
   0,
   [_cRI, _cRA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateDomainRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
   [_dI, _dA, _dS],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreateFieldRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
   [_dI, _n, _t, _d],
-  [[0, 1], 0, 0, 0]
+  [[0, 1], 0, 0, 0], 3
 ];
 export var CreateFieldResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
   [_fI, _fA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateLayoutRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
   [_dI, _n, _co],
-  [[0, 1], 0, () => LayoutContent$]
+  [[0, 1], 0, () => LayoutContent$], 3
 ];
 export var CreateLayoutResponse$: StaticStructureSchema = [3, n0, _CLRr,
   0,
   [_lI, _lA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateRelatedItemRequest$: StaticStructureSchema = [3, n0, _CRIR,
   0,
   [_dI, _cI, _t, _co, _pB],
-  [[0, 1], [0, 1], 0, [() => RelatedItemInputContent$, 0], [() => UserUnion$, 0]]
+  [[0, 1], [0, 1], 0, [() => RelatedItemInputContent$, 0], [() => UserUnion$, 0]], 4
 ];
 export var CreateRelatedItemResponse$: StaticStructureSchema = [3, n0, _CRIRr,
   0,
   [_rII, _rIA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateTemplateRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_dI, _n, _d, _lC, _rF, _s, _rul],
-  [[0, 1], 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, 0, () => TemplateCaseRuleList]
+  [[0, 1], 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, 0, () => TemplateCaseRuleList], 2
 ];
 export var CreateTemplateResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
   [_tI, _tA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CustomContent$: StaticStructureSchema = [3, n0, _CCu,
   0,
   [_f],
-  [() => FieldValueList]
+  [() => FieldValueList], 1
 ];
 export var CustomFilter$: StaticStructureSchema = [3, n0, _CFu,
   0,
@@ -624,12 +624,12 @@ export var CustomFilter$: StaticStructureSchema = [3, n0, _CFu,
 export var CustomInputContent$: StaticStructureSchema = [3, n0, _CIC,
   0,
   [_f],
-  [() => FieldValueList]
+  [() => FieldValueList], 1
 ];
 export var DeleteCaseRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_dI, _cI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteCaseResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -639,7 +639,7 @@ export var DeleteCaseResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteCaseRuleRequest$: StaticStructureSchema = [3, n0, _DCRR,
   0,
   [_dI, _cRI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteCaseRuleResponse$: StaticStructureSchema = [3, n0, _DCRRe,
   0,
@@ -649,7 +649,7 @@ export var DeleteCaseRuleResponse$: StaticStructureSchema = [3, n0, _DCRRe,
 export var DeleteDomainRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_dI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDomainResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -659,7 +659,7 @@ export var DeleteDomainResponse$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeleteFieldRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_dI, _fI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteFieldResponse$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -669,7 +669,7 @@ export var DeleteFieldResponse$: StaticStructureSchema = [3, n0, _DFRe,
 export var DeleteLayoutRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_dI, _lI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteLayoutResponse$: StaticStructureSchema = [3, n0, _DLRe,
   0,
@@ -679,7 +679,7 @@ export var DeleteLayoutResponse$: StaticStructureSchema = [3, n0, _DLRe,
 export var DeleteRelatedItemRequest$: StaticStructureSchema = [3, n0, _DRIR,
   0,
   [_dI, _cI, _rII],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteRelatedItemResponse$: StaticStructureSchema = [3, n0, _DRIRe,
   0,
@@ -689,7 +689,7 @@ export var DeleteRelatedItemResponse$: StaticStructureSchema = [3, n0, _DRIRe,
 export var DeleteTemplateRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_dI, _tI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteTemplateResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -699,7 +699,7 @@ export var DeleteTemplateResponse$: StaticStructureSchema = [3, n0, _DTRe,
 export var DomainSummary$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_dI, _dA, _n],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var EmptyFieldValue$: StaticStructureSchema = [3, n0, _EFV,
   0,
@@ -714,7 +714,7 @@ export var EmptyOperandValue$: StaticStructureSchema = [3, n0, _EOV,
 export var EventBridgeConfiguration$: StaticStructureSchema = [3, n0, _EBC,
   0,
   [_en, _iD],
-  [2, () => EventIncludedData$]
+  [2, () => EventIncludedData$], 1
 ];
 export var EventIncludedData$: StaticStructureSchema = [3, n0, _EID,
   0,
@@ -724,52 +724,52 @@ export var EventIncludedData$: StaticStructureSchema = [3, n0, _EID,
 export var FieldError$: StaticStructureSchema = [3, n0, _FE,
   0,
   [_i, _eC, _m],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var FieldGroup$: StaticStructureSchema = [3, n0, _FG,
   0,
-  [_n, _f],
-  [0, () => FieldList]
+  [_f, _n],
+  [() => FieldList, 0], 1
 ];
 export var FieldIdentifier$: StaticStructureSchema = [3, n0, _FI,
   0,
   [_i],
-  [0]
+  [0], 1
 ];
 export var FieldItem$: StaticStructureSchema = [3, n0, _FIi,
   0,
   [_i],
-  [0]
+  [0], 1
 ];
 export var FieldOption$: StaticStructureSchema = [3, n0, _FO,
   0,
   [_n, _v, _a],
-  [0, 0, 2]
+  [0, 0, 2], 3
 ];
 export var FieldOptionError$: StaticStructureSchema = [3, n0, _FOE,
   0,
   [_m, _eC, _v],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var FieldOptionsCaseRule$: StaticStructureSchema = [3, n0, _FOCR,
   0,
-  [_pFI, _cFI, _pCFOM],
-  [0, 0, () => ParentChildFieldOptionsMappingList]
+  [_pCFOM, _pFI, _cFI],
+  [() => ParentChildFieldOptionsMappingList, 0, 0], 1
 ];
 export var FieldSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
   [_fI, _fA, _n, _t, _na],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var FieldValue$: StaticStructureSchema = [3, n0, _FV,
   0,
   [_i, _v],
-  [0, () => FieldValueUnion$]
+  [0, () => FieldValueUnion$], 2
 ];
 export var FileContent$: StaticStructureSchema = [3, n0, _FC,
   0,
   [_fAi],
-  [0]
+  [0], 1
 ];
 export var FileFilter$: StaticStructureSchema = [3, n0, _FF,
   0,
@@ -779,82 +779,82 @@ export var FileFilter$: StaticStructureSchema = [3, n0, _FF,
 export var GetCaseAuditEventsRequest$: StaticStructureSchema = [3, n0, _GCAER,
   0,
   [_cI, _dI, _mR, _nT],
-  [[0, 1], [0, 1], 1, 0]
+  [[0, 1], [0, 1], 1, 0], 2
 ];
 export var GetCaseAuditEventsResponse$: StaticStructureSchema = [3, n0, _GCAERe,
   0,
-  [_nT, _aE],
-  [0, [() => AuditEventsList, 0]]
+  [_aE, _nT],
+  [[() => AuditEventsList, 0], 0], 1
 ];
 export var GetCaseEventConfigurationRequest$: StaticStructureSchema = [3, n0, _GCECR,
   0,
   [_dI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCaseEventConfigurationResponse$: StaticStructureSchema = [3, n0, _GCECRe,
   0,
   [_eB],
-  [() => EventBridgeConfiguration$]
+  [() => EventBridgeConfiguration$], 1
 ];
 export var GetCaseRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_cI, _dI, _f, _nT],
-  [[0, 1], [0, 1], () => FieldIdentifierList, 0]
+  [[0, 1], [0, 1], () => FieldIdentifierList, 0], 3
 ];
 export var GetCaseResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
   [_f, _tI, _nT, _ta],
-  [() => FieldValueList, 0, 0, [() => Tags, 0]]
+  [() => FieldValueList, 0, 0, [() => Tags, 0]], 2
 ];
 export var GetCaseRuleResponse$: StaticStructureSchema = [3, n0, _GCRR,
   0,
   [_cRI, _n, _cRA, _ru, _d, _de, _cTr, _lMT, _ta],
-  [0, 0, 0, () => CaseRuleDetails$, 0, 2, 5, 5, [() => Tags, 0]]
+  [0, 0, 0, () => CaseRuleDetails$, 0, 2, 5, 5, [() => Tags, 0]], 4
 ];
 export var GetDomainRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_dI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDomainResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
   [_dI, _dA, _n, _cTr, _dS, _ta],
-  [0, 0, 0, 5, 0, [() => Tags, 0]]
+  [0, 0, 0, 5, 0, [() => Tags, 0]], 5
 ];
 export var GetFieldResponse$: StaticStructureSchema = [3, n0, _GFR,
   0,
-  [_fI, _n, _fA, _d, _t, _na, _ta, _de, _cTr, _lMT],
-  [0, 0, 0, 0, 0, 0, [() => Tags, 0], 2, 5, 5]
+  [_fI, _n, _fA, _t, _na, _d, _ta, _de, _cTr, _lMT],
+  [0, 0, 0, 0, 0, 0, [() => Tags, 0], 2, 5, 5], 5
 ];
 export var GetLayoutRequest$: StaticStructureSchema = [3, n0, _GLR,
   0,
   [_dI, _lI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetLayoutResponse$: StaticStructureSchema = [3, n0, _GLRe,
   0,
   [_lI, _lA, _n, _co, _ta, _de, _cTr, _lMT],
-  [0, 0, 0, () => LayoutContent$, [() => Tags, 0], 2, 5, 5]
+  [0, 0, 0, () => LayoutContent$, [() => Tags, 0], 2, 5, 5], 4
 ];
 export var GetTemplateRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_dI, _tI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetTemplateResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
-  [_tI, _tA, _n, _d, _lC, _rF, _ta, _s, _de, _cTr, _lMT, _rul],
-  [0, 0, 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, [() => Tags, 0], 0, 2, 5, 5, () => TemplateCaseRuleList]
+  [_tI, _tA, _n, _s, _d, _lC, _rF, _ta, _de, _cTr, _lMT, _rul],
+  [0, 0, 0, 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, [() => Tags, 0], 2, 5, 5, () => TemplateCaseRuleList], 4
 ];
 export var HiddenCaseRule$: StaticStructureSchema = [3, n0, _HCR,
   0,
   [_dV, _con],
-  [2, () => BooleanConditionList]
+  [2, () => BooleanConditionList], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LayoutConfiguration$: StaticStructureSchema = [3, n0, _LC,
@@ -870,27 +870,27 @@ export var LayoutSections$: StaticStructureSchema = [3, n0, _LS,
 export var LayoutSummary$: StaticStructureSchema = [3, n0, _LSa,
   0,
   [_lI, _lA, _n],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ListCaseRulesRequest$: StaticStructureSchema = [3, n0, _LCRR,
   0,
   [_dI, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListCaseRulesResponse$: StaticStructureSchema = [3, n0, _LCRRi,
   0,
   [_cR, _nT],
-  [() => CaseRuleSummaryList, 0]
+  [() => CaseRuleSummaryList, 0], 1
 ];
 export var ListCasesForContactRequest$: StaticStructureSchema = [3, n0, _LCFCR,
   0,
   [_dI, _cA, _mR, _nT],
-  [[0, 1], 0, 1, 0]
+  [[0, 1], 0, 1, 0], 2
 ];
 export var ListCasesForContactResponse$: StaticStructureSchema = [3, n0, _LCFCRi,
   0,
   [_ca, _nT],
-  [() => CaseSummaryList, 0]
+  [() => CaseSummaryList, 0], 1
 ];
 export var ListDomainsRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
@@ -900,42 +900,42 @@ export var ListDomainsRequest$: StaticStructureSchema = [3, n0, _LDR,
 export var ListDomainsResponse$: StaticStructureSchema = [3, n0, _LDRi,
   0,
   [_do, _nT],
-  [() => DomainSummaryList, 0]
+  [() => DomainSummaryList, 0], 1
 ];
 export var ListFieldOptionsRequest$: StaticStructureSchema = [3, n0, _LFOR,
   0,
   [_dI, _fI, _mR, _nT, _va],
-  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _va }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _va }]], 2
 ];
 export var ListFieldOptionsResponse$: StaticStructureSchema = [3, n0, _LFORi,
   0,
   [_o, _nT],
-  [() => FieldOptionsList, 0]
+  [() => FieldOptionsList, 0], 1
 ];
 export var ListFieldsRequest$: StaticStructureSchema = [3, n0, _LFR,
   0,
   [_dI, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListFieldsResponse$: StaticStructureSchema = [3, n0, _LFRi,
   0,
   [_f, _nT],
-  [() => FieldSummaryList, 0]
+  [() => FieldSummaryList, 0], 1
 ];
 export var ListLayoutsRequest$: StaticStructureSchema = [3, n0, _LLR,
   0,
   [_dI, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListLayoutsResponse$: StaticStructureSchema = [3, n0, _LLRi,
   0,
   [_l, _nT],
-  [() => LayoutSummaryList, 0]
+  [() => LayoutSummaryList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_ar],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -945,22 +945,22 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListTemplatesRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_dI, _mR, _nT, _s],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _s }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _s }]], 1
 ];
 export var ListTemplatesResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
   [_te, _nT],
-  [() => TemplateSummaryList, 0]
+  [() => TemplateSummaryList, 0], 1
 ];
 export var ParentChildFieldOptionsMapping$: StaticStructureSchema = [3, n0, _PCFOM,
   0,
   [_pFOV, _cFOV],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var PutCaseEventConfigurationRequest$: StaticStructureSchema = [3, n0, _PCECR,
   0,
   [_dI, _eB],
-  [[0, 1], () => EventBridgeConfiguration$]
+  [[0, 1], () => EventBridgeConfiguration$], 2
 ];
 export var PutCaseEventConfigurationResponse$: StaticStructureSchema = [3, n0, _PCECRu,
   0,
@@ -970,89 +970,89 @@ export var PutCaseEventConfigurationResponse$: StaticStructureSchema = [3, n0, _
 export var RelatedItemEventIncludedData$: StaticStructureSchema = [3, n0, _RIEID,
   0,
   [_iC],
-  [2]
+  [2], 1
 ];
 export var RequiredCaseRule$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_dV, _con],
-  [2, () => BooleanConditionList]
+  [2, () => BooleanConditionList], 2
 ];
 export var RequiredField$: StaticStructureSchema = [3, n0, _RF,
   0,
   [_fI],
-  [0]
+  [0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rTe],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SearchAllRelatedItemsRequest$: StaticStructureSchema = [3, n0, _SARIR,
   0,
   [_dI, _mR, _nT, _fi, _so],
-  [[0, 1], 1, 0, [() => RelatedItemFilterList, 0], () => SearchAllRelatedItemsSortList]
+  [[0, 1], 1, 0, [() => RelatedItemFilterList, 0], () => SearchAllRelatedItemsSortList], 1
 ];
 export var SearchAllRelatedItemsResponse$: StaticStructureSchema = [3, n0, _SARIRe,
   0,
-  [_nT, _rIe],
-  [0, [() => SearchAllRelatedItemsResponseItemList, 0]]
+  [_rIe, _nT],
+  [[() => SearchAllRelatedItemsResponseItemList, 0], 0], 1
 ];
 export var SearchAllRelatedItemsResponseItem$: StaticStructureSchema = [3, n0, _SARIRI,
   0,
   [_rII, _cI, _t, _aT, _co, _pB, _ta],
-  [0, 0, 0, 5, [() => RelatedItemContent$, 0], [() => UserUnion$, 0], [() => Tags, 0]]
+  [0, 0, 0, 5, [() => RelatedItemContent$, 0], [() => UserUnion$, 0], [() => Tags, 0]], 5
 ];
 export var SearchAllRelatedItemsSort$: StaticStructureSchema = [3, n0, _SARIS,
   0,
   [_sP, _sO],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SearchCasesRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
   [_dI, _mR, _nT, _sT, _fil, _so, _f],
-  [[0, 1], 1, 0, 0, () => CaseFilter$, () => SortList, () => FieldIdentifierList]
+  [[0, 1], 1, 0, 0, () => CaseFilter$, () => SortList, () => FieldIdentifierList], 1
 ];
 export var SearchCasesResponse$: StaticStructureSchema = [3, n0, _SCRe,
   0,
-  [_nT, _ca],
-  [0, [() => SearchCasesResponseItemList, 0]]
+  [_ca, _nT],
+  [[() => SearchCasesResponseItemList, 0], 0], 1
 ];
 export var SearchCasesResponseItem$: StaticStructureSchema = [3, n0, _SCRI,
   0,
   [_cI, _tI, _f, _ta],
-  [0, 0, () => FieldValueList, [() => Tags, 0]]
+  [0, 0, () => FieldValueList, [() => Tags, 0]], 3
 ];
 export var SearchRelatedItemsRequest$: StaticStructureSchema = [3, n0, _SRIR,
   0,
   [_dI, _cI, _mR, _nT, _fi],
-  [[0, 1], [0, 1], 1, 0, [() => RelatedItemFilterList, 0]]
+  [[0, 1], [0, 1], 1, 0, [() => RelatedItemFilterList, 0]], 2
 ];
 export var SearchRelatedItemsResponse$: StaticStructureSchema = [3, n0, _SRIRe,
   0,
-  [_nT, _rIe],
-  [0, [() => SearchRelatedItemsResponseItemList, 0]]
+  [_rIe, _nT],
+  [[() => SearchRelatedItemsResponseItemList, 0], 0], 1
 ];
 export var SearchRelatedItemsResponseItem$: StaticStructureSchema = [3, n0, _SRIRI,
   0,
   [_rII, _t, _aT, _co, _ta, _pB],
-  [0, 0, 5, [() => RelatedItemContent$, 0], [() => Tags, 0], [() => UserUnion$, 0]]
+  [0, 0, 5, [() => RelatedItemContent$, 0], [() => Tags, 0], [() => UserUnion$, 0]], 4
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SlaConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_n, _t, _s, _fI, _tFV, _tT, _cTo],
-  [[() => SlaName, 0], 0, 0, 0, () => SlaFieldValueUnionList, 5, 5]
+  [_n, _t, _s, _tT, _fI, _tFV, _cTo],
+  [[() => SlaName, 0], 0, 0, 5, 0, () => SlaFieldValueUnionList, 5], 4
 ];
 export var SlaContent$: StaticStructureSchema = [3, n0, _SCl,
   0,
   [_sC],
-  [[() => SlaConfiguration$, 0]]
+  [[() => SlaConfiguration$, 0]], 1
 ];
 export var SlaFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
@@ -1061,44 +1061,44 @@ export var SlaFilter$: StaticStructureSchema = [3, n0, _SF,
 ];
 export var SlaInputConfiguration$: StaticStructureSchema = [3, n0, _SIC,
   0,
-  [_n, _t, _fI, _tFV, _tSM],
-  [[() => SlaName, 0], 0, 0, () => SlaFieldValueUnionList, 1]
+  [_n, _t, _tSM, _fI, _tFV],
+  [[() => SlaName, 0], 0, 1, 0, () => SlaFieldValueUnionList], 3
 ];
 export var Sort$: StaticStructureSchema = [3, n0, _S,
   0,
   [_fI, _sO],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_ar, _ta],
-  [[0, 1], [() => Tags, 0]]
+  [[0, 1], [() => Tags, 0]], 2
 ];
 export var TemplateRule$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_cRI, _fI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_tI, _tA, _n, _s],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_ar, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateCaseRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_dI, _cI, _f, _pB],
-  [[0, 1], [0, 1], () => FieldValueList, [() => UserUnion$, 0]]
+  [[0, 1], [0, 1], () => FieldValueList, [() => UserUnion$, 0]], 3
 ];
 export var UpdateCaseResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -1108,7 +1108,7 @@ export var UpdateCaseResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateCaseRuleRequest$: StaticStructureSchema = [3, n0, _UCRR,
   0,
   [_dI, _cRI, _n, _d, _ru],
-  [[0, 1], [0, 1], 0, 0, () => CaseRuleDetails$]
+  [[0, 1], [0, 1], 0, 0, () => CaseRuleDetails$], 2
 ];
 export var UpdateCaseRuleResponse$: StaticStructureSchema = [3, n0, _UCRRp,
   0,
@@ -1118,7 +1118,7 @@ export var UpdateCaseRuleResponse$: StaticStructureSchema = [3, n0, _UCRRp,
 export var UpdateFieldRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
   [_dI, _fI, _n, _d],
-  [[0, 1], [0, 1], 0, 0]
+  [[0, 1], [0, 1], 0, 0], 2
 ];
 export var UpdateFieldResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
@@ -1128,7 +1128,7 @@ export var UpdateFieldResponse$: StaticStructureSchema = [3, n0, _UFRp,
 export var UpdateLayoutRequest$: StaticStructureSchema = [3, n0, _ULR,
   0,
   [_dI, _lI, _n, _co],
-  [[0, 1], [0, 1], 0, () => LayoutContent$]
+  [[0, 1], [0, 1], 0, () => LayoutContent$], 2
 ];
 export var UpdateLayoutResponse$: StaticStructureSchema = [3, n0, _ULRp,
   0,
@@ -1138,7 +1138,7 @@ export var UpdateLayoutResponse$: StaticStructureSchema = [3, n0, _ULRp,
 export var UpdateTemplateRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
   [_dI, _tI, _n, _d, _lC, _rF, _s, _rul],
-  [[0, 1], [0, 1], 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, 0, () => TemplateCaseRuleList]
+  [[0, 1], [0, 1], 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, 0, () => TemplateCaseRuleList], 2
 ];
 export var UpdateTemplateResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
@@ -1148,7 +1148,7 @@ export var UpdateTemplateResponse$: StaticStructureSchema = [3, n0, _UTRp,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;

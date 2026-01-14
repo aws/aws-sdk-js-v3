@@ -78,8 +78,8 @@ export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
 TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var QueryForecastRequest$: StaticStructureSchema = [3, n0, _QFR,
   0,
-  [_FA, _SD, _ED, _Fi, _NT],
-  [0, 0, 0, 128 | 0, 0]
+  [_FA, _Fi, _SD, _ED, _NT],
+  [0, 128 | 0, 0, 0, 0], 2
 ];
 export var QueryForecastResponse$: StaticStructureSchema = [3, n0, _QFRu,
   0,
@@ -88,8 +88,8 @@ export var QueryForecastResponse$: StaticStructureSchema = [3, n0, _QFRu,
 ];
 export var QueryWhatIfForecastRequest$: StaticStructureSchema = [3, n0, _QWIFR,
   0,
-  [_WIFA, _SD, _ED, _Fi, _NT],
-  [0, 0, 0, 128 | 0, 0]
+  [_WIFA, _Fi, _SD, _ED, _NT],
+  [0, 128 | 0, 0, 0, 0], 2
 ];
 export var QueryWhatIfForecastResponse$: StaticStructureSchema = [3, n0, _QWIFRu,
   0,

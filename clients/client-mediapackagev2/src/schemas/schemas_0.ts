@@ -326,7 +326,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var CancelHarvestJobRequest$: StaticStructureSchema = [3, n0, _CHJR,
   0,
   [_CGN, _CN, _OEN, _HJN, _ET],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hH]: _xauim }]]
+  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hH]: _xauim }]], 4
 ];
 export var CancelHarvestJobResponse$: StaticStructureSchema = [3, n0, _CHJRa,
   0,
@@ -336,17 +336,17 @@ export var CancelHarvestJobResponse$: StaticStructureSchema = [3, n0, _CHJRa,
 export var CdnAuthConfiguration$: StaticStructureSchema = [3, n0, _CAC,
   0,
   [_CISA, _SRA],
-  [64 | 0, 0]
+  [64 | 0, 0], 2
 ];
 export var ChannelGroupListConfiguration$: StaticStructureSchema = [3, n0, _CGLC,
   0,
   [_CGN, _A, _CA, _MA, _D],
-  [0, 0, 4, 4, 0]
+  [0, 0, 4, 4, 0], 4
 ];
 export var ChannelListConfiguration$: StaticStructureSchema = [3, n0, _CLC,
   0,
   [_A, _CN, _CGN, _CA, _MA, _D, _IT],
-  [0, 0, 0, 4, 4, 0, 0]
+  [0, 0, 0, 4, 4, 0, 0], 5
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -357,67 +357,67 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateChannelGroupRequest$: StaticStructureSchema = [3, n0, _CCGR,
   0,
   [_CGN, _CT, _D, _T],
-  [0, [0, { [_hH]: _xact, [_iT]: 1 }], 0, [128 | 0, { [_jN]: _t }]]
+  [0, [0, { [_hH]: _xact, [_iT]: 1 }], 0, [128 | 0, { [_jN]: _t }]], 1
 ];
 export var CreateChannelGroupResponse$: StaticStructureSchema = [3, n0, _CCGRr,
   0,
   [_CGN, _A, _ED, _CA, _MA, _ET, _D, _T],
-  [0, 0, 0, 4, 4, 0, 0, 128 | 0]
+  [0, 0, 0, 4, 4, 0, 0, 128 | 0], 5
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_CGN, _CN, _CT, _IT, _D, _ISC, _OHC, _T],
-  [[0, 1], 0, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, [128 | 0, { [_jN]: _t }]]
+  [[0, 1], 0, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, [128 | 0, { [_jN]: _t }]], 2
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_A, _CN, _CGN, _CA, _MA, _D, _IE, _IT, _ET, _T, _ISC, _OHC],
-  [0, 0, 0, 4, 4, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$]
+  [0, 0, 0, 4, 4, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$], 5
 ];
 export var CreateDashManifestConfiguration$: StaticStructureSchema = [3, n0, _CDMC,
   0,
   [_MN, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC],
-  [0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$]
+  [0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$], 1
 ];
 export var CreateHarvestJobRequest$: StaticStructureSchema = [3, n0, _CHJRr,
   0,
-  [_CGN, _CN, _OEN, _D, _HM, _SCc, _De, _CT, _HJN, _T],
-  [[0, 1], [0, 1], [0, 1], 0, () => HarvestedManifests$, () => HarvesterScheduleConfiguration$, () => Destination$, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 128 | 0]
+  [_CGN, _CN, _OEN, _HM, _SCc, _De, _D, _CT, _HJN, _T],
+  [[0, 1], [0, 1], [0, 1], () => HarvestedManifests$, () => HarvesterScheduleConfiguration$, () => Destination$, 0, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 128 | 0], 6
 ];
 export var CreateHarvestJobResponse$: StaticStructureSchema = [3, n0, _CHJRre,
   0,
-  [_CGN, _CN, _OEN, _De, _HJN, _HM, _D, _SCc, _A, _CA, _MA, _S, _EM, _ET, _T],
-  [0, 0, 0, () => Destination$, 0, () => HarvestedManifests$, 0, () => HarvesterScheduleConfiguration$, 0, 4, 4, 0, 0, 0, 128 | 0]
+  [_CGN, _CN, _OEN, _De, _HJN, _HM, _SCc, _A, _CA, _MA, _S, _D, _EM, _ET, _T],
+  [0, 0, 0, () => Destination$, 0, () => HarvestedManifests$, () => HarvesterScheduleConfiguration$, 0, 4, 4, 0, 0, 0, 0, 128 | 0], 11
 ];
 export var CreateHlsManifestConfiguration$: StaticStructureSchema = [3, n0, _CHMC,
   0,
   [_MN, _CMN, _SH, _ST, _MWS, _PDTIS, _FC, _UECM],
-  [0, 0, () => ScteHls$, () => StartTag$, 1, 1, () => FilterConfiguration$, 2]
+  [0, 0, () => ScteHls$, () => StartTag$, 1, 1, () => FilterConfiguration$, 2], 1
 ];
 export var CreateLowLatencyHlsManifestConfiguration$: StaticStructureSchema = [3, n0, _CLLHMC,
   0,
   [_MN, _CMN, _SH, _ST, _MWS, _PDTIS, _FC, _UECM],
-  [0, 0, () => ScteHls$, () => StartTag$, 1, 1, () => FilterConfiguration$, 2]
+  [0, 0, () => ScteHls$, () => StartTag$, 1, 1, () => FilterConfiguration$, 2], 1
 ];
 export var CreateMssManifestConfiguration$: StaticStructureSchema = [3, n0, _CMMC,
   0,
   [_MN, _MWS, _FC, _ML],
-  [0, 1, () => FilterConfiguration$, 0]
+  [0, 1, () => FilterConfiguration$, 0], 1
 ];
 export var CreateOriginEndpointRequest$: StaticStructureSchema = [3, n0, _COER,
   0,
   [_CGN, _CN, _OEN, _CTo, _Se, _CT, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _T],
-  [[0, 1], [0, 1], 0, 0, () => Segment$, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, 128 | 0]
+  [[0, 1], [0, 1], 0, 0, () => Segment$, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, 128 | 0], 4
 ];
 export var CreateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _COERr,
   0,
   [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _ET, _T],
-  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 128 | 0]
+  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 128 | 0], 8
 ];
 export var DashBaseUrl$: StaticStructureSchema = [3, n0, _DBU,
   0,
   [_U, _SL, _DP, _DW],
-  [0, 0, 1, 1]
+  [0, 0, 1, 1], 1
 ];
 export var DashDvbFontDownload$: StaticStructureSchema = [3, n0, _DDFD,
   0,
@@ -427,7 +427,7 @@ export var DashDvbFontDownload$: StaticStructureSchema = [3, n0, _DDFD,
 export var DashDvbMetricsReporting$: StaticStructureSchema = [3, n0, _DDMR,
   0,
   [_RU, _Pr],
-  [0, 1]
+  [0, 1], 1
 ];
 export var DashDvbSettings$: StaticStructureSchema = [3, n0, _DDS,
   0,
@@ -447,7 +447,7 @@ export var DashSubtitleConfiguration$: StaticStructureSchema = [3, n0, _DSC,
 export var DashTtmlConfiguration$: StaticStructureSchema = [3, n0, _DTC,
   0,
   [_TP],
-  [0]
+  [0], 1
 ];
 export var DashUtcTiming$: StaticStructureSchema = [3, n0, _DUT,
   0,
@@ -457,7 +457,7 @@ export var DashUtcTiming$: StaticStructureSchema = [3, n0, _DUT,
 export var DeleteChannelGroupRequest$: StaticStructureSchema = [3, n0, _DCGR,
   0,
   [_CGN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteChannelGroupResponse$: StaticStructureSchema = [3, n0, _DCGRe,
   0,
@@ -467,7 +467,7 @@ export var DeleteChannelGroupResponse$: StaticStructureSchema = [3, n0, _DCGRe,
 export var DeleteChannelPolicyRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
   [_CGN, _CN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteChannelPolicyResponse$: StaticStructureSchema = [3, n0, _DCPRe,
   0,
@@ -477,7 +477,7 @@ export var DeleteChannelPolicyResponse$: StaticStructureSchema = [3, n0, _DCPRe,
 export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CGN, _CN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -487,7 +487,7 @@ export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteOriginEndpointPolicyRequest$: StaticStructureSchema = [3, n0, _DOEPR,
   0,
   [_CGN, _CN, _OEN],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteOriginEndpointPolicyResponse$: StaticStructureSchema = [3, n0, _DOEPRe,
   0,
@@ -497,7 +497,7 @@ export var DeleteOriginEndpointPolicyResponse$: StaticStructureSchema = [3, n0, 
 export var DeleteOriginEndpointRequest$: StaticStructureSchema = [3, n0, _DOER,
   0,
   [_CGN, _CN, _OEN],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteOriginEndpointResponse$: StaticStructureSchema = [3, n0, _DOERe,
   0,
@@ -507,17 +507,17 @@ export var DeleteOriginEndpointResponse$: StaticStructureSchema = [3, n0, _DOERe
 export var Destination$: StaticStructureSchema = [3, n0, _De,
   0,
   [_SDe],
-  [() => S3DestinationConfig$]
+  [() => S3DestinationConfig$], 1
 ];
 export var Encryption$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_CIV, _EMn, _KRIS, _CESDM, _SKP],
-  [0, () => EncryptionMethod$, 1, 2, () => SpekeKeyProvider$]
+  [_EMn, _SKP, _CIV, _KRIS, _CESDM],
+  [() => EncryptionMethod$, () => SpekeKeyProvider$, 0, 1, 2], 2
 ];
 export var EncryptionContractConfiguration$: StaticStructureSchema = [3, n0, _ECC,
   0,
   [_PSA, _PSV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EncryptionMethod$: StaticStructureSchema = [3, n0, _EMn,
   0,
@@ -537,97 +537,97 @@ export var ForceEndpointErrorConfiguration$: StaticStructureSchema = [3, n0, _FE
 export var GetChannelGroupRequest$: StaticStructureSchema = [3, n0, _GCGR,
   0,
   [_CGN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetChannelGroupResponse$: StaticStructureSchema = [3, n0, _GCGRe,
   0,
   [_CGN, _A, _ED, _CA, _MA, _D, _ET, _T],
-  [0, 0, 0, 4, 4, 0, 0, [128 | 0, { [_jN]: _t }]]
+  [0, 0, 0, 4, 4, 0, 0, [128 | 0, { [_jN]: _t }]], 5
 ];
 export var GetChannelPolicyRequest$: StaticStructureSchema = [3, n0, _GCPR,
   0,
   [_CGN, _CN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetChannelPolicyResponse$: StaticStructureSchema = [3, n0, _GCPRe,
   0,
   [_CGN, _CN, _Po],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetChannelRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_CGN, _CN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetChannelResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
   [_A, _CN, _CGN, _CA, _MA, _RA, _D, _IE, _IT, _ET, _T, _ISC, _OHC],
-  [0, 0, 0, 4, 4, 4, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$]
+  [0, 0, 0, 4, 4, 4, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$], 5
 ];
 export var GetDashManifestConfiguration$: StaticStructureSchema = [3, n0, _GDMC,
   0,
   [_MN, _U, _MWS, _FC, _MUPS, _MBTS, _SPDS, _STF, _PT, _SD, _DS, _UT, _P, _BU, _PI, _DSv, _C, _SC],
-  [0, 0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$]
+  [0, 0, 1, () => FilterConfiguration$, 1, 1, 1, 0, 64 | 0, () => ScteDash$, 0, () => DashUtcTiming$, 64 | 0, () => DashBaseUrls, () => DashProgramInformation$, () => DashDvbSettings$, 0, () => DashSubtitleConfiguration$], 2
 ];
 export var GetHarvestJobRequest$: StaticStructureSchema = [3, n0, _GHJR,
   0,
   [_CGN, _CN, _OEN, _HJN],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var GetHarvestJobResponse$: StaticStructureSchema = [3, n0, _GHJRe,
   0,
-  [_CGN, _CN, _OEN, _De, _HJN, _HM, _D, _SCc, _A, _CA, _MA, _S, _EM, _ET, _T],
-  [0, 0, 0, () => Destination$, 0, () => HarvestedManifests$, 0, () => HarvesterScheduleConfiguration$, 0, 4, 4, 0, 0, 0, 128 | 0]
+  [_CGN, _CN, _OEN, _De, _HJN, _HM, _SCc, _A, _CA, _MA, _S, _D, _EM, _ET, _T],
+  [0, 0, 0, () => Destination$, 0, () => HarvestedManifests$, () => HarvesterScheduleConfiguration$, 0, 4, 4, 0, 0, 0, 0, 128 | 0], 11
 ];
 export var GetHlsManifestConfiguration$: StaticStructureSchema = [3, n0, _GHMC,
   0,
   [_MN, _U, _CMN, _MWS, _PDTIS, _SH, _FC, _ST, _UECM],
-  [0, 0, 0, 1, 1, () => ScteHls$, () => FilterConfiguration$, () => StartTag$, 2]
+  [0, 0, 0, 1, 1, () => ScteHls$, () => FilterConfiguration$, () => StartTag$, 2], 2
 ];
 export var GetLowLatencyHlsManifestConfiguration$: StaticStructureSchema = [3, n0, _GLLHMC,
   0,
   [_MN, _U, _CMN, _MWS, _PDTIS, _SH, _FC, _ST, _UECM],
-  [0, 0, 0, 1, 1, () => ScteHls$, () => FilterConfiguration$, () => StartTag$, 2]
+  [0, 0, 0, 1, 1, () => ScteHls$, () => FilterConfiguration$, () => StartTag$, 2], 2
 ];
 export var GetMssManifestConfiguration$: StaticStructureSchema = [3, n0, _GMMC,
   0,
   [_MN, _U, _FC, _MWS, _ML],
-  [0, 0, () => FilterConfiguration$, 1, 0]
+  [0, 0, () => FilterConfiguration$, 1, 0], 2
 ];
 export var GetOriginEndpointPolicyRequest$: StaticStructureSchema = [3, n0, _GOEPR,
   0,
   [_CGN, _CN, _OEN],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetOriginEndpointPolicyResponse$: StaticStructureSchema = [3, n0, _GOEPRe,
   0,
   [_CGN, _CN, _OEN, _Po, _CAC],
-  [0, 0, 0, 0, () => CdnAuthConfiguration$]
+  [0, 0, 0, 0, () => CdnAuthConfiguration$], 4
 ];
 export var GetOriginEndpointRequest$: StaticStructureSchema = [3, n0, _GOER,
   0,
   [_CGN, _CN, _OEN],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetOriginEndpointResponse$: StaticStructureSchema = [3, n0, _GOERe,
   0,
   [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _RA, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _ET, _T],
-  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 128 | 0]
+  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 128 | 0], 8
 ];
 export var HarvestedDashManifest$: StaticStructureSchema = [3, n0, _HDM,
   0,
   [_MN],
-  [0]
+  [0], 1
 ];
 export var HarvestedHlsManifest$: StaticStructureSchema = [3, n0, _HHM,
   0,
   [_MN],
-  [0]
+  [0], 1
 ];
 export var HarvestedLowLatencyHlsManifest$: StaticStructureSchema = [3, n0, _HLLHM,
   0,
   [_MN],
-  [0]
+  [0], 1
 ];
 export var HarvestedManifests$: StaticStructureSchema = [3, n0, _HM,
   0,
@@ -637,12 +637,12 @@ export var HarvestedManifests$: StaticStructureSchema = [3, n0, _HM,
 export var HarvesterScheduleConfiguration$: StaticStructureSchema = [3, n0, _HSC,
   0,
   [_STt, _ETn],
-  [4, 4]
+  [4, 4], 2
 ];
 export var HarvestJob$: StaticStructureSchema = [3, n0, _HJ,
   0,
-  [_CGN, _CN, _OEN, _De, _HJN, _HM, _D, _SCc, _A, _CA, _MA, _S, _EM, _ET],
-  [0, 0, 0, () => Destination$, 0, () => HarvestedManifests$, 0, () => HarvesterScheduleConfiguration$, 0, 4, 4, 0, 0, 0]
+  [_CGN, _CN, _OEN, _De, _HJN, _HM, _SCc, _A, _CA, _MA, _S, _D, _EM, _ET],
+  [0, 0, 0, () => Destination$, 0, () => HarvestedManifests$, () => HarvesterScheduleConfiguration$, 0, 4, 4, 0, 0, 0, 0], 11
 ];
 export var IngestEndpoint$: StaticStructureSchema = [3, n0, _IEn,
   0,
@@ -673,7 +673,7 @@ export var ListChannelGroupsResponse$: StaticStructureSchema = [3, n0, _LCGRi,
 export var ListChannelsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_CGN, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListChannelsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -683,12 +683,12 @@ export var ListChannelsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListDashManifestConfiguration$: StaticStructureSchema = [3, n0, _LDMC,
   0,
   [_MN, _U],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListHarvestJobsRequest$: StaticStructureSchema = [3, n0, _LHJR,
   0,
   [_CGN, _CN, _OEN, _S, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _cN }], [0, { [_hQ]: _oEN }], [0, { [_hQ]: _iS }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _cN }], [0, { [_hQ]: _oEN }], [0, { [_hQ]: _iS }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListHarvestJobsResponse$: StaticStructureSchema = [3, n0, _LHJRi,
   0,
@@ -698,22 +698,22 @@ export var ListHarvestJobsResponse$: StaticStructureSchema = [3, n0, _LHJRi,
 export var ListHlsManifestConfiguration$: StaticStructureSchema = [3, n0, _LHMC,
   0,
   [_MN, _CMN, _U],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ListLowLatencyHlsManifestConfiguration$: StaticStructureSchema = [3, n0, _LLLHMC,
   0,
   [_MN, _CMN, _U],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ListMssManifestConfiguration$: StaticStructureSchema = [3, n0, _LMMC,
   0,
   [_MN, _U],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListOriginEndpointsRequest$: StaticStructureSchema = [3, n0, _LOER,
   0,
   [_CGN, _CN, _MR, _NT],
-  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListOriginEndpointsResponse$: StaticStructureSchema = [3, n0, _LOERi,
   0,
@@ -723,7 +723,7 @@ export var ListOriginEndpointsResponse$: StaticStructureSchema = [3, n0, _LOERi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -733,7 +733,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var OriginEndpointListConfiguration$: StaticStructureSchema = [3, n0, _OELC,
   0,
   [_A, _CGN, _CN, _OEN, _CTo, _D, _CA, _MA, _HMl, _LLHM, _DM, _MM, _FEEC],
-  [0, 0, 0, 0, 0, 0, 4, 4, () => ListHlsManifests, () => ListLowLatencyHlsManifests, () => ListDashManifests, () => ListMssManifests, () => ForceEndpointErrorConfiguration$]
+  [0, 0, 0, 0, 0, 0, 4, 4, () => ListHlsManifests, () => ListLowLatencyHlsManifests, () => ListDashManifests, () => ListMssManifests, () => ForceEndpointErrorConfiguration$], 5
 ];
 export var OutputHeaderConfiguration$: StaticStructureSchema = [3, n0, _OHC,
   0,
@@ -743,7 +743,7 @@ export var OutputHeaderConfiguration$: StaticStructureSchema = [3, n0, _OHC,
 export var PutChannelPolicyRequest$: StaticStructureSchema = [3, n0, _PCPR,
   0,
   [_CGN, _CN, _Po],
-  [[0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], 0], 3
 ];
 export var PutChannelPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
   0,
@@ -753,7 +753,7 @@ export var PutChannelPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
 export var PutOriginEndpointPolicyRequest$: StaticStructureSchema = [3, n0, _POEPR,
   0,
   [_CGN, _CN, _OEN, _Po, _CAC],
-  [[0, 1], [0, 1], [0, 1], 0, () => CdnAuthConfiguration$]
+  [[0, 1], [0, 1], [0, 1], 0, () => CdnAuthConfiguration$], 4
 ];
 export var PutOriginEndpointPolicyResponse$: StaticStructureSchema = [3, n0, _POEPRu,
   0,
@@ -763,22 +763,22 @@ export var PutOriginEndpointPolicyResponse$: StaticStructureSchema = [3, n0, _PO
 export var ResetChannelStateRequest$: StaticStructureSchema = [3, n0, _RCSR,
   0,
   [_CGN, _CN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var ResetChannelStateResponse$: StaticStructureSchema = [3, n0, _RCSRe,
   0,
   [_CGN, _CN, _A, _RA],
-  [0, 0, 0, 4]
+  [0, 0, 0, 4], 4
 ];
 export var ResetOriginEndpointStateRequest$: StaticStructureSchema = [3, n0, _ROESR,
   0,
   [_CGN, _CN, _OEN],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var ResetOriginEndpointStateResponse$: StaticStructureSchema = [3, n0, _ROESRe,
   0,
   [_CGN, _CN, _OEN, _A, _RA],
-  [0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 4], 5
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -789,7 +789,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var S3DestinationConfig$: StaticStructureSchema = [3, n0, _SDC,
   0,
   [_BN, _DPe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Scte$: StaticStructureSchema = [3, n0, _Sc,
   0,
@@ -820,17 +820,17 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var SpekeKeyProvider$: StaticStructureSchema = [3, n0, _SKP,
   0,
   [_ECC, _RI, _DSrm, _RAo, _U, _CAe],
-  [() => EncryptionContractConfiguration$, 0, 64 | 0, 0, 0, 0]
+  [() => EncryptionContractConfiguration$, 0, 64 | 0, 0, 0, 0], 5
 ];
 export var StartTag$: StaticStructureSchema = [3, n0, _ST,
   0,
   [_TO, _Pre],
-  [1, 2]
+  [1, 2], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _T],
-  [[0, 1], [128 | 0, { [_jN]: _t }]]
+  [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
@@ -841,37 +841,37 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateChannelGroupRequest$: StaticStructureSchema = [3, n0, _UCGR,
   0,
   [_CGN, _ET, _D],
-  [[0, 1], [0, { [_hH]: _xauim }], 0]
+  [[0, 1], [0, { [_hH]: _xauim }], 0], 1
 ];
 export var UpdateChannelGroupResponse$: StaticStructureSchema = [3, n0, _UCGRp,
   0,
   [_CGN, _A, _ED, _CA, _MA, _D, _ET, _T],
-  [0, 0, 0, 4, 4, 0, 0, [128 | 0, { [_jN]: _t }]]
+  [0, 0, 0, 4, 4, 0, 0, [128 | 0, { [_jN]: _t }]], 5
 ];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_CGN, _CN, _ET, _D, _ISC, _OHC],
-  [[0, 1], [0, 1], [0, { [_hH]: _xauim }], 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$]
+  [[0, 1], [0, 1], [0, { [_hH]: _xauim }], 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$], 2
 ];
 export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
   [_A, _CN, _CGN, _CA, _MA, _D, _IE, _IT, _ET, _T, _ISC, _OHC],
-  [0, 0, 0, 4, 4, 0, () => IngestEndpointList, 0, 0, [128 | 0, { [_jN]: _t }], () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$]
+  [0, 0, 0, 4, 4, 0, () => IngestEndpointList, 0, 0, [128 | 0, { [_jN]: _t }], () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$], 5
 ];
 export var UpdateOriginEndpointRequest$: StaticStructureSchema = [3, n0, _UOER,
   0,
   [_CGN, _CN, _OEN, _CTo, _Se, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _ET],
-  [[0, 1], [0, 1], [0, 1], 0, () => Segment$, 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, [0, { [_hH]: _xauim }]]
+  [[0, 1], [0, 1], [0, 1], 0, () => Segment$, 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, [0, { [_hH]: _xauim }]], 4
 ];
 export var UpdateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _UOERp,
   0,
   [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _D, _SWS, _HMl, _LLHM, _MM, _FEEC, _ET, _T, _DM],
-  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, [128 | 0, { [_jN]: _t }], () => GetDashManifests]
+  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, [128 | 0, { [_jN]: _t }], () => GetDashManifests], 8
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c },

@@ -50,12 +50,12 @@ TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentExc
 export var JoinStorageSessionAsViewerInput$: StaticStructureSchema = [3, n0, _JSSAVI,
   0,
   [_cA, _cI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var JoinStorageSessionInput$: StaticStructureSchema = [3, n0, _JSSI,
   0,
   [_cA],
-  [0]
+  [0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },

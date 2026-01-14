@@ -248,7 +248,7 @@ import { ServiceDiscoveryServiceException } from "../models/ServiceDiscoveryServ
 export var CreateHttpNamespaceRequest$: StaticStructureSchema = [3, n0, _CHNR,
   0,
   [_N, _CRI, _D, _T],
-  [0, [0, 4], 0, () => TagList]
+  [0, [0, 4], 0, () => TagList], 1
 ];
 export var CreateHttpNamespaceResponse$: StaticStructureSchema = [3, n0, _CHNRr,
   0,
@@ -257,8 +257,8 @@ export var CreateHttpNamespaceResponse$: StaticStructureSchema = [3, n0, _CHNRr,
 ];
 export var CreatePrivateDnsNamespaceRequest$: StaticStructureSchema = [3, n0, _CPDNR,
   0,
-  [_N, _CRI, _D, _V, _T, _P],
-  [0, [0, 4], 0, 0, () => TagList, () => PrivateDnsNamespaceProperties$]
+  [_N, _V, _CRI, _D, _T, _P],
+  [0, 0, [0, 4], 0, () => TagList, () => PrivateDnsNamespaceProperties$], 2
 ];
 export var CreatePrivateDnsNamespaceResponse$: StaticStructureSchema = [3, n0, _CPDNRr,
   0,
@@ -268,7 +268,7 @@ export var CreatePrivateDnsNamespaceResponse$: StaticStructureSchema = [3, n0, _
 export var CreatePublicDnsNamespaceRequest$: StaticStructureSchema = [3, n0, _CPDNRre,
   0,
   [_N, _CRI, _D, _T, _P],
-  [0, [0, 4], 0, () => TagList, () => PublicDnsNamespaceProperties$]
+  [0, [0, 4], 0, () => TagList, () => PublicDnsNamespaceProperties$], 1
 ];
 export var CreatePublicDnsNamespaceResponse$: StaticStructureSchema = [3, n0, _CPDNRrea,
   0,
@@ -278,7 +278,7 @@ export var CreatePublicDnsNamespaceResponse$: StaticStructureSchema = [3, n0, _C
 export var CreateServiceRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_N, _NI, _CRI, _D, _DC, _HCC, _HCCC, _T, _Ty],
-  [0, 0, [0, 4], 0, () => DnsConfig$, () => HealthCheckConfig$, () => HealthCheckCustomConfig$, () => TagList, 0]
+  [0, 0, [0, 4], 0, () => DnsConfig$, () => HealthCheckConfig$, () => HealthCheckCustomConfig$, () => TagList, 0], 1
 ];
 export var CreateServiceResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -294,7 +294,7 @@ TypeRegistry.for(n0).registerError(CustomHealthNotFound$, CustomHealthNotFound);
 export var DeleteNamespaceRequest$: StaticStructureSchema = [3, n0, _DNR,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var DeleteNamespaceResponse$: StaticStructureSchema = [3, n0, _DNRe,
   0,
@@ -304,7 +304,7 @@ export var DeleteNamespaceResponse$: StaticStructureSchema = [3, n0, _DNRe,
 export var DeleteServiceAttributesRequest$: StaticStructureSchema = [3, n0, _DSAR,
   0,
   [_SI, _A],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DeleteServiceAttributesResponse$: StaticStructureSchema = [3, n0, _DSARe,
   0,
@@ -314,7 +314,7 @@ export var DeleteServiceAttributesResponse$: StaticStructureSchema = [3, n0, _DS
 export var DeleteServiceRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var DeleteServiceResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -324,7 +324,7 @@ export var DeleteServiceResponse$: StaticStructureSchema = [3, n0, _DSRe,
 export var DeregisterInstanceRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_SI, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeregisterInstanceResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
@@ -334,7 +334,7 @@ export var DeregisterInstanceResponse$: StaticStructureSchema = [3, n0, _DIRe,
 export var DiscoverInstancesRequest$: StaticStructureSchema = [3, n0, _DIRi,
   0,
   [_NN, _SN, _MR, _QP, _OP, _HS, _OA],
-  [0, 0, 1, 128 | 0, 128 | 0, 0, 0]
+  [0, 0, 1, 128 | 0, 128 | 0, 0, 0], 2
 ];
 export var DiscoverInstancesResponse$: StaticStructureSchema = [3, n0, _DIRis,
   0,
@@ -344,7 +344,7 @@ export var DiscoverInstancesResponse$: StaticStructureSchema = [3, n0, _DIRis,
 export var DiscoverInstancesRevisionRequest$: StaticStructureSchema = [3, n0, _DIRR,
   0,
   [_NN, _SN, _OA],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DiscoverInstancesRevisionResponse$: StaticStructureSchema = [3, n0, _DIRRi,
   0,
@@ -353,13 +353,13 @@ export var DiscoverInstancesRevisionResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var DnsConfig$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_NI, _RP, _DR],
-  [0, 0, () => DnsRecordList]
+  [_DR, _NI, _RP],
+  [() => DnsRecordList, 0, 0], 1
 ];
 export var DnsConfigChange$: StaticStructureSchema = [3, n0, _DCC,
   0,
   [_DR],
-  [() => DnsRecordList]
+  [() => DnsRecordList], 1
 ];
 export var DnsProperties$: StaticStructureSchema = [3, n0, _DP,
   0,
@@ -369,7 +369,7 @@ export var DnsProperties$: StaticStructureSchema = [3, n0, _DP,
 export var DnsRecord$: StaticStructureSchema = [3, n0, _DRn,
   0,
   [_Ty, _TTL],
-  [0, 1]
+  [0, 1], 2
 ];
 export var DuplicateRequest$: StaticErrorSchema = [-3, n0, _DRu,
   { [_e]: _c, [_hE]: 409 },
@@ -380,7 +380,7 @@ TypeRegistry.for(n0).registerError(DuplicateRequest$, DuplicateRequest);
 export var GetInstanceRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
   [_SI, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetInstanceResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
@@ -390,7 +390,7 @@ export var GetInstanceResponse$: StaticStructureSchema = [3, n0, _GIRe,
 export var GetInstancesHealthStatusRequest$: StaticStructureSchema = [3, n0, _GIHSR,
   0,
   [_SI, _In, _MR, _NT],
-  [0, [() => InstanceIdList, 0], 1, 0]
+  [0, [() => InstanceIdList, 0], 1, 0], 1
 ];
 export var GetInstancesHealthStatusResponse$: StaticStructureSchema = [3, n0, _GIHSRe,
   0,
@@ -400,7 +400,7 @@ export var GetInstancesHealthStatusResponse$: StaticStructureSchema = [3, n0, _G
 export var GetNamespaceRequest$: StaticStructureSchema = [3, n0, _GNR,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var GetNamespaceResponse$: StaticStructureSchema = [3, n0, _GNRe,
   0,
@@ -410,7 +410,7 @@ export var GetNamespaceResponse$: StaticStructureSchema = [3, n0, _GNRe,
 export var GetOperationRequest$: StaticStructureSchema = [3, n0, _GOR,
   0,
   [_OI, _OA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetOperationResponse$: StaticStructureSchema = [3, n0, _GORe,
   0,
@@ -420,7 +420,7 @@ export var GetOperationResponse$: StaticStructureSchema = [3, n0, _GORe,
 export var GetServiceAttributesRequest$: StaticStructureSchema = [3, n0, _GSAR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var GetServiceAttributesResponse$: StaticStructureSchema = [3, n0, _GSARe,
   0,
@@ -430,7 +430,7 @@ export var GetServiceAttributesResponse$: StaticStructureSchema = [3, n0, _GSARe
 export var GetServiceRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var GetServiceResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -440,7 +440,7 @@ export var GetServiceResponse$: StaticStructureSchema = [3, n0, _GSRe,
 export var HealthCheckConfig$: StaticStructureSchema = [3, n0, _HCC,
   0,
   [_Ty, _RPe, _FT],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var HealthCheckCustomConfig$: StaticStructureSchema = [3, n0, _HCCC,
   0,
@@ -455,7 +455,7 @@ export var HttpInstanceSummary$: StaticStructureSchema = [3, n0, _HIS,
 export var HttpNamespaceChange$: StaticStructureSchema = [3, n0, _HNC,
   0,
   [_D],
-  [0]
+  [0], 1
 ];
 export var HttpProperties$: StaticStructureSchema = [3, n0, _HP,
   0,
@@ -465,7 +465,7 @@ export var HttpProperties$: StaticStructureSchema = [3, n0, _HP,
 export var Instance$: StaticStructureSchema = [3, n0, _Ins,
   0,
   [_I, _CRI, _A, _CBA],
-  [0, 0, 128 | 0, 0]
+  [0, 0, 128 | 0, 0], 1
 ];
 export var InstanceNotFound$: StaticErrorSchema = [-3, n0, _INF,
   { [_e]: _c, [_hE]: 404 },
@@ -487,7 +487,7 @@ TypeRegistry.for(n0).registerError(InvalidInput$, InvalidInput);
 export var ListInstancesRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
   [_SI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListInstancesResponse$: StaticStructureSchema = [3, n0, _LIRi,
   0,
@@ -527,7 +527,7 @@ export var ListServicesResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -548,7 +548,7 @@ TypeRegistry.for(n0).registerError(NamespaceAlreadyExists$, NamespaceAlreadyExis
 export var NamespaceFilter$: StaticStructureSchema = [3, n0, _NF,
   0,
   [_N, _Va, _C],
-  [0, [() => FilterValues, 0], 0]
+  [0, [() => FilterValues, 0], 0], 2
 ];
 export var NamespaceNotFound$: StaticErrorSchema = [-3, n0, _NNF,
   { [_e]: _c, [_hE]: 404 },
@@ -574,7 +574,7 @@ export var Operation$: StaticStructureSchema = [3, n0, _O,
 export var OperationFilter$: StaticStructureSchema = [3, n0, _OF,
   0,
   [_N, _Va, _C],
-  [0, [() => FilterValues, 0], 0]
+  [0, [() => FilterValues, 0], 0], 2
 ];
 export var OperationNotFound$: StaticErrorSchema = [-3, n0, _ONF,
   { [_e]: _c, [_hE]: 404 },
@@ -595,22 +595,22 @@ export var PrivateDnsNamespaceChange$: StaticStructureSchema = [3, n0, _PDNC,
 export var PrivateDnsNamespaceProperties$: StaticStructureSchema = [3, n0, _PDNP,
   0,
   [_DP],
-  [() => PrivateDnsPropertiesMutable$]
+  [() => PrivateDnsPropertiesMutable$], 1
 ];
 export var PrivateDnsNamespacePropertiesChange$: StaticStructureSchema = [3, n0, _PDNPC,
   0,
   [_DP],
-  [() => PrivateDnsPropertiesMutableChange$]
+  [() => PrivateDnsPropertiesMutableChange$], 1
 ];
 export var PrivateDnsPropertiesMutable$: StaticStructureSchema = [3, n0, _PDPM,
   0,
   [_SOA],
-  [() => SOA$]
+  [() => SOA$], 1
 ];
 export var PrivateDnsPropertiesMutableChange$: StaticStructureSchema = [3, n0, _PDPMC,
   0,
   [_SOA],
-  [() => SOAChange$]
+  [() => SOAChange$], 1
 ];
 export var PublicDnsNamespaceChange$: StaticStructureSchema = [3, n0, _PDNCu,
   0,
@@ -620,27 +620,27 @@ export var PublicDnsNamespaceChange$: StaticStructureSchema = [3, n0, _PDNCu,
 export var PublicDnsNamespaceProperties$: StaticStructureSchema = [3, n0, _PDNPu,
   0,
   [_DP],
-  [() => PublicDnsPropertiesMutable$]
+  [() => PublicDnsPropertiesMutable$], 1
 ];
 export var PublicDnsNamespacePropertiesChange$: StaticStructureSchema = [3, n0, _PDNPCu,
   0,
   [_DP],
-  [() => PublicDnsPropertiesMutableChange$]
+  [() => PublicDnsPropertiesMutableChange$], 1
 ];
 export var PublicDnsPropertiesMutable$: StaticStructureSchema = [3, n0, _PDPMu,
   0,
   [_SOA],
-  [() => SOA$]
+  [() => SOA$], 1
 ];
 export var PublicDnsPropertiesMutableChange$: StaticStructureSchema = [3, n0, _PDPMCu,
   0,
   [_SOA],
-  [() => SOAChange$]
+  [() => SOAChange$], 1
 ];
 export var RegisterInstanceRequest$: StaticStructureSchema = [3, n0, _RIR,
   0,
-  [_SI, _II, _CRI, _A],
-  [0, 0, [0, 4], 128 | 0]
+  [_SI, _II, _A, _CRI],
+  [0, 0, 128 | 0, [0, 4]], 3
 ];
 export var RegisterInstanceResponse$: StaticStructureSchema = [3, n0, _RIRe,
   0,
@@ -701,7 +701,7 @@ export var ServiceChange$: StaticStructureSchema = [3, n0, _SCe,
 export var ServiceFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
   [_N, _Va, _C],
-  [0, [() => FilterValues, 0], 0]
+  [0, [() => FilterValues, 0], 0], 2
 ];
 export var ServiceNotFound$: StaticErrorSchema = [-3, n0, _SNF,
   { [_e]: _c, [_hE]: 404 },
@@ -717,22 +717,22 @@ export var ServiceSummary$: StaticStructureSchema = [3, n0, _SS,
 export var SOA$: StaticStructureSchema = [3, n0, _SOA,
   0,
   [_TTL],
-  [1]
+  [1], 1
 ];
 export var SOAChange$: StaticStructureSchema = [3, n0, _SOAC,
   0,
   [_TTL],
-  [1]
+  [1], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _Val],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -748,7 +748,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -757,8 +757,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateHttpNamespaceRequest$: StaticStructureSchema = [3, n0, _UHNR,
   0,
-  [_I, _URI, _Na],
-  [0, [0, 4], () => HttpNamespaceChange$]
+  [_I, _Na, _URI],
+  [0, () => HttpNamespaceChange$, [0, 4]], 2
 ];
 export var UpdateHttpNamespaceResponse$: StaticStructureSchema = [3, n0, _UHNRp,
   0,
@@ -768,12 +768,12 @@ export var UpdateHttpNamespaceResponse$: StaticStructureSchema = [3, n0, _UHNRp,
 export var UpdateInstanceCustomHealthStatusRequest$: StaticStructureSchema = [3, n0, _UICHSR,
   0,
   [_SI, _II, _St],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UpdatePrivateDnsNamespaceRequest$: StaticStructureSchema = [3, n0, _UPDNR,
   0,
-  [_I, _URI, _Na],
-  [0, [0, 4], () => PrivateDnsNamespaceChange$]
+  [_I, _Na, _URI],
+  [0, () => PrivateDnsNamespaceChange$, [0, 4]], 2
 ];
 export var UpdatePrivateDnsNamespaceResponse$: StaticStructureSchema = [3, n0, _UPDNRp,
   0,
@@ -782,8 +782,8 @@ export var UpdatePrivateDnsNamespaceResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var UpdatePublicDnsNamespaceRequest$: StaticStructureSchema = [3, n0, _UPDNRpd,
   0,
-  [_I, _URI, _Na],
-  [0, [0, 4], () => PublicDnsNamespaceChange$]
+  [_I, _Na, _URI],
+  [0, () => PublicDnsNamespaceChange$, [0, 4]], 2
 ];
 export var UpdatePublicDnsNamespaceResponse$: StaticStructureSchema = [3, n0, _UPDNRpda,
   0,
@@ -793,7 +793,7 @@ export var UpdatePublicDnsNamespaceResponse$: StaticStructureSchema = [3, n0, _U
 export var UpdateServiceAttributesRequest$: StaticStructureSchema = [3, n0, _USAR,
   0,
   [_SI, _A],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var UpdateServiceAttributesResponse$: StaticStructureSchema = [3, n0, _USARp,
   0,
@@ -803,7 +803,7 @@ export var UpdateServiceAttributesResponse$: StaticStructureSchema = [3, n0, _US
 export var UpdateServiceRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_I, _S],
-  [0, () => ServiceChange$]
+  [0, () => ServiceChange$], 2
 ];
 export var UpdateServiceResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,

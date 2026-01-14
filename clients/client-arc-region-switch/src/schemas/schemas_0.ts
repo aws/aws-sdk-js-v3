@@ -295,24 +295,24 @@ import {
 /* eslint no-var: 0 */
 export var AbbreviatedExecution$: StaticStructureSchema = [3, n0, _AE,
   0,
-  [_pA, _eI, _v, _uA, _c, _sT, _eT, _m, _eS, _eA, _eR, _aRT],
-  [0, 0, 0, 4, 0, 4, 4, 0, 0, 0, 0, 0]
+  [_pA, _eI, _sT, _m, _eS, _eA, _eR, _v, _uA, _c, _eT, _aRT],
+  [0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 4, 0], 7
 ];
 export var AbbreviatedPlan$: StaticStructureSchema = [3, n0, _AP,
   0,
   [_a, _o, _n, _r, _rA, _pR, _v, _uA, _d, _eRx, _aPE, _rTOM],
-  [0, 0, 0, 64 | 0, 0, 0, 0, 4, 0, 0, 0, 1]
+  [0, 0, 0, 64 | 0, 0, 0, 0, 4, 0, 0, 0, 1], 5
 ];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _cl, [_hE]: 403 },
   [_me],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ApprovePlanExecutionStepRequest$: StaticStructureSchema = [3, n0, _APESR,
   0,
   [_pA, _eI, _sN, _ap, _c],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var ApprovePlanExecutionStepResponse$: StaticStructureSchema = [3, n0, _APESRp,
   0,
@@ -321,13 +321,13 @@ export var ApprovePlanExecutionStepResponse$: StaticStructureSchema = [3, n0, _A
 ];
 export var ArcRoutingControlConfiguration$: StaticStructureSchema = [3, n0, _ARCC,
   0,
-  [_tM, _cAR, _eIx, _rARC],
-  [1, 0, 0, () => RegionAndRoutingControls]
+  [_rARC, _tM, _cAR, _eIx],
+  [() => RegionAndRoutingControls, 1, 0, 0], 1
 ];
 export var ArcRoutingControlState$: StaticStructureSchema = [3, n0, _ARCS,
   0,
   [_rCA, _s],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Asg$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -336,13 +336,13 @@ export var Asg$: StaticStructureSchema = [3, n0, _A,
 ];
 export var AssociatedAlarm$: StaticStructureSchema = [3, n0, _AA,
   0,
-  [_cAR, _eIx, _rI, _aT],
-  [0, 0, 0, 0]
+  [_rI, _aT, _cAR, _eIx],
+  [0, 0, 0, 0], 2
 ];
 export var CancelPlanExecutionRequest$: StaticStructureSchema = [3, n0, _CPER,
   0,
   [_pA, _eI, _c],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var CancelPlanExecutionResponse$: StaticStructureSchema = [3, n0, _CPERa,
   0,
@@ -351,8 +351,8 @@ export var CancelPlanExecutionResponse$: StaticStructureSchema = [3, n0, _CPERa,
 ];
 export var CreatePlanRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_d, _w, _eRx, _rTOM, _aA, _t, _rC, _n, _r, _rA, _pR, _ta],
-  [0, () => WorkflowList, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 0, 64 | 0, 0, 0, 128 | 0]
+  [_w, _eRx, _n, _r, _rA, _d, _rTOM, _aA, _t, _rC, _pR, _ta],
+  [() => WorkflowList, 0, 0, 64 | 0, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 0, 128 | 0], 5
 ];
 export var CreatePlanResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -361,13 +361,13 @@ export var CreatePlanResponse$: StaticStructureSchema = [3, n0, _CPRr,
 ];
 export var CustomActionLambdaConfiguration$: StaticStructureSchema = [3, n0, _CALC,
   0,
-  [_tM, _l, _rIM, _rTR, _u],
-  [1, () => LambdaList, 1, 0, () => LambdaUngraceful$]
+  [_l, _rIM, _rTR, _tM, _u],
+  [() => LambdaList, 1, 0, 1, () => LambdaUngraceful$], 3
 ];
 export var DeletePlanRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeletePlanResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -376,8 +376,8 @@ export var DeletePlanResponse$: StaticStructureSchema = [3, n0, _DPRe,
 ];
 export var DocumentDbConfiguration$: StaticStructureSchema = [3, n0, _DDC,
   0,
-  [_tM, _cAR, _eIx, _b, _u, _gCI, _dCA],
-  [1, 0, 0, 0, () => DocumentDbUngraceful$, 0, 64 | 0]
+  [_b, _gCI, _dCA, _tM, _cAR, _eIx, _u],
+  [0, 0, 64 | 0, 1, 0, 0, () => DocumentDbUngraceful$], 3
 ];
 export var DocumentDbUngraceful$: StaticStructureSchema = [3, n0, _DDU,
   0,
@@ -386,48 +386,48 @@ export var DocumentDbUngraceful$: StaticStructureSchema = [3, n0, _DDU,
 ];
 export var Ec2AsgCapacityIncreaseConfiguration$: StaticStructureSchema = [3, n0, _EACIC,
   0,
-  [_tM, _as, _u, _tP, _cMA],
-  [1, () => AsgList, () => Ec2Ungraceful$, 1, 0]
+  [_as, _tM, _u, _tP, _cMA],
+  [() => AsgList, 1, () => Ec2Ungraceful$, 1, 0], 1
 ];
 export var Ec2Ungraceful$: StaticStructureSchema = [3, n0, _EU,
   0,
   [_mSP],
-  [1]
+  [1], 1
 ];
 export var EcsCapacityIncreaseConfiguration$: StaticStructureSchema = [3, n0, _ECIC,
   0,
-  [_tM, _se, _u, _tP, _cMA],
-  [1, () => ServiceList, () => EcsUngraceful$, 1, 0]
+  [_se, _tM, _u, _tP, _cMA],
+  [() => ServiceList, 1, () => EcsUngraceful$, 1, 0], 1
 ];
 export var EcsUngraceful$: StaticStructureSchema = [3, n0, _EUc,
   0,
   [_mSP],
-  [1]
+  [1], 1
 ];
 export var EksCluster$: StaticStructureSchema = [3, n0, _EC,
   0,
-  [_cAR, _eIx, _cA],
-  [0, 0, 0]
+  [_cA, _cAR, _eIx],
+  [0, 0, 0], 1
 ];
 export var EksResourceScalingConfiguration$: StaticStructureSchema = [3, n0, _ERSC,
   0,
-  [_tM, _kRT, _sR, _eC, _u, _tP, _cMA],
-  [1, () => KubernetesResourceType$, () => KubernetesScalingApps, () => EksClusters, () => EksResourceScalingUngraceful$, 1, 0]
+  [_kRT, _tM, _sR, _eC, _u, _tP, _cMA],
+  [() => KubernetesResourceType$, 1, () => KubernetesScalingApps, () => EksClusters, () => EksResourceScalingUngraceful$, 1, 0], 1
 ];
 export var EksResourceScalingUngraceful$: StaticStructureSchema = [3, n0, _ERSU,
   0,
   [_mSP],
-  [1]
+  [1], 1
 ];
 export var ExecutionApprovalConfiguration$: StaticStructureSchema = [3, n0, _EAC,
   0,
-  [_tM, _aR],
-  [1, 0]
+  [_aR, _tM],
+  [0, 1], 1
 ];
 export var ExecutionEvent$: StaticStructureSchema = [3, n0, _EE,
   0,
-  [_ti, _ty, _sN, _eBT, _re, _e, _d, _eIv, _pEI],
-  [4, 0, 0, 0, 64 | 0, 0, 0, 0, 0]
+  [_eIv, _ti, _ty, _sN, _eBT, _re, _e, _d, _pEI],
+  [0, 4, 0, 0, 0, 64 | 0, 0, 0, 0], 1
 ];
 export var FailedReportOutput$: StaticStructureSchema = [3, n0, _FRO,
   0,
@@ -442,27 +442,27 @@ export var GeneratedReport$: StaticStructureSchema = [3, n0, _GR,
 export var GetPlanEvaluationStatusRequest$: StaticStructureSchema = [3, n0, _GPESR,
   0,
   [_pA, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetPlanEvaluationStatusResponse$: StaticStructureSchema = [3, n0, _GPESRe,
   0,
   [_pA, _lET, _lEV, _reg, _eSv, _wa, _nT],
-  [0, 4, 0, 0, 0, () => PlanWarnings, 0]
+  [0, 4, 0, 0, 0, () => PlanWarnings, 0], 1
 ];
 export var GetPlanExecutionRequest$: StaticStructureSchema = [3, n0, _GPER,
   0,
   [_pA, _eI, _mR, _nT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 2
 ];
 export var GetPlanExecutionResponse$: StaticStructureSchema = [3, n0, _GPERe,
   0,
-  [_pA, _eI, _v, _uA, _c, _sT, _eT, _m, _eS, _eA, _eR, _sS, _p, _aRT, _gRD, _nT],
-  [0, 0, 0, 4, 0, 4, 4, 0, 0, 0, 0, () => StepStates, () => Plan$, 0, () => GeneratedReportDetails, 0]
+  [_pA, _eI, _sT, _m, _eS, _eA, _eR, _v, _uA, _c, _eT, _sS, _p, _aRT, _gRD, _nT],
+  [0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 4, () => StepStates, () => Plan$, 0, () => GeneratedReportDetails, 0], 7
 ];
 export var GetPlanInRegionRequest$: StaticStructureSchema = [3, n0, _GPIRR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetPlanInRegionResponse$: StaticStructureSchema = [3, n0, _GPIRRe,
   0,
@@ -472,7 +472,7 @@ export var GetPlanInRegionResponse$: StaticStructureSchema = [3, n0, _GPIRRe,
 export var GetPlanRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetPlanResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -481,8 +481,8 @@ export var GetPlanResponse$: StaticStructureSchema = [3, n0, _GPRe,
 ];
 export var GlobalAuroraConfiguration$: StaticStructureSchema = [3, n0, _GAC,
   0,
-  [_tM, _cAR, _eIx, _b, _u, _gCI, _dCA],
-  [1, 0, 0, 0, () => GlobalAuroraUngraceful$, 0, 64 | 0]
+  [_b, _gCI, _dCA, _tM, _cAR, _eIx, _u],
+  [0, 0, 64 | 0, 1, 0, 0, () => GlobalAuroraUngraceful$], 3
 ];
 export var GlobalAuroraUngraceful$: StaticStructureSchema = [3, n0, _GAU,
   0,
@@ -492,30 +492,30 @@ export var GlobalAuroraUngraceful$: StaticStructureSchema = [3, n0, _GAU,
 export var IllegalArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
   { [_e]: _cl, [_hE]: 400 },
   [_me],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(IllegalArgumentException$, IllegalArgumentException);
 export var IllegalStateException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _cl, [_hE]: 400 },
   [_me],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(IllegalStateException$, IllegalStateException);
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISEn,
   { [_e]: _ser, [_hE]: 500 },
   [_me],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KubernetesResourceType$: StaticStructureSchema = [3, n0, _KRT,
   0,
   [_aV, _k],
-  [0, 0]
+  [0, 0], 2
 ];
 export var KubernetesScalingResource$: StaticStructureSchema = [3, n0, _KSR,
   0,
   [_na, _n, _hN],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var Lambdas$: StaticStructureSchema = [3, n0, _L,
   0,
@@ -530,7 +530,7 @@ export var LambdaUngraceful$: StaticStructureSchema = [3, n0, _LU,
 export var ListPlanExecutionEventsRequest$: StaticStructureSchema = [3, n0, _LPEER,
   0,
   [_pA, _eI, _mR, _nT, _n],
-  [0, 0, 1, 0, 0]
+  [0, 0, 1, 0, 0], 2
 ];
 export var ListPlanExecutionEventsResponse$: StaticStructureSchema = [3, n0, _LPEERi,
   0,
@@ -540,7 +540,7 @@ export var ListPlanExecutionEventsResponse$: StaticStructureSchema = [3, n0, _LP
 export var ListPlanExecutionsRequest$: StaticStructureSchema = [3, n0, _LPER,
   0,
   [_pA, _mR, _nT, _s],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0], 1
 ];
 export var ListPlanExecutionsResponse$: StaticStructureSchema = [3, n0, _LPERi,
   0,
@@ -570,7 +570,7 @@ export var ListPlansResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListRoute53HealthChecksInRegionRequest$: StaticStructureSchema = [3, n0, _LRHCIRR,
   0,
   [_a, _hZI, _rN, _mR, _nT],
-  [0, 0, 0, 1, 0]
+  [0, 0, 0, 1, 0], 1
 ];
 export var ListRoute53HealthChecksInRegionResponse$: StaticStructureSchema = [3, n0, _LRHCIRRi,
   0,
@@ -580,7 +580,7 @@ export var ListRoute53HealthChecksInRegionResponse$: StaticStructureSchema = [3,
 export var ListRoute53HealthChecksRequest$: StaticStructureSchema = [3, n0, _LRHCR,
   0,
   [_a, _hZI, _rN, _mR, _nT],
-  [0, 0, 0, 1, 0]
+  [0, 0, 0, 1, 0], 1
 ];
 export var ListRoute53HealthChecksResponse$: StaticStructureSchema = [3, n0, _LRHCRi,
   0,
@@ -590,7 +590,7 @@ export var ListRoute53HealthChecksResponse$: StaticStructureSchema = [3, n0, _LR
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -605,17 +605,17 @@ export var MinimalWorkflow$: StaticStructureSchema = [3, n0, _MW,
 export var ParallelExecutionBlockConfiguration$: StaticStructureSchema = [3, n0, _PEBC,
   0,
   [_st],
-  [() => Steps]
+  [() => Steps], 1
 ];
 export var Plan$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_a, _d, _w, _eRx, _rTOM, _aA, _t, _rC, _n, _r, _rA, _pR, _o, _v, _uA],
-  [0, 0, () => WorkflowList, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 0, 64 | 0, 0, 0, 0, 0, 4]
+  [_a, _w, _eRx, _n, _r, _rA, _o, _d, _rTOM, _aA, _t, _rC, _pR, _v, _uA],
+  [0, () => WorkflowList, 0, 0, 64 | 0, 0, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 0, 0, 4], 7
 ];
 export var RegionSwitchPlanConfiguration$: StaticStructureSchema = [3, n0, _RSPC,
   0,
-  [_cAR, _eIx, _a],
-  [0, 0, 0]
+  [_a, _cAR, _eIx],
+  [0, 0, 0], 1
 ];
 export var ReportConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
@@ -625,23 +625,23 @@ export var ReportConfiguration$: StaticStructureSchema = [3, n0, _RC,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _cl, [_hE]: 404 },
   [_me],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceWarning$: StaticStructureSchema = [3, n0, _RW,
   0,
-  [_wo, _v, _sN, _rAe, _wS, _wUT, _wM],
-  [() => MinimalWorkflow$, 0, 0, 0, 0, 4, 0]
+  [_v, _wS, _wUT, _wM, _wo, _sN, _rAe],
+  [0, 0, 4, 0, () => MinimalWorkflow$, 0, 0], 4
 ];
 export var Route53HealthCheck$: StaticStructureSchema = [3, n0, _RHC,
   0,
-  [_hZI, _rN, _hCI, _sta, _reg],
-  [0, 0, 0, 0, 0]
+  [_hZI, _rN, _reg, _hCI, _sta],
+  [0, 0, 0, 0, 0], 3
 ];
 export var Route53HealthCheckConfiguration$: StaticStructureSchema = [3, n0, _RHCC,
   0,
-  [_tM, _cAR, _eIx, _hZI, _rN, _rS],
-  [1, 0, 0, 0, 0, () => Route53ResourceRecordSetList]
+  [_hZI, _rN, _tM, _cAR, _eIx, _rS],
+  [0, 0, 1, 0, 0, () => Route53ResourceRecordSetList], 2
 ];
 export var Route53ResourceRecordSet$: StaticStructureSchema = [3, n0, _RRRS,
   0,
@@ -666,7 +666,7 @@ export var Service$: StaticStructureSchema = [3, n0, _S,
 export var StartPlanExecutionRequest$: StaticStructureSchema = [3, n0, _SPER,
   0,
   [_pA, _tR, _ac, _m, _c, _lV],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 3
 ];
 export var StartPlanExecutionResponse$: StaticStructureSchema = [3, n0, _SPERt,
   0,
@@ -675,8 +675,8 @@ export var StartPlanExecutionResponse$: StaticStructureSchema = [3, n0, _SPERt,
 ];
 export var Step$: StaticStructureSchema = [3, n0, _St,
   0,
-  [_n, _d, _eBC, _eBT],
-  [0, 0, () => ExecutionBlockConfiguration$, 0]
+  [_n, _eBC, _eBT, _d],
+  [0, () => ExecutionBlockConfiguration$, 0, 0], 3
 ];
 export var StepState$: StaticStructureSchema = [3, n0, _SS,
   0,
@@ -686,7 +686,7 @@ export var StepState$: StaticStructureSchema = [3, n0, _SS,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_a, _ta],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -695,18 +695,18 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var Trigger$: StaticStructureSchema = [3, n0, _T,
   0,
-  [_d, _tR, _ac, _co, _mDMBE],
-  [0, 0, 0, () => TriggerConditionList, 1]
+  [_tR, _ac, _co, _mDMBE, _d],
+  [0, 0, () => TriggerConditionList, 1, 0], 4
 ];
 export var TriggerCondition$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_aAN, _con],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_a, _rTK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -716,7 +716,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdatePlanExecutionRequest$: StaticStructureSchema = [3, n0, _UPER,
   0,
   [_pA, _eI, _ac, _c],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var UpdatePlanExecutionResponse$: StaticStructureSchema = [3, n0, _UPERp,
   0,
@@ -726,7 +726,7 @@ export var UpdatePlanExecutionResponse$: StaticStructureSchema = [3, n0, _UPERp,
 export var UpdatePlanExecutionStepRequest$: StaticStructureSchema = [3, n0, _UPESR,
   0,
   [_pA, _eI, _c, _sN, _aTT],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var UpdatePlanExecutionStepResponse$: StaticStructureSchema = [3, n0, _UPESRp,
   0,
@@ -735,8 +735,8 @@ export var UpdatePlanExecutionStepResponse$: StaticStructureSchema = [3, n0, _UP
 ];
 export var UpdatePlanRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_a, _d, _w, _eRx, _rTOM, _aA, _t, _rC],
-  [0, 0, () => WorkflowList, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$]
+  [_a, _w, _eRx, _d, _rTOM, _aA, _t, _rC],
+  [0, () => WorkflowList, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$], 3
 ];
 export var UpdatePlanResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -745,8 +745,8 @@ export var UpdatePlanResponse$: StaticStructureSchema = [3, n0, _UPRp,
 ];
 export var Workflow$: StaticStructureSchema = [3, n0, _W,
   0,
-  [_st, _wTA, _wTR, _wD],
-  [() => Steps, 0, 0, 0]
+  [_wTA, _st, _wTR, _wD],
+  [0, () => Steps, 0, 0], 1
 ];
 export var ARCRegionSwitchServiceException$: StaticErrorSchema = [-3, _sm, "ARCRegionSwitchServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ARCRegionSwitchServiceException$, ARCRegionSwitchServiceException);

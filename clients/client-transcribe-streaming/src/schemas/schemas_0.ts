@@ -264,7 +264,7 @@ export var CategoryEvent$: StaticStructureSchema = [3, n0, _CE,
 export var ChannelDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_CI, _PR],
-  [1, 0]
+  [1, 0], 2
 ];
 export var CharacterOffsets$: StaticStructureSchema = [3, n0, _CO,
   0,
@@ -279,7 +279,7 @@ export var ClinicalNoteGenerationResult$: StaticStructureSchema = [3, n0, _CNGR,
 export var ClinicalNoteGenerationSettings$: StaticStructureSchema = [3, n0, _CNGS,
   0,
   [_OBN, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ConfigurationEvent$: StaticStructureSchema = [3, n0, _CEo,
   0,
@@ -300,7 +300,7 @@ export var Entity$: StaticStructureSchema = [3, n0, _Ent,
 export var GetMedicalScribeStreamRequest$: StaticStructureSchema = [3, n0, _GMSSR,
   0,
   [_SI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMedicalScribeStreamResponse$: StaticStructureSchema = [3, n0, _GMSSRe,
   0,
@@ -357,17 +357,17 @@ export var MedicalResult$: StaticStructureSchema = [3, n0, _MR,
 export var MedicalScribeAudioEvent$: StaticStructureSchema = [3, n0, _MSAE,
   0,
   [_AC],
-  [[21, { [_eP]: 1 }]]
+  [[21, { [_eP]: 1 }]], 1
 ];
 export var MedicalScribeChannelDefinition$: StaticStructureSchema = [3, n0, _MSCD,
   0,
   [_CI, _PR],
-  [1, 0]
+  [1, 0], 2
 ];
 export var MedicalScribeConfigurationEvent$: StaticStructureSchema = [3, n0, _MSCE,
   0,
-  [_VN, _VFN, _VFMo, _RARA, _CDh, _ES, _PSAS, _MSC],
-  [0, 0, 0, 0, () => MedicalScribeChannelDefinitions, () => MedicalScribeEncryptionSettings$, () => MedicalScribePostStreamAnalyticsSettings$, [() => MedicalScribeContext$, 0]]
+  [_RARA, _PSAS, _VN, _VFN, _VFMo, _CDh, _ES, _MSC],
+  [0, () => MedicalScribePostStreamAnalyticsSettings$, 0, 0, 0, () => MedicalScribeChannelDefinitions, () => MedicalScribeEncryptionSettings$, [() => MedicalScribeContext$, 0]], 2
 ];
 export var MedicalScribeContext$: StaticStructureSchema = [3, n0, _MSC,
   0,
@@ -376,8 +376,8 @@ export var MedicalScribeContext$: StaticStructureSchema = [3, n0, _MSC,
 ];
 export var MedicalScribeEncryptionSettings$: StaticStructureSchema = [3, n0, _MSES,
   0,
-  [_KEC, _KKI],
-  [128 | 0, 0]
+  [_KKI, _KEC],
+  [0, 128 | 0], 1
 ];
 export var MedicalScribePatientContext$: StaticStructureSchema = [3, n0, _MSPC,
   0,
@@ -392,12 +392,12 @@ export var MedicalScribePostStreamAnalyticsResult$: StaticStructureSchema = [3, 
 export var MedicalScribePostStreamAnalyticsSettings$: StaticStructureSchema = [3, n0, _MSPSAS,
   0,
   [_CNGS],
-  [() => ClinicalNoteGenerationSettings$]
+  [() => ClinicalNoteGenerationSettings$], 1
 ];
 export var MedicalScribeSessionControlEvent$: StaticStructureSchema = [3, n0, _MSSCE,
   0,
   [_Ty],
-  [0]
+  [0], 1
 ];
 export var MedicalScribeStreamDetails$: StaticStructureSchema = [3, n0, _MSSD,
   0,
@@ -437,7 +437,7 @@ export var PointsOfInterest$: StaticStructureSchema = [3, n0, _POI,
 export var PostCallAnalyticsSettings$: StaticStructureSchema = [3, n0, _PCAS,
   0,
   [_OL, _DARA, _CRO, _OEKMSKI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -458,8 +458,8 @@ export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
 TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var StartCallAnalyticsStreamTranscriptionRequest$: StaticStructureSchema = [3, n0, _SCASTR,
   0,
-  [_LC, _MSRH, _MEe, _VN, _SI, _AS, _VFN, _VFMo, _LMN, _IL, _LO, _PL, _VNo, _VFNo, _EPRS, _PRS, _CIT, _CRT, _PET],
-  [[0, { [_hH]: _xatlc }], [1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [0, { [_hH]: _xatvn }], [0, { [_hH]: _xatsi }], [() => AudioStream$, 16], [0, { [_hH]: _xatvfn }], [0, { [_hH]: _xatvfm }], [0, { [_hH]: _xatlmn }], [2, { [_hH]: _xatil }], [0, { [_hH]: _xatlo }], [0, { [_hH]: _xatpl }], [0, { [_hH]: _xatvn_ }], [0, { [_hH]: _xatvfn_ }], [2, { [_hH]: _xateprs }], [0, { [_hH]: _xatprs }], [0, { [_hH]: _xatcit }], [0, { [_hH]: _xatcrt }], [0, { [_hH]: _xatpet }]]
+  [_MSRH, _MEe, _AS, _LC, _VN, _SI, _VFN, _VFMo, _LMN, _IL, _LO, _PL, _VNo, _VFNo, _EPRS, _PRS, _CIT, _CRT, _PET],
+  [[1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [() => AudioStream$, 16], [0, { [_hH]: _xatlc }], [0, { [_hH]: _xatvn }], [0, { [_hH]: _xatsi }], [0, { [_hH]: _xatvfn }], [0, { [_hH]: _xatvfm }], [0, { [_hH]: _xatlmn }], [2, { [_hH]: _xatil }], [0, { [_hH]: _xatlo }], [0, { [_hH]: _xatpl }], [0, { [_hH]: _xatvn_ }], [0, { [_hH]: _xatvfn_ }], [2, { [_hH]: _xateprs }], [0, { [_hH]: _xatprs }], [0, { [_hH]: _xatcit }], [0, { [_hH]: _xatcrt }], [0, { [_hH]: _xatpet }]], 3
 ];
 export var StartCallAnalyticsStreamTranscriptionResponse$: StaticStructureSchema = [3, n0, _SCASTRt,
   0,
@@ -468,8 +468,8 @@ export var StartCallAnalyticsStreamTranscriptionResponse$: StaticStructureSchema
 ];
 export var StartMedicalScribeStreamRequest$: StaticStructureSchema = [3, n0, _SMSSR,
   0,
-  [_SI, _LC, _MSRH, _MEe, _IS],
-  [[0, { [_hH]: _xatsi }], [0, { [_hH]: _xatlc }], [1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [() => MedicalScribeInputStream$, 16]]
+  [_LC, _MSRH, _MEe, _IS, _SI],
+  [[0, { [_hH]: _xatlc }], [1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [() => MedicalScribeInputStream$, 16], [0, { [_hH]: _xatsi }]], 4
 ];
 export var StartMedicalScribeStreamResponse$: StaticStructureSchema = [3, n0, _SMSSRt,
   0,
@@ -478,8 +478,8 @@ export var StartMedicalScribeStreamResponse$: StaticStructureSchema = [3, n0, _S
 ];
 export var StartMedicalStreamTranscriptionRequest$: StaticStructureSchema = [3, n0, _SMSTR,
   0,
-  [_LC, _MSRH, _MEe, _VN, _Spe, _Ty, _SSL, _SI, _AS, _ECI, _NOC, _CIT],
-  [[0, { [_hH]: _xatlc }], [1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [0, { [_hH]: _xatvn }], [0, { [_hH]: _xats }], [0, { [_hH]: _xatt }], [2, { [_hH]: _xatssl }], [0, { [_hH]: _xatsi }], [() => AudioStream$, 16], [2, { [_hH]: _xateci }], [1, { [_hH]: _xatnoc }], [0, { [_hH]: _xatcit }]]
+  [_LC, _MSRH, _MEe, _Spe, _Ty, _AS, _VN, _SSL, _SI, _ECI, _NOC, _CIT],
+  [[0, { [_hH]: _xatlc }], [1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [0, { [_hH]: _xats }], [0, { [_hH]: _xatt }], [() => AudioStream$, 16], [0, { [_hH]: _xatvn }], [2, { [_hH]: _xatssl }], [0, { [_hH]: _xatsi }], [2, { [_hH]: _xateci }], [1, { [_hH]: _xatnoc }], [0, { [_hH]: _xatcit }]], 6
 ];
 export var StartMedicalStreamTranscriptionResponse$: StaticStructureSchema = [3, n0, _SMSTRt,
   0,
@@ -488,8 +488,8 @@ export var StartMedicalStreamTranscriptionResponse$: StaticStructureSchema = [3,
 ];
 export var StartStreamTranscriptionRequest$: StaticStructureSchema = [3, n0, _SSTR,
   0,
-  [_LC, _MSRH, _MEe, _VN, _SI, _AS, _VFN, _VFMo, _SSL, _ECI, _NOC, _EPRS, _PRS, _CIT, _CRT, _PET, _LMN, _IL, _LO, _PL, _IML, _VNo, _VFNo],
-  [[0, { [_hH]: _xatlc }], [1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [0, { [_hH]: _xatvn }], [0, { [_hH]: _xatsi }], [() => AudioStream$, 16], [0, { [_hH]: _xatvfn }], [0, { [_hH]: _xatvfm }], [2, { [_hH]: _xatssl }], [2, { [_hH]: _xateci }], [1, { [_hH]: _xatnoc }], [2, { [_hH]: _xateprs }], [0, { [_hH]: _xatprs }], [0, { [_hH]: _xatcit }], [0, { [_hH]: _xatcrt }], [0, { [_hH]: _xatpet }], [0, { [_hH]: _xatlmn }], [2, { [_hH]: _xatil }], [0, { [_hH]: _xatlo }], [0, { [_hH]: _xatpl }], [2, { [_hH]: _xatiml }], [0, { [_hH]: _xatvn_ }], [0, { [_hH]: _xatvfn_ }]]
+  [_MSRH, _MEe, _AS, _LC, _VN, _SI, _VFN, _VFMo, _SSL, _ECI, _NOC, _EPRS, _PRS, _CIT, _CRT, _PET, _LMN, _IL, _LO, _PL, _IML, _VNo, _VFNo],
+  [[1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [() => AudioStream$, 16], [0, { [_hH]: _xatlc }], [0, { [_hH]: _xatvn }], [0, { [_hH]: _xatsi }], [0, { [_hH]: _xatvfn }], [0, { [_hH]: _xatvfm }], [2, { [_hH]: _xatssl }], [2, { [_hH]: _xateci }], [1, { [_hH]: _xatnoc }], [2, { [_hH]: _xateprs }], [0, { [_hH]: _xatprs }], [0, { [_hH]: _xatcit }], [0, { [_hH]: _xatcrt }], [0, { [_hH]: _xatpet }], [0, { [_hH]: _xatlmn }], [2, { [_hH]: _xatil }], [0, { [_hH]: _xatlo }], [0, { [_hH]: _xatpl }], [2, { [_hH]: _xatiml }], [0, { [_hH]: _xatvn_ }], [0, { [_hH]: _xatvfn_ }]], 3
 ];
 export var StartStreamTranscriptionResponse$: StaticStructureSchema = [3, n0, _SSTRt,
   0,

@@ -440,12 +440,12 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var ActorSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_aI],
-  [0]
+  [0], 1
 ];
 export var AutomationStream$: StaticStructureSchema = [3, n0, _ASu,
   0,
   [_sE, _sS],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AutomationStreamUpdate$: StaticStructureSchema = [3, n0, _ASU,
   0,
@@ -455,67 +455,67 @@ export var AutomationStreamUpdate$: StaticStructureSchema = [3, n0, _ASU,
 export var BatchCreateMemoryRecordsInput$: StaticStructureSchema = [3, n0, _BCMRI,
   0,
   [_mI, _r, _cT],
-  [[0, 1], [() => MemoryRecordsCreateInputList, 0], [0, 4]]
+  [[0, 1], [() => MemoryRecordsCreateInputList, 0], [0, 4]], 2
 ];
 export var BatchCreateMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _BCMRO,
   0,
   [_sR, _fR],
-  [() => MemoryRecordsOutputList, () => MemoryRecordsOutputList]
+  [() => MemoryRecordsOutputList, () => MemoryRecordsOutputList], 2
 ];
 export var BatchDeleteMemoryRecordsInput$: StaticStructureSchema = [3, n0, _BDMRI,
   0,
   [_mI, _r],
-  [[0, 1], () => MemoryRecordsDeleteInputList]
+  [[0, 1], () => MemoryRecordsDeleteInputList], 2
 ];
 export var BatchDeleteMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _BDMRO,
   0,
   [_sR, _fR],
-  [() => MemoryRecordsOutputList, () => MemoryRecordsOutputList]
+  [() => MemoryRecordsOutputList, () => MemoryRecordsOutputList], 2
 ];
 export var BatchUpdateMemoryRecordsInput$: StaticStructureSchema = [3, n0, _BUMRI,
   0,
   [_mI, _r],
-  [[0, 1], [() => MemoryRecordsUpdateInputList, 0]]
+  [[0, 1], [() => MemoryRecordsUpdateInputList, 0]], 2
 ];
 export var BatchUpdateMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _BUMRO,
   0,
   [_sR, _fR],
-  [() => MemoryRecordsOutputList, () => MemoryRecordsOutputList]
+  [() => MemoryRecordsOutputList, () => MemoryRecordsOutputList], 2
 ];
 export var Branch$: StaticStructureSchema = [3, n0, _Br,
   0,
-  [_rEI, _n],
-  [0, 0]
+  [_n, _rEI],
+  [0, 0], 1
 ];
 export var BranchFilter$: StaticStructureSchema = [3, n0, _BF,
   0,
   [_n, _iPB],
-  [0, 2]
+  [0, 2], 1
 ];
 export var BrowserSessionStream$: StaticStructureSchema = [3, n0, _BSS,
   0,
   [_aS, _lVS],
-  [() => AutomationStream$, () => LiveViewStream$]
+  [() => AutomationStream$, () => LiveViewStream$], 1
 ];
 export var BrowserSessionSummary$: StaticStructureSchema = [3, n0, _BSSr,
   0,
-  [_bI, _sI, _n, _sta, _cA, _lUA],
-  [0, 0, 0, 0, 5, 5]
+  [_bI, _sI, _sta, _cA, _n, _lUA],
+  [0, 0, 0, 5, 0, 5], 4
 ];
 export var CodeInterpreterResult$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_co, _sC, _iE],
-  [() => ContentBlockList, () => ToolResultStructuredContent$, 2]
+  [() => ContentBlockList, () => ToolResultStructuredContent$, 2], 1
 ];
 export var CodeInterpreterSessionSummary$: StaticStructureSchema = [3, n0, _CISS,
   0,
-  [_cII, _sI, _n, _sta, _cA, _lUA],
-  [0, 0, 0, 0, 5, 5]
+  [_cII, _sI, _sta, _cA, _n, _lUA],
+  [0, 0, 0, 5, 0, 5], 4
 ];
 export var CompleteResourceTokenAuthRequest$: StaticStructureSchema = [3, n0, _CRTAR,
   0,
   [_uI, _sU],
-  [[() => UserIdentifier$, 0], 0]
+  [[() => UserIdentifier$, 0], 0], 2
 ];
 export var CompleteResourceTokenAuthResponse$: StaticStructureSchema = [3, n0, _CRTARo,
   0,
@@ -531,42 +531,42 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContentBlock$: StaticStructureSchema = [3, n0, _CB,
   0,
   [_t, _te, _d, _mT, _u, _n, _de, _si, _re],
-  [0, 0, 21, 0, 0, 0, 0, 1, () => ResourceContent$]
+  [0, 0, 21, 0, 0, 0, 0, 1, () => ResourceContent$], 1
 ];
 export var Conversational$: StaticStructureSchema = [3, n0, _C,
   0,
   [_co, _ro],
-  [[() => Content$, 0], 0]
+  [[() => Content$, 0], 0], 2
 ];
 export var CreateEventInput$: StaticStructureSchema = [3, n0, _CEI,
   0,
-  [_mI, _aI, _sI, _eT, _p, _b, _cT, _me],
-  [[0, 1], 0, 0, 4, [() => PayloadTypeList, 0], () => Branch$, [0, 4], () => MetadataMap]
+  [_mI, _aI, _eT, _p, _sI, _b, _cT, _me],
+  [[0, 1], 0, 4, [() => PayloadTypeList, 0], 0, () => Branch$, [0, 4], () => MetadataMap], 4
 ];
 export var CreateEventOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
   [_ev],
-  [[() => Event$, 0]]
+  [[() => Event$, 0]], 1
 ];
 export var DeleteEventInput$: StaticStructureSchema = [3, n0, _DEI,
   0,
   [_mI, _sI, _eI, _aI],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var DeleteEventOutput$: StaticStructureSchema = [3, n0, _DEO,
   0,
   [_eI],
-  [0]
+  [0], 1
 ];
 export var DeleteMemoryRecordInput$: StaticStructureSchema = [3, n0, _DMRI,
   0,
   [_mI, _mRI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteMemoryRecordOutput$: StaticStructureSchema = [3, n0, _DMRO,
   0,
   [_mRI],
-  [0]
+  [0], 1
 ];
 export var DuplicateIdException$: StaticErrorSchema = [-3, n0, _DIE,
   { [_e]: _c, [_hE]: 409 },
@@ -577,32 +577,32 @@ TypeRegistry.for(n0).registerError(DuplicateIdException$, DuplicateIdException);
 export var EvaluateRequest$: StaticStructureSchema = [3, n0, _ER,
   0,
   [_eIv, _eIva, _eTv],
-  [[0, 1], [() => EvaluationInput$, 0], () => EvaluationTarget$]
+  [[0, 1], [() => EvaluationInput$, 0], () => EvaluationTarget$], 2
 ];
 export var EvaluateResponse$: StaticStructureSchema = [3, n0, _ERv,
   0,
   [_eR],
-  [[() => EvaluationResults, 0]]
+  [[() => EvaluationResults, 0]], 1
 ];
 export var EvaluationResultContent$: StaticStructureSchema = [3, n0, _ERC,
   0,
-  [_eA, _eIv, _eN, _ex, _con, _v, _l, _tU, _eM, _eC],
-  [0, 0, 0, [() => EvaluationExplanation, 0], () => Context$, 1, 0, () => TokenUsage$, 0, 0]
+  [_eA, _eIv, _eN, _con, _ex, _v, _l, _tU, _eM, _eC],
+  [0, 0, 0, () => Context$, [() => EvaluationExplanation, 0], 1, 0, () => TokenUsage$, 0, 0], 4
 ];
 export var Event$: StaticStructureSchema = [3, n0, _E,
   0,
   [_mI, _aI, _sI, _eI, _eT, _p, _b, _me],
-  [0, 0, 0, 0, 4, [() => PayloadTypeList, 0], () => Branch$, () => MetadataMap]
+  [0, 0, 0, 0, 4, [() => PayloadTypeList, 0], () => Branch$, () => MetadataMap], 6
 ];
 export var EventMetadataFilterExpression$: StaticStructureSchema = [3, n0, _EMFE,
   0,
   [_le, _o, _ri],
-  [() => LeftExpression$, 0, () => RightExpression$]
+  [() => LeftExpression$, 0, () => RightExpression$], 2
 ];
 export var ExtractionJob$: StaticStructureSchema = [3, n0, _EJ,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var ExtractionJobFilterInput$: StaticStructureSchema = [3, n0, _EJFI,
   0,
@@ -612,7 +612,7 @@ export var ExtractionJobFilterInput$: StaticStructureSchema = [3, n0, _EJFI,
 export var ExtractionJobMetadata$: StaticStructureSchema = [3, n0, _EJM,
   0,
   [_jID, _mes, _sta, _fRa, _sIt, _sI, _aI],
-  [0, () => ExtractionJobMessages$, 0, 0, 0, 0, 0]
+  [0, () => ExtractionJobMessages$, 0, 0, 0, 0, 0], 2
 ];
 export var FilterInput$: StaticStructureSchema = [3, n0, _FI,
   0,
@@ -621,68 +621,68 @@ export var FilterInput$: StaticStructureSchema = [3, n0, _FI,
 ];
 export var GetAgentCardRequest$: StaticStructureSchema = [3, n0, _GACR,
   0,
-  [_rSI, _aRA, _q],
-  [[0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, 1], [0, { [_hQ]: _q }]]
+  [_aRA, _rSI, _q],
+  [[0, 1], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hQ]: _q }]], 1
 ];
 export var GetAgentCardResponse$: StaticStructureSchema = [3, n0, _GACRe,
   0,
-  [_rSI, _aC, _sCt],
-  [[0, { [_hH]: _XABARSI }], [15, 16], [1, 32]]
+  [_aC, _rSI, _sCt],
+  [[15, 16], [0, { [_hH]: _XABARSI }], [1, 32]], 1
 ];
 export var GetBrowserSessionRequest$: StaticStructureSchema = [3, n0, _GBSR,
   0,
   [_bI, _sI],
-  [[0, 1], [0, { [_hQ]: _sI }]]
+  [[0, 1], [0, { [_hQ]: _sI }]], 2
 ];
 export var GetBrowserSessionResponse$: StaticStructureSchema = [3, n0, _GBSRe,
   0,
-  [_bI, _sI, _n, _cA, _vP, _sTS, _sta, _str, _sRA, _lUA],
-  [0, 0, 0, 5, () => ViewPort$, 1, 0, () => BrowserSessionStream$, 0, 5]
+  [_bI, _sI, _cA, _n, _vP, _sTS, _sta, _str, _sRA, _lUA],
+  [0, 0, 5, 0, () => ViewPort$, 1, 0, () => BrowserSessionStream$, 0, 5], 3
 ];
 export var GetCodeInterpreterSessionRequest$: StaticStructureSchema = [3, n0, _GCISR,
   0,
   [_cII, _sI],
-  [[0, 1], [0, { [_hQ]: _sI }]]
+  [[0, 1], [0, { [_hQ]: _sI }]], 2
 ];
 export var GetCodeInterpreterSessionResponse$: StaticStructureSchema = [3, n0, _GCISRe,
   0,
-  [_cII, _sI, _n, _cA, _sTS, _sta],
-  [0, 0, 0, 5, 1, 0]
+  [_cII, _sI, _cA, _n, _sTS, _sta],
+  [0, 0, 5, 0, 1, 0], 3
 ];
 export var GetEventInput$: StaticStructureSchema = [3, n0, _GEI,
   0,
   [_mI, _sI, _aI, _eI],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var GetEventOutput$: StaticStructureSchema = [3, n0, _GEO,
   0,
   [_ev],
-  [[() => Event$, 0]]
+  [[() => Event$, 0]], 1
 ];
 export var GetMemoryRecordInput$: StaticStructureSchema = [3, n0, _GMRI,
   0,
   [_mI, _mRI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetMemoryRecordOutput$: StaticStructureSchema = [3, n0, _GMRO,
   0,
   [_mR],
-  [[() => MemoryRecord$, 0]]
+  [[() => MemoryRecord$, 0]], 1
 ];
 export var GetResourceApiKeyRequest$: StaticStructureSchema = [3, n0, _GRAKR,
   0,
   [_wIT, _rCPN],
-  [[() => WorkloadIdentityTokenType, 0], 0]
+  [[() => WorkloadIdentityTokenType, 0], 0], 2
 ];
 export var GetResourceApiKeyResponse$: StaticStructureSchema = [3, n0, _GRAKRe,
   0,
   [_aK],
-  [[() => ApiKeyType, 0]]
+  [[() => ApiKeyType, 0]], 1
 ];
 export var GetResourceOauth2TokenRequest$: StaticStructureSchema = [3, n0, _GROTR,
   0,
   [_wIT, _rCPN, _sc, _oF, _sU, _rORU, _fA, _cP, _cS],
-  [[() => WorkloadIdentityTokenType, 0], 0, 64 | 0, 0, 0, 0, 2, [() => CustomRequestParametersType, 0], [() => State, 0]]
+  [[() => WorkloadIdentityTokenType, 0], 0, 64 | 0, 0, 0, 0, 2, [() => CustomRequestParametersType, 0], [() => State, 0]], 4
 ];
 export var GetResourceOauth2TokenResponse$: StaticStructureSchema = [3, n0, _GROTRe,
   0,
@@ -692,37 +692,37 @@ export var GetResourceOauth2TokenResponse$: StaticStructureSchema = [3, n0, _GRO
 export var GetWorkloadAccessTokenForJWTRequest$: StaticStructureSchema = [3, n0, _GWATFJWTR,
   0,
   [_wN, _uT],
-  [0, [() => UserTokenType, 0]]
+  [0, [() => UserTokenType, 0]], 2
 ];
 export var GetWorkloadAccessTokenForJWTResponse$: StaticStructureSchema = [3, n0, _GWATFJWTRe,
   0,
   [_wAT],
-  [[() => WorkloadIdentityTokenType, 0]]
+  [[() => WorkloadIdentityTokenType, 0]], 1
 ];
 export var GetWorkloadAccessTokenForUserIdRequest$: StaticStructureSchema = [3, n0, _GWATFUIR,
   0,
   [_wN, _uIs],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetWorkloadAccessTokenForUserIdResponse$: StaticStructureSchema = [3, n0, _GWATFUIRe,
   0,
   [_wAT],
-  [[() => WorkloadIdentityTokenType, 0]]
+  [[() => WorkloadIdentityTokenType, 0]], 1
 ];
 export var GetWorkloadAccessTokenRequest$: StaticStructureSchema = [3, n0, _GWATR,
   0,
   [_wN],
-  [0]
+  [0], 1
 ];
 export var GetWorkloadAccessTokenResponse$: StaticStructureSchema = [3, n0, _GWATRe,
   0,
   [_wAT],
-  [[() => WorkloadIdentityTokenType, 0]]
+  [[() => WorkloadIdentityTokenType, 0]], 1
 ];
 export var InputContentBlock$: StaticStructureSchema = [3, n0, _ICB,
   0,
   [_pa, _te, _bl],
-  [0, 0, [() => Body, 0]]
+  [0, 0, [() => Body, 0]], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
@@ -733,98 +733,98 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
 export var InvokeAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _IARR,
   0,
-  [_cTo, _a, _mSI, _rSI, _mPV, _rUI, _tI, _tP, _tS, _ba, _aRA, _q, _aIc, _p],
-  [[0, { [_hH]: _CT }], [0, { [_hH]: _A }], [0, { [_hH]: _MSI }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XABARUI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, 1], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }], [() => Body, 16]]
+  [_aRA, _p, _cTo, _a, _mSI, _rSI, _mPV, _rUI, _tI, _tP, _tS, _ba, _q, _aIc],
+  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _A }], [0, { [_hH]: _MSI }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XABARUI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
 ];
 export var InvokeAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _IARRn,
   0,
-  [_rSI, _mSI, _mPV, _tI, _tP, _tS, _ba, _cTo, _res, _sCt],
-  [[0, { [_hH]: _XABARSI }], [0, { [_hH]: _MSI }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hH]: _CT }], [() => ResponseStream, 16], [1, 32]]
+  [_cTo, _rSI, _mSI, _mPV, _tI, _tP, _tS, _ba, _res, _sCt],
+  [[0, { [_hH]: _CT }], [0, { [_hH]: _XABARSI }], [0, { [_hH]: _MSI }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [() => ResponseStream, 16], [1, 32]], 1
 ];
 export var InvokeCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _ICIR,
   0,
-  [_cII, _sI, _tI, _tP, _n, _ar],
-  [[0, 1], [0, { [_hH]: _xacisi }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, [() => ToolArguments$, 0]]
+  [_cII, _n, _sI, _tI, _tP, _ar],
+  [[0, 1], 0, [0, { [_hH]: _xacisi }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [() => ToolArguments$, 0]], 2
 ];
 export var InvokeCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _ICIRn,
   0,
-  [_sI, _stre],
-  [[0, { [_hH]: _xacisi }], [() => CodeInterpreterStreamOutput$, 16]]
+  [_stre, _sI],
+  [[() => CodeInterpreterStreamOutput$, 16], [0, { [_hH]: _xacisi }]], 1
 ];
 export var ListActorsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
   [_mI, _mRa, _nT],
-  [[0, 1], 1, 0]
+  [[0, 1], 1, 0], 1
 ];
 export var ListActorsOutput$: StaticStructureSchema = [3, n0, _LAO,
   0,
   [_aSc, _nT],
-  [() => ActorSummaryList, 0]
+  [() => ActorSummaryList, 0], 1
 ];
 export var ListBrowserSessionsRequest$: StaticStructureSchema = [3, n0, _LBSR,
   0,
   [_bI, _mRa, _nT, _sta],
-  [[0, 1], 1, 0, 0]
+  [[0, 1], 1, 0, 0], 1
 ];
 export var ListBrowserSessionsResponse$: StaticStructureSchema = [3, n0, _LBSRi,
   0,
   [_i, _nT],
-  [() => BrowserSessionSummaries, 0]
+  [() => BrowserSessionSummaries, 0], 1
 ];
 export var ListCodeInterpreterSessionsRequest$: StaticStructureSchema = [3, n0, _LCISR,
   0,
   [_cII, _mRa, _nT, _sta],
-  [[0, 1], 1, 0, 0]
+  [[0, 1], 1, 0, 0], 1
 ];
 export var ListCodeInterpreterSessionsResponse$: StaticStructureSchema = [3, n0, _LCISRi,
   0,
   [_i, _nT],
-  [() => CodeInterpreterSessionSummaries, 0]
+  [() => CodeInterpreterSessionSummaries, 0], 1
 ];
 export var ListEventsInput$: StaticStructureSchema = [3, n0, _LEI,
   0,
   [_mI, _sI, _aI, _iP, _f, _mRa, _nT],
-  [[0, 1], [0, 1], [0, 1], 2, () => FilterInput$, 1, 0]
+  [[0, 1], [0, 1], [0, 1], 2, () => FilterInput$, 1, 0], 3
 ];
 export var ListEventsOutput$: StaticStructureSchema = [3, n0, _LEO,
   0,
   [_eve, _nT],
-  [[() => EventList, 0], 0]
+  [[() => EventList, 0], 0], 1
 ];
 export var ListMemoryExtractionJobsInput$: StaticStructureSchema = [3, n0, _LMEJI,
   0,
   [_mI, _mRa, _f, _nT],
-  [[0, 1], 1, () => ExtractionJobFilterInput$, 0]
+  [[0, 1], 1, () => ExtractionJobFilterInput$, 0], 1
 ];
 export var ListMemoryExtractionJobsOutput$: StaticStructureSchema = [3, n0, _LMEJO,
   0,
   [_j, _nT],
-  [() => ExtractionJobMetadataList, 0]
+  [() => ExtractionJobMetadataList, 0], 1
 ];
 export var ListMemoryRecordsInput$: StaticStructureSchema = [3, n0, _LMRI,
   0,
   [_mI, _na, _mSIe, _mRa, _nT],
-  [[0, 1], 0, 0, 1, 0]
+  [[0, 1], 0, 0, 1, 0], 2
 ];
 export var ListMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _LMRO,
   0,
   [_mRS, _nT],
-  [[() => MemoryRecordSummaryList, 0], 0]
+  [[() => MemoryRecordSummaryList, 0], 0], 1
 ];
 export var ListSessionsInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
   [_mI, _aI, _mRa, _nT],
-  [[0, 1], [0, 1], 1, 0]
+  [[0, 1], [0, 1], 1, 0], 2
 ];
 export var ListSessionsOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
   [_sSes, _nT],
-  [() => SessionSummaryList, 0]
+  [() => SessionSummaryList, 0], 1
 ];
 export var LiveViewStream$: StaticStructureSchema = [3, n0, _LVS,
   0,
@@ -834,47 +834,47 @@ export var LiveViewStream$: StaticStructureSchema = [3, n0, _LVS,
 export var MemoryMetadataFilterExpression$: StaticStructureSchema = [3, n0, _MMFE,
   0,
   [_le, _o, _ri],
-  [() => LeftExpression$, 0, () => RightExpression$]
+  [() => LeftExpression$, 0, () => RightExpression$], 2
 ];
 export var MemoryRecord$: StaticStructureSchema = [3, n0, _MR,
   0,
   [_mRI, _co, _mSIe, _nam, _cA, _me],
-  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, () => MetadataMap]
+  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, () => MetadataMap], 5
 ];
 export var MemoryRecordCreateInput$: StaticStructureSchema = [3, n0, _MRCI,
   0,
   [_rI, _nam, _co, _ti, _mSIe],
-  [0, 64 | 0, [() => MemoryContent$, 0], 4, 0]
+  [0, 64 | 0, [() => MemoryContent$, 0], 4, 0], 4
 ];
 export var MemoryRecordDeleteInput$: StaticStructureSchema = [3, n0, _MRDI,
   0,
   [_mRI],
-  [0]
+  [0], 1
 ];
 export var MemoryRecordOutput$: StaticStructureSchema = [3, n0, _MRO,
   0,
   [_mRI, _sta, _rI, _eC, _eM],
-  [0, 0, 0, 1, 0]
+  [0, 0, 0, 1, 0], 2
 ];
 export var MemoryRecordSummary$: StaticStructureSchema = [3, n0, _MRS,
   0,
   [_mRI, _co, _mSIe, _nam, _cA, _sco, _me],
-  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, 1, () => MetadataMap]
+  [0, [() => MemoryContent$, 0], 0, 64 | 0, 4, 1, () => MetadataMap], 5
 ];
 export var MemoryRecordUpdateInput$: StaticStructureSchema = [3, n0, _MRUI,
   0,
   [_mRI, _ti, _co, _nam, _mSIe],
-  [0, 4, [() => MemoryContent$, 0], 64 | 0, 0]
+  [0, 4, [() => MemoryContent$, 0], 64 | 0, 0], 2
 ];
 export var MessageMetadata$: StaticStructureSchema = [3, n0, _MM,
   0,
   [_eI, _mIe],
-  [0, 1]
+  [0, 1], 2
 ];
 export var ResourceContent$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_t, _u, _mT, _te, _bl],
-  [0, 0, 0, 0, 21]
+  [0, 0, 0, 0, 21], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -885,12 +885,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var RetrieveMemoryRecordsInput$: StaticStructureSchema = [3, n0, _RMRI,
   0,
   [_mI, _na, _sCe, _nT, _mRa],
-  [[0, 1], 0, [() => SearchCriteria$, 0], 0, 1]
+  [[0, 1], 0, [() => SearchCriteria$, 0], 0, 1], 3
 ];
 export var RetrieveMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _RMRO,
   0,
   [_mRS, _nT],
-  [[() => MemoryRecordSummaryList, 0], 0]
+  [[() => MemoryRecordSummaryList, 0], 0], 1
 ];
 export var RuntimeClientError$: StaticErrorSchema = [-3, n0, _RCE,
   { [_e]: _c, [_hE]: 424 },
@@ -901,12 +901,12 @@ TypeRegistry.for(n0).registerError(RuntimeClientError$, RuntimeClientError);
 export var SearchCriteria$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_sQ, _mSIe, _tK, _mF],
-  [[() => SensitiveString, 0], 0, 1, () => MemoryMetadataFilterList]
+  [[() => SensitiveString, 0], 0, 1, () => MemoryMetadataFilterList], 1
 ];
 export var ServiceException$: StaticErrorSchema = [-3, n0, _SE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceException$, ServiceException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
@@ -918,67 +918,67 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var SessionSummary$: StaticStructureSchema = [3, n0, _SSe,
   0,
   [_sI, _aI, _cA],
-  [0, 0, 4]
+  [0, 0, 4], 3
 ];
 export var SpanContext$: StaticStructureSchema = [3, n0, _SCp,
   0,
   [_sI, _tI, _sIp],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var StartBrowserSessionRequest$: StaticStructureSchema = [3, n0, _SBSR,
   0,
-  [_tI, _tP, _bI, _n, _sTS, _vP, _cT],
-  [[0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 1], 0, 1, () => ViewPort$, [0, 4]]
+  [_bI, _tI, _tP, _n, _sTS, _vP, _cT],
+  [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, () => ViewPort$, [0, 4]], 1
 ];
 export var StartBrowserSessionResponse$: StaticStructureSchema = [3, n0, _SBSRt,
   0,
   [_bI, _sI, _cA, _str],
-  [0, 0, 5, () => BrowserSessionStream$]
+  [0, 0, 5, () => BrowserSessionStream$], 3
 ];
 export var StartCodeInterpreterSessionRequest$: StaticStructureSchema = [3, n0, _SCISR,
   0,
-  [_tI, _tP, _cII, _n, _sTS, _cT],
-  [[0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 1], 0, 1, [0, 4]]
+  [_cII, _tI, _tP, _n, _sTS, _cT],
+  [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, [0, 4]], 1
 ];
 export var StartCodeInterpreterSessionResponse$: StaticStructureSchema = [3, n0, _SCISRt,
   0,
   [_cII, _sI, _cA],
-  [0, 0, 5]
+  [0, 0, 5], 3
 ];
 export var StartMemoryExtractionJobInput$: StaticStructureSchema = [3, n0, _SMEJI,
   0,
   [_mI, _eJ, _cT],
-  [[0, 1], () => ExtractionJob$, [0, 4]]
+  [[0, 1], () => ExtractionJob$, [0, 4]], 2
 ];
 export var StartMemoryExtractionJobOutput$: StaticStructureSchema = [3, n0, _SMEJO,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var StopBrowserSessionRequest$: StaticStructureSchema = [3, n0, _SBSRto,
   0,
-  [_tI, _tP, _bI, _sI, _cT],
-  [[0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 1], [0, { [_hQ]: _sI }], [0, 4]]
+  [_bI, _sI, _tI, _tP, _cT],
+  [[0, 1], [0, { [_hQ]: _sI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 4]], 2
 ];
 export var StopBrowserSessionResponse$: StaticStructureSchema = [3, n0, _SBSRtop,
   0,
   [_bI, _sI, _lUA],
-  [0, 0, 5]
+  [0, 0, 5], 3
 ];
 export var StopCodeInterpreterSessionRequest$: StaticStructureSchema = [3, n0, _SCISRto,
   0,
-  [_tI, _tP, _cII, _sI, _cT],
-  [[0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 1], [0, { [_hQ]: _sI }], [0, 4]]
+  [_cII, _sI, _tI, _tP, _cT],
+  [[0, 1], [0, { [_hQ]: _sI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 4]], 2
 ];
 export var StopCodeInterpreterSessionResponse$: StaticStructureSchema = [3, n0, _SCISRtop,
   0,
   [_cII, _sI, _lUA],
-  [0, 0, 5]
+  [0, 0, 5], 3
 ];
 export var StopRuntimeSessionRequest$: StaticStructureSchema = [3, n0, _SRSR,
   0,
   [_rSI, _aRA, _q, _cT],
-  [[0, { [_hH]: _XABARSI }], [0, 1], [0, { [_hQ]: _q }], [0, 4]]
+  [[0, { [_hH]: _XABARSI }], [0, 1], [0, { [_hQ]: _q }], [0, 4]], 2
 ];
 export var StopRuntimeSessionResponse$: StaticStructureSchema = [3, n0, _SRSRt,
   0,
@@ -988,7 +988,7 @@ export var StopRuntimeSessionResponse$: StaticStructureSchema = [3, n0, _SRSRt,
 export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottledException$, ThrottledException);
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEh,
@@ -1021,28 +1021,28 @@ TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException
 export var UpdateBrowserStreamRequest$: StaticStructureSchema = [3, n0, _UBSR,
   0,
   [_bI, _sI, _sUt, _cT],
-  [[0, 1], [0, { [_hQ]: _sI }], () => StreamUpdate$, [0, 4]]
+  [[0, 1], [0, { [_hQ]: _sI }], () => StreamUpdate$, [0, 4]], 3
 ];
 export var UpdateBrowserStreamResponse$: StaticStructureSchema = [3, n0, _UBSRp,
   0,
   [_bI, _sI, _str, _uA],
-  [0, 0, () => BrowserSessionStream$, 5]
+  [0, 0, () => BrowserSessionStream$, 5], 4
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _rea, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ViewPort$: StaticStructureSchema = [3, n0, _VP,
   0,
   [_w, _h],
-  [1, 1]
+  [1, 1], 2
 ];
 export var BedrockAgentCoreServiceException$: StaticErrorSchema = [-3, _sm, "BedrockAgentCoreServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BedrockAgentCoreServiceException$, BedrockAgentCoreServiceException);

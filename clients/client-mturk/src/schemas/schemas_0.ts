@@ -291,7 +291,7 @@ import { MTurkServiceException } from "../models/MTurkServiceException";
 export var AcceptQualificationRequestRequest$: StaticStructureSchema = [3, n0, _AQRR,
   0,
   [_QRI, _IV],
-  [0, 1]
+  [0, 1], 1
 ];
 export var AcceptQualificationRequestResponse$: StaticStructureSchema = [3, n0, _AQRRc,
   0,
@@ -301,7 +301,7 @@ export var AcceptQualificationRequestResponse$: StaticStructureSchema = [3, n0, 
 export var ApproveAssignmentRequest$: StaticStructureSchema = [3, n0, _AAR,
   0,
   [_AI, _RF, _OR],
-  [0, 0, 2]
+  [0, 0, 2], 1
 ];
 export var ApproveAssignmentResponse$: StaticStructureSchema = [3, n0, _AARp,
   0,
@@ -316,7 +316,7 @@ export var Assignment$: StaticStructureSchema = [3, n0, _A,
 export var AssociateQualificationWithWorkerRequest$: StaticStructureSchema = [3, n0, _AQWWR,
   0,
   [_QTI, _WI, _IV, _SN],
-  [0, 0, 1, 2]
+  [0, 0, 1, 2], 2
 ];
 export var AssociateQualificationWithWorkerResponse$: StaticStructureSchema = [3, n0, _AQWWRs,
   0,
@@ -331,7 +331,7 @@ export var BonusPayment$: StaticStructureSchema = [3, n0, _BP,
 export var CreateAdditionalAssignmentsForHITRequest$: StaticStructureSchema = [3, n0, _CAAFHITR,
   0,
   [_HITI, _NOAA, _URT],
-  [0, 1, 0]
+  [0, 1, 0], 2
 ];
 export var CreateAdditionalAssignmentsForHITResponse$: StaticStructureSchema = [3, n0, _CAAFHITRr,
   0,
@@ -340,8 +340,8 @@ export var CreateAdditionalAssignmentsForHITResponse$: StaticStructureSchema = [
 ];
 export var CreateHITRequest$: StaticStructureSchema = [3, n0, _CHITR,
   0,
-  [_MA, _AADIS, _LIS, _ADIS, _Re, _T, _K, _De, _Q, _RA, _QR, _URT, _ARP, _HITRP, _HITLI, _HITLP],
-  [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, () => QualificationRequirementList, 0, () => ReviewPolicy$, () => ReviewPolicy$, 0, () => HITLayoutParameterList]
+  [_LIS, _ADIS, _Re, _T, _De, _MA, _AADIS, _K, _Q, _RA, _QR, _URT, _ARP, _HITRP, _HITLI, _HITLP],
+  [1, 1, 0, 0, 0, 1, 1, 0, 0, 0, () => QualificationRequirementList, 0, () => ReviewPolicy$, () => ReviewPolicy$, 0, () => HITLayoutParameterList], 5
 ];
 export var CreateHITResponse$: StaticStructureSchema = [3, n0, _CHITRr,
   0,
@@ -350,8 +350,8 @@ export var CreateHITResponse$: StaticStructureSchema = [3, n0, _CHITRr,
 ];
 export var CreateHITTypeRequest$: StaticStructureSchema = [3, n0, _CHITTR,
   0,
-  [_AADIS, _ADIS, _Re, _T, _K, _De, _QR],
-  [1, 1, 0, 0, 0, 0, () => QualificationRequirementList]
+  [_ADIS, _Re, _T, _De, _AADIS, _K, _QR],
+  [1, 0, 0, 0, 1, 0, () => QualificationRequirementList], 4
 ];
 export var CreateHITTypeResponse$: StaticStructureSchema = [3, n0, _CHITTRr,
   0,
@@ -360,8 +360,8 @@ export var CreateHITTypeResponse$: StaticStructureSchema = [3, n0, _CHITTRr,
 ];
 export var CreateHITWithHITTypeRequest$: StaticStructureSchema = [3, n0, _CHITWHITTR,
   0,
-  [_HITTI, _MA, _LIS, _Q, _RA, _URT, _ARP, _HITRP, _HITLI, _HITLP],
-  [0, 1, 1, 0, 0, 0, () => ReviewPolicy$, () => ReviewPolicy$, 0, () => HITLayoutParameterList]
+  [_HITTI, _LIS, _MA, _Q, _RA, _URT, _ARP, _HITRP, _HITLI, _HITLP],
+  [0, 1, 1, 0, 0, 0, () => ReviewPolicy$, () => ReviewPolicy$, 0, () => HITLayoutParameterList], 2
 ];
 export var CreateHITWithHITTypeResponse$: StaticStructureSchema = [3, n0, _CHITWHITTRr,
   0,
@@ -370,8 +370,8 @@ export var CreateHITWithHITTypeResponse$: StaticStructureSchema = [3, n0, _CHITW
 ];
 export var CreateQualificationTypeRequest$: StaticStructureSchema = [3, n0, _CQTR,
   0,
-  [_N, _K, _De, _QTS, _RDIS, _Te, _AK, _TDIS, _AG, _AGV],
-  [0, 0, 0, 0, 1, 0, 0, 1, 2, 1]
+  [_N, _De, _QTS, _K, _RDIS, _Te, _AK, _TDIS, _AG, _AGV],
+  [0, 0, 0, 0, 1, 0, 0, 1, 2, 1], 3
 ];
 export var CreateQualificationTypeResponse$: StaticStructureSchema = [3, n0, _CQTRr,
   0,
@@ -381,7 +381,7 @@ export var CreateQualificationTypeResponse$: StaticStructureSchema = [3, n0, _CQ
 export var CreateWorkerBlockRequest$: StaticStructureSchema = [3, n0, _CWBR,
   0,
   [_WI, _R],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateWorkerBlockResponse$: StaticStructureSchema = [3, n0, _CWBRr,
   0,
@@ -391,7 +391,7 @@ export var CreateWorkerBlockResponse$: StaticStructureSchema = [3, n0, _CWBRr,
 export var DeleteHITRequest$: StaticStructureSchema = [3, n0, _DHITR,
   0,
   [_HITI],
-  [0]
+  [0], 1
 ];
 export var DeleteHITResponse$: StaticStructureSchema = [3, n0, _DHITRe,
   0,
@@ -401,7 +401,7 @@ export var DeleteHITResponse$: StaticStructureSchema = [3, n0, _DHITRe,
 export var DeleteQualificationTypeRequest$: StaticStructureSchema = [3, n0, _DQTR,
   0,
   [_QTI],
-  [0]
+  [0], 1
 ];
 export var DeleteQualificationTypeResponse$: StaticStructureSchema = [3, n0, _DQTRe,
   0,
@@ -411,7 +411,7 @@ export var DeleteQualificationTypeResponse$: StaticStructureSchema = [3, n0, _DQ
 export var DeleteWorkerBlockRequest$: StaticStructureSchema = [3, n0, _DWBR,
   0,
   [_WI, _R],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteWorkerBlockResponse$: StaticStructureSchema = [3, n0, _DWBRe,
   0,
@@ -421,7 +421,7 @@ export var DeleteWorkerBlockResponse$: StaticStructureSchema = [3, n0, _DWBRe,
 export var DisassociateQualificationFromWorkerRequest$: StaticStructureSchema = [3, n0, _DQFWR,
   0,
   [_WI, _QTI, _R],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DisassociateQualificationFromWorkerResponse$: StaticStructureSchema = [3, n0, _DQFWRi,
   0,
@@ -441,7 +441,7 @@ export var GetAccountBalanceResponse$: StaticStructureSchema = [3, n0, _GABRe,
 export var GetAssignmentRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var GetAssignmentResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -451,7 +451,7 @@ export var GetAssignmentResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetFileUploadURLRequest$: StaticStructureSchema = [3, n0, _GFUURLR,
   0,
   [_AI, _QI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetFileUploadURLResponse$: StaticStructureSchema = [3, n0, _GFUURLRe,
   0,
@@ -461,7 +461,7 @@ export var GetFileUploadURLResponse$: StaticStructureSchema = [3, n0, _GFUURLRe,
 export var GetHITRequest$: StaticStructureSchema = [3, n0, _GHITR,
   0,
   [_HITI],
-  [0]
+  [0], 1
 ];
 export var GetHITResponse$: StaticStructureSchema = [3, n0, _GHITRe,
   0,
@@ -471,7 +471,7 @@ export var GetHITResponse$: StaticStructureSchema = [3, n0, _GHITRe,
 export var GetQualificationScoreRequest$: StaticStructureSchema = [3, n0, _GQSR,
   0,
   [_QTI, _WI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetQualificationScoreResponse$: StaticStructureSchema = [3, n0, _GQSRe,
   0,
@@ -481,7 +481,7 @@ export var GetQualificationScoreResponse$: StaticStructureSchema = [3, n0, _GQSR
 export var GetQualificationTypeRequest$: StaticStructureSchema = [3, n0, _GQTR,
   0,
   [_QTI],
-  [0]
+  [0], 1
 ];
 export var GetQualificationTypeResponse$: StaticStructureSchema = [3, n0, _GQTRe,
   0,
@@ -496,12 +496,12 @@ export var HIT$: StaticStructureSchema = [3, n0, _HIT,
 export var HITLayoutParameter$: StaticStructureSchema = [3, n0, _HITLPa,
   0,
   [_N, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ListAssignmentsForHITRequest$: StaticStructureSchema = [3, n0, _LAFHITR,
   0,
   [_HITI, _NT, _MR, _ASs],
-  [0, 0, 1, 64 | 0]
+  [0, 0, 1, 64 | 0], 1
 ];
 export var ListAssignmentsForHITResponse$: StaticStructureSchema = [3, n0, _LAFHITRi,
   0,
@@ -521,7 +521,7 @@ export var ListBonusPaymentsResponse$: StaticStructureSchema = [3, n0, _LBPRi,
 export var ListHITsForQualificationTypeRequest$: StaticStructureSchema = [3, n0, _LHITFQTR,
   0,
   [_QTI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListHITsForQualificationTypeResponse$: StaticStructureSchema = [3, n0, _LHITFQTRi,
   0,
@@ -550,8 +550,8 @@ export var ListQualificationRequestsResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var ListQualificationTypesRequest$: StaticStructureSchema = [3, n0, _LQTR,
   0,
-  [_Que, _MBR, _MBOBC, _NT, _MR],
-  [0, 2, 2, 0, 1]
+  [_MBR, _Que, _MBOBC, _NT, _MR],
+  [2, 0, 2, 0, 1], 1
 ];
 export var ListQualificationTypesResponse$: StaticStructureSchema = [3, n0, _LQTRi,
   0,
@@ -571,7 +571,7 @@ export var ListReviewableHITsResponse$: StaticStructureSchema = [3, n0, _LRHITRi
 export var ListReviewPolicyResultsForHITRequest$: StaticStructureSchema = [3, n0, _LRPRFHITR,
   0,
   [_HITI, _PL, _RAe, _RR, _NT, _MR],
-  [0, 64 | 0, 2, 2, 0, 1]
+  [0, 64 | 0, 2, 2, 0, 1], 1
 ];
 export var ListReviewPolicyResultsForHITResponse$: StaticStructureSchema = [3, n0, _LRPRFHITRi,
   0,
@@ -591,7 +591,7 @@ export var ListWorkerBlocksResponse$: StaticStructureSchema = [3, n0, _LWBRi,
 export var ListWorkersWithQualificationTypeRequest$: StaticStructureSchema = [3, n0, _LWWQTR,
   0,
   [_QTI, _S, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 1
 ];
 export var ListWorkersWithQualificationTypeResponse$: StaticStructureSchema = [3, n0, _LWWQTRi,
   0,
@@ -601,12 +601,12 @@ export var ListWorkersWithQualificationTypeResponse$: StaticStructureSchema = [3
 export var Locale$: StaticStructureSchema = [3, n0, _L,
   0,
   [_C, _Su],
-  [0, 0]
+  [0, 0], 1
 ];
 export var NotificationSpecification$: StaticStructureSchema = [3, n0, _NS,
   0,
   [_Des, _Tr, _Ve, _ET],
-  [0, 0, 0, 64 | 0]
+  [0, 0, 0, 64 | 0], 4
 ];
 export var NotifyWorkersFailureStatus$: StaticStructureSchema = [3, n0, _NWFS,
   0,
@@ -616,7 +616,7 @@ export var NotifyWorkersFailureStatus$: StaticStructureSchema = [3, n0, _NWFS,
 export var NotifyWorkersRequest$: StaticStructureSchema = [3, n0, _NWR,
   0,
   [_Sub, _MT, _WIo],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var NotifyWorkersResponse$: StaticStructureSchema = [3, n0, _NWRo,
   0,
@@ -646,7 +646,7 @@ export var QualificationRequest$: StaticStructureSchema = [3, n0, _QRua,
 export var QualificationRequirement$: StaticStructureSchema = [3, n0, _QRual,
   0,
   [_QTI, _Co, _IVn, _LVo, _RTP, _AGc],
-  [0, 0, 64 | 1, () => LocaleList, 2, 0]
+  [0, 0, 64 | 1, () => LocaleList, 2, 0], 2
 ];
 export var QualificationType$: StaticStructureSchema = [3, n0, _QT,
   0,
@@ -656,7 +656,7 @@ export var QualificationType$: StaticStructureSchema = [3, n0, _QT,
 export var RejectAssignmentRequest$: StaticStructureSchema = [3, n0, _RAR,
   0,
   [_AI, _RF],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RejectAssignmentResponse$: StaticStructureSchema = [3, n0, _RARe,
   0,
@@ -666,7 +666,7 @@ export var RejectAssignmentResponse$: StaticStructureSchema = [3, n0, _RARe,
 export var RejectQualificationRequestRequest$: StaticStructureSchema = [3, n0, _RQRR,
   0,
   [_QRI, _R],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RejectQualificationRequestResponse$: StaticStructureSchema = [3, n0, _RQRRe,
   0,
@@ -687,7 +687,7 @@ export var ReviewActionDetail$: StaticStructureSchema = [3, n0, _RAD,
 export var ReviewPolicy$: StaticStructureSchema = [3, n0, _RP,
   0,
   [_PN, _P],
-  [0, () => PolicyParameterList]
+  [0, () => PolicyParameterList], 1
 ];
 export var ReviewReport$: StaticStructureSchema = [3, n0, _RRe,
   0,
@@ -702,7 +702,7 @@ export var ReviewResultDetail$: StaticStructureSchema = [3, n0, _RRD,
 export var SendBonusRequest$: StaticStructureSchema = [3, n0, _SBR,
   0,
   [_WI, _BA, _AI, _R, _URT],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var SendBonusResponse$: StaticStructureSchema = [3, n0, _SBRe,
   0,
@@ -712,7 +712,7 @@ export var SendBonusResponse$: StaticStructureSchema = [3, n0, _SBRe,
 export var SendTestEventNotificationRequest$: StaticStructureSchema = [3, n0, _STENR,
   0,
   [_No, _TET],
-  [() => NotificationSpecification$, 0]
+  [() => NotificationSpecification$, 0], 2
 ];
 export var SendTestEventNotificationResponse$: StaticStructureSchema = [3, n0, _STENRe,
   0,
@@ -728,7 +728,7 @@ TypeRegistry.for(n0).registerError(ServiceFault$, ServiceFault);
 export var UpdateExpirationForHITRequest$: StaticStructureSchema = [3, n0, _UEFHITR,
   0,
   [_HITI, _EA],
-  [0, 4]
+  [0, 4], 2
 ];
 export var UpdateExpirationForHITResponse$: StaticStructureSchema = [3, n0, _UEFHITRp,
   0,
@@ -738,7 +738,7 @@ export var UpdateExpirationForHITResponse$: StaticStructureSchema = [3, n0, _UEF
 export var UpdateHITReviewStatusRequest$: StaticStructureSchema = [3, n0, _UHITRSR,
   0,
   [_HITI, _Rev],
-  [0, 2]
+  [0, 2], 1
 ];
 export var UpdateHITReviewStatusResponse$: StaticStructureSchema = [3, n0, _UHITRSRp,
   0,
@@ -748,7 +748,7 @@ export var UpdateHITReviewStatusResponse$: StaticStructureSchema = [3, n0, _UHIT
 export var UpdateHITTypeOfHITRequest$: StaticStructureSchema = [3, n0, _UHITTOHITR,
   0,
   [_HITI, _HITTI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateHITTypeOfHITResponse$: StaticStructureSchema = [3, n0, _UHITTOHITRp,
   0,
@@ -758,7 +758,7 @@ export var UpdateHITTypeOfHITResponse$: StaticStructureSchema = [3, n0, _UHITTOH
 export var UpdateNotificationSettingsRequest$: StaticStructureSchema = [3, n0, _UNSR,
   0,
   [_HITTI, _No, _Ac],
-  [0, () => NotificationSpecification$, 2]
+  [0, () => NotificationSpecification$, 2], 1
 ];
 export var UpdateNotificationSettingsResponse$: StaticStructureSchema = [3, n0, _UNSRp,
   0,
@@ -768,7 +768,7 @@ export var UpdateNotificationSettingsResponse$: StaticStructureSchema = [3, n0, 
 export var UpdateQualificationTypeRequest$: StaticStructureSchema = [3, n0, _UQTR,
   0,
   [_QTI, _De, _QTS, _Te, _AK, _TDIS, _RDIS, _AG, _AGV],
-  [0, 0, 0, 0, 0, 1, 1, 2, 1]
+  [0, 0, 0, 0, 0, 1, 1, 2, 1], 1
 ];
 export var UpdateQualificationTypeResponse$: StaticStructureSchema = [3, n0, _UQTRp,
   0,

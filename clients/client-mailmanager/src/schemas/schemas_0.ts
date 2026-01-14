@@ -492,7 +492,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AddHeaderAction$: StaticStructureSchema = [3, n0, _AHA,
   0,
   [_HN, _HV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AddonInstance$: StaticStructureSchema = [3, n0, _AI,
   0,
@@ -512,27 +512,27 @@ export var AddressFilter$: StaticStructureSchema = [3, n0, _AF,
 export var AddressList$: StaticStructureSchema = [3, n0, _AL,
   0,
   [_ALI, _ALA, _ALN, _CT, _LUT],
-  [0, 0, 0, 4, 4]
+  [0, 0, 0, 4, 4], 5
 ];
 export var Analysis$: StaticStructureSchema = [3, n0, _An,
   0,
   [_Ana, _RF],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Archive$: StaticStructureSchema = [3, n0, _Ar,
   0,
   [_AIr, _ANr, _ASr, _LUT],
-  [0, 0, 0, 4]
+  [0, 0, 0, 4], 1
 ];
 export var ArchiveAction$: StaticStructureSchema = [3, n0, _AA,
   0,
-  [_AFP, _TA],
-  [0, 0]
+  [_TA, _AFP],
+  [0, 0], 1
 ];
 export var ArchiveBooleanExpression$: StaticStructureSchema = [3, n0, _ABE,
   0,
   [_E, _O],
-  [() => ArchiveBooleanToEvaluate$, 0]
+  [() => ArchiveBooleanToEvaluate$, 0], 2
 ];
 export var ArchiveFilters$: StaticStructureSchema = [3, n0, _AFr,
   0,
@@ -542,7 +542,7 @@ export var ArchiveFilters$: StaticStructureSchema = [3, n0, _AFr,
 export var ArchiveStringExpression$: StaticStructureSchema = [3, n0, _ASE,
   0,
   [_E, _O, _V],
-  [() => ArchiveStringToEvaluate$, 0, 64 | 0]
+  [() => ArchiveStringToEvaluate$, 0, 64 | 0], 3
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -552,98 +552,98 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAddonInstanceRequest$: StaticStructureSchema = [3, n0, _CAIR,
   0,
-  [_CTl, _ASI, _T],
-  [[0, 4], 0, () => TagList]
+  [_ASI, _CTl, _T],
+  [0, [0, 4], () => TagList], 1
 ];
 export var CreateAddonInstanceResponse$: StaticStructureSchema = [3, n0, _CAIRr,
   0,
   [_AII],
-  [0]
+  [0], 1
 ];
 export var CreateAddonSubscriptionRequest$: StaticStructureSchema = [3, n0, _CASR,
   0,
-  [_CTl, _AN, _T],
-  [[0, 4], 0, () => TagList]
+  [_AN, _CTl, _T],
+  [0, [0, 4], () => TagList], 1
 ];
 export var CreateAddonSubscriptionResponse$: StaticStructureSchema = [3, n0, _CASRr,
   0,
   [_ASI],
-  [0]
+  [0], 1
 ];
 export var CreateAddressListImportJobRequest$: StaticStructureSchema = [3, n0, _CALIJR,
   0,
-  [_CTl, _ALI, _N, _IDF],
-  [[0, 4], 0, 0, () => ImportDataFormat$]
+  [_ALI, _N, _IDF, _CTl],
+  [0, 0, () => ImportDataFormat$, [0, 4]], 3
 ];
 export var CreateAddressListImportJobResponse$: StaticStructureSchema = [3, n0, _CALIJRr,
   0,
   [_JI, _PSU],
-  [0, [() => PreSignedUrl, 0]]
+  [0, [() => PreSignedUrl, 0]], 2
 ];
 export var CreateAddressListRequest$: StaticStructureSchema = [3, n0, _CALR,
   0,
-  [_CTl, _ALN, _T],
-  [[0, 4], 0, () => TagList]
+  [_ALN, _CTl, _T],
+  [0, [0, 4], () => TagList], 1
 ];
 export var CreateAddressListResponse$: StaticStructureSchema = [3, n0, _CALRr,
   0,
   [_ALI],
-  [0]
+  [0], 1
 ];
 export var CreateArchiveRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_CTl, _ANr, _R, _KKA, _T],
-  [[0, 4], 0, () => ArchiveRetention$, 0, () => TagList]
+  [_ANr, _CTl, _R, _KKA, _T],
+  [0, [0, 4], () => ArchiveRetention$, 0, () => TagList], 1
 ];
 export var CreateArchiveResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
   [_AIr],
-  [0]
+  [0], 1
 ];
 export var CreateIngressPointRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
-  [_CTl, _IPN, _Ty, _RSI, _TPI, _IPC, _NC, _T],
-  [[0, 4], 0, 0, 0, 0, [() => IngressPointConfiguration$, 0], () => NetworkConfiguration$, () => TagList]
+  [_IPN, _Ty, _RSI, _TPI, _CTl, _IPC, _NC, _T],
+  [0, 0, 0, 0, [0, 4], [() => IngressPointConfiguration$, 0], () => NetworkConfiguration$, () => TagList], 4
 ];
 export var CreateIngressPointResponse$: StaticStructureSchema = [3, n0, _CIPRr,
   0,
   [_IPI],
-  [0]
+  [0], 1
 ];
 export var CreateRelayRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_CTl, _RN, _SN, _SPe, _Au, _T],
-  [[0, 4], 0, 0, 1, () => RelayAuthentication$, () => TagList]
+  [_RN, _SN, _SPe, _Au, _CTl, _T],
+  [0, 0, 1, () => RelayAuthentication$, [0, 4], () => TagList], 4
 ];
 export var CreateRelayResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
   [_RI],
-  [0]
+  [0], 1
 ];
 export var CreateRuleSetRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
-  [_CTl, _RSN, _Ru, _T],
-  [[0, 4], 0, [() => Rules, 0], () => TagList]
+  [_RSN, _Ru, _CTl, _T],
+  [0, [() => Rules, 0], [0, 4], () => TagList], 2
 ];
 export var CreateRuleSetResponse$: StaticStructureSchema = [3, n0, _CRSRr,
   0,
   [_RSI],
-  [0]
+  [0], 1
 ];
 export var CreateTrafficPolicyRequest$: StaticStructureSchema = [3, n0, _CTPR,
   0,
-  [_CTl, _TPN, _PS, _DA, _MMSB, _T],
-  [[0, 4], 0, () => PolicyStatementList, 0, 1, () => TagList]
+  [_TPN, _PS, _DA, _CTl, _MMSB, _T],
+  [0, () => PolicyStatementList, 0, [0, 4], 1, () => TagList], 3
 ];
 export var CreateTrafficPolicyResponse$: StaticStructureSchema = [3, n0, _CTPRr,
   0,
   [_TPI],
-  [0]
+  [0], 1
 ];
 export var DeleteAddonInstanceRequest$: StaticStructureSchema = [3, n0, _DAIR,
   0,
   [_AII],
-  [0]
+  [0], 1
 ];
 export var DeleteAddonInstanceResponse$: StaticStructureSchema = [3, n0, _DAIRe,
   0,
@@ -653,7 +653,7 @@ export var DeleteAddonInstanceResponse$: StaticStructureSchema = [3, n0, _DAIRe,
 export var DeleteAddonSubscriptionRequest$: StaticStructureSchema = [3, n0, _DASR,
   0,
   [_ASI],
-  [0]
+  [0], 1
 ];
 export var DeleteAddonSubscriptionResponse$: StaticStructureSchema = [3, n0, _DASRe,
   0,
@@ -663,7 +663,7 @@ export var DeleteAddonSubscriptionResponse$: StaticStructureSchema = [3, n0, _DA
 export var DeleteAddressListRequest$: StaticStructureSchema = [3, n0, _DALR,
   0,
   [_ALI],
-  [0]
+  [0], 1
 ];
 export var DeleteAddressListResponse$: StaticStructureSchema = [3, n0, _DALRe,
   0,
@@ -673,7 +673,7 @@ export var DeleteAddressListResponse$: StaticStructureSchema = [3, n0, _DALRe,
 export var DeleteArchiveRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AIr],
-  [0]
+  [0], 1
 ];
 export var DeleteArchiveResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -683,7 +683,7 @@ export var DeleteArchiveResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteIngressPointRequest$: StaticStructureSchema = [3, n0, _DIPR,
   0,
   [_IPI],
-  [0]
+  [0], 1
 ];
 export var DeleteIngressPointResponse$: StaticStructureSchema = [3, n0, _DIPRe,
   0,
@@ -693,7 +693,7 @@ export var DeleteIngressPointResponse$: StaticStructureSchema = [3, n0, _DIPRe,
 export var DeleteRelayRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_RI],
-  [0]
+  [0], 1
 ];
 export var DeleteRelayResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -703,7 +703,7 @@ export var DeleteRelayResponse$: StaticStructureSchema = [3, n0, _DRRe,
 export var DeleteRuleSetRequest$: StaticStructureSchema = [3, n0, _DRSR,
   0,
   [_RSI],
-  [0]
+  [0], 1
 ];
 export var DeleteRuleSetResponse$: StaticStructureSchema = [3, n0, _DRSRe,
   0,
@@ -713,7 +713,7 @@ export var DeleteRuleSetResponse$: StaticStructureSchema = [3, n0, _DRSRe,
 export var DeleteTrafficPolicyRequest$: StaticStructureSchema = [3, n0, _DTPR,
   0,
   [_TPI],
-  [0]
+  [0], 1
 ];
 export var DeleteTrafficPolicyResponse$: StaticStructureSchema = [3, n0, _DTPRe,
   0,
@@ -722,18 +722,18 @@ export var DeleteTrafficPolicyResponse$: StaticStructureSchema = [3, n0, _DTPRe,
 ];
 export var DeliverToMailboxAction$: StaticStructureSchema = [3, n0, _DTMA,
   0,
-  [_AFP, _MA, _RA],
-  [0, 0, 0]
+  [_MA, _RA, _AFP],
+  [0, 0, 0], 2
 ];
 export var DeliverToQBusinessAction$: StaticStructureSchema = [3, n0, _DTQBA,
   0,
-  [_AFP, _AIp, _II, _RA],
-  [0, 0, 0, 0]
+  [_AIp, _II, _RA, _AFP],
+  [0, 0, 0, 0], 3
 ];
 export var DeregisterMemberFromAddressListRequest$: StaticStructureSchema = [3, n0, _DMFALR,
   0,
   [_ALI, _A],
-  [0, [() => Address, 0]]
+  [0, [() => Address, 0]], 2
 ];
 export var DeregisterMemberFromAddressListResponse$: StaticStructureSchema = [3, n0, _DMFALRe,
   0,
@@ -763,7 +763,7 @@ export var ExportSummary$: StaticStructureSchema = [3, n0, _ESx,
 export var GetAddonInstanceRequest$: StaticStructureSchema = [3, n0, _GAIR,
   0,
   [_AII],
-  [0]
+  [0], 1
 ];
 export var GetAddonInstanceResponse$: StaticStructureSchema = [3, n0, _GAIRe,
   0,
@@ -773,7 +773,7 @@ export var GetAddonInstanceResponse$: StaticStructureSchema = [3, n0, _GAIRe,
 export var GetAddonSubscriptionRequest$: StaticStructureSchema = [3, n0, _GASR,
   0,
   [_ASI],
-  [0]
+  [0], 1
 ];
 export var GetAddonSubscriptionResponse$: StaticStructureSchema = [3, n0, _GASRe,
   0,
@@ -783,27 +783,27 @@ export var GetAddonSubscriptionResponse$: StaticStructureSchema = [3, n0, _GASRe
 export var GetAddressListImportJobRequest$: StaticStructureSchema = [3, n0, _GALIJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var GetAddressListImportJobResponse$: StaticStructureSchema = [3, n0, _GALIJRe,
   0,
-  [_JI, _N, _St, _PSU, _IIC, _FIC, _IDF, _ALI, _CT, _STt, _CTom, _Er],
-  [0, 0, 0, [() => PreSignedUrl, 0], 1, 1, () => ImportDataFormat$, 0, 4, 4, 4, 0]
+  [_JI, _N, _St, _PSU, _IDF, _ALI, _CT, _IIC, _FIC, _STt, _CTom, _Er],
+  [0, 0, 0, [() => PreSignedUrl, 0], () => ImportDataFormat$, 0, 4, 1, 1, 4, 4, 0], 7
 ];
 export var GetAddressListRequest$: StaticStructureSchema = [3, n0, _GALR,
   0,
   [_ALI],
-  [0]
+  [0], 1
 ];
 export var GetAddressListResponse$: StaticStructureSchema = [3, n0, _GALRe,
   0,
   [_ALI, _ALA, _ALN, _CT, _LUT],
-  [0, 0, 0, 4, 4]
+  [0, 0, 0, 4, 4], 5
 ];
 export var GetArchiveExportRequest$: StaticStructureSchema = [3, n0, _GAER,
   0,
   [_EI],
-  [0]
+  [0], 1
 ];
 export var GetArchiveExportResponse$: StaticStructureSchema = [3, n0, _GAERe,
   0,
@@ -813,7 +813,7 @@ export var GetArchiveExportResponse$: StaticStructureSchema = [3, n0, _GAERe,
 export var GetArchiveMessageContentRequest$: StaticStructureSchema = [3, n0, _GAMCR,
   0,
   [_AMI],
-  [0]
+  [0], 1
 ];
 export var GetArchiveMessageContentResponse$: StaticStructureSchema = [3, n0, _GAMCRe,
   0,
@@ -823,7 +823,7 @@ export var GetArchiveMessageContentResponse$: StaticStructureSchema = [3, n0, _G
 export var GetArchiveMessageRequest$: StaticStructureSchema = [3, n0, _GAMR,
   0,
   [_AMI],
-  [0]
+  [0], 1
 ];
 export var GetArchiveMessageResponse$: StaticStructureSchema = [3, n0, _GAMRe,
   0,
@@ -833,17 +833,17 @@ export var GetArchiveMessageResponse$: StaticStructureSchema = [3, n0, _GAMRe,
 export var GetArchiveRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_AIr],
-  [0]
+  [0], 1
 ];
 export var GetArchiveResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
   [_AIr, _ANr, _AAr, _ASr, _R, _CT, _LUT, _KKA],
-  [0, 0, 0, 0, () => ArchiveRetention$, 4, 4, 0]
+  [0, 0, 0, 0, () => ArchiveRetention$, 4, 4, 0], 5
 ];
 export var GetArchiveSearchRequest$: StaticStructureSchema = [3, n0, _GASRet,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var GetArchiveSearchResponse$: StaticStructureSchema = [3, n0, _GASRetr,
   0,
@@ -853,7 +853,7 @@ export var GetArchiveSearchResponse$: StaticStructureSchema = [3, n0, _GASRetr,
 export var GetArchiveSearchResultsRequest$: StaticStructureSchema = [3, n0, _GASRR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var GetArchiveSearchResultsResponse$: StaticStructureSchema = [3, n0, _GASRRe,
   0,
@@ -863,92 +863,92 @@ export var GetArchiveSearchResultsResponse$: StaticStructureSchema = [3, n0, _GA
 export var GetIngressPointRequest$: StaticStructureSchema = [3, n0, _GIPR,
   0,
   [_IPI],
-  [0]
+  [0], 1
 ];
 export var GetIngressPointResponse$: StaticStructureSchema = [3, n0, _GIPRe,
   0,
   [_IPI, _IPN, _IPA, _St, _Ty, _AR, _RSI, _TPI, _IPAC, _NC, _CT, _LUT],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => IngressPointAuthConfiguration$, () => NetworkConfiguration$, 4, 4]
+  [0, 0, 0, 0, 0, 0, 0, 0, () => IngressPointAuthConfiguration$, () => NetworkConfiguration$, 4, 4], 2
 ];
 export var GetMemberOfAddressListRequest$: StaticStructureSchema = [3, n0, _GMOALR,
   0,
   [_ALI, _A],
-  [0, [() => Address, 0]]
+  [0, [() => Address, 0]], 2
 ];
 export var GetMemberOfAddressListResponse$: StaticStructureSchema = [3, n0, _GMOALRe,
   0,
   [_A, _CT],
-  [[() => Address, 0], 4]
+  [[() => Address, 0], 4], 2
 ];
 export var GetRelayRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_RI],
-  [0]
+  [0], 1
 ];
 export var GetRelayResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
   [_RI, _RAe, _RN, _SN, _SPe, _Au, _CT, _LMT],
-  [0, 0, 0, 0, 1, () => RelayAuthentication$, 4, 4]
+  [0, 0, 0, 0, 1, () => RelayAuthentication$, 4, 4], 1
 ];
 export var GetRuleSetRequest$: StaticStructureSchema = [3, n0, _GRSR,
   0,
   [_RSI],
-  [0]
+  [0], 1
 ];
 export var GetRuleSetResponse$: StaticStructureSchema = [3, n0, _GRSRe,
   0,
   [_RSI, _RSA, _RSN, _CD, _LMD, _Ru],
-  [0, 0, 0, 4, 4, [() => Rules, 0]]
+  [0, 0, 0, 4, 4, [() => Rules, 0]], 6
 ];
 export var GetTrafficPolicyRequest$: StaticStructureSchema = [3, n0, _GTPR,
   0,
   [_TPI],
-  [0]
+  [0], 1
 ];
 export var GetTrafficPolicyResponse$: StaticStructureSchema = [3, n0, _GTPRe,
   0,
   [_TPN, _TPI, _TPA, _PS, _MMSB, _DA, _CT, _LUT],
-  [0, 0, 0, () => PolicyStatementList, 1, 0, 4, 4]
+  [0, 0, 0, () => PolicyStatementList, 1, 0, 4, 4], 2
 ];
 export var ImportDataFormat$: StaticStructureSchema = [3, n0, _IDF,
   0,
   [_IDT],
-  [0]
+  [0], 1
 ];
 export var ImportJob$: StaticStructureSchema = [3, n0, _IJ,
   0,
-  [_JI, _N, _St, _PSU, _IIC, _FIC, _IDF, _ALI, _CT, _STt, _CTom, _Er],
-  [0, 0, 0, [() => PreSignedUrl, 0], 1, 1, () => ImportDataFormat$, 0, 4, 4, 4, 0]
+  [_JI, _N, _St, _PSU, _IDF, _ALI, _CT, _IIC, _FIC, _STt, _CTom, _Er],
+  [0, 0, 0, [() => PreSignedUrl, 0], () => ImportDataFormat$, 0, 4, 1, 1, 4, 4, 0], 7
 ];
 export var IngressAnalysis$: StaticStructureSchema = [3, n0, _IA,
   0,
   [_Ana, _RF],
-  [0, 0]
+  [0, 0], 2
 ];
 export var IngressBooleanExpression$: StaticStructureSchema = [3, n0, _IBE,
   0,
   [_E, _O],
-  [() => IngressBooleanToEvaluate$, 0]
+  [() => IngressBooleanToEvaluate$, 0], 2
 ];
 export var IngressIpv4Expression$: StaticStructureSchema = [3, n0, _IIE,
   0,
   [_E, _O, _V],
-  [() => IngressIpToEvaluate$, 0, 64 | 0]
+  [() => IngressIpToEvaluate$, 0, 64 | 0], 3
 ];
 export var IngressIpv6Expression$: StaticStructureSchema = [3, n0, _IIEn,
   0,
   [_E, _O, _V],
-  [() => IngressIpv6ToEvaluate$, 0, 64 | 0]
+  [() => IngressIpv6ToEvaluate$, 0, 64 | 0], 3
 ];
 export var IngressIsInAddressList$: StaticStructureSchema = [3, n0, _IIIAL,
   0,
   [_At, _ALd],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var IngressPoint$: StaticStructureSchema = [3, n0, _IP,
   0,
   [_IPN, _IPI, _St, _Ty, _AR],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var IngressPointAuthConfiguration$: StaticStructureSchema = [3, n0, _IPAC,
   0,
@@ -963,12 +963,12 @@ export var IngressPointPasswordConfiguration$: StaticStructureSchema = [3, n0, _
 export var IngressStringExpression$: StaticStructureSchema = [3, n0, _ISE,
   0,
   [_E, _O, _V],
-  [() => IngressStringToEvaluate$, 0, 64 | 0]
+  [() => IngressStringToEvaluate$, 0, 64 | 0], 3
 ];
 export var IngressTlsProtocolExpression$: StaticStructureSchema = [3, n0, _ITPE,
   0,
   [_E, _O, _Va],
-  [() => IngressTlsProtocolToEvaluate$, 0, 0]
+  [() => IngressTlsProtocolToEvaluate$, 0, 0], 3
 ];
 export var ListAddonInstancesRequest$: StaticStructureSchema = [3, n0, _LAIR,
   0,
@@ -993,12 +993,12 @@ export var ListAddonSubscriptionsResponse$: StaticStructureSchema = [3, n0, _LAS
 export var ListAddressListImportJobsRequest$: StaticStructureSchema = [3, n0, _LALIJR,
   0,
   [_ALI, _NT, _PSa],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAddressListImportJobsResponse$: StaticStructureSchema = [3, n0, _LALIJRi,
   0,
   [_IJm, _NT],
-  [[() => ImportJobs, 0], 0]
+  [[() => ImportJobs, 0], 0], 1
 ];
 export var ListAddressListsRequest$: StaticStructureSchema = [3, n0, _LALR,
   0,
@@ -1008,12 +1008,12 @@ export var ListAddressListsRequest$: StaticStructureSchema = [3, n0, _LALR,
 export var ListAddressListsResponse$: StaticStructureSchema = [3, n0, _LALRi,
   0,
   [_ALd, _NT],
-  [() => AddressLists, 0]
+  [() => AddressLists, 0], 1
 ];
 export var ListArchiveExportsRequest$: StaticStructureSchema = [3, n0, _LAER,
   0,
   [_AIr, _NT, _PSa],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListArchiveExportsResponse$: StaticStructureSchema = [3, n0, _LAERi,
   0,
@@ -1023,7 +1023,7 @@ export var ListArchiveExportsResponse$: StaticStructureSchema = [3, n0, _LAERi,
 export var ListArchiveSearchesRequest$: StaticStructureSchema = [3, n0, _LASRis,
   0,
   [_AIr, _NT, _PSa],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListArchiveSearchesResponse$: StaticStructureSchema = [3, n0, _LASRist,
   0,
@@ -1038,7 +1038,7 @@ export var ListArchivesRequest$: StaticStructureSchema = [3, n0, _LAR,
 export var ListArchivesResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
   [_Arc, _NT],
-  [() => ArchivesList, 0]
+  [() => ArchivesList, 0], 1
 ];
 export var ListIngressPointsRequest$: StaticStructureSchema = [3, n0, _LIPR,
   0,
@@ -1053,12 +1053,12 @@ export var ListIngressPointsResponse$: StaticStructureSchema = [3, n0, _LIPRi,
 export var ListMembersOfAddressListRequest$: StaticStructureSchema = [3, n0, _LMOALR,
   0,
   [_ALI, _Fil, _NT, _PSa],
-  [0, [() => AddressFilter$, 0], 0, 1]
+  [0, [() => AddressFilter$, 0], 0, 1], 1
 ];
 export var ListMembersOfAddressListResponse$: StaticStructureSchema = [3, n0, _LMOALRi,
   0,
   [_Ad, _NT],
-  [[() => SavedAddresses, 0], 0]
+  [[() => SavedAddresses, 0], 0], 1
 ];
 export var ListRelaysRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
@@ -1068,7 +1068,7 @@ export var ListRelaysRequest$: StaticStructureSchema = [3, n0, _LRR,
 export var ListRelaysResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
   [_Re, _NT],
-  [() => Relays, 0]
+  [() => Relays, 0], 1
 ];
 export var ListRuleSetsRequest$: StaticStructureSchema = [3, n0, _LRSR,
   0,
@@ -1078,17 +1078,17 @@ export var ListRuleSetsRequest$: StaticStructureSchema = [3, n0, _LRSR,
 export var ListRuleSetsResponse$: StaticStructureSchema = [3, n0, _LRSRi,
   0,
   [_RS, _NT],
-  [() => RuleSets, 0]
+  [() => RuleSets, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAes],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_T],
-  [() => TagList]
+  [() => TagList], 1
 ];
 export var ListTrafficPoliciesRequest$: StaticStructureSchema = [3, n0, _LTPR,
   0,
@@ -1118,22 +1118,22 @@ export var NoAuthentication$: StaticStructureSchema = [3, n0, _NA,
 export var PolicyStatement$: StaticStructureSchema = [3, n0, _PSo,
   0,
   [_C, _Ac],
-  [() => PolicyConditions, 0]
+  [() => PolicyConditions, 0], 2
 ];
 export var PrivateNetworkConfiguration$: StaticStructureSchema = [3, n0, _PNC,
   0,
   [_VEI],
-  [0]
+  [0], 1
 ];
 export var PublicNetworkConfiguration$: StaticStructureSchema = [3, n0, _PNCu,
   0,
   [_IT],
-  [0]
+  [0], 1
 ];
 export var RegisterMemberToAddressListRequest$: StaticStructureSchema = [3, n0, _RMTALR,
   0,
   [_ALI, _A],
-  [0, [() => Address, 0]]
+  [0, [() => Address, 0]], 2
 ];
 export var RegisterMemberToAddressListResponse$: StaticStructureSchema = [3, n0, _RMTALRe,
   0,
@@ -1147,8 +1147,8 @@ export var Relay$: StaticStructureSchema = [3, n0, _Rel,
 ];
 export var RelayAction$: StaticStructureSchema = [3, n0, _RAel,
   0,
-  [_AFP, _Rel, _MF],
-  [0, 0, 0]
+  [_Rel, _AFP, _MF],
+  [0, 0, 0], 1
 ];
 export var ReplaceRecipientAction$: StaticStructureSchema = [3, n0, _RRA,
   0,
@@ -1168,33 +1168,33 @@ export var Row$: StaticStructureSchema = [3, n0, _Row,
 ];
 export var Rule$: StaticStructureSchema = [3, n0, _Rul,
   0,
-  [_N, _C, _U, _Act],
-  [0, () => RuleConditions, () => RuleConditions, [() => RuleActions, 0]]
+  [_Act, _N, _C, _U],
+  [[() => RuleActions, 0], 0, () => RuleConditions, () => RuleConditions], 1
 ];
 export var RuleBooleanExpression$: StaticStructureSchema = [3, n0, _RBE,
   0,
   [_E, _O],
-  [() => RuleBooleanToEvaluate$, 0]
+  [() => RuleBooleanToEvaluate$, 0], 2
 ];
 export var RuleDmarcExpression$: StaticStructureSchema = [3, n0, _RDE,
   0,
   [_O, _V],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RuleIpExpression$: StaticStructureSchema = [3, n0, _RIE,
   0,
   [_E, _O, _V],
-  [() => RuleIpToEvaluate$, 0, 64 | 0]
+  [() => RuleIpToEvaluate$, 0, 64 | 0], 3
 ];
 export var RuleIsInAddressList$: StaticStructureSchema = [3, n0, _RIIAL,
   0,
   [_At, _ALd],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RuleNumberExpression$: StaticStructureSchema = [3, n0, _RNE,
   0,
   [_E, _O, _Va],
-  [() => RuleNumberToEvaluate$, 0, 1]
+  [() => RuleNumberToEvaluate$, 0, 1], 3
 ];
 export var RuleSet$: StaticStructureSchema = [3, n0, _RSu,
   0,
@@ -1204,17 +1204,17 @@ export var RuleSet$: StaticStructureSchema = [3, n0, _RSu,
 export var RuleStringExpression$: StaticStructureSchema = [3, n0, _RSE,
   0,
   [_E, _O, _V],
-  [() => RuleStringToEvaluate$, 0, 64 | 0]
+  [() => RuleStringToEvaluate$, 0, 64 | 0], 3
 ];
 export var RuleVerdictExpression$: StaticStructureSchema = [3, n0, _RVE,
   0,
   [_E, _O, _V],
-  [() => RuleVerdictToEvaluate$, 0, 64 | 0]
+  [() => RuleVerdictToEvaluate$, 0, 64 | 0], 3
 ];
 export var S3Action$: StaticStructureSchema = [3, n0, _SAc,
   0,
-  [_AFP, _RA, _SB, _SPr, _SSKKI],
-  [0, 0, 0, 0, 0]
+  [_RA, _SB, _AFP, _SPr, _SSKKI],
+  [0, 0, 0, 0, 0], 2
 ];
 export var S3ExportDestinationConfiguration$: StaticStructureSchema = [3, n0, _SEDC,
   0,
@@ -1224,7 +1224,7 @@ export var S3ExportDestinationConfiguration$: StaticStructureSchema = [3, n0, _S
 export var SavedAddress$: StaticStructureSchema = [3, n0, _SAa,
   0,
   [_A, _CT],
-  [[() => Address, 0], 4]
+  [[() => Address, 0], 4], 2
 ];
 export var SearchStatus$: StaticStructureSchema = [3, n0, _SS,
   0,
@@ -1238,8 +1238,8 @@ export var SearchSummary$: StaticStructureSchema = [3, n0, _SSe,
 ];
 export var SendAction$: StaticStructureSchema = [3, n0, _SAe,
   0,
-  [_AFP, _RA],
-  [0, 0]
+  [_RA, _AFP],
+  [0, 0], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -1249,13 +1249,13 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SnsAction$: StaticStructureSchema = [3, n0, _SAn,
   0,
-  [_AFP, _TAo, _RA, _Enc, _PT],
-  [0, 0, 0, 0, 0]
+  [_TAo, _RA, _AFP, _Enc, _PT],
+  [0, 0, 0, 0, 0], 2
 ];
 export var StartAddressListImportJobRequest$: StaticStructureSchema = [3, n0, _SALIJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StartAddressListImportJobResponse$: StaticStructureSchema = [3, n0, _SALIJRt,
   0,
@@ -1264,8 +1264,8 @@ export var StartAddressListImportJobResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var StartArchiveExportRequest$: StaticStructureSchema = [3, n0, _SAER,
   0,
-  [_AIr, _Fi, _FT, _TT, _MR, _EDC, _IM],
-  [0, () => ArchiveFilters$, 4, 4, 1, () => ExportDestinationConfiguration$, 2]
+  [_AIr, _FT, _TT, _EDC, _Fi, _MR, _IM],
+  [0, 4, 4, () => ExportDestinationConfiguration$, () => ArchiveFilters$, 1, 2], 4
 ];
 export var StartArchiveExportResponse$: StaticStructureSchema = [3, n0, _SAERt,
   0,
@@ -1274,8 +1274,8 @@ export var StartArchiveExportResponse$: StaticStructureSchema = [3, n0, _SAERt,
 ];
 export var StartArchiveSearchRequest$: StaticStructureSchema = [3, n0, _SASR,
   0,
-  [_AIr, _Fi, _FT, _TT, _MR],
-  [0, () => ArchiveFilters$, 4, 4, 1]
+  [_AIr, _FT, _TT, _MR, _Fi],
+  [0, 4, 4, 1, () => ArchiveFilters$], 4
 ];
 export var StartArchiveSearchResponse$: StaticStructureSchema = [3, n0, _SASRt,
   0,
@@ -1285,7 +1285,7 @@ export var StartArchiveSearchResponse$: StaticStructureSchema = [3, n0, _SASRt,
 export var StopAddressListImportJobRequest$: StaticStructureSchema = [3, n0, _SALIJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopAddressListImportJobResponse$: StaticStructureSchema = [3, n0, _SALIJRtop,
   0,
@@ -1295,7 +1295,7 @@ export var StopAddressListImportJobResponse$: StaticStructureSchema = [3, n0, _S
 export var StopArchiveExportRequest$: StaticStructureSchema = [3, n0, _SAERto,
   0,
   [_EI],
-  [0]
+  [0], 1
 ];
 export var StopArchiveExportResponse$: StaticStructureSchema = [3, n0, _SAERtop,
   0,
@@ -1305,7 +1305,7 @@ export var StopArchiveExportResponse$: StaticStructureSchema = [3, n0, _SAERtop,
 export var StopArchiveSearchRequest$: StaticStructureSchema = [3, n0, _SASRto,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var StopArchiveSearchResponse$: StaticStructureSchema = [3, n0, _SASRtop,
   0,
@@ -1315,12 +1315,12 @@ export var StopArchiveSearchResponse$: StaticStructureSchema = [3, n0, _SASRtop,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAes, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1336,12 +1336,12 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrafficPolicy$: StaticStructureSchema = [3, n0, _TPr,
   0,
   [_TPN, _TPI, _DA],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAes, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1351,7 +1351,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateArchiveRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_AIr, _ANr, _R],
-  [0, 0, () => ArchiveRetention$]
+  [0, 0, () => ArchiveRetention$], 1
 ];
 export var UpdateArchiveResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -1361,7 +1361,7 @@ export var UpdateArchiveResponse$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateIngressPointRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
   [_IPI, _IPN, _STU, _RSI, _TPI, _IPC],
-  [0, 0, 0, 0, 0, [() => IngressPointConfiguration$, 0]]
+  [0, 0, 0, 0, 0, [() => IngressPointConfiguration$, 0]], 1
 ];
 export var UpdateIngressPointResponse$: StaticStructureSchema = [3, n0, _UIPRp,
   0,
@@ -1371,7 +1371,7 @@ export var UpdateIngressPointResponse$: StaticStructureSchema = [3, n0, _UIPRp,
 export var UpdateRelayRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_RI, _RN, _SN, _SPe, _Au],
-  [0, 0, 0, 1, () => RelayAuthentication$]
+  [0, 0, 0, 1, () => RelayAuthentication$], 1
 ];
 export var UpdateRelayResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -1381,7 +1381,7 @@ export var UpdateRelayResponse$: StaticStructureSchema = [3, n0, _URRpd,
 export var UpdateRuleSetRequest$: StaticStructureSchema = [3, n0, _URSR,
   0,
   [_RSI, _RSN, _Ru],
-  [0, 0, [() => Rules, 0]]
+  [0, 0, [() => Rules, 0]], 1
 ];
 export var UpdateRuleSetResponse$: StaticStructureSchema = [3, n0, _URSRp,
   0,
@@ -1391,7 +1391,7 @@ export var UpdateRuleSetResponse$: StaticStructureSchema = [3, n0, _URSRp,
 export var UpdateTrafficPolicyRequest$: StaticStructureSchema = [3, n0, _UTPR,
   0,
   [_TPI, _TPN, _PS, _DA, _MMSB],
-  [0, 0, () => PolicyStatementList, 0, 1]
+  [0, 0, () => PolicyStatementList, 0, 1], 1
 ];
 export var UpdateTrafficPolicyResponse$: StaticStructureSchema = [3, n0, _UTPRp,
   0,

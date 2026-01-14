@@ -199,7 +199,7 @@ export var Address$: StaticStructureSchema = [3, n0, _A,
 export var AttributeOperation$: StaticStructureSchema = [3, n0, _AO,
   0,
   [_AP, _AV],
-  [0, 15]
+  [0, 15], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -210,37 +210,37 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateGroupMembershipRequest$: StaticStructureSchema = [3, n0, _CGMR,
   0,
   [_ISI, _GI, _MI],
-  [0, 0, () => MemberId$]
+  [0, 0, () => MemberId$], 3
 ];
 export var CreateGroupMembershipResponse$: StaticStructureSchema = [3, n0, _CGMRr,
   0,
   [_MIe, _ISI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
   [_ISI, _DN, _D],
-  [0, [() => GroupDisplayName, 0], [() => SensitiveStringType, 0]]
+  [0, [() => GroupDisplayName, 0], [() => SensitiveStringType, 0]], 1
 ];
 export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
   [_GI, _ISI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
   [_ISI, _UN, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _Ph, _W, _B, _Ro, _Ex],
-  [0, [() => UserName, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Roles, 0], 128 | 15]
+  [0, [() => UserName, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Roles, 0], 128 | 15], 1
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
   [_ISI, _UI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteGroupMembershipRequest$: StaticStructureSchema = [3, n0, _DGMR,
   0,
   [_ISI, _MIe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteGroupMembershipResponse$: StaticStructureSchema = [3, n0, _DGMRe,
   0,
@@ -250,7 +250,7 @@ export var DeleteGroupMembershipResponse$: StaticStructureSchema = [3, n0, _DGMR
 export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
   [_ISI, _GI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe,
   0,
@@ -260,7 +260,7 @@ export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe,
 export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_ISI, _UI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe,
   0,
@@ -270,32 +270,32 @@ export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe,
 export var DescribeGroupMembershipRequest$: StaticStructureSchema = [3, n0, _DGMRes,
   0,
   [_ISI, _MIe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeGroupMembershipResponse$: StaticStructureSchema = [3, n0, _DGMResc,
   0,
   [_ISI, _MIe, _GI, _MI, _CA, _UA, _CB, _UB],
-  [0, 0, 0, () => MemberId$, 4, 4, 0, 0]
+  [0, 0, 0, () => MemberId$, 4, 4, 0, 0], 4
 ];
 export var DescribeGroupRequest$: StaticStructureSchema = [3, n0, _DGRes,
   0,
   [_ISI, _GI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeGroupResponse$: StaticStructureSchema = [3, n0, _DGResc,
   0,
-  [_GI, _DN, _EI, _D, _CA, _UA, _CB, _UB, _ISI],
-  [0, [() => GroupDisplayName, 0], [() => ExternalIds, 0], [() => SensitiveStringType, 0], 4, 4, 0, 0, 0]
+  [_GI, _ISI, _DN, _EI, _D, _CA, _UA, _CB, _UB],
+  [0, 0, [() => GroupDisplayName, 0], [() => ExternalIds, 0], [() => SensitiveStringType, 0], 4, 4, 0, 0], 2
 ];
 export var DescribeUserRequest$: StaticStructureSchema = [3, n0, _DURes,
   0,
   [_ISI, _UI, _Ex],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 2
 ];
 export var DescribeUserResponse$: StaticStructureSchema = [3, n0, _DUResc,
   0,
   [_ISI, _UI, _UN, _EI, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _US, _Ph, _W, _B, _Ro, _CA, _CB, _UA, _UB, _Ex],
-  [0, 0, [() => UserName, 0], [() => ExternalIds, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 0, [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Roles, 0], 4, 0, 4, 0, 128 | 15]
+  [0, 0, [() => UserName, 0], [() => ExternalIds, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 0, [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Roles, 0], 4, 0, 4, 0, 128 | 15], 2
 ];
 export var Email$: StaticStructureSchema = [3, n0, _Em,
   0,
@@ -305,52 +305,52 @@ export var Email$: StaticStructureSchema = [3, n0, _Em,
 export var ExternalId$: StaticStructureSchema = [3, n0, _EIx,
   0,
   [_I, _Id],
-  [[() => ExternalIdIssuer, 0], [() => ExternalIdIdentifier, 0]]
+  [[() => ExternalIdIssuer, 0], [() => ExternalIdIdentifier, 0]], 2
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_AP, _AV],
-  [0, [() => SensitiveStringType, 0]]
+  [0, [() => SensitiveStringType, 0]], 2
 ];
 export var GetGroupIdRequest$: StaticStructureSchema = [3, n0, _GGIR,
   0,
   [_ISI, _AI],
-  [0, [() => AlternateIdentifier$, 0]]
+  [0, [() => AlternateIdentifier$, 0]], 2
 ];
 export var GetGroupIdResponse$: StaticStructureSchema = [3, n0, _GGIRe,
   0,
   [_GI, _ISI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetGroupMembershipIdRequest$: StaticStructureSchema = [3, n0, _GGMIR,
   0,
   [_ISI, _GI, _MI],
-  [0, 0, () => MemberId$]
+  [0, 0, () => MemberId$], 3
 ];
 export var GetGroupMembershipIdResponse$: StaticStructureSchema = [3, n0, _GGMIRe,
   0,
   [_MIe, _ISI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetUserIdRequest$: StaticStructureSchema = [3, n0, _GUIR,
   0,
   [_ISI, _AI],
-  [0, [() => AlternateIdentifier$, 0]]
+  [0, [() => AlternateIdentifier$, 0]], 2
 ];
 export var GetUserIdResponse$: StaticStructureSchema = [3, n0, _GUIRe,
   0,
   [_ISI, _UI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Group$: StaticStructureSchema = [3, n0, _G,
   0,
-  [_GI, _DN, _EI, _D, _CA, _UA, _CB, _UB, _ISI],
-  [0, [() => GroupDisplayName, 0], [() => ExternalIds, 0], [() => SensitiveStringType, 0], 4, 4, 0, 0, 0]
+  [_GI, _ISI, _DN, _EI, _D, _CA, _UA, _CB, _UB],
+  [0, 0, [() => GroupDisplayName, 0], [() => ExternalIds, 0], [() => SensitiveStringType, 0], 4, 4, 0, 0], 2
 ];
 export var GroupMembership$: StaticStructureSchema = [3, n0, _GM,
   0,
   [_ISI, _MIe, _GI, _MI, _CA, _UA, _CB, _UB],
-  [0, 0, 0, () => MemberId$, 4, 4, 0, 0]
+  [0, 0, 0, () => MemberId$, 4, 4, 0, 0], 1
 ];
 export var GroupMembershipExistenceResult$: StaticStructureSchema = [3, n0, _GMER,
   0,
@@ -366,52 +366,52 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var IsMemberInGroupsRequest$: StaticStructureSchema = [3, n0, _IMIGR,
   0,
   [_ISI, _MI, _GIr],
-  [0, () => MemberId$, 64 | 0]
+  [0, () => MemberId$, 64 | 0], 3
 ];
 export var IsMemberInGroupsResponse$: StaticStructureSchema = [3, n0, _IMIGRs,
   0,
   [_Res],
-  [() => GroupMembershipExistenceResults]
+  [() => GroupMembershipExistenceResults], 1
 ];
 export var ListGroupMembershipsForMemberRequest$: StaticStructureSchema = [3, n0, _LGMFMR,
   0,
   [_ISI, _MI, _MR, _NT],
-  [0, () => MemberId$, 1, 0]
+  [0, () => MemberId$, 1, 0], 2
 ];
 export var ListGroupMembershipsForMemberResponse$: StaticStructureSchema = [3, n0, _LGMFMRi,
   0,
   [_GMr, _NT],
-  [() => GroupMemberships, 0]
+  [() => GroupMemberships, 0], 1
 ];
 export var ListGroupMembershipsRequest$: StaticStructureSchema = [3, n0, _LGMR,
   0,
   [_ISI, _GI, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 2
 ];
 export var ListGroupMembershipsResponse$: StaticStructureSchema = [3, n0, _LGMRi,
   0,
   [_GMr, _NT],
-  [() => GroupMemberships, 0]
+  [() => GroupMemberships, 0], 1
 ];
 export var ListGroupsRequest$: StaticStructureSchema = [3, n0, _LGR,
   0,
   [_ISI, _MR, _NT, _Fil],
-  [0, 1, 0, [() => Filters, 0]]
+  [0, 1, 0, [() => Filters, 0]], 1
 ];
 export var ListGroupsResponse$: StaticStructureSchema = [3, n0, _LGRi,
   0,
   [_Gr, _NT],
-  [[() => Groups, 0], 0]
+  [[() => Groups, 0], 0], 1
 ];
 export var ListUsersRequest$: StaticStructureSchema = [3, n0, _LUR,
   0,
   [_ISI, _Ex, _MR, _NT, _Fil],
-  [0, 64 | 0, 1, 0, [() => Filters, 0]]
+  [0, 64 | 0, 1, 0, [() => Filters, 0]], 1
 ];
 export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
   0,
   [_U, _NT],
-  [[() => Users, 0], 0]
+  [[() => Users, 0], 0], 1
 ];
 export var Name$: StaticStructureSchema = [3, n0, _N,
   0,
@@ -426,7 +426,7 @@ export var PhoneNumber$: StaticStructureSchema = [3, n0, _PNh,
 export var Photo$: StaticStructureSchema = [3, n0, _Pho,
   0,
   [_V, _T, _Di, _P],
-  [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 2]
+  [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 2], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -454,12 +454,12 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UniqueAttribute$: StaticStructureSchema = [3, n0, _UAn,
   0,
   [_AP, _AV],
-  [0, 15]
+  [0, 15], 2
 ];
 export var UpdateGroupRequest$: StaticStructureSchema = [3, n0, _UGR,
   0,
   [_ISI, _GI, _O],
-  [0, 0, () => AttributeOperations]
+  [0, 0, () => AttributeOperations], 3
 ];
 export var UpdateGroupResponse$: StaticStructureSchema = [3, n0, _UGRp,
   0,
@@ -469,7 +469,7 @@ export var UpdateGroupResponse$: StaticStructureSchema = [3, n0, _UGRp,
 export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
   [_ISI, _UI, _O],
-  [0, 0, () => AttributeOperations]
+  [0, 0, () => AttributeOperations], 3
 ];
 export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
   0,
@@ -479,7 +479,7 @@ export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
 export var User$: StaticStructureSchema = [3, n0, _Us,
   0,
   [_ISI, _UI, _UN, _EI, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _US, _Ph, _W, _B, _Ro, _CA, _CB, _UA, _UB, _Ex],
-  [0, 0, [() => UserName, 0], [() => ExternalIds, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 0, [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Roles, 0], 4, 0, 4, 0, 128 | 15]
+  [0, 0, [() => UserName, 0], [() => ExternalIds, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 0, [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Roles, 0], 4, 0, 4, 0, 128 | 15], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

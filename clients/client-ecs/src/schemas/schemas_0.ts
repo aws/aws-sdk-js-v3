@@ -1063,12 +1063,12 @@ export var Attachment$: StaticStructureSchema = [3, n0, _A,
 export var AttachmentStateChange$: StaticStructureSchema = [3, n0, _ASC,
   0,
   [_aA, _s],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Attribute$: StaticStructureSchema = [3, n0, _At,
   0,
   [_n, _v, _tT, _tI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var AttributeLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEE,
   { [_e]: _c },
@@ -1079,7 +1079,7 @@ TypeRegistry.for(n0).registerError(AttributeLimitExceededException$, AttributeLi
 export var AutoScalingGroupProvider$: StaticStructureSchema = [3, n0, _ASGP,
   0,
   [_aSGA, _mS, _mTP, _mD],
-  [0, () => ManagedScaling$, 0, 0]
+  [0, () => ManagedScaling$, 0, 0], 1
 ];
 export var AutoScalingGroupProviderUpdate$: StaticStructureSchema = [3, n0, _ASGPU,
   0,
@@ -1089,7 +1089,7 @@ export var AutoScalingGroupProviderUpdate$: StaticStructureSchema = [3, n0, _ASG
 export var AwsVpcConfiguration$: StaticStructureSchema = [3, n0, _AVC,
   0,
   [_su, _sG, _aPI],
-  [64 | 0, 64 | 0, 0]
+  [64 | 0, 64 | 0, 0], 1
 ];
 export var BaselineEbsBandwidthMbpsRequest$: StaticStructureSchema = [3, n0, _BEBMR,
   0,
@@ -1115,7 +1115,7 @@ export var CapacityProvider$: StaticStructureSchema = [3, n0, _CP,
 export var CapacityProviderStrategyItem$: StaticStructureSchema = [3, n0, _CPSI,
   0,
   [_cPa, _w, _b],
-  [0, 1, 1]
+  [0, 1, 1], 1
 ];
 export var ClientException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c },
@@ -1171,7 +1171,7 @@ export var ClusterServiceConnectDefaults$: StaticStructureSchema = [3, n0, _CSCD
 export var ClusterServiceConnectDefaultsRequest$: StaticStructureSchema = [3, n0, _CSCDR,
   0,
   [_na],
-  [0]
+  [0], 1
 ];
 export var ClusterSetting$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -1197,7 +1197,7 @@ export var ContainerDefinition$: StaticStructureSchema = [3, n0, _CD,
 export var ContainerDependency$: StaticStructureSchema = [3, n0, _CDo,
   0,
   [_cNo, _con],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ContainerImage$: StaticStructureSchema = [3, n0, _CI,
   0,
@@ -1222,7 +1222,7 @@ export var ContainerOverride$: StaticStructureSchema = [3, n0, _CO,
 export var ContainerRestartPolicy$: StaticStructureSchema = [3, n0, _CRP,
   0,
   [_ena, _iEC, _rAP],
-  [2, 64 | 1, 1]
+  [2, 64 | 1, 1], 1
 ];
 export var ContainerStateChange$: StaticStructureSchema = [3, n0, _CSC,
   0,
@@ -1232,7 +1232,7 @@ export var ContainerStateChange$: StaticStructureSchema = [3, n0, _CSC,
 export var CreateCapacityProviderRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
   [_n, _cl, _aSGP, _mIP, _ta],
-  [0, 0, () => AutoScalingGroupProvider$, [() => CreateManagedInstancesProviderConfiguration$, 0], () => Tags]
+  [0, 0, () => AutoScalingGroupProvider$, [() => CreateManagedInstancesProviderConfiguration$, 0], () => Tags], 1
 ];
 export var CreateCapacityProviderResponse$: StaticStructureSchema = [3, n0, _CCPRr,
   0,
@@ -1256,8 +1256,8 @@ export var CreatedAt$: StaticStructureSchema = [3, n0, _CA,
 ];
 export var CreateExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _CEGSR,
   0,
-  [_eRA, _iRA, _sN, _cl, _hCP, _pC, _tRA, _nC, _cp, _mem, _sTc, _ta],
-  [0, 0, 0, 0, 0, () => ExpressGatewayContainer$, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$, () => Tags]
+  [_eRA, _iRA, _pC, _sN, _cl, _hCP, _tRA, _nC, _cp, _mem, _sTc, _ta],
+  [0, 0, () => ExpressGatewayContainer$, 0, 0, 0, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$, () => Tags], 3
 ];
 export var CreateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _CEGSRr,
   0,
@@ -1267,12 +1267,12 @@ export var CreateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0,
 export var CreateManagedInstancesProviderConfiguration$: StaticStructureSchema = [3, n0, _CMIPC,
   0,
   [_iRA, _iLT, _pTr, _iO],
-  [0, [() => InstanceLaunchTemplate$, 0], 0, () => InfrastructureOptimization$]
+  [0, [() => InstanceLaunchTemplate$, 0], 0, () => InfrastructureOptimization$], 2
 ];
 export var CreateServiceRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_cl, _sN, _tD, _aZR, _lB, _sRe, _dC, _cT, _lT, _cPS, _pV, _ro, _dCe, _pCl, _pS, _nC, _hCGPS, _sS, _dCep, _ta, _eECSMT, _pTr, _eEC, _sCC, _vCo, _vLC],
-  [0, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, 1, 0, 0, () => CapacityProviderStrategy, 0, 0, () => DeploymentConfiguration$, () => PlacementConstraints, () => PlacementStrategies, () => NetworkConfiguration$, 1, 0, () => DeploymentController$, () => Tags, 2, 0, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations]
+  [_sN, _cl, _tD, _aZR, _lB, _sRe, _dC, _cT, _lT, _cPS, _pV, _ro, _dCe, _pCl, _pS, _nC, _hCGPS, _sS, _dCep, _ta, _eECSMT, _pTr, _eEC, _sCC, _vCo, _vLC],
+  [0, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, 1, 0, 0, () => CapacityProviderStrategy, 0, 0, () => DeploymentConfiguration$, () => PlacementConstraints, () => PlacementStrategies, () => NetworkConfiguration$, 1, 0, () => DeploymentController$, () => Tags, 2, 0, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations], 1
 ];
 export var CreateServiceResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -1281,8 +1281,8 @@ export var CreateServiceResponse$: StaticStructureSchema = [3, n0, _CSRr,
 ];
 export var CreateTaskSetRequest$: StaticStructureSchema = [3, n0, _CTSR,
   0,
-  [_ser, _cl, _eI, _tD, _nC, _lB, _sRe, _lT, _cPS, _pV, _sc, _cT, _ta],
-  [0, 0, 0, 0, () => NetworkConfiguration$, () => LoadBalancers, () => ServiceRegistries, 0, () => CapacityProviderStrategy, 0, () => Scale$, 0, () => Tags]
+  [_ser, _cl, _tD, _eI, _nC, _lB, _sRe, _lT, _cPS, _pV, _sc, _cT, _ta],
+  [0, 0, 0, 0, () => NetworkConfiguration$, () => LoadBalancers, () => ServiceRegistries, 0, () => CapacityProviderStrategy, 0, () => Scale$, 0, () => Tags], 3
 ];
 export var CreateTaskSetResponse$: StaticStructureSchema = [3, n0, _CTSRr,
   0,
@@ -1292,7 +1292,7 @@ export var CreateTaskSetResponse$: StaticStructureSchema = [3, n0, _CTSRr,
 export var DeleteAccountSettingRequest$: StaticStructureSchema = [3, n0, _DASR,
   0,
   [_n, _pA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteAccountSettingResponse$: StaticStructureSchema = [3, n0, _DASRe,
   0,
@@ -1301,8 +1301,8 @@ export var DeleteAccountSettingResponse$: StaticStructureSchema = [3, n0, _DASRe
 ];
 export var DeleteAttributesRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
-  [_cl, _at],
-  [0, () => Attributes]
+  [_at, _cl],
+  [() => Attributes, 0], 1
 ];
 export var DeleteAttributesResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -1312,7 +1312,7 @@ export var DeleteAttributesResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteCapacityProviderRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
   [_cPa, _cl],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteCapacityProviderResponse$: StaticStructureSchema = [3, n0, _DCPRe,
   0,
@@ -1322,7 +1322,7 @@ export var DeleteCapacityProviderResponse$: StaticStructureSchema = [3, n0, _DCP
 export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cl],
-  [0]
+  [0], 1
 ];
 export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -1332,7 +1332,7 @@ export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _DEGSR,
   0,
   [_sA],
-  [0]
+  [0], 1
 ];
 export var DeleteExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _DEGSRe,
   0,
@@ -1341,8 +1341,8 @@ export var DeleteExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0,
 ];
 export var DeleteServiceRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
-  [_cl, _ser, _f],
-  [0, 0, 2]
+  [_ser, _cl, _f],
+  [0, 0, 2], 1
 ];
 export var DeleteServiceResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -1352,7 +1352,7 @@ export var DeleteServiceResponse$: StaticStructureSchema = [3, n0, _DSRe,
 export var DeleteTaskDefinitionsRequest$: StaticStructureSchema = [3, n0, _DTDR,
   0,
   [_tDa],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DeleteTaskDefinitionsResponse$: StaticStructureSchema = [3, n0, _DTDRe,
   0,
@@ -1362,7 +1362,7 @@ export var DeleteTaskDefinitionsResponse$: StaticStructureSchema = [3, n0, _DTDR
 export var DeleteTaskSetRequest$: StaticStructureSchema = [3, n0, _DTSR,
   0,
   [_cl, _ser, _tS, _f],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 3
 ];
 export var DeleteTaskSetResponse$: StaticStructureSchema = [3, n0, _DTSRe,
   0,
@@ -1377,12 +1377,12 @@ export var Deployment$: StaticStructureSchema = [3, n0, _D,
 export var DeploymentAlarms$: StaticStructureSchema = [3, n0, _DA,
   0,
   [_aN, _rol, _enab],
-  [64 | 0, 2, 2]
+  [64 | 0, 2, 2], 3
 ];
 export var DeploymentCircuitBreaker$: StaticStructureSchema = [3, n0, _DCB,
   0,
   [_enab, _rol],
-  [2, 2]
+  [2, 2], 2
 ];
 export var DeploymentConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
@@ -1392,7 +1392,7 @@ export var DeploymentConfiguration$: StaticStructureSchema = [3, n0, _DC,
 export var DeploymentController$: StaticStructureSchema = [3, n0, _DCe,
   0,
   [_t],
-  [0]
+  [0], 1
 ];
 export var DeploymentEphemeralStorage$: StaticStructureSchema = [3, n0, _DES,
   0,
@@ -1406,8 +1406,8 @@ export var DeploymentLifecycleHook$: StaticStructureSchema = [3, n0, _DLH,
 ];
 export var DeregisterContainerInstanceRequest$: StaticStructureSchema = [3, n0, _DCIR,
   0,
-  [_cl, _cI, _f],
-  [0, 0, 2]
+  [_cI, _cl, _f],
+  [0, 0, 2], 1
 ];
 export var DeregisterContainerInstanceResponse$: StaticStructureSchema = [3, n0, _DCIRe,
   0,
@@ -1417,7 +1417,7 @@ export var DeregisterContainerInstanceResponse$: StaticStructureSchema = [3, n0,
 export var DeregisterTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _DTDRer,
   0,
   [_tD],
-  [0]
+  [0], 1
 ];
 export var DeregisterTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _DTDRere,
   0,
@@ -1446,8 +1446,8 @@ export var DescribeClustersResponse$: StaticStructureSchema = [3, n0, _DCResc,
 ];
 export var DescribeContainerInstancesRequest$: StaticStructureSchema = [3, n0, _DCIRes,
   0,
-  [_cl, _cIo, _inc],
-  [0, 64 | 0, 64 | 0]
+  [_cIo, _cl, _inc],
+  [64 | 0, 0, 64 | 0], 1
 ];
 export var DescribeContainerInstancesResponse$: StaticStructureSchema = [3, n0, _DCIResc,
   0,
@@ -1457,7 +1457,7 @@ export var DescribeContainerInstancesResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _DEGSRes,
   0,
   [_sA, _inc],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var DescribeExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _DEGSResc,
   0,
@@ -1467,7 +1467,7 @@ export var DescribeExpressGatewayServiceResponse$: StaticStructureSchema = [3, n
 export var DescribeServiceDeploymentsRequest$: StaticStructureSchema = [3, n0, _DSDR,
   0,
   [_sDA],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeServiceDeploymentsResponse$: StaticStructureSchema = [3, n0, _DSDRe,
   0,
@@ -1477,7 +1477,7 @@ export var DescribeServiceDeploymentsResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeServiceRevisionsRequest$: StaticStructureSchema = [3, n0, _DSRR,
   0,
   [_sRA],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeServiceRevisionsResponse$: StaticStructureSchema = [3, n0, _DSRRe,
   0,
@@ -1486,8 +1486,8 @@ export var DescribeServiceRevisionsResponse$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeServicesRequest$: StaticStructureSchema = [3, n0, _DSRes,
   0,
-  [_cl, _serv, _inc],
-  [0, 64 | 0, 64 | 0]
+  [_serv, _cl, _inc],
+  [64 | 0, 0, 64 | 0], 1
 ];
 export var DescribeServicesResponse$: StaticStructureSchema = [3, n0, _DSResc,
   0,
@@ -1497,7 +1497,7 @@ export var DescribeServicesResponse$: StaticStructureSchema = [3, n0, _DSResc,
 export var DescribeTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _DTDRes,
   0,
   [_tD, _inc],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var DescribeTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _DTDResc,
   0,
@@ -1507,7 +1507,7 @@ export var DescribeTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _DTD
 export var DescribeTaskSetsRequest$: StaticStructureSchema = [3, n0, _DTSRes,
   0,
   [_cl, _ser, _tSa, _inc],
-  [0, 0, 64 | 0, 64 | 0]
+  [0, 0, 64 | 0, 64 | 0], 2
 ];
 export var DescribeTaskSetsResponse$: StaticStructureSchema = [3, n0, _DTSResc,
   0,
@@ -1516,8 +1516,8 @@ export var DescribeTaskSetsResponse$: StaticStructureSchema = [3, n0, _DTSResc,
 ];
 export var DescribeTasksRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
-  [_cl, _tas, _inc],
-  [0, 64 | 0, 64 | 0]
+  [_tas, _cl, _inc],
+  [64 | 0, 0, 64 | 0], 1
 ];
 export var DescribeTasksResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -1527,7 +1527,7 @@ export var DescribeTasksResponse$: StaticStructureSchema = [3, n0, _DTRe,
 export var Device$: StaticStructureSchema = [3, n0, _De,
   0,
   [_hP, _cPo, _pe],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 1
 ];
 export var DiscoverPollEndpointRequest$: StaticStructureSchema = [3, n0, _DPER,
   0,
@@ -1547,7 +1547,7 @@ export var DockerVolumeConfiguration$: StaticStructureSchema = [3, n0, _DVC,
 export var EBSTagSpecification$: StaticStructureSchema = [3, n0, _EBSTS,
   0,
   [_rT, _ta, _pTr],
-  [0, () => Tags, 0]
+  [0, () => Tags, 0], 1
 ];
 export var ECSExpressGatewayService$: StaticStructureSchema = [3, n0, _ECSEGS,
   0,
@@ -1567,17 +1567,17 @@ export var EFSAuthorizationConfig$: StaticStructureSchema = [3, n0, _EFSAC,
 export var EFSVolumeConfiguration$: StaticStructureSchema = [3, n0, _EFSVC,
   0,
   [_fSI, _rD, _tEr, _tEP, _aCu],
-  [0, 0, 0, 1, () => EFSAuthorizationConfig$]
+  [0, 0, 0, 1, () => EFSAuthorizationConfig$], 1
 ];
 export var EnvironmentFile$: StaticStructureSchema = [3, n0, _EF,
   0,
   [_v, _t],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EphemeralStorage$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_sIGB],
-  [1]
+  [1], 1
 ];
 export var ExecuteCommandConfiguration$: StaticStructureSchema = [3, n0, _ECC,
   0,
@@ -1591,8 +1591,8 @@ export var ExecuteCommandLogConfiguration$: StaticStructureSchema = [3, n0, _ECL
 ];
 export var ExecuteCommandRequest$: StaticStructureSchema = [3, n0, _ECR,
   0,
-  [_cl, _cont, _com, _in, _task],
-  [0, 0, 0, 2, 0]
+  [_com, _in, _task, _cl, _cont],
+  [0, 2, 0, 0, 0], 3
 ];
 export var ExecuteCommandResponse$: StaticStructureSchema = [3, n0, _ECRx,
   0,
@@ -1602,7 +1602,7 @@ export var ExecuteCommandResponse$: StaticStructureSchema = [3, n0, _ECRx,
 export var ExpressGatewayContainer$: StaticStructureSchema = [3, n0, _EGC,
   0,
   [_im, _cPon, _aLC, _rC, _com, _en, _sec],
-  [0, 1, () => ExpressGatewayServiceAwsLogsConfiguration$, () => ExpressGatewayRepositoryCredentials$, 64 | 0, () => EnvironmentVariables, () => SecretList]
+  [0, 1, () => ExpressGatewayServiceAwsLogsConfiguration$, () => ExpressGatewayRepositoryCredentials$, 64 | 0, () => EnvironmentVariables, () => SecretList], 1
 ];
 export var ExpressGatewayRepositoryCredentials$: StaticStructureSchema = [3, n0, _EGRC,
   0,
@@ -1617,7 +1617,7 @@ export var ExpressGatewayScalingTarget$: StaticStructureSchema = [3, n0, _EGST,
 export var ExpressGatewayServiceAwsLogsConfiguration$: StaticStructureSchema = [3, n0, _EGSALC,
   0,
   [_lGo, _lSP],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ExpressGatewayServiceConfiguration$: StaticStructureSchema = [3, n0, _EGSC,
   0,
@@ -1642,22 +1642,22 @@ export var Failure$: StaticStructureSchema = [3, n0, _F,
 export var FirelensConfiguration$: StaticStructureSchema = [3, n0, _FC,
   0,
   [_t, _o],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var FSxWindowsFileServerAuthorizationConfig$: StaticStructureSchema = [3, n0, _FSWFSAC,
   0,
   [_cPr, _do],
-  [0, 0]
+  [0, 0], 2
 ];
 export var FSxWindowsFileServerVolumeConfiguration$: StaticStructureSchema = [3, n0, _FSWFSVC,
   0,
   [_fSI, _rD, _aCu],
-  [0, 0, () => FSxWindowsFileServerAuthorizationConfig$]
+  [0, 0, () => FSxWindowsFileServerAuthorizationConfig$], 3
 ];
 export var GetTaskProtectionRequest$: StaticStructureSchema = [3, n0, _GTPR,
   0,
   [_cl, _tas],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var GetTaskProtectionResponse$: StaticStructureSchema = [3, n0, _GTPRe,
   0,
@@ -1667,12 +1667,12 @@ export var GetTaskProtectionResponse$: StaticStructureSchema = [3, n0, _GTPRe,
 export var HealthCheck$: StaticStructureSchema = [3, n0, _HC,
   0,
   [_com, _int, _ti, _re, _sP],
-  [64 | 0, 1, 1, 1, 1]
+  [64 | 0, 1, 1, 1, 1], 1
 ];
 export var HostEntry$: StaticStructureSchema = [3, n0, _HE,
   0,
   [_h, _iA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var HostVolumeProperties$: StaticStructureSchema = [3, n0, _HVP,
   0,
@@ -1682,7 +1682,7 @@ export var HostVolumeProperties$: StaticStructureSchema = [3, n0, _HVP,
 export var InferenceAccelerator$: StaticStructureSchema = [3, n0, _IA,
   0,
   [_dNe, _dT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InferenceAcceleratorOverride$: StaticStructureSchema = [3, n0, _IAO,
   0,
@@ -1697,7 +1697,7 @@ export var InfrastructureOptimization$: StaticStructureSchema = [3, n0, _IO,
 export var IngressPathSummary$: StaticStructureSchema = [3, n0, _IPS,
   0,
   [_aT, _end],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InstanceHealthCheckResult$: StaticStructureSchema = [3, n0, _IHCR,
   0,
@@ -1707,7 +1707,7 @@ export var InstanceHealthCheckResult$: StaticStructureSchema = [3, n0, _IHCR,
 export var InstanceLaunchTemplate$: StaticStructureSchema = [3, n0, _ILT,
   0,
   [_eIPA, _nC, _sCto, _mo, _cOT, _iR],
-  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, 0, [() => InstanceRequirementsRequest$, 0]]
+  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, 0, [() => InstanceRequirementsRequest$, 0]], 2
 ];
 export var InstanceLaunchTemplateUpdate$: StaticStructureSchema = [3, n0, _ILTU,
   0,
@@ -1717,7 +1717,7 @@ export var InstanceLaunchTemplateUpdate$: StaticStructureSchema = [3, n0, _ILTU,
 export var InstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _IRR,
   0,
   [_vCC, _mMB, _cM, _mGBPVC, _eIT, _iG, _sMPPOLP, _oDMPPOLP, _bM, _bP, _rHS, _nIC, _lSo, _lST, _tLSGB, _bEBM, _aTc, _aCcc, _aM, _aNc, _aTMMB, _nBG, _aIT, _mSPAPOOODP],
-  [() => VCpuCountRangeRequest$, () => MemoryMiBRequest$, [() => CpuManufacturerSet, { [_xN]: _CM }], () => MemoryGiBPerVCpuRequest$, [() => ExcludedInstanceTypeSet, { [_xN]: _EIT }], [() => InstanceGenerationSet, { [_xN]: _IG }], 1, 1, 0, 0, 2, () => NetworkInterfaceCountRequest$, 0, [() => LocalStorageTypeSet, { [_xN]: _LST }], () => TotalLocalStorageGBRequest$, () => BaselineEbsBandwidthMbpsRequest$, [() => AcceleratorTypeSet, { [_xN]: _AT }], () => AcceleratorCountRequest$, [() => AcceleratorManufacturerSet, { [_xN]: _AM }], [() => AcceleratorNameSet, { [_xN]: _AN }], () => AcceleratorTotalMemoryMiBRequest$, () => NetworkBandwidthGbpsRequest$, [() => AllowedInstanceTypeSet, { [_xN]: _AIT }], 1]
+  [() => VCpuCountRangeRequest$, () => MemoryMiBRequest$, [() => CpuManufacturerSet, { [_xN]: _CM }], () => MemoryGiBPerVCpuRequest$, [() => ExcludedInstanceTypeSet, { [_xN]: _EIT }], [() => InstanceGenerationSet, { [_xN]: _IG }], 1, 1, 0, 0, 2, () => NetworkInterfaceCountRequest$, 0, [() => LocalStorageTypeSet, { [_xN]: _LST }], () => TotalLocalStorageGBRequest$, () => BaselineEbsBandwidthMbpsRequest$, [() => AcceleratorTypeSet, { [_xN]: _AT }], () => AcceleratorCountRequest$, [() => AcceleratorManufacturerSet, { [_xN]: _AM }], [() => AcceleratorNameSet, { [_xN]: _AN }], () => AcceleratorTotalMemoryMiBRequest$, () => NetworkBandwidthGbpsRequest$, [() => AllowedInstanceTypeSet, { [_xN]: _AIT }], 1], 2
 ];
 export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
   { [_e]: _c },
@@ -1763,8 +1763,8 @@ export var ListAccountSettingsResponse$: StaticStructureSchema = [3, n0, _LASRi,
 ];
 export var ListAttributesRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
-  [_cl, _tT, _aNt, _aV, _nT, _mRa],
-  [0, 0, 0, 0, 0, 1]
+  [_tT, _cl, _aNt, _aV, _nT, _mRa],
+  [0, 0, 0, 0, 0, 1], 1
 ];
 export var ListAttributesResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -1794,7 +1794,7 @@ export var ListContainerInstancesResponse$: StaticStructureSchema = [3, n0, _LCI
 export var ListServiceDeploymentsRequest$: StaticStructureSchema = [3, n0, _LSDR,
   0,
   [_ser, _cl, _s, _cAr, _nT, _mRa],
-  [0, 0, 64 | 0, () => CreatedAt$, 0, 1]
+  [0, 0, 64 | 0, () => CreatedAt$, 0, 1], 1
 ];
 export var ListServiceDeploymentsResponse$: StaticStructureSchema = [3, n0, _LSDRi,
   0,
@@ -1804,7 +1804,7 @@ export var ListServiceDeploymentsResponse$: StaticStructureSchema = [3, n0, _LSD
 export var ListServicesByNamespaceRequest$: StaticStructureSchema = [3, n0, _LSBNR,
   0,
   [_na, _nT, _mRa],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListServicesByNamespaceResponse$: StaticStructureSchema = [3, n0, _LSBNRi,
   0,
@@ -1824,7 +1824,7 @@ export var ListServicesResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAes],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1869,7 +1869,7 @@ export var LoadBalancer$: StaticStructureSchema = [3, n0, _LB,
 export var LogConfiguration$: StaticStructureSchema = [3, n0, _LCo,
   0,
   [_lD, _o, _sO],
-  [0, 128 | 0, () => SecretList]
+  [0, 128 | 0, () => SecretList], 1
 ];
 export var ManagedAgent$: StaticStructureSchema = [3, n0, _MA,
   0,
@@ -1879,12 +1879,12 @@ export var ManagedAgent$: StaticStructureSchema = [3, n0, _MA,
 export var ManagedAgentStateChange$: StaticStructureSchema = [3, n0, _MASC,
   0,
   [_cNo, _mAN, _s, _r],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var ManagedApplicationAutoScalingPolicy$: StaticStructureSchema = [3, n0, _MAASP,
   0,
-  [_ar, _s, _sR, _uA, _pTo, _tV, _met],
-  [0, 0, 0, 4, 0, 1, 0]
+  [_s, _uA, _pTo, _tV, _met, _ar, _sR],
+  [0, 4, 0, 1, 0, 0, 0], 5
 ];
 export var ManagedAutoScaling$: StaticStructureSchema = [3, n0, _MAS,
   0,
@@ -1893,13 +1893,13 @@ export var ManagedAutoScaling$: StaticStructureSchema = [3, n0, _MAS,
 ];
 export var ManagedCertificate$: StaticStructureSchema = [3, n0, _MC,
   0,
-  [_ar, _s, _sR, _uA, _dNo],
-  [0, 0, 0, 4, 0]
+  [_s, _uA, _dNo, _ar, _sR],
+  [0, 4, 0, 0, 0], 3
 ];
 export var ManagedIngressPath$: StaticStructureSchema = [3, n0, _MIP,
   0,
   [_aT, _end, _lBo, _lBSG, _ce, _li, _ru, _tG],
-  [0, 0, () => ManagedLoadBalancer$, () => ManagedSecurityGroups, () => ManagedCertificate$, () => ManagedListener$, () => ManagedListenerRule$, () => ManagedTargetGroups]
+  [0, 0, () => ManagedLoadBalancer$, () => ManagedSecurityGroups, () => ManagedCertificate$, () => ManagedListener$, () => ManagedListenerRule$, () => ManagedTargetGroups], 2
 ];
 export var ManagedInstancesNetworkConfiguration$: StaticStructureSchema = [3, n0, _MINC,
   0,
@@ -1918,33 +1918,33 @@ export var ManagedInstancesStorageConfiguration$: StaticStructureSchema = [3, n0
 ];
 export var ManagedListener$: StaticStructureSchema = [3, n0, _ML,
   0,
-  [_ar, _s, _sR, _uA],
-  [0, 0, 0, 4]
+  [_s, _uA, _ar, _sR],
+  [0, 4, 0, 0], 2
 ];
 export var ManagedListenerRule$: StaticStructureSchema = [3, n0, _MLR,
   0,
-  [_ar, _s, _sR, _uA],
-  [0, 0, 0, 4]
+  [_s, _uA, _ar, _sR],
+  [0, 4, 0, 0], 2
 ];
 export var ManagedLoadBalancer$: StaticStructureSchema = [3, n0, _MLB,
   0,
-  [_ar, _s, _sR, _uA, _sch, _sI, _sGI],
-  [0, 0, 0, 4, 0, 64 | 0, 64 | 0]
+  [_s, _uA, _sch, _ar, _sR, _sI, _sGI],
+  [0, 4, 0, 0, 0, 64 | 0, 64 | 0], 3
 ];
 export var ManagedLogGroup$: StaticStructureSchema = [3, n0, _MLG,
   0,
-  [_ar, _s, _sR, _uA, _lGN],
-  [0, 0, 0, 4, 0]
+  [_s, _uA, _lGN, _ar, _sR],
+  [0, 4, 0, 0, 0], 3
 ];
 export var ManagedMetricAlarm$: StaticStructureSchema = [3, n0, _MMA,
   0,
-  [_ar, _s, _sR, _uA],
-  [0, 0, 0, 4]
+  [_s, _uA, _ar, _sR],
+  [0, 4, 0, 0], 2
 ];
 export var ManagedScalableTarget$: StaticStructureSchema = [3, n0, _MST,
   0,
-  [_ar, _s, _sR, _uA, _mC, _mCa],
-  [0, 0, 0, 4, 1, 1]
+  [_s, _uA, _mC, _mCa, _ar, _sR],
+  [0, 4, 1, 1, 0, 0], 4
 ];
 export var ManagedScaling$: StaticStructureSchema = [3, n0, _MS,
   0,
@@ -1953,8 +1953,8 @@ export var ManagedScaling$: StaticStructureSchema = [3, n0, _MS,
 ];
 export var ManagedSecurityGroup$: StaticStructureSchema = [3, n0, _MSG,
   0,
-  [_ar, _s, _sR, _uA],
-  [0, 0, 0, 4]
+  [_s, _uA, _ar, _sR],
+  [0, 4, 0, 0], 2
 ];
 export var ManagedStorageConfiguration$: StaticStructureSchema = [3, n0, _MSC,
   0,
@@ -1963,8 +1963,8 @@ export var ManagedStorageConfiguration$: StaticStructureSchema = [3, n0, _MSC,
 ];
 export var ManagedTargetGroup$: StaticStructureSchema = [3, n0, _MTG,
   0,
-  [_ar, _s, _sR, _uA, _hCP, _hCPe, _po],
-  [0, 0, 0, 4, 0, 1, 1]
+  [_s, _uA, _hCP, _hCPe, _po, _ar, _sR],
+  [0, 4, 0, 1, 1, 0, 0], 5
 ];
 export var MemoryGiBPerVCpuRequest$: StaticStructureSchema = [3, n0, _MGBPVCR,
   0,
@@ -1974,7 +1974,7 @@ export var MemoryGiBPerVCpuRequest$: StaticStructureSchema = [3, n0, _MGBPVCR,
 export var MemoryMiBRequest$: StaticStructureSchema = [3, n0, _MMBR,
   0,
   [_m, _ma],
-  [1, 1]
+  [1, 1], 1
 ];
 export var MissingVersionException$: StaticErrorSchema = [-3, n0, _MVE,
   { [_e]: _c },
@@ -2037,7 +2037,7 @@ export var PlacementStrategy$: StaticStructureSchema = [3, n0, _PS,
 export var PlatformDevice$: StaticStructureSchema = [3, n0, _PD,
   0,
   [_i, _t],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PlatformTaskDefinitionIncompatibilityException$: StaticErrorSchema = [-3, n0, _PTDIE,
   { [_e]: _c },
@@ -2063,13 +2063,13 @@ export var ProtectedTask$: StaticStructureSchema = [3, n0, _PT,
 ];
 export var ProxyConfiguration$: StaticStructureSchema = [3, n0, _PCr,
   0,
-  [_t, _cNo, _pro],
-  [0, 0, () => ProxyConfigurationProperties]
+  [_cNo, _t, _pro],
+  [0, 0, () => ProxyConfigurationProperties], 1
 ];
 export var PutAccountSettingDefaultRequest$: StaticStructureSchema = [3, n0, _PASDR,
   0,
   [_n, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutAccountSettingDefaultResponse$: StaticStructureSchema = [3, n0, _PASDRu,
   0,
@@ -2079,7 +2079,7 @@ export var PutAccountSettingDefaultResponse$: StaticStructureSchema = [3, n0, _P
 export var PutAccountSettingRequest$: StaticStructureSchema = [3, n0, _PASR,
   0,
   [_n, _v, _pA],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var PutAccountSettingResponse$: StaticStructureSchema = [3, n0, _PASRu,
   0,
@@ -2088,8 +2088,8 @@ export var PutAccountSettingResponse$: StaticStructureSchema = [3, n0, _PASRu,
 ];
 export var PutAttributesRequest$: StaticStructureSchema = [3, n0, _PAR,
   0,
-  [_cl, _at],
-  [0, () => Attributes]
+  [_at, _cl],
+  [() => Attributes, 0], 1
 ];
 export var PutAttributesResponse$: StaticStructureSchema = [3, n0, _PARu,
   0,
@@ -2099,7 +2099,7 @@ export var PutAttributesResponse$: StaticStructureSchema = [3, n0, _PARu,
 export var PutClusterCapacityProvidersRequest$: StaticStructureSchema = [3, n0, _PCCPR,
   0,
   [_cl, _cPap, _dCPS],
-  [0, 64 | 0, () => CapacityProviderStrategy]
+  [0, 64 | 0, () => CapacityProviderStrategy], 3
 ];
 export var PutClusterCapacityProvidersResponse$: StaticStructureSchema = [3, n0, _PCCPRu,
   0,
@@ -2118,8 +2118,8 @@ export var RegisterContainerInstanceResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var RegisterTaskDefinitionRequest$: StaticStructureSchema = [3, n0, _RTDR,
   0,
-  [_fami, _tRA, _eRA, _nM, _cDo, _vo, _pCl, _rCe, _cp, _mem, _ta, _pMi, _iM, _pCr, _iAn, _eSp, _rPu, _eFI],
-  [0, 0, 0, 0, () => ContainerDefinitions, () => VolumeList, () => TaskDefinitionPlacementConstraints, 64 | 0, 0, 0, () => Tags, 0, 0, () => ProxyConfiguration$, () => InferenceAccelerators, () => EphemeralStorage$, () => RuntimePlatform$, 2]
+  [_fami, _cDo, _tRA, _eRA, _nM, _vo, _pCl, _rCe, _cp, _mem, _ta, _pMi, _iM, _pCr, _iAn, _eSp, _rPu, _eFI],
+  [0, () => ContainerDefinitions, 0, 0, 0, () => VolumeList, () => TaskDefinitionPlacementConstraints, 64 | 0, 0, 0, () => Tags, 0, 0, () => ProxyConfiguration$, () => InferenceAccelerators, () => EphemeralStorage$, () => RuntimePlatform$, 2], 2
 ];
 export var RegisterTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _RTDRe,
   0,
@@ -2129,7 +2129,7 @@ export var RegisterTaskDefinitionResponse$: StaticStructureSchema = [3, n0, _RTD
 export var RepositoryCredentials$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_cPr],
-  [0]
+  [0], 1
 ];
 export var ResolvedConfiguration$: StaticStructureSchema = [3, n0, _RCe,
   0,
@@ -2156,7 +2156,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResourceRequirement$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_v, _t],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Rollback$: StaticStructureSchema = [3, n0, _Ro,
   0,
@@ -2165,8 +2165,8 @@ export var Rollback$: StaticStructureSchema = [3, n0, _Ro,
 ];
 export var RunTaskRequest$: StaticStructureSchema = [3, n0, _RTR,
   0,
-  [_cPS, _cl, _cou, _eECSMT, _eEC, _g, _lT, _nC, _ov, _pCl, _pS, _pV, _pTr, _rIe, _sB, _ta, _tD, _cT, _vCo],
-  [() => CapacityProviderStrategy, 0, 1, 2, 2, 0, 0, () => NetworkConfiguration$, () => TaskOverride$, () => PlacementConstraints, () => PlacementStrategies, 0, 0, 0, 0, () => Tags, 0, [0, 4], () => TaskVolumeConfigurations]
+  [_tD, _cPS, _cl, _cou, _eECSMT, _eEC, _g, _lT, _nC, _ov, _pCl, _pS, _pV, _pTr, _rIe, _sB, _ta, _cT, _vCo],
+  [0, () => CapacityProviderStrategy, 0, 1, 2, 2, 0, 0, () => NetworkConfiguration$, () => TaskOverride$, () => PlacementConstraints, () => PlacementStrategies, 0, 0, 0, 0, () => Tags, [0, 4], () => TaskVolumeConfigurations], 1
 ];
 export var RunTaskResponse$: StaticStructureSchema = [3, n0, _RTRu,
   0,
@@ -2186,7 +2186,7 @@ export var Scale$: StaticStructureSchema = [3, n0, _S,
 export var Secret$: StaticStructureSchema = [3, n0, _Se,
   0,
   [_n, _vFa],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ServerException$: StaticErrorSchema = [-3, n0, _SE,
   { [_e]: _serve },
@@ -2202,22 +2202,22 @@ export var Service$: StaticStructureSchema = [3, n0, _Ser,
 export var ServiceConnectAccessLogConfiguration$: StaticStructureSchema = [3, n0, _SCALC,
   0,
   [_fo, _iQP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ServiceConnectClientAlias$: StaticStructureSchema = [3, n0, _SCCA,
   0,
   [_po, _dNn, _tTR],
-  [1, 0, () => ServiceConnectTestTrafficRules$]
+  [1, 0, () => ServiceConnectTestTrafficRules$], 1
 ];
 export var ServiceConnectConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
   [_ena, _na, _serv, _lC, _aLCc],
-  [2, 0, () => ServiceConnectServiceList, () => LogConfiguration$, () => ServiceConnectAccessLogConfiguration$]
+  [2, 0, () => ServiceConnectServiceList, () => LogConfiguration$, () => ServiceConnectAccessLogConfiguration$], 1
 ];
 export var ServiceConnectService$: StaticStructureSchema = [3, n0, _SCS,
   0,
   [_pN, _dNi, _cAli, _iPO, _ti, _tl],
-  [0, 0, () => ServiceConnectClientAliasList, 1, () => TimeoutConfiguration$, () => ServiceConnectTlsConfiguration$]
+  [0, 0, () => ServiceConnectClientAliasList, 1, () => TimeoutConfiguration$, () => ServiceConnectTlsConfiguration$], 1
 ];
 export var ServiceConnectServiceResource$: StaticStructureSchema = [3, n0, _SCSR,
   0,
@@ -2227,17 +2227,17 @@ export var ServiceConnectServiceResource$: StaticStructureSchema = [3, n0, _SCSR
 export var ServiceConnectTestTrafficHeaderMatchRules$: StaticStructureSchema = [3, n0, _SCTTHMR,
   0,
   [_exa],
-  [0]
+  [0], 1
 ];
 export var ServiceConnectTestTrafficHeaderRules$: StaticStructureSchema = [3, n0, _SCTTHR,
   0,
   [_n, _v],
-  [0, () => ServiceConnectTestTrafficHeaderMatchRules$]
+  [0, () => ServiceConnectTestTrafficHeaderMatchRules$], 1
 ];
 export var ServiceConnectTestTrafficRules$: StaticStructureSchema = [3, n0, _SCTTR,
   0,
   [_he],
-  [() => ServiceConnectTestTrafficHeaderRules$]
+  [() => ServiceConnectTestTrafficHeaderRules$], 1
 ];
 export var ServiceConnectTlsCertificateAuthority$: StaticStructureSchema = [3, n0, _SCTCA,
   0,
@@ -2247,7 +2247,7 @@ export var ServiceConnectTlsCertificateAuthority$: StaticStructureSchema = [3, n
 export var ServiceConnectTlsConfiguration$: StaticStructureSchema = [3, n0, _SCTC,
   0,
   [_iCA, _kK, _rA],
-  [() => ServiceConnectTlsCertificateAuthority$, 0, 0]
+  [() => ServiceConnectTlsCertificateAuthority$, 0, 0], 1
 ];
 export var ServiceCurrentRevisionSummary$: StaticStructureSchema = [3, n0, _SCRS,
   0,
@@ -2287,8 +2287,8 @@ export var ServiceEvent$: StaticStructureSchema = [3, n0, _SEe,
 ];
 export var ServiceManagedEBSVolumeConfiguration$: StaticStructureSchema = [3, n0, _SMEBSVC,
   0,
-  [_enc, _kKI, _vT, _sIGB, _sIn, _vIR, _io, _thr, _tSag, _rA, _fTi],
-  [2, 0, 0, 1, 0, 1, 1, 1, () => EBSTagSpecifications, 0, 0]
+  [_rA, _enc, _kKI, _vT, _sIGB, _sIn, _vIR, _io, _thr, _tSag, _fTi],
+  [0, 2, 0, 0, 1, 0, 1, 1, 1, () => EBSTagSpecifications, 0], 1
 ];
 export var ServiceNotActiveException$: StaticErrorSchema = [-3, n0, _SNAE,
   { [_e]: _c },
@@ -2325,7 +2325,7 @@ export var ServiceRevisionSummary$: StaticStructureSchema = [3, n0, _SRS,
 export var ServiceVolumeConfiguration$: StaticStructureSchema = [3, n0, _SVC,
   0,
   [_n, _mEBSV],
-  [0, () => ServiceManagedEBSVolumeConfiguration$]
+  [0, () => ServiceManagedEBSVolumeConfiguration$], 1
 ];
 export var Session$: StaticStructureSchema = [3, n0, _Ses,
   0,
@@ -2339,8 +2339,8 @@ export var Setting$: StaticStructureSchema = [3, n0, _Set,
 ];
 export var StartTaskRequest$: StaticStructureSchema = [3, n0, _STR,
   0,
-  [_cl, _cIo, _eECSMT, _eEC, _g, _nC, _ov, _pTr, _rIe, _sB, _ta, _tD, _vCo],
-  [0, 64 | 0, 2, 2, 0, () => NetworkConfiguration$, () => TaskOverride$, 0, 0, 0, () => Tags, 0, () => TaskVolumeConfigurations]
+  [_cIo, _tD, _cl, _eECSMT, _eEC, _g, _nC, _ov, _pTr, _rIe, _sB, _ta, _vCo],
+  [64 | 0, 0, 0, 2, 2, 0, () => NetworkConfiguration$, () => TaskOverride$, 0, 0, 0, () => Tags, () => TaskVolumeConfigurations], 2
 ];
 export var StartTaskResponse$: StaticStructureSchema = [3, n0, _STRt,
   0,
@@ -2350,7 +2350,7 @@ export var StartTaskResponse$: StaticStructureSchema = [3, n0, _STRt,
 export var StopServiceDeploymentRequest$: StaticStructureSchema = [3, n0, _SSDR,
   0,
   [_sDAe, _sTto],
-  [0, 0]
+  [0, 0], 1
 ];
 export var StopServiceDeploymentResponse$: StaticStructureSchema = [3, n0, _SSDRt,
   0,
@@ -2359,8 +2359,8 @@ export var StopServiceDeploymentResponse$: StaticStructureSchema = [3, n0, _SSDR
 ];
 export var StopTaskRequest$: StaticStructureSchema = [3, n0, _STRto,
   0,
-  [_cl, _task, _r],
-  [0, 0, 0]
+  [_task, _cl, _r],
+  [0, 0, 0], 1
 ];
 export var StopTaskResponse$: StaticStructureSchema = [3, n0, _STRtop,
   0,
@@ -2369,8 +2369,8 @@ export var StopTaskResponse$: StaticStructureSchema = [3, n0, _STRtop,
 ];
 export var SubmitAttachmentStateChangesRequest$: StaticStructureSchema = [3, n0, _SASCR,
   0,
-  [_cl, _a],
-  [0, () => AttachmentStateChanges]
+  [_a, _cl],
+  [() => AttachmentStateChanges, 0], 1
 ];
 export var SubmitAttachmentStateChangesResponse$: StaticStructureSchema = [3, n0, _SASCRu,
   0,
@@ -2410,7 +2410,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAes, _ta],
-  [0, () => Tags]
+  [0, () => Tags], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -2451,13 +2451,13 @@ export var TaskEphemeralStorage$: StaticStructureSchema = [3, n0, _TES,
 ];
 export var TaskManagedEBSVolumeConfiguration$: StaticStructureSchema = [3, n0, _TMEBSVC,
   0,
-  [_enc, _kKI, _vT, _sIGB, _sIn, _vIR, _io, _thr, _tSag, _rA, _tP, _fTi],
-  [2, 0, 0, 1, 0, 1, 1, 1, () => EBSTagSpecifications, 0, () => TaskManagedEBSVolumeTerminationPolicy$, 0]
+  [_rA, _enc, _kKI, _vT, _sIGB, _sIn, _vIR, _io, _thr, _tSag, _tP, _fTi],
+  [0, 2, 0, 0, 1, 0, 1, 1, 1, () => EBSTagSpecifications, () => TaskManagedEBSVolumeTerminationPolicy$, 0], 1
 ];
 export var TaskManagedEBSVolumeTerminationPolicy$: StaticStructureSchema = [3, n0, _TMEBSVTP,
   0,
   [_dOT],
-  [2]
+  [2], 1
 ];
 export var TaskOverride$: StaticStructureSchema = [3, n0, _TO,
   0,
@@ -2478,7 +2478,7 @@ TypeRegistry.for(n0).registerError(TaskSetNotFoundException$, TaskSetNotFoundExc
 export var TaskVolumeConfiguration$: StaticStructureSchema = [3, n0, _TVC,
   0,
   [_n, _mEBSV],
-  [0, () => TaskManagedEBSVolumeConfiguration$]
+  [0, () => TaskManagedEBSVolumeConfiguration$], 1
 ];
 export var TimeoutConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
@@ -2488,7 +2488,7 @@ export var TimeoutConfiguration$: StaticStructureSchema = [3, n0, _TC,
 export var Tmpfs$: StaticStructureSchema = [3, n0, _Tm,
   0,
   [_cPo, _si, _mO],
-  [0, 1, 64 | 0]
+  [0, 1, 64 | 0], 2
 ];
 export var TotalLocalStorageGBRequest$: StaticStructureSchema = [3, n0, _TLSGBR,
   0,
@@ -2498,7 +2498,7 @@ export var TotalLocalStorageGBRequest$: StaticStructureSchema = [3, n0, _TLSGBR,
 export var Ulimit$: StaticStructureSchema = [3, n0, _U,
   0,
   [_n, _sL, _hL],
-  [0, 1, 1]
+  [0, 1, 1], 3
 ];
 export var UnsupportedFeatureException$: StaticErrorSchema = [-3, n0, _UFE,
   { [_e]: _c },
@@ -2509,7 +2509,7 @@ TypeRegistry.for(n0).registerError(UnsupportedFeatureException$, UnsupportedFeat
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAes, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2519,7 +2519,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateCapacityProviderRequest$: StaticStructureSchema = [3, n0, _UCPR,
   0,
   [_n, _cl, _aSGP, _mIP],
-  [0, 0, () => AutoScalingGroupProviderUpdate$, [() => UpdateManagedInstancesProviderConfiguration$, 0]]
+  [0, 0, () => AutoScalingGroupProviderUpdate$, [() => UpdateManagedInstancesProviderConfiguration$, 0]], 1
 ];
 export var UpdateCapacityProviderResponse$: StaticStructureSchema = [3, n0, _UCPRp,
   0,
@@ -2529,7 +2529,7 @@ export var UpdateCapacityProviderResponse$: StaticStructureSchema = [3, n0, _UCP
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_cl, _se, _co, _sCD],
-  [0, () => ClusterSettings, () => ClusterConfiguration$, () => ClusterServiceConnectDefaultsRequest$]
+  [0, () => ClusterSettings, () => ClusterConfiguration$, () => ClusterServiceConnectDefaultsRequest$], 1
 ];
 export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -2539,7 +2539,7 @@ export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateClusterSettingsRequest$: StaticStructureSchema = [3, n0, _UCSR,
   0,
   [_cl, _se],
-  [0, () => ClusterSettings]
+  [0, () => ClusterSettings], 2
 ];
 export var UpdateClusterSettingsResponse$: StaticStructureSchema = [3, n0, _UCSRp,
   0,
@@ -2548,8 +2548,8 @@ export var UpdateClusterSettingsResponse$: StaticStructureSchema = [3, n0, _UCSR
 ];
 export var UpdateContainerAgentRequest$: StaticStructureSchema = [3, n0, _UCAR,
   0,
-  [_cl, _cI],
-  [0, 0]
+  [_cI, _cl],
+  [0, 0], 1
 ];
 export var UpdateContainerAgentResponse$: StaticStructureSchema = [3, n0, _UCARp,
   0,
@@ -2558,8 +2558,8 @@ export var UpdateContainerAgentResponse$: StaticStructureSchema = [3, n0, _UCARp
 ];
 export var UpdateContainerInstancesStateRequest$: StaticStructureSchema = [3, n0, _UCISR,
   0,
-  [_cl, _cIo, _s],
-  [0, 64 | 0, 0]
+  [_cIo, _s, _cl],
+  [64 | 0, 0, 0], 2
 ];
 export var UpdateContainerInstancesStateResponse$: StaticStructureSchema = [3, n0, _UCISRp,
   0,
@@ -2574,7 +2574,7 @@ export var UpdatedExpressGatewayService$: StaticStructureSchema = [3, n0, _UEGS,
 export var UpdateExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _UEGSR,
   0,
   [_sA, _eRA, _hCP, _pC, _tRA, _nC, _cp, _mem, _sTc],
-  [0, 0, 0, () => ExpressGatewayContainer$, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$]
+  [0, 0, 0, () => ExpressGatewayContainer$, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$], 1
 ];
 export var UpdateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _UEGSRp,
   0,
@@ -2590,12 +2590,12 @@ TypeRegistry.for(n0).registerError(UpdateInProgressException$, UpdateInProgressE
 export var UpdateManagedInstancesProviderConfiguration$: StaticStructureSchema = [3, n0, _UMIPC,
   0,
   [_iRA, _iLT, _pTr, _iO],
-  [0, [() => InstanceLaunchTemplateUpdate$, 0], 0, () => InfrastructureOptimization$]
+  [0, [() => InstanceLaunchTemplateUpdate$, 0], 0, () => InfrastructureOptimization$], 2
 ];
 export var UpdateServicePrimaryTaskSetRequest$: StaticStructureSchema = [3, n0, _USPTSR,
   0,
   [_cl, _ser, _pTS],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UpdateServicePrimaryTaskSetResponse$: StaticStructureSchema = [3, n0, _USPTSRp,
   0,
@@ -2604,8 +2604,8 @@ export var UpdateServicePrimaryTaskSetResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateServiceRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_cl, _ser, _dC, _tD, _cPS, _dCe, _aZR, _nC, _pCl, _pS, _pV, _fND, _hCGPS, _dCep, _eEC, _eECSMT, _lB, _pTr, _sRe, _sCC, _vCo, _vLC],
-  [0, 0, 1, 0, () => CapacityProviderStrategy, () => DeploymentConfiguration$, 0, () => NetworkConfiguration$, () => PlacementConstraints, () => PlacementStrategies, 0, 2, 1, () => DeploymentController$, 2, 2, () => LoadBalancers, 0, () => ServiceRegistries, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations]
+  [_ser, _cl, _dC, _tD, _cPS, _dCe, _aZR, _nC, _pCl, _pS, _pV, _fND, _hCGPS, _dCep, _eEC, _eECSMT, _lB, _pTr, _sRe, _sCC, _vCo, _vLC],
+  [0, 0, 1, 0, () => CapacityProviderStrategy, () => DeploymentConfiguration$, 0, () => NetworkConfiguration$, () => PlacementConstraints, () => PlacementStrategies, 0, 2, 1, () => DeploymentController$, 2, 2, () => LoadBalancers, 0, () => ServiceRegistries, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => VpcLatticeConfigurations], 1
 ];
 export var UpdateServiceResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -2615,7 +2615,7 @@ export var UpdateServiceResponse$: StaticStructureSchema = [3, n0, _USRp,
 export var UpdateTaskProtectionRequest$: StaticStructureSchema = [3, n0, _UTPR,
   0,
   [_cl, _tas, _pE, _eIM],
-  [0, 64 | 0, 2, 1]
+  [0, 64 | 0, 2, 1], 3
 ];
 export var UpdateTaskProtectionResponse$: StaticStructureSchema = [3, n0, _UTPRp,
   0,
@@ -2625,7 +2625,7 @@ export var UpdateTaskProtectionResponse$: StaticStructureSchema = [3, n0, _UTPRp
 export var UpdateTaskSetRequest$: StaticStructureSchema = [3, n0, _UTSR,
   0,
   [_cl, _ser, _tS, _sc],
-  [0, 0, 0, () => Scale$]
+  [0, 0, 0, () => Scale$], 4
 ];
 export var UpdateTaskSetResponse$: StaticStructureSchema = [3, n0, _UTSRp,
   0,
@@ -2635,7 +2635,7 @@ export var UpdateTaskSetResponse$: StaticStructureSchema = [3, n0, _UTSRp,
 export var VCpuCountRangeRequest$: StaticStructureSchema = [3, n0, _VCCRR,
   0,
   [_m, _ma],
-  [1, 1]
+  [1, 1], 1
 ];
 export var VersionInfo$: StaticStructureSchema = [3, n0, _VI,
   0,
@@ -2655,7 +2655,7 @@ export var VolumeFrom$: StaticStructureSchema = [3, n0, _VF,
 export var VpcLatticeConfiguration$: StaticStructureSchema = [3, n0, _VLC,
   0,
   [_rA, _tGA, _pN],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ECSServiceException$: StaticErrorSchema = [-3, _sm, "ECSServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ECSServiceException$, ECSServiceException);

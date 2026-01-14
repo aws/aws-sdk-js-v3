@@ -587,7 +587,7 @@ var SMBGuestPassword: StaticSimpleSchema = [0, n0, _SMBGP, 8, 0];
 export var ActivateGatewayInput$: StaticStructureSchema = [3, n0, _AGI,
   0,
   [_AK, _GN, _GT, _GR, _GTa, _TDT, _MCT, _T],
-  [0, 0, 0, 0, 0, 0, 0, () => Tags]
+  [0, 0, 0, 0, 0, 0, 0, () => Tags], 4
 ];
 export var ActivateGatewayOutput$: StaticStructureSchema = [3, n0, _AGO,
   0,
@@ -597,7 +597,7 @@ export var ActivateGatewayOutput$: StaticStructureSchema = [3, n0, _AGO,
 export var AddCacheInput$: StaticStructureSchema = [3, n0, _ACI,
   0,
   [_GARN, _DI],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AddCacheOutput$: StaticStructureSchema = [3, n0, _ACO,
   0,
@@ -607,7 +607,7 @@ export var AddCacheOutput$: StaticStructureSchema = [3, n0, _ACO,
 export var AddTagsToResourceInput$: StaticStructureSchema = [3, n0, _ATTRI,
   0,
   [_RARN, _T],
-  [0, () => Tags]
+  [0, () => Tags], 2
 ];
 export var AddTagsToResourceOutput$: StaticStructureSchema = [3, n0, _ATTRO,
   0,
@@ -617,7 +617,7 @@ export var AddTagsToResourceOutput$: StaticStructureSchema = [3, n0, _ATTRO,
 export var AddUploadBufferInput$: StaticStructureSchema = [3, n0, _AUBI,
   0,
   [_GARN, _DI],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AddUploadBufferOutput$: StaticStructureSchema = [3, n0, _AUBO,
   0,
@@ -627,7 +627,7 @@ export var AddUploadBufferOutput$: StaticStructureSchema = [3, n0, _AUBO,
 export var AddWorkingStorageInput$: StaticStructureSchema = [3, n0, _AWSI,
   0,
   [_GARN, _DI],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AddWorkingStorageOutput$: StaticStructureSchema = [3, n0, _AWSO,
   0,
@@ -637,7 +637,7 @@ export var AddWorkingStorageOutput$: StaticStructureSchema = [3, n0, _AWSO,
 export var AssignTapePoolInput$: StaticStructureSchema = [3, n0, _ATPI,
   0,
   [_TARN, _PI, _BGR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var AssignTapePoolOutput$: StaticStructureSchema = [3, n0, _ATPO,
   0,
@@ -647,7 +647,7 @@ export var AssignTapePoolOutput$: StaticStructureSchema = [3, n0, _ATPO,
 export var AssociateFileSystemInput$: StaticStructureSchema = [3, n0, _AFSI,
   0,
   [_UN, _P, _CT, _GARN, _LARN, _T, _ADARN, _CA, _ENC],
-  [0, [() => DomainUserPassword, 0], 0, 0, 0, () => Tags, 0, () => CacheAttributes$, () => EndpointNetworkConfiguration$]
+  [0, [() => DomainUserPassword, 0], 0, 0, 0, () => Tags, 0, () => CacheAttributes$, () => EndpointNetworkConfiguration$], 5
 ];
 export var AssociateFileSystemOutput$: StaticStructureSchema = [3, n0, _AFSO,
   0,
@@ -656,8 +656,8 @@ export var AssociateFileSystemOutput$: StaticStructureSchema = [3, n0, _AFSO,
 ];
 export var AttachVolumeInput$: StaticStructureSchema = [3, n0, _AVI,
   0,
-  [_GARN, _TN, _VARN, _NII, _DIi],
-  [0, 0, 0, 0, 0]
+  [_GARN, _VARN, _NII, _TN, _DIi],
+  [0, 0, 0, 0, 0], 3
 ];
 export var AttachVolumeOutput$: StaticStructureSchema = [3, n0, _AVO,
   0,
@@ -672,12 +672,12 @@ export var AutomaticTapeCreationPolicyInfo$: StaticStructureSchema = [3, n0, _AT
 export var AutomaticTapeCreationRule$: StaticStructureSchema = [3, n0, _ATCRu,
   0,
   [_TBP, _PI, _TSIB, _MNT, _W],
-  [0, 0, 1, 1, 2]
+  [0, 0, 1, 1, 2], 4
 ];
 export var BandwidthRateLimitInterval$: StaticStructureSchema = [3, n0, _BRLI,
   0,
   [_SHOD, _SMOH, _EHOD, _EMOH, _DOW, _AURLIBPS, _ADRLIBPS],
-  [1, 1, 1, 1, 64 | 1, 1, 1]
+  [1, 1, 1, 1, 64 | 1, 1, 1], 5
 ];
 export var CacheAttributes$: StaticStructureSchema = [3, n0, _CA,
   0,
@@ -692,7 +692,7 @@ export var CachediSCSIVolume$: StaticStructureSchema = [3, n0, _CSCSIV,
 export var CacheReportFilter$: StaticStructureSchema = [3, n0, _CRF,
   0,
   [_N, _V],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var CacheReportInfo$: StaticStructureSchema = [3, n0, _CRI,
   0,
@@ -702,7 +702,7 @@ export var CacheReportInfo$: StaticStructureSchema = [3, n0, _CRI,
 export var CancelArchivalInput$: StaticStructureSchema = [3, n0, _CAI,
   0,
   [_GARN, _TARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CancelArchivalOutput$: StaticStructureSchema = [3, n0, _CAO,
   0,
@@ -712,7 +712,7 @@ export var CancelArchivalOutput$: StaticStructureSchema = [3, n0, _CAO,
 export var CancelCacheReportInput$: StaticStructureSchema = [3, n0, _CCRI,
   0,
   [_CRARN],
-  [0]
+  [0], 1
 ];
 export var CancelCacheReportOutput$: StaticStructureSchema = [3, n0, _CCRO,
   0,
@@ -722,7 +722,7 @@ export var CancelCacheReportOutput$: StaticStructureSchema = [3, n0, _CCRO,
 export var CancelRetrievalInput$: StaticStructureSchema = [3, n0, _CRIa,
   0,
   [_GARN, _TARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CancelRetrievalOutput$: StaticStructureSchema = [3, n0, _CRO,
   0,
@@ -736,8 +736,8 @@ export var ChapInfo$: StaticStructureSchema = [3, n0, _CI,
 ];
 export var CreateCachediSCSIVolumeInput$: StaticStructureSchema = [3, n0, _CCSCSIVI,
   0,
-  [_GARN, _VSIB, _SI, _TN, _SVARN, _NII, _CT, _KMSE, _KMSK, _T],
-  [0, 1, 0, 0, 0, 0, 0, 2, 0, () => Tags]
+  [_GARN, _VSIB, _TN, _NII, _CT, _SI, _SVARN, _KMSE, _KMSK, _T],
+  [0, 1, 0, 0, 0, 0, 0, 2, 0, () => Tags], 5
 ];
 export var CreateCachediSCSIVolumeOutput$: StaticStructureSchema = [3, n0, _CCSCSIVO,
   0,
@@ -746,8 +746,8 @@ export var CreateCachediSCSIVolumeOutput$: StaticStructureSchema = [3, n0, _CCSC
 ];
 export var CreateNFSFileShareInput$: StaticStructureSchema = [3, n0, _CNFSFSI,
   0,
-  [_CT, _NFSFSD, _GARN, _ETn, _KMSE, _KMSK, _R, _LARN, _DSC, _OACL, _CL, _S, _RO, _GMIMETE, _RP, _T, _FSN, _CA, _NP, _VPCEDNSN, _BR, _ADARN],
-  [0, () => NFSFileShareDefaults$, 0, 0, 2, 0, 0, 0, 0, 0, 64 | 0, 0, 2, 2, 2, () => Tags, 0, () => CacheAttributes$, 0, 0, 0, 0]
+  [_CT, _GARN, _R, _LARN, _NFSFSD, _ETn, _KMSE, _KMSK, _DSC, _OACL, _CL, _S, _RO, _GMIMETE, _RP, _T, _FSN, _CA, _NP, _VPCEDNSN, _BR, _ADARN],
+  [0, 0, 0, 0, () => NFSFileShareDefaults$, 0, 2, 0, 0, 0, 64 | 0, 0, 2, 2, 2, () => Tags, 0, () => CacheAttributes$, 0, 0, 0, 0], 4
 ];
 export var CreateNFSFileShareOutput$: StaticStructureSchema = [3, n0, _CNFSFSO,
   0,
@@ -756,8 +756,8 @@ export var CreateNFSFileShareOutput$: StaticStructureSchema = [3, n0, _CNFSFSO,
 ];
 export var CreateSMBFileShareInput$: StaticStructureSchema = [3, n0, _CSMBFSI,
   0,
-  [_CT, _GARN, _ETn, _KMSE, _KMSK, _R, _LARN, _DSC, _OACL, _RO, _GMIMETE, _RP, _SMBACLE, _ABE, _AUL, _VUL, _IUL, _ADARN, _A, _CSa, _T, _FSN, _CA, _NP, _VPCEDNSN, _BR, _OE],
-  [0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => Tags, 0, () => CacheAttributes$, 0, 0, 0, 2]
+  [_CT, _GARN, _R, _LARN, _ETn, _KMSE, _KMSK, _DSC, _OACL, _RO, _GMIMETE, _RP, _SMBACLE, _ABE, _AUL, _VUL, _IUL, _ADARN, _A, _CSa, _T, _FSN, _CA, _NP, _VPCEDNSN, _BR, _OE],
+  [0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 2, 2, 2, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => Tags, 0, () => CacheAttributes$, 0, 0, 0, 2], 4
 ];
 export var CreateSMBFileShareOutput$: StaticStructureSchema = [3, n0, _CSMBFSO,
   0,
@@ -767,7 +767,7 @@ export var CreateSMBFileShareOutput$: StaticStructureSchema = [3, n0, _CSMBFSO,
 export var CreateSnapshotFromVolumeRecoveryPointInput$: StaticStructureSchema = [3, n0, _CSFVRPI,
   0,
   [_VARN, _SD, _T],
-  [0, 0, () => Tags]
+  [0, 0, () => Tags], 2
 ];
 export var CreateSnapshotFromVolumeRecoveryPointOutput$: StaticStructureSchema = [3, n0, _CSFVRPO,
   0,
@@ -777,7 +777,7 @@ export var CreateSnapshotFromVolumeRecoveryPointOutput$: StaticStructureSchema =
 export var CreateSnapshotInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_VARN, _SD, _T],
-  [0, 0, () => Tags]
+  [0, 0, () => Tags], 2
 ];
 export var CreateSnapshotOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
@@ -786,8 +786,8 @@ export var CreateSnapshotOutput$: StaticStructureSchema = [3, n0, _CSO,
 ];
 export var CreateStorediSCSIVolumeInput$: StaticStructureSchema = [3, n0, _CSSCSIVI,
   0,
-  [_GARN, _DIi, _SI, _PED, _TN, _NII, _KMSE, _KMSK, _T],
-  [0, 0, 0, 2, 0, 0, 2, 0, () => Tags]
+  [_GARN, _DIi, _PED, _TN, _NII, _SI, _KMSE, _KMSK, _T],
+  [0, 0, 2, 0, 0, 0, 2, 0, () => Tags], 5
 ];
 export var CreateStorediSCSIVolumeOutput$: StaticStructureSchema = [3, n0, _CSSCSIVO,
   0,
@@ -797,7 +797,7 @@ export var CreateStorediSCSIVolumeOutput$: StaticStructureSchema = [3, n0, _CSSC
 export var CreateTapePoolInput$: StaticStructureSchema = [3, n0, _CTPI,
   0,
   [_PN, _SC, _RLT, _RLTID, _T],
-  [0, 0, 0, 1, () => Tags]
+  [0, 0, 0, 1, () => Tags], 2
 ];
 export var CreateTapePoolOutput$: StaticStructureSchema = [3, n0, _CTPO,
   0,
@@ -807,7 +807,7 @@ export var CreateTapePoolOutput$: StaticStructureSchema = [3, n0, _CTPO,
 export var CreateTapesInput$: StaticStructureSchema = [3, n0, _CTI,
   0,
   [_GARN, _TSIB, _CT, _NTTC, _TBP, _KMSE, _KMSK, _PI, _W, _T],
-  [0, 1, 0, 1, 0, 2, 0, 0, 2, () => Tags]
+  [0, 1, 0, 1, 0, 2, 0, 0, 2, () => Tags], 5
 ];
 export var CreateTapesOutput$: StaticStructureSchema = [3, n0, _CTO,
   0,
@@ -817,7 +817,7 @@ export var CreateTapesOutput$: StaticStructureSchema = [3, n0, _CTO,
 export var CreateTapeWithBarcodeInput$: StaticStructureSchema = [3, n0, _CTWBI,
   0,
   [_GARN, _TSIB, _TB, _KMSE, _KMSK, _PI, _W, _T],
-  [0, 1, 0, 2, 0, 0, 2, () => Tags]
+  [0, 1, 0, 2, 0, 0, 2, () => Tags], 3
 ];
 export var CreateTapeWithBarcodeOutput$: StaticStructureSchema = [3, n0, _CTWBO,
   0,
@@ -827,7 +827,7 @@ export var CreateTapeWithBarcodeOutput$: StaticStructureSchema = [3, n0, _CTWBO,
 export var DeleteAutomaticTapeCreationPolicyInput$: StaticStructureSchema = [3, n0, _DATCPI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DeleteAutomaticTapeCreationPolicyOutput$: StaticStructureSchema = [3, n0, _DATCPO,
   0,
@@ -837,7 +837,7 @@ export var DeleteAutomaticTapeCreationPolicyOutput$: StaticStructureSchema = [3,
 export var DeleteBandwidthRateLimitInput$: StaticStructureSchema = [3, n0, _DBRLI,
   0,
   [_GARN, _BT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteBandwidthRateLimitOutput$: StaticStructureSchema = [3, n0, _DBRLO,
   0,
@@ -847,7 +847,7 @@ export var DeleteBandwidthRateLimitOutput$: StaticStructureSchema = [3, n0, _DBR
 export var DeleteCacheReportInput$: StaticStructureSchema = [3, n0, _DCRI,
   0,
   [_CRARN],
-  [0]
+  [0], 1
 ];
 export var DeleteCacheReportOutput$: StaticStructureSchema = [3, n0, _DCRO,
   0,
@@ -857,7 +857,7 @@ export var DeleteCacheReportOutput$: StaticStructureSchema = [3, n0, _DCRO,
 export var DeleteChapCredentialsInput$: StaticStructureSchema = [3, n0, _DCCI,
   0,
   [_TARNa, _IN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteChapCredentialsOutput$: StaticStructureSchema = [3, n0, _DCCO,
   0,
@@ -867,7 +867,7 @@ export var DeleteChapCredentialsOutput$: StaticStructureSchema = [3, n0, _DCCO,
 export var DeleteFileShareInput$: StaticStructureSchema = [3, n0, _DFSI,
   0,
   [_FSARN, _FD],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteFileShareOutput$: StaticStructureSchema = [3, n0, _DFSO,
   0,
@@ -877,7 +877,7 @@ export var DeleteFileShareOutput$: StaticStructureSchema = [3, n0, _DFSO,
 export var DeleteGatewayInput$: StaticStructureSchema = [3, n0, _DGI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DeleteGatewayOutput$: StaticStructureSchema = [3, n0, _DGO,
   0,
@@ -887,7 +887,7 @@ export var DeleteGatewayOutput$: StaticStructureSchema = [3, n0, _DGO,
 export var DeleteSnapshotScheduleInput$: StaticStructureSchema = [3, n0, _DSSI,
   0,
   [_VARN],
-  [0]
+  [0], 1
 ];
 export var DeleteSnapshotScheduleOutput$: StaticStructureSchema = [3, n0, _DSSO,
   0,
@@ -897,7 +897,7 @@ export var DeleteSnapshotScheduleOutput$: StaticStructureSchema = [3, n0, _DSSO,
 export var DeleteTapeArchiveInput$: StaticStructureSchema = [3, n0, _DTAI,
   0,
   [_TARN, _BGR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteTapeArchiveOutput$: StaticStructureSchema = [3, n0, _DTAO,
   0,
@@ -907,7 +907,7 @@ export var DeleteTapeArchiveOutput$: StaticStructureSchema = [3, n0, _DTAO,
 export var DeleteTapeInput$: StaticStructureSchema = [3, n0, _DTI,
   0,
   [_GARN, _TARN, _BGR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DeleteTapeOutput$: StaticStructureSchema = [3, n0, _DTO,
   0,
@@ -917,7 +917,7 @@ export var DeleteTapeOutput$: StaticStructureSchema = [3, n0, _DTO,
 export var DeleteTapePoolInput$: StaticStructureSchema = [3, n0, _DTPI,
   0,
   [_PARN],
-  [0]
+  [0], 1
 ];
 export var DeleteTapePoolOutput$: StaticStructureSchema = [3, n0, _DTPO,
   0,
@@ -927,7 +927,7 @@ export var DeleteTapePoolOutput$: StaticStructureSchema = [3, n0, _DTPO,
 export var DeleteVolumeInput$: StaticStructureSchema = [3, n0, _DVI,
   0,
   [_VARN],
-  [0]
+  [0], 1
 ];
 export var DeleteVolumeOutput$: StaticStructureSchema = [3, n0, _DVO,
   0,
@@ -937,7 +937,7 @@ export var DeleteVolumeOutput$: StaticStructureSchema = [3, n0, _DVO,
 export var DescribeAvailabilityMonitorTestInput$: StaticStructureSchema = [3, n0, _DAMTI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DescribeAvailabilityMonitorTestOutput$: StaticStructureSchema = [3, n0, _DAMTO,
   0,
@@ -947,7 +947,7 @@ export var DescribeAvailabilityMonitorTestOutput$: StaticStructureSchema = [3, n
 export var DescribeBandwidthRateLimitInput$: StaticStructureSchema = [3, n0, _DBRLIe,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DescribeBandwidthRateLimitOutput$: StaticStructureSchema = [3, n0, _DBRLOe,
   0,
@@ -957,7 +957,7 @@ export var DescribeBandwidthRateLimitOutput$: StaticStructureSchema = [3, n0, _D
 export var DescribeBandwidthRateLimitScheduleInput$: StaticStructureSchema = [3, n0, _DBRLSI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DescribeBandwidthRateLimitScheduleOutput$: StaticStructureSchema = [3, n0, _DBRLSO,
   0,
@@ -967,7 +967,7 @@ export var DescribeBandwidthRateLimitScheduleOutput$: StaticStructureSchema = [3
 export var DescribeCachediSCSIVolumesInput$: StaticStructureSchema = [3, n0, _DCSCSIVI,
   0,
   [_VARNo],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeCachediSCSIVolumesOutput$: StaticStructureSchema = [3, n0, _DCSCSIVO,
   0,
@@ -977,7 +977,7 @@ export var DescribeCachediSCSIVolumesOutput$: StaticStructureSchema = [3, n0, _D
 export var DescribeCacheInput$: StaticStructureSchema = [3, n0, _DCI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DescribeCacheOutput$: StaticStructureSchema = [3, n0, _DCO,
   0,
@@ -987,7 +987,7 @@ export var DescribeCacheOutput$: StaticStructureSchema = [3, n0, _DCO,
 export var DescribeCacheReportInput$: StaticStructureSchema = [3, n0, _DCRIe,
   0,
   [_CRARN],
-  [0]
+  [0], 1
 ];
 export var DescribeCacheReportOutput$: StaticStructureSchema = [3, n0, _DCROe,
   0,
@@ -997,7 +997,7 @@ export var DescribeCacheReportOutput$: StaticStructureSchema = [3, n0, _DCROe,
 export var DescribeChapCredentialsInput$: StaticStructureSchema = [3, n0, _DCCIe,
   0,
   [_TARNa],
-  [0]
+  [0], 1
 ];
 export var DescribeChapCredentialsOutput$: StaticStructureSchema = [3, n0, _DCCOe,
   0,
@@ -1007,7 +1007,7 @@ export var DescribeChapCredentialsOutput$: StaticStructureSchema = [3, n0, _DCCO
 export var DescribeFileSystemAssociationsInput$: StaticStructureSchema = [3, n0, _DFSAI,
   0,
   [_FSAARNL],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeFileSystemAssociationsOutput$: StaticStructureSchema = [3, n0, _DFSAO,
   0,
@@ -1017,7 +1017,7 @@ export var DescribeFileSystemAssociationsOutput$: StaticStructureSchema = [3, n0
 export var DescribeGatewayInformationInput$: StaticStructureSchema = [3, n0, _DGII,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DescribeGatewayInformationOutput$: StaticStructureSchema = [3, n0, _DGIO,
   0,
@@ -1027,7 +1027,7 @@ export var DescribeGatewayInformationOutput$: StaticStructureSchema = [3, n0, _D
 export var DescribeMaintenanceStartTimeInput$: StaticStructureSchema = [3, n0, _DMSTI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DescribeMaintenanceStartTimeOutput$: StaticStructureSchema = [3, n0, _DMSTO,
   0,
@@ -1037,7 +1037,7 @@ export var DescribeMaintenanceStartTimeOutput$: StaticStructureSchema = [3, n0, 
 export var DescribeNFSFileSharesInput$: StaticStructureSchema = [3, n0, _DNFSFSI,
   0,
   [_FSARNL],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeNFSFileSharesOutput$: StaticStructureSchema = [3, n0, _DNFSFSO,
   0,
@@ -1047,7 +1047,7 @@ export var DescribeNFSFileSharesOutput$: StaticStructureSchema = [3, n0, _DNFSFS
 export var DescribeSMBFileSharesInput$: StaticStructureSchema = [3, n0, _DSMBFSI,
   0,
   [_FSARNL],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeSMBFileSharesOutput$: StaticStructureSchema = [3, n0, _DSMBFSO,
   0,
@@ -1057,7 +1057,7 @@ export var DescribeSMBFileSharesOutput$: StaticStructureSchema = [3, n0, _DSMBFS
 export var DescribeSMBSettingsInput$: StaticStructureSchema = [3, n0, _DSMBSI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DescribeSMBSettingsOutput$: StaticStructureSchema = [3, n0, _DSMBSO,
   0,
@@ -1067,7 +1067,7 @@ export var DescribeSMBSettingsOutput$: StaticStructureSchema = [3, n0, _DSMBSO,
 export var DescribeSnapshotScheduleInput$: StaticStructureSchema = [3, n0, _DSSIe,
   0,
   [_VARN],
-  [0]
+  [0], 1
 ];
 export var DescribeSnapshotScheduleOutput$: StaticStructureSchema = [3, n0, _DSSOe,
   0,
@@ -1077,7 +1077,7 @@ export var DescribeSnapshotScheduleOutput$: StaticStructureSchema = [3, n0, _DSS
 export var DescribeStorediSCSIVolumesInput$: StaticStructureSchema = [3, n0, _DSSCSIVI,
   0,
   [_VARNo],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeStorediSCSIVolumesOutput$: StaticStructureSchema = [3, n0, _DSSCSIVO,
   0,
@@ -1097,7 +1097,7 @@ export var DescribeTapeArchivesOutput$: StaticStructureSchema = [3, n0, _DTAOe,
 export var DescribeTapeRecoveryPointsInput$: StaticStructureSchema = [3, n0, _DTRPI,
   0,
   [_GARN, _M, _L],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var DescribeTapeRecoveryPointsOutput$: StaticStructureSchema = [3, n0, _DTRPO,
   0,
@@ -1107,7 +1107,7 @@ export var DescribeTapeRecoveryPointsOutput$: StaticStructureSchema = [3, n0, _D
 export var DescribeTapesInput$: StaticStructureSchema = [3, n0, _DTIe,
   0,
   [_GARN, _TARNap, _M, _L],
-  [0, 64 | 0, 0, 1]
+  [0, 64 | 0, 0, 1], 1
 ];
 export var DescribeTapesOutput$: StaticStructureSchema = [3, n0, _DTOe,
   0,
@@ -1117,7 +1117,7 @@ export var DescribeTapesOutput$: StaticStructureSchema = [3, n0, _DTOe,
 export var DescribeUploadBufferInput$: StaticStructureSchema = [3, n0, _DUBI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DescribeUploadBufferOutput$: StaticStructureSchema = [3, n0, _DUBO,
   0,
@@ -1127,7 +1127,7 @@ export var DescribeUploadBufferOutput$: StaticStructureSchema = [3, n0, _DUBO,
 export var DescribeVTLDevicesInput$: StaticStructureSchema = [3, n0, _DVTLDI,
   0,
   [_GARN, _VTLDARN, _M, _L],
-  [0, 64 | 0, 0, 1]
+  [0, 64 | 0, 0, 1], 1
 ];
 export var DescribeVTLDevicesOutput$: StaticStructureSchema = [3, n0, _DVTLDO,
   0,
@@ -1137,7 +1137,7 @@ export var DescribeVTLDevicesOutput$: StaticStructureSchema = [3, n0, _DVTLDO,
 export var DescribeWorkingStorageInput$: StaticStructureSchema = [3, n0, _DWSI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DescribeWorkingStorageOutput$: StaticStructureSchema = [3, n0, _DWSO,
   0,
@@ -1147,7 +1147,7 @@ export var DescribeWorkingStorageOutput$: StaticStructureSchema = [3, n0, _DWSO,
 export var DetachVolumeInput$: StaticStructureSchema = [3, n0, _DVIe,
   0,
   [_VARN, _FDo],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DetachVolumeOutput$: StaticStructureSchema = [3, n0, _DVOe,
   0,
@@ -1162,7 +1162,7 @@ export var DeviceiSCSIAttributes$: StaticStructureSchema = [3, n0, _DSCSIA,
 export var DisableGatewayInput$: StaticStructureSchema = [3, n0, _DGIi,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var DisableGatewayOutput$: StaticStructureSchema = [3, n0, _DGOi,
   0,
@@ -1172,7 +1172,7 @@ export var DisableGatewayOutput$: StaticStructureSchema = [3, n0, _DGOi,
 export var DisassociateFileSystemInput$: StaticStructureSchema = [3, n0, _DFSIi,
   0,
   [_FSAARN, _FD],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DisassociateFileSystemOutput$: StaticStructureSchema = [3, n0, _DFSOi,
   0,
@@ -1192,7 +1192,7 @@ export var EndpointNetworkConfiguration$: StaticStructureSchema = [3, n0, _ENC,
 export var EvictFilesFailingUploadInput$: StaticStructureSchema = [3, n0, _EFFUI,
   0,
   [_FSARN, _FR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var EvictFilesFailingUploadOutput$: StaticStructureSchema = [3, n0, _EFFUO,
   0,
@@ -1238,8 +1238,8 @@ export var InvalidGatewayRequestException$: StaticErrorSchema = [-3, n0, _IGRE,
 TypeRegistry.for(n0).registerError(InvalidGatewayRequestException$, InvalidGatewayRequestException);
 export var JoinDomainInput$: StaticStructureSchema = [3, n0, _JDI,
   0,
-  [_GARN, _DN, _OU, _DC, _TIS, _UN, _P],
-  [0, 0, 0, 64 | 0, 1, 0, [() => DomainUserPassword, 0]]
+  [_GARN, _DN, _UN, _P, _OU, _DC, _TIS],
+  [0, 0, 0, [() => DomainUserPassword, 0], 0, 64 | 0, 1], 4
 ];
 export var JoinDomainOutput$: StaticStructureSchema = [3, n0, _JDO,
   0,
@@ -1299,7 +1299,7 @@ export var ListGatewaysOutput$: StaticStructureSchema = [3, n0, _LGO,
 export var ListLocalDisksInput$: StaticStructureSchema = [3, n0, _LLDI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var ListLocalDisksOutput$: StaticStructureSchema = [3, n0, _LLDO,
   0,
@@ -1309,7 +1309,7 @@ export var ListLocalDisksOutput$: StaticStructureSchema = [3, n0, _LLDO,
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RARN, _M, _L],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -1339,7 +1339,7 @@ export var ListTapesOutput$: StaticStructureSchema = [3, n0, _LTO,
 export var ListVolumeInitiatorsInput$: StaticStructureSchema = [3, n0, _LVII,
   0,
   [_VARN],
-  [0]
+  [0], 1
 ];
 export var ListVolumeInitiatorsOutput$: StaticStructureSchema = [3, n0, _LVIO,
   0,
@@ -1349,7 +1349,7 @@ export var ListVolumeInitiatorsOutput$: StaticStructureSchema = [3, n0, _LVIO,
 export var ListVolumeRecoveryPointsInput$: StaticStructureSchema = [3, n0, _LVRPI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var ListVolumeRecoveryPointsOutput$: StaticStructureSchema = [3, n0, _LVRPO,
   0,
@@ -1384,7 +1384,7 @@ export var NFSFileShareInfo$: StaticStructureSchema = [3, n0, _NFSFSI,
 export var NotifyWhenUploadedInput$: StaticStructureSchema = [3, n0, _NWUI,
   0,
   [_FSARN],
-  [0]
+  [0], 1
 ];
 export var NotifyWhenUploadedOutput$: StaticStructureSchema = [3, n0, _NWUO,
   0,
@@ -1399,7 +1399,7 @@ export var PoolInfo$: StaticStructureSchema = [3, n0, _PIoo,
 export var RefreshCacheInput$: StaticStructureSchema = [3, n0, _RCI,
   0,
   [_FSARN, _FL, _Re],
-  [0, 64 | 0, 2]
+  [0, 64 | 0, 2], 1
 ];
 export var RefreshCacheOutput$: StaticStructureSchema = [3, n0, _RCO,
   0,
@@ -1409,7 +1409,7 @@ export var RefreshCacheOutput$: StaticStructureSchema = [3, n0, _RCO,
 export var RemoveTagsFromResourceInput$: StaticStructureSchema = [3, n0, _RTFRI,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RemoveTagsFromResourceOutput$: StaticStructureSchema = [3, n0, _RTFRO,
   0,
@@ -1419,7 +1419,7 @@ export var RemoveTagsFromResourceOutput$: StaticStructureSchema = [3, n0, _RTFRO
 export var ResetCacheInput$: StaticStructureSchema = [3, n0, _RCIe,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var ResetCacheOutput$: StaticStructureSchema = [3, n0, _RCOe,
   0,
@@ -1429,7 +1429,7 @@ export var ResetCacheOutput$: StaticStructureSchema = [3, n0, _RCOe,
 export var RetrieveTapeArchiveInput$: StaticStructureSchema = [3, n0, _RTAI,
   0,
   [_TARN, _GARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RetrieveTapeArchiveOutput$: StaticStructureSchema = [3, n0, _RTAO,
   0,
@@ -1439,7 +1439,7 @@ export var RetrieveTapeArchiveOutput$: StaticStructureSchema = [3, n0, _RTAO,
 export var RetrieveTapeRecoveryPointInput$: StaticStructureSchema = [3, n0, _RTRPI,
   0,
   [_TARN, _GARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RetrieveTapeRecoveryPointOutput$: StaticStructureSchema = [3, n0, _RTRPO,
   0,
@@ -1455,7 +1455,7 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableError$, ServiceUnavailableE
 export var SetLocalConsolePasswordInput$: StaticStructureSchema = [3, n0, _SLCPI,
   0,
   [_GARN, _LCP],
-  [0, [() => LocalConsolePassword, 0]]
+  [0, [() => LocalConsolePassword, 0]], 2
 ];
 export var SetLocalConsolePasswordOutput$: StaticStructureSchema = [3, n0, _SLCPO,
   0,
@@ -1465,7 +1465,7 @@ export var SetLocalConsolePasswordOutput$: StaticStructureSchema = [3, n0, _SLCP
 export var SetSMBGuestPasswordInput$: StaticStructureSchema = [3, n0, _SSMBGPI,
   0,
   [_GARN, _P],
-  [0, [() => SMBGuestPassword, 0]]
+  [0, [() => SMBGuestPassword, 0]], 2
 ];
 export var SetSMBGuestPasswordOutput$: StaticStructureSchema = [3, n0, _SSMBGPO,
   0,
@@ -1475,7 +1475,7 @@ export var SetSMBGuestPasswordOutput$: StaticStructureSchema = [3, n0, _SSMBGPO,
 export var ShutdownGatewayInput$: StaticStructureSchema = [3, n0, _SGI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var ShutdownGatewayOutput$: StaticStructureSchema = [3, n0, _SGO,
   0,
@@ -1500,7 +1500,7 @@ export var SoftwareUpdatePreferences$: StaticStructureSchema = [3, n0, _SUP,
 export var StartAvailabilityMonitorTestInput$: StaticStructureSchema = [3, n0, _SAMTI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var StartAvailabilityMonitorTestOutput$: StaticStructureSchema = [3, n0, _SAMTO,
   0,
@@ -1509,8 +1509,8 @@ export var StartAvailabilityMonitorTestOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var StartCacheReportInput$: StaticStructureSchema = [3, n0, _SCRI,
   0,
-  [_FSARN, _R, _LARN, _BR, _VPCEDNSN, _IF, _EF, _CT, _T],
-  [0, 0, 0, 0, 0, () => CacheReportFilterList, () => CacheReportFilterList, 0, () => Tags]
+  [_FSARN, _R, _LARN, _BR, _CT, _VPCEDNSN, _IF, _EF, _T],
+  [0, 0, 0, 0, 0, 0, () => CacheReportFilterList, () => CacheReportFilterList, () => Tags], 5
 ];
 export var StartCacheReportOutput$: StaticStructureSchema = [3, n0, _SCRO,
   0,
@@ -1520,7 +1520,7 @@ export var StartCacheReportOutput$: StaticStructureSchema = [3, n0, _SCRO,
 export var StartGatewayInput$: StaticStructureSchema = [3, n0, _SGIt,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var StartGatewayOutput$: StaticStructureSchema = [3, n0, _SGOt,
   0,
@@ -1540,7 +1540,7 @@ export var StorediSCSIVolume$: StaticStructureSchema = [3, n0, _SSCSIVt,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Tape$: StaticStructureSchema = [3, n0, _Tap,
   0,
@@ -1565,7 +1565,7 @@ export var TapeRecoveryPointInfo$: StaticStructureSchema = [3, n0, _TRPIa,
 export var UpdateAutomaticTapeCreationPolicyInput$: StaticStructureSchema = [3, n0, _UATCPI,
   0,
   [_ATCR, _GARN],
-  [() => AutomaticTapeCreationRules, 0]
+  [() => AutomaticTapeCreationRules, 0], 2
 ];
 export var UpdateAutomaticTapeCreationPolicyOutput$: StaticStructureSchema = [3, n0, _UATCPO,
   0,
@@ -1575,7 +1575,7 @@ export var UpdateAutomaticTapeCreationPolicyOutput$: StaticStructureSchema = [3,
 export var UpdateBandwidthRateLimitInput$: StaticStructureSchema = [3, n0, _UBRLI,
   0,
   [_GARN, _AURLIBPS, _ADRLIBPS],
-  [0, 1, 1]
+  [0, 1, 1], 1
 ];
 export var UpdateBandwidthRateLimitOutput$: StaticStructureSchema = [3, n0, _UBRLO,
   0,
@@ -1585,7 +1585,7 @@ export var UpdateBandwidthRateLimitOutput$: StaticStructureSchema = [3, n0, _UBR
 export var UpdateBandwidthRateLimitScheduleInput$: StaticStructureSchema = [3, n0, _UBRLSI,
   0,
   [_GARN, _BRLIa],
-  [0, () => BandwidthRateLimitIntervals]
+  [0, () => BandwidthRateLimitIntervals], 2
 ];
 export var UpdateBandwidthRateLimitScheduleOutput$: StaticStructureSchema = [3, n0, _UBRLSO,
   0,
@@ -1595,7 +1595,7 @@ export var UpdateBandwidthRateLimitScheduleOutput$: StaticStructureSchema = [3, 
 export var UpdateChapCredentialsInput$: StaticStructureSchema = [3, n0, _UCCI,
   0,
   [_TARNa, _STAI, _IN, _STAT],
-  [0, [() => ChapSecret, 0], 0, [() => ChapSecret, 0]]
+  [0, [() => ChapSecret, 0], 0, [() => ChapSecret, 0]], 3
 ];
 export var UpdateChapCredentialsOutput$: StaticStructureSchema = [3, n0, _UCCO,
   0,
@@ -1605,7 +1605,7 @@ export var UpdateChapCredentialsOutput$: StaticStructureSchema = [3, n0, _UCCO,
 export var UpdateFileSystemAssociationInput$: StaticStructureSchema = [3, n0, _UFSAI,
   0,
   [_FSAARN, _UN, _P, _ADARN, _CA],
-  [0, 0, [() => DomainUserPassword, 0], 0, () => CacheAttributes$]
+  [0, 0, [() => DomainUserPassword, 0], 0, () => CacheAttributes$], 1
 ];
 export var UpdateFileSystemAssociationOutput$: StaticStructureSchema = [3, n0, _UFSAO,
   0,
@@ -1615,7 +1615,7 @@ export var UpdateFileSystemAssociationOutput$: StaticStructureSchema = [3, n0, _
 export var UpdateGatewayInformationInput$: StaticStructureSchema = [3, n0, _UGII,
   0,
   [_GARN, _GN, _GT, _CWLGARN, _GC],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 1
 ];
 export var UpdateGatewayInformationOutput$: StaticStructureSchema = [3, n0, _UGIO,
   0,
@@ -1625,7 +1625,7 @@ export var UpdateGatewayInformationOutput$: StaticStructureSchema = [3, n0, _UGI
 export var UpdateGatewaySoftwareNowInput$: StaticStructureSchema = [3, n0, _UGSNI,
   0,
   [_GARN],
-  [0]
+  [0], 1
 ];
 export var UpdateGatewaySoftwareNowOutput$: StaticStructureSchema = [3, n0, _UGSNO,
   0,
@@ -1635,7 +1635,7 @@ export var UpdateGatewaySoftwareNowOutput$: StaticStructureSchema = [3, n0, _UGS
 export var UpdateMaintenanceStartTimeInput$: StaticStructureSchema = [3, n0, _UMSTI,
   0,
   [_GARN, _HOD, _MOH, _DOWa, _DOM, _SUP],
-  [0, 1, 1, 1, 1, () => SoftwareUpdatePreferences$]
+  [0, 1, 1, 1, 1, () => SoftwareUpdatePreferences$], 1
 ];
 export var UpdateMaintenanceStartTimeOutput$: StaticStructureSchema = [3, n0, _UMSTO,
   0,
@@ -1645,7 +1645,7 @@ export var UpdateMaintenanceStartTimeOutput$: StaticStructureSchema = [3, n0, _U
 export var UpdateNFSFileShareInput$: StaticStructureSchema = [3, n0, _UNFSFSI,
   0,
   [_FSARN, _ETn, _KMSE, _KMSK, _NFSFSD, _DSC, _OACL, _CL, _S, _RO, _GMIMETE, _RP, _FSN, _CA, _NP, _ADARN],
-  [0, 0, 2, 0, () => NFSFileShareDefaults$, 0, 0, 64 | 0, 0, 2, 2, 2, 0, () => CacheAttributes$, 0, 0]
+  [0, 0, 2, 0, () => NFSFileShareDefaults$, 0, 0, 64 | 0, 0, 2, 2, 2, 0, () => CacheAttributes$, 0, 0], 1
 ];
 export var UpdateNFSFileShareOutput$: StaticStructureSchema = [3, n0, _UNFSFSO,
   0,
@@ -1655,7 +1655,7 @@ export var UpdateNFSFileShareOutput$: StaticStructureSchema = [3, n0, _UNFSFSO,
 export var UpdateSMBFileShareInput$: StaticStructureSchema = [3, n0, _USMBFSI,
   0,
   [_FSARN, _ETn, _KMSE, _KMSK, _DSC, _OACL, _RO, _GMIMETE, _RP, _SMBACLE, _ABE, _AUL, _VUL, _IUL, _ADARN, _CSa, _FSN, _CA, _NP, _OE],
-  [0, 0, 2, 0, 0, 0, 2, 2, 2, 2, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => CacheAttributes$, 0, 2]
+  [0, 0, 2, 0, 0, 0, 2, 2, 2, 2, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => CacheAttributes$, 0, 2], 1
 ];
 export var UpdateSMBFileShareOutput$: StaticStructureSchema = [3, n0, _USMBFSO,
   0,
@@ -1665,7 +1665,7 @@ export var UpdateSMBFileShareOutput$: StaticStructureSchema = [3, n0, _USMBFSO,
 export var UpdateSMBFileShareVisibilityInput$: StaticStructureSchema = [3, n0, _USMBFSVI,
   0,
   [_GARN, _FSV],
-  [0, 2]
+  [0, 2], 2
 ];
 export var UpdateSMBFileShareVisibilityOutput$: StaticStructureSchema = [3, n0, _USMBFSVO,
   0,
@@ -1675,7 +1675,7 @@ export var UpdateSMBFileShareVisibilityOutput$: StaticStructureSchema = [3, n0, 
 export var UpdateSMBLocalGroupsInput$: StaticStructureSchema = [3, n0, _USMBLGI,
   0,
   [_GARN, _SMBLG],
-  [0, () => SMBLocalGroups$]
+  [0, () => SMBLocalGroups$], 2
 ];
 export var UpdateSMBLocalGroupsOutput$: StaticStructureSchema = [3, n0, _USMBLGO,
   0,
@@ -1685,7 +1685,7 @@ export var UpdateSMBLocalGroupsOutput$: StaticStructureSchema = [3, n0, _USMBLGO
 export var UpdateSMBSecurityStrategyInput$: StaticStructureSchema = [3, n0, _USMBSSI,
   0,
   [_GARN, _SMBSS],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateSMBSecurityStrategyOutput$: StaticStructureSchema = [3, n0, _USMBSSO,
   0,
@@ -1695,7 +1695,7 @@ export var UpdateSMBSecurityStrategyOutput$: StaticStructureSchema = [3, n0, _US
 export var UpdateSnapshotScheduleInput$: StaticStructureSchema = [3, n0, _USSI,
   0,
   [_VARN, _SA, _RIH, _D, _T],
-  [0, 1, 1, 0, () => Tags]
+  [0, 1, 1, 0, () => Tags], 3
 ];
 export var UpdateSnapshotScheduleOutput$: StaticStructureSchema = [3, n0, _USSO,
   0,
@@ -1705,7 +1705,7 @@ export var UpdateSnapshotScheduleOutput$: StaticStructureSchema = [3, n0, _USSO,
 export var UpdateVTLDeviceTypeInput$: StaticStructureSchema = [3, n0, _UVTLDTI,
   0,
   [_VTLDARNe, _DT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateVTLDeviceTypeOutput$: StaticStructureSchema = [3, n0, _UVTLDTO,
   0,

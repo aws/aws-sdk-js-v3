@@ -569,17 +569,17 @@ export var ApplicationAggregatedStatus$: StaticStructureSchema = [3, n0, _AAS,
 export var ArchiveApplicationRequest$: StaticStructureSchema = [3, n0, _AAR,
   0,
   [_aID, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ArchiveWaveRequest$: StaticStructureSchema = [3, n0, _AWR,
   0,
   [_wID, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var AssociateApplicationsRequest$: StaticStructureSchema = [3, n0, _AARs,
   0,
   [_wID, _aIDp, _aIDc],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 2
 ];
 export var AssociateApplicationsResponse$: StaticStructureSchema = [3, n0, _AARss,
   0,
@@ -589,7 +589,7 @@ export var AssociateApplicationsResponse$: StaticStructureSchema = [3, n0, _AARs
 export var AssociateSourceServersRequest$: StaticStructureSchema = [3, n0, _ASSR,
   0,
   [_aID, _sSID, _aIDc],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 2
 ];
 export var AssociateSourceServersResponse$: StaticStructureSchema = [3, n0, _ASSRs,
   0,
@@ -599,12 +599,12 @@ export var AssociateSourceServersResponse$: StaticStructureSchema = [3, n0, _ASS
 export var ChangeServerLifeCycleStateRequest$: StaticStructureSchema = [3, n0, _CSLCSR,
   0,
   [_sSIDo, _lC, _aIDc],
-  [0, () => ChangeServerLifeCycleStateSourceServerLifecycle$, 0]
+  [0, () => ChangeServerLifeCycleStateSourceServerLifecycle$, 0], 2
 ];
 export var ChangeServerLifeCycleStateSourceServerLifecycle$: StaticStructureSchema = [3, n0, _CSLCSSSL,
   0,
   [_s],
-  [0]
+  [0], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -619,8 +619,8 @@ export var Connector$: StaticStructureSchema = [3, n0, _C,
 ];
 export var ConnectorSsmCommandConfig$: StaticStructureSchema = [3, n0, _CSCC,
   0,
-  [_sOE, _oSBN, _cWOE, _cWLGN],
-  [2, 0, 2, 0]
+  [_sOE, _cWOE, _oSBN, _cWLGN],
+  [2, 2, 0, 0], 2
 ];
 export var CPU$: StaticStructureSchema = [3, n0, _CPU,
   0,
@@ -630,12 +630,12 @@ export var CPU$: StaticStructureSchema = [3, n0, _CPU,
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_n, _d, _t, _aIDc],
-  [0, 0, [() => TagsMap, 0], 0]
+  [0, 0, [() => TagsMap, 0], 0], 1
 ];
 export var CreateConnectorRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_n, _sIID, _t, _sCC],
-  [0, 0, [() => TagsMap, 0], () => ConnectorSsmCommandConfig$]
+  [0, 0, [() => TagsMap, 0], () => ConnectorSsmCommandConfig$], 2
 ];
 export var CreateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _CLCTR,
   0,
@@ -644,13 +644,13 @@ export var CreateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3
 ];
 export var CreateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _CRCTR,
   0,
-  [_sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _t, _iP],
-  [0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, [() => TagsMap, 0], 0]
+  [_sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _bT, _dPR, _cPIP, _sAT, _eEKA, _uFE, _t, _iP],
+  [0, 2, 64 | 0, 0, 2, 0, 0, 1, 0, 2, [() => TagsMap, 0], 0, 2, [() => TagsMap, 0], 0], 11
 ];
 export var CreateWaveRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
   [_n, _d, _t, _aIDc],
-  [0, 0, [() => TagsMap, 0], 0]
+  [0, 0, [() => TagsMap, 0], 0], 1
 ];
 export var DataReplicationError$: StaticStructureSchema = [3, n0, _DRE,
   0,
@@ -680,7 +680,7 @@ export var DataReplicationInitiationStep$: StaticStructureSchema = [3, n0, _DRIS
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_aID, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -690,12 +690,12 @@ export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteConnectorRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cID],
-  [0]
+  [0], 1
 ];
 export var DeleteJobRequest$: StaticStructureSchema = [3, n0, _DJR,
   0,
   [_jID, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteJobResponse$: StaticStructureSchema = [3, n0, _DJRe,
   0,
@@ -705,7 +705,7 @@ export var DeleteJobResponse$: StaticStructureSchema = [3, n0, _DJRe,
 export var DeleteLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _DLCTR,
   0,
   [_lCTID],
-  [0]
+  [0], 1
 ];
 export var DeleteLaunchConfigurationTemplateResponse$: StaticStructureSchema = [3, n0, _DLCTRe,
   0,
@@ -715,7 +715,7 @@ export var DeleteLaunchConfigurationTemplateResponse$: StaticStructureSchema = [
 export var DeleteReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _DRCTR,
   0,
   [_rCTID],
-  [0]
+  [0], 1
 ];
 export var DeleteReplicationConfigurationTemplateResponse$: StaticStructureSchema = [3, n0, _DRCTRe,
   0,
@@ -725,7 +725,7 @@ export var DeleteReplicationConfigurationTemplateResponse$: StaticStructureSchem
 export var DeleteSourceServerRequest$: StaticStructureSchema = [3, n0, _DSSR,
   0,
   [_sSIDo, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteSourceServerResponse$: StaticStructureSchema = [3, n0, _DSSRe,
   0,
@@ -735,12 +735,12 @@ export var DeleteSourceServerResponse$: StaticStructureSchema = [3, n0, _DSSRe,
 export var DeleteVcenterClientRequest$: StaticStructureSchema = [3, n0, _DVCR,
   0,
   [_vCID],
-  [0]
+  [0], 1
 ];
 export var DeleteWaveRequest$: StaticStructureSchema = [3, n0, _DWR,
   0,
   [_wID, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteWaveResponse$: StaticStructureSchema = [3, n0, _DWRe,
   0,
@@ -750,7 +750,7 @@ export var DeleteWaveResponse$: StaticStructureSchema = [3, n0, _DWRe,
 export var DescribeJobLogItemsRequest$: StaticStructureSchema = [3, n0, _DJLIR,
   0,
   [_jID, _mR, _nT, _aIDc],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0], 1
 ];
 export var DescribeJobLogItemsResponse$: StaticStructureSchema = [3, n0, _DJLIRe,
   0,
@@ -820,7 +820,7 @@ export var DescribeVcenterClientsResponse$: StaticStructureSchema = [3, n0, _DVC
 export var DisassociateApplicationsRequest$: StaticStructureSchema = [3, n0, _DARi,
   0,
   [_wID, _aIDp, _aIDc],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 2
 ];
 export var DisassociateApplicationsResponse$: StaticStructureSchema = [3, n0, _DARis,
   0,
@@ -830,7 +830,7 @@ export var DisassociateApplicationsResponse$: StaticStructureSchema = [3, n0, _D
 export var DisassociateSourceServersRequest$: StaticStructureSchema = [3, n0, _DSSRi,
   0,
   [_aID, _sSID, _aIDc],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 2
 ];
 export var DisassociateSourceServersResponse$: StaticStructureSchema = [3, n0, _DSSRis,
   0,
@@ -840,7 +840,7 @@ export var DisassociateSourceServersResponse$: StaticStructureSchema = [3, n0, _
 export var DisconnectFromServiceRequest$: StaticStructureSchema = [3, n0, _DFSR,
   0,
   [_sSIDo, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Disk$: StaticStructureSchema = [3, n0, _D,
   0,
@@ -875,17 +875,17 @@ export var ExportTaskSummary$: StaticStructureSchema = [3, n0, _ETS,
 export var FinalizeCutoverRequest$: StaticStructureSchema = [3, n0, _FCR,
   0,
   [_sSIDo, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetLaunchConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR,
   0,
   [_sSIDo, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _GRCR,
   0,
   [_sSIDo, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var IdentificationHints$: StaticStructureSchema = [3, n0, _IH,
   0,
@@ -940,13 +940,13 @@ export var InitializeServiceResponse$: StaticStructureSchema = [3, n0, _ISRn,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _ser, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Job$: StaticStructureSchema = [3, n0, _J,
   0,
   [_jID, _a, _ty, _iB, _cDT, _eDTn, _sta, _pSa, _t],
-  [0, 0, 0, 0, 0, 0, 0, () => ParticipatingServers, [() => TagsMap, 0]]
+  [0, 0, 0, 0, 0, 0, 0, () => ParticipatingServers, [() => TagsMap, 0]], 1
 ];
 export var JobLog$: StaticStructureSchema = [3, n0, _JL,
   0,
@@ -971,7 +971,7 @@ export var LaunchConfiguration$: StaticStructureSchema = [3, n0, _LC,
 export var LaunchConfigurationTemplate$: StaticStructureSchema = [3, n0, _LCT,
   0,
   [_lCTID, _a, _pLA, _eMAT, _mATMID, _t, _eLTID, _lD, _tITRSM, _cPI, _aPIA, _cT, _l, _bM, _sVMS, _sVC, _lVC, _ePE, _pEK],
-  [0, 0, () => PostLaunchActions$, 2, 0, [() => TagsMap, 0], 0, 0, 0, 2, 2, 2, () => Licensing$, 0, 1, () => LaunchTemplateDiskConf$, () => LaunchTemplateDiskConf$, 2, 0]
+  [0, 0, () => PostLaunchActions$, 2, 0, [() => TagsMap, 0], 0, 0, 0, 2, 2, 2, () => Licensing$, 0, 1, () => LaunchTemplateDiskConf$, () => LaunchTemplateDiskConf$, 2, 0], 1
 ];
 export var LaunchedInstance$: StaticStructureSchema = [3, n0, _LI,
   0,
@@ -1066,7 +1066,7 @@ export var ListConnectorsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListExportErrorsRequest$: StaticStructureSchema = [3, n0, _LEER,
   0,
   [_eID, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListExportErrorsResponse$: StaticStructureSchema = [3, n0, _LEERi,
   0,
@@ -1091,7 +1091,7 @@ export var ListExportsResponse$: StaticStructureSchema = [3, n0, _LERi,
 export var ListImportErrorsRequest$: StaticStructureSchema = [3, n0, _LIER,
   0,
   [_iID, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListImportErrorsResponse$: StaticStructureSchema = [3, n0, _LIERi,
   0,
@@ -1121,12 +1121,12 @@ export var ListManagedAccountsRequest$: StaticStructureSchema = [3, n0, _LMAR,
 export var ListManagedAccountsResponse$: StaticStructureSchema = [3, n0, _LMARi,
   0,
   [_i, _nT],
-  [() => ManagedAccounts, 0]
+  [() => ManagedAccounts, 0], 1
 ];
 export var ListSourceServerActionsRequest$: StaticStructureSchema = [3, n0, _LSSAR,
   0,
   [_sSIDo, _f, _mR, _nT, _aIDc],
-  [0, () => SourceServerActionsRequestFilters$, 1, 0, 0]
+  [0, () => SourceServerActionsRequestFilters$, 1, 0, 0], 1
 ];
 export var ListSourceServerActionsResponse$: StaticStructureSchema = [3, n0, _LSSARi,
   0,
@@ -1136,7 +1136,7 @@ export var ListSourceServerActionsResponse$: StaticStructureSchema = [3, n0, _LS
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1146,7 +1146,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListTemplateActionsRequest$: StaticStructureSchema = [3, n0, _LTAR,
   0,
   [_lCTID, _f, _mR, _nT],
-  [0, () => TemplateActionsRequestFilters$, 1, 0]
+  [0, () => TemplateActionsRequestFilters$, 1, 0], 1
 ];
 export var ListTemplateActionsResponse$: StaticStructureSchema = [3, n0, _LTARi,
   0,
@@ -1176,7 +1176,7 @@ export var ManagedAccount$: StaticStructureSchema = [3, n0, _MA,
 export var MarkAsArchivedRequest$: StaticStructureSchema = [3, n0, _MAAR,
   0,
   [_sSIDo, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
   0,
@@ -1191,12 +1191,12 @@ export var OS$: StaticStructureSchema = [3, n0, _OS,
 export var ParticipatingServer$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_sSIDo, _lS, _lEIID, _pLAS],
-  [0, 0, 0, () => PostLaunchActionsStatus$]
+  [0, 0, 0, () => PostLaunchActionsStatus$], 1
 ];
 export var PauseReplicationRequest$: StaticStructureSchema = [3, n0, _PRR,
   0,
   [_sSIDo, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PostLaunchActions$: StaticStructureSchema = [3, n0, _PLA,
   0,
@@ -1211,17 +1211,17 @@ export var PostLaunchActionsStatus$: StaticStructureSchema = [3, n0, _PLAS,
 export var PutSourceServerActionRequest$: StaticStructureSchema = [3, n0, _PSSAR,
   0,
   [_sSIDo, _aN, _dI, _o, _aIDct, _dV, _ac, _tS, _mSFC, _p, _eP, _d, _ca, _aIDc],
-  [0, 0, 0, 1, 0, 0, 2, 1, 2, () => SsmDocumentParameters, () => SsmDocumentExternalParameters, 0, 0, 0]
+  [0, 0, 0, 1, 0, 0, 2, 1, 2, () => SsmDocumentParameters, () => SsmDocumentExternalParameters, 0, 0, 0], 5
 ];
 export var PutTemplateActionRequest$: StaticStructureSchema = [3, n0, _PTAR,
   0,
   [_lCTID, _aN, _dI, _o, _aIDct, _dV, _ac, _tS, _mSFC, _p, _oS, _eP, _d, _ca],
-  [0, 0, 0, 1, 0, 0, 2, 1, 2, () => SsmDocumentParameters, 0, () => SsmDocumentExternalParameters, 0, 0]
+  [0, 0, 0, 1, 0, 0, 2, 1, 2, () => SsmDocumentParameters, 0, () => SsmDocumentExternalParameters, 0, 0], 5
 ];
 export var RemoveSourceServerActionRequest$: StaticStructureSchema = [3, n0, _RSSAR,
   0,
   [_sSIDo, _aIDct, _aIDc],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var RemoveSourceServerActionResponse$: StaticStructureSchema = [3, n0, _RSSARe,
   0,
@@ -1231,7 +1231,7 @@ export var RemoveSourceServerActionResponse$: StaticStructureSchema = [3, n0, _R
 export var RemoveTemplateActionRequest$: StaticStructureSchema = [3, n0, _RTAR,
   0,
   [_lCTID, _aIDct],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RemoveTemplateActionResponse$: StaticStructureSchema = [3, n0, _RTARe,
   0,
@@ -1251,7 +1251,7 @@ export var ReplicationConfigurationReplicatedDisk$: StaticStructureSchema = [3, 
 export var ReplicationConfigurationTemplate$: StaticStructureSchema = [3, n0, _RCT,
   0,
   [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _t, _iP],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, [() => TagsMap, 0], 0]
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, [() => TagsMap, 0], 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -1262,17 +1262,17 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResumeReplicationRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
   [_sSIDo, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RetryDataReplicationRequest$: StaticStructureSchema = [3, n0, _RDRR,
   0,
   [_sSIDo, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var S3BucketSource$: StaticStructureSchema = [3, n0, _SBS,
   0,
   [_sB, _sK, _sBO],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -1308,17 +1308,17 @@ export var SourceServerConnectorAction$: StaticStructureSchema = [3, n0, _SSCA,
 export var SsmDocument$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_aN, _sDN, _tS, _mSFC, _p, _eP],
-  [0, 0, 1, 2, () => SsmDocumentParameters, () => SsmDocumentExternalParameters]
+  [0, 0, 1, 2, () => SsmDocumentParameters, () => SsmDocumentExternalParameters], 2
 ];
 export var SsmParameterStoreParameter$: StaticStructureSchema = [3, n0, _SPSP,
   0,
   [_pT, _pN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartCutoverRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
   [_sSID, _t, _aIDc],
-  [64 | 0, [() => TagsMap, 0], 0]
+  [64 | 0, [() => TagsMap, 0], 0], 1
 ];
 export var StartCutoverResponse$: StaticStructureSchema = [3, n0, _SCRt,
   0,
@@ -1328,7 +1328,7 @@ export var StartCutoverResponse$: StaticStructureSchema = [3, n0, _SCRt,
 export var StartExportRequest$: StaticStructureSchema = [3, n0, _SER,
   0,
   [_sB, _sK, _sBO, _t],
-  [0, 0, 0, [() => TagsMap, 0]]
+  [0, 0, 0, [() => TagsMap, 0]], 2
 ];
 export var StartExportResponse$: StaticStructureSchema = [3, n0, _SERt,
   0,
@@ -1337,8 +1337,8 @@ export var StartExportResponse$: StaticStructureSchema = [3, n0, _SERt,
 ];
 export var StartImportRequest$: StaticStructureSchema = [3, n0, _SIR,
   0,
-  [_cTl, _sBS, _t],
-  [[0, 4], () => S3BucketSource$, [() => TagsMap, 0]]
+  [_sBS, _cTl, _t],
+  [() => S3BucketSource$, [0, 4], [() => TagsMap, 0]], 1
 ];
 export var StartImportResponse$: StaticStructureSchema = [3, n0, _SIRt,
   0,
@@ -1348,12 +1348,12 @@ export var StartImportResponse$: StaticStructureSchema = [3, n0, _SIRt,
 export var StartReplicationRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
   [_sSIDo, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var StartTestRequest$: StaticStructureSchema = [3, n0, _STR,
   0,
   [_sSID, _t, _aIDc],
-  [64 | 0, [() => TagsMap, 0], 0]
+  [64 | 0, [() => TagsMap, 0], 0], 1
 ];
 export var StartTestResponse$: StaticStructureSchema = [3, n0, _STRt,
   0,
@@ -1363,12 +1363,12 @@ export var StartTestResponse$: StaticStructureSchema = [3, n0, _STRt,
 export var StopReplicationRequest$: StaticStructureSchema = [3, n0, _SRRt,
   0,
   [_sSIDo, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], [() => TagsMap, 0]]
+  [[0, 1], [() => TagsMap, 0]], 2
 ];
 export var TemplateActionDocument$: StaticStructureSchema = [3, n0, _TAD,
   0,
@@ -1383,7 +1383,7 @@ export var TemplateActionsRequestFilters$: StaticStructureSchema = [3, n0, _TARF
 export var TerminateTargetInstancesRequest$: StaticStructureSchema = [3, n0, _TTIR,
   0,
   [_sSID, _t, _aIDc],
-  [64 | 0, [() => TagsMap, 0], 0]
+  [64 | 0, [() => TagsMap, 0], 0], 1
 ];
 export var TerminateTargetInstancesResponse$: StaticStructureSchema = [3, n0, _TTIRe,
   0,
@@ -1393,18 +1393,18 @@ export var TerminateTargetInstancesResponse$: StaticStructureSchema = [3, n0, _T
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sCe, _qC, _rAS],
-  [0, 0, 0, [0, { [_hH]: _RA }]]
+  [0, 0, 0, [0, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UnarchiveApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_aID, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UnarchiveWaveRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
   [_wID, _aIDc],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UninitializedAccountException$: StaticErrorSchema = [-3, n0, _UAE,
   { [_e]: _c, [_hE]: 400 },
@@ -1415,52 +1415,52 @@ TypeRegistry.for(n0).registerError(UninitializedAccountException$, Uninitialized
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [() => TagKeys, { [_hQ]: _tK }]]
+  [[0, 1], [() => TagKeys, { [_hQ]: _tK }]], 2
 ];
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UARp,
   0,
   [_aID, _n, _d, _aIDc],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var UpdateConnectorRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_cID, _n, _sCC],
-  [0, 0, () => ConnectorSsmCommandConfig$]
+  [0, 0, () => ConnectorSsmCommandConfig$], 1
 ];
 export var UpdateLaunchConfigurationRequest$: StaticStructureSchema = [3, n0, _ULCR,
   0,
   [_sSIDo, _n, _lD, _tITRSM, _cPI, _cT, _l, _bM, _pLA, _eMAT, _mATMID, _aIDc],
-  [0, 0, 0, 0, 2, 2, () => Licensing$, 0, () => PostLaunchActions$, 2, 0, 0]
+  [0, 0, 0, 0, 2, 2, () => Licensing$, 0, () => PostLaunchActions$, 2, 0, 0], 1
 ];
 export var UpdateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _ULCTR,
   0,
   [_lCTID, _pLA, _eMAT, _mATMID, _lD, _tITRSM, _cPI, _aPIA, _cT, _l, _bM, _sVMS, _sVC, _lVC, _ePE, _pEK],
-  [0, () => PostLaunchActions$, 2, 0, 0, 0, 2, 2, 2, () => Licensing$, 0, 1, () => LaunchTemplateDiskConf$, () => LaunchTemplateDiskConf$, 2, 0]
+  [0, () => PostLaunchActions$, 2, 0, 0, 0, 2, 2, 2, () => Licensing$, 0, 1, () => LaunchTemplateDiskConf$, () => LaunchTemplateDiskConf$, 2, 0], 1
 ];
 export var UpdateReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _URCR,
   0,
   [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _aIDc, _iP],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 0]
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 0], 1
 ];
 export var UpdateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _URCTR,
   0,
   [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _iP],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0]
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0], 1
 ];
 export var UpdateSourceServerReplicationTypeRequest$: StaticStructureSchema = [3, n0, _USSRTR,
   0,
   [_sSIDo, _rTep, _aIDc],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var UpdateSourceServerRequest$: StaticStructureSchema = [3, n0, _USSR,
   0,
-  [_aIDc, _sSIDo, _cA],
-  [0, 0, () => SourceServerConnectorAction$]
+  [_sSIDo, _aIDc, _cA],
+  [0, 0, () => SourceServerConnectorAction$], 1
 ];
 export var UpdateWaveRequest$: StaticStructureSchema = [3, n0, _UWRp,
   0,
   [_wID, _n, _d, _aIDc],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

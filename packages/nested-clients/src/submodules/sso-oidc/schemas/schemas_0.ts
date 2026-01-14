@@ -96,6 +96,7 @@ export var CreateTokenRequest$: StaticStructureSchema = [
   0,
   [_cI, _cS, _gT, _dC, _co, _rT, _s, _rU, _cV],
   [0, [() => ClientSecret, 0], 0, 0, 0, [() => RefreshToken, 0], 64 | 0, 0, [() => CodeVerifier, 0]],
+  3,
 ];
 export var CreateTokenResponse$: StaticStructureSchema = [
   3,

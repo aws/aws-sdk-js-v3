@@ -230,8 +230,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateParallelDataRequest$: StaticStructureSchema = [3, n0, _CPDR,
   0,
-  [_N, _D, _PDC, _EK, _CT, _Ta],
-  [0, 0, () => ParallelDataConfig$, () => EncryptionKey$, [0, 4], () => TagList]
+  [_N, _PDC, _D, _EK, _CT, _Ta],
+  [0, () => ParallelDataConfig$, 0, () => EncryptionKey$, [0, 4], () => TagList], 2
 ];
 export var CreateParallelDataResponse$: StaticStructureSchema = [3, n0, _CPDRr,
   0,
@@ -241,7 +241,7 @@ export var CreateParallelDataResponse$: StaticStructureSchema = [3, n0, _CPDRr,
 export var DeleteParallelDataRequest$: StaticStructureSchema = [3, n0, _DPDR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteParallelDataResponse$: StaticStructureSchema = [3, n0, _DPDRe,
   0,
@@ -251,12 +251,12 @@ export var DeleteParallelDataResponse$: StaticStructureSchema = [3, n0, _DPDRe,
 export var DeleteTerminologyRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DescribeTextTranslationJobRequest$: StaticStructureSchema = [3, n0, _DTTJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeTextTranslationJobResponse$: StaticStructureSchema = [3, n0, _DTTJRe,
   0,
@@ -272,17 +272,17 @@ TypeRegistry.for(n0).registerError(DetectedLanguageLowConfidenceException$, Dete
 export var Document$: StaticStructureSchema = [3, n0, _Do,
   0,
   [_C, _CTo],
-  [[() => DocumentContent, 0], 0]
+  [[() => DocumentContent, 0], 0], 2
 ];
 export var EncryptionKey$: StaticStructureSchema = [3, n0, _EK,
   0,
   [_Ty, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetParallelDataRequest$: StaticStructureSchema = [3, n0, _GPDR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var GetParallelDataResponse$: StaticStructureSchema = [3, n0, _GPDRe,
   0,
@@ -292,7 +292,7 @@ export var GetParallelDataResponse$: StaticStructureSchema = [3, n0, _GPDRe,
 export var GetTerminologyRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_N, _TDF],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetTerminologyResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
@@ -301,8 +301,8 @@ export var GetTerminologyResponse$: StaticStructureSchema = [3, n0, _GTRe,
 ];
 export var ImportTerminologyRequest$: StaticStructureSchema = [3, n0, _ITR,
   0,
-  [_N, _MS, _D, _TD, _EK, _Ta],
-  [0, 0, 0, [() => TerminologyData$, 0], () => EncryptionKey$, () => TagList]
+  [_N, _MS, _TD, _D, _EK, _Ta],
+  [0, 0, [() => TerminologyData$, 0], 0, () => EncryptionKey$, () => TagList], 3
 ];
 export var ImportTerminologyResponse$: StaticStructureSchema = [3, n0, _ITRm,
   0,
@@ -312,7 +312,7 @@ export var ImportTerminologyResponse$: StaticStructureSchema = [3, n0, _ITRm,
 export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC,
   0,
   [_SU, _CTo],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -346,7 +346,7 @@ export var JobDetails$: StaticStructureSchema = [3, n0, _JD,
 export var Language$: StaticStructureSchema = [3, n0, _L,
   0,
   [_LN, _LC],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _c, [_hE]: 400 },
@@ -377,7 +377,7 @@ export var ListParallelDataResponse$: StaticStructureSchema = [3, n0, _LPDRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -407,7 +407,7 @@ export var ListTextTranslationJobsResponse$: StaticStructureSchema = [3, n0, _LT
 export var OutputDataConfig$: StaticStructureSchema = [3, n0, _ODC,
   0,
   [_SU, _EK],
-  [0, () => EncryptionKey$]
+  [0, () => EncryptionKey$], 1
 ];
 export var ParallelDataConfig$: StaticStructureSchema = [3, n0, _PDC,
   0,
@@ -417,7 +417,7 @@ export var ParallelDataConfig$: StaticStructureSchema = [3, n0, _PDC,
 export var ParallelDataDataLocation$: StaticStructureSchema = [3, n0, _PDDL,
   0,
   [_RT, _Lo],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ParallelDataProperties$: StaticStructureSchema = [3, n0, _PDP,
   0,
@@ -438,8 +438,8 @@ export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
 TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var StartTextTranslationJobRequest$: StaticStructureSchema = [3, n0, _STTJR,
   0,
-  [_JN, _IDC, _ODC, _DARA, _SLC, _TLC, _TN, _PDN, _CT, _Se],
-  [0, () => InputDataConfig$, () => OutputDataConfig$, 0, 0, 64 | 0, 64 | 0, 64 | 0, [0, 4], () => TranslationSettings$]
+  [_IDC, _ODC, _DARA, _SLC, _TLC, _JN, _TN, _PDN, _CT, _Se],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 64 | 0, 0, 64 | 0, 64 | 0, [0, 4], () => TranslationSettings$], 5
 ];
 export var StartTextTranslationJobResponse$: StaticStructureSchema = [3, n0, _STTJRt,
   0,
@@ -449,7 +449,7 @@ export var StartTextTranslationJobResponse$: StaticStructureSchema = [3, n0, _ST
 export var StopTextTranslationJobRequest$: StaticStructureSchema = [3, n0, _STTJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopTextTranslationJobResponse$: StaticStructureSchema = [3, n0, _STTJRtop,
   0,
@@ -459,12 +459,12 @@ export var StopTextTranslationJobResponse$: StaticStructureSchema = [3, n0, _STT
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -479,12 +479,12 @@ export var Term$: StaticStructureSchema = [3, n0, _Te,
 export var TerminologyData$: StaticStructureSchema = [3, n0, _TD,
   0,
   [_Fi, _Fo, _Di],
-  [[() => TerminologyFile, 0], 0, 0]
+  [[() => TerminologyFile, 0], 0, 0], 2
 ];
 export var TerminologyDataLocation$: StaticStructureSchema = [3, n0, _TDL,
   0,
   [_RT, _Lo],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TerminologyProperties$: StaticStructureSchema = [3, n0, _TP,
   0,
@@ -522,27 +522,27 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var TranslatedDocument$: StaticStructureSchema = [3, n0, _TDr,
   0,
   [_C],
-  [[() => TranslatedDocumentContent, 0]]
+  [[() => TranslatedDocumentContent, 0]], 1
 ];
 export var TranslateDocumentRequest$: StaticStructureSchema = [3, n0, _TDR,
   0,
-  [_Do, _TN, _SLC, _TLCa, _Se],
-  [[() => Document$, 0], 64 | 0, 0, 0, () => TranslationSettings$]
+  [_Do, _SLC, _TLCa, _TN, _Se],
+  [[() => Document$, 0], 0, 0, 64 | 0, () => TranslationSettings$], 3
 ];
 export var TranslateDocumentResponse$: StaticStructureSchema = [3, n0, _TDRr,
   0,
   [_TDr, _SLC, _TLCa, _ATp, _AS],
-  [[() => TranslatedDocument$, 0], 0, 0, () => AppliedTerminologyList, () => TranslationSettings$]
+  [[() => TranslatedDocument$, 0], 0, 0, () => AppliedTerminologyList, () => TranslationSettings$], 3
 ];
 export var TranslateTextRequest$: StaticStructureSchema = [3, n0, _TTR,
   0,
-  [_Tex, _TN, _SLC, _TLCa, _Se],
-  [0, 64 | 0, 0, 0, () => TranslationSettings$]
+  [_Tex, _SLC, _TLCa, _TN, _Se],
+  [0, 0, 0, 64 | 0, () => TranslationSettings$], 3
 ];
 export var TranslateTextResponse$: StaticStructureSchema = [3, n0, _TTRr,
   0,
   [_TTr, _SLC, _TLCa, _ATp, _AS],
-  [0, 0, 0, () => AppliedTerminologyList, () => TranslationSettings$]
+  [0, 0, 0, () => AppliedTerminologyList, () => TranslationSettings$], 3
 ];
 export var TranslationSettings$: StaticStructureSchema = [3, n0, _TS,
   0,
@@ -564,7 +564,7 @@ TypeRegistry.for(n0).registerError(UnsupportedLanguagePairException$, Unsupporte
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -573,8 +573,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateParallelDataRequest$: StaticStructureSchema = [3, n0, _UPDR,
   0,
-  [_N, _D, _PDC, _CT],
-  [0, 0, () => ParallelDataConfig$, [0, 4]]
+  [_N, _PDC, _D, _CT],
+  [0, () => ParallelDataConfig$, 0, [0, 4]], 2
 ];
 export var UpdateParallelDataResponse$: StaticStructureSchema = [3, n0, _UPDRp,
   0,

@@ -287,7 +287,7 @@ import {
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountEnrollmentStatus$: StaticStructureSchema = [3, n0, _AES,
@@ -438,7 +438,7 @@ export var GetPreferencesResponse$: StaticStructureSchema = [3, n0, _GPRe,
 export var GetRecommendationRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_rIec],
-  [0]
+  [0], 1
 ];
 export var GetRecommendationResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
@@ -453,7 +453,7 @@ export var InstanceConfiguration$: StaticStructureSchema = [3, n0, _IC,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _ser, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LambdaFunction$: StaticStructureSchema = [3, n0, _LF,
@@ -468,8 +468,8 @@ export var LambdaFunctionConfiguration$: StaticStructureSchema = [3, n0, _LFC,
 ];
 export var ListEfficiencyMetricsRequest$: StaticStructureSchema = [3, n0, _LEMR,
   0,
-  [_gB, _gr, _tP, _mR, _oB, _nT],
-  [0, 0, () => TimePeriod$, 1, () => OrderBy$, 0]
+  [_gr, _tP, _gB, _mR, _oB, _nT],
+  [0, () => TimePeriod$, 0, 1, () => OrderBy$, 0], 2
 ];
 export var ListEfficiencyMetricsResponse$: StaticStructureSchema = [3, n0, _LEMRi,
   0,
@@ -498,8 +498,8 @@ export var ListRecommendationsResponse$: StaticStructureSchema = [3, n0, _LRRi,
 ];
 export var ListRecommendationSummariesRequest$: StaticStructureSchema = [3, n0, _LRSR,
   0,
-  [_f, _gB, _mR, _me, _nT],
-  [() => Filter$, 0, 1, 64 | 0, 0]
+  [_gB, _f, _mR, _me, _nT],
+  [0, () => Filter$, 1, 64 | 0, 0], 1
 ];
 export var ListRecommendationSummariesResponse$: StaticStructureSchema = [3, n0, _LRSRi,
   0,
@@ -624,7 +624,7 @@ export var ResourceCostCalculation$: StaticStructureSchema = [3, n0, _RCC,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rIes],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcePricing$: StaticStructureSchema = [3, n0, _RP,
@@ -676,12 +676,12 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimePeriod$: StaticStructureSchema = [3, n0, _TP,
   0,
   [_sta, _en],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateEnrollmentStatusRequest$: StaticStructureSchema = [3, n0, _UESR,
   0,
   [_s, _iMA],
-  [0, 2]
+  [0, 2], 1
 ];
 export var UpdateEnrollmentStatusResponse$: StaticStructureSchema = [3, n0, _UESRp,
   0,
@@ -706,13 +706,13 @@ export var Usage$: StaticStructureSchema = [3, n0, _U,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _rea, _fi],
-  [0, 0, () => ValidationExceptionDetails]
+  [0, 0, () => ValidationExceptionDetails], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionDetail$: StaticStructureSchema = [3, n0, _VED,
   0,
   [_fN, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CostOptimizationHubServiceException$: StaticErrorSchema = [-3, _sm, "CostOptimizationHubServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CostOptimizationHubServiceException$, CostOptimizationHubServiceException);

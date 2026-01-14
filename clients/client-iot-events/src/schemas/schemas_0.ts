@@ -231,8 +231,8 @@ const _i = "input";
 const _iA = "inputArn";
 const _iC = "initializationConfiguration";
 const _iCn = "inputConfiguration";
-const _iD = "inputDescription";
-const _iDn = "inputDefinition";
+const _iD = "inputDefinition";
+const _iDn = "inputDescription";
 const _iE = "iotEvents";
 const _iEII = "iotEventsInputIdentifier";
 const _iI = "inputIdentifier";
@@ -342,7 +342,7 @@ import { IoTEventsServiceException } from "../models/IoTEventsServiceException";
 export var AcknowledgeFlow$: StaticStructureSchema = [3, n0, _AF,
   0,
   [_e],
-  [2]
+  [2], 1
 ];
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -397,7 +397,7 @@ export var AnalysisResultLocation$: StaticStructureSchema = [3, n0, _ARL,
 export var AssetPropertyTimestamp$: StaticStructureSchema = [3, n0, _APT,
   0,
   [_tIS, _oIN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var AssetPropertyValue$: StaticStructureSchema = [3, n0, _APV,
   0,
@@ -412,17 +412,17 @@ export var AssetPropertyVariant$: StaticStructureSchema = [3, n0, _APVs,
 export var Attribute$: StaticStructureSchema = [3, n0, _At,
   0,
   [_jP],
-  [0]
+  [0], 1
 ];
 export var ClearTimerAction$: StaticStructureSchema = [3, n0, _CTA,
   0,
   [_tN],
-  [0]
+  [0], 1
 ];
 export var CreateAlarmModelRequest$: StaticStructureSchema = [3, n0, _CAMR,
   0,
-  [_aMN, _aMD, _rA, _ta, _k, _se, _aR, _aN, _aEA, _aC],
-  [0, 0, 0, () => Tags, 0, 1, () => AlarmRule$, () => AlarmNotification$, () => AlarmEventActions$, () => AlarmCapabilities$]
+  [_aMN, _rA, _aR, _aMD, _ta, _k, _se, _aN, _aEA, _aC],
+  [0, 0, () => AlarmRule$, 0, () => Tags, 0, 1, () => AlarmNotification$, () => AlarmEventActions$, () => AlarmCapabilities$], 3
 ];
 export var CreateAlarmModelResponse$: StaticStructureSchema = [3, n0, _CAMRr,
   0,
@@ -431,8 +431,8 @@ export var CreateAlarmModelResponse$: StaticStructureSchema = [3, n0, _CAMRr,
 ];
 export var CreateDetectorModelRequest$: StaticStructureSchema = [3, n0, _CDMR,
   0,
-  [_dMN, _dMD, _dMDe, _k, _rA, _ta, _eM],
-  [0, () => DetectorModelDefinition$, 0, 0, 0, () => Tags, 0]
+  [_dMN, _dMD, _rA, _dMDe, _k, _ta, _eM],
+  [0, () => DetectorModelDefinition$, 0, 0, 0, () => Tags, 0], 3
 ];
 export var CreateDetectorModelResponse$: StaticStructureSchema = [3, n0, _CDMRr,
   0,
@@ -442,7 +442,7 @@ export var CreateDetectorModelResponse$: StaticStructureSchema = [3, n0, _CDMRr,
 export var CreateInputRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_iN, _iD, _iDn, _ta],
-  [0, 0, () => InputDefinition$, () => Tags]
+  [0, () => InputDefinition$, 0, () => Tags], 2
 ];
 export var CreateInputResponse$: StaticStructureSchema = [3, n0, _CIRr,
   0,
@@ -452,7 +452,7 @@ export var CreateInputResponse$: StaticStructureSchema = [3, n0, _CIRr,
 export var DeleteAlarmModelRequest$: StaticStructureSchema = [3, n0, _DAMR,
   0,
   [_aMN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAlarmModelResponse$: StaticStructureSchema = [3, n0, _DAMRe,
   0,
@@ -462,7 +462,7 @@ export var DeleteAlarmModelResponse$: StaticStructureSchema = [3, n0, _DAMRe,
 export var DeleteDetectorModelRequest$: StaticStructureSchema = [3, n0, _DDMR,
   0,
   [_dMN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDetectorModelResponse$: StaticStructureSchema = [3, n0, _DDMRe,
   0,
@@ -472,7 +472,7 @@ export var DeleteDetectorModelResponse$: StaticStructureSchema = [3, n0, _DDMRe,
 export var DeleteInputRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_iN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteInputResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
@@ -482,7 +482,7 @@ export var DeleteInputResponse$: StaticStructureSchema = [3, n0, _DIRe,
 export var DescribeAlarmModelRequest$: StaticStructureSchema = [3, n0, _DAMRes,
   0,
   [_aMN, _aMV],
-  [[0, 1], [0, { [_hQ]: _ve }]]
+  [[0, 1], [0, { [_hQ]: _ve }]], 1
 ];
 export var DescribeAlarmModelResponse$: StaticStructureSchema = [3, n0, _DAMResc,
   0,
@@ -492,7 +492,7 @@ export var DescribeAlarmModelResponse$: StaticStructureSchema = [3, n0, _DAMResc
 export var DescribeDetectorModelAnalysisRequest$: StaticStructureSchema = [3, n0, _DDMAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeDetectorModelAnalysisResponse$: StaticStructureSchema = [3, n0, _DDMARe,
   0,
@@ -502,7 +502,7 @@ export var DescribeDetectorModelAnalysisResponse$: StaticStructureSchema = [3, n
 export var DescribeDetectorModelRequest$: StaticStructureSchema = [3, n0, _DDMRes,
   0,
   [_dMN, _dMV],
-  [[0, 1], [0, { [_hQ]: _ve }]]
+  [[0, 1], [0, { [_hQ]: _ve }]], 1
 ];
 export var DescribeDetectorModelResponse$: StaticStructureSchema = [3, n0, _DDMResc,
   0,
@@ -512,7 +512,7 @@ export var DescribeDetectorModelResponse$: StaticStructureSchema = [3, n0, _DDMR
 export var DescribeInputRequest$: StaticStructureSchema = [3, n0, _DIRes,
   0,
   [_iN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeInputResponse$: StaticStructureSchema = [3, n0, _DIResc,
   0,
@@ -532,7 +532,7 @@ export var DescribeLoggingOptionsResponse$: StaticStructureSchema = [3, n0, _DLO
 export var DetectorDebugOption$: StaticStructureSchema = [3, n0, _DDO,
   0,
   [_dMN, _kV],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DetectorModel$: StaticStructureSchema = [3, n0, _DM,
   0,
@@ -547,7 +547,7 @@ export var DetectorModelConfiguration$: StaticStructureSchema = [3, n0, _DMC,
 export var DetectorModelDefinition$: StaticStructureSchema = [3, n0, _DMD,
   0,
   [_sta, _iSN],
-  [() => States, 0]
+  [() => States, 0], 2
 ];
 export var DetectorModelSummary$: StaticStructureSchema = [3, n0, _DMS,
   0,
@@ -561,18 +561,18 @@ export var DetectorModelVersionSummary$: StaticStructureSchema = [3, n0, _DMVS,
 ];
 export var DynamoDBAction$: StaticStructureSchema = [3, n0, _DDBA,
   0,
-  [_hKT, _hKF, _hKV, _rKT, _rKF, _rKV, _o, _pF, _tNa, _pa],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => Payload$]
+  [_hKF, _hKV, _tNa, _hKT, _rKT, _rKF, _rKV, _o, _pF, _pa],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => Payload$], 3
 ];
 export var DynamoDBv2Action$: StaticStructureSchema = [3, n0, _DDBAy,
   0,
   [_tNa, _pa],
-  [0, () => Payload$]
+  [0, () => Payload$], 1
 ];
 export var EmailConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
-  [_fr, _c, _r],
-  [0, () => EmailContent$, () => EmailRecipients$]
+  [_fr, _r, _c],
+  [0, () => EmailRecipients$, () => EmailContent$], 2
 ];
 export var EmailContent$: StaticStructureSchema = [3, n0, _ECm,
   0,
@@ -587,17 +587,17 @@ export var EmailRecipients$: StaticStructureSchema = [3, n0, _ER,
 export var Event$: StaticStructureSchema = [3, n0, _E,
   0,
   [_eN, _co, _a],
-  [0, 0, () => Actions]
+  [0, 0, () => Actions], 1
 ];
 export var FirehoseAction$: StaticStructureSchema = [3, n0, _FA,
   0,
   [_dSN, _sep, _pa],
-  [0, 0, () => Payload$]
+  [0, 0, () => Payload$], 1
 ];
 export var GetDetectorModelAnalysisResultsRequest$: StaticStructureSchema = [3, n0, _GDMARR,
   0,
   [_aI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var GetDetectorModelAnalysisResultsResponse$: StaticStructureSchema = [3, n0, _GDMARRe,
   0,
@@ -607,22 +607,22 @@ export var GetDetectorModelAnalysisResultsResponse$: StaticStructureSchema = [3,
 export var InitializationConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_dOI],
-  [2]
+  [2], 1
 ];
 export var Input$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_iCn, _iDn],
+  [_iCn, _iD],
   [() => InputConfiguration$, () => InputDefinition$]
 ];
 export var InputConfiguration$: StaticStructureSchema = [3, n0, _ICn,
   0,
-  [_iN, _iD, _iA, _cTr, _lUT, _st],
-  [0, 0, 0, 4, 4, 0]
+  [_iN, _iA, _cTr, _lUT, _st, _iDn],
+  [0, 0, 4, 4, 0, 0], 5
 ];
 export var InputDefinition$: StaticStructureSchema = [3, n0, _ID,
   0,
   [_at],
-  [() => Attributes]
+  [() => Attributes], 1
 ];
 export var InputIdentifier$: StaticStructureSchema = [3, n0, _II,
   0,
@@ -631,7 +631,7 @@ export var InputIdentifier$: StaticStructureSchema = [3, n0, _II,
 ];
 export var InputSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
-  [_iN, _iD, _iA, _cTr, _lUT, _st],
+  [_iN, _iDn, _iA, _cTr, _lUT, _st],
   [0, 0, 0, 4, 4, 0]
 ];
 export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
@@ -649,12 +649,12 @@ TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestExcep
 export var IotEventsAction$: StaticStructureSchema = [3, n0, _IEA,
   0,
   [_iN, _pa],
-  [0, () => Payload$]
+  [0, () => Payload$], 1
 ];
 export var IotEventsInputIdentifier$: StaticStructureSchema = [3, n0, _IEII,
   0,
   [_iN],
-  [0]
+  [0], 1
 ];
 export var IotSiteWiseAction$: StaticStructureSchema = [3, n0, _ISWA,
   0,
@@ -664,7 +664,7 @@ export var IotSiteWiseAction$: StaticStructureSchema = [3, n0, _ISWA,
 export var IotSiteWiseAssetModelPropertyIdentifier$: StaticStructureSchema = [3, n0, _ISWAMPI,
   0,
   [_aMI, _pI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var IotSiteWiseInputIdentifier$: StaticStructureSchema = [3, n0, _ISWII,
   0,
@@ -674,12 +674,12 @@ export var IotSiteWiseInputIdentifier$: StaticStructureSchema = [3, n0, _ISWII,
 export var IotTopicPublishAction$: StaticStructureSchema = [3, n0, _ITPA,
   0,
   [_mT, _pa],
-  [0, () => Payload$]
+  [0, () => Payload$], 1
 ];
 export var LambdaAction$: StaticStructureSchema = [3, n0, _LA,
   0,
   [_fA, _pa],
-  [0, () => Payload$]
+  [0, () => Payload$], 1
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_er]: _cl, [_hE]: 410 },
@@ -700,7 +700,7 @@ export var ListAlarmModelsResponse$: StaticStructureSchema = [3, n0, _LAMRi,
 export var ListAlarmModelVersionsRequest$: StaticStructureSchema = [3, n0, _LAMVR,
   0,
   [_aMN, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListAlarmModelVersionsResponse$: StaticStructureSchema = [3, n0, _LAMVRi,
   0,
@@ -720,7 +720,7 @@ export var ListDetectorModelsResponse$: StaticStructureSchema = [3, n0, _LDMRi,
 export var ListDetectorModelVersionsRequest$: StaticStructureSchema = [3, n0, _LDMVR,
   0,
   [_dMN, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListDetectorModelVersionsResponse$: StaticStructureSchema = [3, n0, _LDMVRi,
   0,
@@ -730,7 +730,7 @@ export var ListDetectorModelVersionsResponse$: StaticStructureSchema = [3, n0, _
 export var ListInputRoutingsRequest$: StaticStructureSchema = [3, n0, _LIRR,
   0,
   [_iI, _mR, _nT],
-  [() => InputIdentifier$, 1, 0]
+  [() => InputIdentifier$, 1, 0], 1
 ];
 export var ListInputRoutingsResponse$: StaticStructureSchema = [3, n0, _LIRRi,
   0,
@@ -750,7 +750,7 @@ export var ListInputsResponse$: StaticStructureSchema = [3, n0, _LIRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAe],
-  [[0, { [_hQ]: _rAe }]]
+  [[0, { [_hQ]: _rAe }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -760,12 +760,12 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var LoggingOptions$: StaticStructureSchema = [3, n0, _LO,
   0,
   [_rA, _le, _e, _dDO],
-  [0, 0, 2, () => DetectorDebugOptions]
+  [0, 0, 2, () => DetectorDebugOptions], 3
 ];
 export var NotificationAction$: StaticStructureSchema = [3, n0, _NA,
   0,
   [_ac, _sC, _eC],
-  [() => NotificationTargetActions$, () => SMSConfigurations, () => EmailConfigurations]
+  [() => NotificationTargetActions$, () => SMSConfigurations, () => EmailConfigurations], 1
 ];
 export var NotificationTargetActions$: StaticStructureSchema = [3, n0, _NTA,
   0,
@@ -790,12 +790,12 @@ export var OnInputLifecycle$: StaticStructureSchema = [3, n0, _OIL,
 export var Payload$: StaticStructureSchema = [3, n0, _P,
   0,
   [_cE, _t],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutLoggingOptionsRequest$: StaticStructureSchema = [3, n0, _PLOR,
   0,
   [_lO],
-  [() => LoggingOptions$]
+  [() => LoggingOptions$], 1
 ];
 export var RecipientDetail$: StaticStructureSchema = [3, n0, _RD,
   0,
@@ -805,7 +805,7 @@ export var RecipientDetail$: StaticStructureSchema = [3, n0, _RD,
 export var ResetTimerAction$: StaticStructureSchema = [3, n0, _RTA,
   0,
   [_tN],
-  [0]
+  [0], 1
 ];
 export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
   { [_er]: _cl, [_hE]: 409 },
@@ -839,42 +839,42 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var SetTimerAction$: StaticStructureSchema = [3, n0, _STA,
   0,
   [_tN, _sec, _dE],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var SetVariableAction$: StaticStructureSchema = [3, n0, _SVA,
   0,
   [_vN, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SimpleRule$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_iP, _cO, _th],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var SMSConfiguration$: StaticStructureSchema = [3, n0, _SMSC,
   0,
-  [_sIe, _aM, _r],
-  [0, 0, () => RecipientDetails]
+  [_r, _sIe, _aM],
+  [() => RecipientDetails, 0, 0], 1
 ];
 export var SNSTopicPublishAction$: StaticStructureSchema = [3, n0, _SNSTPA,
   0,
   [_tA, _pa],
-  [0, () => Payload$]
+  [0, () => Payload$], 1
 ];
 export var SqsAction$: StaticStructureSchema = [3, n0, _SA,
   0,
   [_qU, _uB, _pa],
-  [0, 2, () => Payload$]
+  [0, 2, () => Payload$], 1
 ];
 export var SSOIdentity$: StaticStructureSchema = [3, n0, _SSOI,
   0,
   [_iSI, _uI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var StartDetectorModelAnalysisRequest$: StaticStructureSchema = [3, n0, _SDMAR,
   0,
   [_dMD],
-  [() => DetectorModelDefinition$]
+  [() => DetectorModelDefinition$], 1
 ];
 export var StartDetectorModelAnalysisResponse$: StaticStructureSchema = [3, n0, _SDMARt,
   0,
@@ -884,17 +884,17 @@ export var StartDetectorModelAnalysisResponse$: StaticStructureSchema = [3, n0, 
 export var State$: StaticStructureSchema = [3, n0, _S,
   0,
   [_sN, _oI, _oE, _oEn],
-  [0, () => OnInputLifecycle$, () => OnEnterLifecycle$, () => OnExitLifecycle$]
+  [0, () => OnInputLifecycle$, () => OnEnterLifecycle$, () => OnExitLifecycle$], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAe, _ta],
-  [[0, { [_hQ]: _rAe }], () => Tags]
+  [[0, { [_hQ]: _rAe }], () => Tags], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -909,8 +909,8 @@ export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TransitionEvent$: StaticStructureSchema = [3, n0, _TEr,
   0,
-  [_eN, _co, _a, _nS],
-  [0, 0, () => Actions, 0]
+  [_eN, _co, _nS, _a],
+  [0, 0, 0, () => Actions], 3
 ];
 export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
   { [_er]: _ser, [_hE]: 501 },
@@ -921,7 +921,7 @@ TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOp
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
-  [[0, { [_hQ]: _rAe }], [64 | 0, { [_hQ]: _tK }]]
+  [[0, { [_hQ]: _rAe }], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -930,8 +930,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAlarmModelRequest$: StaticStructureSchema = [3, n0, _UAMR,
   0,
-  [_aMN, _aMD, _rA, _se, _aR, _aN, _aEA, _aC],
-  [[0, 1], 0, 0, 1, () => AlarmRule$, () => AlarmNotification$, () => AlarmEventActions$, () => AlarmCapabilities$]
+  [_aMN, _rA, _aR, _aMD, _se, _aN, _aEA, _aC],
+  [[0, 1], 0, () => AlarmRule$, 0, 1, () => AlarmNotification$, () => AlarmEventActions$, () => AlarmCapabilities$], 3
 ];
 export var UpdateAlarmModelResponse$: StaticStructureSchema = [3, n0, _UAMRp,
   0,
@@ -940,8 +940,8 @@ export var UpdateAlarmModelResponse$: StaticStructureSchema = [3, n0, _UAMRp,
 ];
 export var UpdateDetectorModelRequest$: StaticStructureSchema = [3, n0, _UDMR,
   0,
-  [_dMN, _dMD, _dMDe, _rA, _eM],
-  [[0, 1], () => DetectorModelDefinition$, 0, 0, 0]
+  [_dMN, _dMD, _rA, _dMDe, _eM],
+  [[0, 1], () => DetectorModelDefinition$, 0, 0, 0], 3
 ];
 export var UpdateDetectorModelResponse$: StaticStructureSchema = [3, n0, _UDMRp,
   0,
@@ -951,7 +951,7 @@ export var UpdateDetectorModelResponse$: StaticStructureSchema = [3, n0, _UDMRp,
 export var UpdateInputRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
   [_iN, _iD, _iDn],
-  [[0, 1], 0, () => InputDefinition$]
+  [[0, 1], () => InputDefinition$, 0], 2
 ];
 export var UpdateInputResponse$: StaticStructureSchema = [3, n0, _UIRp,
   0,

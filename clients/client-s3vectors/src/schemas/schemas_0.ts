@@ -170,34 +170,34 @@ import { S3VectorsServiceException } from "../models/S3VectorsServiceException";
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateIndexInput$: StaticStructureSchema = [3, n0, _CII,
   0,
-  [_vBN, _vBA, _iN, _dT, _d, _dM, _mC, _eC, _t],
-  [0, 0, 0, 0, 1, 0, () => MetadataConfiguration$, () => EncryptionConfiguration$, 128 | 0]
+  [_iN, _dT, _d, _dM, _vBN, _vBA, _mC, _eC, _t],
+  [0, 0, 1, 0, 0, 0, () => MetadataConfiguration$, () => EncryptionConfiguration$, 128 | 0], 4
 ];
 export var CreateIndexOutput$: StaticStructureSchema = [3, n0, _CIO,
   0,
   [_iA],
-  [0]
+  [0], 1
 ];
 export var CreateVectorBucketInput$: StaticStructureSchema = [3, n0, _CVBI,
   0,
   [_vBN, _eC, _t],
-  [0, () => EncryptionConfiguration$, 128 | 0]
+  [0, () => EncryptionConfiguration$, 128 | 0], 1
 ];
 export var CreateVectorBucketOutput$: StaticStructureSchema = [3, n0, _CVBO,
   0,
   [_vBA],
-  [0]
+  [0], 1
 ];
 export var DeleteIndexInput$: StaticStructureSchema = [3, n0, _DII,
   0,
@@ -231,8 +231,8 @@ export var DeleteVectorBucketPolicyOutput$: StaticStructureSchema = [3, n0, _DVB
 ];
 export var DeleteVectorsInput$: StaticStructureSchema = [3, n0, _DVI,
   0,
-  [_vBN, _iN, _iA, _k],
-  [0, 0, 0, 64 | 0]
+  [_k, _vBN, _iN, _iA],
+  [64 | 0, 0, 0, 0], 1
 ];
 export var DeleteVectorsOutput$: StaticStructureSchema = [3, n0, _DVO,
   0,
@@ -252,12 +252,12 @@ export var GetIndexInput$: StaticStructureSchema = [3, n0, _GII,
 export var GetIndexOutput$: StaticStructureSchema = [3, n0, _GIO,
   0,
   [_i],
-  [() => Index$]
+  [() => Index$], 1
 ];
 export var GetOutputVector$: StaticStructureSchema = [3, n0, _GOV,
   0,
   [_ke, _da, _me],
-  [0, () => VectorData$, 15]
+  [0, () => VectorData$, 15], 1
 ];
 export var GetVectorBucketInput$: StaticStructureSchema = [3, n0, _GVBI,
   0,
@@ -267,7 +267,7 @@ export var GetVectorBucketInput$: StaticStructureSchema = [3, n0, _GVBI,
 export var GetVectorBucketOutput$: StaticStructureSchema = [3, n0, _GVBO,
   0,
   [_vB],
-  [() => VectorBucket$]
+  [() => VectorBucket$], 1
 ];
 export var GetVectorBucketPolicyInput$: StaticStructureSchema = [3, n0, _GVBPI,
   0,
@@ -281,52 +281,52 @@ export var GetVectorBucketPolicyOutput$: StaticStructureSchema = [3, n0, _GVBPO,
 ];
 export var GetVectorsInput$: StaticStructureSchema = [3, n0, _GVI,
   0,
-  [_vBN, _iN, _iA, _k, _rD, _rM],
-  [0, 0, 0, 64 | 0, 2, 2]
+  [_k, _vBN, _iN, _iA, _rD, _rM],
+  [64 | 0, 0, 0, 0, 2, 2], 1
 ];
 export var GetVectorsOutput$: StaticStructureSchema = [3, n0, _GVO,
   0,
   [_v],
-  [() => GetVectorsOutputList]
+  [() => GetVectorsOutputList], 1
 ];
 export var Index$: StaticStructureSchema = [3, n0, _I,
   0,
   [_vBN, _iN, _iA, _cT, _dT, _d, _dM, _mC, _eC],
-  [0, 0, 0, 4, 0, 1, 0, () => MetadataConfiguration$, () => EncryptionConfiguration$]
+  [0, 0, 0, 4, 0, 1, 0, () => MetadataConfiguration$, () => EncryptionConfiguration$], 7
 ];
 export var IndexSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
   [_vBN, _iN, _iA, _cT],
-  [0, 0, 0, 4]
+  [0, 0, 0, 4], 4
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KmsDisabledException$: StaticErrorSchema = [-3, n0, _KDE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(KmsDisabledException$, KmsDisabledException);
 export var KmsInvalidKeyUsageException$: StaticErrorSchema = [-3, n0, _KIKUE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(KmsInvalidKeyUsageException$, KmsInvalidKeyUsageException);
 export var KmsInvalidStateException$: StaticErrorSchema = [-3, n0, _KISE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(KmsInvalidStateException$, KmsInvalidStateException);
 export var KmsNotFoundException$: StaticErrorSchema = [-3, n0, _KNFE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(KmsNotFoundException$, KmsNotFoundException);
 export var ListIndexesInput$: StaticStructureSchema = [3, n0, _LII,
@@ -336,23 +336,23 @@ export var ListIndexesInput$: StaticStructureSchema = [3, n0, _LII,
 ];
 export var ListIndexesOutput$: StaticStructureSchema = [3, n0, _LIO,
   0,
-  [_nT, _in],
-  [0, () => ListIndexesOutputList]
+  [_in, _nT],
+  [() => ListIndexesOutputList, 0], 1
 ];
 export var ListOutputVector$: StaticStructureSchema = [3, n0, _LOV,
   0,
   [_ke, _da, _me],
-  [0, () => VectorData$, 15]
+  [0, () => VectorData$, 15], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
   [_t],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var ListVectorBucketsInput$: StaticStructureSchema = [3, n0, _LVBI,
   0,
@@ -361,8 +361,8 @@ export var ListVectorBucketsInput$: StaticStructureSchema = [3, n0, _LVBI,
 ];
 export var ListVectorBucketsOutput$: StaticStructureSchema = [3, n0, _LVBO,
   0,
-  [_nT, _vBe],
-  [0, () => ListVectorBucketsOutputList]
+  [_vBe, _nT],
+  [() => ListVectorBucketsOutputList, 0], 1
 ];
 export var ListVectorsInput$: StaticStructureSchema = [3, n0, _LVI,
   0,
@@ -371,29 +371,29 @@ export var ListVectorsInput$: StaticStructureSchema = [3, n0, _LVI,
 ];
 export var ListVectorsOutput$: StaticStructureSchema = [3, n0, _LVO,
   0,
-  [_nT, _v],
-  [0, () => ListVectorsOutputList]
+  [_v, _nT],
+  [() => ListVectorsOutputList, 0], 1
 ];
 export var MetadataConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
   [_nFMK],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PutInputVector$: StaticStructureSchema = [3, n0, _PIV,
   0,
   [_ke, _da, _me],
-  [0, () => VectorData$, 15]
+  [0, () => VectorData$, 15], 2
 ];
 export var PutVectorBucketPolicyInput$: StaticStructureSchema = [3, n0, _PVBPI,
   0,
-  [_vBN, _vBA, _p],
-  [0, 0, 0]
+  [_p, _vBN, _vBA],
+  [0, 0, 0], 1
 ];
 export var PutVectorBucketPolicyOutput$: StaticStructureSchema = [3, n0, _PVBPO,
   0,
@@ -402,8 +402,8 @@ export var PutVectorBucketPolicyOutput$: StaticStructureSchema = [3, n0, _PVBPO,
 ];
 export var PutVectorsInput$: StaticStructureSchema = [3, n0, _PVI,
   0,
-  [_vBN, _iN, _iA, _v],
-  [0, 0, 0, () => PutVectorsInputList]
+  [_v, _vBN, _iN, _iA],
+  [() => PutVectorsInputList, 0, 0, 0], 1
 ];
 export var PutVectorsOutput$: StaticStructureSchema = [3, n0, _PVO,
   0,
@@ -412,41 +412,41 @@ export var PutVectorsOutput$: StaticStructureSchema = [3, n0, _PVO,
 ];
 export var QueryOutputVector$: StaticStructureSchema = [3, n0, _QOV,
   0,
-  [_di, _ke, _me],
-  [1, 0, 15]
+  [_ke, _di, _me],
+  [0, 1, 15], 1
 ];
 export var QueryVectorsInput$: StaticStructureSchema = [3, n0, _QVI,
   0,
-  [_vBN, _iN, _iA, _tK, _qV, _f, _rM, _rDe],
-  [0, 0, 0, 1, () => VectorData$, 15, 2, 2]
+  [_tK, _qV, _vBN, _iN, _iA, _f, _rM, _rDe],
+  [1, () => VectorData$, 0, 0, 0, 15, 2, 2], 2
 ];
 export var QueryVectorsOutput$: StaticStructureSchema = [3, n0, _QVO,
   0,
   [_v, _dM],
-  [() => QueryVectorsOutputList, 0]
+  [() => QueryVectorsOutputList, 0], 2
 ];
 export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
   { [_e]: _c, [_hE]: 408 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(RequestTimeoutException$, RequestTimeoutException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
   { [_e]: _s, [_hE]: 503 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -456,13 +456,13 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tKa],
-  [[0, 1], [64 | 0, { [_hQ]: _tKa }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tKa }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -472,23 +472,23 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c },
   [_m, _fL],
-  [0, () => ValidationExceptionFieldList]
+  [0, () => ValidationExceptionFieldList], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_pa, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VectorBucket$: StaticStructureSchema = [3, n0, _VB,
   0,
   [_vBN, _vBA, _cT, _eC],
-  [0, 0, 4, () => EncryptionConfiguration$]
+  [0, 0, 4, () => EncryptionConfiguration$], 3
 ];
 export var VectorBucketSummary$: StaticStructureSchema = [3, n0, _VBS,
   0,
   [_vBN, _vBA, _cT],
-  [0, 0, 4]
+  [0, 0, 4], 3
 ];
 export var S3VectorsServiceException$: StaticErrorSchema = [-3, _sm, "S3VectorsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(S3VectorsServiceException$, S3VectorsServiceException);
