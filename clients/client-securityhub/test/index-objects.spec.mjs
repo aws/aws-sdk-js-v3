@@ -1578,7 +1578,9 @@ assert(typeof AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecific
 assert(typeof AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails$ === "object");
 assert(typeof AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails$ === "object");
 assert(typeof AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails$ === "object");
-assert(typeof AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification$ === "object");
+assert(
+  typeof AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification$ === "object"
+);
 assert(typeof AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails$ === "object");
 assert(typeof AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails$ === "object");
 assert(typeof AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails$ === "object");
@@ -1847,7 +1849,9 @@ assert(typeof AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails$ === "ob
 assert(typeof AwsGuardDutyDetectorDataSourcesKubernetesDetails$ === "object");
 assert(typeof AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails$ === "object");
 assert(typeof AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails$ === "object");
-assert(typeof AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails$ === "object");
+assert(
+  typeof AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails$ === "object"
+);
 assert(typeof AwsGuardDutyDetectorDataSourcesS3LogsDetails$ === "object");
 assert(typeof AwsGuardDutyDetectorDetails$ === "object");
 assert(typeof AwsGuardDutyDetectorFeaturesDetails$ === "object");

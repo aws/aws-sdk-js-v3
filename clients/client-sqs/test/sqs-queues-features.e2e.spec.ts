@@ -70,7 +70,7 @@ describe("SQS Queues", () => {
         (result) => {
           const queueUrls = result.QueueUrls || [];
           return createdQueues.every((createdQueue) => queueUrls.includes(createdQueue));
-        },
+        }
       );
 
       // Check that created queues exist in the list
