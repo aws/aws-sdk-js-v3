@@ -38,7 +38,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *             can update the launch template version with necessary changes. For more information
  *             about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing managed nodes with
  *                 launch templates</a>.</p>
- *          <p>An Amazon EKS managed node group is an Amazon EC2 Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that
+ *          <p>An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated Amazon EC2 instances that
  *             are managed by Amazon Web Services for an Amazon EKS cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
  *                 node groups</a> in the <i>Amazon EKS User Guide</i>.</p>
  *          <note>
@@ -68,7 +68,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *   instanceTypes: [
  *     "STRING_VALUE",
  *   ],
- *   amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_FIPS" || "BOTTLEROCKET_x86_64_FIPS" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64" || "AL2023_x86_64_STANDARD" || "AL2023_ARM_64_STANDARD" || "AL2023_x86_64_NEURON" || "AL2023_x86_64_NVIDIA" || "AL2023_ARM_64_NVIDIA",
+ *   amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_FIPS" || "BOTTLEROCKET_x86_64_FIPS" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "BOTTLEROCKET_ARM_64_NVIDIA_FIPS" || "BOTTLEROCKET_x86_64_NVIDIA_FIPS" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64" || "AL2023_x86_64_STANDARD" || "AL2023_ARM_64_STANDARD" || "AL2023_x86_64_NEURON" || "AL2023_x86_64_NVIDIA" || "AL2023_ARM_64_NVIDIA",
  *   remoteAccess: { // RemoteAccessConfig
  *     ec2SshKey: "STRING_VALUE",
  *     sourceSecurityGroups: [
@@ -149,7 +149,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * //         "STRING_VALUE",
  * //       ],
  * //     },
- * //     amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_FIPS" || "BOTTLEROCKET_x86_64_FIPS" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64" || "AL2023_x86_64_STANDARD" || "AL2023_ARM_64_STANDARD" || "AL2023_x86_64_NEURON" || "AL2023_x86_64_NVIDIA" || "AL2023_ARM_64_NVIDIA",
+ * //     amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_FIPS" || "BOTTLEROCKET_x86_64_FIPS" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "BOTTLEROCKET_ARM_64_NVIDIA_FIPS" || "BOTTLEROCKET_x86_64_NVIDIA_FIPS" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64" || "AL2023_x86_64_STANDARD" || "AL2023_ARM_64_STANDARD" || "AL2023_x86_64_NEURON" || "AL2023_x86_64_NVIDIA" || "AL2023_ARM_64_NVIDIA",
  * //     nodeRole: "STRING_VALUE",
  * //     labels: { // labelsMap
  * //       "<keys>": "STRING_VALUE",
