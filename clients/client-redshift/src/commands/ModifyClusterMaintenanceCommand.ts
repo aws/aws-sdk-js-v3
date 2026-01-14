@@ -237,6 +237,7 @@ export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMain
  * //     },
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
+ * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -233,6 +233,7 @@ export interface PauseClusterCommandOutput extends PauseClusterResult, __Metadat
  * //     },
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
+ * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
  * //   },
  * // };
  *

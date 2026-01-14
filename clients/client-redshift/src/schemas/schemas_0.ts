@@ -463,6 +463,7 @@ const _EAn = "EndpointAuthorization";
 const _EAnd = "EndpointAccesses";
 const _EAndp = "EndpointAuthorizations";
 const _EC = "EventCategories";
+const _ECFAO = "ExtraComputeForAutomaticOptimization";
 const _ECL = "EventCategoriesList";
 const _ECM = "EventCategoriesMap";
 const _ECML = "EventCategoriesMapList";
@@ -1499,8 +1500,8 @@ export var CertificateAssociation$: StaticStructureSchema = [3, n0, _CAer,
 ];
 export var Cluster$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_CIl, _NT, _CS, _CAS, _MS, _MU, _DBN, _En, _CCT, _ASRP, _MSRP, _CSGl, _VSG, _CPG, _CSGNl, _VIp, _AZ, _PMW, _PMV, _CV, _AVU, _NON, _PA, _Enc, _RS, _DTP, _HS, _CSCS, _CPK, _CN, _EIS, _CRN, _T, _KKI, _EVR, _IR, _PAe, _MTN, _ERNONO, _DMW, _SSI, _SSS, _ENSST, _ENSSTS, _NMWST, _RI, _AZRS, _CNA, _TSCIMB, _AC, _DIRA, _RNES, _CDN, _CDCA, _CDCED, _MPSA, _MPSKKI, _IAT, _MAZ, _MAZS, _LRS, _CAa],
-  [0, 0, 0, 0, 0, 0, 0, [() => Endpoint$, 0], 4, 1, 1, [() => ClusterSecurityGroupMembershipList, 0], [() => VpcSecurityGroupMembershipList, 0], [() => ClusterParameterGroupStatusList, 0], 0, 0, 0, 0, [() => PendingModifiedValues$, 0], 0, 2, 1, 2, 2, () => RestoreStatus$, () => DataTransferProgress$, () => HsmStatus$, () => ClusterSnapshotCopyStatus$, 0, () => ClusterNodesList, () => ElasticIpStatus$, 0, [() => TagList, 0], 0, 2, [() => ClusterIamRoleList, 0], 64 | 0, 0, 0, [() => DeferredMaintenanceWindowsList, 0], 0, 0, 4, 0, 4, () => ResizeInfo$, 0, 0, 1, () => AquaConfiguration$, 0, () => ReservedNodeExchangeStatus$, 0, 0, 4, 0, 0, 0, 0, () => SecondaryClusterInfo$, 0, 0]
+  [_CIl, _NT, _CS, _CAS, _MS, _MU, _DBN, _En, _CCT, _ASRP, _MSRP, _CSGl, _VSG, _CPG, _CSGNl, _VIp, _AZ, _PMW, _PMV, _CV, _AVU, _NON, _PA, _Enc, _RS, _DTP, _HS, _CSCS, _CPK, _CN, _EIS, _CRN, _T, _KKI, _EVR, _IR, _PAe, _MTN, _ERNONO, _DMW, _SSI, _SSS, _ENSST, _ENSSTS, _NMWST, _RI, _AZRS, _CNA, _TSCIMB, _AC, _DIRA, _RNES, _CDN, _CDCA, _CDCED, _MPSA, _MPSKKI, _IAT, _MAZ, _MAZS, _LRS, _CAa, _ECFAO],
+  [0, 0, 0, 0, 0, 0, 0, [() => Endpoint$, 0], 4, 1, 1, [() => ClusterSecurityGroupMembershipList, 0], [() => VpcSecurityGroupMembershipList, 0], [() => ClusterParameterGroupStatusList, 0], 0, 0, 0, 0, [() => PendingModifiedValues$, 0], 0, 2, 1, 2, 2, () => RestoreStatus$, () => DataTransferProgress$, () => HsmStatus$, () => ClusterSnapshotCopyStatus$, 0, () => ClusterNodesList, () => ElasticIpStatus$, 0, [() => TagList, 0], 0, 2, [() => ClusterIamRoleList, 0], 64 | 0, 0, 0, [() => DeferredMaintenanceWindowsList, 0], 0, 0, 4, 0, 4, () => ResizeInfo$, 0, 0, 1, () => AquaConfiguration$, 0, () => ReservedNodeExchangeStatus$, 0, 0, 4, 0, 0, 0, 0, () => SecondaryClusterInfo$, 0, 0, 0]
 ];
 export var ClusterAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CAEF,
   { [_aQE]: [`ClusterAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
@@ -1753,8 +1754,8 @@ export var CreateAuthenticationProfileResult$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateClusterMessage$: StaticStructureSchema = [3, n0, _CCM,
   0,
-  [_CIl, _NT, _MU, _DBN, _CT, _MUP, _CSGl, _VSGI, _CSGNl, _AZ, _PMW, _CPGN, _ASRP, _MSRP, _Po, _CV, _AVU, _NON, _PA, _Enc, _HCCI, _HCI, _EI, _T, _KKI, _EVR, _AId, _IR, _MTN, _SSI, _AZR, _ACS, _DIRA, _LSD, _MMP, _MPSKKI, _IAT, _MAZ, _RIAA, _CNa],
-  [0, 0, 0, 0, 0, [() => SensitiveString, 0], [() => ClusterSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 1, 1, 1, 0, 2, 1, 2, 2, 0, 0, 0, [() => TagList, 0], 0, 2, 0, [() => IamRoleArnList, 0], 0, 0, 2, 0, 0, 0, 2, 0, 0, 2, 0, 0], 3
+  [_CIl, _NT, _MU, _DBN, _CT, _MUP, _CSGl, _VSGI, _CSGNl, _AZ, _PMW, _CPGN, _ASRP, _MSRP, _Po, _CV, _AVU, _NON, _PA, _Enc, _HCCI, _HCI, _EI, _T, _KKI, _EVR, _AId, _IR, _MTN, _SSI, _AZR, _ACS, _DIRA, _LSD, _MMP, _MPSKKI, _IAT, _MAZ, _RIAA, _CNa, _ECFAO],
+  [0, 0, 0, 0, 0, [() => SensitiveString, 0], [() => ClusterSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 1, 1, 1, 0, 2, 1, 2, 2, 0, 0, 0, [() => TagList, 0], 0, 2, 0, [() => IamRoleArnList, 0], 0, 0, 2, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2], 3
 ];
 export var CreateClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _CCPGM,
   0,
@@ -2981,8 +2982,8 @@ export var ModifyClusterMaintenanceResult$: StaticStructureSchema = [3, n0, _MCM
 ];
 export var ModifyClusterMessage$: StaticStructureSchema = [3, n0, _MCM,
   0,
-  [_CIl, _CT, _NT, _NON, _CSGl, _VSGI, _MUP, _CPGN, _ASRP, _MSRP, _PMW, _CV, _AVU, _HCCI, _HCI, _NCI, _PA, _EI, _EVR, _MTN, _Enc, _KKI, _AZR, _AZ, _Po, _MMP, _MPSKKI, _IAT, _MAZ],
-  [0, 0, 0, 1, [() => ClusterSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], [() => SensitiveString, 0], 0, 1, 1, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 2, 0, 2, 0, 1, 2, 0, 0, 2], 1
+  [_CIl, _CT, _NT, _NON, _CSGl, _VSGI, _MUP, _CPGN, _ASRP, _MSRP, _PMW, _CV, _AVU, _HCCI, _HCI, _NCI, _PA, _EI, _EVR, _MTN, _Enc, _KKI, _AZR, _AZ, _Po, _MMP, _MPSKKI, _IAT, _MAZ, _ECFAO],
+  [0, 0, 0, 1, [() => ClusterSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], [() => SensitiveString, 0], 0, 1, 1, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 2, 0, 2, 0, 1, 2, 0, 0, 2, 2], 1
 ];
 export var ModifyClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _MCPGM,
   0,

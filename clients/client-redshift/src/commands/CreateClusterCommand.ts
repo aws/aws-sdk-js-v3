@@ -116,6 +116,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *   MultiAZ: true || false,
  *   RedshiftIdcApplicationArn: "STRING_VALUE",
  *   CatalogName: "STRING_VALUE",
+ *   ExtraComputeForAutomaticOptimization: true || false,
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -310,6 +311,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * //     },
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
+ * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
  * //   },
  * // };
  *

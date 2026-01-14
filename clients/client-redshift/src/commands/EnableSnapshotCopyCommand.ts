@@ -237,6 +237,7 @@ export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResul
  * //     },
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
+ * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
  * //   },
  * // };
  *

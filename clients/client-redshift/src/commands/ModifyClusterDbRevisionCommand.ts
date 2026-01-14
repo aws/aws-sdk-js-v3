@@ -234,6 +234,7 @@ export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRev
  * //     },
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
+ * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
  * //   },
  * // };
  *

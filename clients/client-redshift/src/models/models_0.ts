@@ -2635,6 +2635,13 @@ export interface Cluster {
    * @public
    */
   CatalogArn?: string | undefined;
+
+  /**
+   * <p>A boolean value that, if <code>true</code>, indicates that the cluster allocates additional compute resources to run automatic optimization operations.</p>
+   *          <p>Default: false</p>
+   * @public
+   */
+  ExtraComputeForAutomaticOptimization?: string | undefined;
 }
 
 /**
@@ -3728,6 +3735,13 @@ export interface CreateClusterMessage {
    * @public
    */
   CatalogName?: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, allocates additional compute resources for running automatic optimization operations.</p>
+   *          <p>Default: false</p>
+   * @public
+   */
+  ExtraComputeForAutomaticOptimization?: boolean | undefined;
 }
 
 /**
@@ -5473,6 +5487,7 @@ export interface CreateUsageLimitMessage {
    *             If <code>FeatureType</code> is <code>spectrum</code>, then <code>LimitType</code> must be <code>data-scanned</code>.
    *             If <code>FeatureType</code> is <code>concurrency-scaling</code>, then <code>LimitType</code> must be <code>time</code>.
    *             If <code>FeatureType</code> is <code>cross-region-datasharing</code>, then <code>LimitType</code> must be <code>data-scanned</code>.
+   *             If <code>FeatureType</code> is <code>extra-compute-for-automatic-optimization</code>, then <code>LimitType</code> must be <code>time</code>.
    *            </p>
    * @public
    */
@@ -10468,6 +10483,13 @@ export interface ModifyClusterMessage {
    * @public
    */
   MultiAZ?: boolean | undefined;
+
+  /**
+   * <p>If <code>true</code>, allocates additional compute resources for running automatic optimization operations.</p>
+   *          <p>Default: false</p>
+   * @public
+   */
+  ExtraComputeForAutomaticOptimization?: boolean | undefined;
 }
 
 /**

@@ -39,7 +39,7 @@ export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * const client = new RedshiftClient(config);
  * const input = { // CreateUsageLimitMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
- *   FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing", // required
+ *   FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing" || "extra-compute-for-automatic-optimization", // required
  *   LimitType: "time" || "data-scanned", // required
  *   Amount: Number("long"), // required
  *   Period: "daily" || "weekly" || "monthly",
@@ -56,7 +56,7 @@ export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * // { // UsageLimit
  * //   UsageLimitId: "STRING_VALUE",
  * //   ClusterIdentifier: "STRING_VALUE",
- * //   FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing",
+ * //   FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing" || "extra-compute-for-automatic-optimization",
  * //   LimitType: "time" || "data-scanned",
  * //   Amount: Number("long"),
  * //   Period: "daily" || "weekly" || "monthly",

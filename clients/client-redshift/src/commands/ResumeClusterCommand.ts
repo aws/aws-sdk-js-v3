@@ -233,6 +233,7 @@ export interface ResumeClusterCommandOutput extends ResumeClusterResult, __Metad
  * //     },
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
+ * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
  * //   },
  * // };
  *
