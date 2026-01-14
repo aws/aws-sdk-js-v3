@@ -606,7 +606,7 @@ drop support for the EOL Node.js LTS versions after 8 months of it going EOL, i.
 
 ### Node.js versions
 
-- Version released in second week of January 2026 and higher will require Node.js >= 20.
+- v3.968.0 and higher requires Node.js >= 20.
 - v3.723.0 and higher requires Node.js >= 18.
 - v3.567.0 and higher requires Node.js >= 16.
 - v3.201.0 and higher requires Node.js >= 14.
