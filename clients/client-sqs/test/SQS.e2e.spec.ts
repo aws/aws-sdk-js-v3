@@ -11,22 +11,27 @@ describe(SQS.name, () => {
     "gets response with content-type=$output when request is content-type=$input with protocol $protocol.name",
     ({ input, output, protocol }) => {
       const client = new SQS({ region: "us-west-2", protocol });
+      client.middlewareStack.add(
+        (next) => async (args: any) => {
+          expect((args.request as HttpRequest).headers["content-type"]).toBe(input);
+          const response = await next(args);
+          expect((response.response as HttpResponse).headers["content-type"]).toBe(output);
+          return response;
+        },
+        { step: "build" }
+      );
+
       let QueueUrl: string;
 
       it("run createQueue", async () => {
-        client.middlewareStack.add(
-          (next) => async (args: any) => {
-            expect((args.request as HttpRequest).headers["content-type"]).toBe(input);
-            const response = await next(args);
-            expect((response.response as HttpResponse).headers["content-type"]).toBe(output);
-            return response;
-          },
-          { step: "build" }
-        );
-        const response = await client.createQueue({ QueueName: `aws-sdk-js-${crypto.randomUUID()}` });
+        const QueueName = `aws-sdk-js-${crypto.randomUUID()}`;
+        const response = await client.createQueue({ QueueName });
+
         QueueUrl = response.QueueUrl!;
         expect(typeof QueueUrl).toBe("string");
-        expect.assertions(3);
+        expect(QueueUrl.endsWith(QueueName)).toBe(true);
+
+        expect.assertions(4);
       });
 
       afterAll(async () => {
