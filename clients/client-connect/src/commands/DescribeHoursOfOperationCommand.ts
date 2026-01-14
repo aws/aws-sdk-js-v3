@@ -62,6 +62,13 @@ export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOp
  * //         },
  * //       },
  * //     ],
+ * //     ParentHoursOfOperations: [ // ParentHoursOfOperationsList
+ * //       { // HoursOfOperationsIdentifier
+ * //         Name: "STRING_VALUE", // required
+ * //         Id: "STRING_VALUE", // required
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },

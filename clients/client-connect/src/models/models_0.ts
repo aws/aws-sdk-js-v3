@@ -50,11 +50,13 @@ import {
   NumericQuestionPropertyAutomationLabel,
   OutboundStrategyType,
   OverrideDays,
+  OverrideType,
   ParticipantRole,
   ParticipantState,
   PhoneType,
   PropertyValidationExceptionReason,
   QuickConnectType,
+  RecurrenceFrequency,
   ReferenceStatus,
   ReferenceType,
   RehydrationType,
@@ -1306,6 +1308,42 @@ export interface AssociateFlowRequest {
 export interface AssociateFlowResponse {}
 
 /**
+ * <p>Contains configuration for the parent hours of operation.</p>
+ * @public
+ */
+export interface ParentHoursOfOperationConfig {
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateHoursOfOperationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the child hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the parent hours of operation resources to associate with the child hours of operation resource.</p>
+   * @public
+   */
+  ParentHoursOfOperationConfigs: ParentHoursOfOperationConfig[] | undefined;
+}
+
+/**
  * <p>Configuration information of a Kinesis Data Firehose delivery stream.</p>
  * @public
  */
@@ -1684,6 +1722,7 @@ export interface AssociateRoutingProfileQueuesRequest {
 
   /**
    * <p>The manual assignment queues to associate with this routing profile.</p>
+   *          <p>Note: Use this config for chat, email, and task contacts. It does not support voice contacts.</p>
    * @public
    */
   ManualAssignmentQueueConfigs?: RoutingProfileManualAssignmentQueueConfig[] | undefined;
@@ -4746,6 +4785,14 @@ export interface CreateHoursOfOperationRequest {
   Config: HoursOfOperationConfig[] | undefined;
 
   /**
+   * <p>Configuration for parent hours of operations. Eg: ResourceArn. </p>
+   *          <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the
+   *      <i> Administrator Guide</i>.</p>
+   * @public
+   */
+  ParentHoursOfOperationConfigs?: ParentHoursOfOperationConfig[] | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
@@ -4812,6 +4859,62 @@ export interface HoursOfOperationOverrideConfig {
 }
 
 /**
+ * <p>Specifies the detailed pattern for event recurrence. Use this to define complex scheduling rules such as "every 2nd Tuesday of the month" or "every 3 months on the 15th".</p>
+ * @public
+ */
+export interface RecurrencePattern {
+  /**
+   * <p>Defines how often the pattern repeats. This is the base unit for the recurrence schedule and works in conjunction with the Interval field to determine the exact repetition sequence.</p>
+   * @public
+   */
+  Frequency: RecurrenceFrequency | undefined;
+
+  /**
+   * <p>Specifies the number of frequency units between each occurrence. Must be a positive integer. </p>
+   *          <p> Examples: To repeat every week, set Interval=1 with WEEKLY frequency. To repeat every two months, set Interval=2 with MONTHLY frequency.</p>
+   * @public
+   */
+  Interval: number | undefined;
+
+  /**
+   * <p>Specifies which month the event should occur in (1-12, where 1=January, 12=December). Used with YEARLY frequency to schedule events in specific month. </p>
+   *          <p>Note: It does not accept multiple values in the same list</p>
+   * @public
+   */
+  ByMonth?: number[] | undefined;
+
+  /**
+   * <p>Specifies which day of the month the event should occur on (1-31). Used with MONTHLY or YEARLY frequency to schedule events on specific date within a month.</p>
+   *          <p> Examples:
+   * [15] for events on the 15th of each month,
+   * [-1] for events on the last day of month. </p>
+   *          <p>Note: It does not accept multiple values in the same list. If a specified day doesn't exist in a particular month (e.g., day 31 in February), the event will be skipped for that month. This field cannot be used simultaneously with ByWeekdayOccurrence as they represent different scheduling approaches (specific dates vs. relative weekday positions).</p>
+   * @public
+   */
+  ByMonthDay?: number[] | undefined;
+
+  /**
+   * <p>Specifies which occurrence of a weekday within the month the event should occur on. Must be used with MONTHLY or YEARLY frequency. </p>
+   *          <p>Example: 2 corresponds to second occurrence of the weekday in the month. -1 corresponds to last occurrence of the weekday in the month </p>
+   *          <p>The weekday itself is specified separately in the HoursOfOperationConfig. Example: To schedule the recurring event for the 2nd Thursday of April every year, set ByWeekdayOccurrence=[2], Day=THURSDAY, ByMonth=[4], Frequency: YEARLY and INTERVAL=1.</p>
+   * @public
+   */
+  ByWeekdayOccurrence?: number[] | undefined;
+}
+
+/**
+ * <p>Defines the recurrence configuration for overrides. This configuration uses a recurrence pattern to specify when and how frequently an event should repeat.</p>
+ * @public
+ */
+export interface RecurrenceConfig {
+  /**
+   * <p>The recurrence pattern that defines how the event repeats. Example: Frequency, Interval, ByMonth, ByMonthDay, ByWeekdayOccurrence</p>
+   * @public
+   */
+  RecurrencePattern: RecurrencePattern | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateHoursOfOperationOverrideRequest {
@@ -4856,6 +4959,20 @@ export interface CreateHoursOfOperationOverrideRequest {
    * @public
    */
   EffectiveTill: string | undefined;
+
+  /**
+   * <p>Configuration for a recurring event.</p>
+   * @public
+   */
+  RecurrenceConfig?: RecurrenceConfig | undefined;
+
+  /**
+   * <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
+   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
+   *      <i> Administrator Guide</i>.</p>
+   * @public
+   */
+  OverrideType?: OverrideType | undefined;
 }
 
 /**
@@ -5823,6 +5940,7 @@ export interface CreateRoutingProfileRequest {
    *    can't pick or assign any contacts from this routing profile. The limit of 10 array members applies to the maximum
    *    number of RoutingProfileManualAssignmentQueueConfig objects that can be passed during a CreateRoutingProfile API
    *    request. It is different from the quota of 50 queues per routing profile per instance that is listed in Amazon Connect service quotas.</p>
+   *          <p>Note: Use this config for chat, email, and task contacts. It does not support voice contacts.</p>
    * @public
    */
   ManualAssignmentQueueConfigs?: RoutingProfileManualAssignmentQueueConfig[] | undefined;
@@ -7859,47 +7977,3 @@ export interface DeleteContactEvaluationRequest {
    */
   EvaluationId: string | undefined;
 }
-
-/**
- * @public
- */
-export interface DeleteContactFlowRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteContactFlowResponse {}
-
-/**
- * @public
- */
-export interface DeleteContactFlowModuleRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow module.</p>
-   * @public
-   */
-  ContactFlowModuleId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteContactFlowModuleResponse {}

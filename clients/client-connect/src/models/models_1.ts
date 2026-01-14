@@ -41,6 +41,8 @@ import {
   MediaStreamType,
   MediaType,
   NextContactType,
+  OperationalStatus,
+  OverrideType,
   ParticipantType,
   PhoneNumberCountryCode,
   PhoneNumberType,
@@ -84,6 +86,7 @@ import {
   type PredefinedAttributeValues,
   type QueueReference,
   type QuickConnectConfig,
+  type RecurrenceConfig,
   type RuleTriggerEventSource,
   type TaskTemplateConstraints,
   type TaskTemplateDefaults,
@@ -109,6 +112,50 @@ import {
   SuccessfulBatchAssociationSummary,
   TaskTemplateField,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowModuleRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowModuleResponse {}
 
 /**
  * @public
@@ -2901,6 +2948,30 @@ export interface DescribeHoursOfOperationRequest {
 }
 
 /**
+ * <p>Identifier for a hours of operations resource: ARN, ID, Name</p>
+ * @public
+ */
+export interface HoursOfOperationsIdentifier {
+  /**
+   * <p>Name of the hours of operation</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Unique identifier of the hours of operation.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the hours of operations.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
  * <p>Information about of the hours of operation.</p>
  * @public
  */
@@ -2940,6 +3011,12 @@ export interface HoursOfOperation {
    * @public
    */
   Config?: HoursOfOperationConfig[] | undefined;
+
+  /**
+   * <p>Information about parent hours of operations.</p>
+   * @public
+   */
+  ParentHoursOfOperations?: HoursOfOperationsIdentifier[] | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
@@ -3046,6 +3123,18 @@ export interface HoursOfOperationOverride {
    * @public
    */
   EffectiveTill?: string | undefined;
+
+  /**
+   * <p>Configuration for a recurring event.</p>
+   * @public
+   */
+  RecurrenceConfig?: RecurrenceConfig | undefined;
+
+  /**
+   * <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
+   * @public
+   */
+  OverrideType?: OverrideType | undefined;
 }
 
 /**
@@ -5052,6 +5141,30 @@ export interface DisassociateFlowResponse {}
 /**
  * @public
  */
+export interface DisassociateHoursOfOperationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the child hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the parent hours of operation resources to disassociate with the child hours of operation resource.</p>
+   * @public
+   */
+  ParentHoursOfOperationIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisassociateInstanceStorageConfigRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -6573,6 +6686,54 @@ export interface EffectiveHoursOfOperations {
 }
 
 /**
+ * <p>Information about hours of operation override</p>
+ * @public
+ */
+export interface OverrideHour {
+  /**
+   * <p>The start time or end time for an hours of operation override.</p>
+   * @public
+   */
+  Start?: OverrideTimeSlice | undefined;
+
+  /**
+   * <p>The start time or end time for an hours of operation override.</p>
+   * @public
+   */
+  End?: OverrideTimeSlice | undefined;
+
+  /**
+   * <p>Unique identifier name for the override.</p>
+   * @public
+   */
+  OverrideName?: string | undefined;
+
+  /**
+   * <p>Indicates whether the status is open or closed during the override period. This status determines how the override modifies the base hours of operation schedule.</p>
+   * @public
+   */
+  OperationalStatus?: OperationalStatus | undefined;
+}
+
+/**
+ * <p>Information about the hours of operation overrides which contribute to effective hours of operations.</p>
+ * @public
+ */
+export interface EffectiveOverrideHours {
+  /**
+   * <p>The date that the hours of operation override applies to.</p>
+   * @public
+   */
+  Date?: string | undefined;
+
+  /**
+   * <p>Information about the hours of operation overrides that apply to a specific date.</p>
+   * @public
+   */
+  OverrideHours?: OverrideHour[] | undefined;
+}
+
+/**
  * @public
  */
 export interface GetEffectiveHoursOfOperationsResponse {
@@ -6581,6 +6742,14 @@ export interface GetEffectiveHoursOfOperationsResponse {
    * @public
    */
   EffectiveHoursOfOperationList?: EffectiveHoursOfOperations[] | undefined;
+
+  /**
+   * <p>Information about override configurations applied to the base hours of operation to calculate the effective hours.</p>
+   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
+   *      <i> Administrator Guide</i>.</p>
+   * @public
+   */
+  EffectiveOverrideHoursList?: EffectiveOverrideHours[] | undefined;
 
   /**
    * <p>The time zone for the hours of operation.</p>
@@ -9986,6 +10155,66 @@ export interface ListBotsResponse {
 /**
  * @public
  */
+export interface ListChildHoursOfOperationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the parent hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListChildHoursOfOperationsResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the hours of operation.</p>
+   * @public
+   */
+  ChildHoursOfOperationsSummaryList?: HoursOfOperationsIdentifier[] | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListContactEvaluationsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -10128,261 +10357,4 @@ export interface EvaluationSummary {
    * @public
    */
   ContactParticipant?: EvaluationContactParticipant | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactEvaluationsResponse {
-  /**
-   * <p>Provides details about a list of contact evaluations belonging to an instance.</p>
-   * @public
-   */
-  EvaluationSummaryList: EvaluationSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   *          <important>
-   *             <p>This is always returned as null in the response.</p>
-   *          </important>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModuleAliasesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow module.</p>
-   * @public
-   */
-  ContactFlowModuleId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains information about an alias.</p>
- * @public
- */
-export interface ContactFlowModuleAliasSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow module alias.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The identifier of the alias.</p>
-   * @public
-   */
-  AliasId?: string | undefined;
-
-  /**
-   * <p>The version of the flow module.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The name of the alias.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-
-  /**
-   * <p>The description of the alias.</p>
-   * @public
-   */
-  AliasDescription?: string | undefined;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModuleAliasesResponse {
-  /**
-   * <p>Information about the flow module aliases.</p>
-   * @public
-   */
-  ContactFlowModuleAliasSummaryList?: ContactFlowModuleAliasSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModulesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The state of the flow module.</p>
-   * @public
-   */
-  ContactFlowModuleState?: ContactFlowModuleState | undefined;
-}
-
-/**
- * <p>Contains summary information about a flow.</p>
- * @public
- */
-export interface ContactFlowModuleSummary {
-  /**
-   * <p>The identifier of the flow module.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow module.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the flow module.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of flow module.</p>
-   * @public
-   */
-  State?: ContactFlowModuleState | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModulesResponse {
-  /**
-   * <p>Information about the flow module.</p>
-   * @public
-   */
-  ContactFlowModulesSummaryList?: ContactFlowModuleSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModuleVersionsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow module.</p>
-   * @public
-   */
-  ContactFlowModuleId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains information about a version.</p>
- * @public
- */
-export interface ContactFlowModuleVersionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow module version.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The description of the flow module version.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>The version of the flow module.</p>
-   * @public
-   */
-  Version?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModuleVersionsResponse {
-  /**
-   * <p>Information about the flow module versions.</p>
-   * @public
-   */
-  ContactFlowModuleVersionSummaryList?: ContactFlowModuleVersionSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

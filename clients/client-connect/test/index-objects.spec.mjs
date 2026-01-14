@@ -67,6 +67,9 @@ import {
   AssociateFlowCommand,
   AssociateFlowRequest$,
   AssociateFlowResponse$,
+  AssociateHoursOfOperations$,
+  AssociateHoursOfOperationsCommand,
+  AssociateHoursOfOperationsRequest$,
   AssociateInstanceStorageConfig$,
   AssociateInstanceStorageConfigCommand,
   AssociateInstanceStorageConfigRequest$,
@@ -693,6 +696,9 @@ import {
   DisassociateFlowCommand,
   DisassociateFlowRequest$,
   DisassociateFlowResponse$,
+  DisassociateHoursOfOperations$,
+  DisassociateHoursOfOperationsCommand,
+  DisassociateHoursOfOperationsRequest$,
   DisassociateInstanceStorageConfig$,
   DisassociateInstanceStorageConfigCommand,
   DisassociateInstanceStorageConfigRequest$,
@@ -740,6 +746,7 @@ import {
   DuplicateResourceException,
   DuplicateResourceException$,
   EffectiveHoursOfOperations$,
+  EffectiveOverrideHours$,
   EmailAddressInfo$,
   EmailAddressMetadata$,
   EmailAddressSearchCriteria$,
@@ -940,6 +947,7 @@ import {
   HoursOfOperationOverrideSearchCriteria$,
   HoursOfOperationSearchCriteria$,
   HoursOfOperationSearchFilter$,
+  HoursOfOperationsIdentifier$,
   HoursOfOperationSummary$,
   HoursOfOperationTimeSlice$,
   IdempotencyException,
@@ -1023,6 +1031,10 @@ import {
   ListBotsCommand,
   ListBotsRequest$,
   ListBotsResponse$,
+  ListChildHoursOfOperations$,
+  ListChildHoursOfOperationsCommand,
+  ListChildHoursOfOperationsRequest$,
+  ListChildHoursOfOperationsResponse$,
   ListCondition$,
   ListContactEvaluations$,
   ListContactEvaluationsCommand,
@@ -1279,6 +1291,7 @@ import {
   NumericQuestionPropertyAutomationLabel,
   NumericQuestionPropertyValueAutomation$,
   OperationalHour$,
+  OperationalStatus,
   OutboundAdditionalRecipients$,
   OutboundCallerConfig$,
   OutboundContactNotPermittedException,
@@ -1293,7 +1306,9 @@ import {
   OutputTypeNotFoundException,
   OutputTypeNotFoundException$,
   OverrideDays,
+  OverrideHour$,
   OverrideTimeSlice$,
+  OverrideType,
   paginateEvaluateDataTableValues,
   paginateGetCurrentMetricData,
   paginateGetCurrentUserData,
@@ -1303,6 +1318,7 @@ import {
   paginateListApprovedOrigins,
   paginateListAuthenticationProfiles,
   paginateListBots,
+  paginateListChildHoursOfOperations,
   paginateListContactEvaluations,
   paginateListContactFlowModuleAliases,
   paginateListContactFlowModules,
@@ -1380,6 +1396,7 @@ import {
   PaletteHeader$,
   PaletteNavigation$,
   PalettePrimary$,
+  ParentHoursOfOperationConfig$,
   ParticipantCapabilities$,
   ParticipantConfiguration$,
   ParticipantDetails$,
@@ -1477,6 +1494,9 @@ import {
   RecordingInfo$,
   RecordingStatus,
   RecordPrimaryValue$,
+  RecurrenceConfig$,
+  RecurrenceFrequency,
+  RecurrencePattern$,
   Reference$,
   ReferenceStatus,
   ReferenceSummary$,
@@ -2100,6 +2120,8 @@ assert(typeof AssociateEmailAddressAliasCommand === "function");
 assert(typeof AssociateEmailAddressAlias$ === "object");
 assert(typeof AssociateFlowCommand === "function");
 assert(typeof AssociateFlow$ === "object");
+assert(typeof AssociateHoursOfOperationsCommand === "function");
+assert(typeof AssociateHoursOfOperations$ === "object");
 assert(typeof AssociateInstanceStorageConfigCommand === "function");
 assert(typeof AssociateInstanceStorageConfig$ === "object");
 assert(typeof AssociateLambdaFunctionCommand === "function");
@@ -2356,6 +2378,8 @@ assert(typeof DisassociateEmailAddressAliasCommand === "function");
 assert(typeof DisassociateEmailAddressAlias$ === "object");
 assert(typeof DisassociateFlowCommand === "function");
 assert(typeof DisassociateFlow$ === "object");
+assert(typeof DisassociateHoursOfOperationsCommand === "function");
+assert(typeof DisassociateHoursOfOperations$ === "object");
 assert(typeof DisassociateInstanceStorageConfigCommand === "function");
 assert(typeof DisassociateInstanceStorageConfig$ === "object");
 assert(typeof DisassociateLambdaFunctionCommand === "function");
@@ -2426,6 +2450,8 @@ assert(typeof ListAuthenticationProfilesCommand === "function");
 assert(typeof ListAuthenticationProfiles$ === "object");
 assert(typeof ListBotsCommand === "function");
 assert(typeof ListBots$ === "object");
+assert(typeof ListChildHoursOfOperationsCommand === "function");
+assert(typeof ListChildHoursOfOperations$ === "object");
 assert(typeof ListContactEvaluationsCommand === "function");
 assert(typeof ListContactEvaluations$ === "object");
 assert(typeof ListContactFlowModuleAliasesCommand === "function");
@@ -2807,6 +2833,7 @@ assert(typeof AssociateEmailAddressAliasRequest$ === "object");
 assert(typeof AssociateEmailAddressAliasResponse$ === "object");
 assert(typeof AssociateFlowRequest$ === "object");
 assert(typeof AssociateFlowResponse$ === "object");
+assert(typeof AssociateHoursOfOperationsRequest$ === "object");
 assert(typeof AssociateInstanceStorageConfigRequest$ === "object");
 assert(typeof AssociateInstanceStorageConfigResponse$ === "object");
 assert(typeof AssociateLambdaFunctionRequest$ === "object");
@@ -3135,6 +3162,7 @@ assert(typeof DisassociateEmailAddressAliasRequest$ === "object");
 assert(typeof DisassociateEmailAddressAliasResponse$ === "object");
 assert(typeof DisassociateFlowRequest$ === "object");
 assert(typeof DisassociateFlowResponse$ === "object");
+assert(typeof DisassociateHoursOfOperationsRequest$ === "object");
 assert(typeof DisassociateInstanceStorageConfigRequest$ === "object");
 assert(typeof DisassociateLambdaFunctionRequest$ === "object");
 assert(typeof DisassociateLexBotRequest$ === "object");
@@ -3155,6 +3183,7 @@ assert(typeof DismissUserContactResponse$ === "object");
 assert(typeof Distribution$ === "object");
 assert(typeof DownloadUrlMetadata$ === "object");
 assert(typeof EffectiveHoursOfOperations$ === "object");
+assert(typeof EffectiveOverrideHours$ === "object");
 assert(typeof EmailAddressInfo$ === "object");
 assert(typeof EmailAddressMetadata$ === "object");
 assert(typeof EmailAddressSearchCriteria$ === "object");
@@ -3294,6 +3323,7 @@ assert(typeof HoursOfOperationOverrideConfig$ === "object");
 assert(typeof HoursOfOperationOverrideSearchCriteria$ === "object");
 assert(typeof HoursOfOperationSearchCriteria$ === "object");
 assert(typeof HoursOfOperationSearchFilter$ === "object");
+assert(typeof HoursOfOperationsIdentifier$ === "object");
 assert(typeof HoursOfOperationSummary$ === "object");
 assert(typeof HoursOfOperationTimeSlice$ === "object");
 assert(typeof ImagesLogo$ === "object");
@@ -3333,6 +3363,8 @@ assert(typeof ListAuthenticationProfilesRequest$ === "object");
 assert(typeof ListAuthenticationProfilesResponse$ === "object");
 assert(typeof ListBotsRequest$ === "object");
 assert(typeof ListBotsResponse$ === "object");
+assert(typeof ListChildHoursOfOperationsRequest$ === "object");
+assert(typeof ListChildHoursOfOperationsResponse$ === "object");
 assert(typeof ListCondition$ === "object");
 assert(typeof ListContactEvaluationsRequest$ === "object");
 assert(typeof ListContactEvaluationsResponse$ === "object");
@@ -3473,11 +3505,13 @@ assert(typeof OutboundEmailContent$ === "object");
 assert(typeof OutboundRawMessage$ === "object");
 assert(typeof OutboundStrategy$ === "object");
 assert(typeof OutboundStrategyConfig$ === "object");
+assert(typeof OverrideHour$ === "object");
 assert(typeof OverrideTimeSlice$ === "object");
 assert(typeof PaletteCanvas$ === "object");
 assert(typeof PaletteHeader$ === "object");
 assert(typeof PaletteNavigation$ === "object");
 assert(typeof PalettePrimary$ === "object");
+assert(typeof ParentHoursOfOperationConfig$ === "object");
 assert(typeof ParticipantCapabilities$ === "object");
 assert(typeof ParticipantConfiguration$ === "object");
 assert(typeof ParticipantDetails$ === "object");
@@ -3547,6 +3581,8 @@ assert(typeof RealTimeContactAnalysisTranscriptItemWithCharacterOffsets$ === "ob
 assert(typeof RealTimeContactAnalysisTranscriptItemWithContent$ === "object");
 assert(typeof RecordingInfo$ === "object");
 assert(typeof RecordPrimaryValue$ === "object");
+assert(typeof RecurrenceConfig$ === "object");
+assert(typeof RecurrencePattern$ === "object");
 assert(typeof Reference$ === "object");
 assert(typeof ReferenceSummary$ === "object");
 assert(typeof ReleasePhoneNumberRequest$ === "object");
@@ -3963,9 +3999,11 @@ assert(typeof NotificationContentType === "object");
 assert(typeof NotificationDeliveryType === "object");
 assert(typeof NumberComparisonType === "object");
 assert(typeof NumericQuestionPropertyAutomationLabel === "object");
+assert(typeof OperationalStatus === "object");
 assert(typeof OutboundMessageSourceType === "object");
 assert(typeof OutboundStrategyType === "object");
 assert(typeof OverrideDays === "object");
+assert(typeof OverrideType === "object");
 assert(typeof ParticipantRole === "object");
 assert(typeof ParticipantState === "object");
 assert(typeof ParticipantTimerAction === "object");
@@ -3988,6 +4026,7 @@ assert(typeof RealTimeContactAnalysisSentimentLabel === "object");
 assert(typeof RealTimeContactAnalysisStatus === "object");
 assert(typeof RealTimeContactAnalysisSupportedChannel === "object");
 assert(typeof RecordingStatus === "object");
+assert(typeof RecurrenceFrequency === "object");
 assert(typeof ReferenceStatus === "object");
 assert(typeof ReferenceType === "object");
 assert(typeof RehydrationType === "object");
@@ -4092,6 +4131,7 @@ assert(typeof paginateListAgentStatuses === "function");
 assert(typeof paginateListApprovedOrigins === "function");
 assert(typeof paginateListAuthenticationProfiles === "function");
 assert(typeof paginateListBots === "function");
+assert(typeof paginateListChildHoursOfOperations === "function");
 assert(typeof paginateListContactEvaluations === "function");
 assert(typeof paginateListContactFlowModuleAliases === "function");
 assert(typeof paginateListContactFlowModuleVersions === "function");

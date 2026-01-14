@@ -94,6 +94,8 @@ const _AFu = "AudioFeatures";
 const _AFut = "AutomaticFail";
 const _AHG = "AgentHierarchyGroup";
 const _AHGg = "AgentHierarchyGroups";
+const _AHOO = "AssociateHoursOfOperations";
+const _AHOOR = "AssociateHoursOfOperationsRequest";
 const _AHU = "AudioHostUrl";
 const _AI = "AgentInfo";
 const _AIHD = "AgentInitiatedHoldDuration";
@@ -250,6 +252,8 @@ const _BGFA = "BatchGetFlowAssociation";
 const _BGFAR = "BatchGetFlowAssociationRequest";
 const _BGFARa = "BatchGetFlowAssociationResponse";
 const _BI = "BlockedIps";
+const _BM = "ByMonth";
+const _BMD = "ByMonthDay";
 const _BN = "BotName";
 const _BNu = "BucketName";
 const _BOC = "BeginOffsetChar";
@@ -267,6 +271,7 @@ const _BUDTVRa = "BatchUpdateDataTableValueResponse";
 const _BUDTVSR = "BatchUpdateDataTableValueSuccessResult";
 const _BUDTVSRL = "BatchUpdateDataTableValueSuccessResultList";
 const _BV = "BooleanValue";
+const _BWO = "ByWeekdayOccurrence";
 const _Ba = "Background";
 const _C = "Channel";
 const _CA = "ContactArn";
@@ -379,11 +384,13 @@ const _CFVSL = "ContactFlowVersionSummaryList";
 const _CFo = "ContactFlow";
 const _CFon = "ContactFlows";
 const _CHOO = "CreateHoursOfOperation";
+const _CHOOL = "ChildHoursOfOperationsList";
 const _CHOOO = "CreateHoursOfOperationOverride";
 const _CHOOOR = "CreateHoursOfOperationOverrideRequest";
 const _CHOOORr = "CreateHoursOfOperationOverrideResponse";
 const _CHOOR = "CreateHoursOfOperationRequest";
 const _CHOORr = "CreateHoursOfOperationResponse";
+const _CHOOSL = "ChildHoursOfOperationsSummaryList";
 const _CI = "ContactId";
 const _CIA = "CreateIntegrationAssociation";
 const _CIAR = "CreateIntegrationAssociationRequest";
@@ -636,7 +643,9 @@ const _DHOOOe = "DescribeHoursOfOperationOverride";
 const _DHOOR = "DeleteHoursOfOperationRequest";
 const _DHOORe = "DescribeHoursOfOperationRequest";
 const _DHOORes = "DescribeHoursOfOperationResponse";
+const _DHOORi = "DisassociateHoursOfOperationsRequest";
 const _DHOOe = "DescribeHoursOfOperation";
+const _DHOOi = "DisassociateHoursOfOperations";
 const _DI = "DeviceInfo";
 const _DIA = "DeleteIntegrationAssociation";
 const _DIAR = "DeleteIntegrationAssociationRequest";
@@ -952,6 +961,8 @@ const _EMxc = "ExclusiveMaximum";
 const _EN = "EvaluationNote";
 const _ENM = "EvaluationNotesMap";
 const _EOC = "EndOffsetChar";
+const _EOH = "EffectiveOverrideHours";
+const _EOHL = "EffectiveOverrideHoursList";
 const _EQAAD = "EvaluationQuestionAnswerAnalysisDetails";
 const _EQID = "EvaluationQuestionInputDetails";
 const _ER = "EchoReduction";
@@ -1055,6 +1066,7 @@ const _Fi = "Files";
 const _Fie = "Fields";
 const _Fil = "Filters";
 const _Fo = "Found";
+const _Fr = "Frequency";
 const _Fu = "Function";
 const _G = "Groupings";
 const _GACC = "GranularAccessControlConfiguration";
@@ -1125,6 +1137,7 @@ const _HOOA = "HoursOfOperationArn";
 const _HOOC = "HoursOfOperationConfig";
 const _HOOCL = "HoursOfOperationConfigList";
 const _HOOI = "HoursOfOperationId";
+const _HOOIo = "HoursOfOperationsIdentifier";
 const _HOOL = "HoursOfOperationList";
 const _HOOO = "HoursOfOperationOverride";
 const _HOOOC = "HoursOfOperationOverrideConfig";
@@ -1275,6 +1288,9 @@ const _LCFRi = "ListContactFlowsResponse";
 const _LCFV = "ListContactFlowVersions";
 const _LCFVR = "ListContactFlowVersionsRequest";
 const _LCFVRi = "ListContactFlowVersionsResponse";
+const _LCHOO = "ListChildHoursOfOperations";
+const _LCHOOR = "ListChildHoursOfOperationsRequest";
+const _LCHOORi = "ListChildHoursOfOperationsResponse";
 const _LCR = "ListContactReferences";
 const _LCRR = "ListContactReferencesRequest";
 const _LCRRi = "ListContactReferencesResponse";
@@ -1576,6 +1592,9 @@ const _OECu = "OutboundEmailContent";
 const _OFI = "OutboundFlowId";
 const _OH = "OperationalHours";
 const _OHp = "OperationalHour";
+const _OHv = "OverrideHours";
+const _OHve = "OverrideHour";
+const _ON = "OverrideName";
 const _OR = "OriginRegion";
 const _ORI = "OptionRefIds";
 const _ORIp = "OptionRefId";
@@ -1585,10 +1604,12 @@ const _ORM = "OutboundRawMessage";
 const _OS = "OutboundSubject";
 const _OSC = "OutboundStrategyConfig";
 const _OSp = "OperatingSystem";
+const _OSpe = "OperationalStatus";
 const _OSu = "OutboundStrategy";
-const _OT = "OutputType";
+const _OT = "OverrideType";
 const _OTNFE = "OutputTypeNotFoundException";
 const _OTS = "OverrideTimeSlice";
+const _OTu = "OutputType";
 const _Op = "Operands";
 const _Ope = "Operator";
 const _Opt = "Options";
@@ -1635,6 +1656,12 @@ const _PDr = "ProblemDetail";
 const _PET = "PreviewEndTimestamp";
 const _PGI = "ParentGroupId";
 const _PH = "PaletteHeader";
+const _PHOO = "ParentHoursOfOperations";
+const _PHOOC = "ParentHoursOfOperationConfigs";
+const _PHOOCL = "ParentHoursOfOperationConfigList";
+const _PHOOCa = "ParentHoursOfOperationConfig";
+const _PHOOI = "ParentHoursOfOperationIds";
+const _PHOOL = "ParentHoursOfOperationsList";
 const _PI = "ParticipantId";
 const _PIr = "PromptId";
 const _PL = "ProficiencyLevel";
@@ -1770,7 +1797,8 @@ const _RCRR = "ResumeContactRecordingRequest";
 const _RCRRe = "ResumeContactRecordingResponse";
 const _RCRe = "ResumeContactResponse";
 const _RCRes = "ResumeContactRecording";
-const _RCe = "ReplicationConfiguration";
+const _RCe = "RecurrenceConfig";
+const _RCep = "ReplicationConfiguration";
 const _RCes = "ResumeContact";
 const _RCu = "RuleCategory";
 const _RF = "RequiredFields";
@@ -1822,6 +1850,7 @@ const _RPSCL = "RoutingProfileSearchConditionList";
 const _RPSF = "RoutingProfileSearchFilter";
 const _RPSL = "RoutingProfileSummaryList";
 const _RPV = "RecordPrimaryValue";
+const _RPe = "RecurrencePattern";
 const _RPo = "RoutingProfiles";
 const _RR = "ReplicaRegion";
 const _RS = "ReplicationStatus";
@@ -2866,6 +2895,11 @@ export var AssociateFlowResponse$: StaticStructureSchema = [3, n0, _AFRs,
   [],
   []
 ];
+export var AssociateHoursOfOperationsRequest$: StaticStructureSchema = [3, n0, _AHOOR,
+  0,
+  [_II, _HOOI, _PHOOC],
+  [[0, 1], [0, 1], () => ParentHoursOfOperationConfigList], 3
+];
 export var AssociateInstanceStorageConfigRequest$: StaticStructureSchema = [3, n0, _AISCR,
   0,
   [_II, _RT, _SCt, _CT],
@@ -3527,8 +3561,8 @@ export var CreateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _CEFRr
 ];
 export var CreateHoursOfOperationOverrideRequest$: StaticStructureSchema = [3, n0, _CHOOOR,
   0,
-  [_II, _HOOI, _N, _Conf, _EF, _ETf, _D],
-  [[0, 1], [0, 1], 0, () => HoursOfOperationOverrideConfigList, 0, 0, 0], 6
+  [_II, _HOOI, _N, _Conf, _EF, _ETf, _D, _RCe, _OT],
+  [[0, 1], [0, 1], 0, () => HoursOfOperationOverrideConfigList, 0, 0, 0, () => RecurrenceConfig$, 0], 6
 ];
 export var CreateHoursOfOperationOverrideResponse$: StaticStructureSchema = [3, n0, _CHOOORr,
   0,
@@ -3537,8 +3571,8 @@ export var CreateHoursOfOperationOverrideResponse$: StaticStructureSchema = [3, 
 ];
 export var CreateHoursOfOperationRequest$: StaticStructureSchema = [3, n0, _CHOOR,
   0,
-  [_II, _N, _TZ, _Conf, _D, _Ta],
-  [[0, 1], 0, 0, () => HoursOfOperationConfigList, 0, 128 | 0], 4
+  [_II, _N, _TZ, _Conf, _D, _PHOOC, _Ta],
+  [[0, 1], 0, 0, () => HoursOfOperationConfigList, 0, () => ParentHoursOfOperationConfigList, 128 | 0], 4
 ];
 export var CreateHoursOfOperationResponse$: StaticStructureSchema = [3, n0, _CHOORr,
   0,
@@ -4312,7 +4346,7 @@ export var DescribeInstanceRequest$: StaticStructureSchema = [3, n0, _DIRe,
 ];
 export var DescribeInstanceResponse$: StaticStructureSchema = [3, n0, _DIRes,
   0,
-  [_In, _RCe],
+  [_In, _RCep],
   [[() => Instance$, 0], () => ReplicationConfiguration$]
 ];
 export var DescribeInstanceStorageConfigRequest$: StaticStructureSchema = [3, n0, _DISCR,
@@ -4526,6 +4560,11 @@ export var DisassociateFlowResponse$: StaticStructureSchema = [3, n0, _DFRi,
   [],
   []
 ];
+export var DisassociateHoursOfOperationsRequest$: StaticStructureSchema = [3, n0, _DHOORi,
+  0,
+  [_II, _HOOI, _PHOOI],
+  [[0, 1], [0, 1], 64 | 0], 3
+];
 export var DisassociateInstanceStorageConfigRequest$: StaticStructureSchema = [3, n0, _DISCRi,
   0,
   [_II, _AIs, _RT, _CT],
@@ -4631,6 +4670,11 @@ export var EffectiveHoursOfOperations$: StaticStructureSchema = [3, n0, _EHOO,
   0,
   [_Da, _OH],
   [0, () => OperationalHours]
+];
+export var EffectiveOverrideHours$: StaticStructureSchema = [3, n0, _EOH,
+  0,
+  [_Da, _OHv],
+  [0, () => OverrideHours]
 ];
 export var EmailAddressInfo$: StaticStructureSchema = [3, n0, _EAIm,
   0,
@@ -5094,8 +5138,8 @@ export var GetEffectiveHoursOfOperationsRequest$: StaticStructureSchema = [3, n0
 ];
 export var GetEffectiveHoursOfOperationsResponse$: StaticStructureSchema = [3, n0, _GEHOORe,
   0,
-  [_EHOOL, _TZ],
-  [() => EffectiveHoursOfOperationList, 0]
+  [_EHOOL, _EOHL, _TZ],
+  [() => EffectiveHoursOfOperationList, () => EffectiveOverrideHoursList, 0]
 ];
 export var GetFederationTokenRequest$: StaticStructureSchema = [3, n0, _GFTR,
   0,
@@ -5249,8 +5293,8 @@ export var HistoricalMetricResult$: StaticStructureSchema = [3, n0, _HMR,
 ];
 export var HoursOfOperation$: StaticStructureSchema = [3, n0, _HOO,
   0,
-  [_HOOI, _HOOA, _N, _D, _TZ, _Conf, _Ta, _LMT, _LMR],
-  [0, 0, 0, 0, 0, () => HoursOfOperationConfigList, 128 | 0, 4, 0]
+  [_HOOI, _HOOA, _N, _D, _TZ, _Conf, _PHOO, _Ta, _LMT, _LMR],
+  [0, 0, 0, 0, 0, () => HoursOfOperationConfigList, () => ParentHoursOfOperationsList, 128 | 0, 4, 0]
 ];
 export var HoursOfOperationConfig$: StaticStructureSchema = [3, n0, _HOOC,
   0,
@@ -5259,8 +5303,8 @@ export var HoursOfOperationConfig$: StaticStructureSchema = [3, n0, _HOOC,
 ];
 export var HoursOfOperationOverride$: StaticStructureSchema = [3, n0, _HOOO,
   0,
-  [_HOOOI, _HOOI, _HOOA, _N, _D, _Conf, _EF, _ETf],
-  [0, 0, 0, 0, 0, () => HoursOfOperationOverrideConfigList, 0, 0]
+  [_HOOOI, _HOOI, _HOOA, _N, _D, _Conf, _EF, _ETf, _RCe, _OT],
+  [0, 0, 0, 0, 0, () => HoursOfOperationOverrideConfigList, 0, 0, () => RecurrenceConfig$, 0]
 ];
 export var HoursOfOperationOverrideConfig$: StaticStructureSchema = [3, n0, _HOOOC,
   0,
@@ -5281,6 +5325,11 @@ export var HoursOfOperationSearchFilter$: StaticStructureSchema = [3, n0, _HOOSF
   0,
   [_TF],
   [() => ControlPlaneTagFilter$]
+];
+export var HoursOfOperationsIdentifier$: StaticStructureSchema = [3, n0, _HOOIo,
+  0,
+  [_N, _I, _A],
+  [0, 0, 0], 2
 ];
 export var HoursOfOperationSummary$: StaticStructureSchema = [3, n0, _HOOS,
   0,
@@ -5519,6 +5568,16 @@ export var ListBotsResponse$: StaticStructureSchema = [3, n0, _LBRi,
   0,
   [_LBe, _NT],
   [() => LexBotConfigList, 0]
+];
+export var ListChildHoursOfOperationsRequest$: StaticStructureSchema = [3, n0, _LCHOOR,
+  0,
+  [_II, _HOOI, _NT, _MR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
+];
+export var ListChildHoursOfOperationsResponse$: StaticStructureSchema = [3, n0, _LCHOORi,
+  0,
+  [_NT, _CHOOSL, _LMT, _LMR],
+  [0, () => ChildHoursOfOperationsList, 4, 0]
 ];
 export var ListCondition$: StaticStructureSchema = [3, n0, _LCi,
   0,
@@ -5842,7 +5901,7 @@ export var ListQuickConnectsResponse$: StaticStructureSchema = [3, n0, _LQCRi,
 ];
 export var ListRealtimeContactAnalysisSegmentsV2Request$: StaticStructureSchema = [3, n0, _LRCASVR,
   0,
-  [_II, _CI, _OT, _STeg, _MR, _NT],
+  [_II, _CI, _OTu, _STeg, _MR, _NT],
   [[0, 1], [0, 1], 0, 64 | 0, 1, 0], 4
 ];
 export var ListRealtimeContactAnalysisSegmentsV2Response$: StaticStructureSchema = [3, n0, _LRCASVRi,
@@ -6233,6 +6292,11 @@ export var OutputTypeNotFoundException$: StaticErrorSchema = [-3, n0, _OTNFE,
   [0]
 ];
 TypeRegistry.for(n0).registerError(OutputTypeNotFoundException$, OutputTypeNotFoundException);
+export var OverrideHour$: StaticStructureSchema = [3, n0, _OHve,
+  0,
+  [_Star, _End_, _ON, _OSpe],
+  [() => OverrideTimeSlice$, () => OverrideTimeSlice$, 0, 0]
+];
 export var OverrideTimeSlice$: StaticStructureSchema = [3, n0, _OTS,
   0,
   [_H, _Mi],
@@ -6257,6 +6321,11 @@ export var PalettePrimary$: StaticStructureSchema = [3, n0, _PP,
   0,
   [_Defa, _Acti, _CTont],
   [0, 0, 0]
+];
+export var ParentHoursOfOperationConfig$: StaticStructureSchema = [3, n0, _PHOOCa,
+  0,
+  [_HOOI],
+  [0]
 ];
 export var ParticipantCapabilities$: StaticStructureSchema = [3, n0, _PCar,
   0,
@@ -6589,6 +6658,16 @@ export var RecordPrimaryValue$: StaticStructureSchema = [3, n0, _RPV,
   [_RIe, _PV, _LMT, _LMR],
   [0, () => PrimaryValuesResponseSet, 4, 0]
 ];
+export var RecurrenceConfig$: StaticStructureSchema = [3, n0, _RCe,
+  0,
+  [_RPe],
+  [() => RecurrencePattern$], 1
+];
+export var RecurrencePattern$: StaticStructureSchema = [3, n0, _RPe,
+  0,
+  [_Fr, _Int, _BM, _BMD, _BWO],
+  [0, 1, 64 | 1, 64 | 1, 64 | 1], 2
+];
 export var Reference$: StaticStructureSchema = [3, n0, _Refe,
   0,
   [_T, _V, _St, _A, _SRt],
@@ -6609,7 +6688,7 @@ export var ReplicateInstanceResponse$: StaticStructureSchema = [3, n0, _RIRe,
   [_I, _A],
   [0, 0]
 ];
-export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RCe,
+export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RCep,
   0,
   [_RSSL, _SRo, _GSIE],
   [() => ReplicationStatusSummaryList, 0, 0]
@@ -7723,8 +7802,8 @@ export var UpdateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _UEFRp
 ];
 export var UpdateHoursOfOperationOverrideRequest$: StaticStructureSchema = [3, n0, _UHOOOR,
   0,
-  [_II, _HOOI, _HOOOI, _N, _D, _Conf, _EF, _ETf],
-  [[0, 1], [0, 1], [0, 1], 0, 0, () => HoursOfOperationOverrideConfigList, 0, 0], 3
+  [_II, _HOOI, _HOOOI, _N, _D, _Conf, _EF, _ETf, _RCe, _OT],
+  [[0, 1], [0, 1], [0, 1], 0, 0, () => HoursOfOperationOverrideConfigList, 0, 0, () => RecurrenceConfig$, 0], 3
 ];
 export var UpdateHoursOfOperationRequest$: StaticStructureSchema = [3, n0, _UHOOR,
   0,
@@ -8325,6 +8404,9 @@ var BatchUpdateDataTableValueSuccessResultList: StaticListSchema = [1, n0, _BUDT
 ];
 var ChannelList = 64 | 0;
 var Channels = 64 | 0;
+var ChildHoursOfOperationsList: StaticListSchema = [1, n0, _CHOOL,
+  0, () => HoursOfOperationsIdentifier$
+];
 var CommonAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCL,
   0, () => CommonAttributeAndCondition$
 ];
@@ -8426,6 +8508,9 @@ var DistributionList: StaticListSchema = [1, n0, _DL,
 ];
 var EffectiveHoursOfOperationList: StaticListSchema = [1, n0, _EHOOL,
   0, () => EffectiveHoursOfOperations$
+];
+var EffectiveOverrideHoursList: StaticListSchema = [1, n0, _EOHL,
+  0, () => EffectiveOverrideHours$
 ];
 var EmailAddressList: StaticListSchema = [1, n0, _EAL,
   0, [() => EmailAddressMetadata$,
@@ -8603,6 +8688,8 @@ var MetricResultsV2: StaticListSchema = [1, n0, _MRVe,
 var MetricsV2: StaticListSchema = [1, n0, _MVet,
   0, () => MetricV2$
 ];
+var MonthDayList = 64 | 1;
+var MonthList = 64 | 1;
 var NextContacts: StaticListSchema = [1, n0, _NCe,
   0, () => NextContactEntry$
 ];
@@ -8610,6 +8697,16 @@ var OperationalHours: StaticListSchema = [1, n0, _OH,
   0, () => OperationalHour$
 ];
 var OriginsList = 64 | 0;
+var OverrideHours: StaticListSchema = [1, n0, _OHv,
+  0, () => OverrideHour$
+];
+var ParentHoursOfOperationConfigList: StaticListSchema = [1, n0, _PHOOCL,
+  0, () => ParentHoursOfOperationConfig$
+];
+var ParentHoursOfOperationIdList = 64 | 0;
+var ParentHoursOfOperationsList: StaticListSchema = [1, n0, _PHOOL,
+  0, () => HoursOfOperationsIdentifier$
+];
 var ParticipantTimerConfigList: StaticListSchema = [1, n0, _PTCL,
   0, () => ParticipantTimerConfiguration$
 ];
@@ -8919,6 +9016,7 @@ var ViewVersionSummaryList: StaticListSchema = [1, n0, _VVSL,
 var VocabularySummaryList: StaticListSchema = [1, n0, _VSLo,
   0, () => VocabularySummary$
 ];
+var WeekdayOccurrenceList = 64 | 1;
 var WorkspaceAssociationSearchConditionList: StaticListSchema = [1, n0, _WASCL,
   0, () => WorkspaceAssociationSearchCriteria$
 ];
@@ -9100,6 +9198,9 @@ export var AssociateEmailAddressAlias$: StaticOperationSchema = [9, n0, _AEAA,
 ];
 export var AssociateFlow$: StaticOperationSchema = [9, n0, _AFs,
   { [_h]: ["PUT", "/flow-associations/{InstanceId}", 200] }, () => AssociateFlowRequest$, () => AssociateFlowResponse$
+];
+export var AssociateHoursOfOperations$: StaticOperationSchema = [9, n0, _AHOO,
+  { [_h]: ["POST", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}/associate-hours", 200] }, () => AssociateHoursOfOperationsRequest$, () => __Unit
 ];
 export var AssociateInstanceStorageConfig$: StaticOperationSchema = [9, n0, _AISC,
   { [_h]: ["PUT", "/instance/{InstanceId}/storage-config", 200] }, () => AssociateInstanceStorageConfigRequest$, () => AssociateInstanceStorageConfigResponse$
@@ -9485,6 +9586,9 @@ export var DisassociateEmailAddressAlias$: StaticOperationSchema = [9, n0, _DEAA
 export var DisassociateFlow$: StaticOperationSchema = [9, n0, _DF,
   { [_h]: ["DELETE", "/flow-associations/{InstanceId}/{ResourceId}/{ResourceType}", 200] }, () => DisassociateFlowRequest$, () => DisassociateFlowResponse$
 ];
+export var DisassociateHoursOfOperations$: StaticOperationSchema = [9, n0, _DHOOi,
+  { [_h]: ["POST", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}/disassociate-hours", 200] }, () => DisassociateHoursOfOperationsRequest$, () => __Unit
+];
 export var DisassociateInstanceStorageConfig$: StaticOperationSchema = [9, n0, _DISCi,
   { [_h]: ["DELETE", "/instance/{InstanceId}/storage-config/{AssociationId}", 200] }, () => DisassociateInstanceStorageConfigRequest$, () => __Unit
 ];
@@ -9589,6 +9693,9 @@ export var ListAuthenticationProfiles$: StaticOperationSchema = [9, n0, _LAP,
 ];
 export var ListBots$: StaticOperationSchema = [9, n0, _LBi,
   { [_h]: ["GET", "/instance/{InstanceId}/bots", 200] }, () => ListBotsRequest$, () => ListBotsResponse$
+];
+export var ListChildHoursOfOperations$: StaticOperationSchema = [9, n0, _LCHOO,
+  { [_h]: ["GET", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}/hours", 200] }, () => ListChildHoursOfOperationsRequest$, () => ListChildHoursOfOperationsResponse$
 ];
 export var ListContactEvaluations$: StaticOperationSchema = [9, n0, _LCE,
   { [_h]: ["GET", "/contact-evaluations/{InstanceId}", 200] }, () => ListContactEvaluationsRequest$, () => ListContactEvaluationsResponse$

@@ -9,6 +9,7 @@ export * from "./ListAgentStatusesPaginator";
 export * from "./ListApprovedOriginsPaginator";
 export * from "./ListAuthenticationProfilesPaginator";
 export * from "./ListBotsPaginator";
+export * from "./ListChildHoursOfOperationsPaginator";
 export * from "./ListContactEvaluationsPaginator";
 export * from "./ListContactFlowModuleAliasesPaginator";
 export * from "./ListContactFlowModulesPaginator";

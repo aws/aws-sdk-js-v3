@@ -14,14 +14,17 @@ import {
   DataTableAttributeValueType,
   DataTableLockLevel,
   DisconnectOnCustomerExitParticipantType,
+  EmailHeaderType,
   EvaluationFormItemEnablementAction,
   EvaluationFormItemEnablementOperator,
   EvaluationFormQuestionType,
   EvaluationFormVersionStatus,
+  InboundMessageSourceType,
   InitiateAs,
   InstanceAttributeType,
   InstanceStorageResourceType,
   MeetingFeatureStatus,
+  OverrideType,
   ParticipantTimerAction,
   ParticipantTimerType,
   QueueStatus,
@@ -57,6 +60,7 @@ import {
   type OutboundStrategy,
   type PredefinedAttributeValues,
   type QuickConnectConfig,
+  type RecurrenceConfig,
   type StringCondition,
   type TaskTemplateConstraints,
   type TaskTemplateDefaults,
@@ -106,6 +110,7 @@ import {
 import {
   type BooleanCondition,
   type ChatMessage,
+  type ChatStreamingConfiguration,
   type ContactFlowModuleSearchFilter,
   type ContactFlowSearchFilter,
   type ContactSearchSummaryAgentInfo,
@@ -114,14 +119,11 @@ import {
   type DateCondition,
   type DateTimeCondition,
   type DecimalCondition,
-  type EmailAddressInfo,
   type EmailAddressSearchFilter,
   type EvaluationFormSearchFilter,
   type EvaluationSearchFilter,
   type HierarchyGroupCondition,
   type HoursOfOperationSearchFilter,
-  type InboundAdditionalRecipients,
-  type InboundEmailContent,
   type ListCondition,
   type NumberCondition,
   type OutboundAdditionalRecipients,
@@ -138,10 +140,205 @@ import {
   type UserHierarchyGroupSearchFilter,
   type UserSearchFilter,
   type ViewSearchFilter,
+  type VoiceRecordingConfiguration,
   type WorkspaceAssociationSearchFilter,
   type WorkspaceSearchFilter,
-  EmailAttachment,
+  EmailAddressInfo,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface StartContactRecordingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with
+   *    the contact center.</p>
+   * @public
+   */
+  InitialContactId: string | undefined;
+
+  /**
+   * <p>The person being recorded.</p>
+   * @public
+   */
+  VoiceRecordingConfiguration: VoiceRecordingConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartContactRecordingResponse {}
+
+/**
+ * @public
+ */
+export interface StartContactStreamingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with
+   *    the contact center.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
+   * @public
+   */
+  ChatStreamingConfiguration: ChatStreamingConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartContactStreamingResponse {
+  /**
+   * <p>The identifier of the streaming configuration enabled. </p>
+   * @public
+   */
+  StreamingId: string | undefined;
+}
+
+/**
+ * <p>Information about the additional TO and CC recipients of an inbound email contact.</p>
+ *          <note>
+ *             <p>You can include up to 50 email addresses in total, distributed across <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEmailContact.html#API_StartEmailContact_RequestBody">DestinationEmailAddress</a>, <code>ToAddresses</code>, and <code>CcAddresses</code>. This total must include
+ *     one required <code>DestinationEmailAddress</code>. You can then specify up to 49 addresses allocated across
+ *      <code>ToAddresses</code> and <code>CcAddresses</code> as needed.</p>
+ *          </note>
+ * @public
+ */
+export interface InboundAdditionalRecipients {
+  /**
+   * <p>The <b>additional</b> recipients information present in to list. You must have 1
+   *    required recipient (<code>DestinationEmailAddress</code>). You can then specify up to 49 additional recipients
+   *    (across <code>ToAddresses</code> and <code>CcAddresses</code>), for a total of 50 recipients.</p>
+   * @public
+   */
+  ToAddresses?: EmailAddressInfo[] | undefined;
+
+  /**
+   * <p>The <b>additional</b> recipients information present in cc list. You must have 1
+   *    required recipient (<code>DestinationEmailAddress</code>). You can then specify up to 49 additional recipients
+   *    (across <code>ToAddresses</code> and <code>CcAddresses</code>), for a total of 50 recipients.</p>
+   * @public
+   */
+  CcAddresses?: EmailAddressInfo[] | undefined;
+}
+
+/**
+ * <p>Information about the email attachment files.</p>
+ * @public
+ */
+export interface EmailAttachment {
+  /**
+   * <p>A case-sensitive name of the attached file being uploaded.</p>
+   * @public
+   */
+  FileName: string | undefined;
+
+  /**
+   * <p>The pre-signed URLs for the S3 bucket where the email attachment is stored.</p>
+   * @public
+   */
+  S3Url: string | undefined;
+}
+
+/**
+ * <p>Information about the raw email body content.</p>
+ * @public
+ */
+export interface InboundRawMessage {
+  /**
+   * <p>The email subject.</p>
+   * @public
+   */
+  Subject: string | undefined;
+
+  /**
+   * <p>The email message body.</p>
+   * @public
+   */
+  Body: string | undefined;
+
+  /**
+   * <p>Type of content, that is, <code>text/plain</code> or <code>text/html</code>.</p>
+   * @public
+   */
+  ContentType: string | undefined;
+
+  /**
+   * <p>Headers present in inbound email.</p>
+   * @public
+   */
+  Headers?: Partial<Record<EmailHeaderType, string>> | undefined;
+}
+
+/**
+ * <p>Information about email body content.</p>
+ * @public
+ */
+export interface InboundEmailContent {
+  /**
+   * <p>The message source type, that is, <code>RAW</code>.</p>
+   * @public
+   */
+  MessageSourceType: InboundMessageSourceType | undefined;
+
+  /**
+   * <p>The raw email body content.</p>
+   * @public
+   */
+  RawMessage?: InboundRawMessage | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartEmailContactResponse {
+  /**
+   * <p>The identifier of this contact within the Amazon Connect instance.</p>
+   * @public
+   */
+  ContactId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartOutboundChatContactResponse {
+  /**
+   * <p>The identifier of this contact within the Amazon Connect instance.</p>
+   * @public
+   */
+  ContactId?: string | undefined;
+}
 
 /**
  * @public
@@ -1916,6 +2113,20 @@ export interface UpdateHoursOfOperationOverrideRequest {
    * @public
    */
   EffectiveTill?: string | undefined;
+
+  /**
+   * <p>Configuration for a recurring event.</p>
+   * @public
+   */
+  RecurrenceConfig?: RecurrenceConfig | undefined;
+
+  /**
+   * <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
+   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
+   *      <i> Administrator Guide</i>.</p>
+   * @public
+   */
+  OverrideType?: OverrideType | undefined;
 }
 
 /**

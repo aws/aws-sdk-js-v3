@@ -90,6 +90,10 @@ import {
 } from "./commands/AssociateEmailAddressAliasCommand";
 import { AssociateFlowCommandInput, AssociateFlowCommandOutput } from "./commands/AssociateFlowCommand";
 import {
+  AssociateHoursOfOperationsCommandInput,
+  AssociateHoursOfOperationsCommandOutput,
+} from "./commands/AssociateHoursOfOperationsCommand";
+import {
   AssociateInstanceStorageConfigCommandInput,
   AssociateInstanceStorageConfigCommandOutput,
 } from "./commands/AssociateInstanceStorageConfigCommand";
@@ -452,6 +456,10 @@ import {
 } from "./commands/DisassociateEmailAddressAliasCommand";
 import { DisassociateFlowCommandInput, DisassociateFlowCommandOutput } from "./commands/DisassociateFlowCommand";
 import {
+  DisassociateHoursOfOperationsCommandInput,
+  DisassociateHoursOfOperationsCommandOutput,
+} from "./commands/DisassociateHoursOfOperationsCommand";
+import {
   DisassociateInstanceStorageConfigCommandInput,
   DisassociateInstanceStorageConfigCommandOutput,
 } from "./commands/DisassociateInstanceStorageConfigCommand";
@@ -549,6 +557,10 @@ import {
   ListAuthenticationProfilesCommandOutput,
 } from "./commands/ListAuthenticationProfilesCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import {
+  ListChildHoursOfOperationsCommandInput,
+  ListChildHoursOfOperationsCommandOutput,
+} from "./commands/ListChildHoursOfOperationsCommand";
 import {
   ListContactEvaluationsCommandInput,
   ListContactEvaluationsCommandOutput,
@@ -1081,6 +1093,7 @@ export type ServiceInputTypes =
   | AssociateDefaultVocabularyCommandInput
   | AssociateEmailAddressAliasCommandInput
   | AssociateFlowCommandInput
+  | AssociateHoursOfOperationsCommandInput
   | AssociateInstanceStorageConfigCommandInput
   | AssociateLambdaFunctionCommandInput
   | AssociateLexBotCommandInput
@@ -1209,6 +1222,7 @@ export type ServiceInputTypes =
   | DisassociateBotCommandInput
   | DisassociateEmailAddressAliasCommandInput
   | DisassociateFlowCommandInput
+  | DisassociateHoursOfOperationsCommandInput
   | DisassociateInstanceStorageConfigCommandInput
   | DisassociateLambdaFunctionCommandInput
   | DisassociateLexBotCommandInput
@@ -1244,6 +1258,7 @@ export type ServiceInputTypes =
   | ListAssociatedContactsCommandInput
   | ListAuthenticationProfilesCommandInput
   | ListBotsCommandInput
+  | ListChildHoursOfOperationsCommandInput
   | ListContactEvaluationsCommandInput
   | ListContactFlowModuleAliasesCommandInput
   | ListContactFlowModuleVersionsCommandInput
@@ -1427,6 +1442,7 @@ export type ServiceOutputTypes =
   | AssociateDefaultVocabularyCommandOutput
   | AssociateEmailAddressAliasCommandOutput
   | AssociateFlowCommandOutput
+  | AssociateHoursOfOperationsCommandOutput
   | AssociateInstanceStorageConfigCommandOutput
   | AssociateLambdaFunctionCommandOutput
   | AssociateLexBotCommandOutput
@@ -1555,6 +1571,7 @@ export type ServiceOutputTypes =
   | DisassociateBotCommandOutput
   | DisassociateEmailAddressAliasCommandOutput
   | DisassociateFlowCommandOutput
+  | DisassociateHoursOfOperationsCommandOutput
   | DisassociateInstanceStorageConfigCommandOutput
   | DisassociateLambdaFunctionCommandOutput
   | DisassociateLexBotCommandOutput
@@ -1590,6 +1607,7 @@ export type ServiceOutputTypes =
   | ListAssociatedContactsCommandOutput
   | ListAuthenticationProfilesCommandOutput
   | ListBotsCommandOutput
+  | ListChildHoursOfOperationsCommandOutput
   | ListContactEvaluationsCommandOutput
   | ListContactFlowModuleAliasesCommandOutput
   | ListContactFlowModuleVersionsCommandOutput

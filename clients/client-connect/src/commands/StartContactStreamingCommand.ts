@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StartContactStreamingRequest, StartContactStreamingResponse } from "../models/models_2";
+import type { StartContactStreamingRequest, StartContactStreamingResponse } from "../models/models_3";
 import { StartContactStreaming$ } from "../schemas/schemas_0";
 
 /**

@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StartEmailContactResponse } from "../models/models_2";
-import type { StartEmailContactRequest } from "../models/models_3";
+import type { StartEmailContactRequest, StartEmailContactResponse } from "../models/models_3";
 import { StartEmailContact$ } from "../schemas/schemas_0";
 
 /**

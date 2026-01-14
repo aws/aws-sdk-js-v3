@@ -54,6 +54,11 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  *       },
  *     },
  *   ],
+ *   ParentHoursOfOperationConfigs: [ // ParentHoursOfOperationConfigList
+ *     { // ParentHoursOfOperationConfig
+ *       HoursOfOperationId: "STRING_VALUE",
+ *     },
+ *   ],
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -90,6 +95,9 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>

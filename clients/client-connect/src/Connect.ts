@@ -43,6 +43,11 @@ import {
   AssociateFlowCommandOutput,
 } from "./commands/AssociateFlowCommand";
 import {
+  AssociateHoursOfOperationsCommand,
+  AssociateHoursOfOperationsCommandInput,
+  AssociateHoursOfOperationsCommandOutput,
+} from "./commands/AssociateHoursOfOperationsCommand";
+import {
   AssociateInstanceStorageConfigCommand,
   AssociateInstanceStorageConfigCommandInput,
   AssociateInstanceStorageConfigCommandOutput,
@@ -651,6 +656,11 @@ import {
   DisassociateFlowCommandOutput,
 } from "./commands/DisassociateFlowCommand";
 import {
+  DisassociateHoursOfOperationsCommand,
+  DisassociateHoursOfOperationsCommandInput,
+  DisassociateHoursOfOperationsCommandOutput,
+} from "./commands/DisassociateHoursOfOperationsCommand";
+import {
   DisassociateInstanceStorageConfigCommand,
   DisassociateInstanceStorageConfigCommandInput,
   DisassociateInstanceStorageConfigCommandOutput,
@@ -821,6 +831,11 @@ import {
   ListAuthenticationProfilesCommandOutput,
 } from "./commands/ListAuthenticationProfilesCommand";
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import {
+  ListChildHoursOfOperationsCommand,
+  ListChildHoursOfOperationsCommandInput,
+  ListChildHoursOfOperationsCommandOutput,
+} from "./commands/ListChildHoursOfOperationsCommand";
 import {
   ListContactEvaluationsCommand,
   ListContactEvaluationsCommandInput,
@@ -1634,6 +1649,7 @@ const commands = {
   AssociateDefaultVocabularyCommand,
   AssociateEmailAddressAliasCommand,
   AssociateFlowCommand,
+  AssociateHoursOfOperationsCommand,
   AssociateInstanceStorageConfigCommand,
   AssociateLambdaFunctionCommand,
   AssociateLexBotCommand,
@@ -1762,6 +1778,7 @@ const commands = {
   DisassociateBotCommand,
   DisassociateEmailAddressAliasCommand,
   DisassociateFlowCommand,
+  DisassociateHoursOfOperationsCommand,
   DisassociateInstanceStorageConfigCommand,
   DisassociateLambdaFunctionCommand,
   DisassociateLexBotCommand,
@@ -1797,6 +1814,7 @@ const commands = {
   ListAssociatedContactsCommand,
   ListAuthenticationProfilesCommand,
   ListBotsCommand,
+  ListChildHoursOfOperationsCommand,
   ListContactEvaluationsCommand,
   ListContactFlowModuleAliasesCommand,
   ListContactFlowModulesCommand,
@@ -2104,6 +2122,23 @@ export interface Connect {
     args: AssociateFlowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateHoursOfOperationsCommand}
+   */
+  associateHoursOfOperations(
+    args: AssociateHoursOfOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateHoursOfOperationsCommandOutput>;
+  associateHoursOfOperations(
+    args: AssociateHoursOfOperationsCommandInput,
+    cb: (err: any, data?: AssociateHoursOfOperationsCommandOutput) => void
+  ): void;
+  associateHoursOfOperations(
+    args: AssociateHoursOfOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateHoursOfOperationsCommandOutput) => void
   ): void;
 
   /**
@@ -4283,6 +4318,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DisassociateHoursOfOperationsCommand}
+   */
+  disassociateHoursOfOperations(
+    args: DisassociateHoursOfOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateHoursOfOperationsCommandOutput>;
+  disassociateHoursOfOperations(
+    args: DisassociateHoursOfOperationsCommandInput,
+    cb: (err: any, data?: DisassociateHoursOfOperationsCommandOutput) => void
+  ): void;
+  disassociateHoursOfOperations(
+    args: DisassociateHoursOfOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateHoursOfOperationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateInstanceStorageConfigCommand}
    */
   disassociateInstanceStorageConfig(
@@ -4875,6 +4927,23 @@ export interface Connect {
     args: ListBotsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBotsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChildHoursOfOperationsCommand}
+   */
+  listChildHoursOfOperations(
+    args: ListChildHoursOfOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChildHoursOfOperationsCommandOutput>;
+  listChildHoursOfOperations(
+    args: ListChildHoursOfOperationsCommandInput,
+    cb: (err: any, data?: ListChildHoursOfOperationsCommandOutput) => void
+  ): void;
+  listChildHoursOfOperations(
+    args: ListChildHoursOfOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChildHoursOfOperationsCommandOutput) => void
   ): void;
 
   /**

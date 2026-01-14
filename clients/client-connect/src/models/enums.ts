@@ -890,6 +890,34 @@ export type OverrideDays = (typeof OverrideDays)[keyof typeof OverrideDays];
  * @public
  * @enum
  */
+export const OverrideType = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type OverrideType = (typeof OverrideType)[keyof typeof OverrideType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecurrenceFrequency = {
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+  YEARLY: "YEARLY",
+} as const;
+/**
+ * @public
+ */
+export type RecurrenceFrequency = (typeof RecurrenceFrequency)[keyof typeof RecurrenceFrequency];
+
+/**
+ * @public
+ * @enum
+ */
 export const DirectoryType = {
   CONNECT_MANAGED: "CONNECT_MANAGED",
   EXISTING_DIRECTORY: "EXISTING_DIRECTORY",
@@ -2014,6 +2042,19 @@ export const SortOrder = {
  * @public
  */
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationalStatus = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+} as const;
+/**
+ * @public
+ */
+export type OperationalStatus = (typeof OperationalStatus)[keyof typeof OperationalStatus];
 
 /**
  * @public
