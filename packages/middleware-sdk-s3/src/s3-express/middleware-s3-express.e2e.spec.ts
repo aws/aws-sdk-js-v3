@@ -1,5 +1,4 @@
 import { GetObjectCommand, PutObjectCommand, S3, waitUntilBucketExists } from "@aws-sdk/client-s3";
-import { STS } from "@aws-sdk/client-sts";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import http from "http";
 import https from "https";
@@ -189,10 +188,7 @@ describe("s3 express CRUD test suite", () => {
 }, 120_000);
 
 async function createClientAndRecorder() {
-  const sts = new STS({ region });
-  const accountId = (await sts.getCallerIdentity({})).Account;
-
-  const bucketName = `${accountId}-js-test-bucket-${(Math.random() + 1).toString(36).substring(2)}--${suffix}`;
+  const bucketName = `aws-sdk-js-${crypto.randomUUID()}--${suffix}`;
 
   const s3 = new S3({
     region,

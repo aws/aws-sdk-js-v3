@@ -20,7 +20,7 @@ describe(
 
     describe("Create a distribution", () => {
       it("should handle NoSuchOrigin error for invalid origin", async () => {
-        const uniqueRef = `aws-js-sdk-${Date.now()}-${process.pid}-${Math.random().toString(36).substr(2, 9)}`;
+        const uniqueRef = `aws-sdk-js-${crypto.randomUUID()}`;
         const distributionConfig = {
           CallerReference: uniqueRef,
           Aliases: {

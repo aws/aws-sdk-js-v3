@@ -32,7 +32,7 @@ describe(IAM.name, () => {
 
   describe("Users", () => {
     it("should create IAM user", async () => {
-      const username = `js-test-${Date.now()}`;
+      const username = `aws-sdk-js-${crypto.randomUUID()}`;
 
       const result = await client.createUser({
         UserName: username,
@@ -45,7 +45,7 @@ describe(IAM.name, () => {
 
   describe("Roles", () => {
     it("should create IAM role", async () => {
-      const roleName = `aws-sdk-js-${Date.now()}`;
+      const roleName = `aws-sdk-js-${crypto.randomUUID()}`;
 
       const result = await client.createRole({
         RoleName: roleName,
@@ -62,7 +62,7 @@ describe(IAM.name, () => {
 
   describe("Error handling", () => {
     it("should contain entity already exists error for duplicate user", async () => {
-      const username = `js-test-dupe-${Date.now()}`;
+      const username = `aws-sdk-js-${crypto.randomUUID()}`;
 
       await client.createUser({ UserName: username });
       createdUsers.push(username);

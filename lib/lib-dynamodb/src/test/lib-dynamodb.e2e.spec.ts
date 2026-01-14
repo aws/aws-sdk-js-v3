@@ -132,10 +132,7 @@ describe(
     // For faster test development, remove this random suffix and
     // don't delete the table in afterAll().
     // The table will in that case be re-used.
-    const randId = (Math.random() + 1).toString(36).substring(2, 6);
-    const timestamp = (Date.now() / 1000) | 0;
-
-    const TableName = `js-sdk-dynamodb-test-${timestamp}-${randId}`;
+    const TableName = `js-sdk-dynamodb-test-${crypto.randomUUID()}`;
 
     const log = {
       describe: null as null | DescribeTableCommandOutput,

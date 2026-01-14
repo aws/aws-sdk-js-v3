@@ -14,7 +14,7 @@ describe("@aws-sdk/client-s3", () => {
   let Bucket: string;
   let region: string;
   let mrapArn: string;
-  let Key = `${Date.now()}`;
+  let Key = crypto.randomUUID();
   const errors = [] as any[];
   let testFailed = false;
   const setTestFailed = () => {
@@ -84,7 +84,7 @@ describe("@aws-sdk/client-s3", () => {
 
   describe("PutObject", () => {
     beforeEach(() => {
-      Key = `${Date.now()}`;
+      Key = crypto.randomUUID();
     });
 
     afterEach(async () => {
@@ -150,7 +150,7 @@ describe("@aws-sdk/client-s3", () => {
 
   describe("GetObject", function () {
     beforeEach(async () => {
-      Key = `${Date.now()}`;
+      Key = crypto.randomUUID();
     });
 
     afterEach(async () => {
@@ -184,7 +184,7 @@ describe("@aws-sdk/client-s3", () => {
 
   describe("ListObjects", () => {
     beforeEach(async () => {
-      Key = `${Date.now()}`;
+      Key = crypto.randomUUID();
       await client.putObject({ Bucket, Key, Body: "foo" });
     });
     afterEach(async () => {
@@ -212,7 +212,7 @@ describe("@aws-sdk/client-s3", () => {
     const multipartObjectKey = `${Key}-multipart`;
 
     beforeEach(() => {
-      Key = `${Date.now()}`;
+      Key = crypto.randomUUID();
     });
 
     afterEach(async () => {
@@ -317,7 +317,7 @@ describe("@aws-sdk/client-s3", () => {
 
   describe("Multi-region access point", () => {
     beforeEach(async () => {
-      Key = `${Date.now()}`;
+      Key = crypto.randomUUID();
     });
 
     it("should throw for aws-crt no available in browser", async () => {

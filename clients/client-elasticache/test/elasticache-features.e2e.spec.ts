@@ -11,7 +11,7 @@ describe(ElastiCache.name, () => {
 
   describe("Creating and deleting cache parameter groups", () => {
     it("should create, describe, and delete cache parameter group", async () => {
-      cacheParameterGroupName = `aws-js-sdk-${Date.now()}`;
+      cacheParameterGroupName = `aws-sdk-js-${crypto.randomUUID()}`;
 
       // Create cache parameter group
       const createResult = await client.createCacheParameterGroup({

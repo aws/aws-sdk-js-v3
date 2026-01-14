@@ -22,7 +22,7 @@ describe(DataPipeline.name, () => {
       await expect(
         client.createPipeline({
           name: "",
-          uniqueId: "test-unique-id-" + Date.now(),
+          uniqueId: `aws-sdk-js-${crypto.randomUUID()}`,
         })
       ).rejects.toThrow(
         expect.objectContaining({

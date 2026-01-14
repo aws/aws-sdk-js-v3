@@ -9,12 +9,6 @@ describe(CloudWatchLogs.name, () => {
     client = new CloudWatchLogs({ region: "us-west-2" });
   });
 
-  const generateLogGroupName = (prefix: string) => {
-    const timestamp = Date.now();
-    const random = Math.random().toString(36).substring(7);
-    return prefix ? `${prefix}-${timestamp}-${random}` : "";
-  };
-
   afterAll(async () => {
     // Cleanup created log groups
     for (const logGroupName of createdLogGroups) {
@@ -28,8 +22,8 @@ describe(CloudWatchLogs.name, () => {
 
   describe("Log Groups", () => {
     it("should create a log group and list it", async () => {
-      // Given I create a CloudWatch logGroup with prefix "aws-js-sdk"
-      const logGroupName = generateLogGroupName("aws-js-sdk");
+      // Given I create a CloudWatch logGroup with prefix "aws-sdk-js"
+      const logGroupName = `aws-sdk-js-${crypto.randomUUID()}`;
       createdLogGroups.push(logGroupName);
 
       await client.createLogGroup({ logGroupName });
@@ -46,8 +40,7 @@ describe(CloudWatchLogs.name, () => {
 
   describe("Error handling", () => {
     it("should throw InvalidParameterException for empty prefix", async () => {
-      const logGroupName = generateLogGroupName("");
-      await expect(client.createLogGroup({ logGroupName })).rejects.toThrow(InvalidParameterException);
+      await expect(client.createLogGroup({ logGroupName: "" })).rejects.toThrow(InvalidParameterException);
     });
   });
 });

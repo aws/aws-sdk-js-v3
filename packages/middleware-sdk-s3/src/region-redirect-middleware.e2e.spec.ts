@@ -1,5 +1,4 @@
 import { S3, S3ClientConfig, waitUntilBucketExists, waitUntilBucketNotExists } from "@aws-sdk/client-s3";
-import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
 import { afterAll, beforeAll, describe, expect, onTestFailed, test as it } from "vitest";
 
 const testValue = "Hello S3 global client!";
@@ -28,19 +27,11 @@ describe("S3 Global Client Test", () => {
     return config;
   });
   const s3Clients = regionConfigs.map((config) => new S3(config));
-  const stsClient = new STS({});
 
-  let callerID = null as unknown as GetCallerIdentityCommandOutput;
   let bucketNames = [] as string[];
 
-  // random element limited to 2 letters to avoid concurrent IO, and
-  // to limit bucket count to 676 if there is failure to delete them.
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const randId = alphabet[(Math.random() * alphabet.length) | 0] + alphabet[(Math.random() * alphabet.length) | 0];
-
   beforeAll(async () => {
-    callerID = await stsClient.getCallerIdentity({});
-    bucketNames = regionConfigs.map((config) => `${callerID.Account}-${randId}-redirect-${config.region}`);
+    bucketNames = regionConfigs.map((config) => `aws-sdk-js-redirect-${config.region}-${crypto.randomUUID()}`);
     await Promise.all(
       bucketNames.map(async (bucketName, index) => {
         await deleteBucket(s3Clients[index], bucketName);

@@ -18,13 +18,9 @@ describe("S3 Expires e2e test", () => {
   let callerID = null as unknown as GetCallerIdentityCommandOutput;
   let Bucket: string;
 
-  const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
-  const char = () => alphabet[(Math.random() * alphabet.length) | 0];
-  const randId = char() + char() + char() + char() + (Date.now() % 1000);
-
   beforeAll(async () => {
     callerID = await stsClient.getCallerIdentity({});
-    Bucket = `${callerID.Account}-s3-expires-${randId}`;
+    Bucket = `${callerID.Account}-s3-expires-${crypto.randomUUID()}`;
 
     await s3
       .createBucket({

@@ -48,7 +48,7 @@ describe(
       let fileLocation: string;
 
       beforeAll(async () => {
-        Key = `aws-sdk-js-integration-test-s3-presigned-post-${Date.now()}.txt`;
+        Key = `aws-sdk-js-integration-test-s3-presigned-post-${crypto.randomUUID()}.txt`;
         contents = "Hello, world!";
         fileLocation = join(__dirname, Key);
         client = new S3({ region, endpoint: `https://s3.dualstack.${region}.amazonaws.com` });

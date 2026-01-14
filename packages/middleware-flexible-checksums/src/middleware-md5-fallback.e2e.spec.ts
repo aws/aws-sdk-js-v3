@@ -25,7 +25,7 @@ describe("S3 MD5 Fallback for DeleteObjects", () => {
 
   beforeAll(async () => {
     s3 = new S3({ region: "us-west-2" });
-    Bucket = `md5-fallback-test-${Date.now()}`;
+    Bucket = `md5-fallback-test-${crypto.randomUUID()}`;
 
     try {
       await s3.send(new CreateBucketCommand({ Bucket }));

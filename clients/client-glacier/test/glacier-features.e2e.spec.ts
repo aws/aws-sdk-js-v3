@@ -8,7 +8,7 @@ describe(Glacier.name, () => {
 
   beforeAll(async () => {
     client = new Glacier({ region: "us-west-2" });
-    vaultName = `aws-js-sdk-integration-${Date.now()}`;
+    vaultName = `aws-sdk-js-${crypto.randomUUID()}`;
 
     // Create vault
     await client.createVault({

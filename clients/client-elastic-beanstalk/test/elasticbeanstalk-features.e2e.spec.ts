@@ -11,7 +11,7 @@ describe(ElasticBeanstalk.name, () => {
 
   describe("Creating applications and application versions", () => {
     it("should create application, version, and describe them", async () => {
-      applicationName = `aws-js-sdk-${Date.now()}`;
+      applicationName = `aws-sdk-js-${crypto.randomUUID()}`;
 
       // Create Elastic Beanstalk application
       const createAppResult = await client.createApplication({

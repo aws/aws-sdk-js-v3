@@ -6,7 +6,7 @@ import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vi
 
 import { createBuffer } from "./helpers";
 
-let Key = `${Date.now()}`;
+let Key = crypto.randomUUID();
 
 describe("@aws-sdk/client-s3", () => {
   let client: S3;
@@ -29,7 +29,7 @@ describe("@aws-sdk/client-s3", () => {
 
   describe("PutObject", () => {
     beforeAll(() => {
-      Key = `${Date.now()}`;
+      Key = crypto.randomUUID();
     });
     afterAll(async () => {
       await client.deleteObject({ Bucket, Key });
@@ -65,7 +65,7 @@ describe("@aws-sdk/client-s3", () => {
 
   describe("GetObject", () => {
     beforeAll(async () => {
-      Key = `${Date.now()}`;
+      Key = crypto.randomUUID();
     });
 
     afterAll(async () => {
@@ -116,7 +116,7 @@ describe("@aws-sdk/client-s3", () => {
 
   describe("ListObjects", () => {
     beforeAll(async () => {
-      Key = `${Date.now()}`;
+      Key = crypto.randomUUID();
       await client.putObject({ Bucket, Key, Body: "foo" });
     });
     afterAll(async () => {
@@ -139,7 +139,7 @@ describe("@aws-sdk/client-s3", () => {
     let Etag: string;
     const multipartObjectKey = `${Key}-multipart`;
     beforeAll(() => {
-      Key = `${Date.now()}`;
+      Key = crypto.randomUUID();
     });
     afterEach(async () => {
       if (UploadId) {
@@ -233,7 +233,7 @@ describe("@aws-sdk/client-s3", () => {
 
   describe("Multi-region access point", () => {
     beforeAll(async () => {
-      Key = `${Date.now()}`;
+      Key = crypto.randomUUID();
       await client.putObject({ Bucket: mrapArn, Key, Body: "foo" });
     });
     afterAll(async () => {

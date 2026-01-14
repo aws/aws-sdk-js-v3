@@ -20,9 +20,7 @@ describe("@aws-sdk/client-s3 - Working with Buckets", () => {
   });
 
   function getBucketName(id: string, region = "us-west-2") {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
-    const randId = Array.from({ length: 19 }, () => alphabet[(Math.random() * alphabet.length) | 0]).join("");
-    return `${callerID.Account}-${randId}-${id}-${region}`;
+    return `aws-sdk-js-${id}-${region}-${crypto.randomUUID()}`;
   }
 
   let Bucket: string;
@@ -30,7 +28,7 @@ describe("@aws-sdk/client-s3 - Working with Buckets", () => {
 
   beforeAll(async () => {
     callerID = await stsClient.getCallerIdentity({});
-    Bucket = getBucketName(`js-sdk-e2e`);
+    Bucket = getBucketName("e2e");
   });
 
   describe("CRUD buckets using classic endpoint", () => {

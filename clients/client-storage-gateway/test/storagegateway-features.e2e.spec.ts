@@ -22,7 +22,7 @@ describe(StorageGateway.name, () => {
       await expect(
         client.activateGateway({
           ActivationKey: "INVALIDKEY",
-          GatewayName: `aws-sdk-js-${Date.now()}`,
+          GatewayName: `aws-sdk-js-${crypto.randomUUID()}`,
           GatewayTimezone: "GMT-5:00",
           GatewayRegion: "us-east-1",
         })

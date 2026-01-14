@@ -41,7 +41,7 @@ describe("@aws-sdk/lib-storage", () => {
               region,
               requestChecksumCalculation,
             });
-            Key = `multi-part-file-${requestChecksumCalculation}-${ChecksumAlgorithm}-${Date.now()}`;
+            Key = `multi-part-file-${requestChecksumCalculation}-${ChecksumAlgorithm}-${crypto.randomUUID()}`;
           } catch (error) {
             console.warn("Failed to set up test resources:", error);
           }
@@ -146,7 +146,7 @@ describe("@aws-sdk/lib-storage", () => {
             client,
             params: {
               Bucket,
-              Key: `validation-test-${Date.now()}`,
+              Key: `validation-test-${crypto.randomUUID()}`,
               Body: Buffer.alloc(1024 * 1024 * 10),
             },
           });
@@ -167,7 +167,7 @@ describe("@aws-sdk/lib-storage", () => {
             client,
             params: {
               Bucket,
-              Key: `validation-test-${Date.now()}`,
+              Key: `validation-test-${crypto.randomUUID()}`,
               Body: Buffer.alloc(1024 * 1024 * 10),
             },
           });

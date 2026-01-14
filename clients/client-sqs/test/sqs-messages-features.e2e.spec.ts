@@ -24,7 +24,7 @@ describe(SQS.name, () => {
     it("should send message with correct MD5 and receive it", async () => {
       // Create queue
       const createResult = await client.createQueue({
-        QueueName: `aws-js-sdk-${Date.now()}`,
+        QueueName: `aws-sdk-js-${crypto.randomUUID()}`,
       });
 
       const queueUrl = createResult.QueueUrl || "";
@@ -54,7 +54,7 @@ describe(SQS.name, () => {
     it("should send message with binary attribute", async () => {
       // Create queue
       const createResult = await client.createQueue({
-        QueueName: `aws-js-sdk-${Date.now()}`,
+        QueueName: `aws-sdk-js-${crypto.randomUUID()}`,
       });
 
       const queueUrl = createResult.QueueUrl || "";

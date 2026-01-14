@@ -94,7 +94,7 @@ describe("EventBridge Client with SignatureV4a", () => {
 
         const healthCheck = await route53Client.send(
           new CreateHealthCheckCommand({
-            CallerReference: `${RESOURCE_PREFIX}-${Date.now()}`,
+            CallerReference: `${RESOURCE_PREFIX}-${crypto.randomUUID()}`,
             HealthCheckConfig: {
               Type: "HTTP",
               FullyQualifiedDomainName: "example.com",

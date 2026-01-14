@@ -9,7 +9,7 @@ describe(DynamoDB.name, () => {
     client = new DynamoDB({ region: "us-west-2", maxAttempts: 10 });
 
     // Create shared table for tests
-    sharedTableName = `aws-sdk-js-integration-${Date.now()}`;
+    sharedTableName = `aws-sdk-js-${crypto.randomUUID()}`;
     await client.createTable({
       TableName: sharedTableName,
       AttributeDefinitions: [{ AttributeName: "id", AttributeType: "S" }],

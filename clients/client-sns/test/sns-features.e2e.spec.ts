@@ -12,7 +12,7 @@ describe(SNS.name, () => {
   describe("Topics", () => {
     it("should create and list SNS topics", async () => {
       const createResult = await client.createTopic({
-        Name: `aws-js-sdk-${Date.now()}`,
+        Name: `aws-sdk-js-${crypto.randomUUID()}`,
       });
 
       topicArn = createResult.TopicArn || "";
