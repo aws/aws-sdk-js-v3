@@ -1,67 +1,3 @@
-import { EventEmitter, Readable } from "stream";
-import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
-
-import { Progress, Upload } from "./index";
-
-/* eslint-disable no-var */
-var hostname = "s3.region.amazonaws.com";
-var port: number | undefined;
-
-vi.mock("@aws-sdk/client-s3", async () => {
-  const sendMock = vi.fn().mockImplementation(async (x) => x);
-  const endpointMock = vi.fn().mockImplementation(() => ({
-    hostname,
-    port,
-    protocol: "https:",
-    path: "/",
-    query: undefined,
-  }));
-
-  const mockRequestHandler = new (class MockRequestHandler extends EventEmitter {
-    on = vi.fn();
-    off = vi.fn();
-  })();
-
-  return {
-    ...((await vi.importActual("@aws-sdk/client-s3")) as {}),
-    S3: vi.fn().mockReturnValue({
-      send: sendMock,
-      config: {
-        endpoint: endpointMock,
-        requestChecksumCalculation: () => Promise.resolve("WHEN_SUPPORTED"),
-      },
-    }),
-    S3Client: vi.fn().mockReturnValue({
-      send: sendMock,
-      config: {
-        endpoint: endpointMock,
-        requestHandler: mockRequestHandler,
-        requestChecksumCalculation: () => Promise.resolve("WHEN_SUPPORTED"),
-      },
-    }),
-    CreateMultipartUploadCommand: vi.fn().mockReturnValue({
-      UploadId: "mockuploadId",
-    }),
-    UploadPartCommand: vi
-      .fn()
-      .mockReturnValueOnce({
-        ETag: "mock-upload-Etag",
-      })
-      .mockReturnValueOnce({
-        ETag: "mock-upload-Etag-2",
-      }),
-    CompleteMultipartUploadCommand: vi.fn().mockReturnValue({
-      Success: "This actually works!",
-    }),
-    PutObjectTaggingCommand: vi.fn().mockReturnValue({
-      Success: "Tags have been applied!",
-    }),
-    PutObjectCommand: vi.fn().mockReturnValue({
-      ETag: "mockEtag",
-    }),
-  };
-});
-
 import {
   CompleteMultipartUploadCommand,
   CompleteMultipartUploadCommandOutput,
@@ -73,6 +9,20 @@ import {
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
 import { AbortController } from "@smithy/abort-controller";
+import { EventEmitter, Readable } from "stream";
+import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
+import { Progress, Upload } from "./index";
+
+vi.mock("@aws-sdk/client-s3");
+
+let hostname = "s3.region.amazonaws.com";
+let port: number | undefined;
+
+const mockRequestHandler = new (class MockRequestHandler extends EventEmitter {
+  on = vi.fn();
+  off = vi.fn();
+})();
 
 const DEFAULT_PART_SIZE = 1024 * 1024 * 5;
 
@@ -82,32 +32,49 @@ type Expose = {
 type VisibleForTesting = Omit<Upload, keyof Expose> & Expose;
 
 describe(Upload.name, () => {
-  const s3MockInstance = new S3Client({
-    credentials: {
-      accessKeyId: "UNIT",
-      secretAccessKey: "UNIT",
-    },
-  });
+  const endpointMock = vi.fn().mockImplementation(() => ({
+    hostname,
+    port,
+    protocol: "https:",
+    path: "/",
+    query: undefined,
+  }));
 
   beforeEach(() => {
     vi.clearAllMocks();
-    vi.mocked(UploadPartCommand as any)
-      .mockReturnValueOnce({
-        ETag: "mock-upload-Etag",
+
+    vi.mocked(S3Client).prototype.send = vi.fn().mockImplementation(async (x) => x);
+    vi.mocked(S3Client).prototype.config = {
+      endpoint: endpointMock,
+      requestHandler: mockRequestHandler,
+      requestChecksumCalculation: () => Promise.resolve("WHEN_SUPPORTED"),
+    } as any;
+
+    vi.mocked(S3).prototype.send = vi.mocked(S3Client).prototype.send;
+    vi.mocked(S3).prototype.config = {
+      endpoint: endpointMock,
+      requestChecksumCalculation: () => Promise.resolve("WHEN_SUPPORTED"),
+    } as any;
+
+    vi.mocked(CreateMultipartUploadCommand).mockImplementation(function () {
+      return { UploadId: "mockuploadId" };
+    });
+    vi.mocked(UploadPartCommand)
+      .mockImplementationOnce(function () {
+        return { ETag: "mock-upload-Etag" };
       })
-      .mockReturnValueOnce({
-        ETag: "mock-upload-Etag-2",
+      .mockImplementationOnce(function () {
+        return { ETag: "mock-upload-Etag-2" };
       });
-    vi.mocked(CreateMultipartUploadCommand as any)
-      .mockReset()
-      .mockReturnValueOnce({
-        UploadId: "mockuploadId",
-        ETag: "mock-upload-Etag",
-      })
-      .mockReturnValueOnce({
-        UploadId: "mockuploadId",
-        ETag: "mock-upload-Etag-2",
-      });
+    vi.mocked(CompleteMultipartUploadCommand).mockImplementation(function () {
+      return { Success: "This actually works!" };
+    });
+    vi.mocked(PutObjectTaggingCommand).mockImplementation(function () {
+      return { Success: "Tags have been applied!" };
+    });
+    vi.mocked(PutObjectCommand).mockImplementation(function () {
+      return { ETag: "mockEtag" };
+    });
   });
 
   const params = {
@@ -124,7 +91,7 @@ describe(Upload.name, () => {
         Body: Buffer.from("a".repeat(256)),
         ContentLength: 6 * 1024 * 1024,
       },
-      client: s3MockInstance,
+      client: new S3Client({}),
     }) as unknown as VisibleForTesting;
     expect(upload.totalBytes).toEqual(6 * 1024 * 1024);
 
@@ -134,7 +101,7 @@ describe(Upload.name, () => {
         Key: "",
         Body: Buffer.from("a".repeat(256)),
       },
-      client: s3MockInstance,
+      client: new S3Client({}),
     }) as unknown as VisibleForTesting;
     expect(upload.totalBytes).toEqual(256);
   });
@@ -161,7 +128,7 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(s3MockInstance.send).toHaveBeenCalledTimes(1);
+    expect(vi.mocked(S3Client).prototype.send).toHaveBeenCalledTimes(1);
 
     expect(PutObjectCommand).toHaveBeenCalledTimes(1);
     expect(PutObjectCommand).toHaveBeenCalledWith({
@@ -189,7 +156,7 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(s3MockInstance.send).toHaveBeenCalledTimes(1);
+    expect(vi.mocked(S3Client).prototype.send).toHaveBeenCalledTimes(1);
 
     expect(PutObjectCommand).toHaveBeenCalledTimes(1);
     expect(PutObjectCommand).toHaveBeenCalledWith({
@@ -214,7 +181,7 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(s3MockInstance.send).toHaveBeenCalledTimes(1);
+    expect(vi.mocked(S3Client).prototype.send).toHaveBeenCalledTimes(1);
 
     expect(PutObjectCommand).toHaveBeenCalledTimes(1);
     expect(PutObjectCommand).toHaveBeenCalledWith({
@@ -244,7 +211,7 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(s3MockInstance.send).toHaveBeenCalledTimes(1);
+    expect(vi.mocked(S3Client).prototype.send).toHaveBeenCalledTimes(1);
 
     expect(PutObjectCommand).toHaveBeenCalledTimes(1);
     expect(PutObjectCommand).toHaveBeenCalledWith({
@@ -382,17 +349,17 @@ describe(Upload.name, () => {
     const partSize = 1024 * 1024 * 5;
     const largeBuffer = Buffer.from("#".repeat(partSize + 10));
     const actionParams = { ...params, Body: largeBuffer };
-    const CompleteMultipartUploadCommandWithLocation = vi
-      .mocked(CompleteMultipartUploadCommand as any)
-      .mockResolvedValueOnce({
+    vi.mocked(CompleteMultipartUploadCommand).mockImplementation(function () {
+      return {
         Location: "https://example-bucket.example-host.com/folder%2Fexample-key",
-      });
+      };
+    });
     const upload = new Upload({
       params: actionParams,
       client: new S3({}),
     });
     const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
-    expect(CompleteMultipartUploadCommandWithLocation).toHaveBeenCalledTimes(1);
+    expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(1);
     expect(result.Location).toEqual("https://example-bucket.example-host.com/folder/example-key");
   });
 
@@ -420,7 +387,7 @@ describe(Upload.name, () => {
           client: new S3({}),
         });
         await upload.done();
-        expect(s3MockInstance.send).toHaveBeenCalledTimes(4);
+        expect(vi.mocked(S3Client).prototype.send).toHaveBeenCalledTimes(4);
         // create multipartMock is called correctly.
         expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(1);
         expect(CreateMultipartUploadCommand).toHaveBeenCalledWith({
@@ -486,7 +453,7 @@ describe(Upload.name, () => {
 
         await upload.done();
 
-        expect(s3MockInstance.send).toHaveBeenCalledTimes(4);
+        expect(vi.mocked(S3Client).prototype.send).toHaveBeenCalledTimes(4);
         // create multipartMock is called correctly.
         expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(1);
         expect(CreateMultipartUploadCommand).toHaveBeenCalledWith({
@@ -558,7 +525,7 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(s3MockInstance.send).toHaveBeenCalledTimes(2);
+    expect(vi.mocked(S3Client).prototype.send).toHaveBeenCalledTimes(2);
 
     // tags were passed.
     expect(PutObjectTaggingCommand).toHaveBeenCalledTimes(1);
@@ -592,7 +559,7 @@ describe(Upload.name, () => {
 
     await upload.done();
 
-    expect(s3MockInstance.send).toHaveBeenCalledTimes(5);
+    expect(vi.mocked(S3Client).prototype.send).toHaveBeenCalledTimes(5);
 
     // tags were passed.
     expect(PutObjectTaggingCommand).toHaveBeenCalledTimes(1);
@@ -785,11 +752,11 @@ describe(Upload.name, () => {
     });
     await upload.done();
     expect(received.length).toBe(2);
-    expect((s3MockInstance.config.requestHandler as unknown as EventEmitter).on).toHaveBeenCalledWith(
+    expect((mockRequestHandler as unknown as EventEmitter).on).toHaveBeenCalledWith(
       "xhr.upload.progress",
       expect.any(Function)
     );
-    expect((s3MockInstance.config.requestHandler as unknown as EventEmitter).off).toHaveBeenCalledWith(
+    expect((mockRequestHandler as unknown as EventEmitter).off).toHaveBeenCalledWith(
       "xhr.upload.progress",
       expect.any(Function)
     );
