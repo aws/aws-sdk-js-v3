@@ -4,7 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteImportJobRequest, DeleteImportJobResponse } from "../models/models_1";
+import type { DeleteImportJobRequest } from "../models/models_0";
+import type { DeleteImportJobResponse } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { DeleteImportJob$ } from "../schemas/schemas_0";
 

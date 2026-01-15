@@ -694,7 +694,6 @@ export type {
   TagFilter,
   TagResourceRequest,
   TagResourceResponse,
-  TextAIPromptInferenceConfiguration,
   TextData,
   TextFullAIPromptEditTemplateConfiguration,
   TextMessage,

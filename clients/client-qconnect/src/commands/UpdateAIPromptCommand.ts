@@ -48,13 +48,11 @@ export interface UpdateAIPromptCommandOutput extends UpdateAIPromptResponse, __M
  *   },
  *   description: "STRING_VALUE",
  *   modelId: "STRING_VALUE",
- *   inferenceConfiguration: { // AIPromptInferenceConfiguration Union: only one key present
- *     textAIPromptInferenceConfiguration: { // TextAIPromptInferenceConfiguration
- *       temperature: Number("float"),
- *       topP: Number("float"),
- *       topK: Number("int"),
- *       maxTokensToSample: Number("int"),
- *     },
+ *   inferenceConfiguration: { // AIPromptInferenceConfiguration
+ *     temperature: Number("float"),
+ *     topP: Number("float"),
+ *     topK: Number("int"),
+ *     maxTokensToSample: Number("int"),
  *   },
  * };
  * const command = new UpdateAIPromptCommand(input);
@@ -75,13 +73,11 @@ export interface UpdateAIPromptCommandOutput extends UpdateAIPromptResponse, __M
  * //         text: "STRING_VALUE", // required
  * //       },
  * //     },
- * //     inferenceConfiguration: { // AIPromptInferenceConfiguration Union: only one key present
- * //       textAIPromptInferenceConfiguration: { // TextAIPromptInferenceConfiguration
- * //         temperature: Number("float"),
- * //         topP: Number("float"),
- * //         topK: Number("int"),
- * //         maxTokensToSample: Number("int"),
- * //       },
+ * //     inferenceConfiguration: { // AIPromptInferenceConfiguration
+ * //       temperature: Number("float"),
+ * //       topP: Number("float"),
+ * //       topK: Number("int"),
+ * //       maxTokensToSample: Number("int"),
  * //     },
  * //     modifiedTime: new Date("TIMESTAMP"),
  * //     description: "STRING_VALUE",

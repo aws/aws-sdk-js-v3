@@ -523,7 +523,6 @@ const _STV = "SpanTextValue";
 const _SU = "SeedUrl";
 const _SUe = "SeedUrls";
 const _TAIP = "TextAIPrompt";
-const _TAIPIC = "TextAIPromptInferenceConfiguration";
 const _TC = "TagCondition";
 const _TCL = "ToolConfigurationList";
 const _TCo = "ToolConfiguration";
@@ -1064,7 +1063,6 @@ const _sp = "spans";
 const _st = "state";
 const _su = "subject";
 const _t = "type";
-const _tAIPIC = "textAIPromptInferenceConfiguration";
 const _tC = "topicsConfig";
 const _tCa = "tagCondition";
 const _tCe = "templateConfiguration";
@@ -1091,8 +1089,8 @@ const _tUI = "toolUseId";
 const _tUR = "toolUseResult";
 const _tUo = "toolUse";
 const _ta = "tags";
-const _te = "text";
-const _tem = "temperature";
+const _te = "temperature";
+const _tex = "text";
 const _th = "threshold";
 const _ti = "title";
 const _tim = "timestamp";
@@ -1271,6 +1269,11 @@ export var AIPromptData$: StaticStructureSchema = [3, n0, _AIPD,
   0,
   [_aI, _aA, _aPI, _aPA, _n, _t, _tT, _mI, _aF, _tCe, _vS, _iC, _mT, _d, _ta, _o, _s],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, [() => AIPromptTemplateConfiguration$, 0], 0, [() => AIPromptInferenceConfiguration$, 0], 4, 0, 128 | 0, 0, 0], 11
+];
+export var AIPromptInferenceConfiguration$: StaticStructureSchema = [3, n0, _AIPIC,
+  0,
+  [_te, _tP, _tK, _mTTS],
+  [[() => Probability, 0], [() => Probability, 0], [() => TopK, 0], [() => MaxTokensToSample, 0]]
 ];
 export var AIPromptSummary$: StaticStructureSchema = [3, n0, _AIPS,
   0,
@@ -1766,7 +1769,7 @@ export var Document$: StaticStructureSchema = [3, n0, _D,
 ];
 export var DocumentText$: StaticStructureSchema = [3, n0, _DT,
   0,
-  [_te, _h],
+  [_tex, _h],
   [[() => SensitiveString, 0], () => Highlights]
 ];
 export var EmailGenerativeAnswerAIAgentConfiguration$: StaticStructureSchema = [3, n0, _EGAAIAC,
@@ -2051,7 +2054,7 @@ export var GuardrailTopicConfig$: StaticStructureSchema = [3, n0, _GTC,
 ];
 export var GuardrailWordConfig$: StaticStructureSchema = [3, n0, _GWC,
   0,
-  [_te],
+  [_tex],
   [[() => GuardrailWordText, 0]], 1
 ];
 export var HierarchicalChunkingConfiguration$: StaticStructureSchema = [3, n0, _HCC,
@@ -2467,12 +2470,12 @@ export var QueryConditionItem$: StaticStructureSchema = [3, n0, _QCI,
 ];
 export var QueryRecommendationTriggerData$: StaticStructureSchema = [3, n0, _QRTD,
   0,
-  [_te],
+  [_tex],
   [[() => QueryText, 0]]
 ];
 export var QueryTextInputData$: StaticStructureSchema = [3, n0, _QTID,
   0,
-  [_te],
+  [_tex],
   [[() => QueryText, 0]], 1
 ];
 export var QuickResponseContents$: StaticStructureSchema = [3, n0, _QRCu,
@@ -2730,7 +2733,7 @@ export var Span$: StaticStructureSchema = [3, n0, _S,
 ];
 export var SpanAttributes$: StaticStructureSchema = [3, n0, _SA,
   0,
-  [_oN, _pNr, _eTr, _aIg, _iAn, _cIo, _iCI, _sNe, _aAA, _aAT, _aAN, _aAI, _aAV, _aAIi, _aAOUC, _rM, _rMT, _tem, _tP, _rMe, _rFR, _uIT, _uOT, _uTT, _cRIT, _cWIT, _iM, _oM, _sIy, _pA, _pIr, _pTr, _pNro, _pV],
+  [_oN, _pNr, _eTr, _aIg, _iAn, _cIo, _iCI, _sNe, _aAA, _aAT, _aAN, _aAI, _aAV, _aAIi, _aAOUC, _rM, _rMT, _te, _tP, _rMe, _rFR, _uIT, _uOT, _uTT, _cRIT, _cWIT, _iM, _oM, _sIy, _pA, _pIr, _pTr, _pNro, _pV],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 64 | 0, 1, 1, 1, 1, 1, [() => SpanMessageList, 0], [() => SpanMessageList, 0], [() => SpanMessageValueList, 0], 0, 0, 0, 0, 1]
 ];
 export var SpanCitation$: StaticStructureSchema = [3, n0, _SC,
@@ -2813,11 +2816,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TextAIPromptInferenceConfiguration$: StaticStructureSchema = [3, n0, _TAIPIC,
-  0,
-  [_tem, _tP, _tK, _mTTS],
-  [[() => Probability, 0], [() => Probability, 0], [() => TopK, 0], [() => MaxTokensToSample, 0]]
-];
 export var TextData$: StaticStructureSchema = [3, n0, _TD,
   0,
   [_ti, _ex],
@@ -2825,7 +2823,7 @@ export var TextData$: StaticStructureSchema = [3, n0, _TD,
 ];
 export var TextFullAIPromptEditTemplateConfiguration$: StaticStructureSchema = [3, n0, _TFAIPETC,
   0,
-  [_te],
+  [_tex],
   [[() => TextAIPrompt, 0]], 1
 ];
 export var TextMessage$: StaticStructureSchema = [3, n0, _TM,
@@ -3328,11 +3326,6 @@ export var AIAgentConfiguration$: StaticUnionSchema = [4, n0, _AIAC,
   [_mSAIAC, _aRAIAC, _sSAIAC, _eRAIAC, _eOAIAC, _eGAAIAC, _oAIAC, _nTAIAC, _cSAIAC],
   [() => ManualSearchAIAgentConfiguration$, [() => AnswerRecommendationAIAgentConfiguration$, 0], () => SelfServiceAIAgentConfiguration$, () => EmailResponseAIAgentConfiguration$, () => EmailOverviewAIAgentConfiguration$, () => EmailGenerativeAnswerAIAgentConfiguration$, [() => OrchestrationAIAgentConfiguration$, 0], () => NoteTakingAIAgentConfiguration$, () => CaseSummarizationAIAgentConfiguration$]
 ];
-export var AIPromptInferenceConfiguration$: StaticUnionSchema = [4, n0, _AIPIC,
-  0,
-  [_tAIPIC],
-  [[() => TextAIPromptInferenceConfiguration$, 0]]
-];
 export var AIPromptTemplateConfiguration$: StaticUnionSchema = [4, n0, _AIPTC,
   0,
   [_tFAIPETC],
@@ -3390,7 +3383,7 @@ export var ManagedSourceConfiguration$: StaticUnionSchema = [4, n0, _MSC,
 ];
 export var MessageData$: StaticUnionSchema = [4, n0, _MD,
   0,
-  [_te, _tUR],
+  [_tex, _tUR],
   [[() => TextMessage$, 0], () => ToolUseResultData$]
 ];
 export var MessageTemplateBodyContentProvider$: StaticUnionSchema = [4, n0, _MTBCP,
@@ -3460,7 +3453,7 @@ export var SourceConfiguration$: StaticUnionSchema = [4, n0, _SCo,
 ];
 export var SpanMessageValue$: StaticUnionSchema = [4, n0, _SMV,
   0,
-  [_te, _tUo, _tR],
+  [_tex, _tUo, _tR],
   [[() => SpanTextValue$, 0], () => SpanToolUseValue$, [() => SpanToolResultValue$, 0]]
 ];
 export var TagFilter$: StaticUnionSchema = [4, n0, _TF,

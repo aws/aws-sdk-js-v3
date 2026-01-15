@@ -2424,10 +2424,10 @@ export interface AIGuardrailAssessment {
 }
 
 /**
- * <p>Inference configuration for text-based AI Prompts.</p>
+ * <p>The configuration for inference parameters when using AI Prompts.</p>
  * @public
  */
-export interface TextAIPromptInferenceConfiguration {
+export interface AIPromptInferenceConfiguration {
   /**
    * <p>The temperature setting for controlling randomness in the generated response.</p>
    * @public
@@ -2451,45 +2451,6 @@ export interface TextAIPromptInferenceConfiguration {
    * @public
    */
   maxTokensToSample?: number | undefined;
-}
-
-/**
- * <p>The configuration for inference parameters when using AI Prompts.</p>
- * @public
- */
-export type AIPromptInferenceConfiguration =
-  | AIPromptInferenceConfiguration.TextAIPromptInferenceConfigurationMember
-  | AIPromptInferenceConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace AIPromptInferenceConfiguration {
-  /**
-   * <p>The inference configuration for text-based AI Prompts.</p>
-   * @public
-   */
-  export interface TextAIPromptInferenceConfigurationMember {
-    textAIPromptInferenceConfiguration: TextAIPromptInferenceConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    textAIPromptInferenceConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    textAIPromptInferenceConfiguration: (value: TextAIPromptInferenceConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
 }
 
 /**
@@ -9219,4 +9180,21 @@ export interface DeactivateMessageTemplateResponse {
    * @public
    */
   versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteImportJobRequest {
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the import job to be deleted.</p>
+   * @public
+   */
+  importJobId: string | undefined;
 }

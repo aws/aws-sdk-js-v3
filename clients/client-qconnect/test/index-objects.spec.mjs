@@ -608,7 +608,6 @@ import {
   TagResourceRequest$,
   TagResourceResponse$,
   TargetType,
-  TextAIPromptInferenceConfiguration$,
   TextData$,
   TextFullAIPromptEditTemplateConfiguration$,
   TextMessage$,
@@ -1231,7 +1230,6 @@ assert(typeof TagCondition$ === "object");
 assert(typeof TagFilter$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
-assert(typeof TextAIPromptInferenceConfiguration$ === "object");
 assert(typeof TextData$ === "object");
 assert(typeof TextFullAIPromptEditTemplateConfiguration$ === "object");
 assert(typeof TextMessage$ === "object");

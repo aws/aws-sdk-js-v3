@@ -60,13 +60,11 @@ export interface CreateAIPromptVersionCommandOutput extends CreateAIPromptVersio
  * //         text: "STRING_VALUE", // required
  * //       },
  * //     },
- * //     inferenceConfiguration: { // AIPromptInferenceConfiguration Union: only one key present
- * //       textAIPromptInferenceConfiguration: { // TextAIPromptInferenceConfiguration
- * //         temperature: Number("float"),
- * //         topP: Number("float"),
- * //         topK: Number("int"),
- * //         maxTokensToSample: Number("int"),
- * //       },
+ * //     inferenceConfiguration: { // AIPromptInferenceConfiguration
+ * //       temperature: Number("float"),
+ * //       topP: Number("float"),
+ * //       topK: Number("int"),
+ * //       maxTokensToSample: Number("int"),
  * //     },
  * //     modifiedTime: new Date("TIMESTAMP"),
  * //     description: "STRING_VALUE",
