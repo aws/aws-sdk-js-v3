@@ -1033,7 +1033,8 @@ export interface GetIpamPolicyOrganizationTargetsRequest {
  */
 export interface IpamPolicyOrganizationTarget {
   /**
-   * <p>The ID of a Amazon Web Services Organizations target for an IPAM policy.</p>
+   * <p>The ID of the Amazon Web Services Organizations target.</p>
+   *          <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
    * @public
    */
   OrganizationTargetId?: string | undefined;
@@ -1044,7 +1045,8 @@ export interface IpamPolicyOrganizationTarget {
  */
 export interface GetIpamPolicyOrganizationTargetsResult {
   /**
-   * <p>The Amazon Web Services Organizations targets for an IPAM policy.</p>
+   * <p>The IDs of the Amazon Web Services Organizations targets.</p>
+   *          <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
    * @public
    */
   OrganizationTargets?: IpamPolicyOrganizationTarget[] | undefined;
