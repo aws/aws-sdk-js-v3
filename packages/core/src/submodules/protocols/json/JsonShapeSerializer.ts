@@ -73,20 +73,40 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
 
     if (isObject) {
       if (ns.isStructSchema()) {
+        const record = value as Record<string, unknown>;
         const out = {} as any;
-        for (const [memberName, memberSchema] of serializingStructIterator(ns, value)) {
-          const serializableValue = this._write(memberSchema, (value as any)[memberName], ns);
+        const { jsonName } = this.settings;
+        let nameMap: Record<string, string> | undefined = void 0;
+        if (jsonName) {
+          nameMap = {};
+        }
+
+        for (const [memberName, memberSchema] of serializingStructIterator(ns, record)) {
+          const serializableValue = this._write(memberSchema, record[memberName], ns);
           if (serializableValue !== undefined) {
-            const jsonName = memberSchema.getMergedTraits().jsonName;
-            const targetKey = this.settings.jsonName ? jsonName ?? memberName : memberName;
+            let targetKey = memberName;
+            if (jsonName) {
+              targetKey = memberSchema.getMergedTraits().jsonName ?? memberName;
+              nameMap![memberName] = targetKey;
+            }
             out[targetKey] = serializableValue;
           }
         }
         if (ns.isUnionSchema() && Object.keys(out).length === 0) {
-          const { $unknown } = value as any;
+          const { $unknown } = record;
           if (Array.isArray($unknown)) {
             const [k, v] = $unknown;
             out[k] = this._write(15 satisfies DocumentSchema, v);
+          }
+        } else if (typeof record.__type === "string") {
+          // This if-block is for backwards compatibility support and should not be copied
+          // to other implementations.
+          for (const [k, v] of Object.entries(record)) {
+            const targetKey = jsonName ? nameMap![k] ?? k : k;
+            if (!(targetKey in out)) {
+              // we have no type information, so serialize with Document rules.
+              out[targetKey] = this._write(15 satisfies DocumentSchema, v);
+            }
           }
         }
         return out;

@@ -50,27 +50,48 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
 
     if (isObject) {
       if (ns.isStructSchema()) {
+        const record = value as Record<string, unknown>;
         const union = ns.isUnionSchema();
         const out = {} as any;
+        let nameMap: Record<string, string> | undefined = void 0;
+        const { jsonName } = this.settings;
+        if (jsonName) {
+          nameMap = {};
+        }
+
         let unionSerde: UnionSerde;
         if (union) {
-          unionSerde = new UnionSerde(value, out);
+          unionSerde = new UnionSerde(record, out);
         }
         for (const [memberName, memberSchema] of deserializingStructIterator(
           ns,
-          value,
-          this.settings.jsonName ? "jsonName" : false
+          record,
+          jsonName ? "jsonName" : false
         )) {
-          const fromKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
+          let fromKey = memberName;
+          if (jsonName) {
+            fromKey = memberSchema.getMergedTraits().jsonName ?? fromKey;
+            nameMap![fromKey] = memberName;
+          }
           if (union) {
             unionSerde!.mark(fromKey);
           }
-          if ((value as any)[fromKey] != null) {
-            out[memberName] = this._read(memberSchema, (value as any)[fromKey]);
+          if (record[fromKey] != null) {
+            out[memberName] = this._read(memberSchema, record[fromKey]);
           }
         }
         if (union) {
           unionSerde!.writeUnknown();
+        } else if (typeof record.__type === "string") {
+          // This if-block is for backwards compatibility support and should not be copied
+          // to other implementations.
+          for (const [k, v] of Object.entries(record)) {
+            const t = jsonName ? nameMap![k] ?? k : k;
+            if (!(t in out)) {
+              // we have no type information, so copy as-is from JSON object.
+              out[t] = v;
+            }
+          }
         }
         return out;
       }

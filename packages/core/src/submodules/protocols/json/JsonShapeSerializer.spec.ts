@@ -31,6 +31,17 @@ describe(JsonShapeSerializer.name, () => {
     );
   });
 
+  it("serializes extra document members when encountering __type", async () => {
+    const data = {
+      __type: "ns#PlateOfFood",
+      pasta: "Macaroni",
+      cheese: "cheddar",
+    };
+    serializer1.write(widget, data);
+    const serialization = serializer1.flush();
+    expect(serialization).toEqual(`{"__type":"ns#PlateOfFood","pasta":"Macaroni","cheese":"cheddar"}`);
+  });
+
   it("serializes $unknown union members", () => {
     serializer1.write(unionStruct, {
       union: {

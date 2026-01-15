@@ -179,6 +179,27 @@ describe(JsonShapeDeserializer.name, () => {
     }
   });
 
+  it("deserializes extra document members when encountering __type", async () => {
+    expect(
+      await deserializer.read(
+        nestingWidget,
+        JSON.stringify({
+          blob: "AAAA",
+          nested: {
+            __type: "ns#Other",
+            __field__: "xyz",
+          },
+        })
+      )
+    ).toEqual({
+      blob: new Uint8Array([0, 0, 0]),
+      nested: {
+        __field__: "xyz",
+        __type: "ns#Other",
+      },
+    });
+  });
+
   describe("performance baseline indicator", () => {
     const serializer = new JsonShapeSerializer({
       jsonName: true,

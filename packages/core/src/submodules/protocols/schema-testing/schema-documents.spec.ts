@@ -145,6 +145,7 @@ describe("schema conversion tests for serializations, data objects, and document
 
       // 2. data object document back to data object
       const dataObjectFromDocument = await deserializer.readObject(subjectSchema, documentFromDataObject);
+      delete dataObjectFromDocument.__type;
       expect(dataObjectFromDocument).toEqual(canonicalDataObject);
 
       // 3. data object from serialization document
