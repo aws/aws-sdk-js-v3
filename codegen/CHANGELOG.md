@@ -1,5 +1,12 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.42.0 (2026-01-15)
+
+### Chores
+
+- Upgraded to smithy-typescript 0.42.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0420-2026-01-15))
+- This change includes generating clients with a minimum required Node.js version of 20.
+
 ## 0.41.1 (2026-01-08)
 
 ### Fixes
