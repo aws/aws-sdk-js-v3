@@ -283,6 +283,7 @@ const _INAS = "IdNamespaceAssociationSummary";
 const _INASL = "IdNamespaceAssociationSummaryList";
 const _ISE = "InternalServerException";
 const _JCPC = "JobComputePaymentConfig";
+const _JPM = "JobParameterMap";
 const _LAT = "ListAnalysisTemplates";
 const _LATI = "ListAnalysisTemplatesInput";
 const _LATO = "ListAnalysisTemplatesOutput";
@@ -1671,7 +1672,7 @@ export var GetProtectedJobInput$: StaticStructureSchema = [3, n0, _GPJI,
 export var GetProtectedJobOutput$: StaticStructureSchema = [3, n0, _GPJO,
   0,
   [_pJ],
-  [() => ProtectedJob$], 1
+  [[() => ProtectedJob$, 0]], 1
 ];
 export var GetProtectedQueryInput$: StaticStructureSchema = [3, n0, _GPQI,
   0,
@@ -2132,7 +2133,7 @@ export var PrivacyBudgetTemplateSummary$: StaticStructureSchema = [3, n0, _PBTS,
 export var ProtectedJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
   [_i, _mI, _mA, _cT, _st, _jP, _rCe, _sta, _res, _e, _cCo],
-  [0, 0, 0, 4, 0, () => ProtectedJobParameters$, () => ProtectedJobResultConfigurationOutput$, () => ProtectedJobStatistics$, () => ProtectedJobResult$, () => ProtectedJobError$, () => ProtectedJobComputeConfiguration$], 5
+  [0, 0, 0, 4, 0, [() => ProtectedJobParameters$, 0], () => ProtectedJobResultConfigurationOutput$, () => ProtectedJobStatistics$, () => ProtectedJobResult$, () => ProtectedJobError$, () => ProtectedJobComputeConfiguration$], 5
 ];
 export var ProtectedJobDirectAnalysisConfigurationDetails$: StaticStructureSchema = [3, n0, _PJDACD,
   0,
@@ -2156,8 +2157,8 @@ export var ProtectedJobMemberOutputConfigurationOutput$: StaticStructureSchema =
 ];
 export var ProtectedJobParameters$: StaticStructureSchema = [3, n0, _PJP,
   0,
-  [_aTAn],
-  [0], 1
+  [_aTAn, _pa],
+  [0, [() => JobParameterMap, 0]], 1
 ];
 export var ProtectedJobReceiverConfiguration$: StaticStructureSchema = [3, n0, _PJRC,
   0,
@@ -2349,12 +2350,12 @@ export var SnowflakeTableSchemaV1$: StaticStructureSchema = [3, n0, _STSV,
 export var StartProtectedJobInput$: StaticStructureSchema = [3, n0, _SPJI,
   0,
   [_t, _mIe, _jP, _rCe, _cCo],
-  [0, [0, 1], () => ProtectedJobParameters$, () => ProtectedJobResultConfigurationInput$, () => ProtectedJobComputeConfiguration$], 3
+  [0, [0, 1], [() => ProtectedJobParameters$, 0], () => ProtectedJobResultConfigurationInput$, () => ProtectedJobComputeConfiguration$], 3
 ];
 export var StartProtectedJobOutput$: StaticStructureSchema = [3, n0, _SPJO,
   0,
   [_pJ],
-  [() => ProtectedJob$], 1
+  [[() => ProtectedJob$, 0]], 1
 ];
 export var StartProtectedQueryInput$: StaticStructureSchema = [3, n0, _SPQI,
   0,
@@ -2530,7 +2531,7 @@ export var UpdateProtectedJobInput$: StaticStructureSchema = [3, n0, _UPJI,
 export var UpdateProtectedJobOutput$: StaticStructureSchema = [3, n0, _UPJO,
   0,
   [_pJ],
-  [() => ProtectedJob$], 1
+  [[() => ProtectedJob$, 0]], 1
 ];
 export var UpdateProtectedQueryInput$: StaticStructureSchema = [3, n0, _UPQI,
   0,
@@ -2758,6 +2759,9 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
 ];
 var ApprovalStatuses: StaticMapSchema = [2, n0, _ASp,
   0, 0, () => ApprovalStatusDetails$
+];
+var JobParameterMap: StaticMapSchema = [2, n0, _JPM,
+  8, 0, 0
 ];
 var ParameterMap = 128 | 0;
 var SparkProperties = 128 | 0;

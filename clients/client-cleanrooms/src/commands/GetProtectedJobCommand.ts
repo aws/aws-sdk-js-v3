@@ -50,6 +50,9 @@ export interface GetProtectedJobCommandOutput extends GetProtectedJobOutput, __M
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     jobParameters: { // ProtectedJobParameters
  * //       analysisTemplateArn: "STRING_VALUE", // required
+ * //       parameters: { // JobParameterMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //     status: "SUBMITTED" || "STARTED" || "CANCELLED" || "CANCELLING" || "FAILED" || "SUCCESS", // required
  * //     resultConfiguration: { // ProtectedJobResultConfigurationOutput

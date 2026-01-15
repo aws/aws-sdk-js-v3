@@ -241,7 +241,7 @@ export interface AggregationConstraint {
  */
 export interface AnalysisParameter {
   /**
-   * <p>The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.</p>
+   * <p>The name of the parameter. The name must use only alphanumeric or underscore (_) characters.</p>
    * @public
    */
   name: string | undefined;
@@ -7757,6 +7757,12 @@ export interface ProtectedJobParameters {
    * @public
    */
   analysisTemplateArn: string | undefined;
+
+  /**
+   * <p>Runtime configuration values passed to the PySpark analysis script. Parameter names and types must match those defined in the analysis template.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
 }
 
 /**
