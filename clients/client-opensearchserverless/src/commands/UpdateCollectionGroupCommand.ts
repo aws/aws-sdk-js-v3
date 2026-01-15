@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateAccessPolicyRequest, CreateAccessPolicyResponse } from "../models/models_0";
+import type { UpdateCollectionGroupRequest, UpdateCollectionGroupResponse } from "../models/models_0";
 import type {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { CreateAccessPolicy$ } from "../schemas/schemas_0";
+import { UpdateCollectionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,42 +20,51 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateAccessPolicyCommand}.
+ * The input for {@link UpdateCollectionGroupCommand}.
  */
-export interface CreateAccessPolicyCommandInput extends CreateAccessPolicyRequest {}
+export interface UpdateCollectionGroupCommandInput extends UpdateCollectionGroupRequest {}
 /**
  * @public
  *
- * The output of {@link CreateAccessPolicyCommand}.
+ * The output of {@link UpdateCollectionGroupCommand}.
  */
-export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyResponse, __MetadataBearer {}
+export interface UpdateCollectionGroupCommandOutput extends UpdateCollectionGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data access policy for OpenSearch Serverless. Access policies limit access to collections and the resources within them, and allow a user to access that data irrespective of the access mechanism or network source. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access control for Amazon OpenSearch Serverless</a>.</p>
+ * <p>Updates the description and capacity limits of a collection group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, CreateAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, CreateAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, UpdateCollectionGroupCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
+ * // const { OpenSearchServerlessClient, UpdateCollectionGroupCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
  * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
- * const input = { // CreateAccessPolicyRequest
- *   type: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ * const input = { // UpdateCollectionGroupRequest
+ *   id: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   policy: "STRING_VALUE", // required
+ *   capacityLimits: { // CollectionGroupCapacityLimits
+ *     maxIndexingCapacityInOCU: Number("float"),
+ *     maxSearchCapacityInOCU: Number("float"),
+ *     minIndexingCapacityInOCU: Number("float"),
+ *     minSearchCapacityInOCU: Number("float"),
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
- * const command = new CreateAccessPolicyCommand(input);
+ * const command = new UpdateCollectionGroupCommand(input);
  * const response = await client.send(command);
- * // { // CreateAccessPolicyResponse
- * //   accessPolicyDetail: { // AccessPolicyDetail
- * //     type: "STRING_VALUE",
+ * // { // UpdateCollectionGroupResponse
+ * //   updateCollectionGroupDetail: { // UpdateCollectionGroupDetail
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
  * //     name: "STRING_VALUE",
- * //     policyVersion: "STRING_VALUE",
  * //     description: "STRING_VALUE",
- * //     policy: "DOCUMENT_VALUE",
+ * //     capacityLimits: { // CollectionGroupCapacityLimits
+ * //       maxIndexingCapacityInOCU: Number("float"),
+ * //       maxSearchCapacityInOCU: Number("float"),
+ * //       minIndexingCapacityInOCU: Number("float"),
+ * //       minSearchCapacityInOCU: Number("float"),
+ * //     },
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
  * //   },
@@ -63,10 +72,10 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  *
  * ```
  *
- * @param CreateAccessPolicyCommandInput - {@link CreateAccessPolicyCommandInput}
- * @returns {@link CreateAccessPolicyCommandOutput}
- * @see {@link CreateAccessPolicyCommandInput} for command's `input` shape.
- * @see {@link CreateAccessPolicyCommandOutput} for command's `response` shape.
+ * @param UpdateCollectionGroupCommandInput - {@link UpdateCollectionGroupCommandInput}
+ * @returns {@link UpdateCollectionGroupCommandOutput}
+ * @see {@link UpdateCollectionGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateCollectionGroupCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -87,10 +96,10 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  *
  * @public
  */
-export class CreateAccessPolicyCommand extends $Command
+export class UpdateCollectionGroupCommand extends $Command
   .classBuilder<
-    CreateAccessPolicyCommandInput,
-    CreateAccessPolicyCommandOutput,
+    UpdateCollectionGroupCommandInput,
+    UpdateCollectionGroupCommandOutput,
     OpenSearchServerlessClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -99,19 +108,19 @@ export class CreateAccessPolicyCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("OpenSearchServerless", "CreateAccessPolicy", {})
-  .n("OpenSearchServerlessClient", "CreateAccessPolicyCommand")
-  .sc(CreateAccessPolicy$)
+  .s("OpenSearchServerless", "UpdateCollectionGroup", {})
+  .n("OpenSearchServerlessClient", "UpdateCollectionGroupCommand")
+  .sc(UpdateCollectionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateAccessPolicyRequest;
-      output: CreateAccessPolicyResponse;
+      input: UpdateCollectionGroupRequest;
+      output: UpdateCollectionGroupResponse;
     };
     sdk: {
-      input: CreateAccessPolicyCommandInput;
-      output: CreateAccessPolicyCommandOutput;
+      input: UpdateCollectionGroupCommandInput;
+      output: UpdateCollectionGroupCommandOutput;
     };
   };
 }

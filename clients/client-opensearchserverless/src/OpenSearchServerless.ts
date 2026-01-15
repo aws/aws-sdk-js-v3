@@ -8,6 +8,11 @@ import {
   BatchGetCollectionCommandOutput,
 } from "./commands/BatchGetCollectionCommand";
 import {
+  BatchGetCollectionGroupCommand,
+  BatchGetCollectionGroupCommandInput,
+  BatchGetCollectionGroupCommandOutput,
+} from "./commands/BatchGetCollectionGroupCommand";
+import {
   BatchGetEffectiveLifecyclePolicyCommand,
   BatchGetEffectiveLifecyclePolicyCommandInput,
   BatchGetEffectiveLifecyclePolicyCommandOutput,
@@ -32,6 +37,11 @@ import {
   CreateCollectionCommandInput,
   CreateCollectionCommandOutput,
 } from "./commands/CreateCollectionCommand";
+import {
+  CreateCollectionGroupCommand,
+  CreateCollectionGroupCommandInput,
+  CreateCollectionGroupCommandOutput,
+} from "./commands/CreateCollectionGroupCommand";
 import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
   CreateLifecyclePolicyCommand,
@@ -63,6 +73,11 @@ import {
   DeleteCollectionCommandInput,
   DeleteCollectionCommandOutput,
 } from "./commands/DeleteCollectionCommand";
+import {
+  DeleteCollectionGroupCommand,
+  DeleteCollectionGroupCommandInput,
+  DeleteCollectionGroupCommandOutput,
+} from "./commands/DeleteCollectionGroupCommand";
 import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
   DeleteLifecyclePolicyCommand,
@@ -116,6 +131,11 @@ import {
   ListAccessPoliciesCommandOutput,
 } from "./commands/ListAccessPoliciesCommand";
 import {
+  ListCollectionGroupsCommand,
+  ListCollectionGroupsCommandInput,
+  ListCollectionGroupsCommandOutput,
+} from "./commands/ListCollectionGroupsCommand";
+import {
   ListCollectionsCommand,
   ListCollectionsCommandInput,
   ListCollectionsCommandOutput,
@@ -166,6 +186,11 @@ import {
   UpdateCollectionCommandInput,
   UpdateCollectionCommandOutput,
 } from "./commands/UpdateCollectionCommand";
+import {
+  UpdateCollectionGroupCommand,
+  UpdateCollectionGroupCommandInput,
+  UpdateCollectionGroupCommandOutput,
+} from "./commands/UpdateCollectionGroupCommand";
 import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
   UpdateLifecyclePolicyCommand,
@@ -191,11 +216,13 @@ import { OpenSearchServerlessClient } from "./OpenSearchServerlessClient";
 
 const commands = {
   BatchGetCollectionCommand,
+  BatchGetCollectionGroupCommand,
   BatchGetEffectiveLifecyclePolicyCommand,
   BatchGetLifecyclePolicyCommand,
   BatchGetVpcEndpointCommand,
   CreateAccessPolicyCommand,
   CreateCollectionCommand,
+  CreateCollectionGroupCommand,
   CreateIndexCommand,
   CreateLifecyclePolicyCommand,
   CreateSecurityConfigCommand,
@@ -203,6 +230,7 @@ const commands = {
   CreateVpcEndpointCommand,
   DeleteAccessPolicyCommand,
   DeleteCollectionCommand,
+  DeleteCollectionGroupCommand,
   DeleteIndexCommand,
   DeleteLifecyclePolicyCommand,
   DeleteSecurityConfigCommand,
@@ -215,6 +243,7 @@ const commands = {
   GetSecurityConfigCommand,
   GetSecurityPolicyCommand,
   ListAccessPoliciesCommand,
+  ListCollectionGroupsCommand,
   ListCollectionsCommand,
   ListLifecyclePoliciesCommand,
   ListSecurityConfigsCommand,
@@ -226,6 +255,7 @@ const commands = {
   UpdateAccessPolicyCommand,
   UpdateAccountSettingsCommand,
   UpdateCollectionCommand,
+  UpdateCollectionGroupCommand,
   UpdateIndexCommand,
   UpdateLifecyclePolicyCommand,
   UpdateSecurityConfigCommand,
@@ -250,6 +280,24 @@ export interface OpenSearchServerless {
     args: BatchGetCollectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetCollectionGroupCommand}
+   */
+  batchGetCollectionGroup(): Promise<BatchGetCollectionGroupCommandOutput>;
+  batchGetCollectionGroup(
+    args: BatchGetCollectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCollectionGroupCommandOutput>;
+  batchGetCollectionGroup(
+    args: BatchGetCollectionGroupCommandInput,
+    cb: (err: any, data?: BatchGetCollectionGroupCommandOutput) => void
+  ): void;
+  batchGetCollectionGroup(
+    args: BatchGetCollectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCollectionGroupCommandOutput) => void
   ): void;
 
   /**
@@ -335,6 +383,23 @@ export interface OpenSearchServerless {
     args: CreateCollectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCollectionGroupCommand}
+   */
+  createCollectionGroup(
+    args: CreateCollectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCollectionGroupCommandOutput>;
+  createCollectionGroup(
+    args: CreateCollectionGroupCommandInput,
+    cb: (err: any, data?: CreateCollectionGroupCommandOutput) => void
+  ): void;
+  createCollectionGroup(
+    args: CreateCollectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCollectionGroupCommandOutput) => void
   ): void;
 
   /**
@@ -454,6 +519,23 @@ export interface OpenSearchServerless {
     args: DeleteCollectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCollectionGroupCommand}
+   */
+  deleteCollectionGroup(
+    args: DeleteCollectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCollectionGroupCommandOutput>;
+  deleteCollectionGroup(
+    args: DeleteCollectionGroupCommandInput,
+    cb: (err: any, data?: DeleteCollectionGroupCommandOutput) => void
+  ): void;
+  deleteCollectionGroup(
+    args: DeleteCollectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCollectionGroupCommandOutput) => void
   ): void;
 
   /**
@@ -663,6 +745,24 @@ export interface OpenSearchServerless {
   ): void;
 
   /**
+   * @see {@link ListCollectionGroupsCommand}
+   */
+  listCollectionGroups(): Promise<ListCollectionGroupsCommandOutput>;
+  listCollectionGroups(
+    args: ListCollectionGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCollectionGroupsCommandOutput>;
+  listCollectionGroups(
+    args: ListCollectionGroupsCommandInput,
+    cb: (err: any, data?: ListCollectionGroupsCommandOutput) => void
+  ): void;
+  listCollectionGroups(
+    args: ListCollectionGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCollectionGroupsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCollectionsCommand}
    */
   listCollections(): Promise<ListCollectionsCommandOutput>;
@@ -850,6 +950,23 @@ export interface OpenSearchServerless {
     args: UpdateCollectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCollectionGroupCommand}
+   */
+  updateCollectionGroup(
+    args: UpdateCollectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCollectionGroupCommandOutput>;
+  updateCollectionGroup(
+    args: UpdateCollectionGroupCommandInput,
+    cb: (err: any, data?: UpdateCollectionGroupCommandOutput) => void
+  ): void;
+  updateCollectionGroup(
+    args: UpdateCollectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCollectionGroupCommandOutput) => void
   ): void;
 
   /**

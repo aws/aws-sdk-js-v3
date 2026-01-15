@@ -54,6 +54,11 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *   vectorOptions: { // VectorOptions
  *     ServerlessVectorAcceleration: "STRING_VALUE", // required
  *   },
+ *   collectionGroupName: "STRING_VALUE",
+ *   encryptionConfig: { // EncryptionConfig
+ *     aWSOwnedKey: true || false,
+ *     kmsKeyArn: "STRING_VALUE",
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateCollectionCommand(input);
@@ -73,6 +78,7 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * //     },
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
+ * //     collectionGroupName: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -85,7 +91,7 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE or FAILED state.</p>
+ *  <p>When creating a resource, thrown when a resource with the same name already exists or is being created.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Thrown when an error internal to the service occurs while processing a request.</p>

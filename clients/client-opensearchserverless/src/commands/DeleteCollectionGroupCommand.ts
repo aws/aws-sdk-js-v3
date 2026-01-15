@@ -4,13 +4,13 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteAccessPolicyRequest, DeleteAccessPolicyResponse } from "../models/models_0";
+import type { DeleteCollectionGroupRequest, DeleteCollectionGroupResponse } from "../models/models_0";
 import type {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { DeleteAccessPolicy$ } from "../schemas/schemas_0";
+import { DeleteCollectionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,41 +20,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteAccessPolicyCommand}.
+ * The input for {@link DeleteCollectionGroupCommand}.
  */
-export interface DeleteAccessPolicyCommandInput extends DeleteAccessPolicyRequest {}
+export interface DeleteCollectionGroupCommandInput extends DeleteCollectionGroupRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteAccessPolicyCommand}.
+ * The output of {@link DeleteCollectionGroupCommand}.
  */
-export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyResponse, __MetadataBearer {}
+export interface DeleteCollectionGroupCommandOutput extends DeleteCollectionGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access control for Amazon OpenSearch Serverless</a>.</p>
+ * <p>Deletes a collection group. You can only delete empty collection groups that contain no collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and managing Amazon OpenSearch Serverless collections</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchServerlessClient, DeleteAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
- * // const { OpenSearchServerlessClient, DeleteAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
+ * import { OpenSearchServerlessClient, DeleteCollectionGroupCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
+ * // const { OpenSearchServerlessClient, DeleteCollectionGroupCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * // import type { OpenSearchServerlessClientConfig } from "@aws-sdk/client-opensearchserverless";
  * const config = {}; // type is OpenSearchServerlessClientConfig
  * const client = new OpenSearchServerlessClient(config);
- * const input = { // DeleteAccessPolicyRequest
- *   type: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
+ * const input = { // DeleteCollectionGroupRequest
+ *   id: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };
- * const command = new DeleteAccessPolicyCommand(input);
+ * const command = new DeleteCollectionGroupCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteAccessPolicyCommandInput - {@link DeleteAccessPolicyCommandInput}
- * @returns {@link DeleteAccessPolicyCommandOutput}
- * @see {@link DeleteAccessPolicyCommandInput} for command's `input` shape.
- * @see {@link DeleteAccessPolicyCommandOutput} for command's `response` shape.
+ * @param DeleteCollectionGroupCommandInput - {@link DeleteCollectionGroupCommandInput}
+ * @returns {@link DeleteCollectionGroupCommandOutput}
+ * @see {@link DeleteCollectionGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteCollectionGroupCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -75,10 +74,10 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  *
  * @public
  */
-export class DeleteAccessPolicyCommand extends $Command
+export class DeleteCollectionGroupCommand extends $Command
   .classBuilder<
-    DeleteAccessPolicyCommandInput,
-    DeleteAccessPolicyCommandOutput,
+    DeleteCollectionGroupCommandInput,
+    DeleteCollectionGroupCommandOutput,
     OpenSearchServerlessClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -87,19 +86,19 @@ export class DeleteAccessPolicyCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("OpenSearchServerless", "DeleteAccessPolicy", {})
-  .n("OpenSearchServerlessClient", "DeleteAccessPolicyCommand")
-  .sc(DeleteAccessPolicy$)
+  .s("OpenSearchServerless", "DeleteCollectionGroup", {})
+  .n("OpenSearchServerlessClient", "DeleteCollectionGroupCommand")
+  .sc(DeleteCollectionGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteAccessPolicyRequest;
+      input: DeleteCollectionGroupRequest;
       output: {};
     };
     sdk: {
-      input: DeleteAccessPolicyCommandInput;
-      output: DeleteAccessPolicyCommandOutput;
+      input: DeleteCollectionGroupCommandInput;
+      output: DeleteCollectionGroupCommandOutput;
     };
   };
 }

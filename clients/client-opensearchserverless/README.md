@@ -208,6 +208,13 @@ BatchGetCollection
 </details>
 <details>
 <summary>
+BatchGetCollectionGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearchserverless/command/BatchGetCollectionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/BatchGetCollectionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/BatchGetCollectionGroupCommandOutput/)
+</details>
+<details>
+<summary>
 BatchGetEffectiveLifecyclePolicy
 </summary>
 
@@ -240,6 +247,13 @@ CreateCollection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearchserverless/command/CreateCollectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/CreateCollectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/CreateCollectionCommandOutput/)
+</details>
+<details>
+<summary>
+CreateCollectionGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearchserverless/command/CreateCollectionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/CreateCollectionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/CreateCollectionGroupCommandOutput/)
 </details>
 <details>
 <summary>
@@ -289,6 +303,13 @@ DeleteCollection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearchserverless/command/DeleteCollectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/DeleteCollectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/DeleteCollectionCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteCollectionGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearchserverless/command/DeleteCollectionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/DeleteCollectionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/DeleteCollectionGroupCommandOutput/)
 </details>
 <details>
 <summary>
@@ -376,6 +397,13 @@ ListAccessPolicies
 </details>
 <details>
 <summary>
+ListCollectionGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearchserverless/command/ListCollectionGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/ListCollectionGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/ListCollectionGroupsCommandOutput/)
+</details>
+<details>
+<summary>
 ListCollections
 </summary>
 
@@ -450,6 +478,13 @@ UpdateCollection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearchserverless/command/UpdateCollectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/UpdateCollectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/UpdateCollectionCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateCollectionGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearchserverless/command/UpdateCollectionGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/UpdateCollectionGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearchserverless/Interface/UpdateCollectionGroupCommandOutput/)
 </details>
 <details>
 <summary>
