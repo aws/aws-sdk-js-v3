@@ -12,7 +12,9 @@ describe("getSsoOidcClient", () => {
 
   beforeEach(() => {
     vi.resetModules();
-    vi.mocked(SSOOIDCClient as any).mockImplementation((({ region }: any) => getMockClient(region)) as any);
+    vi.mocked(SSOOIDCClient).mockImplementation(function ({ region }: any) {
+      return getMockClient(region);
+    } as any);
   });
 
   afterEach(() => {

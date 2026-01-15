@@ -11,7 +11,6 @@ vi.mock("./LoginCredentialsFetcher");
 describe("fromLoginCredentials", () => {
   const mockParseKnownFiles = vi.mocked(parseKnownFiles);
   const mockGetProfileName = vi.mocked(getProfileName);
-  const mockLoginCredentialsFetcher = vi.mocked(LoginCredentialsFetcher);
 
   const mockCreds = {
     accessKeyId: "AKIAIOSFODNN7EXAMPLE",
@@ -31,10 +30,8 @@ describe("fromLoginCredentials", () => {
     });
     mockGetProfileName.mockReturnValue("signin");
 
-    const mockFetcher = {
-      loadCredentials: vi.fn().mockResolvedValue(mockCreds),
-    };
-    mockLoginCredentialsFetcher.mockImplementation(() => mockFetcher as any);
+    const loadCredentials = vi.fn().mockResolvedValue(mockCreds);
+    vi.mocked(LoginCredentialsFetcher).prototype.loadCredentials = loadCredentials;
 
     const provider = fromLoginCredentials({ profile: "signin" });
     const result = await provider();
@@ -42,7 +39,7 @@ describe("fromLoginCredentials", () => {
     expect(result.accessKeyId).toBe("AKIAIOSFODNN7EXAMPLE");
     expect(result.secretAccessKey).toBe("wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY");
     expect(result.sessionToken).toBe("session-token");
-    expect(mockFetcher.loadCredentials).toHaveBeenCalled();
+    expect(loadCredentials).toHaveBeenCalled();
   });
 
   it("should throw error when profile does not contain login_session", async () => {
@@ -66,10 +63,8 @@ describe("fromLoginCredentials", () => {
     });
     mockGetProfileName.mockReturnValue("dev");
 
-    const mockFetcher = {
-      loadCredentials: vi.fn().mockResolvedValue(mockCreds),
-    };
-    mockLoginCredentialsFetcher.mockImplementation(() => mockFetcher as any);
+    const loadCredentials = vi.fn().mockResolvedValue(mockCreds);
+    vi.mocked(LoginCredentialsFetcher).prototype.loadCredentials = loadCredentials;
 
     const provider = fromLoginCredentials({ profile: "dev" });
     await provider();
@@ -85,10 +80,8 @@ describe("fromLoginCredentials", () => {
     });
     mockGetProfileName.mockReturnValue("signin");
 
-    const mockFetcher = {
-      loadCredentials: vi.fn().mockResolvedValue(mockCreds),
-    };
-    mockLoginCredentialsFetcher.mockImplementation(() => mockFetcher as any);
+    const loadCredentials = vi.fn().mockResolvedValue(mockCreds);
+    vi.mocked(LoginCredentialsFetcher).prototype.loadCredentials = loadCredentials;
 
     const provider = fromLoginCredentials({ profile: "signin" });
     const result = await provider();
@@ -124,10 +117,8 @@ describe("fromLoginCredentials", () => {
     });
     mockGetProfileName.mockReturnValue("signin");
 
-    const mockFetcher = {
-      loadCredentials: vi.fn().mockResolvedValue(mockCreds),
-    };
-    mockLoginCredentialsFetcher.mockImplementation(() => mockFetcher as any);
+    const loadCredentials = vi.fn().mockResolvedValue(mockCreds);
+    vi.mocked(LoginCredentialsFetcher).prototype.loadCredentials = loadCredentials;
 
     const provider = fromLoginCredentials({
       profile: "signin",

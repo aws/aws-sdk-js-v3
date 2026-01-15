@@ -13,7 +13,9 @@ vi.mock("fs", () => ({
 }));
 
 vi.mock("@aws-sdk/nested-clients/signin", async () => ({
-  SigninClient: vi.fn(() => mockClient),
+  SigninClient: vi.fn(function () {
+    return mockClient;
+  }),
   CreateOAuth2TokenCommand: vi.fn(),
 }));
 
