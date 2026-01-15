@@ -581,7 +581,8 @@
     "paginateScan": "function, since <=3.930.0"
   },
   "@aws-sdk/lib-storage": {
-    "Upload": "function, since <=3.930.0"
+    "Upload": "function, since <=3.930.0",
+    "S3TransferManager": "function, since 3.967.0"
   },
   "@aws-sdk/credential-provider-login": {
     "fromLoginCredentials": "function, since <=3.936.0"

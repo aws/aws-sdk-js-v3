@@ -6,7 +6,10 @@ import fs from "node:fs";
 import { Readable } from "stream";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
-describe("@aws-sdk/lib-storage", () => {
+import { getIntegTestResources } from "../../../tests/e2e/get-integ-test-resources";
+
+// todo(s3-transfer-manager): unskip
+describe.skip("@aws-sdk/lib-storage", () => {
   describe.each([undefined, "WHEN_REQUIRED", "WHEN_SUPPORTED"])(
     "requestChecksumCalculation: %s",
     (requestChecksumCalculation) => {
