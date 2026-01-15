@@ -7,7 +7,6 @@ import { createDefaultUserAgentProvider, PreviouslyResolved } from "./defaultUse
 import { isCrtAvailable } from "./is-crt-available";
 
 vi.mock("os");
-vi.mock("process");
 vi.mock("./is-crt-available");
 
 const validateUserAgent = (userAgent: UserAgent, expected: UserAgent) => {
@@ -18,14 +17,18 @@ const validateUserAgent = (userAgent: UserAgent, expected: UserAgent) => {
 };
 
 describe("createDefaultUserAgentProvider", () => {
+  const originalEnv = process.env;
+
   beforeEach(() => {
     vi.mocked(platform).mockReturnValue("darwin");
     vi.mocked(release).mockReturnValue("19.6.0");
     vi.mocked(isCrtAvailable).mockReturnValue(null);
+    delete process.env.AWS_EXECUTION_ENV;
   });
 
   afterEach(() => {
     vi.clearAllMocks();
+    process.env = originalEnv;
   });
 
   const basicUserAgent: UserAgent = [
@@ -67,9 +70,7 @@ describe("createDefaultUserAgentProvider", () => {
     beforeEach(() => {
       process.env.AWS_EXECUTION_ENV = "lambda";
     });
-    afterEach(() => {
-      delete process.env.AWS_EXECUTION_ENV;
-    });
+
     it("should add AWS_EXECUTION_ENV", async () => {
       const userAgentProvider = createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" });
       const userAgent = await userAgentProvider(mockConfig);
