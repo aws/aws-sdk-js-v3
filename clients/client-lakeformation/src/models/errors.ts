@@ -423,6 +423,32 @@ export class GlueEncryptionException extends __BaseException {
 }
 
 /**
+ * <p>Multiple resources exist with the same Amazon S3 location</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
  * @public
  */

@@ -41,6 +41,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *   ResourceArn: "STRING_VALUE", // required
  *   WithFederation: true || false,
  *   HybridAccessEnabled: true || false,
+ *   ExpectedResourceOwnerAccount: "STRING_VALUE",
  * };
  * const command = new UpdateResourceCommand(input);
  * const response = await client.send(command);

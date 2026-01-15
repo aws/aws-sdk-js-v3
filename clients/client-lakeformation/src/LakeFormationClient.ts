@@ -151,6 +151,10 @@ import { GetQueryStatisticsCommandInput, GetQueryStatisticsCommandOutput } from 
 import { GetResourceLFTagsCommandInput, GetResourceLFTagsCommandOutput } from "./commands/GetResourceLFTagsCommand";
 import { GetTableObjectsCommandInput, GetTableObjectsCommandOutput } from "./commands/GetTableObjectsCommand";
 import {
+  GetTemporaryDataLocationCredentialsCommandInput,
+  GetTemporaryDataLocationCredentialsCommandOutput,
+} from "./commands/GetTemporaryDataLocationCredentialsCommand";
+import {
   GetTemporaryGluePartitionCredentialsCommandInput,
   GetTemporaryGluePartitionCredentialsCommandOutput,
 } from "./commands/GetTemporaryGluePartitionCredentialsCommand";
@@ -267,6 +271,7 @@ export type ServiceInputTypes =
   | GetQueryStatisticsCommandInput
   | GetResourceLFTagsCommandInput
   | GetTableObjectsCommandInput
+  | GetTemporaryDataLocationCredentialsCommandInput
   | GetTemporaryGluePartitionCredentialsCommandInput
   | GetTemporaryGlueTableCredentialsCommandInput
   | GetWorkUnitResultsCommandInput
@@ -332,6 +337,7 @@ export type ServiceOutputTypes =
   | GetQueryStatisticsCommandOutput
   | GetResourceLFTagsCommandOutput
   | GetTableObjectsCommandOutput
+  | GetTemporaryDataLocationCredentialsCommandOutput
   | GetTemporaryGluePartitionCredentialsCommandOutput
   | GetTemporaryGlueTableCredentialsCommandOutput
   | GetWorkUnitResultsCommandOutput

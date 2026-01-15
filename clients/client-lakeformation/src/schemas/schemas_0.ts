@@ -5,6 +5,7 @@ const _AC = "AuditContext";
 const _ACd = "AdditionalContext";
 const _AD = "AdditionalDetails";
 const _ADE = "AccessDeniedException";
+const _ADL = "AccessibleDataLocations";
 const _ADRWSAML = "AssumeDecoratedRoleWithSAML";
 const _ADRWSAMLR = "AssumeDecoratedRoleWithSAMLRequest";
 const _ADRWSAMLRs = "AssumeDecoratedRoleWithSAMLResponse";
@@ -37,6 +38,7 @@ const _CDCF = "CreateDataCellsFilter";
 const _CDCFR = "CreateDataCellsFilterRequest";
 const _CDCFRr = "CreateDataCellsFilterResponse";
 const _CDDP = "CreateDatabaseDefaultPermissions";
+const _CE = "ConflictException";
 const _CI = "CatalogId";
 const _CIl = "ClusterId";
 const _CLFICC = "CreateLakeFormationIdentityCenterConfiguration";
@@ -57,6 +59,7 @@ const _CME = "ConcurrentModificationException";
 const _CN = "ColumnNames";
 const _CO = "ComparisonOperator";
 const _CR = "CatalogResource";
+const _CS = "CredentialsScope";
 const _CT = "CancelTransaction";
 const _CTDP = "CreateTableDefaultPermissions";
 const _CTR = "CancelTransactionRequest";
@@ -67,6 +70,7 @@ const _CTo = "CommitTransaction";
 const _CW = "ColumnWildcard";
 const _Ca = "Catalog";
 const _Co = "Config";
+const _Cr = "Credentials";
 const _D = "Description";
 const _DCF = "DataCellsFilter";
 const _DCFL = "DataCellsFilterList";
@@ -75,7 +79,7 @@ const _DCFa = "DataCellsFilters";
 const _DDCF = "DeleteDataCellsFilter";
 const _DDCFR = "DeleteDataCellsFilterRequest";
 const _DDCFRe = "DeleteDataCellsFilterResponse";
-const _DL = "DataLocation";
+const _DL = "DataLocations";
 const _DLA = "DataLakeAdmins";
 const _DLFICC = "DeleteLakeFormationIdentityCenterConfiguration";
 const _DLFICCR = "DeleteLakeFormationIdentityCenterConfigurationRequest";
@@ -98,7 +102,8 @@ const _DLPI = "DataLakePrincipalIdentifier";
 const _DLPL = "DataLakePrincipalList";
 const _DLR = "DataLocationResource";
 const _DLS = "DataLakeSettings";
-const _DLa = "DatabaseList";
+const _DLa = "DataLocation";
+const _DLat = "DatabaseList";
 const _DM = "DetailsMap";
 const _DN = "DatabaseName";
 const _DO = "DeleteObject";
@@ -131,6 +136,7 @@ const _EFC = "ExternalFilteringConfiguration";
 const _EM = "ErrorMessage";
 const _EN = "ExpressionName";
 const _ENFE = "EntityNotFoundException";
+const _EROA = "ExpectedResourceOwnerAccount";
 const _ES = "ExecutionStatistics";
 const _ET = "ETag";
 const _ETR = "ExtendTransactionRequest";
@@ -175,6 +181,9 @@ const _GQSe = "GetQueryStatistics";
 const _GRLFT = "GetResourceLFTags";
 const _GRLFTR = "GetResourceLFTagsRequest";
 const _GRLFTRe = "GetResourceLFTagsResponse";
+const _GTDLC = "GetTemporaryDataLocationCredentials";
+const _GTDLCR = "GetTemporaryDataLocationCredentialsRequest";
+const _GTDLCRe = "GetTemporaryDataLocationCredentialsResponse";
 const _GTGPC = "GetTemporaryGluePartitionCredentials";
 const _GTGPCR = "GetTemporaryGluePartitionCredentialsRequest";
 const _GTGPCRe = "GetTemporaryGluePartitionCredentialsResponse";
@@ -346,6 +355,7 @@ const _St = "Status";
 const _Sta = "State";
 const _T = "Table";
 const _TA = "TableArn";
+const _TC = "TemporaryCredentials";
 const _TCE = "TransactionCanceledException";
 const _TCEr = "TransactionCommittedException";
 const _TCI = "TableCatalogId";
@@ -403,6 +413,7 @@ const _V = "Values";
 const _VI = "VersionId";
 const _VO = "VirtualObject";
 const _VOL = "VirtualObjectList";
+const _VS = "VerificationStatus";
 const _VSP = "VendedS3Path";
 const _W = "Warnings";
 const _WF = "WithFederation";
@@ -446,6 +457,7 @@ import {
   AccessDeniedException,
   AlreadyExistsException,
   ConcurrentModificationException,
+  ConflictException,
   EntityNotFoundException,
   ExpiredException,
   GlueEncryptionException,
@@ -591,6 +603,12 @@ export var Condition$: StaticStructureSchema = [3, n0, _C,
   [_Ex],
   [0]
 ];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateDataCellsFilterRequest$: StaticStructureSchema = [3, n0, _CDCFR,
   0,
   [_TD],
@@ -923,6 +941,16 @@ export var GetTableObjectsResponse$: StaticStructureSchema = [3, n0, _GTORe,
   [_O, _NT],
   [() => PartitionedTableObjectsList, 0]
 ];
+export var GetTemporaryDataLocationCredentialsRequest$: StaticStructureSchema = [3, n0, _GTDLCR,
+  0,
+  [_DS, _AC, _DL, _CS],
+  [1, () => AuditContext$, 64 | 0, 0]
+];
+export var GetTemporaryDataLocationCredentialsResponse$: StaticStructureSchema = [3, n0, _GTDLCRe,
+  0,
+  [_Cr, _ADL, _CS],
+  [() => TemporaryCredentials$, 64 | 0, 0]
+];
 export var GetTemporaryGluePartitionCredentialsRequest$: StaticStructureSchema = [3, n0, _GTGPCR,
   0,
   [_TA, _Par, _Pe, _DS, _AC, _SPT],
@@ -1175,8 +1203,8 @@ export var RedshiftConnect$: StaticStructureSchema = [3, n0, _RC,
 ];
 export var RegisterResourceRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
-  [_RAe, _USLR, _RA, _WF, _HAE, _WPA],
-  [0, 2, 0, 2, 2, 2], 1
+  [_RAe, _USLR, _RA, _WF, _HAE, _WPA, _EROA],
+  [0, 2, 0, 2, 2, 2, 0], 1
 ];
 export var RegisterResourceResponse$: StaticStructureSchema = [3, n0, _RRRe,
   0,
@@ -1195,13 +1223,13 @@ export var RemoveLFTagsFromResourceResponse$: StaticStructureSchema = [3, n0, _R
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_Ca, _Da, _T, _TWC, _DL, _DCF, _LFTa, _LFTPa, _LFTEa],
+  [_Ca, _Da, _T, _TWC, _DLa, _DCF, _LFTa, _LFTPa, _LFTEa],
   [() => CatalogResource$, () => DatabaseResource$, () => TableResource$, () => TableWithColumnsResource$, () => DataLocationResource$, () => DataCellsFilterResource$, () => LFTagKeyResource$, () => LFTagPolicyResource$, () => LFTagExpressionResource$]
 ];
 export var ResourceInfo$: StaticStructureSchema = [3, n0, _RI,
   0,
-  [_RAe, _RA, _LM, _WF, _HAE, _WPA],
-  [0, 0, 4, 2, 2, 2]
+  [_RAe, _RA, _LM, _WF, _HAE, _WPA, _VS, _EROA],
+  [0, 0, 4, 2, 2, 2, 0, 0]
 ];
 export var ResourceNotReadyException$: StaticErrorSchema = [-3, n0, _RNRE,
   { [_e]: _c, [_hE]: 400 },
@@ -1237,7 +1265,7 @@ export var SearchDatabasesByLFTagsRequest$: StaticStructureSchema = [3, n0, _SDB
 ];
 export var SearchDatabasesByLFTagsResponse$: StaticStructureSchema = [3, n0, _SDBLFTRe,
   0,
-  [_NT, _DLa],
+  [_NT, _DLat],
   [0, () => DatabaseLFTagsList]
 ];
 export var SearchTablesByLFTagsRequest$: StaticStructureSchema = [3, n0, _STBLFTR,
@@ -1311,6 +1339,11 @@ export var TaggedTable$: StaticStructureSchema = [3, n0, _TTa,
   [_T, _LFTOD, _LFTOT, _LFTOC],
   [() => TableResource$, () => LFTagsList, () => LFTagsList, () => ColumnLFTagsList]
 ];
+export var TemporaryCredentials$: StaticStructureSchema = [3, n0, _TC,
+  0,
+  [_AKI, _SAK, _ST, _E],
+  [0, 0, 0, 4]
+];
 export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
@@ -1382,8 +1415,8 @@ export var UpdateLFTagResponse$: StaticStructureSchema = [3, n0, _ULFTRp,
 ];
 export var UpdateResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_RA, _RAe, _WF, _HAE],
-  [0, 0, 2, 2], 2
+  [_RA, _RAe, _WF, _HAE, _EROA],
+  [0, 0, 2, 2, 0], 2
 ];
 export var UpdateResourceResponse$: StaticStructureSchema = [3, n0, _URRp,
   0,
@@ -1632,6 +1665,9 @@ export var GetResourceLFTags$: StaticOperationSchema = [9, n0, _GRLFT,
 ];
 export var GetTableObjects$: StaticOperationSchema = [9, n0, _GTO,
   { [_h]: ["POST", "/GetTableObjects", 200] }, () => GetTableObjectsRequest$, () => GetTableObjectsResponse$
+];
+export var GetTemporaryDataLocationCredentials$: StaticOperationSchema = [9, n0, _GTDLC,
+  { [_h]: ["POST", "/GetTemporaryDataLocationCredentials", 200] }, () => GetTemporaryDataLocationCredentialsRequest$, () => GetTemporaryDataLocationCredentialsResponse$
 ];
 export var GetTemporaryGluePartitionCredentials$: StaticOperationSchema = [9, n0, _GTGPC,
   { [_h]: ["POST", "/GetTemporaryGluePartitionCredentials", 200] }, () => GetTemporaryGluePartitionCredentialsRequest$, () => GetTemporaryGluePartitionCredentialsResponse$

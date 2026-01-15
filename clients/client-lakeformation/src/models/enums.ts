@@ -97,6 +97,20 @@ export type ServiceAuthorization = (typeof ServiceAuthorization)[keyof typeof Se
  * @public
  * @enum
  */
+export const VerificationStatus = {
+  NOT_VERIFIED: "NOT_VERIFIED",
+  VERIFICATION_FAILED: "VERIFICATION_FAILED",
+  VERIFIED: "VERIFIED",
+} as const;
+/**
+ * @public
+ */
+export type VerificationStatus = (typeof VerificationStatus)[keyof typeof VerificationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const QueryStateString = {
   ERROR: "ERROR",
   EXPIRED: "EXPIRED",
@@ -108,6 +122,19 @@ export const QueryStateString = {
  * @public
  */
 export type QueryStateString = (typeof QueryStateString)[keyof typeof QueryStateString];
+
+/**
+ * @public
+ * @enum
+ */
+export const CredentialsScope = {
+  READ: "READ",
+  READWRITE: "READWRITE",
+} as const;
+/**
+ * @public
+ */
+export type CredentialsScope = (typeof CredentialsScope)[keyof typeof CredentialsScope];
 
 /**
  * @public

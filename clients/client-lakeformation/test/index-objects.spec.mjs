@@ -40,6 +40,8 @@ import {
   ConcurrentModificationException,
   ConcurrentModificationException$,
   Condition$,
+  ConflictException,
+  ConflictException$,
   CreateDataCellsFilter$,
   CreateDataCellsFilterCommand,
   CreateDataCellsFilterRequest$,
@@ -60,6 +62,7 @@ import {
   CreateLFTagExpressionResponse$,
   CreateLFTagRequest$,
   CreateLFTagResponse$,
+  CredentialsScope,
   DatabaseResource$,
   DataCellsFilter$,
   DataCellsFilterResource$,
@@ -163,6 +166,10 @@ import {
   GetTableObjectsCommand,
   GetTableObjectsRequest$,
   GetTableObjectsResponse$,
+  GetTemporaryDataLocationCredentials$,
+  GetTemporaryDataLocationCredentialsCommand,
+  GetTemporaryDataLocationCredentialsRequest$,
+  GetTemporaryDataLocationCredentialsResponse$,
   GetTemporaryGluePartitionCredentials$,
   GetTemporaryGluePartitionCredentialsCommand,
   GetTemporaryGluePartitionCredentialsRequest$,
@@ -314,6 +321,7 @@ import {
   TableWithColumnsResource$,
   TaggedDatabase$,
   TaggedTable$,
+  TemporaryCredentials$,
   ThrottledException,
   ThrottledException$,
   TransactionCanceledException,
@@ -354,6 +362,7 @@ import {
   UpdateTableStorageOptimizerCommand,
   UpdateTableStorageOptimizerRequest$,
   UpdateTableStorageOptimizerResponse$,
+  VerificationStatus,
   VirtualObject$,
   WorkUnitRange$,
   WorkUnitsNotReadyYetException,
@@ -429,6 +438,8 @@ assert(typeof GetResourceLFTagsCommand === "function");
 assert(typeof GetResourceLFTags$ === "object");
 assert(typeof GetTableObjectsCommand === "function");
 assert(typeof GetTableObjects$ === "object");
+assert(typeof GetTemporaryDataLocationCredentialsCommand === "function");
+assert(typeof GetTemporaryDataLocationCredentials$ === "object");
 assert(typeof GetTemporaryGluePartitionCredentialsCommand === "function");
 assert(typeof GetTemporaryGluePartitionCredentials$ === "object");
 assert(typeof GetTemporaryGlueTableCredentialsCommand === "function");
@@ -571,6 +582,8 @@ assert(typeof GetResourceLFTagsRequest$ === "object");
 assert(typeof GetResourceLFTagsResponse$ === "object");
 assert(typeof GetTableObjectsRequest$ === "object");
 assert(typeof GetTableObjectsResponse$ === "object");
+assert(typeof GetTemporaryDataLocationCredentialsRequest$ === "object");
+assert(typeof GetTemporaryDataLocationCredentialsResponse$ === "object");
 assert(typeof GetTemporaryGluePartitionCredentialsRequest$ === "object");
 assert(typeof GetTemporaryGluePartitionCredentialsResponse$ === "object");
 assert(typeof GetTemporaryGlueTableCredentialsRequest$ === "object");
@@ -641,6 +654,7 @@ assert(typeof TableWildcard$ === "object");
 assert(typeof TableWithColumnsResource$ === "object");
 assert(typeof TaggedDatabase$ === "object");
 assert(typeof TaggedTable$ === "object");
+assert(typeof TemporaryCredentials$ === "object");
 assert(typeof TransactionDescription$ === "object");
 assert(typeof UpdateDataCellsFilterRequest$ === "object");
 assert(typeof UpdateDataCellsFilterResponse$ === "object");
@@ -662,6 +676,7 @@ assert(typeof WriteOperation$ === "object");
 // enums
 assert(typeof ApplicationStatus === "object");
 assert(typeof ComparisonOperator === "object");
+assert(typeof CredentialsScope === "object");
 assert(typeof DataLakeResourceType === "object");
 assert(typeof EnableStatus === "object");
 assert(typeof FieldNameString === "object");
@@ -675,6 +690,7 @@ assert(typeof ServiceAuthorization === "object");
 assert(typeof TransactionStatus === "object");
 assert(typeof TransactionStatusFilter === "object");
 assert(typeof TransactionType === "object");
+assert(typeof VerificationStatus === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof LakeFormationServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -682,6 +698,8 @@ assert(AlreadyExistsException.prototype instanceof LakeFormationServiceException
 assert(typeof AlreadyExistsException$ === "object");
 assert(ConcurrentModificationException.prototype instanceof LakeFormationServiceException);
 assert(typeof ConcurrentModificationException$ === "object");
+assert(ConflictException.prototype instanceof LakeFormationServiceException);
+assert(typeof ConflictException$ === "object");
 assert(EntityNotFoundException.prototype instanceof LakeFormationServiceException);
 assert(typeof EntityNotFoundException$ === "object");
 assert(ExpiredException.prototype instanceof LakeFormationServiceException);

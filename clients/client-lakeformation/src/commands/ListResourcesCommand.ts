@@ -60,6 +60,8 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * //       WithFederation: true || false,
  * //       HybridAccessEnabled: true || false,
  * //       WithPrivilegedAccess: true || false,
+ * //       VerificationStatus: "VERIFIED" || "VERIFICATION_FAILED" || "NOT_VERIFIED",
+ * //       ExpectedResourceOwnerAccount: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

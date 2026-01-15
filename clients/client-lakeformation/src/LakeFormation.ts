@@ -151,6 +151,11 @@ import {
   GetTableObjectsCommandOutput,
 } from "./commands/GetTableObjectsCommand";
 import {
+  GetTemporaryDataLocationCredentialsCommand,
+  GetTemporaryDataLocationCredentialsCommandInput,
+  GetTemporaryDataLocationCredentialsCommandOutput,
+} from "./commands/GetTemporaryDataLocationCredentialsCommand";
+import {
   GetTemporaryGluePartitionCredentialsCommand,
   GetTemporaryGluePartitionCredentialsCommandInput,
   GetTemporaryGluePartitionCredentialsCommandOutput,
@@ -317,6 +322,7 @@ const commands = {
   GetQueryStatisticsCommand,
   GetResourceLFTagsCommand,
   GetTableObjectsCommand,
+  GetTemporaryDataLocationCredentialsCommand,
   GetTemporaryGluePartitionCredentialsCommand,
   GetTemporaryGlueTableCredentialsCommand,
   GetWorkUnitResultsCommand,
@@ -897,6 +903,24 @@ export interface LakeFormation {
     args: GetTableObjectsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTableObjectsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTemporaryDataLocationCredentialsCommand}
+   */
+  getTemporaryDataLocationCredentials(): Promise<GetTemporaryDataLocationCredentialsCommandOutput>;
+  getTemporaryDataLocationCredentials(
+    args: GetTemporaryDataLocationCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTemporaryDataLocationCredentialsCommandOutput>;
+  getTemporaryDataLocationCredentials(
+    args: GetTemporaryDataLocationCredentialsCommandInput,
+    cb: (err: any, data?: GetTemporaryDataLocationCredentialsCommandOutput) => void
+  ): void;
+  getTemporaryDataLocationCredentials(
+    args: GetTemporaryDataLocationCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTemporaryDataLocationCredentialsCommandOutput) => void
   ): void;
 
   /**

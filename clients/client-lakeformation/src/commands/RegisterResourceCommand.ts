@@ -53,6 +53,7 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  *   WithFederation: true || false,
  *   HybridAccessEnabled: true || false,
  *   WithPrivilegedAccess: true || false,
+ *   ExpectedResourceOwnerAccount: "STRING_VALUE",
  * };
  * const command = new RegisterResourceCommand(input);
  * const response = await client.send(command);

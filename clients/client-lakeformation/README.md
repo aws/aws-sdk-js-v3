@@ -426,6 +426,13 @@ GetTableObjects
 </details>
 <details>
 <summary>
+GetTemporaryDataLocationCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetTemporaryDataLocationCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTemporaryDataLocationCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTemporaryDataLocationCredentialsCommandOutput/)
+</details>
+<details>
+<summary>
 GetTemporaryGluePartitionCredentials
 </summary>
 
