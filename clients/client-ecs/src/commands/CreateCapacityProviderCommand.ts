@@ -140,6 +140,7 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *         ],
  *         maxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  *       },
+ *       fipsEnabled: true || false,
  *     },
  *     propagateTags: "CAPACITY_PROVIDER" || "NONE",
  *     infrastructureOptimization: { // InfrastructureOptimization
@@ -259,6 +260,7 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * //           ],
  * //           maxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //         },
+ * //         fipsEnabled: true || false,
  * //       },
  * //       propagateTags: "CAPACITY_PROVIDER" || "NONE",
  * //       infrastructureOptimization: { // InfrastructureOptimization

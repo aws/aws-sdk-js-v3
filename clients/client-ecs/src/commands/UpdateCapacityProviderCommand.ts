@@ -250,6 +250,7 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * //           ],
  * //           maxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //         },
+ * //         fipsEnabled: true || false,
  * //       },
  * //       propagateTags: "CAPACITY_PROVIDER" || "NONE",
  * //       infrastructureOptimization: { // InfrastructureOptimization

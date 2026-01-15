@@ -646,6 +646,7 @@ const _f = "force";
 const _fA = "finishedAt";
 const _fC = "firelensConfiguration";
 const _fCa = "failureCount";
+const _fE = "fipsEnabled";
 const _fES = "fargateEphemeralStorage";
 const _fESKKI = "fargateEphemeralStorageKmsKeyId";
 const _fND = "forceNewDeployment";
@@ -1706,8 +1707,8 @@ export var InstanceHealthCheckResult$: StaticStructureSchema = [3, n0, _IHCR,
 ];
 export var InstanceLaunchTemplate$: StaticStructureSchema = [3, n0, _ILT,
   0,
-  [_eIPA, _nC, _sCto, _mo, _cOT, _iR],
-  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, 0, [() => InstanceRequirementsRequest$, 0]], 2
+  [_eIPA, _nC, _sCto, _mo, _cOT, _iR, _fE],
+  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, 0, [() => InstanceRequirementsRequest$, 0], 2], 2
 ];
 export var InstanceLaunchTemplateUpdate$: StaticStructureSchema = [3, n0, _ILTU,
   0,

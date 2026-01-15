@@ -154,6 +154,7 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * //             ],
  * //             maxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //           },
+ * //           fipsEnabled: true || false,
  * //         },
  * //         propagateTags: "CAPACITY_PROVIDER" || "NONE",
  * //         infrastructureOptimization: { // InfrastructureOptimization
