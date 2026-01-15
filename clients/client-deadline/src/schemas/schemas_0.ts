@@ -425,11 +425,13 @@ const _SJ = "SearchJobs";
 const _SJR = "SearchJobsRequest";
 const _SJRe = "SearchJobsResponse";
 const _SL = "S3Location";
+const _SLFE = "StringListFilterExpression";
 const _SLt = "StatisticsList";
 const _SMEFC = "ServiceManagedEc2FleetConfiguration";
 const _SMEIC = "ServiceManagedEc2InstanceCapabilities";
 const _SMEIMO = "ServiceManagedEc2InstanceMarketOptions";
 const _SP = "StepParameter";
+const _SPC = "StepParameterChunks";
 const _SPL = "StepParameterList";
 const _SPS = "StorageProfileSummary";
 const _SPSt = "StorageProfileSummaries";
@@ -594,6 +596,7 @@ const _cSA = "cancelSessionActions";
 const _cT = "clientToken";
 const _cU = "consumersUnresolved";
 const _ca = "capabilities";
+const _ch = "chunks";
 const _cl = "client";
 const _co = "context";
 const _cod = "code";
@@ -609,6 +612,7 @@ const _dNn = "dnsName";
 const _dP = "destinationPath";
 const _dR = "dependenciesResolved";
 const _dT = "dateTime";
+const _dTC = "defaultTaskCount";
 const _dTF = "dateTimeFilter";
 const _dU = "dependenciesUnresolved";
 const _dWS = "desiredWorkerStatus";
@@ -757,6 +761,7 @@ const _rAe = "resourceArn";
 const _rAu = "runAs";
 const _rC = "requiredCapabilities";
 const _rCA = "resourceConfigurationArns";
+const _rCa = "rangeConstraint";
 const _rEV = "rootEbsVolume";
 const _rFSLN = "requiredFileSystemLocationNames";
 const _rFSLNTA = "requiredFileSystemLocationNamesToAdd";
@@ -788,6 +793,7 @@ const _sIJA = "syncInputJobAttachments";
 const _sIe = "sessionId";
 const _sIu = "subnetIds";
 const _sJI = "sourceJobId";
+const _sLF = "stringListFilter";
 const _sM = "statusMessage";
 const _sME = "serviceManagedEc2";
 const _sO = "sortOrder";
@@ -823,6 +829,7 @@ const _tR = "totalResults";
 const _tRS = "taskRunStatus";
 const _tRSC = "taskRunStatusCounts";
 const _tRSa = "targetRunStatus";
+const _tRSar = "targetRuntimeSeconds";
 const _tRa = "taskRun";
 const _tSL = "targetS3Location";
 const _tT = "templateType";
@@ -1103,8 +1110,8 @@ export var CopyJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRo,
 ];
 export var CreateBudgetRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_fI, _uTR, _dN, _aDL, _a, _sc, _cT, _de],
-  [[0, 1], () => UsageTrackingResource$, 0, 1, [() => BudgetActionsToAdd, 0], () => BudgetSchedule$, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => Description, 0]], 6
+  [_fI, _uTR, _dN, _aDL, _a, _sc, _cT, _de, _ta],
+  [[0, 1], () => UsageTrackingResource$, 0, 1, [() => BudgetActionsToAdd, 0], () => BudgetSchedule$, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => Description, 0], 128 | 0], 6
 ];
 export var CreateBudgetResponse$: StaticStructureSchema = [3, n0, _CBRr,
   0,
@@ -1528,8 +1535,8 @@ export var GetFarmRequest$: StaticStructureSchema = [3, n0, _GFR,
 ];
 export var GetFarmResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
-  [_fI, _dN, _kKA, _cA, _cB, _de, _uA, _uB],
-  [0, 0, 0, 5, 0, [() => Description, 0], 5, 0], 5
+  [_fI, _dN, _cA, _cB, _de, _kKA, _uA, _uB],
+  [0, 0, 5, 0, [() => Description, 0], 0, 5, 0], 4
 ];
 export var GetFleetRequest$: StaticStructureSchema = [3, n0, _GFRet,
   0,
@@ -2321,8 +2328,13 @@ export var StepDetailsIdentifiers$: StaticStructureSchema = [3, n0, _SDI,
 ];
 export var StepParameter$: StaticStructureSchema = [3, n0, _SP,
   0,
-  [_n, _t],
-  [0, 0], 2
+  [_n, _t, _ch],
+  [0, 0, () => StepParameterChunks$], 2
+];
+export var StepParameterChunks$: StaticStructureSchema = [3, n0, _SPC,
+  0,
+  [_dTC, _rCa, _tRSar],
+  [1, 0, 1], 2
 ];
 export var StepRequiredCapabilities$: StaticStructureSchema = [3, n0, _SRC,
   0,
@@ -2348,6 +2360,11 @@ export var StringFilterExpression$: StaticStructureSchema = [3, n0, _SFE,
   0,
   [_n, _o, _va],
   [0, 0, 0], 3
+];
+export var StringListFilterExpression$: StaticStructureSchema = [3, n0, _SLFE,
+  0,
+  [_n, _o, _v],
+  [0, 0, 64 | 0], 3
 ];
 export var SyncInputJobAttachmentsSessionActionDefinition$: StaticStructureSchema = [3, n0, _SIJASAD,
   0,
@@ -2391,8 +2408,8 @@ export var TaskRunSessionActionDefinitionSummary$: StaticStructureSchema = [3, n
 ];
 export var TaskSearchSummary$: StaticStructureSchema = [3, n0, _TSS,
   0,
-  [_tI, _sI, _jI, _qI, _rS, _tRSa, _p, _fRC, _sAt, _eA, _uA, _uB],
-  [0, 0, 0, 0, 0, 0, [() => TaskParameters, 0], 1, 5, 5, 5, 0]
+  [_tI, _sI, _jI, _qI, _rS, _tRSa, _p, _fRC, _sAt, _eA, _uA, _uB, _lSAI],
+  [0, 0, 0, 0, 0, 0, [() => TaskParameters, 0], 1, 5, 5, 5, 0, 0]
 ];
 export var TaskSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
@@ -2809,6 +2826,7 @@ var StepSummaries: StaticListSchema = [1, n0, _SSte,
 var StorageProfileSummaries: StaticListSchema = [1, n0, _SPSt,
   0, () => StorageProfileSummary$
 ];
+var StringFilterList = 64 | 0;
 var StringList = 64 | 0;
 var SubnetIdList = 64 | 0;
 var TaskRunManifestPropertiesListRequest: StaticListSchema = [1, n0, _TRMPLR,
@@ -2909,8 +2927,8 @@ export var JobParameter$: StaticUnionSchema = [4, n0, _JPo,
 ];
 export var SearchFilterExpression$: StaticUnionSchema = [4, n0, _SFEea,
   0,
-  [_dTF, _pF, _sTF, _sF, _gF],
-  [() => DateTimeFilterExpression$, () => ParameterFilterExpression$, () => SearchTermFilterExpression$, () => StringFilterExpression$, () => SearchGroupedFilterExpressions$]
+  [_dTF, _pF, _sTF, _sF, _sLF, _gF],
+  [() => DateTimeFilterExpression$, () => ParameterFilterExpression$, () => SearchTermFilterExpression$, () => StringFilterExpression$, () => StringListFilterExpression$, () => SearchGroupedFilterExpressions$]
 ];
 export var SearchSortExpression$: StaticUnionSchema = [4, n0, _SSEe,
   0,

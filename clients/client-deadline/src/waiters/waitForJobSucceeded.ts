@@ -11,41 +11,41 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
     reason = result;
     try {
       const returnComparator = () => {
-        return result.lifecycleStatus;
+        return result.taskRunStatus;
       }
-      if (returnComparator() === "CREATE_COMPLETE") {
+      if (returnComparator() === "SUCCEEDED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
       const returnComparator = () => {
-        return result.lifecycleStatus;
+        return result.taskRunStatus;
       }
-      if (returnComparator() === "UPDATE_IN_PROGRESS") {
-        return { state: WaiterState.SUCCESS, reason };
-      }
-    } catch (e) {}
-    try {
-      const returnComparator = () => {
-        return result.lifecycleStatus;
-      }
-      if (returnComparator() === "UPDATE_FAILED") {
-        return { state: WaiterState.SUCCESS, reason };
+      if (returnComparator() === "FAILED") {
+        return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
       const returnComparator = () => {
-        return result.lifecycleStatus;
+        return result.taskRunStatus;
       }
-      if (returnComparator() === "UPDATE_SUCCEEDED") {
-        return { state: WaiterState.SUCCESS, reason };
+      if (returnComparator() === "CANCELED") {
+        return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
       const returnComparator = () => {
-        return result.lifecycleStatus;
+        return result.taskRunStatus;
       }
-      if (returnComparator() === "UPLOAD_FAILED") {
+      if (returnComparator() === "SUSPENDED") {
+        return { state: WaiterState.FAILURE, reason };
+      }
+    } catch (e) {}
+    try {
+      const returnComparator = () => {
+        return result.taskRunStatus;
+      }
+      if (returnComparator() === "NOT_COMPATIBLE") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
@@ -53,7 +53,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
       const returnComparator = () => {
         return result.lifecycleStatus;
       }
-      if (returnComparator() === "CREATE_FAILED") {
+      if (returnComparator() === "ARCHIVED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
@@ -63,26 +63,26 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
   return { state: WaiterState.RETRY, reason };
 };
 /**
- * Wait until a job is created. Use this after invoking CreateJob.
- *  @deprecated Use waitUntilJobCreateComplete instead. waitForJobCreateComplete does not throw error in non-success cases.
+ * Wait until a job has succeeded. Fails if the job reaches a non-successful terminal status. Waits up to 1 hour by default.
+ *  @deprecated Use waitUntilJobSucceeded instead. waitForJobSucceeded does not throw error in non-success cases.
  */
-export const waitForJobCreateComplete = async (
+export const waitForJobSucceeded = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetJobCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 1, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 15, maxDelay: 3600 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
- * Wait until a job is created. Use this after invoking CreateJob.
+ * Wait until a job has succeeded. Fails if the job reaches a non-successful terminal status. Waits up to 1 hour by default.
  *  @param params - Waiter configuration options.
  *  @param input - The input to GetJobCommand for polling.
  */
-export const waitUntilJobCreateComplete = async (
+export const waitUntilJobSucceeded = async (
   params: WaiterConfiguration<DeadlineClient>,
   input: GetJobCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 1, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 15, maxDelay: 3600 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
   return checkExceptions(result);
 };

@@ -509,6 +509,7 @@ import {
   QueueMember$,
   QueueStatus,
   QueueSummary$,
+  RangeConstraint,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResponseBudgetAction$,
@@ -567,6 +568,7 @@ import {
   StepDetailsIdentifiers$,
   StepLifecycleStatus,
   StepParameter$,
+  StepParameterChunks$,
   StepParameterType,
   StepRequiredCapabilities$,
   StepSearchSummary$,
@@ -575,6 +577,7 @@ import {
   StorageProfileOperatingSystemFamily,
   StorageProfileSummary$,
   StringFilterExpression$,
+  StringListFilterExpression$,
   SyncInputJobAttachmentsSessionActionDefinition$,
   SyncInputJobAttachmentsSessionActionDefinitionSummary$,
   TagPropagationMode,
@@ -678,7 +681,9 @@ import {
   VCpuCountRange$,
   VpcConfiguration$,
   waitForFleetActive,
+  waitForJobComplete,
   waitForJobCreateComplete,
+  waitForJobSucceeded,
   waitForLicenseEndpointDeleted,
   waitForLicenseEndpointValid,
   waitForQueueFleetAssociationStopped,
@@ -686,7 +691,9 @@ import {
   waitForQueueScheduling,
   waitForQueueSchedulingBlocked,
   waitUntilFleetActive,
+  waitUntilJobComplete,
   waitUntilJobCreateComplete,
+  waitUntilJobSucceeded,
   waitUntilLicenseEndpointDeleted,
   waitUntilLicenseEndpointValid,
   waitUntilQueueFleetAssociationStopped,
@@ -1226,11 +1233,13 @@ assert(typeof StepDetailsEntity$ === "object");
 assert(typeof StepDetailsError$ === "object");
 assert(typeof StepDetailsIdentifiers$ === "object");
 assert(typeof StepParameter$ === "object");
+assert(typeof StepParameterChunks$ === "object");
 assert(typeof StepRequiredCapabilities$ === "object");
 assert(typeof StepSearchSummary$ === "object");
 assert(typeof StepSummary$ === "object");
 assert(typeof StorageProfileSummary$ === "object");
 assert(typeof StringFilterExpression$ === "object");
+assert(typeof StringListFilterExpression$ === "object");
 assert(typeof SyncInputJobAttachmentsSessionActionDefinition$ === "object");
 assert(typeof SyncInputJobAttachmentsSessionActionDefinitionSummary$ === "object");
 assert(typeof TagResourceRequest$ === "object");
@@ -1324,6 +1333,7 @@ assert(typeof QueueBlockedReason === "object");
 assert(typeof QueueFleetAssociationStatus === "object");
 assert(typeof QueueLimitAssociationStatus === "object");
 assert(typeof QueueStatus === "object");
+assert(typeof RangeConstraint === "object");
 assert(typeof RunAs === "object");
 assert(typeof SearchTermMatchingType === "object");
 assert(typeof ServiceManagedFleetOperatingSystemFamily === "object");
@@ -1367,7 +1377,9 @@ assert(typeof ValidationException$ === "object");
 assert(DeadlineServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForFleetActive === "function");
+assert(typeof waitForJobComplete === "function");
 assert(typeof waitForJobCreateComplete === "function");
+assert(typeof waitForJobSucceeded === "function");
 assert(typeof waitForLicenseEndpointDeleted === "function");
 assert(typeof waitForLicenseEndpointValid === "function");
 assert(typeof waitForQueueFleetAssociationStopped === "function");
@@ -1375,7 +1387,9 @@ assert(typeof waitForQueueLimitAssociationStopped === "function");
 assert(typeof waitForQueueScheduling === "function");
 assert(typeof waitForQueueSchedulingBlocked === "function");
 assert(typeof waitUntilFleetActive === "function");
+assert(typeof waitUntilJobComplete === "function");
 assert(typeof waitUntilJobCreateComplete === "function");
+assert(typeof waitUntilJobSucceeded === "function");
 assert(typeof waitUntilLicenseEndpointDeleted === "function");
 assert(typeof waitUntilLicenseEndpointValid === "function");
 assert(typeof waitUntilQueueFleetAssociationStopped === "function");

@@ -47,12 +47,12 @@ export interface SearchTasksCommandOutput extends SearchTasksResponse, __Metadat
  *       { // SearchFilterExpression Union: only one key present
  *         dateTimeFilter: { // DateTimeFilterExpression
  *           name: "STRING_VALUE", // required
- *           operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN", // required
+ *           operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN" || "ANY_EQUALS" || "ALL_NOT_EQUALS", // required
  *           dateTime: new Date("TIMESTAMP"), // required
  *         },
  *         parameterFilter: { // ParameterFilterExpression
  *           name: "STRING_VALUE", // required
- *           operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN", // required
+ *           operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN" || "ANY_EQUALS" || "ALL_NOT_EQUALS", // required
  *           value: "STRING_VALUE", // required
  *         },
  *         searchTermFilter: { // SearchTermFilterExpression
@@ -61,20 +61,27 @@ export interface SearchTasksCommandOutput extends SearchTasksResponse, __Metadat
  *         },
  *         stringFilter: { // StringFilterExpression
  *           name: "STRING_VALUE", // required
- *           operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN", // required
+ *           operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN" || "ANY_EQUALS" || "ALL_NOT_EQUALS", // required
  *           value: "STRING_VALUE", // required
+ *         },
+ *         stringListFilter: { // StringListFilterExpression
+ *           name: "STRING_VALUE", // required
+ *           operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN" || "ANY_EQUALS" || "ALL_NOT_EQUALS", // required
+ *           values: [ // StringFilterList // required
+ *             "STRING_VALUE",
+ *           ],
  *         },
  *         groupFilter: {
  *           filters: [ // required
  *             {//  Union: only one key present
  *               dateTimeFilter: {
  *                 name: "STRING_VALUE", // required
- *                 operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN", // required
+ *                 operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN" || "ANY_EQUALS" || "ALL_NOT_EQUALS", // required
  *                 dateTime: new Date("TIMESTAMP"), // required
  *               },
  *               parameterFilter: {
  *                 name: "STRING_VALUE", // required
- *                 operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN", // required
+ *                 operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN" || "ANY_EQUALS" || "ALL_NOT_EQUALS", // required
  *                 value: "STRING_VALUE", // required
  *               },
  *               searchTermFilter: {
@@ -83,8 +90,15 @@ export interface SearchTasksCommandOutput extends SearchTasksResponse, __Metadat
  *               },
  *               stringFilter: {
  *                 name: "STRING_VALUE", // required
- *                 operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN", // required
+ *                 operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN" || "ANY_EQUALS" || "ALL_NOT_EQUALS", // required
  *                 value: "STRING_VALUE", // required
+ *               },
+ *               stringListFilter: {
+ *                 name: "STRING_VALUE", // required
+ *                 operator: "EQUAL" || "NOT_EQUAL" || "GREATER_THAN_EQUAL_TO" || "GREATER_THAN" || "LESS_THAN_EQUAL_TO" || "LESS_THAN" || "ANY_EQUALS" || "ALL_NOT_EQUALS", // required
+ *                 values: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
  *               },
  *               groupFilter: "<SearchGroupedFilterExpressions>",
  *             },
@@ -138,6 +152,7 @@ export interface SearchTasksCommandOutput extends SearchTasksResponse, __Metadat
  * //       endedAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       updatedBy: "STRING_VALUE",
+ * //       latestSessionActionId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextItemOffset: Number("int"),
@@ -165,8 +180,7 @@ export interface SearchTasksCommandOutput extends SearchTasksResponse, __Metadat
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

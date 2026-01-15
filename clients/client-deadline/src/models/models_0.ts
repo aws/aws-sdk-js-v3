@@ -33,6 +33,7 @@ import {
   QueueFleetAssociationStatus,
   QueueLimitAssociationStatus,
   QueueStatus,
+  RangeConstraint,
   RunAs,
   ServiceManagedFleetOperatingSystemFamily,
   SessionActionStatus,
@@ -53,8 +54,7 @@ import {
 } from "./enums";
 
 /**
- * <p>Defines the maximum and minimum number of GPU accelerators required for a worker
- *          instance..</p>
+ * <p>Defines the maximum and minimum number of GPU accelerators required for a worker instance..</p>
  * @public
  */
 export interface AcceleratorCountRange {
@@ -77,87 +77,38 @@ export interface AcceleratorCountRange {
  */
 export interface AcceleratorSelection {
   /**
-   * <p>The name of the chip used by the GPU accelerator.</p>
-   *          <p>If you specify <code>l4</code> as the name of the accelerator, you must specify
-   *             <code>latest</code> or <code>grid:r570</code> as the runtime.</p>
-   *          <p>The available GPU accelerators are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>t4</code> - NVIDIA T4 Tensor Core GPU</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>a10g</code> - NVIDIA A10G Tensor Core GPU</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>l4</code> - NVIDIA L4 Tensor Core GPU</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>l40s</code> - NVIDIA L40S Tensor Core GPU</p>
-   *             </li>
-   *          </ul>
+   * <p>The name of the chip used by the GPU accelerator.</p> <p>The available GPU accelerators are:</p> <ul> <li> <p> <code>t4</code> - NVIDIA T4 Tensor Core GPU (16 GiB memory)</p> </li> <li> <p> <code>a10g</code> - NVIDIA A10G Tensor Core GPU (24 GiB memory)</p> </li> <li> <p> <code>l4</code> - NVIDIA L4 Tensor Core GPU (24 GiB memory)</p> </li> <li> <p> <code>l40s</code> - NVIDIA L40S Tensor Core GPU (48 GiB memory)</p> </li> </ul>
    * @public
    */
   name: AcceleratorName | undefined;
 
   /**
-   * <p>Specifies the runtime driver to use for the GPU accelerator. You must use the same
-   *          runtime for all GPUs. </p>
-   *          <p>You can choose from the following runtimes:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>latest</code> - Use the latest runtime available for the chip. If you
-   *                specify <code>latest</code> and a new version of the runtime is released, the new
-   *                version of the runtime is used.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>grid:r570</code> - <a href="https://docs.nvidia.com/vgpu/18.0/index.html">NVIDIA vGPU software 18</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>grid:r535</code> - <a href="https://docs.nvidia.com/vgpu/16.0/index.html">NVIDIA vGPU software 16</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>If you don't specify a runtime, Deadline Cloud uses <code>latest</code> as the default. However,
-   *          if you have multiple accelerators and specify <code>latest</code> for some and leave others
-   *          blank, Deadline Cloud raises an exception.</p>
+   * <p>Specifies the runtime driver to use for the GPU accelerator. You must use the same runtime for all GPUs in a fleet. </p> <p>You can choose from the following runtimes:</p> <ul> <li> <p> <code>latest</code> - Use the latest runtime available for the chip. If you specify <code>latest</code> and a new version of the runtime is released, the new version of the runtime is used.</p> </li> <li> <p> <code>grid:r570</code> - <a href="https://docs.nvidia.com/vgpu/18.0/index.html">NVIDIA vGPU software 18</a> </p> </li> <li> <p> <code>grid:r535</code> - <a href="https://docs.nvidia.com/vgpu/16.0/index.html">NVIDIA vGPU software 16</a> </p> </li> </ul> <p>If you don't specify a runtime, Amazon Web Services Deadline Cloud uses <code>latest</code> as the default. However, if you have multiple accelerators and specify <code>latest</code> for some and leave others blank, Amazon Web Services Deadline Cloud raises an exception.</p> <important> <p>Not all runtimes are compatible with all accelerator types:</p> <ul> <li> <p> <code>t4</code> and <code>a10g</code>: Support all runtimes (<code>grid:r570</code>, <code>grid:r535</code>)</p> </li> <li> <p> <code>l4</code> and <code>l40s</code>: Only support <code>grid:r570</code> and newer</p> </li> </ul> <p>All accelerators in a fleet must use the same runtime version. You cannot mix different runtime versions within a single fleet.</p> </important> <note> <p>When you specify <code>latest</code>, it resolves to <code>grid:r570</code> for all currently supported accelerators.</p> </note>
    * @public
    */
   runtime?: string | undefined;
 }
 
 /**
- * <p>Provides information about the GPU accelerators used for jobs processed by a
- *          fleet.</p>
+ * <p>Provides information about the GPU accelerators used for jobs processed by a fleet.</p> <important> <p>Accelerator capabilities cannot be used with wait-and-save fleets. If you specify accelerator capabilities, you must use either spot or on-demand instance market options.</p> </important> <note> <p>Each accelerator type maps to specific EC2 instance families:</p> <ul> <li> <p> <code>t4</code>: Uses G4dn instance family</p> </li> <li> <p> <code>a10g</code>: Uses G5 instance family</p> </li> <li> <p> <code>l4</code>: Uses G6 and Gr6 instance families</p> </li> <li> <p> <code>l40s</code>: Uses G6e instance family</p> </li> </ul> </note>
  * @public
  */
 export interface AcceleratorCapabilities {
   /**
-   * <p>A list of accelerator capabilities requested for this fleet. Only Amazon Elastic Compute Cloud instances
-   *          that provide these capabilities will be used. For example, if you specify both L4 and T4
-   *          chips, Deadline Cloud will use Amazon EC2 instances that have either the L4 or the T4 chip
-   *          installed.</p>
+   * <p>A list of accelerator capabilities requested for this fleet. Only Amazon Elastic Compute Cloud instances that provide these capabilities will be used. For example, if you specify both L4 and T4 chips, Amazon Web Services Deadline Cloud will use Amazon EC2 instances that have either the L4 or the T4 chip installed.</p> <important> <ul> <li> <p>You must specify at least one accelerator selection.</p> </li> <li> <p>You cannot specify the same accelerator name multiple times in the selections list.</p> </li> <li> <p>All accelerators in the selections must use the same runtime version.</p> </li> </ul> </important>
    * @public
    */
   selections: AcceleratorSelection[] | undefined;
 
   /**
-   * <p>The number of GPU accelerators specified for worker hosts in this fleet. </p>
+   * <p>The number of GPU accelerators specified for worker hosts in this fleet.</p> <important> <p>You must specify either <code>acceleratorCapabilities.count.max</code> or <code>allowedInstanceTypes</code> when using accelerator capabilities. If you don't specify a maximum count, Amazon Web Services Deadline Cloud uses the instance types you specify in <code>allowedInstanceTypes</code> to determine the maximum number of accelerators.</p> </important>
    * @public
    */
   count?: AcceleratorCountRange | undefined;
 }
 
 /**
- * <p>Defines the maximum and minimum amount of memory, in MiB, to use for the
- *          accelerator.</p>
+ * <p>Defines the maximum and minimum amount of memory, in MiB, to use for the accelerator.</p>
  * @public
  */
 export interface AcceleratorTotalMemoryMiBRange {
@@ -247,12 +198,12 @@ export interface LogConfiguration {
 }
 
 /**
- * <p>The details for an assigned session action as it relates to a job attachment.</p>
+ * <p>The assigned session action definition for syncing input job attachments.</p>
  * @public
  */
 export interface AssignedSyncInputJobAttachmentsSessionActionDefinition {
   /**
-   * <p>The step ID.</p>
+   * <p>The step ID for the assigned sync input job attachments session action.</p>
    * @public
    */
   stepId?: string | undefined;
@@ -441,7 +392,7 @@ export namespace AssignedSessionActionDefinition {
   }
 
   /**
-   * <p>The job attachment to sync with an assigned session action.</p>
+   * <p>The job attachments to sync for the assigned session action.</p>
    * @public
    */
   export interface SyncInputJobAttachmentsMember {
@@ -957,18 +908,18 @@ export interface ManifestProperties {
 }
 
 /**
- * <p>The attachments for jobs.</p>
+ * <p>The job attachments.</p>
  * @public
  */
 export interface Attachments {
   /**
-   * <p>A list of manifests which describe job attachment configurations.</p>
+   * <p>The manifest properties for the attachments.</p>
    * @public
    */
   manifests: ManifestProperties[] | undefined;
 
   /**
-   * <p>The file system.</p>
+   * <p>The file system location for the attachments.</p>
    * @public
    */
   fileSystem?: JobAttachmentsFileSystem | undefined;
@@ -1126,15 +1077,13 @@ export namespace JobEntityIdentifiersUnion {
  */
 export interface BatchGetJobEntityRequest {
   /**
-   * <p>The farm ID of the worker that's fetching job details. The worker must have an
-   *          assignment on a job to fetch job details.</p>
+   * <p>The farm ID of the worker that's fetching job details. The worker must have an assignment on a job to fetch job details.</p>
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The fleet ID of the worker that's fetching job details. The worker must have an
-   *          assignment on a job to fetch job details.</p>
+   * <p>The fleet ID of the worker that's fetching job details. The worker must have an assignment on a job to fetch job details.</p>
    * @public
    */
   fleetId: string | undefined;
@@ -1272,8 +1221,7 @@ export interface JobRunAsUser {
   windows?: WindowsUser | undefined;
 
   /**
-   * <p>Specifies whether the job should run using the queue's system user or if the job should
-   *          run using the worker agent system user.</p>
+   * <p>Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.</p>
    * @public
    */
   runAs: RunAs | undefined;
@@ -1797,10 +1745,7 @@ export interface BudgetActionToAdd {
   thresholdPercentage: number | undefined;
 
   /**
-   * <p>A description for the budget action to add.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>A description for the budget action to add.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -1943,19 +1888,13 @@ export interface CreateBudgetRequest {
   usageTrackingResource: UsageTrackingResource | undefined;
 
   /**
-   * <p>The display name of the budget.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the budget.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -1977,6 +1916,12 @@ export interface CreateBudgetRequest {
    * @public
    */
   schedule: BudgetSchedule | undefined;
+
+  /**
+   * <p>Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2047,10 +1992,7 @@ export interface ResponseBudgetAction {
   thresholdPercentage: number | undefined;
 
   /**
-   * <p>The budget action description.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The budget action description.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -2085,36 +2027,19 @@ export interface GetBudgetResponse {
   usageTrackingResource: UsageTrackingResource | undefined;
 
   /**
-   * <p>The status of the budget.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>–Get a budget being evaluated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code>–Get an inactive budget. This can include expired,
-   *                canceled, or deleted statuses.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code>–Get a budget being evaluated.</p> </li> <li> <p> <code>INACTIVE</code>–Get an inactive budget. This can include expired, canceled, or deleted statuses.</p> </li> </ul>
    * @public
    */
   status: BudgetStatus | undefined;
 
   /**
-   * <p>The display name of the budget.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the budget.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -2221,36 +2146,19 @@ export interface BudgetSummary {
   usageTrackingResource: UsageTrackingResource | undefined;
 
   /**
-   * <p>The status of the budget.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>–The budget is being evaluated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code>–The budget is inactive. This can include Expired,
-   *                Canceled, or deleted Deleted statuses.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code>–The budget is being evaluated.</p> </li> <li> <p> <code>INACTIVE</code>–The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses.</p> </li> </ul>
    * @public
    */
   status: BudgetStatus | undefined;
 
   /**
-   * <p>The display name of the budget summary to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the budget summary to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the budget summary.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the budget summary.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    *
    * @deprecated ListBudgets no longer supports description. Use GetBudget if description is needed.
    * @public
@@ -2334,36 +2242,19 @@ export interface UpdateBudgetRequest {
   budgetId: string | undefined;
 
   /**
-   * <p>The display name of the budget to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the budget to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the budget to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the budget to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Updates the status of the budget.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>–The budget is being evaluated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACTIVE</code>–The budget is inactive. This can include Expired,
-   *                Canceled, or deleted Deleted statuses.</p>
-   *             </li>
-   *          </ul>
+   * <p>Updates the status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code>–The budget is being evaluated.</p> </li> <li> <p> <code>INACTIVE</code>–The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses.</p> </li> </ul>
    * @public
    */
   status?: BudgetStatus | undefined;
@@ -2375,8 +2266,7 @@ export interface UpdateBudgetRequest {
   approximateDollarLimit?: number | undefined;
 
   /**
-   * <p>The budget actions to add. Budget actions specify what happens when the budget runs
-   *          out.</p>
+   * <p>The budget actions to add. Budget actions specify what happens when the budget runs out.</p>
    * @public
    */
   actionsToAdd?: BudgetActionToAdd[] | undefined;
@@ -2440,8 +2330,7 @@ export interface CopyJobTemplateRequest {
   queueId: string | undefined;
 
   /**
-   * <p>The Amazon S3 bucket name and key where you would like to add a copy of the job
-   *          template.</p>
+   * <p>The Amazon S3 bucket name and key where you would like to add a copy of the job template.</p>
    * @public
    */
   targetS3Location: S3Location | undefined;
@@ -2469,19 +2358,13 @@ export interface CreateFarmRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The display name of the farm.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the farm.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -2649,37 +2532,30 @@ export interface CustomerManagedWorkerCapabilities {
 }
 
 /**
- * <p>The details of a customer managed fleet configuration.</p>
+ * <p>The configuration details for a customer managed fleet.</p>
  * @public
  */
 export interface CustomerManagedFleetConfiguration {
   /**
-   * <p>The Auto Scaling mode for the customer managed fleet configuration.</p>
+   * <p>The Auto Scaling mode for the customer managed fleet.</p>
    * @public
    */
   mode: AutoScalingMode | undefined;
 
   /**
-   * <p>The worker capabilities for a customer managed fleet configuration.</p>
+   * <p>The worker capabilities for the customer managed fleet.</p>
    * @public
    */
   workerCapabilities: CustomerManagedWorkerCapabilities | undefined;
 
   /**
-   * <p>The storage profile ID.</p>
+   * <p>The storage profile ID for the customer managed fleet.</p>
    * @public
    */
   storageProfileId?: string | undefined;
 
   /**
-   * <p>Specifies whether tags associated with a fleet are attached to workers when the worker
-   *          is launched. </p>
-   *          <p>When the <code>tagPropagationMode</code> is set to
-   *             <code>PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH</code> any tag associated with a fleet is
-   *          attached to workers when they launch. If the tags for a fleet change, the tags associated
-   *          with running workers <b>do not</b> change.</p>
-   *          <p>If you don't specify <code>tagPropagationMode</code>, the default is
-   *             <code>NO_PROPAGATION</code>.</p>
+   * <p>The tag propagation mode for the customer managed fleet.</p>
    * @public
    */
   tagPropagationMode?: TagPropagationMode | undefined;
@@ -2745,8 +2621,7 @@ export interface ServiceManagedEc2InstanceCapabilities {
   rootEbsVolume?: Ec2EbsVolume | undefined;
 
   /**
-   * <p>Describes the GPU accelerator capabilities required for worker host instances in this
-   *          fleet.</p>
+   * <p>Describes the GPU accelerator capabilities required for worker host instances in this fleet.</p>
    * @public
    */
   acceleratorCapabilities?: AcceleratorCapabilities | undefined;
@@ -2801,30 +2676,30 @@ export interface VpcConfiguration {
 }
 
 /**
- * <p>The configuration details for a service managed Amazon EC2 fleet.</p>
+ * <p>The configuration details for a service managed EC2 fleet.</p>
  * @public
  */
 export interface ServiceManagedEc2FleetConfiguration {
   /**
-   * <p>The Amazon EC2 instance capabilities.</p>
+   * <p>The instance capabilities for the service managed EC2 fleet.</p>
    * @public
    */
   instanceCapabilities: ServiceManagedEc2InstanceCapabilities | undefined;
 
   /**
-   * <p>The Amazon EC2 market type.</p>
+   * <p>The instance market options for the service managed EC2 fleet.</p>
    * @public
    */
   instanceMarketOptions: ServiceManagedEc2InstanceMarketOptions | undefined;
 
   /**
-   * <p>The VPC configuration details for a service managed Amazon EC2 fleet.</p>
+   * <p>The VPC configuration for the service managed EC2 fleet.</p>
    * @public
    */
   vpcConfiguration?: VpcConfiguration | undefined;
 
   /**
-   * <p>The storage profile ID.</p>
+   * <p>The storage profile ID for the service managed EC2 fleet.</p>
    * @public
    */
   storageProfileId?: string | undefined;
@@ -2884,38 +2759,18 @@ export namespace FleetConfiguration {
 }
 
 /**
- * <p>Provides a script that runs as a worker is starting up that you can use to provide
- *          additional configuration for workers in your fleet. </p>
- *          <p>To remove a script from a fleet, use the <a href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html">UpdateFleet</a>
- *          operation with the <code>hostConfiguration</code>
- *             <code>scriptBody</code> parameter set to an empty string ("").</p>
+ * <p>Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. </p> <p>To remove a script from a fleet, use the <a href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html">UpdateFleet</a> operation with the <code>hostConfiguration</code> <code>scriptBody</code> parameter set to an empty string ("").</p>
  * @public
  */
 export interface HostConfiguration {
   /**
-   * <p>The text of the script that runs as a worker is starting up that you can use to provide
-   *          additional configuration for workers in your fleet. The script runs after a worker enters
-   *          the <code>STARTING</code> state and before the worker processes tasks.</p>
-   *          <p>For more information about using the script, see <a href="https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html">Run scripts as an
-   *             administrator to configure workers</a> in the <i>Deadline Cloud Developer
-   *             Guide</i>. </p>
-   *          <important>
-   *             <p>The script runs as an administrative user (<code>sudo root</code> on Linux, as an
-   *             Administrator on Windows). </p>
-   *          </important>
+   * <p>The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the <code>STARTING</code> state and before the worker processes tasks.</p> <p>For more information about using the script, see <a href="https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html">Run scripts as an administrator to configure workers</a> in the <i>Deadline Cloud Developer Guide</i>. </p> <important> <p>The script runs as an administrative user (<code>sudo root</code> on Linux, as an Administrator on Windows). </p> </important>
    * @public
    */
   scriptBody: string | undefined;
 
   /**
-   * <p>The maximum time that the host configuration can run. If the timeout expires, the worker
-   *          enters the <code>NOT RESPONDING</code> state and shuts down. You are charged for the time
-   *          that the worker is running the host configuration script.</p>
-   *          <note>
-   *             <p>You should configure your fleet for a maximum of one worker while testing your host
-   *             configuration script to avoid starting additional workers.</p>
-   *          </note>
-   *          <p>The default is 300 seconds (5 minutes).</p>
+   * <p>The maximum time that the host configuration can run. If the timeout expires, the worker enters the <code>NOT RESPONDING</code> state and shuts down. You are charged for the time that the worker is running the host configuration script.</p> <note> <p>You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers.</p> </note> <p>The default is 300 seconds (5 minutes).</p>
    * @public
    */
   scriptTimeoutSeconds?: number | undefined;
@@ -2938,19 +2793,13 @@ export interface CreateFleetRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the fleet.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the fleet.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the fleet.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the fleet.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -2968,21 +2817,13 @@ export interface CreateFleetRequest {
   minWorkerCount?: number | undefined;
 
   /**
-   * <p>The maximum number of workers for the fleet.</p>
-   *          <p>Deadline Cloud limits the number of workers to less than or equal to the fleet's
-   *          maximum worker count. The service maintains eventual consistency for the worker count. If
-   *          you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you
-   *          might exceed your fleet's maximum worker count. For example, if your
-   *          <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick
-   *          <code>CreateWorker</code> calls might successfully create 2 workers instead of 1,
-   *          resulting in 11 total workers.</p>
+   * <p>The maximum number of workers for the fleet.</p> <p>Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you might exceed your fleet's maximum worker count. For example, if your <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick <code>CreateWorker</code> calls might successfully create 2 workers instead of 1, resulting in 11 total workers.</p>
    * @public
    */
   maxWorkerCount: number | undefined;
 
   /**
-   * <p>The configuration settings for the fleet. Customer managed fleets are self-managed.
-   *          Service managed Amazon EC2 fleets are managed by Deadline Cloud.</p>
+   * <p>The configuration settings for the fleet. Customer managed fleets are self-managed. Service managed Amazon EC2 fleets are managed by Deadline Cloud.</p>
    * @public
    */
   configuration: FleetConfiguration | undefined;
@@ -2994,8 +2835,7 @@ export interface CreateFleetRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Provides a script that runs as a worker is starting up that you can use to provide
-   *          additional configuration for workers in your fleet.</p>
+   * <p>Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.</p>
    * @public
    */
   hostConfiguration?: HostConfiguration | undefined;
@@ -3047,8 +2887,7 @@ export interface CreateJobRequest {
   templateType?: JobTemplateType | undefined;
 
   /**
-   * <p>The priority of the job. The highest priority (first scheduled) is 100. When two jobs
-   *          have the same priority, the oldest job is scheduled first.</p>
+   * <p>The priority of the job. The highest priority (first scheduled) is 100. When two jobs have the same priority, the oldest job is scheduled first.</p>
    * @public
    */
   priority: number | undefined;
@@ -3060,8 +2899,7 @@ export interface CreateJobRequest {
   parameters?: Record<string, JobParameter> | undefined;
 
   /**
-   * <p>The attachments for the job. Attach files required for the job to run to a render
-   *          job.</p>
+   * <p>The attachments for the job. Attach files required for the job to run to a render job.</p>
    * @public
    */
   attachments?: Attachments | undefined;
@@ -3073,8 +2911,7 @@ export interface CreateJobRequest {
   storageProfileId?: string | undefined;
 
   /**
-   * <p>The initial job status when it is created. Jobs that are created with a
-   *             <code>SUSPENDED</code> status will not run until manually requeued.</p>
+   * <p>The initial job status when it is created. Jobs that are created with a <code>SUSPENDED</code> status will not run until manually requeued.</p>
    * @public
    */
   targetTaskRunStatus?: CreateJobTargetTaskRunStatus | undefined;
@@ -3092,13 +2929,7 @@ export interface CreateJobRequest {
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * <p>The maximum number of worker hosts that can concurrently process a job. When the
-   *             <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the
-   *          job, even if the fleets assigned to the job's queue has available workers.</p>
-   *          <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no
-   *          maximum number of workers.</p>
-   *          <p>If you don't specify the <code>maxWorkerCount</code>, Deadline Cloud won't throttle
-   *          the number of workers used to process the job.</p>
+   * <p>The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.</p> <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.</p> <p>If you don't specify the <code>maxWorkerCount</code>, Deadline Cloud won't throttle the number of workers used to process the job.</p>
    * @public
    */
   maxWorkerCount?: number | undefined;
@@ -3178,28 +3009,19 @@ export interface CreateLimitRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The display name of the limit.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of
-   *          the <code>hostRequirements</code> in a step of a job template to declare the limit
-   *          requirement.</p>
+   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
    * @public
    */
   amountRequirementName: string | undefined;
 
   /**
-   * <p>The maximum number of resources constrained by this limit. When all of the resources are
-   *          in use, steps that require the limit won't be scheduled until the resource is
-   *          available.</p>
-   *          <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on
-   *          the number of resources that can be acquired for this limit.</p>
+   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
    * @public
    */
   maxCount: number | undefined;
@@ -3211,11 +3033,7 @@ export interface CreateLimitRequest {
   farmId: string | undefined;
 
   /**
-   * <p>A description of the limit. A description helps you identify the purpose of the
-   *          limit.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>A description of the limit. A description helps you identify the purpose of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -3226,8 +3044,7 @@ export interface CreateLimitRequest {
  */
 export interface CreateLimitResponse {
   /**
-   * <p>A unique identifier for the limit. Use this identifier in other operations, such as
-   *             <code>CreateQueueLimitAssociation</code> and <code>DeleteLimit</code>.</p>
+   * <p>A unique identifier for the limit. Use this identifier in other operations, such as <code>CreateQueueLimitAssociation</code> and <code>DeleteLimit</code>.</p>
    * @public
    */
   limitId: string | undefined;
@@ -3244,31 +3061,25 @@ export interface CreateMonitorRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The name that you give the monitor that is displayed in the Deadline Cloud console.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The name that you give the monitor that is displayed in the Deadline Cloud console.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance that authenticates monitor users.</p>
+   * <p>The Amazon Resource Name of the IAM Identity Center instance that authenticates monitor users.</p>
    * @public
    */
   identityCenterInstanceArn: string | undefined;
 
   /**
-   * <p>The subdomain to use when creating the monitor URL. The full URL of the monitor is
-   *          subdomain.Region.deadlinecloud.amazonaws.com.</p>
+   * <p>The subdomain to use when creating the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.</p>
    * @public
    */
   subdomain: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the monitor uses to connect to Deadline Cloud. Every user
-   *          that signs in to the monitor using IAM Identity Center uses this role to access Deadline Cloud
-   *          resources.</p>
+   * <p>The Amazon Resource Name of the IAM role that the monitor uses to connect to Deadline Cloud. Every user that signs in to the monitor using IAM Identity Center uses this role to access Deadline Cloud resources.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -3291,7 +3102,7 @@ export interface CreateMonitorResponse {
   monitorId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that IAM Identity Center assigns to the monitor.</p>
+   * <p>The Amazon Resource Name that IAM Identity Center assigns to the monitor.</p>
    * @public
    */
   identityCenterApplicationArn: string | undefined;
@@ -3314,19 +3125,13 @@ export interface CreateQueueRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the queue.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the queue.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -3338,8 +3143,7 @@ export interface CreateQueueRequest {
   defaultBudgetAction?: DefaultQueueBudgetAction | undefined;
 
   /**
-   * <p>The job attachment settings for the queue. These are the Amazon S3 bucket name and the Amazon S3
-   *          prefix.</p>
+   * <p>The job attachment settings for the queue. These are the Amazon S3 bucket name and the Amazon S3 prefix.</p>
    * @public
    */
   jobAttachmentSettings?: JobAttachmentSettings | undefined;
@@ -3409,9 +3213,7 @@ export interface CreateQueueEnvironmentRequest {
   queueId: string | undefined;
 
   /**
-   * <p>Sets the priority of the environments in the queue from 0 to 10,000, where 0 is the
-   *          highest priority (activated first and deactivated last). If two environments share the same
-   *          priority value, the environment created first takes higher priority.</p>
+   * <p>Sets the priority of the environments in the queue from 0 to 10,000, where 0 is the highest priority (activated first and deactivated last). If two environments share the same priority value, the environment created first takes higher priority.</p>
    * @public
    */
   priority: number | undefined;
@@ -3537,10 +3339,7 @@ export interface CreateStorageProfileRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the storage profile.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the storage profile.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
@@ -3708,8 +3507,7 @@ export interface DeleteQueueFleetAssociationResponse {}
  */
 export interface DeleteQueueLimitAssociationRequest {
   /**
-   * <p>The unique identifier of the farm that contains the queue and limit to
-   *          disassociate.</p>
+   * <p>The unique identifier of the farm that contains the queue and limit to disassociate.</p>
    * @public
    */
   farmId: string | undefined;
@@ -3922,19 +3720,13 @@ export interface GetFleetResponse {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the fleet.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the fleet.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the fleet.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the fleet.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -3952,8 +3744,7 @@ export interface GetFleetResponse {
   statusMessage?: string | undefined;
 
   /**
-   * <p>The Auto Scaling status of the fleet. Either <code>GROWING</code>, <code>STEADY</code>, or
-   *             <code>SHRINKING</code>.</p>
+   * <p>The Auto Scaling status of the fleet. Either <code>GROWING</code>, <code>STEADY</code>, or <code>SHRINKING</code>.</p>
    * @public
    */
   autoScalingStatus?: AutoScalingStatus | undefined;
@@ -3989,15 +3780,13 @@ export interface GetFleetResponse {
   configuration: FleetConfiguration | undefined;
 
   /**
-   * <p>The script that runs as a worker is starting up that you can use to provide additional
-   *          configuration for workers in your fleet.</p>
+   * <p>The script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.</p>
    * @public
    */
   hostConfiguration?: HostConfiguration | undefined;
 
   /**
-   * <p>Outlines what the fleet is capable of for minimums, maximums, and naming, in addition to
-   *          attribute names and values.</p>
+   * <p>Outlines what the fleet is capable of for minimums, maximums, and naming, in addition to attribute names and values.</p>
    * @public
    */
   capabilities?: FleetCapabilities | undefined;
@@ -4138,10 +3927,7 @@ export interface ListFleetsRequest {
   principalId?: string | undefined;
 
   /**
-   * <p>The display names of a list of fleets.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display names of a list of fleets.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
@@ -4183,10 +3969,7 @@ export interface FleetSummary {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the fleet summary to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the fleet summary to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
@@ -4304,19 +4087,13 @@ export interface UpdateFleetRequest {
   fleetId: string | undefined;
 
   /**
-   * <p>The display name of the fleet to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the fleet to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the fleet to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the fleet to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -4334,14 +4111,7 @@ export interface UpdateFleetRequest {
   minWorkerCount?: number | undefined;
 
   /**
-   * <p>The maximum number of workers in the fleet.</p>
-   *          <p>Deadline Cloud limits the number of workers to less than or equal to the fleet's
-   *          maximum worker count. The service maintains eventual consistency for the worker count. If
-   *          you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you
-   *          might exceed your fleet's maximum worker count. For example, if your
-   *          <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick
-   *          <code>CreateWorker</code> calls might successfully create 2 workers instead of 1,
-   *          resulting in 11 total workers.</p>
+   * <p>The maximum number of workers in the fleet.</p> <p>Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you might exceed your fleet's maximum worker count. For example, if your <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick <code>CreateWorker</code> calls might successfully create 2 workers instead of 1, resulting in 11 total workers.</p>
    * @public
    */
   maxWorkerCount?: number | undefined;
@@ -4353,8 +4123,7 @@ export interface UpdateFleetRequest {
   configuration?: FleetConfiguration | undefined;
 
   /**
-   * <p>Provides a script that runs as a worker is starting up that you can use to provide
-   *          additional configuration for workers in your fleet.</p>
+   * <p>Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.</p>
    * @public
    */
   hostConfiguration?: HostConfiguration | undefined;
@@ -4829,8 +4598,7 @@ export interface UpdateWorkerResponse {
   log?: LogConfiguration | undefined;
 
   /**
-   * <p>The script that runs as a worker is starting up that you can use to provide additional
-   *          configuration for workers in your fleet.</p>
+   * <p>The script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.</p>
    * @public
    */
   hostConfiguration?: HostConfiguration | undefined;
@@ -4855,8 +4623,7 @@ export interface TaskRunManifestPropertiesRequest {
 }
 
 /**
- * <p>The updated session action information as it relates to completion and progress of the
- *          session.</p>
+ * <p>The updated session action information as it relates to completion and progress of the session.</p>
  * @public
  */
 export interface UpdatedSessionActionInfo {
@@ -4867,8 +4634,7 @@ export interface UpdatedSessionActionInfo {
   completedStatus?: CompletedStatus | undefined;
 
   /**
-   * <p>The process exit code. The default Deadline Cloud worker agent converts unsigned
-   *          32-bit exit codes to signed 32-bit exit codes.</p>
+   * <p>The process exit code. The default Deadline Cloud worker agent converts unsigned 32-bit exit codes to signed 32-bit exit codes.</p>
    * @public
    */
   processExitCode?: number | undefined;
@@ -4904,8 +4670,7 @@ export interface UpdatedSessionActionInfo {
   progressPercent?: number | undefined;
 
   /**
-   * <p>A list of output manifest properties reported by the worker
-   *          agent, with each entry corresponding to a manifest property in the job.</p>
+   * <p>A list of output manifest properties reported by the worker agent, with each entry corresponding to a manifest property in the job.</p>
    * @public
    */
   manifests?: TaskRunManifestPropertiesRequest[] | undefined;
@@ -4991,19 +4756,13 @@ export interface GetFarmResponse {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the farm.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the farm.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -5012,7 +4771,7 @@ export interface GetFarmResponse {
    * <p>The ARN of the KMS key used on the farm.</p>
    * @public
    */
-  kmsKeyArn: string | undefined;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The date and time the resource was created.</p>
@@ -5061,28 +4820,19 @@ export interface GetLimitRequest {
  */
 export interface GetLimitResponse {
   /**
-   * <p>The display name of the limit.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of
-   *          the <code>hostRequirements</code> in a step of a job template to declare the limit
-   *          requirement.</p>
+   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
    * @public
    */
   amountRequirementName: string | undefined;
 
   /**
-   * <p>The maximum number of resources constrained by this limit. When all of the resources are
-   *          in use, steps that require the limit won't be scheduled until the resource is
-   *          available.</p>
-   *          <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on
-   *          the number of resources that can be acquired for this limit.</p>
+   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
    * @public
    */
   maxCount: number | undefined;
@@ -5124,17 +4874,13 @@ export interface GetLimitResponse {
   limitId: string | undefined;
 
   /**
-   * <p>The number of resources from the limit that are being used by jobs. The result is
-   *          delayed and may not be the count at the time that you called the operation.</p>
+   * <p>The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.</p>
    * @public
    */
   currentCount: number | undefined;
 
   /**
-   * <p>The description of the limit that helps identify what the limit is used for.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the limit that helps identify what the limit is used for.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -5168,10 +4914,7 @@ export interface GetStorageProfileResponse {
   storageProfileId: string | undefined;
 
   /**
-   * <p>The display name of the storage profile.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the storage profile.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
@@ -5324,10 +5067,7 @@ export interface FarmSummary {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the farm.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
@@ -5409,28 +5149,19 @@ export interface ListLimitsRequest {
  */
 export interface LimitSummary {
   /**
-   * <p>The name of the limit used in lists to identify the limit.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The name of the limit used in lists to identify the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of
-   *          the <code>hostRequirements</code> in a step of a job template to declare the limit
-   *          requirement.</p>
+   * <p>The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.</p>
    * @public
    */
   amountRequirementName: string | undefined;
 
   /**
-   * <p>The maximum number of resources constrained by this limit. When all of the resources are
-   *          in use, steps that require the limit won't be scheduled until the resource is
-   *          available.</p>
-   *          <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on
-   *          the number of resources that can be acquired for this limit.</p>
+   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
    * @public
    */
   maxCount: number | undefined;
@@ -5472,8 +5203,7 @@ export interface LimitSummary {
   limitId: string | undefined;
 
   /**
-   * <p>The number of resources from the limit that are being used by jobs. The result is
-   *          delayed and may not be the count at the time that you called the operation.</p>
+   * <p>The number of resources from the limit that are being used by jobs. The result is delayed and may not be the count at the time that you called the operation.</p>
    * @public
    */
   currentCount: number | undefined;
@@ -5531,10 +5261,7 @@ export interface StorageProfileSummary {
   storageProfileId: string | undefined;
 
   /**
-   * <p>The display name of the storage profile summary to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the storage profile summary to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
@@ -5669,19 +5396,13 @@ export interface GetQueueResponse {
   queueId: string | undefined;
 
   /**
-   * <p>The display name of the queue.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the queue.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -5693,22 +5414,7 @@ export interface GetQueueResponse {
   farmId: string | undefined;
 
   /**
-   * <p>The status of the queue.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>–The queue is active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULING</code>–The queue is scheduling.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked. See the
-   *                provided reason.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the queue.</p> <ul> <li> <p> <code>ACTIVE</code>–The queue is active.</p> </li> <li> <p> <code>SCHEDULING</code>–The queue is scheduling.</p> </li> <li> <p> <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked. See the provided reason.</p> </li> </ul>
    * @public
    */
   status: QueueStatus | undefined;
@@ -5896,10 +5602,7 @@ export interface GetStorageProfileForQueueResponse {
   storageProfileId: string | undefined;
 
   /**
-   * <p>The display name of the storage profile connected to a queue.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the storage profile connected to a queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
@@ -6099,20 +5802,13 @@ export interface GetJobResponse {
   attachments?: Attachments | undefined;
 
   /**
-   * <p>The description of the job.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the job.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The maximum number of worker hosts that can concurrently process a job. When the
-   *             <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the
-   *          job, even if the fleets assigned to the job's queue has available workers.</p>
-   *          <p>If you don't set the <code>maxWorkerCount</code> when you create a job, this value is
-   *          not returned in the response.</p>
+   * <p>The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.</p> <p>If you don't set the <code>maxWorkerCount</code> when you create a job, this value is not returned in the response.</p>
    * @public
    */
   maxWorkerCount?: number | undefined;
@@ -6284,12 +5980,12 @@ export interface EnvironmentExitSessionActionDefinition {
 }
 
 /**
- * <p>The job attachment in a session action to sync.</p>
+ * <p>The session action definition for syncing input job attachments.</p>
  * @public
  */
 export interface SyncInputJobAttachmentsSessionActionDefinition {
   /**
-   * <p>The step ID for the step in the job attachment.</p>
+   * <p>The step ID for the sync input job attachments session action.</p>
    * @public
    */
   stepId?: string | undefined;
@@ -6371,7 +6067,7 @@ export namespace SessionActionDefinition {
   }
 
   /**
-   * <p>The job attachments to sync with a session action.</p>
+   * <p>The session action definition for syncing input job attachments.</p>
    * @public
    */
   export interface SyncInputJobAttachmentsMember {
@@ -6471,8 +6167,7 @@ export interface GetSessionActionResponse {
   sessionId: string | undefined;
 
   /**
-   * <p>The process exit code. The default Deadline Cloud worker agent converts unsigned
-   *          32-bit exit codes to signed 32-bit exit codes.</p>
+   * <p>The process exit code. The default Deadline Cloud worker agent converts unsigned 32-bit exit codes to signed 32-bit exit codes.</p>
    * @public
    */
   processExitCode?: number | undefined;
@@ -6490,8 +6185,7 @@ export interface GetSessionActionResponse {
   definition: SessionActionDefinition | undefined;
 
   /**
-   * <p>The limits and their amounts acquired during a session action. If no limits were
-   *          acquired during the session, this field isn't returned.</p>
+   * <p>The limits and their amounts acquired during a session action. If no limits were acquired during the session, this field isn't returned.</p>
    * @public
    */
   acquiredLimits?: AcquiredLimit[] | undefined;
@@ -6563,6 +6257,30 @@ export interface DependencyCounts {
 }
 
 /**
+ * <p>Defines how a step parameter range should be divided into chunks.</p>
+ * @public
+ */
+export interface StepParameterChunks {
+  /**
+   * <p>The number of tasks to combine into a single chunk by default.</p>
+   * @public
+   */
+  defaultTaskCount: number | undefined;
+
+  /**
+   * <p>The number of seconds to aim for when forming chunks.</p>
+   * @public
+   */
+  targetRuntimeSeconds?: number | undefined;
+
+  /**
+   * <p>Specifies whether the chunked ranges must be contiguous or can have gaps between them.</p>
+   * @public
+   */
+  rangeConstraint: RangeConstraint | undefined;
+}
+
+/**
  * <p>The details of a step parameter.</p>
  * @public
  */
@@ -6578,6 +6296,12 @@ export interface StepParameter {
    * @public
    */
   type: StepParameterType | undefined;
+
+  /**
+   * <p>The configuration for task chunking.</p>
+   * @public
+   */
+  chunks?: StepParameterChunks | undefined;
 }
 
 /**
@@ -6777,10 +6501,7 @@ export interface GetStepResponse {
   parameterSpace?: ParameterSpace | undefined;
 
   /**
-   * <p>The description of the step.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the step.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -6892,7 +6613,7 @@ export interface GetTaskResponse {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The latest session ID for the task.</p>
+   * <p>The latest session action ID for the task.</p>
    * @public
    */
   latestSessionActionId?: string | undefined;
@@ -7157,55 +6878,13 @@ export interface JobSummary {
   endedAt?: Date | undefined;
 
   /**
-   * <p>The task run status for the job.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>–pending and waiting for resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>READY</code>–ready to be processed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ASSIGNED</code>–assigned and will run next on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULED</code>–scheduled to be run on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTERRUPTING</code>–being interrupted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>–running on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUSPENDED</code>–the task is suspended.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELED</code>–the task has been canceled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>–the task has failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>–the task has succeeded.</p>
-   *             </li>
-   *          </ul>
+   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code>–pending and waiting for resources.</p> </li> <li> <p> <code>READY</code>–ready to be processed.</p> </li> <li> <p> <code>ASSIGNED</code>–assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code>–scheduled to be run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code>–being interrupted.</p> </li> <li> <p> <code>RUNNING</code>–running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code>–the task is suspended.</p> </li> <li> <p> <code>CANCELED</code>–the task has been canceled.</p> </li> <li> <p> <code>FAILED</code>–the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code>–the task has succeeded.</p> </li> </ul>
    * @public
    */
   taskRunStatus?: TaskRunStatus | undefined;
 
   /**
-   * <p>The task status to start with on the job.</p>
+   * <p>The task status to update the job's tasks to.</p>
    * @public
    */
   targetTaskRunStatus?: JobTargetTaskRunStatus | undefined;
@@ -7235,12 +6914,7 @@ export interface JobSummary {
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * <p>The maximum number of worker hosts that can concurrently process a job. When the
-   *             <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the
-   *          job, even if the fleets assigned to the job's queue has available workers.</p>
-   *          <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no
-   *          maximum number of workers.</p>
-   *          <p>If you don't specify the <code>maxWorkerCount</code>, the default is -1.</p>
+   * <p>The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.</p> <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.</p> <p>If you don't specify the <code>maxWorkerCount</code>, the default is -1.</p>
    * @public
    */
   maxWorkerCount?: number | undefined;
@@ -7341,12 +7015,12 @@ export interface EnvironmentExitSessionActionDefinitionSummary {
 }
 
 /**
- * <p>The details of a synced job attachment.</p>
+ * <p>The summary of the session action definition for syncing input job attachments.</p>
  * @public
  */
 export interface SyncInputJobAttachmentsSessionActionDefinitionSummary {
   /**
-   * <p>The step ID of the step in the job attachment.</p>
+   * <p>The step ID for the sync input job attachments session action summary.</p>
    * @public
    */
   stepId?: string | undefined;
@@ -7428,7 +7102,7 @@ export namespace SessionActionDefinitionSummary {
   }
 
   /**
-   * <p>The job attachments to sync with the session action definition.</p>
+   * <p>The session action definition summary for syncing input job attachments.</p>
    * @public
    */
   export interface SyncInputJobAttachmentsMember {
@@ -7493,8 +7167,7 @@ export interface SessionActionSummary {
   endedAt?: Date | undefined;
 
   /**
-   * <p>The Linux timestamp of the last date and time that the session action was
-   *          updated.</p>
+   * <p>The Linux timestamp of the last date and time that the session action was updated.</p>
    * @public
    */
   workerUpdatedAt?: Date | undefined;
@@ -7864,49 +7537,7 @@ export interface StepSummary {
   lifecycleStatusMessage?: string | undefined;
 
   /**
-   * <p>The task run status for the job.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>–pending and waiting for resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>READY</code>–ready to process.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ASSIGNED</code>–assigned and will run next on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULED</code>–scheduled to run on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INTERRUPTING</code>–being interrupted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code>–running on a worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUSPENDED</code>–the task is suspended.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELED</code>–the task has been canceled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>–the task has failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>–the task has succeeded.</p>
-   *             </li>
-   *          </ul>
+   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code>–pending and waiting for resources.</p> </li> <li> <p> <code>READY</code>–ready to process.</p> </li> <li> <p> <code>ASSIGNED</code>–assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code>–scheduled to run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code>–being interrupted.</p> </li> <li> <p> <code>RUNNING</code>–running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code>–the task is suspended.</p> </li> <li> <p> <code>CANCELED</code>–the task has been canceled.</p> </li> <li> <p> <code>FAILED</code>–the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code>–the task has succeeded.</p> </li> </ul>
    * @public
    */
   taskRunStatus: TaskRunStatus | undefined;
@@ -7924,7 +7555,7 @@ export interface StepSummary {
   taskFailureRetryCount?: number | undefined;
 
   /**
-   * <p>The task status to start with on the job.</p>
+   * <p>The task status to update the job's tasks to.</p>
    * @public
    */
   targetTaskRunStatus?: StepTargetTaskRunStatus | undefined;
@@ -8102,7 +7733,7 @@ export interface TaskSummary {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The latest session action for the task.</p>
+   * <p>The latest session action ID for the task.</p>
    * @public
    */
   latestSessionActionId?: string | undefined;
@@ -8160,24 +7791,13 @@ export interface UpdateJobRequest {
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * <p>The status of a job in its lifecycle. When you change the status of the job to
-   *             <code>ARCHIVED</code>, the job can't be scheduled or archived.</p>
-   *          <important>
-   *             <p>An archived jobs and its steps and tasks are deleted after 120 days. The job can't be
-   *             recovered.</p>
-   *          </important>
+   * <p>The status of a job in its lifecycle. When you change the status of the job to <code>ARCHIVED</code>, the job can't be scheduled or archived.</p> <important> <p>An archived jobs and its steps and tasks are deleted after 120 days. The job can't be recovered.</p> </important>
    * @public
    */
   lifecycleStatus?: UpdateJobLifecycleStatus | undefined;
 
   /**
-   * <p>The maximum number of worker hosts that can concurrently process a job. When the
-   *             <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the
-   *          job, even if the fleets assigned to the job's queue has available workers.</p>
-   *          <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no
-   *          maximum number of workers.</p>
-   *          <p>If you don't specify the <code>maxWorkerCount</code>, the default is -1.</p>
-   *          <p>The maximum number of workers that can process tasks in the job.</p>
+   * <p>The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.</p> <p>You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.</p> <p>If you don't specify the <code>maxWorkerCount</code>, the default is -1.</p> <p>The maximum number of workers that can process tasks in the job.</p>
    * @public
    */
   maxWorkerCount?: number | undefined;
@@ -8525,22 +8145,7 @@ export interface ListQueuesRequest {
   principalId?: string | undefined;
 
   /**
-   * <p>The status of the queues listed.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>–The queues are active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULING</code>–The queues are scheduling.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked for these
-   *                queues.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the queues listed.</p> <ul> <li> <p> <code>ACTIVE</code>–The queues are active.</p> </li> <li> <p> <code>SCHEDULING</code>–The queues are scheduling.</p> </li> <li> <p> <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked for these queues.</p> </li> </ul>
    * @public
    */
   status?: QueueStatus | undefined;
@@ -8576,10 +8181,7 @@ export interface QueueSummary {
   queueId: string | undefined;
 
   /**
-   * <p>The display name of the queue summary to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the queue summary to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName: string | undefined;
@@ -8713,19 +8315,13 @@ export interface UpdateQueueRequest {
   queueId: string | undefined;
 
   /**
-   * <p>The display name of the queue to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the queue to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the queue to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the queue to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -8737,8 +8333,7 @@ export interface UpdateQueueRequest {
   defaultBudgetAction?: DefaultQueueBudgetAction | undefined;
 
   /**
-   * <p>The job attachment settings to update for the
-   *          queue.</p>
+   * <p>The job attachment settings to update for the queue.</p>
    * @public
    */
   jobAttachmentSettings?: JobAttachmentSettings | undefined;
@@ -8848,19 +8443,13 @@ export interface UpdateFarmRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the farm to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the farm to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the farm to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The description of the farm to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
@@ -8888,32 +8477,19 @@ export interface UpdateLimitRequest {
   limitId: string | undefined;
 
   /**
-   * <p>The new display name of the limit.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The new display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The new description of the limit.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The new description of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The maximum number of resources constrained by this limit. When all of the resources are
-   *          in use, steps that require the limit won't be scheduled until the resource is
-   *          available.</p>
-   *          <p>If more than the new maximum number is currently in use, running jobs finish but no new
-   *          jobs are started until the number of resources in use is below the new maximum
-   *          number.</p>
-   *          <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on
-   *          the number of resources that can be acquired for this limit.</p>
+   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>If more than the new maximum number is currently in use, running jobs finish but no new jobs are started until the number of resources in use is below the new maximum number.</p> <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
    * @public
    */
   maxCount?: number | undefined;
@@ -8947,10 +8523,7 @@ export interface UpdateStorageProfileRequest {
   storageProfileId: string | undefined;
 
   /**
-   * <p>The display name of the storage profile to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
+   * <p>The display name of the storage profile to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
    * @public
    */
   displayName?: string | undefined;
@@ -9124,16 +8697,13 @@ export interface GetQueueLimitAssociationResponse {
  */
 export interface GetSessionsStatisticsAggregationRequest {
   /**
-   * <p>The identifier of the farm to include in the statistics. This should be the same as the
-   *          farm ID used in the call to the <code>StartSessionsStatisticsAggregation</code>
-   *          operation.</p>
+   * <p>The identifier of the farm to include in the statistics. This should be the same as the farm ID used in the call to the <code>StartSessionsStatisticsAggregation</code> operation.</p>
    * @public
    */
   farmId: string | undefined;
 
   /**
-   * <p>The identifier returned by the <code>StartSessionsStatisticsAggregation</code> operation
-   *          that identifies the aggregated statistics.</p>
+   * <p>The identifier returned by the <code>StartSessionsStatisticsAggregation</code> operation that identifies the aggregated statistics.</p>
    * @public
    */
   aggregationId: string | undefined;
@@ -9241,8 +8811,7 @@ export interface Statistics {
   count: number | undefined;
 
   /**
-   * <p>How the statistics should appear in USD. Options include: minimum, maximum, average or
-   *          sum.</p>
+   * <p>How the statistics should appear in USD. Options include: minimum, maximum, average or sum.</p>
    * @public
    */
   costInUsd: Stats | undefined;
@@ -9283,14 +8852,7 @@ export interface GetSessionsStatisticsAggregationResponse {
   nextToken?: string | undefined;
 
   /**
-   * <p>The status of the aggregated results. An aggregation may fail or time out if the results
-   *          are too large. If this happens, you can call the
-   *             <code>StartSessionsStatisticsAggregation</code> operation after you reduce the
-   *          aggregation time frame, reduce the number of queues or fleets in the aggregation, or
-   *          increase the period length.</p>
-   *          <p>If you call the <code>StartSessionsStatisticsAggregation </code> operation when the
-   *          status is <code>IN_PROGRESS</code>, you will receive a
-   *          <code>ThrottlingException</code>.</p>
+   * <p>The status of the aggregated results. An aggregation may fail or time out if the results are too large. If this happens, you can call the <code>StartSessionsStatisticsAggregation</code> operation after you reduce the aggregation time frame, reduce the number of queues or fleets in the aggregation, or increase the period length.</p> <p>If you call the <code>StartSessionsStatisticsAggregation </code> operation when the status is <code>IN_PROGRESS</code>, you will receive a <code>ThrottlingException</code>.</p>
    * @public
    */
   status: SessionsStatisticsAggregationStatus | undefined;
@@ -9317,6 +8879,28 @@ export interface DeleteLicenseEndpointRequest {
  * @public
  */
 export interface DeleteLicenseEndpointResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteMeteredProductRequest {
+  /**
+   * <p>The ID of the license endpoint from which to remove the metered product.</p>
+   * @public
+   */
+  licenseEndpointId: string | undefined;
+
+  /**
+   * <p>The product ID to remove from the license endpoint.</p>
+   * @public
+   */
+  productId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMeteredProductResponse {}
 
 /**
  * @public
@@ -9352,7 +8936,7 @@ export interface GetLicenseEndpointResponse {
   statusMessage: string | undefined;
 
   /**
-   * <p>The VCP(virtual private cloud) ID associated with the license endpoint.</p>
+   * <p>The VPC (virtual private cloud) ID associated with the license endpoint.</p>
    * @public
    */
   vpcId?: string | undefined;
@@ -9417,7 +9001,7 @@ export interface LicenseEndpointSummary {
   statusMessage?: string | undefined;
 
   /**
-   * <p>The VCP(virtual private cloud) ID associated with the license endpoint.</p>
+   * <p>The VPC (virtual private cloud) ID associated with the license endpoint.</p>
    * @public
    */
   vpcId?: string | undefined;
@@ -9438,49 +9022,4 @@ export interface ListLicenseEndpointsResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMeteredProductRequest {
-  /**
-   * <p>The ID of the license endpoint from which to remove the metered product.</p>
-   * @public
-   */
-  licenseEndpointId: string | undefined;
-
-  /**
-   * <p>The product ID to remove from the license endpoint.</p>
-   * @public
-   */
-  productId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMeteredProductResponse {}
-
-/**
- * @public
- */
-export interface ListMeteredProductsRequest {
-  /**
-   * <p>The license endpoint ID to include on the list of metered products.</p>
-   * @public
-   */
-  licenseEndpointId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }
