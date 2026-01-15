@@ -1,32 +1,14 @@
-import process from "process";
-import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
-
-vi.mock("os", () => ({
-  platform: () => "darwin",
-  release: () => "19.6.0",
-}));
-
-vi.mock("process", () => {
-  const pkg = {
-    env: {},
-    versions: {
-      node: "14.13.1",
-    },
-  };
-  return {
-    ...pkg,
-    default: pkg,
-  };
-});
-
-vi.mock("./is-crt-available", () => ({
-  isCrtAvailable: vi.fn().mockReturnValue(null),
-}));
-
 import { UserAgent } from "@smithy/types";
+import { platform, release } from "os";
+import { versions } from "process";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { createDefaultUserAgentProvider, PreviouslyResolved } from "./defaultUserAgent";
 import { isCrtAvailable } from "./is-crt-available";
+
+vi.mock("os");
+vi.mock("process");
+vi.mock("./is-crt-available");
 
 const validateUserAgent = (userAgent: UserAgent, expected: UserAgent) => {
   for (const pair of expected) {
@@ -37,10 +19,12 @@ const validateUserAgent = (userAgent: UserAgent, expected: UserAgent) => {
 
 describe("createDefaultUserAgentProvider", () => {
   beforeEach(() => {
-    vi.resetAllMocks();
+    vi.mocked(platform).mockReturnValue("darwin");
+    vi.mocked(release).mockReturnValue("19.6.0");
+    vi.mocked(isCrtAvailable).mockReturnValue(null);
   });
 
-  afterAll(() => {
+  afterEach(() => {
     vi.clearAllMocks();
   });
 
@@ -50,7 +34,7 @@ describe("createDefaultUserAgentProvider", () => {
     ["api/s3", "0.1.0"],
     ["os/darwin", "19.6.0"],
     ["lang/js"],
-    ["md/nodejs", "14.13.1"],
+    ["md/nodejs", versions.node],
   ];
 
   const mockConfig: PreviouslyResolved = {
