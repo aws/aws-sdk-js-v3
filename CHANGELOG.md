@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.970.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.969.0...v3.970.0) (2026-01-15)
+
+
+### Bug Fixes
+
+* **core/protocols:** custom behavior for __type in structure ([#7661](https://github.com/aws/aws-sdk-js-v3/issues/7661)) ([22c3a67](https://github.com/aws/aws-sdk-js-v3/commit/22c3a671c5ee2fcbbe209469aeeb7bf5d343b573))
+
+
+### Features
+
+* **client-cleanrooms:** This release adds support for parameters in PySpark analysis templates. ([bc4219b](https://github.com/aws/aws-sdk-js-v3/commit/bc4219bf655a35ef8e17887e2ff4b1a83f3f0439))
+* **client-deadline:** AWS Deadline Cloud now supports tagging Budget resources with ABAC for permissions management and selecting up to 16 filter values in the monitor and Search API. ([bb46d25](https://github.com/aws/aws-sdk-js-v3/commit/bb46d2584fcd7287c873e6579c879896c4055e40))
+* **client-ecs:** Adds support for configuring FIPS in AWS GovCloud (US) Regions via a new ECS Capacity Provider field fipsEnabled. When enabled, instances launched by the capacity provider will use a FIPS-140 enabled AMI. Instances will use FIPS-140 compliant cryptographic modules and AWS FIPS endpoints. ([0ebb2f2](https://github.com/aws/aws-sdk-js-v3/commit/0ebb2f2259175c5581d6a9c533f99903bbd1020e))
+* **client-evs:** A new GetVersions API has been added to retrieve VCF, ESX versions, and EC2 instances provided by Amazon EVS. The CreateEnvironment API now allows you to select a VCF version and the CreateEnvironmentHost API introduces a optional esxVersion parameter. ([4f6b30a](https://github.com/aws/aws-sdk-js-v3/commit/4f6b30a2c98ceec5e0ef3b5f93bc70a35e9e7e0a))
+* **client-lakeformation:** API Changes for GTCForLocation feature. Includes a new API, GetTemporaryDataLocationCredentials and updates to the APIs RegisterResource and UpdateResource ([493fd84](https://github.com/aws/aws-sdk-js-v3/commit/493fd840461496f3a661cacf83e5ad284ddd95f9))
+* **client-opensearchserverless:** Collection groups in Amazon OpenSearch Serverless enables to organize multiple collections and enable compute resource sharing across collections with different KMS keys. This shared compute model reduces costs by eliminating the need for separate OpenSearch Compute Units (OCUs) for each KMS key. ([bfdce6a](https://github.com/aws/aws-sdk-js-v3/commit/bfdce6aba0a40137f14d595f61da36dd3b7332eb))
+* **client-qconnect:** Fix inference configuration shapes for the CreateAIPrompt and UpdateAIPrompt APIs, Modify Text Length Limit for SendMessage API ([c54736e](https://github.com/aws/aws-sdk-js-v3/commit/c54736e17dc171d7766906a9013353e125dc1758))
+
+
+
+
+
 # [3.969.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.968.0...v3.969.0) (2026-01-14)
 
 

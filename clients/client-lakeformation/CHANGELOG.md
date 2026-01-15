@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.970.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.969.0...v3.970.0) (2026-01-15)
+
+
+### Features
+
+* **client-lakeformation:** API Changes for GTCForLocation feature. Includes a new API, GetTemporaryDataLocationCredentials and updates to the APIs RegisterResource and UpdateResource ([493fd84](https://github.com/aws/aws-sdk-js-v3/commit/493fd840461496f3a661cacf83e5ad284ddd95f9))
+
+
+
+
+
 # [3.969.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.968.0...v3.969.0) (2026-01-14)
 
 **Note:** Version bump only for package @aws-sdk/client-lakeformation

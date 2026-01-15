@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.970.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.969.0...v3.970.0) (2026-01-15)
+
+
+### Features
+
+* **client-qconnect:** Fix inference configuration shapes for the CreateAIPrompt and UpdateAIPrompt APIs, Modify Text Length Limit for SendMessage API ([c54736e](https://github.com/aws/aws-sdk-js-v3/commit/c54736e17dc171d7766906a9013353e125dc1758))
+
+
+
+
+
 # [3.969.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.968.0...v3.969.0) (2026-01-14)
 
 **Note:** Version bump only for package @aws-sdk/client-qconnect

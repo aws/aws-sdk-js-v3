@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.970.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.969.0...v3.970.0) (2026-01-15)
+
+
+### Features
+
+* **client-evs:** A new GetVersions API has been added to retrieve VCF, ESX versions, and EC2 instances provided by Amazon EVS. The CreateEnvironment API now allows you to select a VCF version and the CreateEnvironmentHost API introduces a optional esxVersion parameter. ([4f6b30a](https://github.com/aws/aws-sdk-js-v3/commit/4f6b30a2c98ceec5e0ef3b5f93bc70a35e9e7e0a))
+
+
+
+
+
 # [3.969.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.968.0...v3.969.0) (2026-01-14)
 
 **Note:** Version bump only for package @aws-sdk/client-evs
