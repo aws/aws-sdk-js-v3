@@ -52,7 +52,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * //     environmentName: "STRING_VALUE",
  * //     vpcId: "STRING_VALUE",
  * //     serviceAccessSubnetId: "STRING_VALUE",
- * //     vcfVersion: "VCF-5.2.1",
+ * //     vcfVersion: "VCF-5.2.1" || "VCF-5.2.2",
  * //     termsAccepted: true || false,
  * //     licenseInfo: [ // LicenseInfoList
  * //       { // LicenseInfo

@@ -48,6 +48,7 @@ export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
  */
 export const VcfVersion = {
   VCF_5_2_1: "VCF-5.2.1",
+  VCF_5_2_2: "VCF-5.2.2",
 } as const;
 /**
  * @public

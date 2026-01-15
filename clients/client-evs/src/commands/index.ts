@@ -6,6 +6,7 @@ export * from "./DeleteEnvironmentCommand";
 export * from "./DeleteEnvironmentHostCommand";
 export * from "./DisassociateEipFromVlanCommand";
 export * from "./GetEnvironmentCommand";
+export * from "./GetVersionsCommand";
 export * from "./ListEnvironmentHostsCommand";
 export * from "./ListEnvironmentVlansCommand";
 export * from "./ListEnvironmentsCommand";

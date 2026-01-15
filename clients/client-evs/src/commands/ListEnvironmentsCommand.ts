@@ -51,7 +51,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * //     { // EnvironmentSummary
  * //       environmentId: "STRING_VALUE",
  * //       environmentName: "STRING_VALUE",
- * //       vcfVersion: "VCF-5.2.1",
+ * //       vcfVersion: "VCF-5.2.1" || "VCF-5.2.2",
  * //       environmentStatus: "PASSED" || "FAILED" || "UNKNOWN",
  * //       environmentState: "CREATING" || "CREATED" || "DELETING" || "DELETED" || "CREATE_FAILED",
  * //       createdAt: new Date("TIMESTAMP"),

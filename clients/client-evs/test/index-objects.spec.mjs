@@ -39,11 +39,18 @@ import {
   GetEnvironmentCommand,
   GetEnvironmentRequest$,
   GetEnvironmentResponse$,
+  GetVersions$,
+  GetVersionsCommand,
+  GetVersionsRequest$,
+  GetVersionsResponse$,
   Host$,
   HostInfoForCreate$,
   HostState,
   InitialVlanInfo$,
   InitialVlans$,
+  InstanceTypeEsxVersionsInfo$,
+  InternalServerException,
+  InternalServerException$,
   LicenseInfo$,
   ListEnvironmentHosts$,
   ListEnvironmentHostsCommand,
@@ -91,6 +98,7 @@ import {
   ValidationExceptionReason,
   VcfHostnames$,
   VcfVersion,
+  VcfVersionInfo$,
   Vlan$,
   VlanState,
 } from "../dist-cjs/index.js";
@@ -113,6 +121,8 @@ assert(typeof DisassociateEipFromVlanCommand === "function");
 assert(typeof DisassociateEipFromVlan$ === "object");
 assert(typeof GetEnvironmentCommand === "function");
 assert(typeof GetEnvironment$ === "object");
+assert(typeof GetVersionsCommand === "function");
+assert(typeof GetVersions$ === "object");
 assert(typeof ListEnvironmentHostsCommand === "function");
 assert(typeof ListEnvironmentHosts$ === "object");
 assert(typeof ListEnvironmentsCommand === "function");
@@ -145,10 +155,13 @@ assert(typeof Environment$ === "object");
 assert(typeof EnvironmentSummary$ === "object");
 assert(typeof GetEnvironmentRequest$ === "object");
 assert(typeof GetEnvironmentResponse$ === "object");
+assert(typeof GetVersionsRequest$ === "object");
+assert(typeof GetVersionsResponse$ === "object");
 assert(typeof Host$ === "object");
 assert(typeof HostInfoForCreate$ === "object");
 assert(typeof InitialVlanInfo$ === "object");
 assert(typeof InitialVlans$ === "object");
+assert(typeof InstanceTypeEsxVersionsInfo$ === "object");
 assert(typeof LicenseInfo$ === "object");
 assert(typeof ListEnvironmentHostsRequest$ === "object");
 assert(typeof ListEnvironmentHostsResponse$ === "object");
@@ -167,6 +180,7 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof VcfHostnames$ === "object");
+assert(typeof VcfVersionInfo$ === "object");
 assert(typeof Vlan$ === "object");
 // enums
 assert(typeof CheckResult === "object");
@@ -178,6 +192,8 @@ assert(typeof ValidationExceptionReason === "object");
 assert(typeof VcfVersion === "object");
 assert(typeof VlanState === "object");
 // errors
+assert(InternalServerException.prototype instanceof EvsServiceException);
+assert(typeof InternalServerException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof EvsServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof EvsServiceException);

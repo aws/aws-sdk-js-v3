@@ -37,6 +37,7 @@ import {
   GetEnvironmentCommandInput,
   GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
+import { GetVersionsCommand, GetVersionsCommandInput, GetVersionsCommandOutput } from "./commands/GetVersionsCommand";
 import {
   ListEnvironmentHostsCommand,
   ListEnvironmentHostsCommandInput,
@@ -73,6 +74,7 @@ const commands = {
   DeleteEnvironmentHostCommand,
   DisassociateEipFromVlanCommand,
   GetEnvironmentCommand,
+  GetVersionsCommand,
   ListEnvironmentHostsCommand,
   ListEnvironmentsCommand,
   ListEnvironmentVlansCommand,
@@ -199,6 +201,24 @@ export interface Evs {
     args: GetEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVersionsCommand}
+   */
+  getVersions(): Promise<GetVersionsCommandOutput>;
+  getVersions(
+    args: GetVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVersionsCommandOutput>;
+  getVersions(
+    args: GetVersionsCommandInput,
+    cb: (err: any, data?: GetVersionsCommandOutput) => void
+  ): void;
+  getVersions(
+    args: GetVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVersionsCommandOutput) => void
   ): void;
 
   /**
