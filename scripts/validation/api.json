@@ -592,5 +592,6 @@
   "@aws-sdk/crc64-nvme": {
     "Crc64Nvme": "function, since <=3.955.0",
     "crc64NvmeCrtContainer": "object, since <=3.956.0"
-  }
+  },
+  "@aws-sdk/config": {}
 }

@@ -23344,6 +23344,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/config@workspace:packages/config":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/config@workspace:packages/config"
+  dependencies:
+    "@aws-sdk/core": "npm:*"
+    "@aws-sdk/credential-providers": "npm:*"
+    "@aws-sdk/types": "npm:*"
+    "@smithy/core": "npm:^3.20.6"
+    "@smithy/fetch-http-handler": "npm:^5.3.9"
+    "@smithy/node-http-handler": "npm:^4.4.8"
+    "@smithy/protocol-http": "npm:^5.3.8"
+    "@smithy/smithy-client": "npm:^4.10.8"
+    "@smithy/typecheck": "npm:^1.0.1"
+    "@smithy/types": "npm:^4.12.0"
+    "@smithy/util-retry": "npm:^4.2.8"
+    "@tsconfig/recommended": "npm:1.0.1"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    rimraf: "npm:5.0.10"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/core@npm:*, @aws-sdk/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/core@workspace:packages/core"
@@ -29198,6 +29222,18 @@ __metadata:
     "@smithy/util-stream": "npm:^4.5.10"
     tslib: "npm:^2.6.2"
   checksum: 10c0/22974e080bd8c36c1cfc7b7e430d38f983e25ef230c29576523725744692bfb6ff492bc41a3a9242748e46a48d61791632f167dd03a260fc26f179857a983837
+  languageName: node
+  linkType: hard
+
+"@smithy/typecheck@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@smithy/typecheck@npm:1.0.1"
+  dependencies:
+    "@smithy/core": "npm:^3.20.6"
+    "@smithy/types": "npm:^4.12.0"
+    "@smithy/util-middleware": "npm:^4.2.8"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/82928d6eaacdee783bace40366defe6ff4a606dfafbabe80dd28f0fb4b3175e2433e220f6200e49800323a6a295ede34823ed8c0b5bc959c9d41c41f150172ba
   languageName: node
   linkType: hard
 

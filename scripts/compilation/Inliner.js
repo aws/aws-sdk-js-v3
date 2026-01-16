@@ -21,7 +21,7 @@ module.exports = class Inliner {
     this.isPackage = fs.existsSync(path.join(root, "packages", pkg));
     this.isInternalPackage = fs.existsSync(path.join(root, "packages-internal", pkg));
     this.isLib = fs.existsSync(path.join(root, "lib", pkg));
-    this.submodulePackages = ["core", "nested-clients"];
+    this.submodulePackages = ["core", "nested-clients", "config"];
     this.hasSubmodules = this.submodulePackages.includes(pkg);
     this.reExportStubs = false;
     this.subfolder = (() => {
