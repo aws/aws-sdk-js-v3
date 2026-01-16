@@ -44,6 +44,7 @@ describe(Upload.name, () => {
     vi.clearAllMocks();
 
     vi.mocked(S3Client).prototype.send = vi.fn().mockImplementation(async (x) => x);
+    // @ts-expect-error Cannot assign to 'config' because it is a read-only property.
     vi.mocked(S3Client).prototype.config = {
       endpoint: endpointMock,
       requestHandler: mockRequestHandler,
@@ -51,6 +52,7 @@ describe(Upload.name, () => {
     } as any;
 
     vi.mocked(S3).prototype.send = vi.mocked(S3Client).prototype.send;
+    // @ts-expect-error Cannot assign to 'config' because it is a read-only property.
     vi.mocked(S3).prototype.config = {
       endpoint: endpointMock,
       requestChecksumCalculation: () => Promise.resolve("WHEN_SUPPORTED"),
