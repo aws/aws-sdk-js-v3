@@ -14,6 +14,7 @@ import {
   EdgeDirection,
   EnableSetting,
   EnvironmentStatus,
+  FilterOperator,
   FilterStatus,
   FormTypeStatus,
   GlossaryStatus,
@@ -10413,10 +10414,22 @@ export interface Filter {
   attribute: string | undefined;
 
   /**
-   * <p>A search filter value in Amazon DataZone.</p>
+   * <p>A search filter string value in Amazon DataZone.</p>
    * @public
    */
-  value: string | undefined;
+  value?: string | undefined;
+
+  /**
+   * <p>A search filter integer value in Amazon DataZone.</p>
+   * @public
+   */
+  intValue?: number | undefined;
+
+  /**
+   * <p>Specifies the search filter operator.</p>
+   * @public
+   */
+  operator?: FilterOperator | undefined;
 }
 
 /**

@@ -554,6 +554,7 @@ export type {
   EntityType,
   EnvironmentStatus,
   FilterExpressionType,
+  FilterOperator,
   FilterStatus,
   FormTypeStatus,
   GlossaryStatus,

@@ -1370,6 +1370,23 @@ export type SearchOutputAdditionalAttribute =
  * @public
  * @enum
  */
+export const FilterOperator = {
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  LE: "LE",
+  LT: "LT",
+  TEXT_SEARCH: "TEXT_SEARCH",
+} as const;
+/**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
+
+/**
+ * @public
+ * @enum
+ */
 export const InventorySearchScope = {
   ASSET: "ASSET",
   DATA_PRODUCT: "DATA_PRODUCT",

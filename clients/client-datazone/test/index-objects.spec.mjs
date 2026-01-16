@@ -404,6 +404,7 @@ import {
   FilterClause$,
   FilterExpression$,
   FilterExpressionType,
+  FilterOperator,
   FilterStatus,
   FormEntryInput$,
   FormEntryOutput$,
@@ -2166,6 +2167,7 @@ assert(typeof EnableSetting === "object");
 assert(typeof EntityType === "object");
 assert(typeof EnvironmentStatus === "object");
 assert(typeof FilterExpressionType === "object");
+assert(typeof FilterOperator === "object");
 assert(typeof FilterStatus === "object");
 assert(typeof FormTypeStatus === "object");
 assert(typeof GlossaryStatus === "object");

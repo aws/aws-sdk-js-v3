@@ -1260,6 +1260,7 @@ const _iT = "itemType";
 const _iTd = "idempotencyToken";
 const _iTdl = "idleTimeout";
 const _iUS = "isUpdateSupported";
+const _iV = "intValue";
 const _iVE = "isValueEditable";
 const _ia = "iam";
 const _id = "id";
@@ -1365,6 +1366,7 @@ const _oPIwn = "ownerProjectId";
 const _oPN = "ownerProjectName";
 const _oPO = "overrideProjectOwners";
 const _oUI = "owningUserId";
+const _op = "operator";
 const _or = "orchestrator";
 const _or_ = "or";
 const _ord = "order";
@@ -2777,8 +2779,8 @@ export var FailureCause$: StaticStructureSchema = [3, n0, _FC,
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_a, _v],
-  [0, 0], 2
+  [_a, _v, _iV, _op],
+  [0, 0, 1, 0], 1
 ];
 export var FilterExpression$: StaticStructureSchema = [3, n0, _FE,
   0,
