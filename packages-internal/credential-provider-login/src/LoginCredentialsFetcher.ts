@@ -183,7 +183,7 @@ export class LoginCredentialsFetcher {
     try {
       let tokenData: string;
       try {
-        tokenData = await readFile(tokenFilePath, {ignoreCache: this.init?.ignoreCache});
+        tokenData = await readFile(tokenFilePath, { ignoreCache: this.init?.ignoreCache });
       } catch {
         tokenData = await fs.readFile(tokenFilePath, "utf8");
       }

@@ -10,7 +10,7 @@ let parser: DOMParser | undefined;
  */
 export function parseXML(xmlString: string): any {
   if (!parser) {
-     parser = new DOMParser();
+    parser = new DOMParser();
   }
 
   const xmlDocument = parser.parseFromString(xmlString, "application/xml");
