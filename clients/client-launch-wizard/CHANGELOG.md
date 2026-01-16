@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.971.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.970.0...v3.971.0) (2026-01-16)
+
+
+### Features
+
+* **client-launch-wizard:** Added UpdateDeployment, ListDeploymentPatternVersions and GetDeploymentPatternVersion APIs for Launch Wizard ([5126f41](https://github.com/aws/aws-sdk-js-v3/commit/5126f41ecd403e5fd3c24dbf75bad3a8256c8f8a))
+
+
+
+
+
 # [3.970.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.969.0...v3.970.0) (2026-01-15)
 
 **Note:** Version bump only for package @aws-sdk/client-launch-wizard

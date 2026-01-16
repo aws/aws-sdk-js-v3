@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.971.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.970.0...v3.971.0) (2026-01-16)
+
+
+### Features
+
+* **client-connect:** Adds support to allow customers to create form with Dispute configuration ([faedfc8](https://github.com/aws/aws-sdk-js-v3/commit/faedfc8b8dc9ea1a6d35ade94630e64dbaa78361))
+* **client-datazone:** This release adds support for numeric filtering and complex free-text searches cases for the Search and SearchListings APIs. ([3ce5567](https://github.com/aws/aws-sdk-js-v3/commit/3ce5567491d7817176e3e4745b2cea36bebc6708))
+* **client-launch-wizard:** Added UpdateDeployment, ListDeploymentPatternVersions and GetDeploymentPatternVersion APIs for Launch Wizard ([5126f41](https://github.com/aws/aws-sdk-js-v3/commit/5126f41ecd403e5fd3c24dbf75bad3a8256c8f8a))
+* **client-resource-explorer-2:** Added ViewName to View-related responses and ServiceViewName to GetServiceView response. ([e0212a1](https://github.com/aws/aws-sdk-js-v3/commit/e0212a1077033159f7a429afad4fe47b84e61c4f))
+* **clients:** update client endpoints as of 2026-01-16 ([5149b6b](https://github.com/aws/aws-sdk-js-v3/commit/5149b6b044bdd9fd1dbcdf216fffcd8e5b6f15dc))
+
+
+
+
+
 # [3.970.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.969.0...v3.970.0) (2026-01-15)
 
 

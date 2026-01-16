@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.971.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.970.0...v3.971.0) (2026-01-16)
+
+
+### Features
+
+* **client-resource-explorer-2:** Added ViewName to View-related responses and ServiceViewName to GetServiceView response. ([e0212a1](https://github.com/aws/aws-sdk-js-v3/commit/e0212a1077033159f7a429afad4fe47b84e61c4f))
+
+
+
+
+
 # [3.970.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.969.0...v3.970.0) (2026-01-15)
 
 **Note:** Version bump only for package @aws-sdk/client-resource-explorer-2

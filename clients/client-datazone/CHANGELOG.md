@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.971.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.970.0...v3.971.0) (2026-01-16)
+
+
+### Features
+
+* **client-datazone:** This release adds support for numeric filtering and complex free-text searches cases for the Search and SearchListings APIs. ([3ce5567](https://github.com/aws/aws-sdk-js-v3/commit/3ce5567491d7817176e3e4745b2cea36bebc6708))
+
+
+
+
+
 # [3.970.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.969.0...v3.970.0) (2026-01-15)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone
