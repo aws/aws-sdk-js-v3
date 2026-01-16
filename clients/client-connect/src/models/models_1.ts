@@ -114,6 +114,57 @@ import {
 } from "./models_0";
 
 /**
+ * Request to DeleteAttachedFile API
+ * @public
+ */
+export interface DeleteAttachedFileRequest {
+  /**
+   * <p>The unique identifier of the Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId: string | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported
+   *    resource.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn: string | undefined;
+}
+
+/**
+ * Response from DeleteAttachedFile API
+ * @public
+ */
+export interface DeleteAttachedFileResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteContactEvaluationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteContactFlowRequest {
@@ -2083,6 +2134,60 @@ export interface EvaluationContactParticipant {
 }
 
 /**
+ * <p>A comment provided when requesting an evaluation review.</p>
+ * @public
+ */
+export interface EvaluationReviewRequestComment {
+  /**
+   * <p>The text content of the review request comment.</p>
+   * @public
+   */
+  Comment?: string | undefined;
+
+  /**
+   * <p>The timestamp when the review request comment was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The user who created the review request comment.</p>
+   * @public
+   */
+  CreatedBy?: string | undefined;
+}
+
+/**
+ * <p>Metadata information about an evaluation review.</p>
+ * @public
+ */
+export interface EvaluationReviewMetadata {
+  /**
+   * <p>The unique identifier for the evaluation review.</p>
+   * @public
+   */
+  ReviewId?: string | undefined;
+
+  /**
+   * <p>The timestamp when the evaluation review was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The user who created the evaluation review.</p>
+   * @public
+   */
+  CreatedBy: string | undefined;
+
+  /**
+   * <p>Comments provided when requesting the evaluation review.</p>
+   * @public
+   */
+  ReviewRequestComments: EvaluationReviewRequestComment[] | undefined;
+}
+
+/**
  * <p>Information about scores of a contact evaluation item (section or question).</p>
  * @public
  */
@@ -2159,6 +2264,12 @@ export interface EvaluationMetadata {
    * @public
    */
   Acknowledgement?: EvaluationAcknowledgement | undefined;
+
+  /**
+   * <p>Information about reviews of this evaluation.</p>
+   * @public
+   */
+  Review?: EvaluationReviewMetadata | undefined;
 
   /**
    * <p>Information about a contact participant in this evaluation.</p>
@@ -10150,211 +10261,4 @@ export interface ListBotsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListChildHoursOfOperationsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the parent hours of operation.</p>
-   * @public
-   */
-  HoursOfOperationId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListChildHoursOfOperationsResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the hours of operation.</p>
-   * @public
-   */
-  ChildHoursOfOperationsSummaryList?: HoursOfOperationsIdentifier[] | undefined;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactEvaluationsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   *          <important>
-   *             <p>This is not expected to be set because the value returned in the previous response is always null.</p>
-   *          </important>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Summary information about an evaluation acknowledgement.</p>
- * @public
- */
-export interface EvaluationAcknowledgementSummary {
-  /**
-   * <p>The time when an agent acknowledged the evaluation.</p>
-   * @public
-   */
-  AcknowledgedTime?: Date | undefined;
-
-  /**
-   * <p>The agent who acknowledged the evaluation.</p>
-   * @public
-   */
-  AcknowledgedBy?: string | undefined;
-
-  /**
-   * <p>A comment from the agent when they confirmed they acknowledged the evaluation.</p>
-   * @public
-   */
-  AcknowledgerComment?: string | undefined;
-}
-
-/**
- * <p>Summary information about a contact evaluation.</p>
- * @public
- */
-export interface EvaluationSummary {
-  /**
-   * <p>A unique identifier for the contact evaluation.</p>
-   * @public
-   */
-  EvaluationId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
-   * @public
-   */
-  EvaluationArn: string | undefined;
-
-  /**
-   * <p>A title of the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormTitle: string | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>The calibration session ID that this evaluation belongs to.</p>
-   * @public
-   */
-  CalibrationSessionId?: string | undefined;
-
-  /**
-   * <p>The status of the contact evaluation.</p>
-   * @public
-   */
-  Status: EvaluationStatus | undefined;
-
-  /**
-   * <p>Whether automated evaluation is enabled.</p>
-   * @public
-   */
-  AutoEvaluationEnabled?: boolean | undefined;
-
-  /**
-   * <p>The status of the contact auto evaluation. </p>
-   * @public
-   */
-  AutoEvaluationStatus?: AutoEvaluationStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation.</p>
-   * @public
-   */
-  EvaluatorArn: string | undefined;
-
-  /**
-   * <p>The overall score of the contact evaluation.</p>
-   * @public
-   */
-  Score?: EvaluationScore | undefined;
-
-  /**
-   * <p>Information related to evaluation acknowledgement.</p>
-   * @public
-   */
-  Acknowledgement?: EvaluationAcknowledgementSummary | undefined;
-
-  /**
-   * <p>Type of the evaluation. </p>
-   * @public
-   */
-  EvaluationType?: EvaluationType | undefined;
-
-  /**
-   * <p>The timestamp for when the evaluation was created.</p>
-   * @public
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * <p>The timestamp for when the evaluation was last updated.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>Information about a contact participant in the evaluation.</p>
-   * @public
-   */
-  ContactParticipant?: EvaluationContactParticipant | undefined;
 }

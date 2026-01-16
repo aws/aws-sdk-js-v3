@@ -832,6 +832,12 @@ import {
   EvaluationQuestionAnswerAnalysisDetails$,
   EvaluationQuestionAnswerAnalysisType,
   EvaluationQuestionInputDetails$,
+  EvaluationReviewConfiguration$,
+  EvaluationReviewMetadata$,
+  EvaluationReviewNotificationRecipient$,
+  EvaluationReviewNotificationRecipientType,
+  EvaluationReviewNotificationRecipientValue$,
+  EvaluationReviewRequestComment$,
   EvaluationScore$,
   EvaluationSearchCriteria$,
   EvaluationSearchFilter$,
@@ -3249,6 +3255,11 @@ assert(typeof EvaluationMetadata$ === "object");
 assert(typeof EvaluationNote$ === "object");
 assert(typeof EvaluationQuestionAnswerAnalysisDetails$ === "object");
 assert(typeof EvaluationQuestionInputDetails$ === "object");
+assert(typeof EvaluationReviewConfiguration$ === "object");
+assert(typeof EvaluationReviewMetadata$ === "object");
+assert(typeof EvaluationReviewNotificationRecipient$ === "object");
+assert(typeof EvaluationReviewNotificationRecipientValue$ === "object");
+assert(typeof EvaluationReviewRequestComment$ === "object");
 assert(typeof EvaluationScore$ === "object");
 assert(typeof EvaluationSearchCriteria$ === "object");
 assert(typeof EvaluationSearchFilter$ === "object");
@@ -3963,6 +3974,7 @@ assert(typeof EvaluationFormScoringStatus === "object");
 assert(typeof EvaluationFormSingleSelectQuestionDisplayMode === "object");
 assert(typeof EvaluationFormVersionStatus === "object");
 assert(typeof EvaluationQuestionAnswerAnalysisType === "object");
+assert(typeof EvaluationReviewNotificationRecipientType === "object");
 assert(typeof EvaluationStatus === "object");
 assert(typeof EvaluationSuggestedAnswerStatus === "object");
 assert(typeof EvaluationTranscriptType === "object");

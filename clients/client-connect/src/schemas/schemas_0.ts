@@ -533,6 +533,7 @@ const _Co = "Content";
 const _Cod = "Code";
 const _Col = "Collections";
 const _Com = "Comparator";
+const _Comm = "Comment";
 const _Comp = "Comparison";
 const _Con = "Condition";
 const _Conc = "Concurrency";
@@ -884,11 +885,12 @@ const _EC = "ErrorCode";
 const _ECLAAD = "EvaluationContactLensAnswerAnalysisDetails";
 const _ECP = "EvaluationContactParticipant";
 const _ECn = "EncryptionConfig";
-const _ED = "ErrorDescription";
+const _ED = "EligibilityDays";
 const _EDIM = "ExpiryDurationInMinutes";
 const _EDTV = "EvaluateDataTableValues";
 const _EDTVR = "EvaluateDataTableValuesRequest";
 const _EDTVRv = "EvaluateDataTableValuesResponse";
+const _EDr = "ErrorDescription";
 const _EF = "EffectiveFrom";
 const _EFA = "EvaluationFormArn";
 const _EFAEC = "EvaluationFormAutoEvaluationConfiguration";
@@ -966,7 +968,14 @@ const _EOHL = "EffectiveOverrideHoursList";
 const _EQAAD = "EvaluationQuestionAnswerAnalysisDetails";
 const _EQID = "EvaluationQuestionInputDetails";
 const _ER = "EchoReduction";
+const _ERC = "EvaluationReviewConfiguration";
 const _ERL = "EmailRecipientsList";
+const _ERM = "EvaluationReviewMetadata";
+const _ERNR = "EvaluationReviewNotificationRecipient";
+const _ERNRL = "EvaluationReviewNotificationRecipientList";
+const _ERNRV = "EvaluationReviewNotificationRecipientValue";
+const _ERRC = "EvaluationReviewRequestComment";
+const _ERRCL = "EvaluationReviewRequestCommentList";
 const _ERm = "EmailRecipient";
 const _ERma = "EmailReference";
 const _ERr = "ErrorResult";
@@ -1797,7 +1806,8 @@ const _RCRR = "ResumeContactRecordingRequest";
 const _RCRRe = "ResumeContactRecordingResponse";
 const _RCRe = "ResumeContactResponse";
 const _RCRes = "ResumeContactRecording";
-const _RCe = "RecurrenceConfig";
+const _RCe = "ReviewConfiguration";
+const _RCec = "RecurrenceConfig";
 const _RCep = "ReplicationConfiguration";
 const _RCes = "ResumeContact";
 const _RCu = "RuleCategory";
@@ -1821,6 +1831,7 @@ const _RM = "RawMessage";
 const _RMe = "ResponseMode";
 const _RN = "ResourceName";
 const _RNFE = "ResourceNotFoundException";
+const _RNR = "ReviewNotificationRecipients";
 const _RNRE = "ResourceNotReadyException";
 const _ROF = "ReadOnlyFields";
 const _ROFI = "ReadOnlyFieldInfo";
@@ -1853,6 +1864,7 @@ const _RPV = "RecordPrimaryValue";
 const _RPe = "RecurrencePattern";
 const _RPo = "RoutingProfiles";
 const _RR = "ReplicaRegion";
+const _RRC = "ReviewRequestComments";
 const _RS = "ReplicationStatus";
 const _RSA = "ResourceShareArn";
 const _RSE = "RoutingStepExpression";
@@ -1907,6 +1919,7 @@ const _Ref = "References";
 const _Refe = "Reference";
 const _Reg = "Region";
 const _Res = "Results";
+const _Rev = "Review";
 const _Ru = "Rule";
 const _S = "State";
 const _SA = "StatusArn";
@@ -3551,8 +3564,8 @@ export var CreateEmailAddressResponse$: StaticStructureSchema = [3, n0, _CEARr,
 ];
 export var CreateEvaluationFormRequest$: StaticStructureSchema = [3, n0, _CEFR,
   0,
-  [_II, _Ti, _It, _D, _SS, _AEC, _CT, _ADs, _Ta, _TCar, _LCa],
-  [[0, 1], 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, [0, 4], 2, 128 | 0, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 3
+  [_II, _Ti, _It, _D, _SS, _AEC, _CT, _ADs, _Ta, _RCe, _TCar, _LCa],
+  [[0, 1], 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, [0, 4], 2, 128 | 0, () => EvaluationReviewConfiguration$, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 3
 ];
 export var CreateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _CEFRr,
   0,
@@ -3561,7 +3574,7 @@ export var CreateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _CEFRr
 ];
 export var CreateHoursOfOperationOverrideRequest$: StaticStructureSchema = [3, n0, _CHOOOR,
   0,
-  [_II, _HOOI, _N, _Conf, _EF, _ETf, _D, _RCe, _OT],
+  [_II, _HOOI, _N, _Conf, _EF, _ETf, _D, _RCec, _OT],
   [[0, 1], [0, 1], 0, () => HoursOfOperationOverrideConfigList, 0, 0, 0, () => RecurrenceConfig$, 0], 6
 ];
 export var CreateHoursOfOperationOverrideResponse$: StaticStructureSchema = [3, n0, _CHOOORr,
@@ -4798,8 +4811,8 @@ export var EvaluationContactParticipant$: StaticStructureSchema = [3, n0, _ECP,
 ];
 export var EvaluationForm$: StaticStructureSchema = [3, n0, _EFv,
   0,
-  [_EFI, _EFV, _L, _EFA, _Ti, _St, _It, _CTre, _CB, _LMT, _LMB, _D, _SS, _AEC, _Ta, _TCar, _LCa],
-  [0, 1, 2, 0, 0, 0, () => EvaluationFormItemsList, 4, 0, 4, 0, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, 128 | 0, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 11
+  [_EFI, _EFV, _L, _EFA, _Ti, _St, _It, _CTre, _CB, _LMT, _LMB, _D, _SS, _AEC, _RCe, _Ta, _TCar, _LCa],
+  [0, 1, 2, 0, 0, 0, () => EvaluationFormItemsList, 4, 0, 4, 0, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 128 | 0, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 11
 ];
 export var EvaluationFormAutoEvaluationConfiguration$: StaticStructureSchema = [3, n0, _EFAEC,
   0,
@@ -4808,8 +4821,8 @@ export var EvaluationFormAutoEvaluationConfiguration$: StaticStructureSchema = [
 ];
 export var EvaluationFormContent$: StaticStructureSchema = [3, n0, _EFC,
   0,
-  [_EFV, _EFI, _EFA, _Ti, _It, _D, _SS, _AEC, _TCar, _LCa],
-  [1, 0, 0, 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 5
+  [_EFV, _EFI, _EFA, _Ti, _It, _D, _SS, _AEC, _TCar, _LCa, _RCe],
+  [1, 0, 0, 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, () => EvaluationReviewConfiguration$], 5
 ];
 export var EvaluationFormItemEnablementCondition$: StaticStructureSchema = [3, n0, _EFIEC,
   0,
@@ -4948,8 +4961,8 @@ export var EvaluationGenAIAnswerAnalysisDetails$: StaticStructureSchema = [3, n0
 ];
 export var EvaluationMetadata$: StaticStructureSchema = [3, n0, _EMv,
   0,
-  [_CI, _EAval, _CAIo, _CSI, _Sco, _AEu, _Ack, _CP, _SJI],
-  [0, 0, 0, 0, () => EvaluationScore$, () => AutoEvaluationDetails$, () => EvaluationAcknowledgement$, () => EvaluationContactParticipant$, 0], 2
+  [_CI, _EAval, _CAIo, _CSI, _Sco, _AEu, _Ack, _Rev, _CP, _SJI],
+  [0, 0, 0, 0, () => EvaluationScore$, () => AutoEvaluationDetails$, () => EvaluationAcknowledgement$, () => EvaluationReviewMetadata$, () => EvaluationContactParticipant$, 0], 2
 ];
 export var EvaluationNote$: StaticStructureSchema = [3, n0, _EN,
   0,
@@ -4960,6 +4973,31 @@ export var EvaluationQuestionInputDetails$: StaticStructureSchema = [3, n0, _EQI
   0,
   [_TT],
   [0]
+];
+export var EvaluationReviewConfiguration$: StaticStructureSchema = [3, n0, _ERC,
+  0,
+  [_RNR, _ED],
+  [() => EvaluationReviewNotificationRecipientList, 1], 1
+];
+export var EvaluationReviewMetadata$: StaticStructureSchema = [3, n0, _ERM,
+  0,
+  [_CTre, _CB, _RRC, _RIev],
+  [4, 0, () => EvaluationReviewRequestCommentList, 0], 3
+];
+export var EvaluationReviewNotificationRecipient$: StaticStructureSchema = [3, n0, _ERNR,
+  0,
+  [_T, _V],
+  [0, () => EvaluationReviewNotificationRecipientValue$], 2
+];
+export var EvaluationReviewNotificationRecipientValue$: StaticStructureSchema = [3, n0, _ERNRV,
+  0,
+  [_UI],
+  [0]
+];
+export var EvaluationReviewRequestComment$: StaticStructureSchema = [3, n0, _ERRC,
+  0,
+  [_Comm, _CTre, _CB],
+  [0, 4, 0]
 ];
 export var EvaluationScore$: StaticStructureSchema = [3, n0, _ES,
   0,
@@ -5303,7 +5341,7 @@ export var HoursOfOperationConfig$: StaticStructureSchema = [3, n0, _HOOC,
 ];
 export var HoursOfOperationOverride$: StaticStructureSchema = [3, n0, _HOOO,
   0,
-  [_HOOOI, _HOOI, _HOOA, _N, _D, _Conf, _EF, _ETf, _RCe, _OT],
+  [_HOOOI, _HOOI, _HOOA, _N, _D, _Conf, _EF, _ETf, _RCec, _OT],
   [0, 0, 0, 0, 0, () => HoursOfOperationOverrideConfigList, 0, 0, () => RecurrenceConfig$, 0]
 ];
 export var HoursOfOperationOverrideConfig$: StaticStructureSchema = [3, n0, _HOOOC,
@@ -6658,7 +6696,7 @@ export var RecordPrimaryValue$: StaticStructureSchema = [3, n0, _RPV,
   [_RIe, _PV, _LMT, _LMR],
   [0, () => PrimaryValuesResponseSet, 4, 0]
 ];
-export var RecurrenceConfig$: StaticStructureSchema = [3, n0, _RCe,
+export var RecurrenceConfig$: StaticStructureSchema = [3, n0, _RCec,
   0,
   [_RPe],
   [() => RecurrencePattern$], 1
@@ -7792,8 +7830,8 @@ export var UpdateEmailAddressMetadataResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateEvaluationFormRequest$: StaticStructureSchema = [3, n0, _UEFR,
   0,
-  [_II, _EFI, _EFV, _Ti, _It, _CNV, _D, _SS, _AEC, _ADs, _CT, _TCar, _LCa],
-  [[0, 1], [0, 1], 1, 0, () => EvaluationFormItemsList, 2, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, 2, [0, 4], () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 5
+  [_II, _EFI, _EFV, _Ti, _It, _CNV, _D, _SS, _AEC, _RCe, _ADs, _CT, _TCar, _LCa],
+  [[0, 1], [0, 1], 1, 0, () => EvaluationFormItemsList, 2, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 2, [0, 4], () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 5
 ];
 export var UpdateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _UEFRp,
   0,
@@ -7802,7 +7840,7 @@ export var UpdateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _UEFRp
 ];
 export var UpdateHoursOfOperationOverrideRequest$: StaticStructureSchema = [3, n0, _UHOOOR,
   0,
-  [_II, _HOOI, _HOOOI, _N, _D, _Conf, _EF, _ETf, _RCe, _OT],
+  [_II, _HOOI, _HOOOI, _N, _D, _Conf, _EF, _ETf, _RCec, _OT],
   [[0, 1], [0, 1], [0, 1], 0, 0, () => HoursOfOperationOverrideConfigList, 0, 0, () => RecurrenceConfig$, 0], 3
 ];
 export var UpdateHoursOfOperationRequest$: StaticStructureSchema = [3, n0, _UHOOR,
@@ -7822,7 +7860,7 @@ export var UpdateInstanceStorageConfigRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateParticipantAuthenticationRequest$: StaticStructureSchema = [3, n0, _UPAR,
   0,
-  [_S, _II, _Cod, _Err, _ED],
+  [_S, _II, _Cod, _Err, _EDr],
   [0, 0, [() => AuthorizationCode, 0], [() => AuthenticationError, 0], [() => AuthenticationErrorDescription, 0]], 2
 ];
 export var UpdateParticipantAuthenticationResponse$: StaticStructureSchema = [3, n0, _UPARp,
@@ -8571,6 +8609,12 @@ var EvaluationFormSummaryList: StaticListSchema = [1, n0, _EFSL,
 ];
 var EvaluationFormVersionSummaryList: StaticListSchema = [1, n0, _EFVSL,
   0, () => EvaluationFormVersionSummary$
+];
+var EvaluationReviewNotificationRecipientList: StaticListSchema = [1, n0, _ERNRL,
+  0, () => EvaluationReviewNotificationRecipient$
+];
+var EvaluationReviewRequestCommentList: StaticListSchema = [1, n0, _ERRCL,
+  0, () => EvaluationReviewRequestComment$
 ];
 var EvaluationSearchConditionList: StaticListSchema = [1, n0, _ESCL,
   0, () => EvaluationSearchCriteria$

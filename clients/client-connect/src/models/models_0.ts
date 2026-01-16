@@ -34,6 +34,7 @@ import {
   EvaluationFormScoringMode,
   EvaluationFormScoringStatus,
   EvaluationFormSingleSelectQuestionDisplayMode,
+  EvaluationReviewNotificationRecipientType,
   EventSourceName,
   FailureReasonCode,
   FileStatusType,
@@ -4662,6 +4663,54 @@ export interface EvaluationFormLanguageConfiguration {
 }
 
 /**
+ * <p>The value information for an evaluation review notification recipient.</p>
+ * @public
+ */
+export interface EvaluationReviewNotificationRecipientValue {
+  /**
+   * <p>The user identifier for the notification recipient.</p>
+   * @public
+   */
+  UserId?: string | undefined;
+}
+
+/**
+ * <p>Information about a recipient who should be notified when an evaluation review is requested.</p>
+ * @public
+ */
+export interface EvaluationReviewNotificationRecipient {
+  /**
+   * <p>The type of notification recipient.</p>
+   * @public
+   */
+  Type: EvaluationReviewNotificationRecipientType | undefined;
+
+  /**
+   * <p>The value associated with the notification recipient type.</p>
+   * @public
+   */
+  Value: EvaluationReviewNotificationRecipientValue | undefined;
+}
+
+/**
+ * <p>Configuration settings for evaluation reviews.</p>
+ * @public
+ */
+export interface EvaluationReviewConfiguration {
+  /**
+   * <p>List of recipients who should be notified when a review is requested.</p>
+   * @public
+   */
+  ReviewNotificationRecipients: EvaluationReviewNotificationRecipient[] | undefined;
+
+  /**
+   * <p>Number of days during which a request for review can be submitted for evaluations created from this form.</p>
+   * @public
+   */
+  EligibilityDays?: number | undefined;
+}
+
+/**
  * <p>Information about scoring strategy for an evaluation form.</p>
  * @public
  */
@@ -7925,55 +7974,4 @@ export interface DeactivateEvaluationFormResponse {
    * @public
    */
   EvaluationFormVersion: number | undefined;
-}
-
-/**
- * Request to DeleteAttachedFile API
- * @public
- */
-export interface DeleteAttachedFileRequest {
-  /**
-   * <p>The unique identifier of the Connect instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the attached file resource.</p>
-   * @public
-   */
-  FileId: string | undefined;
-
-  /**
-   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported
-   *    resource.</p>
-   *          <note>
-   *             <p>This value must be a valid ARN.</p>
-   *          </note>
-   * @public
-   */
-  AssociatedResourceArn: string | undefined;
-}
-
-/**
- * Response from DeleteAttachedFile API
- * @public
- */
-export interface DeleteAttachedFileResponse {}
-
-/**
- * @public
- */
-export interface DeleteContactEvaluationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the contact evaluation.</p>
-   * @public
-   */
-  EvaluationId: string | undefined;
 }

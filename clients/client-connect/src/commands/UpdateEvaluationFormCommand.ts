@@ -310,6 +310,17 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *   AutoEvaluationConfiguration: { // EvaluationFormAutoEvaluationConfiguration
  *     Enabled: true || false, // required
  *   },
+ *   ReviewConfiguration: { // EvaluationReviewConfiguration
+ *     ReviewNotificationRecipients: [ // EvaluationReviewNotificationRecipientList // required
+ *       { // EvaluationReviewNotificationRecipient
+ *         Type: "USER_ID", // required
+ *         Value: { // EvaluationReviewNotificationRecipientValue
+ *           UserId: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     EligibilityDays: Number("int"),
+ *   },
  *   AsDraft: true || false,
  *   ClientToken: "STRING_VALUE",
  *   TargetConfiguration: { // EvaluationFormTargetConfiguration

@@ -814,6 +814,19 @@ export type EvaluationFormLanguageCode = (typeof EvaluationFormLanguageCode)[key
  * @public
  * @enum
  */
+export const EvaluationReviewNotificationRecipientType = {
+  USER_ID: "USER_ID",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationReviewNotificationRecipientType =
+  (typeof EvaluationReviewNotificationRecipientType)[keyof typeof EvaluationReviewNotificationRecipientType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationFormScoringMode = {
   QUESTION_ONLY: "QUESTION_ONLY",
   SECTION_ONLY: "SECTION_ONLY",
@@ -1522,7 +1535,9 @@ export type ContactParticipantRole = (typeof ContactParticipantRole)[keyof typeo
  */
 export const EvaluationStatus = {
   DRAFT: "DRAFT",
+  REVIEW_REQUESTED: "REVIEW_REQUESTED",
   SUBMITTED: "SUBMITTED",
+  UNDER_REVIEW: "UNDER_REVIEW",
 } as const;
 /**
  * @public

@@ -10,6 +10,7 @@ import {
   ContactFlowStatus,
   ContactFlowType,
   ContactInitiationMethod,
+  ContactMediaProcessingFailureMode,
   ContactRecordingType,
   DataTableAttributeValueType,
   DataTableLockLevel,
@@ -23,6 +24,7 @@ import {
   InitiateAs,
   InstanceAttributeType,
   InstanceStorageResourceType,
+  IvrRecordingTrack,
   MeetingFeatureStatus,
   OverrideType,
   ParticipantTimerAction,
@@ -37,6 +39,7 @@ import {
   ViewStatus,
   ViewType,
   Visibility,
+  VoiceRecordingTrack,
 } from "./enums";
 import {
   type AdditionalEmailRecipients,
@@ -52,6 +55,7 @@ import {
   type EvaluationFormQuestionTypeProperties,
   type EvaluationFormScoringStrategy,
   type EvaluationFormTargetConfiguration,
+  type EvaluationReviewConfiguration,
   type GranularAccessControlConfiguration,
   type InputPredefinedAttributeConfiguration,
   type InstanceStorageConfig,
@@ -108,6 +112,7 @@ import {
   RecordingInfo,
 } from "./models_1";
 import {
+  type AutoEvaluationConfiguration,
   type BooleanCondition,
   type ChatMessage,
   type ChatStreamingConfiguration,
@@ -140,11 +145,125 @@ import {
   type UserHierarchyGroupSearchFilter,
   type UserSearchFilter,
   type ViewSearchFilter,
-  type VoiceRecordingConfiguration,
   type WorkspaceAssociationSearchFilter,
   type WorkspaceSearchFilter,
   EmailAddressInfo,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface StartContactEvaluationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>Whether automated evaluations are enabled.</p>
+   * @public
+   */
+  AutoEvaluationConfiguration?: AutoEvaluationConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartContactEvaluationResponse {
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+   * @public
+   */
+  EvaluationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartContactMediaProcessingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   * @public
+   */
+  ContactId?: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Lambda processor. You can find the Amazon Resource Name of the lambda in
+   *    the lambda console. </p>
+   * @public
+   */
+  ProcessorArn?: string | undefined;
+
+  /**
+   * <p> The desired behavior for failed message processing. </p>
+   * @public
+   */
+  FailureMode?: ContactMediaProcessingFailureMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartContactMediaProcessingResponse {}
+
+/**
+ * <p>Contains information about the recording configuration settings.</p>
+ * @public
+ */
+export interface VoiceRecordingConfiguration {
+  /**
+   * <p>Identifies which track is being recorded.</p>
+   * @public
+   */
+  VoiceRecordingTrack?: VoiceRecordingTrack | undefined;
+
+  /**
+   * <p>Identifies which IVR track is being recorded.</p>
+   *          <p>One and only one of the track configurations should be presented in the request.</p>
+   * @public
+   */
+  IvrRecordingTrack?: IvrRecordingTrack | undefined;
+}
 
 /**
  * @public
@@ -6276,6 +6395,12 @@ export interface CreateEvaluationFormRequest {
   Tags?: Record<string, string> | undefined;
 
   /**
+   * <p>Configuration information about evaluation reviews.</p>
+   * @public
+   */
+  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
+
+  /**
    * <p>Configuration that specifies the target for the evaluation form.</p>
    * @public
    */
@@ -6378,6 +6503,12 @@ export interface EvaluationForm {
   AutoEvaluationConfiguration?: EvaluationFormAutoEvaluationConfiguration | undefined;
 
   /**
+   * <p>Configuration for evaluation review settings of this evaluation form.</p>
+   * @public
+   */
+  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
@@ -6460,6 +6591,12 @@ export interface EvaluationFormContent {
    * @public
    */
   LanguageConfiguration?: EvaluationFormLanguageConfiguration | undefined;
+
+  /**
+   * <p>Configuration for evaluation review settings of this evaluation form content.</p>
+   * @public
+   */
+  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
 }
 
 /**
@@ -6558,6 +6695,12 @@ export interface UpdateEvaluationFormRequest {
    * @public
    */
   AutoEvaluationConfiguration?: EvaluationFormAutoEvaluationConfiguration | undefined;
+
+  /**
+   * <p>Configuration for evaluation review settings of the evaluation form.</p>
+   * @public
+   */
+  ReviewConfiguration?: EvaluationReviewConfiguration | undefined;
 
   /**
    * <p>A boolean flag indicating whether to update evaluation form to draft state.</p>

@@ -11,7 +11,6 @@ import {
   ContactFlowType,
   ContactInitiationMethod,
   ContactInteractionType,
-  ContactMediaProcessingFailureMode,
   ContactParticipantRole,
   ContactRecordingType,
   DataTableAttributeValueType,
@@ -31,7 +30,6 @@ import {
   InstanceStatus,
   InstanceStorageResourceType,
   IntegrationType,
-  IvrRecordingTrack,
   ListFlowAssociationResourceType,
   MediaType,
   MonitorCapability,
@@ -71,7 +69,6 @@ import {
   Visibility,
   VocabularyLanguageCode,
   VocabularyState,
-  VoiceRecordingTrack,
 } from "./enums";
 import {
   type AgentHierarchyGroups,
@@ -95,22 +92,231 @@ import {
   View,
 } from "./models_0";
 import {
+  type EvaluationContactParticipant,
+  type EvaluationScore,
   Attribute,
   ContactFlow,
   ContactFlowModule,
   DataTable,
   DataTableAttribute,
-  EvaluationSummary,
   HierarchyGroup,
   HierarchyGroupSummary,
   HoursOfOperation,
   HoursOfOperationOverride,
+  HoursOfOperationsIdentifier,
   PredefinedAttribute,
   Prompt,
   Queue,
   QuickConnect,
   RoutingProfile,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListChildHoursOfOperationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the parent hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListChildHoursOfOperationsResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the hours of operation.</p>
+   * @public
+   */
+  ChildHoursOfOperationsSummaryList?: HoursOfOperationsIdentifier[] | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactEvaluationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   *          <important>
+   *             <p>This is not expected to be set because the value returned in the previous response is always null.</p>
+   *          </important>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about an evaluation acknowledgement.</p>
+ * @public
+ */
+export interface EvaluationAcknowledgementSummary {
+  /**
+   * <p>The time when an agent acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgedTime?: Date | undefined;
+
+  /**
+   * <p>The agent who acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgedBy?: string | undefined;
+
+  /**
+   * <p>A comment from the agent when they confirmed they acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgerComment?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a contact evaluation.</p>
+ * @public
+ */
+export interface EvaluationSummary {
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+   * @public
+   */
+  EvaluationArn: string | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormTitle: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The calibration session ID that this evaluation belongs to.</p>
+   * @public
+   */
+  CalibrationSessionId?: string | undefined;
+
+  /**
+   * <p>The status of the contact evaluation.</p>
+   * @public
+   */
+  Status: EvaluationStatus | undefined;
+
+  /**
+   * <p>Whether automated evaluation is enabled.</p>
+   * @public
+   */
+  AutoEvaluationEnabled?: boolean | undefined;
+
+  /**
+   * <p>The status of the contact auto evaluation. </p>
+   * @public
+   */
+  AutoEvaluationStatus?: AutoEvaluationStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation.</p>
+   * @public
+   */
+  EvaluatorArn: string | undefined;
+
+  /**
+   * <p>The overall score of the contact evaluation.</p>
+   * @public
+   */
+  Score?: EvaluationScore | undefined;
+
+  /**
+   * <p>Information related to evaluation acknowledgement.</p>
+   * @public
+   */
+  Acknowledgement?: EvaluationAcknowledgementSummary | undefined;
+
+  /**
+   * <p>Type of the evaluation. </p>
+   * @public
+   */
+  EvaluationType?: EvaluationType | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Information about a contact participant in the evaluation.</p>
+   * @public
+   */
+  ContactParticipant?: EvaluationContactParticipant | undefined;
+}
 
 /**
  * @public
@@ -8506,119 +8712,4 @@ export interface AutoEvaluationConfiguration {
    * @public
    */
   Enabled: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface StartContactEvaluationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>Whether automated evaluations are enabled.</p>
-   * @public
-   */
-  AutoEvaluationConfiguration?: AutoEvaluationConfiguration | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface StartContactEvaluationResponse {
-  /**
-   * <p>A unique identifier for the contact evaluation.</p>
-   * @public
-   */
-  EvaluationId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
-   * @public
-   */
-  EvaluationArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartContactMediaProcessingRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId?: string | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the Lambda processor. You can find the Amazon Resource Name of the lambda in
-   *    the lambda console. </p>
-   * @public
-   */
-  ProcessorArn?: string | undefined;
-
-  /**
-   * <p> The desired behavior for failed message processing. </p>
-   * @public
-   */
-  FailureMode?: ContactMediaProcessingFailureMode | undefined;
-}
-
-/**
- * @public
- */
-export interface StartContactMediaProcessingResponse {}
-
-/**
- * <p>Contains information about the recording configuration settings.</p>
- * @public
- */
-export interface VoiceRecordingConfiguration {
-  /**
-   * <p>Identifies which track is being recorded.</p>
-   * @public
-   */
-  VoiceRecordingTrack?: VoiceRecordingTrack | undefined;
-
-  /**
-   * <p>Identifies which IVR track is being recorded.</p>
-   *          <p>One and only one of the track configurations should be presented in the request.</p>
-   * @public
-   */
-  IvrRecordingTrack?: IvrRecordingTrack | undefined;
 }

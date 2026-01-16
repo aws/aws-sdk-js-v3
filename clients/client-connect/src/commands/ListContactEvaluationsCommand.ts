@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListContactEvaluationsRequest } from "../models/models_1";
-import type { ListContactEvaluationsResponse } from "../models/models_2";
+import type { ListContactEvaluationsRequest, ListContactEvaluationsResponse } from "../models/models_2";
 import { ListContactEvaluations$ } from "../schemas/schemas_0";
 
 /**
@@ -52,7 +51,7 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * //       EvaluationFormTitle: "STRING_VALUE", // required
  * //       EvaluationFormId: "STRING_VALUE", // required
  * //       CalibrationSessionId: "STRING_VALUE",
- * //       Status: "DRAFT" || "SUBMITTED", // required
+ * //       Status: "DRAFT" || "SUBMITTED" || "REVIEW_REQUESTED" || "UNDER_REVIEW", // required
  * //       AutoEvaluationEnabled: true || false,
  * //       AutoEvaluationStatus: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
  * //       EvaluatorArn: "STRING_VALUE", // required

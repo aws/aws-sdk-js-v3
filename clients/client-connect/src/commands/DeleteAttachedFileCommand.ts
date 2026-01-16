@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteAttachedFileRequest, DeleteAttachedFileResponse } from "../models/models_0";
+import type { DeleteAttachedFileRequest, DeleteAttachedFileResponse } from "../models/models_1";
 import { DeleteAttachedFile$ } from "../schemas/schemas_0";
 
 /**
