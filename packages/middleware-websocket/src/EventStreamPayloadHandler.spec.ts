@@ -21,7 +21,7 @@ describe(EventStreamPayloadHandler.name, () => {
   beforeEach(() => {
     window.TransformStream = TransformStream;
     (getEventSigningTransformStream as unknown as any).mockImplementation(() => new TransformStream());
-    vi.mocked(EventStreamCodec).mockImplementation((() => {}) as any);
+    vi.mocked(EventStreamCodec).mockImplementation(function () {});
   });
 
   afterEach(() => {

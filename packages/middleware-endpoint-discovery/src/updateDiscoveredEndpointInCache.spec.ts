@@ -21,7 +21,9 @@ describe(updateDiscoveredEndpointInCache.name, () => {
   const options = {
     cacheKey,
     commandName: "ExampleCommand",
-    endpointDiscoveryCommandCtor: vi.fn().mockReturnValue({ resolveMiddleware: mockResolveMiddleware }),
+    endpointDiscoveryCommandCtor: vi.fn(function () {
+      return { resolveMiddleware: mockResolveMiddleware };
+    }),
     isDiscoveredEndpointRequired: false,
     identifiers: { key: "value" },
   };

@@ -4,7 +4,9 @@ import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest"
 import { Endpoint } from "./Endpoint";
 import { EndpointCache } from "./EndpointCache";
 
-vi.mock("mnemonist/lru-cache");
+vi.mock("mnemonist/lru-cache", () => ({
+  default: vi.fn(),
+}));
 
 describe(EndpointCache.name, () => {
   let endpointCache: EndpointCache;
@@ -33,13 +35,11 @@ describe(EndpointCache.name, () => {
     Math.max(...endpoints.map((endpoint) => endpoint.CachePeriodInMinutes));
 
   beforeEach(() => {
-    (LRUCache as unknown as any).mockReturnValueOnce({
-      set,
-      get,
-      peek,
-      has,
-      clear,
-    });
+    vi.mocked(LRUCache).prototype.set = set;
+    vi.mocked(LRUCache).prototype.get = get;
+    vi.mocked(LRUCache).prototype.peek = peek;
+    vi.mocked(LRUCache).prototype.has = has;
+    vi.mocked(LRUCache).prototype.clear = clear;
     endpointCache = new EndpointCache(capacity);
   });
 

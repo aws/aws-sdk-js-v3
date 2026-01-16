@@ -7,10 +7,12 @@ describe(stringHasher.name, () => {
   const mockHash = new Uint8Array(Buffer.from("mockHash"));
   const mockUpdate = vi.fn();
   const mockDigest = vi.fn();
-  const mockChecksumAlgorithmFn = vi.fn().mockImplementation(() => ({
-    update: mockUpdate,
-    digest: mockDigest,
-  }));
+  const mockChecksumAlgorithmFn = vi.fn(function () {
+    return {
+      update: mockUpdate,
+      digest: mockDigest,
+    };
+  });
 
   beforeEach(() => {
     mockDigest.mockResolvedValueOnce(mockHash);

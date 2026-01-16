@@ -17,9 +17,11 @@ describe("AuthConfig", () => {
       region: vi.fn().mockImplementation(() => Promise.resolve("us-foo-1")),
       regionInfoProvider: () => Promise.resolve({ hostname: "foo.com", partition: "aws" }),
       serviceId: "foo",
-      sha256: vi.fn().mockReturnValue({
-        update: vi.fn(),
-        digest: vi.fn().mockReturnValue("SHA256 hash"),
+      sha256: vi.fn(function () {
+        return {
+          update: vi.fn(),
+          digest: vi.fn().mockReturnValue("SHA256 hash"),
+        };
       }),
       credentials: vi.fn().mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
       useFipsEndpoint: () => Promise.resolve(false),
@@ -73,9 +75,11 @@ describe("AuthConfig", () => {
       credentialDefaultProvider: () => () => Promise.resolve({ accessKeyId: "key", secretAccessKey: "secret" }),
       region: vi.fn().mockImplementation(() => Promise.resolve("us-foo-1")),
       signingName: "foo",
-      sha256: vi.fn().mockReturnValue({
-        update: vi.fn(),
-        digest: vi.fn().mockReturnValue("SHA256 hash"),
+      sha256: vi.fn(function () {
+        return {
+          update: vi.fn(),
+          digest: vi.fn().mockReturnValue("SHA256 hash"),
+        };
       }),
       credentials: vi.fn().mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
     });

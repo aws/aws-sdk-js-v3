@@ -73,8 +73,12 @@ describe("ssecMiddleware", () => {
       update: vi.fn().mockReturnThis(),
       digest: vi.fn().mockReturnValue(md5Hash),
     };
-    const mockMD5Constructor = vi.fn().mockReturnValue(mockMD5Instance);
-    const base64Encoder = vi.fn().mockReturnValue(base64EncodedMD5Hash);
+    const mockMD5Constructor = vi.fn(function () {
+      return mockMD5Instance;
+    });
+    const base64Encoder = vi.fn(function () {
+      return base64EncodedMD5Hash;
+    });
 
     const handler = ssecMiddleware({
       base64Encoder,
@@ -118,9 +122,11 @@ describe("ssecMiddleware", () => {
     const base64EncodedKey = binaryKey.toString("base64");
     const base64EncodedMD5Hash = md5Hash.toString("base64");
 
-    const mockMD5Constructor = vi.fn().mockReturnValue({
-      update: vi.fn().mockReturnThis(),
-      digest: vi.fn().mockReturnValueOnce(md5Hash).mockReturnValueOnce(md5Hash),
+    const mockMD5Constructor = vi.fn(function () {
+      return {
+        update: vi.fn().mockReturnThis(),
+        digest: vi.fn().mockReturnValueOnce(md5Hash).mockReturnValueOnce(md5Hash),
+      };
     });
 
     const base64Encoder = vi

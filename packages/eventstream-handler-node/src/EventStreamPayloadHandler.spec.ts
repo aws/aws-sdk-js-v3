@@ -28,8 +28,10 @@ describe(EventStreamPayloadHandler.name, () => {
   const mockNextHandler: FinalizeHandler<any, any> = vi.fn();
 
   beforeEach(() => {
-    (EventSigningStream as unknown as any).mockImplementation(() => new PassThrough());
-    vi.mocked(EventStreamCodec).mockImplementation((() => {}) as any);
+    (EventSigningStream as unknown as any).mockImplementation(function () {
+      return new PassThrough();
+    });
+    vi.mocked(EventStreamCodec).mockImplementation(function () {} as any);
   });
 
   afterEach(() => {

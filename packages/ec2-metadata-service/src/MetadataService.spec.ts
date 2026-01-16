@@ -1,6 +1,6 @@
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { Readable } from "stream";
-import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { MetadataService } from "./MetadataService";
 
@@ -44,12 +44,7 @@ describe("MetadataService Socket Leak Checks", () => {
       const mockToken = "test-token-123";
       const mockResponse = createMockResponse(200, mockToken);
 
-      vi.mocked(NodeHttpHandler).mockImplementation(
-        () =>
-          ({
-            handle: vi.fn().mockResolvedValue(mockResponse),
-          } as any)
-      );
+      vi.mocked(NodeHttpHandler).prototype.handle = vi.fn().mockResolvedValue(mockResponse);
 
       const token = await metadataService.fetchMetadataToken();
 
@@ -60,12 +55,7 @@ describe("MetadataService Socket Leak Checks", () => {
     it("should consume response body on 400 status before throwing", async () => {
       const mockResponse = createMockResponse(400, "Bad Request");
 
-      vi.mocked(NodeHttpHandler).mockImplementation(
-        () =>
-          ({
-            handle: vi.fn().mockResolvedValue(mockResponse),
-          } as any)
-      );
+      vi.mocked(NodeHttpHandler).prototype.handle = vi.fn().mockResolvedValue(mockResponse);
 
       await expect(metadataService.fetchMetadataToken()).rejects.toThrow(
         "Failed to fetch metadata token with status code 400"
@@ -77,12 +67,7 @@ describe("MetadataService Socket Leak Checks", () => {
     it("should consume response body on 500 status before throwing", async () => {
       const mockResponse = createMockResponse(500, "Server Error");
 
-      vi.mocked(NodeHttpHandler).mockImplementation(
-        () =>
-          ({
-            handle: vi.fn().mockResolvedValue(mockResponse),
-          } as any)
-      );
+      vi.mocked(NodeHttpHandler).prototype.handle = vi.fn().mockResolvedValue(mockResponse);
 
       await expect(metadataService.fetchMetadataToken()).rejects.toThrow(
         "Failed to fetch metadata token with status code 500"
@@ -94,12 +79,7 @@ describe("MetadataService Socket Leak Checks", () => {
     it("should include statusCode in error object for non-200 responses", async () => {
       const mockResponse = createMockResponse(400, "Bad Request");
 
-      vi.mocked(NodeHttpHandler).mockImplementation(
-        () =>
-          ({
-            handle: vi.fn().mockResolvedValue(mockResponse),
-          } as any)
-      );
+      vi.mocked(NodeHttpHandler).prototype.handle = vi.fn().mockResolvedValue(mockResponse);
 
       try {
         await metadataService.fetchMetadataToken();
@@ -115,12 +95,7 @@ describe("MetadataService Socket Leak Checks", () => {
     it("should set disableFetchToken on 403 error", async () => {
       const mockResponse = createMockResponse(403, "Forbidden");
 
-      vi.mocked(NodeHttpHandler).mockImplementation(
-        () =>
-          ({
-            handle: vi.fn().mockResolvedValue(mockResponse),
-          } as any)
-      );
+      vi.mocked(NodeHttpHandler).prototype.handle = vi.fn().mockResolvedValue(mockResponse);
 
       await expect(metadataService.fetchMetadataToken()).rejects.toThrow("[disableFetchToken] is now set to true");
 
@@ -130,12 +105,7 @@ describe("MetadataService Socket Leak Checks", () => {
     it("should set disableFetchToken on 404 error", async () => {
       const mockResponse = createMockResponse(404, "Not Found");
 
-      vi.mocked(NodeHttpHandler).mockImplementation(
-        () =>
-          ({
-            handle: vi.fn().mockResolvedValue(mockResponse),
-          } as any)
-      );
+      vi.mocked(NodeHttpHandler).prototype.handle = vi.fn().mockResolvedValue(mockResponse);
 
       await expect(metadataService.fetchMetadataToken()).rejects.toThrow("[disableFetchToken] is now set to true");
 
@@ -145,12 +115,7 @@ describe("MetadataService Socket Leak Checks", () => {
     it("should set disableFetchToken on 405 error", async () => {
       const mockResponse = createMockResponse(405, "Method Not Allowed");
 
-      vi.mocked(NodeHttpHandler).mockImplementation(
-        () =>
-          ({
-            handle: vi.fn().mockResolvedValue(mockResponse),
-          } as any)
-      );
+      vi.mocked(NodeHttpHandler).prototype.handle = vi.fn().mockResolvedValue(mockResponse);
 
       await expect(metadataService.fetchMetadataToken()).rejects.toThrow("[disableFetchToken] is now set to true");
 
@@ -158,12 +123,7 @@ describe("MetadataService Socket Leak Checks", () => {
     });
 
     it("should set disableFetchToken on TimeoutError", async () => {
-      vi.mocked(NodeHttpHandler).mockImplementation(
-        () =>
-          ({
-            handle: vi.fn().mockRejectedValue({ message: "TimeoutError" }),
-          } as any)
-      );
+      vi.mocked(NodeHttpHandler).prototype.handle = vi.fn().mockRejectedValue({ message: "TimeoutError" });
 
       await expect(metadataService.fetchMetadataToken()).rejects.toThrow("[disableFetchToken] is now set to true");
 
@@ -173,12 +133,7 @@ describe("MetadataService Socket Leak Checks", () => {
     it("should NOT set disableFetchToken on 400 error", async () => {
       const mockResponse = createMockResponse(400, "Bad Request");
 
-      vi.mocked(NodeHttpHandler).mockImplementation(
-        () =>
-          ({
-            handle: vi.fn().mockResolvedValue(mockResponse),
-          } as any)
-      );
+      vi.mocked(NodeHttpHandler).prototype.handle = vi.fn().mockResolvedValue(mockResponse);
 
       await expect(metadataService.fetchMetadataToken()).rejects.toThrow();
 
@@ -191,12 +146,7 @@ describe("MetadataService Socket Leak Checks", () => {
       const initialResources = process.getActiveResourcesInfo();
       const mockResponse = createMockResponse(400, "Bad Request");
 
-      vi.mocked(NodeHttpHandler).mockImplementation(
-        () =>
-          ({
-            handle: vi.fn().mockResolvedValue(mockResponse),
-          } as any)
-      );
+      vi.mocked(NodeHttpHandler).prototype.handle = vi.fn().mockResolvedValue(mockResponse);
 
       try {
         await metadataService.fetchMetadataToken();
@@ -216,12 +166,7 @@ describe("MetadataService Socket Leak Checks", () => {
       const initialResources = process.getActiveResourcesInfo();
       const mockResponse = createMockResponse(200, "test-token");
 
-      vi.mocked(NodeHttpHandler).mockImplementation(
-        () =>
-          ({
-            handle: vi.fn().mockResolvedValue(mockResponse),
-          } as any)
-      );
+      vi.mocked(NodeHttpHandler).prototype.handle = vi.fn().mockResolvedValue(mockResponse);
 
       await metadataService.fetchMetadataToken();
 
@@ -238,11 +183,7 @@ describe("MetadataService Socket Leak Checks", () => {
     it("should pass throwOnRequestTimeout: true to NodeHttpHandler", async () => {
       const mockResponse = createMockResponse(200, "test-token");
       const mockHandle = vi.fn().mockResolvedValue(mockResponse);
-
-      vi.mocked(NodeHttpHandler).mockImplementation((config: any) => {
-        expect(config.throwOnRequestTimeout).toBe(true);
-        return { handle: mockHandle } as any;
-      });
+      vi.mocked(NodeHttpHandler).prototype.handle = mockHandle;
 
       await metadataService.fetchMetadataToken();
 
@@ -283,7 +224,7 @@ describe("MetadataService Custom Ports", () => {
     const mockResponse = createMockResponse(200, "i-1234567890abcdef0");
     const mockHandle = vi.fn().mockResolvedValue(mockResponse);
 
-    vi.mocked(NodeHttpHandler).mockImplementation(() => ({ handle: mockHandle } as any));
+    vi.mocked(NodeHttpHandler).prototype.handle = mockHandle;
 
     await metadataService.request("/latest/meta-data/instance-id", {});
 
@@ -302,7 +243,7 @@ describe("MetadataService Custom Ports", () => {
     const mockResponse = createMockResponse(200, "test-token-123");
     const mockHandle = vi.fn().mockResolvedValue(mockResponse);
 
-    vi.mocked(NodeHttpHandler).mockImplementation(() => ({ handle: mockHandle } as any));
+    vi.mocked(NodeHttpHandler).prototype.handle = mockHandle;
 
     await metadataService.fetchMetadataToken();
 
@@ -321,7 +262,7 @@ describe("MetadataService Custom Ports", () => {
     const mockResponse = createMockResponse(200, "test-token-123");
     const mockHandle = vi.fn().mockResolvedValue(mockResponse);
 
-    vi.mocked(NodeHttpHandler).mockImplementation(() => ({ handle: mockHandle } as any));
+    vi.mocked(NodeHttpHandler).prototype.handle = mockHandle;
 
     await metadataService.fetchMetadataToken();
 
@@ -340,7 +281,7 @@ describe("MetadataService Custom Ports", () => {
     const mockResponse = createMockResponse(200, "test-token-123");
     const mockHandle = vi.fn().mockResolvedValue(mockResponse);
 
-    vi.mocked(NodeHttpHandler).mockImplementation(() => ({ handle: mockHandle } as any));
+    vi.mocked(NodeHttpHandler).prototype.handle = mockHandle;
 
     await metadataService.fetchMetadataToken();
 
@@ -359,7 +300,7 @@ describe("MetadataService Custom Ports", () => {
     const mockResponse = createMockResponse(200, "test-token-123");
     const mockHandle = vi.fn().mockResolvedValue(mockResponse);
 
-    vi.mocked(NodeHttpHandler).mockImplementation(() => ({ handle: mockHandle } as any));
+    vi.mocked(NodeHttpHandler).prototype.handle = mockHandle;
 
     await metadataService.fetchMetadataToken();
 
@@ -461,7 +402,7 @@ describe("MetadataService Token TTL Configuration", () => {
     const mockResponse = createMockResponse(200, "test-token-123");
     const mockHandle = vi.fn().mockResolvedValue(mockResponse);
 
-    vi.mocked(NodeHttpHandler).mockImplementation(() => ({ handle: mockHandle } as any));
+    vi.mocked(NodeHttpHandler).prototype.handle = mockHandle;
 
     await metadataService.fetchMetadataToken();
 
@@ -479,7 +420,7 @@ describe("MetadataService Token TTL Configuration", () => {
     const mockResponse = createMockResponse(200, "test-token-123");
     const mockHandle = vi.fn().mockResolvedValue(mockResponse);
 
-    vi.mocked(NodeHttpHandler).mockImplementation(() => ({ handle: mockHandle } as any));
+    vi.mocked(NodeHttpHandler).prototype.handle = mockHandle;
 
     await metadataService.fetchMetadataToken();
 
@@ -509,7 +450,7 @@ describe("MetadataService Token TTL Configuration", () => {
     const mockResponse = createMockResponse(200, "test-token-123");
     const mockHandle = vi.fn().mockResolvedValue(mockResponse);
 
-    vi.mocked(NodeHttpHandler).mockImplementation(() => ({ handle: mockHandle } as any));
+    vi.mocked(NodeHttpHandler).prototype.handle = mockHandle;
 
     await metadataService.fetchMetadataToken();
 

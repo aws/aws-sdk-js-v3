@@ -8,9 +8,9 @@ import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest"
 import { Signer, SignerConfig } from "./Signer";
 
 const mockPresign = vi.fn();
-vi.mock("@smithy/signature-v4", () => {
+vi.mock("@smithy/signature-v4", function () {
   return {
-    SignatureV4: vi.fn().mockImplementation(() => {
+    SignatureV4: vi.fn(function () {
       return { presign: mockPresign };
     }),
   };
