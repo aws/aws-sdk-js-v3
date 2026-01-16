@@ -72,13 +72,24 @@ export class MissingParameterValueException extends __BaseException {
 }
 
 /**
+ * <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
  * @public
  */
 export class NoLongerSupportedException extends __BaseException {
   readonly name = "NoLongerSupportedException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>Client</p>
+   * @public
+   */
   type?: string | undefined;
+
+  /**
+   * <p>400 Bad Request</p>
+   * @public
+   */
   code?: string | undefined;
+
   /**
    * @internal
    */
