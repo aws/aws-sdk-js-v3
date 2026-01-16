@@ -51,6 +51,7 @@ export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __Metadat
  * //   Views: [ // ViewList
  * //     { // View
  * //       ViewArn: "STRING_VALUE",
+ * //       ViewName: "STRING_VALUE",
  * //       Owner: "STRING_VALUE",
  * //       LastUpdatedAt: new Date("TIMESTAMP"),
  * //       Scope: "STRING_VALUE",

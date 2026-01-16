@@ -154,6 +154,7 @@ const _SRT = "SupportedResourceType";
 const _ST = "ScopeType";
 const _SV = "ServiceViews";
 const _SVA = "ServiceViewArn";
+const _SVN = "ServiceViewName";
 const _SVe = "ServiceView";
 const _Sc = "Scope";
 const _Se = "Service";
@@ -575,8 +576,8 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceView$: StaticStructureSchema = [3, n0, _SVe,
   0,
-  [_SVA, _F, _IP, _SAFSt, _ST],
-  [0, [() => SearchFilter$, 0], () => IncludedPropertyList, 0, 0], 1
+  [_SVA, _SVN, _F, _IP, _SAFSt, _ST],
+  [0, 0, [() => SearchFilter$, 0], () => IncludedPropertyList, 0, 0], 1
 ];
 export var StreamingAccessDetails$: StaticStructureSchema = [3, n0, _SAD,
   0,
@@ -653,8 +654,8 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 ];
 export var View$: StaticStructureSchema = [3, n0, _Vi,
   0,
-  [_VA, _O, _LUA, _Sc, _IP, _F],
-  [0, 0, 5, 0, () => IncludedPropertyList, [() => SearchFilter$, 0]]
+  [_VA, _VN, _O, _LUA, _Sc, _IP, _F],
+  [0, 0, 0, 5, 0, () => IncludedPropertyList, [() => SearchFilter$, 0]]
 ];
 export var ViewStatus$: StaticStructureSchema = [3, n0, _VS,
   0,

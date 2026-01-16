@@ -108,6 +108,12 @@ export interface View {
   ViewArn?: string | undefined;
 
   /**
+   * <p>The name of the view.</p>
+   * @public
+   */
+  ViewName?: string | undefined;
+
+  /**
    * <p>The Amazon Web Services account that owns this view.</p>
    * @public
    */
@@ -926,6 +932,12 @@ export interface ServiceView {
    * @public
    */
   ServiceViewArn: string | undefined;
+
+  /**
+   * <p>The name of the service view.</p>
+   * @public
+   */
+  ServiceViewName?: string | undefined;
 
   /**
    * <p>A search filter defines which resources can be part of a search query result set.</p>
