@@ -23351,18 +23351,18 @@ __metadata:
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-providers": "npm:*"
     "@aws-sdk/types": "npm:*"
-    "@smithy/core": "npm:^3.20.6"
+    "@smithy/core": "npm:^3.21.0"
     "@smithy/fetch-http-handler": "npm:^5.3.9"
     "@smithy/node-http-handler": "npm:^4.4.8"
     "@smithy/protocol-http": "npm:^5.3.8"
-    "@smithy/smithy-client": "npm:^4.10.8"
-    "@smithy/typecheck": "npm:^1.0.1"
+    "@smithy/smithy-client": "npm:^4.10.11"
+    "@smithy/typecheck": "npm:^1.0.4"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/util-retry": "npm:^4.2.8"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -29225,15 +29225,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/typecheck@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@smithy/typecheck@npm:1.0.1"
+"@smithy/typecheck@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@smithy/typecheck@npm:1.0.4"
   dependencies:
-    "@smithy/core": "npm:^3.20.6"
+    "@smithy/core": "npm:^3.21.0"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/util-middleware": "npm:^4.2.8"
     tslib: "npm:^2.6.2"
-  checksum: 10c0/82928d6eaacdee783bace40366defe6ff4a606dfafbabe80dd28f0fb4b3175e2433e220f6200e49800323a6a295ede34823ed8c0b5bc959c9d41c41f150172ba
+  checksum: 10c0/76299883b26ee3db011db8ccc07886b55abd0e440eb04ab2a7330ee036707a162026ec8e87f62c806c34b0e9735728596749a83d4be14a4cfef97c92b472d5c6
   languageName: node
   linkType: hard
 

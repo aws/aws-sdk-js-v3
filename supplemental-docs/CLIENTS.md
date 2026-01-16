@@ -324,7 +324,7 @@ For maxSockets in Node.js, see also: https://docs.aws.amazon.com/sdk-for-javascr
 
 ```ts
 // Example: setting maxSockets and timeouts.
-import { NodeHttpHandler } from "@smithy/node-http-handler";
+import { NodeHttpHandler } from "@aws-sdk/config/requestHandler";
 import https from "https";
 
 new S3Client({
@@ -397,7 +397,7 @@ and some SDK clients use a WebSocket handler as well.
 
 ```ts
 // Example: browser request options.
-import { FetchHttpHandler } from "@smithy/fetch-http-handler";
+import { FetchHttpHandler } from "@aws-sdk/config/requestHandler";
 
 new S3Client({
   requestHandler: new FetchHttpHandler({
@@ -438,7 +438,7 @@ The following are equivalent in Node.js:
 // Example: long form requestHandler configuration.
 import https from "node:https";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import { NodeHttpHandler } from "@smithy/node-http-handler";
+import { NodeHttpHandler } from "@aws-sdk/config/requestHandler";
 
 const client = new DynamoDBClient({
   requestHandler: new NodeHttpHandler({
@@ -484,7 +484,7 @@ contains values for those two concepts.
 
 ```ts
 // Example: setting maxAttempts
-import { StandardRetryStrategy } from "@smithy/util-retry";
+import { StandardRetryStrategy } from "@aws-sdk/config/retryStrategy";
 
 // the two following are equivalent:
 new S3Client({
@@ -497,7 +497,7 @@ new S3Client({
 
 ```ts
 // Example: setting maxAttempts and backoff computation
-import { ConfiguredRetryStrategy } from "@smithy/util-retry";
+import { ConfiguredRetryStrategy } from "@aws-sdk/config/retryStrategy";
 
 new S3Client({
   retryStrategy: new ConfiguredRetryStrategy(
@@ -555,7 +555,7 @@ to be specified, and `ADAPTIVE`, which is equivalent to using the `AdaptiveRetry
 
 ```ts
 // Example: setting retryMode
-import { AdaptiveRetryStrategy } from "@smithy/util-retry";
+import { AdaptiveRetryStrategy } from "@aws-sdk/config/retryStrategy";
 
 // the following two are equivalent:
 new S3Client({
