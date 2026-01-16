@@ -17,6 +17,11 @@ import {
   GetDeploymentCommandInput,
   GetDeploymentCommandOutput,
 } from "./commands/GetDeploymentCommand";
+import {
+  GetDeploymentPatternVersionCommand,
+  GetDeploymentPatternVersionCommandInput,
+  GetDeploymentPatternVersionCommandOutput,
+} from "./commands/GetDeploymentPatternVersionCommand";
 import { GetWorkloadCommand, GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
 import {
   GetWorkloadDeploymentPatternCommand,
@@ -28,6 +33,11 @@ import {
   ListDeploymentEventsCommandInput,
   ListDeploymentEventsCommandOutput,
 } from "./commands/ListDeploymentEventsCommand";
+import {
+  ListDeploymentPatternVersionsCommand,
+  ListDeploymentPatternVersionsCommandInput,
+  ListDeploymentPatternVersionsCommandOutput,
+} from "./commands/ListDeploymentPatternVersionsCommand";
 import {
   ListDeploymentsCommand,
   ListDeploymentsCommandInput,
@@ -54,21 +64,29 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateDeploymentCommand,
+  UpdateDeploymentCommandInput,
+  UpdateDeploymentCommandOutput,
+} from "./commands/UpdateDeploymentCommand";
 import { LaunchWizardClient } from "./LaunchWizardClient";
 
 const commands = {
   CreateDeploymentCommand,
   DeleteDeploymentCommand,
   GetDeploymentCommand,
+  GetDeploymentPatternVersionCommand,
   GetWorkloadCommand,
   GetWorkloadDeploymentPatternCommand,
   ListDeploymentEventsCommand,
+  ListDeploymentPatternVersionsCommand,
   ListDeploymentsCommand,
   ListTagsForResourceCommand,
   ListWorkloadDeploymentPatternsCommand,
   ListWorkloadsCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateDeploymentCommand,
 };
 
 export interface LaunchWizard {
@@ -124,6 +142,23 @@ export interface LaunchWizard {
   ): void;
 
   /**
+   * @see {@link GetDeploymentPatternVersionCommand}
+   */
+  getDeploymentPatternVersion(
+    args: GetDeploymentPatternVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentPatternVersionCommandOutput>;
+  getDeploymentPatternVersion(
+    args: GetDeploymentPatternVersionCommandInput,
+    cb: (err: any, data?: GetDeploymentPatternVersionCommandOutput) => void
+  ): void;
+  getDeploymentPatternVersion(
+    args: GetDeploymentPatternVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeploymentPatternVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetWorkloadCommand}
    */
   getWorkload(
@@ -172,6 +207,23 @@ export interface LaunchWizard {
     args: ListDeploymentEventsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDeploymentEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDeploymentPatternVersionsCommand}
+   */
+  listDeploymentPatternVersions(
+    args: ListDeploymentPatternVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentPatternVersionsCommandOutput>;
+  listDeploymentPatternVersions(
+    args: ListDeploymentPatternVersionsCommandInput,
+    cb: (err: any, data?: ListDeploymentPatternVersionsCommandOutput) => void
+  ): void;
+  listDeploymentPatternVersions(
+    args: ListDeploymentPatternVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentPatternVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -277,13 +329,27 @@ export interface LaunchWizard {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateDeploymentCommand}
+   */
+  updateDeployment(
+    args: UpdateDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDeploymentCommandOutput>;
+  updateDeployment(
+    args: UpdateDeploymentCommandInput,
+    cb: (err: any, data?: UpdateDeploymentCommandOutput) => void
+  ): void;
+  updateDeployment(
+    args: UpdateDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDeploymentCommandOutput) => void
+  ): void;
 }
 
 /**
- * <p>Launch Wizard offers a guided way of sizing, configuring, and deploying Amazon Web Services resources for
- *          third party applications, such as Microsoft SQL Server Always On and HANA based SAP
- *          systems, without the need to manually identify and provision individual Amazon Web Services
- *          resources.</p>
+ * <p>Launch Wizard offers a guided way of sizing, configuring, and deploying Amazon Web Services resources for third party applications, such as Microsoft SQL Server Always On and HANA based SAP systems, without the need to manually identify and provision individual Amazon Web Services resources.</p>
  * @public
  */
 export class LaunchWizard extends LaunchWizardClient implements LaunchWizard {}

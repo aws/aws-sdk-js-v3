@@ -4,8 +4,7 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smith
 import { LaunchWizardServiceException as __BaseException } from "./LaunchWizardServiceException";
 
 /**
- * <p>An internal error has occurred. Retry your request, but if the problem persists, contact
- *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ * <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -25,8 +24,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many
- *          deployments in progress.</p>
+ * <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.</p>
  * @public
  */
 export class ResourceLimitException extends __BaseException {

@@ -47,8 +47,9 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * //     id: "STRING_VALUE",
  * //     workloadName: "STRING_VALUE",
  * //     patternName: "STRING_VALUE",
- * //     status: "COMPLETED" || "CREATING" || "DELETE_IN_PROGRESS" || "DELETE_INITIATING" || "DELETE_FAILED" || "DELETED" || "FAILED" || "IN_PROGRESS" || "VALIDATING",
+ * //     status: "COMPLETED" || "CREATING" || "DELETE_IN_PROGRESS" || "DELETE_INITIATING" || "DELETE_FAILED" || "DELETED" || "FAILED" || "IN_PROGRESS" || "VALIDATING" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETED" || "UPDATE_FAILED" || "UPDATE_ROLLBACK_COMPLETED" || "UPDATE_ROLLBACK_FAILED",
  * //     createdAt: new Date("TIMESTAMP"),
+ * //     modifiedAt: new Date("TIMESTAMP"),
  * //     specifications: { // DeploymentSpecifications
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -70,8 +71,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact
- *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified workload or deployment resource can't be found.</p>
