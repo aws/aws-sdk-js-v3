@@ -9,7 +9,7 @@
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "exit 0",
     "build:types:downlevel": "exit 0",
-    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },

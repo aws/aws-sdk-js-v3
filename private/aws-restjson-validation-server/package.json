@@ -9,7 +9,7 @@
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
     "prepack": "yarn run clean && yarn run build",
     "test": "yarn g:vitest run"
   },
@@ -51,7 +51,6 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "premove": "4.0.0",
-    "rimraf": "5.0.10",
     "typescript": "~5.8.3",
     "vitest": "^4.0.17"
   },

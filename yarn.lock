@@ -194,7 +194,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -273,7 +272,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -329,7 +327,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -384,7 +381,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -439,7 +435,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -494,7 +489,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -549,7 +543,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -604,7 +597,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -659,7 +651,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -714,7 +705,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -770,7 +760,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -825,7 +814,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -882,7 +870,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -937,7 +924,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -994,7 +980,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -1060,7 +1045,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -1128,7 +1112,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -1187,7 +1170,6 @@ __metadata:
     entities: "npm:2.2.0"
     fast-xml-parser: "npm:5.2.5"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -1248,7 +1230,6 @@ __metadata:
     entities: "npm:2.2.0"
     fast-xml-parser: "npm:5.2.5"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -1299,7 +1280,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -1349,7 +1329,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -1391,7 +1370,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -1432,7 +1410,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest: "npm:^4.0.17"
@@ -1455,7 +1432,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -1477,7 +1454,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     happy-dom: "npm:^15.7.4"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -1499,7 +1476,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -1513,7 +1490,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23361,7 +23338,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23386,7 +23363,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23404,7 +23381,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23419,7 +23396,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23436,7 +23413,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23454,7 +23431,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23477,7 +23454,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23504,7 +23481,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23525,7 +23502,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23550,7 +23527,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23569,7 +23546,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23590,7 +23567,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23610,7 +23587,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23643,7 +23620,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23658,7 +23635,7 @@ __metadata:
     aws-crt: "npm:^1.24.0"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23682,7 +23659,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23700,7 +23677,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   peerDependencies:
@@ -23723,7 +23700,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23738,7 +23715,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     mnemonist: "npm:0.38.3"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23756,7 +23733,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23772,7 +23749,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23792,7 +23769,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   peerDependencies:
@@ -23815,7 +23792,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     events: "npm:3.3.0"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     stream-browserify: "npm:3.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -23836,7 +23813,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23855,7 +23832,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23873,7 +23850,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23889,7 +23866,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23905,7 +23882,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23931,7 +23908,7 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.2.0"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23947,7 +23924,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23965,7 +23942,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23980,7 +23957,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -23996,7 +23973,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24013,7 +23990,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24029,7 +24006,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24049,7 +24026,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24065,7 +24042,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24081,7 +24058,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24100,7 +24077,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24115,7 +24092,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24136,7 +24113,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24162,7 +24139,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24180,7 +24157,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24196,7 +24173,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24217,7 +24194,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     mock-socket: "npm:9.1.5"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24236,7 +24213,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24251,7 +24228,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24271,7 +24248,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24290,7 +24267,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24313,7 +24290,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     mock-socket: "npm:9.1.5"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest-websocket-mock: "npm:0.2.3"
@@ -24364,7 +24341,7 @@ __metadata:
     "@smithy/util-utf8": "npm:^4.2.0"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24384,7 +24361,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24419,7 +24396,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24436,7 +24413,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24459,7 +24436,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     form-data: "npm:^4.0.0"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24482,7 +24459,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24500,7 +24477,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24523,7 +24500,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     jest: "npm:^30.2.0"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24541,7 +24518,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24555,7 +24532,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24570,7 +24547,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24590,7 +24567,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24604,7 +24581,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24628,7 +24605,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24647,7 +24624,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24662,7 +24639,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24676,7 +24653,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   peerDependencies:
@@ -24695,7 +24672,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24711,7 +24688,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24725,7 +24702,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24741,7 +24718,7 @@ __metadata:
     bowser: "npm:^2.11.0"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24759,7 +24736,7 @@ __metadata:
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   peerDependencies:
@@ -24827,7 +24804,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24880,7 +24856,6 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     premove: "npm:4.0.0"
-    rimraf: "npm:5.0.10"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24899,7 +24874,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     events: "npm:3.3.0"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
@@ -24914,7 +24889,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     fast-xml-parser: "npm:5.2.5"
-    rimraf: "npm:5.0.10"
+    premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   languageName: unknown
