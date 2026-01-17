@@ -4,13 +4,13 @@
   "description": "Core functions & classes shared by multiple AWS SDK clients.",
   "scripts": {
     "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
-    "build:cjs": "node ../../scripts/compilation/inline core && rimraf ./dist-cjs/api-extractor-type-index.js",
-    "build:es": "tsc -p tsconfig.es.json && rimraf ./dist-es/api-extractor-type-index.js",
+    "build:cjs": "node ../../scripts/compilation/inline core && premove ./dist-cjs/api-extractor-type-index.js",
+    "build:es": "tsc -p tsconfig.es.json && premove ./dist-es/api-extractor-type-index.js",
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "lint": "node ../../scripts/validation/submodules-linter.js --pkg core",
-    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch",
@@ -99,7 +99,7 @@
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "rimraf": "5.0.10",
+    "premove": "4.0.0",
     "typescript": "~5.8.3"
   },
   "engines": {
