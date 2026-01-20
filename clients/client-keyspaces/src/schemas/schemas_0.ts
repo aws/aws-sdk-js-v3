@@ -101,6 +101,8 @@ const _UT = "UpdateTable";
 const _UTR = "UpdateTableRequest";
 const _UTRp = "UpdateTableResponse";
 const _VE = "ValidationException";
+const _WTS = "WarmThroughputSpecification";
+const _WTSS = "WarmThroughputSpecificationSummary";
 const _aC = "allColumns";
 const _aCd = "addColumns";
 const _aQE = "awsQueryError";
@@ -157,6 +159,7 @@ const _rSe = "replicaSpecifications";
 const _rSep = "replicationStrategy";
 const _rT = "restoreTimestamp";
 const _rTARN = "restoredTableARN";
+const _rUPS = "readUnitsPerSecond";
 const _s = "status";
 const _sC = "staticColumns";
 const _sD = "schemaDefinition";
@@ -185,6 +188,8 @@ const _v = "value";
 const _vT = "viewType";
 const _wCAS = "writeCapacityAutoScaling";
 const _wCU = "writeCapacityUnits";
+const _wTS = "warmThroughputSpecification";
+const _wUPS = "writeUnitsPerSecond";
 const n0 = "com.amazonaws.keyspaces";
 
 // smithy-typescript generated code
@@ -281,8 +286,8 @@ export var CreateKeyspaceResponse$: StaticStructureSchema = [3, n0, _CKRr,
 ];
 export var CreateTableRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
-  [_kN, _tN, _sD, _co, _cS, _eS, _pITR, _tt, _dTTL, _t, _cST, _aSS, _rSe, _cSd],
-  [0, 0, () => SchemaDefinition$, () => Comment$, () => CapacitySpecification$, () => EncryptionSpecification$, () => PointInTimeRecovery$, () => TimeToLive$, 1, () => TagList, () => ClientSideTimestamps$, () => AutoScalingSpecification$, () => ReplicaSpecificationList, () => CdcSpecification$], 3
+  [_kN, _tN, _sD, _co, _cS, _eS, _pITR, _tt, _dTTL, _t, _cST, _aSS, _rSe, _cSd, _wTS],
+  [0, 0, () => SchemaDefinition$, () => Comment$, () => CapacitySpecification$, () => EncryptionSpecification$, () => PointInTimeRecovery$, () => TimeToLive$, 1, () => TagList, () => ClientSideTimestamps$, () => AutoScalingSpecification$, () => ReplicaSpecificationList, () => CdcSpecification$, () => WarmThroughputSpecification$], 3
 ];
 export var CreateTableResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -366,8 +371,8 @@ export var GetTableRequest$: StaticStructureSchema = [3, n0, _GTR,
 ];
 export var GetTableResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
-  [_kN, _tN, _rA, _cT, _s, _sD, _cS, _eS, _pITR, _tt, _dTTL, _co, _cST, _rSe, _lSA, _cSd],
-  [0, 0, 0, 4, 0, () => SchemaDefinition$, () => CapacitySpecificationSummary$, () => EncryptionSpecification$, () => PointInTimeRecoverySummary$, () => TimeToLive$, 1, () => Comment$, () => ClientSideTimestamps$, () => ReplicaSpecificationSummaryList, 0, () => CdcSpecificationSummary$], 3
+  [_kN, _tN, _rA, _cT, _s, _sD, _cS, _eS, _pITR, _tt, _dTTL, _co, _cST, _rSe, _lSA, _cSd, _wTS],
+  [0, 0, 0, 4, 0, () => SchemaDefinition$, () => CapacitySpecificationSummary$, () => EncryptionSpecification$, () => PointInTimeRecoverySummary$, () => TimeToLive$, 1, () => Comment$, () => ClientSideTimestamps$, () => ReplicaSpecificationSummaryList, 0, () => CdcSpecificationSummary$, () => WarmThroughputSpecificationSummary$], 3
 ];
 export var GetTypeRequest$: StaticStructureSchema = [3, n0, _GTRet,
   0,
@@ -457,8 +462,8 @@ export var ReplicaSpecification$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var ReplicaSpecificationSummary$: StaticStructureSchema = [3, n0, _RSS,
   0,
-  [_r, _s, _cS],
-  [0, 0, () => CapacitySpecificationSummary$]
+  [_r, _s, _cS, _wTS],
+  [0, 0, () => CapacitySpecificationSummary$, () => WarmThroughputSpecificationSummary$]
 ];
 export var ReplicationGroupStatus$: StaticStructureSchema = [3, n0, _RGS,
   0,
@@ -554,8 +559,8 @@ export var UpdateKeyspaceResponse$: StaticStructureSchema = [3, n0, _UKRp,
 ];
 export var UpdateTableRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
-  [_kN, _tN, _aCd, _cS, _eS, _pITR, _tt, _dTTL, _cST, _aSS, _rSe, _cSd],
-  [0, 0, () => ColumnDefinitionList, () => CapacitySpecification$, () => EncryptionSpecification$, () => PointInTimeRecovery$, () => TimeToLive$, 1, () => ClientSideTimestamps$, () => AutoScalingSpecification$, () => ReplicaSpecificationList, () => CdcSpecification$], 2
+  [_kN, _tN, _aCd, _cS, _eS, _pITR, _tt, _dTTL, _cST, _aSS, _rSe, _cSd, _wTS],
+  [0, 0, () => ColumnDefinitionList, () => CapacitySpecification$, () => EncryptionSpecification$, () => PointInTimeRecovery$, () => TimeToLive$, 1, () => ClientSideTimestamps$, () => AutoScalingSpecification$, () => ReplicaSpecificationList, () => CdcSpecification$, () => WarmThroughputSpecification$], 2
 ];
 export var UpdateTableResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
@@ -568,6 +573,16 @@ export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   [0]
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var WarmThroughputSpecification$: StaticStructureSchema = [3, n0, _WTS,
+  0,
+  [_rUPS, _wUPS],
+  [1, 1]
+];
+export var WarmThroughputSpecificationSummary$: StaticStructureSchema = [3, n0, _WTSS,
+  0,
+  [_rUPS, _wUPS, _s],
+  [1, 1, 0], 3
+];
 export var KeyspacesServiceException$: StaticErrorSchema = [-3, _sm, "KeyspacesServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(KeyspacesServiceException$, KeyspacesServiceException);
 var ClusteringKeyList: StaticListSchema = [1, n0, _CKL,

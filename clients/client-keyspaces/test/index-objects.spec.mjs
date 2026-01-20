@@ -135,6 +135,9 @@ import {
   ValidationException,
   ValidationException$,
   ViewType,
+  WarmThroughputSpecification$,
+  WarmThroughputSpecificationSummary$,
+  WarmThroughputStatus,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -246,6 +249,8 @@ assert(typeof UpdateKeyspaceRequest$ === "object");
 assert(typeof UpdateKeyspaceResponse$ === "object");
 assert(typeof UpdateTableRequest$ === "object");
 assert(typeof UpdateTableResponse$ === "object");
+assert(typeof WarmThroughputSpecification$ === "object");
+assert(typeof WarmThroughputSpecificationSummary$ === "object");
 // enums
 assert(typeof CdcPropagateTags === "object");
 assert(typeof CdcStatus === "object");
@@ -260,6 +265,7 @@ assert(typeof ThroughputMode === "object");
 assert(typeof TimeToLiveStatus === "object");
 assert(typeof TypeStatus === "object");
 assert(typeof ViewType === "object");
+assert(typeof WarmThroughputStatus === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof KeyspacesServiceException);
 assert(typeof AccessDeniedException$ === "object");

@@ -111,7 +111,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier in the format of Amazon Resource Name (ARN) for the resource couldn’t be found.</p>
+   * <p>The unique identifier in the format of Amazon Resource Name (ARN) for the resource couldn't be found.</p>
    * @public
    */
   resourceArn?: string | undefined;

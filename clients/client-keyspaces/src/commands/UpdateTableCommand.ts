@@ -122,6 +122,10 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *     ],
  *     propagateTags: "STRING_VALUE",
  *   },
+ *   warmThroughputSpecification: { // WarmThroughputSpecification
+ *     readUnitsPerSecond: Number("long"),
+ *     writeUnitsPerSecond: Number("long"),
+ *   },
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);

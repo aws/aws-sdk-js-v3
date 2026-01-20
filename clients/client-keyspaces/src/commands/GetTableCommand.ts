@@ -106,12 +106,22 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //         writeCapacityUnits: Number("long"),
  * //         lastUpdateToPayPerRequestTimestamp: new Date("TIMESTAMP"),
  * //       },
+ * //       warmThroughputSpecification: { // WarmThroughputSpecificationSummary
+ * //         readUnitsPerSecond: Number("long"), // required
+ * //         writeUnitsPerSecond: Number("long"), // required
+ * //         status: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * //   latestStreamArn: "STRING_VALUE",
  * //   cdcSpecification: { // CdcSpecificationSummary
  * //     status: "STRING_VALUE", // required
  * //     viewType: "STRING_VALUE",
+ * //   },
+ * //   warmThroughputSpecification: {
+ * //     readUnitsPerSecond: Number("long"), // required
+ * //     writeUnitsPerSecond: Number("long"), // required
+ * //     status: "STRING_VALUE", // required
  * //   },
  * // };
  *
