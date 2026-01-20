@@ -955,8 +955,8 @@ export var DescribePoliciesType$: StaticStructureSchema = [3, n0, _DPTe,
 ];
 export var DescribeScalingActivitiesType$: StaticStructureSchema = [3, n0, _DSATe,
   0,
-  [_AIc, _ASGN, _IDG, _MR, _NT],
-  [64 | 0, 0, 2, 1, 0]
+  [_AIc, _ASGN, _IDG, _MR, _NT, _F],
+  [64 | 0, 0, 2, 1, 0, () => Filters]
 ];
 export var DescribeScheduledActionsType$: StaticStructureSchema = [3, n0, _DSATes,
   0,

@@ -742,7 +742,7 @@ export interface RetentionTriggers {
    *             Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
    *         </p>
    *          <p>
-   *             Set to <code>Retain</code> to move instances to a <code>Retained</code> state. Set to <code>Terminate</code> for default termination behavior.
+   *             Set to <code>retain</code> to move instances to a retained state. Set to <code>terminate</code> for default termination behavior.
    *         </p>
    *          <p>
    *             Retained instances don't count toward desired capacity and remain until you call <code>TerminateInstanceInAutoScalingGroup</code>.
@@ -754,7 +754,14 @@ export interface RetentionTriggers {
 
 /**
  * <p>
- *             Defines the lifecycle policy for instances in an Auto Scaling group. This policy controls instance behavior when lifecycles transition and operations fail. Use lifecycle policies to ensure graceful shutdown for stateful workloads or applications requiring extended draining periods.
+ *             The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance
+ *             transitions through its lifecycle states. Configure retention triggers to specify when instances should
+ *             move to a <code>Retained</code> state instead of automatic termination.
+ *         </p>
+ *          <p>For more information, see
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html">
+ *                 Control instance retention with instance lifecycle policies</a>
+ *             in the <i>Amazon EC2 Auto Scaling User Guide</i>.
  *         </p>
  * @public
  */
@@ -762,8 +769,8 @@ export interface InstanceLifecyclePolicy {
   /**
    * <p>
    *             Specifies the conditions that trigger instance retention behavior. These triggers determine when instances
-   *             should move to a Retained state instead of being terminated. This allows you to maintain control over
-   *             instance management when lifecycle operations fail.
+   *             should move to a <code>Retained</code> state instead of automatic termination. This allows you to maintain
+   *             control over instance management when lifecycles transition and operations fail.
    *         </p>
    * @public
    */
@@ -2219,10 +2226,14 @@ export interface CreateAutoScalingGroupType {
 
   /**
    * <p>
-   *             The instance lifecycle policy for the Auto Scaling group. This policy controls instance
-   *             behavior when an instance transitions through its lifecycle states. Configure retention
-   *             triggers to specify when instances should move to a <code>Retained</code>
-   *             state for manual intervention instead of automatic termination.
+   *             The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance
+   *             transitions through its lifecycle states. Configure retention triggers to specify when instances should
+   *             move to a <code>Retained</code> state instead of automatic termination.
+   *         </p>
+   *          <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html">
+   *                 Control instance retention with instance lifecycle policies</a>
+   *             in the <i>Amazon EC2 Auto Scaling User Guide</i>.
    *         </p>
    *          <note>
    *             <p>Instances in a Retained state will continue to incur standard EC2 charges until terminated.</p>
@@ -2851,11 +2862,13 @@ export interface DescribeAdjustmentTypesAnswer {
 export interface Filter {
   /**
    * <p>The name of the filter.</p>
-   *          <p>The valid values for <code>Name</code> depend on which API operation you're using with
-   *             the filter (<a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingGroups.html">DescribeAutoScalingGroups</a> or
-   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTags.html">DescribeTags</a>).</p>
    *          <p>
-   *             <b>DescribeAutoScalingGroups</b>
+   *             The valid values for <code>Name</code> depend on which API operation you're using with the filter.
+   *         </p>
+   *          <p>
+   *             <b>
+   *                <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingGroups.html">DescribeAutoScalingGroups</a>
+   *             </b>
    *          </p>
    *          <p>Valid values for <code>Name</code> include the following: </p>
    *          <ul>
@@ -2878,7 +2891,9 @@ export interface Filter {
    *             </li>
    *          </ul>
    *          <p>
-   *             <b>DescribeTags</b>
+   *             <b>
+   *                <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTags.html">DescribeTags</a>
+   *             </b>
    *          </p>
    *          <p>Valid values for <code>Name</code> include the following: </p>
    *          <ul>
@@ -2905,6 +2920,36 @@ export interface Filter {
    *                     information about the tags associated with the specified Boolean value. </p>
    *             </li>
    *          </ul>
+   *          <p>
+   *             <b>
+   *                <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a>
+   *             </b>
+   *          </p>
+   *          <p>Valid values for <code>Name</code> include the following: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>StartTimeLowerBound</code> - The earliest scaling activities to return based on the activity start time.
+   *                     Scaling activities with a start time earlier than this value are not included in the results.
+   *                     Only activities started within the last six weeks can be returned regardless of the value specified.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StartTimeUpperBound</code> - The latest scaling activities to return based on the activity start time.
+   *                     Scaling activities with a start time later than this value are not included in the results.
+   *                     Only activities started within the last six weeks can be returned regardless of the value specified.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Status</code> - The <code>StatusCode</code> value of the scaling activity. This filter can only be
+   *                     used in combination with the <code>AutoScalingGroupName</code> parameter. For valid <code>StatusCode</code>
+   *                     values, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_Activity.html">Activity</a>
+   *                     in the <i>Amazon EC2 Auto Scaling API Reference</i>.
+   *                 </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Name?: string | undefined;
@@ -2913,9 +2958,17 @@ export interface Filter {
    * <p>One or more filter values. Filter values are case-sensitive. </p>
    *          <p>If you specify multiple values for a filter, the values are automatically logically
    *             joined with an <code>OR</code>, and the request returns all results that match any of
-   *             the specified values. For example, specify "tag:environment" for the filter name and
-   *             "production,development" for the filter values to find Auto Scaling groups with the tag
-   *             "environment=production" or "environment=development".</p>
+   *             the specified values.</p>
+   *          <p>
+   *             <b>DescribeAutoScalingGroups example:</b> Specify "tag:environment"
+   *             for the filter name and "production,development" for the filter values to find Auto Scaling groups with
+   *             the tag "environment=production" or "environment=development".
+   *         </p>
+   *          <p>
+   *             <b>DescribeScalingActivities example:</b> Specify "Status" for the
+   *             filter name and "Successful,Failed" for the filter values to find scaling activities with a
+   *             status of either "Successful" or "Failed".
+   *         </p>
    * @public
    */
   Values?: string[] | undefined;
@@ -3310,13 +3363,13 @@ export interface AutoScalingGroup {
   AutoScalingGroupARN?: string | undefined;
 
   /**
-   * <p>The name of the associated launch configuration.</p>
+   * <p>The name of the associated launch configuration for the Auto Scaling group.</p>
    * @public
    */
   LaunchConfigurationName?: string | undefined;
 
   /**
-   * <p>The launch template for the group.</p>
+   * <p>The launch template for the Auto Scaling group.</p>
    * @public
    */
   LaunchTemplate?: LaunchTemplateSpecification | undefined;
@@ -3328,19 +3381,19 @@ export interface AutoScalingGroup {
   MixedInstancesPolicy?: MixedInstancesPolicy | undefined;
 
   /**
-   * <p>The minimum size of the group.</p>
+   * <p>The minimum size of the Auto Scaling group.</p>
    * @public
    */
   MinSize: number | undefined;
 
   /**
-   * <p>The maximum size of the group.</p>
+   * <p>The maximum size of the Auto Scaling group.</p>
    * @public
    */
   MaxSize: number | undefined;
 
   /**
-   * <p>The desired size of the group.</p>
+   * <p>The desired size of the Auto Scaling group.</p>
    * @public
    */
   DesiredCapacity: number | undefined;
@@ -3352,13 +3405,13 @@ export interface AutoScalingGroup {
   PredictedCapacity?: number | undefined;
 
   /**
-   * <p>The duration of the default cooldown period, in seconds.</p>
+   * <p>The duration of the default cooldown period, in seconds, for the Auto Scaling group.</p>
    * @public
    */
   DefaultCooldown: number | undefined;
 
   /**
-   * <p>One or more Availability Zones for the group.</p>
+   * <p>One or more Availability Zones for the Auto Scaling group.</p>
    * @public
    */
   AvailabilityZones: string[] | undefined;
@@ -3376,90 +3429,92 @@ export interface AutoScalingGroup {
   TargetGroupARNs?: string[] | undefined;
 
   /**
-   * <p>A comma-separated value string of one or more health check types.</p>
+   * <p>One or more comma-separated health check types for the Auto Scaling group.</p>
    * @public
    */
   HealthCheckType: string | undefined;
 
   /**
-   * <p>The duration of the health check grace period, in seconds.</p>
+   * <p>The duration of the health check grace period, in seconds, for the Auto Scaling group.</p>
    * @public
    */
   HealthCheckGracePeriod?: number | undefined;
 
   /**
-   * <p>The EC2 instances associated with the group.</p>
+   * <p>The EC2 instances associated with the Auto Scaling group.</p>
    * @public
    */
   Instances?: Instance[] | undefined;
 
   /**
-   * <p>The date and time the group was created.</p>
+   * <p>The date and time the Auto Scaling group was created.</p>
    * @public
    */
   CreatedTime: Date | undefined;
 
   /**
-   * <p>The suspended processes associated with the group.</p>
+   * <p>The suspended processes associated with the Auto Scaling group.</p>
    * @public
    */
   SuspendedProcesses?: SuspendedProcess[] | undefined;
 
   /**
-   * <p>The name of the placement group into which to launch your instances, if any.</p>
+   * <p>The name of the placement group into which to launch EC2 instances for the Auto Scaling group.</p>
    * @public
    */
   PlacementGroup?: string | undefined;
 
   /**
-   * <p>One or more subnet IDs, if applicable, separated by commas.</p>
+   * <p>One or more comma-separated subnet IDs for the Auto Scaling group.</p>
    * @public
    */
   VPCZoneIdentifier?: string | undefined;
 
   /**
-   * <p>The metrics enabled for the group.</p>
+   * <p>The metrics enabled for the Auto Scaling group.</p>
    * @public
    */
   EnabledMetrics?: EnabledMetric[] | undefined;
 
   /**
-   * <p>The current state of the group when the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteAutoScalingGroup.html">DeleteAutoScalingGroup</a>
+   * <p>The current state of the Auto Scaling group when the
+   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteAutoScalingGroup.html">DeleteAutoScalingGroup</a>
    *             operation is in progress.</p>
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The tags for the group.</p>
+   * <p>The tags for the Auto Scaling group.</p>
    * @public
    */
   Tags?: TagDescription[] | undefined;
 
   /**
-   * <p>The termination policies for the group.</p>
+   * <p>The termination policies for the Auto Scaling group.</p>
    * @public
    */
   TerminationPolicies?: string[] | undefined;
 
   /**
-   * <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in,
-   *             see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Use instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+   * <p>Indicates whether newly launched EC2 instances are protected from termination when scaling in for the Auto Scaling group.</p>
+   *          <p>
+   *             For more information about preventing instances from terminating on scale in, see
+   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Use instance scale-in protection</a>
+   *             in the <i>Amazon EC2 Auto Scaling User Guide</i>.
    *         </p>
    * @public
    */
   NewInstancesProtectedFromScaleIn?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to
-   *             call other Amazon Web Services on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf.</p>
    * @public
    */
   ServiceLinkedRoleARN?: string | undefined;
 
   /**
-   * <p>The maximum amount of time, in seconds, that an instance can be in service.</p>
-   *          <p>Valid Range: Minimum value of 0.</p>
+   * <p>The maximum amount of time, in seconds, that an EC2 instance can be in service for the Auto Scaling group.</p>
    * @public
    */
   MaxInstanceLifetime?: number | undefined;
@@ -3497,7 +3552,7 @@ export interface AutoScalingGroup {
   DesiredCapacityType?: string | undefined;
 
   /**
-   * <p>The duration of the default instance warmup, in seconds.</p>
+   * <p>The duration of the default EC2 instance warmup time, in seconds, for the Auto Scaling group.</p>
    * @public
    */
   DefaultInstanceWarmup?: number | undefined;
@@ -3515,35 +3570,25 @@ export interface AutoScalingGroup {
   InstanceMaintenancePolicy?: InstanceMaintenancePolicy | undefined;
 
   /**
-   * <p>
-   *             The instance capacity distribution across Availability Zones.
-   *         </p>
+   * <p>The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.</p>
    * @public
    */
   AvailabilityZoneDistribution?: AvailabilityZoneDistribution | undefined;
 
   /**
-   * <p>
-   *             The Availability Zone impairment policy.
-   *         </p>
+   * <p>The Availability Zone impairment policy for the Auto Scaling group.</p>
    * @public
    */
   AvailabilityZoneImpairmentPolicy?: AvailabilityZoneImpairmentPolicy | undefined;
 
   /**
-   * <p>
-   *             The capacity reservation specification.
-   *         </p>
+   * <p>The capacity reservation specification for the Auto Scaling group.</p>
    * @public
    */
   CapacityReservationSpecification?: CapacityReservationSpecification | undefined;
 
   /**
-   * <p>
-   *             The instance lifecycle policy applied to this Auto Scaling group. This policy determines
-   *             instance behavior when an instance transitions through its lifecycle states. It provides additional
-   *             control over graceful instance management processes.
-   *         </p>
+   * <p>The instance lifecycle policy for the Auto Scaling group.</p>
    * @public
    */
   InstanceLifecyclePolicy?: InstanceLifecyclePolicy | undefined;
@@ -3605,11 +3650,11 @@ export interface AutoScalingInstanceDetails {
    *          <p>Valid values: <code>Pending</code> | <code>Pending:Wait</code> |
    *                 <code>Pending:Proceed</code> | <code>Quarantined</code> | <code>InService</code> |
    *                 <code>Terminating</code> | <code>Terminating:Wait</code> |
-   *                 <code>Terminating:Proceed</code> | <code>Terminated</code> | <code>Detaching</code>
+   *                 <code>Terminating:Proceed</code> | <code>Terminating:Retained</code> | <code>Terminated</code> | <code>Detaching</code>
    *             | <code>Detached</code> | <code>EnteringStandby</code> | <code>Standby</code> |
    *                 <code>Warmed:Pending</code> | <code>Warmed:Pending:Wait</code> |
-   *                 <code>Warmed:Pending:Proceed</code> | <code>Warmed:Terminating</code> |
-   *                 <code>Warmed:Terminating:Wait</code> | <code>Warmed:Terminating:Proceed</code> |
+   *                 <code>Warmed:Pending:Proceed</code> | <code>Warmed:Pending:Retained</code> | <code>Warmed:Terminating</code> |
+   *                 <code>Warmed:Terminating:Wait</code> | <code>Warmed:Terminating:Proceed</code> | <code>Warmed:Terminating:Retained</code> |
    *                 <code>Warmed:Terminated</code> | <code>Warmed:Stopped</code> |
    *                 <code>Warmed:Running</code>
    *          </p>
@@ -6056,10 +6101,12 @@ export interface PoliciesType {
  */
 export interface DescribeScalingActivitiesType {
   /**
-   * <p>The activity IDs of the desired scaling activities. If you omit this property, all
-   *             activities for the past six weeks are described. If unknown activities are requested,
-   *             they are ignored with no error. If you specify an Auto Scaling group, the results are limited to
-   *             that group.</p>
+   * <p>
+   *             The activity IDs of the desired scaling activities. If unknown activity IDs are requested, they are ignored
+   *             with no error. Only activities started within the last six weeks can be returned regardless of the activity
+   *             IDs specified. If other filters are specified with the request, only results matching all filter criteria
+   *             can be returned.
+   *         </p>
    *          <p>Array Members: Maximum number of 50 IDs.</p>
    * @public
    */
@@ -6067,6 +6114,11 @@ export interface DescribeScalingActivitiesType {
 
   /**
    * <p>The name of the Auto Scaling group.</p>
+   *          <important>
+   *             <p>
+   *                 Omitting this property performs an account-wide operation, which can result in slower or timed-out requests.
+   *             </p>
+   *          </important>
    * @public
    */
   AutoScalingGroupName?: string | undefined;
@@ -6090,6 +6142,38 @@ export interface DescribeScalingActivitiesType {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>
+   *             One or more filters to limit the results based on specific criteria. The following filters are supported:
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>StartTimeLowerBound</code> - The earliest scaling activities to return based on the activity start time.
+   *                     Scaling activities with a start time earlier than this value are not included in the results.
+   *                     Only activities started within the last six weeks can be returned regardless of the value specified.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StartTimeUpperBound</code> - The latest scaling activities to return based on the activity start time.
+   *                     Scaling activities with a start time later than this value are not included in the results.
+   *                     Only activities started within the last six weeks can be returned regardless of the value specified.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Status</code> - The <code>StatusCode</code> value of the scaling activity. This filter can only be
+   *                     used in combination with the <code>AutoScalingGroupName</code> parameter. For valid <code>StatusCode</code>
+   *                     values, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_Activity.html">Activity</a>
+   *                     in the <i>Amazon EC2 Auto Scaling API Reference</i>.
+   *                 </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -8068,7 +8152,7 @@ export interface StartInstanceRefreshType {
   AutoScalingGroupName: string | undefined;
 
   /**
-   * <p>The strategy to use for the instance refresh. The only valid value is
+   * <p>The strategy to use for the instance refresh. The default value is
    *                 <code>Rolling</code>.</p>
    * @public
    */
@@ -8400,9 +8484,14 @@ export interface UpdateAutoScalingGroupType {
 
   /**
    * <p>
-   *             The instance lifecycle policy for the Auto Scaling group. Use this to add, modify, or remove lifecycle
-   *             policies that control instance behavior when an instance transitions through its lifecycle states. Configure
-   *             retention triggers to specify when to preserve instances for manual intervention.
+   *             The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance
+   *             transitions through its lifecycle states. Configure retention triggers to specify when instances should
+   *             move to a <code>Retained</code> state instead of automatic termination.
+   *         </p>
+   *          <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html">
+   *                 Control instance retention with instance lifecycle policies</a>
+   *             in the <i>Amazon EC2 Auto Scaling User Guide</i>.
    *         </p>
    * @public
    */

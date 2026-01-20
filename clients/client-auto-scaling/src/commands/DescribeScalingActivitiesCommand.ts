@@ -52,6 +52,14 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  *   IncludeDeletedGroups: true || false,
  *   MaxRecords: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // Values
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new DescribeScalingActivitiesCommand(input);
  * const response = await client.send(command);
