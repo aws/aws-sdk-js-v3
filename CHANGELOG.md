@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.972.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.971.0...v3.972.0) (2026-01-20)
+
+
+### Features
+
+* **client-auto-scaling:** This release adds support for three new filters when describing scaling activities, StartTimeLowerBound, StartTimeUpperBound, and Status. ([5ca740f](https://github.com/aws/aws-sdk-js-v3/commit/5ca740f521259bb39b85a82385f92356009555d9))
+* **client-bedrock-runtime:** Added support for extended prompt caching with one hour TTL. ([2cc679f](https://github.com/aws/aws-sdk-js-v3/commit/2cc679ff11476d18b56bd794f4af41a5ffc1ffe2))
+* **client-keyspaces:** Adds support for managing table pre-warming in Amazon Keyspaces (for Apache Cassandra) ([a7d41c3](https://github.com/aws/aws-sdk-js-v3/commit/a7d41c3f7d3f33647db8b42951ed237de405fa54))
+* **client-odb:** Adds support for associating and disassociating IAM roles with Autonomous VM cluster resources through the AssociateIamRoleToResource and DisassociateIamRoleFromResource APIs. The GetCloudAutonomousVmCluster and ListCloudAutonomousVmClusters API responses now include the iamRoles field. ([f906d76](https://github.com/aws/aws-sdk-js-v3/commit/f906d762f69f441ed48b173f58d2f2218e19ea41))
+* **client-verifiedpermissions:** Amazon Verified Permissions now supports encryption of resources by a customer managed KMS key. Customers can now create new encrypted policy stores by passing in their customer managed key during policy store creation. ([3fe5ed9](https://github.com/aws/aws-sdk-js-v3/commit/3fe5ed933fe118b4aa43f3006a8d58512dd3895f))
+* **client-workspaces-instances:** Added billing configuration support for WorkSpaces Instances with monthly and hourly billing modes, including new filtering capabilities for instance type searches. ([a660c50](https://github.com/aws/aws-sdk-js-v3/commit/a660c503907bed1a1d15e3a31edb2056b3dca024))
+* **clients:** update client endpoints as of 2026-01-20 ([3266a28](https://github.com/aws/aws-sdk-js-v3/commit/3266a28d8d85c8102315f4a1d92c887cbdab6132))
+
+
+
+
+
 # [3.971.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.970.0...v3.971.0) (2026-01-16)
 
 

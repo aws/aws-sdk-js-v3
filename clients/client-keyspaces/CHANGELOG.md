@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.972.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.971.0...v3.972.0) (2026-01-20)
+
+
+### Features
+
+* **client-keyspaces:** Adds support for managing table pre-warming in Amazon Keyspaces (for Apache Cassandra) ([a7d41c3](https://github.com/aws/aws-sdk-js-v3/commit/a7d41c3f7d3f33647db8b42951ed237de405fa54))
+
+
+
+
+
 # [3.971.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.970.0...v3.971.0) (2026-01-16)
 
 **Note:** Version bump only for package @aws-sdk/client-keyspaces

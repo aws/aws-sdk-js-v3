@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.972.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.971.0...v3.972.0) (2026-01-20)
+
+
+### Features
+
+* **client-odb:** Adds support for associating and disassociating IAM roles with Autonomous VM cluster resources through the AssociateIamRoleToResource and DisassociateIamRoleFromResource APIs. The GetCloudAutonomousVmCluster and ListCloudAutonomousVmClusters API responses now include the iamRoles field. ([f906d76](https://github.com/aws/aws-sdk-js-v3/commit/f906d762f69f441ed48b173f58d2f2218e19ea41))
+
+
+
+
+
 # [3.971.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.970.0...v3.971.0) (2026-01-16)
 
 **Note:** Version bump only for package @aws-sdk/client-odb

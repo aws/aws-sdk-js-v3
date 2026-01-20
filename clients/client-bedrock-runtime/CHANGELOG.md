@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.972.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.971.0...v3.972.0) (2026-01-20)
+
+
+### Features
+
+* **client-bedrock-runtime:** Added support for extended prompt caching with one hour TTL. ([2cc679f](https://github.com/aws/aws-sdk-js-v3/commit/2cc679ff11476d18b56bd794f4af41a5ffc1ffe2))
+
+
+
+
+
 # [3.971.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.970.0...v3.971.0) (2026-01-16)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-runtime

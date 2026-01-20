@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.972.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.971.0...v3.972.0) (2026-01-20)
+
+
+### Features
+
+* **client-verifiedpermissions:** Amazon Verified Permissions now supports encryption of resources by a customer managed KMS key. Customers can now create new encrypted policy stores by passing in their customer managed key during policy store creation. ([3fe5ed9](https://github.com/aws/aws-sdk-js-v3/commit/3fe5ed933fe118b4aa43f3006a8d58512dd3895f))
+
+
+
+
+
 # [3.971.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.970.0...v3.971.0) (2026-01-16)
 
 **Note:** Version bump only for package @aws-sdk/client-verifiedpermissions
