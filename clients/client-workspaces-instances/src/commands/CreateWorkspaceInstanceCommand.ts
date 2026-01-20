@@ -225,6 +225,9 @@ export interface CreateWorkspaceInstanceCommandOutput extends CreateWorkspaceIns
  *     ],
  *     UserData: "STRING_VALUE",
  *   },
+ *   BillingConfiguration: { // BillingConfiguration
+ *     BillingMode: "MONTHLY" || "HOURLY", // required
+ *   },
  * };
  * const command = new CreateWorkspaceInstanceCommand(input);
  * const response = await client.send(command);

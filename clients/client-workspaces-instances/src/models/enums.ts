@@ -60,6 +60,19 @@ export type BandwidthWeightingEnum = (typeof BandwidthWeightingEnum)[keyof typeo
  * @public
  * @enum
  */
+export const BillingMode = {
+  HOURLY: "HOURLY",
+  MONTHLY: "MONTHLY",
+} as const;
+/**
+ * @public
+ */
+export type BillingMode = (typeof BillingMode)[keyof typeof BillingMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const VolumeTypeEnum = {
   GP2: "gp2",
   GP3: "gp3",
@@ -279,3 +292,35 @@ export const ProvisionStateEnum = {
  * @public
  */
 export type ProvisionStateEnum = (typeof ProvisionStateEnum)[keyof typeof ProvisionStateEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const PlatformTypeEnum = {
+  LINUX_BYOL: "Red Hat BYOL Linux",
+  LINUX_UNIX: "Linux/UNIX",
+  RHEL: "Red Hat Enterprise Linux",
+  SUSE: "SUSE Linux",
+  UBUNTU_PRO: "Ubuntu Pro Linux",
+  WINDOWS: "Windows",
+  WINDOWS_BYOL: "Windows BYOL",
+} as const;
+/**
+ * @public
+ */
+export type PlatformTypeEnum = (typeof PlatformTypeEnum)[keyof typeof PlatformTypeEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceConfigurationTenancyEnum = {
+  DEDICATED: "DEDICATED",
+  SHARED: "SHARED",
+} as const;
+/**
+ * @public
+ */
+export type InstanceConfigurationTenancyEnum =
+  (typeof InstanceConfigurationTenancyEnum)[keyof typeof InstanceConfigurationTenancyEnum];

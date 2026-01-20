@@ -9,9 +9,11 @@ const _AVR = "AssociateVolumeRequest";
 const _AVRs = "AssociateVolumeResponse";
 const _AZ = "AvailabilityZone";
 const _Af = "Affinity";
+const _BC = "BillingConfiguration";
 const _BDM = "BlockDeviceMappings";
 const _BDMR = "BlockDeviceMappingRequest";
 const _BDMl = "BlockDurationMinutes";
+const _BM = "BillingMode";
 const _BW = "BandwidthWeighting";
 const _C = "Configured";
 const _CC = "CoreCount";
@@ -95,6 +97,7 @@ const _IA = "Ipv4Address";
 const _IAC = "Ipv6AddressCount";
 const _IAp = "Ipv6Address";
 const _IApv = "Ipv6Addresses";
+const _ICF = "InstanceConfigurationFilter";
 const _II = "InstanceId";
 const _IIA = "InstanceIpv6Address";
 const _IIB = "InstanceInterruptionBehavior";
@@ -167,6 +170,7 @@ const _PIAr = "PrivateIpAddresses";
 const _PN = "PartitionNumber";
 const _PS = "ProvisionState";
 const _PSr = "ProvisionStates";
+const _PT = "PlatformType";
 const _Pr = "Primary";
 const _QC = "QuotaCode";
 const _R = "Regions";
@@ -185,6 +189,8 @@ const _SC = "ServiceCode";
 const _SG = "SecurityGroups";
 const _SGI = "SecurityGroupIds";
 const _SI = "SnapshotId";
+const _SIC = "SupportedInstanceConfigurations";
+const _SICu = "SupportedInstanceConfiguration";
 const _SIGB = "SizeInGB";
 const _SIT = "SpotInstanceType";
 const _SIu = "SubnetId";
@@ -278,6 +284,11 @@ export var AssociateVolumeResponse$: StaticStructureSchema = [3, n0, _AVRs,
   [],
   []
 ];
+export var BillingConfiguration$: StaticStructureSchema = [3, n0, _BC,
+  0,
+  [_BM],
+  [0], 1
+];
 export var BlockDeviceMappingRequest$: StaticStructureSchema = [3, n0, _BDMR,
   0,
   [_DN, _E, _ND, _VN],
@@ -321,8 +332,8 @@ export var CreateVolumeResponse$: StaticStructureSchema = [3, n0, _CVRr,
 ];
 export var CreateWorkspaceInstanceRequest$: StaticStructureSchema = [3, n0, _CWIR,
   0,
-  [_MI, _CT, _Ta],
-  [[() => ManagedInstanceRequest$, 0], [() => ClientToken, 4], () => TagList], 1
+  [_MI, _CT, _Ta, _BC],
+  [[() => ManagedInstanceRequest$, 0], [() => ClientToken, 4], () => TagList, () => BillingConfiguration$], 1
 ];
 export var CreateWorkspaceInstanceResponse$: StaticStructureSchema = [3, n0, _CWIRr,
   0,
@@ -401,8 +412,8 @@ export var GetWorkspaceInstanceRequest$: StaticStructureSchema = [3, n0, _GWIR,
 ];
 export var GetWorkspaceInstanceResponse$: StaticStructureSchema = [3, n0, _GWIRe,
   0,
-  [_WIE, _ECIEn, _PS, _WII, _ECMI],
-  [() => WorkspaceInstanceErrors, () => EC2InstanceErrors, 0, 0, () => EC2ManagedInstance$]
+  [_WIE, _ECIEn, _PS, _WII, _ECMI, _BC],
+  [() => WorkspaceInstanceErrors, () => EC2InstanceErrors, 0, 0, () => EC2ManagedInstance$, () => BillingConfiguration$]
 ];
 export var HibernationOptionsRequest$: StaticStructureSchema = [3, n0, _HOR,
   0,
@@ -413,6 +424,11 @@ export var IamInstanceProfileSpecification$: StaticStructureSchema = [3, n0, _II
   0,
   [_A, _N],
   [0, 0]
+];
+export var InstanceConfigurationFilter$: StaticStructureSchema = [3, n0, _ICF,
+  0,
+  [_BM, _PT, _Te],
+  [0, 0, 0], 3
 ];
 export var InstanceIpv6Address$: StaticStructureSchema = [3, n0, _IIA,
   0,
@@ -446,8 +462,8 @@ export var InstanceNetworkPerformanceOptionsRequest$: StaticStructureSchema = [3
 ];
 export var InstanceTypeInfo$: StaticStructureSchema = [3, n0, _ITI,
   0,
-  [_ITn],
-  [0]
+  [_ITn, _SIC],
+  [0, () => SupportedInstanceConfigurations]
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -472,8 +488,8 @@ export var LicenseConfigurationRequest$: StaticStructureSchema = [3, n0, _LCR,
 ];
 export var ListInstanceTypesRequest$: StaticStructureSchema = [3, n0, _LITR,
   0,
-  [_MR, _NT],
-  [1, [() => NextToken, 0]]
+  [_MR, _NT, _ICF],
+  [1, [() => NextToken, 0], () => InstanceConfigurationFilter$]
 ];
 export var ListInstanceTypesResponse$: StaticStructureSchema = [3, n0, _LITRi,
   0,
@@ -556,6 +572,11 @@ export var SpotMarketOptions$: StaticStructureSchema = [3, n0, _SMO,
   0,
   [_BDMl, _IIB, _MP, _SIT, _VUU],
   [1, 0, 0, 0, 4]
+];
+export var SupportedInstanceConfiguration$: StaticStructureSchema = [3, n0, _SICu,
+  0,
+  [_BM, _PT, _Te],
+  [0, 0, 0]
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
@@ -653,6 +674,9 @@ var RegionList: StaticListSchema = [1, n0, _RL,
 ];
 var SecurityGroupIds = 64 | 0;
 var SecurityGroupNames = 64 | 0;
+var SupportedInstanceConfigurations: StaticListSchema = [1, n0, _SIC,
+  0, () => SupportedInstanceConfiguration$
+];
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$

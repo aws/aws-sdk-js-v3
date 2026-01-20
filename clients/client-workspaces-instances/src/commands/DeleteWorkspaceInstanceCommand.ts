@@ -31,7 +31,7 @@ export interface DeleteWorkspaceInstanceCommandInput extends DeleteWorkspaceInst
 export interface DeleteWorkspaceInstanceCommandOutput extends DeleteWorkspaceInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified WorkSpace</p>
+ * <p>Deletes the specified WorkSpace</p> <important> <p>Usage of this API will result in deletion of the resource in question.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
