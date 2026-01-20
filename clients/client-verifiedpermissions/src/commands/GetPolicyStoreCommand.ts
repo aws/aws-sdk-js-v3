@@ -56,6 +56,15 @@ export interface GetPolicyStoreCommandOutput extends GetPolicyStoreOutput, __Met
  * //   lastUpdatedDate: new Date("TIMESTAMP"), // required
  * //   description: "STRING_VALUE",
  * //   deletionProtection: "ENABLED" || "DISABLED",
+ * //   encryptionState: { // EncryptionState Union: only one key present
+ * //     kmsEncryptionState: { // KmsEncryptionState
+ * //       key: "STRING_VALUE", // required
+ * //       encryptionContext: { // EncryptionContext // required
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     default: {},
+ * //   },
  * //   cedarVersion: "CEDAR_2" || "CEDAR_4",
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
@@ -101,6 +110,38 @@ export interface GetPolicyStoreCommandOutput extends GetPolicyStoreOutput, __Met
  * {
  *   arn: "arn:aws:verifiedpermissions::123456789012:policy-store/C7v5xMplfFH3i3e4Jrzb1a",
  *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   encryptionState: {
+ *     default:     { /* empty *\/ }
+ *   },
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   validationSettings: {
+ *     mode: "STRICT"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example GetPolicyStore that is encrypted
+ * ```javascript
+ * // The following example retrieves details about the specified encrypted policy store.
+ * const input = {
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new GetPolicyStoreCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:verifiedpermissions::123456789012:policy-store/C7v5xMplfFH3i3e4Jrzb1a",
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   encryptionState: {
+ *     kmsEncryptionState: {
+ *       encryptionContext: {
+ *         policy_store_owner: "Tim"
+ *       },
+ *       key: "arn:aws:kms:us-east-1:123456789012:key/abcdefgh-ijkl-mnop-qrst-uvwxyz123456"
+ *     }
+ *   },
  *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
  *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
  *   validationSettings: {

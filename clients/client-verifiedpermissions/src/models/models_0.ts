@@ -1246,6 +1246,82 @@ export interface CreatePolicyOutput {
 }
 
 /**
+ * @public
+ */
+export interface Unit {}
+
+/**
+ * <p>A structure that contains the KMS encryption configuration for the policy store. The encryption settings determine what customer-managed KMS key will be used to encrypt all resources within the policy store, and any user-defined context key-value pairs to append during encryption processes.</p> <p>This data type is used as a field that is part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EncryptionSettings.html">EncryptionSettings</a> type.</p>
+ * @public
+ */
+export interface KmsEncryptionSettings {
+  /**
+   * <p>The customer-managed KMS key <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>, alias or ID to be used for encryption processes. </p> <p>Users can provide the full KMS key ARN, a KMS key alias, or a KMS key ID, but it will be mapped to the full KMS key ARN after policy store creation, and referenced when encrypting child resources. </p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>User-defined, additional context to be added to encryption processes. </p>
+   * @public
+   */
+  encryptionContext?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A structure that contains the encryption configuration for the policy store and child resources. </p> <p>This data type is used as a request parameter in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicyStore.html">CreatePolicyStore</a> operation.</p>
+ * @public
+ */
+export type EncryptionSettings =
+  | EncryptionSettings.DefaultMember
+  | EncryptionSettings.KmsEncryptionSettingsMember
+  | EncryptionSettings.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EncryptionSettings {
+  /**
+   * <p>The KMS encryption settings for this policy store to encrypt data with. It will contain the customer-managed KMS key, and a user-defined encryption context. </p>
+   * @public
+   */
+  export interface KmsEncryptionSettingsMember {
+    kmsEncryptionSettings: KmsEncryptionSettings;
+    default?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Use AWS owned encryption keys for encrypting policy store data.
+   * @public
+   */
+  export interface DefaultMember {
+    kmsEncryptionSettings?: never;
+    default: Unit;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    kmsEncryptionSettings?: never;
+    default?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    kmsEncryptionSettings: (value: KmsEncryptionSettings) => T;
+    default: (value: Unit) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template. </p> <p>This data type is used as a request parameter in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicyStore.html">CreatePolicyStore</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore.html">UpdatePolicyStore</a> operations.</p>
  * @public
  */
@@ -1284,6 +1360,12 @@ export interface CreatePolicyStoreInput {
    * @public
    */
   deletionProtection?: DeletionProtection | undefined;
+
+  /**
+   * <p>Specifies the encryption settings used to encrypt the policy store and their child resources. Allows for the ability to use a customer owned KMS key for encryption of data.</p> <p>This is an optional field to be used when providing a customer-managed KMS key for encryption.</p>
+   * @public
+   */
+  encryptionSettings?: EncryptionSettings | undefined;
 
   /**
    * <p>The list of key-value pairs to associate with the policy store.</p>
@@ -1460,6 +1542,77 @@ export interface DeletePolicyTemplateInput {
  * @public
  */
 export interface DeletePolicyTemplateOutput {}
+
+/**
+ * <p>A structure that contains the KMS encryption configuration for the policy store. The encryption state shows what customer-managed KMS key is being used to encrypt all resources within the policy store, and any user-defined context key-value pairs added during encryption processes.</p> <p>This data type is used as a field that is part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EncryptionState.html">EncryptionState</a> type.</p>
+ * @public
+ */
+export interface KmsEncryptionState {
+  /**
+   * <p>The customer-managed KMS key <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> being used for encryption processes. </p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>User-defined, additional context added to encryption processes. </p>
+   * @public
+   */
+  encryptionContext: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A structure that contains the encryption configuration for the policy store and child resources.</p> <p>This data type is used as a response parameter field for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetPolicyStore.html">GetPolicyStore</a> operation.</p>
+ * @public
+ */
+export type EncryptionState =
+  | EncryptionState.DefaultMember
+  | EncryptionState.KmsEncryptionStateMember
+  | EncryptionState.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EncryptionState {
+  /**
+   * <p>The KMS encryption settings currently configured for this policy store to encrypt data with. It contains the customer-managed KMS key, and a user-defined encryption context. </p>
+   * @public
+   */
+  export interface KmsEncryptionStateMember {
+    kmsEncryptionState: KmsEncryptionState;
+    default?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Policy store data is encrypted using AWS owned encryption keys.
+   * @public
+   */
+  export interface DefaultMember {
+    kmsEncryptionState?: never;
+    default: Unit;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    kmsEncryptionState?: never;
+    default?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    kmsEncryptionState: (value: KmsEncryptionState) => T;
+    default: (value: Unit) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>Contains information about a principal or resource that can be referenced in a Cedar policy.</p> <p>This data type is used as part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PolicyFilter.html">PolicyFilter</a> structure that is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicies.html">ListPolicies</a> operation..</p>
@@ -1764,6 +1917,12 @@ export interface GetPolicyStoreOutput {
    * @public
    */
   deletionProtection?: DeletionProtection | undefined;
+
+  /**
+   * <p>A structure that contains the encryption configuration for the policy store.</p>
+   * @public
+   */
+  encryptionState?: EncryptionState | undefined;
 
   /**
    * <p>The version of the Cedar language used with policies, policy templates, and schemas in this policy store. For more information, see <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/cedar4-faq.html">Amazon Verified Permissions upgrade to Cedar v4 FAQ</a>.</p>
@@ -2842,7 +3001,7 @@ export interface UpdatePolicyInput {
    * <p>Specifies the updated policy content that you want to replace on the specified policy. The content must be valid Cedar policy language text.</p> <p>You can change only the following elements from the policy definition:</p> <ul> <li> <p>The <code>action</code> referenced by the policy.</p> </li> <li> <p>Any conditional clauses, such as <code>when</code> or <code>unless</code> clauses.</p> </li> </ul> <p>You <b>can't</b> change the following elements:</p> <ul> <li> <p>Changing from <code>static</code> to <code>templateLinked</code>.</p> </li> <li> <p>Changing the effect of the policy from <code>permit</code> or <code>forbid</code>.</p> </li> <li> <p>The <code>principal</code> referenced by the policy.</p> </li> <li> <p>The <code>resource</code> referenced by the policy.</p> </li> </ul>
    * @public
    */
-  definition: UpdatePolicyDefinition | undefined;
+  definition?: UpdatePolicyDefinition | undefined;
 }
 
 /**

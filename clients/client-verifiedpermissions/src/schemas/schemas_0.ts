@@ -87,6 +87,8 @@ const _EIn = "EntityIdentifier";
 const _EInt = "EntityItem";
 const _EL = "EntityList";
 const _ER = "EntityReference";
+const _ES = "EncryptionSettings";
+const _ESn = "EncryptionState";
 const _ET = "EntityType";
 const _GET = "GroupEntityType";
 const _GIS = "GetIdentitySource";
@@ -119,6 +121,8 @@ const _ISF = "IdentitySourceFilter";
 const _ISFd = "IdentitySourceFilters";
 const _ISI = "IdentitySourceItem";
 const _ISID = "IdentitySourceItemDetails";
+const _KES = "KmsEncryptionSettings";
+const _KESm = "KmsEncryptionState";
 const _LA = "LongAttribute";
 const _LIS = "ListIdentitySources";
 const _LISI = "ListIdentitySourcesInput";
@@ -249,15 +253,19 @@ const _dU = "discoveryUrl";
 const _da = "datetime";
 const _de = "decision";
 const _dec = "decimal";
+const _def = "default";
 const _des = "description";
 const _det = "details";
 const _du = "duration";
 const _e = "error";
+const _eC = "encryptionContext";
 const _eD = "errorDescription";
 const _eI = "entityId";
 const _eIP = "entityIdPrefix";
 const _eIn = "entityIdentifier";
 const _eL = "entityList";
+const _eS = "encryptionSettings";
+const _eSn = "encryptionState";
 const _eT = "entityType";
 const _ef = "effect";
 const _en = "entities";
@@ -276,6 +284,9 @@ const _iT = "identityToken";
 const _iTO = "identityTokenOnly";
 const _id = "identifier";
 const _ip = "ipaddr";
+const _k = "key";
+const _kES = "kmsEncryptionSettings";
+const _kESm = "kmsEncryptionState";
 const _l = "long";
 const _lUD = "lastUpdatedDate";
 const _m = "message";
@@ -510,8 +521,8 @@ export var CreatePolicyOutput$: StaticStructureSchema = [3, n0, _CPO,
 ];
 export var CreatePolicyStoreInput$: StaticStructureSchema = [3, n0, _CPSI,
   0,
-  [_vS, _cT, _des, _dPe, _t],
-  [() => ValidationSettings$, [0, 4], [() => PolicyStoreDescription, 0], 0, 128 | 0], 1
+  [_vS, _cT, _des, _dPe, _eS, _t],
+  [() => ValidationSettings$, [0, 4], [() => PolicyStoreDescription, 0], 0, () => EncryptionSettings$, 128 | 0], 1
 ];
 export var CreatePolicyStoreOutput$: StaticStructureSchema = [3, n0, _CPSO,
   0,
@@ -615,8 +626,8 @@ export var GetPolicyStoreInput$: StaticStructureSchema = [3, n0, _GPSI,
 ];
 export var GetPolicyStoreOutput$: StaticStructureSchema = [3, n0, _GPSO,
   0,
-  [_pSI, _ar, _vS, _cD, _lUD, _des, _dPe, _cV, _t],
-  [0, 0, () => ValidationSettings$, 5, 5, [() => PolicyStoreDescription, 0], 0, 0, 128 | 0], 5
+  [_pSI, _ar, _vS, _cD, _lUD, _des, _dPe, _eSn, _cV, _t],
+  [0, 0, () => ValidationSettings$, 5, 5, [() => PolicyStoreDescription, 0], 0, () => EncryptionState$, 0, 128 | 0], 5
 ];
 export var GetPolicyTemplateInput$: StaticStructureSchema = [3, n0, _GPTI,
   0,
@@ -689,6 +700,16 @@ export var IsAuthorizedWithTokenOutput$: StaticStructureSchema = [3, n0, _IAWTO,
   0,
   [_de, _dP, _er, _p],
   [0, () => DeterminingPolicyList, [() => EvaluationErrorList, 0], [() => EntityIdentifier$, 0]], 3
+];
+export var KmsEncryptionSettings$: StaticStructureSchema = [3, n0, _KES,
+  0,
+  [_k, _eC],
+  [0, 128 | 0], 1
+];
+export var KmsEncryptionState$: StaticStructureSchema = [3, n0, _KESm,
+  0,
+  [_k, _eC],
+  [0, 128 | 0], 2
 ];
 export var ListIdentitySourcesInput$: StaticStructureSchema = [3, n0, _LISI,
   0,
@@ -952,7 +973,7 @@ export var UpdateOpenIdConnectIdentityTokenConfiguration$: StaticStructureSchema
 export var UpdatePolicyInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
   [_pSI, _pI, _d],
-  [0, 0, [() => UpdatePolicyDefinition$, 0]], 3
+  [0, 0, [() => UpdatePolicyDefinition$, 0]], 2
 ];
 export var UpdatePolicyOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
@@ -1000,6 +1021,7 @@ export var ValidationSettings$: StaticStructureSchema = [3, n0, _VS,
   [_mo],
   [0], 1
 ];
+var __Unit = "unit" as const;
 export var VerifiedPermissionsServiceException$: StaticErrorSchema = [-3, _sm, "VerifiedPermissionsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(VerifiedPermissionsServiceException$, VerifiedPermissionsServiceException);
 var ActionIdentifierList: StaticListSchema = [1, n0, _AIL,
@@ -1103,6 +1125,7 @@ var ContextMap: StaticMapSchema = [2, n0, _CM,
   , [() => AttributeValue$,
     0]
 ];
+var EncryptionContext = 128 | 0;
 var EntityAttributes: StaticMapSchema = [2, n0, _EA,
   0, [0,
     0]
@@ -1151,6 +1174,16 @@ export var ContextDefinition$: StaticUnionSchema = [4, n0, _CDo,
   0,
   [_cM, _cJ],
   [[() => ContextMap, 0], [() => CedarJson, 0]]
+];
+export var EncryptionSettings$: StaticUnionSchema = [4, n0, _ES,
+  0,
+  [_kES, _def],
+  [() => KmsEncryptionSettings$, () => __Unit]
+];
+export var EncryptionState$: StaticUnionSchema = [4, n0, _ESn,
+  0,
+  [_kESm, _def],
+  [() => KmsEncryptionState$, () => __Unit]
 ];
 export var EntitiesDefinition$: StaticUnionSchema = [4, n0, _ED,
   0,
