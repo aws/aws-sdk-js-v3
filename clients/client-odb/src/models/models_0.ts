@@ -169,6 +169,36 @@ export interface AutonomousVirtualMachineSummary {
 }
 
 /**
+ * <p>Information about an Amazon Web Services Identity and Access Management (IAM) service role associated with a resource.</p>
+ * @public
+ */
+export interface IamRole {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) service role.</p>
+   * @public
+   */
+  iamRoleArn?: string | undefined;
+
+  /**
+   * <p>The current status of the Amazon Web Services Identity and Access Management (IAM) service role.</p>
+   * @public
+   */
+  status?: IamRoleStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the Amazon Web Services Identity and Access Management (IAM) service role, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services integration configuration settings for the Amazon Web Services Identity and Access Management (IAM) service role.</p>
+   * @public
+   */
+  awsIntegration?: SupportedAwsIntegration | undefined;
+}
+
+/**
  * <p>An enumeration of days of the week used for scheduling maintenance windows.</p>
  * @public
  */
@@ -568,6 +598,12 @@ export interface CloudAutonomousVmCluster {
    * @public
    */
   totalContainerDatabases?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.</p>
+   * @public
+   */
+  iamRoles?: IamRole[] | undefined;
 }
 
 /**
@@ -880,6 +916,12 @@ export interface CloudAutonomousVmClusterSummary {
    * @public
    */
   totalContainerDatabases?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster in the summary information.</p>
+   * @public
+   */
+  iamRoles?: IamRole[] | undefined;
 }
 
 /**
@@ -2306,36 +2348,6 @@ export interface DataCollectionOptions {
    * @public
    */
   isIncidentLogsEnabled?: boolean | undefined;
-}
-
-/**
- * <p>Information about an Amazon Web Services Identity and Access Management (IAM) service role associated with a resource.</p>
- * @public
- */
-export interface IamRole {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) service role.</p>
-   * @public
-   */
-  iamRoleArn?: string | undefined;
-
-  /**
-   * <p>The current status of the Amazon Web Services Identity and Access Management (IAM) service role.</p>
-   * @public
-   */
-  status?: IamRoleStatus | undefined;
-
-  /**
-   * <p>Additional information about the current status of the Amazon Web Services Identity and Access Management (IAM) service role, if applicable.</p>
-   * @public
-   */
-  statusReason?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services integration configuration settings for the Amazon Web Services Identity and Access Management (IAM) service role.</p>
-   * @public
-   */
-  awsIntegration?: SupportedAwsIntegration | undefined;
 }
 
 /**

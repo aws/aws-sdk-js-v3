@@ -74,6 +74,24 @@ export type ComputeModel = (typeof ComputeModel)[keyof typeof ComputeModel];
  * @public
  * @enum
  */
+export const IamRoleStatus = {
+  ASSOCIATING: "ASSOCIATING",
+  CONNECTED: "CONNECTED",
+  DISASSOCIATING: "DISASSOCIATING",
+  DISCONNECTED: "DISCONNECTED",
+  FAILED: "FAILED",
+  PARTIALLY_CONNECTED: "PARTIALLY_CONNECTED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type IamRoleStatus = (typeof IamRoleStatus)[keyof typeof IamRoleStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const LicenseModel = {
   BRING_YOUR_OWN_LICENSE: "BRING_YOUR_OWN_LICENSE",
   LICENSE_INCLUDED: "LICENSE_INCLUDED",
@@ -177,24 +195,6 @@ export const DiskRedundancy = {
  * @public
  */
 export type DiskRedundancy = (typeof DiskRedundancy)[keyof typeof DiskRedundancy];
-
-/**
- * @public
- * @enum
- */
-export const IamRoleStatus = {
-  ASSOCIATING: "ASSOCIATING",
-  CONNECTED: "CONNECTED",
-  DISASSOCIATING: "DISASSOCIATING",
-  DISCONNECTED: "DISCONNECTED",
-  FAILED: "FAILED",
-  PARTIALLY_CONNECTED: "PARTIALLY_CONNECTED",
-  UNKNOWN: "UNKNOWN",
-} as const;
-/**
- * @public
- */
-export type IamRoleStatus = (typeof IamRoleStatus)[keyof typeof IamRoleStatus];
 
 /**
  * @public

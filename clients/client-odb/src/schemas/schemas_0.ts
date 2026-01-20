@@ -525,8 +525,8 @@ export var AutonomousVirtualMachineSummary$: StaticStructureSchema = [3, n0, _AV
 ];
 export var CloudAutonomousVmCluster$: StaticStructureSchema = [3, n0, _CAVC,
   0,
-  [_cAVCI, _cAVCA, _oNI, _oNA, _oRAN, _pP, _dN, _s, _sR, _cEII, _cEIA, _aDSP, _aDSSITB, _aADSSITB, _aCD, _aC, _cM, _cCC, _cCCPN, _cP, _dSSIGB, _dSSITB, _dNSSIGB, _dS, _d, _do, _eSITBLSV, _h, _o, _oU, _iMEVC, _lM, _mW, _mALSV, _mPOCUIGB, _mSIGB, _nC, _nPACD, _pACD, _pACDr, _pC, _rC, _rCe, _sLPNT, _sLPT, _sh, _cA, _tDSCE, _tOCE, _tZ, _tCD],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 64 | 0, 0, 0, 1, 0, 0, 0, 2, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 5, 5, 5, 0, 1], 1
+  [_cAVCI, _cAVCA, _oNI, _oNA, _oRAN, _pP, _dN, _s, _sR, _cEII, _cEIA, _aDSP, _aDSSITB, _aADSSITB, _aCD, _aC, _cM, _cCC, _cCCPN, _cP, _dSSIGB, _dSSITB, _dNSSIGB, _dS, _d, _do, _eSITBLSV, _h, _o, _oU, _iMEVC, _lM, _mW, _mALSV, _mPOCUIGB, _mSIGB, _nC, _nPACD, _pACD, _pACDr, _pC, _rC, _rCe, _sLPNT, _sLPT, _sh, _cA, _tDSCE, _tOCE, _tZ, _tCD, _iR],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 64 | 0, 0, 0, 1, 0, 0, 0, 2, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 5, 5, 5, 0, 1, () => IamRoleList], 1
 ];
 export var CloudAutonomousVmClusterResourceDetails$: StaticStructureSchema = [3, n0, _CAVCRD,
   0,
@@ -535,8 +535,8 @@ export var CloudAutonomousVmClusterResourceDetails$: StaticStructureSchema = [3,
 ];
 export var CloudAutonomousVmClusterSummary$: StaticStructureSchema = [3, n0, _CAVCS,
   0,
-  [_cAVCI, _cAVCA, _oNI, _oNA, _oRAN, _pP, _dN, _s, _sR, _cEII, _cEIA, _aDSP, _aDSSITB, _aADSSITB, _aCD, _aC, _cM, _cCC, _cCCPN, _cP, _dSSIGB, _dSSITB, _dNSSIGB, _dS, _d, _do, _eSITBLSV, _h, _o, _oU, _iMEVC, _lM, _mW, _mALSV, _mPOCUIGB, _mSIGB, _nC, _nPACD, _pACD, _pACDr, _pC, _rC, _rCe, _sLPNT, _sLPT, _sh, _cA, _tDSCE, _tOCE, _tZ, _tCD],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 64 | 0, 0, 0, 1, 0, 0, 0, 2, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 5, 5, 5, 0, 1], 1
+  [_cAVCI, _cAVCA, _oNI, _oNA, _oRAN, _pP, _dN, _s, _sR, _cEII, _cEIA, _aDSP, _aDSSITB, _aADSSITB, _aCD, _aC, _cM, _cCC, _cCCPN, _cP, _dSSIGB, _dSSITB, _dNSSIGB, _dS, _d, _do, _eSITBLSV, _h, _o, _oU, _iMEVC, _lM, _mW, _mALSV, _mPOCUIGB, _mSIGB, _nC, _nPACD, _pACD, _pACDr, _pC, _rC, _rCe, _sLPNT, _sLPT, _sh, _cA, _tDSCE, _tOCE, _tZ, _tCD, _iR],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 64 | 0, 0, 0, 1, 0, 0, 0, 2, 0, () => MaintenanceWindow$, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 5, 5, 5, 0, 1, () => IamRoleList], 1
 ];
 export var CloudExadataInfrastructure$: StaticStructureSchema = [3, n0, _CEI,
   0,
