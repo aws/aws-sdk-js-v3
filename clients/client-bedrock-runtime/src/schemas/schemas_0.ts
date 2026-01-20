@@ -26,7 +26,9 @@ const _CBSEo = "ContentBlockStopEvent";
 const _CBo = "ContentBlock";
 const _CC = "CitationsConfig";
 const _CCB = "CitationsContentBlock";
-const _CD = "CitationsDelta";
+const _CD = "CacheDetail";
+const _CDL = "CacheDetailsList";
+const _CDi = "CitationsDelta";
 const _CE = "ConflictException";
 const _CGC = "CitationGeneratedContent";
 const _CGCL = "CitationGeneratedContentList";
@@ -245,6 +247,7 @@ const _cBI = "contentBlockIndex";
 const _cBS = "contentBlockStart";
 const _cBSo = "contentBlockStop";
 const _cC = "citationsContent";
+const _cD = "cacheDetails";
 const _cFS = "claimsFalseScenario";
 const _cGP = "contextualGroundingPolicy";
 const _cGPU = "contextualGroundingPolicyUnits";
@@ -406,7 +409,7 @@ const _stat = "statements";
 const _str = "stream";
 const _stre = "streaming";
 const _sy = "system";
-const _t = "type";
+const _t = "ttl";
 const _tA = "translationAmbiguous";
 const _tC = "toolConfig";
 const _tCe = "textCharacters";
@@ -433,6 +436,7 @@ const _top = "topics";
 const _tr = "trace";
 const _tra = "translation";
 const _tran = "translations";
+const _ty = "type";
 const _u = "usage";
 const _uC = "untranslatedClaims";
 const _uP = "untranslatedPremises";
@@ -538,10 +542,15 @@ export var BidirectionalOutputPayloadPart$: StaticStructureSchema = [3, n0, _BOP
   [_b],
   [[() => PartBody, 0]]
 ];
+export var CacheDetail$: StaticStructureSchema = [3, n0, _CD,
+  0,
+  [_t, _iT],
+  [0, 1], 2
+];
 export var CachePointBlock$: StaticStructureSchema = [3, n0, _CPB,
   0,
-  [_t],
-  [0], 1
+  [_ty, _t],
+  [0, 0], 1
 ];
 export var Citation$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -558,7 +567,7 @@ export var CitationsContentBlock$: StaticStructureSchema = [3, n0, _CCB,
   [_co, _ci],
   [() => CitationGeneratedContentList, () => Citations]
 ];
-export var CitationsDelta$: StaticStructureSchema = [3, n0, _CD,
+export var CitationsDelta$: StaticStructureSchema = [3, n0, _CDi,
   0,
   [_ti, _s, _sC, _l],
   [0, 0, () => CitationSourceContentListDelta, () => CitationLocation$]
@@ -706,7 +715,7 @@ export var GuardrailAutomatedReasoningInvalidFinding$: StaticStructureSchema = [
 ];
 export var GuardrailAutomatedReasoningLogicWarning$: StaticStructureSchema = [3, n0, _GARLW,
   0,
-  [_t, _p, _cl],
+  [_ty, _p, _cl],
   [0, [() => GuardrailAutomatedReasoningStatementList, 0], [() => GuardrailAutomatedReasoningStatementList, 0]]
 ];
 export var GuardrailAutomatedReasoningNoTranslationsFinding$: StaticStructureSchema = [3, n0, _GARNTF,
@@ -771,7 +780,7 @@ export var GuardrailConfiguration$: StaticStructureSchema = [3, n0, _GC,
 ];
 export var GuardrailContentFilter$: StaticStructureSchema = [3, n0, _GCF,
   0,
-  [_t, _conf, _a, _fS, _de],
+  [_ty, _conf, _a, _fS, _de],
   [0, 0, 0, 0, 2], 3
 ];
 export var GuardrailContentPolicyAssessment$: StaticStructureSchema = [3, n0, _GCPA,
@@ -781,7 +790,7 @@ export var GuardrailContentPolicyAssessment$: StaticStructureSchema = [3, n0, _G
 ];
 export var GuardrailContextualGroundingFilter$: StaticStructureSchema = [3, n0, _GCGF,
   0,
-  [_t, _th, _sc, _a, _de],
+  [_ty, _th, _sc, _a, _de],
   [0, 1, 1, 0, 2], 4
 ];
 export var GuardrailContextualGroundingPolicyAssessment$: StaticStructureSchema = [3, n0, _GCGPA,
@@ -826,7 +835,7 @@ export var GuardrailInvocationMetrics$: StaticStructureSchema = [3, n0, _GIM,
 ];
 export var GuardrailManagedWord$: StaticStructureSchema = [3, n0, _GMW,
   0,
-  [_ma, _t, _a, _de],
+  [_ma, _ty, _a, _de],
   [0, 0, 0, 2], 3
 ];
 export var GuardrailOutputContent$: StaticStructureSchema = [3, n0, _GOC,
@@ -836,7 +845,7 @@ export var GuardrailOutputContent$: StaticStructureSchema = [3, n0, _GOC,
 ];
 export var GuardrailPiiEntityFilter$: StaticStructureSchema = [3, n0, _GPEF,
   0,
-  [_ma, _t, _a, _de],
+  [_ma, _ty, _a, _de],
   [0, 0, 0, 2], 3
 ];
 export var GuardrailRegexFilter$: StaticStructureSchema = [3, n0, _GRF,
@@ -866,7 +875,7 @@ export var GuardrailTextCharactersCoverage$: StaticStructureSchema = [3, n0, _GT
 ];
 export var GuardrailTopic$: StaticStructureSchema = [3, n0, _GT,
   0,
-  [_n, _t, _a, _de],
+  [_n, _ty, _a, _de],
   [0, 0, 0, 2], 3
 ];
 export var GuardrailTopicPolicyAssessment$: StaticStructureSchema = [3, n0, _GTPA,
@@ -1053,7 +1062,7 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceTier$: StaticStructureSchema = [3, n0, _ST,
   0,
-  [_t],
+  [_ty],
   [0], 1
 ];
 export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
@@ -1095,8 +1104,8 @@ export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TokenUsage$: StaticStructureSchema = [3, n0, _TU,
   0,
-  [_iT, _oT, _tT, _cRIT, _cWIT],
-  [1, 1, 1, 1, 1], 3
+  [_iT, _oT, _tT, _cRIT, _cWIT, _cD],
+  [1, 1, 1, 1, 1, () => CacheDetailsList], 3
 ];
 export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
@@ -1105,12 +1114,12 @@ export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TC,
 ];
 export var ToolResultBlock$: StaticStructureSchema = [3, n0, _TRB,
   0,
-  [_tUI, _co, _st, _t],
+  [_tUI, _co, _st, _ty],
   [0, [() => ToolResultContentBlocks, 0], 0, 0], 2
 ];
 export var ToolResultBlockStart$: StaticStructureSchema = [3, n0, _TRBS,
   0,
-  [_tUI, _t, _st],
+  [_tUI, _ty, _st],
   [0, 0, 0], 1
 ];
 export var ToolSpecification$: StaticStructureSchema = [3, n0, _TS,
@@ -1120,7 +1129,7 @@ export var ToolSpecification$: StaticStructureSchema = [3, n0, _TS,
 ];
 export var ToolUseBlock$: StaticStructureSchema = [3, n0, _TUB,
   0,
-  [_tUI, _n, _i, _t],
+  [_tUI, _n, _i, _ty],
   [0, 0, 15, 0], 3
 ];
 export var ToolUseBlockDelta$: StaticStructureSchema = [3, n0, _TUBD,
@@ -1130,7 +1139,7 @@ export var ToolUseBlockDelta$: StaticStructureSchema = [3, n0, _TUBD,
 ];
 export var ToolUseBlockStart$: StaticStructureSchema = [3, n0, _TUBS,
   0,
-  [_tUI, _n, _t],
+  [_tUI, _n, _ty],
   [0, 0, 0], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
@@ -1155,6 +1164,9 @@ var AdditionalModelResponseFieldPaths = 64 | 0;
 var AsyncInvokeSummaries: StaticListSchema = [1, n0, _AISs,
   0, [() => AsyncInvokeSummary$,
     0]
+];
+var CacheDetailsList: StaticListSchema = [1, n0, _CDL,
+  0, () => CacheDetail$
 ];
 var CitationGeneratedContentList: StaticListSchema = [1, n0, _CGCL,
   0, () => CitationGeneratedContent$

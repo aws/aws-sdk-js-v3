@@ -188,6 +188,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *           },
  *           cachePoint: { // CachePointBlock
  *             type: "default", // required
+ *             ttl: "5m" || "1h",
  *           },
  *           reasoningContent: { // ReasoningContentBlock Union: only one key present
  *             reasoningText: { // ReasoningTextBlock
@@ -275,6 +276,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *       },
  *       cachePoint: {
  *         type: "default", // required
+ *         ttl: "5m" || "1h",
  *       },
  *     },
  *   ],
@@ -441,6 +443,12 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //         totalTokens: Number("int"), // required
  * //         cacheReadInputTokens: Number("int"),
  * //         cacheWriteInputTokens: Number("int"),
+ * //         cacheDetails: [ // CacheDetailsList
+ * //           { // CacheDetail
+ * //             ttl: "5m" || "1h", // required
+ * //             inputTokens: Number("int"), // required
+ * //           },
+ * //         ],
  * //       },
  * //       metrics: { // ConverseStreamMetrics
  * //         latencyMs: Number("long"), // required

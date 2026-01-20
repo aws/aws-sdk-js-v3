@@ -387,6 +387,19 @@ export type AudioFormat = (typeof AudioFormat)[keyof typeof AudioFormat];
  * @public
  * @enum
  */
+export const CacheTTL = {
+  FIVE_MINUTES: "5m",
+  ONE_HOUR: "1h",
+} as const;
+/**
+ * @public
+ */
+export type CacheTTL = (typeof CacheTTL)[keyof typeof CacheTTL];
+
+/**
+ * @public
+ * @enum
+ */
 export const CachePointType = {
   DEFAULT: "default",
 } as const;

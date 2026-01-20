@@ -193,6 +193,7 @@ export interface CountTokensCommandOutput extends CountTokensResponse, __Metadat
  *               },
  *               cachePoint: { // CachePointBlock
  *                 type: "default", // required
+ *                 ttl: "5m" || "1h",
  *               },
  *               reasoningContent: { // ReasoningContentBlock Union: only one key present
  *                 reasoningText: { // ReasoningTextBlock
@@ -280,6 +281,7 @@ export interface CountTokensCommandOutput extends CountTokensResponse, __Metadat
  *           },
  *           cachePoint: {
  *             type: "default", // required
+ *             ttl: "5m" || "1h",
  *           },
  *         },
  *       ],
