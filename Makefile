@@ -1,7 +1,7 @@
 # This is the public Makefile containing some build commands.
 # You can implement some additional personal commands such as login and sync in Makefile.private.mk (unversioned).
 
-.PHONY: bundles test-unit test-integration test-protocols test-e2e test-indices test-schema test-endpoints test-bundlers
+.PHONY: login sync bundles test-unit test-types test-indices test-protocols test-schema test-integration test-endpoints test-e2e test-bundlers build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols
 
 # fetch AWS testing credentials
 login:
@@ -65,6 +65,7 @@ build-signature-v4-multi-region-browser-bundle:
 clean-nested:
 	rm -rf ./lib/*/node_modules
 	rm -rf ./packages/*/node_modules
+	rm -rf ./packages-internal/*/node_modules
 	rm -rf ./clients/*/node_modules
 	rm -rf ./private/*/node_modules
 
@@ -91,17 +92,9 @@ b-auth:
 	node ./scripts/cli-dispatcher client sso-oidc - b;
 	node ./scripts/cli-dispatcher client cognito identity - b;
 
-# Runs build for all packages using Turborepo
-turbo-build:
-	(cd scripts/remote-cache && yarn)
-	node scripts/remote-cache/ start&
-	sleep 3
-	npx turbo run build --api="http://localhost:3000" --team="aws-sdk-js" --token="xyz"
-	node scripts/remote-cache/ stop
-
 # run turbo build for packages only.
 tpk:
-	npx turbo run build --filter='./packages/*'
+	npx turbo run build --filter='./{packages,packages-internal}/*'
 
 # builds only packages that have no build at all.
 # for development only - packages may be stale.

@@ -23368,9 +23368,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/core@npm:*, @aws-sdk/core@workspace:packages/core":
+"@aws-sdk/core@npm:*, @aws-sdk/core@workspace:packages-internal/core":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/core@workspace:packages/core"
+  resolution: "@aws-sdk/core@workspace:packages-internal/core"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@aws-sdk/xml-builder": "npm:*"
@@ -24597,9 +24597,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/types@npm:*, @aws-sdk/types@npm:^3.222.0, @aws-sdk/types@npm:^3.267.0, @aws-sdk/types@workspace:packages/types":
+"@aws-sdk/types@npm:*, @aws-sdk/types@npm:^3.222.0, @aws-sdk/types@npm:^3.267.0, @aws-sdk/types@workspace:packages-internal/types":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/types@workspace:packages/types"
+  resolution: "@aws-sdk/types@workspace:packages-internal/types"
   dependencies:
     "@smithy/types": "npm:^4.12.0"
     "@tsconfig/recommended": "npm:1.0.1"
