@@ -53,7 +53,11 @@ export async function checkFeatures(
         setFeature(context, "RETRY_MODE_STANDARD", "E");
       }
     } else {
-      setFeature(context, "RETRY_MODE_LEGACY", "D");
+      if (retryStrategy.constructor?.name?.includes("Adaptive")) {
+        setFeature(context, "RETRY_MODE_ADAPTIVE", "F");
+      } else {
+        setFeature(context, "RETRY_MODE_STANDARD", "E");
+      }
     }
   }
 
