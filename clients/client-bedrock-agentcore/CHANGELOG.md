@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.973.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.972.0...v3.973.0) (2026-01-21)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Supports custom browser extensions for AgentCore Browser and increased message payloads up to 100KB per message in an Event for AgentCore Memory ([bd22907](https://github.com/aws/aws-sdk-js-v3/commit/bd22907497ec421c8491fecb6782ead52828a1e9))
+
+
+
+
+
 # [3.972.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.971.0...v3.972.0) (2026-01-20)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

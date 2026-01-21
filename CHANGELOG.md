@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.973.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.972.0...v3.973.0) (2026-01-21)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Supports custom browser extensions for AgentCore Browser and increased message payloads up to 100KB per message in an Event for AgentCore Memory ([bd22907](https://github.com/aws/aws-sdk-js-v3/commit/bd22907497ec421c8491fecb6782ead52828a1e9))
+* **client-config-service:** AWS Config Conformance Packs now support tag-on-create through PutConformancePack API. ([0cbc598](https://github.com/aws/aws-sdk-js-v3/commit/0cbc598738e8ab7b0f5446c4b752d0209a73d3c2))
+* **client-ec2:** Added support of multiple EBS cards. New EbsCardIndex parameter enables attaching volumes to specific EBS cards on supported instance types for improved storage performance. ([3066214](https://github.com/aws/aws-sdk-js-v3/commit/306621454badc231432a31e11508cfd5b2d75820))
+* **client-quicksight:** Added documentation and model for sheet layout groups - allows sheet elements to be grouped, Added documentation and the feature enables admins to have granular control over connectors under actions, Updated API documentation for PDF Export in Snapshot Export APIs ([5862792](https://github.com/aws/aws-sdk-js-v3/commit/5862792f6fb6ad113c4b3e654d9958571b3a2bc9))
+* **clients:** update client endpoints as of 2026-01-21 ([5a66a0a](https://github.com/aws/aws-sdk-js-v3/commit/5a66a0a1e3c31cd645ad42efb3ac33ba92f67cfe))
+
+
+
+
+
 # [3.972.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.971.0...v3.972.0) (2026-01-20)
 
 

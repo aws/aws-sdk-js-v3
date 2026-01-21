@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.973.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.972.0...v3.973.0) (2026-01-21)
+
+
+### Features
+
+* **client-config-service:** AWS Config Conformance Packs now support tag-on-create through PutConformancePack API. ([0cbc598](https://github.com/aws/aws-sdk-js-v3/commit/0cbc598738e8ab7b0f5446c4b752d0209a73d3c2))
+
+
+
+
+
 # [3.972.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.971.0...v3.972.0) (2026-01-20)
 
 **Note:** Version bump only for package @aws-sdk/client-config-service
