@@ -123,6 +123,18 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //         NvmeSupport: "unsupported" || "supported" || "required",
  * //         MaximumEbsAttachments: Number("int"),
  * //         AttachmentLimitType: "shared" || "dedicated",
+ * //         MaximumEbsCards: Number("int"),
+ * //         EbsCards: [ // EbsCardInfoList
+ * //           { // EbsCardInfo
+ * //             EbsCardIndex: Number("int"),
+ * //             BaselineBandwidthInMbps: Number("int"),
+ * //             BaselineThroughputInMBps: Number("double"),
+ * //             BaselineIops: Number("int"),
+ * //             MaximumBandwidthInMbps: Number("int"),
+ * //             MaximumThroughputInMBps: Number("double"),
+ * //             MaximumIops: Number("int"),
+ * //           },
+ * //         ],
  * //       },
  * //       NetworkInfo: { // NetworkInfo
  * //         NetworkPerformance: "STRING_VALUE",

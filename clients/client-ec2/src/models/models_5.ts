@@ -108,11 +108,31 @@ import {
   Filter,
   ProductCode,
 } from "./models_3";
-import {
-  type VerifiedAccessLogCloudWatchLogsDestination,
-  type VerifiedAccessLogDeliveryStatus,
-  RegisteredInstance,
-} from "./models_4";
+import { type VerifiedAccessLogDeliveryStatus, RegisteredInstance } from "./models_4";
+
+/**
+ * <p>Options for CloudWatch Logs as a logging destination.</p>
+ * @public
+ */
+export interface VerifiedAccessLogCloudWatchLogsDestination {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The delivery status for access logs.</p>
+   * @public
+   */
+  DeliveryStatus?: VerifiedAccessLogDeliveryStatus | undefined;
+
+  /**
+   * <p>The ID of the CloudWatch Logs log group.</p>
+   * @public
+   */
+  LogGroup?: string | undefined;
+}
 
 /**
  * <p>Options for Kinesis as a logging destination.</p>
@@ -8694,21 +8714,4 @@ export interface GetInstanceUefiDataRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInstanceUefiDataResult {
-  /**
-   * <p>The ID of the instance from which to retrieve the UEFI data.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>Base64 representation of the non-volatile UEFI variable store.</p>
-   * @public
-   */
-  UefiData?: string | undefined;
 }

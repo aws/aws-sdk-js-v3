@@ -10390,6 +10390,12 @@ export interface EbsInstanceBlockDevice {
    * @public
    */
   Operator?: OperatorResponse | undefined;
+
+  /**
+   * <p>The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.</p>
+   * @public
+   */
+  EbsCardIndex?: number | undefined;
 }
 
 /**

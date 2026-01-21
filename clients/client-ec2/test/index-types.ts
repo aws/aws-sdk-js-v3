@@ -3811,6 +3811,7 @@ export type {
   DnsServersOptionsModifyStructure,
   EbsBlockDevice,
   EbsBlockDeviceResponse,
+  EbsCardInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
   EbsInstanceBlockDeviceSpecification,

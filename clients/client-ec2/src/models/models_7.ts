@@ -120,8 +120,55 @@ import type {
   CapacityReservationSpecification,
   ModifyVerifiedAccessNativeApplicationOidcOptions,
   ModifyVerifiedAccessTrustProviderDeviceOptions,
-  ModifyVerifiedAccessTrustProviderOidcOptions,
 } from "./models_6";
+
+/**
+ * <p>Options for an OpenID Connect-compatible user-identity trust provider.</p>
+ * @public
+ */
+export interface ModifyVerifiedAccessTrustProviderOidcOptions {
+  /**
+   * <p>The OIDC issuer.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+
+  /**
+   * <p>The OIDC authorization endpoint.</p>
+   * @public
+   */
+  AuthorizationEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC token endpoint.</p>
+   * @public
+   */
+  TokenEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC user info endpoint.</p>
+   * @public
+   */
+  UserInfoEndpoint?: string | undefined;
+
+  /**
+   * <p>The client identifier.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The client secret.</p>
+   * @public
+   */
+  ClientSecret?: string | undefined;
+
+  /**
+   * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
+   * @public
+   */
+  Scope?: string | undefined;
+}
 
 /**
  * @public

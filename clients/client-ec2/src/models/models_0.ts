@@ -5829,6 +5829,12 @@ export interface AttachVolumeRequest {
   VolumeId: string | undefined;
 
   /**
+   * <p>The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.</p>
+   * @public
+   */
+  EbsCardIndex?: number | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -5863,6 +5869,12 @@ export interface VolumeAttachment {
    * @public
    */
   InstanceOwningService?: string | undefined;
+
+  /**
+   * <p>The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.</p>
+   * @public
+   */
+  EbsCardIndex?: number | undefined;
 
   /**
    * <p>The ID of the volume.</p>

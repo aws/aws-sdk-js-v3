@@ -93,6 +93,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput extends DescribeLau
  * //               VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
  * //               Throughput: Number("int"),
  * //               VolumeInitializationRate: Number("int"),
+ * //               EbsCardIndex: Number("int"),
  * //             },
  * //             NoDevice: "STRING_VALUE",
  * //           },

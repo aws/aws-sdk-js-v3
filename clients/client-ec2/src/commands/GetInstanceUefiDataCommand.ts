@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetInstanceUefiDataRequest, GetInstanceUefiDataResult } from "../models/models_5";
+import type { GetInstanceUefiDataRequest } from "../models/models_5";
+import type { GetInstanceUefiDataResult } from "../models/models_6";
 import { GetInstanceUefiData$ } from "../schemas/schemas_0";
 
 /**

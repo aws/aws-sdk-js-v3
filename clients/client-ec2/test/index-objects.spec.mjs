@@ -2201,6 +2201,7 @@ import {
   DynamicRoutingValue,
   EbsBlockDevice$,
   EbsBlockDeviceResponse$,
+  EbsCardInfo$,
   EbsEncryptionSupport,
   EbsInfo$,
   EbsInstanceBlockDevice$,
@@ -7128,6 +7129,7 @@ assert(typeof DnsOptionsSpecification$ === "object");
 assert(typeof DnsServersOptionsModifyStructure$ === "object");
 assert(typeof EbsBlockDevice$ === "object");
 assert(typeof EbsBlockDeviceResponse$ === "object");
+assert(typeof EbsCardInfo$ === "object");
 assert(typeof EbsInfo$ === "object");
 assert(typeof EbsInstanceBlockDevice$ === "object");
 assert(typeof EbsInstanceBlockDeviceSpecification$ === "object");

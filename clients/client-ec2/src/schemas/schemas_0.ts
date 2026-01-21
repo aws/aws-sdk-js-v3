@@ -2294,6 +2294,9 @@ const _EBSL = "ExecutableByStringList";
 const _EBV = "ExcludeBootVolume";
 const _EBx = "ExecutableBy";
 const _EC = "ErrorCode";
+const _ECI = "EbsCardIndex";
+const _ECIL = "EbsCardInfoList";
+const _ECIb = "EbsCardInfo";
 const _ECM = "EnableCapacityManager";
 const _ECMR = "EnableCapacityManagerRequest";
 const _ECMRn = "EnableCapacityManagerResult";
@@ -2304,6 +2307,7 @@ const _ECVCCRL = "ExportClientVpnClientCertificateRevocationList";
 const _ECVCCRLR = "ExportClientVpnClientCertificateRevocationListRequest";
 const _ECVCCRLRx = "ExportClientVpnClientCertificateRevocationListResult";
 const _ECVCCRx = "ExportClientVpnClientConfigurationResult";
+const _ECb = "EbsCards";
 const _ECn = "EncryptionControl";
 const _ECx = "ExplanationCode";
 const _ED = "EndDate";
@@ -3735,6 +3739,7 @@ const _MDe = "MetaData";
 const _MDi = "MinDuration";
 const _ME = "MaxEntries";
 const _MEA = "MaximumEbsAttachments";
+const _MEC = "MaximumEbsCards";
 const _MEDKKI = "ModifyEbsDefaultKmsKeyId";
 const _MEDKKIR = "ModifyEbsDefaultKmsKeyIdRequest";
 const _MEDKKIRo = "ModifyEbsDefaultKmsKeyIdResult";
@@ -6411,6 +6416,8 @@ const _eAn = "enableAcceleration";
 const _eAx = "exclusionsAllowed";
 const _eB = "egressBytes";
 const _eC = "errorCode";
+const _eCI = "ebsCardIndex";
+const _eCS = "ebsCardSet";
 const _eCTP = "excessCapacityTerminationPolicy";
 const _eCn = "encryptionControl";
 const _eCx = "explanationCode";
@@ -6984,6 +6991,7 @@ const _mDV = "metaDataValue";
 const _mDe = "metaData";
 const _mE = "maxEntries";
 const _mEA = "maximumEbsAttachments";
+const _mEC = "maximumEbsCards";
 const _mEI = "maximumEfaInterfaces";
 const _mEM = "managedExceptionMessage";
 const _mEQC = "maximumEnaQueueCount";
@@ -8779,8 +8787,8 @@ export var AttachVerifiedAccessTrustProviderResult$: StaticStructureSchema = [3,
 ];
 export var AttachVolumeRequest$: StaticStructureSchema = [3, n0, _AVR,
   0,
-  [_Dev, _II, _VIo, _DR],
-  [0, 0, 0, [2, { [_eQN]: `DryRun`
+  [_Dev, _II, _VIo, _ECI, _DR],
+  [0, 0, 0, 1, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }]], 3
 ];
 export var AttachVpnGatewayRequest$: StaticStructureSchema = [3, n0, _AVGR,
@@ -15268,7 +15276,7 @@ export var DnsServersOptionsModifyStructure$: StaticStructureSchema = [3, n0, _D
 ];
 export var EbsBlockDevice$: StaticStructureSchema = [3, n0, _EBD,
   0,
-  [_DOT, _Io, _SIn, _VSo, _VT, _KKI, _Th, _OA, _AZ, _Enc, _VIR, _AZI],
+  [_DOT, _Io, _SIn, _VSo, _VT, _KKI, _Th, _OA, _AZ, _Enc, _VIR, _AZI, _ECI],
   [[2, { [_eQN]: `DeleteOnTermination`
   , [_xN]: _dOT }], [1, { [_eQN]: `Iops`
   , [_xN]: _io }], [0, { [_eQN]: `SnapshotId`
@@ -15279,7 +15287,7 @@ export var EbsBlockDevice$: StaticStructureSchema = [3, n0, _EBD,
   , [_xN]: _th }], [0, { [_eQN]: `OutpostArn`
   , [_xN]: _oA }], [0, { [_eQN]: `AvailabilityZone`
   , [_xN]: _aZ }], [2, { [_eQN]: `Encrypted`
-  , [_xN]: _enc }], 1, 0]
+  , [_xN]: _enc }], 1, 0, 1]
 ];
 export var EbsBlockDeviceResponse$: StaticStructureSchema = [3, n0, _EBDR,
   0,
@@ -15294,20 +15302,34 @@ export var EbsBlockDeviceResponse$: StaticStructureSchema = [3, n0, _EBDR,
   , [_xN]: _vSo }], [0, { [_eQN]: `VolumeType`
   , [_xN]: _vT }]]
 ];
+export var EbsCardInfo$: StaticStructureSchema = [3, n0, _ECIb,
+  0,
+  [_ECI, _BBIM, _BTIMB, _BIa, _MBIM, _MTIMB, _MI],
+  [[1, { [_eQN]: `EbsCardIndex`
+  , [_xN]: _eCI }], [1, { [_eQN]: `BaselineBandwidthInMbps`
+  , [_xN]: _bBIM }], [1, { [_eQN]: `BaselineThroughputInMBps`
+  , [_xN]: _bTIMB }], [1, { [_eQN]: `BaselineIops`
+  , [_xN]: _bIa }], [1, { [_eQN]: `MaximumBandwidthInMbps`
+  , [_xN]: _mBIM }], [1, { [_eQN]: `MaximumThroughputInMBps`
+  , [_xN]: _mTIMB }], [1, { [_eQN]: `MaximumIops`
+  , [_xN]: _mI }]]
+];
 export var EbsInfo$: StaticStructureSchema = [3, n0, _EIb,
   0,
-  [_EOS, _ESn, _EOI, _NS, _MEA, _ALT],
+  [_EOS, _ESn, _EOI, _NS, _MEA, _ALT, _MEC, _ECb],
   [[0, { [_eQN]: `EbsOptimizedSupport`
   , [_xN]: _eOS }], [0, { [_eQN]: `EncryptionSupport`
   , [_xN]: _eSn }], [() => EbsOptimizedInfo$, { [_eQN]: `EbsOptimizedInfo`
   , [_xN]: _eOI }], [0, { [_eQN]: `NvmeSupport`
   , [_xN]: _nS }], [1, { [_eQN]: `MaximumEbsAttachments`
   , [_xN]: _mEA }], [0, { [_eQN]: `AttachmentLimitType`
-  , [_xN]: _aLT }]]
+  , [_xN]: _aLT }], [1, { [_eQN]: `MaximumEbsCards`
+  , [_xN]: _mEC }], [() => EbsCardInfoList, { [_eQN]: `EbsCardSet`
+  , [_xN]: _eCS }]]
 ];
 export var EbsInstanceBlockDevice$: StaticStructureSchema = [3, n0, _EIBD,
   0,
-  [_ATtt, _DOT, _Sta, _VIo, _ARss, _VOI, _Op],
+  [_ATtt, _DOT, _Sta, _VIo, _ARss, _VOI, _Op, _ECI],
   [[4, { [_eQN]: `AttachTime`
   , [_xN]: _aTt }], [2, { [_eQN]: `DeleteOnTermination`
   , [_xN]: _dOT }], [0, { [_eQN]: `Status`
@@ -15315,7 +15337,8 @@ export var EbsInstanceBlockDevice$: StaticStructureSchema = [3, n0, _EIBD,
   , [_xN]: _vIo }], [0, { [_eQN]: `AssociatedResource`
   , [_xN]: _aRs }], [0, { [_eQN]: `VolumeOwnerId`
   , [_xN]: _vOI }], [() => OperatorResponse$, { [_eQN]: `Operator`
-  , [_xN]: _ope }]]
+  , [_xN]: _ope }], [1, { [_eQN]: `EbsCardIndex`
+  , [_xN]: _eCI }]]
 ];
 export var EbsInstanceBlockDeviceSpecification$: StaticStructureSchema = [3, n0, _EIBDS,
   0,
@@ -18938,7 +18961,7 @@ export var LaunchTemplateCpuOptionsRequest$: StaticStructureSchema = [3, n0, _LT
 ];
 export var LaunchTemplateEbsBlockDevice$: StaticStructureSchema = [3, n0, _LTEBD,
   0,
-  [_Enc, _DOT, _Io, _KKI, _SIn, _VSo, _VT, _Th, _VIR],
+  [_Enc, _DOT, _Io, _KKI, _SIn, _VSo, _VT, _Th, _VIR, _ECI],
   [[2, { [_eQN]: `Encrypted`
   , [_xN]: _enc }], [2, { [_eQN]: `DeleteOnTermination`
   , [_xN]: _dOT }], [1, { [_eQN]: `Iops`
@@ -18948,12 +18971,13 @@ export var LaunchTemplateEbsBlockDevice$: StaticStructureSchema = [3, n0, _LTEBD
   , [_xN]: _vSo }], [0, { [_eQN]: `VolumeType`
   , [_xN]: _vT }], [1, { [_eQN]: `Throughput`
   , [_xN]: _th }], [1, { [_eQN]: `VolumeInitializationRate`
-  , [_xN]: _vIR }]]
+  , [_xN]: _vIR }], [1, { [_eQN]: `EbsCardIndex`
+  , [_xN]: _eCI }]]
 ];
 export var LaunchTemplateEbsBlockDeviceRequest$: StaticStructureSchema = [3, n0, _LTEBDR,
   0,
-  [_Enc, _DOT, _Io, _KKI, _SIn, _VSo, _VT, _Th, _VIR],
-  [2, 2, 1, 0, 0, 1, 0, 1, 1]
+  [_Enc, _DOT, _Io, _KKI, _SIn, _VSo, _VT, _Th, _VIR, _ECI],
+  [2, 2, 1, 0, 0, 1, 0, 1, 1, 1]
 ];
 export var LaunchTemplateElasticInferenceAccelerator$: StaticStructureSchema = [3, n0, _LTEIA,
   0,
@@ -24545,11 +24569,12 @@ export var Volume$: StaticStructureSchema = [3, n0, _Vol,
 ];
 export var VolumeAttachment$: StaticStructureSchema = [3, n0, _VAo,
   0,
-  [_DOT, _ARss, _IOS, _VIo, _II, _Dev, _St, _ATtt],
+  [_DOT, _ARss, _IOS, _ECI, _VIo, _II, _Dev, _St, _ATtt],
   [[2, { [_eQN]: `DeleteOnTermination`
   , [_xN]: _dOT }], [0, { [_eQN]: `AssociatedResource`
   , [_xN]: _aRs }], [0, { [_eQN]: `InstanceOwningService`
-  , [_xN]: _iOS }], [0, { [_eQN]: `VolumeId`
+  , [_xN]: _iOS }], [1, { [_eQN]: `EbsCardIndex`
+  , [_xN]: _eCI }], [0, { [_eQN]: `VolumeId`
   , [_xN]: _vIo }], [0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [0, { [_eQN]: `Device`
   , [_xN]: _dev }], [0, { [_eQN]: `Status`
@@ -25521,6 +25546,10 @@ var DiskInfoList: StaticListSchema = [1, n0, _DILi,
 ];
 var DnsEntrySet: StaticListSchema = [1, n0, _DES,
   0, [() => DnsEntry$,
+    { [_xN]: _it }]
+];
+var EbsCardInfoList: StaticListSchema = [1, n0, _ECIL,
+  0, [() => EbsCardInfo$,
     { [_xN]: _it }]
 ];
 var EbsStatusDetailsList: StaticListSchema = [1, n0, _ESDL,
