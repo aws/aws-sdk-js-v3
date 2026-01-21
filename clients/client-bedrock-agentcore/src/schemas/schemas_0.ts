@@ -14,6 +14,8 @@ const _BCMRO = "BatchCreateMemoryRecordsOutput";
 const _BDMR = "BatchDeleteMemoryRecords";
 const _BDMRI = "BatchDeleteMemoryRecordsInput";
 const _BDMRO = "BatchDeleteMemoryRecordsOutput";
+const _BE = "BrowserExtension";
+const _BEr = "BrowserExtensions";
 const _BF = "BranchFilter";
 const _BSS = "BrowserSessionStream";
 const _BSSr = "BrowserSessionSummary";
@@ -153,8 +155,10 @@ const _MV = "MetadataValue";
 const _PT = "PayloadType";
 const _PTL = "PayloadTypeList";
 const _RC = "ResourceContent";
-const _RCE = "RuntimeClientError";
+const _RCE = "RetryableConflictException";
+const _RCEu = "RuntimeClientError";
 const _RE = "RightExpression";
+const _RL = "ResourceLocation";
 const _RMR = "RetrieveMemoryRecords";
 const _RMRI = "RetrieveMemoryRecordsInput";
 const _RMRO = "RetrieveMemoryRecordsOutput";
@@ -176,6 +180,7 @@ const _SCISRtop = "StopCodeInterpreterSessionResponse";
 const _SCISt = "StopCodeInterpreterSession";
 const _SCp = "SpanContext";
 const _SE = "ServiceException";
+const _SL = "S3Location";
 const _SMEJ = "StartMemoryExtractionJob";
 const _SMEJI = "StartMemoryExtractionJobInput";
 const _SMEJO = "StartMemoryExtractionJobOutput";
@@ -224,6 +229,7 @@ const _b = "branch";
 const _bI = "browserIdentifier";
 const _ba = "baggage";
 const _bl = "blob";
+const _bu = "bucket";
 const _c = "client";
 const _cA = "createdAt";
 const _cC = "clearContext";
@@ -259,6 +265,7 @@ const _eTx = "executionTime";
 const _ev = "event";
 const _eve = "events";
 const _ex = "explanation";
+const _ext = "extensions";
 const _f = "filter";
 const _fA = "forceAuthentication";
 const _fL = "fieldList";
@@ -279,10 +286,11 @@ const _iTn = "inputTokens";
 const _j = "jobs";
 const _jI = "jobId";
 const _jID = "jobID";
-const _l = "label";
+const _l = "location";
 const _lUA = "lastUpdatedAt";
 const _lVS = "liveViewStream";
-const _la = "language";
+const _la = "label";
+const _lan = "language";
 const _le = "left";
 const _m = "message";
 const _mF = "metadataFilters";
@@ -311,6 +319,7 @@ const _oT = "outputTokens";
 const _p = "payload";
 const _pa = "path";
 const _pat = "paths";
+const _pr = "prefix";
 const _q = "qualifier";
 const _r = "records";
 const _rCPN = "resourceCredentialProviderName";
@@ -348,6 +357,7 @@ const _sTS = "sessionTimeoutSeconds";
 const _sU = "sessionUri";
 const _sUt = "streamUpdate";
 const _sV = "stringValue";
+const _s_ = "s3";
 const _sc = "scopes";
 const _sco = "score";
 const _se = "server";
@@ -381,6 +391,7 @@ const _uIs = "userId";
 const _uT = "userToken";
 const _v = "value";
 const _vE = "validationException";
+const _vI = "versionId";
 const _vP = "viewPort";
 const _w = "width";
 const _wAT = "workloadAccessToken";
@@ -409,6 +420,7 @@ import {
   InternalServerException,
   InvalidInputException,
   ResourceNotFoundException,
+  RetryableConflictException,
   RuntimeClientError,
   ServiceException,
   ServiceQuotaExceededException,
@@ -491,6 +503,11 @@ export var BranchFilter$: StaticStructureSchema = [3, n0, _BF,
   0,
   [_n, _iPB],
   [0, 2], 1
+];
+export var BrowserExtension$: StaticStructureSchema = [3, n0, _BE,
+  0,
+  [_l],
+  [() => ResourceLocation$], 1
 ];
 export var BrowserSessionStream$: StaticStructureSchema = [3, n0, _BSS,
   0,
@@ -586,7 +603,7 @@ export var EvaluateResponse$: StaticStructureSchema = [3, n0, _ERv,
 ];
 export var EvaluationResultContent$: StaticStructureSchema = [3, n0, _ERC,
   0,
-  [_eA, _eIv, _eN, _con, _ex, _v, _l, _tU, _eM, _eC],
+  [_eA, _eIv, _eN, _con, _ex, _v, _la, _tU, _eM, _eC],
   [0, 0, 0, () => Context$, [() => EvaluationExplanation, 0], 1, 0, () => TokenUsage$, 0, 0], 4
 ];
 export var Event$: StaticStructureSchema = [3, n0, _E,
@@ -636,8 +653,8 @@ export var GetBrowserSessionRequest$: StaticStructureSchema = [3, n0, _GBSR,
 ];
 export var GetBrowserSessionResponse$: StaticStructureSchema = [3, n0, _GBSRe,
   0,
-  [_bI, _sI, _cA, _n, _vP, _sTS, _sta, _str, _sRA, _lUA],
-  [0, 0, 5, 0, () => ViewPort$, 1, 0, () => BrowserSessionStream$, 0, 5], 3
+  [_bI, _sI, _cA, _n, _vP, _ext, _sTS, _sta, _str, _sRA, _lUA],
+  [0, 0, 5, 0, () => ViewPort$, () => BrowserExtensions, 1, 0, () => BrowserSessionStream$, 0, 5], 3
 ];
 export var GetCodeInterpreterSessionRequest$: StaticStructureSchema = [3, n0, _GCISR,
   0,
@@ -892,12 +909,23 @@ export var RetrieveMemoryRecordsOutput$: StaticStructureSchema = [3, n0, _RMRO,
   [_mRS, _nT],
   [[() => MemoryRecordSummaryList, 0], 0], 1
 ];
-export var RuntimeClientError$: StaticErrorSchema = [-3, n0, _RCE,
+export var RetryableConflictException$: StaticErrorSchema = [-3, n0, _RCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+TypeRegistry.for(n0).registerError(RetryableConflictException$, RetryableConflictException);
+export var RuntimeClientError$: StaticErrorSchema = [-3, n0, _RCEu,
   { [_e]: _c, [_hE]: 424 },
   [_m],
   [0]
 ];
 TypeRegistry.for(n0).registerError(RuntimeClientError$, RuntimeClientError);
+export var S3Location$: StaticStructureSchema = [3, n0, _SL,
+  0,
+  [_bu, _pr, _vI],
+  [0, 0, 0], 2
+];
 export var SearchCriteria$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_sQ, _mSIe, _tK, _mF],
@@ -927,8 +955,8 @@ export var SpanContext$: StaticStructureSchema = [3, n0, _SCp,
 ];
 export var StartBrowserSessionRequest$: StaticStructureSchema = [3, n0, _SBSR,
   0,
-  [_bI, _tI, _tP, _n, _sTS, _vP, _cT],
-  [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, () => ViewPort$, [0, 4]], 1
+  [_bI, _tI, _tP, _n, _sTS, _vP, _ext, _cT],
+  [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, () => ViewPort$, () => BrowserExtensions, [0, 4]], 1
 ];
 export var StartBrowserSessionResponse$: StaticStructureSchema = [3, n0, _SBSRt,
   0,
@@ -1004,7 +1032,7 @@ export var TokenUsage$: StaticStructureSchema = [3, n0, _TU,
 ];
 export var ToolArguments$: StaticStructureSchema = [3, n0, _TA,
   0,
-  [_cod, _la, _cC, _com, _pa, _pat, _co, _dP, _tIa],
+  [_cod, _lan, _cC, _com, _pa, _pat, _co, _dP, _tIa],
   [0, 0, 2, 0, 0, 64 | 0, [() => InputContentBlockList, 0], 0, 0]
 ];
 export var ToolResultStructuredContent$: StaticStructureSchema = [3, n0, _TRSC,
@@ -1048,6 +1076,9 @@ export var BedrockAgentCoreServiceException$: StaticErrorSchema = [-3, _sm, "Bed
 TypeRegistry.for(_sm).registerError(BedrockAgentCoreServiceException$, BedrockAgentCoreServiceException);
 var ActorSummaryList: StaticListSchema = [1, n0, _ASL,
   0, () => ActorSummary$
+];
+var BrowserExtensions: StaticListSchema = [1, n0, _BEr,
+  0, () => BrowserExtension$
 ];
 var BrowserSessionSummaries: StaticListSchema = [1, n0, _BSSro,
   0, () => BrowserSessionSummary$
@@ -1176,6 +1207,11 @@ export var PayloadType$: StaticUnionSchema = [4, n0, _PT,
   0,
   [_conv, _bl],
   [[() => Conversational$, 0], [() => Document, 0]]
+];
+export var ResourceLocation$: StaticUnionSchema = [4, n0, _RL,
+  0,
+  [_s_],
+  [() => S3Location$]
 ];
 export var RightExpression$: StaticUnionSchema = [4, n0, _RE,
   0,

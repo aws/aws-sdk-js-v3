@@ -321,6 +321,81 @@ export interface GetBrowserSessionRequest {
 }
 
 /**
+ * <p>The Amazon S3 location configuration of a resource.</p>
+ * @public
+ */
+export interface S3Location {
+  /**
+   * <p>The name of the Amazon S3 bucket where the resource is stored.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 prefix/key where the resource is stored.</p>
+   * @public
+   */
+  prefix: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 version ID where the resource is stored (Optional).</p>
+   * @public
+   */
+  versionId?: string | undefined;
+}
+
+/**
+ * <p>The location of the browser extension.</p>
+ * @public
+ */
+export type ResourceLocation =
+  | ResourceLocation.S3Member
+  | ResourceLocation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ResourceLocation {
+  /**
+   * <p>The Amazon S3 location of the resource. Use this when the resource is stored in an Amazon S3 bucket.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3Location;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: S3Location) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Browser extension configuration.</p>
+ * @public
+ */
+export interface BrowserExtension {
+  /**
+   * <p>The location where the browser extension files are stored. This specifies the source from which the extension will be loaded and installed.</p>
+   * @public
+   */
+  location: ResourceLocation | undefined;
+}
+
+/**
  * <p>The configuration for a stream that enables programmatic control of a browser session in Amazon Bedrock. This stream provides a bidirectional communication channel for sending commands to the browser and receiving responses, allowing agents to automate web interactions such as navigation, form filling, and element clicking.</p>
  * @public
  */
@@ -419,6 +494,12 @@ export interface GetBrowserSessionResponse {
    * @public
    */
   viewPort?: ViewPort | undefined;
+
+  /**
+   * <p>The list of browser extensions that are configured in the browser session.</p>
+   * @public
+   */
+  extensions?: BrowserExtension[] | undefined;
 
   /**
    * <p>The timeout period for the browser session in seconds.</p>
@@ -578,6 +659,12 @@ export interface StartBrowserSessionRequest {
    * @public
    */
   viewPort?: ViewPort | undefined;
+
+  /**
+   * <p>A list of browser extensions to load into the browser session.</p>
+   * @public
+   */
+  extensions?: BrowserExtension[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.</p>

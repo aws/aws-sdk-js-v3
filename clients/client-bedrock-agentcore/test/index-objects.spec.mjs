@@ -22,6 +22,7 @@ import {
   BedrockAgentCoreServiceException,
   Branch$,
   BranchFilter$,
+  BrowserExtension$,
   BrowserSessionStatus,
   BrowserSessionStream$,
   BrowserSessionSummary$,
@@ -175,16 +176,20 @@ import {
   ProgrammingLanguage,
   ResourceContent$,
   ResourceContentType,
+  ResourceLocation$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   RetrieveMemoryRecords$,
   RetrieveMemoryRecordsCommand,
   RetrieveMemoryRecordsInput$,
   RetrieveMemoryRecordsOutput$,
+  RetryableConflictException,
+  RetryableConflictException$,
   RightExpression$,
   Role,
   RuntimeClientError,
   RuntimeClientError$,
+  S3Location$,
   SearchCriteria$,
   ServiceException,
   ServiceException$,
@@ -327,6 +332,7 @@ assert(typeof BatchUpdateMemoryRecordsInput$ === "object");
 assert(typeof BatchUpdateMemoryRecordsOutput$ === "object");
 assert(typeof Branch$ === "object");
 assert(typeof BranchFilter$ === "object");
+assert(typeof BrowserExtension$ === "object");
 assert(typeof BrowserSessionStream$ === "object");
 assert(typeof BrowserSessionSummary$ === "object");
 assert(typeof CodeInterpreterResult$ === "object");
@@ -409,9 +415,11 @@ assert(typeof MessageMetadata$ === "object");
 assert(typeof MetadataValue$ === "object");
 assert(typeof PayloadType$ === "object");
 assert(typeof ResourceContent$ === "object");
+assert(typeof ResourceLocation$ === "object");
 assert(typeof RetrieveMemoryRecordsInput$ === "object");
 assert(typeof RetrieveMemoryRecordsOutput$ === "object");
 assert(typeof RightExpression$ === "object");
+assert(typeof S3Location$ === "object");
 assert(typeof SearchCriteria$ === "object");
 assert(typeof SessionSummary$ === "object");
 assert(typeof SpanContext$ === "object");
@@ -465,6 +473,8 @@ assert(InvalidInputException.prototype instanceof BedrockAgentCoreServiceExcepti
 assert(typeof InvalidInputException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof BedrockAgentCoreServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
+assert(RetryableConflictException.prototype instanceof BedrockAgentCoreServiceException);
+assert(typeof RetryableConflictException$ === "object");
 assert(RuntimeClientError.prototype instanceof BedrockAgentCoreServiceException);
 assert(typeof RuntimeClientError$ === "object");
 assert(ServiceException.prototype instanceof BedrockAgentCoreServiceException);

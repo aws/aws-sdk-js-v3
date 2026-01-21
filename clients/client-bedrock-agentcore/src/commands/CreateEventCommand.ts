@@ -116,6 +116,9 @@ export interface CreateEventCommandOutput extends CreateEventOutput, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
  *
+ * @throws {@link RetryableConflictException} (client fault)
+ *  <p>The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+ *
  * @throws {@link ServiceException} (server fault)
  *  <p>The service encountered an internal error. Try your request again later.</p>
  *

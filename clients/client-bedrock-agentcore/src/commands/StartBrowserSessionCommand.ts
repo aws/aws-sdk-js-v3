@@ -50,6 +50,17 @@ export interface StartBrowserSessionCommandOutput extends StartBrowserSessionRes
  *     width: Number("int"), // required
  *     height: Number("int"), // required
  *   },
+ *   extensions: [ // BrowserExtensions
+ *     { // BrowserExtension
+ *       location: { // ResourceLocation Union: only one key present
+ *         s3: { // S3Location
+ *           bucket: "STRING_VALUE", // required
+ *           prefix: "STRING_VALUE", // required
+ *           versionId: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new StartBrowserSessionCommand(input);
