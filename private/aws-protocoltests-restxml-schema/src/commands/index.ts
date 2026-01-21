@@ -48,6 +48,7 @@ export * from "./RecursiveShapesCommand";
 export * from "./SimpleScalarPropertiesCommand";
 export * from "./TimestampFormatHeadersCommand";
 export * from "./XmlAttributesCommand";
+export * from "./XmlAttributesInMiddleCommand";
 export * from "./XmlAttributesOnPayloadCommand";
 export * from "./XmlBlobsCommand";
 export * from "./XmlEmptyBlobsCommand";

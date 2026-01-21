@@ -11,7 +11,7 @@ const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandIn
     reason = result;
     try {
       const returnComparator = () => {
-        return (result.DBSnapshots.length == 0.0);
+        return (result.DBSnapshots.length == 0);
       }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };

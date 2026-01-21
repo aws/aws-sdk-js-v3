@@ -29225,18 +29225,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/typecheck@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "@smithy/typecheck@npm:1.0.4"
-  dependencies:
-    "@smithy/core": "npm:^3.21.0"
-    "@smithy/types": "npm:^4.12.0"
-    "@smithy/util-middleware": "npm:^4.2.8"
-    tslib: "npm:^2.6.2"
-  checksum: 10c0/76299883b26ee3db011db8ccc07886b55abd0e440eb04ab2a7330ee036707a162026ec8e87f62c806c34b0e9735728596749a83d4be14a4cfef97c92b472d5c6
-  languageName: node
-  linkType: hard
-
 "@smithy/types@npm:^1.1.0":
   version: 1.2.0
   resolution: "@smithy/types@npm:1.2.0"

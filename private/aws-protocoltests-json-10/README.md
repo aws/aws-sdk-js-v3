@@ -2075,6 +2075,13 @@ XmlAttributes
 </details>
 <details>
 <summary>
+XmlAttributesInMiddle
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/json-rpc-10/command/XmlAttributesInMiddleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-json-rpc-10/Interface/XmlAttributesInMiddleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-json-rpc-10/Interface/XmlAttributesInMiddleCommandOutput/)
+</details>
+<details>
+<summary>
 XmlAttributesOnPayload
 </summary>
 
