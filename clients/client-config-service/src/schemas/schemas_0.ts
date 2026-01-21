@@ -2230,8 +2230,8 @@ export var PutConfigurationRecorderRequest$: StaticStructureSchema = [3, n0, _PC
 ];
 export var PutConformancePackRequest$: StaticStructureSchema = [3, n0, _PCPR,
   0,
-  [_CPN, _TSU, _TB, _DSB, _DSKP, _CPIP, _TSSMDD],
-  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, () => TemplateSSMDocumentDetails$], 1
+  [_CPN, _TSU, _TB, _DSB, _DSKP, _CPIP, _TSSMDD, _Ta],
+  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, () => TemplateSSMDocumentDetails$, () => TagsList], 1
 ];
 export var PutConformancePackResponse$: StaticStructureSchema = [3, n0, _PCPRu,
   0,
