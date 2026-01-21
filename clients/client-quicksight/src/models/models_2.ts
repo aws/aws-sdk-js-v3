@@ -70,6 +70,11 @@ import {
   UndefinedSpecifiedValueType,
   ValidationStrategyMode,
   WebCrawlerAuthType,
+  WordCloudCloudLayout,
+  WordCloudWordCasing,
+  WordCloudWordOrientation,
+  WordCloudWordPadding,
+  WordCloudWordScaling,
 } from "./enums";
 import {
   type AccountCustomization,
@@ -80,6 +85,7 @@ import {
   type AssetOptions,
   type ChartAxisLabelOptions,
   type DataPrepAggregationFunction,
+  type ItemsLimitConfiguration,
   type QueryExecutionOptions,
   type TransformOperationSource,
   type VisualCustomActionDefaults,
@@ -92,6 +98,7 @@ import {
   ColumnConfiguration,
   DataSetColumnIdMapping,
   DataSetIdentifierDeclaration,
+  FieldSortOptions,
   FilterControl,
   FilterGroup,
   Layout,
@@ -130,10 +137,68 @@ import {
   type VisualTitleLabelOptions,
   type WaterfallVisual,
   type WordCloudFieldWells,
-  type WordCloudOptions,
-  type WordCloudSortConfiguration,
   ColumnHierarchy,
 } from "./models_1";
+
+/**
+ * <p>The sort configuration of a word cloud visual.</p>
+ * @public
+ */
+export interface WordCloudSortConfiguration {
+  /**
+   * <p>The limit on the number of groups that are displayed in a word cloud.</p>
+   * @public
+   */
+  CategoryItemsLimit?: ItemsLimitConfiguration | undefined;
+
+  /**
+   * <p>The sort configuration of group by fields.</p>
+   * @public
+   */
+  CategorySort?: FieldSortOptions[] | undefined;
+}
+
+/**
+ * <p>The word cloud options for a word cloud visual.</p>
+ * @public
+ */
+export interface WordCloudOptions {
+  /**
+   * <p>The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.</p>
+   * @public
+   */
+  WordOrientation?: WordCloudWordOrientation | undefined;
+
+  /**
+   * <p>The word scaling options (emphasize, normal) for the words in a word cloud.</p>
+   * @public
+   */
+  WordScaling?: WordCloudWordScaling | undefined;
+
+  /**
+   * <p>The cloud layout options (fluid, normal) of a word cloud.</p>
+   * @public
+   */
+  CloudLayout?: WordCloudCloudLayout | undefined;
+
+  /**
+   * <p>The word casing options (lower_case, existing_case) for the words in a word cloud.</p>
+   * @public
+   */
+  WordCasing?: WordCloudWordCasing | undefined;
+
+  /**
+   * <p>The word padding options (none, small, medium, large) for the words in a word cloud.</p>
+   * @public
+   */
+  WordPadding?: WordCloudWordPadding | undefined;
+
+  /**
+   * <p>The length limit of each word from 1-100.</p>
+   * @public
+   */
+  MaximumStringLength?: number | undefined;
+}
 
 /**
  * <p>The configuration of a word cloud visual.</p>
@@ -6850,6 +6915,1038 @@ export interface Capabilities {
   Action?: CapabilityState | undefined;
 
   /**
+   * <p>The ability to perform actions using REST API connection connectors.</p>
+   * @public
+   */
+  GenericHTTPAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update REST API connection actions.</p>
+   * @public
+   */
+  CreateAndUpdateGenericHTTPAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share REST API connection actions.</p>
+   * @public
+   */
+  ShareGenericHTTPAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use REST API connection actions.</p>
+   * @public
+   */
+  UseGenericHTTPAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Asana connectors.</p>
+   * @public
+   */
+  AsanaAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Asana actions.</p>
+   * @public
+   */
+  CreateAndUpdateAsanaAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Asana actions.</p>
+   * @public
+   */
+  ShareAsanaAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Asana actions.</p>
+   * @public
+   */
+  UseAsanaAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Slack connectors.</p>
+   * @public
+   */
+  SlackAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Slack actions.</p>
+   * @public
+   */
+  CreateAndUpdateSlackAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Slack actions.</p>
+   * @public
+   */
+  ShareSlackAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Slack actions.</p>
+   * @public
+   */
+  UseSlackAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using ServiceNow connectors.</p>
+   * @public
+   */
+  ServiceNowAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update ServiceNow actions.</p>
+   * @public
+   */
+  CreateAndUpdateServiceNowAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share ServiceNow actions.</p>
+   * @public
+   */
+  ShareServiceNowAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use ServiceNow actions.</p>
+   * @public
+   */
+  UseServiceNowAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Salesforce connectors.</p>
+   * @public
+   */
+  SalesforceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Salesforce actions.</p>
+   * @public
+   */
+  CreateAndUpdateSalesforceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Salesforce actions.</p>
+   * @public
+   */
+  ShareSalesforceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Salesforce actions.</p>
+   * @public
+   */
+  UseSalesforceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Microsoft Outlook connectors.</p>
+   * @public
+   */
+  MSExchangeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Microsoft Outlook actions.</p>
+   * @public
+   */
+  CreateAndUpdateMSExchangeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Microsoft Outlook actions.</p>
+   * @public
+   */
+  ShareMSExchangeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Microsoft Outlook actions.</p>
+   * @public
+   */
+  UseMSExchangeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using PagerDuty Advance connectors.</p>
+   * @public
+   */
+  PagerDutyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update PagerDuty Advance actions.</p>
+   * @public
+   */
+  CreateAndUpdatePagerDutyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share PagerDuty Advance actions.</p>
+   * @public
+   */
+  SharePagerDutyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use PagerDuty Advance actions.</p>
+   * @public
+   */
+  UsePagerDutyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Jira connectors.</p>
+   * @public
+   */
+  JiraAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Jira actions.</p>
+   * @public
+   */
+  CreateAndUpdateJiraAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Jira actions.</p>
+   * @public
+   */
+  ShareJiraAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Jira actions.</p>
+   * @public
+   */
+  UseJiraAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Atlassian Confluence Cloud connectors.</p>
+   * @public
+   */
+  ConfluenceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Atlassian Confluence Cloud actions.</p>
+   * @public
+   */
+  CreateAndUpdateConfluenceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Atlassian Confluence Cloud actions.</p>
+   * @public
+   */
+  ShareConfluenceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Atlassian Confluence Cloud actions.</p>
+   * @public
+   */
+  UseConfluenceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Microsoft OneDrive connectors.</p>
+   * @public
+   */
+  OneDriveAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Microsoft OneDrive actions.</p>
+   * @public
+   */
+  CreateAndUpdateOneDriveAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Microsoft OneDrive actions.</p>
+   * @public
+   */
+  ShareOneDriveAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Microsoft OneDrive actions.</p>
+   * @public
+   */
+  UseOneDriveAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Microsoft SharePoint Online connectors.</p>
+   * @public
+   */
+  SharePointAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Microsoft SharePoint Online actions.</p>
+   * @public
+   */
+  CreateAndUpdateSharePointAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Microsoft SharePoint Online actions.</p>
+   * @public
+   */
+  ShareSharePointAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Microsoft SharePoint Online actions.</p>
+   * @public
+   */
+  UseSharePointAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Microsoft Teams connectors.</p>
+   * @public
+   */
+  MSTeamsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Microsoft Teams actions.</p>
+   * @public
+   */
+  CreateAndUpdateMSTeamsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Microsoft Teams actions.</p>
+   * @public
+   */
+  ShareMSTeamsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Microsoft Teams actions.</p>
+   * @public
+   */
+  UseMSTeamsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Google Calendar connectors.</p>
+   * @public
+   */
+  GoogleCalendarAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Google Calendar actions.</p>
+   * @public
+   */
+  CreateAndUpdateGoogleCalendarAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Google Calendar actions.</p>
+   * @public
+   */
+  ShareGoogleCalendarAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Google Calendar actions.</p>
+   * @public
+   */
+  UseGoogleCalendarAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Zendesk connectors.</p>
+   * @public
+   */
+  ZendeskAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Zendesk actions.</p>
+   * @public
+   */
+  CreateAndUpdateZendeskAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Zendesk actions.</p>
+   * @public
+   */
+  ShareZendeskAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Zendesk actions.</p>
+   * @public
+   */
+  UseZendeskAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Smartsheet connectors.</p>
+   * @public
+   */
+  SmartsheetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Smartsheet actions.</p>
+   * @public
+   */
+  CreateAndUpdateSmartsheetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Smartsheet actions.</p>
+   * @public
+   */
+  ShareSmartsheetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Smartsheet actions.</p>
+   * @public
+   */
+  UseSmartsheetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using SAP Business Partner connectors.</p>
+   * @public
+   */
+  SAPBusinessPartnerAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update SAP Business Partner actions.</p>
+   * @public
+   */
+  CreateAndUpdateSAPBusinessPartnerAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share SAP Business Partner actions.</p>
+   * @public
+   */
+  ShareSAPBusinessPartnerAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use SAP Business Partner actions.</p>
+   * @public
+   */
+  UseSAPBusinessPartnerAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using SAP Product Master connectors.</p>
+   * @public
+   */
+  SAPProductMasterDataAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update SAP Product Master actions.</p>
+   * @public
+   */
+  CreateAndUpdateSAPProductMasterDataAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share SAP Product Master actions.</p>
+   * @public
+   */
+  ShareSAPProductMasterDataAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use SAP Product Master actions.</p>
+   * @public
+   */
+  UseSAPProductMasterDataAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using SAP Physical Inventory connectors.</p>
+   * @public
+   */
+  SAPPhysicalInventoryAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update SAP Physical Inventory actions.</p>
+   * @public
+   */
+  CreateAndUpdateSAPPhysicalInventoryAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share SAP Physical Inventory actions.</p>
+   * @public
+   */
+  ShareSAPPhysicalInventoryAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use SAP Physical Inventory actions.</p>
+   * @public
+   */
+  UseSAPPhysicalInventoryAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using SAP Bill of Materials connectors.</p>
+   * @public
+   */
+  SAPBillOfMaterialAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update SAP Bill of Materials actions.</p>
+   * @public
+   */
+  CreateAndUpdateSAPBillOfMaterialAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share SAP Bill of Materials actions.</p>
+   * @public
+   */
+  ShareSAPBillOfMaterialAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use SAP Bill of Materials actions.</p>
+   * @public
+   */
+  UseSAPBillOfMaterialAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using SAP Material Stock connectors.</p>
+   * @public
+   */
+  SAPMaterialStockAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update SAP Material Stock actions.</p>
+   * @public
+   */
+  CreateAndUpdateSAPMaterialStockAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share SAP Material Stock actions.</p>
+   * @public
+   */
+  ShareSAPMaterialStockAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use SAP Material Stock actions.</p>
+   * @public
+   */
+  UseSAPMaterialStockAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using FactSet connectors.</p>
+   * @public
+   */
+  FactSetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update FactSet actions.</p>
+   * @public
+   */
+  CreateAndUpdateFactSetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share FactSet actions.</p>
+   * @public
+   */
+  ShareFactSetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use FactSet actions.</p>
+   * @public
+   */
+  UseFactSetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Amazon S3 connectors.</p>
+   * @public
+   */
+  AmazonSThreeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Amazon S3 actions.</p>
+   * @public
+   */
+  CreateAndUpdateAmazonSThreeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Amazon S3 actions.</p>
+   * @public
+   */
+  ShareAmazonSThreeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Amazon S3 actions.</p>
+   * @public
+   */
+  UseAmazonSThreeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Textract connectors.</p>
+   * @public
+   */
+  TextractAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Textract actions.</p>
+   * @public
+   */
+  CreateAndUpdateTextractAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Textract actions.</p>
+   * @public
+   */
+  ShareTextractAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Textract actions.</p>
+   * @public
+   */
+  UseTextractAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Comprehend connectors.</p>
+   * @public
+   */
+  ComprehendAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Comprehend actions.</p>
+   * @public
+   */
+  CreateAndUpdateComprehendAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Comprehend actions.</p>
+   * @public
+   */
+  ShareComprehendAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Comprehend actions.</p>
+   * @public
+   */
+  UseComprehendAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Comprehend Medical connectors.</p>
+   * @public
+   */
+  ComprehendMedicalAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Comprehend Medical actions.</p>
+   * @public
+   */
+  CreateAndUpdateComprehendMedicalAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Comprehend Medical actions.</p>
+   * @public
+   */
+  ShareComprehendMedicalAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Comprehend Medical actions.</p>
+   * @public
+   */
+  UseComprehendMedicalAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Bedrock Agent connectors.</p>
+   * @public
+   */
+  AmazonBedrockARSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Bedrock Agent actions.</p>
+   * @public
+   */
+  CreateAndUpdateAmazonBedrockARSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Bedrock Agent actions.</p>
+   * @public
+   */
+  ShareAmazonBedrockARSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Bedrock Agent actions.</p>
+   * @public
+   */
+  UseAmazonBedrockARSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Bedrock Runtime connectors.</p>
+   * @public
+   */
+  AmazonBedrockFSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Bedrock Runtime actions.</p>
+   * @public
+   */
+  CreateAndUpdateAmazonBedrockFSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Bedrock Runtime actions.</p>
+   * @public
+   */
+  ShareAmazonBedrockFSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Bedrock Runtime actions.</p>
+   * @public
+   */
+  UseAmazonBedrockFSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Bedrock Data Automation Runtime connectors.</p>
+   * @public
+   */
+  AmazonBedrockKRSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Bedrock Data Automation Runtime actions.</p>
+   * @public
+   */
+  CreateAndUpdateAmazonBedrockKRSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Bedrock Data Automation Runtime actions.</p>
+   * @public
+   */
+  ShareAmazonBedrockKRSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Bedrock Data Automation Runtime actions.</p>
+   * @public
+   */
+  UseAmazonBedrockKRSAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Model Context Protocol connectors.</p>
+   * @public
+   */
+  MCPAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Model Context Protocol actions.</p>
+   * @public
+   */
+  CreateAndUpdateMCPAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Model Context Protocol actions.</p>
+   * @public
+   */
+  ShareMCPAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Model Context Protocol actions.</p>
+   * @public
+   */
+  UseMCPAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using OpenAPI Specification connectors.</p>
+   * @public
+   */
+  OpenAPIAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update OpenAPI Specification actions.</p>
+   * @public
+   */
+  CreateAndUpdateOpenAPIAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share OpenAPI Specification actions.</p>
+   * @public
+   */
+  ShareOpenAPIAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use OpenAPI Specification actions.</p>
+   * @public
+   */
+  UseOpenAPIAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using S&P Global Market Intelligence connectors.</p>
+   * @public
+   */
+  SandPGMIAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update S&P Global Market Intelligence actions.</p>
+   * @public
+   */
+  CreateAndUpdateSandPGMIAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share S&P Global Market Intelligence actions.</p>
+   * @public
+   */
+  ShareSandPGMIAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use S&P Global Market Intelligence actions.</p>
+   * @public
+   */
+  UseSandPGMIAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using S&P Global Energy connectors.</p>
+   * @public
+   */
+  SandPGlobalEnergyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update S&P Global Energy actions.</p>
+   * @public
+   */
+  CreateAndUpdateSandPGlobalEnergyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share S&P Global Energy actions.</p>
+   * @public
+   */
+  ShareSandPGlobalEnergyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use S&P Global Energy actions.</p>
+   * @public
+   */
+  UseSandPGlobalEnergyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using BambooHR connectors.</p>
+   * @public
+   */
+  BambooHRAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update BambooHR actions.</p>
+   * @public
+   */
+  CreateAndUpdateBambooHRAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share BambooHR actions.</p>
+   * @public
+   */
+  ShareBambooHRAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use BambooHR actions.</p>
+   * @public
+   */
+  UseBambooHRAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Box Agent connectors.</p>
+   * @public
+   */
+  BoxAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Box Agent actions.</p>
+   * @public
+   */
+  CreateAndUpdateBoxAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Box Agent actions.</p>
+   * @public
+   */
+  ShareBoxAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Box Agent actions.</p>
+   * @public
+   */
+  UseBoxAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Canva Agent connectors.</p>
+   * @public
+   */
+  CanvaAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Canva Agent actions.</p>
+   * @public
+   */
+  CreateAndUpdateCanvaAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Canva Agent actions.</p>
+   * @public
+   */
+  ShareCanvaAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Canva Agent actions.</p>
+   * @public
+   */
+  UseCanvaAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using GitHub connectors.</p>
+   * @public
+   */
+  GithubAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update GitHub actions.</p>
+   * @public
+   */
+  CreateAndUpdateGithubAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share GitHub actions.</p>
+   * @public
+   */
+  ShareGithubAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use GitHub actions.</p>
+   * @public
+   */
+  UseGithubAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Notion connectors.</p>
+   * @public
+   */
+  NotionAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Notion actions.</p>
+   * @public
+   */
+  CreateAndUpdateNotionAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Notion actions.</p>
+   * @public
+   */
+  ShareNotionAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Notion actions.</p>
+   * @public
+   */
+  UseNotionAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Linear connectors.</p>
+   * @public
+   */
+  LinearAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Linear actions.</p>
+   * @public
+   */
+  CreateAndUpdateLinearAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Linear actions.</p>
+   * @public
+   */
+  ShareLinearAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Linear actions.</p>
+   * @public
+   */
+  UseLinearAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using HuggingFace connectors.</p>
+   * @public
+   */
+  HuggingFaceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update HuggingFace actions.</p>
+   * @public
+   */
+  CreateAndUpdateHuggingFaceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share HuggingFace actions.</p>
+   * @public
+   */
+  ShareHuggingFaceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use HuggingFace actions.</p>
+   * @public
+   */
+  UseHuggingFaceAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Monday connectors.</p>
+   * @public
+   */
+  MondayAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Monday actions.</p>
+   * @public
+   */
+  CreateAndUpdateMondayAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Monday actions.</p>
+   * @public
+   */
+  ShareMondayAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Monday actions.</p>
+   * @public
+   */
+  UseMondayAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Hubspot connectors.</p>
+   * @public
+   */
+  HubspotAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Hubspot actions.</p>
+   * @public
+   */
+  CreateAndUpdateHubspotAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Hubspot actions.</p>
+   * @public
+   */
+  ShareHubspotAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Hubspot actions.</p>
+   * @public
+   */
+  UseHubspotAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Intercom connectors.</p>
+   * @public
+   */
+  IntercomAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Intercom actions.</p>
+   * @public
+   */
+  CreateAndUpdateIntercomAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Intercom actions.</p>
+   * @public
+   */
+  ShareIntercomAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Intercom actions.</p>
+   * @public
+   */
+  UseIntercomAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using New Relic connectors.</p>
+   * @public
+   */
+  NewRelicAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update New Relic actions.</p>
+   * @public
+   */
+  CreateAndUpdateNewRelicAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share New Relic actions.</p>
+   * @public
+   */
+  ShareNewRelicAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use New Relic actions.</p>
+   * @public
+   */
+  UseNewRelicAction?: CapabilityState | undefined;
+
+  /**
    * <p>The ability to perform space-related actions.</p>
    * @public
    */
@@ -9931,56 +11028,4 @@ export interface JoinInstruction {
    * @public
    */
   OnClause: string | undefined;
-}
-
-/**
- * <p>Information about the source of a logical table. This is a variant type structure. For
- *             this structure to be valid, only one of the attributes can be non-null.</p>
- * @public
- */
-export interface LogicalTableSource {
-  /**
-   * <p>Specifies the result of a join of two logical tables.</p>
-   * @public
-   */
-  JoinInstruction?: JoinInstruction | undefined;
-
-  /**
-   * <p>Physical table ID.</p>
-   * @public
-   */
-  PhysicalTableId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
-   * @public
-   */
-  DataSetArn?: string | undefined;
-}
-
-/**
- * <p>A <i>logical table</i> is a unit that joins and that data
- *             transformations operate on. A logical table has a source, which can be either a physical
- *             table or result of a join. When a logical table points to a physical table, the logical
- *             table acts as a mutable copy of that physical table through transform operations.</p>
- * @public
- */
-export interface LogicalTable {
-  /**
-   * <p>A display name for the logical table.</p>
-   * @public
-   */
-  Alias: string | undefined;
-
-  /**
-   * <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
-   * @public
-   */
-  DataTransforms?: TransformOperation[] | undefined;
-
-  /**
-   * <p>Source of this logical table.</p>
-   * @public
-   */
-  Source: LogicalTableSource | undefined;
 }

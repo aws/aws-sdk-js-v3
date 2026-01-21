@@ -9,7 +9,9 @@ const _AAl = "AllowedAggregations";
 const _AAn = "AnalysisArn";
 const _AAp = "ApplicationArn";
 const _AAr = "ArcAxis";
+const _AAs = "AsanaAction";
 const _AB = "AxisBinding";
+const _ABARSA = "AmazonBedrockARSAction";
 const _ABCFOPC = "AssetBundleCloudFormationOverridePropertyConfiguration";
 const _ABCV = "AlternateBandColorsVisibility";
 const _ABEC = "AlternateBandEvenColor";
@@ -38,6 +40,7 @@ const _ABEJVPCCOPL = "AssetBundleExportJobVPCConnectionOverridePropertiesList";
 const _ABEJVS = "AssetBundleExportJobValidationStrategy";
 const _ABEJW = "AssetBundleExportJobWarning";
 const _ABEJWL = "AssetBundleExportJobWarningList";
+const _ABFSA = "AmazonBedrockFSAction";
 const _ABIBB = "AssetBundleImportBodyBlob";
 const _ABIJAOP = "AssetBundleImportJobAnalysisOverrideParameters";
 const _ABIJAOPL = "AssetBundleImportJobAnalysisOverrideParametersList";
@@ -97,6 +100,7 @@ const _ABIJW = "AssetBundleImportJobWarning";
 const _ABIJWL = "AssetBundleImportJobWarningList";
 const _ABIS = "AssetBundleImportSource";
 const _ABISD = "AssetBundleImportSourceDescription";
+const _ABKRSA = "AmazonBedrockKRSAction";
 const _ABOC = "AlternateBandOddColor";
 const _ABRLSC = "AssetBundleResourceLinkSharingConfiguration";
 const _ABRP = "AssetBundleResourcePermissions";
@@ -213,6 +217,7 @@ const _ASL = "AnalysisSummaryList";
 const _ASS = "AccountSubscriptionStatus";
 const _ASSr = "AreaStyleSettings";
 const _AST = "AnalysisSourceTemplate";
+const _ASTA = "AmazonSThreeAction";
 const _ASg = "AggregateStep";
 const _ASl = "AllSheets";
 const _ASle = "AlertStatus";
@@ -266,6 +271,7 @@ const _Au = "Automate";
 const _Aut = "Automation";
 const _B = "Body";
 const _BA = "BarsArrangement";
+const _BAA = "BoxAgentAction";
 const _BACM = "BasicAuthConnectionMetadata";
 const _BAr = "BrandArn";
 const _BC = "BookmarksConfigurations";
@@ -295,6 +301,7 @@ const _BDTRARa = "BatchDeleteTopicReviewedAnswerResponse";
 const _BDr = "BrandDetail";
 const _BE = "BaseEndpoint";
 const _BES = "BrandElementStyle";
+const _BHRA = "BambooHRAction";
 const _BI = "BrandId";
 const _BIL = "BreakdownItemsLimit";
 const _BMS = "BaseMapStyle";
@@ -356,6 +363,7 @@ const _Bre = "Breakdowns";
 const _Bu = "Bucket";
 const _C = "Column";
 const _CA = "CategoryAxis";
+const _CAA = "CanvaAgentAction";
 const _CAC = "CreateAccountCustomization";
 const _CACL = "CustomActionColumnList";
 const _CACR = "CreateAccountCustomizationRequest";
@@ -385,14 +393,59 @@ const _CASPO = "CustomActionSetParametersOperation";
 const _CASR = "CreateAccountSubscriptionRequest";
 const _CASRr = "CreateAccountSubscriptionResponse";
 const _CATR = "ContributionAnalysisTimeRanges";
+const _CAUAA = "CreateAndUpdateAsanaAction";
+const _CAUABARSA = "CreateAndUpdateAmazonBedrockARSAction";
+const _CAUABFSA = "CreateAndUpdateAmazonBedrockFSAction";
+const _CAUABKRSA = "CreateAndUpdateAmazonBedrockKRSAction";
+const _CAUASTA = "CreateAndUpdateAmazonSThreeAction";
+const _CAUBAA = "CreateAndUpdateBoxAgentAction";
+const _CAUBHRA = "CreateAndUpdateBambooHRAction";
+const _CAUCA = "CreateAndUpdateConfluenceAction";
+const _CAUCAA = "CreateAndUpdateCanvaAgentAction";
+const _CAUCAr = "CreateAndUpdateComprehendAction";
+const _CAUCMA = "CreateAndUpdateComprehendMedicalAction";
 const _CAUD = "CreateAndUpdateDatasets";
 const _CAUDER = "CreateAndUpdateDashboardEmailReports";
 const _CAUDS = "CreateAndUpdateDataSources";
+const _CAUFSA = "CreateAndUpdateFactSetAction";
+const _CAUGA = "CreateAndUpdateGithubAction";
+const _CAUGCA = "CreateAndUpdateGoogleCalendarAction";
+const _CAUGHTTPA = "CreateAndUpdateGenericHTTPAction";
+const _CAUHA = "CreateAndUpdateHubspotAction";
+const _CAUHFA = "CreateAndUpdateHuggingFaceAction";
+const _CAUIA = "CreateAndUpdateIntercomAction";
+const _CAUJA = "CreateAndUpdateJiraAction";
+const _CAULA = "CreateAndUpdateLinearAction";
+const _CAUMA = "CreateAndUpdateMondayAction";
+const _CAUMCPA = "CreateAndUpdateMCPAction";
+const _CAUMSEA = "CreateAndUpdateMSExchangeAction";
+const _CAUMSTA = "CreateAndUpdateMSTeamsAction";
+const _CAUNA = "CreateAndUpdateNotionAction";
+const _CAUNRA = "CreateAndUpdateNewRelicAction";
+const _CAUOAPIA = "CreateAndUpdateOpenAPIAction";
+const _CAUODA = "CreateAndUpdateOneDriveAction";
+const _CAUPDA = "CreateAndUpdatePagerDutyAction";
 const _CAURLO = "CustomActionURLOperation";
+const _CAUSA = "CreateAndUpdateSlackAction";
+const _CAUSAPBOMA = "CreateAndUpdateSAPBillOfMaterialAction";
+const _CAUSAPBPA = "CreateAndUpdateSAPBusinessPartnerAction";
+const _CAUSAPMSA = "CreateAndUpdateSAPMaterialStockAction";
+const _CAUSAPPIA = "CreateAndUpdateSAPPhysicalInventoryAction";
+const _CAUSAPPMDA = "CreateAndUpdateSAPProductMasterDataAction";
+const _CAUSAr = "CreateAndUpdateSalesforceAction";
+const _CAUSAre = "CreateAndUpdateSmartsheetAction";
+const _CAUSNA = "CreateAndUpdateServiceNowAction";
+const _CAUSPA = "CreateAndUpdateSharePointAction";
+const _CAUSPGEA = "CreateAndUpdateSandPGlobalEnergyAction";
+const _CAUSPGMIA = "CreateAndUpdateSandPGMIAction";
 const _CAUT = "CreateAndUpdateThemes";
 const _CAUTA = "CreateAndUpdateThresholdAlerts";
+const _CAUTAr = "CreateAndUpdateTextractAction";
+const _CAUZA = "CreateAndUpdateZendeskAction";
 const _CAh = "ChatAgent";
-const _CAo = "ColorAxis";
+const _CAo = "ConfluenceAction";
+const _CAol = "ColorAxis";
+const _CAom = "ComprehendAction";
 const _CAon = "ContributionAnalysis";
 const _CAr = "CreateAnalysis";
 const _CB = "CreatedBy";
@@ -563,6 +616,7 @@ const _CLV = "CategoryLabelVisibility";
 const _CLl = "CloudLayout";
 const _CLo = "ComputationList";
 const _CM = "ClusterMarker";
+const _CMA = "ComprehendMedicalAction";
 const _CMC = "ClusterMarkerConfiguration";
 const _CMF = "CalculatedMeasureField";
 const _CMFa = "CategoricalMeasureField";
@@ -1404,6 +1458,7 @@ const _FP = "FolderPath";
 const _FPo = "ForecastProperties";
 const _FRDTC = "FilterRelativeDateTimeControl";
 const _FS = "FirstSource";
+const _FSA = "FactSetAction";
 const _FSC = "FilterScopeConfiguration";
 const _FSCi = "FilterSliderControl";
 const _FSF = "FolderSearchFilter";
@@ -1456,10 +1511,12 @@ const _GA = "GenerativeAuthoring";
 const _GAC = "GenerativeAuthoringConfigurations";
 const _GAR = "GeneratedAnswerResult";
 const _GAe = "GeneratedAnswer";
+const _GAi = "GithubAction";
 const _GB = "GroupBy";
 const _GBCN = "GroupByColumnNames";
 const _GBL = "GroupByList";
 const _GC = "GeospatialColor";
+const _GCA = "GoogleCalendarAction";
 const _GCACF = "GaugeChartArcConditionalFormatting";
 const _GCB = "GeospatialCoordinateBounds";
 const _GCC = "GaugeChartConfiguration";
@@ -1505,6 +1562,7 @@ const _GHC = "GeospatialHeatmapConfiguration";
 const _GHCS = "GeospatialHeatmapColorScale";
 const _GHDC = "GeospatialHeatmapDataColor";
 const _GHDCL = "GeospatialHeatmapDataColorList";
+const _GHTTPA = "GenericHTTPAction";
 const _GIC = "GetIdentityContext";
 const _GICR = "GetIdentityContextRequest";
 const _GICRe = "GetIdentityContextResponse";
@@ -1587,11 +1645,13 @@ const _Gri = "Grid";
 const _Gro = "Groups";
 const _Gu = "Gutter";
 const _H = "Host";
+const _HA = "HubspotAction";
 const _HAFW = "HistogramAggregatedFieldWells";
 const _HBO = "HistogramBinOptions";
 const _HC = "HeatmapColor";
 const _HCe = "HeatmapConfiguration";
 const _HCi = "HistogramConfiguration";
+const _HFA = "HuggingFaceAction";
 const _HFSC = "HeaderFooterSectionConfiguration";
 const _HFSCL = "HeaderFooterSectionConfigurationList";
 const _HFW = "HistogramFieldWells";
@@ -1629,7 +1689,8 @@ const _IAMPASL = "IAMPolicyAssignmentSummaryList";
 const _IAMPAo = "IAMPolicyAssignments";
 const _IAMU = "IAMUser";
 const _IAa = "IamArn";
-const _IAn = "IngestionArn";
+const _IAn = "IntercomAction";
+const _IAng = "IngestionArn";
 const _IC = "ImageConfiguration";
 const _ICA = "ImageCustomAction";
 const _ICAL = "ImageCustomActionList";
@@ -1736,6 +1797,7 @@ const _Ins = "Insight";
 const _Int = "Interval";
 const _Inv = "Inverse";
 const _Ir = "Ir";
+const _JA = "JiraAction";
 const _JD = "JoinDefinition";
 const _JI = "JoinInstruction";
 const _JKP = "JoinKeyProperties";
@@ -1767,7 +1829,7 @@ const _KPIVSL = "KPIVisualStandardLayout";
 const _KPU = "KeyPairUsername";
 const _KR = "KeyRegistration";
 const _L = "Linear";
-const _LA = "ListAggregation";
+const _LA = "LinearAction";
 const _LABEJ = "ListAssetBundleExportJobs";
 const _LABEJR = "ListAssetBundleExportJobsRequest";
 const _LABEJRi = "ListAssetBundleExportJobsResponse";
@@ -1779,7 +1841,8 @@ const _LACR = "ListActionConnectorsRequest";
 const _LACRi = "ListActionConnectorsResponse";
 const _LAR = "ListAnalysesRequest";
 const _LARi = "ListAnalysesResponse";
-const _LAi = "ListAnalyses";
+const _LAi = "ListAggregation";
+const _LAis = "ListAnalyses";
 const _LAo = "LoadingAnimation";
 const _LB = "LowerBoundary";
 const _LBR = "ListBrandsRequest";
@@ -1963,11 +2026,13 @@ const _Lo = "Logarithmic";
 const _Log = "Logo";
 const _Lon = "Longitude";
 const _M = "Message";
-const _MA = "MemberArn";
+const _MA = "MondayAction";
 const _MAF = "MeasureAggregationFunction";
 const _MAV = "MatchAllValue";
+const _MAe = "MemberArn";
 const _MC = "MetricComparison";
 const _MCC = "MetricComparisonComputation";
+const _MCPA = "MCPAction";
 const _MCa = "MarkerColor";
 const _MDC = "MissingDataConfigurations";
 const _MDCL = "MissingDataConfigurationList";
@@ -2005,10 +2070,12 @@ const _MP = "MetricPlacement";
 const _MR = "MaxResults";
 const _MRa = "MaxRows";
 const _MS = "MapState";
+const _MSEA = "MSExchangeAction";
 const _MSL = "MaximumStringLength";
 const _MSO = "MapStyleOptions";
 const _MSP = "MySqlParameters";
 const _MSS = "MarkerStyleSettings";
+const _MSTA = "MSTeamsAction";
 const _MSa = "MapStyle";
 const _MSar = "MarkerShape";
 const _MSarg = "MarginStyle";
@@ -2027,6 +2094,7 @@ const _Mar = "Margin";
 const _Max = "Maximum";
 const _Me = "Measure";
 const _Mea = "Measures";
+const _Mem = "Members";
 const _Met = "Metric";
 const _Metr = "Metrics";
 const _Mi = "Min";
@@ -2034,11 +2102,12 @@ const _Min = "Minimum";
 const _Mir = "Mir";
 const _Mo = "Mode";
 const _N = "Name";
-const _NA = "NonAdditive";
+const _NA = "NotionAction";
 const _NAA = "NotAllowedAggregations";
 const _NAF = "NumericalAggregationFunction";
 const _NAIF = "NeverAggregateInFilter";
 const _NAO = "NumericAxisOptions";
+const _NAo = "NonAdditive";
 const _NBC = "NegativeBarColor";
 const _NC = "NegativeColor";
 const _NCI = "NewColumnId";
@@ -2077,6 +2146,7 @@ const _NMF = "NumericalMeasureField";
 const _NO = "NullOption";
 const _NOa = "NavigationOperation";
 const _NPN = "NewParameterName";
+const _NRA = "NewRelicAction";
 const _NRF = "NumericRangeFilter";
 const _NRFV = "NumericRangeFilterValue";
 const _NRV = "NonRepeatingVisuals";
@@ -2095,6 +2165,7 @@ const _Nar = "Narrative";
 const _No = "North";
 const _O = "Operator";
 const _OAP = "OAuthParameters";
+const _OAPIA = "OpenAPIAction";
 const _OAS = "OAuthScope";
 const _OC = "OutputColumns";
 const _OCHV = "OverflowColumnHeaderVisibility";
@@ -2106,6 +2177,7 @@ const _OCNOu = "OutputColumnNameOverride";
 const _OCn = "OnClause";
 const _OCt = "OtherCategories";
 const _OCu = "OutputColumn";
+const _ODA = "OneDriveAction";
 const _ODPO = "OverrideDatasetParameterOperation";
 const _OF = "OperandField";
 const _OFN = "OperandFieldName";
@@ -2156,6 +2228,7 @@ const _PCo = "PositiveColor";
 const _PCos = "PostCode";
 const _PCr = "ProjectedColumns";
 const _PD = "ParameterDeclarations";
+const _PDA = "PagerDutyAction";
 const _PDDC = "ParameterDropDownControl";
 const _PDFC = "PercentageDisplayFormatConfiguration";
 const _PDL = "ParameterDeclarationList";
@@ -2511,12 +2584,16 @@ const _Row_ = "Row";
 const _S = "Suffix";
 const _SA = "SecretArn";
 const _SAA = "SimpleAttributeAggregation";
+const _SAAh = "ShareAsanaAction";
+const _SABARSA = "ShareAmazonBedrockARSAction";
 const _SABEJ = "StartAssetBundleExportJob";
 const _SABEJR = "StartAssetBundleExportJobRequest";
 const _SABEJRt = "StartAssetBundleExportJobResponse";
+const _SABFSA = "ShareAmazonBedrockFSAction";
 const _SABIJ = "StartAssetBundleImportJob";
 const _SABIJR = "StartAssetBundleImportJobRequest";
 const _SABIJRt = "StartAssetBundleImportJobResponse";
+const _SABKRSA = "ShareAmazonBedrockKRSAction";
 const _SAC = "SearchActionConnectors";
 const _SACR = "SearchActionConnectorsRequest";
 const _SACRe = "SearchActionConnectorsResponse";
@@ -2524,23 +2601,34 @@ const _SADT = "StartAfterDateTime";
 const _SAO = "SingleAxisOptions";
 const _SAOe = "SelectAllOptions";
 const _SAPB = "SectionAfterPageBreak";
+const _SAPBOMA = "SAPBillOfMaterialAction";
+const _SAPBPA = "SAPBusinessPartnerAction";
+const _SAPMSA = "SAPMaterialStockAction";
+const _SAPPIA = "SAPPhysicalInventoryAction";
+const _SAPPMDA = "SAPProductMasterDataAction";
 const _SAR = "SearchAnalysesRequest";
 const _SARe = "SearchAnalysesResponse";
+const _SASTA = "ShareAmazonSThreeAction";
 const _SAU = "SnapshotAnonymousUser";
 const _SAUL = "SnapshotAnonymousUserList";
 const _SAUR = "SnapshotAnonymousUserRedacted";
 const _SAURL = "SnapshotAnonymousUserRedactedList";
 const _SAVO = "SelectAllValueOptions";
+const _SAa = "SalesforceAction";
 const _SAe = "SearchAnalyses";
 const _SAh = "ShareAnalyses";
 const _SAi = "SimpleAggregation";
+const _SAl = "SlackAction";
+const _SAm = "SmartsheetAction";
 const _SAo = "SourceArn";
 const _SAou = "SourceAnalysis";
 const _SAt = "StartAngle";
 const _SAta = "StartingAt";
 const _SAu = "SucceededAnswers";
 const _SB = "SortBy";
+const _SBAA = "ShareBoxAgentAction";
 const _SBC = "S3BucketConfiguration";
+const _SBHRA = "ShareBambooHRAction";
 const _SBL = "SectionBasedLayout";
 const _SBLC = "SectionBasedLayoutConfiguration";
 const _SBLCSO = "SectionBasedLayoutCanvasSizeOptions";
@@ -2554,6 +2642,9 @@ const _SBU = "SiteBaseUrl";
 const _SBe = "SectionBased";
 const _SBec = "SecondaryBackground";
 const _SC = "StepCount";
+const _SCA = "ShareConfluenceAction";
+const _SCAA = "ShareCanvaAgentAction";
+const _SCAh = "ShareComprehendAction";
 const _SCDO = "SliderControlDisplayOptions";
 const _SCF = "ShapeConditionalFormat";
 const _SCI = "SourceColumnId";
@@ -2563,6 +2654,7 @@ const _SCLC = "SheetControlLayoutConfiguration";
 const _SCLL = "SheetControlLayoutList";
 const _SCLh = "SheetControlLayouts";
 const _SCM = "SimpleClusterMarker";
+const _SCMA = "ShareComprehendMedicalAction";
 const _SCN = "SourceColumnName";
 const _SCO = "SheetControlsOption";
 const _SCSO = "ScreenCanvasSizeOptions";
@@ -2647,6 +2739,7 @@ const _SFR = "SearchFoldersRequest";
 const _SFRe = "SearchFoldersResponse";
 const _SFRt = "StartFromRow";
 const _SFS = "StaticFileSource";
+const _SFSA = "ShareFactSetAction";
 const _SFSS = "SnapshotFileSheetSelection";
 const _SFSSL = "SnapshotFileSheetSelectionList";
 const _SFSSO = "StaticFileS3SourceOptions";
@@ -2663,10 +2756,16 @@ const _SFo = "SourceField";
 const _SFt = "StaticFile";
 const _SFu = "SuccessForeground";
 const _SG = "SearchGroups";
+const _SGA = "ShareGithubAction";
+const _SGCA = "ShareGoogleCalendarAction";
+const _SGHTTPA = "ShareGenericHTTPAction";
 const _SGI = "SecurityGroupIds";
 const _SGR = "SearchGroupsRequest";
 const _SGRe = "SearchGroupsResponse";
+const _SHA = "ShareHubspotAction";
+const _SHFA = "ShareHuggingFaceAction";
 const _SI = "ScheduleId";
+const _SIA = "ShareIntercomAction";
 const _SII = "SheetImageId";
 const _SIL = "SourceItemsLimit";
 const _SILe = "SeriesItemList";
@@ -2684,6 +2783,7 @@ const _SIhe = "SheetImage";
 const _SIl = "SlotId";
 const _SIu = "SubnetIds";
 const _SIub = "SubnetId";
+const _SJA = "ShareJiraAction";
 const _SJEI = "SnapshotJobErrorInfo";
 const _SJI = "SnapshotJobId";
 const _SJR = "SnapshotJobResult";
@@ -2699,8 +2799,13 @@ const _SKR = "SuccessfulKeyRegistration";
 const _SKRE = "SuccessfulKeyRegistrationEntry";
 const _SKREu = "SuccessfulKeyRegistrationEntries";
 const _SL = "SensitiveLong";
+const _SLA = "ShareLinearAction";
 const _SLC = "SectionLayoutConfiguration";
 const _SLEMO = "SheetLayoutElementMaximizationOption";
+const _SLG = "SheetLayoutGroup";
+const _SLGL = "SheetLayoutGroupList";
+const _SLGM = "SheetLayoutGroupMember";
+const _SLGML = "SheetLayoutGroupMemberList";
 const _SLIM = "SessionLifetimeInMinutes";
 const _SLIMIE = "SessionLifetimeInMinutesInvalidException";
 const _SLL = "SensitiveLongList";
@@ -2709,20 +2814,29 @@ const _SLOi = "SizeLabelOptions";
 const _SLh = "SheetList";
 const _SLt = "StandardLayout";
 const _SM = "SmallMultiples";
+const _SMA = "ShareMondayAction";
 const _SMAP = "SmallMultiplesAxisProperties";
 const _SMC = "SemanticModelConfiguration";
+const _SMCPA = "ShareMCPAction";
 const _SMDFL = "SmallMultiplesDimensionFieldList";
 const _SMFAR = "StrictModeForAllResources";
 const _SMLC = "SmallMultiplesLimitConfiguration";
 const _SMO = "SmallMultiplesOptions";
 const _SMS = "SmallMultiplesSort";
+const _SMSEA = "ShareMSExchangeAction";
+const _SMSTA = "ShareMSTeamsAction";
 const _SMV = "SingleMetricVisibility";
 const _SMh = "SharingModel";
 const _SN = "SheetName";
-const _SNA = "SimpleNumericalAggregation";
+const _SNA = "ServiceNowAction";
+const _SNAh = "ShareNotionAction";
+const _SNAi = "SimpleNumericalAggregation";
 const _SNP = "ServiceNowParameters";
+const _SNRA = "ShareNewRelicAction";
 const _SNe = "SessionName";
 const _SO = "ScrollbarOptions";
+const _SOAPIA = "ShareOpenAPIAction";
+const _SODA = "ShareOneDriveAction";
 const _SOe = "SearchOptions";
 const _SOi = "SizingOptions";
 const _SOo = "SortOrder";
@@ -2731,13 +2845,17 @@ const _SOpt = "S3Options";
 const _SOt = "StyleOptions";
 const _SOu = "SubtotalOptions";
 const _SP = "SslProperties";
+const _SPA = "SharePointAction";
 const _SPBC = "SectionPageBreakConfiguration";
 const _SPC = "ScatterPlotConfiguration";
 const _SPCAFW = "ScatterPlotCategoricallyAggregatedFieldWells";
 const _SPCt = "StatePersistenceConfigurations";
 const _SPD = "StringParameterDeclaration";
+const _SPDA = "SharePagerDutyAction";
 const _SPE = "StatePersistenceEnabled";
 const _SPFW = "ScatterPlotFieldWells";
+const _SPGEA = "SandPGlobalEnergyAction";
+const _SPGMIA = "SandPGMIAction";
 const _SPL = "StringParameterList";
 const _SPLC = "ScatterPlotLimitConfiguration";
 const _SPN = "SourceParameterName";
@@ -2762,6 +2880,14 @@ const _SROE = "ScheduleRefreshOnEntity";
 const _SRe = "S3Results";
 const _SRi = "SignupResponse";
 const _SS = "SensitiveString";
+const _SSA = "ShareSlackAction";
+const _SSAPBOMA = "ShareSAPBillOfMaterialAction";
+const _SSAPBPA = "ShareSAPBusinessPartnerAction";
+const _SSAPMSA = "ShareSAPMaterialStockAction";
+const _SSAPPIA = "ShareSAPPhysicalInventoryAction";
+const _SSAPPMDA = "ShareSAPProductMasterDataAction";
+const _SSAh = "ShareSalesforceAction";
+const _SSAha = "ShareSmartsheetAction";
 const _SSB = "SideSpecificBorder";
 const _SSCI = "SourceSheetControlId";
 const _SSDC = "SnapshotS3DestinationConfiguration";
@@ -2769,8 +2895,12 @@ const _SSDCL = "SnapshotS3DestinationConfigurationList";
 const _SSF = "SpatialStaticFile";
 const _SSFSC = "SelectedSheetsFilterScopeConfiguration";
 const _SSL = "SensitiveStringList";
+const _SSNA = "ShareServiceNowAction";
 const _SSO = "SensitiveStringObject";
 const _SSP = "SqlServerParameters";
+const _SSPA = "ShareSharePointAction";
+const _SSPGEA = "ShareSandPGlobalEnergyAction";
+const _SSPGMIA = "ShareSandPGMIAction";
 const _SST = "SaaSTable";
 const _SSTVC = "SameSheetTargetVisualConfiguration";
 const _SSU = "SensitiveS3Uri";
@@ -2786,6 +2916,7 @@ const _SSo = "S3Source";
 const _SSt = "StepSize";
 const _SSy = "SymbolStyle";
 const _ST = "SensitiveTimestamp";
+const _STA = "ShareTextractAction";
 const _STAF = "SimpleTotalAggregationFunction";
 const _STB = "SheetTextBox";
 const _STBI = "SheetTextBoxId";
@@ -2842,6 +2973,7 @@ const _SVu = "SupportingVisuals";
 const _SW = "StrokeWidth";
 const _SYADO = "SecondaryYAxisDisplayOptions";
 const _SYALO = "SecondaryYAxisLabelOptions";
+const _SZA = "ShareZendeskAction";
 const _Sc = "Schedule";
 const _Sca = "Scale";
 const _Scal = "Scaling";
@@ -2894,8 +3026,9 @@ const _TAO = "TotalAggregationOptions";
 const _TAOL = "TotalAggregationOptionList";
 const _TAOo = "TotalAggregationOption";
 const _TAOr = "TrendArrowOptions";
-const _TAe = "TemplateAlias";
-const _TAem = "TemplateArn";
+const _TAe = "TextractAction";
+const _TAem = "TemplateAlias";
+const _TAemp = "TemplateArn";
 const _TAex = "TextArea";
 const _TAext = "TextAlignment";
 const _TAh = "ThemeAlias";
@@ -3134,6 +3267,10 @@ const _Tr = "Trigger";
 const _Ty = "Typography";
 const _U = "Username";
 const _UA = "UseAs";
+const _UAA = "UseAsanaAction";
+const _UABARSA = "UseAmazonBedrockARSAction";
+const _UABFSA = "UseAmazonBedrockFSAction";
+const _UABKRSA = "UseAmazonBedrockKRSAction";
 const _UAC = "UpdateAccountCustomization";
 const _UACP = "UpdateAccountCustomPermission";
 const _UACPR = "UpdateAccountCustomPermissionRequest";
@@ -3154,6 +3291,7 @@ const _UARp = "UpdateAnalysisResponse";
 const _UAS = "UpdateAccountSettings";
 const _UASR = "UpdateAccountSettingsRequest";
 const _UASRp = "UpdateAccountSettingsResponse";
+const _UASTA = "UseAmazonSThreeAction";
 const _UAWS = "UseAgentWebSearch";
 const _UAWTEG = "UpdateApplicationWithTokenExchangeGrant";
 const _UAWTEGR = "UpdateApplicationWithTokenExchangeGrantRequest";
@@ -3162,9 +3300,11 @@ const _UAp = "UpdateAnalysis";
 const _UAs = "UserArn";
 const _UB = "UpperBoundary";
 const _UBA = "UpdateBrandAssignment";
+const _UBAA = "UseBoxAgentAction";
 const _UBAR = "UpdateBrandAssignmentRequest";
 const _UBARp = "UpdateBrandAssignmentResponse";
 const _UBCF = "UseBlankCellFormat";
+const _UBHRA = "UseBambooHRAction";
 const _UBM = "UseBedrockModels";
 const _UBPV = "UpdateBrandPublishedVersion";
 const _UBPVR = "UpdateBrandPublishedVersionRequest";
@@ -3175,6 +3315,10 @@ const _UBX = "UsernameButtonXpath";
 const _UBn = "UniformBorder";
 const _UBp = "UpdateBrand";
 const _UC = "UserConfiguration";
+const _UCA = "UseConfluenceAction";
+const _UCAA = "UseCanvaAgentAction";
+const _UCAs = "UseComprehendAction";
+const _UCMA = "UseComprehendMedicalAction";
 const _UCO = "UntagColumnOperation";
 const _UCP = "UnapplyCustomPermissions";
 const _UCPR = "UpdateCustomPermissionsRequest";
@@ -3224,13 +3368,20 @@ const _UFPRp = "UpdateFolderPermissionsResponse";
 const _UFPp = "UpdateFolderPermissions";
 const _UFR = "UpdateFolderRequest";
 const _UFRp = "UpdateFolderResponse";
+const _UFSA = "UseFactSetAction";
 const _UFX = "UsernameFieldXpath";
 const _UFp = "UpdateFolder";
 const _UG = "UseGrouping";
+const _UGA = "UseGithubAction";
+const _UGCA = "UseGoogleCalendarAction";
+const _UGHTTPA = "UseGenericHTTPAction";
 const _UGR = "UpdateGroupRequest";
 const _UGRp = "UpdateGroupResponse";
 const _UGp = "UpdateGroup";
+const _UHA = "UseHubspotAction";
+const _UHFA = "UseHuggingFaceAction";
 const _UI = "UnicodeIcon";
+const _UIA = "UseIntercomAction";
 const _UIAMPA = "UpdateIAMPolicyAssignment";
 const _UIAMPAR = "UpdateIAMPolicyAssignmentRequest";
 const _UIAMPARp = "UpdateIAMPolicyAssignmentResponse";
@@ -3243,6 +3394,7 @@ const _UIRR = "UpdateIpRestrictionRequest";
 const _UIRRp = "UpdateIpRestrictionResponse";
 const _UIU = "UserInvitationUrl";
 const _UIs = "UserIdentifier";
+const _UJA = "UseJiraAction";
 const _UK = "UniqueKey";
 const _UKL = "UniqueKeyList";
 const _UKR = "UpdateKeyRegistration";
@@ -3250,15 +3402,25 @@ const _UKRR = "UpdateKeyRegistrationRequest";
 const _UKRRp = "UpdateKeyRegistrationResponse";
 const _UKn = "UniqueKeys";
 const _UL = "UserList";
+const _ULA = "UseLinearAction";
 const _ULCI = "UnpivotedLabelColumnId";
 const _ULCN = "UnpivotedLabelColumnName";
 const _ULPL = "UpdateLinkPermissionList";
+const _UMA = "UseMondayAction";
+const _UMCPA = "UseMCPAction";
+const _UMSEA = "UseMSExchangeAction";
+const _UMSTA = "UseMSTeamsAction";
 const _UN = "UserName";
+const _UNA = "UseNotionAction";
 const _UNC = "UserNameColumn";
+const _UNRA = "UseNewRelicAction";
 const _UO = "UseOrdering";
+const _UOAPIA = "UseOpenAPIAction";
+const _UODA = "UseOneDriveAction";
 const _UOn = "UnpivotOperation";
 const _UOr = "UrlOptions";
 const _UPBC = "UsePrimaryBackgroundColor";
+const _UPDA = "UsePagerDutyAction";
 const _UPPE = "UnsupportedPricingPlanException";
 const _UPSS = "UpdatePublicSharingSettings";
 const _UPSSR = "UpdatePublicSharingSettingsRequest";
@@ -3287,7 +3449,19 @@ const _URSR = "UpdateRefreshScheduleRequest";
 const _URSRp = "UpdateRefreshScheduleResponse";
 const _URn = "UntagResource";
 const _US = "UnitScaler";
+const _USA = "UseSlackAction";
+const _USAPBOMA = "UseSAPBillOfMaterialAction";
+const _USAPBPA = "UseSAPBusinessPartnerAction";
+const _USAPMSA = "UseSAPMaterialStockAction";
+const _USAPPIA = "UseSAPPhysicalInventoryAction";
+const _USAPPMDA = "UseSAPProductMasterDataAction";
+const _USAs = "UseSalesforceAction";
+const _USAse = "UseSmartsheetAction";
 const _USN = "UseServiceName";
+const _USNA = "UseServiceNowAction";
+const _USPA = "UseSharePointAction";
+const _USPGEA = "UseSandPGlobalEnergyAction";
+const _USPGMIA = "UseSandPGMIAction";
 const _USPICECC = "UpdateSPICECapacityConfiguration";
 const _USPICECCR = "UpdateSPICECapacityConfigurationRequest";
 const _USPICECCRp = "UpdateSPICECapacityConfigurationResponse";
@@ -3301,12 +3475,13 @@ const _USn = "UnpivotStep";
 const _USp = "UploadSettings";
 const _USpd = "UpdateStatus";
 const _UT = "UpdateTemplate";
-const _UTA = "UpdateTemplateAlias";
+const _UTA = "UseTextractAction";
 const _UTAR = "UpdateTemplateAliasRequest";
 const _UTARp = "UpdateTemplateAliasResponse";
 const _UTARpd = "UpdateThemeAliasRequest";
 const _UTARpda = "UpdateThemeAliasResponse";
-const _UTAp = "UpdateThemeAlias";
+const _UTAp = "UpdateTemplateAlias";
+const _UTApd = "UpdateThemeAlias";
 const _UTP = "UpdateTemplatePermissions";
 const _UTPR = "UpdateTemplatePermissionsRequest";
 const _UTPRp = "UpdateTemplatePermissionsResponse";
@@ -3341,6 +3516,7 @@ const _UVCN = "UnpivotedValueColumnName";
 const _UVPCC = "UpdateVPCConnection";
 const _UVPCCR = "UpdateVPCConnectionRequest";
 const _UVPCCRp = "UpdateVPCConnectionResponse";
+const _UZA = "UseZendeskAction";
 const _Un = "Unaggregated";
 const _Ur = "Url";
 const _Us = "User";
@@ -3465,6 +3641,7 @@ const _YADO = "YAxisDisplayOptions";
 const _YAL = "YAxisLocation";
 const _YALO = "YAxisLabelOptions";
 const _YAO = "YAxisOptions";
+const _ZA = "ZendeskAction";
 const _aN = "accountName";
 const _adi = "additional-dashboard-ids";
 const _an = "alias-name";
@@ -4376,8 +4553,8 @@ export var CancelIngestionResponse$: StaticStructureSchema = [3, n0, _CIRa,
 ];
 export var Capabilities$: StaticStructureSchema = [3, n0, _Cap,
   0,
-  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _PWA, _UBM, _PFUT, _UAWS, _KB, _Act, _Sp, _CAh, _CCA, _Re, _SUUR],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _PWA, _UBM, _PFUT, _UAWS, _KB, _Act, _GHTTPA, _CAUGHTTPA, _SGHTTPA, _UGHTTPA, _AAs, _CAUAA, _SAAh, _UAA, _SAl, _CAUSA, _SSA, _USA, _SNA, _CAUSNA, _SSNA, _USNA, _SAa, _CAUSAr, _SSAh, _USAs, _MSEA, _CAUMSEA, _SMSEA, _UMSEA, _PDA, _CAUPDA, _SPDA, _UPDA, _JA, _CAUJA, _SJA, _UJA, _CAo, _CAUCA, _SCA, _UCA, _ODA, _CAUODA, _SODA, _UODA, _SPA, _CAUSPA, _SSPA, _USPA, _MSTA, _CAUMSTA, _SMSTA, _UMSTA, _GCA, _CAUGCA, _SGCA, _UGCA, _ZA, _CAUZA, _SZA, _UZA, _SAm, _CAUSAre, _SSAha, _USAse, _SAPBPA, _CAUSAPBPA, _SSAPBPA, _USAPBPA, _SAPPMDA, _CAUSAPPMDA, _SSAPPMDA, _USAPPMDA, _SAPPIA, _CAUSAPPIA, _SSAPPIA, _USAPPIA, _SAPBOMA, _CAUSAPBOMA, _SSAPBOMA, _USAPBOMA, _SAPMSA, _CAUSAPMSA, _SSAPMSA, _USAPMSA, _FSA, _CAUFSA, _SFSA, _UFSA, _ASTA, _CAUASTA, _SASTA, _UASTA, _TAe, _CAUTAr, _STA, _UTA, _CAom, _CAUCAr, _SCAh, _UCAs, _CMA, _CAUCMA, _SCMA, _UCMA, _ABARSA, _CAUABARSA, _SABARSA, _UABARSA, _ABFSA, _CAUABFSA, _SABFSA, _UABFSA, _ABKRSA, _CAUABKRSA, _SABKRSA, _UABKRSA, _MCPA, _CAUMCPA, _SMCPA, _UMCPA, _OAPIA, _CAUOAPIA, _SOAPIA, _UOAPIA, _SPGMIA, _CAUSPGMIA, _SSPGMIA, _USPGMIA, _SPGEA, _CAUSPGEA, _SSPGEA, _USPGEA, _BHRA, _CAUBHRA, _SBHRA, _UBHRA, _BAA, _CAUBAA, _SBAA, _UBAA, _CAA, _CAUCAA, _SCAA, _UCAA, _GAi, _CAUGA, _SGA, _UGA, _NA, _CAUNA, _SNAh, _UNA, _LA, _CAULA, _SLA, _ULA, _HFA, _CAUHFA, _SHFA, _UHFA, _MA, _CAUMA, _SMA, _UMA, _HA, _CAUHA, _SHA, _UHA, _IAn, _CAUIA, _SIA, _UIA, _NRA, _CAUNRA, _SNRA, _UNRA, _Sp, _CAh, _CCA, _Re, _SUUR],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var CascadingControlConfiguration$: StaticStructureSchema = [3, n0, _CCC,
   0,
@@ -4773,7 +4950,7 @@ export var CreateDataSetRequest$: StaticStructureSchema = [3, n0, _CDSR,
 ];
 export var CreateDataSetResponse$: StaticStructureSchema = [3, n0, _CDSRr,
   0,
-  [_A, _DSI, _IAn, _II, _RI, _St],
+  [_A, _DSI, _IAng, _II, _RI, _St],
   [0, 0, 0, 0, 0, [1, 32]]
 ];
 export var CreateDataSourceRequest$: StaticStructureSchema = [3, n0, _CDSRre,
@@ -4883,7 +5060,7 @@ export var CreateTemplateAliasRequest$: StaticStructureSchema = [3, n0, _CTAR,
 ];
 export var CreateTemplateAliasResponse$: StaticStructureSchema = [3, n0, _CTARr,
   0,
-  [_TAe, _St, _RI],
+  [_TAem, _St, _RI],
   [() => TemplateAlias$, [1, 32], 0]
 ];
 export var CreateTemplateRequest$: StaticStructureSchema = [3, n0, _CTR,
@@ -5209,7 +5386,7 @@ export var DataPointTooltipOption$: StaticStructureSchema = [3, n0, _DPTO,
 ];
 export var DataPrepAggregationFunction$: StaticStructureSchema = [3, n0, _DPAF,
   0,
-  [_SAi, _LA],
+  [_SAi, _LAi],
   [() => DataPrepSimpleAggregationFunction$, () => DataPrepListAggregationFunction$]
 ];
 export var DataPrepConfiguration$: StaticStructureSchema = [3, n0, _DPC,
@@ -6339,7 +6516,7 @@ export var DescribeTemplateAliasRequest$: StaticStructureSchema = [3, n0, _DTARe
 ];
 export var DescribeTemplateAliasResponse$: StaticStructureSchema = [3, n0, _DTAResc,
   0,
-  [_TAe, _St, _RI],
+  [_TAem, _St, _RI],
   [() => TemplateAlias$, [1, 32], 0]
 ];
 export var DescribeTemplateDefinitionRequest$: StaticStructureSchema = [3, n0, _DTDR,
@@ -6359,7 +6536,7 @@ export var DescribeTemplatePermissionsRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeTemplatePermissionsResponse$: StaticStructureSchema = [3, n0, _DTPRe,
   0,
-  [_TIe, _TAem, _Per, _RI, _St],
+  [_TIe, _TAemp, _Per, _RI, _St],
   [0, 0, () => UpdateResourcePermissionList, 0, [1, 32]]
 ];
 export var DescribeTemplateRequest$: StaticStructureSchema = [3, n0, _DTRes,
@@ -6830,8 +7007,8 @@ export var FreeFormLayoutCanvasSizeOptions$: StaticStructureSchema = [3, n0, _FF
 ];
 export var FreeFormLayoutConfiguration$: StaticStructureSchema = [3, n0, _FFLC,
   0,
-  [_Ele, _CSO],
-  [() => FreeFromLayoutElementList, () => FreeFormLayoutCanvasSizeOptions$], 1
+  [_Ele, _CSO, _Gro],
+  [() => FreeFromLayoutElementList, () => FreeFormLayoutCanvasSizeOptions$, () => SheetLayoutGroupList], 1
 ];
 export var FreeFormLayoutElement$: StaticStructureSchema = [3, n0, _FFLE,
   0,
@@ -8229,7 +8406,7 @@ export var MeasureField$: StaticStructureSchema = [3, n0, _MF,
 ];
 export var MemberIdArnPair$: StaticStructureSchema = [3, n0, _MIAP,
   0,
-  [_MI, _MA],
+  [_MI, _MAe],
   [0, 0]
 ];
 export var MetricComparisonComputation$: StaticStructureSchema = [3, n0, _MCC,
@@ -8329,7 +8506,7 @@ export var NumberFormatConfiguration$: StaticStructureSchema = [3, n0, _NFCum,
 ];
 export var NumericalAggregationFunction$: StaticStructureSchema = [3, n0, _NAF,
   0,
-  [_SNA, _PAe],
+  [_SNAi, _PAe],
   [0, () => PercentileAggregation$]
 ];
 export var NumericalDimensionField$: StaticStructureSchema = [3, n0, _NDF,
@@ -8801,7 +8978,7 @@ export var RadarChartAreaStyleSettings$: StaticStructureSchema = [3, n0, _RCASS,
 ];
 export var RadarChartConfiguration$: StaticStructureSchema = [3, n0, _RCC,
   0,
-  [_FW, _SCo, _Sha, _BSS, _SAt, _VP, _ABCV, _ABEC, _ABOC, _CA, _CLO, _CAo, _CLOo, _Le, _ARS, _I],
+  [_FW, _SCo, _Sha, _BSS, _SAt, _VP, _ABCV, _ABEC, _ABOC, _CA, _CLO, _CAol, _CLOo, _Le, _ARS, _I],
   [() => RadarChartFieldWells$, () => RadarChartSortConfiguration$, 0, () => RadarChartSeriesSettings$, 1, () => VisualPalette$, 0, 0, 0, () => AxisDisplayOptions$, () => ChartAxisLabelOptions$, () => AxisDisplayOptions$, () => ChartAxisLabelOptions$, () => LegendOptions$, 0, () => VisualInteractionOptions$]
 ];
 export var RadarChartFieldWells$: StaticStructureSchema = [3, n0, _RCFW,
@@ -9508,6 +9685,16 @@ export var SheetLayoutElementMaximizationOption$: StaticStructureSchema = [3, n0
   [_ASv],
   [0]
 ];
+export var SheetLayoutGroup$: StaticStructureSchema = [3, n0, _SLG,
+  0,
+  [_Id_, _Mem],
+  [0, () => SheetLayoutGroupMemberList], 2
+];
+export var SheetLayoutGroupMember$: StaticStructureSchema = [3, n0, _SLGM,
+  0,
+  [_Id_, _T],
+  [0, 0], 2
+];
 export var SheetStyle$: StaticStructureSchema = [3, n0, _SSh,
   0,
   [_Til, _TL, _Bac],
@@ -9958,7 +10145,7 @@ export var Template$: StaticStructureSchema = [3, n0, _Tem,
   [_A, _N, _Ve, _TIe, _LUT, _CT],
   [0, 0, () => TemplateVersion$, 0, 4, 4]
 ];
-export var TemplateAlias$: StaticStructureSchema = [3, n0, _TAe,
+export var TemplateAlias$: StaticStructureSchema = [3, n0, _TAem,
   0,
   [_ANl, _A, _TVN],
   [0, 0, 1]
@@ -10151,7 +10338,7 @@ export var TopBottomRankedComputation$: StaticStructureSchema = [3, n0, _TBRC,
 ];
 export var TopicCalculatedField$: StaticStructureSchema = [3, n0, _TCFo,
   0,
-  [_CFN, _Ex, _CFD, _CFS, _IIIT, _DIis, _CDRo, _TG, _DFe, _Ag, _CO, _STema, _AAl, _NAA, _NAIF, _CVSe, _NA],
+  [_CFN, _Ex, _CFD, _CFS, _IIIT, _DIis, _CDRo, _TG, _DFe, _Ag, _CO, _STema, _AAl, _NAA, _NAIF, _CVSe, _NAo],
   [0, [() => Expression, 0], 0, 64 | 0, 2, 2, 0, 0, () => DefaultFormatting$, 0, () => ComparativeOrder$, [() => SemanticType$, 0], 64 | 0, 64 | 0, 2, () => CellValueSynonyms, 2], 2
 ];
 export var TopicCategoryFilter$: StaticStructureSchema = [3, n0, _TCFop,
@@ -10166,7 +10353,7 @@ export var TopicCategoryFilterConstant$: StaticStructureSchema = [3, n0, _TCFC,
 ];
 export var TopicColumn$: StaticStructureSchema = [3, n0, _TCo,
   0,
-  [_CN, _CFNo, _CD, _CSolumny, _CDRo, _Ag, _IIIT, _DIis, _CO, _STema, _TG, _AAl, _NAA, _DFe, _NAIF, _CVSe, _NA],
+  [_CN, _CFNo, _CD, _CSolumny, _CDRo, _Ag, _IIIT, _DIis, _CO, _STema, _TG, _AAl, _NAA, _DFe, _NAIF, _CVSe, _NAo],
   [0, 0, 0, 64 | 0, 0, 0, 2, 2, () => ComparativeOrder$, [() => SemanticType$, 0], 0, 64 | 0, 64 | 0, () => DefaultFormatting$, 2, () => CellValueSynonyms, 2], 1
 ];
 export var TopicConfigOptions$: StaticStructureSchema = [3, n0, _TCOo,
@@ -10623,7 +10810,7 @@ export var UpdateDataSetRequest$: StaticStructureSchema = [3, n0, _UDSR,
 ];
 export var UpdateDataSetResponse$: StaticStructureSchema = [3, n0, _UDSRp,
   0,
-  [_A, _DSI, _IAn, _II, _RI, _St],
+  [_A, _DSI, _IAng, _II, _RI, _St],
   [0, 0, 0, 0, 0, [1, 32]]
 ];
 export var UpdateDataSourcePermissionsRequest$: StaticStructureSchema = [3, n0, _UDSPRpd,
@@ -10823,7 +11010,7 @@ export var UpdateTemplateAliasRequest$: StaticStructureSchema = [3, n0, _UTAR,
 ];
 export var UpdateTemplateAliasResponse$: StaticStructureSchema = [3, n0, _UTARp,
   0,
-  [_TAe, _St, _RI],
+  [_TAem, _St, _RI],
   [() => TemplateAlias$, [1, 32], 0]
 ];
 export var UpdateTemplatePermissionsRequest$: StaticStructureSchema = [3, n0, _UTPR,
@@ -10833,7 +11020,7 @@ export var UpdateTemplatePermissionsRequest$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateTemplatePermissionsResponse$: StaticStructureSchema = [3, n0, _UTPRp,
   0,
-  [_TIe, _TAem, _Per, _RI, _St],
+  [_TIe, _TAemp, _Per, _RI, _St],
   [0, 0, () => UpdateResourcePermissionList, 0, [1, 32]]
 ];
 export var UpdateTemplateRequest$: StaticStructureSchema = [3, n0, _UTR,
@@ -11862,6 +12049,12 @@ var SheetElementRenderingRuleList: StaticListSchema = [1, n0, _SERRL,
 var SheetImageList: StaticListSchema = [1, n0, _SILh,
   0, () => SheetImage$
 ];
+var SheetLayoutGroupList: StaticListSchema = [1, n0, _SLGL,
+  0, () => SheetLayoutGroup$
+];
+var SheetLayoutGroupMemberList: StaticListSchema = [1, n0, _SLGML,
+  0, () => SheetLayoutGroupMember$
+];
 var SheetList: StaticListSchema = [1, n0, _SLh,
   0, () => Sheet$
 ];
@@ -12564,7 +12757,7 @@ export var GetSessionEmbedUrl$: StaticOperationSchema = [9, n0, _GSEU,
 export var ListActionConnectors$: StaticOperationSchema = [9, n0, _LAC,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/action-connectors", 200] }, () => ListActionConnectorsRequest$, () => ListActionConnectorsResponse$
 ];
-export var ListAnalyses$: StaticOperationSchema = [9, n0, _LAi,
+export var ListAnalyses$: StaticOperationSchema = [9, n0, _LAis,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses", 200] }, () => ListAnalysesRequest$, () => ListAnalysesResponse$
 ];
 export var ListAssetBundleExportJobs$: StaticOperationSchema = [9, n0, _LABEJ,
@@ -12846,7 +13039,7 @@ export var UpdateSPICECapacityConfiguration$: StaticOperationSchema = [9, n0, _U
 export var UpdateTemplate$: StaticOperationSchema = [9, n0, _UT,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/templates/{TemplateId}", 200] }, () => UpdateTemplateRequest$, () => UpdateTemplateResponse$
 ];
-export var UpdateTemplateAlias$: StaticOperationSchema = [9, n0, _UTA,
+export var UpdateTemplateAlias$: StaticOperationSchema = [9, n0, _UTAp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}", 200] }, () => UpdateTemplateAliasRequest$, () => UpdateTemplateAliasResponse$
 ];
 export var UpdateTemplatePermissions$: StaticOperationSchema = [9, n0, _UTP,
@@ -12855,7 +13048,7 @@ export var UpdateTemplatePermissions$: StaticOperationSchema = [9, n0, _UTP,
 export var UpdateTheme$: StaticOperationSchema = [9, n0, _UTp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/themes/{ThemeId}", 200] }, () => UpdateThemeRequest$, () => UpdateThemeResponse$
 ];
-export var UpdateThemeAlias$: StaticOperationSchema = [9, n0, _UTAp,
+export var UpdateThemeAlias$: StaticOperationSchema = [9, n0, _UTApd,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}", 200] }, () => UpdateThemeAliasRequest$, () => UpdateThemeAliasResponse$
 ];
 export var UpdateThemePermissions$: StaticOperationSchema = [9, n0, _UTPp,

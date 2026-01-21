@@ -966,6 +966,19 @@ export type LayoutElementType = (typeof LayoutElementType)[keyof typeof LayoutEl
  * @public
  * @enum
  */
+export const SheetLayoutGroupMemberType = {
+  ELEMENT: "ELEMENT",
+  GROUP: "GROUP",
+} as const;
+/**
+ * @public
+ */
+export type SheetLayoutGroupMemberType = (typeof SheetLayoutGroupMemberType)[keyof typeof SheetLayoutGroupMemberType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SectionPageBreakStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",

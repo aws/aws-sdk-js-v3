@@ -8,8 +8,6 @@ import {
   AnchorOption,
   AuthorizationCodeGrantCredentialsSource,
   AxisBinding,
-  BarChartOrientation,
-  BarsArrangement,
   CategoricalAggregationFunction,
   CategoryFilterMatchOperator,
   CategoryFilterSelectAllOptions,
@@ -70,6 +68,7 @@ import {
   SheetControlListType,
   SheetControlSliderType,
   SheetImageScalingType,
+  SheetLayoutGroupMemberType,
   SimpleAttributeAggregationFunction,
   SimpleNumericalAggregationFunction,
   SmallMultiplesAxisPlacement,
@@ -5486,6 +5485,42 @@ export interface FreeFormLayoutElement {
 }
 
 /**
+ * <p>A member of a sheet layout group.</p>
+ * @public
+ */
+export interface SheetLayoutGroupMember {
+  /**
+   * <p>The unique identifier of the group member.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The type of the group member.</p>
+   * @public
+   */
+  Type: SheetLayoutGroupMemberType | undefined;
+}
+
+/**
+ * <p>A group of elements within a sheet layout.</p>
+ * @public
+ */
+export interface SheetLayoutGroup {
+  /**
+   * <p>A unique identifier for the group.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The members of the group.</p>
+   * @public
+   */
+  Members: SheetLayoutGroupMember[] | undefined;
+}
+
+/**
  * <p>The configuration of a free-form layout.</p>
  * @public
  */
@@ -5501,6 +5536,12 @@ export interface FreeFormLayoutConfiguration {
    * @public
    */
   CanvasSizeOptions?: FreeFormLayoutCanvasSizeOptions | undefined;
+
+  /**
+   * <p>The groups that are included in a free-form layout.</p>
+   * @public
+   */
+  Groups?: SheetLayoutGroup[] | undefined;
 }
 
 /**
@@ -8426,152 +8467,4 @@ export interface VisualPalette {
    * @public
    */
   ColorMap?: DataPathColor[] | undefined;
-}
-
-/**
- * <p>The configuration of a <code>BarChartVisual</code>.</p>
- * @public
- */
-export interface BarChartConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   * @public
-   */
-  FieldWells?: BarChartFieldWells | undefined;
-
-  /**
-   * <p>The sort configuration of a <code>BarChartVisual</code>.</p>
-   * @public
-   */
-  SortConfiguration?: BarChartSortConfiguration | undefined;
-
-  /**
-   * <p>The orientation of the bars in a bar chart visual. There are two valid values in this structure:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HORIZONTAL</code>: Used for charts that have horizontal bars. Visuals that use this value are horizontal bar charts, horizontal stacked bar charts, and horizontal stacked 100% bar charts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VERTICAL</code>: Used for charts that have vertical bars. Visuals that use this value are vertical bar charts, vertical stacked bar charts, and vertical stacked 100% bar charts.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Orientation?: BarChartOrientation | undefined;
-
-  /**
-   * <p>Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.</p>
-   * @public
-   */
-  BarsArrangement?: BarsArrangement | undefined;
-
-  /**
-   * <p>The palette (chart color) display setup of the visual.</p>
-   * @public
-   */
-  VisualPalette?: VisualPalette | undefined;
-
-  /**
-   * <p>The small multiples setup for the visual.</p>
-   * @public
-   */
-  SmallMultiplesOptions?: SmallMultiplesOptions | undefined;
-
-  /**
-   * <p>The label display options (grid line, range, scale, axis step) for bar chart category.</p>
-   * @public
-   */
-  CategoryAxis?: AxisDisplayOptions | undefined;
-
-  /**
-   * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart.</p>
-   * @public
-   */
-  CategoryLabelOptions?: ChartAxisLabelOptions | undefined;
-
-  /**
-   * <p>The label display options (grid line, range, scale, axis step) for a bar chart value.</p>
-   * @public
-   */
-  ValueAxis?: AxisDisplayOptions | undefined;
-
-  /**
-   * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart value.</p>
-   * @public
-   */
-  ValueLabelOptions?: ChartAxisLabelOptions | undefined;
-
-  /**
-   * <p>The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.</p>
-   * @public
-   */
-  ColorLabelOptions?: ChartAxisLabelOptions | undefined;
-
-  /**
-   * <p>The options that determine the default presentation of all bar series in <code>BarChartVisual</code>.</p>
-   * @public
-   */
-  DefaultSeriesSettings?: BarChartDefaultSeriesSettings | undefined;
-
-  /**
-   * <p>The series item configuration of a  <code>BarChartVisual</code>.</p>
-   * @public
-   */
-  Series?: BarSeriesItem[] | undefined;
-
-  /**
-   * <p>The legend display setup of the visual.</p>
-   * @public
-   */
-  Legend?: LegendOptions | undefined;
-
-  /**
-   * <p>The options that determine if visual data labels are displayed.</p>
-   * @public
-   */
-  DataLabels?: DataLabelOptions | undefined;
-
-  /**
-   * <p>The tooltip display setup of the visual.</p>
-   * @public
-   */
-  Tooltip?: TooltipOptions | undefined;
-
-  /**
-   * <p>The reference line setup of the visual.</p>
-   * @public
-   */
-  ReferenceLines?: ReferenceLine[] | undefined;
-
-  /**
-   * <p>The contribution analysis (anomaly configuration) setup of the visual.</p>
-   * @public
-   */
-  ContributionAnalysisDefaults?: ContributionAnalysisDefault[] | undefined;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions | undefined;
-}
-
-/**
- * <p>The category drill down filter.</p>
- * @public
- */
-export interface CategoryDrillDownFilter {
-  /**
-   * <p>The column that the filter is applied to.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>A list of the string inputs that are the values of the category drill down filter.</p>
-   * @public
-   */
-  CategoryValues: string[] | undefined;
 }

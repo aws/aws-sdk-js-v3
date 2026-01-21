@@ -92,7 +92,6 @@ import {
   ColumnLevelPermissionRule,
   DatasetParameter,
   FieldFolder,
-  LogicalTable,
   ResourcePermission,
   Tag,
 } from "./models_2";
@@ -122,6 +121,7 @@ import {
   Group,
   GroupMember,
   Ingestion,
+  LogicalTable,
   NamespaceInfoV2,
   PhysicalTable,
   RefreshSchedule,
@@ -130,6 +130,62 @@ import {
   TemplateError,
   ThemeAlias,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeTemplateAliasResponse {
+  /**
+   * <p>Information about the template alias.</p>
+   * @public
+   */
+  TemplateAlias?: TemplateAlias | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplateDefinitionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template. You must be using the
+   * 			 Amazon Web Services account that the template is in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the template that you're describing.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the template.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The alias of the template that you want to describe. If you name a specific alias, you
+   * 			 describe the version that the alias points to. You can specify the latest version of the
+   * 			 template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			 parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+}
 
 /**
  * @public

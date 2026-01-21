@@ -30,7 +30,7 @@ export interface StartDashboardSnapshotJobCommandOutput extends StartDashboardSn
  * <p>Starts an asynchronous job that generates a snapshot of a dashboard's output. You can request one or several of the following format configurations in each API call.</p>
  *          <ul>
  *             <li>
- *                <p>1 Paginated PDF</p>
+ *                <p>1 PDF</p>
  *             </li>
  *             <li>
  *                <p>1 Excel workbook that includes up to 5 table or pivot table visuals</p>
@@ -39,6 +39,9 @@ export interface StartDashboardSnapshotJobCommandOutput extends StartDashboardSn
  *                <p>5 CSVs from table or pivot table visuals</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>Exporting CSV, Excel, or Pixel Perfect PDF reports requires Pixel Perfect Report Add-on.</p>
+ *          </note>
  *          <p>The status of a submitted job can be polled with the <code>DescribeDashboardSnapshotJob</code> API. When you call the  <code>DescribeDashboardSnapshotJob</code> API, check the <code>JobStatus</code> field in the response. Once the job reaches a <code>COMPLETED</code> or <code>FAILED</code> status, use the <code>DescribeDashboardSnapshotJobResult</code> API to obtain the URLs for the generated files. If the job fails, the <code>DescribeDashboardSnapshotJobResult</code> API returns detailed information about the error that occurred.</p>
  *          <p>
  *             <b>StartDashboardSnapshotJob API throttling</b>

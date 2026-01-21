@@ -1818,6 +1818,9 @@ import {
   SheetImageTooltipConfiguration$,
   SheetImageTooltipText$,
   SheetLayoutElementMaximizationOption$,
+  SheetLayoutGroup$,
+  SheetLayoutGroupMember$,
+  SheetLayoutGroupMemberType,
   SheetStyle$,
   SheetTextBox$,
   SheetVisualScopingConfiguration$,
@@ -3964,6 +3967,8 @@ assert(typeof SheetImageStaticFileSource$ === "object");
 assert(typeof SheetImageTooltipConfiguration$ === "object");
 assert(typeof SheetImageTooltipText$ === "object");
 assert(typeof SheetLayoutElementMaximizationOption$ === "object");
+assert(typeof SheetLayoutGroup$ === "object");
+assert(typeof SheetLayoutGroupMember$ === "object");
 assert(typeof SheetStyle$ === "object");
 assert(typeof SheetTextBox$ === "object");
 assert(typeof SheetVisualScopingConfiguration$ === "object");
@@ -4506,6 +4511,7 @@ assert(typeof SheetControlDateTimePickerType === "object");
 assert(typeof SheetControlListType === "object");
 assert(typeof SheetControlSliderType === "object");
 assert(typeof SheetImageScalingType === "object");
+assert(typeof SheetLayoutGroupMemberType === "object");
 assert(typeof SimpleAttributeAggregationFunction === "object");
 assert(typeof SimpleNumericalAggregationFunction === "object");
 assert(typeof SimpleTotalAggregationFunction === "object");

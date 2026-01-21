@@ -4918,6 +4918,17 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     OptimizedViewPortWidth: "STRING_VALUE", // required
  *                   },
  *                 },
+ *                 Groups: [ // SheetLayoutGroupList
+ *                   { // SheetLayoutGroup
+ *                     Id: "STRING_VALUE", // required
+ *                     Members: [ // SheetLayoutGroupMemberList // required
+ *                       { // SheetLayoutGroupMember
+ *                         Id: "STRING_VALUE", // required
+ *                         Type: "ELEMENT" || "GROUP", // required
+ *                       },
+ *                     ],
+ *                   },
+ *                 ],
  *               },
  *               SectionBasedLayout: { // SectionBasedLayoutConfiguration
  *                 HeaderSections: [ // HeaderFooterSectionConfigurationList // required
