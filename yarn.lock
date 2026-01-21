@@ -1438,9 +1438,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/body-checksum-browser@npm:*, @aws-sdk/body-checksum-browser@workspace:packages/body-checksum-browser":
+"@aws-sdk/body-checksum-browser@npm:*, @aws-sdk/body-checksum-browser@workspace:packages-internal/body-checksum-browser":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/body-checksum-browser@workspace:packages/body-checksum-browser"
+  resolution: "@aws-sdk/body-checksum-browser@workspace:packages-internal/body-checksum-browser"
   dependencies:
     "@aws-crypto/sha256-js": "npm:5.2.0"
     "@aws-sdk/sha256-tree-hash": "npm:*"
@@ -1460,9 +1460,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/body-checksum-node@npm:*, @aws-sdk/body-checksum-node@workspace:packages/body-checksum-node":
+"@aws-sdk/body-checksum-node@npm:*, @aws-sdk/body-checksum-node@workspace:packages-internal/body-checksum-node":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/body-checksum-node@workspace:packages/body-checksum-node"
+  resolution: "@aws-sdk/body-checksum-node@workspace:packages-internal/body-checksum-node"
   dependencies:
     "@aws-crypto/sha256-js": "npm:5.2.0"
     "@aws-sdk/chunked-stream-reader-node": "npm:*"
@@ -1482,9 +1482,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/chunked-stream-reader-node@npm:*, @aws-sdk/chunked-stream-reader-node@workspace:packages/chunked-stream-reader-node":
+"@aws-sdk/chunked-stream-reader-node@npm:*, @aws-sdk/chunked-stream-reader-node@workspace:packages-internal/chunked-stream-reader-node":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/chunked-stream-reader-node@workspace:packages/chunked-stream-reader-node"
+  resolution: "@aws-sdk/chunked-stream-reader-node@workspace:packages-internal/chunked-stream-reader-node"
   dependencies:
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
@@ -23402,9 +23402,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-provider-cognito-identity@npm:*, @aws-sdk/credential-provider-cognito-identity@workspace:packages/credential-provider-cognito-identity":
+"@aws-sdk/credential-provider-cognito-identity@npm:*, @aws-sdk/credential-provider-cognito-identity@workspace:packages-internal/credential-provider-cognito-identity":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/credential-provider-cognito-identity@workspace:packages/credential-provider-cognito-identity"
+  resolution: "@aws-sdk/credential-provider-cognito-identity@workspace:packages-internal/credential-provider-cognito-identity"
   dependencies:
     "@aws-sdk/client-cognito-identity": "npm:*"
     "@aws-sdk/types": "npm:*"
@@ -23419,9 +23419,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-provider-env@npm:*, @aws-sdk/credential-provider-env@workspace:packages/credential-provider-env":
+"@aws-sdk/credential-provider-env@npm:*, @aws-sdk/credential-provider-env@workspace:packages-internal/credential-provider-env":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/credential-provider-env@workspace:packages/credential-provider-env"
+  resolution: "@aws-sdk/credential-provider-env@workspace:packages-internal/credential-provider-env"
   dependencies:
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/types": "npm:*"
@@ -23437,9 +23437,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-provider-http@npm:*, @aws-sdk/credential-provider-http@workspace:packages/credential-provider-http":
+"@aws-sdk/credential-provider-http@npm:*, @aws-sdk/credential-provider-http@workspace:packages-internal/credential-provider-http":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/credential-provider-http@workspace:packages/credential-provider-http"
+  resolution: "@aws-sdk/credential-provider-http@workspace:packages-internal/credential-provider-http"
   dependencies:
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/types": "npm:*"
@@ -23460,9 +23460,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-provider-ini@npm:*, @aws-sdk/credential-provider-ini@workspace:packages/credential-provider-ini":
+"@aws-sdk/credential-provider-ini@npm:*, @aws-sdk/credential-provider-ini@workspace:packages-internal/credential-provider-ini":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/credential-provider-ini@workspace:packages/credential-provider-ini"
+  resolution: "@aws-sdk/credential-provider-ini@workspace:packages-internal/credential-provider-ini"
   dependencies:
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/credential-provider-env": "npm:*"
@@ -23487,9 +23487,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-provider-login@npm:*, @aws-sdk/credential-provider-login@workspace:packages/credential-provider-login":
+"@aws-sdk/credential-provider-login@npm:*, @aws-sdk/credential-provider-login@workspace:packages-internal/credential-provider-login":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/credential-provider-login@workspace:packages/credential-provider-login"
+  resolution: "@aws-sdk/credential-provider-login@workspace:packages-internal/credential-provider-login"
   dependencies:
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/nested-clients": "npm:*"
@@ -23508,9 +23508,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-provider-node@npm:*, @aws-sdk/credential-provider-node@workspace:packages/credential-provider-node":
+"@aws-sdk/credential-provider-node@npm:*, @aws-sdk/credential-provider-node@workspace:packages-internal/credential-provider-node":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/credential-provider-node@workspace:packages/credential-provider-node"
+  resolution: "@aws-sdk/credential-provider-node@workspace:packages-internal/credential-provider-node"
   dependencies:
     "@aws-sdk/credential-provider-env": "npm:*"
     "@aws-sdk/credential-provider-http": "npm:*"
@@ -23533,9 +23533,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-provider-process@npm:*, @aws-sdk/credential-provider-process@workspace:packages/credential-provider-process":
+"@aws-sdk/credential-provider-process@npm:*, @aws-sdk/credential-provider-process@workspace:packages-internal/credential-provider-process":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/credential-provider-process@workspace:packages/credential-provider-process"
+  resolution: "@aws-sdk/credential-provider-process@workspace:packages-internal/credential-provider-process"
   dependencies:
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/types": "npm:*"
@@ -23552,9 +23552,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-provider-sso@npm:*, @aws-sdk/credential-provider-sso@workspace:packages/credential-provider-sso":
+"@aws-sdk/credential-provider-sso@npm:*, @aws-sdk/credential-provider-sso@workspace:packages-internal/credential-provider-sso":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/credential-provider-sso@workspace:packages/credential-provider-sso"
+  resolution: "@aws-sdk/credential-provider-sso@workspace:packages-internal/credential-provider-sso"
   dependencies:
     "@aws-sdk/client-sso": "npm:*"
     "@aws-sdk/core": "npm:*"
@@ -23573,9 +23573,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/credential-provider-web-identity@npm:*, @aws-sdk/credential-provider-web-identity@workspace:packages/credential-provider-web-identity":
+"@aws-sdk/credential-provider-web-identity@npm:*, @aws-sdk/credential-provider-web-identity@workspace:packages-internal/credential-provider-web-identity":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/credential-provider-web-identity@workspace:packages/credential-provider-web-identity"
+  resolution: "@aws-sdk/credential-provider-web-identity@workspace:packages-internal/credential-provider-web-identity"
   dependencies:
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/nested-clients": "npm:*"
@@ -23626,9 +23626,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/crt-loader@npm:*, @aws-sdk/crt-loader@workspace:packages/crt-loader":
+"@aws-sdk/crt-loader@npm:*, @aws-sdk/crt-loader@workspace:packages-internal/crt-loader":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/crt-loader@workspace:packages/crt-loader"
+  resolution: "@aws-sdk/crt-loader@workspace:packages-internal/crt-loader"
   dependencies:
     "@aws-sdk/util-user-agent-node": "npm:*"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -23665,9 +23665,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/dynamodb-codec@npm:*, @aws-sdk/dynamodb-codec@workspace:packages/dynamodb-codec":
+"@aws-sdk/dynamodb-codec@npm:*, @aws-sdk/dynamodb-codec@workspace:packages-internal/dynamodb-codec":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/dynamodb-codec@workspace:packages/dynamodb-codec"
+  resolution: "@aws-sdk/dynamodb-codec@workspace:packages-internal/dynamodb-codec"
   dependencies:
     "@aws-sdk/core": "npm:*"
     "@smithy/core": "npm:^3.21.0"
@@ -23706,9 +23706,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/endpoint-cache@npm:*, @aws-sdk/endpoint-cache@workspace:packages/endpoint-cache":
+"@aws-sdk/endpoint-cache@npm:*, @aws-sdk/endpoint-cache@workspace:packages-internal/endpoint-cache":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/endpoint-cache@workspace:packages/endpoint-cache"
+  resolution: "@aws-sdk/endpoint-cache@workspace:packages-internal/endpoint-cache"
   dependencies:
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
@@ -23721,9 +23721,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/eventstream-handler-node@npm:*, @aws-sdk/eventstream-handler-node@workspace:packages/eventstream-handler-node":
+"@aws-sdk/eventstream-handler-node@npm:*, @aws-sdk/eventstream-handler-node@workspace:packages-internal/eventstream-handler-node":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/eventstream-handler-node@workspace:packages/eventstream-handler-node"
+  resolution: "@aws-sdk/eventstream-handler-node@workspace:packages-internal/eventstream-handler-node"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/eventstream-codec": "npm:^4.2.8"
@@ -23739,9 +23739,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/karma-credential-loader@workspace:packages/karma-credential-loader":
+"@aws-sdk/karma-credential-loader@workspace:packages-internal/karma-credential-loader":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/karma-credential-loader@workspace:packages/karma-credential-loader"
+  resolution: "@aws-sdk/karma-credential-loader@workspace:packages-internal/karma-credential-loader"
   dependencies:
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/nested-clients": "npm:*"
@@ -23802,9 +23802,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-api-key@workspace:packages/middleware-api-key":
+"@aws-sdk/middleware-api-key@workspace:packages-internal/middleware-api-key":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-api-key@workspace:packages/middleware-api-key"
+  resolution: "@aws-sdk/middleware-api-key@workspace:packages-internal/middleware-api-key"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/protocol-http": "npm:^5.3.8"
@@ -23819,9 +23819,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-bucket-endpoint@npm:*, @aws-sdk/middleware-bucket-endpoint@workspace:packages/middleware-bucket-endpoint":
+"@aws-sdk/middleware-bucket-endpoint@npm:*, @aws-sdk/middleware-bucket-endpoint@workspace:packages-internal/middleware-bucket-endpoint":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-bucket-endpoint@workspace:packages/middleware-bucket-endpoint"
+  resolution: "@aws-sdk/middleware-bucket-endpoint@workspace:packages-internal/middleware-bucket-endpoint"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@aws-sdk/util-arn-parser": "npm:*"
@@ -23838,9 +23838,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-endpoint-discovery@npm:*, @aws-sdk/middleware-endpoint-discovery@workspace:packages/middleware-endpoint-discovery":
+"@aws-sdk/middleware-endpoint-discovery@npm:*, @aws-sdk/middleware-endpoint-discovery@workspace:packages-internal/middleware-endpoint-discovery":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-endpoint-discovery@workspace:packages/middleware-endpoint-discovery"
+  resolution: "@aws-sdk/middleware-endpoint-discovery@workspace:packages-internal/middleware-endpoint-discovery"
   dependencies:
     "@aws-sdk/endpoint-cache": "npm:*"
     "@aws-sdk/types": "npm:*"
@@ -23856,9 +23856,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-eventstream@npm:*, @aws-sdk/middleware-eventstream@workspace:packages/middleware-eventstream":
+"@aws-sdk/middleware-eventstream@npm:*, @aws-sdk/middleware-eventstream@workspace:packages-internal/middleware-eventstream":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-eventstream@workspace:packages/middleware-eventstream"
+  resolution: "@aws-sdk/middleware-eventstream@workspace:packages-internal/middleware-eventstream"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/protocol-http": "npm:^5.3.8"
@@ -23872,9 +23872,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-expect-continue@npm:*, @aws-sdk/middleware-expect-continue@workspace:packages/middleware-expect-continue":
+"@aws-sdk/middleware-expect-continue@npm:*, @aws-sdk/middleware-expect-continue@workspace:packages-internal/middleware-expect-continue":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-expect-continue@workspace:packages/middleware-expect-continue"
+  resolution: "@aws-sdk/middleware-expect-continue@workspace:packages-internal/middleware-expect-continue"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/protocol-http": "npm:^5.3.8"
@@ -23888,9 +23888,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-flexible-checksums@npm:*, @aws-sdk/middleware-flexible-checksums@workspace:packages/middleware-flexible-checksums":
+"@aws-sdk/middleware-flexible-checksums@npm:*, @aws-sdk/middleware-flexible-checksums@workspace:packages-internal/middleware-flexible-checksums":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-flexible-checksums@workspace:packages/middleware-flexible-checksums"
+  resolution: "@aws-sdk/middleware-flexible-checksums@workspace:packages-internal/middleware-flexible-checksums"
   dependencies:
     "@aws-crypto/crc32": "npm:5.2.0"
     "@aws-crypto/crc32c": "npm:5.2.0"
@@ -23914,9 +23914,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-host-header@npm:*, @aws-sdk/middleware-host-header@workspace:packages/middleware-host-header":
+"@aws-sdk/middleware-host-header@npm:*, @aws-sdk/middleware-host-header@workspace:packages-internal/middleware-host-header":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-host-header@workspace:packages/middleware-host-header"
+  resolution: "@aws-sdk/middleware-host-header@workspace:packages-internal/middleware-host-header"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/protocol-http": "npm:^5.3.8"
@@ -23930,9 +23930,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-http-debug-log@workspace:packages/middleware-http-debug-log":
+"@aws-sdk/middleware-http-debug-log@workspace:packages-internal/middleware-http-debug-log":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-http-debug-log@workspace:packages/middleware-http-debug-log"
+  resolution: "@aws-sdk/middleware-http-debug-log@workspace:packages-internal/middleware-http-debug-log"
   dependencies:
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/types": "npm:^4.12.0"
@@ -23948,9 +23948,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-location-constraint@npm:*, @aws-sdk/middleware-location-constraint@workspace:packages/middleware-location-constraint":
+"@aws-sdk/middleware-location-constraint@npm:*, @aws-sdk/middleware-location-constraint@workspace:packages-internal/middleware-location-constraint":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-location-constraint@workspace:packages/middleware-location-constraint"
+  resolution: "@aws-sdk/middleware-location-constraint@workspace:packages-internal/middleware-location-constraint"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/types": "npm:^4.12.0"
@@ -23963,9 +23963,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-logger@npm:*, @aws-sdk/middleware-logger@workspace:packages/middleware-logger":
+"@aws-sdk/middleware-logger@npm:*, @aws-sdk/middleware-logger@workspace:packages-internal/middleware-logger":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-logger@workspace:packages/middleware-logger"
+  resolution: "@aws-sdk/middleware-logger@workspace:packages-internal/middleware-logger"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/types": "npm:^4.12.0"
@@ -23979,9 +23979,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-recursion-detection@npm:*, @aws-sdk/middleware-recursion-detection@workspace:packages/middleware-recursion-detection":
+"@aws-sdk/middleware-recursion-detection@npm:*, @aws-sdk/middleware-recursion-detection@workspace:packages-internal/middleware-recursion-detection":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-recursion-detection@workspace:packages/middleware-recursion-detection"
+  resolution: "@aws-sdk/middleware-recursion-detection@workspace:packages-internal/middleware-recursion-detection"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@aws/lambda-invoke-store": "npm:^0.2.2"
@@ -23996,9 +23996,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-api-gateway@npm:*, @aws-sdk/middleware-sdk-api-gateway@workspace:packages/middleware-sdk-api-gateway":
+"@aws-sdk/middleware-sdk-api-gateway@npm:*, @aws-sdk/middleware-sdk-api-gateway@workspace:packages-internal/middleware-sdk-api-gateway":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-sdk-api-gateway@workspace:packages/middleware-sdk-api-gateway"
+  resolution: "@aws-sdk/middleware-sdk-api-gateway@workspace:packages-internal/middleware-sdk-api-gateway"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/protocol-http": "npm:^5.3.8"
@@ -24012,9 +24012,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-ec2@npm:*, @aws-sdk/middleware-sdk-ec2@workspace:packages/middleware-sdk-ec2":
+"@aws-sdk/middleware-sdk-ec2@npm:*, @aws-sdk/middleware-sdk-ec2@workspace:packages-internal/middleware-sdk-ec2":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-sdk-ec2@workspace:packages/middleware-sdk-ec2"
+  resolution: "@aws-sdk/middleware-sdk-ec2@workspace:packages-internal/middleware-sdk-ec2"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@aws-sdk/util-format-url": "npm:*"
@@ -24032,9 +24032,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-glacier@npm:*, @aws-sdk/middleware-sdk-glacier@workspace:packages/middleware-sdk-glacier":
+"@aws-sdk/middleware-sdk-glacier@npm:*, @aws-sdk/middleware-sdk-glacier@workspace:packages-internal/middleware-sdk-glacier":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-sdk-glacier@workspace:packages/middleware-sdk-glacier"
+  resolution: "@aws-sdk/middleware-sdk-glacier@workspace:packages-internal/middleware-sdk-glacier"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/protocol-http": "npm:^5.3.8"
@@ -24048,9 +24048,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-machinelearning@npm:*, @aws-sdk/middleware-sdk-machinelearning@workspace:packages/middleware-sdk-machinelearning":
+"@aws-sdk/middleware-sdk-machinelearning@npm:*, @aws-sdk/middleware-sdk-machinelearning@workspace:packages-internal/middleware-sdk-machinelearning":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-sdk-machinelearning@workspace:packages/middleware-sdk-machinelearning"
+  resolution: "@aws-sdk/middleware-sdk-machinelearning@workspace:packages-internal/middleware-sdk-machinelearning"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/protocol-http": "npm:^5.3.8"
@@ -24064,9 +24064,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-rds@npm:*, @aws-sdk/middleware-sdk-rds@workspace:packages/middleware-sdk-rds":
+"@aws-sdk/middleware-sdk-rds@npm:*, @aws-sdk/middleware-sdk-rds@workspace:packages-internal/middleware-sdk-rds":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-sdk-rds@workspace:packages/middleware-sdk-rds"
+  resolution: "@aws-sdk/middleware-sdk-rds@workspace:packages-internal/middleware-sdk-rds"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@aws-sdk/util-format-url": "npm:*"
@@ -24083,9 +24083,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-route53@npm:*, @aws-sdk/middleware-sdk-route53@workspace:packages/middleware-sdk-route53":
+"@aws-sdk/middleware-sdk-route53@npm:*, @aws-sdk/middleware-sdk-route53@workspace:packages-internal/middleware-sdk-route53":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-sdk-route53@workspace:packages/middleware-sdk-route53"
+  resolution: "@aws-sdk/middleware-sdk-route53@workspace:packages-internal/middleware-sdk-route53"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/types": "npm:^4.12.0"
@@ -24098,9 +24098,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-s3-control@npm:*, @aws-sdk/middleware-sdk-s3-control@workspace:packages/middleware-sdk-s3-control":
+"@aws-sdk/middleware-sdk-s3-control@npm:*, @aws-sdk/middleware-sdk-s3-control@workspace:packages-internal/middleware-sdk-s3-control":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-sdk-s3-control@workspace:packages/middleware-sdk-s3-control"
+  resolution: "@aws-sdk/middleware-sdk-s3-control@workspace:packages-internal/middleware-sdk-s3-control"
   dependencies:
     "@aws-sdk/middleware-bucket-endpoint": "npm:*"
     "@aws-sdk/types": "npm:*"
@@ -24119,9 +24119,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-s3@npm:*, @aws-sdk/middleware-sdk-s3@workspace:packages/middleware-sdk-s3":
+"@aws-sdk/middleware-sdk-s3@npm:*, @aws-sdk/middleware-sdk-s3@workspace:packages-internal/middleware-sdk-s3":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-sdk-s3@workspace:packages/middleware-sdk-s3"
+  resolution: "@aws-sdk/middleware-sdk-s3@workspace:packages-internal/middleware-sdk-s3"
   dependencies:
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/types": "npm:*"
@@ -24145,9 +24145,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-sqs@npm:*, @aws-sdk/middleware-sdk-sqs@workspace:packages/middleware-sdk-sqs":
+"@aws-sdk/middleware-sdk-sqs@npm:*, @aws-sdk/middleware-sdk-sqs@workspace:packages-internal/middleware-sdk-sqs":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-sdk-sqs@workspace:packages/middleware-sdk-sqs"
+  resolution: "@aws-sdk/middleware-sdk-sqs@workspace:packages-internal/middleware-sdk-sqs"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/smithy-client": "npm:^4.10.11"
@@ -24163,9 +24163,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-sts@workspace:packages/middleware-sdk-sts":
+"@aws-sdk/middleware-sdk-sts@workspace:packages-internal/middleware-sdk-sts":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-sdk-sts@workspace:packages/middleware-sdk-sts"
+  resolution: "@aws-sdk/middleware-sdk-sts@workspace:packages-internal/middleware-sdk-sts"
   dependencies:
     "@aws-sdk/middleware-signing": "npm:*"
     "@aws-sdk/types": "npm:*"
@@ -24179,9 +24179,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-sdk-transcribe-streaming@npm:*, @aws-sdk/middleware-sdk-transcribe-streaming@workspace:packages/middleware-sdk-transcribe-streaming":
+"@aws-sdk/middleware-sdk-transcribe-streaming@npm:*, @aws-sdk/middleware-sdk-transcribe-streaming@workspace:packages-internal/middleware-sdk-transcribe-streaming":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-sdk-transcribe-streaming@workspace:packages/middleware-sdk-transcribe-streaming"
+  resolution: "@aws-sdk/middleware-sdk-transcribe-streaming@workspace:packages-internal/middleware-sdk-transcribe-streaming"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@aws-sdk/util-format-url": "npm:*"
@@ -24200,9 +24200,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-signing@npm:*, @aws-sdk/middleware-signing@workspace:packages/middleware-signing":
+"@aws-sdk/middleware-signing@npm:*, @aws-sdk/middleware-signing@workspace:packages-internal/middleware-signing":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-signing@workspace:packages/middleware-signing"
+  resolution: "@aws-sdk/middleware-signing@workspace:packages-internal/middleware-signing"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/property-provider": "npm:^4.2.8"
@@ -24219,9 +24219,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-ssec@npm:*, @aws-sdk/middleware-ssec@workspace:packages/middleware-ssec":
+"@aws-sdk/middleware-ssec@npm:*, @aws-sdk/middleware-ssec@workspace:packages-internal/middleware-ssec":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-ssec@workspace:packages/middleware-ssec"
+  resolution: "@aws-sdk/middleware-ssec@workspace:packages-internal/middleware-ssec"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/types": "npm:^4.12.0"
@@ -24234,9 +24234,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-token@npm:*, @aws-sdk/middleware-token@workspace:packages/middleware-token":
+"@aws-sdk/middleware-token@npm:*, @aws-sdk/middleware-token@workspace:packages-internal/middleware-token":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-token@workspace:packages/middleware-token"
+  resolution: "@aws-sdk/middleware-token@workspace:packages-internal/middleware-token"
   dependencies:
     "@aws-sdk/token-providers": "npm:*"
     "@aws-sdk/types": "npm:*"
@@ -24254,9 +24254,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-user-agent@npm:*, @aws-sdk/middleware-user-agent@workspace:packages/middleware-user-agent":
+"@aws-sdk/middleware-user-agent@npm:*, @aws-sdk/middleware-user-agent@workspace:packages-internal/middleware-user-agent":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-user-agent@workspace:packages/middleware-user-agent"
+  resolution: "@aws-sdk/middleware-user-agent@workspace:packages-internal/middleware-user-agent"
   dependencies:
     "@aws-sdk/core": "npm:*"
     "@aws-sdk/types": "npm:*"
@@ -24273,9 +24273,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/middleware-websocket@npm:*, @aws-sdk/middleware-websocket@workspace:packages/middleware-websocket":
+"@aws-sdk/middleware-websocket@npm:*, @aws-sdk/middleware-websocket@workspace:packages-internal/middleware-websocket":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/middleware-websocket@workspace:packages/middleware-websocket"
+  resolution: "@aws-sdk/middleware-websocket@workspace:packages-internal/middleware-websocket"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@aws-sdk/util-format-url": "npm:*"
@@ -24402,9 +24402,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/region-config-resolver@npm:*, @aws-sdk/region-config-resolver@workspace:packages/region-config-resolver":
+"@aws-sdk/region-config-resolver@npm:*, @aws-sdk/region-config-resolver@workspace:packages-internal/region-config-resolver":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/region-config-resolver@workspace:packages/region-config-resolver"
+  resolution: "@aws-sdk/region-config-resolver@workspace:packages-internal/region-config-resolver"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/config-resolver": "npm:^4.4.6"
@@ -24465,9 +24465,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/sha256-tree-hash@npm:*, @aws-sdk/sha256-tree-hash@workspace:packages/sha256-tree-hash":
+"@aws-sdk/sha256-tree-hash@npm:*, @aws-sdk/sha256-tree-hash@workspace:packages-internal/sha256-tree-hash":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/sha256-tree-hash@workspace:packages/sha256-tree-hash"
+  resolution: "@aws-sdk/sha256-tree-hash@workspace:packages-internal/sha256-tree-hash"
   dependencies:
     "@aws-crypto/sha256-js": "npm:5.2.0"
     "@aws-sdk/types": "npm:*"
@@ -24597,9 +24597,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/util-arn-parser@npm:*, @aws-sdk/util-arn-parser@workspace:packages/util-arn-parser":
+"@aws-sdk/util-arn-parser@npm:*, @aws-sdk/util-arn-parser@workspace:packages-internal/util-arn-parser":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/util-arn-parser@workspace:packages/util-arn-parser"
+  resolution: "@aws-sdk/util-arn-parser@workspace:packages-internal/util-arn-parser"
   dependencies:
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
@@ -24611,9 +24611,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-create-request@workspace:packages/util-create-request":
+"@aws-sdk/util-create-request@workspace:packages-internal/util-create-request":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/util-create-request@workspace:packages/util-create-request"
+  resolution: "@aws-sdk/util-create-request@workspace:packages-internal/util-create-request"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/middleware-stack": "npm:^4.2.8"
@@ -24630,9 +24630,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-dns@workspace:packages/util-dns":
+"@aws-sdk/util-dns@workspace:packages-internal/util-dns":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/util-dns@workspace:packages/util-dns"
+  resolution: "@aws-sdk/util-dns@workspace:packages-internal/util-dns"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -24678,9 +24678,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-format-url@npm:*, @aws-sdk/util-format-url@workspace:packages/util-format-url":
+"@aws-sdk/util-format-url@npm:*, @aws-sdk/util-format-url@workspace:packages-internal/util-format-url":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/util-format-url@workspace:packages/util-format-url"
+  resolution: "@aws-sdk/util-format-url@workspace:packages-internal/util-format-url"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/querystring-builder": "npm:^4.2.8"
@@ -24708,9 +24708,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-user-agent-browser@npm:*, @aws-sdk/util-user-agent-browser@workspace:packages/util-user-agent-browser":
+"@aws-sdk/util-user-agent-browser@npm:*, @aws-sdk/util-user-agent-browser@workspace:packages-internal/util-user-agent-browser":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/util-user-agent-browser@workspace:packages/util-user-agent-browser"
+  resolution: "@aws-sdk/util-user-agent-browser@workspace:packages-internal/util-user-agent-browser"
   dependencies:
     "@aws-sdk/types": "npm:*"
     "@smithy/types": "npm:^4.12.0"
@@ -24724,9 +24724,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-user-agent-node@npm:*, @aws-sdk/util-user-agent-node@workspace:packages/util-user-agent-node":
+"@aws-sdk/util-user-agent-node@npm:*, @aws-sdk/util-user-agent-node@workspace:packages-internal/util-user-agent-node":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/util-user-agent-node@workspace:packages/util-user-agent-node"
+  resolution: "@aws-sdk/util-user-agent-node@workspace:packages-internal/util-user-agent-node"
   dependencies:
     "@aws-sdk/middleware-user-agent": "npm:*"
     "@aws-sdk/types": "npm:*"
@@ -24880,9 +24880,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/xml-builder@npm:*, @aws-sdk/xml-builder@workspace:packages/xml-builder":
+"@aws-sdk/xml-builder@npm:*, @aws-sdk/xml-builder@workspace:packages-internal/xml-builder":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/xml-builder@workspace:packages/xml-builder"
+  resolution: "@aws-sdk/xml-builder@workspace:packages-internal/xml-builder"
   dependencies:
     "@smithy/types": "npm:^4.12.0"
     "@tsconfig/recommended": "npm:1.0.1"
