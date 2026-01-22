@@ -160,10 +160,11 @@ const _DNCT = "DeleteNotificationConfigurationType";
 const _DNCTe = "DescribeNotificationConfigurationsType";
 const _DNCe = "DescribeNotificationConfigurations";
 const _DOT = "DeleteOnTermination";
-const _DP = "DeletePolicy";
+const _DP = "DeletionProtection";
 const _DPT = "DeletePolicyType";
 const _DPTe = "DescribePoliciesType";
-const _DPe = "DescribePolicies";
+const _DPe = "DeletePolicy";
+const _DPes = "DescribePolicies";
 const _DR = "DefaultResult";
 const _DSA = "DeleteScheduledAction";
 const _DSAT = "DeleteScheduledActionType";
@@ -695,8 +696,8 @@ export var AttachTrafficSourcesType$: StaticStructureSchema = [3, n0, _ATST,
 ];
 export var AutoScalingGroup$: StaticStructureSchema = [3, n0, _ASG,
   0,
-  [_ASGN, _MS, _MSa, _DC, _DCe, _AZ, _HCT, _CT, _ASGARN, _LCN, _LT, _MIP, _PC, _LBN, _TGARN, _HCGP, _I, _SP, _PG, _VPCZI, _EM, _S, _T, _TP, _NIPFSI, _SLRARN, _MIL, _CR, _WPC, _WPS, _Co, _DCT, _DIW, _TS, _IMP, _AZD, _AZIP, _CRS, _ILP],
-  [0, 1, 1, 1, 1, 64 | 0, 0, 4, 0, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 1, 64 | 0, 64 | 0, 1, () => Instances, () => SuspendedProcesses, 0, 0, () => EnabledMetrics, 0, () => TagDescriptionList, 64 | 0, 2, 0, 1, 2, () => WarmPoolConfiguration$, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$], 8
+  [_ASGN, _MS, _MSa, _DC, _DCe, _AZ, _HCT, _CT, _ASGARN, _LCN, _LT, _MIP, _PC, _LBN, _TGARN, _HCGP, _I, _SP, _PG, _VPCZI, _EM, _S, _T, _TP, _NIPFSI, _SLRARN, _MIL, _CR, _WPC, _WPS, _Co, _DCT, _DIW, _TS, _IMP, _DP, _AZD, _AZIP, _CRS, _ILP],
+  [0, 1, 1, 1, 1, 64 | 0, 0, 4, 0, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 1, 64 | 0, 64 | 0, 1, () => Instances, () => SuspendedProcesses, 0, 0, () => EnabledMetrics, 0, () => TagDescriptionList, 64 | 0, 2, 0, 1, 2, () => WarmPoolConfiguration$, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, 0, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$], 8
 ];
 export var AutoScalingGroupNamesType$: StaticStructureSchema = [3, n0, _ASGNT,
   0,
@@ -805,8 +806,8 @@ export var CpuPerformanceFactorRequest$: StaticStructureSchema = [3, n0, _CPFR,
 ];
 export var CreateAutoScalingGroupType$: StaticStructureSchema = [3, n0, _CASGT,
   0,
-  [_ASGN, _MS, _MSa, _LCN, _LT, _MIP, _IIns, _DC, _DCe, _AZ, _LBN, _TGARN, _HCT, _HCGP, _PG, _VPCZI, _TP, _NIPFSI, _CR, _LHSL, _T, _SLRARN, _MIL, _Co, _DCT, _DIW, _TS, _IMP, _AZD, _AZIP, _SZSV, _CRS, _ILP],
-  [0, 1, 1, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 0, 1, 1, 64 | 0, 64 | 0, 64 | 0, 0, 1, 0, 0, 64 | 0, 2, 2, () => LifecycleHookSpecifications, () => Tags, 0, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, 2, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$], 3
+  [_ASGN, _MS, _MSa, _LCN, _LT, _MIP, _IIns, _DC, _DCe, _AZ, _LBN, _TGARN, _HCT, _HCGP, _PG, _VPCZI, _TP, _NIPFSI, _CR, _LHSL, _DP, _T, _SLRARN, _MIL, _Co, _DCT, _DIW, _TS, _IMP, _AZD, _AZIP, _SZSV, _CRS, _ILP],
+  [0, 1, 1, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 0, 1, 1, 64 | 0, 64 | 0, 64 | 0, 0, 1, 0, 0, 64 | 0, 2, 2, () => LifecycleHookSpecifications, 0, () => Tags, 0, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, 2, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$], 3
 ];
 export var CreateLaunchConfigurationType$: StaticStructureSchema = [3, n0, _CLCT,
   0,
@@ -1614,8 +1615,8 @@ export var TrafficSourceState$: StaticStructureSchema = [3, n0, _TSS,
 ];
 export var UpdateAutoScalingGroupType$: StaticStructureSchema = [3, n0, _UASGT,
   0,
-  [_ASGN, _LCN, _LT, _MIP, _MS, _MSa, _DC, _DCe, _AZ, _HCT, _HCGP, _PG, _VPCZI, _TP, _NIPFSI, _SLRARN, _MIL, _CR, _Co, _DCT, _DIW, _IMP, _AZD, _AZIP, _SZSV, _CRS, _ILP],
-  [0, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 1, 1, 1, 1, 64 | 0, 0, 1, 0, 0, 64 | 0, 2, 0, 1, 2, 0, 0, 1, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, 2, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$], 1
+  [_ASGN, _LCN, _LT, _MIP, _MS, _MSa, _DC, _DCe, _AZ, _HCT, _HCGP, _PG, _VPCZI, _TP, _NIPFSI, _SLRARN, _MIL, _CR, _Co, _DCT, _DIW, _IMP, _AZD, _AZIP, _SZSV, _CRS, _ILP, _DP],
+  [0, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 1, 1, 1, 1, 64 | 0, 0, 1, 0, 0, 64 | 0, 2, 0, 1, 2, 0, 0, 1, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, 2, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$, 0], 1
 ];
 export var VCpuCountRequest$: StaticStructureSchema = [3, n0, _VCCR,
   0,
@@ -1829,7 +1830,7 @@ export var DeleteLifecycleHook$: StaticOperationSchema = [9, n0, _DLH,
 export var DeleteNotificationConfiguration$: StaticOperationSchema = [9, n0, _DNC,
   0, () => DeleteNotificationConfigurationType$, () => __Unit
 ];
-export var DeletePolicy$: StaticOperationSchema = [9, n0, _DP,
+export var DeletePolicy$: StaticOperationSchema = [9, n0, _DPe,
   0, () => DeletePolicyType$, () => __Unit
 ];
 export var DeleteScheduledAction$: StaticOperationSchema = [9, n0, _DSA,
@@ -1880,7 +1881,7 @@ export var DescribeMetricCollectionTypes$: StaticOperationSchema = [9, n0, _DMCT
 export var DescribeNotificationConfigurations$: StaticOperationSchema = [9, n0, _DNCe,
   0, () => DescribeNotificationConfigurationsType$, () => DescribeNotificationConfigurationsAnswer$
 ];
-export var DescribePolicies$: StaticOperationSchema = [9, n0, _DPe,
+export var DescribePolicies$: StaticOperationSchema = [9, n0, _DPes,
   0, () => DescribePoliciesType$, () => PoliciesType$
 ];
 export var DescribeScalingActivities$: StaticOperationSchema = [9, n0, _DSAe,

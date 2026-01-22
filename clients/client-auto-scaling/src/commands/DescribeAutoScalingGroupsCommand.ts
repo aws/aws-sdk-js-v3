@@ -260,6 +260,7 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //         MinHealthyPercentage: Number("int"),
  * //         MaxHealthyPercentage: Number("int"),
  * //       },
+ * //       DeletionProtection: "none" || "prevent-force-deletion" || "prevent-all-deletion",
  * //       AvailabilityZoneDistribution: { // AvailabilityZoneDistribution
  * //         CapacityDistributionStrategy: "balanced-only" || "balanced-best-effort",
  * //       },

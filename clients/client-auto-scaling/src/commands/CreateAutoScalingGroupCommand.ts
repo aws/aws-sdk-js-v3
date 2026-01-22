@@ -195,6 +195,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *       RoleARN: "STRING_VALUE",
  *     },
  *   ],
+ *   DeletionProtection: "none" || "prevent-force-deletion" || "prevent-all-deletion",
  *   Tags: [ // Tags
  *     { // Tag
  *       ResourceId: "STRING_VALUE",

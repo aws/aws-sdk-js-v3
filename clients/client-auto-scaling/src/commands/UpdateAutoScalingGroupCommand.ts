@@ -239,6 +239,7 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *       TerminateHookAbandon: "retain" || "terminate",
  *     },
  *   },
+ *   DeletionProtection: "none" || "prevent-force-deletion" || "prevent-all-deletion",
  * };
  * const command = new UpdateAutoScalingGroupCommand(input);
  * const response = await client.send(command);

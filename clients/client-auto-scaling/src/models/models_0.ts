@@ -8,6 +8,7 @@ import {
   CapacityDistributionStrategy,
   CapacityReservationPreference,
   CpuManufacturer,
+  DeletionProtection,
   ImpairedZoneHealthCheckBehavior,
   InstanceGeneration,
   InstanceMetadataEndpointState,
@@ -2105,6 +2106,23 @@ export interface CreateAutoScalingGroupType {
   LifecycleHookSpecificationList?: LifecycleHookSpecification[] | undefined;
 
   /**
+   * <p>
+   *             The deletion protection setting for the Auto Scaling group. This setting helps safeguard your Auto Scaling group and its
+   *             instances by controlling whether the <code>DeleteAutoScalingGroup</code> operation is allowed. When deletion
+   *             protection is enabled, users cannot delete the Auto Scaling group according to the specified protection level until
+   *             the setting is changed back to a less restrictive level.
+   *         </p>
+   *          <p>
+   *             The valid values are <code>none</code>, <code>prevent-force-deletion</code>, and <code>prevent-all-deletion</code>.
+   *         </p>
+   *          <p>
+   *             Default: <code>none</code>
+   *          </p>
+   * @public
+   */
+  DeletionProtection?: DeletionProtection | undefined;
+
+  /**
    * <p>One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2
    *             instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS
    *             volumes, specify the tags in a launch template but use caution. If the launch template
@@ -3568,6 +3586,12 @@ export interface AutoScalingGroup {
    * @public
    */
   InstanceMaintenancePolicy?: InstanceMaintenancePolicy | undefined;
+
+  /**
+   * <p>The deletion protection setting for the Auto Scaling group.</p>
+   * @public
+   */
+  DeletionProtection?: DeletionProtection | undefined;
 
   /**
    * <p>The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.</p>
@@ -8496,4 +8520,21 @@ export interface UpdateAutoScalingGroupType {
    * @public
    */
   InstanceLifecyclePolicy?: InstanceLifecyclePolicy | undefined;
+
+  /**
+   * <p>
+   *             The deletion protection setting for the Auto Scaling group. This setting helps safeguard your Auto Scaling group and its
+   *             instances by controlling whether the <code>DeleteAutoScalingGroup</code> operation is allowed. When deletion
+   *             protection is enabled, users cannot delete the Auto Scaling group according to the specified protection level until
+   *             the setting is changed back to a less restrictive level.
+   *         </p>
+   *          <p>
+   *             The valid values are <code>none</code>, <code>prevent-force-deletion</code>, and <code>prevent-all-deletion</code>.
+   *         </p>
+   *          <p>
+   *             Default: <code>none</code>
+   *          </p>
+   * @public
+   */
+  DeletionProtection?: DeletionProtection | undefined;
 }
