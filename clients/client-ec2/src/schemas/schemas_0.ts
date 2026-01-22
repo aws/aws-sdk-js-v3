@@ -2802,6 +2802,7 @@ const _GOI = "GroupOwnerId";
 const _GPD = "GetPasswordData";
 const _GPDR = "GetPasswordDataRequest";
 const _GPDRe = "GetPasswordDataResult";
+const _GPS = "GpuPartitionSize";
 const _GRIEQ = "GetReservedInstancesExchangeQuote";
 const _GRIEQR = "GetReservedInstancesExchangeQuoteRequest";
 const _GRIEQRe = "GetReservedInstancesExchangeQuoteResult";
@@ -3488,6 +3489,7 @@ const _LF = "LogFormat";
 const _LFA = "LambdaFunctionArn";
 const _LG = "LocalGateways";
 const _LGA = "LogGroupArn";
+const _LGC = "LogicalGpuCount";
 const _LGI = "LocalGatewayId";
 const _LGIS = "LocalGatewayIdSet";
 const _LGIi = "LinkedGroupId";
@@ -5921,9 +5923,11 @@ const _WBCR = "WithdrawByoipCidrRequest";
 const _WBCRi = "WithdrawByoipCidrResult";
 const _WC = "WithCooldown";
 const _WCe = "WeightedCapacity";
+const _WL = "WorkloadsList";
 const _WM = "WarningMessage";
 const _WU = "WakeUp";
 const _We = "Weight";
+const _Wo = "Workloads";
 const _ZI = "ZoneId";
 const _ZISL = "ZoneIdStringList";
 const _ZIo = "ZoneIds";
@@ -6589,6 +6593,7 @@ const _gLN = "groupLongName";
 const _gM = "groupMember";
 const _gN = "groupName";
 const _gOI = "groupOwnerId";
+const _gPS = "gpuPartitionSize";
 const _gS = "groupSet";
 const _gSr = "groupSource";
 const _gp = "gpus";
@@ -6896,6 +6901,7 @@ const _lF = "logFormat";
 const _lFA = "lambdaFunctionArn";
 const _lG = "launchGroup";
 const _lGA = "logGroupArn";
+const _lGC = "logicalGpuCount";
 const _lGI = "localGatewayId";
 const _lGIi = "linkedGroupId";
 const _lGN = "logGroupName";
@@ -7959,6 +7965,7 @@ const _vpc = "vpcs";
 const _w = "warning";
 const _wC = "weightedCapacity";
 const _wM = "warningMessage";
+const _wS = "workloadSet";
 const _we = "weight";
 const _xN = "xmlName";
 const _zI = "zoneId";
@@ -17134,11 +17141,14 @@ export var GetVpnTunnelReplacementStatusResult$: StaticStructureSchema = [3, n0,
 ];
 export var GpuDeviceInfo$: StaticStructureSchema = [3, n0, _GDI,
   0,
-  [_N, _Man, _Cou, _MIe],
+  [_N, _Man, _Cou, _LGC, _GPS, _Wo, _MIe],
   [[0, { [_eQN]: `Name`
   , [_xN]: _n }], [0, { [_eQN]: `Manufacturer`
   , [_xN]: _man }], [1, { [_eQN]: `Count`
-  , [_xN]: _cou }], [() => GpuDeviceMemoryInfo$, { [_eQN]: `MemoryInfo`
+  , [_xN]: _cou }], [1, { [_eQN]: `LogicalGpuCount`
+  , [_xN]: _lGC }], [1, { [_eQN]: `GpuPartitionSize`
+  , [_xN]: _gPS }], [() => WorkloadsList, { [_eQN]: `WorkloadSet`
+  , [_xN]: _wS }], [() => GpuDeviceMemoryInfo$, { [_eQN]: `MemoryInfo`
   , [_xN]: _mIe }]]
 ];
 export var GpuDeviceMemoryInfo$: StaticStructureSchema = [3, n0, _GDMI,
@@ -27777,6 +27787,10 @@ var VpnStaticRouteList: StaticListSchema = [1, n0, _VSRL,
 var VpnTunnelOptionsSpecificationsList: StaticListSchema = [1, n0, _VTOSL,
   0, [() => VpnTunnelOptionsSpecification$,
     0]
+];
+var WorkloadsList: StaticListSchema = [1, n0, _WL,
+  0, [0,
+    { [_xN]: _it }]
 ];
 var ZoneIdStringList: StaticListSchema = [1, n0, _ZISL,
   0, [0,

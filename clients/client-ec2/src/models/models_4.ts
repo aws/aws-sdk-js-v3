@@ -2352,6 +2352,24 @@ export interface GpuDeviceInfo {
   Count?: number | undefined;
 
   /**
+   * <p>Total number of GPU devices of this type.</p>
+   * @public
+   */
+  LogicalGpuCount?: number | undefined;
+
+  /**
+   * <p>The size of each GPU as a fraction of a full GPU, between 0 (excluded) and 1 (included).</p>
+   * @public
+   */
+  GpuPartitionSize?: number | undefined;
+
+  /**
+   * <p>A list of workload types this GPU supports.</p>
+   * @public
+   */
+  Workloads?: string[] | undefined;
+
+  /**
    * <p>Describes the memory available to the GPU accelerator.</p>
    * @public
    */

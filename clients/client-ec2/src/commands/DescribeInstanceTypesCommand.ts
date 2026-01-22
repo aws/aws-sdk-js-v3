@@ -174,6 +174,11 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //             Name: "STRING_VALUE",
  * //             Manufacturer: "STRING_VALUE",
  * //             Count: Number("int"),
+ * //             LogicalGpuCount: Number("int"),
+ * //             GpuPartitionSize: Number("double"),
+ * //             Workloads: [ // WorkloadsList
+ * //               "STRING_VALUE",
+ * //             ],
  * //             MemoryInfo: { // GpuDeviceMemoryInfo
  * //               SizeInMiB: Number("int"),
  * //             },
