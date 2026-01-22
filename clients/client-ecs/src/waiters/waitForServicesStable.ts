@@ -54,9 +54,9 @@ const checkState = async (client: ECSClient, input: DescribeServicesCommandInput
     try {
       const returnComparator = () => {
         let filterRes_2 = result.services.filter((element_1: any) => {
-          return (!((element_1.deployments.length == 1.0) && (element_1.runningCount == element_1.desiredCount)));
+          return (!((element_1.deployments.length == 1) && (element_1.runningCount == element_1.desiredCount)));
         });
-        return (filterRes_2.length == 0.0);
+        return (filterRes_2.length == 0);
       }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };

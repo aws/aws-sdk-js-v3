@@ -240,6 +240,10 @@ import type {
 } from "./commands/TimestampFormatHeadersCommand";
 import type { XmlAttributesCommandInput, XmlAttributesCommandOutput } from "./commands/XmlAttributesCommand";
 import type {
+  XmlAttributesInMiddleCommandInput,
+  XmlAttributesInMiddleCommandOutput,
+} from "./commands/XmlAttributesInMiddleCommand";
+import type {
   XmlAttributesOnPayloadCommandInput,
   XmlAttributesOnPayloadCommandOutput,
 } from "./commands/XmlAttributesOnPayloadCommand";
@@ -324,6 +328,7 @@ export type ServiceInputTypes =
   | SimpleScalarPropertiesCommandInput
   | TimestampFormatHeadersCommandInput
   | XmlAttributesCommandInput
+  | XmlAttributesInMiddleCommandInput
   | XmlAttributesOnPayloadCommandInput
   | XmlBlobsCommandInput
   | XmlEmptyBlobsCommandInput
@@ -393,6 +398,7 @@ export type ServiceOutputTypes =
   | SimpleScalarPropertiesCommandOutput
   | TimestampFormatHeadersCommandOutput
   | XmlAttributesCommandOutput
+  | XmlAttributesInMiddleCommandOutput
   | XmlAttributesOnPayloadCommandOutput
   | XmlBlobsCommandOutput
   | XmlEmptyBlobsCommandOutput

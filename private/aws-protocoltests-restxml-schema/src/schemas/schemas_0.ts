@@ -168,6 +168,11 @@ const _UP = "UnionPayload";
 const _V = "V";
 const _XA = "X-A";
 const _XAAI = "X-Amz-Account-Id";
+const _XAIM = "XmlAttributesInMiddle";
+const _XAIMPR = "XmlAttributesInMiddlePayloadRequest";
+const _XAIMPRm = "XmlAttributesInMiddlePayloadResponse";
+const _XAIMR = "XmlAttributesInMiddleRequest";
+const _XAIMRm = "XmlAttributesInMiddleResponse";
 const _XAOP = "XmlAttributesOnPayload";
 const _XAOPR = "XmlAttributesOnPayloadRequest";
 const _XAOPRm = "XmlAttributesOnPayloadResponse";
@@ -762,6 +767,26 @@ export var TimestampFormatHeadersIO$: StaticStructureSchema = [3, n1, _TFHIO,
   [_mES, _mHD, _mDT, _dF, _tES, _tHD, _tDT],
   [[7, { [_hH]: _Xm }], [6, { [_hH]: _Xm_ }], [5, { [_hH]: _Xm__ }], [4, { [_hH]: _Xd }], [7, { [_hH]: _Xt }], [6, { [_hH]: _Xt_ }], [5, { [_hH]: _Xt__ }]]
 ];
+export var XmlAttributesInMiddlePayloadRequest$: StaticStructureSchema = [3, n1, _XAIMPR,
+  0,
+  [_f, _at, _b],
+  [0, [0, { [_xA]: 1, [_xN]: _te }], 0]
+];
+export var XmlAttributesInMiddlePayloadResponse$: StaticStructureSchema = [3, n1, _XAIMPRm,
+  0,
+  [_f, _at, _b],
+  [0, [0, { [_xA]: 1, [_xN]: _te }], 0]
+];
+export var XmlAttributesInMiddleRequest$: StaticStructureSchema = [3, n1, _XAIMR,
+  0,
+  [_p],
+  [[() => XmlAttributesInMiddlePayloadRequest$, 16]]
+];
+export var XmlAttributesInMiddleResponse$: StaticStructureSchema = [3, n1, _XAIMRm,
+  0,
+  [_p],
+  [[() => XmlAttributesInMiddlePayloadResponse$, 16]]
+];
 export var XmlAttributesOnPayloadRequest$: StaticStructureSchema = [3, n1, _XAOPR,
   0,
   [_p],
@@ -1188,6 +1213,9 @@ export var TimestampFormatHeaders$: StaticOperationSchema = [9, n1, _TFH,
 ];
 export var XmlAttributes$: StaticOperationSchema = [9, n1, _XAm,
   { [_http_]: ["PUT", "/XmlAttributes", 200] }, () => XmlAttributesRequest$, () => XmlAttributesResponse$
+];
+export var XmlAttributesInMiddle$: StaticOperationSchema = [9, n1, _XAIM,
+  { [_http_]: ["PUT", "/XmlAttributesInMiddle", 200] }, () => XmlAttributesInMiddleRequest$, () => XmlAttributesInMiddleResponse$
 ];
 export var XmlAttributesOnPayload$: StaticOperationSchema = [9, n1, _XAOP,
   { [_http_]: ["PUT", "/XmlAttributesOnPayload", 200] }, () => XmlAttributesOnPayloadRequest$, () => XmlAttributesOnPayloadResponse$
