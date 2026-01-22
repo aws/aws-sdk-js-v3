@@ -31,7 +31,7 @@ const checkState = async (client: DynamoDBClient, input: DescribeKinesisStreamin
         let filterRes_2 = result.KinesisDataStreamDestinations.filter((element_1: any) => {
           return (((element_1.DestinationStatus == "DISABLED") || (element_1.DestinationStatus == "ENABLE_FAILED")) && ((element_1.DestinationStatus == "ENABLE_FAILED") || (element_1.DestinationStatus == "DISABLED"))) ;
         });
-        return ((result.KinesisDataStreamDestinations.length > 0.0) && (filterRes_2.length == result.KinesisDataStreamDestinations.length));
+        return ((result.KinesisDataStreamDestinations.length > 0) && (filterRes_2.length == result.KinesisDataStreamDestinations.length));
       }
       if (returnComparator() == true) {
         return { state: WaiterState.FAILURE, reason };
