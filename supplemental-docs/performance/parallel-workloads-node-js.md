@@ -23,7 +23,7 @@ an effect on request throughput.
 ```ts
 // example: configuring an SDK client for throughput.
 import { S3 } from "@aws-sdk/client-s3";
-import { NodeHttpHandler } from "@smithy/node-http-handler";
+import { NodeHttpHandler } from "@aws-sdk/config/requestHandler";
 import { Agent } from "node:https";
 
 const s3 = new S3({
@@ -99,7 +99,7 @@ const s3_west = new S3({
 // example: credential and socket pool sharing from user instantiated objects.
 import { S3 } from "@aws-sdk/client-s3";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
-import { NodeHttpHandler } from "@smithy/node-http-handler";
+import { NodeHttpHandler } from "@aws-sdk/config/requestHandler";
 
 const credentials = fromNodeProviderChain();
 const requestHandler = new NodeHttpHandler({
@@ -132,14 +132,14 @@ and usage scenario.
 
 ## Avoiding Streaming Deadlock
 
-Because streaming responses stay open until you completely read or abandon the open stream connection, 
+Because streaming responses stay open until you completely read or abandon the open stream connection,
 the socket limit which you configure and how you handle streams can lead to a deadlock scenario.
 
 #### Example deadlock
 
 In this example, the max socket count is 1. When the Promise concurrency tries to `await`
 two simultaneous `getObject` requests, it fails because the streaming response of the first request
-is **not** read to completion, while the second `getObject` request is blocked indefinitely. 
+is **not** read to completion, while the second `getObject` request is blocked indefinitely.
 
 This can cause your application to time out or the Node.js process to exit with code 13.
 
@@ -155,13 +155,10 @@ const s3 = new S3({
 
 // opens connection in parallel,
 // but this await is dangerously placed.
-const responses = await Promise.all([
-  s3.getObject({ Bucket, Key: "1" }),
-  s3.getObject({ Bucket, Key: "2" }),
-]);
+const responses = await Promise.all([s3.getObject({ Bucket, Key: "1" }), s3.getObject({ Bucket, Key: "2" })]);
 
 // reads streaming body in parallel
-await responses.map(get => get.Body.transformToByteArray());
+await responses.map((get) => get.Body.transformToByteArray());
 ```
 
 #### Recommendation
@@ -182,11 +179,8 @@ const s3 = new S3({
   },
 });
 
-const responses = ([
-  s3.getObject({ Bucket, Key: "1" }),
-  s3.getObject({ Bucket, Key: "2" }),
-]);
-const objects = responses.map(get => get.Body.transformToByteArray());
+const responses = [s3.getObject({ Bucket, Key: "1" }), s3.getObject({ Bucket, Key: "2" })];
+const objects = responses.map((get) => get.Body.transformToByteArray());
 
 // `await` is placed after the stream-handling pipeline has been established.
 // because of the socket limit of 1, the two streams will be handled

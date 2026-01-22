@@ -3,7 +3,7 @@ const path = require("path");
 
 const singlePkg = process.argv[process.argv.indexOf("--pkg") + 1];
 
-const submodulePackages = singlePkg ? [singlePkg] : ["core", "nested-clients"];
+const submodulePackages = singlePkg ? [singlePkg] : ["core", "nested-clients", "config"];
 
 for (const submodulePackage of submodulePackages) {
   const [a, b] = [

@@ -1,0 +1,125 @@
+{
+  "name": "@aws-sdk/config",
+  "version": "3.0.0",
+  "description": "Injectable dependencies, extensions, and other plugins for AWS SDK clients.",
+  "scripts": {
+    "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build:cjs": "node ../../scripts/compilation/inline config && premove ./dist-cjs/api-extractor-type-index.js",
+    "build:es": "tsc -p tsconfig.es.json && premove ./dist-es/api-extractor-type-index.js",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "lint": "node ../../scripts/validation/submodules-linter.js --pkg config",
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
+    "extract:docs": "api-extractor run --local",
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.mts",
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
+  },
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "exports": {
+    "./credentials": {
+      "types": "./dist-types/submodules/credentials/index.d.ts",
+      "module": "./dist-es/submodules/credentials/index.js",
+      "node": "./dist-cjs/submodules/credentials/index.js",
+      "import": "./dist-es/submodules/credentials/index.js",
+      "require": "./dist-cjs/submodules/credentials/index.js"
+    },
+    "./logger": {
+      "types": "./dist-types/submodules/logger/index.d.ts",
+      "module": "./dist-es/submodules/logger/index.js",
+      "node": "./dist-cjs/submodules/logger/index.js",
+      "import": "./dist-es/submodules/logger/index.js",
+      "require": "./dist-cjs/submodules/logger/index.js"
+    },
+    "./protocol": {
+      "types": "./dist-types/submodules/protocol/index.d.ts",
+      "module": "./dist-es/submodules/protocol/index.js",
+      "node": "./dist-cjs/submodules/protocol/index.js",
+      "import": "./dist-es/submodules/protocol/index.js",
+      "require": "./dist-cjs/submodules/protocol/index.js"
+    },
+    "./requestHandler": {
+      "types": "./dist-types/submodules/requestHandler/index.d.ts",
+      "module": "./dist-es/submodules/requestHandler/index.js",
+      "node": "./dist-cjs/submodules/requestHandler/index.js",
+      "import": "./dist-es/submodules/requestHandler/index.js",
+      "require": "./dist-cjs/submodules/requestHandler/index.js"
+    },
+    "./retryStrategy": {
+      "types": "./dist-types/submodules/retryStrategy/index.d.ts",
+      "module": "./dist-es/submodules/retryStrategy/index.js",
+      "node": "./dist-cjs/submodules/retryStrategy/index.js",
+      "import": "./dist-es/submodules/retryStrategy/index.js",
+      "require": "./dist-cjs/submodules/retryStrategy/index.js"
+    },
+    "./typecheck": {
+      "types": "./dist-types/submodules/typecheck/index.d.ts",
+      "module": "./dist-es/submodules/typecheck/index.js",
+      "node": "./dist-cjs/submodules/typecheck/index.js",
+      "import": "./dist-es/submodules/typecheck/index.js",
+      "require": "./dist-cjs/submodules/typecheck/index.js"
+    }
+  },
+  "files": [
+    "./credentials.d.ts",
+    "./credentials.js",
+    "./logger.d.ts",
+    "./logger.js",
+    "./protocol.d.ts",
+    "./protocol.js",
+    "./requestHandler.d.ts",
+    "./requestHandler.js",
+    "./retryStrategy.d.ts",
+    "./retryStrategy.js",
+    "./typecheck.d.ts",
+    "./typecheck.js",
+    "dist-*/**"
+  ],
+  "sideEffects": false,
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/core": "*",
+    "@aws-sdk/credential-providers": "*",
+    "@aws-sdk/types": "*",
+    "@smithy/core": "^3.21.0",
+    "@smithy/fetch-http-handler": "^5.3.9",
+    "@smithy/node-http-handler": "^4.4.8",
+    "@smithy/protocol-http": "^5.3.8",
+    "@smithy/smithy-client": "^4.10.11",
+    "@smithy/typecheck": "^1.0.4",
+    "@smithy/types": "^4.12.0",
+    "@smithy/util-retry": "^4.2.8",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "1.0.1",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "premove": "4.0.0",
+    "typescript": "~5.8.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/config"
+  }
+}
