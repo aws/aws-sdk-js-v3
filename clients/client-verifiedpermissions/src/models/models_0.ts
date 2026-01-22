@@ -1292,7 +1292,7 @@ export namespace EncryptionSettings {
   }
 
   /**
-   * Use AWS owned encryption keys for encrypting policy store data.
+   * <p>This is the default encryption setting. The policy store uses an Amazon Web Services owned key for encrypting data.</p>
    * @public
    */
   export interface DefaultMember {
@@ -1585,7 +1585,7 @@ export namespace EncryptionState {
   }
 
   /**
-   * Policy store data is encrypted using AWS owned encryption keys.
+   * <p>This is the default encryption state. The policy store is encrypted using an Amazon Web Services owned key.</p>
    * @public
    */
   export interface DefaultMember {
