@@ -45,6 +45,8 @@ void sampleChangelog;
  */
 export async function generateChangelog(packagePath, since) {
   const pkg_json = path.join(packagePath, "package.json");
+  const pkgJson = JSON.parse(fs.readFileSync(pkg_json, "utf-8"));
+
   const changelog_md = path.join(packagePath, "CHANGELOG.md");
 
   if (since === undefined) {
@@ -107,6 +109,9 @@ export async function generateChangelog(packagePath, since) {
     fs.writeFileSync(changelog_md, newContents, "utf-8");
 
     writeToManifest(JSON.parse(fs.readFileSync(pkg_json, "utf-8")));
+    console.info(pkgJson.name, `${pkgJson.version} -> ${newVersion}`, "changelog written.");
+  } else {
+    console.info(pkgJson.name, "no changes.");
   }
 }
 
