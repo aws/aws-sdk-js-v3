@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.974.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.973.0...v3.974.0) (2026-01-22)
+
+
+### Features
+
+* **client-auto-scaling:** This release adds support for Amazon EC2 Auto Scaling group deletion protection ([ce97b63](https://github.com/aws/aws-sdk-js-v3/commit/ce97b637c2ca87fc2278d472a7fdfbeb97c2dac2))
+* **client-budgets:** Add Budget FilterExpression and Metrics fields to DescribeBudgetPerformanceHistory to support more granular filtering options. ([5b7d321](https://github.com/aws/aws-sdk-js-v3/commit/5b7d32177c966a309dbb70196e18f63bafe141f5))
+* **client-dynamodb:** Adds additional waiters to Amazon DynamoDB. ([55f5f7f](https://github.com/aws/aws-sdk-js-v3/commit/55f5f7fda1880ec8009992b4b72921075f828841))
+* **client-ec2:** Add better support for fractional GPU instances in DescribeInstanceTypes API. The new fields, logicalGpuCount, gpuPartitionSize, and workload array enable better GPU resource selection and filtering for both full and fractional GPU instance types. ([72b8a1c](https://github.com/aws/aws-sdk-js-v3/commit/72b8a1cc9b45c014fb73934b8326cb69f35bde43))
+* **client-gamelift:** Amazon GameLift Servers Realtime now supports Node.js 24.x runtime on the Amazon Linux 2023 operating system. ([fa6e74c](https://github.com/aws/aws-sdk-js-v3/commit/fa6e74c6ff4f8b99556d75f1b1ce49a01b0bc60e))
+* **client-guardduty:** Adding new enum value for ScanStatusReason ([a12c8c6](https://github.com/aws/aws-sdk-js-v3/commit/a12c8c688ed02a5cc9020a0e8ec34168080a64e8))
+* **client-health:** Updates the lower range for the maxResults request property for DescribeAffectedEntities, DescribeAffectedEntitiesForOrganization, DescribeEvents, and DescribeEventsForOrganization API request properties. ([202b860](https://github.com/aws/aws-sdk-js-v3/commit/202b860d0e59a579a6bf3dad354b20a5df3fe587))
+* **clients:** update client endpoints as of 2026-01-22 ([a8b7e9d](https://github.com/aws/aws-sdk-js-v3/commit/a8b7e9d8f342d5a240b33af7461d31e0bbb4ac1b))
+* **config:** create config package ([#7667](https://github.com/aws/aws-sdk-js-v3/issues/7667)) ([943761c](https://github.com/aws/aws-sdk-js-v3/commit/943761cd81f6506511257c4b7a0a6b083d105603))
+* **packages:** support open version ranges for internal packages - move core & types ([#7674](https://github.com/aws/aws-sdk-js-v3/issues/7674)) ([a3cdc64](https://github.com/aws/aws-sdk-js-v3/commit/a3cdc641fc5aeaf50e5689f64109d4187cc0ad63))
+
+
+
+
+
 # [3.973.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.972.0...v3.973.0) (2026-01-21)
 
 

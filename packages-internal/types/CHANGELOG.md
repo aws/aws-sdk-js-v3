@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
+# 3.973.0 (2026-01-21)
+### Features
+* **packages:** support open version ranges for internal packages - move core & types ([#7674](https://github.com/aws/aws-sdk-js-v3/issues/7674)) ([a3cdc64](https://github.com/aws/aws-sdk-js-v3/commit/a3cdc641fc5aeaf50e5689f64109d4187cc0ad63))
+
+
+
 # [3.972.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.971.0...v3.972.0) (2026-01-20)
 
 **Note:** Version bump only for package @aws-sdk/types
