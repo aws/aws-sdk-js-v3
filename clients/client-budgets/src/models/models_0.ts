@@ -1460,83 +1460,6 @@ export interface BudgetedAndActualAmounts {
 }
 
 /**
- * <p>A history of the state of a budget at the end of the budget's specified time
- * 			period.</p>
- * @public
- */
-export interface BudgetPerformanceHistory {
-  /**
-   * <p> A string that represents the budget name. The ":" and "\" characters, and the
-   * 			"/action/" substring, aren't allowed.</p>
-   * @public
-   */
-  BudgetName?: string | undefined;
-
-  /**
-   * <p> The type of a budget. It must be one of the following types: </p>
-   *          <p>
-   *             <code>COST</code>, <code>USAGE</code>, <code>RI_UTILIZATION</code>,
-   * 				<code>RI_COVERAGE</code>, <code>SAVINGS_PLANS_UTILIZATION</code>, or
-   * 				<code>SAVINGS_PLANS_COVERAGE</code>.</p>
-   * @public
-   */
-  BudgetType?: BudgetType | undefined;
-
-  /**
-   * <p>The history of the cost filters for a budget during the specified time period.</p>
-   * @public
-   */
-  CostFilters?: Record<string, string[]> | undefined;
-
-  /**
-   * <p>The history of the cost types for a budget during the specified time period.</p>
-   * @public
-   */
-  CostTypes?: CostTypes | undefined;
-
-  /**
-   * <p> The time unit of the budget, such as MONTHLY or QUARTERLY.</p>
-   * @public
-   */
-  TimeUnit?: TimeUnit | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is
-   * 			used to specify which particular billing view you want to interact with or retrieve
-   * 			information from when making API calls related to Amazon Web Services Billing and Cost
-   * 			Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
-   * 			API.</p>
-   * @public
-   */
-  BillingViewArn?: string | undefined;
-
-  /**
-   * <p>A list of amounts of cost or usage that you created budgets for, which are compared to
-   * 			your actual costs or usage.</p>
-   * @public
-   */
-  BudgetedAndActualAmountsList?: BudgetedAndActualAmounts[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBudgetPerformanceHistoryResponse {
-  /**
-   * <p>The history of how often the budget has gone into an <code>ALARM</code> state.</p>
-   *          <p>For <code>DAILY</code> budgets, the history saves the state of the budget for the last 60 days. For <code>MONTHLY</code> budgets, the history saves the state of the budget for the current month plus the last 12 months. For <code>QUARTERLY</code> budgets, the history saves the state of the budget for the last four quarters.</p>
-   * @public
-   */
-  BudgetPerformanceHistory?: BudgetPerformanceHistory | undefined;
-
-  /**
-   * <p> A generic string.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
  * <p> Request of DescribeBudgets </p>
  * @public
  */
@@ -2218,6 +2141,77 @@ export interface Budget {
 }
 
 /**
+ * <p>A history of the state of a budget at the end of the budget's specified time
+ * 			period.</p>
+ * @public
+ */
+export interface BudgetPerformanceHistory {
+  /**
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the
+   * 			"/action/" substring, aren't allowed.</p>
+   * @public
+   */
+  BudgetName?: string | undefined;
+
+  /**
+   * <p> The type of a budget. It must be one of the following types: </p>
+   *          <p>
+   *             <code>COST</code>, <code>USAGE</code>, <code>RI_UTILIZATION</code>,
+   * 				<code>RI_COVERAGE</code>, <code>SAVINGS_PLANS_UTILIZATION</code>, or
+   * 				<code>SAVINGS_PLANS_COVERAGE</code>.</p>
+   * @public
+   */
+  BudgetType?: BudgetType | undefined;
+
+  /**
+   * <p>The history of the cost filters for a budget during the specified time period.</p>
+   * @public
+   */
+  CostFilters?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>The history of the cost types for a budget during the specified time period.</p>
+   * @public
+   */
+  CostTypes?: CostTypes | undefined;
+
+  /**
+   * <p> The time unit of the budget, such as MONTHLY or QUARTERLY.</p>
+   * @public
+   */
+  TimeUnit?: TimeUnit | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The ARN is
+   * 			used to specify which particular billing view you want to interact with or retrieve
+   * 			information from when making API calls related to Amazon Web Services Billing and Cost
+   * 			Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+   * 			API.</p>
+   * @public
+   */
+  BillingViewArn?: string | undefined;
+
+  /**
+   * <p>A list of amounts of cost or usage that you created budgets for, which are compared to
+   * 			your actual costs or usage.</p>
+   * @public
+   */
+  BudgetedAndActualAmountsList?: BudgetedAndActualAmounts[] | undefined;
+
+  /**
+   * <p>The filtering dimensions for the budget and their corresponding values.</p>
+   * @public
+   */
+  FilterExpression?: Expression | undefined;
+
+  /**
+   * <p>The definition for how the budget data is aggregated.</p>
+   * @public
+   */
+  Metrics?: Metric[] | undefined;
+}
+
+/**
  * <p> Request of CreateBudget </p>
  * @public
  */
@@ -2246,6 +2240,24 @@ export interface CreateBudgetRequest {
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBudgetPerformanceHistoryResponse {
+  /**
+   * <p>The history of how often the budget has gone into an <code>ALARM</code> state.</p>
+   *          <p>For <code>DAILY</code> budgets, the history saves the state of the budget for the last 60 days. For <code>MONTHLY</code> budgets, the history saves the state of the budget for the current month plus the last 12 months. For <code>QUARTERLY</code> budgets, the history saves the state of the budget for the last four quarters.</p>
+   * @public
+   */
+  BudgetPerformanceHistory?: BudgetPerformanceHistory | undefined;
+
+  /**
+   * <p> A generic string.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**

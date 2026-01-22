@@ -302,8 +302,8 @@ export var BudgetNotificationsForAccount$: StaticStructureSchema = [3, n0, _BNFA
 ];
 export var BudgetPerformanceHistory$: StaticStructureSchema = [3, n0, _BPH,
   0,
-  [_BN, _BT, _CF, _CT, _TU, _BVA, _BAAAL],
-  [0, 0, [2, n0, _CF, 0, 0, 64 | 0], () => CostTypes$, 0, 0, () => BudgetedAndActualAmountsList]
+  [_BN, _BT, _CF, _CT, _TU, _BVA, _BAAAL, _FE, _Me],
+  [0, 0, [2, n0, _CF, 0, 0, 64 | 0], () => CostTypes$, 0, 0, () => BudgetedAndActualAmountsList, () => Expression$, 64 | 0]
 ];
 export var CalculatedSpend$: StaticStructureSchema = [3, n0, _CS,
   0,
