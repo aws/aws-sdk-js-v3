@@ -1,5 +1,6 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { DynamoDB, paginateScan, ScanCommandInput } from "@aws-sdk/client-dynamodb";
+import { BatchGetCommandInput, paginatedBatchGet } from "@aws-sdk/lib-dynamodb";
 import { HttpResponse } from "@smithy/protocol-http";
 import { describe, expect, test as it } from "vitest";
 
@@ -93,5 +94,150 @@ describe("pagination", () => {
       id: { S: "2" },
     });
     expect.assertions(7);
+  });
+
+  /**
+   * This test makes a DynamoDB paginated batch get request for 5 items, with keys 1-2-3-4-5, in this exact order.
+   *
+   * The first returned page contains items 2 and 1 (order switched to simulate the unpredictability of the order of the
+   * items returned by the DDB API BatchGetItem command), plus unprocessed keys 3 and 4. The second page contains the
+   * items 3 and 4, and no further unprocessed keys.
+   *
+   * Item 5 is asked for, but we consider that the table does not contain it, so it's not returned at all. That's a
+   * valid use case and does not generate an error.
+   *
+   * In the second part of the test, another paginated request is done for 2 items, with keys 1 and 1. So the same
+   * item is requested twice. As the API will return an error, we want to catch the generated SDK exception.
+   */
+  it("processes batch items until all items are processed or an error is received", async () => {
+    const ddb = new DynamoDB({
+      credentials: {
+        accessKeyId: "INTEG_TEST",
+        secretAccessKey: "INTEG_TEST",
+      },
+      region: "us-west-2",
+    });
+
+    requireRequestsFrom(ddb)
+      .toMatch(
+        // first page request
+        {
+          hostname: /dynamodb/,
+          body(b) {
+            expect(b).toContain(
+              '"RequestItems":{"test":{"Keys":[{"id":{"S":"1"}},{"id":{"S":"2"}},{"id":{"S":"3"}},{"id":{"S":"4"}},{"id":{"S":"5"}}]}}'
+            );
+          },
+        },
+        // second page request
+        {
+          hostname: /dynamodb/,
+          body(b) {
+            expect(b).toContain('"RequestItems":{"test":{"Keys":[{"id":{"S":"4"}},{"id":{"S":"3"}}]}}');
+          },
+        },
+        // invalid request (duplicate key)
+        {
+          hostname: /dynamodb/,
+          body(b) {
+            expect(b).toContain('"RequestItems":{"test":{"Keys":[{"id":{"S":"1"}},{"id":{"S":"1"}}]}}');
+          },
+        }
+      )
+      .respondWith(
+        // first page response
+        new HttpResponse({
+          statusCode: 200,
+          headers: {},
+          body: Buffer.from(
+            JSON.stringify({
+              Responses: {
+                test: [
+                  { id: { S: "2" }, name: { S: "Item 2" } },
+                  { id: { S: "1" }, name: { S: "Item 1" } },
+                ],
+              },
+              UnprocessedKeys: {
+                test: {
+                  Keys: [{ id: { S: "4" } }, { id: { S: "3" } }],
+                },
+              },
+            })
+          ),
+        }),
+        // second page response
+        new HttpResponse({
+          statusCode: 200,
+          headers: {},
+          body: Buffer.from(
+            JSON.stringify({
+              Responses: {
+                test: [
+                  { id: { S: "3" }, name: { S: "Item 3" } },
+                  { id: { S: "4" }, name: { S: "Item 4" } },
+                ],
+              },
+              UnprocessedKeys: {},
+            })
+          ),
+        }),
+        // error response
+        new HttpResponse({
+          statusCode: 400,
+          headers: {},
+          body: Buffer.from(
+            JSON.stringify({
+              message: "Provided list of item keys contains duplicates",
+            })
+          ),
+        })
+      );
+
+    const requestParams: BatchGetCommandInput = {
+      RequestItems: {
+        test: { Keys: [{ id: "1" }, { id: "2" }, { id: "3" }, { id: "4" }, { id: "5" }] },
+      },
+    };
+
+    let pages = 0;
+    for await (const page of paginatedBatchGet({ client: ddb }, requestParams)) {
+      pages += 1;
+      if (pages === 1) {
+        expect(page.Responses?.test).toEqual([
+          { id: "2", name: "Item 2" },
+          { id: "1", name: "Item 1" },
+        ]);
+      } else {
+        expect(page.Responses?.test).toEqual([
+          { id: "3", name: "Item 3" },
+          { id: "4", name: "Item 4" },
+        ]);
+      }
+    }
+
+    expect(pages).toEqual(2);
+
+    let thrownError;
+
+    try {
+      for await (const page of paginatedBatchGet(
+        { client: ddb },
+        {
+          RequestItems: {
+            test: { Keys: [{ id: "1" }, { id: "1" }] },
+          },
+        }
+      )) {
+        void page;
+        throw new Error("Received unexpected page");
+      }
+    } catch (error) {
+      thrownError = error;
+    }
+
+    expect(thrownError).toBeInstanceOf(Error);
+    expect((thrownError as Error).message).toBe("Provided list of item keys contains duplicates");
+
+    expect.assertions(11);
   });
 });
