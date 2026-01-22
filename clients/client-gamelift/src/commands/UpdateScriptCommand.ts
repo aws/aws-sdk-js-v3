@@ -87,6 +87,7 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  * //       RoleArn: "STRING_VALUE",
  * //       ObjectVersion: "STRING_VALUE",
  * //     },
+ * //     NodeJsVersion: "STRING_VALUE",
  * //   },
  * // };
  *

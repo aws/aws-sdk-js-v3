@@ -71,6 +71,7 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
  * //       RoleArn: "STRING_VALUE",
  * //       ObjectVersion: "STRING_VALUE",
  * //     },
+ * //     NodeJsVersion: "STRING_VALUE",
  * //   },
  * // };
  *

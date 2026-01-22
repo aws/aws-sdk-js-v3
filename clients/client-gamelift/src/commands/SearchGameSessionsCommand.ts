@@ -75,6 +75,9 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *                <p>
  *                     For examples of searching game sessions, see the ones below, and also see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-search">Search game sessions by game property</a>.
  *                     </p>
+ *                <note>
+ *                   <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+ *                </note>
  *             </li>
  *             <li>
  *                <p>

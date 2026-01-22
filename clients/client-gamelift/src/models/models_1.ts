@@ -218,6 +218,9 @@ export interface UpdateGameSessionInput {
    *         There is no way to delete properties.
    *         For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update">Update the value of a game property</a>.
    *       </p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -391,6 +394,9 @@ export interface UpdateMatchmakingConfigurationInput {
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
    *             is set to <code>STANDALONE</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;

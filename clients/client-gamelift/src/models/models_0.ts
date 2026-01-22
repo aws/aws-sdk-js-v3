@@ -352,7 +352,7 @@ export interface Build {
    * <p>Operating system that the game server binaries are built to run on. This value
    *             determines the type of fleet resources that you can use for this build.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in
    *             the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
    *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the
@@ -676,7 +676,7 @@ export interface Compute {
   /**
    * <p>The type of operating system on the compute resource.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in
    *             the <a href="http://aws.amazon.com/aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
    *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the
@@ -1601,7 +1601,7 @@ export interface ContainerGroupDefinition {
   /**
    * <p>The platform that all containers in the container group definition run on.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
    *       servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the game
    *         server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html"> Migrate to
    *           server SDK version 5.</a>
@@ -1921,11 +1921,20 @@ export interface CreateBuildInput {
    *             valid operating system in this request. There is no default value. You can't change a
    *             build's operating system later.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in
    *             the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
    *                 that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the
    *                 game server build to server SDK 5.x, and then deploy to AL2023 instances. See
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
+   *                 Migrate to server SDK version 5.</a>
+   *             </p>
+   *          </note>
+   *          <note>
+   *             <p>Windows Server 2016 will reach end of support on 1/12/2027.
+   *             For game servers
+   *             that are hosted on Windows Server 2016 and use server SDK version 4.x for Amazon GameLift Servers, first update the
+   *             game server build to server SDK 5.x, and then deploy to Windows Server 2022 instances. See
    *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
    *                 Migrate to server SDK version 5.</a>
    *             </p>
@@ -2532,7 +2541,7 @@ export interface CreateContainerGroupDefinitionInput {
    *          <p>Default value: <code>AMAZON_LINUX_2023</code>
    *          </p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
    *     servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the game
    *         server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html"> Migrate to
    *           server SDK version 5.</a>
@@ -3129,7 +3138,7 @@ export interface FleetAttributes {
    *             attribute is used with fleets where <code>ComputeType</code> is
    *             <code>EC2</code>.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in
    *             the <a href="http://aws.amazon.com/aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
    *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the
@@ -3777,6 +3786,9 @@ export interface CreateGameServerGroupOutput {
 export interface GameProperty {
   /**
    * <p>The game property identifier.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   Key: string | undefined;
@@ -3824,6 +3836,9 @@ export interface CreateGameSessionInput {
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.
    *           For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-create">Create a game session with custom properties</a>.
    *         </p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -3984,6 +3999,9 @@ export interface GameSession {
   /**
    * <p>A set of key-value pairs that can store custom data in a game session.
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -4523,6 +4541,9 @@ export interface CreateMatchmakingConfigurationInput {
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
    *             is set to <code>STANDALONE</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -4681,6 +4702,9 @@ export interface MatchmakingConfiguration {
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used when
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -5096,6 +5120,15 @@ export interface CreateScriptInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Node.js version used for execution of your Realtime script. The valid values are
+   *             <code>10.x | 24.x</code>. By default, <code>NodeJsVersion</code> is <code>10.x</code>.
+   *             This value cannot be updated later.
+   *         </p>
+   * @public
+   */
+  NodeJsVersion?: string | undefined;
 }
 
 /**
@@ -5158,6 +5191,15 @@ export interface Script {
    * @public
    */
   StorageLocation?: S3Location | undefined;
+
+  /**
+   * <p>The Node.js version used for execution of your Realtime script. The valid values are
+   *             <code>10.x | 24.x</code>. By default, <code>NodeJsVersion</code> is <code>10.x</code>.
+   *             This value cannot be updated later.
+   *         </p>
+   * @public
+   */
+  NodeJsVersion?: string | undefined;
 }
 
 /**
@@ -7341,6 +7383,9 @@ export interface GameSessionPlacement {
   /**
    * <p>A set of key-value pairs that can store custom data in a game session.
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -7675,7 +7720,7 @@ export interface Instance {
   /**
    * <p>Operating system that is running on this EC2 instance. </p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in
    *             the <a href="http://aws.amazon.com/aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
    *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the
@@ -10164,6 +10209,9 @@ export interface StartGameSessionPlacementInput {
   /**
    * <p>A set of key-value pairs that can store custom data in a game session.
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -10836,7 +10884,7 @@ export interface UpdateContainerGroupDefinitionInput {
    * <p>The platform that all containers in the group use. Containers in a group must run on the
    *       same operating system.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
    *       servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the game
    *         server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html"> Migrate to
    *           server SDK version 5.</a>

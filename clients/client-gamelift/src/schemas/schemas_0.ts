@@ -547,6 +547,7 @@ const _N = "Name";
 const _NFE = "NotFoundException";
 const _NGSPC = "NewGameSessionsPerCreator";
 const _NGSPP = "NewGameSessionProtectionPolicy";
+const _NJV = "NodeJsVersion";
 const _NRE = "NotReadyException";
 const _NT = "NotificationTarget";
 const _NTe = "NextToken";
@@ -1127,8 +1128,8 @@ export var CreatePlayerSessionsOutput$: StaticStructureSchema = [3, n0, _CPSOr,
 ];
 export var CreateScriptInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
-  [_N, _V, _SLt, _ZF, _Ta],
-  [0, 0, () => S3Location$, 21, () => TagList]
+  [_N, _V, _SLt, _ZF, _Ta, _NJV],
+  [0, 0, () => S3Location$, 21, () => TagList, 0]
 ];
 export var CreateScriptOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
@@ -2188,8 +2189,8 @@ export var ScalingPolicy$: StaticStructureSchema = [3, n0, _SPca,
 ];
 export var Script$: StaticStructureSchema = [3, n0, _Sc,
   0,
-  [_SI, _SA, _N, _V, _SOD, _CT, _SLt],
-  [0, 0, 0, 0, 1, 4, () => S3Location$]
+  [_SI, _SA, _N, _V, _SOD, _CT, _SLt, _NJV],
+  [0, 0, 0, 0, 1, 4, () => S3Location$, 0]
 ];
 export var SearchGameSessionsInput$: StaticStructureSchema = [3, n0, _SGSI,
   0,
