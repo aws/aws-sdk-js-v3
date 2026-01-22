@@ -282,7 +282,7 @@ export interface DescribeAffectedEntitiesRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+   * <p>The maximum number of items to return in one batch, between 1 and 100, inclusive.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -393,7 +393,7 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+   * <p>The maximum number of items to return in one batch, between 1 and 100, inclusive.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1162,7 +1162,7 @@ export interface DescribeEventsRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+   * <p>The maximum number of items to return in one batch, between 1 and 100, inclusive.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1319,7 +1319,7 @@ export interface DescribeEventsForOrganizationRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+   * <p>The maximum number of items to return in one batch, between 1 and 100, inclusive.</p>
    * @public
    */
   maxResults?: number | undefined;
