@@ -1,11 +1,4 @@
 // smithy-typescript generated code
-import {
-  DynamoDBClient,
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes as __ServiceInputTypes,
-  ServiceOutputTypes as __ServiceOutputTypes,
-} from "@aws-sdk/client-dynamodb";
-import { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
 import { Client as __Client } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
@@ -25,6 +18,13 @@ import { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
 import { TransactGetCommandInput, TransactGetCommandOutput } from "./commands/TransactGetCommand";
 import { TransactWriteCommandInput, TransactWriteCommandOutput } from "./commands/TransactWriteCommand";
 import { UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
+import {
+  DynamoDBClient,
+  DynamoDBClientResolvedConfig,
+  ServiceInputTypes as __ServiceInputTypes,
+  ServiceOutputTypes as __ServiceOutputTypes,
+} from "@aws-sdk/client-dynamodb";
+import { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
 
 /**
  * @public
@@ -33,8 +33,7 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes =
-  | __ServiceInputTypes
+export type ServiceInputTypes = __ServiceInputTypes
   | BatchExecuteStatementCommandInput
   | BatchGetCommandInput
   | BatchWriteCommandInput
@@ -52,8 +51,7 @@ export type ServiceInputTypes =
 /**
  * @public
  */
-export type ServiceOutputTypes =
-  | __ServiceOutputTypes
+export type ServiceOutputTypes = __ServiceOutputTypes
   | BatchExecuteStatementCommandOutput
   | BatchGetCommandOutput
   | BatchWriteCommandOutput
@@ -74,7 +72,7 @@ export type ServiceOutputTypes =
 export type TranslateConfig = {
   marshallOptions?: marshallOptions;
   unmarshallOptions?: unmarshallOptions;
-};
+}
 
 /**
  * @public
@@ -131,25 +129,21 @@ export type DynamoDBDocumentClientResolvedConfig = DynamoDBClientResolvedConfig 
  *
  * @public
  */
-export class DynamoDBDocumentClient extends __Client<
-  __HttpHandlerOptions,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  DynamoDBDocumentClientResolvedConfig
-> {
+export class DynamoDBDocumentClient extends __Client<__HttpHandlerOptions, ServiceInputTypes, ServiceOutputTypes, DynamoDBDocumentClientResolvedConfig> {
   readonly config: DynamoDBDocumentClientResolvedConfig;
 
-  protected constructor(client: DynamoDBClient, translateConfig?: TranslateConfig) {
+  protected constructor(client: DynamoDBClient, translateConfig?: TranslateConfig){
     super(client.config);
     this.config = client.config;
     this.config.translateConfig = translateConfig;
     this.middlewareStack = client.middlewareStack;
     if (this.config?.cacheMiddleware) {
-      throw new Error(
-        "@aws-sdk/lib-dynamodb - cacheMiddleware=true is not compatible with the" +
-          " DynamoDBDocumentClient. This option must be set to false."
-      );
+        throw new Error(
+            "@aws-sdk/lib-dynamodb - cacheMiddleware=true is not compatible with the"
+              + " DynamoDBDocumentClient. This option must be set to false."
+        );
     }
+
   }
 
   static from(client: DynamoDBClient, translateConfig?: TranslateConfig) {

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
-import { ScanCommand as __ScanCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { type HttpHandlerOptions as __HttpHandlerOptions, Handler, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { ALL_MEMBERS, ALL_VALUES } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
+import { ScanCommand as __ScanCommand } from "@aws-sdk/client-dynamodb";
 
 /**
  * @public
@@ -15,28 +15,52 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type ScanCommandInput = Omit<
-  __ScanCommandInput,
-  "ScanFilter" | "ExclusiveStartKey" | "ExpressionAttributeValues"
-> & {
+export type ScanCommandInput = Omit<__ScanCommandInput, 'ScanFilter' | 'ExclusiveStartKey' | 'ExpressionAttributeValues'> & {
   ScanFilter?:
-    | Record<
-        string,
-        Omit<Condition, "AttributeValueList"> & {
-          AttributeValueList?: NativeAttributeValue[] | undefined;
-        }
-      >
-    | undefined;
-  ExclusiveStartKey?: Record<string, NativeAttributeValue> | undefined;
-  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
+    Record<string,
+      Omit<Condition, 'AttributeValueList'> & {
+        AttributeValueList?:
+          (
+            NativeAttributeValue
+          )[]
+           | undefined
+        ;
+      }
+    >
+     | undefined
+  ;
+  ExclusiveStartKey?:
+    Record<string,
+      NativeAttributeValue
+    >
+     | undefined
+  ;
+  ExpressionAttributeValues?:
+    Record<string,
+      NativeAttributeValue
+    >
+     | undefined
+  ;
 };
 
 /**
  * @public
  */
-export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: Record<string, NativeAttributeValue>[] | undefined;
-  LastEvaluatedKey?: Record<string, NativeAttributeValue> | undefined;
+export type ScanCommandOutput = Omit<__ScanCommandOutput, 'Items' | 'LastEvaluatedKey'> & {
+  Items?:
+    (
+      Record<string,
+        NativeAttributeValue
+      >
+    )[]
+     | undefined
+  ;
+  LastEvaluatedKey?:
+    Record<string,
+      NativeAttributeValue
+    >
+     | undefined
+  ;
 };
 
 /**
@@ -48,34 +72,40 @@ export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluat
  *
  * @public
  */
-export class ScanCommand extends DynamoDBDocumentClientCommand<
-  ScanCommandInput,
-  ScanCommandOutput,
-  __ScanCommandInput,
-  __ScanCommandOutput,
-  DynamoDBDocumentClientResolvedConfig
-> {
+export class ScanCommand extends DynamoDBDocumentClientCommand<ScanCommandInput, ScanCommandOutput, __ScanCommandInput, __ScanCommandOutput, DynamoDBDocumentClientResolvedConfig> {
   protected readonly inputKeyNodes = {
-    ScanFilter: {
-      "*": {
-        AttributeValueList: ALL_MEMBERS, // set/list of AttributeValue
-      },
-    },
-    ExclusiveStartKey: ALL_VALUES, // map with AttributeValue
-    ExpressionAttributeValues: ALL_VALUES, // map with AttributeValue
+    'ScanFilter':
+      {
+        '*':
+        {
+          'AttributeValueList':
+            ALL_MEMBERS // set/list of AttributeValue
+          ,
+        }
+      }
+    ,
+    'ExclusiveStartKey':
+      ALL_VALUES // map with AttributeValue
+    ,
+    'ExpressionAttributeValues':
+      ALL_VALUES // map with AttributeValue
+    ,
   };
   protected readonly outputKeyNodes = {
-    Items: {
-      "*": ALL_VALUES, // map with AttributeValue
-    },
-    LastEvaluatedKey: ALL_VALUES, // map with AttributeValue
+    'Items':
+      {
+        '*':
+        ALL_VALUES // map with AttributeValue
+      }
+    ,
+    'LastEvaluatedKey':
+      ALL_VALUES // map with AttributeValue
+    ,
   };
 
   protected readonly clientCommand: __ScanCommand;
-  public readonly middlewareStack: MiddlewareStack<
-    ScanCommandInput | __ScanCommandInput,
-    ScanCommandOutput | __ScanCommandOutput
-  >;
+  public readonly middlewareStack: MiddlewareStack<ScanCommandInput | __ScanCommandInput,
+  ScanCommandOutput | __ScanCommandOutput>;
 
   constructor(readonly input: ScanCommandInput) {
     super();
@@ -91,17 +121,24 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ScanCommandInput, ScanCommandOutput> {
-    this.addMarshallingMiddleware(configuration);
+    this.addMarshallingMiddleware(
+      configuration
+    );
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand)
   }
 }
 
 import type {
   Condition,
   ScanCommandInput as __ScanCommandInput,
+
   ScanCommandOutput as __ScanCommandOutput,
+
 } from "@aws-sdk/client-dynamodb";
-import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  NativeAttributeValue,
+} from "@aws-sdk/util-dynamodb";
