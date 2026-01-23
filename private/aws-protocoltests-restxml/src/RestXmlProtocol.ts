@@ -248,6 +248,11 @@ import {
   XmlAttributesCommandOutput,
 } from "./commands/XmlAttributesCommand";
 import {
+  XmlAttributesInMiddleCommand,
+  XmlAttributesInMiddleCommandInput,
+  XmlAttributesInMiddleCommandOutput,
+} from "./commands/XmlAttributesInMiddleCommand";
+import {
   XmlAttributesOnPayloadCommand,
   XmlAttributesOnPayloadCommandInput,
   XmlAttributesOnPayloadCommandOutput,
@@ -350,6 +355,7 @@ const commands = {
   SimpleScalarPropertiesCommand,
   TimestampFormatHeadersCommand,
   XmlAttributesCommand,
+  XmlAttributesInMiddleCommand,
   XmlAttributesOnPayloadCommand,
   XmlBlobsCommand,
   XmlEmptyBlobsCommand,
@@ -1241,6 +1247,24 @@ export interface RestXmlProtocol {
     args: XmlAttributesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: XmlAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link XmlAttributesInMiddleCommand}
+   */
+  xmlAttributesInMiddle(): Promise<XmlAttributesInMiddleCommandOutput>;
+  xmlAttributesInMiddle(
+    args: XmlAttributesInMiddleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlAttributesInMiddleCommandOutput>;
+  xmlAttributesInMiddle(
+    args: XmlAttributesInMiddleCommandInput,
+    cb: (err: any, data?: XmlAttributesInMiddleCommandOutput) => void
+  ): void;
+  xmlAttributesInMiddle(
+    args: XmlAttributesInMiddleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlAttributesInMiddleCommandOutput) => void
   ): void;
 
   /**

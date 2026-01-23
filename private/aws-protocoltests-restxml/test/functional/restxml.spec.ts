@@ -58,6 +58,7 @@ import { RecursiveShapesCommand } from "../../src/commands/RecursiveShapesComman
 import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPropertiesCommand";
 import { TimestampFormatHeadersCommand } from "../../src/commands/TimestampFormatHeadersCommand";
 import { XmlAttributesCommand } from "../../src/commands/XmlAttributesCommand";
+import { XmlAttributesInMiddleCommand } from "../../src/commands/XmlAttributesInMiddleCommand";
 import { XmlAttributesOnPayloadCommand } from "../../src/commands/XmlAttributesOnPayloadCommand";
 import { XmlBlobsCommand } from "../../src/commands/XmlBlobsCommand";
 import { XmlEmptyBlobsCommand } from "../../src/commands/XmlEmptyBlobsCommand";
@@ -5710,6 +5711,100 @@ it("XmlAttributes:Response", async () => {
     {
       foo: "hi",
       attr: "test",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes XML attributes on a payload when the xmlAttribute trait targets a member in the middle of the member list
+ */
+it("XmlAttributesInMiddle:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlAttributesInMiddleCommand(
+    {
+      payload: {
+        foo: "Foo",
+        attr: "attributeValue",
+        baz: "Baz",
+      } as any,
+    } as any,
+  );
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/XmlAttributesInMiddle");
+
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body, `Body was undefined.`).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<XmlAttributesInMiddlePayloadRequest test=\"attributeValue\">
+        <foo>Foo</foo>
+        <baz>Baz</baz>
+    </XmlAttributesInMiddlePayloadRequest>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Deserializes XML attributes on a payload when the xmlAttribute trait targets a member in the middle of the member list
+ */
+it("XmlAttributesInMiddle:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlAttributesInMiddlePayloadResponse test="attributeValue">
+          <foo>Foo</foo>
+          <baz>Baz</baz>
+      </XmlAttributesInMiddlePayloadResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlAttributesInMiddleCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r.$metadata.httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      payload: {
+        foo: "Foo",
+        attr: "attributeValue",
+        baz: "Baz",
+      },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

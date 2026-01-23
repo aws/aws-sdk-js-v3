@@ -14,7 +14,7 @@ const checkState = async (client: AutoScalingClient, input: DescribeAutoScalingG
     reason = result;
     try {
       const returnComparator = () => {
-        return (result.AutoScalingGroups.length > 0.0);
+        return (result.AutoScalingGroups.length > 0);
       }
       if (returnComparator() == false) {
         return { state: WaiterState.SUCCESS, reason };
@@ -22,7 +22,7 @@ const checkState = async (client: AutoScalingClient, input: DescribeAutoScalingG
     } catch (e) {}
     try {
       const returnComparator = () => {
-        return (result.AutoScalingGroups.length > 0.0);
+        return (result.AutoScalingGroups.length > 0);
       }
       if (returnComparator() == true) {
         return { state: WaiterState.RETRY, reason };

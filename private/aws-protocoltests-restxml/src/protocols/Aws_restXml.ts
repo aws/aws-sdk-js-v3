@@ -190,6 +190,10 @@ import {
 } from "../commands/TimestampFormatHeadersCommand";
 import { XmlAttributesCommandInput, XmlAttributesCommandOutput } from "../commands/XmlAttributesCommand";
 import {
+  XmlAttributesInMiddleCommandInput,
+  XmlAttributesInMiddleCommandOutput,
+} from "../commands/XmlAttributesInMiddleCommand";
+import {
   XmlAttributesOnPayloadCommandInput,
   XmlAttributesOnPayloadCommandOutput,
 } from "../commands/XmlAttributesOnPayloadCommand";
@@ -223,6 +227,8 @@ import {
   RecursiveShapesInputOutputNested2,
   StructureListMember,
   UnionPayload,
+  XmlAttributesInMiddlePayloadRequest,
+  XmlAttributesInMiddlePayloadResponse,
   XmlAttributesPayloadRequest,
   XmlAttributesPayloadResponse,
   XmlNamespaceNested,
@@ -1455,6 +1461,31 @@ export const se_XmlAttributesCommand = async (
     );
   }
   body += bn.toString();
+  b.m("PUT")
+  .h(headers)
+  .b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlXmlAttributesInMiddleCommand
+ */
+export const se_XmlAttributesInMiddleCommand = async (
+  input: XmlAttributesInMiddleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    'content-type': 'application/xml',
+  };
+  b.bp("/XmlAttributesInMiddle");
+  let body: any;
+  let contents: any;
+  if (input.payload !== undefined) {
+    contents = se_XmlAttributesInMiddlePayloadRequest(input.payload, context);
+    body = _ve;
+    body += contents.toString();
+  }
   b.m("PUT")
   .h(headers)
   .b(body);
@@ -2915,6 +2946,24 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
     };
 
     /**
+     * deserializeAws_restXmlXmlAttributesInMiddleCommand
+     */
+    export const de_XmlAttributesInMiddleCommand = async (
+      output: __HttpResponse,
+      context: __SerdeContext
+    ): Promise<XmlAttributesInMiddleCommandOutput> => {
+      if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+      }
+      const contents: any = map({
+        $metadata: deserializeMetadata(output),
+      });
+      const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+      contents.payload = de_XmlAttributesInMiddlePayloadResponse(data, context);
+      return contents;
+    };
+
+    /**
      * deserializeAws_restXmlXmlAttributesOnPayloadCommand
      */
     export const de_XmlAttributesOnPayloadCommand = async (
@@ -3835,6 +3884,28 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
     }
 
     /**
+     * serializeAws_restXmlXmlAttributesInMiddlePayloadRequest
+     */
+    const se_XmlAttributesInMiddlePayloadRequest = (
+      input: XmlAttributesInMiddlePayloadRequest,
+      context: __SerdeContext
+    ): any => {
+      const bn = new __XmlNode(_XAIMPR);
+      if (input[_f] != null) {
+        bn.c(
+          __XmlNode.of(_S, input[_f]).n(_f)
+        );
+      }
+      bn.a("test", input[_at]);
+      if (input[_b] != null) {
+        bn.c(
+          __XmlNode.of(_S, input[_b]).n(_b)
+        );
+      }
+      return bn;
+    }
+
+    /**
      * serializeAws_restXmlXmlAttributesPayloadRequest
      */
     const se_XmlAttributesPayloadRequest = (
@@ -4539,6 +4610,26 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
     }
 
     /**
+     * deserializeAws_restXmlXmlAttributesInMiddlePayloadResponse
+     */
+    const de_XmlAttributesInMiddlePayloadResponse = (
+      output: any,
+      context: __SerdeContext
+    ): XmlAttributesInMiddlePayloadResponse => {
+      let contents: any = {};
+      if (output[_f] != null) {
+        contents[_f] = __expectString(output[_f]);
+      }
+      if (output[_te] != null) {
+        contents[_at] = __expectString(output[_te]);
+      }
+      if (output[_b] != null) {
+        contents[_b] = __expectString(output[_b]);
+      }
+      return contents;
+    }
+
+    /**
      * deserializeAws_restXmlXmlAttributesPayloadResponse
      */
     const de_XmlAttributesPayloadResponse = (
@@ -4965,6 +5056,7 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
     const _TLo = "TopLevel";
     const _UP = "UnionPayload";
     const _V = "V";
+    const _XAIMPR = "XmlAttributesInMiddlePayloadRequest";
     const _XAPR = "XmlAttributesPayloadRequest";
     const _XAR = "XmlAttributesRequest";
     const _XBR = "XmlBlobsRequest";

@@ -12,7 +12,7 @@ const checkState = async (client: CloudWatchClient, input: DescribeAlarmsCommand
     try {
       const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.MetricAlarms);
-        return (flat_1.length > 0.0);
+        return (flat_1.length > 0);
       }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };
