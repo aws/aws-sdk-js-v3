@@ -145,8 +145,6 @@ export interface PollerConfig {
    * Milliseconds to wait between polls when queue is active.
    * Set to 0 for no additional delay - the next poll starts immediately
    * after the previous one completes.
-   * Note: Setting both this and receiveWaitTimeMs to 0 will result in
-   * rapid short-polling requests (not recommended due to cost and rate limiting).
    * @defaultValue 0
    */
   activePollIntervalMs?: number;
