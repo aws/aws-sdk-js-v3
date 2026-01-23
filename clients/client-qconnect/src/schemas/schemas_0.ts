@@ -293,6 +293,7 @@ const _IID = "IntentInputData";
 const _IJD = "ImportJobData";
 const _IJL = "ImportJobList";
 const _IJS = "ImportJobSummary";
+const _JSOND = "JSONDocument";
 const _KBACD = "KnowledgeBaseAssociationConfigurationData";
 const _KBAD = "KnowledgeBaseAssociationData";
 const _KBD = "KnowledgeBaseData";
@@ -1167,6 +1168,7 @@ var GuardrailTopicExample: StaticSimpleSchema = [0, n0, _GTE, 8, 0];
 var GuardrailTopicName: StaticSimpleSchema = [0, n0, _GTN, 8, 0];
 var GuardrailTopicType: StaticSimpleSchema = [0, n0, _GTT, 8, 0];
 var GuardrailWordText: StaticSimpleSchema = [0, n0, _GWT, 8, 0];
+var JSONDocument: StaticSimpleSchema = [0, n0, _JSOND, 8, 15];
 var MaxTokensToSample: StaticSimpleSchema = [0, n0, _MTTS, 8, 1];
 var MessageTemplateAttributeValue: StaticSimpleSchema = [0, n0, _MTAV, 8, 0];
 var NonEmptySensitiveString: StaticSimpleSchema = [0, n0, _NESS, 8, 0];
@@ -1291,7 +1293,7 @@ export var AmazonConnectGuideAssociationData$: StaticStructureSchema = [3, n0, _
   [0]
 ];
 export var Annotation$: StaticStructureSchema = [3, n0, _A,
-  0,
+  8,
   [_ti, _dH],
   [0, 2]
 ];
@@ -1353,7 +1355,7 @@ export var CaseSummarizationAIAgentConfiguration$: StaticStructureSchema = [3, n
 export var CaseSummarizationChunkDataDetails$: StaticStructureSchema = [3, n0, _CSCDD,
   0,
   [_com, _nCT],
-  [0, 0]
+  [[() => NonEmptySensitiveString, 0], 0]
 ];
 export var CaseSummarizationInputData$: StaticStructureSchema = [3, n0, _CSID,
   0,
@@ -1840,7 +1842,7 @@ export var Filter$: StaticStructureSchema = [3, n0, _F,
 export var FilterAttribute$: StaticStructureSchema = [3, n0, _FA,
   0,
   [_k, _v],
-  [0, 15], 2
+  [0, [() => JSONDocument, 0]], 2
 ];
 export var FixedSizeChunkingConfiguration$: StaticStructureSchema = [3, n0, _FSCC,
   0,
@@ -2759,7 +2761,7 @@ export var SpanToolResultValue$: StaticStructureSchema = [3, n0, _STRV,
 export var SpanToolUseValue$: StaticStructureSchema = [3, n0, _STUV,
   0,
   [_tUI, _n, _ar],
-  [0, 0, 15], 3
+  [0, 0, [() => JSONDocument, 0]], 3
 ];
 export var StartContentUploadRequest$: StaticStructureSchema = [3, n0, _SCUR,
   0,
@@ -2840,10 +2842,10 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TCo,
   0,
   [_tNo, _tTo, _ti, _tIo, _d, _in, _oIV, _oFu, _iSnp, _oSu, _an, _uIC],
-  [0, 0, 0, 0, 0, () => ToolInstruction$, [() => ToolOverrideInputValueList, 0], () => ToolOutputFilterList, 15, 15, () => Annotation$, () => UserInteractionConfiguration$], 2
+  [0, 0, [() => NonEmptySensitiveString, 0], 0, [() => NonEmptySensitiveString, 0], [() => ToolInstruction$, 0], [() => ToolOverrideInputValueList, 0], [() => ToolOutputFilterList, 0], [() => JSONDocument, 0], [() => JSONDocument, 0], [() => Annotation$, 0], () => UserInteractionConfiguration$], 2
 ];
 export var ToolInstruction$: StaticStructureSchema = [3, n0, _TI,
-  0,
+  8,
   [_in, _exa],
   [0, 64 | 0]
 ];
@@ -2870,7 +2872,7 @@ export var ToolOverrideInputValue$: StaticStructureSchema = [3, n0, _TOIV,
 export var ToolUseResultData$: StaticStructureSchema = [3, n0, _TURD,
   0,
   [_tUI, _tNo, _tR, _iSnp],
-  [0, 0, 15, 15], 3
+  [0, 0, [() => JSONDocument, 0], [() => JSONDocument, 0]], 3
 ];
 export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
   { [_e]: _c, [_hE]: 400 },
@@ -2932,8 +2934,8 @@ export var UpdateAIPromptResponse$: StaticStructureSchema = [3, n0, _UAIPRp,
 ];
 export var UpdateAssistantAIAgentRequest$: StaticStructureSchema = [3, n0, _UAAIAR,
   0,
-  [_aI, _aAT, _co, _oCL],
-  [[0, 1], 0, () => AIAgentConfigurationData$, () => OrchestratorConfigurationList], 3
+  [_aI, _aAT, _co, _oUC],
+  [[0, 1], 0, () => AIAgentConfigurationData$, 0], 3
 ];
 export var UpdateAssistantAIAgentResponse$: StaticStructureSchema = [3, n0, _UAAIARp,
   0,
@@ -3294,10 +3296,10 @@ var ToolConfigurationList: StaticListSchema = [1, n0, _TCL,
 ];
 var ToolExampleList = 64 | 0;
 var ToolOutputFilterList: StaticListSchema = [1, n0, _TOFL,
-  0, () => ToolOutputFilter$
+  8, () => ToolOutputFilter$
 ];
 var ToolOverrideInputValueList: StaticListSchema = [1, n0, _TOIVL,
-  0, [() => ToolOverrideInputValue$,
+  8, [() => ToolOverrideInputValue$,
     0]
 ];
 var UrlFilterList: StaticListSchema = [1, n0, _UFL,
@@ -3364,7 +3366,7 @@ export var ContentFeedbackData$: StaticUnionSchema = [4, n0, _CFD,
 export var DataDetails$: StaticUnionSchema = [4, n0, _DD,
   0,
   [_cDo, _gD, _iDD, _sCD, _gCD, _eRCD, _eOCD, _eGACD, _cSCD, _sMD, _nD, _nCD],
-  [[() => ContentDataDetails$, 0], [() => GenerativeDataDetails$, 0], [() => IntentDetectedDataDetails$, 0], [() => SourceContentDataDetails$, 0], [() => GenerativeChunkDataDetails$, 0], [() => EmailResponseChunkDataDetails$, 0], [() => EmailOverviewChunkDataDetails$, 0], [() => EmailGenerativeAnswerChunkDataDetails$, 0], () => CaseSummarizationChunkDataDetails$, [() => SuggestedMessageDataDetails$, 0], [() => NotesDataDetails$, 0], [() => NotesChunkDataDetails$, 0]]
+  [[() => ContentDataDetails$, 0], [() => GenerativeDataDetails$, 0], [() => IntentDetectedDataDetails$, 0], [() => SourceContentDataDetails$, 0], [() => GenerativeChunkDataDetails$, 0], [() => EmailResponseChunkDataDetails$, 0], [() => EmailOverviewChunkDataDetails$, 0], [() => EmailGenerativeAnswerChunkDataDetails$, 0], [() => CaseSummarizationChunkDataDetails$, 0], [() => SuggestedMessageDataDetails$, 0], [() => NotesDataDetails$, 0], [() => NotesChunkDataDetails$, 0]]
 ];
 export var DataReference$: StaticUnionSchema = [4, n0, _DR,
   0,
@@ -3384,7 +3386,7 @@ export var ManagedSourceConfiguration$: StaticUnionSchema = [4, n0, _MSC,
 export var MessageData$: StaticUnionSchema = [4, n0, _MD,
   0,
   [_tex, _tUR],
-  [[() => TextMessage$, 0], () => ToolUseResultData$]
+  [[() => TextMessage$, 0], [() => ToolUseResultData$, 0]]
 ];
 export var MessageTemplateBodyContentProvider$: StaticUnionSchema = [4, n0, _MTBCP,
   0,
@@ -3454,7 +3456,7 @@ export var SourceConfiguration$: StaticUnionSchema = [4, n0, _SCo,
 export var SpanMessageValue$: StaticUnionSchema = [4, n0, _SMV,
   0,
   [_tex, _tUo, _tR],
-  [[() => SpanTextValue$, 0], () => SpanToolUseValue$, [() => SpanToolResultValue$, 0]]
+  [[() => SpanTextValue$, 0], [() => SpanToolUseValue$, 0], [() => SpanToolResultValue$, 0]]
 ];
 export var TagFilter$: StaticUnionSchema = [4, n0, _TF,
   0,

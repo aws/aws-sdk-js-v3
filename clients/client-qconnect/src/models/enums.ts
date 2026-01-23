@@ -466,6 +466,7 @@ export type Relevance = (typeof Relevance)[keyof typeof Relevance];
  * @enum
  */
 export const TargetType = {
+  MESSAGE: "MESSAGE",
   RECOMMENDATION: "RECOMMENDATION",
   RESULT: "RESULT",
 } as const;

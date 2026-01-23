@@ -6003,10 +6003,10 @@ export interface UpdateAssistantAIAgentRequest {
   configuration: AIAgentConfigurationData | undefined;
 
   /**
-   * <p>The updated list of orchestrator configurations for the assistant AI Agent.</p>
+   * <p>The orchestrator use case for the AI Agent being added.</p>
    * @public
    */
-  orchestratorConfigurationList?: OrchestratorConfigurationEntry[] | undefined;
+  orchestratorUseCase?: string | undefined;
 }
 
 /**
