@@ -7,44 +7,47 @@
  * @packageDocumentation
  */
 
-import { EventEmitter } from "events";
-import type { SQSClient } from "@aws-sdk/client-sqs";
-import type { Credentials } from "@aws-sdk/types";
+import type {
+  SQSClient,
+  SQSClientConfig,
+  Message as SQSRawMessage,
+  MessageAttributeValue,
+  MessageSystemAttributeName,
+  BatchResultErrorEntry,
+} from "@aws-sdk/client-sqs";
+
+// ============================================================
+// Re-exports from @aws-sdk/client-sqs
+// ============================================================
+
+/**
+ * Re-export MessageAttributeValue from @aws-sdk/client-sqs for convenience.
+ * @public
+ */
+export type { MessageAttributeValue };
+
+/**
+ * Re-export MessageSystemAttributeName from @aws-sdk/client-sqs for convenience.
+ * @public
+ */
+export type { MessageSystemAttributeName };
+
+/**
+ * Re-export the raw SQS Message type from @aws-sdk/client-sqs.
+ * This is the structure returned directly from the SQS ReceiveMessage API.
+ * @public
+ */
+export type { SQSRawMessage };
+
+/**
+ * Re-export BatchResultErrorEntry from @aws-sdk/client-sqs for deletion failure details.
+ * @public
+ */
+export type { BatchResultErrorEntry };
 
 // ============================================================
 // Type Definitions
 // ============================================================
-
-/**
- * SQS message system attribute names.
- * @public
- */
-export type AttributeName =
-  | "All"
-  | "ApproximateFirstReceiveTimestamp"
-  | "ApproximateReceiveCount"
-  | "SenderId"
-  | "SentTimestamp"
-  | "MessageDeduplicationId"
-  | "MessageGroupId"
-  | "SequenceNumber";
-
-/**
- * Message attribute value structure.
- * @public
- */
-export interface MessageAttributeValue {
-  /** The data type of the attribute value. */
-  DataType: string;
-  /** String value of the attribute. */
-  StringValue?: string;
-  /** Binary value of the attribute. */
-  BinaryValue?: Buffer;
-  /** List of string values. */
-  StringListValues?: string[];
-  /** List of binary values. */
-  BinaryListValues?: Buffer[];
-}
 
 /**
  * Map of message attribute names to values.
@@ -53,110 +56,11 @@ export interface MessageAttributeValue {
 export type MessageAttributes = Record<string, MessageAttributeValue>;
 
 /**
- * Message system attributes returned by SQS.
+ * JSON-serializable representation of poller statistics.
+ * All Date fields are converted to ISO strings for serialization.
  * @public
  */
-export interface MessageSystemAttributes {
-  /** Timestamp of when the message was first received. */
-  ApproximateFirstReceiveTimestamp?: string;
-  /** Number of times the message has been received. */
-  ApproximateReceiveCount?: string;
-  /** AWS account ID or IAM identity of the sender. */
-  SenderId?: string;
-  /** Timestamp of when the message was sent. */
-  SentTimestamp?: string;
-  /** Deduplication ID for FIFO queues. */
-  MessageDeduplicationId?: string;
-  /** Message group ID for FIFO queues. */
-  MessageGroupId?: string;
-  /** Sequence number for FIFO queues. */
-  SequenceNumber?: string;
-}
-
-/**
- * Raw SQS message structure.
- * @public
- */
-export interface SQSMessage {
-  /** Unique message identifier. */
-  MessageId: string;
-  /** Receipt handle for message operations. */
-  ReceiptHandle: string;
-  /** MD5 digest of the message body. */
-  MD5OfBody: string;
-  /** The message body. */
-  Body: string;
-  /** System attributes of the message. */
-  Attributes?: MessageSystemAttributes;
-  /** Custom message attributes. */
-  MessageAttributes?: MessageAttributes;
-  /** MD5 digest of the message attributes. */
-  MD5OfMessageAttributes?: string;
-}
-
-/**
- * Result of sending a single message.
- * @public
- */
-export interface SendMessageResult {
-  /** Unique identifier for the message. */
-  MessageId: string;
-  /** MD5 digest of the message body. */
-  MD5OfMessageBody: string;
-  /** MD5 digest of the message attributes. */
-  MD5OfMessageAttributes?: string;
-  /** Sequence number for FIFO queues. */
-  SequenceNumber?: string;
-}
-
-/**
- * Entry in a successful batch send result.
- * @public
- */
-export interface SendMessageBatchResultEntry {
-  /** Identifier for the message in the batch. */
-  Id: string;
-  /** Unique identifier assigned by SQS. */
-  MessageId: string;
-  /** MD5 digest of the message body. */
-  MD5OfMessageBody: string;
-  /** MD5 digest of the message attributes. */
-  MD5OfMessageAttributes?: string;
-  /** Sequence number for FIFO queues. */
-  SequenceNumber?: string;
-}
-
-/**
- * Entry in a failed batch operation result.
- * @public
- */
-export interface BatchResultErrorEntry {
-  /** Identifier for the message in the batch. */
-  Id: string;
-  /** Whether the error was the sender's fault. */
-  SenderFault: boolean;
-  /** Error code. */
-  Code: string;
-  /** Error message. */
-  Message: string;
-}
-
-/**
- * Result of sending multiple messages.
- * @public
- */
-export interface SendMessageBatchResult {
-  /** Successfully sent messages. */
-  Successful: SendMessageBatchResultEntry[];
-  /** Failed message sends. */
-  Failed: BatchResultErrorEntry[];
-}
-
-/**
- * JSON representation of poller statistics.
- * @public
- */
-export interface PollerStatsJSON {
+export interface SerializablePollerStats {
   /** Total number of receive requests made. */
   requestCount: number;
   /** Total number of messages received. */
@@ -165,60 +69,16 @@ export interface PollerStatsJSON {
   deletedMessageCount: number;
   /** Total number of errors encountered. */
   errorCount: number;
-  /** ISO timestamp of last received message. */
+  /** ISO timestamp of last received message, or null if no messages received. */
   lastMessageReceivedAt: string | null;
   /** ISO timestamp when polling started. */
   pollingStartedAt: string;
-  /** ISO timestamp when polling stopped. */
+  /** ISO timestamp when polling stopped, or null if still running. */
   pollingStoppedAt: string | null;
   /** Average messages per request. */
   averageMessagesPerRequest: number;
   /** Current polling duration in milliseconds. */
   pollingDurationMs: number;
-}
-
-/**
- * Information about a failed message deletion.
- * @public
- */
-export interface DeleteFailure {
-  /** Message ID that failed to delete. */
-  id: string;
-  /** Whether the failure was the sender's fault. */
-  senderFault: boolean;
-  /** Error code. */
-  code: string;
-  /** Error message. */
-  message: string;
-}
-
-/**
- * AWS SDK configuration options.
- * @public
- */
-export interface AWSConfig {
-  /**
-   * AWS region.
-   * @example 'us-east-1'
-   */
-  region?: string;
-  /** AWS credentials. */
-  credentials?: Credentials;
-  /**
-   * Custom endpoint URL (for testing with LocalStack, etc.).
-   * @example 'http://localhost:4566'
-   */
-  endpoint?: string;
-  /**
-   * Maximum number of retry attempts.
-   * @defaultValue 3
-   */
-  maxRetries?: number;
-  /**
-   * Request timeout in milliseconds.
-   * @defaultValue 120000
-   */
-  requestTimeout?: number;
 }
 
 /**
@@ -240,12 +100,16 @@ export interface PollerConfig {
   // AWS Configuration
   // ============================================================
 
-  /** AWS SDK configuration options. */
-  awsConfig?: AWSConfig;
+  /**
+   * Configuration options for the SQS client.
+   * Uses the standard SQSClientConfig from @aws-sdk/client-sqs.
+   * Ignored if `sqs` is provided.
+   */
+  clientConfig?: SQSClientConfig;
 
   /**
    * Pre-configured SQS client instance.
-   * If provided, awsConfig is ignored.
+   * If provided, clientConfig is ignored.
    */
   sqs?: SQSClient;
 
@@ -262,18 +126,27 @@ export interface PollerConfig {
 
   /**
    * Number of messages to receive per request (1-10).
+   * Values outside this range will throw a PollerError during construction.
+   * This limit is enforced by the SQS ReceiveMessage API.
    * @defaultValue 10
+   * @throws {PollerError} If value is not between 1 and 10 (inclusive).
    */
   receiveBatchSize?: number;
 
   /**
-   * Long polling wait time in seconds (0-20).
-   * @defaultValue 20
+   * Long polling wait time in milliseconds (0-20000).
+   * The poller converts this to seconds for the SQS API.
+   * Use 0 for short polling (not recommended for production).
+   * @defaultValue 20000 (20 seconds)
    */
-  receiveWaitTimeSecs?: number;
+  receiveWaitTimeMs?: number;
 
   /**
    * Milliseconds to wait between polls when queue is active.
+   * Set to 0 for no additional delay - the next poll starts immediately
+   * after the previous one completes.
+   * Note: Setting both this and receiveWaitTimeMs to 0 will result in
+   * rapid short-polling requests (not recommended due to cost and rate limiting).
    * @defaultValue 0
    */
   activePollIntervalMs?: number;
@@ -291,48 +164,52 @@ export interface PollerConfig {
   pollRetryMs?: number;
 
   /**
-   * Stop polling after this many seconds of no messages.
+   * Stop polling after this many milliseconds of no messages.
    * Set to null to poll indefinitely.
    * @defaultValue null
    */
-  idleTimeout?: number | null;
+  idleTimeoutMs?: number | null;
 
   // ============================================================
   // Message Handling Configuration
   // ============================================================
 
   /**
-   * Visibility timeout in seconds for received messages.
+   * Visibility timeout in milliseconds for received messages.
+   * The poller converts this to seconds for the SQS API.
    * If not specified, uses the queue's default setting.
    */
-  visibilityTimeoutSecs?: number;
+  visibilityTimeoutMs?: number;
 
   /**
    * Automatically extend message visibility timeout while processing.
+   * When enabled, the poller will periodically extend the visibility timeout
+   * of messages that are still being processed.
    * @defaultValue false
    */
-  autoExtendTimeout?: boolean;
+  extendTimeout?: boolean;
 
   /**
-   * Milliseconds before timeout to make extension call.
-   * Only used if autoExtendTimeout is true.
+   * Milliseconds before the visibility timeout expires to make the extension call.
+   * Only used if extendTimeout is true.
    * @defaultValue 5000
    */
-  advancedCallMs?: number;
+  extendTimeoutAdvanceMs?: number;
 
   /**
-   * Stop extending timeout after this many seconds.
-   * Only used if autoExtendTimeout is true.
-   * @defaultValue 43200 (12 hours)
+   * Maximum total time in milliseconds to extend the visibility timeout.
+   * After this duration, the poller will stop extending the timeout.
+   * Only used if extendTimeout is true.
+   * @defaultValue 43200000 (12 hours)
    */
-  noExtensionsAfterSecs?: number;
+  maxTimeoutExtensionMs?: number;
 
   /**
-   * Skip automatic message deletion.
-   * If true, messages must be manually deleted.
-   * @defaultValue false
+   * Automatically delete messages after they are handled.
+   * If false, messages must be manually deleted by calling message.enqueueDelete().
+   * @defaultValue true
    */
-  skipDelete?: boolean;
+  deleteMessages?: boolean;
 
   // ============================================================
   // Batch Operations Configuration
@@ -345,7 +222,9 @@ export interface PollerConfig {
   deleteBatchSize?: number;
 
   /**
-   * Milliseconds to wait before triggering batch delete.
+   * Maximum time in milliseconds to wait after the first message is queued
+   * for deletion before triggering the batch delete operation.
+   * This allows multiple messages to be batched together for efficiency.
    * @defaultValue 2000
    */
   deleteWaitMs?: number;
@@ -356,14 +235,16 @@ export interface PollerConfig {
 
   /**
    * Format of message body.
-   * - 'plain': Return body as string
+   * - 'text': Return body as string (default)
    * - 'json': Parse body as JSON
-   * @defaultValue 'plain'
+   * @defaultValue 'text'
    */
-  bodyFormat?: "plain" | "json";
+  bodyFormat?: "text" | "json";
 
   /**
    * Unwrap SNS message envelope.
+   * When true, if the message body is an SNS notification envelope,
+   * the poller will extract the inner message content.
    * @defaultValue false
    */
   unwrapSns?: boolean;
@@ -374,15 +255,18 @@ export interface PollerConfig {
 
   /**
    * System attributes to retrieve with messages.
+   * Uses MessageSystemAttributeName from @aws-sdk/client-sqs.
+   * These are attributes like ApproximateReceiveCount, SentTimestamp, etc.
    * @defaultValue []
-   * @example ['All', 'ApproximateReceiveCount', 'SentTimestamp']
+   * @example ['All'] or ['ApproximateReceiveCount', 'SentTimestamp']
    */
-  attributeNames?: AttributeName[];
+  systemAttributeNames?: MessageSystemAttributeName[];
 
   /**
    * Custom message attributes to retrieve.
+   * These are user-defined attributes set when sending messages.
    * @defaultValue []
-   * @example ['All', 'CustomAttribute.*']
+   * @example ['All'] or ['CustomAttribute.*', 'SpecificAttribute']
    */
   messageAttributeNames?: string[];
 
@@ -392,8 +276,8 @@ export interface PollerConfig {
 
   /**
    * Callback invoked before each polling request.
-   * Can be used to implement custom logic or stop polling.
-   * @example (stats) => { if (stats.errorCount > 10) throw ':stop_polling'; }
+   * Can be used to implement custom logic or stop polling by throwing an error.
+   * @example (stats) => { if (stats.errorCount > 10) throw new Error('Too many errors'); }
    */
   beforeRequest?: (stats: PollerStats) => void;
 
@@ -402,51 +286,44 @@ export interface PollerConfig {
   // ============================================================
 
   /**
-   * Automatically register signal handlers for graceful shutdown.
+   * Register signal handlers for graceful shutdown.
    * When enabled, the poller listens for SIGTERM and SIGINT signals
    * and performs a soft stop (waiting for in-flight messages to complete).
    * @defaultValue true
    */
-  autoGracefulShutdown?: boolean;
+  gracefulShutdown?: boolean;
 
   /**
    * Maximum time in milliseconds to wait for in-flight messages during shutdown.
    * After this timeout, the poller will force stop.
-   * Only used if autoGracefulShutdown is true.
+   * Only used if gracefulShutdown is true.
    * @defaultValue 30000 (30 seconds)
    */
   shutdownTimeoutMs?: number;
 
   // ============================================================
-  // Queue Creation Configuration
+  // Event Callbacks Configuration
   // ============================================================
 
   /**
-   * Delay in seconds for new messages (0-900).
-   * Only used when creating a queue.
-   * @defaultValue 0
+   * Event callbacks to register during construction.
+   * These can also be assigned directly to poller.on after construction.
+   *
+   * @example
+   * ```typescript
+   * const poller = new QueuePoller({
+   *   queueUrl: '...',
+   *   on: {
+   *     message: (message, stats) => {
+   *       console.log('Received:', message.body);
+   *       message.enqueueDelete();
+   *     },
+   *     error: (error) => console.error(error),
+   *   },
+   * });
+   * ```
    */
-  delaySecs?: number;
-
-  /**
-   * Maximum message size in bytes (1024-262144).
-   * Only used when creating a queue.
-   * @defaultValue 262144 (256 KB)
-   */
-  maxMessageBytes?: number;
-
-  /**
-   * Message retention period in seconds (60-1209600).
-   * Only used when creating a queue.
-   * @defaultValue 345600 (4 days)
-   */
-  messageRetentionSecs?: number;
-
-  /**
-   * Queue access policy.
-   * Only used when creating a queue.
-   */
-  queuePolicy?: string;
+  on?: Partial<QueuePollerEvents>;
 }
 
 // ============================================================
@@ -464,9 +341,10 @@ export class PollerError extends Error {
   public readonly cause?: Error;
 
   /**
-   * Error name.
+   * Error name - identifies the specific error type.
+   * Subclasses override this with their specific error name.
    */
-  public readonly name = "PollerError" as const;
+  public override readonly name: string = "PollerError";
 
   /**
    * Creates a new PollerError.
@@ -493,7 +371,7 @@ export class TimeoutError extends PollerError {
   /**
    * Error name.
    */
-  public readonly name = "TimeoutError" as const;
+  public override readonly name: string = "TimeoutError";
 
   /**
    * Creates a new TimeoutError.
@@ -509,26 +387,28 @@ export class TimeoutError extends PollerError {
 
 /**
  * Error thrown when message deletion fails.
+ * Contains details about which messages failed to delete.
  * @public
  */
 export class DeleteError extends PollerError {
   /**
-   * Array of messages that failed to delete.
+   * Array of batch result error entries from the SQS API.
+   * Uses the BatchResultErrorEntry type from @aws-sdk/client-sqs.
    */
-  public readonly failures: DeleteFailure[];
+  public readonly failures: BatchResultErrorEntry[];
 
   /**
    * Error name.
    */
-  public readonly name = "DeleteError" as const;
+  public override readonly name: string = "DeleteError";
 
   /**
    * Creates a new DeleteError.
    * @public
    * @param message - Error message.
-   * @param failures - Array of deletion failures.
+   * @param failures - Array of batch result error entries.
    */
-  constructor(message: string, failures: DeleteFailure[]) {
+  constructor(message: string, failures: BatchResultErrorEntry[]) {
     super(message);
     throw new Error("not implemented");
   }
@@ -547,7 +427,7 @@ export class VisibilityExtensionError extends PollerError {
   /**
    * Error name.
    */
-  public readonly name = "VisibilityExtensionError" as const;
+  public override readonly name: string = "VisibilityExtensionError";
 
   /**
    * Creates a new VisibilityExtensionError.
@@ -624,11 +504,10 @@ export class PollerStats {
   }
 
   /**
-   * Returns a plain object representation of the statistics.
    * @public
-   * @returns Plain object with all statistics.
+   * @returns JSON-serializable representation of the statistics.
    */
-  public toJSON(): PollerStatsJSON {
+  public toJSON(): SerializablePollerStats {
     throw new Error("not implemented");
   }
 }
@@ -639,21 +518,27 @@ export class PollerStats {
 
 /**
  * Wrapper class for SQS messages with convenience methods.
+ *
+ * Note: The constructor is marked @internal because Message instances
+ * should only be created by the QueuePoller when messages are received.
+ * Users should not instantiate Message objects directly.
+ *
+ * @typeParam T - The expected type of the message body. Defaults to `unknown`.
  * @public
  */
-export class Message {
+export class Message<T = unknown> {
   /**
    * Parsed message body.
    * - If bodyFormat is 'json', this will be the parsed object.
-   * - If bodyFormat is 'plain', this will be the raw string.
+   * - If bodyFormat is 'text', this will be the raw string.
    * - If unwrapSns is true, this will be the SNS message content.
    */
-  public readonly body: unknown;
+  public readonly body: T;
 
   /**
-   * Raw SQS message object.
+   * Raw SQS message object from @aws-sdk/client-sqs.
    */
-  public readonly raw: SQSMessage;
+  public readonly raw: SQSRawMessage;
 
   /**
    * Receipt handle for message operations.
@@ -666,9 +551,15 @@ export class Message {
   public readonly messageId: string;
 
   /**
-   * Message system attributes.
+   * Message system attributes as returned by the SQS ReceiveMessage API.
+   * This is a map of MessageSystemAttributeName to string values.
+   *
+   * Note: This contains attributes like ApproximateReceiveCount, SentTimestamp, etc.
+   * This is different from MessageSystemAttributeValue (used for AWSTraceHeader when sending).
+   *
+   * @see MessageSystemAttributeName from @aws-sdk/client-sqs
    */
-  public readonly attributes: MessageSystemAttributes;
+  public readonly attributes: Partial<Record<MessageSystemAttributeName, string>>;
 
   /**
    * Custom message attributes.
@@ -676,17 +567,17 @@ export class Message {
   public readonly messageAttributes: MessageAttributes;
 
   /**
-   * SNS message subject (only if unwrapSns is true).
+   * SNS message subject (only present if unwrapSns is true and message is from SNS).
    */
   public readonly subject?: string;
 
   /**
-   * SNS topic ARN (only if unwrapSns is true).
+   * SNS topic ARN (only present if unwrapSns is true and message is from SNS).
    */
   public readonly topicArn?: string;
 
   /**
-   * SNS topic name (only if unwrapSns is true).
+   * SNS topic name (only present if unwrapSns is true and message is from SNS).
    */
   public readonly topicName?: string;
 
@@ -697,22 +588,25 @@ export class Message {
 
   /**
    * Creates a new Message instance.
-   * @internal
+   * @internal This constructor is internal - Message instances are created
+   * by QueuePoller when messages are received from SQS.
    */
-  constructor(raw: SQSMessage) {
+  constructor(raw: SQSRawMessage) {
     throw new Error("not implemented");
   }
 
   /**
-   * Queues the message for deletion.
+   * Queues the message for batch deletion.
+   * The message will be deleted when the batch is full or deleteWaitMs has elapsed.
    * @public
    */
-  public del(): void {
+  public enqueueDelete(): void {
     throw new Error("not implemented");
   }
 
   /**
    * Marks the message as handled without deleting.
+   * Use this when you want to acknowledge the message but not delete it from the queue.
    * @public
    */
   public keep(): void {
@@ -720,7 +614,8 @@ export class Message {
   }
 
   /**
-   * Releases the message back to the queue immediately.
+   * Releases the message back to the queue immediately by setting visibility timeout to 0.
+   * This makes the message available for other consumers to process.
    * @public
    * @returns Promise that resolves when release is complete.
    */
@@ -731,10 +626,10 @@ export class Message {
   /**
    * Changes the visibility timeout of the message.
    * @public
-   * @param seconds - New visibility timeout in seconds.
+   * @param timeoutMs - New visibility timeout in milliseconds.
    * @returns Promise that resolves when change is complete.
    */
-  public changeVisibility(seconds: number): Promise<void> {
+  public changeVisibility(timeoutMs: number): Promise<void> {
     throw new Error("not implemented");
   }
 }
@@ -747,19 +642,19 @@ export class Message {
  * Event types emitted by the QueuePoller.
  * @public
  */
-export interface QueuePollerEvents {
+export interface QueuePollerEvents<T = unknown> {
   /** Emitted when a message is received from the queue. */
-  message: (message: Message, stats: PollerStats) => void;
-  /** Emitted when a message is marked as handled. */
-  handled: (message: Message) => void;
-  /** Emitted when a message is successfully deleted. */
-  deleted: (message: Message) => void;
-  /** Emitted when a message is queued for deletion. */
-  delQueued: (message: Message) => void;
+  message: (message: Message<T>, stats: PollerStats) => void;
+  /** Emitted when a message is marked as handled (via keep() or enqueueDelete()). */
+  handled: (message: Message<T>) => void;
+  /** Emitted when a message is successfully deleted from the queue. */
+  deleted: (message: Message<T>) => void;
+  /** Emitted when a message is queued for batch deletion. */
+  deletionEnqueued: (message: Message<T>) => void;
   /** Emitted when a message is released back to the queue. */
-  released: (message: Message) => void;
+  released: (message: Message<T>) => void;
   /** Emitted when messages are received from SQS. */
-  gotMessages: (count: number) => void;
+  receivedMessages: (count: number) => void;
   /** Emitted when no messages are available in the queue. */
   queueEmpty: () => void;
   /** Emitted when maxInFlight limit is reached. */
@@ -771,24 +666,52 @@ export interface QueuePollerEvents {
   /** Emitted when graceful shutdown is initiated. */
   shutdown: (signal: string) => void;
   /** Emitted when a message's visibility timeout is extended. */
-  timeoutExtended: (message: Message) => void;
-  /** Emitted when automatic timeout extension fails. */
-  autoExtendFail: (data: { message: Message; error: Error }) => void;
-  /** Emitted when a polling error occurs. */
+  timeoutExtended: (message: Message<T>) => void;
+  /**
+   * Emitted when any error occurs during polling operations.
+   * This is the primary error event - all errors are emitted here.
+   * Use the error's `name` property to distinguish error types:
+   * - 'PollerError': General polling errors
+   * - 'DeleteError': Message deletion failures
+   * - 'TimeoutError': Processing timeout errors
+   * - 'VisibilityExtensionError': Visibility extension failures
+   */
   error: (error: Error) => void;
-  /** Emitted when message deletion fails. */
-  delError: (error: DeleteError) => void;
-  /** Emitted when message processing throws an error. */
-  processing_error: (error: Error, message: Message) => void;
-  /** Emitted when message processing times out. */
-  timeout_error: (error: TimeoutError, message: Message) => void;
+  /** Emitted when message deletion fails. Also emitted via 'error' event. */
+  deleteError: (error: DeleteError) => void;
+  /** Emitted when visibility timeout extension fails. Also emitted via 'error' event. */
+  extensionError: (data: { message: Message<T>; error: VisibilityExtensionError }) => void;
+  /** Emitted when message processing throws an error. Also emitted via 'error' event. */
+  processingError: (error: Error, message: Message<T>) => void;
+  /** Emitted when message processing times out. Also emitted via 'error' event. */
+  timeoutError: (error: TimeoutError, message: Message<T>) => void;
 }
 
 /**
  * The main class for polling messages from an SQS queue.
+ *
+ * This class uses a callback-based event system instead of extending EventEmitter.
+ * Users who prefer the EventEmitter pattern can easily adapt it:
+ *
+ * @example
+ * ```typescript
+ * import { EventEmitter } from 'events';
+ *
+ * const poller = new QueuePoller({ queueUrl: '...' });
+ * const emitter = new EventEmitter();
+ *
+ * // Adapt callbacks to EventEmitter
+ * poller.on.message = (message, stats) => emitter.emit('message', message, stats);
+ * poller.on.error = (error) => emitter.emit('error', error);
+ *
+ * // Now use EventEmitter pattern
+ * emitter.on('message', (message) => { ... });
+ * ```
+ *
+ * @typeParam T - The expected type of message bodies. Defaults to `unknown`.
  * @public
  */
-export class QueuePoller extends EventEmitter {
+export class QueuePoller<T = unknown> {
   // ============================================================
   // Properties
   // ============================================================
@@ -813,6 +736,26 @@ export class QueuePoller extends EventEmitter {
    */
   public readonly stats: PollerStats;
 
+  /**
+   * Event callbacks. Assign functions to handle specific events.
+   * Each event has a default no-op implementation.
+   *
+   * @example
+   * ```typescript
+   * const poller = new QueuePoller({ queueUrl: '...' });
+   *
+   * poller.on.message = (message, stats) => {
+   *   console.log('Received:', message.body);
+   *   message.enqueueDelete();
+   * };
+   *
+   * poller.on.error = (error) => {
+   *   console.error('Error:', error);
+   * };
+   * ```
+   */
+  public readonly on: QueuePollerEvents<T>;
+
   // ============================================================
   // Constructor
   // ============================================================
@@ -820,11 +763,11 @@ export class QueuePoller extends EventEmitter {
   /**
    * Creates a new QueuePoller instance.
    * @public
-   * @param config - Configuration options.
-   * @throws {PollerError} If configuration is invalid.
+   * @param config - Configuration options. Event callbacks can be provided
+   *                 via config.on or assigned directly to poller.on after construction.
+   * @throws {PollerError} If configuration is invalid (e.g., receiveBatchSize not between 1-10).
    */
   constructor(config: PollerConfig) {
-    super();
     throw new Error("not implemented");
   }
 
@@ -844,179 +787,28 @@ export class QueuePoller extends EventEmitter {
   /**
    * Stops polling for messages.
    * @public
-   * @param soft - If true, waits for in-flight messages to complete.
+   * @param soft - If true, waits for in-flight messages to complete before stopping.
+   *               If false (default), stops immediately without waiting.
+   * @defaultValue false
    * @returns Promise that resolves when polling has stopped.
    */
-  public stop(soft?: boolean): Promise<void> {
+  public stop(soft: boolean = false): Promise<void> {
     throw new Error("not implemented");
   }
 
   // ============================================================
-  // Message Operations
+  // Batch Operations
   // ============================================================
 
   /**
-   * Deletes a message from the queue.
-   * @public
-   * @param message - The message to delete.
-   */
-  public deleteMessage(message: Message): void {
-    throw new Error("not implemented");
-  }
-
-  /**
-   * Deletes multiple messages from the queue.
+   * Deletes multiple messages from the queue in a batch.
+   * For single message deletion, use message.enqueueDelete() directly.
    * @public
    * @param messages - Array of messages to delete.
    * @returns Promise that resolves when deletion is complete.
+   * @throws {DeleteError} If any messages fail to delete.
    */
-  public deleteMessages(messages: Message[]): Promise<void> {
+  public deleteMessages(messages: Message<T>[]): Promise<void> {
     throw new Error("not implemented");
-  }
-
-  /**
-   * Changes the visibility timeout of a message.
-   * @public
-   * @param message - The message to modify.
-   * @param seconds - New visibility timeout in seconds.
-   * @returns Promise that resolves when change is complete.
-   */
-  public changeMessageVisibility(message: Message, seconds: number): Promise<void> {
-    throw new Error("not implemented");
-  }
-
-  /**
-   * Marks a message as handled without deleting it.
-   * @public
-   * @param message - The message to mark as handled.
-   */
-  public handledMessage(message: Message): void {
-    throw new Error("not implemented");
-  }
-
-  /**
-   * Releases a message back to the queue immediately.
-   * @public
-   * @param message - The message to release.
-   * @returns Promise that resolves when release is complete.
-   */
-  public releaseMessage(message: Message): Promise<void> {
-    throw new Error("not implemented");
-  }
-
-  // ============================================================
-  // Queue Operations
-  // ============================================================
-
-  /**
-   * Creates the configured queue.
-   * @public
-   * @returns Promise that resolves with the queue URL.
-   * @throws {PollerError} If queue creation fails.
-   */
-  public createQueue(): Promise<string> {
-    throw new Error("not implemented");
-  }
-
-  /**
-   * Deletes the configured queue.
-   * @public
-   * @returns Promise that resolves when deletion is complete.
-   * @throws {PollerError} If queue deletion fails.
-   */
-  public deleteQueue(): Promise<void> {
-    throw new Error("not implemented");
-  }
-
-  /**
-   * Gets the URL of the configured queue.
-   * @public
-   * @returns Promise that resolves with the queue URL.
-   */
-  public getQueueUrl(): Promise<string> {
-    throw new Error("not implemented");
-  }
-
-  // ============================================================
-  // Message Sending
-  // ============================================================
-
-  /**
-   * Sends a single message to the queue.
-   * @public
-   * @param message - Message body (string or object).
-   * @param delay - Optional delay in seconds.
-   * @param attributes - Optional message attributes.
-   * @returns Promise that resolves with send result.
-   */
-  public sendMessage(
-    message: string | object,
-    delay?: number,
-    attributes?: MessageAttributes,
-  ): Promise<SendMessageResult> {
-    throw new Error("not implemented");
-  }
-
-  /**
-   * Sends multiple messages to the queue.
-   * @public
-   * @param messages - Array of message bodies.
-   * @param delay - Optional delay in seconds.
-   * @param attributes - Optional message attributes.
-   * @returns Promise that resolves with batch send result.
-   */
-  public sendMessages(
-    messages: Array<string | object>,
-    delay?: number,
-    attributes?: MessageAttributes,
-  ): Promise<SendMessageBatchResult> {
-    throw new Error("not implemented");
-  }
-
-  // ============================================================
-  // Callbacks
-  // ============================================================
-
-  /**
-   * Registers a callback to be invoked before each polling request.
-   * @public
-   * @param callback - Function to call with current statistics.
-   */
-  public beforeRequest(callback: (stats: PollerStats) => void): void {
-    throw new Error("not implemented");
-  }
-
-  // ============================================================
-  // Event Emitter Overrides (for type safety)
-  // ============================================================
-
-  /**
-   * Adds a listener for the specified event.
-   * @public
-   * @param event - The event name.
-   * @param listener - The callback function.
-   */
-  public on<K extends keyof QueuePollerEvents>(event: K, listener: QueuePollerEvents[K]): this {
-    return super.on(event, listener);
-  }
-
-  /**
-   * Adds a one-time listener for the specified event.
-   * @public
-   * @param event - The event name.
-   * @param listener - The callback function.
-   */
-  public once<K extends keyof QueuePollerEvents>(event: K, listener: QueuePollerEvents[K]): this {
-    return super.once(event, listener);
-  }
-
-  /**
-   * Emits the specified event.
-   * @public
-   * @param event - The event name.
-   * @param args - Arguments to pass to listeners.
-   */
-  public emit<K extends keyof QueuePollerEvents>(event: K, ...args: Parameters<QueuePollerEvents[K]>): boolean {
-    return super.emit(event, ...args);
   }
 }
