@@ -54,10 +54,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-env",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-env",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/credential-provider-env"
+    "directory": "packages-internal/credential-provider-env"
   }
 }

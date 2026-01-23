@@ -58,10 +58,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-websocket",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-websocket",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/middleware-websocket"
+    "directory": "packages-internal/middleware-websocket"
   }
 }

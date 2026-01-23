@@ -39,10 +39,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/crt-loader",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/crt-loader",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/crt-loader"
+    "directory": "packages-internal/crt-loader"
   }
 }

@@ -43,11 +43,11 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-host-header",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-host-header",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/middleware-host-header"
+    "directory": "packages-internal/middleware-host-header"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

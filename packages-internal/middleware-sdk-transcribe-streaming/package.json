@@ -54,10 +54,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-sdk-transcribe-streaming",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-transcribe-streaming",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/middleware-sdk-transcribe-streaming"
+    "directory": "packages-internal/middleware-sdk-transcribe-streaming"
   }
 }

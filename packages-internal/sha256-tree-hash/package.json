@@ -49,10 +49,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/sha256-tree-hash",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/sha256-tree-hash",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/sha256-tree-hash"
+    "directory": "packages-internal/sha256-tree-hash"
   }
 }

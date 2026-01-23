@@ -46,10 +46,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-user-agent-browser",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/util-user-agent-browser",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/util-user-agent-browser"
+    "directory": "packages-internal/util-user-agent-browser"
   }
 }

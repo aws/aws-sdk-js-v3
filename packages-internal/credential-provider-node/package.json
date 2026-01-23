@@ -63,10 +63,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-node",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/credential-provider-node"
+    "directory": "packages-internal/credential-provider-node"
   }
 }

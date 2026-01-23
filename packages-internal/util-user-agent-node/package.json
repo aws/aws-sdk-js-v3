@@ -57,10 +57,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-user-agent-node",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/util-user-agent-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/util-user-agent-node"
+    "directory": "packages-internal/util-user-agent-node"
   }
 }

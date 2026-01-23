@@ -35,11 +35,11 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/types",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/types",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/types"
+    "directory": "packages-internal/types"
   },
   "dependencies": {
     "@smithy/types": "^4.12.0",

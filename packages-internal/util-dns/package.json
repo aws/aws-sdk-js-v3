@@ -52,11 +52,11 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-dns",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/util-dns",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/util-dns"
+    "directory": "packages-internal/util-dns"
   },
   "browser": {
     "./dist-es/HostResolver": "./dist-es/HostResolver.browser",

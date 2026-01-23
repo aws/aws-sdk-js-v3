@@ -40,11 +40,11 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-format-url",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/util-format-url",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/util-format-url"
+    "directory": "packages-internal/util-format-url"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

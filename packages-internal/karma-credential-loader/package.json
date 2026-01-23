@@ -47,10 +47,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/karma-credential-loader",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/karma-credential-loader",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/karma-credential-loader"
+    "directory": "packages-internal/karma-credential-loader"
   }
 }
