@@ -206,6 +206,11 @@ import {
   DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
+  DeleteDataExportConfigurationCommand,
+  DeleteDataExportConfigurationCommandInput,
+  DeleteDataExportConfigurationCommandOutput,
+} from "./commands/DeleteDataExportConfigurationCommand";
+import {
   DeleteDataProductCommand,
   DeleteDataProductCommandInput,
   DeleteDataProductCommandOutput,
@@ -842,6 +847,7 @@ const commands = {
   DeleteAssetFilterCommand,
   DeleteAssetTypeCommand,
   DeleteConnectionCommand,
+  DeleteDataExportConfigurationCommand,
   DeleteDataProductCommand,
   DeleteDataSourceCommand,
   DeleteDomainCommand,
@@ -1705,6 +1711,23 @@ export interface DataZone {
     args: DeleteConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataExportConfigurationCommand}
+   */
+  deleteDataExportConfiguration(
+    args: DeleteDataExportConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataExportConfigurationCommandOutput>;
+  deleteDataExportConfiguration(
+    args: DeleteDataExportConfigurationCommandInput,
+    cb: (err: any, data?: DeleteDataExportConfigurationCommandOutput) => void
+  ): void;
+  deleteDataExportConfiguration(
+    args: DeleteDataExportConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataExportConfigurationCommandOutput) => void
   ): void;
 
   /**

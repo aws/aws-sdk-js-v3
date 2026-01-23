@@ -157,6 +157,10 @@ import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/De
 import { DeleteAssetFilterCommandInput, DeleteAssetFilterCommandOutput } from "./commands/DeleteAssetFilterCommand";
 import { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "./commands/DeleteAssetTypeCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import {
+  DeleteDataExportConfigurationCommandInput,
+  DeleteDataExportConfigurationCommandOutput,
+} from "./commands/DeleteDataExportConfigurationCommand";
 import { DeleteDataProductCommandInput, DeleteDataProductCommandOutput } from "./commands/DeleteDataProductCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
@@ -511,6 +515,7 @@ export type ServiceInputTypes =
   | DeleteAssetFilterCommandInput
   | DeleteAssetTypeCommandInput
   | DeleteConnectionCommandInput
+  | DeleteDataExportConfigurationCommandInput
   | DeleteDataProductCommandInput
   | DeleteDataSourceCommandInput
   | DeleteDomainCommandInput
@@ -690,6 +695,7 @@ export type ServiceOutputTypes =
   | DeleteAssetFilterCommandOutput
   | DeleteAssetTypeCommandOutput
   | DeleteConnectionCommandOutput
+  | DeleteDataExportConfigurationCommandOutput
   | DeleteDataProductCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteDomainCommandOutput

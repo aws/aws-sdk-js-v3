@@ -55,6 +55,28 @@ import { type SearchSort, Filter, SearchInItem } from "./models_1";
 /**
  * @public
  */
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource to be tagged in Amazon DataZone.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Specifies the tags for the <code>TagResource</code> action.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource to be untagged in Amazon DataZone.</p>

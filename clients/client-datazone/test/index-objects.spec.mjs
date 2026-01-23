@@ -275,6 +275,10 @@ import {
   DeleteConnectionCommand,
   DeleteConnectionInput$,
   DeleteConnectionOutput$,
+  DeleteDataExportConfiguration$,
+  DeleteDataExportConfigurationCommand,
+  DeleteDataExportConfigurationInput$,
+  DeleteDataExportConfigurationOutput$,
   DeleteDataProduct$,
   DeleteDataProductCommand,
   DeleteDataProductInput$,
@@ -1231,6 +1235,8 @@ assert(typeof DeleteAssetTypeCommand === "function");
 assert(typeof DeleteAssetType$ === "object");
 assert(typeof DeleteConnectionCommand === "function");
 assert(typeof DeleteConnection$ === "object");
+assert(typeof DeleteDataExportConfigurationCommand === "function");
+assert(typeof DeleteDataExportConfiguration$ === "object");
 assert(typeof DeleteDataProductCommand === "function");
 assert(typeof DeleteDataProduct$ === "object");
 assert(typeof DeleteDataSourceCommand === "function");
@@ -1658,6 +1664,8 @@ assert(typeof DeleteAssetTypeInput$ === "object");
 assert(typeof DeleteAssetTypeOutput$ === "object");
 assert(typeof DeleteConnectionInput$ === "object");
 assert(typeof DeleteConnectionOutput$ === "object");
+assert(typeof DeleteDataExportConfigurationInput$ === "object");
+assert(typeof DeleteDataExportConfigurationOutput$ === "object");
 assert(typeof DeleteDataProductInput$ === "object");
 assert(typeof DeleteDataProductOutput$ === "object");
 assert(typeof DeleteDataSourceInput$ === "object");

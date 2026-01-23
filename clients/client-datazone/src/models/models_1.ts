@@ -1940,6 +1940,22 @@ export interface DeleteConnectionOutput {
 /**
  * @public
  */
+export interface DeleteDataExportConfigurationInput {
+  /**
+   * <p>The domain ID for which you want to delete the data export configuration.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataExportConfigurationOutput {}
+
+/**
+ * @public
+ */
 export interface DeleteEnvironmentInput {
   /**
    * <p>The ID of the Amazon DataZone domain in which the environment is deleted.</p>
@@ -9557,7 +9573,7 @@ export interface PostTimeSeriesDataPointsOutput {
  */
 export interface PutDataExportConfigurationInput {
   /**
-   * <p>The domain ID where you want to create data export configuration details.</p>
+   * <p>The domain ID for which you want to create data export configuration details.</p>
    * @public
    */
   domainIdentifier: string | undefined;
@@ -11245,25 +11261,3 @@ export interface SearchUserProfilesOutput {
    */
   nextToken?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the resource to be tagged in Amazon DataZone.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>Specifies the tags for the <code>TagResource</code> action.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}

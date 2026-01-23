@@ -223,6 +223,9 @@ const _DCI = "DeleteConnectionInput";
 const _DCO = "DeleteConnectionOutput";
 const _DCe = "DeleteConnection";
 const _DD = "DomainDescription";
+const _DDEC = "DeleteDataExportConfiguration";
+const _DDECI = "DeleteDataExportConfigurationInput";
+const _DDECO = "DeleteDataExportConfigurationOutput";
 const _DDI = "DeleteDomainInput";
 const _DDO = "DeleteDomainOutput";
 const _DDP = "DeleteDataProduct";
@@ -2446,6 +2449,16 @@ export var DeleteConnectionOutput$: StaticStructureSchema = [3, n0, _DCO,
   0,
   [_s],
   [0]
+];
+export var DeleteDataExportConfigurationInput$: StaticStructureSchema = [3, n0, _DDECI,
+  0,
+  [_dI],
+  [[0, 1]], 1
+];
+export var DeleteDataExportConfigurationOutput$: StaticStructureSchema = [3, n0, _DDECO,
+  0,
+  [],
+  []
 ];
 export var DeleteDataProductInput$: StaticStructureSchema = [3, n0, _DDPI,
   0,
@@ -5439,6 +5452,9 @@ export var DeleteAssetType$: StaticOperationSchema = [9, n0, _DAT,
 ];
 export var DeleteConnection$: StaticOperationSchema = [9, n0, _DCe,
   { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/connections/{identifier}", 202] }, () => DeleteConnectionInput$, () => DeleteConnectionOutput$
+];
+export var DeleteDataExportConfiguration$: StaticOperationSchema = [9, n0, _DDEC,
+  { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/data-export-configuration", 204] }, () => DeleteDataExportConfigurationInput$, () => DeleteDataExportConfigurationOutput$
 ];
 export var DeleteDataProduct$: StaticOperationSchema = [9, n0, _DDP,
   { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/data-products/{identifier}", 204] }, () => DeleteDataProductInput$, () => DeleteDataProductOutput$
