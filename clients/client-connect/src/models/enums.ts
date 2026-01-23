@@ -1209,6 +1209,31 @@ export type PropertyValidationExceptionReason =
  * @public
  * @enum
  */
+export const TestCaseEntryPointType = {
+  VOICE_CALL: "VOICE_CALL",
+} as const;
+/**
+ * @public
+ */
+export type TestCaseEntryPointType = (typeof TestCaseEntryPointType)[keyof typeof TestCaseEntryPointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestCaseStatus = {
+  PUBLISHED: "PUBLISHED",
+  SAVED: "SAVED",
+} as const;
+/**
+ * @public
+ */
+export type TestCaseStatus = (typeof TestCaseStatus)[keyof typeof TestCaseStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const UseCaseType = {
   CONNECT_CAMPAIGNS: "CONNECT_CAMPAIGNS",
   RULES_EVALUATION: "RULES_EVALUATION",
@@ -2167,6 +2192,22 @@ export type IntervalPeriod = (typeof IntervalPeriod)[keyof typeof IntervalPeriod
  * @public
  * @enum
  */
+export const TestCaseExecutionStatus = {
+  FAILED: "FAILED",
+  INITIATED: "INITIATED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PASSED: "PASSED",
+  STOPPED: "STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type TestCaseExecutionStatus = (typeof TestCaseExecutionStatus)[keyof typeof TestCaseExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const LexVersion = {
   V1: "V1",
   V2: "V2",
@@ -2309,6 +2350,21 @@ export const RealTimeContactAnalysisStatus = {
  */
 export type RealTimeContactAnalysisStatus =
   (typeof RealTimeContactAnalysisStatus)[keyof typeof RealTimeContactAnalysisStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionRecordStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PASSED: "PASSED",
+  STOPPED: "STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type ExecutionRecordStatus = (typeof ExecutionRecordStatus)[keyof typeof ExecutionRecordStatus];
 
 /**
  * @public

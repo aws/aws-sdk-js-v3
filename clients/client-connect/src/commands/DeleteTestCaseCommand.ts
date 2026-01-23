@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListBotsRequest, ListBotsResponse } from "../models/models_2";
-import { ListBots$ } from "../schemas/schemas_0";
+import type { DeleteTestCaseRequest, DeleteTestCaseResponse } from "../models/models_1";
+import { DeleteTestCase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,62 +16,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListBotsCommand}.
+ * The input for {@link DeleteTestCaseCommand}.
  */
-export interface ListBotsCommandInput extends ListBotsRequest {}
+export interface DeleteTestCaseCommandInput extends DeleteTestCaseRequest {}
 /**
  * @public
  *
- * The output of {@link ListBotsCommand}.
+ * The output of {@link DeleteTestCaseCommand}.
  */
-export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBearer {}
+export interface DeleteTestCaseCommandOutput extends DeleteTestCaseResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots
- *    currently associated with the instance. Use this API to return both Amazon Lex V1 and V2
- *    bots.</p>
+ * <p>Deletes the test case that has already been created for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListBotsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListBotsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteTestCaseCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DeleteTestCaseCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
  * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
- * const input = { // ListBotsRequest
+ * const input = { // DeleteTestCaseRequest
  *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   LexVersion: "V1" || "V2", // required
+ *   TestCaseId: "STRING_VALUE", // required
  * };
- * const command = new ListBotsCommand(input);
+ * const command = new DeleteTestCaseCommand(input);
  * const response = await client.send(command);
- * // { // ListBotsResponse
- * //   LexBots: [ // LexBotConfigList
- * //     { // LexBotConfig
- * //       LexBot: { // LexBot
- * //         Name: "STRING_VALUE", // required
- * //         LexRegion: "STRING_VALUE", // required
- * //       },
- * //       LexV2Bot: { // LexV2Bot
- * //         AliasArn: "STRING_VALUE",
- * //       },
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListBotsCommandInput - {@link ListBotsCommandInput}
- * @returns {@link ListBotsCommandOutput}
- * @see {@link ListBotsCommandInput} for command's `input` shape.
- * @see {@link ListBotsCommandOutput} for command's `response` shape.
+ * @param DeleteTestCaseCommandInput - {@link DeleteTestCaseCommandInput}
+ * @returns {@link DeleteTestCaseCommandOutput}
+ * @see {@link DeleteTestCaseCommandInput} for command's `input` shape.
+ * @see {@link DeleteTestCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
@@ -88,10 +76,10 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  *
  * @public
  */
-export class ListBotsCommand extends $Command
+export class DeleteTestCaseCommand extends $Command
   .classBuilder<
-    ListBotsCommandInput,
-    ListBotsCommandOutput,
+    DeleteTestCaseCommandInput,
+    DeleteTestCaseCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,19 +88,19 @@ export class ListBotsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonConnectService", "ListBots", {})
-  .n("ConnectClient", "ListBotsCommand")
-  .sc(ListBots$)
+  .s("AmazonConnectService", "DeleteTestCase", {})
+  .n("ConnectClient", "DeleteTestCaseCommand")
+  .sc(DeleteTestCase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListBotsRequest;
-      output: ListBotsResponse;
+      input: DeleteTestCaseRequest;
+      output: {};
     };
     sdk: {
-      input: ListBotsCommandInput;
-      output: ListBotsCommandOutput;
+      input: DeleteTestCaseCommandInput;
+      output: DeleteTestCaseCommandOutput;
     };
   };
 }

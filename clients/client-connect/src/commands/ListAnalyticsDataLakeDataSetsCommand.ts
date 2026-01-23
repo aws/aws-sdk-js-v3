@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListAnalyticsDataLakeDataSetsRequest, ListAnalyticsDataLakeDataSetsResponse } from "../models/models_1";
+import type { ListAnalyticsDataLakeDataSetsRequest } from "../models/models_1";
+import type { ListAnalyticsDataLakeDataSetsResponse } from "../models/models_2";
 import { ListAnalyticsDataLakeDataSets$ } from "../schemas/schemas_0";
 
 /**

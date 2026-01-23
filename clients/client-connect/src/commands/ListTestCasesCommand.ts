@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListBotsRequest, ListBotsResponse } from "../models/models_2";
-import { ListBots$ } from "../schemas/schemas_0";
+import type { ListTestCasesRequest, ListTestCasesResponse } from "../models/models_2";
+import { ListTestCases$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,47 +16,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListBotsCommand}.
+ * The input for {@link ListTestCasesCommand}.
  */
-export interface ListBotsCommandInput extends ListBotsRequest {}
+export interface ListTestCasesCommandInput extends ListTestCasesRequest {}
 /**
  * @public
  *
- * The output of {@link ListBotsCommand}.
+ * The output of {@link ListTestCasesCommand}.
  */
-export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBearer {}
+export interface ListTestCasesCommandOutput extends ListTestCasesResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots
- *    currently associated with the instance. Use this API to return both Amazon Lex V1 and V2
- *    bots.</p>
+ * <p>Lists the test cases present in the specific Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListBotsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListBotsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListTestCasesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListTestCasesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
  * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
- * const input = { // ListBotsRequest
+ * const input = { // ListTestCasesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   LexVersion: "V1" || "V2", // required
  * };
- * const command = new ListBotsCommand(input);
+ * const command = new ListTestCasesCommand(input);
  * const response = await client.send(command);
- * // { // ListBotsResponse
- * //   LexBots: [ // LexBotConfigList
- * //     { // LexBotConfig
- * //       LexBot: { // LexBot
- * //         Name: "STRING_VALUE", // required
- * //         LexRegion: "STRING_VALUE", // required
- * //       },
- * //       LexV2Bot: { // LexV2Bot
- * //         AliasArn: "STRING_VALUE",
- * //       },
+ * // { // ListTestCasesResponse
+ * //   TestCaseSummaryList: [ // TestCaseSummaryList
+ * //     { // TestCaseSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "PUBLISHED" || "SAVED",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -64,14 +59,20 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  *
  * ```
  *
- * @param ListBotsCommandInput - {@link ListBotsCommandInput}
- * @returns {@link ListBotsCommandOutput}
- * @see {@link ListBotsCommandInput} for command's `input` shape.
- * @see {@link ListBotsCommandOutput} for command's `response` shape.
+ * @param ListTestCasesCommandInput - {@link ListTestCasesCommandInput}
+ * @returns {@link ListTestCasesCommandOutput}
+ * @see {@link ListTestCasesCommandInput} for command's `input` shape.
+ * @see {@link ListTestCasesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
@@ -88,10 +89,10 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  *
  * @public
  */
-export class ListBotsCommand extends $Command
+export class ListTestCasesCommand extends $Command
   .classBuilder<
-    ListBotsCommandInput,
-    ListBotsCommandOutput,
+    ListTestCasesCommandInput,
+    ListTestCasesCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,19 +101,19 @@ export class ListBotsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonConnectService", "ListBots", {})
-  .n("ConnectClient", "ListBotsCommand")
-  .sc(ListBots$)
+  .s("AmazonConnectService", "ListTestCases", {})
+  .n("ConnectClient", "ListTestCasesCommand")
+  .sc(ListTestCases$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListBotsRequest;
-      output: ListBotsResponse;
+      input: ListTestCasesRequest;
+      output: ListTestCasesResponse;
     };
     sdk: {
-      input: ListBotsCommandInput;
-      output: ListBotsCommandOutput;
+      input: ListTestCasesCommandInput;
+      output: ListTestCasesCommandOutput;
     };
   };
 }

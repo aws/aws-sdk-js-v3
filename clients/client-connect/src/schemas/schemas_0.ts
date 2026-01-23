@@ -482,6 +482,9 @@ const _CSSSAV = "ContactSearchSummarySegmentAttributeValue";
 const _CT = "ClientToken";
 const _CTAT = "ConnectedToAgentTimestamp";
 const _CTC = "ConversationTurnCount";
+const _CTCR = "CreateTestCaseRequest";
+const _CTCRr = "CreateTestCaseResponse";
+const _CTCr = "CreateTestCase";
 const _CTDG = "CreateTrafficDistributionGroup";
 const _CTDGR = "CreateTrafficDistributionGroupRequest";
 const _CTDGRr = "CreateTrafficDistributionGroupResponse";
@@ -745,6 +748,12 @@ const _DTA = "DataTableAttribute";
 const _DTACC = "DataTableAccessControlConfiguration";
 const _DTAa = "DataTableArn";
 const _DTC = "DateTimeCondition";
+const _DTCR = "DeleteTestCaseRequest";
+const _DTCRe = "DeleteTestCaseResponse";
+const _DTCRes = "DescribeTestCaseRequest";
+const _DTCResc = "DescribeTestCaseResponse";
+const _DTCe = "DeleteTestCase";
+const _DTCes = "DescribeTestCase";
 const _DTDG = "DeleteTrafficDistributionGroup";
 const _DTDGR = "DeleteTrafficDistributionGroupRequest";
 const _DTDGRe = "DeleteTrafficDistributionGroupResponse";
@@ -965,11 +974,13 @@ const _ENM = "EvaluationNotesMap";
 const _EOC = "EndOffsetChar";
 const _EOH = "EffectiveOverrideHours";
 const _EOHL = "EffectiveOverrideHoursList";
+const _EP = "EntryPoint";
 const _EQAAD = "EvaluationQuestionAnswerAnalysisDetails";
 const _EQID = "EvaluationQuestionInputDetails";
 const _ER = "EchoReduction";
 const _ERC = "EvaluationReviewConfiguration";
 const _ERL = "EmailRecipientsList";
+const _ERLx = "ExecutionRecordList";
 const _ERM = "EvaluationReviewMetadata";
 const _ERNR = "EvaluationReviewNotificationRecipient";
 const _ERNRL = "EvaluationReviewNotificationRecipientList";
@@ -980,6 +991,8 @@ const _ERm = "EmailRecipient";
 const _ERma = "EmailReference";
 const _ERr = "ErrorResult";
 const _ERrr = "ErrorResults";
+const _ERx = "ExecutionRecord";
+const _ERxe = "ExecutionRecords";
 const _ES = "EvaluationScore";
 const _ESA = "EvaluationSuggestedAnswer";
 const _ESAL = "EvaluationSuggestedAnswersList";
@@ -1117,6 +1130,9 @@ const _GPFRe = "GetPromptFileResponse";
 const _GRM = "GlobalResiliencyMetadata";
 const _GSIE = "GlobalSignInEndpoint";
 const _GST = "GreetingStartTimestamp";
+const _GTCES = "GetTestCaseExecutionSummary";
+const _GTCESR = "GetTestCaseExecutionSummaryRequest";
+const _GTCESRe = "GetTestCaseExecutionSummaryResponse";
 const _GTD = "GetTrafficDistribution";
 const _GTDR = "GetTrafficDistributionRequest";
 const _GTDRe = "GetTrafficDistributionResponse";
@@ -1190,7 +1206,8 @@ const _ICFE = "InvalidContactFlowException";
 const _ICFME = "InvalidContactFlowModuleException";
 const _ICI = "InitialContactId";
 const _ID = "IsDefault";
-const _IDn = "InputData";
+const _IDn = "InitializationData";
+const _IDnp = "InputData";
 const _IDnt = "IntervalDetails";
 const _IDs = "IssuesDetected";
 const _IE = "IdempotencyException";
@@ -1227,6 +1244,7 @@ const _ISn = "InstanceStatus";
 const _ISnp = "InputSchema";
 const _ISns = "InstanceSummary";
 const _IT = "InitiationTimestamp";
+const _ITCE = "InvalidTestCaseException";
 const _ITSM = "InitialTemplatedSystemMessage";
 const _ITTF = "InvisibleTaskTemplateFields";
 const _ITn = "IntegrationType";
@@ -1429,6 +1447,15 @@ const _LSPPRi = "ListSecurityProfilePermissionsResponse";
 const _LSPR = "ListSecurityProfilesRequest";
 const _LSPRi = "ListSecurityProfilesResponse";
 const _LT = "LevelTwo";
+const _LTC = "ListTestCases";
+const _LTCE = "ListTestCaseExecutions";
+const _LTCER = "ListTestCaseExecutionsRequest";
+const _LTCERR = "ListTestCaseExecutionRecordsRequest";
+const _LTCERRi = "ListTestCaseExecutionRecordsResponse";
+const _LTCERi = "ListTestCaseExecutionsResponse";
+const _LTCERis = "ListTestCaseExecutionRecords";
+const _LTCR = "ListTestCasesRequest";
+const _LTCRi = "ListTestCasesResponse";
 const _LTDG = "ListTrafficDistributionGroups";
 const _LTDGR = "ListTrafficDistributionGroupsRequest";
 const _LTDGRi = "ListTrafficDistributionGroupsResponse";
@@ -1598,12 +1625,15 @@ const _OE = "OrExpression";
 const _OEAI = "OutboundEmailAddressId";
 const _OEC = "OutboundEmailConfig";
 const _OECu = "OutboundEmailContent";
+const _OF = "ObservationsFailed";
 const _OFI = "OutboundFlowId";
 const _OH = "OperationalHours";
 const _OHp = "OperationalHour";
 const _OHv = "OverrideHours";
 const _OHve = "OverrideHour";
+const _OI = "ObservationId";
 const _ON = "OverrideName";
+const _OP = "ObservationsPassed";
 const _OR = "OriginRegion";
 const _ORI = "OptionRefIds";
 const _ORIp = "OptionRefId";
@@ -1612,6 +1642,7 @@ const _ORIu = "OutboundRequestId";
 const _ORM = "OutboundRawMessage";
 const _OS = "OutboundSubject";
 const _OSC = "OutboundStrategyConfig";
+const _OSb = "ObservationSummary";
 const _OSp = "OperatingSystem";
 const _OSpe = "OperationalStatus";
 const _OSu = "OutboundStrategy";
@@ -1913,7 +1944,8 @@ const _RTefe = "ReferenceTypes";
 const _RTes = "ResourceTypes";
 const _Re = "Recordings";
 const _Rea = "Reason";
-const _Rec = "Recipient";
+const _Rec = "Record";
+const _Reci = "Recipient";
 const _Red = "Redaction";
 const _Ref = "References";
 const _Refe = "Reference";
@@ -2146,9 +2178,18 @@ const _SSV = "SystemSuggestedValue";
 const _SSc = "ScreenShare";
 const _SSi = "SingleSelect";
 const _ST = "SearchText";
-const _STC = "StartTaskContact";
-const _STCR = "StartTaskContactRequest";
-const _STCRt = "StartTaskContactResponse";
+const _STC = "SearchTestCases";
+const _STCE = "StartTestCaseExecution";
+const _STCER = "StartTestCaseExecutionRequest";
+const _STCERt = "StartTestCaseExecutionResponse";
+const _STCERto = "StopTestCaseExecutionRequest";
+const _STCERtop = "StopTestCaseExecutionResponse";
+const _STCEt = "StopTestCaseExecution";
+const _STCR = "SearchTestCasesRequest";
+const _STCRe = "SearchTestCasesResponse";
+const _STCRt = "StartTaskContactRequest";
+const _STCRta = "StartTaskContactResponse";
+const _STCt = "StartTaskContact";
 const _STL = "SearchTextList";
 const _STc = "ScheduledTimestamp";
 const _STch = "ScheduledTime";
@@ -2222,16 +2263,34 @@ const _TBH = "TextBackgroundHover";
 const _TBM = "TotalBotMessages";
 const _TBMLIC = "TotalBotMessageLengthInChars";
 const _TC = "TagConditions";
+const _TCA = "TestCaseArn";
+const _TCE = "TestCaseExecutions";
+const _TCEI = "TestCaseExecutionId";
+const _TCEL = "TestCaseExecutionList";
+const _TCEP = "TestCaseEntryPoint";
+const _TCES = "TestCaseExecutionStatus";
+const _TCEe = "TestCaseExecution";
+const _TCI = "TestCaseId";
 const _TCL = "TranscriptCriteriaList";
+const _TCN = "TestCaseName";
 const _TCR = "TagContactRequest";
 const _TCRa = "TagContactResponse";
 const _TCRr = "TransferContactRequest";
 const _TCRra = "TransferContactResponse";
+const _TCS = "TestCaseSha256";
+const _TCSC = "TestCaseSearchCriteria";
+const _TCSCL = "TestCaseSearchConditionList";
+const _TCSF = "TestCaseSearchFilter";
+const _TCSL = "TestCaseSummaryList";
+const _TCSSL = "TestCaseSearchSummaryList";
+const _TCSe = "TestCaseSummary";
 const _TCU = "TurnControlUrl";
 const _TCa = "TagCondition";
 const _TCag = "TagContact";
 const _TCar = "TargetConfiguration";
-const _TCe = "TelephonyConfig";
+const _TCe = "TestCase";
+const _TCel = "TelephonyConfig";
+const _TCes = "TestCases";
 const _TCh = "ThresholdCollections";
 const _TCi = "TimestampCondition";
 const _TCo = "TotalCount";
@@ -2260,6 +2319,7 @@ const _TLa = "TagsList";
 const _TM = "TotalMessages";
 const _TMC = "TemplatedMessageConfig";
 const _TMRE = "TooManyRequestsException";
+const _TO = "TotalObservations";
 const _TOCL = "TagOrConditionList";
 const _TPC = "TotalPauseCount";
 const _TPDIS = "TotalPauseDurationInSeconds";
@@ -2300,7 +2360,8 @@ const _Tem = "Template";
 const _Th = "Theme";
 const _Thr = "Threshold";
 const _Ti = "Title";
-const _Tim = "Time";
+const _Tim = "Timestamp";
+const _Time = "Time";
 const _Tr = "Transcript";
 const _Ty = "Typography";
 const _U = "Username";
@@ -2461,6 +2522,9 @@ const _USPR = "UpdateSecurityProfileRequest";
 const _USS = "UserSearchSummary";
 const _USSL = "UserSearchSummaryList";
 const _UT = "UserTags";
+const _UTC = "UpdateTestCase";
+const _UTCR = "UpdateTestCaseRequest";
+const _UTCRp = "UpdateTestCaseResponse";
 const _UTD = "UpdateTrafficDistribution";
 const _UTDR = "UpdateTrafficDistributionRequest";
 const _UTDRp = "UpdateTrafficDistributionResponse";
@@ -2513,6 +2577,7 @@ const _VAa = "ValueArn";
 const _VAi = "ViewActions";
 const _VAo = "VocabularyArn";
 const _VC = "ViewContent";
+const _VCEPP = "VoiceCallEntryPointParameters";
 const _VCS = "ViewContentSha256";
 const _VD = "VersionDescription";
 const _VE = "ValidationEnum";
@@ -2588,10 +2653,12 @@ const _cI = "contactId";
 const _cT = "clientToken";
 const _e = "error";
 const _eSN = "eventSourceName";
+const _eT = "endTime";
 const _fA = "functionArn";
 const _fD = "fromDate";
 const _h = "http";
 const _hE = "httpError";
+const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _iA = "integrationArn";
 const _iI = "instanceId";
@@ -2614,12 +2681,15 @@ const _qT = "queueTypes";
 const _rA = "resourceArn";
 const _rT = "resourceType";
 const _rTe = "referenceTypes";
-const _s = "server";
+const _s = "status";
+const _sT = "startTime";
 const _sV = "snapshotVersion";
+const _se = "server";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.connect";
 const _st = "state";
-const _sta = "status";
 const _t = "tags";
+const _tCI = "testCaseId";
+const _tCN = "testCaseName";
 const _tD = "toDate";
 const _tK = "tagKey";
 const _tKCT = "tagKeyComparisonType";
@@ -2630,6 +2700,9 @@ const _ty = "type";
 const _uEIS = "urlExpiryInSeconds";
 const _v = "version";
 const _va = "value";
+const _xalmr = "x-amz-last-modified-region";
+const _xalmt = "x-amz-last-modified-time";
+const _xari = "x-amz-resource-id";
 const n0 = "com.amazonaws.connect";
 
 // smithy-typescript generated code
@@ -2660,6 +2733,7 @@ import {
   InvalidContactFlowModuleException,
   InvalidParameterException,
   InvalidRequestException,
+  InvalidTestCaseException,
   LimitExceededException,
   MaximumResultReturnedException,
   OutboundContactNotPermittedException,
@@ -3717,6 +3791,16 @@ export var CreateTaskTemplateResponse$: StaticStructureSchema = [3, n0, _CTTRr,
   [_I, _A],
   [0, 0], 2
 ];
+export var CreateTestCaseRequest$: StaticStructureSchema = [3, n0, _CTCR,
+  0,
+  [_II, _N, _Co, _D, _EP, _IDn, _St, _TCI, _Ta, _LMT, _LMR],
+  [[0, 1], 0, 0, 0, () => TestCaseEntryPoint$, 0, 0, [0, { [_hH]: _xari }], 128 | 0, [4, { [_hH]: _xalmt }], [0, { [_hH]: _xalmr }]], 3
+];
+export var CreateTestCaseResponse$: StaticStructureSchema = [3, n0, _CTCRr,
+  0,
+  [_TCI, _TCA],
+  [0, 0]
+];
 export var CreateTrafficDistributionGroupRequest$: StaticStructureSchema = [3, n0, _CTDGR,
   0,
   [_N, _II, _D, _CT, _Ta],
@@ -3789,7 +3873,7 @@ export var CreateVocabularyResponse$: StaticStructureSchema = [3, n0, _CVRrea,
 ];
 export var CreateWorkspacePageRequest$: StaticStructureSchema = [3, n0, _CWPR,
   0,
-  [_II, _WI, _RAe, _Pa, _Sl, _IDn],
+  [_II, _WI, _RAe, _Pa, _Sl, _IDnp],
   [[0, 1], [0, 1], 0, 0, 0, 0], 4
 ];
 export var CreateWorkspacePageResponse$: StaticStructureSchema = [3, n0, _CWPRr,
@@ -4127,6 +4211,16 @@ export var DeleteTaskTemplateResponse$: StaticStructureSchema = [3, n0, _DTTRe,
   [],
   []
 ];
+export var DeleteTestCaseRequest$: StaticStructureSchema = [3, n0, _DTCR,
+  0,
+  [_II, _TCI],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteTestCaseResponse$: StaticStructureSchema = [3, n0, _DTCRe,
+  0,
+  [],
+  []
+];
 export var DeleteTrafficDistributionGroupRequest$: StaticStructureSchema = [3, n0, _DTDGR,
   0,
   [_TDGI],
@@ -4451,6 +4545,16 @@ export var DescribeSecurityProfileResponse$: StaticStructureSchema = [3, n0, _DS
   0,
   [_SPe],
   [() => SecurityProfile$]
+];
+export var DescribeTestCaseRequest$: StaticStructureSchema = [3, n0, _DTCRes,
+  0,
+  [_II, _TCI, _St],
+  [[0, 1], [0, 1], [0, { [_hQ]: _s }]], 2
+];
+export var DescribeTestCaseResponse$: StaticStructureSchema = [3, n0, _DTCResc,
+  0,
+  [_TCe],
+  [() => TestCase$]
 ];
 export var DescribeTrafficDistributionGroupRequest$: StaticStructureSchema = [3, n0, _DTDGRes,
   0,
@@ -5049,6 +5153,11 @@ export var EventBridgeActionDefinition$: StaticStructureSchema = [3, n0, _EBAD,
   [_N],
   [0], 1
 ];
+export var ExecutionRecord$: StaticStructureSchema = [3, n0, _ERx,
+  0,
+  [_OI, _St, _Tim, _Rec],
+  [0, 0, 4, 0]
+];
 export var Expiry$: StaticStructureSchema = [3, n0, _Ex,
   0,
   [_DIS, _ETx],
@@ -5239,6 +5348,16 @@ export var GetTaskTemplateResponse$: StaticStructureSchema = [3, n0, _GTTRe,
   [_I, _A, _N, _II, _D, _CFI, _SAFI, _Cons, _Def, _Fie, _St, _LMT, _CTre, _Ta],
   [0, 0, 0, 0, 0, 0, 0, () => TaskTemplateConstraints$, () => TaskTemplateDefaults$, () => TaskTemplateFields, 0, 4, 4, 128 | 0], 3
 ];
+export var GetTestCaseExecutionSummaryRequest$: StaticStructureSchema = [3, n0, _GTCESR,
+  0,
+  [_II, _TCI, _TCEI],
+  [[0, 1], [0, 1], [0, 1]], 3
+];
+export var GetTestCaseExecutionSummaryResponse$: StaticStructureSchema = [3, n0, _GTCESRe,
+  0,
+  [_STtar, _ETnd, _St, _OSb],
+  [4, 4, 0, () => ObservationSummary$]
+];
 export var GetTrafficDistributionRequest$: StaticStructureSchema = [3, n0, _GTDR,
   0,
   [_I],
@@ -5246,7 +5365,7 @@ export var GetTrafficDistributionRequest$: StaticStructureSchema = [3, n0, _GTDR
 ];
 export var GetTrafficDistributionResponse$: StaticStructureSchema = [3, n0, _GTDRe,
   0,
-  [_TCe, _I, _A, _SIC, _ACg],
+  [_TCel, _I, _A, _SIC, _ACg],
   [() => TelephonyConfig$, 0, 0, () => SignInConfig$, () => AgentConfig$]
 ];
 export var GlobalResiliencyMetadata$: StaticStructureSchema = [3, n0, _GRM,
@@ -5456,7 +5575,7 @@ export var IntegrationAssociationSummary$: StaticStructureSchema = [3, n0, _IAS,
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
+  { [_e]: _se, [_hE]: 500 },
   [_M],
   [0]
 ];
@@ -5496,6 +5615,12 @@ export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
   [0, () => InvalidRequestExceptionReason$]
 ];
 TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var InvalidTestCaseException$: StaticErrorSchema = [-3, n0, _ITCE,
+  { [_e]: _c, [_hE]: 400 },
+  [_Prob],
+  [() => Problems]
+];
+TypeRegistry.for(n0).registerError(InvalidTestCaseException$, InvalidTestCaseException);
 export var InvisibleFieldInfo$: StaticStructureSchema = [3, n0, _IFI,
   0,
   [_I],
@@ -6050,12 +6175,42 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListTaskTemplatesRequest$: StaticStructureSchema = [3, n0, _LTTR,
   0,
   [_II, _NT, _MR, _St, _N],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sta }], [0, { [_hQ]: _n }]], 1
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _s }], [0, { [_hQ]: _n }]], 1
 ];
 export var ListTaskTemplatesResponse$: StaticStructureSchema = [3, n0, _LTTRi,
   0,
   [_TTa, _NT],
   [() => TaskTemplateList, 0]
+];
+export var ListTestCaseExecutionRecordsRequest$: StaticStructureSchema = [3, n0, _LTCERR,
+  0,
+  [_II, _TCI, _TCEI, _St, _NT, _MR],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _s }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 3
+];
+export var ListTestCaseExecutionRecordsResponse$: StaticStructureSchema = [3, n0, _LTCERRi,
+  0,
+  [_ERxe, _NT],
+  [() => ExecutionRecordList, 0]
+];
+export var ListTestCaseExecutionsRequest$: StaticStructureSchema = [3, n0, _LTCER,
+  0,
+  [_II, _TCI, _TCN, _STtar, _ETnd, _St, _NT, _MR],
+  [[0, 1], [0, { [_hQ]: _tCI }], [0, { [_hQ]: _tCN }], [4, { [_hQ]: _sT }], [4, { [_hQ]: _eT }], [0, { [_hQ]: _s }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
+];
+export var ListTestCaseExecutionsResponse$: StaticStructureSchema = [3, n0, _LTCERi,
+  0,
+  [_TCE, _NT],
+  [() => TestCaseExecutionList, 0]
+];
+export var ListTestCasesRequest$: StaticStructureSchema = [3, n0, _LTCR,
+  0,
+  [_II, _NT, _MR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
+];
+export var ListTestCasesResponse$: StaticStructureSchema = [3, n0, _LTCRi,
+  0,
+  [_TCSL, _NT],
+  [() => TestCaseSummaryList, 0]
 ];
 export var ListTrafficDistributionGroupsRequest$: StaticStructureSchema = [3, n0, _LTDGR,
   0,
@@ -6277,6 +6432,11 @@ export var NumericQuestionPropertyValueAutomation$: StaticStructureSchema = [3, 
   0,
   [_La],
   [0], 1
+];
+export var ObservationSummary$: StaticStructureSchema = [3, n0, _OSb,
+  0,
+  [_TO, _OP, _OF],
+  [1, 1, 1]
 ];
 export var OperationalHour$: StaticStructureSchema = [3, n0, _OHp,
   0,
@@ -6643,7 +6803,7 @@ export var RealTimeContactAnalysisPointOfInterest$: StaticStructureSchema = [3, 
 ];
 export var RealTimeContactAnalysisSegmentAttachments$: StaticStructureSchema = [3, n0, _RTCASA,
   0,
-  [_I, _PI, _PR, _Atta, _Tim, _DN],
+  [_I, _PI, _PR, _Atta, _Time, _DN],
   [0, 0, 0, () => RealTimeContactAnalysisAttachments, () => RealTimeContactAnalysisTimeData$, 0], 5
 ];
 export var RealTimeContactAnalysisSegmentCategories$: StaticStructureSchema = [3, n0, _RTCASC,
@@ -6653,7 +6813,7 @@ export var RealTimeContactAnalysisSegmentCategories$: StaticStructureSchema = [3
 ];
 export var RealTimeContactAnalysisSegmentEvent$: StaticStructureSchema = [3, n0, _RTCASE,
   0,
-  [_I, _ETve, _Tim, _PI, _PR, _DN],
+  [_I, _ETve, _Time, _PI, _PR, _DN],
   [0, 0, () => RealTimeContactAnalysisTimeData$, 0, 0, 0], 3
 ];
 export var RealTimeContactAnalysisSegmentIssues$: StaticStructureSchema = [3, n0, _RTCASI,
@@ -6668,7 +6828,7 @@ export var RealTimeContactAnalysisSegmentPostContactSummary$: StaticStructureSch
 ];
 export var RealTimeContactAnalysisSegmentTranscript$: StaticStructureSchema = [3, n0, _RTCAST,
   0,
-  [_I, _PI, _PR, _Co, _Tim, _DN, _CTon, _Red, _Sen],
+  [_I, _PI, _PR, _Co, _Time, _DN, _CTon, _Red, _Sen],
   [0, 0, 0, 0, () => RealTimeContactAnalysisTimeData$, 0, 0, () => RealTimeContactAnalysisTranscriptItemRedaction$, 0], 5
 ];
 export var RealTimeContactAnalysisTranscriptItemRedaction$: StaticStructureSchema = [3, n0, _RTCATIR,
@@ -7125,6 +7285,16 @@ export var SearchSecurityProfilesResponse$: StaticStructureSchema = [3, n0, _SSP
   [_SP, _NT, _ATC],
   [() => SecurityProfilesSearchSummaryList, 0, 1]
 ];
+export var SearchTestCasesRequest$: StaticStructureSchema = [3, n0, _STCR,
+  0,
+  [_II, _NT, _MR, _SF, _SCe],
+  [0, 0, 1, () => TestCaseSearchFilter$, () => TestCaseSearchCriteria$], 1
+];
+export var SearchTestCasesResponse$: StaticStructureSchema = [3, n0, _STCRe,
+  0,
+  [_TCes, _NT, _ATC],
+  [() => TestCaseSearchSummaryList, 0, 1]
+];
 export var SearchUserHierarchyGroupsRequest$: StaticStructureSchema = [3, n0, _SUHGR,
   0,
   [_II, _NT, _MR, _SF, _SCe],
@@ -7237,7 +7407,7 @@ export var SendChatIntegrationEventResponse$: StaticStructureSchema = [3, n0, _S
 ];
 export var SendNotificationActionDefinition$: StaticStructureSchema = [3, n0, _SNAD,
   0,
-  [_DM, _Co, _CTon, _Rec, _Subj, _Exc],
+  [_DM, _Co, _CTon, _Reci, _Subj, _Exc],
   [0, 0, 0, () => NotificationRecipientType$, 0, () => NotificationRecipientType$], 4
 ];
 export var SendOutboundEmailRequest$: StaticStructureSchema = [3, n0, _SOER,
@@ -7391,15 +7561,25 @@ export var StartScreenSharingResponse$: StaticStructureSchema = [3, n0, _SSSRt,
   [],
   []
 ];
-export var StartTaskContactRequest$: StaticStructureSchema = [3, n0, _STCR,
+export var StartTaskContactRequest$: StaticStructureSchema = [3, n0, _STCRt,
   0,
   [_II, _N, _PCI, _CFI, _Attr, _Ref, _D, _CT, _STch, _TTIa, _QCIu, _RCI, _SAe],
   [0, [() => Name, 0], 0, 0, 128 | 0, () => ContactReferences, [() => Description, 0], [0, 4], 4, 0, 0, 0, () => SegmentAttributes], 2
 ];
-export var StartTaskContactResponse$: StaticStructureSchema = [3, n0, _STCRt,
+export var StartTaskContactResponse$: StaticStructureSchema = [3, n0, _STCRta,
   0,
   [_CI],
   [0]
+];
+export var StartTestCaseExecutionRequest$: StaticStructureSchema = [3, n0, _STCER,
+  0,
+  [_II, _TCI, _CT],
+  [[0, 1], [0, 1], 0], 2
+];
+export var StartTestCaseExecutionResponse$: StaticStructureSchema = [3, n0, _STCERt,
+  0,
+  [_TCEI, _TCI, _St],
+  [0, 0, 0]
 ];
 export var StartWebRTCContactRequest$: StaticStructureSchema = [3, n0, _SWRTCCR,
   0,
@@ -7457,6 +7637,16 @@ export var StopContactStreamingRequest$: StaticStructureSchema = [3, n0, _SCSRto
   [0, 0, 0], 3
 ];
 export var StopContactStreamingResponse$: StaticStructureSchema = [3, n0, _SCSRtop,
+  0,
+  [],
+  []
+];
+export var StopTestCaseExecutionRequest$: StaticStructureSchema = [3, n0, _STCERto,
+  0,
+  [_II, _TCEI, _TCI, _CT],
+  [[0, 1], [0, 1], [0, 1], 0], 3
+];
+export var StopTestCaseExecutionResponse$: StaticStructureSchema = [3, n0, _STCERtop,
   0,
   [],
   []
@@ -7576,7 +7766,7 @@ export var TaskTemplateMetadata$: StaticStructureSchema = [3, n0, _TTM,
   [_I, _A, _N, _D, _St, _LMT, _CTre],
   [0, 0, 0, 0, 0, 4, 4]
 ];
-export var TelephonyConfig$: StaticStructureSchema = [3, n0, _TCe,
+export var TelephonyConfig$: StaticStructureSchema = [3, n0, _TCel,
   0,
   [_Di],
   [() => DistributionList], 1
@@ -7590,6 +7780,36 @@ export var TemplatedMessageConfig$: StaticStructureSchema = [3, n0, _TMC,
   0,
   [_KBI, _MTI, _TAem],
   [0, 0, () => TemplateAttributes$], 3
+];
+export var TestCase$: StaticStructureSchema = [3, n0, _TCe,
+  0,
+  [_A, _I, _N, _Co, _EP, _IDn, _D, _St, _LMT, _LMR, _Ta, _TCS],
+  [0, 0, 0, 0, () => TestCaseEntryPoint$, 0, 0, 0, 4, 0, 128 | 0, 0]
+];
+export var TestCaseEntryPoint$: StaticStructureSchema = [3, n0, _TCEP,
+  0,
+  [_T, _VCEPP],
+  [0, () => VoiceCallEntryPointParameters$]
+];
+export var TestCaseExecution$: StaticStructureSchema = [3, n0, _TCEe,
+  0,
+  [_STtar, _ETnd, _TCEI, _TCI, _TCES, _Ta],
+  [4, 4, 0, 0, 0, 128 | 0]
+];
+export var TestCaseSearchCriteria$: StaticStructureSchema = [3, n0, _TCSC,
+  0,
+  [_OC, _ACn, _SC, _SCtat],
+  [() => TestCaseSearchConditionList, () => TestCaseSearchConditionList, () => StringCondition$, 0]
+];
+export var TestCaseSearchFilter$: StaticStructureSchema = [3, n0, _TCSF,
+  0,
+  [_TF],
+  [() => ControlPlaneTagFilter$]
+];
+export var TestCaseSummary$: StaticStructureSchema = [3, n0, _TCSe,
+  0,
+  [_I, _A, _N, _St, _LMT, _LMR],
+  [0, 0, 0, 0, 4, 0]
 ];
 export var Threshold$: StaticStructureSchema = [3, n0, _Thr,
   0,
@@ -7993,9 +8213,19 @@ export var UpdateTaskTemplateResponse$: StaticStructureSchema = [3, n0, _UTTRp,
   [_II, _I, _A, _N, _D, _CFI, _SAFI, _Cons, _Def, _Fie, _St, _LMT, _CTre],
   [0, 0, 0, 0, 0, 0, 0, () => TaskTemplateConstraints$, () => TaskTemplateDefaults$, () => TaskTemplateFields, 0, 4, 4]
 ];
+export var UpdateTestCaseRequest$: StaticStructureSchema = [3, n0, _UTCR,
+  0,
+  [_II, _TCI, _Co, _EP, _IDn, _N, _D, _St, _LMT, _LMR],
+  [[0, 1], [0, 1], 0, () => TestCaseEntryPoint$, 0, 0, 0, 0, [4, { [_hH]: _xalmt }], [0, { [_hH]: _xalmr }]], 2
+];
+export var UpdateTestCaseResponse$: StaticStructureSchema = [3, n0, _UTCRp,
+  0,
+  [],
+  []
+];
 export var UpdateTrafficDistributionRequest$: StaticStructureSchema = [3, n0, _UTDR,
   0,
-  [_I, _TCe, _SIC, _ACg],
+  [_I, _TCel, _SIC, _ACg],
   [[0, 1], () => TelephonyConfig$, () => SignInConfig$, () => AgentConfig$], 1
 ];
 export var UpdateTrafficDistributionResponse$: StaticStructureSchema = [3, n0, _UTDRp,
@@ -8075,7 +8305,7 @@ export var UpdateWorkspaceMetadataResponse$: StaticStructureSchema = [3, n0, _UW
 ];
 export var UpdateWorkspacePageRequest$: StaticStructureSchema = [3, n0, _UWPR,
   0,
-  [_II, _WI, _Pa, _NP, _RAe, _Sl, _IDn],
+  [_II, _WI, _Pa, _NP, _RAe, _Sl, _IDnp],
   [[0, 1], [0, 1], [0, 1], 0, 0, 0, 0], 3
 ];
 export var UpdateWorkspacePageResponse$: StaticStructureSchema = [3, n0, _UWPRp,
@@ -8264,6 +8494,11 @@ export var VocabularySummary$: StaticStructureSchema = [3, n0, _VSo,
   [_N, _I, _A, _LC, _S, _LMT, _FRa],
   [0, 0, 0, 0, 0, 4, 0], 6
 ];
+export var VoiceCallEntryPointParameters$: StaticStructureSchema = [3, n0, _VCEPP,
+  0,
+  [_SPNo, _DPN, _FI],
+  [0, 0, 0]
+];
 export var VoiceRecordingConfiguration$: StaticStructureSchema = [3, n0, _VRC,
   0,
   [_VRT, _IRT],
@@ -8296,7 +8531,7 @@ export var WorkspaceAssociationSearchSummary$: StaticStructureSchema = [3, n0, _
 ];
 export var WorkspacePage$: StaticStructureSchema = [3, n0, _WP,
   0,
-  [_RAe, _Pa, _Sl, _IDn],
+  [_RAe, _Pa, _Sl, _IDnp],
   [0, 0, 0, 0]
 ];
 export var WorkspaceSearchCriteria$: StaticStructureSchema = [3, n0, _WSC,
@@ -8630,6 +8865,9 @@ var EvaluationSummaryList: StaticListSchema = [1, n0, _ESL,
 ];
 var EvaluationTranscriptPointsOfInterest: StaticListSchema = [1, n0, _ETPOIv,
   0, () => EvaluationTranscriptPointOfInterest$
+];
+var ExecutionRecordList: StaticListSchema = [1, n0, _ERLx,
+  0, () => ExecutionRecord$
 ];
 var Expressions: StaticListSchema = [1, n0, _Expr,
   0, () => Expression$
@@ -8991,6 +9229,18 @@ var TaskTemplateFields: StaticListSchema = [1, n0, _TTFa,
 ];
 var TaskTemplateList: StaticListSchema = [1, n0, _TTL,
   0, () => TaskTemplateMetadata$
+];
+var TestCaseExecutionList: StaticListSchema = [1, n0, _TCEL,
+  0, () => TestCaseExecution$
+];
+var TestCaseSearchConditionList: StaticListSchema = [1, n0, _TCSCL,
+  0, () => TestCaseSearchCriteria$
+];
+var TestCaseSearchSummaryList: StaticListSchema = [1, n0, _TCSSL,
+  0, () => TestCase$
+];
+var TestCaseSummaryList: StaticListSchema = [1, n0, _TCSL,
+  0, () => TestCaseSummary$
 ];
 var ThresholdCollections: StaticListSchema = [1, n0, _TCh,
   0, () => ThresholdV2$
@@ -9390,6 +9640,9 @@ export var CreateSecurityProfile$: StaticOperationSchema = [9, n0, _CSP,
 export var CreateTaskTemplate$: StaticOperationSchema = [9, n0, _CTT,
   { [_h]: ["PUT", "/instance/{InstanceId}/task/template", 200] }, () => CreateTaskTemplateRequest$, () => CreateTaskTemplateResponse$
 ];
+export var CreateTestCase$: StaticOperationSchema = [9, n0, _CTCr,
+  { [_h]: ["PUT", "/test-cases/{InstanceId}", 200] }, () => CreateTestCaseRequest$, () => CreateTestCaseResponse$
+];
 export var CreateTrafficDistributionGroup$: StaticOperationSchema = [9, n0, _CTDG,
   { [_h]: ["PUT", "/traffic-distribution-group", 200] }, () => CreateTrafficDistributionGroupRequest$, () => CreateTrafficDistributionGroupResponse$
 ];
@@ -9492,6 +9745,9 @@ export var DeleteSecurityProfile$: StaticOperationSchema = [9, n0, _DSP,
 export var DeleteTaskTemplate$: StaticOperationSchema = [9, n0, _DTT,
   { [_h]: ["DELETE", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200] }, () => DeleteTaskTemplateRequest$, () => DeleteTaskTemplateResponse$
 ];
+export var DeleteTestCase$: StaticOperationSchema = [9, n0, _DTCe,
+  { [_h]: ["DELETE", "/test-cases/{InstanceId}/{TestCaseId}", 200] }, () => DeleteTestCaseRequest$, () => DeleteTestCaseResponse$
+];
 export var DeleteTrafficDistributionGroup$: StaticOperationSchema = [9, n0, _DTDG,
   { [_h]: ["DELETE", "/traffic-distribution-group/{TrafficDistributionGroupId}", 200] }, () => DeleteTrafficDistributionGroupRequest$, () => DeleteTrafficDistributionGroupResponse$
 ];
@@ -9593,6 +9849,9 @@ export var DescribeRule$: StaticOperationSchema = [9, n0, _DRes,
 ];
 export var DescribeSecurityProfile$: StaticOperationSchema = [9, n0, _DSPe,
   { [_h]: ["GET", "/security-profiles/{InstanceId}/{SecurityProfileId}", 200] }, () => DescribeSecurityProfileRequest$, () => DescribeSecurityProfileResponse$
+];
+export var DescribeTestCase$: StaticOperationSchema = [9, n0, _DTCes,
+  { [_h]: ["GET", "/test-cases/{InstanceId}/{TestCaseId}", 200] }, () => DescribeTestCaseRequest$, () => DescribeTestCaseResponse$
 ];
 export var DescribeTrafficDistributionGroup$: StaticOperationSchema = [9, n0, _DTDGe,
   { [_h]: ["GET", "/traffic-distribution-group/{TrafficDistributionGroupId}", 200] }, () => DescribeTrafficDistributionGroupRequest$, () => DescribeTrafficDistributionGroupResponse$
@@ -9707,6 +9966,9 @@ export var GetPromptFile$: StaticOperationSchema = [9, n0, _GPF,
 ];
 export var GetTaskTemplate$: StaticOperationSchema = [9, n0, _GTT,
   { [_h]: ["GET", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200] }, () => GetTaskTemplateRequest$, () => GetTaskTemplateResponse$
+];
+export var GetTestCaseExecutionSummary$: StaticOperationSchema = [9, n0, _GTCES,
+  { [_h]: ["GET", "/test-cases/{InstanceId}/{TestCaseId}/{TestCaseExecutionId}/summary", 200] }, () => GetTestCaseExecutionSummaryRequest$, () => GetTestCaseExecutionSummaryResponse$
 ];
 export var GetTrafficDistribution$: StaticOperationSchema = [9, n0, _GTD,
   { [_h]: ["GET", "/traffic-distribution/{Id}", 200] }, () => GetTrafficDistributionRequest$, () => GetTrafficDistributionResponse$
@@ -9870,6 +10132,15 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 export var ListTaskTemplates$: StaticOperationSchema = [9, n0, _LTT,
   { [_h]: ["GET", "/instance/{InstanceId}/task/template", 200] }, () => ListTaskTemplatesRequest$, () => ListTaskTemplatesResponse$
 ];
+export var ListTestCaseExecutionRecords$: StaticOperationSchema = [9, n0, _LTCERis,
+  { [_h]: ["GET", "/test-cases/{InstanceId}/{TestCaseId}/{TestCaseExecutionId}/records", 200] }, () => ListTestCaseExecutionRecordsRequest$, () => ListTestCaseExecutionRecordsResponse$
+];
+export var ListTestCaseExecutions$: StaticOperationSchema = [9, n0, _LTCE,
+  { [_h]: ["GET", "/test-case-executions/{InstanceId}", 200] }, () => ListTestCaseExecutionsRequest$, () => ListTestCaseExecutionsResponse$
+];
+export var ListTestCases$: StaticOperationSchema = [9, n0, _LTC,
+  { [_h]: ["GET", "/test-cases-summary/{InstanceId}", 200] }, () => ListTestCasesRequest$, () => ListTestCasesResponse$
+];
 export var ListTrafficDistributionGroups$: StaticOperationSchema = [9, n0, _LTDG,
   { [_h]: ["GET", "/traffic-distribution-groups", 200] }, () => ListTrafficDistributionGroupsRequest$, () => ListTrafficDistributionGroupsResponse$
 ];
@@ -9978,6 +10249,9 @@ export var SearchRoutingProfiles$: StaticOperationSchema = [9, n0, _SRP,
 export var SearchSecurityProfiles$: StaticOperationSchema = [9, n0, _SSP,
   { [_h]: ["POST", "/search-security-profiles", 200] }, () => SearchSecurityProfilesRequest$, () => SearchSecurityProfilesResponse$
 ];
+export var SearchTestCases$: StaticOperationSchema = [9, n0, _STC,
+  { [_h]: ["POST", "/search-test-cases", 200] }, () => SearchTestCasesRequest$, () => SearchTestCasesResponse$
+];
 export var SearchUserHierarchyGroups$: StaticOperationSchema = [9, n0, _SUHG,
   { [_h]: ["POST", "/search-user-hierarchy-groups", 200] }, () => SearchUserHierarchyGroupsRequest$, () => SearchUserHierarchyGroupsResponse$
 ];
@@ -10035,8 +10309,11 @@ export var StartOutboundVoiceContact$: StaticOperationSchema = [9, n0, _SOVC,
 export var StartScreenSharing$: StaticOperationSchema = [9, n0, _SSS,
   { [_h]: ["PUT", "/contact/screen-sharing", 200] }, () => StartScreenSharingRequest$, () => StartScreenSharingResponse$
 ];
-export var StartTaskContact$: StaticOperationSchema = [9, n0, _STC,
+export var StartTaskContact$: StaticOperationSchema = [9, n0, _STCt,
   { [_h]: ["PUT", "/contact/task", 200] }, () => StartTaskContactRequest$, () => StartTaskContactResponse$
+];
+export var StartTestCaseExecution$: StaticOperationSchema = [9, n0, _STCE,
+  { [_h]: ["PUT", "/test-cases/{InstanceId}/{TestCaseId}/start-execution", 200] }, () => StartTestCaseExecutionRequest$, () => StartTestCaseExecutionResponse$
 ];
 export var StartWebRTCContact$: StaticOperationSchema = [9, n0, _SWRTCC,
   { [_h]: ["PUT", "/contact/webrtc", 200] }, () => StartWebRTCContactRequest$, () => StartWebRTCContactResponse$
@@ -10052,6 +10329,9 @@ export var StopContactRecording$: StaticOperationSchema = [9, n0, _SCRtop,
 ];
 export var StopContactStreaming$: StaticOperationSchema = [9, n0, _SCSt,
   { [_h]: ["POST", "/contact/stop-streaming", 200] }, () => StopContactStreamingRequest$, () => StopContactStreamingResponse$
+];
+export var StopTestCaseExecution$: StaticOperationSchema = [9, n0, _STCEt,
+  { [_h]: ["POST", "/test-cases/{InstanceId}/{TestCaseId}/{TestCaseExecutionId}/stop-execution", 200] }, () => StopTestCaseExecutionRequest$, () => StopTestCaseExecutionResponse$
 ];
 export var SubmitContactEvaluation$: StaticOperationSchema = [9, n0, _SCEu,
   { [_h]: ["POST", "/contact-evaluations/{InstanceId}/{EvaluationId}/submit", 200] }, () => SubmitContactEvaluationRequest$, () => SubmitContactEvaluationResponse$
@@ -10205,6 +10485,9 @@ export var UpdateSecurityProfile$: StaticOperationSchema = [9, n0, _USP,
 ];
 export var UpdateTaskTemplate$: StaticOperationSchema = [9, n0, _UTT,
   { [_h]: ["POST", "/instance/{InstanceId}/task/template/{TaskTemplateId}", 200] }, () => UpdateTaskTemplateRequest$, () => UpdateTaskTemplateResponse$
+];
+export var UpdateTestCase$: StaticOperationSchema = [9, n0, _UTC,
+  { [_h]: ["POST", "/test-cases/{InstanceId}/{TestCaseId}", 200] }, () => UpdateTestCaseRequest$, () => UpdateTestCaseResponse$
 ];
 export var UpdateTrafficDistribution$: StaticOperationSchema = [9, n0, _UTD,
   { [_h]: ["PUT", "/traffic-distribution/{Id}", 200] }, () => UpdateTrafficDistributionRequest$, () => UpdateTrafficDistributionResponse$

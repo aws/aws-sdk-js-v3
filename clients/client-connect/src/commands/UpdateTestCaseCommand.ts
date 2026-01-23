@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateWorkspacePageRequest, CreateWorkspacePageResponse } from "../models/models_1";
-import { CreateWorkspacePage$ } from "../schemas/schemas_0";
+import type { UpdateTestCaseRequest, UpdateTestCaseResponse } from "../models/models_3";
+import { UpdateTestCase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,44 +16,55 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateWorkspacePageCommand}.
+ * The input for {@link UpdateTestCaseCommand}.
  */
-export interface CreateWorkspacePageCommandInput extends CreateWorkspacePageRequest {}
+export interface UpdateTestCaseCommandInput extends UpdateTestCaseRequest {}
 /**
  * @public
  *
- * The output of {@link CreateWorkspacePageCommand}.
+ * The output of {@link UpdateTestCaseCommand}.
  */
-export interface CreateWorkspacePageCommandOutput extends CreateWorkspacePageResponse, __MetadataBearer {}
+export interface UpdateTestCaseCommandOutput extends UpdateTestCaseResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a view with a page in a workspace, defining what users see when they navigate to that page.</p>
+ * <p>Updates any of the metadata for a test case, such as the name, description, and status or content of an existing test case. This API doesn't allow customers to update the tags of the test case resource for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateWorkspacePageCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateWorkspacePageCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateTestCaseCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateTestCaseCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
  * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
- * const input = { // CreateWorkspacePageRequest
+ * const input = { // UpdateTestCaseRequest
  *   InstanceId: "STRING_VALUE", // required
- *   WorkspaceId: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE", // required
- *   Page: "STRING_VALUE", // required
- *   Slug: "STRING_VALUE",
- *   InputData: "STRING_VALUE",
+ *   TestCaseId: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE",
+ *   EntryPoint: { // TestCaseEntryPoint
+ *     Type: "VOICE_CALL",
+ *     VoiceCallEntryPointParameters: { // VoiceCallEntryPointParameters
+ *       SourcePhoneNumber: "STRING_VALUE",
+ *       DestinationPhoneNumber: "STRING_VALUE",
+ *       FlowId: "STRING_VALUE",
+ *     },
+ *   },
+ *   InitializationData: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Status: "PUBLISHED" || "SAVED",
+ *   LastModifiedTime: new Date("TIMESTAMP"),
+ *   LastModifiedRegion: "STRING_VALUE",
  * };
- * const command = new CreateWorkspacePageCommand(input);
+ * const command = new UpdateTestCaseCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param CreateWorkspacePageCommandInput - {@link CreateWorkspacePageCommandInput}
- * @returns {@link CreateWorkspacePageCommandOutput}
- * @see {@link CreateWorkspacePageCommandInput} for command's `input` shape.
- * @see {@link CreateWorkspacePageCommandOutput} for command's `response` shape.
+ * @param UpdateTestCaseCommandInput - {@link UpdateTestCaseCommandInput}
+ * @returns {@link UpdateTestCaseCommandOutput}
+ * @see {@link UpdateTestCaseCommandInput} for command's `input` shape.
+ * @see {@link UpdateTestCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -71,17 +82,11 @@ export interface CreateWorkspacePageCommandOutput extends CreateWorkspacePageRes
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
  *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>The allowed limit for the resource has been exceeded.</p>
- *
- * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ * @throws {@link InvalidTestCaseException} (client fault)
+ *  <p>The test is not valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
@@ -92,10 +97,10 @@ export interface CreateWorkspacePageCommandOutput extends CreateWorkspacePageRes
  *
  * @public
  */
-export class CreateWorkspacePageCommand extends $Command
+export class UpdateTestCaseCommand extends $Command
   .classBuilder<
-    CreateWorkspacePageCommandInput,
-    CreateWorkspacePageCommandOutput,
+    UpdateTestCaseCommandInput,
+    UpdateTestCaseCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,19 +109,19 @@ export class CreateWorkspacePageCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonConnectService", "CreateWorkspacePage", {})
-  .n("ConnectClient", "CreateWorkspacePageCommand")
-  .sc(CreateWorkspacePage$)
+  .s("AmazonConnectService", "UpdateTestCase", {})
+  .n("ConnectClient", "UpdateTestCaseCommand")
+  .sc(UpdateTestCase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateWorkspacePageRequest;
+      input: UpdateTestCaseRequest;
       output: {};
     };
     sdk: {
-      input: CreateWorkspacePageCommandInput;
-      output: CreateWorkspacePageCommandOutput;
+      input: UpdateTestCaseCommandInput;
+      output: UpdateTestCaseCommandOutput;
     };
   };
 }

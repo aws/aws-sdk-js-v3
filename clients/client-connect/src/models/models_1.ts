@@ -10,7 +10,6 @@ import {
   ContactFlowState,
   ContactFlowStatus,
   ContactFlowType,
-  ContactInitiationMethod,
   ContactMetricName,
   ContactParticipantRole,
   ContactState,
@@ -37,7 +36,6 @@ import {
   InstanceStatus,
   InstanceStorageResourceType,
   IntervalPeriod,
-  LexVersion,
   MediaStreamType,
   MediaType,
   NextContactType,
@@ -57,6 +55,8 @@ import {
   Status,
   StorageType,
   TaskTemplateStatus,
+  TestCaseExecutionStatus,
+  TestCaseStatus,
   TrafficDistributionGroupStatus,
   Unit,
   Visibility,
@@ -90,6 +90,7 @@ import {
   type RuleTriggerEventSource,
   type TaskTemplateConstraints,
   type TaskTemplateDefaults,
+  type TestCaseEntryPoint,
   type UserIdentityInfo,
   type UserPhoneConfig,
   type Validation,
@@ -112,6 +113,101 @@ import {
   SuccessfulBatchAssociationSummary,
   TaskTemplateField,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateWorkspacePageRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the workspace.</p>
+   * @public
+   */
+  WorkspaceId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the view to associate with the page.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The page identifier. Valid system pages include <code>HOME</code> and <code>AGENT_EXPERIENCE</code>. Custom
+   *    pages cannot use the <code>aws:</code> or <code>connect:</code> prefixes.</p>
+   * @public
+   */
+  Page: string | undefined;
+
+  /**
+   * <p>The URL-friendly identifier for the page.</p>
+   * @public
+   */
+  Slug?: string | undefined;
+
+  /**
+   * <p>A JSON string containing input parameters for the view, validated against the view's input schema.</p>
+   * @public
+   */
+  InputData?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkspacePageResponse {}
+
+/**
+ * @public
+ */
+export interface DeactivateEvaluationFormRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>A version of the evaluation form. If the version property is not provided, the latest version of the evaluation form is
+   *    deactivated.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateEvaluationFormResponse {
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * <p>The version of the deactivated evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+}
 
 /**
  * Request to DeleteAttachedFile API
@@ -641,6 +737,28 @@ export interface DeleteTaskTemplateRequest {
  * @public
  */
 export interface DeleteTaskTemplateResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteTestCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case to delete.</p>
+   * @public
+   */
+  TestCaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTestCaseResponse {}
 
 /**
  * @public
@@ -4390,6 +4508,118 @@ export interface DescribeSecurityProfileResponse {
    * @public
    */
   SecurityProfile?: SecurityProfile | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTestCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case.</p>
+   * @public
+   */
+  TestCaseId: string | undefined;
+
+  /**
+   * <p>The status of the test case version to retrieve. If not specified, returns the published version if available, otherwise returns the saved version.</p>
+   * @public
+   */
+  Status?: TestCaseStatus | undefined;
+}
+
+/**
+ * <p>Contains information about a test case.</p>
+ * @public
+ */
+export interface TestCase {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the test case.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The identifier of the test case.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the test case.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The JSON string that represents the content of the test.</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>Defines the starting point for the test, including channel type and parameters.</p>
+   * @public
+   */
+  EntryPoint?: TestCaseEntryPoint | undefined;
+
+  /**
+   * <p>Defines the test attributes for precise data representation.</p>
+   * @public
+   */
+  InitializationData?: string | undefined;
+
+  /**
+   * <p>The description of the test case.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates the test status as either SAVED or PUBLISHED.</p>
+   * @public
+   */
+  Status?: TestCaseStatus | undefined;
+
+  /**
+   * <p>The time at which the test case was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The region in which the test case was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The SHA256 hash of the test case content.</p>
+   * @public
+   */
+  TestCaseSha256?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTestCaseResponse {
+  /**
+   * <p>The test case object containing all test case information.</p>
+   * @public
+   */
+  TestCase?: TestCase | undefined;
 }
 
 /**
@@ -9619,6 +9849,82 @@ export interface GetTaskTemplateResponse {
 /**
  * @public
  */
+export interface GetTestCaseExecutionSummaryRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case.</p>
+   * @public
+   */
+  TestCaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case execution.</p>
+   * @public
+   */
+  TestCaseExecutionId: string | undefined;
+}
+
+/**
+ * <p>Contains summary statistics about a test case execution.</p>
+ * @public
+ */
+export interface ObservationSummary {
+  /**
+   * <p>The total number of observations in the test case.</p>
+   * @public
+   */
+  TotalObservations?: number | undefined;
+
+  /**
+   * <p>The number of observations that passed during execution.</p>
+   * @public
+   */
+  ObservationsPassed?: number | undefined;
+
+  /**
+   * <p>The number of observations that failed during execution.</p>
+   * @public
+   */
+  ObservationsFailed?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTestCaseExecutionSummaryResponse {
+  /**
+   * <p>The timestamp when the test case execution started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the test case execution ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The status of the test case execution.</p>
+   * @public
+   */
+  Status?: TestCaseExecutionStatus | undefined;
+
+  /**
+   * <p>Summary statistics for the test case execution.</p>
+   * @public
+   */
+  ObservationSummary?: ObservationSummary | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTrafficDistributionRequest {
   /**
    * <p>The identifier of the traffic distribution group.
@@ -9940,325 +10246,4 @@ export interface AnalyticsDataSetsResult {
    * @public
    */
   DataSetName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAnalyticsDataLakeDataSetsResponse {
-  /**
-   * <p>An array of successful results: <code>DataSetId</code>, <code>DataSetName</code>. This is a paginated API, so
-   *     <code>nextToken</code> is given if there are more results to be returned.</p>
-   * @public
-   */
-  Results?: AnalyticsDataSetsResult[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListApprovedOriginsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListApprovedOriginsResponse {
-  /**
-   * <p>The approved origins.</p>
-   * @public
-   */
-  Origins?: string[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssociatedContactsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Contact summary of a contact in contact tree associated with unique identifier.</p>
- * @public
- */
-export interface AssociatedContactSummary {
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the contact</p>
-   * @public
-   */
-  ContactArn?: string | undefined;
-
-  /**
-   * <p>The date and time this contact was initiated, in UTC time.</p>
-   * @public
-   */
-  InitiationTimestamp?: Date | undefined;
-
-  /**
-   * <p>The date and time that the customer endpoint disconnected from the current contact, in UTC time. In transfer
-   *    scenarios, the DisconnectTimestamp of the previous contact indicates the date and time when that contact
-   *    ended.</p>
-   * @public
-   */
-  DisconnectTimestamp?: Date | undefined;
-
-  /**
-   * <p>If this contact is related to other contacts, this is the ID of the initial contact.</p>
-   * @public
-   */
-  InitialContactId?: string | undefined;
-
-  /**
-   * <p>If this contact is not the first contact, this is the ID of the previous contact.</p>
-   * @public
-   */
-  PreviousContactId?: string | undefined;
-
-  /**
-   * <p>The contactId that is related to this contact.</p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>Indicates how the contact was initiated.</p>
-   * @public
-   */
-  InitiationMethod?: ContactInitiationMethod | undefined;
-
-  /**
-   * <p>How the contact reached your contact center.</p>
-   * @public
-   */
-  Channel?: Channel | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssociatedContactsResponse {
-  /**
-   * <p>List of the contact summary for all the contacts in contact tree associated with unique identifier.</p>
-   * @public
-   */
-  ContactSummaryList?: AssociatedContactSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAuthenticationProfilesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web Services Support.</p>
- *          <p>A summary of a given authentication profile.</p>
- * @public
- */
-export interface AuthenticationProfileSummary {
-  /**
-   * <p>The unique identifier of the authentication profile.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the authentication profile summary.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the authentication profile summary.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Shows whether the authentication profile is the default authentication profile for the Amazon Connect
-   *    instance. The default authentication profile applies to all agents in an Amazon Connect instance, unless
-   *    overridden by another authentication profile.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
-
-  /**
-   * <p>The timestamp when the authentication profile summary was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region when the authentication profile summary was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAuthenticationProfilesResponse {
-  /**
-   * <p>A summary of a given authentication profile.</p>
-   * @public
-   */
-  AuthenticationProfileSummaryList?: AuthenticationProfileSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListBotsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The version of Amazon Lex or Amazon Lex V2.</p>
-   * @public
-   */
-  LexVersion: LexVersion | undefined;
-}
-
-/**
- * <p>Configuration information of an Amazon Lex or Amazon Lex V2 bot.</p>
- * @public
- */
-export interface LexBotConfig {
-  /**
-   * <p>Configuration information of an Amazon Lex bot.</p>
-   * @public
-   */
-  LexBot?: LexBot | undefined;
-
-  /**
-   * <p>Configuration information of an Amazon Lex V2 bot.</p>
-   * @public
-   */
-  LexV2Bot?: LexV2Bot | undefined;
-}
-
-/**
- * @public
- */
-export interface ListBotsResponse {
-  /**
-   * <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots associated with the specified
-   *    instance.</p>
-   * @public
-   */
-  LexBots?: LexBotConfig[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListAuthenticationProfilesRequest, ListAuthenticationProfilesResponse } from "../models/models_1";
+import type { ListAuthenticationProfilesRequest, ListAuthenticationProfilesResponse } from "../models/models_2";
 import { ListAuthenticationProfiles$ } from "../schemas/schemas_0";
 
 /**

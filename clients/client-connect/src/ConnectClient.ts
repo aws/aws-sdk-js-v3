@@ -237,6 +237,7 @@ import {
   CreateSecurityProfileCommandOutput,
 } from "./commands/CreateSecurityProfileCommand";
 import { CreateTaskTemplateCommandInput, CreateTaskTemplateCommandOutput } from "./commands/CreateTaskTemplateCommand";
+import { CreateTestCaseCommandInput, CreateTestCaseCommandOutput } from "./commands/CreateTestCaseCommand";
 import {
   CreateTrafficDistributionGroupCommandInput,
   CreateTrafficDistributionGroupCommandOutput,
@@ -325,6 +326,7 @@ import {
   DeleteSecurityProfileCommandOutput,
 } from "./commands/DeleteSecurityProfileCommand";
 import { DeleteTaskTemplateCommandInput, DeleteTaskTemplateCommandOutput } from "./commands/DeleteTaskTemplateCommand";
+import { DeleteTestCaseCommandInput, DeleteTestCaseCommandOutput } from "./commands/DeleteTestCaseCommand";
 import {
   DeleteTrafficDistributionGroupCommandInput,
   DeleteTrafficDistributionGroupCommandOutput,
@@ -425,6 +427,7 @@ import {
   DescribeSecurityProfileCommandInput,
   DescribeSecurityProfileCommandOutput,
 } from "./commands/DescribeSecurityProfileCommand";
+import { DescribeTestCaseCommandInput, DescribeTestCaseCommandOutput } from "./commands/DescribeTestCaseCommand";
 import {
   DescribeTrafficDistributionGroupCommandInput,
   DescribeTrafficDistributionGroupCommandOutput,
@@ -526,6 +529,10 @@ import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./command
 import { GetMetricDataV2CommandInput, GetMetricDataV2CommandOutput } from "./commands/GetMetricDataV2Command";
 import { GetPromptFileCommandInput, GetPromptFileCommandOutput } from "./commands/GetPromptFileCommand";
 import { GetTaskTemplateCommandInput, GetTaskTemplateCommandOutput } from "./commands/GetTaskTemplateCommand";
+import {
+  GetTestCaseExecutionSummaryCommandInput,
+  GetTestCaseExecutionSummaryCommandOutput,
+} from "./commands/GetTestCaseExecutionSummaryCommand";
 import {
   GetTrafficDistributionCommandInput,
   GetTrafficDistributionCommandOutput,
@@ -698,6 +705,15 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { ListTaskTemplatesCommandInput, ListTaskTemplatesCommandOutput } from "./commands/ListTaskTemplatesCommand";
 import {
+  ListTestCaseExecutionRecordsCommandInput,
+  ListTestCaseExecutionRecordsCommandOutput,
+} from "./commands/ListTestCaseExecutionRecordsCommand";
+import {
+  ListTestCaseExecutionsCommandInput,
+  ListTestCaseExecutionsCommandOutput,
+} from "./commands/ListTestCaseExecutionsCommand";
+import { ListTestCasesCommandInput, ListTestCasesCommandOutput } from "./commands/ListTestCasesCommand";
+import {
   ListTrafficDistributionGroupsCommandInput,
   ListTrafficDistributionGroupsCommandOutput,
 } from "./commands/ListTrafficDistributionGroupsCommand";
@@ -784,6 +800,7 @@ import {
   SearchSecurityProfilesCommandInput,
   SearchSecurityProfilesCommandOutput,
 } from "./commands/SearchSecurityProfilesCommand";
+import { SearchTestCasesCommandInput, SearchTestCasesCommandOutput } from "./commands/SearchTestCasesCommand";
 import {
   SearchUserHierarchyGroupsCommandInput,
   SearchUserHierarchyGroupsCommandOutput,
@@ -837,6 +854,10 @@ import {
 } from "./commands/StartOutboundVoiceContactCommand";
 import { StartScreenSharingCommandInput, StartScreenSharingCommandOutput } from "./commands/StartScreenSharingCommand";
 import { StartTaskContactCommandInput, StartTaskContactCommandOutput } from "./commands/StartTaskContactCommand";
+import {
+  StartTestCaseExecutionCommandInput,
+  StartTestCaseExecutionCommandOutput,
+} from "./commands/StartTestCaseExecutionCommand";
 import { StartWebRTCContactCommandInput, StartWebRTCContactCommandOutput } from "./commands/StartWebRTCContactCommand";
 import { StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
 import {
@@ -851,6 +872,10 @@ import {
   StopContactStreamingCommandInput,
   StopContactStreamingCommandOutput,
 } from "./commands/StopContactStreamingCommand";
+import {
+  StopTestCaseExecutionCommandInput,
+  StopTestCaseExecutionCommandOutput,
+} from "./commands/StopTestCaseExecutionCommand";
 import {
   SubmitContactEvaluationCommandInput,
   SubmitContactEvaluationCommandOutput,
@@ -1016,6 +1041,7 @@ import {
   UpdateSecurityProfileCommandOutput,
 } from "./commands/UpdateSecurityProfileCommand";
 import { UpdateTaskTemplateCommandInput, UpdateTaskTemplateCommandOutput } from "./commands/UpdateTaskTemplateCommand";
+import { UpdateTestCaseCommandInput, UpdateTestCaseCommandOutput } from "./commands/UpdateTestCaseCommand";
 import {
   UpdateTrafficDistributionCommandInput,
   UpdateTrafficDistributionCommandOutput,
@@ -1142,6 +1168,7 @@ export type ServiceInputTypes =
   | CreateRuleCommandInput
   | CreateSecurityProfileCommandInput
   | CreateTaskTemplateCommandInput
+  | CreateTestCaseCommandInput
   | CreateTrafficDistributionGroupCommandInput
   | CreateUseCaseCommandInput
   | CreateUserCommandInput
@@ -1176,6 +1203,7 @@ export type ServiceInputTypes =
   | DeleteRuleCommandInput
   | DeleteSecurityProfileCommandInput
   | DeleteTaskTemplateCommandInput
+  | DeleteTestCaseCommandInput
   | DeleteTrafficDistributionGroupCommandInput
   | DeleteUseCaseCommandInput
   | DeleteUserCommandInput
@@ -1210,6 +1238,7 @@ export type ServiceInputTypes =
   | DescribeRoutingProfileCommandInput
   | DescribeRuleCommandInput
   | DescribeSecurityProfileCommandInput
+  | DescribeTestCaseCommandInput
   | DescribeTrafficDistributionGroupCommandInput
   | DescribeUserCommandInput
   | DescribeUserHierarchyGroupCommandInput
@@ -1248,6 +1277,7 @@ export type ServiceInputTypes =
   | GetMetricDataV2CommandInput
   | GetPromptFileCommandInput
   | GetTaskTemplateCommandInput
+  | GetTestCaseExecutionSummaryCommandInput
   | GetTrafficDistributionCommandInput
   | ImportPhoneNumberCommandInput
   | ImportWorkspaceMediaCommandInput
@@ -1302,6 +1332,9 @@ export type ServiceInputTypes =
   | ListSecurityProfilesCommandInput
   | ListTagsForResourceCommandInput
   | ListTaskTemplatesCommandInput
+  | ListTestCaseExecutionRecordsCommandInput
+  | ListTestCaseExecutionsCommandInput
+  | ListTestCasesCommandInput
   | ListTrafficDistributionGroupUsersCommandInput
   | ListTrafficDistributionGroupsCommandInput
   | ListUseCasesCommandInput
@@ -1338,6 +1371,7 @@ export type ServiceInputTypes =
   | SearchResourceTagsCommandInput
   | SearchRoutingProfilesCommandInput
   | SearchSecurityProfilesCommandInput
+  | SearchTestCasesCommandInput
   | SearchUserHierarchyGroupsCommandInput
   | SearchUsersCommandInput
   | SearchViewsCommandInput
@@ -1358,11 +1392,13 @@ export type ServiceInputTypes =
   | StartOutboundVoiceContactCommandInput
   | StartScreenSharingCommandInput
   | StartTaskContactCommandInput
+  | StartTestCaseExecutionCommandInput
   | StartWebRTCContactCommandInput
   | StopContactCommandInput
   | StopContactMediaProcessingCommandInput
   | StopContactRecordingCommandInput
   | StopContactStreamingCommandInput
+  | StopTestCaseExecutionCommandInput
   | SubmitContactEvaluationCommandInput
   | SuspendContactRecordingCommandInput
   | TagContactCommandInput
@@ -1414,6 +1450,7 @@ export type ServiceInputTypes =
   | UpdateRuleCommandInput
   | UpdateSecurityProfileCommandInput
   | UpdateTaskTemplateCommandInput
+  | UpdateTestCaseCommandInput
   | UpdateTrafficDistributionCommandInput
   | UpdateUserHierarchyCommandInput
   | UpdateUserHierarchyGroupNameCommandInput
@@ -1491,6 +1528,7 @@ export type ServiceOutputTypes =
   | CreateRuleCommandOutput
   | CreateSecurityProfileCommandOutput
   | CreateTaskTemplateCommandOutput
+  | CreateTestCaseCommandOutput
   | CreateTrafficDistributionGroupCommandOutput
   | CreateUseCaseCommandOutput
   | CreateUserCommandOutput
@@ -1525,6 +1563,7 @@ export type ServiceOutputTypes =
   | DeleteRuleCommandOutput
   | DeleteSecurityProfileCommandOutput
   | DeleteTaskTemplateCommandOutput
+  | DeleteTestCaseCommandOutput
   | DeleteTrafficDistributionGroupCommandOutput
   | DeleteUseCaseCommandOutput
   | DeleteUserCommandOutput
@@ -1559,6 +1598,7 @@ export type ServiceOutputTypes =
   | DescribeRoutingProfileCommandOutput
   | DescribeRuleCommandOutput
   | DescribeSecurityProfileCommandOutput
+  | DescribeTestCaseCommandOutput
   | DescribeTrafficDistributionGroupCommandOutput
   | DescribeUserCommandOutput
   | DescribeUserHierarchyGroupCommandOutput
@@ -1597,6 +1637,7 @@ export type ServiceOutputTypes =
   | GetMetricDataV2CommandOutput
   | GetPromptFileCommandOutput
   | GetTaskTemplateCommandOutput
+  | GetTestCaseExecutionSummaryCommandOutput
   | GetTrafficDistributionCommandOutput
   | ImportPhoneNumberCommandOutput
   | ImportWorkspaceMediaCommandOutput
@@ -1651,6 +1692,9 @@ export type ServiceOutputTypes =
   | ListSecurityProfilesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTaskTemplatesCommandOutput
+  | ListTestCaseExecutionRecordsCommandOutput
+  | ListTestCaseExecutionsCommandOutput
+  | ListTestCasesCommandOutput
   | ListTrafficDistributionGroupUsersCommandOutput
   | ListTrafficDistributionGroupsCommandOutput
   | ListUseCasesCommandOutput
@@ -1687,6 +1731,7 @@ export type ServiceOutputTypes =
   | SearchResourceTagsCommandOutput
   | SearchRoutingProfilesCommandOutput
   | SearchSecurityProfilesCommandOutput
+  | SearchTestCasesCommandOutput
   | SearchUserHierarchyGroupsCommandOutput
   | SearchUsersCommandOutput
   | SearchViewsCommandOutput
@@ -1707,11 +1752,13 @@ export type ServiceOutputTypes =
   | StartOutboundVoiceContactCommandOutput
   | StartScreenSharingCommandOutput
   | StartTaskContactCommandOutput
+  | StartTestCaseExecutionCommandOutput
   | StartWebRTCContactCommandOutput
   | StopContactCommandOutput
   | StopContactMediaProcessingCommandOutput
   | StopContactRecordingCommandOutput
   | StopContactStreamingCommandOutput
+  | StopTestCaseExecutionCommandOutput
   | SubmitContactEvaluationCommandOutput
   | SuspendContactRecordingCommandOutput
   | TagContactCommandOutput
@@ -1763,6 +1810,7 @@ export type ServiceOutputTypes =
   | UpdateRuleCommandOutput
   | UpdateSecurityProfileCommandOutput
   | UpdateTaskTemplateCommandOutput
+  | UpdateTestCaseCommandOutput
   | UpdateTrafficDistributionCommandOutput
   | UpdateUserHierarchyCommandOutput
   | UpdateUserHierarchyGroupNameCommandOutput

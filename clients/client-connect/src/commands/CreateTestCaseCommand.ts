@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { CreateWorkspacePageRequest, CreateWorkspacePageResponse } from "../models/models_1";
-import { CreateWorkspacePage$ } from "../schemas/schemas_0";
+import type { CreateTestCaseRequest, CreateTestCaseResponse } from "../models/models_0";
+import { CreateTestCase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,44 +16,61 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateWorkspacePageCommand}.
+ * The input for {@link CreateTestCaseCommand}.
  */
-export interface CreateWorkspacePageCommandInput extends CreateWorkspacePageRequest {}
+export interface CreateTestCaseCommandInput extends CreateTestCaseRequest {}
 /**
  * @public
  *
- * The output of {@link CreateWorkspacePageCommand}.
+ * The output of {@link CreateTestCaseCommand}.
  */
-export interface CreateWorkspacePageCommandOutput extends CreateWorkspacePageResponse, __MetadataBearer {}
+export interface CreateTestCaseCommandOutput extends CreateTestCaseResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a view with a page in a workspace, defining what users see when they navigate to that page.</p>
+ * <p>Creates a test case with its content and metadata for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateWorkspacePageCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateWorkspacePageCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateTestCaseCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, CreateTestCaseCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
  * const config = {}; // type is ConnectClientConfig
  * const client = new ConnectClient(config);
- * const input = { // CreateWorkspacePageRequest
+ * const input = { // CreateTestCaseRequest
  *   InstanceId: "STRING_VALUE", // required
- *   WorkspaceId: "STRING_VALUE", // required
- *   ResourceArn: "STRING_VALUE", // required
- *   Page: "STRING_VALUE", // required
- *   Slug: "STRING_VALUE",
- *   InputData: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Content: "STRING_VALUE", // required
+ *   EntryPoint: { // TestCaseEntryPoint
+ *     Type: "VOICE_CALL",
+ *     VoiceCallEntryPointParameters: { // VoiceCallEntryPointParameters
+ *       SourcePhoneNumber: "STRING_VALUE",
+ *       DestinationPhoneNumber: "STRING_VALUE",
+ *       FlowId: "STRING_VALUE",
+ *     },
+ *   },
+ *   InitializationData: "STRING_VALUE",
+ *   Status: "PUBLISHED" || "SAVED",
+ *   TestCaseId: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   LastModifiedTime: new Date("TIMESTAMP"),
+ *   LastModifiedRegion: "STRING_VALUE",
  * };
- * const command = new CreateWorkspacePageCommand(input);
+ * const command = new CreateTestCaseCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateTestCaseResponse
+ * //   TestCaseId: "STRING_VALUE",
+ * //   TestCaseArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param CreateWorkspacePageCommandInput - {@link CreateWorkspacePageCommandInput}
- * @returns {@link CreateWorkspacePageCommandOutput}
- * @see {@link CreateWorkspacePageCommandInput} for command's `input` shape.
- * @see {@link CreateWorkspacePageCommandOutput} for command's `response` shape.
+ * @param CreateTestCaseCommandInput - {@link CreateTestCaseCommandInput}
+ * @returns {@link CreateTestCaseCommandOutput}
+ * @see {@link CreateTestCaseCommandInput} for command's `input` shape.
+ * @see {@link CreateTestCaseCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -61,6 +78,9 @@ export interface CreateWorkspacePageCommandOutput extends CreateWorkspacePageRes
  *
  * @throws {@link DuplicateResourceException} (client fault)
  *  <p>A resource with the specified name already exists.</p>
+ *
+ * @throws {@link IdempotencyException} (client fault)
+ *  <p>An entity with the same name already exists.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -71,11 +91,11 @@ export interface CreateWorkspacePageCommandOutput extends CreateWorkspacePageRes
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
  *
+ * @throws {@link InvalidTestCaseException} (client fault)
+ *  <p>The test is not valid.</p>
+ *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The allowed limit for the resource has been exceeded.</p>
- *
- * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
@@ -92,10 +112,10 @@ export interface CreateWorkspacePageCommandOutput extends CreateWorkspacePageRes
  *
  * @public
  */
-export class CreateWorkspacePageCommand extends $Command
+export class CreateTestCaseCommand extends $Command
   .classBuilder<
-    CreateWorkspacePageCommandInput,
-    CreateWorkspacePageCommandOutput,
+    CreateTestCaseCommandInput,
+    CreateTestCaseCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,19 +124,19 @@ export class CreateWorkspacePageCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonConnectService", "CreateWorkspacePage", {})
-  .n("ConnectClient", "CreateWorkspacePageCommand")
-  .sc(CreateWorkspacePage$)
+  .s("AmazonConnectService", "CreateTestCase", {})
+  .n("ConnectClient", "CreateTestCaseCommand")
+  .sc(CreateTestCase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateWorkspacePageRequest;
-      output: {};
+      input: CreateTestCaseRequest;
+      output: CreateTestCaseResponse;
     };
     sdk: {
-      input: CreateWorkspacePageCommandInput;
-      output: CreateWorkspacePageCommandOutput;
+      input: CreateTestCaseCommandInput;
+      output: CreateTestCaseCommandOutput;
     };
   };
 }

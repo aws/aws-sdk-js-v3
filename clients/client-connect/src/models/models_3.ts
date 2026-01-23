@@ -4,6 +4,7 @@ import {
   AgentStatusState,
   AnsweringMachineDetectionStatus,
   Channel,
+  ChatEventType,
   ContactFlowModuleState,
   ContactFlowModuleStatus,
   ContactFlowState,
@@ -20,20 +21,27 @@ import {
   EvaluationFormItemEnablementOperator,
   EvaluationFormQuestionType,
   EvaluationFormVersionStatus,
+  FileStatusType,
+  FileUseCaseType,
   InboundMessageSourceType,
   InitiateAs,
   InstanceAttributeType,
   InstanceStorageResourceType,
   IvrRecordingTrack,
   MeetingFeatureStatus,
+  OutboundMessageSourceType,
   OverrideType,
   ParticipantTimerAction,
   ParticipantTimerType,
   QueueStatus,
+  RehydrationType,
+  ResponseMode,
   RoutingCriteriaStepStatus,
   RulePublishStatus,
   SearchableQueueType,
   TaskTemplateStatus,
+  TestCaseExecutionStatus,
+  TestCaseStatus,
   TimerEligibleParticipantRoles,
   TrafficType,
   ViewStatus,
@@ -48,6 +56,7 @@ import {
   type AgentStatusSearchFilter,
   type AllowedCapabilities,
   type Campaign,
+  type CreatedByInfo,
   type DataTableLockVersion,
   type Endpoint,
   type EvaluationFormAutoEvaluationConfiguration,
@@ -68,6 +77,7 @@ import {
   type StringCondition,
   type TaskTemplateConstraints,
   type TaskTemplateDefaults,
+  type TestCaseEntryPoint,
   type UserIdentityInfo,
   type UserInfo,
   type UserPhoneConfig,
@@ -111,44 +121,681 @@ import {
   NextContactEntry,
   RecordingInfo,
 } from "./models_1";
-import {
-  type AutoEvaluationConfiguration,
-  type BooleanCondition,
-  type ChatMessage,
-  type ChatStreamingConfiguration,
-  type ContactFlowModuleSearchFilter,
-  type ContactFlowSearchFilter,
-  type ContactSearchSummaryAgentInfo,
-  type ContactSearchSummaryQueueInfo,
-  type DataTableSearchFilter,
-  type DateCondition,
-  type DateTimeCondition,
-  type DecimalCondition,
-  type EmailAddressSearchFilter,
-  type EvaluationFormSearchFilter,
-  type EvaluationSearchFilter,
-  type HierarchyGroupCondition,
-  type HoursOfOperationSearchFilter,
-  type ListCondition,
-  type NumberCondition,
-  type OutboundAdditionalRecipients,
-  type OutboundEmailContent,
-  type ParticipantConfiguration,
-  type ParticipantDetails,
-  type PersistentChat,
-  type PromptSearchFilter,
-  type QueueSearchFilter,
-  type QuickConnectSearchFilter,
-  type RoutingProfileSearchFilter,
-  type SecurityProfilesSearchFilter,
-  type TemplatedMessageConfig,
-  type UserHierarchyGroupSearchFilter,
-  type UserSearchFilter,
-  type ViewSearchFilter,
-  type WorkspaceAssociationSearchFilter,
-  type WorkspaceSearchFilter,
-  EmailAddressInfo,
+import type {
+  BooleanCondition,
+  ContactFlowModuleSearchFilter,
+  ContactFlowSearchFilter,
+  ContactSearchSummaryAgentInfo,
+  ContactSearchSummaryQueueInfo,
+  DataTableSearchFilter,
+  DateCondition,
+  DateTimeCondition,
+  DecimalCondition,
+  EmailAddressSearchFilter,
+  EvaluationFormSearchFilter,
+  EvaluationSearchFilter,
+  HierarchyGroupCondition,
+  HoursOfOperationSearchFilter,
+  ListCondition,
+  NumberCondition,
+  PromptSearchFilter,
+  QueueSearchFilter,
+  QuickConnectSearchFilter,
+  RoutingProfileSearchFilter,
+  SecurityProfilesSearchFilter,
+  TestCaseSearchFilter,
+  UserHierarchyGroupSearchFilter,
+  UserSearchFilter,
+  ViewSearchFilter,
+  WorkspaceAssociationSearchFilter,
+  WorkspaceSearchFilter,
 } from "./models_2";
+
+/**
+ * <p>Chat integration event containing payload to perform different chat actions such as:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Sending a chat message</p>
+ *             </li>
+ *             <li>
+ *                <p>Sending a chat event, such as typing</p>
+ *             </li>
+ *             <li>
+ *                <p>Disconnecting from a chat</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ChatEvent {
+  /**
+   * <p>Type of chat integration event. </p>
+   * @public
+   */
+  Type: ChatEventType | undefined;
+
+  /**
+   * <p>Type of content. This is required when <code>Type</code> is <code>MESSAGE</code> or <code>EVENT</code>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>For allowed message content types, see the <code>ContentType</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a> topic
+   *      in the <i>Amazon Connect Participant Service API Reference</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For allowed event content types, see the <code>ContentType</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a> topic in the <i>Amazon Connect Participant Service API Reference</i>. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ContentType?: string | undefined;
+
+  /**
+   * <p>Content of the message or event. This is required when <code>Type</code> is <code>MESSAGE</code> and for certain
+   *     <code>ContentTypes</code> when <code>Type</code> is <code>EVENT</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For allowed message content, see the <code>Content</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a> topic in the
+   *        <i>Amazon Connect Participant Service API Reference</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For allowed event content, see the <code>Content</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a> topic in the <i>Amazon Connect Participant Service API Reference</i>. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Content?: string | undefined;
+}
+
+/**
+ * <p>The customer's details.</p>
+ * @public
+ */
+export interface ParticipantDetails {
+  /**
+   * <p>Display name of the participant.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+}
+
+/**
+ * <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
+ * @public
+ */
+export interface ChatStreamingConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the standard Amazon SNS topic. The Amazon Resource Name (ARN) of the streaming endpoint that is used to publish
+   *    real-time message streaming for chat conversations.</p>
+   * @public
+   */
+  StreamingEndpointArn: string | undefined;
+}
+
+/**
+ * <p>Payload of chat properties to apply when starting a new contact.</p>
+ * @public
+ */
+export interface NewSessionDetails {
+  /**
+   * <p> The supported chat message content types. Supported types are <code>text/plain</code>,
+   *     <code>text/markdown</code>, <code>application/json</code>,
+   *     <code>application/vnd.amazonaws.connect.message.interactive</code>, and
+   *     <code>application/vnd.amazonaws.connect.message.interactive.response</code>. </p>
+   *          <p>Content types must always contain <code> text/plain</code>. You can then put any other supported type in the
+   *    list. For example, all the following lists are valid because they contain <code>text/plain</code>: <code>[text/plain,
+   *     text/markdown, application/json]</code>, <code> [text/markdown, text/plain]</code>, <code>[text/plain,
+   *     application/json, application/vnd.amazonaws.connect.message.interactive.response]</code>. </p>
+   * @public
+   */
+  SupportedMessagingContentTypes?: string[] | undefined;
+
+  /**
+   * <p>The customer's details.</p>
+   * @public
+   */
+  ParticipantDetails?: ParticipantDetails | undefined;
+
+  /**
+   * <p> A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes. They
+   *    can be accessed in flows just like any other contact attributes. </p>
+   *          <p> There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only
+   *    alphanumeric, dash, and underscore characters. </p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
+   * @public
+   */
+  StreamingConfiguration?: ChatStreamingConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendChatIntegrationEventRequest {
+  /**
+   * <p>External identifier of chat customer participant, used in part to uniquely identify a chat. For SMS, this is the
+   *    E164 phone number of the chat customer participant.</p>
+   * @public
+   */
+  SourceId: string | undefined;
+
+  /**
+   * <p>Chat system identifier, used in part to uniquely identify chat. This is associated with the Amazon Connect
+   *    instance and flow to be used to start chats. For Server Migration Service, this is the phone number destination of inbound
+   *     Server Migration Service messages represented by an Amazon Web Services End User Messaging phone number ARN.</p>
+   * @public
+   */
+  DestinationId: string | undefined;
+
+  /**
+   * <p>Classification of a channel. This is used in part to uniquely identify chat. </p>
+   *          <p>Valid value: <code>["connect:sms", connect:"WhatsApp"]</code>
+   *          </p>
+   * @public
+   */
+  Subtype?: string | undefined;
+
+  /**
+   * <p>Chat integration event payload</p>
+   * @public
+   */
+  Event: ChatEvent | undefined;
+
+  /**
+   * <p>Contact properties to apply when starting a new chat. If the integration event is handled with an existing chat,
+   *    this is ignored.</p>
+   * @public
+   */
+  NewSessionDetails?: NewSessionDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendChatIntegrationEventResponse {
+  /**
+   * <p>Identifier of chat contact used to handle integration event. This may be null if the integration event is not
+   *    valid without an already existing chat contact.</p>
+   * @public
+   */
+  InitialContactId?: string | undefined;
+
+  /**
+   * <p>Whether handling the integration event resulted in creating a new chat or acting on existing chat.</p>
+   * @public
+   */
+  NewChatCreated?: boolean | undefined;
+}
+
+/**
+ * <p>Contains information about a source or destination email address.</p>
+ * @public
+ */
+export interface EmailAddressInfo {
+  /**
+   * <p>The email address, including the domain.</p>
+   * @public
+   */
+  EmailAddress: string | undefined;
+
+  /**
+   * <p>The display name of email address.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+}
+
+/**
+ * <p>Information about the additional recipients of outbound email.</p>
+ * @public
+ */
+export interface OutboundAdditionalRecipients {
+  /**
+   * <p>Information about the <b>additional</b> CC email address recipients. Email recipients
+   *    are limited to 50 total addresses: 1 required recipient in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SendOutboundEmail.html#API_SendOutboundEmail_RequestBody">DestinationEmailAddress</a> field and up to 49 recipients in the 'CcEmailAddresses' field.</p>
+   * @public
+   */
+  CcEmailAddresses?: EmailAddressInfo[] | undefined;
+}
+
+/**
+ * <p>Information about the raw email body content.</p>
+ * @public
+ */
+export interface OutboundRawMessage {
+  /**
+   * <p>The email subject.</p>
+   * @public
+   */
+  Subject: string | undefined;
+
+  /**
+   * <p>The email message body.</p>
+   * @public
+   */
+  Body: string | undefined;
+
+  /**
+   * <p>Type of content, that is, <code>text/plain</code> or <code>text/html</code>.</p>
+   * @public
+   */
+  ContentType: string | undefined;
+}
+
+/**
+ * <p>Information about the template attributes.</p>
+ * @public
+ */
+export interface TemplateAttributes {
+  /**
+   * <p>An object that specifies the custom attributes values to use for variables in the message template. This object
+   *    contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template.
+   *   </p>
+   * @public
+   */
+  CustomAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>An object that specifies the customer profile attributes values to use for variables in the message template.
+   *    This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the
+   *    message template. </p>
+   * @public
+   */
+  CustomerProfileAttributes?: string | undefined;
+}
+
+/**
+ * <p>Information about template message configuration.</p>
+ * @public
+ */
+export interface TemplatedMessageConfig {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template Id.</p>
+   * @public
+   */
+  MessageTemplateId: string | undefined;
+
+  /**
+   * <p>Information about template attributes, that is, CustomAttributes or CustomerProfileAttributes.</p>
+   * @public
+   */
+  TemplateAttributes: TemplateAttributes | undefined;
+}
+
+/**
+ * <p>Information about email body content.</p>
+ * @public
+ */
+export interface OutboundEmailContent {
+  /**
+   * <p>The message source type, that is, <code>RAW</code> or <code>TEMPLATE</code>.</p>
+   * @public
+   */
+  MessageSourceType: OutboundMessageSourceType | undefined;
+
+  /**
+   * <p>Information about template message configuration.</p>
+   * @public
+   */
+  TemplatedMessageConfig?: TemplatedMessageConfig | undefined;
+
+  /**
+   * <p>The raw email body content.</p>
+   * @public
+   */
+  RawMessage?: OutboundRawMessage | undefined;
+}
+
+/**
+ * <p>Information about the campaign.</p>
+ * @public
+ */
+export interface SourceCampaign {
+  /**
+   * <p>A unique identifier for a campaign.</p>
+   * @public
+   */
+  CampaignId?: string | undefined;
+
+  /**
+   * <p>A unique identifier for a each request part of same campaign.</p>
+   * @public
+   */
+  OutboundRequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendOutboundEmailRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The email address to be used for sending email.</p>
+   * @public
+   */
+  FromEmailAddress: EmailAddressInfo | undefined;
+
+  /**
+   * <p>The email address to send the email to.</p>
+   * @public
+   */
+  DestinationEmailAddress: EmailAddressInfo | undefined;
+
+  /**
+   * <p>The additional recipients address of the email in CC.</p>
+   * @public
+   */
+  AdditionalRecipients?: OutboundAdditionalRecipients | undefined;
+
+  /**
+   * <p>The email message body to be sent to the newly created email.</p>
+   * @public
+   */
+  EmailMessage: OutboundEmailContent | undefined;
+
+  /**
+   * <p>Denotes the class of traffic.</p>
+   *          <note>
+   *             <p>Only the CAMPAIGN traffic type is supported.</p>
+   *          </note>
+   * @public
+   */
+  TrafficType: TrafficType | undefined;
+
+  /**
+   * <p>A Campaign object need for Campaign traffic type.</p>
+   * @public
+   */
+  SourceCampaign?: SourceCampaign | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendOutboundEmailResponse {}
+
+/**
+ * @public
+ */
+export interface StartAttachedFileUploadRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A case-sensitive name of the attached file being uploaded.</p>
+   * @public
+   */
+  FileName: string | undefined;
+
+  /**
+   * <p>The size of the attached file in bytes.</p>
+   * @public
+   */
+  FileSizeInBytes: number | undefined;
+
+  /**
+   * <p>Optional override for the expiry of the pre-signed S3 URL in seconds. The default value is 300.</p>
+   * @public
+   */
+  UrlExpiryInSeconds?: number | undefined;
+
+  /**
+   * <p>The use case for the file.</p>
+   *          <important>
+   *             <p> Only <code>ATTACHMENTS</code> are supported.</p>
+   *          </important>
+   * @public
+   */
+  FileUseCaseType: FileUseCaseType | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn: string | undefined;
+
+  /**
+   * <p>Represents the identity that created the file.</p>
+   * @public
+   */
+  CreatedBy?: CreatedByInfo | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{ "Tags":
+   *     \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Fields required when uploading an attached file. </p>
+ * @public
+ */
+export interface UploadUrlMetadata {
+  /**
+   * <p>A pre-signed S3 URL that should be used for uploading the attached file. </p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format:
+   *     <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example, <code>2019-11-08T02:41:28.172Z</code>.</p>
+   * @public
+   */
+  UrlExpiry?: string | undefined;
+
+  /**
+   * <p>A map of headers that should be provided when uploading the attached file. </p>
+   * @public
+   */
+  HeadersToInclude?: Record<string, string> | undefined;
+}
+
+/**
+ * Response from StartAttachedFileUpload API.
+ * @public
+ */
+export interface StartAttachedFileUploadResponse {
+  /**
+   * <p>The unique identifier of the attached file resource (ARN).</p>
+   * @public
+   */
+  FileArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId?: string | undefined;
+
+  /**
+   * <p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601 format:
+   *     <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example, <code>2024-05-03T02:41:28.172Z</code>.</p>
+   * @public
+   */
+  CreationTime?: string | undefined;
+
+  /**
+   * <p>The current status of the attached file.</p>
+   * @public
+   */
+  FileStatus?: FileStatusType | undefined;
+
+  /**
+   * <p>Represents the identity that created the file.</p>
+   * @public
+   */
+  CreatedBy?: CreatedByInfo | undefined;
+
+  /**
+   * <p>The headers to be provided while uploading the file to the URL.</p>
+   * @public
+   */
+  UploadUrlMetadata?: UploadUrlMetadata | undefined;
+}
+
+/**
+ * <p>A chat message.</p>
+ * @public
+ */
+export interface ChatMessage {
+  /**
+   * <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>,
+   *     <code>application/json</code>, and
+   *    <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
+   * @public
+   */
+  ContentType: string | undefined;
+
+  /**
+   * <p>The content of the chat message. </p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints are Minimum of 1, Maximum
+   *      of 1024. </p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum of 12000. </p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the Length Constraints are
+   *      Minimum of 1, Maximum of 12288.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Content: string | undefined;
+}
+
+/**
+ * <p> The configuration of the participant. </p>
+ * @public
+ */
+export interface ParticipantConfiguration {
+  /**
+   * <p> The mode in which responses should be sent to the participant. </p>
+   * @public
+   */
+  ResponseMode?: ResponseMode | undefined;
+}
+
+/**
+ * <p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how
+ *    to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable
+ *     persistent chat</a>.</p>
+ * @public
+ */
+export interface PersistentChat {
+  /**
+   * <p>The contactId that is used for rehydration depends on the rehydration type. RehydrationType is required for
+   *    persistent chat. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the
+   *      specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended
+   *      chat session in the <code>sourceContactId</code> field. In this type, Amazon Connect determines the most recent
+   *      chat contact on the specified chat session that has ended, and uses it to start a persistent chat. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FROM_SEGMENT</code>: Rehydrates a chat from the past chat contact that is specified in the
+   *       <code>sourceContactId</code> field. </p>
+   *             </li>
+   *          </ul>
+   *          <p>The actual contactId used for rehydration is provided in the response of this API. </p>
+   * @public
+   */
+  RehydrationType?: RehydrationType | undefined;
+
+  /**
+   * <p>The contactId from which a persistent chat session must be started.</p>
+   * @public
+   */
+  SourceContactId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartChatContactResponse {
+  /**
+   * <p>The identifier of this contact within the Amazon Connect instance. </p>
+   * @public
+   */
+  ContactId?: string | undefined;
+
+  /**
+   * <p>The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat
+   *    lifecycle.</p>
+   * @public
+   */
+  ParticipantId?: string | undefined;
+
+  /**
+   * <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant.</p>
+   * @public
+   */
+  ParticipantToken?: string | undefined;
+
+  /**
+   * <p>The contactId from which a persistent chat session is started. This field is populated only for persistent
+   *    chats.</p>
+   * @public
+   */
+  ContinuedFromContactId?: string | undefined;
+}
+
+/**
+ * <p>Configuration information about automated evaluations.</p>
+ * @public
+ */
+export interface AutoEvaluationConfiguration {
+  /**
+   * <p>Whether automated evaluations are enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
 
 /**
  * @public
@@ -723,6 +1370,55 @@ export interface StartTaskContactResponse {
 /**
  * @public
  */
+export interface StartTestCaseExecutionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case to execute.</p>
+   * @public
+   */
+  TestCaseId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartTestCaseExecutionResponse {
+  /**
+   * <p>The identifier of the test case execution.</p>
+   * @public
+   */
+  TestCaseExecutionId?: string | undefined;
+
+  /**
+   * <p>The identifier of the test case resource that was executed.</p>
+   * @public
+   */
+  TestCaseId?: string | undefined;
+
+  /**
+   * <p>The status of a test case execution.</p>
+   * @public
+   */
+  Status?: TestCaseExecutionStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartWebRTCContactRequest {
   /**
    * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and
@@ -1083,6 +1779,43 @@ export interface StopContactStreamingRequest {
  * @public
  */
 export interface StopContactStreamingResponse {}
+
+/**
+ * @public
+ */
+export interface StopTestCaseExecutionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case execution to stop.</p>
+   * @public
+   */
+  TestCaseExecutionId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case.</p>
+   * @public
+   */
+  TestCaseId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTestCaseExecutionResponse {}
 
 /**
  * <p>Information about input answers for a contact evaluation.</p>
@@ -3293,6 +4026,76 @@ export interface UpdateTaskTemplateResponse {
 /**
  * @public
  */
+export interface UpdateTestCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case to update.</p>
+   * @public
+   */
+  TestCaseId: string | undefined;
+
+  /**
+   * <p>The JSON string that represents the content of the test.</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>Defines the starting point for your test.</p>
+   * @public
+   */
+  EntryPoint?: TestCaseEntryPoint | undefined;
+
+  /**
+   * <p>Defines the test attributes for precise data representation.</p>
+   * @public
+   */
+  InitializationData?: string | undefined;
+
+  /**
+   * <p>The name of the test case.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the test case.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates the test status as either SAVED or PUBLISHED. The PUBLISHED status will initiate validation on the content. The SAVED status does not initiate validation of the content.</p>
+   * @public
+   */
+  Status?: TestCaseStatus | undefined;
+
+  /**
+   * <p>The time at which the resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The region in which the resource was last modified</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTestCaseResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateTrafficDistributionRequest {
   /**
    * <p>The identifier of the traffic distribution group.
@@ -4448,6 +5251,36 @@ export interface SegmentAttributeValue {
 }
 
 /**
+ * <p>The search criteria to be used to return test cases.</p>
+ * @public
+ */
+export interface TestCaseSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: TestCaseSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: TestCaseSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>The status of the test case.</p>
+   * @public
+   */
+  StatusCondition?: TestCaseStatus | undefined;
+}
+
+/**
  * <p>The search criteria to be used to return userHierarchyGroup.</p>
  * @public
  */
@@ -5242,6 +6075,42 @@ export interface SearchSecurityProfilesRequest {
    * @public
    */
   SearchFilter?: SecurityProfilesSearchFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchTestCasesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: TestCaseSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return test cases.</p>
+   * @public
+   */
+  SearchCriteria?: TestCaseSearchCriteria | undefined;
 }
 
 /**

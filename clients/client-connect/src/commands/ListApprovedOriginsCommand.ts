@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListApprovedOriginsRequest, ListApprovedOriginsResponse } from "../models/models_1";
+import type { ListApprovedOriginsRequest, ListApprovedOriginsResponse } from "../models/models_2";
 import { ListApprovedOrigins$ } from "../schemas/schemas_0";
 
 /**

@@ -280,6 +280,11 @@ import {
   CreateTaskTemplateCommandOutput,
 } from "./commands/CreateTaskTemplateCommand";
 import {
+  CreateTestCaseCommand,
+  CreateTestCaseCommandInput,
+  CreateTestCaseCommandOutput,
+} from "./commands/CreateTestCaseCommand";
+import {
   CreateTrafficDistributionGroupCommand,
   CreateTrafficDistributionGroupCommandInput,
   CreateTrafficDistributionGroupCommandOutput,
@@ -433,6 +438,11 @@ import {
   DeleteTaskTemplateCommandInput,
   DeleteTaskTemplateCommandOutput,
 } from "./commands/DeleteTaskTemplateCommand";
+import {
+  DeleteTestCaseCommand,
+  DeleteTestCaseCommandInput,
+  DeleteTestCaseCommandOutput,
+} from "./commands/DeleteTestCaseCommand";
 import {
   DeleteTrafficDistributionGroupCommand,
   DeleteTrafficDistributionGroupCommandInput,
@@ -595,6 +605,11 @@ import {
   DescribeSecurityProfileCommandInput,
   DescribeSecurityProfileCommandOutput,
 } from "./commands/DescribeSecurityProfileCommand";
+import {
+  DescribeTestCaseCommand,
+  DescribeTestCaseCommandInput,
+  DescribeTestCaseCommandOutput,
+} from "./commands/DescribeTestCaseCommand";
 import {
   DescribeTrafficDistributionGroupCommand,
   DescribeTrafficDistributionGroupCommandInput,
@@ -785,6 +800,11 @@ import {
   GetTaskTemplateCommandInput,
   GetTaskTemplateCommandOutput,
 } from "./commands/GetTaskTemplateCommand";
+import {
+  GetTestCaseExecutionSummaryCommand,
+  GetTestCaseExecutionSummaryCommandInput,
+  GetTestCaseExecutionSummaryCommandOutput,
+} from "./commands/GetTestCaseExecutionSummaryCommand";
 import {
   GetTrafficDistributionCommand,
   GetTrafficDistributionCommandInput,
@@ -1036,6 +1056,21 @@ import {
   ListTaskTemplatesCommandOutput,
 } from "./commands/ListTaskTemplatesCommand";
 import {
+  ListTestCaseExecutionRecordsCommand,
+  ListTestCaseExecutionRecordsCommandInput,
+  ListTestCaseExecutionRecordsCommandOutput,
+} from "./commands/ListTestCaseExecutionRecordsCommand";
+import {
+  ListTestCaseExecutionsCommand,
+  ListTestCaseExecutionsCommandInput,
+  ListTestCaseExecutionsCommandOutput,
+} from "./commands/ListTestCaseExecutionsCommand";
+import {
+  ListTestCasesCommand,
+  ListTestCasesCommandInput,
+  ListTestCasesCommandOutput,
+} from "./commands/ListTestCasesCommand";
+import {
   ListTrafficDistributionGroupsCommand,
   ListTrafficDistributionGroupsCommandInput,
   ListTrafficDistributionGroupsCommandOutput,
@@ -1208,6 +1243,11 @@ import {
   SearchSecurityProfilesCommandOutput,
 } from "./commands/SearchSecurityProfilesCommand";
 import {
+  SearchTestCasesCommand,
+  SearchTestCasesCommandInput,
+  SearchTestCasesCommandOutput,
+} from "./commands/SearchTestCasesCommand";
+import {
   SearchUserHierarchyGroupsCommand,
   SearchUserHierarchyGroupsCommandInput,
   SearchUserHierarchyGroupsCommandOutput,
@@ -1300,6 +1340,11 @@ import {
   StartTaskContactCommandOutput,
 } from "./commands/StartTaskContactCommand";
 import {
+  StartTestCaseExecutionCommand,
+  StartTestCaseExecutionCommandInput,
+  StartTestCaseExecutionCommandOutput,
+} from "./commands/StartTestCaseExecutionCommand";
+import {
   StartWebRTCContactCommand,
   StartWebRTCContactCommandInput,
   StartWebRTCContactCommandOutput,
@@ -1320,6 +1365,11 @@ import {
   StopContactStreamingCommandInput,
   StopContactStreamingCommandOutput,
 } from "./commands/StopContactStreamingCommand";
+import {
+  StopTestCaseExecutionCommand,
+  StopTestCaseExecutionCommandInput,
+  StopTestCaseExecutionCommandOutput,
+} from "./commands/StopTestCaseExecutionCommand";
 import {
   SubmitContactEvaluationCommand,
   SubmitContactEvaluationCommandInput,
@@ -1564,6 +1614,11 @@ import {
   UpdateTaskTemplateCommandOutput,
 } from "./commands/UpdateTaskTemplateCommand";
 import {
+  UpdateTestCaseCommand,
+  UpdateTestCaseCommandInput,
+  UpdateTestCaseCommandOutput,
+} from "./commands/UpdateTestCaseCommand";
+import {
   UpdateTrafficDistributionCommand,
   UpdateTrafficDistributionCommandInput,
   UpdateTrafficDistributionCommandOutput,
@@ -1698,6 +1753,7 @@ const commands = {
   CreateRuleCommand,
   CreateSecurityProfileCommand,
   CreateTaskTemplateCommand,
+  CreateTestCaseCommand,
   CreateTrafficDistributionGroupCommand,
   CreateUseCaseCommand,
   CreateUserCommand,
@@ -1732,6 +1788,7 @@ const commands = {
   DeleteRuleCommand,
   DeleteSecurityProfileCommand,
   DeleteTaskTemplateCommand,
+  DeleteTestCaseCommand,
   DeleteTrafficDistributionGroupCommand,
   DeleteUseCaseCommand,
   DeleteUserCommand,
@@ -1766,6 +1823,7 @@ const commands = {
   DescribeRoutingProfileCommand,
   DescribeRuleCommand,
   DescribeSecurityProfileCommand,
+  DescribeTestCaseCommand,
   DescribeTrafficDistributionGroupCommand,
   DescribeUserCommand,
   DescribeUserHierarchyGroupCommand,
@@ -1804,6 +1862,7 @@ const commands = {
   GetMetricDataV2Command,
   GetPromptFileCommand,
   GetTaskTemplateCommand,
+  GetTestCaseExecutionSummaryCommand,
   GetTrafficDistributionCommand,
   ImportPhoneNumberCommand,
   ImportWorkspaceMediaCommand,
@@ -1858,6 +1917,9 @@ const commands = {
   ListSecurityProfilesCommand,
   ListTagsForResourceCommand,
   ListTaskTemplatesCommand,
+  ListTestCaseExecutionRecordsCommand,
+  ListTestCaseExecutionsCommand,
+  ListTestCasesCommand,
   ListTrafficDistributionGroupsCommand,
   ListTrafficDistributionGroupUsersCommand,
   ListUseCasesCommand,
@@ -1894,6 +1956,7 @@ const commands = {
   SearchResourceTagsCommand,
   SearchRoutingProfilesCommand,
   SearchSecurityProfilesCommand,
+  SearchTestCasesCommand,
   SearchUserHierarchyGroupsCommand,
   SearchUsersCommand,
   SearchViewsCommand,
@@ -1914,11 +1977,13 @@ const commands = {
   StartOutboundVoiceContactCommand,
   StartScreenSharingCommand,
   StartTaskContactCommand,
+  StartTestCaseExecutionCommand,
   StartWebRTCContactCommand,
   StopContactCommand,
   StopContactMediaProcessingCommand,
   StopContactRecordingCommand,
   StopContactStreamingCommand,
+  StopTestCaseExecutionCommand,
   SubmitContactEvaluationCommand,
   SuspendContactRecordingCommand,
   TagContactCommand,
@@ -1970,6 +2035,7 @@ const commands = {
   UpdateRuleCommand,
   UpdateSecurityProfileCommand,
   UpdateTaskTemplateCommand,
+  UpdateTestCaseCommand,
   UpdateTrafficDistributionCommand,
   UpdateUserHierarchyCommand,
   UpdateUserHierarchyGroupNameCommand,
@@ -2958,6 +3024,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateTestCaseCommand}
+   */
+  createTestCase(
+    args: CreateTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTestCaseCommandOutput>;
+  createTestCase(
+    args: CreateTestCaseCommandInput,
+    cb: (err: any, data?: CreateTestCaseCommandOutput) => void
+  ): void;
+  createTestCase(
+    args: CreateTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTestCaseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateTrafficDistributionGroupCommand}
    */
   createTrafficDistributionGroup(
@@ -3536,6 +3619,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DeleteTestCaseCommand}
+   */
+  deleteTestCase(
+    args: DeleteTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTestCaseCommandOutput>;
+  deleteTestCase(
+    args: DeleteTestCaseCommandInput,
+    cb: (err: any, data?: DeleteTestCaseCommandOutput) => void
+  ): void;
+  deleteTestCase(
+    args: DeleteTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTestCaseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTrafficDistributionGroupCommand}
    */
   deleteTrafficDistributionGroup(
@@ -4111,6 +4211,23 @@ export interface Connect {
     args: DescribeSecurityProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTestCaseCommand}
+   */
+  describeTestCase(
+    args: DescribeTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTestCaseCommandOutput>;
+  describeTestCase(
+    args: DescribeTestCaseCommandInput,
+    cb: (err: any, data?: DescribeTestCaseCommandOutput) => void
+  ): void;
+  describeTestCase(
+    args: DescribeTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTestCaseCommandOutput) => void
   ): void;
 
   /**
@@ -4757,6 +4874,23 @@ export interface Connect {
     args: GetTaskTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTaskTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTestCaseExecutionSummaryCommand}
+   */
+  getTestCaseExecutionSummary(
+    args: GetTestCaseExecutionSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTestCaseExecutionSummaryCommandOutput>;
+  getTestCaseExecutionSummary(
+    args: GetTestCaseExecutionSummaryCommandInput,
+    cb: (err: any, data?: GetTestCaseExecutionSummaryCommandOutput) => void
+  ): void;
+  getTestCaseExecutionSummary(
+    args: GetTestCaseExecutionSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTestCaseExecutionSummaryCommandOutput) => void
   ): void;
 
   /**
@@ -5680,6 +5814,57 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link ListTestCaseExecutionRecordsCommand}
+   */
+  listTestCaseExecutionRecords(
+    args: ListTestCaseExecutionRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestCaseExecutionRecordsCommandOutput>;
+  listTestCaseExecutionRecords(
+    args: ListTestCaseExecutionRecordsCommandInput,
+    cb: (err: any, data?: ListTestCaseExecutionRecordsCommandOutput) => void
+  ): void;
+  listTestCaseExecutionRecords(
+    args: ListTestCaseExecutionRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestCaseExecutionRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestCaseExecutionsCommand}
+   */
+  listTestCaseExecutions(
+    args: ListTestCaseExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestCaseExecutionsCommandOutput>;
+  listTestCaseExecutions(
+    args: ListTestCaseExecutionsCommandInput,
+    cb: (err: any, data?: ListTestCaseExecutionsCommandOutput) => void
+  ): void;
+  listTestCaseExecutions(
+    args: ListTestCaseExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestCaseExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestCasesCommand}
+   */
+  listTestCases(
+    args: ListTestCasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestCasesCommandOutput>;
+  listTestCases(
+    args: ListTestCasesCommandInput,
+    cb: (err: any, data?: ListTestCasesCommandOutput) => void
+  ): void;
+  listTestCases(
+    args: ListTestCasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestCasesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTrafficDistributionGroupsCommand}
    */
   listTrafficDistributionGroups(): Promise<ListTrafficDistributionGroupsCommandOutput>;
@@ -6293,6 +6478,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SearchTestCasesCommand}
+   */
+  searchTestCases(
+    args: SearchTestCasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchTestCasesCommandOutput>;
+  searchTestCases(
+    args: SearchTestCasesCommandInput,
+    cb: (err: any, data?: SearchTestCasesCommandOutput) => void
+  ): void;
+  searchTestCases(
+    args: SearchTestCasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchTestCasesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchUserHierarchyGroupsCommand}
    */
   searchUserHierarchyGroups(
@@ -6634,6 +6836,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link StartTestCaseExecutionCommand}
+   */
+  startTestCaseExecution(
+    args: StartTestCaseExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTestCaseExecutionCommandOutput>;
+  startTestCaseExecution(
+    args: StartTestCaseExecutionCommandInput,
+    cb: (err: any, data?: StartTestCaseExecutionCommandOutput) => void
+  ): void;
+  startTestCaseExecution(
+    args: StartTestCaseExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTestCaseExecutionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartWebRTCContactCommand}
    */
   startWebRTCContact(
@@ -6717,6 +6936,23 @@ export interface Connect {
     args: StopContactStreamingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopContactStreamingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopTestCaseExecutionCommand}
+   */
+  stopTestCaseExecution(
+    args: StopTestCaseExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopTestCaseExecutionCommandOutput>;
+  stopTestCaseExecution(
+    args: StopTestCaseExecutionCommandInput,
+    cb: (err: any, data?: StopTestCaseExecutionCommandOutput) => void
+  ): void;
+  stopTestCaseExecution(
+    args: StopTestCaseExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopTestCaseExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -7584,6 +7820,23 @@ export interface Connect {
     args: UpdateTaskTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTaskTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTestCaseCommand}
+   */
+  updateTestCase(
+    args: UpdateTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTestCaseCommandOutput>;
+  updateTestCase(
+    args: UpdateTestCaseCommandInput,
+    cb: (err: any, data?: UpdateTestCaseCommandOutput) => void
+  ): void;
+  updateTestCase(
+    args: UpdateTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTestCaseCommandOutput) => void
   ): void;
 
   /**

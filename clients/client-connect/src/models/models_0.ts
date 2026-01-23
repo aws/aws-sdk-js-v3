@@ -71,6 +71,8 @@ import {
   StringComparisonType,
   TaskTemplateFieldType,
   TaskTemplateStatus,
+  TestCaseEntryPointType,
+  TestCaseStatus,
   UseCaseType,
   VideoCapability,
   ViewStatus,
@@ -6914,6 +6916,136 @@ export interface PropertyValidationExceptionProperty {
 }
 
 /**
+ * <p>Parameters for initiating a voice call test.</p>
+ * @public
+ */
+export interface VoiceCallEntryPointParameters {
+  /**
+   * <p>The source phone number for the test.</p>
+   * @public
+   */
+  SourcePhoneNumber?: string | undefined;
+
+  /**
+   * <p>The destination phone number for the test.</p>
+   * @public
+   */
+  DestinationPhoneNumber?: string | undefined;
+
+  /**
+   * <p>The flow identifier for the test.</p>
+   * @public
+   */
+  FlowId?: string | undefined;
+}
+
+/**
+ * <p>Defines the starting point for a test case.</p>
+ * @public
+ */
+export interface TestCaseEntryPoint {
+  /**
+   * <p>The type of entry point.</p>
+   * @public
+   */
+  Type?: TestCaseEntryPointType | undefined;
+
+  /**
+   * <p>Parameters for voice call entry point.</p>
+   * @public
+   */
+  VoiceCallEntryPointParameters?: VoiceCallEntryPointParameters | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTestCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the test.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the test.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The JSON string that represents the content of the test.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>Defines the starting point for your test.</p>
+   * @public
+   */
+  EntryPoint?: TestCaseEntryPoint | undefined;
+
+  /**
+   * <p>Defines the initial custom attributes for your test.</p>
+   * @public
+   */
+  InitializationData?: string | undefined;
+
+  /**
+   * <p>Indicates the test status as either SAVED or PUBLISHED. The PUBLISHED status will initiate validation on the content. The SAVED status does not initiate validation of the content.</p>
+   * @public
+   */
+  Status?: TestCaseStatus | undefined;
+
+  /**
+   * <p>Id of the test case if you want to create it in a replica region using Amazon Connect Global Resiliency</p>
+   * @public
+   */
+  TestCaseId?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The time at which the resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The region in which the resource was last modified</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTestCaseResponse {
+  /**
+   * <p>The identifier of the test.</p>
+   * @public
+   */
+  TestCaseId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the test.</p>
+   * @public
+   */
+  TestCaseArn?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateTrafficDistributionGroupRequest {
@@ -7879,99 +8011,4 @@ export interface CreateWorkspaceResponse {
    * @public
    */
   WorkspaceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateWorkspacePageRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the workspace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the view to associate with the page.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The page identifier. Valid system pages include <code>HOME</code> and <code>AGENT_EXPERIENCE</code>. Custom
-   *    pages cannot use the <code>aws:</code> or <code>connect:</code> prefixes.</p>
-   * @public
-   */
-  Page: string | undefined;
-
-  /**
-   * <p>The URL-friendly identifier for the page.</p>
-   * @public
-   */
-  Slug?: string | undefined;
-
-  /**
-   * <p>A JSON string containing input parameters for the view, validated against the view's input schema.</p>
-   * @public
-   */
-  InputData?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateWorkspacePageResponse {}
-
-/**
- * @public
- */
-export interface DeactivateEvaluationFormRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>A version of the evaluation form. If the version property is not provided, the latest version of the evaluation form is
-   *    deactivated.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeactivateEvaluationFormResponse {
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
-   * @public
-   */
-  EvaluationFormArn: string | undefined;
-
-  /**
-   * <p>The version of the deactivated evaluation form resource.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
 }
