@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.975.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.974.0...v3.975.0) (2026-01-23)
+
+
+### Features
+
+* **client-connect:** Amazon Connect now offers public APIs to programmatically configure and run automated tests for contact center experiences. Integrate testing into CICD pipelines, run multiple tests at scale, and retrieve results via API to automate validation of voice interactions and workflows. ([718c322](https://github.com/aws/aws-sdk-js-v3/commit/718c322293ef1c4d735fc36c6a4c2d0e5ba740f9))
+* **client-datazone:** Added api for deleting data export configuration for a domain ([089a6f1](https://github.com/aws/aws-sdk-js-v3/commit/089a6f1a37ff19c45a88a082e663c982a451beae))
+* **client-qconnect:** Fixes incorrect types in the UpdateAssistantAIAgent API request, adds MESSAGE to TargetType enum, and other minor changes. ([30cc5fa](https://github.com/aws/aws-sdk-js-v3/commit/30cc5fa96ed69376ed831e718a73c61ea093f493))
+
+
+
+
+
 # [3.974.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.973.0...v3.974.0) (2026-01-22)
 
 

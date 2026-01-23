@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 
+
+# 3.973.1 (2026-01-23)
+### Chores
+* **codegen:** upgrade smithy to 1.66.0 ([#7678](https://github.com/aws/aws-sdk-js-v3/issues/7678)) ([784b9f3](https://github.com/aws/aws-sdk-js-v3/commit/784b9f3d2907de5396cd42621028ef9c7f37402d))
+
+
+
 # 3.973.0 (2026-01-21)
 ### Features
 * **packages:** support open version ranges for internal packages - move core & types ([#7674](https://github.com/aws/aws-sdk-js-v3/issues/7674)) ([a3cdc64](https://github.com/aws/aws-sdk-js-v3/commit/a3cdc641fc5aeaf50e5689f64109d4187cc0ad63))

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.975.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.974.0...v3.975.0) (2026-01-23)
+
+
+### Features
+
+* **client-qconnect:** Fixes incorrect types in the UpdateAssistantAIAgent API request, adds MESSAGE to TargetType enum, and other minor changes. ([30cc5fa](https://github.com/aws/aws-sdk-js-v3/commit/30cc5fa96ed69376ed831e718a73c61ea093f493))
+
+
+
+
+
 # [3.974.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.973.0...v3.974.0) (2026-01-22)
 
 **Note:** Version bump only for package @aws-sdk/client-qconnect

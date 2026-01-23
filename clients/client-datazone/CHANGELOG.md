@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.975.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.974.0...v3.975.0) (2026-01-23)
+
+
+### Features
+
+* **client-datazone:** Added api for deleting data export configuration for a domain ([089a6f1](https://github.com/aws/aws-sdk-js-v3/commit/089a6f1a37ff19c45a88a082e663c982a451beae))
+
+
+
+
+
 # [3.974.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.973.0...v3.974.0) (2026-01-22)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

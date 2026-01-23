@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/config",
-  "version": "3.974.0",
+  "version": "3.975.0",
   "description": "Injectable dependencies, extensions, and other plugins for AWS SDK clients.",
   "scripts": {
     "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
