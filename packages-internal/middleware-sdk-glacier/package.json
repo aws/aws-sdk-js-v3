@@ -42,11 +42,11 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-sdk-glacier",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-glacier",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/middleware-sdk-glacier"
+    "directory": "packages-internal/middleware-sdk-glacier"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

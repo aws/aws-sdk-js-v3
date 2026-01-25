@@ -43,11 +43,11 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-cognito-identity",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-cognito-identity",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/credential-provider-cognito-identity"
+    "directory": "packages-internal/credential-provider-cognito-identity"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

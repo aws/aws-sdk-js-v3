@@ -45,10 +45,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/chunked-stream-reader-node",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/chunked-stream-reader-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/chunked-stream-reader-node"
+    "directory": "packages-internal/chunked-stream-reader-node"
   }
 }

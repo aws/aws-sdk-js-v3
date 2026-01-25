@@ -51,10 +51,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-create-request",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/util-create-request",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/util-create-request"
+    "directory": "packages-internal/util-create-request"
   }
 }

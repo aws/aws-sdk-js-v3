@@ -42,11 +42,11 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-sdk-api-gateway",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-api-gateway",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/middleware-sdk-api-gateway"
+    "directory": "packages-internal/middleware-sdk-api-gateway"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

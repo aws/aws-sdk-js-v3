@@ -53,10 +53,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/body-checksum-node",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/body-checksum-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/body-checksum-node"
+    "directory": "packages-internal/body-checksum-node"
   }
 }

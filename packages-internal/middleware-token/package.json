@@ -67,10 +67,10 @@
     "./dist-es/tokenDefaultProvider": "./dist-es/tokenDefaultProvider.browser",
     "./dist-cjs/tokenDefaultProvider": "./dist-cjs/tokenDefaultProvider.browser"
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-token",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-token",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/middleware-token"
+    "directory": "packages-internal/middleware-token"
   }
 }

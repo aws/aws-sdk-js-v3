@@ -112,10 +112,10 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/core",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/core",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/core"
+    "directory": "packages-internal/core"
   }
 }

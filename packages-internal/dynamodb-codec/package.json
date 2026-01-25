@@ -52,10 +52,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/dynamodb-codec",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/dynamodb-codec",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/dynamodb-codec"
+    "directory": "packages-internal/dynamodb-codec"
   }
 }

@@ -49,11 +49,11 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages/region-config-resolver",
+  "homepage": "https://github.com/awslabs/smithy-typescript/tree/main/packages-internal/region-config-resolver",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/region-config-resolver"
+    "directory": "packages-internal/region-config-resolver"
   },
   "browser": {
     "./dist-es/regionConfig/stsRegionDefaultResolver": "./dist-es/regionConfig/stsRegionDefaultResolver.browser"
