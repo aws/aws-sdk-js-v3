@@ -114,6 +114,7 @@ const _GSRe = "GetSatelliteResponse";
 const _IPE = "InvalidParameterException";
 const _IR = "IntegerRange";
 const _ISOTR = "ISO8601TimeRange";
+const _KDSD = "KinesisDataStreamData";
 const _KK = "KmsKey";
 const _LC = "ListConfigs";
 const _LCR = "ListConfigsRequest";
@@ -175,6 +176,8 @@ const _TR = "TimeRange";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TRa = "TagResource";
+const _TSC = "TelemetrySinkConfig";
+const _TSD = "TelemetrySinkData";
 const _UAGSAE = "UplinkAwsGroundStationAgentEndpoint";
 const _UAGSAED = "UplinkAwsGroundStationAgentEndpointDetails";
 const _UAS = "UpdateAgentStatus";
@@ -301,7 +304,10 @@ const _iT = "instanceType";
 const _k = "key";
 const _kAA = "kmsAliasArn";
 const _kAN = "kmsAliasName";
+const _kDSA = "kinesisDataStreamArn";
+const _kDSD = "kinesisDataStreamData";
 const _kKA = "kmsKeyArn";
+const _kRA = "kinesisRoleArn";
 const _kT = "keyTemplate";
 const _m = "mtu";
 const _mE = "maximumElevation";
@@ -373,7 +379,11 @@ const _tL = "tleLine1";
 const _tLl = "tleLine2";
 const _tO = "trackingOverrides";
 const _tRMA = "totalReservedMinuteAllocation";
+const _tSC = "telemetrySinkConfig";
+const _tSCA = "telemetrySinkConfigArn";
+const _tSD = "telemetrySinkData";
 const _tSM = "totalScheduledMinutes";
+const _tST = "telemetrySinkType";
 const _tl = "tle";
 const _u = "units";
 const _uAGSAE = "uplinkAwsGroundStationAgentEndpoint";
@@ -539,8 +549,8 @@ export var CreateEphemerisRequest$: StaticStructureSchema = [3, n0, _CER,
 ];
 export var CreateMissionProfileRequest$: StaticStructureSchema = [3, n0, _CMPR,
   0,
-  [_n, _mVCDS, _dE, _tCA, _cPPDS, _cPPDSo, _t, _sKK, _sKR],
-  [0, 1, [1, n0, _DEL, 0, 64 | 0], 0, 1, 1, 128 | 0, () => KmsKey$, 0], 4
+  [_n, _mVCDS, _dE, _tCA, _cPPDS, _cPPDSo, _tSCA, _t, _sKK, _sKR],
+  [0, 1, [1, n0, _DEL, 0, 64 | 0], 0, 1, 1, 0, 128 | 0, () => KmsKey$, 0], 4
 ];
 export var DataflowDetail$: StaticStructureSchema = [3, n0, _DD,
   0,
@@ -760,8 +770,8 @@ export var GetMissionProfileRequest$: StaticStructureSchema = [3, n0, _GMPR,
 ];
 export var GetMissionProfileResponse$: StaticStructureSchema = [3, n0, _GMPRe,
   0,
-  [_mPI, _mPA, _n, _r, _cPPDS, _cPPDSo, _mVCDS, _dE, _tCA, _t, _sKK, _sKR],
-  [0, 0, 0, 0, 1, 1, 1, [1, n0, _DEL, 0, 64 | 0], 0, 128 | 0, () => KmsKey$, 0]
+  [_mPI, _mPA, _n, _r, _cPPDS, _cPPDSo, _mVCDS, _dE, _tCA, _tSCA, _t, _sKK, _sKR],
+  [0, 0, 0, 0, 1, 1, 1, [1, n0, _DEL, 0, 64 | 0], 0, 0, 128 | 0, () => KmsKey$, 0]
 ];
 export var GetSatelliteRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
@@ -793,6 +803,11 @@ export var ISO8601TimeRange$: StaticStructureSchema = [3, n0, _ISOTR,
   0,
   [_sT, _eT],
   [5, 5], 2
+];
+export var KinesisDataStreamData$: StaticStructureSchema = [3, n0, _KDSD,
+  0,
+  [_kRA, _kDSA],
+  [0, 0], 2
 ];
 export var ListConfigsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
@@ -988,6 +1003,11 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
+export var TelemetrySinkConfig$: StaticStructureSchema = [3, n0, _TSC,
+  0,
+  [_tST, _tSD],
+  [0, () => TelemetrySinkData$], 2
+];
 export var TimeAzEl$: StaticStructureSchema = [3, n0, _TAE,
   0,
   [_dt, _az, _el],
@@ -1050,8 +1070,8 @@ export var UpdateEphemerisRequest$: StaticStructureSchema = [3, n0, _UER,
 ];
 export var UpdateMissionProfileRequest$: StaticStructureSchema = [3, n0, _UMPR,
   0,
-  [_mPI, _n, _cPPDS, _cPPDSo, _mVCDS, _dE, _tCA, _sKK, _sKR],
-  [[0, 1], 0, 1, 1, 1, [1, n0, _DEL, 0, 64 | 0], 0, () => KmsKey$, 0], 1
+  [_mPI, _n, _cPPDS, _cPPDSo, _mVCDS, _dE, _tCA, _tSCA, _sKK, _sKR],
+  [[0, 1], 0, 1, 1, 1, [1, n0, _DEL, 0, 64 | 0], 0, 0, () => KmsKey$, 0], 1
 ];
 export var UplinkAwsGroundStationAgentEndpoint$: StaticStructureSchema = [3, n0, _UAGSAE,
   0,
@@ -1157,8 +1177,8 @@ export var ConfigDetails$: StaticUnionSchema = [4, n0, _CDon,
 ];
 export var ConfigTypeData$: StaticUnionSchema = [4, n0, _CTD,
   0,
-  [_aDC, _tC, _dEC, _aDDDC, _aUC, _uEC, _sRC],
-  [() => AntennaDownlinkConfig$, () => TrackingConfig$, () => DataflowEndpointConfig$, () => AntennaDownlinkDemodDecodeConfig$, () => AntennaUplinkConfig$, () => UplinkEchoConfig$, () => S3RecordingConfig$]
+  [_aDC, _tC, _dEC, _aDDDC, _aUC, _uEC, _sRC, _tSC],
+  [() => AntennaDownlinkConfig$, () => TrackingConfig$, () => DataflowEndpointConfig$, () => AntennaDownlinkDemodDecodeConfig$, () => AntennaUplinkConfig$, () => UplinkEchoConfig$, () => S3RecordingConfig$, () => TelemetrySinkConfig$]
 ];
 export var CreateEndpointDetails$: StaticUnionSchema = [4, n0, _CED,
   0,
@@ -1194,6 +1214,11 @@ export var ProgramTrackSettings$: StaticUnionSchema = [4, n0, _PTS,
   0,
   [_aE],
   [() => AzElProgramTrackSettings$]
+];
+export var TelemetrySinkData$: StaticUnionSchema = [4, n0, _TSD,
+  0,
+  [_kDSD],
+  [() => KinesisDataStreamData$]
 ];
 export var UplinkDataflowDetails$: StaticUnionSchema = [4, n0, _UDD,
   0,

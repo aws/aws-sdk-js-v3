@@ -38,13 +38,13 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const client = new GroundStationClient(config);
  * const input = { // DeleteConfigRequest
  *   configId: "STRING_VALUE", // required
- *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording", // required
+ *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording" || "telemetry-sink", // required
  * };
  * const command = new DeleteConfigCommand(input);
  * const response = await client.send(command);
  * // { // ConfigIdResponse
  * //   configId: "STRING_VALUE",
- * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
+ * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording" || "telemetry-sink",
  * //   configArn: "STRING_VALUE",
  * // };
  *

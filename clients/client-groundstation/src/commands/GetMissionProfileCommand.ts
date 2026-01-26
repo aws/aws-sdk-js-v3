@@ -55,6 +55,7 @@ export interface GetMissionProfileCommandOutput extends GetMissionProfileRespons
  * //     ],
  * //   ],
  * //   trackingConfigArn: "STRING_VALUE",
+ * //   telemetrySinkConfigArn: "STRING_VALUE",
  * //   tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

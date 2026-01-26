@@ -18,6 +18,7 @@ import {
   EphemerisType,
   FrequencyUnits,
   Polarization,
+  TelemetrySinkType,
 } from "./enums";
 
 /**
@@ -794,7 +795,7 @@ export interface AzElProgramTrackSettings {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface CancelContactRequest {
@@ -806,7 +807,7 @@ export interface CancelContactRequest {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface ContactIdResponse {
@@ -818,7 +819,7 @@ export interface ContactIdResponse {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface ConfigIdResponse {
@@ -884,6 +885,81 @@ export interface S3RecordingConfig {
 }
 
 /**
+ * <p>Information for telemetry delivery to Kinesis Data Streams.</p>
+ * @public
+ */
+export interface KinesisDataStreamData {
+  /**
+   * <p>ARN of the IAM Role used by AWS Ground Station to deliver telemetry.</p>
+   * @public
+   */
+  kinesisRoleArn: string | undefined;
+
+  /**
+   * <p>ARN of the Kinesis Data Stream to deliver telemetry to.</p>
+   * @public
+   */
+  kinesisDataStreamArn: string | undefined;
+}
+
+/**
+ * <p>Information about a telemetry sink.</p>
+ * @public
+ */
+export type TelemetrySinkData =
+  | TelemetrySinkData.KinesisDataStreamDataMember
+  | TelemetrySinkData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TelemetrySinkData {
+  /**
+   * <p>Information about a telemetry sink of type <code>KINESIS_DATA_STREAM</code>.</p>
+   * @public
+   */
+  export interface KinesisDataStreamDataMember {
+    kinesisDataStreamData: KinesisDataStreamData;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    kinesisDataStreamData?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    kinesisDataStreamData: (value: KinesisDataStreamData) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Information about a telemetry sink <code>Config</code>.</p>
+ * @public
+ */
+export interface TelemetrySinkConfig {
+  /**
+   * <p>The type of telemetry sink.</p>
+   * @public
+   */
+  telemetrySinkType: TelemetrySinkType | undefined;
+
+  /**
+   * <p>Information about the telemetry sink specified by the <code>telemetrySinkType</code>.</p>
+   * @public
+   */
+  telemetrySinkData: TelemetrySinkData | undefined;
+}
+
+/**
  * <p>Object that determines whether tracking should be used during a contact executed with this <code>Config</code> in the mission profile.</p>
  * @public
  */
@@ -896,7 +972,7 @@ export interface TrackingConfig {
 }
 
 /**
- * <p>Information about an uplink echo <code>Config</code>.</p> <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>
+ * <p>Information about an uplink echo <code>Config</code>.</p> <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code> AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>
  * @public
  */
 export interface UplinkEchoConfig {
@@ -923,6 +999,7 @@ export type ConfigTypeData =
   | ConfigTypeData.AntennaUplinkConfigMember
   | ConfigTypeData.DataflowEndpointConfigMember
   | ConfigTypeData.S3RecordingConfigMember
+  | ConfigTypeData.TelemetrySinkConfigMember
   | ConfigTypeData.TrackingConfigMember
   | ConfigTypeData.UplinkEchoConfigMember
   | ConfigTypeData.$UnknownMember;
@@ -943,6 +1020,7 @@ export namespace ConfigTypeData {
     antennaUplinkConfig?: never;
     uplinkEchoConfig?: never;
     s3RecordingConfig?: never;
+    telemetrySinkConfig?: never;
     $unknown?: never;
   }
 
@@ -958,6 +1036,7 @@ export namespace ConfigTypeData {
     antennaUplinkConfig?: never;
     uplinkEchoConfig?: never;
     s3RecordingConfig?: never;
+    telemetrySinkConfig?: never;
     $unknown?: never;
   }
 
@@ -973,6 +1052,7 @@ export namespace ConfigTypeData {
     antennaUplinkConfig?: never;
     uplinkEchoConfig?: never;
     s3RecordingConfig?: never;
+    telemetrySinkConfig?: never;
     $unknown?: never;
   }
 
@@ -988,6 +1068,7 @@ export namespace ConfigTypeData {
     antennaUplinkConfig?: never;
     uplinkEchoConfig?: never;
     s3RecordingConfig?: never;
+    telemetrySinkConfig?: never;
     $unknown?: never;
   }
 
@@ -1003,11 +1084,12 @@ export namespace ConfigTypeData {
     antennaUplinkConfig: AntennaUplinkConfig;
     uplinkEchoConfig?: never;
     s3RecordingConfig?: never;
+    telemetrySinkConfig?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Information about an uplink echo <code>Config</code>.</p> <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>
+   * <p>Information about an uplink echo <code>Config</code>.</p> <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code> AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>
    * @public
    */
   export interface UplinkEchoConfigMember {
@@ -1018,6 +1100,7 @@ export namespace ConfigTypeData {
     antennaUplinkConfig?: never;
     uplinkEchoConfig: UplinkEchoConfig;
     s3RecordingConfig?: never;
+    telemetrySinkConfig?: never;
     $unknown?: never;
   }
 
@@ -1033,6 +1116,23 @@ export namespace ConfigTypeData {
     antennaUplinkConfig?: never;
     uplinkEchoConfig?: never;
     s3RecordingConfig: S3RecordingConfig;
+    telemetrySinkConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a telemetry sink <code>Config</code>.</p>
+   * @public
+   */
+  export interface TelemetrySinkConfigMember {
+    antennaDownlinkConfig?: never;
+    trackingConfig?: never;
+    dataflowEndpointConfig?: never;
+    antennaDownlinkDemodDecodeConfig?: never;
+    antennaUplinkConfig?: never;
+    uplinkEchoConfig?: never;
+    s3RecordingConfig?: never;
+    telemetrySinkConfig: TelemetrySinkConfig;
     $unknown?: never;
   }
 
@@ -1047,6 +1147,7 @@ export namespace ConfigTypeData {
     antennaUplinkConfig?: never;
     uplinkEchoConfig?: never;
     s3RecordingConfig?: never;
+    telemetrySinkConfig?: never;
     $unknown: [string, any];
   }
 
@@ -1062,12 +1163,13 @@ export namespace ConfigTypeData {
     antennaUplinkConfig: (value: AntennaUplinkConfig) => T;
     uplinkEchoConfig: (value: UplinkEchoConfig) => T;
     s3RecordingConfig: (value: S3RecordingConfig) => T;
+    telemetrySinkConfig: (value: TelemetrySinkConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface CreateConfigRequest {
@@ -1091,7 +1193,7 @@ export interface CreateConfigRequest {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface DeleteConfigRequest {
@@ -1109,7 +1211,7 @@ export interface DeleteConfigRequest {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface GetConfigRequest {
@@ -1127,7 +1229,7 @@ export interface GetConfigRequest {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface GetConfigResponse {
@@ -1169,7 +1271,7 @@ export interface GetConfigResponse {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface ListConfigsRequest {
@@ -1217,7 +1319,7 @@ export interface ConfigListItem {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface ListConfigsResponse {
@@ -1235,7 +1337,7 @@ export interface ListConfigsResponse {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface UpdateConfigRequest {
@@ -1628,7 +1730,7 @@ export namespace ConfigDetails {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface DescribeContactRequest {
@@ -1811,7 +1913,7 @@ export interface TrackingOverrides {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface DescribeContactResponse {
@@ -1964,7 +2066,7 @@ export namespace EphemerisFilter {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface ListContactsRequest {
@@ -2126,7 +2228,7 @@ export interface ContactData {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface ListContactsResponse {
@@ -2144,7 +2246,7 @@ export interface ListContactsResponse {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface ReserveContactRequest {
@@ -2192,7 +2294,7 @@ export interface ReserveContactRequest {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface CreateDataflowEndpointGroupRequest {
@@ -2209,20 +2311,20 @@ export interface CreateDataflowEndpointGroupRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>
+   * <p> Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A <a href="https://docs.aws.amazon.com/ground-station/latest/ug/monitoring.automating-events.html">Ground Station Dataflow Endpoint Group State Change event</a> will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state. </p>
    * @public
    */
   contactPrePassDurationSeconds?: number | undefined;
 
   /**
-   * <p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>
+   * <p> Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A <a href="https://docs.aws.amazon.com/ground-station/latest/ug/monitoring.automating-events.html">Ground Station Dataflow Endpoint Group State Change event</a> will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state. </p>
    * @public
    */
   contactPostPassDurationSeconds?: number | undefined;
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface DataflowEndpointGroupIdResponse {
@@ -2333,13 +2435,13 @@ export interface CreateDataflowEndpointGroupV2Request {
   endpoints: CreateEndpointDetails[] | undefined;
 
   /**
-   * <p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>
+   * <p> Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A <a href="https://docs.aws.amazon.com/ground-station/latest/ug/monitoring.automating-events.html">Ground Station Dataflow Endpoint Group State Change event</a> will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state. </p>
    * @public
    */
   contactPrePassDurationSeconds?: number | undefined;
 
   /**
-   * <p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>
+   * <p> Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A <a href="https://docs.aws.amazon.com/ground-station/latest/ug/monitoring.automating-events.html">Ground Station Dataflow Endpoint Group State Change event</a> will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state. </p>
    * @public
    */
   contactPostPassDurationSeconds?: number | undefined;
@@ -2363,7 +2465,7 @@ export interface CreateDataflowEndpointGroupV2Response {
 }
 
 /**
- * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p> <p> AWS Ground Station processes OEM ephemerides according to the <a href="https://ccsds.org/wp-content/uploads/gravity_forms/5-448e85c647331d9cbaf66c096458bdd5/2025/01//502x0b3e1.pdf">CCSDS standard</a> with some extra restrictions. OEM files should be in KVN format. For more detail about the OEM format that AWS Ground Station supports, see <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-oem-ephemeris-data.html#oem-ephemeris-format">OEM ephemeris format</a> in the AWS Ground Station user guide. </p>
+ * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p> <p> AWS Ground Station processes OEM ephemerides according to the <a href="https://ccsds.org/Pubs/502x0b3e1.pdf">CCSDS standard</a> with some extra restrictions. OEM files should be in KVN format. For more detail about the OEM format that AWS Ground Station supports, see <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-oem-ephemeris-data.html#oem-ephemeris-format">OEM ephemeris format</a> in the AWS Ground Station user guide. </p>
  * @public
  */
 export interface OEMEphemeris {
@@ -2466,7 +2568,7 @@ export namespace EphemerisData {
   }
 
   /**
-   * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p> <p> AWS Ground Station processes OEM ephemerides according to the <a href="https://ccsds.org/wp-content/uploads/gravity_forms/5-448e85c647331d9cbaf66c096458bdd5/2025/01//502x0b3e1.pdf">CCSDS standard</a> with some extra restrictions. OEM files should be in KVN format. For more detail about the OEM format that AWS Ground Station supports, see <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-oem-ephemeris-data.html#oem-ephemeris-format">OEM ephemeris format</a> in the AWS Ground Station user guide. </p>
+   * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p> <p> AWS Ground Station processes OEM ephemerides according to the <a href="https://ccsds.org/Pubs/502x0b3e1.pdf">CCSDS standard</a> with some extra restrictions. OEM files should be in KVN format. For more detail about the OEM format that AWS Ground Station supports, see <a href="https://docs.aws.amazon.com/ground-station/latest/ug/providing-oem-ephemeris-data.html#oem-ephemeris-format">OEM ephemeris format</a> in the AWS Ground Station user guide. </p>
    * @public
    */
   export interface OemMember {
@@ -2643,7 +2745,7 @@ export namespace KmsKey {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface CreateMissionProfileRequest {
@@ -2672,7 +2774,7 @@ export interface CreateMissionProfileRequest {
   minimumViableContactDurationSeconds: number | undefined;
 
   /**
-   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code>Config</code> and a <i>to</i> <code>Config</code>.</p>
+   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code> Config</code> and a <i>to</i> <code>Config</code>.</p>
    * @public
    */
   dataflowEdges: string[][] | undefined;
@@ -2682,6 +2784,12 @@ export interface CreateMissionProfileRequest {
    * @public
    */
   trackingConfigArn: string | undefined;
+
+  /**
+   * <p>ARN of a telemetry sink <code>Config</code>.</p>
+   * @public
+   */
+  telemetrySinkConfigArn?: string | undefined;
 
   /**
    * <p>Tags assigned to a mission profile.</p>
@@ -2703,7 +2811,7 @@ export interface CreateMissionProfileRequest {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface MissionProfileIdResponse {
@@ -2715,7 +2823,7 @@ export interface MissionProfileIdResponse {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface DeleteDataflowEndpointGroupRequest {
@@ -2727,7 +2835,7 @@ export interface DeleteDataflowEndpointGroupRequest {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface GetDataflowEndpointGroupRequest {
@@ -2739,7 +2847,7 @@ export interface GetDataflowEndpointGroupRequest {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface GetDataflowEndpointGroupResponse {
@@ -2781,7 +2889,7 @@ export interface GetDataflowEndpointGroupResponse {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface ListDataflowEndpointGroupsRequest {
@@ -2817,7 +2925,7 @@ export interface DataflowEndpointListItem {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface ListDataflowEndpointGroupsResponse {
@@ -2846,7 +2954,7 @@ export interface DeleteEphemerisRequest {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface DeleteMissionProfileRequest {
@@ -3316,7 +3424,7 @@ export interface GetMinuteUsageResponse {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface GetMissionProfileRequest {
@@ -3328,7 +3436,7 @@ export interface GetMissionProfileRequest {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface GetMissionProfileResponse {
@@ -3375,7 +3483,7 @@ export interface GetMissionProfileResponse {
   minimumViableContactDurationSeconds?: number | undefined;
 
   /**
-   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code>Config</code> and a <i>to</i> <code>Config</code>.</p>
+   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code> Config</code> and a <i>to</i> <code>Config</code>.</p>
    * @public
    */
   dataflowEdges?: string[][] | undefined;
@@ -3385,6 +3493,12 @@ export interface GetMissionProfileResponse {
    * @public
    */
   trackingConfigArn?: string | undefined;
+
+  /**
+   * <p>ARN of a telemetry sink <code>Config</code>.</p>
+   * @public
+   */
+  telemetrySinkConfigArn?: string | undefined;
 
   /**
    * <p>Tags assigned to a mission profile.</p>
@@ -3544,7 +3658,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface ListMissionProfilesRequest {
@@ -3592,7 +3706,7 @@ export interface MissionProfileListItem {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface ListMissionProfilesResponse {
@@ -3610,7 +3724,7 @@ export interface ListMissionProfilesResponse {
 }
 
 /**
- * <p/>
+ * <p> </p>
  * @public
  */
 export interface UpdateMissionProfileRequest {
@@ -3645,7 +3759,7 @@ export interface UpdateMissionProfileRequest {
   minimumViableContactDurationSeconds?: number | undefined;
 
   /**
-   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code>Config</code> and a <i>to</i> <code>Config</code>.</p>
+   * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> <code> Config</code> and a <i>to</i> <code>Config</code>.</p>
    * @public
    */
   dataflowEdges?: string[][] | undefined;
@@ -3655,6 +3769,12 @@ export interface UpdateMissionProfileRequest {
    * @public
    */
   trackingConfigArn?: string | undefined;
+
+  /**
+   * <p>ARN of a telemetry sink <code>Config</code>.</p>
+   * @public
+   */
+  telemetrySinkConfigArn?: string | undefined;
 
   /**
    * <p>KMS key to use for encrypting streams.</p>

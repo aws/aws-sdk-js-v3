@@ -101,6 +101,15 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *       roleArn: "STRING_VALUE", // required
  *       prefix: "STRING_VALUE",
  *     },
+ *     telemetrySinkConfig: { // TelemetrySinkConfig
+ *       telemetrySinkType: "KINESIS_DATA_STREAM", // required
+ *       telemetrySinkData: { // TelemetrySinkData Union: only one key present
+ *         kinesisDataStreamData: { // KinesisDataStreamData
+ *           kinesisRoleArn: "STRING_VALUE", // required
+ *           kinesisDataStreamArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
  *   },
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
@@ -110,7 +119,7 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const response = await client.send(command);
  * // { // ConfigIdResponse
  * //   configId: "STRING_VALUE",
- * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
+ * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording" || "telemetry-sink",
  * //   configArn: "STRING_VALUE",
  * // };
  *

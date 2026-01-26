@@ -27,7 +27,7 @@ export interface ListContactsCommandInput extends ListContactsRequest {}
 export interface ListContactsCommandOutput extends ListContactsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of contacts.</p> <p>If <code>statusList</code> contains AVAILABLE, the request must include <code>groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>. </p>
+ * <p>Returns a list of contacts.</p> <p>If <code>statusList</code> contains AVAILABLE, the request must include <code> groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

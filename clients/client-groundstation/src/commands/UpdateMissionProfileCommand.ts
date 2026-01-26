@@ -48,6 +48,7 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  *     ],
  *   ],
  *   trackingConfigArn: "STRING_VALUE",
+ *   telemetrySinkConfigArn: "STRING_VALUE",
  *   streamsKmsKey: { // KmsKey Union: only one key present
  *     kmsKeyArn: "STRING_VALUE",
  *     kmsAliasArn: "STRING_VALUE",

@@ -47,7 +47,7 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * //   configList: [ // ConfigList
  * //     { // ConfigListItem
  * //       configId: "STRING_VALUE",
- * //       configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
+ * //       configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording" || "telemetry-sink",
  * //       configArn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //     },
