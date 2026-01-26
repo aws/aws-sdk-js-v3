@@ -216,11 +216,15 @@ const _Se = "Section";
 const _T = "Tags";
 const _TCRL = "TemplateCaseRuleList";
 const _TE = "ThrottlingException";
+const _TF = "TagFilter";
+const _TPC = "TagPropagationConfiguration";
+const _TPCL = "TagPropagationConfigurationList";
 const _TR = "TemplateRule";
 const _TRR = "TagResourceRequest";
 const _TRa = "TagResource";
 const _TS = "TemplateSummary";
 const _TSL = "TemplateSummaryList";
+const _TV = "TagValue";
 const _UC = "UpdateCase";
 const _UCR = "UpdateCaseRequest";
 const _UCRR = "UpdateCaseRuleRequest";
@@ -312,6 +316,7 @@ const _i = "id";
 const _iC = "includeContent";
 const _iD = "includedData";
 const _iPA = "iamPrincipalArn";
+const _k = "key";
 const _l = "layouts";
 const _lA = "layoutArn";
 const _lC = "layoutConfiguration";
@@ -370,10 +375,13 @@ const _tA = "templateArn";
 const _tFV = "targetFieldValues";
 const _tI = "templateId";
 const _tK = "tagKeys";
+const _tM = "tagMap";
 const _tP = "topPanel";
+const _tPC = "tagPropagationConfigurations";
 const _tSM = "targetSlaMinutes";
 const _tT = "targetTime";
 const _ta = "tags";
+const _tag = "tag";
 const _te = "templates";
 const _u = "user";
 const _uA = "userArn";
@@ -543,8 +551,8 @@ export var ContactFilter$: StaticStructureSchema = [3, n0, _CFo,
 ];
 export var CreateCaseRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_dI, _tI, _f, _cTl, _pB],
-  [[0, 1], 0, () => FieldValueList, [0, 4], [() => UserUnion$, 0]], 3
+  [_dI, _tI, _f, _cTl, _pB, _ta],
+  [[0, 1], 0, () => FieldValueList, [0, 4], [() => UserUnion$, 0], 128 | 0], 3
 ];
 export var CreateCaseResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -603,8 +611,8 @@ export var CreateRelatedItemResponse$: StaticStructureSchema = [3, n0, _CRIRr,
 ];
 export var CreateTemplateRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
-  [_dI, _n, _d, _lC, _rF, _s, _rul],
-  [[0, 1], 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, 0, () => TemplateCaseRuleList], 2
+  [_dI, _n, _d, _lC, _rF, _s, _rul, _tPC],
+  [[0, 1], 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, 0, () => TemplateCaseRuleList, () => TagPropagationConfigurationList], 2
 ];
 export var CreateTemplateResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -843,8 +851,8 @@ export var GetTemplateRequest$: StaticStructureSchema = [3, n0, _GTR,
 ];
 export var GetTemplateResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
-  [_tI, _tA, _n, _s, _d, _lC, _rF, _ta, _de, _cTr, _lMT, _rul],
-  [0, 0, 0, 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, [() => Tags, 0], 2, 5, 5, () => TemplateCaseRuleList], 4
+  [_tI, _tA, _n, _s, _d, _lC, _rF, _ta, _de, _cTr, _lMT, _rul, _tPC],
+  [0, 0, 0, 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, [() => Tags, 0], 2, 5, 5, () => TemplateCaseRuleList, () => TagPropagationConfigurationList], 4
 ];
 export var HiddenCaseRule$: StaticStructureSchema = [3, n0, _HCR,
   0,
@@ -1069,10 +1077,20 @@ export var Sort$: StaticStructureSchema = [3, n0, _S,
   [_fI, _sO],
   [0, 0], 2
 ];
+export var TagPropagationConfiguration$: StaticStructureSchema = [3, n0, _TPC,
+  0,
+  [_rTe, _tM],
+  [0, 128 | 0], 2
+];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_ar, _ta],
   [[0, 1], [() => Tags, 0]], 2
+];
+export var TagValue$: StaticStructureSchema = [3, n0, _TV,
+  0,
+  [_k, _v],
+  [0, 0]
 ];
 export var TemplateRule$: StaticStructureSchema = [3, n0, _TR,
   0,
@@ -1081,8 +1099,8 @@ export var TemplateRule$: StaticStructureSchema = [3, n0, _TR,
 ];
 export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_tI, _tA, _n, _s],
-  [0, 0, 0, 0], 4
+  [_tI, _tA, _n, _s, _tPC],
+  [0, 0, 0, 0, () => TagPropagationConfigurationList], 4
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
@@ -1137,8 +1155,8 @@ export var UpdateLayoutResponse$: StaticStructureSchema = [3, n0, _ULRp,
 ];
 export var UpdateTemplateRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
-  [_dI, _tI, _n, _d, _lC, _rF, _s, _rul],
-  [[0, 1], [0, 1], 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, 0, () => TemplateCaseRuleList], 2
+  [_dI, _tI, _n, _d, _lC, _rF, _s, _rul, _tPC],
+  [[0, 1], [0, 1], 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, 0, () => TemplateCaseRuleList, () => TagPropagationConfigurationList], 2
 ];
 export var UpdateTemplateResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
@@ -1258,6 +1276,9 @@ var SortList: StaticListSchema = [1, n0, _SLo,
   0, () => Sort$
 ];
 var TagKeyList = 64 | 0;
+var TagPropagationConfigurationList: StaticListSchema = [1, n0, _TPCL,
+  0, () => TagPropagationConfiguration$
+];
 var TemplateCaseRuleList: StaticListSchema = [1, n0, _TCRL,
   0, () => TemplateRule$
 ];
@@ -1266,6 +1287,7 @@ var TemplateSummaryList: StaticListSchema = [1, n0, _TSL,
   0, () => TemplateSummary$
 ];
 var ValuesList = 64 | 0;
+var MutableTags = 128 | 0;
 var Tags: StaticMapSchema = [2, n0, _T,
   { [_sp]: 1 }, 0, 0
 ];
@@ -1281,8 +1303,8 @@ export var BooleanCondition$: StaticUnionSchema = [4, n0, _BC,
 ];
 export var CaseFilter$: StaticUnionSchema = [4, n0, _CFa,
   0,
-  [_fie, _no, _aA, _oA],
-  [() => FieldFilter$, () => CaseFilter$, () => CaseFilterList, () => CaseFilterList]
+  [_fie, _no, _tag, _aA, _oA],
+  [() => FieldFilter$, () => CaseFilter$, () => TagFilter$, () => CaseFilterList, () => CaseFilterList]
 ];
 export var CaseRuleDetails$: StaticUnionSchema = [4, n0, _CRD,
   0,
@@ -1343,6 +1365,11 @@ export var SlaInputContent$: StaticUnionSchema = [4, n0, _SICl,
   0,
   [_sIC],
   [[() => SlaInputConfiguration$, 0]]
+];
+export var TagFilter$: StaticUnionSchema = [4, n0, _TF,
+  0,
+  [_eT],
+  [() => TagValue$]
 ];
 export var UserUnion$: StaticUnionSchema = [4, n0, _UU,
   0,

@@ -167,3 +167,18 @@ export const TemplateStatus = {
  * @public
  */
 export type TemplateStatus = (typeof TemplateStatus)[keyof typeof TemplateStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TagPropagationResourceType = {
+  /**
+   * Cases resources created within the domain
+   */
+  CASES: "Cases",
+} as const;
+/**
+ * @public
+ */
+export type TagPropagationResourceType = (typeof TagPropagationResourceType)[keyof typeof TagPropagationResourceType];

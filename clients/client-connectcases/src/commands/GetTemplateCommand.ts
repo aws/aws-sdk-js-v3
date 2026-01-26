@@ -68,6 +68,14 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * //       fieldId: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   tagPropagationConfigurations: [ // TagPropagationConfigurationList
+ * //     { // TagPropagationConfiguration
+ * //       resourceType: "STRING_VALUE", // required
+ * //       tagMap: { // MutableTags // required
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```

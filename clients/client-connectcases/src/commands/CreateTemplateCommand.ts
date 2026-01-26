@@ -55,6 +55,14 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *       fieldId: "STRING_VALUE",
  *     },
  *   ],
+ *   tagPropagationConfigurations: [ // TagPropagationConfigurationList
+ *     { // TagPropagationConfiguration
+ *       resourceType: "STRING_VALUE", // required
+ *       tagMap: { // MutableTags // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateTemplateCommand(input);
  * const response = await client.send(command);
