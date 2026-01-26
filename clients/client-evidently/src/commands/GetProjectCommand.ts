@@ -27,8 +27,9 @@ export interface GetProjectCommandInput extends GetProjectRequest {}
 export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details about one launch. You must already know the
- *        project name. To retrieve a list of projects in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListProjects.html">ListProjects</a>.</p>
+ * <p>Returns the details about one launch. You must already know the project name. To retrieve a list of projects in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListProjects.html">ListProjects</a>.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

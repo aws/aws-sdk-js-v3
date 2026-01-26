@@ -27,8 +27,9 @@ export interface ListProjectsCommandInput extends ListProjectsRequest {}
 export interface ListProjectsCommandOutput extends ListProjectsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns configuration details about all the projects in the current Region in your
- *       account.</p>
+ * <p>Returns configuration details about all the projects in the current Region in your account.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

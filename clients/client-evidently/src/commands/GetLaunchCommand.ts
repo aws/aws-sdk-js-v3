@@ -27,8 +27,9 @@ export interface GetLaunchCommandInput extends GetLaunchRequest {}
 export interface GetLaunchCommandOutput extends GetLaunchResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details about one launch. You must already know the
- *        launch name. To retrieve a list of launches in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html">ListLaunches</a>.</p>
+ * <p>Returns the details about one launch. You must already know the launch name. To retrieve a list of launches in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html">ListLaunches</a>.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

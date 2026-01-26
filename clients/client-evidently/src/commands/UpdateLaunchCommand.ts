@@ -27,9 +27,9 @@ export interface UpdateLaunchCommandInput extends UpdateLaunchRequest {}
 export interface UpdateLaunchCommandOutput extends UpdateLaunchResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a launch of a given feature. </p>
- *          <p>Don't use this operation to update the tags of an existing launch. Instead, use
- *       <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
+ * <p>Updates a launch of a given feature. </p> <p>Don't use this operation to update the tags of an existing launch. Instead, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

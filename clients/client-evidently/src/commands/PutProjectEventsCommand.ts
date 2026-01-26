@@ -27,8 +27,9 @@ export interface PutProjectEventsCommandInput extends PutProjectEventsRequest {}
 export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Sends performance events to Evidently. These events can be used to evaluate a launch or
- *       an experiment.</p>
+ * <p>Sends performance events to Evidently. These events can be used to evaluate a launch or an experiment.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

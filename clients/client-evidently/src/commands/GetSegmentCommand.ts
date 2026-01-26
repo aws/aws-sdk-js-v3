@@ -27,8 +27,9 @@ export interface GetSegmentCommandInput extends GetSegmentRequest {}
 export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the specified segment. Specify the segment you want to view
- *     by specifying its ARN.</p>
+ * <p>Returns information about the specified segment. Specify the segment you want to view by specifying its ARN.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
