@@ -146,6 +146,7 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //             NetworkCardIndex: Number("int"),
  * //             NetworkPerformance: "STRING_VALUE",
  * //             MaximumNetworkInterfaces: Number("int"),
+ * //             AdditionalFlexibleNetworkInterfaces: Number("int"),
  * //             BaselineBandwidthInGbps: Number("double"),
  * //             PeakBandwidthInGbps: Number("double"),
  * //             DefaultEnaQueueCountPerInterface: Number("int"),

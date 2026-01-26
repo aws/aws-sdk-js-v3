@@ -2627,6 +2627,14 @@ export interface NetworkCardInfo {
   MaximumNetworkInterfaces?: number | undefined;
 
   /**
+   * <p>The number of additional network interfaces that can be attached to an instance when using
+   *    flexible Elastic Network Adapter (ENA) queues. This number is in addition to the base number
+   *    specified by <code>maximumNetworkInterfaces</code>.</p>
+   * @public
+   */
+  AdditionalFlexibleNetworkInterfaces?: number | undefined;
+
+  /**
    * <p>The baseline network performance of the network card, in Gbps.</p>
    * @public
    */

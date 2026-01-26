@@ -92,6 +92,7 @@ const _AET = "AnalysisEndTime";
 const _AEd = "AddEntries";
 const _AEdd = "AddEntry";
 const _AF = "AddressFamily";
+const _AFNI = "AdditionalFlexibleNetworkInterfaces";
 const _AFn = "AnalysisFindings";
 const _AGI = "AccessGroupId";
 const _AGLBA = "AddGatewayLoadBalancerArns";
@@ -5969,6 +5970,7 @@ const _aEFLVTRCL = "allowEgressFromLocalVpcToRemoteClassicLink";
 const _aEIO = "autoEnableIO";
 const _aES = "attachedEbsStatus";
 const _aF = "addressFamily";
+const _aFNI = "additionalFlexibleNetworkInterfaces";
 const _aFS = "analysisFindingSet";
 const _aI = "allocationId";
 const _aIA = "assignedIpv6Addresses";
@@ -20656,11 +20658,12 @@ export var NetworkBandwidthGbpsRequest$: StaticStructureSchema = [3, n0, _NBGR,
 ];
 export var NetworkCardInfo$: StaticStructureSchema = [3, n0, _NCIe,
   0,
-  [_NCI, _NPe, _MNI, _BBIG, _PBIG, _DEQCPI, _MEQC, _MEQCPI],
+  [_NCI, _NPe, _MNI, _AFNI, _BBIG, _PBIG, _DEQCPI, _MEQC, _MEQCPI],
   [[1, { [_eQN]: `NetworkCardIndex`
   , [_xN]: _nCI }], [0, { [_eQN]: `NetworkPerformance`
   , [_xN]: _nPe }], [1, { [_eQN]: `MaximumNetworkInterfaces`
-  , [_xN]: _mNI }], [1, { [_eQN]: `BaselineBandwidthInGbps`
+  , [_xN]: _mNI }], [1, { [_eQN]: `AdditionalFlexibleNetworkInterfaces`
+  , [_xN]: _aFNI }], [1, { [_eQN]: `BaselineBandwidthInGbps`
   , [_xN]: _bBIG }], [1, { [_eQN]: `PeakBandwidthInGbps`
   , [_xN]: _pBIG }], [1, { [_eQN]: `DefaultEnaQueueCountPerInterface`
   , [_xN]: _dEQCPI }], [1, { [_eQN]: `MaximumEnaQueueCount`
