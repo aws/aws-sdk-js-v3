@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.976.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.975.0...v3.976.0) (2026-01-26)
+
+
+### Features
+
+* **client-connectcases:** Amazon Connect now enables you to use tag-based access controls to define who can access specific cases. You can associate tags with case templates and configure security profiles to determine which users can access cases with those tags. ([cdac71e](https://github.com/aws/aws-sdk-js-v3/commit/cdac71e6c93a571d67fbad4977967fd804fc07f0))
+* **client-ec2:** DescribeInstanceTypes API response now includes an additionalFlexibleNetworkInterfaces field, the number of interfaces attachable to an instance when using flexible Elastic Network Adapter (ENA) queues in addition to the base number specified by maximumNetworkInterfaces. ([a5c51fb](https://github.com/aws/aws-sdk-js-v3/commit/a5c51fbbe99a723606f9bb3d6d6704cbab706d12))
+* **client-evidently:** Deprecate all Evidently API for AWS CloudWatch Evidently deprecation ([37a7bdb](https://github.com/aws/aws-sdk-js-v3/commit/37a7bdbfc187c8e1b95f07852320bc75eb879c0d))
+* **client-groundstation:** Adds support for AWS Ground Station Telemetry. ([0d93920](https://github.com/aws/aws-sdk-js-v3/commit/0d9392023598e3ad97650671459bbce694a2dd1c))
+
+
+
+
+
 # [3.975.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.974.0...v3.975.0) (2026-01-23)
 
 

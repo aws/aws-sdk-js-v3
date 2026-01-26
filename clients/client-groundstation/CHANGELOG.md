@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.976.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.975.0...v3.976.0) (2026-01-26)
+
+
+### Features
+
+* **client-groundstation:** Adds support for AWS Ground Station Telemetry. ([0d93920](https://github.com/aws/aws-sdk-js-v3/commit/0d9392023598e3ad97650671459bbce694a2dd1c))
+
+
+
+
+
 # [3.975.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.974.0...v3.975.0) (2026-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-groundstation

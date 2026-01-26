@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 
+
+# 3.973.1 (2026-01-25)
+### Chores
+* **packages-internal:** update metadata url paths ([#7679](https://github.com/aws/aws-sdk-js-v3/issues/7679)) ([c3a351c](https://github.com/aws/aws-sdk-js-v3/commit/c3a351c1fdbb8e8124ddadfd07a2d29f88ec47f1))
+
+
+
 # 3.973.0 (2026-01-21)
 ### Features
 * **packages:** support open version ranges for internal packages - move core & types ([#7674](https://github.com/aws/aws-sdk-js-v3/issues/7674)) ([a3cdc64](https://github.com/aws/aws-sdk-js-v3/commit/a3cdc641fc5aeaf50e5689f64109d4187cc0ad63))

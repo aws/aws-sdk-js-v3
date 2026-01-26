@@ -5,6 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.965.4 (2026-01-25)
+### Chores
+* **packages-internal:** update metadata url paths ([#7679](https://github.com/aws/aws-sdk-js-v3/issues/7679)) ([c3a351c](https://github.com/aws/aws-sdk-js-v3/commit/c3a351c1fdbb8e8124ddadfd07a2d29f88ec47f1))
+
+
+
 # 3.965.3 (2026-01-16)
 ### Chores
 * replace rimraf with premove ([#7669](https://github.com/aws/aws-sdk-js-v3/issues/7669)) ([e0b484f](https://github.com/aws/aws-sdk-js-v3/commit/e0b484fa47204e1ca66e04721aeac1102b498e2f))

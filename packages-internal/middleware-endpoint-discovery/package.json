@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-endpoint-discovery",
-  "version": "3.972.1",
+  "version": "3.972.2",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-endpoint-discovery",
