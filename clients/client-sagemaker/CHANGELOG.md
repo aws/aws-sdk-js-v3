@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.977.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.976.0...v3.977.0) (2026-01-27)
+
+
+### Features
+
+* **client-sagemaker:** Idle resource sharing enables teams to borrow unused compute resources in your SageMaker HyperPod cluster. This capability maximizes resource utilization by allowing teams to borrow idle compute capacity beyond their allocated compute quotas. ([3f52b92](https://github.com/aws/aws-sdk-js-v3/commit/3f52b92b6140dff76c51998b6d25606077ac0f23))
+
+
+
+
+
 # [3.975.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.974.0...v3.975.0) (2026-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

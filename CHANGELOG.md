@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.977.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.976.0...v3.977.0) (2026-01-27)
+
+
+### Features
+
+* **client-connect:** Added support for task attachments. The StartTaskContact API now accepts file attachments, enabling customers to include files (.csv, .doc, .docx, .heic, .jfif, .jpeg, .jpg, .mov, .mp4, .pdf, .png, .ppt, .pptx, .rtf, .txt, etc.) when creating Task contacts. Supports up to 5 attachments per task. ([12e1a94](https://github.com/aws/aws-sdk-js-v3/commit/12e1a94a8eb68f5b81cf9413c5e4275efa597f8d))
+* **client-deadline:** AWS Deadline Cloud now supports editing job names and descriptions after submission. ([fd6d1d4](https://github.com/aws/aws-sdk-js-v3/commit/fd6d1d4b4fd52eb1ef6aca41a731caf4fa7d76cf))
+* **client-ec2:** Releasing new EC2 instances. C8gb and M8gb with highest EBS performance, M8gn with 600 Gbps network bandwidth, X8aedz and M8azn with 5GHz AMD processors, X8i with Intel Xeon 6 processors and up to 6TB memory, and Mac-m4max with Apple M4 Max chip for 25 percent faster builds. ([8c83ff9](https://github.com/aws/aws-sdk-js-v3/commit/8c83ff92b810d6de559bf97151093360201d7bd7))
+* **client-medialive:** AWS Elemental MediaLive released two new features that allows customers 1) to set Output Timecode for AV1 encoder, 2) to set a Custom Epoch for CMAF Ingest and MediaPackage V2 output groups when using Pipeline Locking or Disabled Locking modes. ([58a0492](https://github.com/aws/aws-sdk-js-v3/commit/58a0492ca28565442f98e6e0abd123721a54aab5))
+* **client-sagemaker:** Idle resource sharing enables teams to borrow unused compute resources in your SageMaker HyperPod cluster. This capability maximizes resource utilization by allowing teams to borrow idle compute capacity beyond their allocated compute quotas. ([3f52b92](https://github.com/aws/aws-sdk-js-v3/commit/3f52b92b6140dff76c51998b6d25606077ac0f23))
+* **clients:** update client endpoints as of 2026-01-27 ([04a9ab7](https://github.com/aws/aws-sdk-js-v3/commit/04a9ab71bd17a21097aeb26936530f204170bc3f))
+
+
+
+
+
 # [3.976.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.975.0...v3.976.0) (2026-01-26)
 
 

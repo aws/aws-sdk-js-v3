@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.977.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.976.0...v3.977.0) (2026-01-27)
+
+
+### Features
+
+* **client-ec2:** Releasing new EC2 instances. C8gb and M8gb with highest EBS performance, M8gn with 600 Gbps network bandwidth, X8aedz and M8azn with 5GHz AMD processors, X8i with Intel Xeon 6 processors and up to 6TB memory, and Mac-m4max with Apple M4 Max chip for 25 percent faster builds. ([8c83ff9](https://github.com/aws/aws-sdk-js-v3/commit/8c83ff92b810d6de559bf97151093360201d7bd7))
+
+
+
+
+
 # [3.976.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.975.0...v3.976.0) (2026-01-26)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.977.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.976.0...v3.977.0) (2026-01-27)
+
+
+### Features
+
+* **client-medialive:** AWS Elemental MediaLive released two new features that allows customers 1) to set Output Timecode for AV1 encoder, 2) to set a Custom Epoch for CMAF Ingest and MediaPackage V2 output groups when using Pipeline Locking or Disabled Locking modes. ([58a0492](https://github.com/aws/aws-sdk-js-v3/commit/58a0492ca28565442f98e6e0abd123721a54aab5))
+
+
+
+
+
 # [3.975.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.974.0...v3.975.0) (2026-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

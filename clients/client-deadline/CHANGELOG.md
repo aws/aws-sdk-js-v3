@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.977.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.976.0...v3.977.0) (2026-01-27)
+
+
+### Features
+
+* **client-deadline:** AWS Deadline Cloud now supports editing job names and descriptions after submission. ([fd6d1d4](https://github.com/aws/aws-sdk-js-v3/commit/fd6d1d4b4fd52eb1ef6aca41a731caf4fa7d76cf))
+
+
+
+
+
 # [3.975.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.974.0...v3.975.0) (2026-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-deadline

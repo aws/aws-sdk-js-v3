@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.977.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.976.0...v3.977.0) (2026-01-27)
+
+
+### Features
+
+* **client-connect:** Added support for task attachments. The StartTaskContact API now accepts file attachments, enabling customers to include files (.csv, .doc, .docx, .heic, .jfif, .jpeg, .jpg, .mov, .mp4, .pdf, .png, .ppt, .pptx, .rtf, .txt, etc.) when creating Task contacts. Supports up to 5 attachments per task. ([12e1a94](https://github.com/aws/aws-sdk-js-v3/commit/12e1a94a8eb68f5b81cf9413c5e4275efa597f8d))
+
+
+
+
+
 # [3.975.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.974.0...v3.975.0) (2026-01-23)
 
 
