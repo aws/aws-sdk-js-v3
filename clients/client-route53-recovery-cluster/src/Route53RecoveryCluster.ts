@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   GetRoutingControlStateCommand,
@@ -22,6 +22,7 @@ import {
   UpdateRoutingControlStatesCommandInput,
   UpdateRoutingControlStatesCommandOutput,
 } from "./commands/UpdateRoutingControlStatesCommand";
+import { paginateListRoutingControls } from "./pagination/ListRoutingControlsPaginator";
 import { Route53RecoveryClusterClient } from "./Route53RecoveryClusterClient";
 
 const commands = {
@@ -29,6 +30,9 @@ const commands = {
   ListRoutingControlsCommand,
   UpdateRoutingControlStateCommand,
   UpdateRoutingControlStatesCommand,
+};
+const paginators = {
+  paginateListRoutingControls,
 };
 
 export interface Route53RecoveryCluster {
@@ -100,6 +104,17 @@ export interface Route53RecoveryCluster {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRoutingControlStatesCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListRoutingControlsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoutingControlsCommandOutput}.
+   */
+  paginateListRoutingControls(
+    args?: ListRoutingControlsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoutingControlsCommandOutput>;
 }
 
 /**
@@ -146,4 +161,4 @@ export interface Route53RecoveryCluster {
  * @public
  */
 export class Route53RecoveryCluster extends Route53RecoveryClusterClient implements Route53RecoveryCluster {}
-createAggregatedClient(commands, Route53RecoveryCluster);
+createAggregatedClient(commands, Route53RecoveryCluster, { paginators });

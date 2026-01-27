@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateFirewallRuleGroupCommand,
@@ -338,6 +338,24 @@ import {
   UpdateResolverRuleCommandInput,
   UpdateResolverRuleCommandOutput,
 } from "./commands/UpdateResolverRuleCommand";
+import { paginateListFirewallConfigs } from "./pagination/ListFirewallConfigsPaginator";
+import { paginateListFirewallDomainLists } from "./pagination/ListFirewallDomainListsPaginator";
+import { paginateListFirewallDomains } from "./pagination/ListFirewallDomainsPaginator";
+import { paginateListFirewallRuleGroupAssociations } from "./pagination/ListFirewallRuleGroupAssociationsPaginator";
+import { paginateListFirewallRuleGroups } from "./pagination/ListFirewallRuleGroupsPaginator";
+import { paginateListFirewallRules } from "./pagination/ListFirewallRulesPaginator";
+import { paginateListOutpostResolvers } from "./pagination/ListOutpostResolversPaginator";
+import { paginateListResolverConfigs } from "./pagination/ListResolverConfigsPaginator";
+import { paginateListResolverDnssecConfigs } from "./pagination/ListResolverDnssecConfigsPaginator";
+import { paginateListResolverEndpointIpAddresses } from "./pagination/ListResolverEndpointIpAddressesPaginator";
+import { paginateListResolverEndpoints } from "./pagination/ListResolverEndpointsPaginator";
+import {
+  paginateListResolverQueryLogConfigAssociations,
+} from "./pagination/ListResolverQueryLogConfigAssociationsPaginator";
+import { paginateListResolverQueryLogConfigs } from "./pagination/ListResolverQueryLogConfigsPaginator";
+import { paginateListResolverRuleAssociations } from "./pagination/ListResolverRuleAssociationsPaginator";
+import { paginateListResolverRules } from "./pagination/ListResolverRulesPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 import { Route53ResolverClient } from "./Route53ResolverClient";
 
 const commands = {
@@ -409,6 +427,24 @@ const commands = {
   UpdateResolverDnssecConfigCommand,
   UpdateResolverEndpointCommand,
   UpdateResolverRuleCommand,
+};
+const paginators = {
+  paginateListFirewallConfigs,
+  paginateListFirewallDomainLists,
+  paginateListFirewallDomains,
+  paginateListFirewallRuleGroupAssociations,
+  paginateListFirewallRuleGroups,
+  paginateListFirewallRules,
+  paginateListOutpostResolvers,
+  paginateListResolverConfigs,
+  paginateListResolverDnssecConfigs,
+  paginateListResolverEndpointIpAddresses,
+  paginateListResolverEndpoints,
+  paginateListResolverQueryLogConfigAssociations,
+  paginateListResolverQueryLogConfigs,
+  paginateListResolverRuleAssociations,
+  paginateListResolverRules,
+  paginateListTagsForResource,
 };
 
 export interface Route53Resolver {
@@ -1579,6 +1615,182 @@ export interface Route53Resolver {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateResolverRuleCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListFirewallConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallConfigsCommandOutput}.
+   */
+  paginateListFirewallConfigs(
+    args?: ListFirewallConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallDomainListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallDomainListsCommandOutput}.
+   */
+  paginateListFirewallDomainLists(
+    args?: ListFirewallDomainListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallDomainListsCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallDomainsCommandOutput}.
+   */
+  paginateListFirewallDomains(
+    args: ListFirewallDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallRuleGroupAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallRuleGroupAssociationsCommandOutput}.
+   */
+  paginateListFirewallRuleGroupAssociations(
+    args?: ListFirewallRuleGroupAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallRuleGroupAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallRuleGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallRuleGroupsCommandOutput}.
+   */
+  paginateListFirewallRuleGroups(
+    args?: ListFirewallRuleGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallRuleGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallRulesCommandOutput}.
+   */
+  paginateListFirewallRules(
+    args: ListFirewallRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallRulesCommandOutput>;
+
+  /**
+   * @see {@link ListOutpostResolversCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOutpostResolversCommandOutput}.
+   */
+  paginateListOutpostResolvers(
+    args?: ListOutpostResolversCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOutpostResolversCommandOutput>;
+
+  /**
+   * @see {@link ListResolverConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResolverConfigsCommandOutput}.
+   */
+  paginateListResolverConfigs(
+    args?: ListResolverConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResolverConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListResolverDnssecConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResolverDnssecConfigsCommandOutput}.
+   */
+  paginateListResolverDnssecConfigs(
+    args?: ListResolverDnssecConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResolverDnssecConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListResolverEndpointIpAddressesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResolverEndpointIpAddressesCommandOutput}.
+   */
+  paginateListResolverEndpointIpAddresses(
+    args: ListResolverEndpointIpAddressesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResolverEndpointIpAddressesCommandOutput>;
+
+  /**
+   * @see {@link ListResolverEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResolverEndpointsCommandOutput}.
+   */
+  paginateListResolverEndpoints(
+    args?: ListResolverEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResolverEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListResolverQueryLogConfigAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResolverQueryLogConfigAssociationsCommandOutput}.
+   */
+  paginateListResolverQueryLogConfigAssociations(
+    args?: ListResolverQueryLogConfigAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResolverQueryLogConfigAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListResolverQueryLogConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResolverQueryLogConfigsCommandOutput}.
+   */
+  paginateListResolverQueryLogConfigs(
+    args?: ListResolverQueryLogConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResolverQueryLogConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListResolverRuleAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResolverRuleAssociationsCommandOutput}.
+   */
+  paginateListResolverRuleAssociations(
+    args?: ListResolverRuleAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResolverRuleAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListResolverRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResolverRulesCommandOutput}.
+   */
+  paginateListResolverRules(
+    args?: ListResolverRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResolverRulesCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
 }
 
 /**
@@ -1612,4 +1824,4 @@ export interface Route53Resolver {
  * @public
  */
 export class Route53Resolver extends Route53ResolverClient implements Route53Resolver {}
-createAggregatedClient(commands, Route53Resolver);
+createAggregatedClient(commands, Route53Resolver, { paginators });

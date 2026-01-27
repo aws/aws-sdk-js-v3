@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CreateLinkCommand, CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand";
 import { CreateSinkCommand, CreateSinkCommandInput, CreateSinkCommandOutput } from "./commands/CreateSinkCommand";
@@ -38,6 +38,9 @@ import {
 } from "./commands/UntagResourceCommand";
 import { UpdateLinkCommand, UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
 import { OAMClient } from "./OAMClient";
+import { paginateListAttachedLinks } from "./pagination/ListAttachedLinksPaginator";
+import { paginateListLinks } from "./pagination/ListLinksPaginator";
+import { paginateListSinks } from "./pagination/ListSinksPaginator";
 
 const commands = {
   CreateLinkCommand,
@@ -55,6 +58,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateLinkCommand,
+};
+const paginators = {
+  paginateListAttachedLinks,
+  paginateListLinks,
+  paginateListSinks,
 };
 
 export interface OAM {
@@ -314,6 +322,39 @@ export interface OAM {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLinkCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAttachedLinksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttachedLinksCommandOutput}.
+   */
+  paginateListAttachedLinks(
+    args: ListAttachedLinksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttachedLinksCommandOutput>;
+
+  /**
+   * @see {@link ListLinksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLinksCommandOutput}.
+   */
+  paginateListLinks(
+    args?: ListLinksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLinksCommandOutput>;
+
+  /**
+   * @see {@link ListSinksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSinksCommandOutput}.
+   */
+  paginateListSinks(
+    args?: ListSinksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSinksCommandOutput>;
 }
 
 /**
@@ -321,4 +362,4 @@ export interface OAM {
  * @public
  */
 export class OAM extends OAMClient implements OAM {}
-createAggregatedClient(commands, OAM);
+createAggregatedClient(commands, OAM, { paginators });

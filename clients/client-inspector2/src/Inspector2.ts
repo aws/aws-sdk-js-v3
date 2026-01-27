@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateMemberCommand,
@@ -354,6 +354,26 @@ import {
   UpdateOrgEc2DeepInspectionConfigurationCommandOutput,
 } from "./commands/UpdateOrgEc2DeepInspectionConfigurationCommand";
 import { Inspector2Client } from "./Inspector2Client";
+import { paginateGetCisScanResultDetails } from "./pagination/GetCisScanResultDetailsPaginator";
+import { paginateGetClustersForImage } from "./pagination/GetClustersForImagePaginator";
+import { paginateListAccountPermissions } from "./pagination/ListAccountPermissionsPaginator";
+import { paginateListCisScanConfigurations } from "./pagination/ListCisScanConfigurationsPaginator";
+import {
+  paginateListCisScanResultsAggregatedByChecks,
+} from "./pagination/ListCisScanResultsAggregatedByChecksPaginator";
+import {
+  paginateListCisScanResultsAggregatedByTargetResource,
+} from "./pagination/ListCisScanResultsAggregatedByTargetResourcePaginator";
+import { paginateListCisScans } from "./pagination/ListCisScansPaginator";
+import { paginateListCoverage } from "./pagination/ListCoveragePaginator";
+import { paginateListCoverageStatistics } from "./pagination/ListCoverageStatisticsPaginator";
+import { paginateListDelegatedAdminAccounts } from "./pagination/ListDelegatedAdminAccountsPaginator";
+import { paginateListFilters } from "./pagination/ListFiltersPaginator";
+import { paginateListFindingAggregations } from "./pagination/ListFindingAggregationsPaginator";
+import { paginateListFindings } from "./pagination/ListFindingsPaginator";
+import { paginateListMembers } from "./pagination/ListMembersPaginator";
+import { paginateListUsageTotals } from "./pagination/ListUsageTotalsPaginator";
+import { paginateSearchVulnerabilities } from "./pagination/SearchVulnerabilitiesPaginator";
 
 const commands = {
   AssociateMemberCommand,
@@ -431,6 +451,24 @@ const commands = {
   UpdateFilterCommand,
   UpdateOrganizationConfigurationCommand,
   UpdateOrgEc2DeepInspectionConfigurationCommand,
+};
+const paginators = {
+  paginateGetCisScanResultDetails,
+  paginateGetClustersForImage,
+  paginateListAccountPermissions,
+  paginateListCisScanConfigurations,
+  paginateListCisScanResultsAggregatedByChecks,
+  paginateListCisScanResultsAggregatedByTargetResource,
+  paginateListCisScans,
+  paginateListCoverage,
+  paginateListCoverageStatistics,
+  paginateListDelegatedAdminAccounts,
+  paginateListFilters,
+  paginateListFindingAggregations,
+  paginateListFindings,
+  paginateListMembers,
+  paginateListUsageTotals,
+  paginateSearchVulnerabilities,
 };
 
 export interface Inspector2 {
@@ -1730,6 +1768,182 @@ export interface Inspector2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOrgEc2DeepInspectionConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetCisScanResultDetailsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCisScanResultDetailsCommandOutput}.
+   */
+  paginateGetCisScanResultDetails(
+    args: GetCisScanResultDetailsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCisScanResultDetailsCommandOutput>;
+
+  /**
+   * @see {@link GetClustersForImageCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetClustersForImageCommandOutput}.
+   */
+  paginateGetClustersForImage(
+    args: GetClustersForImageCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetClustersForImageCommandOutput>;
+
+  /**
+   * @see {@link ListAccountPermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountPermissionsCommandOutput}.
+   */
+  paginateListAccountPermissions(
+    args?: ListAccountPermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountPermissionsCommandOutput>;
+
+  /**
+   * @see {@link ListCisScanConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCisScanConfigurationsCommandOutput}.
+   */
+  paginateListCisScanConfigurations(
+    args?: ListCisScanConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCisScanConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListCisScanResultsAggregatedByChecksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCisScanResultsAggregatedByChecksCommandOutput}.
+   */
+  paginateListCisScanResultsAggregatedByChecks(
+    args: ListCisScanResultsAggregatedByChecksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCisScanResultsAggregatedByChecksCommandOutput>;
+
+  /**
+   * @see {@link ListCisScanResultsAggregatedByTargetResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCisScanResultsAggregatedByTargetResourceCommandOutput}.
+   */
+  paginateListCisScanResultsAggregatedByTargetResource(
+    args: ListCisScanResultsAggregatedByTargetResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCisScanResultsAggregatedByTargetResourceCommandOutput>;
+
+  /**
+   * @see {@link ListCisScansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCisScansCommandOutput}.
+   */
+  paginateListCisScans(
+    args?: ListCisScansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCisScansCommandOutput>;
+
+  /**
+   * @see {@link ListCoverageCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCoverageCommandOutput}.
+   */
+  paginateListCoverage(
+    args?: ListCoverageCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCoverageCommandOutput>;
+
+  /**
+   * @see {@link ListCoverageStatisticsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCoverageStatisticsCommandOutput}.
+   */
+  paginateListCoverageStatistics(
+    args?: ListCoverageStatisticsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCoverageStatisticsCommandOutput>;
+
+  /**
+   * @see {@link ListDelegatedAdminAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDelegatedAdminAccountsCommandOutput}.
+   */
+  paginateListDelegatedAdminAccounts(
+    args?: ListDelegatedAdminAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDelegatedAdminAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListFiltersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFiltersCommandOutput}.
+   */
+  paginateListFilters(
+    args?: ListFiltersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFiltersCommandOutput>;
+
+  /**
+   * @see {@link ListFindingAggregationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFindingAggregationsCommandOutput}.
+   */
+  paginateListFindingAggregations(
+    args: ListFindingAggregationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFindingAggregationsCommandOutput>;
+
+  /**
+   * @see {@link ListFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFindingsCommandOutput}.
+   */
+  paginateListFindings(
+    args?: ListFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMembersCommandOutput}.
+   */
+  paginateListMembers(
+    args?: ListMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMembersCommandOutput>;
+
+  /**
+   * @see {@link ListUsageTotalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsageTotalsCommandOutput}.
+   */
+  paginateListUsageTotals(
+    args?: ListUsageTotalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsageTotalsCommandOutput>;
+
+  /**
+   * @see {@link SearchVulnerabilitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchVulnerabilitiesCommandOutput}.
+   */
+  paginateSearchVulnerabilities(
+    args: SearchVulnerabilitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchVulnerabilitiesCommandOutput>;
 }
 
 /**
@@ -1738,4 +1952,4 @@ export interface Inspector2 {
  * @public
  */
 export class Inspector2 extends Inspector2Client implements Inspector2 {}
-createAggregatedClient(commands, Inspector2);
+createAggregatedClient(commands, Inspector2, { paginators });

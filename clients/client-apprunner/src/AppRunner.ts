@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AppRunnerClient } from "./AppRunnerClient";
 import {
@@ -184,6 +184,17 @@ import {
   UpdateVpcIngressConnectionCommandInput,
   UpdateVpcIngressConnectionCommandOutput,
 } from "./commands/UpdateVpcIngressConnectionCommand";
+import { paginateDescribeCustomDomains } from "./pagination/DescribeCustomDomainsPaginator";
+import { paginateListAutoScalingConfigurations } from "./pagination/ListAutoScalingConfigurationsPaginator";
+import { paginateListConnections } from "./pagination/ListConnectionsPaginator";
+import { paginateListObservabilityConfigurations } from "./pagination/ListObservabilityConfigurationsPaginator";
+import { paginateListOperations } from "./pagination/ListOperationsPaginator";
+import {
+  paginateListServicesForAutoScalingConfiguration,
+} from "./pagination/ListServicesForAutoScalingConfigurationPaginator";
+import { paginateListServices } from "./pagination/ListServicesPaginator";
+import { paginateListVpcConnectors } from "./pagination/ListVpcConnectorsPaginator";
+import { paginateListVpcIngressConnections } from "./pagination/ListVpcIngressConnectionsPaginator";
 
 const commands = {
   AssociateCustomDomainCommand,
@@ -223,6 +234,17 @@ const commands = {
   UpdateDefaultAutoScalingConfigurationCommand,
   UpdateServiceCommand,
   UpdateVpcIngressConnectionCommand,
+};
+const paginators = {
+  paginateDescribeCustomDomains,
+  paginateListAutoScalingConfigurations,
+  paginateListConnections,
+  paginateListObservabilityConfigurations,
+  paginateListOperations,
+  paginateListServices,
+  paginateListServicesForAutoScalingConfiguration,
+  paginateListVpcConnectors,
+  paginateListVpcIngressConnections,
 };
 
 export interface AppRunner {
@@ -860,6 +882,105 @@ export interface AppRunner {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVpcIngressConnectionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeCustomDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCustomDomainsCommandOutput}.
+   */
+  paginateDescribeCustomDomains(
+    args: DescribeCustomDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCustomDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListAutoScalingConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutoScalingConfigurationsCommandOutput}.
+   */
+  paginateListAutoScalingConfigurations(
+    args?: ListAutoScalingConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutoScalingConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectionsCommandOutput}.
+   */
+  paginateListConnections(
+    args?: ListConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectionsCommandOutput>;
+
+  /**
+   * @see {@link ListObservabilityConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListObservabilityConfigurationsCommandOutput}.
+   */
+  paginateListObservabilityConfigurations(
+    args?: ListObservabilityConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListObservabilityConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOperationsCommandOutput}.
+   */
+  paginateListOperations(
+    args: ListOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicesCommandOutput}.
+   */
+  paginateListServices(
+    args?: ListServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicesCommandOutput>;
+
+  /**
+   * @see {@link ListServicesForAutoScalingConfigurationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicesForAutoScalingConfigurationCommandOutput}.
+   */
+  paginateListServicesForAutoScalingConfiguration(
+    args: ListServicesForAutoScalingConfigurationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicesForAutoScalingConfigurationCommandOutput>;
+
+  /**
+   * @see {@link ListVpcConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVpcConnectorsCommandOutput}.
+   */
+  paginateListVpcConnectors(
+    args?: ListVpcConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVpcConnectorsCommandOutput>;
+
+  /**
+   * @see {@link ListVpcIngressConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVpcIngressConnectionsCommandOutput}.
+   */
+  paginateListVpcIngressConnections(
+    args?: ListVpcIngressConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVpcIngressConnectionsCommandOutput>;
 }
 
 /**
@@ -883,4 +1004,4 @@ export interface AppRunner {
  * @public
  */
 export class AppRunner extends AppRunnerClient implements AppRunner {}
-createAggregatedClient(commands, AppRunner);
+createAggregatedClient(commands, AppRunner, { paginators });

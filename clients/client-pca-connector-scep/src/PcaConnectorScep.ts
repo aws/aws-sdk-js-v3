@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateChallengeCommand,
@@ -58,6 +58,8 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateListChallengeMetadata } from "./pagination/ListChallengeMetadataPaginator";
+import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";
 import { PcaConnectorScepClient } from "./PcaConnectorScepClient";
 
 const commands = {
@@ -73,6 +75,10 @@ const commands = {
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListChallengeMetadata,
+  paginateListConnectors,
 };
 
 export interface PcaConnectorScep {
@@ -280,6 +286,28 @@ export interface PcaConnectorScep {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChallengeMetadataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChallengeMetadataCommandOutput}.
+   */
+  paginateListChallengeMetadata(
+    args: ListChallengeMetadataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChallengeMetadataCommandOutput>;
+
+  /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorsCommandOutput}.
+   */
+  paginateListConnectors(
+    args?: ListConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorsCommandOutput>;
 }
 
 /**
@@ -287,4 +315,4 @@ export interface PcaConnectorScep {
  * @public
  */
 export class PcaConnectorScep extends PcaConnectorScepClient implements PcaConnectorScep {}
-createAggregatedClient(commands, PcaConnectorScep);
+createAggregatedClient(commands, PcaConnectorScep, { paginators });

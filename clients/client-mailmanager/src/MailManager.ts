@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateAddonInstanceCommand,
@@ -271,6 +271,18 @@ import {
   UpdateTrafficPolicyCommandOutput,
 } from "./commands/UpdateTrafficPolicyCommand";
 import { MailManagerClient } from "./MailManagerClient";
+import { paginateListAddonInstances } from "./pagination/ListAddonInstancesPaginator";
+import { paginateListAddonSubscriptions } from "./pagination/ListAddonSubscriptionsPaginator";
+import { paginateListAddressListImportJobs } from "./pagination/ListAddressListImportJobsPaginator";
+import { paginateListAddressLists } from "./pagination/ListAddressListsPaginator";
+import { paginateListArchiveExports } from "./pagination/ListArchiveExportsPaginator";
+import { paginateListArchiveSearches } from "./pagination/ListArchiveSearchesPaginator";
+import { paginateListArchives } from "./pagination/ListArchivesPaginator";
+import { paginateListIngressPoints } from "./pagination/ListIngressPointsPaginator";
+import { paginateListMembersOfAddressList } from "./pagination/ListMembersOfAddressListPaginator";
+import { paginateListRelays } from "./pagination/ListRelaysPaginator";
+import { paginateListRuleSets } from "./pagination/ListRuleSetsPaginator";
+import { paginateListTrafficPolicies } from "./pagination/ListTrafficPoliciesPaginator";
 
 const commands = {
   CreateAddonInstanceCommand,
@@ -333,6 +345,20 @@ const commands = {
   UpdateRelayCommand,
   UpdateRuleSetCommand,
   UpdateTrafficPolicyCommand,
+};
+const paginators = {
+  paginateListAddonInstances,
+  paginateListAddonSubscriptions,
+  paginateListAddressListImportJobs,
+  paginateListAddressLists,
+  paginateListArchiveExports,
+  paginateListArchives,
+  paginateListArchiveSearches,
+  paginateListIngressPoints,
+  paginateListMembersOfAddressList,
+  paginateListRelays,
+  paginateListRuleSets,
+  paginateListTrafficPolicies,
 };
 
 export interface MailManager {
@@ -1363,6 +1389,138 @@ export interface MailManager {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTrafficPolicyCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAddonInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAddonInstancesCommandOutput}.
+   */
+  paginateListAddonInstances(
+    args?: ListAddonInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAddonInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListAddonSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAddonSubscriptionsCommandOutput}.
+   */
+  paginateListAddonSubscriptions(
+    args?: ListAddonSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAddonSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link ListAddressListImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAddressListImportJobsCommandOutput}.
+   */
+  paginateListAddressListImportJobs(
+    args: ListAddressListImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAddressListImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListAddressListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAddressListsCommandOutput}.
+   */
+  paginateListAddressLists(
+    args?: ListAddressListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAddressListsCommandOutput>;
+
+  /**
+   * @see {@link ListArchiveExportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListArchiveExportsCommandOutput}.
+   */
+  paginateListArchiveExports(
+    args: ListArchiveExportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListArchiveExportsCommandOutput>;
+
+  /**
+   * @see {@link ListArchivesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListArchivesCommandOutput}.
+   */
+  paginateListArchives(
+    args?: ListArchivesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListArchivesCommandOutput>;
+
+  /**
+   * @see {@link ListArchiveSearchesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListArchiveSearchesCommandOutput}.
+   */
+  paginateListArchiveSearches(
+    args: ListArchiveSearchesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListArchiveSearchesCommandOutput>;
+
+  /**
+   * @see {@link ListIngressPointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIngressPointsCommandOutput}.
+   */
+  paginateListIngressPoints(
+    args?: ListIngressPointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIngressPointsCommandOutput>;
+
+  /**
+   * @see {@link ListMembersOfAddressListCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMembersOfAddressListCommandOutput}.
+   */
+  paginateListMembersOfAddressList(
+    args: ListMembersOfAddressListCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMembersOfAddressListCommandOutput>;
+
+  /**
+   * @see {@link ListRelaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRelaysCommandOutput}.
+   */
+  paginateListRelays(
+    args?: ListRelaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRelaysCommandOutput>;
+
+  /**
+   * @see {@link ListRuleSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRuleSetsCommandOutput}.
+   */
+  paginateListRuleSets(
+    args?: ListRuleSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRuleSetsCommandOutput>;
+
+  /**
+   * @see {@link ListTrafficPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrafficPoliciesCommandOutput}.
+   */
+  paginateListTrafficPolicies(
+    args?: ListTrafficPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrafficPoliciesCommandOutput>;
 }
 
 /**
@@ -1370,4 +1528,4 @@ export interface MailManager {
  * @public
  */
 export class MailManager extends MailManagerClient implements MailManager {}
-createAggregatedClient(commands, MailManager);
+createAggregatedClient(commands, MailManager, { paginators });

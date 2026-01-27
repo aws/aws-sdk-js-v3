@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchPutPropertyValuesCommand,
@@ -171,6 +171,18 @@ import {
   UpdateWorkspaceCommandOutput,
 } from "./commands/UpdateWorkspaceCommand";
 import { IoTTwinMakerClient } from "./IoTTwinMakerClient";
+import { paginateExecuteQuery } from "./pagination/ExecuteQueryPaginator";
+import { paginateGetPropertyValueHistory } from "./pagination/GetPropertyValueHistoryPaginator";
+import { paginateGetPropertyValue } from "./pagination/GetPropertyValuePaginator";
+import { paginateListComponents } from "./pagination/ListComponentsPaginator";
+import { paginateListComponentTypes } from "./pagination/ListComponentTypesPaginator";
+import { paginateListEntities } from "./pagination/ListEntitiesPaginator";
+import { paginateListMetadataTransferJobs } from "./pagination/ListMetadataTransferJobsPaginator";
+import { paginateListProperties } from "./pagination/ListPropertiesPaginator";
+import { paginateListScenes } from "./pagination/ListScenesPaginator";
+import { paginateListSyncJobs } from "./pagination/ListSyncJobsPaginator";
+import { paginateListSyncResources } from "./pagination/ListSyncResourcesPaginator";
+import { paginateListWorkspaces } from "./pagination/ListWorkspacesPaginator";
 
 const commands = {
   BatchPutPropertyValuesCommand,
@@ -213,6 +225,20 @@ const commands = {
   UpdatePricingPlanCommand,
   UpdateSceneCommand,
   UpdateWorkspaceCommand,
+};
+const paginators = {
+  paginateExecuteQuery,
+  paginateGetPropertyValue,
+  paginateGetPropertyValueHistory,
+  paginateListComponents,
+  paginateListComponentTypes,
+  paginateListEntities,
+  paginateListMetadataTransferJobs,
+  paginateListProperties,
+  paginateListScenes,
+  paginateListSyncJobs,
+  paginateListSyncResources,
+  paginateListWorkspaces,
 };
 
 export interface IoTTwinMaker {
@@ -897,6 +923,138 @@ export interface IoTTwinMaker {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkspaceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ExecuteQueryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ExecuteQueryCommandOutput}.
+   */
+  paginateExecuteQuery(
+    args: ExecuteQueryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ExecuteQueryCommandOutput>;
+
+  /**
+   * @see {@link GetPropertyValueCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetPropertyValueCommandOutput}.
+   */
+  paginateGetPropertyValue(
+    args: GetPropertyValueCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetPropertyValueCommandOutput>;
+
+  /**
+   * @see {@link GetPropertyValueHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetPropertyValueHistoryCommandOutput}.
+   */
+  paginateGetPropertyValueHistory(
+    args: GetPropertyValueHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetPropertyValueHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentsCommandOutput}.
+   */
+  paginateListComponents(
+    args: ListComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentsCommandOutput>;
+
+  /**
+   * @see {@link ListComponentTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentTypesCommandOutput}.
+   */
+  paginateListComponentTypes(
+    args: ListComponentTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentTypesCommandOutput>;
+
+  /**
+   * @see {@link ListEntitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntitiesCommandOutput}.
+   */
+  paginateListEntities(
+    args: ListEntitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntitiesCommandOutput>;
+
+  /**
+   * @see {@link ListMetadataTransferJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMetadataTransferJobsCommandOutput}.
+   */
+  paginateListMetadataTransferJobs(
+    args: ListMetadataTransferJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMetadataTransferJobsCommandOutput>;
+
+  /**
+   * @see {@link ListPropertiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPropertiesCommandOutput}.
+   */
+  paginateListProperties(
+    args: ListPropertiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPropertiesCommandOutput>;
+
+  /**
+   * @see {@link ListScenesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScenesCommandOutput}.
+   */
+  paginateListScenes(
+    args: ListScenesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScenesCommandOutput>;
+
+  /**
+   * @see {@link ListSyncJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSyncJobsCommandOutput}.
+   */
+  paginateListSyncJobs(
+    args: ListSyncJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSyncJobsCommandOutput>;
+
+  /**
+   * @see {@link ListSyncResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSyncResourcesCommandOutput}.
+   */
+  paginateListSyncResources(
+    args: ListSyncResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSyncResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListWorkspacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkspacesCommandOutput}.
+   */
+  paginateListWorkspaces(
+    args?: ListWorkspacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkspacesCommandOutput>;
 }
 
 /**
@@ -909,4 +1067,4 @@ export interface IoTTwinMaker {
  * @public
  */
 export class IoTTwinMaker extends IoTTwinMakerClient implements IoTTwinMaker {}
-createAggregatedClient(commands, IoTTwinMaker);
+createAggregatedClient(commands, IoTTwinMaker, { paginators });

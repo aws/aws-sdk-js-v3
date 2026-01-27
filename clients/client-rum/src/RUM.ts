@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchCreateRumMetricDefinitionsCommand,
@@ -98,6 +98,10 @@ import {
   UpdateRumMetricDefinitionCommandInput,
   UpdateRumMetricDefinitionCommandOutput,
 } from "./commands/UpdateRumMetricDefinitionCommand";
+import { paginateBatchGetRumMetricDefinitions } from "./pagination/BatchGetRumMetricDefinitionsPaginator";
+import { paginateGetAppMonitorData } from "./pagination/GetAppMonitorDataPaginator";
+import { paginateListAppMonitors } from "./pagination/ListAppMonitorsPaginator";
+import { paginateListRumMetricsDestinations } from "./pagination/ListRumMetricsDestinationsPaginator";
 import { RUMClient } from "./RUMClient";
 
 const commands = {
@@ -121,6 +125,12 @@ const commands = {
   UntagResourceCommand,
   UpdateAppMonitorCommand,
   UpdateRumMetricDefinitionCommand,
+};
+const paginators = {
+  paginateBatchGetRumMetricDefinitions,
+  paginateGetAppMonitorData,
+  paginateListAppMonitors,
+  paginateListRumMetricsDestinations,
 };
 
 export interface RUM {
@@ -464,6 +474,50 @@ export interface RUM {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRumMetricDefinitionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link BatchGetRumMetricDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link BatchGetRumMetricDefinitionsCommandOutput}.
+   */
+  paginateBatchGetRumMetricDefinitions(
+    args: BatchGetRumMetricDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<BatchGetRumMetricDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link GetAppMonitorDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAppMonitorDataCommandOutput}.
+   */
+  paginateGetAppMonitorData(
+    args: GetAppMonitorDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAppMonitorDataCommandOutput>;
+
+  /**
+   * @see {@link ListAppMonitorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppMonitorsCommandOutput}.
+   */
+  paginateListAppMonitors(
+    args?: ListAppMonitorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppMonitorsCommandOutput>;
+
+  /**
+   * @see {@link ListRumMetricsDestinationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRumMetricsDestinationsCommandOutput}.
+   */
+  paginateListRumMetricsDestinations(
+    args: ListRumMetricsDestinationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRumMetricsDestinationsCommandOutput>;
 }
 
 /**
@@ -471,4 +525,4 @@ export interface RUM {
  * @public
  */
 export class RUM extends RUMClient implements RUM {}
-createAggregatedClient(commands, RUM);
+createAggregatedClient(commands, RUM, { paginators });

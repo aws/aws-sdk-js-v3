@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AddStreamGroupLocationsCommand,
@@ -119,6 +125,15 @@ import {
   UpdateStreamGroupCommandOutput,
 } from "./commands/UpdateStreamGroupCommand";
 import { GameLiftStreamsClient } from "./GameLiftStreamsClient";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListStreamGroups } from "./pagination/ListStreamGroupsPaginator";
+import { paginateListStreamSessionsByAccount } from "./pagination/ListStreamSessionsByAccountPaginator";
+import { paginateListStreamSessions } from "./pagination/ListStreamSessionsPaginator";
+import { waitUntilApplicationDeleted } from "./waiters/waitForApplicationDeleted";
+import { waitUntilApplicationReady } from "./waiters/waitForApplicationReady";
+import { waitUntilStreamGroupActive } from "./waiters/waitForStreamGroupActive";
+import { waitUntilStreamGroupDeleted } from "./waiters/waitForStreamGroupDeleted";
+import { waitUntilStreamSessionActive } from "./waiters/waitForStreamSessionActive";
 
 const commands = {
   AddStreamGroupLocationsCommand,
@@ -145,6 +160,19 @@ const commands = {
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateStreamGroupCommand,
+};
+const paginators = {
+  paginateListApplications,
+  paginateListStreamGroups,
+  paginateListStreamSessions,
+  paginateListStreamSessionsByAccount,
+};
+const waiters = {
+  waitUntilApplicationReady,
+  waitUntilApplicationDeleted,
+  waitUntilStreamGroupActive,
+  waitUntilStreamGroupDeleted,
+  waitUntilStreamSessionActive,
 };
 
 export interface GameLiftStreams {
@@ -558,6 +586,100 @@ export interface GameLiftStreams {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStreamGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListStreamGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamGroupsCommandOutput}.
+   */
+  paginateListStreamGroups(
+    args?: ListStreamGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListStreamSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamSessionsCommandOutput}.
+   */
+  paginateListStreamSessions(
+    args: ListStreamSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamSessionsCommandOutput>;
+
+  /**
+   * @see {@link ListStreamSessionsByAccountCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamSessionsByAccountCommandOutput}.
+   */
+  paginateListStreamSessionsByAccount(
+    args?: ListStreamSessionsByAccountCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamSessionsByAccountCommandOutput>;
+
+  /**
+   * @see {@link GetApplicationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilApplicationReady(
+    args: GetApplicationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<GameLiftStreams>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetApplicationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilApplicationDeleted(
+    args: GetApplicationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<GameLiftStreams>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetStreamGroupCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStreamGroupActive(
+    args: GetStreamGroupCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<GameLiftStreams>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetStreamGroupCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStreamGroupDeleted(
+    args: GetStreamGroupCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<GameLiftStreams>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetStreamSessionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStreamSessionActive(
+    args: GetStreamSessionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<GameLiftStreams>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -565,4 +687,4 @@ export interface GameLiftStreams {
  * @public
  */
 export class GameLiftStreams extends GameLiftStreamsClient implements GameLiftStreams {}
-createAggregatedClient(commands, GameLiftStreams);
+createAggregatedClient(commands, GameLiftStreams, { paginators, waiters });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BraketClient } from "./BraketClient";
 import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
@@ -64,6 +64,10 @@ import {
   UpdateSpendingLimitCommandInput,
   UpdateSpendingLimitCommandOutput,
 } from "./commands/UpdateSpendingLimitCommand";
+import { paginateSearchDevices } from "./pagination/SearchDevicesPaginator";
+import { paginateSearchJobs } from "./pagination/SearchJobsPaginator";
+import { paginateSearchQuantumTasks } from "./pagination/SearchQuantumTasksPaginator";
+import { paginateSearchSpendingLimits } from "./pagination/SearchSpendingLimitsPaginator";
 
 const commands = {
   CancelJobCommand,
@@ -83,6 +87,12 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateSpendingLimitCommand,
+};
+const paginators = {
+  paginateSearchDevices,
+  paginateSearchJobs,
+  paginateSearchQuantumTasks,
+  paginateSearchSpendingLimits,
 };
 
 export interface Braket {
@@ -375,6 +385,50 @@ export interface Braket {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSpendingLimitCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link SearchDevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchDevicesCommandOutput}.
+   */
+  paginateSearchDevices(
+    args: SearchDevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchDevicesCommandOutput>;
+
+  /**
+   * @see {@link SearchJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchJobsCommandOutput}.
+   */
+  paginateSearchJobs(
+    args: SearchJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchJobsCommandOutput>;
+
+  /**
+   * @see {@link SearchQuantumTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchQuantumTasksCommandOutput}.
+   */
+  paginateSearchQuantumTasks(
+    args: SearchQuantumTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchQuantumTasksCommandOutput>;
+
+  /**
+   * @see {@link SearchSpendingLimitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchSpendingLimitsCommandOutput}.
+   */
+  paginateSearchSpendingLimits(
+    args?: SearchSpendingLimitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchSpendingLimitsCommandOutput>;
 }
 
 /**
@@ -382,4 +436,4 @@ export interface Braket {
  * @public
  */
 export class Braket extends BraketClient implements Braket {}
-createAggregatedClient(commands, Braket);
+createAggregatedClient(commands, Braket, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DeleteConnectionCommand,
@@ -39,6 +39,7 @@ import {
   UpdateThingShadowCommandOutput,
 } from "./commands/UpdateThingShadowCommand";
 import { IoTDataPlaneClient } from "./IoTDataPlaneClient";
+import { paginateListRetainedMessages } from "./pagination/ListRetainedMessagesPaginator";
 
 const commands = {
   DeleteConnectionCommand,
@@ -49,6 +50,9 @@ const commands = {
   ListRetainedMessagesCommand,
   PublishCommand,
   UpdateThingShadowCommand,
+};
+const paginators = {
+  paginateListRetainedMessages,
 };
 
 export interface IoTDataPlane {
@@ -188,6 +192,17 @@ export interface IoTDataPlane {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateThingShadowCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListRetainedMessagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRetainedMessagesCommandOutput}.
+   */
+  paginateListRetainedMessages(
+    args?: ListRetainedMessagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRetainedMessagesCommandOutput>;
 }
 
 /**
@@ -205,4 +220,4 @@ export interface IoTDataPlane {
  * @public
  */
 export class IoTDataPlane extends IoTDataPlaneClient implements IoTDataPlane {}
-createAggregatedClient(commands, IoTDataPlane);
+createAggregatedClient(commands, IoTDataPlane, { paginators });

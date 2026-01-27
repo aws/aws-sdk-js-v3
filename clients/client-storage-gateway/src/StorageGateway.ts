@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   ActivateGatewayCommand,
@@ -454,6 +454,18 @@ import {
   UpdateVTLDeviceTypeCommandInput,
   UpdateVTLDeviceTypeCommandOutput,
 } from "./commands/UpdateVTLDeviceTypeCommand";
+import { paginateDescribeTapeArchives } from "./pagination/DescribeTapeArchivesPaginator";
+import { paginateDescribeTapeRecoveryPoints } from "./pagination/DescribeTapeRecoveryPointsPaginator";
+import { paginateDescribeTapes } from "./pagination/DescribeTapesPaginator";
+import { paginateDescribeVTLDevices } from "./pagination/DescribeVTLDevicesPaginator";
+import { paginateListCacheReports } from "./pagination/ListCacheReportsPaginator";
+import { paginateListFileShares } from "./pagination/ListFileSharesPaginator";
+import { paginateListFileSystemAssociations } from "./pagination/ListFileSystemAssociationsPaginator";
+import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListTapePools } from "./pagination/ListTapePoolsPaginator";
+import { paginateListTapes } from "./pagination/ListTapesPaginator";
+import { paginateListVolumes } from "./pagination/ListVolumesPaginator";
 import { StorageGatewayClient } from "./StorageGatewayClient";
 
 const commands = {
@@ -553,6 +565,20 @@ const commands = {
   UpdateSMBSecurityStrategyCommand,
   UpdateSnapshotScheduleCommand,
   UpdateVTLDeviceTypeCommand,
+};
+const paginators = {
+  paginateDescribeTapeArchives,
+  paginateDescribeTapeRecoveryPoints,
+  paginateDescribeTapes,
+  paginateDescribeVTLDevices,
+  paginateListCacheReports,
+  paginateListFileShares,
+  paginateListFileSystemAssociations,
+  paginateListGateways,
+  paginateListTagsForResource,
+  paginateListTapePools,
+  paginateListTapes,
+  paginateListVolumes,
 };
 
 export interface StorageGateway {
@@ -2196,6 +2222,138 @@ export interface StorageGateway {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVTLDeviceTypeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeTapeArchivesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTapeArchivesCommandOutput}.
+   */
+  paginateDescribeTapeArchives(
+    args?: DescribeTapeArchivesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTapeArchivesCommandOutput>;
+
+  /**
+   * @see {@link DescribeTapeRecoveryPointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTapeRecoveryPointsCommandOutput}.
+   */
+  paginateDescribeTapeRecoveryPoints(
+    args: DescribeTapeRecoveryPointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTapeRecoveryPointsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTapesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTapesCommandOutput}.
+   */
+  paginateDescribeTapes(
+    args: DescribeTapesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTapesCommandOutput>;
+
+  /**
+   * @see {@link DescribeVTLDevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVTLDevicesCommandOutput}.
+   */
+  paginateDescribeVTLDevices(
+    args: DescribeVTLDevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVTLDevicesCommandOutput>;
+
+  /**
+   * @see {@link ListCacheReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCacheReportsCommandOutput}.
+   */
+  paginateListCacheReports(
+    args?: ListCacheReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCacheReportsCommandOutput>;
+
+  /**
+   * @see {@link ListFileSharesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFileSharesCommandOutput}.
+   */
+  paginateListFileShares(
+    args?: ListFileSharesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFileSharesCommandOutput>;
+
+  /**
+   * @see {@link ListFileSystemAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFileSystemAssociationsCommandOutput}.
+   */
+  paginateListFileSystemAssociations(
+    args?: ListFileSystemAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFileSystemAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewaysCommandOutput}.
+   */
+  paginateListGateways(
+    args?: ListGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewaysCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListTapePoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTapePoolsCommandOutput}.
+   */
+  paginateListTapePools(
+    args?: ListTapePoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTapePoolsCommandOutput>;
+
+  /**
+   * @see {@link ListTapesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTapesCommandOutput}.
+   */
+  paginateListTapes(
+    args?: ListTapesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTapesCommandOutput>;
+
+  /**
+   * @see {@link ListVolumesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVolumesCommandOutput}.
+   */
+  paginateListVolumes(
+    args?: ListVolumesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVolumesCommandOutput>;
 }
 
 /**
@@ -2266,4 +2424,4 @@ export interface StorageGateway {
  * @public
  */
 export class StorageGateway extends StorageGatewayClient implements StorageGateway {}
-createAggregatedClient(commands, StorageGateway);
+createAggregatedClient(commands, StorageGateway, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BedrockDataAutomationClient } from "./BedrockDataAutomationClient";
 import {
@@ -84,6 +84,8 @@ import {
   UpdateDataAutomationProjectCommandInput,
   UpdateDataAutomationProjectCommandOutput,
 } from "./commands/UpdateDataAutomationProjectCommand";
+import { paginateListBlueprints } from "./pagination/ListBlueprintsPaginator";
+import { paginateListDataAutomationProjects } from "./pagination/ListDataAutomationProjectsPaginator";
 
 const commands = {
   CopyBlueprintStageCommand,
@@ -103,6 +105,10 @@ const commands = {
   UntagResourceCommand,
   UpdateBlueprintCommand,
   UpdateDataAutomationProjectCommand,
+};
+const paginators = {
+  paginateListBlueprints,
+  paginateListDataAutomationProjects,
 };
 
 export interface BedrockDataAutomation {
@@ -396,6 +402,28 @@ export interface BedrockDataAutomation {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDataAutomationProjectCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBlueprintsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBlueprintsCommandOutput}.
+   */
+  paginateListBlueprints(
+    args?: ListBlueprintsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBlueprintsCommandOutput>;
+
+  /**
+   * @see {@link ListDataAutomationProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataAutomationProjectsCommandOutput}.
+   */
+  paginateListDataAutomationProjects(
+    args?: ListDataAutomationProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataAutomationProjectsCommandOutput>;
 }
 
 /**
@@ -403,4 +431,4 @@ export interface BedrockDataAutomation {
  * @public
  */
 export class BedrockDataAutomation extends BedrockDataAutomationClient implements BedrockDataAutomation {}
-createAggregatedClient(commands, BedrockDataAutomation);
+createAggregatedClient(commands, BedrockDataAutomation, { paginators });

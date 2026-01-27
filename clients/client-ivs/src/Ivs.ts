@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchGetChannelCommand,
@@ -154,6 +154,13 @@ import {
   UpdatePlaybackRestrictionPolicyCommandOutput,
 } from "./commands/UpdatePlaybackRestrictionPolicyCommand";
 import { IvsClient } from "./IvsClient";
+import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListPlaybackKeyPairs } from "./pagination/ListPlaybackKeyPairsPaginator";
+import { paginateListPlaybackRestrictionPolicies } from "./pagination/ListPlaybackRestrictionPoliciesPaginator";
+import { paginateListRecordingConfigurations } from "./pagination/ListRecordingConfigurationsPaginator";
+import { paginateListStreamKeys } from "./pagination/ListStreamKeysPaginator";
+import { paginateListStreamSessions } from "./pagination/ListStreamSessionsPaginator";
+import { paginateListStreams } from "./pagination/ListStreamsPaginator";
 
 const commands = {
   BatchGetChannelCommand,
@@ -191,6 +198,15 @@ const commands = {
   UntagResourceCommand,
   UpdateChannelCommand,
   UpdatePlaybackRestrictionPolicyCommand,
+};
+const paginators = {
+  paginateListChannels,
+  paginateListPlaybackKeyPairs,
+  paginateListPlaybackRestrictionPolicies,
+  paginateListRecordingConfigurations,
+  paginateListStreamKeys,
+  paginateListStreams,
+  paginateListStreamSessions,
 };
 
 export interface Ivs {
@@ -795,6 +811,83 @@ export interface Ivs {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePlaybackRestrictionPolicyCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsCommandOutput}.
+   */
+  paginateListChannels(
+    args?: ListChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListPlaybackKeyPairsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPlaybackKeyPairsCommandOutput}.
+   */
+  paginateListPlaybackKeyPairs(
+    args?: ListPlaybackKeyPairsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPlaybackKeyPairsCommandOutput>;
+
+  /**
+   * @see {@link ListPlaybackRestrictionPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPlaybackRestrictionPoliciesCommandOutput}.
+   */
+  paginateListPlaybackRestrictionPolicies(
+    args?: ListPlaybackRestrictionPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPlaybackRestrictionPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListRecordingConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecordingConfigurationsCommandOutput}.
+   */
+  paginateListRecordingConfigurations(
+    args?: ListRecordingConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecordingConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListStreamKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamKeysCommandOutput}.
+   */
+  paginateListStreamKeys(
+    args: ListStreamKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamKeysCommandOutput>;
+
+  /**
+   * @see {@link ListStreamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamsCommandOutput}.
+   */
+  paginateListStreams(
+    args?: ListStreamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamsCommandOutput>;
+
+  /**
+   * @see {@link ListStreamSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamSessionsCommandOutput}.
+   */
+  paginateListStreamSessions(
+    args: ListStreamSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamSessionsCommandOutput>;
 }
 
 /**
@@ -932,4 +1025,4 @@ export interface Ivs {
  * @public
  */
 export class Ivs extends IvsClient implements Ivs {}
-createAggregatedClient(commands, Ivs);
+createAggregatedClient(commands, Ivs, { paginators });

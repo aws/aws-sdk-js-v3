@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AIOpsClient } from "./AIOpsClient";
 import {
@@ -54,6 +54,7 @@ import {
   UpdateInvestigationGroupCommandInput,
   UpdateInvestigationGroupCommandOutput,
 } from "./commands/UpdateInvestigationGroupCommand";
+import { paginateListInvestigationGroups } from "./pagination/ListInvestigationGroupsPaginator";
 
 const commands = {
   CreateInvestigationGroupCommand,
@@ -67,6 +68,9 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateInvestigationGroupCommand,
+};
+const paginators = {
+  paginateListInvestigationGroups,
 };
 
 export interface AIOps {
@@ -257,6 +261,17 @@ export interface AIOps {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateInvestigationGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListInvestigationGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvestigationGroupsCommandOutput}.
+   */
+  paginateListInvestigationGroups(
+    args?: ListInvestigationGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvestigationGroupsCommandOutput>;
 }
 
 /**
@@ -264,4 +279,4 @@ export interface AIOps {
  * @public
  */
 export class AIOps extends AIOpsClient implements AIOps {}
-createAggregatedClient(commands, AIOps);
+createAggregatedClient(commands, AIOps, { paginators });

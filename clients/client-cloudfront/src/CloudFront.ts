@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CloudFrontClient } from "./CloudFrontClient";
 import {
@@ -826,6 +832,37 @@ import {
   VerifyDnsConfigurationCommandInput,
   VerifyDnsConfigurationCommandOutput,
 } from "./commands/VerifyDnsConfigurationCommand";
+import {
+  paginateListCloudFrontOriginAccessIdentities,
+} from "./pagination/ListCloudFrontOriginAccessIdentitiesPaginator";
+import { paginateListConnectionFunctions } from "./pagination/ListConnectionFunctionsPaginator";
+import { paginateListConnectionGroups } from "./pagination/ListConnectionGroupsPaginator";
+import {
+  paginateListDistributionsByConnectionFunction,
+} from "./pagination/ListDistributionsByConnectionFunctionPaginator";
+import { paginateListDistributionsByConnectionMode } from "./pagination/ListDistributionsByConnectionModePaginator";
+import { paginateListDistributionsByTrustStore } from "./pagination/ListDistributionsByTrustStorePaginator";
+import { paginateListDistributions } from "./pagination/ListDistributionsPaginator";
+import {
+  paginateListDistributionTenantsByCustomization,
+} from "./pagination/ListDistributionTenantsByCustomizationPaginator";
+import { paginateListDistributionTenants } from "./pagination/ListDistributionTenantsPaginator";
+import { paginateListDomainConflicts } from "./pagination/ListDomainConflictsPaginator";
+import {
+  paginateListInvalidationsForDistributionTenant,
+} from "./pagination/ListInvalidationsForDistributionTenantPaginator";
+import { paginateListInvalidations } from "./pagination/ListInvalidationsPaginator";
+import { paginateListKeyValueStores } from "./pagination/ListKeyValueStoresPaginator";
+import { paginateListOriginAccessControls } from "./pagination/ListOriginAccessControlsPaginator";
+import { paginateListPublicKeys } from "./pagination/ListPublicKeysPaginator";
+import { paginateListStreamingDistributions } from "./pagination/ListStreamingDistributionsPaginator";
+import { paginateListTrustStores } from "./pagination/ListTrustStoresPaginator";
+import { waitUntilDistributionDeployed } from "./waiters/waitForDistributionDeployed";
+import { waitUntilInvalidationCompleted } from "./waiters/waitForInvalidationCompleted";
+import {
+  waitUntilInvalidationForDistributionTenantCompleted,
+} from "./waiters/waitForInvalidationForDistributionTenantCompleted";
+import { waitUntilStreamingDistributionDeployed } from "./waiters/waitForStreamingDistributionDeployed";
 
 const commands = {
   AssociateAliasCommand,
@@ -995,6 +1032,31 @@ const commands = {
   UpdateTrustStoreCommand,
   UpdateVpcOriginCommand,
   VerifyDnsConfigurationCommand,
+};
+const paginators = {
+  paginateListCloudFrontOriginAccessIdentities,
+  paginateListConnectionFunctions,
+  paginateListConnectionGroups,
+  paginateListDistributions,
+  paginateListDistributionsByConnectionFunction,
+  paginateListDistributionsByConnectionMode,
+  paginateListDistributionsByTrustStore,
+  paginateListDistributionTenants,
+  paginateListDistributionTenantsByCustomization,
+  paginateListDomainConflicts,
+  paginateListInvalidations,
+  paginateListInvalidationsForDistributionTenant,
+  paginateListKeyValueStores,
+  paginateListOriginAccessControls,
+  paginateListPublicKeys,
+  paginateListStreamingDistributions,
+  paginateListTrustStores,
+};
+const waiters = {
+  waitUntilDistributionDeployed,
+  waitUntilInvalidationCompleted,
+  waitUntilInvalidationForDistributionTenantCompleted,
+  waitUntilStreamingDistributionDeployed,
 };
 
 export interface CloudFront {
@@ -3862,6 +3924,233 @@ export interface CloudFront {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: VerifyDnsConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCloudFrontOriginAccessIdentitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCloudFrontOriginAccessIdentitiesCommandOutput}.
+   */
+  paginateListCloudFrontOriginAccessIdentities(
+    args?: ListCloudFrontOriginAccessIdentitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCloudFrontOriginAccessIdentitiesCommandOutput>;
+
+  /**
+   * @see {@link ListConnectionFunctionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectionFunctionsCommandOutput}.
+   */
+  paginateListConnectionFunctions(
+    args?: ListConnectionFunctionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectionFunctionsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectionGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectionGroupsCommandOutput}.
+   */
+  paginateListConnectionGroups(
+    args?: ListConnectionGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectionGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListDistributionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDistributionsCommandOutput}.
+   */
+  paginateListDistributions(
+    args?: ListDistributionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDistributionsCommandOutput>;
+
+  /**
+   * @see {@link ListDistributionsByConnectionFunctionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDistributionsByConnectionFunctionCommandOutput}.
+   */
+  paginateListDistributionsByConnectionFunction(
+    args: ListDistributionsByConnectionFunctionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDistributionsByConnectionFunctionCommandOutput>;
+
+  /**
+   * @see {@link ListDistributionsByConnectionModeCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDistributionsByConnectionModeCommandOutput}.
+   */
+  paginateListDistributionsByConnectionMode(
+    args: ListDistributionsByConnectionModeCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDistributionsByConnectionModeCommandOutput>;
+
+  /**
+   * @see {@link ListDistributionsByTrustStoreCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDistributionsByTrustStoreCommandOutput}.
+   */
+  paginateListDistributionsByTrustStore(
+    args: ListDistributionsByTrustStoreCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDistributionsByTrustStoreCommandOutput>;
+
+  /**
+   * @see {@link ListDistributionTenantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDistributionTenantsCommandOutput}.
+   */
+  paginateListDistributionTenants(
+    args?: ListDistributionTenantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDistributionTenantsCommandOutput>;
+
+  /**
+   * @see {@link ListDistributionTenantsByCustomizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDistributionTenantsByCustomizationCommandOutput}.
+   */
+  paginateListDistributionTenantsByCustomization(
+    args?: ListDistributionTenantsByCustomizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDistributionTenantsByCustomizationCommandOutput>;
+
+  /**
+   * @see {@link ListDomainConflictsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainConflictsCommandOutput}.
+   */
+  paginateListDomainConflicts(
+    args: ListDomainConflictsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainConflictsCommandOutput>;
+
+  /**
+   * @see {@link ListInvalidationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvalidationsCommandOutput}.
+   */
+  paginateListInvalidations(
+    args: ListInvalidationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvalidationsCommandOutput>;
+
+  /**
+   * @see {@link ListInvalidationsForDistributionTenantCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvalidationsForDistributionTenantCommandOutput}.
+   */
+  paginateListInvalidationsForDistributionTenant(
+    args: ListInvalidationsForDistributionTenantCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvalidationsForDistributionTenantCommandOutput>;
+
+  /**
+   * @see {@link ListKeyValueStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKeyValueStoresCommandOutput}.
+   */
+  paginateListKeyValueStores(
+    args?: ListKeyValueStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKeyValueStoresCommandOutput>;
+
+  /**
+   * @see {@link ListOriginAccessControlsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOriginAccessControlsCommandOutput}.
+   */
+  paginateListOriginAccessControls(
+    args?: ListOriginAccessControlsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOriginAccessControlsCommandOutput>;
+
+  /**
+   * @see {@link ListPublicKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPublicKeysCommandOutput}.
+   */
+  paginateListPublicKeys(
+    args?: ListPublicKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPublicKeysCommandOutput>;
+
+  /**
+   * @see {@link ListStreamingDistributionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamingDistributionsCommandOutput}.
+   */
+  paginateListStreamingDistributions(
+    args?: ListStreamingDistributionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamingDistributionsCommandOutput>;
+
+  /**
+   * @see {@link ListTrustStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrustStoresCommandOutput}.
+   */
+  paginateListTrustStores(
+    args?: ListTrustStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrustStoresCommandOutput>;
+
+  /**
+   * @see {@link GetDistributionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDistributionDeployed(
+    args: GetDistributionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFront>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetInvalidationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInvalidationCompleted(
+    args: GetInvalidationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFront>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetInvalidationForDistributionTenantCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInvalidationForDistributionTenantCompleted(
+    args: GetInvalidationForDistributionTenantCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFront>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetStreamingDistributionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStreamingDistributionDeployed(
+    args: GetStreamingDistributionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFront>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -3869,4 +4158,4 @@ export interface CloudFront {
  * @public
  */
 export class CloudFront extends CloudFrontClient implements CloudFront {}
-createAggregatedClient(commands, CloudFront);
+createAggregatedClient(commands, CloudFront, { paginators, waiters });

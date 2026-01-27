@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchPutMessageCommand,
@@ -169,6 +169,11 @@ import {
   UpdatePipelineCommandOutput,
 } from "./commands/UpdatePipelineCommand";
 import { IoTAnalyticsClient } from "./IoTAnalyticsClient";
+import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListDatasetContents } from "./pagination/ListDatasetContentsPaginator";
+import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
+import { paginateListDatastores } from "./pagination/ListDatastoresPaginator";
+import { paginateListPipelines } from "./pagination/ListPipelinesPaginator";
 
 const commands = {
   BatchPutMessageCommand,
@@ -205,6 +210,13 @@ const commands = {
   UpdateDatasetCommand,
   UpdateDatastoreCommand,
   UpdatePipelineCommand,
+};
+const paginators = {
+  paginateListChannels,
+  paginateListDatasetContents,
+  paginateListDatasets,
+  paginateListDatastores,
+  paginateListPipelines,
 };
 
 export interface IoTAnalytics {
@@ -790,6 +802,61 @@ export interface IoTAnalytics {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsCommandOutput}.
+   */
+  paginateListChannels(
+    args?: ListChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetContentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetContentsCommandOutput}.
+   */
+  paginateListDatasetContents(
+    args: ListDatasetContentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetContentsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetsCommandOutput}.
+   */
+  paginateListDatasets(
+    args?: ListDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetsCommandOutput>;
+
+  /**
+   * @see {@link ListDatastoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatastoresCommandOutput}.
+   */
+  paginateListDatastores(
+    args?: ListDatastoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatastoresCommandOutput>;
+
+  /**
+   * @see {@link ListPipelinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPipelinesCommandOutput}.
+   */
+  paginateListPipelines(
+    args?: ListPipelinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPipelinesCommandOutput>;
 }
 
 /**
@@ -813,4 +880,4 @@ export interface IoTAnalytics {
  * @public
  */
 export class IoTAnalytics extends IoTAnalyticsClient implements IoTAnalytics {}
-createAggregatedClient(commands, IoTAnalytics);
+createAggregatedClient(commands, IoTAnalytics, { paginators });

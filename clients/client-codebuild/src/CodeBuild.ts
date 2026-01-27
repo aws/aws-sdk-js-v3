@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CodeBuildClient } from "./CodeBuildClient";
 import {
@@ -258,6 +258,22 @@ import {
   UpdateWebhookCommandInput,
   UpdateWebhookCommandOutput,
 } from "./commands/UpdateWebhookCommand";
+import { paginateDescribeCodeCoverages } from "./pagination/DescribeCodeCoveragesPaginator";
+import { paginateDescribeTestCases } from "./pagination/DescribeTestCasesPaginator";
+import { paginateListBuildBatchesForProject } from "./pagination/ListBuildBatchesForProjectPaginator";
+import { paginateListBuildBatches } from "./pagination/ListBuildBatchesPaginator";
+import { paginateListBuildsForProject } from "./pagination/ListBuildsForProjectPaginator";
+import { paginateListBuilds } from "./pagination/ListBuildsPaginator";
+import { paginateListCommandExecutionsForSandbox } from "./pagination/ListCommandExecutionsForSandboxPaginator";
+import { paginateListFleets } from "./pagination/ListFleetsPaginator";
+import { paginateListProjects } from "./pagination/ListProjectsPaginator";
+import { paginateListReportGroups } from "./pagination/ListReportGroupsPaginator";
+import { paginateListReportsForReportGroup } from "./pagination/ListReportsForReportGroupPaginator";
+import { paginateListReports } from "./pagination/ListReportsPaginator";
+import { paginateListSandboxesForProject } from "./pagination/ListSandboxesForProjectPaginator";
+import { paginateListSandboxes } from "./pagination/ListSandboxesPaginator";
+import { paginateListSharedProjects } from "./pagination/ListSharedProjectsPaginator";
+import { paginateListSharedReportGroups } from "./pagination/ListSharedReportGroupsPaginator";
 
 const commands = {
   BatchDeleteBuildsCommand,
@@ -319,6 +335,24 @@ const commands = {
   UpdateProjectVisibilityCommand,
   UpdateReportGroupCommand,
   UpdateWebhookCommand,
+};
+const paginators = {
+  paginateDescribeCodeCoverages,
+  paginateDescribeTestCases,
+  paginateListBuildBatches,
+  paginateListBuildBatchesForProject,
+  paginateListBuilds,
+  paginateListBuildsForProject,
+  paginateListCommandExecutionsForSandbox,
+  paginateListFleets,
+  paginateListProjects,
+  paginateListReportGroups,
+  paginateListReports,
+  paginateListReportsForReportGroup,
+  paginateListSandboxes,
+  paginateListSandboxesForProject,
+  paginateListSharedProjects,
+  paginateListSharedReportGroups,
 };
 
 export interface CodeBuild {
@@ -1339,6 +1373,182 @@ export interface CodeBuild {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWebhookCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeCodeCoveragesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCodeCoveragesCommandOutput}.
+   */
+  paginateDescribeCodeCoverages(
+    args: DescribeCodeCoveragesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCodeCoveragesCommandOutput>;
+
+  /**
+   * @see {@link DescribeTestCasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTestCasesCommandOutput}.
+   */
+  paginateDescribeTestCases(
+    args: DescribeTestCasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTestCasesCommandOutput>;
+
+  /**
+   * @see {@link ListBuildBatchesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBuildBatchesCommandOutput}.
+   */
+  paginateListBuildBatches(
+    args?: ListBuildBatchesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBuildBatchesCommandOutput>;
+
+  /**
+   * @see {@link ListBuildBatchesForProjectCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBuildBatchesForProjectCommandOutput}.
+   */
+  paginateListBuildBatchesForProject(
+    args?: ListBuildBatchesForProjectCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBuildBatchesForProjectCommandOutput>;
+
+  /**
+   * @see {@link ListBuildsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBuildsCommandOutput}.
+   */
+  paginateListBuilds(
+    args?: ListBuildsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBuildsCommandOutput>;
+
+  /**
+   * @see {@link ListBuildsForProjectCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBuildsForProjectCommandOutput}.
+   */
+  paginateListBuildsForProject(
+    args: ListBuildsForProjectCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBuildsForProjectCommandOutput>;
+
+  /**
+   * @see {@link ListCommandExecutionsForSandboxCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCommandExecutionsForSandboxCommandOutput}.
+   */
+  paginateListCommandExecutionsForSandbox(
+    args: ListCommandExecutionsForSandboxCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCommandExecutionsForSandboxCommandOutput>;
+
+  /**
+   * @see {@link ListFleetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFleetsCommandOutput}.
+   */
+  paginateListFleets(
+    args?: ListFleetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFleetsCommandOutput>;
+
+  /**
+   * @see {@link ListProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectsCommandOutput}.
+   */
+  paginateListProjects(
+    args?: ListProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectsCommandOutput>;
+
+  /**
+   * @see {@link ListReportGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReportGroupsCommandOutput}.
+   */
+  paginateListReportGroups(
+    args?: ListReportGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReportGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReportsCommandOutput}.
+   */
+  paginateListReports(
+    args?: ListReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReportsCommandOutput>;
+
+  /**
+   * @see {@link ListReportsForReportGroupCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReportsForReportGroupCommandOutput}.
+   */
+  paginateListReportsForReportGroup(
+    args: ListReportsForReportGroupCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReportsForReportGroupCommandOutput>;
+
+  /**
+   * @see {@link ListSandboxesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSandboxesCommandOutput}.
+   */
+  paginateListSandboxes(
+    args?: ListSandboxesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSandboxesCommandOutput>;
+
+  /**
+   * @see {@link ListSandboxesForProjectCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSandboxesForProjectCommandOutput}.
+   */
+  paginateListSandboxesForProject(
+    args: ListSandboxesForProjectCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSandboxesForProjectCommandOutput>;
+
+  /**
+   * @see {@link ListSharedProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSharedProjectsCommandOutput}.
+   */
+  paginateListSharedProjects(
+    args?: ListSharedProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSharedProjectsCommandOutput>;
+
+  /**
+   * @see {@link ListSharedReportGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSharedReportGroupsCommandOutput}.
+   */
+  paginateListSharedReportGroups(
+    args?: ListSharedReportGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSharedReportGroupsCommandOutput>;
 }
 
 /**
@@ -1356,4 +1566,4 @@ export interface CodeBuild {
  * @public
  */
 export class CodeBuild extends CodeBuildClient implements CodeBuild {}
-createAggregatedClient(commands, CodeBuild);
+createAggregatedClient(commands, CodeBuild, { paginators });

@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { ACMClient } from "./ACMClient";
 import {
@@ -83,6 +89,8 @@ import {
   UpdateCertificateOptionsCommandInput,
   UpdateCertificateOptionsCommandOutput,
 } from "./commands/UpdateCertificateOptionsCommand";
+import { paginateListCertificates } from "./pagination/ListCertificatesPaginator";
+import { waitUntilCertificateValidated } from "./waiters/waitForCertificateValidated";
 
 const commands = {
   AddTagsToCertificateCommand,
@@ -101,6 +109,12 @@ const commands = {
   ResendValidationEmailCommand,
   RevokeCertificateCommand,
   UpdateCertificateOptionsCommand,
+};
+const paginators = {
+  paginateListCertificates,
+};
+const waiters = {
+  waitUntilCertificateValidated,
 };
 
 export interface ACM {
@@ -377,6 +391,27 @@ export interface ACM {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCertificateOptionsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCertificatesCommandOutput}.
+   */
+  paginateListCertificates(
+    args?: ListCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCertificatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeCertificateCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCertificateValidated(
+    args: DescribeCertificateCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ACM>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -384,4 +419,4 @@ export interface ACM {
  * @public
  */
 export class ACM extends ACMClient implements ACM {}
-createAggregatedClient(commands, ACM);
+createAggregatedClient(commands, ACM, { paginators, waiters });

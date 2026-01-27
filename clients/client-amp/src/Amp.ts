@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { AmpClient } from "./AmpClient";
 import {
@@ -219,6 +225,16 @@ import {
   UpdateWorkspaceConfigurationCommandInput,
   UpdateWorkspaceConfigurationCommandOutput,
 } from "./commands/UpdateWorkspaceConfigurationCommand";
+import { paginateListAnomalyDetectors } from "./pagination/ListAnomalyDetectorsPaginator";
+import { paginateListRuleGroupsNamespaces } from "./pagination/ListRuleGroupsNamespacesPaginator";
+import { paginateListScrapers } from "./pagination/ListScrapersPaginator";
+import { paginateListWorkspaces } from "./pagination/ListWorkspacesPaginator";
+import { waitUntilAnomalyDetectorActive } from "./waiters/waitForAnomalyDetectorActive";
+import { waitUntilAnomalyDetectorDeleted } from "./waiters/waitForAnomalyDetectorDeleted";
+import { waitUntilScraperActive } from "./waiters/waitForScraperActive";
+import { waitUntilScraperDeleted } from "./waiters/waitForScraperDeleted";
+import { waitUntilWorkspaceActive } from "./waiters/waitForWorkspaceActive";
+import { waitUntilWorkspaceDeleted } from "./waiters/waitForWorkspaceDeleted";
 
 const commands = {
   CreateAlertManagerDefinitionCommand,
@@ -265,6 +281,20 @@ const commands = {
   UpdateScraperLoggingConfigurationCommand,
   UpdateWorkspaceAliasCommand,
   UpdateWorkspaceConfigurationCommand,
+};
+const paginators = {
+  paginateListAnomalyDetectors,
+  paginateListRuleGroupsNamespaces,
+  paginateListScrapers,
+  paginateListWorkspaces,
+};
+const waiters = {
+  waitUntilAnomalyDetectorActive,
+  waitUntilAnomalyDetectorDeleted,
+  waitUntilScraperActive,
+  waitUntilScraperDeleted,
+  waitUntilWorkspaceActive,
+  waitUntilWorkspaceDeleted,
 };
 
 export interface Amp {
@@ -1019,6 +1049,110 @@ export interface Amp {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkspaceConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAnomalyDetectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnomalyDetectorsCommandOutput}.
+   */
+  paginateListAnomalyDetectors(
+    args: ListAnomalyDetectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnomalyDetectorsCommandOutput>;
+
+  /**
+   * @see {@link ListRuleGroupsNamespacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRuleGroupsNamespacesCommandOutput}.
+   */
+  paginateListRuleGroupsNamespaces(
+    args: ListRuleGroupsNamespacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRuleGroupsNamespacesCommandOutput>;
+
+  /**
+   * @see {@link ListScrapersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScrapersCommandOutput}.
+   */
+  paginateListScrapers(
+    args?: ListScrapersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScrapersCommandOutput>;
+
+  /**
+   * @see {@link ListWorkspacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkspacesCommandOutput}.
+   */
+  paginateListWorkspaces(
+    args?: ListWorkspacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkspacesCommandOutput>;
+
+  /**
+   * @see {@link DescribeAnomalyDetectorCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAnomalyDetectorActive(
+    args: DescribeAnomalyDetectorCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeAnomalyDetectorCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAnomalyDetectorDeleted(
+    args: DescribeAnomalyDetectorCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeScraperCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilScraperActive(
+    args: DescribeScraperCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeScraperCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilScraperDeleted(
+    args: DescribeScraperCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeWorkspaceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilWorkspaceActive(
+    args: DescribeWorkspaceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeWorkspaceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilWorkspaceDeleted(
+    args: DescribeWorkspaceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Amp>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1026,4 +1160,4 @@ export interface Amp {
  * @public
  */
 export class Amp extends AmpClient implements Amp {}
-createAggregatedClient(commands, Amp);
+createAggregatedClient(commands, Amp, { paginators, waiters });

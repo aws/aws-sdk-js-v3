@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateFraudsterCommand,
@@ -139,6 +139,12 @@ import {
   UpdateWatchlistCommandInput,
   UpdateWatchlistCommandOutput,
 } from "./commands/UpdateWatchlistCommand";
+import { paginateListDomains } from "./pagination/ListDomainsPaginator";
+import { paginateListFraudsterRegistrationJobs } from "./pagination/ListFraudsterRegistrationJobsPaginator";
+import { paginateListFraudsters } from "./pagination/ListFraudstersPaginator";
+import { paginateListSpeakerEnrollmentJobs } from "./pagination/ListSpeakerEnrollmentJobsPaginator";
+import { paginateListSpeakers } from "./pagination/ListSpeakersPaginator";
+import { paginateListWatchlists } from "./pagination/ListWatchlistsPaginator";
 import { VoiceIDClient } from "./VoiceIDClient";
 
 const commands = {
@@ -171,6 +177,14 @@ const commands = {
   UntagResourceCommand,
   UpdateDomainCommand,
   UpdateWatchlistCommand,
+};
+const paginators = {
+  paginateListDomains,
+  paginateListFraudsterRegistrationJobs,
+  paginateListFraudsters,
+  paginateListSpeakerEnrollmentJobs,
+  paginateListSpeakers,
+  paginateListWatchlists,
 };
 
 export interface VoiceID {
@@ -667,6 +681,72 @@ export interface VoiceID {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWatchlistCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainsCommandOutput}.
+   */
+  paginateListDomains(
+    args?: ListDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListFraudsterRegistrationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFraudsterRegistrationJobsCommandOutput}.
+   */
+  paginateListFraudsterRegistrationJobs(
+    args: ListFraudsterRegistrationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFraudsterRegistrationJobsCommandOutput>;
+
+  /**
+   * @see {@link ListFraudstersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFraudstersCommandOutput}.
+   */
+  paginateListFraudsters(
+    args: ListFraudstersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFraudstersCommandOutput>;
+
+  /**
+   * @see {@link ListSpeakerEnrollmentJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSpeakerEnrollmentJobsCommandOutput}.
+   */
+  paginateListSpeakerEnrollmentJobs(
+    args: ListSpeakerEnrollmentJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSpeakerEnrollmentJobsCommandOutput>;
+
+  /**
+   * @see {@link ListSpeakersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSpeakersCommandOutput}.
+   */
+  paginateListSpeakers(
+    args: ListSpeakersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSpeakersCommandOutput>;
+
+  /**
+   * @see {@link ListWatchlistsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWatchlistsCommandOutput}.
+   */
+  paginateListWatchlists(
+    args: ListWatchlistsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWatchlistsCommandOutput>;
 }
 
 /**
@@ -675,4 +755,4 @@ export interface VoiceID {
  * @public
  */
 export class VoiceID extends VoiceIDClient implements VoiceID {}
-createAggregatedClient(commands, VoiceID);
+createAggregatedClient(commands, VoiceID, { paginators });

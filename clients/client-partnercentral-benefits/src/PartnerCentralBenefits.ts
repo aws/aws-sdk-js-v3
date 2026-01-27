@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AmendBenefitApplicationCommand,
@@ -79,6 +79,9 @@ import {
   UpdateBenefitApplicationCommandInput,
   UpdateBenefitApplicationCommandOutput,
 } from "./commands/UpdateBenefitApplicationCommand";
+import { paginateListBenefitAllocations } from "./pagination/ListBenefitAllocationsPaginator";
+import { paginateListBenefitApplications } from "./pagination/ListBenefitApplicationsPaginator";
+import { paginateListBenefits } from "./pagination/ListBenefitsPaginator";
 import { PartnerCentralBenefitsClient } from "./PartnerCentralBenefitsClient";
 
 const commands = {
@@ -99,6 +102,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateBenefitApplicationCommand,
+};
+const paginators = {
+  paginateListBenefitAllocations,
+  paginateListBenefitApplications,
+  paginateListBenefits,
 };
 
 export interface PartnerCentralBenefits {
@@ -390,6 +398,39 @@ export interface PartnerCentralBenefits {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateBenefitApplicationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBenefitAllocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBenefitAllocationsCommandOutput}.
+   */
+  paginateListBenefitAllocations(
+    args: ListBenefitAllocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBenefitAllocationsCommandOutput>;
+
+  /**
+   * @see {@link ListBenefitApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBenefitApplicationsCommandOutput}.
+   */
+  paginateListBenefitApplications(
+    args: ListBenefitApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBenefitApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListBenefitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBenefitsCommandOutput}.
+   */
+  paginateListBenefits(
+    args: ListBenefitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBenefitsCommandOutput>;
 }
 
 /**
@@ -397,4 +438,4 @@ export interface PartnerCentralBenefits {
  * @public
  */
 export class PartnerCentralBenefits extends PartnerCentralBenefitsClient implements PartnerCentralBenefits {}
-createAggregatedClient(commands, PartnerCentralBenefits);
+createAggregatedClient(commands, PartnerCentralBenefits, { paginators });

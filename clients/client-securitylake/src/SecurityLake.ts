@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateAwsLogSourceCommand,
@@ -153,6 +153,10 @@ import {
   UpdateSubscriberNotificationCommandInput,
   UpdateSubscriberNotificationCommandOutput,
 } from "./commands/UpdateSubscriberNotificationCommand";
+import { paginateGetDataLakeSources } from "./pagination/GetDataLakeSourcesPaginator";
+import { paginateListDataLakeExceptions } from "./pagination/ListDataLakeExceptionsPaginator";
+import { paginateListLogSources } from "./pagination/ListLogSourcesPaginator";
+import { paginateListSubscribers } from "./pagination/ListSubscribersPaginator";
 import { SecurityLakeClient } from "./SecurityLakeClient";
 
 const commands = {
@@ -187,6 +191,12 @@ const commands = {
   UpdateDataLakeExceptionSubscriptionCommand,
   UpdateSubscriberCommand,
   UpdateSubscriberNotificationCommand,
+};
+const paginators = {
+  paginateGetDataLakeSources,
+  paginateListDataLakeExceptions,
+  paginateListLogSources,
+  paginateListSubscribers,
 };
 
 export interface SecurityLake {
@@ -727,6 +737,50 @@ export interface SecurityLake {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSubscriberNotificationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetDataLakeSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDataLakeSourcesCommandOutput}.
+   */
+  paginateGetDataLakeSources(
+    args?: GetDataLakeSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDataLakeSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListDataLakeExceptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataLakeExceptionsCommandOutput}.
+   */
+  paginateListDataLakeExceptions(
+    args?: ListDataLakeExceptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataLakeExceptionsCommandOutput>;
+
+  /**
+   * @see {@link ListLogSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLogSourcesCommandOutput}.
+   */
+  paginateListLogSources(
+    args?: ListLogSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLogSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListSubscribersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubscribersCommandOutput}.
+   */
+  paginateListSubscribers(
+    args?: ListSubscribersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubscribersCommandOutput>;
 }
 
 /**
@@ -759,4 +813,4 @@ export interface SecurityLake {
  * @public
  */
 export class SecurityLake extends SecurityLakeClient implements SecurityLake {}
-createAggregatedClient(commands, SecurityLake);
+createAggregatedClient(commands, SecurityLake, { paginators });

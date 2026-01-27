@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ChimeSDKVoiceClient } from "./ChimeSDKVoiceClient";
 import {
@@ -475,6 +475,16 @@ import {
   ValidateE911AddressCommandInput,
   ValidateE911AddressCommandOutput,
 } from "./commands/ValidateE911AddressCommand";
+import { paginateListPhoneNumberOrders } from "./pagination/ListPhoneNumberOrdersPaginator";
+import { paginateListPhoneNumbers } from "./pagination/ListPhoneNumbersPaginator";
+import { paginateListProxySessions } from "./pagination/ListProxySessionsPaginator";
+import { paginateListSipMediaApplications } from "./pagination/ListSipMediaApplicationsPaginator";
+import { paginateListSipRules } from "./pagination/ListSipRulesPaginator";
+import { paginateListVoiceConnectorGroups } from "./pagination/ListVoiceConnectorGroupsPaginator";
+import { paginateListVoiceConnectors } from "./pagination/ListVoiceConnectorsPaginator";
+import { paginateListVoiceProfileDomains } from "./pagination/ListVoiceProfileDomainsPaginator";
+import { paginateListVoiceProfiles } from "./pagination/ListVoiceProfilesPaginator";
+import { paginateSearchAvailablePhoneNumbers } from "./pagination/SearchAvailablePhoneNumbersPaginator";
 
 const commands = {
   AssociatePhoneNumbersWithVoiceConnectorCommand,
@@ -573,6 +583,18 @@ const commands = {
   UpdateVoiceProfileCommand,
   UpdateVoiceProfileDomainCommand,
   ValidateE911AddressCommand,
+};
+const paginators = {
+  paginateListPhoneNumberOrders,
+  paginateListPhoneNumbers,
+  paginateListProxySessions,
+  paginateListSipMediaApplications,
+  paginateListSipRules,
+  paginateListVoiceConnectorGroups,
+  paginateListVoiceConnectors,
+  paginateListVoiceProfileDomains,
+  paginateListVoiceProfiles,
+  paginateSearchAvailablePhoneNumbers,
 };
 
 export interface ChimeSDKVoice {
@@ -2219,6 +2241,116 @@ export interface ChimeSDKVoice {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateE911AddressCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListPhoneNumberOrdersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPhoneNumberOrdersCommandOutput}.
+   */
+  paginateListPhoneNumberOrders(
+    args?: ListPhoneNumberOrdersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPhoneNumberOrdersCommandOutput>;
+
+  /**
+   * @see {@link ListPhoneNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPhoneNumbersCommandOutput}.
+   */
+  paginateListPhoneNumbers(
+    args?: ListPhoneNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPhoneNumbersCommandOutput>;
+
+  /**
+   * @see {@link ListProxySessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProxySessionsCommandOutput}.
+   */
+  paginateListProxySessions(
+    args: ListProxySessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProxySessionsCommandOutput>;
+
+  /**
+   * @see {@link ListSipMediaApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSipMediaApplicationsCommandOutput}.
+   */
+  paginateListSipMediaApplications(
+    args?: ListSipMediaApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSipMediaApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListSipRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSipRulesCommandOutput}.
+   */
+  paginateListSipRules(
+    args?: ListSipRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSipRulesCommandOutput>;
+
+  /**
+   * @see {@link ListVoiceConnectorGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVoiceConnectorGroupsCommandOutput}.
+   */
+  paginateListVoiceConnectorGroups(
+    args?: ListVoiceConnectorGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVoiceConnectorGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListVoiceConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVoiceConnectorsCommandOutput}.
+   */
+  paginateListVoiceConnectors(
+    args?: ListVoiceConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVoiceConnectorsCommandOutput>;
+
+  /**
+   * @see {@link ListVoiceProfileDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVoiceProfileDomainsCommandOutput}.
+   */
+  paginateListVoiceProfileDomains(
+    args?: ListVoiceProfileDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVoiceProfileDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListVoiceProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVoiceProfilesCommandOutput}.
+   */
+  paginateListVoiceProfiles(
+    args: ListVoiceProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVoiceProfilesCommandOutput>;
+
+  /**
+   * @see {@link SearchAvailablePhoneNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchAvailablePhoneNumbersCommandOutput}.
+   */
+  paginateSearchAvailablePhoneNumbers(
+    args?: SearchAvailablePhoneNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchAvailablePhoneNumbersCommandOutput>;
 }
 
 /**
@@ -2227,4 +2359,4 @@ export interface ChimeSDKVoice {
  * @public
  */
 export class ChimeSDKVoice extends ChimeSDKVoiceClient implements ChimeSDKVoice {}
-createAggregatedClient(commands, ChimeSDKVoice);
+createAggregatedClient(commands, ChimeSDKVoice, { paginators });

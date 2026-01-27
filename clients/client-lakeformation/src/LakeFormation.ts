@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddLFTagsToResourceCommand,
@@ -288,6 +288,19 @@ import {
   UpdateTableStorageOptimizerCommandOutput,
 } from "./commands/UpdateTableStorageOptimizerCommand";
 import { LakeFormationClient } from "./LakeFormationClient";
+import { paginateGetEffectivePermissionsForPath } from "./pagination/GetEffectivePermissionsForPathPaginator";
+import { paginateGetTableObjects } from "./pagination/GetTableObjectsPaginator";
+import { paginateGetWorkUnits } from "./pagination/GetWorkUnitsPaginator";
+import { paginateListDataCellsFilter } from "./pagination/ListDataCellsFilterPaginator";
+import { paginateListLakeFormationOptIns } from "./pagination/ListLakeFormationOptInsPaginator";
+import { paginateListLFTagExpressions } from "./pagination/ListLFTagExpressionsPaginator";
+import { paginateListLFTags } from "./pagination/ListLFTagsPaginator";
+import { paginateListPermissions } from "./pagination/ListPermissionsPaginator";
+import { paginateListResources } from "./pagination/ListResourcesPaginator";
+import { paginateListTableStorageOptimizers } from "./pagination/ListTableStorageOptimizersPaginator";
+import { paginateListTransactions } from "./pagination/ListTransactionsPaginator";
+import { paginateSearchDatabasesByLFTags } from "./pagination/SearchDatabasesByLFTagsPaginator";
+import { paginateSearchTablesByLFTags } from "./pagination/SearchTablesByLFTagsPaginator";
 
 const commands = {
   AddLFTagsToResourceCommand,
@@ -351,6 +364,21 @@ const commands = {
   UpdateResourceCommand,
   UpdateTableObjectsCommand,
   UpdateTableStorageOptimizerCommand,
+};
+const paginators = {
+  paginateGetEffectivePermissionsForPath,
+  paginateGetTableObjects,
+  paginateGetWorkUnits,
+  paginateListDataCellsFilter,
+  paginateListLakeFormationOptIns,
+  paginateListLFTagExpressions,
+  paginateListLFTags,
+  paginateListPermissions,
+  paginateListResources,
+  paginateListTableStorageOptimizers,
+  paginateListTransactions,
+  paginateSearchDatabasesByLFTags,
+  paginateSearchTablesByLFTags,
 };
 
 export interface LakeFormation {
@@ -1407,6 +1435,149 @@ export interface LakeFormation {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTableStorageOptimizerCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetEffectivePermissionsForPathCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetEffectivePermissionsForPathCommandOutput}.
+   */
+  paginateGetEffectivePermissionsForPath(
+    args: GetEffectivePermissionsForPathCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetEffectivePermissionsForPathCommandOutput>;
+
+  /**
+   * @see {@link GetTableObjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTableObjectsCommandOutput}.
+   */
+  paginateGetTableObjects(
+    args: GetTableObjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTableObjectsCommandOutput>;
+
+  /**
+   * @see {@link GetWorkUnitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetWorkUnitsCommandOutput}.
+   */
+  paginateGetWorkUnits(
+    args: GetWorkUnitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetWorkUnitsCommandOutput>;
+
+  /**
+   * @see {@link ListDataCellsFilterCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataCellsFilterCommandOutput}.
+   */
+  paginateListDataCellsFilter(
+    args?: ListDataCellsFilterCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataCellsFilterCommandOutput>;
+
+  /**
+   * @see {@link ListLakeFormationOptInsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLakeFormationOptInsCommandOutput}.
+   */
+  paginateListLakeFormationOptIns(
+    args?: ListLakeFormationOptInsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLakeFormationOptInsCommandOutput>;
+
+  /**
+   * @see {@link ListLFTagExpressionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLFTagExpressionsCommandOutput}.
+   */
+  paginateListLFTagExpressions(
+    args?: ListLFTagExpressionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLFTagExpressionsCommandOutput>;
+
+  /**
+   * @see {@link ListLFTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLFTagsCommandOutput}.
+   */
+  paginateListLFTags(
+    args?: ListLFTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLFTagsCommandOutput>;
+
+  /**
+   * @see {@link ListPermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPermissionsCommandOutput}.
+   */
+  paginateListPermissions(
+    args?: ListPermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPermissionsCommandOutput>;
+
+  /**
+   * @see {@link ListResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcesCommandOutput}.
+   */
+  paginateListResources(
+    args?: ListResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListTableStorageOptimizersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTableStorageOptimizersCommandOutput}.
+   */
+  paginateListTableStorageOptimizers(
+    args: ListTableStorageOptimizersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTableStorageOptimizersCommandOutput>;
+
+  /**
+   * @see {@link ListTransactionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTransactionsCommandOutput}.
+   */
+  paginateListTransactions(
+    args?: ListTransactionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTransactionsCommandOutput>;
+
+  /**
+   * @see {@link SearchDatabasesByLFTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchDatabasesByLFTagsCommandOutput}.
+   */
+  paginateSearchDatabasesByLFTags(
+    args: SearchDatabasesByLFTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchDatabasesByLFTagsCommandOutput>;
+
+  /**
+   * @see {@link SearchTablesByLFTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchTablesByLFTagsCommandOutput}.
+   */
+  paginateSearchTablesByLFTags(
+    args: SearchTablesByLFTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchTablesByLFTagsCommandOutput>;
 }
 
 /**
@@ -1415,4 +1586,4 @@ export interface LakeFormation {
  * @public
  */
 export class LakeFormation extends LakeFormationClient implements LakeFormation {}
-createAggregatedClient(commands, LakeFormation);
+createAggregatedClient(commands, LakeFormation, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AbortDocumentVersionUploadCommand,
@@ -202,6 +202,16 @@ import {
   UpdateFolderCommandOutput,
 } from "./commands/UpdateFolderCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import { paginateDescribeActivities } from "./pagination/DescribeActivitiesPaginator";
+import { paginateDescribeComments } from "./pagination/DescribeCommentsPaginator";
+import { paginateDescribeDocumentVersions } from "./pagination/DescribeDocumentVersionsPaginator";
+import { paginateDescribeFolderContents } from "./pagination/DescribeFolderContentsPaginator";
+import { paginateDescribeGroups } from "./pagination/DescribeGroupsPaginator";
+import { paginateDescribeNotificationSubscriptions } from "./pagination/DescribeNotificationSubscriptionsPaginator";
+import { paginateDescribeResourcePermissions } from "./pagination/DescribeResourcePermissionsPaginator";
+import { paginateDescribeRootFolders } from "./pagination/DescribeRootFoldersPaginator";
+import { paginateDescribeUsers } from "./pagination/DescribeUsersPaginator";
+import { paginateSearchResources } from "./pagination/SearchResourcesPaginator";
 import { WorkDocsClient } from "./WorkDocsClient";
 
 const commands = {
@@ -249,6 +259,18 @@ const commands = {
   UpdateDocumentVersionCommand,
   UpdateFolderCommand,
   UpdateUserCommand,
+};
+const paginators = {
+  paginateDescribeActivities,
+  paginateDescribeComments,
+  paginateDescribeDocumentVersions,
+  paginateDescribeFolderContents,
+  paginateDescribeGroups,
+  paginateDescribeNotificationSubscriptions,
+  paginateDescribeResourcePermissions,
+  paginateDescribeRootFolders,
+  paginateDescribeUsers,
+  paginateSearchResources,
 };
 
 export interface WorkDocs {
@@ -1004,6 +1026,116 @@ export interface WorkDocs {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeActivitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeActivitiesCommandOutput}.
+   */
+  paginateDescribeActivities(
+    args?: DescribeActivitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeActivitiesCommandOutput>;
+
+  /**
+   * @see {@link DescribeCommentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCommentsCommandOutput}.
+   */
+  paginateDescribeComments(
+    args: DescribeCommentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCommentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDocumentVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDocumentVersionsCommandOutput}.
+   */
+  paginateDescribeDocumentVersions(
+    args: DescribeDocumentVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDocumentVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFolderContentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFolderContentsCommandOutput}.
+   */
+  paginateDescribeFolderContents(
+    args: DescribeFolderContentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFolderContentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeGroupsCommandOutput}.
+   */
+  paginateDescribeGroups(
+    args: DescribeGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeNotificationSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNotificationSubscriptionsCommandOutput}.
+   */
+  paginateDescribeNotificationSubscriptions(
+    args: DescribeNotificationSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNotificationSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeResourcePermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeResourcePermissionsCommandOutput}.
+   */
+  paginateDescribeResourcePermissions(
+    args: DescribeResourcePermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeResourcePermissionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRootFoldersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRootFoldersCommandOutput}.
+   */
+  paginateDescribeRootFolders(
+    args: DescribeRootFoldersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRootFoldersCommandOutput>;
+
+  /**
+   * @see {@link DescribeUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeUsersCommandOutput}.
+   */
+  paginateDescribeUsers(
+    args?: DescribeUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeUsersCommandOutput>;
+
+  /**
+   * @see {@link SearchResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchResourcesCommandOutput}.
+   */
+  paginateSearchResources(
+    args?: SearchResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchResourcesCommandOutput>;
 }
 
 /**
@@ -1069,4 +1201,4 @@ export interface WorkDocs {
  * @public
  */
 export class WorkDocs extends WorkDocsClient implements WorkDocs {}
-createAggregatedClient(commands, WorkDocs);
+createAggregatedClient(commands, WorkDocs, { paginators });

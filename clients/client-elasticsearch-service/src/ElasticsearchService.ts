@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptInboundCrossClusterSearchConnectionCommand,
@@ -246,6 +246,26 @@ import {
   UpgradeElasticsearchDomainCommandOutput,
 } from "./commands/UpgradeElasticsearchDomainCommand";
 import { ElasticsearchServiceClient } from "./ElasticsearchServiceClient";
+import { paginateDescribeDomainAutoTunes } from "./pagination/DescribeDomainAutoTunesPaginator";
+import {
+  paginateDescribeInboundCrossClusterSearchConnections,
+} from "./pagination/DescribeInboundCrossClusterSearchConnectionsPaginator";
+import {
+  paginateDescribeOutboundCrossClusterSearchConnections,
+} from "./pagination/DescribeOutboundCrossClusterSearchConnectionsPaginator";
+import { paginateDescribePackages } from "./pagination/DescribePackagesPaginator";
+import {
+  paginateDescribeReservedElasticsearchInstanceOfferings,
+} from "./pagination/DescribeReservedElasticsearchInstanceOfferingsPaginator";
+import {
+  paginateDescribeReservedElasticsearchInstances,
+} from "./pagination/DescribeReservedElasticsearchInstancesPaginator";
+import { paginateGetPackageVersionHistory } from "./pagination/GetPackageVersionHistoryPaginator";
+import { paginateGetUpgradeHistory } from "./pagination/GetUpgradeHistoryPaginator";
+import { paginateListDomainsForPackage } from "./pagination/ListDomainsForPackagePaginator";
+import { paginateListElasticsearchInstanceTypes } from "./pagination/ListElasticsearchInstanceTypesPaginator";
+import { paginateListElasticsearchVersions } from "./pagination/ListElasticsearchVersionsPaginator";
+import { paginateListPackagesForDomain } from "./pagination/ListPackagesForDomainPaginator";
 
 const commands = {
   AcceptInboundCrossClusterSearchConnectionCommand,
@@ -299,6 +319,20 @@ const commands = {
   UpdatePackageCommand,
   UpdateVpcEndpointCommand,
   UpgradeElasticsearchDomainCommand,
+};
+const paginators = {
+  paginateDescribeDomainAutoTunes,
+  paginateDescribeInboundCrossClusterSearchConnections,
+  paginateDescribeOutboundCrossClusterSearchConnections,
+  paginateDescribePackages,
+  paginateDescribeReservedElasticsearchInstanceOfferings,
+  paginateDescribeReservedElasticsearchInstances,
+  paginateGetPackageVersionHistory,
+  paginateGetUpgradeHistory,
+  paginateListDomainsForPackage,
+  paginateListElasticsearchInstanceTypes,
+  paginateListElasticsearchVersions,
+  paginateListPackagesForDomain,
 };
 
 export interface ElasticsearchService {
@@ -1178,6 +1212,138 @@ export interface ElasticsearchService {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeDomainAutoTunesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDomainAutoTunesCommandOutput}.
+   */
+  paginateDescribeDomainAutoTunes(
+    args: DescribeDomainAutoTunesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDomainAutoTunesCommandOutput>;
+
+  /**
+   * @see {@link DescribeInboundCrossClusterSearchConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInboundCrossClusterSearchConnectionsCommandOutput}.
+   */
+  paginateDescribeInboundCrossClusterSearchConnections(
+    args?: DescribeInboundCrossClusterSearchConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInboundCrossClusterSearchConnectionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeOutboundCrossClusterSearchConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOutboundCrossClusterSearchConnectionsCommandOutput}.
+   */
+  paginateDescribeOutboundCrossClusterSearchConnections(
+    args?: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOutboundCrossClusterSearchConnectionsCommandOutput>;
+
+  /**
+   * @see {@link DescribePackagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePackagesCommandOutput}.
+   */
+  paginateDescribePackages(
+    args?: DescribePackagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePackagesCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedElasticsearchInstanceOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedElasticsearchInstanceOfferingsCommandOutput}.
+   */
+  paginateDescribeReservedElasticsearchInstanceOfferings(
+    args?: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedElasticsearchInstanceOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedElasticsearchInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedElasticsearchInstancesCommandOutput}.
+   */
+  paginateDescribeReservedElasticsearchInstances(
+    args?: DescribeReservedElasticsearchInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedElasticsearchInstancesCommandOutput>;
+
+  /**
+   * @see {@link GetPackageVersionHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetPackageVersionHistoryCommandOutput}.
+   */
+  paginateGetPackageVersionHistory(
+    args: GetPackageVersionHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetPackageVersionHistoryCommandOutput>;
+
+  /**
+   * @see {@link GetUpgradeHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetUpgradeHistoryCommandOutput}.
+   */
+  paginateGetUpgradeHistory(
+    args: GetUpgradeHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetUpgradeHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListDomainsForPackageCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainsForPackageCommandOutput}.
+   */
+  paginateListDomainsForPackage(
+    args: ListDomainsForPackageCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainsForPackageCommandOutput>;
+
+  /**
+   * @see {@link ListElasticsearchInstanceTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListElasticsearchInstanceTypesCommandOutput}.
+   */
+  paginateListElasticsearchInstanceTypes(
+    args: ListElasticsearchInstanceTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListElasticsearchInstanceTypesCommandOutput>;
+
+  /**
+   * @see {@link ListElasticsearchVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListElasticsearchVersionsCommandOutput}.
+   */
+  paginateListElasticsearchVersions(
+    args?: ListElasticsearchVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListElasticsearchVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListPackagesForDomainCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackagesForDomainCommandOutput}.
+   */
+  paginateListPackagesForDomain(
+    args: ListPackagesForDomainCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackagesForDomainCommandOutput>;
 }
 
 /**
@@ -1191,4 +1357,4 @@ export interface ElasticsearchService {
  * @public
  */
 export class ElasticsearchService extends ElasticsearchServiceClient implements ElasticsearchService {}
-createAggregatedClient(commands, ElasticsearchService);
+createAggregatedClient(commands, ElasticsearchService, { paginators });

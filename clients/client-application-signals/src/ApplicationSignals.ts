@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ApplicationSignalsClient } from "./ApplicationSignalsClient";
 import {
@@ -110,6 +110,16 @@ import {
   UpdateServiceLevelObjectiveCommandInput,
   UpdateServiceLevelObjectiveCommandOutput,
 } from "./commands/UpdateServiceLevelObjectiveCommand";
+import { paginateListEntityEvents } from "./pagination/ListEntityEventsPaginator";
+import { paginateListServiceDependencies } from "./pagination/ListServiceDependenciesPaginator";
+import { paginateListServiceDependents } from "./pagination/ListServiceDependentsPaginator";
+import {
+  paginateListServiceLevelObjectiveExclusionWindows,
+} from "./pagination/ListServiceLevelObjectiveExclusionWindowsPaginator";
+import { paginateListServiceLevelObjectives } from "./pagination/ListServiceLevelObjectivesPaginator";
+import { paginateListServiceOperations } from "./pagination/ListServiceOperationsPaginator";
+import { paginateListServices } from "./pagination/ListServicesPaginator";
+import { paginateListServiceStates } from "./pagination/ListServiceStatesPaginator";
 
 const commands = {
   BatchGetServiceLevelObjectiveBudgetReportCommand,
@@ -135,6 +145,16 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateServiceLevelObjectiveCommand,
+};
+const paginators = {
+  paginateListEntityEvents,
+  paginateListServiceDependencies,
+  paginateListServiceDependents,
+  paginateListServiceLevelObjectiveExclusionWindows,
+  paginateListServiceLevelObjectives,
+  paginateListServiceOperations,
+  paginateListServices,
+  paginateListServiceStates,
 };
 
 export interface ApplicationSignals {
@@ -532,6 +552,94 @@ export interface ApplicationSignals {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceLevelObjectiveCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListEntityEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntityEventsCommandOutput}.
+   */
+  paginateListEntityEvents(
+    args: ListEntityEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntityEventsCommandOutput>;
+
+  /**
+   * @see {@link ListServiceDependenciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceDependenciesCommandOutput}.
+   */
+  paginateListServiceDependencies(
+    args: ListServiceDependenciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceDependenciesCommandOutput>;
+
+  /**
+   * @see {@link ListServiceDependentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceDependentsCommandOutput}.
+   */
+  paginateListServiceDependents(
+    args: ListServiceDependentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceDependentsCommandOutput>;
+
+  /**
+   * @see {@link ListServiceLevelObjectiveExclusionWindowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceLevelObjectiveExclusionWindowsCommandOutput}.
+   */
+  paginateListServiceLevelObjectiveExclusionWindows(
+    args: ListServiceLevelObjectiveExclusionWindowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceLevelObjectiveExclusionWindowsCommandOutput>;
+
+  /**
+   * @see {@link ListServiceLevelObjectivesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceLevelObjectivesCommandOutput}.
+   */
+  paginateListServiceLevelObjectives(
+    args?: ListServiceLevelObjectivesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceLevelObjectivesCommandOutput>;
+
+  /**
+   * @see {@link ListServiceOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceOperationsCommandOutput}.
+   */
+  paginateListServiceOperations(
+    args: ListServiceOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicesCommandOutput}.
+   */
+  paginateListServices(
+    args: ListServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicesCommandOutput>;
+
+  /**
+   * @see {@link ListServiceStatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceStatesCommandOutput}.
+   */
+  paginateListServiceStates(
+    args: ListServiceStatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceStatesCommandOutput>;
 }
 
 /**
@@ -539,4 +647,4 @@ export interface ApplicationSignals {
  * @public
  */
 export class ApplicationSignals extends ApplicationSignalsClient implements ApplicationSignals {}
-createAggregatedClient(commands, ApplicationSignals);
+createAggregatedClient(commands, ApplicationSignals, { paginators });

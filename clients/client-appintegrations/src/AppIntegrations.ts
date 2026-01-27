@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AppIntegrationsClient } from "./AppIntegrationsClient";
 import {
@@ -114,6 +114,12 @@ import {
   UpdateEventIntegrationCommandInput,
   UpdateEventIntegrationCommandOutput,
 } from "./commands/UpdateEventIntegrationCommand";
+import { paginateListApplicationAssociations } from "./pagination/ListApplicationAssociationsPaginator";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListDataIntegrationAssociations } from "./pagination/ListDataIntegrationAssociationsPaginator";
+import { paginateListDataIntegrations } from "./pagination/ListDataIntegrationsPaginator";
+import { paginateListEventIntegrationAssociations } from "./pagination/ListEventIntegrationAssociationsPaginator";
+import { paginateListEventIntegrations } from "./pagination/ListEventIntegrationsPaginator";
 
 const commands = {
   CreateApplicationCommand,
@@ -139,6 +145,14 @@ const commands = {
   UpdateDataIntegrationCommand,
   UpdateDataIntegrationAssociationCommand,
   UpdateEventIntegrationCommand,
+};
+const paginators = {
+  paginateListApplicationAssociations,
+  paginateListApplications,
+  paginateListDataIntegrationAssociations,
+  paginateListDataIntegrations,
+  paginateListEventIntegrationAssociations,
+  paginateListEventIntegrations,
 };
 
 export interface AppIntegrations {
@@ -535,6 +549,72 @@ export interface AppIntegrations {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEventIntegrationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationAssociationsCommandOutput}.
+   */
+  paginateListApplicationAssociations(
+    args: ListApplicationAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListDataIntegrationAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataIntegrationAssociationsCommandOutput}.
+   */
+  paginateListDataIntegrationAssociations(
+    args: ListDataIntegrationAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataIntegrationAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListDataIntegrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataIntegrationsCommandOutput}.
+   */
+  paginateListDataIntegrations(
+    args?: ListDataIntegrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataIntegrationsCommandOutput>;
+
+  /**
+   * @see {@link ListEventIntegrationAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventIntegrationAssociationsCommandOutput}.
+   */
+  paginateListEventIntegrationAssociations(
+    args: ListEventIntegrationAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventIntegrationAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListEventIntegrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventIntegrationsCommandOutput}.
+   */
+  paginateListEventIntegrations(
+    args?: ListEventIntegrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventIntegrationsCommandOutput>;
 }
 
 /**
@@ -575,4 +655,4 @@ export interface AppIntegrations {
  * @public
  */
 export class AppIntegrations extends AppIntegrationsClient implements AppIntegrations {}
-createAggregatedClient(commands, AppIntegrations);
+createAggregatedClient(commands, AppIntegrations, { paginators });

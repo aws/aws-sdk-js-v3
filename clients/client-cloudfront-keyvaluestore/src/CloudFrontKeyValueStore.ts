@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CloudFrontKeyValueStoreClient } from "./CloudFrontKeyValueStoreClient";
 import { DeleteKeyCommand, DeleteKeyCommandInput, DeleteKeyCommandOutput } from "./commands/DeleteKeyCommand";
@@ -13,6 +13,7 @@ import { GetKeyCommand, GetKeyCommandInput, GetKeyCommandOutput } from "./comman
 import { ListKeysCommand, ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
 import { PutKeyCommand, PutKeyCommandInput, PutKeyCommandOutput } from "./commands/PutKeyCommand";
 import { UpdateKeysCommand, UpdateKeysCommandInput, UpdateKeysCommandOutput } from "./commands/UpdateKeysCommand";
+import { paginateListKeys } from "./pagination/ListKeysPaginator";
 
 const commands = {
   DeleteKeyCommand,
@@ -21,6 +22,9 @@ const commands = {
   ListKeysCommand,
   PutKeyCommand,
   UpdateKeysCommand,
+};
+const paginators = {
+  paginateListKeys,
 };
 
 export interface CloudFrontKeyValueStore {
@@ -125,6 +129,17 @@ export interface CloudFrontKeyValueStore {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateKeysCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKeysCommandOutput}.
+   */
+  paginateListKeys(
+    args: ListKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKeysCommandOutput>;
 }
 
 /**
@@ -132,4 +147,4 @@ export interface CloudFrontKeyValueStore {
  * @public
  */
 export class CloudFrontKeyValueStore extends CloudFrontKeyValueStoreClient implements CloudFrontKeyValueStore {}
-createAggregatedClient(commands, CloudFrontKeyValueStore);
+createAggregatedClient(commands, CloudFrontKeyValueStore, { paginators });

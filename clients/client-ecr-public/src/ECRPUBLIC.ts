@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchCheckLayerAvailabilityCommand,
@@ -110,6 +110,10 @@ import {
   UploadLayerPartCommandOutput,
 } from "./commands/UploadLayerPartCommand";
 import { ECRPUBLICClient } from "./ECRPUBLICClient";
+import { paginateDescribeImages } from "./pagination/DescribeImagesPaginator";
+import { paginateDescribeImageTags } from "./pagination/DescribeImageTagsPaginator";
+import { paginateDescribeRegistries } from "./pagination/DescribeRegistriesPaginator";
+import { paginateDescribeRepositories } from "./pagination/DescribeRepositoriesPaginator";
 
 const commands = {
   BatchCheckLayerAvailabilityCommand,
@@ -135,6 +139,12 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UploadLayerPartCommand,
+};
+const paginators = {
+  paginateDescribeImages,
+  paginateDescribeImageTags,
+  paginateDescribeRegistries,
+  paginateDescribeRepositories,
 };
 
 export interface ECRPUBLIC {
@@ -533,6 +543,50 @@ export interface ECRPUBLIC {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UploadLayerPartCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeImagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImagesCommandOutput}.
+   */
+  paginateDescribeImages(
+    args: DescribeImagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImagesCommandOutput>;
+
+  /**
+   * @see {@link DescribeImageTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImageTagsCommandOutput}.
+   */
+  paginateDescribeImageTags(
+    args: DescribeImageTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImageTagsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRegistriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRegistriesCommandOutput}.
+   */
+  paginateDescribeRegistries(
+    args?: DescribeRegistriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRegistriesCommandOutput>;
+
+  /**
+   * @see {@link DescribeRepositoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRepositoriesCommandOutput}.
+   */
+  paginateDescribeRepositories(
+    args?: DescribeRepositoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRepositoriesCommandOutput>;
 }
 
 /**
@@ -546,4 +600,4 @@ export interface ECRPUBLIC {
  * @public
  */
 export class ECRPUBLIC extends ECRPUBLICClient implements ECRPUBLIC {}
-createAggregatedClient(commands, ECRPUBLIC);
+createAggregatedClient(commands, ECRPUBLIC, { paginators });

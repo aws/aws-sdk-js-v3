@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BackupClient } from "./BackupClient";
 import {
@@ -535,6 +535,35 @@ import {
   UpdateTieringConfigurationCommandInput,
   UpdateTieringConfigurationCommandOutput,
 } from "./commands/UpdateTieringConfigurationCommand";
+import { paginateListBackupJobs } from "./pagination/ListBackupJobsPaginator";
+import { paginateListBackupJobSummaries } from "./pagination/ListBackupJobSummariesPaginator";
+import { paginateListBackupPlans } from "./pagination/ListBackupPlansPaginator";
+import { paginateListBackupPlanTemplates } from "./pagination/ListBackupPlanTemplatesPaginator";
+import { paginateListBackupPlanVersions } from "./pagination/ListBackupPlanVersionsPaginator";
+import { paginateListBackupSelections } from "./pagination/ListBackupSelectionsPaginator";
+import { paginateListBackupVaults } from "./pagination/ListBackupVaultsPaginator";
+import { paginateListCopyJobs } from "./pagination/ListCopyJobsPaginator";
+import { paginateListCopyJobSummaries } from "./pagination/ListCopyJobSummariesPaginator";
+import { paginateListFrameworks } from "./pagination/ListFrameworksPaginator";
+import { paginateListIndexedRecoveryPoints } from "./pagination/ListIndexedRecoveryPointsPaginator";
+import { paginateListLegalHolds } from "./pagination/ListLegalHoldsPaginator";
+import { paginateListProtectedResourcesByBackupVault } from "./pagination/ListProtectedResourcesByBackupVaultPaginator";
+import { paginateListProtectedResources } from "./pagination/ListProtectedResourcesPaginator";
+import { paginateListRecoveryPointsByBackupVault } from "./pagination/ListRecoveryPointsByBackupVaultPaginator";
+import { paginateListRecoveryPointsByLegalHold } from "./pagination/ListRecoveryPointsByLegalHoldPaginator";
+import { paginateListRecoveryPointsByResource } from "./pagination/ListRecoveryPointsByResourcePaginator";
+import { paginateListReportJobs } from "./pagination/ListReportJobsPaginator";
+import { paginateListReportPlans } from "./pagination/ListReportPlansPaginator";
+import { paginateListRestoreAccessBackupVaults } from "./pagination/ListRestoreAccessBackupVaultsPaginator";
+import { paginateListRestoreJobsByProtectedResource } from "./pagination/ListRestoreJobsByProtectedResourcePaginator";
+import { paginateListRestoreJobs } from "./pagination/ListRestoreJobsPaginator";
+import { paginateListRestoreJobSummaries } from "./pagination/ListRestoreJobSummariesPaginator";
+import { paginateListRestoreTestingPlans } from "./pagination/ListRestoreTestingPlansPaginator";
+import { paginateListRestoreTestingSelections } from "./pagination/ListRestoreTestingSelectionsPaginator";
+import { paginateListScanJobs } from "./pagination/ListScanJobsPaginator";
+import { paginateListScanJobSummaries } from "./pagination/ListScanJobSummariesPaginator";
+import { paginateListTags } from "./pagination/ListTagsPaginator";
+import { paginateListTieringConfigurations } from "./pagination/ListTieringConfigurationsPaginator";
 
 const commands = {
   AssociateBackupVaultMpaApprovalTeamCommand,
@@ -645,6 +674,37 @@ const commands = {
   UpdateRestoreTestingPlanCommand,
   UpdateRestoreTestingSelectionCommand,
   UpdateTieringConfigurationCommand,
+};
+const paginators = {
+  paginateListBackupJobs,
+  paginateListBackupJobSummaries,
+  paginateListBackupPlans,
+  paginateListBackupPlanTemplates,
+  paginateListBackupPlanVersions,
+  paginateListBackupSelections,
+  paginateListBackupVaults,
+  paginateListCopyJobs,
+  paginateListCopyJobSummaries,
+  paginateListFrameworks,
+  paginateListIndexedRecoveryPoints,
+  paginateListLegalHolds,
+  paginateListProtectedResources,
+  paginateListProtectedResourcesByBackupVault,
+  paginateListRecoveryPointsByBackupVault,
+  paginateListRecoveryPointsByLegalHold,
+  paginateListRecoveryPointsByResource,
+  paginateListReportJobs,
+  paginateListReportPlans,
+  paginateListRestoreAccessBackupVaults,
+  paginateListRestoreJobs,
+  paginateListRestoreJobsByProtectedResource,
+  paginateListRestoreJobSummaries,
+  paginateListRestoreTestingPlans,
+  paginateListRestoreTestingSelections,
+  paginateListScanJobs,
+  paginateListScanJobSummaries,
+  paginateListTags,
+  paginateListTieringConfigurations,
 };
 
 export interface Backup {
@@ -2507,6 +2567,325 @@ export interface Backup {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTieringConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBackupJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBackupJobsCommandOutput}.
+   */
+  paginateListBackupJobs(
+    args?: ListBackupJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBackupJobsCommandOutput>;
+
+  /**
+   * @see {@link ListBackupJobSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBackupJobSummariesCommandOutput}.
+   */
+  paginateListBackupJobSummaries(
+    args?: ListBackupJobSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBackupJobSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListBackupPlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBackupPlansCommandOutput}.
+   */
+  paginateListBackupPlans(
+    args?: ListBackupPlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBackupPlansCommandOutput>;
+
+  /**
+   * @see {@link ListBackupPlanTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBackupPlanTemplatesCommandOutput}.
+   */
+  paginateListBackupPlanTemplates(
+    args?: ListBackupPlanTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBackupPlanTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListBackupPlanVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBackupPlanVersionsCommandOutput}.
+   */
+  paginateListBackupPlanVersions(
+    args: ListBackupPlanVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBackupPlanVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListBackupSelectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBackupSelectionsCommandOutput}.
+   */
+  paginateListBackupSelections(
+    args: ListBackupSelectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBackupSelectionsCommandOutput>;
+
+  /**
+   * @see {@link ListBackupVaultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBackupVaultsCommandOutput}.
+   */
+  paginateListBackupVaults(
+    args?: ListBackupVaultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBackupVaultsCommandOutput>;
+
+  /**
+   * @see {@link ListCopyJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCopyJobsCommandOutput}.
+   */
+  paginateListCopyJobs(
+    args?: ListCopyJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCopyJobsCommandOutput>;
+
+  /**
+   * @see {@link ListCopyJobSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCopyJobSummariesCommandOutput}.
+   */
+  paginateListCopyJobSummaries(
+    args?: ListCopyJobSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCopyJobSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListFrameworksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFrameworksCommandOutput}.
+   */
+  paginateListFrameworks(
+    args?: ListFrameworksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFrameworksCommandOutput>;
+
+  /**
+   * @see {@link ListIndexedRecoveryPointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIndexedRecoveryPointsCommandOutput}.
+   */
+  paginateListIndexedRecoveryPoints(
+    args?: ListIndexedRecoveryPointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIndexedRecoveryPointsCommandOutput>;
+
+  /**
+   * @see {@link ListLegalHoldsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLegalHoldsCommandOutput}.
+   */
+  paginateListLegalHolds(
+    args?: ListLegalHoldsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLegalHoldsCommandOutput>;
+
+  /**
+   * @see {@link ListProtectedResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProtectedResourcesCommandOutput}.
+   */
+  paginateListProtectedResources(
+    args?: ListProtectedResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProtectedResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListProtectedResourcesByBackupVaultCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProtectedResourcesByBackupVaultCommandOutput}.
+   */
+  paginateListProtectedResourcesByBackupVault(
+    args: ListProtectedResourcesByBackupVaultCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProtectedResourcesByBackupVaultCommandOutput>;
+
+  /**
+   * @see {@link ListRecoveryPointsByBackupVaultCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecoveryPointsByBackupVaultCommandOutput}.
+   */
+  paginateListRecoveryPointsByBackupVault(
+    args: ListRecoveryPointsByBackupVaultCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecoveryPointsByBackupVaultCommandOutput>;
+
+  /**
+   * @see {@link ListRecoveryPointsByLegalHoldCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecoveryPointsByLegalHoldCommandOutput}.
+   */
+  paginateListRecoveryPointsByLegalHold(
+    args: ListRecoveryPointsByLegalHoldCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecoveryPointsByLegalHoldCommandOutput>;
+
+  /**
+   * @see {@link ListRecoveryPointsByResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecoveryPointsByResourceCommandOutput}.
+   */
+  paginateListRecoveryPointsByResource(
+    args: ListRecoveryPointsByResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecoveryPointsByResourceCommandOutput>;
+
+  /**
+   * @see {@link ListReportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReportJobsCommandOutput}.
+   */
+  paginateListReportJobs(
+    args?: ListReportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListReportPlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReportPlansCommandOutput}.
+   */
+  paginateListReportPlans(
+    args?: ListReportPlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReportPlansCommandOutput>;
+
+  /**
+   * @see {@link ListRestoreAccessBackupVaultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRestoreAccessBackupVaultsCommandOutput}.
+   */
+  paginateListRestoreAccessBackupVaults(
+    args: ListRestoreAccessBackupVaultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRestoreAccessBackupVaultsCommandOutput>;
+
+  /**
+   * @see {@link ListRestoreJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRestoreJobsCommandOutput}.
+   */
+  paginateListRestoreJobs(
+    args?: ListRestoreJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRestoreJobsCommandOutput>;
+
+  /**
+   * @see {@link ListRestoreJobsByProtectedResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRestoreJobsByProtectedResourceCommandOutput}.
+   */
+  paginateListRestoreJobsByProtectedResource(
+    args: ListRestoreJobsByProtectedResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRestoreJobsByProtectedResourceCommandOutput>;
+
+  /**
+   * @see {@link ListRestoreJobSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRestoreJobSummariesCommandOutput}.
+   */
+  paginateListRestoreJobSummaries(
+    args?: ListRestoreJobSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRestoreJobSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListRestoreTestingPlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRestoreTestingPlansCommandOutput}.
+   */
+  paginateListRestoreTestingPlans(
+    args?: ListRestoreTestingPlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRestoreTestingPlansCommandOutput>;
+
+  /**
+   * @see {@link ListRestoreTestingSelectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRestoreTestingSelectionsCommandOutput}.
+   */
+  paginateListRestoreTestingSelections(
+    args: ListRestoreTestingSelectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRestoreTestingSelectionsCommandOutput>;
+
+  /**
+   * @see {@link ListScanJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScanJobsCommandOutput}.
+   */
+  paginateListScanJobs(
+    args?: ListScanJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScanJobsCommandOutput>;
+
+  /**
+   * @see {@link ListScanJobSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScanJobSummariesCommandOutput}.
+   */
+  paginateListScanJobSummaries(
+    args?: ListScanJobSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScanJobSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsCommandOutput}.
+   */
+  paginateListTags(
+    args: ListTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsCommandOutput>;
+
+  /**
+   * @see {@link ListTieringConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTieringConfigurationsCommandOutput}.
+   */
+  paginateListTieringConfigurations(
+    args?: ListTieringConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTieringConfigurationsCommandOutput>;
 }
 
 /**
@@ -2518,4 +2897,4 @@ export interface Backup {
  * @public
  */
 export class Backup extends BackupClient implements Backup {}
-createAggregatedClient(commands, Backup);
+createAggregatedClient(commands, Backup, { paginators });

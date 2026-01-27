@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AccessAnalyzerClient } from "./AccessAnalyzerClient";
 import {
@@ -176,6 +176,17 @@ import {
   ValidatePolicyCommandInput,
   ValidatePolicyCommandOutput,
 } from "./commands/ValidatePolicyCommand";
+import { paginateGetFindingRecommendation } from "./pagination/GetFindingRecommendationPaginator";
+import { paginateGetFindingV2 } from "./pagination/GetFindingV2Paginator";
+import { paginateListAccessPreviewFindings } from "./pagination/ListAccessPreviewFindingsPaginator";
+import { paginateListAccessPreviews } from "./pagination/ListAccessPreviewsPaginator";
+import { paginateListAnalyzedResources } from "./pagination/ListAnalyzedResourcesPaginator";
+import { paginateListAnalyzers } from "./pagination/ListAnalyzersPaginator";
+import { paginateListArchiveRules } from "./pagination/ListArchiveRulesPaginator";
+import { paginateListFindings } from "./pagination/ListFindingsPaginator";
+import { paginateListFindingsV2 } from "./pagination/ListFindingsV2Paginator";
+import { paginateListPolicyGenerations } from "./pagination/ListPolicyGenerationsPaginator";
+import { paginateValidatePolicy } from "./pagination/ValidatePolicyPaginator";
 
 const commands = {
   ApplyArchiveRuleCommand,
@@ -215,6 +226,19 @@ const commands = {
   UpdateArchiveRuleCommand,
   UpdateFindingsCommand,
   ValidatePolicyCommand,
+};
+const paginators = {
+  paginateGetFindingRecommendation,
+  paginateGetFindingV2,
+  paginateListAccessPreviewFindings,
+  paginateListAccessPreviews,
+  paginateListAnalyzedResources,
+  paginateListAnalyzers,
+  paginateListArchiveRules,
+  paginateListFindings,
+  paginateListFindingsV2,
+  paginateListPolicyGenerations,
+  paginateValidatePolicy,
 };
 
 export interface AccessAnalyzer {
@@ -848,6 +872,127 @@ export interface AccessAnalyzer {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidatePolicyCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetFindingRecommendationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFindingRecommendationCommandOutput}.
+   */
+  paginateGetFindingRecommendation(
+    args: GetFindingRecommendationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFindingRecommendationCommandOutput>;
+
+  /**
+   * @see {@link GetFindingV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFindingV2CommandOutput}.
+   */
+  paginateGetFindingV2(
+    args: GetFindingV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFindingV2CommandOutput>;
+
+  /**
+   * @see {@link ListAccessPreviewFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessPreviewFindingsCommandOutput}.
+   */
+  paginateListAccessPreviewFindings(
+    args: ListAccessPreviewFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessPreviewFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListAccessPreviewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessPreviewsCommandOutput}.
+   */
+  paginateListAccessPreviews(
+    args: ListAccessPreviewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessPreviewsCommandOutput>;
+
+  /**
+   * @see {@link ListAnalyzedResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnalyzedResourcesCommandOutput}.
+   */
+  paginateListAnalyzedResources(
+    args: ListAnalyzedResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnalyzedResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListAnalyzersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnalyzersCommandOutput}.
+   */
+  paginateListAnalyzers(
+    args?: ListAnalyzersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnalyzersCommandOutput>;
+
+  /**
+   * @see {@link ListArchiveRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListArchiveRulesCommandOutput}.
+   */
+  paginateListArchiveRules(
+    args: ListArchiveRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListArchiveRulesCommandOutput>;
+
+  /**
+   * @see {@link ListFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFindingsCommandOutput}.
+   */
+  paginateListFindings(
+    args: ListFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListFindingsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFindingsV2CommandOutput}.
+   */
+  paginateListFindingsV2(
+    args: ListFindingsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFindingsV2CommandOutput>;
+
+  /**
+   * @see {@link ListPolicyGenerationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyGenerationsCommandOutput}.
+   */
+  paginateListPolicyGenerations(
+    args?: ListPolicyGenerationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyGenerationsCommandOutput>;
+
+  /**
+   * @see {@link ValidatePolicyCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ValidatePolicyCommandOutput}.
+   */
+  paginateValidatePolicy(
+    args: ValidatePolicyCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ValidatePolicyCommandOutput>;
 }
 
 /**
@@ -855,4 +1000,4 @@ export interface AccessAnalyzer {
  * @public
  */
 export class AccessAnalyzer extends AccessAnalyzerClient implements AccessAnalyzer {}
-createAggregatedClient(commands, AccessAnalyzer);
+createAggregatedClient(commands, AccessAnalyzer, { paginators });

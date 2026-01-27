@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { AutoScalingClient } from "./AutoScalingClient";
 import {
@@ -321,6 +327,22 @@ import {
   UpdateAutoScalingGroupCommandInput,
   UpdateAutoScalingGroupCommandOutput,
 } from "./commands/UpdateAutoScalingGroupCommand";
+import { paginateDescribeAutoScalingGroups } from "./pagination/DescribeAutoScalingGroupsPaginator";
+import { paginateDescribeAutoScalingInstances } from "./pagination/DescribeAutoScalingInstancesPaginator";
+import { paginateDescribeInstanceRefreshes } from "./pagination/DescribeInstanceRefreshesPaginator";
+import { paginateDescribeLaunchConfigurations } from "./pagination/DescribeLaunchConfigurationsPaginator";
+import { paginateDescribeLoadBalancers } from "./pagination/DescribeLoadBalancersPaginator";
+import { paginateDescribeLoadBalancerTargetGroups } from "./pagination/DescribeLoadBalancerTargetGroupsPaginator";
+import { paginateDescribeNotificationConfigurations } from "./pagination/DescribeNotificationConfigurationsPaginator";
+import { paginateDescribePolicies } from "./pagination/DescribePoliciesPaginator";
+import { paginateDescribeScalingActivities } from "./pagination/DescribeScalingActivitiesPaginator";
+import { paginateDescribeScheduledActions } from "./pagination/DescribeScheduledActionsPaginator";
+import { paginateDescribeTags } from "./pagination/DescribeTagsPaginator";
+import { paginateDescribeTrafficSources } from "./pagination/DescribeTrafficSourcesPaginator";
+import { paginateDescribeWarmPool } from "./pagination/DescribeWarmPoolPaginator";
+import { waitUntilGroupExists } from "./waiters/waitForGroupExists";
+import { waitUntilGroupInService } from "./waiters/waitForGroupInService";
+import { waitUntilGroupNotExists } from "./waiters/waitForGroupNotExists";
 
 const commands = {
   AttachInstancesCommand,
@@ -389,6 +411,26 @@ const commands = {
   SuspendProcessesCommand,
   TerminateInstanceInAutoScalingGroupCommand,
   UpdateAutoScalingGroupCommand,
+};
+const paginators = {
+  paginateDescribeAutoScalingGroups,
+  paginateDescribeAutoScalingInstances,
+  paginateDescribeInstanceRefreshes,
+  paginateDescribeLaunchConfigurations,
+  paginateDescribeLoadBalancers,
+  paginateDescribeLoadBalancerTargetGroups,
+  paginateDescribeNotificationConfigurations,
+  paginateDescribePolicies,
+  paginateDescribeScalingActivities,
+  paginateDescribeScheduledActions,
+  paginateDescribeTags,
+  paginateDescribeTrafficSources,
+  paginateDescribeWarmPool,
+};
+const waiters = {
+  waitUntilGroupExists,
+  waitUntilGroupInService,
+  waitUntilGroupNotExists,
 };
 
 export interface AutoScaling {
@@ -1528,6 +1570,179 @@ export interface AutoScaling {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAutoScalingGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAutoScalingGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAutoScalingGroupsCommandOutput}.
+   */
+  paginateDescribeAutoScalingGroups(
+    args?: DescribeAutoScalingGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAutoScalingGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeAutoScalingInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAutoScalingInstancesCommandOutput}.
+   */
+  paginateDescribeAutoScalingInstances(
+    args?: DescribeAutoScalingInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAutoScalingInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceRefreshesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceRefreshesCommandOutput}.
+   */
+  paginateDescribeInstanceRefreshes(
+    args: DescribeInstanceRefreshesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceRefreshesCommandOutput>;
+
+  /**
+   * @see {@link DescribeLaunchConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLaunchConfigurationsCommandOutput}.
+   */
+  paginateDescribeLaunchConfigurations(
+    args?: DescribeLaunchConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLaunchConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeLoadBalancersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLoadBalancersCommandOutput}.
+   */
+  paginateDescribeLoadBalancers(
+    args: DescribeLoadBalancersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLoadBalancersCommandOutput>;
+
+  /**
+   * @see {@link DescribeLoadBalancerTargetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLoadBalancerTargetGroupsCommandOutput}.
+   */
+  paginateDescribeLoadBalancerTargetGroups(
+    args: DescribeLoadBalancerTargetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLoadBalancerTargetGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeNotificationConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNotificationConfigurationsCommandOutput}.
+   */
+  paginateDescribeNotificationConfigurations(
+    args?: DescribeNotificationConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNotificationConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePoliciesCommandOutput}.
+   */
+  paginateDescribePolicies(
+    args?: DescribePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePoliciesCommandOutput>;
+
+  /**
+   * @see {@link DescribeScalingActivitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeScalingActivitiesCommandOutput}.
+   */
+  paginateDescribeScalingActivities(
+    args?: DescribeScalingActivitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeScalingActivitiesCommandOutput>;
+
+  /**
+   * @see {@link DescribeScheduledActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeScheduledActionsCommandOutput}.
+   */
+  paginateDescribeScheduledActions(
+    args?: DescribeScheduledActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeScheduledActionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTagsCommandOutput}.
+   */
+  paginateDescribeTags(
+    args?: DescribeTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTagsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTrafficSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTrafficSourcesCommandOutput}.
+   */
+  paginateDescribeTrafficSources(
+    args: DescribeTrafficSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTrafficSourcesCommandOutput>;
+
+  /**
+   * @see {@link DescribeWarmPoolCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeWarmPoolCommandOutput}.
+   */
+  paginateDescribeWarmPool(
+    args: DescribeWarmPoolCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeWarmPoolCommandOutput>;
+
+  /**
+   * @see {@link DescribeAutoScalingGroupsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilGroupExists(
+    args: DescribeAutoScalingGroupsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<AutoScaling>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeAutoScalingGroupsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilGroupInService(
+    args: DescribeAutoScalingGroupsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<AutoScaling>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeAutoScalingGroupsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilGroupNotExists(
+    args: DescribeAutoScalingGroupsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<AutoScaling>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1540,4 +1755,4 @@ export interface AutoScaling {
  * @public
  */
 export class AutoScaling extends AutoScalingClient implements AutoScaling {}
-createAggregatedClient(commands, AutoScaling);
+createAggregatedClient(commands, AutoScaling, { paginators, waiters });

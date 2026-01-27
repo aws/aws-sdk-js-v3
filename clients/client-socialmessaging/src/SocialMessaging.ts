@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateWhatsAppBusinessAccountCommand,
@@ -103,6 +103,9 @@ import {
   UpdateWhatsAppMessageTemplateCommandInput,
   UpdateWhatsAppMessageTemplateCommandOutput,
 } from "./commands/UpdateWhatsAppMessageTemplateCommand";
+import { paginateListLinkedWhatsAppBusinessAccounts } from "./pagination/ListLinkedWhatsAppBusinessAccountsPaginator";
+import { paginateListWhatsAppMessageTemplates } from "./pagination/ListWhatsAppMessageTemplatesPaginator";
+import { paginateListWhatsAppTemplateLibrary } from "./pagination/ListWhatsAppTemplateLibraryPaginator";
 import { SocialMessagingClient } from "./SocialMessagingClient";
 
 const commands = {
@@ -127,6 +130,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateWhatsAppMessageTemplateCommand,
+};
+const paginators = {
+  paginateListLinkedWhatsAppBusinessAccounts,
+  paginateListWhatsAppMessageTemplates,
+  paginateListWhatsAppTemplateLibrary,
 };
 
 export interface SocialMessaging {
@@ -488,6 +496,39 @@ export interface SocialMessaging {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWhatsAppMessageTemplateCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListLinkedWhatsAppBusinessAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLinkedWhatsAppBusinessAccountsCommandOutput}.
+   */
+  paginateListLinkedWhatsAppBusinessAccounts(
+    args?: ListLinkedWhatsAppBusinessAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLinkedWhatsAppBusinessAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListWhatsAppMessageTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWhatsAppMessageTemplatesCommandOutput}.
+   */
+  paginateListWhatsAppMessageTemplates(
+    args: ListWhatsAppMessageTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWhatsAppMessageTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListWhatsAppTemplateLibraryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWhatsAppTemplateLibraryCommandOutput}.
+   */
+  paginateListWhatsAppTemplateLibrary(
+    args: ListWhatsAppTemplateLibraryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWhatsAppTemplateLibraryCommandOutput>;
 }
 
 /**
@@ -520,4 +561,4 @@ export interface SocialMessaging {
  * @public
  */
 export class SocialMessaging extends SocialMessagingClient implements SocialMessaging {}
-createAggregatedClient(commands, SocialMessaging);
+createAggregatedClient(commands, SocialMessaging, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelCapacityTaskCommand,
@@ -130,6 +130,19 @@ import {
   UpdateSiteRackPhysicalPropertiesCommandOutput,
 } from "./commands/UpdateSiteRackPhysicalPropertiesCommand";
 import { OutpostsClient } from "./OutpostsClient";
+import { paginateGetOutpostBillingInformation } from "./pagination/GetOutpostBillingInformationPaginator";
+import { paginateGetOutpostInstanceTypes } from "./pagination/GetOutpostInstanceTypesPaginator";
+import { paginateGetOutpostSupportedInstanceTypes } from "./pagination/GetOutpostSupportedInstanceTypesPaginator";
+import { paginateListAssetInstances } from "./pagination/ListAssetInstancesPaginator";
+import { paginateListAssets } from "./pagination/ListAssetsPaginator";
+import {
+  paginateListBlockingInstancesForCapacityTask,
+} from "./pagination/ListBlockingInstancesForCapacityTaskPaginator";
+import { paginateListCapacityTasks } from "./pagination/ListCapacityTasksPaginator";
+import { paginateListCatalogItems } from "./pagination/ListCatalogItemsPaginator";
+import { paginateListOrders } from "./pagination/ListOrdersPaginator";
+import { paginateListOutposts } from "./pagination/ListOutpostsPaginator";
+import { paginateListSites } from "./pagination/ListSitesPaginator";
 
 const commands = {
   CancelCapacityTaskCommand,
@@ -167,6 +180,19 @@ const commands = {
   UpdateSiteCommand,
   UpdateSiteAddressCommand,
   UpdateSiteRackPhysicalPropertiesCommand,
+};
+const paginators = {
+  paginateGetOutpostBillingInformation,
+  paginateGetOutpostInstanceTypes,
+  paginateGetOutpostSupportedInstanceTypes,
+  paginateListAssetInstances,
+  paginateListAssets,
+  paginateListBlockingInstancesForCapacityTask,
+  paginateListCapacityTasks,
+  paginateListCatalogItems,
+  paginateListOrders,
+  paginateListOutposts,
+  paginateListSites,
 };
 
 export interface Outposts {
@@ -769,6 +795,127 @@ export interface Outposts {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSiteRackPhysicalPropertiesCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetOutpostBillingInformationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetOutpostBillingInformationCommandOutput}.
+   */
+  paginateGetOutpostBillingInformation(
+    args: GetOutpostBillingInformationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetOutpostBillingInformationCommandOutput>;
+
+  /**
+   * @see {@link GetOutpostInstanceTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetOutpostInstanceTypesCommandOutput}.
+   */
+  paginateGetOutpostInstanceTypes(
+    args: GetOutpostInstanceTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetOutpostInstanceTypesCommandOutput>;
+
+  /**
+   * @see {@link GetOutpostSupportedInstanceTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetOutpostSupportedInstanceTypesCommandOutput}.
+   */
+  paginateGetOutpostSupportedInstanceTypes(
+    args: GetOutpostSupportedInstanceTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetOutpostSupportedInstanceTypesCommandOutput>;
+
+  /**
+   * @see {@link ListAssetInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetInstancesCommandOutput}.
+   */
+  paginateListAssetInstances(
+    args: ListAssetInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListAssetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetsCommandOutput}.
+   */
+  paginateListAssets(
+    args: ListAssetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetsCommandOutput>;
+
+  /**
+   * @see {@link ListBlockingInstancesForCapacityTaskCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBlockingInstancesForCapacityTaskCommandOutput}.
+   */
+  paginateListBlockingInstancesForCapacityTask(
+    args: ListBlockingInstancesForCapacityTaskCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBlockingInstancesForCapacityTaskCommandOutput>;
+
+  /**
+   * @see {@link ListCapacityTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCapacityTasksCommandOutput}.
+   */
+  paginateListCapacityTasks(
+    args?: ListCapacityTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCapacityTasksCommandOutput>;
+
+  /**
+   * @see {@link ListCatalogItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCatalogItemsCommandOutput}.
+   */
+  paginateListCatalogItems(
+    args?: ListCatalogItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCatalogItemsCommandOutput>;
+
+  /**
+   * @see {@link ListOrdersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrdersCommandOutput}.
+   */
+  paginateListOrders(
+    args?: ListOrdersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrdersCommandOutput>;
+
+  /**
+   * @see {@link ListOutpostsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOutpostsCommandOutput}.
+   */
+  paginateListOutposts(
+    args?: ListOutpostsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOutpostsCommandOutput>;
+
+  /**
+   * @see {@link ListSitesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSitesCommandOutput}.
+   */
+  paginateListSites(
+    args?: ListSitesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSitesCommandOutput>;
 }
 
 /**
@@ -780,4 +927,4 @@ export interface Outposts {
  * @public
  */
 export class Outposts extends OutpostsClient implements Outposts {}
-createAggregatedClient(commands, Outposts);
+createAggregatedClient(commands, Outposts, { paginators });

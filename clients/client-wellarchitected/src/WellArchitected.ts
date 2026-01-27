@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateLensesCommand,
@@ -322,6 +322,25 @@ import {
   UpgradeReviewTemplateLensReviewCommandInput,
   UpgradeReviewTemplateLensReviewCommandOutput,
 } from "./commands/UpgradeReviewTemplateLensReviewCommand";
+import { paginateGetConsolidatedReport } from "./pagination/GetConsolidatedReportPaginator";
+import { paginateListAnswers } from "./pagination/ListAnswersPaginator";
+import { paginateListCheckDetails } from "./pagination/ListCheckDetailsPaginator";
+import { paginateListCheckSummaries } from "./pagination/ListCheckSummariesPaginator";
+import { paginateListLenses } from "./pagination/ListLensesPaginator";
+import { paginateListLensReviewImprovements } from "./pagination/ListLensReviewImprovementsPaginator";
+import { paginateListLensReviews } from "./pagination/ListLensReviewsPaginator";
+import { paginateListLensShares } from "./pagination/ListLensSharesPaginator";
+import { paginateListMilestones } from "./pagination/ListMilestonesPaginator";
+import { paginateListNotifications } from "./pagination/ListNotificationsPaginator";
+import { paginateListProfileNotifications } from "./pagination/ListProfileNotificationsPaginator";
+import { paginateListProfileShares } from "./pagination/ListProfileSharesPaginator";
+import { paginateListProfiles } from "./pagination/ListProfilesPaginator";
+import { paginateListReviewTemplateAnswers } from "./pagination/ListReviewTemplateAnswersPaginator";
+import { paginateListReviewTemplates } from "./pagination/ListReviewTemplatesPaginator";
+import { paginateListShareInvitations } from "./pagination/ListShareInvitationsPaginator";
+import { paginateListTemplateShares } from "./pagination/ListTemplateSharesPaginator";
+import { paginateListWorkloadShares } from "./pagination/ListWorkloadSharesPaginator";
+import { paginateListWorkloads } from "./pagination/ListWorkloadsPaginator";
 import { WellArchitectedClient } from "./WellArchitectedClient";
 
 const commands = {
@@ -397,6 +416,27 @@ const commands = {
   UpgradeLensReviewCommand,
   UpgradeProfileVersionCommand,
   UpgradeReviewTemplateLensReviewCommand,
+};
+const paginators = {
+  paginateGetConsolidatedReport,
+  paginateListAnswers,
+  paginateListCheckDetails,
+  paginateListCheckSummaries,
+  paginateListLenses,
+  paginateListLensReviewImprovements,
+  paginateListLensReviews,
+  paginateListLensShares,
+  paginateListMilestones,
+  paginateListNotifications,
+  paginateListProfileNotifications,
+  paginateListProfiles,
+  paginateListProfileShares,
+  paginateListReviewTemplateAnswers,
+  paginateListReviewTemplates,
+  paginateListShareInvitations,
+  paginateListTemplateShares,
+  paginateListWorkloads,
+  paginateListWorkloadShares,
 };
 
 export interface WellArchitected {
@@ -1633,6 +1673,215 @@ export interface WellArchitected {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpgradeReviewTemplateLensReviewCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetConsolidatedReportCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetConsolidatedReportCommandOutput}.
+   */
+  paginateGetConsolidatedReport(
+    args: GetConsolidatedReportCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetConsolidatedReportCommandOutput>;
+
+  /**
+   * @see {@link ListAnswersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnswersCommandOutput}.
+   */
+  paginateListAnswers(
+    args: ListAnswersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnswersCommandOutput>;
+
+  /**
+   * @see {@link ListCheckDetailsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCheckDetailsCommandOutput}.
+   */
+  paginateListCheckDetails(
+    args: ListCheckDetailsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCheckDetailsCommandOutput>;
+
+  /**
+   * @see {@link ListCheckSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCheckSummariesCommandOutput}.
+   */
+  paginateListCheckSummaries(
+    args: ListCheckSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCheckSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListLensesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLensesCommandOutput}.
+   */
+  paginateListLenses(
+    args?: ListLensesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLensesCommandOutput>;
+
+  /**
+   * @see {@link ListLensReviewImprovementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLensReviewImprovementsCommandOutput}.
+   */
+  paginateListLensReviewImprovements(
+    args: ListLensReviewImprovementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLensReviewImprovementsCommandOutput>;
+
+  /**
+   * @see {@link ListLensReviewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLensReviewsCommandOutput}.
+   */
+  paginateListLensReviews(
+    args: ListLensReviewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLensReviewsCommandOutput>;
+
+  /**
+   * @see {@link ListLensSharesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLensSharesCommandOutput}.
+   */
+  paginateListLensShares(
+    args: ListLensSharesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLensSharesCommandOutput>;
+
+  /**
+   * @see {@link ListMilestonesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMilestonesCommandOutput}.
+   */
+  paginateListMilestones(
+    args: ListMilestonesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMilestonesCommandOutput>;
+
+  /**
+   * @see {@link ListNotificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotificationsCommandOutput}.
+   */
+  paginateListNotifications(
+    args?: ListNotificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotificationsCommandOutput>;
+
+  /**
+   * @see {@link ListProfileNotificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProfileNotificationsCommandOutput}.
+   */
+  paginateListProfileNotifications(
+    args?: ListProfileNotificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProfileNotificationsCommandOutput>;
+
+  /**
+   * @see {@link ListProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProfilesCommandOutput}.
+   */
+  paginateListProfiles(
+    args?: ListProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListProfileSharesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProfileSharesCommandOutput}.
+   */
+  paginateListProfileShares(
+    args: ListProfileSharesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProfileSharesCommandOutput>;
+
+  /**
+   * @see {@link ListReviewTemplateAnswersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReviewTemplateAnswersCommandOutput}.
+   */
+  paginateListReviewTemplateAnswers(
+    args: ListReviewTemplateAnswersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReviewTemplateAnswersCommandOutput>;
+
+  /**
+   * @see {@link ListReviewTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReviewTemplatesCommandOutput}.
+   */
+  paginateListReviewTemplates(
+    args?: ListReviewTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReviewTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListShareInvitationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListShareInvitationsCommandOutput}.
+   */
+  paginateListShareInvitations(
+    args?: ListShareInvitationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListShareInvitationsCommandOutput>;
+
+  /**
+   * @see {@link ListTemplateSharesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTemplateSharesCommandOutput}.
+   */
+  paginateListTemplateShares(
+    args: ListTemplateSharesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTemplateSharesCommandOutput>;
+
+  /**
+   * @see {@link ListWorkloadsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkloadsCommandOutput}.
+   */
+  paginateListWorkloads(
+    args?: ListWorkloadsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkloadsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkloadSharesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkloadSharesCommandOutput}.
+   */
+  paginateListWorkloadShares(
+    args: ListWorkloadSharesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkloadSharesCommandOutput>;
 }
 
 /**
@@ -1645,4 +1894,4 @@ export interface WellArchitected {
  * @public
  */
 export class WellArchitected extends WellArchitectedClient implements WellArchitected {}
-createAggregatedClient(commands, WellArchitected);
+createAggregatedClient(commands, WellArchitected, { paginators });

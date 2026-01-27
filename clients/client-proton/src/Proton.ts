@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AcceptEnvironmentAccountConnectionCommand,
@@ -429,7 +435,42 @@ import {
   UpdateTemplateSyncConfigCommandInput,
   UpdateTemplateSyncConfigCommandOutput,
 } from "./commands/UpdateTemplateSyncConfigCommand";
+import { paginateListComponentOutputs } from "./pagination/ListComponentOutputsPaginator";
+import { paginateListComponentProvisionedResources } from "./pagination/ListComponentProvisionedResourcesPaginator";
+import { paginateListComponents } from "./pagination/ListComponentsPaginator";
+import { paginateListDeployments } from "./pagination/ListDeploymentsPaginator";
+import { paginateListEnvironmentAccountConnections } from "./pagination/ListEnvironmentAccountConnectionsPaginator";
+import { paginateListEnvironmentOutputs } from "./pagination/ListEnvironmentOutputsPaginator";
+import { paginateListEnvironmentProvisionedResources } from "./pagination/ListEnvironmentProvisionedResourcesPaginator";
+import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
+import { paginateListEnvironmentTemplates } from "./pagination/ListEnvironmentTemplatesPaginator";
+import { paginateListEnvironmentTemplateVersions } from "./pagination/ListEnvironmentTemplateVersionsPaginator";
+import { paginateListRepositories } from "./pagination/ListRepositoriesPaginator";
+import { paginateListRepositorySyncDefinitions } from "./pagination/ListRepositorySyncDefinitionsPaginator";
+import { paginateListServiceInstanceOutputs } from "./pagination/ListServiceInstanceOutputsPaginator";
+import {
+  paginateListServiceInstanceProvisionedResources,
+} from "./pagination/ListServiceInstanceProvisionedResourcesPaginator";
+import { paginateListServiceInstances } from "./pagination/ListServiceInstancesPaginator";
+import { paginateListServicePipelineOutputs } from "./pagination/ListServicePipelineOutputsPaginator";
+import {
+  paginateListServicePipelineProvisionedResources,
+} from "./pagination/ListServicePipelineProvisionedResourcesPaginator";
+import { paginateListServices } from "./pagination/ListServicesPaginator";
+import { paginateListServiceTemplates } from "./pagination/ListServiceTemplatesPaginator";
+import { paginateListServiceTemplateVersions } from "./pagination/ListServiceTemplateVersionsPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 import { ProtonClient } from "./ProtonClient";
+import { waitUntilComponentDeleted } from "./waiters/waitForComponentDeleted";
+import { waitUntilComponentDeployed } from "./waiters/waitForComponentDeployed";
+import { waitUntilEnvironmentDeployed } from "./waiters/waitForEnvironmentDeployed";
+import { waitUntilEnvironmentTemplateVersionRegistered } from "./waiters/waitForEnvironmentTemplateVersionRegistered";
+import { waitUntilServiceCreated } from "./waiters/waitForServiceCreated";
+import { waitUntilServiceDeleted } from "./waiters/waitForServiceDeleted";
+import { waitUntilServiceInstanceDeployed } from "./waiters/waitForServiceInstanceDeployed";
+import { waitUntilServicePipelineDeployed } from "./waiters/waitForServicePipelineDeployed";
+import { waitUntilServiceTemplateVersionRegistered } from "./waiters/waitForServiceTemplateVersionRegistered";
+import { waitUntilServiceUpdated } from "./waiters/waitForServiceUpdated";
 
 const commands = {
   AcceptEnvironmentAccountConnectionCommand,
@@ -519,6 +560,41 @@ const commands = {
   UpdateServiceTemplateCommand,
   UpdateServiceTemplateVersionCommand,
   UpdateTemplateSyncConfigCommand,
+};
+const paginators = {
+  paginateListComponentOutputs,
+  paginateListComponentProvisionedResources,
+  paginateListComponents,
+  paginateListDeployments,
+  paginateListEnvironmentAccountConnections,
+  paginateListEnvironmentOutputs,
+  paginateListEnvironmentProvisionedResources,
+  paginateListEnvironments,
+  paginateListEnvironmentTemplates,
+  paginateListEnvironmentTemplateVersions,
+  paginateListRepositories,
+  paginateListRepositorySyncDefinitions,
+  paginateListServiceInstanceOutputs,
+  paginateListServiceInstanceProvisionedResources,
+  paginateListServiceInstances,
+  paginateListServicePipelineOutputs,
+  paginateListServicePipelineProvisionedResources,
+  paginateListServices,
+  paginateListServiceTemplates,
+  paginateListServiceTemplateVersions,
+  paginateListTagsForResource,
+};
+const waiters = {
+  waitUntilComponentDeployed,
+  waitUntilComponentDeleted,
+  waitUntilEnvironmentDeployed,
+  waitUntilEnvironmentTemplateVersionRegistered,
+  waitUntilServiceCreated,
+  waitUntilServiceUpdated,
+  waitUntilServiceDeleted,
+  waitUntilServicePipelineDeployed,
+  waitUntilServiceInstanceDeployed,
+  waitUntilServiceTemplateVersionRegistered,
 };
 
 export interface Proton {
@@ -2011,6 +2087,337 @@ export interface Proton {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTemplateSyncConfigCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListComponentOutputsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentOutputsCommandOutput}.
+   */
+  paginateListComponentOutputs(
+    args: ListComponentOutputsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentOutputsCommandOutput>;
+
+  /**
+   * @see {@link ListComponentProvisionedResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentProvisionedResourcesCommandOutput}.
+   */
+  paginateListComponentProvisionedResources(
+    args: ListComponentProvisionedResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentProvisionedResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentsCommandOutput}.
+   */
+  paginateListComponents(
+    args?: ListComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentsCommandOutput>;
+
+  /**
+   * @see {@link ListDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentsCommandOutput}.
+   */
+  paginateListDeployments(
+    args?: ListDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentAccountConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentAccountConnectionsCommandOutput}.
+   */
+  paginateListEnvironmentAccountConnections(
+    args: ListEnvironmentAccountConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentAccountConnectionsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentOutputsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentOutputsCommandOutput}.
+   */
+  paginateListEnvironmentOutputs(
+    args: ListEnvironmentOutputsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentOutputsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentProvisionedResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentProvisionedResourcesCommandOutput}.
+   */
+  paginateListEnvironmentProvisionedResources(
+    args: ListEnvironmentProvisionedResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentProvisionedResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentsCommandOutput}.
+   */
+  paginateListEnvironments(
+    args?: ListEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentTemplatesCommandOutput}.
+   */
+  paginateListEnvironmentTemplates(
+    args?: ListEnvironmentTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentTemplateVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentTemplateVersionsCommandOutput}.
+   */
+  paginateListEnvironmentTemplateVersions(
+    args: ListEnvironmentTemplateVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentTemplateVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListRepositoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRepositoriesCommandOutput}.
+   */
+  paginateListRepositories(
+    args?: ListRepositoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRepositoriesCommandOutput>;
+
+  /**
+   * @see {@link ListRepositorySyncDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRepositorySyncDefinitionsCommandOutput}.
+   */
+  paginateListRepositorySyncDefinitions(
+    args: ListRepositorySyncDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRepositorySyncDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListServiceInstanceOutputsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceInstanceOutputsCommandOutput}.
+   */
+  paginateListServiceInstanceOutputs(
+    args: ListServiceInstanceOutputsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceInstanceOutputsCommandOutput>;
+
+  /**
+   * @see {@link ListServiceInstanceProvisionedResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceInstanceProvisionedResourcesCommandOutput}.
+   */
+  paginateListServiceInstanceProvisionedResources(
+    args: ListServiceInstanceProvisionedResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceInstanceProvisionedResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListServiceInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceInstancesCommandOutput}.
+   */
+  paginateListServiceInstances(
+    args?: ListServiceInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListServicePipelineOutputsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicePipelineOutputsCommandOutput}.
+   */
+  paginateListServicePipelineOutputs(
+    args: ListServicePipelineOutputsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicePipelineOutputsCommandOutput>;
+
+  /**
+   * @see {@link ListServicePipelineProvisionedResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicePipelineProvisionedResourcesCommandOutput}.
+   */
+  paginateListServicePipelineProvisionedResources(
+    args: ListServicePipelineProvisionedResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicePipelineProvisionedResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicesCommandOutput}.
+   */
+  paginateListServices(
+    args?: ListServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicesCommandOutput>;
+
+  /**
+   * @see {@link ListServiceTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceTemplatesCommandOutput}.
+   */
+  paginateListServiceTemplates(
+    args?: ListServiceTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListServiceTemplateVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceTemplateVersionsCommandOutput}.
+   */
+  paginateListServiceTemplateVersions(
+    args: ListServiceTemplateVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceTemplateVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link GetComponentCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilComponentDeployed(
+    args: GetComponentCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetComponentCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilComponentDeleted(
+    args: GetComponentCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetEnvironmentCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilEnvironmentDeployed(
+    args: GetEnvironmentCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetEnvironmentTemplateVersionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilEnvironmentTemplateVersionRegistered(
+    args: GetEnvironmentTemplateVersionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetServiceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilServiceCreated(
+    args: GetServiceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetServiceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilServiceUpdated(
+    args: GetServiceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetServiceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilServiceDeleted(
+    args: GetServiceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetServiceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilServicePipelineDeployed(
+    args: GetServiceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetServiceInstanceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilServiceInstanceDeployed(
+    args: GetServiceInstanceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetServiceTemplateVersionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilServiceTemplateVersionRegistered(
+    args: GetServiceTemplateVersionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Proton>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -2146,4 +2553,4 @@ export interface Proton {
  * @public
  */
 export class Proton extends ProtonClient implements Proton {}
-createAggregatedClient(commands, Proton);
+createAggregatedClient(commands, Proton, { paginators, waiters });

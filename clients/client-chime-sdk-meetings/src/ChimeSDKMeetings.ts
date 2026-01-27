@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ChimeSDKMeetingsClient } from "./ChimeSDKMeetingsClient";
 import {
@@ -71,6 +71,7 @@ import {
   UpdateAttendeeCapabilitiesCommandInput,
   UpdateAttendeeCapabilitiesCommandOutput,
 } from "./commands/UpdateAttendeeCapabilitiesCommand";
+import { paginateListAttendees } from "./pagination/ListAttendeesPaginator";
 
 const commands = {
   BatchCreateAttendeeCommand,
@@ -89,6 +90,9 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAttendeeCapabilitiesCommand,
+};
+const paginators = {
+  paginateListAttendees,
 };
 
 export interface ChimeSDKMeetings {
@@ -363,6 +367,17 @@ export interface ChimeSDKMeetings {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAttendeeCapabilitiesCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAttendeesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttendeesCommandOutput}.
+   */
+  paginateListAttendees(
+    args: ListAttendeesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttendeesCommandOutput>;
 }
 
 /**
@@ -372,4 +387,4 @@ export interface ChimeSDKMeetings {
  * @public
  */
 export class ChimeSDKMeetings extends ChimeSDKMeetingsClient implements ChimeSDKMeetings {}
-createAggregatedClient(commands, ChimeSDKMeetings);
+createAggregatedClient(commands, ChimeSDKMeetings, { paginators });

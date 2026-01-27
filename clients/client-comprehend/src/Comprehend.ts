@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchDetectDominantLanguageCommand,
@@ -420,6 +420,23 @@ import {
   UpdateFlywheelCommandOutput,
 } from "./commands/UpdateFlywheelCommand";
 import { ComprehendClient } from "./ComprehendClient";
+import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
+import { paginateListDocumentClassificationJobs } from "./pagination/ListDocumentClassificationJobsPaginator";
+import { paginateListDocumentClassifiers } from "./pagination/ListDocumentClassifiersPaginator";
+import { paginateListDocumentClassifierSummaries } from "./pagination/ListDocumentClassifierSummariesPaginator";
+import { paginateListDominantLanguageDetectionJobs } from "./pagination/ListDominantLanguageDetectionJobsPaginator";
+import { paginateListEndpoints } from "./pagination/ListEndpointsPaginator";
+import { paginateListEntitiesDetectionJobs } from "./pagination/ListEntitiesDetectionJobsPaginator";
+import { paginateListEntityRecognizers } from "./pagination/ListEntityRecognizersPaginator";
+import { paginateListEntityRecognizerSummaries } from "./pagination/ListEntityRecognizerSummariesPaginator";
+import { paginateListEventsDetectionJobs } from "./pagination/ListEventsDetectionJobsPaginator";
+import { paginateListFlywheelIterationHistory } from "./pagination/ListFlywheelIterationHistoryPaginator";
+import { paginateListFlywheels } from "./pagination/ListFlywheelsPaginator";
+import { paginateListKeyPhrasesDetectionJobs } from "./pagination/ListKeyPhrasesDetectionJobsPaginator";
+import { paginateListPiiEntitiesDetectionJobs } from "./pagination/ListPiiEntitiesDetectionJobsPaginator";
+import { paginateListSentimentDetectionJobs } from "./pagination/ListSentimentDetectionJobsPaginator";
+import { paginateListTargetedSentimentDetectionJobs } from "./pagination/ListTargetedSentimentDetectionJobsPaginator";
+import { paginateListTopicsDetectionJobs } from "./pagination/ListTopicsDetectionJobsPaginator";
 
 const commands = {
   BatchDetectDominantLanguageCommand,
@@ -507,6 +524,25 @@ const commands = {
   UntagResourceCommand,
   UpdateEndpointCommand,
   UpdateFlywheelCommand,
+};
+const paginators = {
+  paginateListDatasets,
+  paginateListDocumentClassificationJobs,
+  paginateListDocumentClassifiers,
+  paginateListDocumentClassifierSummaries,
+  paginateListDominantLanguageDetectionJobs,
+  paginateListEndpoints,
+  paginateListEntitiesDetectionJobs,
+  paginateListEntityRecognizers,
+  paginateListEntityRecognizerSummaries,
+  paginateListEventsDetectionJobs,
+  paginateListFlywheelIterationHistory,
+  paginateListFlywheels,
+  paginateListKeyPhrasesDetectionJobs,
+  paginateListPiiEntitiesDetectionJobs,
+  paginateListSentimentDetectionJobs,
+  paginateListTargetedSentimentDetectionJobs,
+  paginateListTopicsDetectionJobs,
 };
 
 export interface Comprehend {
@@ -1971,6 +2007,193 @@ export interface Comprehend {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateFlywheelCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetsCommandOutput}.
+   */
+  paginateListDatasets(
+    args?: ListDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetsCommandOutput>;
+
+  /**
+   * @see {@link ListDocumentClassificationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDocumentClassificationJobsCommandOutput}.
+   */
+  paginateListDocumentClassificationJobs(
+    args?: ListDocumentClassificationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDocumentClassificationJobsCommandOutput>;
+
+  /**
+   * @see {@link ListDocumentClassifiersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDocumentClassifiersCommandOutput}.
+   */
+  paginateListDocumentClassifiers(
+    args?: ListDocumentClassifiersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDocumentClassifiersCommandOutput>;
+
+  /**
+   * @see {@link ListDocumentClassifierSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDocumentClassifierSummariesCommandOutput}.
+   */
+  paginateListDocumentClassifierSummaries(
+    args?: ListDocumentClassifierSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDocumentClassifierSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListDominantLanguageDetectionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDominantLanguageDetectionJobsCommandOutput}.
+   */
+  paginateListDominantLanguageDetectionJobs(
+    args?: ListDominantLanguageDetectionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDominantLanguageDetectionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEndpointsCommandOutput}.
+   */
+  paginateListEndpoints(
+    args?: ListEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListEntitiesDetectionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntitiesDetectionJobsCommandOutput}.
+   */
+  paginateListEntitiesDetectionJobs(
+    args?: ListEntitiesDetectionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntitiesDetectionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListEntityRecognizersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntityRecognizersCommandOutput}.
+   */
+  paginateListEntityRecognizers(
+    args?: ListEntityRecognizersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntityRecognizersCommandOutput>;
+
+  /**
+   * @see {@link ListEntityRecognizerSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntityRecognizerSummariesCommandOutput}.
+   */
+  paginateListEntityRecognizerSummaries(
+    args?: ListEntityRecognizerSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntityRecognizerSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListEventsDetectionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventsDetectionJobsCommandOutput}.
+   */
+  paginateListEventsDetectionJobs(
+    args?: ListEventsDetectionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventsDetectionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListFlywheelIterationHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlywheelIterationHistoryCommandOutput}.
+   */
+  paginateListFlywheelIterationHistory(
+    args: ListFlywheelIterationHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlywheelIterationHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListFlywheelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlywheelsCommandOutput}.
+   */
+  paginateListFlywheels(
+    args?: ListFlywheelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlywheelsCommandOutput>;
+
+  /**
+   * @see {@link ListKeyPhrasesDetectionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKeyPhrasesDetectionJobsCommandOutput}.
+   */
+  paginateListKeyPhrasesDetectionJobs(
+    args?: ListKeyPhrasesDetectionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKeyPhrasesDetectionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListPiiEntitiesDetectionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPiiEntitiesDetectionJobsCommandOutput}.
+   */
+  paginateListPiiEntitiesDetectionJobs(
+    args?: ListPiiEntitiesDetectionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPiiEntitiesDetectionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListSentimentDetectionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSentimentDetectionJobsCommandOutput}.
+   */
+  paginateListSentimentDetectionJobs(
+    args?: ListSentimentDetectionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSentimentDetectionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListTargetedSentimentDetectionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTargetedSentimentDetectionJobsCommandOutput}.
+   */
+  paginateListTargetedSentimentDetectionJobs(
+    args?: ListTargetedSentimentDetectionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTargetedSentimentDetectionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListTopicsDetectionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTopicsDetectionJobsCommandOutput}.
+   */
+  paginateListTopicsDetectionJobs(
+    args?: ListTopicsDetectionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTopicsDetectionJobsCommandOutput>;
 }
 
 /**
@@ -1981,4 +2204,4 @@ export interface Comprehend {
  * @public
  */
 export class Comprehend extends ComprehendClient implements Comprehend {}
-createAggregatedClient(commands, Comprehend);
+createAggregatedClient(commands, Comprehend, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ApplicationAutoScalingClient } from "./ApplicationAutoScalingClient";
 import {
@@ -69,6 +69,10 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateDescribeScalableTargets } from "./pagination/DescribeScalableTargetsPaginator";
+import { paginateDescribeScalingActivities } from "./pagination/DescribeScalingActivitiesPaginator";
+import { paginateDescribeScalingPolicies } from "./pagination/DescribeScalingPoliciesPaginator";
+import { paginateDescribeScheduledActions } from "./pagination/DescribeScheduledActionsPaginator";
 
 const commands = {
   DeleteScalingPolicyCommand,
@@ -85,6 +89,12 @@ const commands = {
   RegisterScalableTargetCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateDescribeScalableTargets,
+  paginateDescribeScalingActivities,
+  paginateDescribeScalingPolicies,
+  paginateDescribeScheduledActions,
 };
 
 export interface ApplicationAutoScaling {
@@ -325,6 +335,50 @@ export interface ApplicationAutoScaling {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeScalableTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeScalableTargetsCommandOutput}.
+   */
+  paginateDescribeScalableTargets(
+    args: DescribeScalableTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeScalableTargetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeScalingActivitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeScalingActivitiesCommandOutput}.
+   */
+  paginateDescribeScalingActivities(
+    args: DescribeScalingActivitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeScalingActivitiesCommandOutput>;
+
+  /**
+   * @see {@link DescribeScalingPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeScalingPoliciesCommandOutput}.
+   */
+  paginateDescribeScalingPolicies(
+    args: DescribeScalingPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeScalingPoliciesCommandOutput>;
+
+  /**
+   * @see {@link DescribeScheduledActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeScheduledActionsCommandOutput}.
+   */
+  paginateDescribeScheduledActions(
+    args: DescribeScheduledActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeScheduledActionsCommandOutput>;
 }
 
 /**
@@ -411,4 +465,4 @@ export interface ApplicationAutoScaling {
  * @public
  */
 export class ApplicationAutoScaling extends ApplicationAutoScalingClient implements ApplicationAutoScaling {}
-createAggregatedClient(commands, ApplicationAutoScaling);
+createAggregatedClient(commands, ApplicationAutoScaling, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptAdministratorInvitationCommand,
@@ -513,6 +513,29 @@ import {
   UpdateStandardsControlCommandInput,
   UpdateStandardsControlCommandOutput,
 } from "./commands/UpdateStandardsControlCommand";
+import { paginateDescribeActionTargets } from "./pagination/DescribeActionTargetsPaginator";
+import { paginateDescribeProducts } from "./pagination/DescribeProductsPaginator";
+import { paginateDescribeProductsV2 } from "./pagination/DescribeProductsV2Paginator";
+import { paginateDescribeStandardsControls } from "./pagination/DescribeStandardsControlsPaginator";
+import { paginateDescribeStandards } from "./pagination/DescribeStandardsPaginator";
+import { paginateGetEnabledStandards } from "./pagination/GetEnabledStandardsPaginator";
+import { paginateGetFindingHistory } from "./pagination/GetFindingHistoryPaginator";
+import { paginateGetFindings } from "./pagination/GetFindingsPaginator";
+import { paginateGetFindingsTrendsV2 } from "./pagination/GetFindingsTrendsV2Paginator";
+import { paginateGetFindingsV2 } from "./pagination/GetFindingsV2Paginator";
+import { paginateGetInsights } from "./pagination/GetInsightsPaginator";
+import { paginateGetResourcesTrendsV2 } from "./pagination/GetResourcesTrendsV2Paginator";
+import { paginateGetResourcesV2 } from "./pagination/GetResourcesV2Paginator";
+import { paginateListAggregatorsV2 } from "./pagination/ListAggregatorsV2Paginator";
+import { paginateListConfigurationPolicies } from "./pagination/ListConfigurationPoliciesPaginator";
+import { paginateListConfigurationPolicyAssociations } from "./pagination/ListConfigurationPolicyAssociationsPaginator";
+import { paginateListEnabledProductsForImport } from "./pagination/ListEnabledProductsForImportPaginator";
+import { paginateListFindingAggregators } from "./pagination/ListFindingAggregatorsPaginator";
+import { paginateListInvitations } from "./pagination/ListInvitationsPaginator";
+import { paginateListMembers } from "./pagination/ListMembersPaginator";
+import { paginateListOrganizationAdminAccounts } from "./pagination/ListOrganizationAdminAccountsPaginator";
+import { paginateListSecurityControlDefinitions } from "./pagination/ListSecurityControlDefinitionsPaginator";
+import { paginateListStandardsControlAssociations } from "./pagination/ListStandardsControlAssociationsPaginator";
 import { SecurityHubClient } from "./SecurityHubClient";
 
 const commands = {
@@ -623,6 +646,31 @@ const commands = {
   UpdateSecurityControlCommand,
   UpdateSecurityHubConfigurationCommand,
   UpdateStandardsControlCommand,
+};
+const paginators = {
+  paginateDescribeActionTargets,
+  paginateDescribeProducts,
+  paginateDescribeProductsV2,
+  paginateDescribeStandards,
+  paginateDescribeStandardsControls,
+  paginateGetEnabledStandards,
+  paginateGetFindingHistory,
+  paginateGetFindings,
+  paginateGetFindingsTrendsV2,
+  paginateGetFindingsV2,
+  paginateGetInsights,
+  paginateGetResourcesTrendsV2,
+  paginateGetResourcesV2,
+  paginateListAggregatorsV2,
+  paginateListConfigurationPolicies,
+  paginateListConfigurationPolicyAssociations,
+  paginateListEnabledProductsForImport,
+  paginateListFindingAggregators,
+  paginateListInvitations,
+  paginateListMembers,
+  paginateListOrganizationAdminAccounts,
+  paginateListSecurityControlDefinitions,
+  paginateListStandardsControlAssociations,
 };
 
 export interface SecurityHub {
@@ -2479,6 +2527,259 @@ export interface SecurityHub {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStandardsControlCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeActionTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeActionTargetsCommandOutput}.
+   */
+  paginateDescribeActionTargets(
+    args?: DescribeActionTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeActionTargetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeProductsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeProductsCommandOutput}.
+   */
+  paginateDescribeProducts(
+    args?: DescribeProductsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeProductsCommandOutput>;
+
+  /**
+   * @see {@link DescribeProductsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeProductsV2CommandOutput}.
+   */
+  paginateDescribeProductsV2(
+    args?: DescribeProductsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeProductsV2CommandOutput>;
+
+  /**
+   * @see {@link DescribeStandardsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeStandardsCommandOutput}.
+   */
+  paginateDescribeStandards(
+    args?: DescribeStandardsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeStandardsCommandOutput>;
+
+  /**
+   * @see {@link DescribeStandardsControlsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeStandardsControlsCommandOutput}.
+   */
+  paginateDescribeStandardsControls(
+    args: DescribeStandardsControlsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeStandardsControlsCommandOutput>;
+
+  /**
+   * @see {@link GetEnabledStandardsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetEnabledStandardsCommandOutput}.
+   */
+  paginateGetEnabledStandards(
+    args?: GetEnabledStandardsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetEnabledStandardsCommandOutput>;
+
+  /**
+   * @see {@link GetFindingHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFindingHistoryCommandOutput}.
+   */
+  paginateGetFindingHistory(
+    args: GetFindingHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFindingHistoryCommandOutput>;
+
+  /**
+   * @see {@link GetFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFindingsCommandOutput}.
+   */
+  paginateGetFindings(
+    args?: GetFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFindingsCommandOutput>;
+
+  /**
+   * @see {@link GetFindingsTrendsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFindingsTrendsV2CommandOutput}.
+   */
+  paginateGetFindingsTrendsV2(
+    args: GetFindingsTrendsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFindingsTrendsV2CommandOutput>;
+
+  /**
+   * @see {@link GetFindingsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFindingsV2CommandOutput}.
+   */
+  paginateGetFindingsV2(
+    args?: GetFindingsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFindingsV2CommandOutput>;
+
+  /**
+   * @see {@link GetInsightsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetInsightsCommandOutput}.
+   */
+  paginateGetInsights(
+    args?: GetInsightsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetInsightsCommandOutput>;
+
+  /**
+   * @see {@link GetResourcesTrendsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourcesTrendsV2CommandOutput}.
+   */
+  paginateGetResourcesTrendsV2(
+    args: GetResourcesTrendsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourcesTrendsV2CommandOutput>;
+
+  /**
+   * @see {@link GetResourcesV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourcesV2CommandOutput}.
+   */
+  paginateGetResourcesV2(
+    args?: GetResourcesV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourcesV2CommandOutput>;
+
+  /**
+   * @see {@link ListAggregatorsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAggregatorsV2CommandOutput}.
+   */
+  paginateListAggregatorsV2(
+    args?: ListAggregatorsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAggregatorsV2CommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationPoliciesCommandOutput}.
+   */
+  paginateListConfigurationPolicies(
+    args?: ListConfigurationPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationPolicyAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationPolicyAssociationsCommandOutput}.
+   */
+  paginateListConfigurationPolicyAssociations(
+    args?: ListConfigurationPolicyAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationPolicyAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListEnabledProductsForImportCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnabledProductsForImportCommandOutput}.
+   */
+  paginateListEnabledProductsForImport(
+    args?: ListEnabledProductsForImportCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnabledProductsForImportCommandOutput>;
+
+  /**
+   * @see {@link ListFindingAggregatorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFindingAggregatorsCommandOutput}.
+   */
+  paginateListFindingAggregators(
+    args?: ListFindingAggregatorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFindingAggregatorsCommandOutput>;
+
+  /**
+   * @see {@link ListInvitationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvitationsCommandOutput}.
+   */
+  paginateListInvitations(
+    args?: ListInvitationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvitationsCommandOutput>;
+
+  /**
+   * @see {@link ListMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMembersCommandOutput}.
+   */
+  paginateListMembers(
+    args?: ListMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMembersCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationAdminAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationAdminAccountsCommandOutput}.
+   */
+  paginateListOrganizationAdminAccounts(
+    args?: ListOrganizationAdminAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationAdminAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityControlDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityControlDefinitionsCommandOutput}.
+   */
+  paginateListSecurityControlDefinitions(
+    args?: ListSecurityControlDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityControlDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListStandardsControlAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStandardsControlAssociationsCommandOutput}.
+   */
+  paginateListStandardsControlAssociations(
+    args: ListStandardsControlAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStandardsControlAssociationsCommandOutput>;
 }
 
 /**
@@ -2557,4 +2858,4 @@ export interface SecurityHub {
  * @public
  */
 export class SecurityHub extends SecurityHubClient implements SecurityHub {}
-createAggregatedClient(commands, SecurityHub);
+createAggregatedClient(commands, SecurityHub, { paginators });

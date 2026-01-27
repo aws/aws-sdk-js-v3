@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BCMDataExportsClient } from "./BCMDataExportsClient";
 import {
@@ -43,6 +43,9 @@ import {
   UpdateExportCommandInput,
   UpdateExportCommandOutput,
 } from "./commands/UpdateExportCommand";
+import { paginateListExecutions } from "./pagination/ListExecutionsPaginator";
+import { paginateListExports } from "./pagination/ListExportsPaginator";
+import { paginateListTables } from "./pagination/ListTablesPaginator";
 
 const commands = {
   CreateExportCommand,
@@ -57,6 +60,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateExportCommand,
+};
+const paginators = {
+  paginateListExecutions,
+  paginateListExports,
+  paginateListTables,
 };
 
 export interface BCMDataExports {
@@ -265,6 +273,39 @@ export interface BCMDataExports {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateExportCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExecutionsCommandOutput}.
+   */
+  paginateListExecutions(
+    args: ListExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListExportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExportsCommandOutput}.
+   */
+  paginateListExports(
+    args?: ListExportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExportsCommandOutput>;
+
+  /**
+   * @see {@link ListTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTablesCommandOutput}.
+   */
+  paginateListTables(
+    args?: ListTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTablesCommandOutput>;
 }
 
 /**
@@ -279,4 +320,4 @@ export interface BCMDataExports {
  * @public
  */
 export class BCMDataExports extends BCMDataExportsClient implements BCMDataExports {}
-createAggregatedClient(commands, BCMDataExports);
+createAggregatedClient(commands, BCMDataExports, { paginators });

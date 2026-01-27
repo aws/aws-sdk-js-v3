@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ApplicationInsightsClient } from "./ApplicationInsightsClient";
 import { AddWorkloadCommand, AddWorkloadCommandInput, AddWorkloadCommandOutput } from "./commands/AddWorkloadCommand";
@@ -160,6 +160,13 @@ import {
   UpdateWorkloadCommandInput,
   UpdateWorkloadCommandOutput,
 } from "./commands/UpdateWorkloadCommand";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListComponents } from "./pagination/ListComponentsPaginator";
+import { paginateListConfigurationHistory } from "./pagination/ListConfigurationHistoryPaginator";
+import { paginateListLogPatternSets } from "./pagination/ListLogPatternSetsPaginator";
+import { paginateListLogPatterns } from "./pagination/ListLogPatternsPaginator";
+import { paginateListProblems } from "./pagination/ListProblemsPaginator";
+import { paginateListWorkloads } from "./pagination/ListWorkloadsPaginator";
 
 const commands = {
   AddWorkloadCommand,
@@ -195,6 +202,15 @@ const commands = {
   UpdateLogPatternCommand,
   UpdateProblemCommand,
   UpdateWorkloadCommand,
+};
+const paginators = {
+  paginateListApplications,
+  paginateListComponents,
+  paginateListConfigurationHistory,
+  paginateListLogPatterns,
+  paginateListLogPatternSets,
+  paginateListProblems,
+  paginateListWorkloads,
 };
 
 export interface ApplicationInsights {
@@ -762,6 +778,83 @@ export interface ApplicationInsights {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkloadCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentsCommandOutput}.
+   */
+  paginateListComponents(
+    args: ListComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentsCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationHistoryCommandOutput}.
+   */
+  paginateListConfigurationHistory(
+    args?: ListConfigurationHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListLogPatternsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLogPatternsCommandOutput}.
+   */
+  paginateListLogPatterns(
+    args: ListLogPatternsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLogPatternsCommandOutput>;
+
+  /**
+   * @see {@link ListLogPatternSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLogPatternSetsCommandOutput}.
+   */
+  paginateListLogPatternSets(
+    args: ListLogPatternSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLogPatternSetsCommandOutput>;
+
+  /**
+   * @see {@link ListProblemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProblemsCommandOutput}.
+   */
+  paginateListProblems(
+    args?: ListProblemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProblemsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkloadsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkloadsCommandOutput}.
+   */
+  paginateListWorkloads(
+    args: ListWorkloadsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkloadsCommandOutput>;
 }
 
 /**
@@ -780,4 +873,4 @@ export interface ApplicationInsights {
  * @public
  */
 export class ApplicationInsights extends ApplicationInsightsClient implements ApplicationInsights {}
-createAggregatedClient(commands, ApplicationInsights);
+createAggregatedClient(commands, ApplicationInsights, { paginators });

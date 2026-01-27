@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateApplicationInstanceCommand,
@@ -160,6 +160,17 @@ import {
   UpdateDeviceMetadataCommandInput,
   UpdateDeviceMetadataCommandOutput,
 } from "./commands/UpdateDeviceMetadataCommand";
+import { paginateListApplicationInstanceDependencies } from "./pagination/ListApplicationInstanceDependenciesPaginator";
+import {
+  paginateListApplicationInstanceNodeInstances,
+} from "./pagination/ListApplicationInstanceNodeInstancesPaginator";
+import { paginateListApplicationInstances } from "./pagination/ListApplicationInstancesPaginator";
+import { paginateListDevicesJobs } from "./pagination/ListDevicesJobsPaginator";
+import { paginateListDevices } from "./pagination/ListDevicesPaginator";
+import { paginateListNodeFromTemplateJobs } from "./pagination/ListNodeFromTemplateJobsPaginator";
+import { paginateListNodes } from "./pagination/ListNodesPaginator";
+import { paginateListPackageImportJobs } from "./pagination/ListPackageImportJobsPaginator";
+import { paginateListPackages } from "./pagination/ListPackagesPaginator";
 import { PanoramaClient } from "./PanoramaClient";
 
 const commands = {
@@ -197,6 +208,17 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDeviceMetadataCommand,
+};
+const paginators = {
+  paginateListApplicationInstanceDependencies,
+  paginateListApplicationInstanceNodeInstances,
+  paginateListApplicationInstances,
+  paginateListDevices,
+  paginateListDevicesJobs,
+  paginateListNodeFromTemplateJobs,
+  paginateListNodes,
+  paginateListPackageImportJobs,
+  paginateListPackages,
 };
 
 export interface Panorama {
@@ -784,6 +806,105 @@ export interface Panorama {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDeviceMetadataCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationInstanceDependenciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationInstanceDependenciesCommandOutput}.
+   */
+  paginateListApplicationInstanceDependencies(
+    args: ListApplicationInstanceDependenciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationInstanceDependenciesCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationInstanceNodeInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationInstanceNodeInstancesCommandOutput}.
+   */
+  paginateListApplicationInstanceNodeInstances(
+    args: ListApplicationInstanceNodeInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationInstanceNodeInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationInstancesCommandOutput}.
+   */
+  paginateListApplicationInstances(
+    args?: ListApplicationInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListDevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevicesCommandOutput}.
+   */
+  paginateListDevices(
+    args?: ListDevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevicesCommandOutput>;
+
+  /**
+   * @see {@link ListDevicesJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevicesJobsCommandOutput}.
+   */
+  paginateListDevicesJobs(
+    args?: ListDevicesJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevicesJobsCommandOutput>;
+
+  /**
+   * @see {@link ListNodeFromTemplateJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNodeFromTemplateJobsCommandOutput}.
+   */
+  paginateListNodeFromTemplateJobs(
+    args?: ListNodeFromTemplateJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNodeFromTemplateJobsCommandOutput>;
+
+  /**
+   * @see {@link ListNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNodesCommandOutput}.
+   */
+  paginateListNodes(
+    args?: ListNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNodesCommandOutput>;
+
+  /**
+   * @see {@link ListPackageImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackageImportJobsCommandOutput}.
+   */
+  paginateListPackageImportJobs(
+    args?: ListPackageImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackageImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListPackagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackagesCommandOutput}.
+   */
+  paginateListPackages(
+    args?: ListPackagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackagesCommandOutput>;
 }
 
 /**
@@ -796,4 +917,4 @@ export interface Panorama {
  * @public
  */
 export class Panorama extends PanoramaClient implements Panorama {}
-createAggregatedClient(commands, Panorama);
+createAggregatedClient(commands, Panorama, { paginators });

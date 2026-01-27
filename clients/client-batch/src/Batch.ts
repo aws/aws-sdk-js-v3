@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BatchClient } from "./BatchClient";
 import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
@@ -182,6 +182,15 @@ import {
   UpdateServiceEnvironmentCommandInput,
   UpdateServiceEnvironmentCommandOutput,
 } from "./commands/UpdateServiceEnvironmentCommand";
+import { paginateDescribeComputeEnvironments } from "./pagination/DescribeComputeEnvironmentsPaginator";
+import { paginateDescribeJobDefinitions } from "./pagination/DescribeJobDefinitionsPaginator";
+import { paginateDescribeJobQueues } from "./pagination/DescribeJobQueuesPaginator";
+import { paginateDescribeServiceEnvironments } from "./pagination/DescribeServiceEnvironmentsPaginator";
+import { paginateListConsumableResources } from "./pagination/ListConsumableResourcesPaginator";
+import { paginateListJobsByConsumableResource } from "./pagination/ListJobsByConsumableResourcePaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
+import { paginateListSchedulingPolicies } from "./pagination/ListSchedulingPoliciesPaginator";
+import { paginateListServiceJobs } from "./pagination/ListServiceJobsPaginator";
 
 const commands = {
   CancelJobCommand,
@@ -223,6 +232,17 @@ const commands = {
   UpdateJobQueueCommand,
   UpdateSchedulingPolicyCommand,
   UpdateServiceEnvironmentCommand,
+};
+const paginators = {
+  paginateDescribeComputeEnvironments,
+  paginateDescribeJobDefinitions,
+  paginateDescribeJobQueues,
+  paginateDescribeServiceEnvironments,
+  paginateListConsumableResources,
+  paginateListJobs,
+  paginateListJobsByConsumableResource,
+  paginateListSchedulingPolicies,
+  paginateListServiceJobs,
 };
 
 export interface Batch {
@@ -896,6 +916,105 @@ export interface Batch {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceEnvironmentCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeComputeEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeComputeEnvironmentsCommandOutput}.
+   */
+  paginateDescribeComputeEnvironments(
+    args?: DescribeComputeEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeComputeEnvironmentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeJobDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeJobDefinitionsCommandOutput}.
+   */
+  paginateDescribeJobDefinitions(
+    args?: DescribeJobDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeJobDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeJobQueuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeJobQueuesCommandOutput}.
+   */
+  paginateDescribeJobQueues(
+    args?: DescribeJobQueuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeJobQueuesCommandOutput>;
+
+  /**
+   * @see {@link DescribeServiceEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeServiceEnvironmentsCommandOutput}.
+   */
+  paginateDescribeServiceEnvironments(
+    args?: DescribeServiceEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeServiceEnvironmentsCommandOutput>;
+
+  /**
+   * @see {@link ListConsumableResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConsumableResourcesCommandOutput}.
+   */
+  paginateListConsumableResources(
+    args?: ListConsumableResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConsumableResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args?: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
+   * @see {@link ListJobsByConsumableResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsByConsumableResourceCommandOutput}.
+   */
+  paginateListJobsByConsumableResource(
+    args: ListJobsByConsumableResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsByConsumableResourceCommandOutput>;
+
+  /**
+   * @see {@link ListSchedulingPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchedulingPoliciesCommandOutput}.
+   */
+  paginateListSchedulingPolicies(
+    args?: ListSchedulingPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchedulingPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListServiceJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceJobsCommandOutput}.
+   */
+  paginateListServiceJobs(
+    args?: ListServiceJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceJobsCommandOutput>;
 }
 
 /**
@@ -913,4 +1032,4 @@ export interface Batch {
  * @public
  */
 export class Batch extends BatchClient implements Batch {}
-createAggregatedClient(commands, Batch);
+createAggregatedClient(commands, Batch, { paginators });

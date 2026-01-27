@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   BatchCreateCustomVocabularyItemCommand,
@@ -457,6 +463,42 @@ import {
   UpdateTestSetCommandOutput,
 } from "./commands/UpdateTestSetCommand";
 import { LexModelsV2Client } from "./LexModelsV2Client";
+import { paginateListAggregatedUtterances } from "./pagination/ListAggregatedUtterancesPaginator";
+import { paginateListBotAliases } from "./pagination/ListBotAliasesPaginator";
+import { paginateListBotAliasReplicas } from "./pagination/ListBotAliasReplicasPaginator";
+import { paginateListBotLocales } from "./pagination/ListBotLocalesPaginator";
+import { paginateListBotRecommendations } from "./pagination/ListBotRecommendationsPaginator";
+import { paginateListBotResourceGenerations } from "./pagination/ListBotResourceGenerationsPaginator";
+import { paginateListBots } from "./pagination/ListBotsPaginator";
+import { paginateListBotVersionReplicas } from "./pagination/ListBotVersionReplicasPaginator";
+import { paginateListBotVersions } from "./pagination/ListBotVersionsPaginator";
+import { paginateListBuiltInIntents } from "./pagination/ListBuiltInIntentsPaginator";
+import { paginateListBuiltInSlotTypes } from "./pagination/ListBuiltInSlotTypesPaginator";
+import { paginateListCustomVocabularyItems } from "./pagination/ListCustomVocabularyItemsPaginator";
+import { paginateListExports } from "./pagination/ListExportsPaginator";
+import { paginateListImports } from "./pagination/ListImportsPaginator";
+import { paginateListIntentMetrics } from "./pagination/ListIntentMetricsPaginator";
+import { paginateListIntents } from "./pagination/ListIntentsPaginator";
+import { paginateListIntentStageMetrics } from "./pagination/ListIntentStageMetricsPaginator";
+import { paginateListRecommendedIntents } from "./pagination/ListRecommendedIntentsPaginator";
+import { paginateListSessionAnalyticsData } from "./pagination/ListSessionAnalyticsDataPaginator";
+import { paginateListSessionMetrics } from "./pagination/ListSessionMetricsPaginator";
+import { paginateListSlots } from "./pagination/ListSlotsPaginator";
+import { paginateListSlotTypes } from "./pagination/ListSlotTypesPaginator";
+import { paginateListTestExecutionResultItems } from "./pagination/ListTestExecutionResultItemsPaginator";
+import { paginateListTestExecutions } from "./pagination/ListTestExecutionsPaginator";
+import { paginateListTestSetRecords } from "./pagination/ListTestSetRecordsPaginator";
+import { paginateListTestSets } from "./pagination/ListTestSetsPaginator";
+import { paginateListUtteranceAnalyticsData } from "./pagination/ListUtteranceAnalyticsDataPaginator";
+import { paginateListUtteranceMetrics } from "./pagination/ListUtteranceMetricsPaginator";
+import { waitUntilBotAliasAvailable } from "./waiters/waitForBotAliasAvailable";
+import { waitUntilBotAvailable } from "./waiters/waitForBotAvailable";
+import { waitUntilBotExportCompleted } from "./waiters/waitForBotExportCompleted";
+import { waitUntilBotImportCompleted } from "./waiters/waitForBotImportCompleted";
+import { waitUntilBotLocaleBuilt } from "./waiters/waitForBotLocaleBuilt";
+import { waitUntilBotLocaleCreated } from "./waiters/waitForBotLocaleCreated";
+import { waitUntilBotLocaleExpressTestingAvailable } from "./waiters/waitForBotLocaleExpressTestingAvailable";
+import { waitUntilBotVersionAvailable } from "./waiters/waitForBotVersionAvailable";
 
 const commands = {
   BatchCreateCustomVocabularyItemCommand,
@@ -561,6 +603,46 @@ const commands = {
   UpdateSlotCommand,
   UpdateSlotTypeCommand,
   UpdateTestSetCommand,
+};
+const paginators = {
+  paginateListAggregatedUtterances,
+  paginateListBotAliases,
+  paginateListBotAliasReplicas,
+  paginateListBotLocales,
+  paginateListBotRecommendations,
+  paginateListBotResourceGenerations,
+  paginateListBots,
+  paginateListBotVersionReplicas,
+  paginateListBotVersions,
+  paginateListBuiltInIntents,
+  paginateListBuiltInSlotTypes,
+  paginateListCustomVocabularyItems,
+  paginateListExports,
+  paginateListImports,
+  paginateListIntentMetrics,
+  paginateListIntents,
+  paginateListIntentStageMetrics,
+  paginateListRecommendedIntents,
+  paginateListSessionAnalyticsData,
+  paginateListSessionMetrics,
+  paginateListSlots,
+  paginateListSlotTypes,
+  paginateListTestExecutionResultItems,
+  paginateListTestExecutions,
+  paginateListTestSetRecords,
+  paginateListTestSets,
+  paginateListUtteranceAnalyticsData,
+  paginateListUtteranceMetrics,
+};
+const waiters = {
+  waitUntilBotAvailable,
+  waitUntilBotAliasAvailable,
+  waitUntilBotLocaleBuilt,
+  waitUntilBotLocaleCreated,
+  waitUntilBotLocaleExpressTestingAvailable,
+  waitUntilBotVersionAvailable,
+  waitUntilBotExportCompleted,
+  waitUntilBotImportCompleted,
 };
 
 export interface LexModelsV2 {
@@ -2303,6 +2385,394 @@ export interface LexModelsV2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTestSetCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAggregatedUtterancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAggregatedUtterancesCommandOutput}.
+   */
+  paginateListAggregatedUtterances(
+    args: ListAggregatedUtterancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAggregatedUtterancesCommandOutput>;
+
+  /**
+   * @see {@link ListBotAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotAliasesCommandOutput}.
+   */
+  paginateListBotAliases(
+    args: ListBotAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListBotAliasReplicasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotAliasReplicasCommandOutput}.
+   */
+  paginateListBotAliasReplicas(
+    args: ListBotAliasReplicasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotAliasReplicasCommandOutput>;
+
+  /**
+   * @see {@link ListBotLocalesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotLocalesCommandOutput}.
+   */
+  paginateListBotLocales(
+    args: ListBotLocalesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotLocalesCommandOutput>;
+
+  /**
+   * @see {@link ListBotRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotRecommendationsCommandOutput}.
+   */
+  paginateListBotRecommendations(
+    args: ListBotRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link ListBotResourceGenerationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotResourceGenerationsCommandOutput}.
+   */
+  paginateListBotResourceGenerations(
+    args: ListBotResourceGenerationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotResourceGenerationsCommandOutput>;
+
+  /**
+   * @see {@link ListBotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotsCommandOutput}.
+   */
+  paginateListBots(
+    args?: ListBotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotsCommandOutput>;
+
+  /**
+   * @see {@link ListBotVersionReplicasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotVersionReplicasCommandOutput}.
+   */
+  paginateListBotVersionReplicas(
+    args: ListBotVersionReplicasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotVersionReplicasCommandOutput>;
+
+  /**
+   * @see {@link ListBotVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotVersionsCommandOutput}.
+   */
+  paginateListBotVersions(
+    args: ListBotVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListBuiltInIntentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBuiltInIntentsCommandOutput}.
+   */
+  paginateListBuiltInIntents(
+    args: ListBuiltInIntentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBuiltInIntentsCommandOutput>;
+
+  /**
+   * @see {@link ListBuiltInSlotTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBuiltInSlotTypesCommandOutput}.
+   */
+  paginateListBuiltInSlotTypes(
+    args: ListBuiltInSlotTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBuiltInSlotTypesCommandOutput>;
+
+  /**
+   * @see {@link ListCustomVocabularyItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomVocabularyItemsCommandOutput}.
+   */
+  paginateListCustomVocabularyItems(
+    args: ListCustomVocabularyItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomVocabularyItemsCommandOutput>;
+
+  /**
+   * @see {@link ListExportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExportsCommandOutput}.
+   */
+  paginateListExports(
+    args?: ListExportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExportsCommandOutput>;
+
+  /**
+   * @see {@link ListImportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportsCommandOutput}.
+   */
+  paginateListImports(
+    args?: ListImportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportsCommandOutput>;
+
+  /**
+   * @see {@link ListIntentMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIntentMetricsCommandOutput}.
+   */
+  paginateListIntentMetrics(
+    args: ListIntentMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIntentMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListIntentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIntentsCommandOutput}.
+   */
+  paginateListIntents(
+    args: ListIntentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIntentsCommandOutput>;
+
+  /**
+   * @see {@link ListIntentStageMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIntentStageMetricsCommandOutput}.
+   */
+  paginateListIntentStageMetrics(
+    args: ListIntentStageMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIntentStageMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendedIntentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendedIntentsCommandOutput}.
+   */
+  paginateListRecommendedIntents(
+    args: ListRecommendedIntentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendedIntentsCommandOutput>;
+
+  /**
+   * @see {@link ListSessionAnalyticsDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionAnalyticsDataCommandOutput}.
+   */
+  paginateListSessionAnalyticsData(
+    args: ListSessionAnalyticsDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionAnalyticsDataCommandOutput>;
+
+  /**
+   * @see {@link ListSessionMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionMetricsCommandOutput}.
+   */
+  paginateListSessionMetrics(
+    args: ListSessionMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListSlotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSlotsCommandOutput}.
+   */
+  paginateListSlots(
+    args: ListSlotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSlotsCommandOutput>;
+
+  /**
+   * @see {@link ListSlotTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSlotTypesCommandOutput}.
+   */
+  paginateListSlotTypes(
+    args: ListSlotTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSlotTypesCommandOutput>;
+
+  /**
+   * @see {@link ListTestExecutionResultItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestExecutionResultItemsCommandOutput}.
+   */
+  paginateListTestExecutionResultItems(
+    args: ListTestExecutionResultItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestExecutionResultItemsCommandOutput>;
+
+  /**
+   * @see {@link ListTestExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestExecutionsCommandOutput}.
+   */
+  paginateListTestExecutions(
+    args?: ListTestExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListTestSetRecordsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestSetRecordsCommandOutput}.
+   */
+  paginateListTestSetRecords(
+    args: ListTestSetRecordsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestSetRecordsCommandOutput>;
+
+  /**
+   * @see {@link ListTestSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestSetsCommandOutput}.
+   */
+  paginateListTestSets(
+    args?: ListTestSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestSetsCommandOutput>;
+
+  /**
+   * @see {@link ListUtteranceAnalyticsDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUtteranceAnalyticsDataCommandOutput}.
+   */
+  paginateListUtteranceAnalyticsData(
+    args: ListUtteranceAnalyticsDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUtteranceAnalyticsDataCommandOutput>;
+
+  /**
+   * @see {@link ListUtteranceMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUtteranceMetricsCommandOutput}.
+   */
+  paginateListUtteranceMetrics(
+    args: ListUtteranceMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUtteranceMetricsCommandOutput>;
+
+  /**
+   * @see {@link DescribeBotCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBotAvailable(
+    args: DescribeBotCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeBotAliasCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBotAliasAvailable(
+    args: DescribeBotAliasCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeBotLocaleCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBotLocaleBuilt(
+    args: DescribeBotLocaleCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeBotLocaleCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBotLocaleCreated(
+    args: DescribeBotLocaleCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeBotLocaleCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBotLocaleExpressTestingAvailable(
+    args: DescribeBotLocaleCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeBotVersionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBotVersionAvailable(
+    args: DescribeBotVersionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeExportCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBotExportCompleted(
+    args: DescribeExportCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeImportCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBotImportCompleted(
+    args: DescribeImportCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<LexModelsV2>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -2310,4 +2780,4 @@ export interface LexModelsV2 {
  * @public
  */
 export class LexModelsV2 extends LexModelsV2Client implements LexModelsV2 {}
-createAggregatedClient(commands, LexModelsV2);
+createAggregatedClient(commands, LexModelsV2, { paginators, waiters });

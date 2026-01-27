@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AddRoleToDBClusterCommand,
@@ -817,7 +823,62 @@ import {
   SwitchoverReadReplicaCommandInput,
   SwitchoverReadReplicaCommandOutput,
 } from "./commands/SwitchoverReadReplicaCommand";
+import { paginateDescribeBlueGreenDeployments } from "./pagination/DescribeBlueGreenDeploymentsPaginator";
+import { paginateDescribeCertificates } from "./pagination/DescribeCertificatesPaginator";
+import { paginateDescribeDBClusterAutomatedBackups } from "./pagination/DescribeDBClusterAutomatedBackupsPaginator";
+import { paginateDescribeDBClusterBacktracks } from "./pagination/DescribeDBClusterBacktracksPaginator";
+import { paginateDescribeDBClusterEndpoints } from "./pagination/DescribeDBClusterEndpointsPaginator";
+import { paginateDescribeDBClusterParameterGroups } from "./pagination/DescribeDBClusterParameterGroupsPaginator";
+import { paginateDescribeDBClusterParameters } from "./pagination/DescribeDBClusterParametersPaginator";
+import { paginateDescribeDBClusterSnapshots } from "./pagination/DescribeDBClusterSnapshotsPaginator";
+import { paginateDescribeDBClusters } from "./pagination/DescribeDBClustersPaginator";
+import { paginateDescribeDBEngineVersions } from "./pagination/DescribeDBEngineVersionsPaginator";
+import { paginateDescribeDBInstanceAutomatedBackups } from "./pagination/DescribeDBInstanceAutomatedBackupsPaginator";
+import { paginateDescribeDBInstances } from "./pagination/DescribeDBInstancesPaginator";
+import { paginateDescribeDBLogFiles } from "./pagination/DescribeDBLogFilesPaginator";
+import { paginateDescribeDBMajorEngineVersions } from "./pagination/DescribeDBMajorEngineVersionsPaginator";
+import { paginateDescribeDBParameterGroups } from "./pagination/DescribeDBParameterGroupsPaginator";
+import { paginateDescribeDBParameters } from "./pagination/DescribeDBParametersPaginator";
+import { paginateDescribeDBProxies } from "./pagination/DescribeDBProxiesPaginator";
+import { paginateDescribeDBProxyEndpoints } from "./pagination/DescribeDBProxyEndpointsPaginator";
+import { paginateDescribeDBProxyTargetGroups } from "./pagination/DescribeDBProxyTargetGroupsPaginator";
+import { paginateDescribeDBProxyTargets } from "./pagination/DescribeDBProxyTargetsPaginator";
+import { paginateDescribeDBRecommendations } from "./pagination/DescribeDBRecommendationsPaginator";
+import { paginateDescribeDBSecurityGroups } from "./pagination/DescribeDBSecurityGroupsPaginator";
+import { paginateDescribeDBSnapshots } from "./pagination/DescribeDBSnapshotsPaginator";
+import { paginateDescribeDBSnapshotTenantDatabases } from "./pagination/DescribeDBSnapshotTenantDatabasesPaginator";
+import { paginateDescribeDBSubnetGroups } from "./pagination/DescribeDBSubnetGroupsPaginator";
+import {
+  paginateDescribeEngineDefaultClusterParameters,
+} from "./pagination/DescribeEngineDefaultClusterParametersPaginator";
+import { paginateDescribeEngineDefaultParameters } from "./pagination/DescribeEngineDefaultParametersPaginator";
+import { paginateDescribeEvents } from "./pagination/DescribeEventsPaginator";
+import { paginateDescribeEventSubscriptions } from "./pagination/DescribeEventSubscriptionsPaginator";
+import { paginateDescribeExportTasks } from "./pagination/DescribeExportTasksPaginator";
+import { paginateDescribeGlobalClusters } from "./pagination/DescribeGlobalClustersPaginator";
+import { paginateDescribeIntegrations } from "./pagination/DescribeIntegrationsPaginator";
+import { paginateDescribeOptionGroupOptions } from "./pagination/DescribeOptionGroupOptionsPaginator";
+import { paginateDescribeOptionGroups } from "./pagination/DescribeOptionGroupsPaginator";
+import { paginateDescribeOrderableDBInstanceOptions } from "./pagination/DescribeOrderableDBInstanceOptionsPaginator";
+import { paginateDescribePendingMaintenanceActions } from "./pagination/DescribePendingMaintenanceActionsPaginator";
+import {
+  paginateDescribeReservedDBInstancesOfferings,
+} from "./pagination/DescribeReservedDBInstancesOfferingsPaginator";
+import { paginateDescribeReservedDBInstances } from "./pagination/DescribeReservedDBInstancesPaginator";
+import { paginateDescribeSourceRegions } from "./pagination/DescribeSourceRegionsPaginator";
+import { paginateDescribeTenantDatabases } from "./pagination/DescribeTenantDatabasesPaginator";
+import { paginateDownloadDBLogFilePortion } from "./pagination/DownloadDBLogFilePortionPaginator";
 import { RDSClient } from "./RDSClient";
+import { waitUntilDBClusterAvailable } from "./waiters/waitForDBClusterAvailable";
+import { waitUntilDBClusterDeleted } from "./waiters/waitForDBClusterDeleted";
+import { waitUntilDBClusterSnapshotAvailable } from "./waiters/waitForDBClusterSnapshotAvailable";
+import { waitUntilDBClusterSnapshotDeleted } from "./waiters/waitForDBClusterSnapshotDeleted";
+import { waitUntilDBInstanceAvailable } from "./waiters/waitForDBInstanceAvailable";
+import { waitUntilDBInstanceDeleted } from "./waiters/waitForDBInstanceDeleted";
+import { waitUntilDBSnapshotAvailable } from "./waiters/waitForDBSnapshotAvailable";
+import { waitUntilDBSnapshotDeleted } from "./waiters/waitForDBSnapshotDeleted";
+import { waitUntilTenantDatabaseAvailable } from "./waiters/waitForTenantDatabaseAvailable";
+import { waitUntilTenantDatabaseDeleted } from "./waiters/waitForTenantDatabaseDeleted";
 
 const commands = {
   AddRoleToDBClusterCommand,
@@ -983,6 +1044,61 @@ const commands = {
   SwitchoverBlueGreenDeploymentCommand,
   SwitchoverGlobalClusterCommand,
   SwitchoverReadReplicaCommand,
+};
+const paginators = {
+  paginateDescribeBlueGreenDeployments,
+  paginateDescribeCertificates,
+  paginateDescribeDBClusterAutomatedBackups,
+  paginateDescribeDBClusterBacktracks,
+  paginateDescribeDBClusterEndpoints,
+  paginateDescribeDBClusterParameterGroups,
+  paginateDescribeDBClusterParameters,
+  paginateDescribeDBClusters,
+  paginateDescribeDBClusterSnapshots,
+  paginateDescribeDBEngineVersions,
+  paginateDescribeDBInstanceAutomatedBackups,
+  paginateDescribeDBInstances,
+  paginateDescribeDBLogFiles,
+  paginateDescribeDBMajorEngineVersions,
+  paginateDescribeDBParameterGroups,
+  paginateDescribeDBParameters,
+  paginateDescribeDBProxies,
+  paginateDescribeDBProxyEndpoints,
+  paginateDescribeDBProxyTargetGroups,
+  paginateDescribeDBProxyTargets,
+  paginateDescribeDBRecommendations,
+  paginateDescribeDBSecurityGroups,
+  paginateDescribeDBSnapshots,
+  paginateDescribeDBSnapshotTenantDatabases,
+  paginateDescribeDBSubnetGroups,
+  paginateDescribeEngineDefaultClusterParameters,
+  paginateDescribeEngineDefaultParameters,
+  paginateDescribeEvents,
+  paginateDescribeEventSubscriptions,
+  paginateDescribeExportTasks,
+  paginateDescribeGlobalClusters,
+  paginateDescribeIntegrations,
+  paginateDescribeOptionGroupOptions,
+  paginateDescribeOptionGroups,
+  paginateDescribeOrderableDBInstanceOptions,
+  paginateDescribePendingMaintenanceActions,
+  paginateDescribeReservedDBInstances,
+  paginateDescribeReservedDBInstancesOfferings,
+  paginateDescribeSourceRegions,
+  paginateDescribeTenantDatabases,
+  paginateDownloadDBLogFilePortion,
+};
+const waiters = {
+  waitUntilDBClusterAvailable,
+  waitUntilDBClusterDeleted,
+  waitUntilDBClusterSnapshotAvailable,
+  waitUntilDBClusterSnapshotDeleted,
+  waitUntilDBInstanceAvailable,
+  waitUntilDBInstanceDeleted,
+  waitUntilDBSnapshotAvailable,
+  waitUntilDBSnapshotDeleted,
+  waitUntilTenantDatabaseAvailable,
+  waitUntilTenantDatabaseDeleted,
 };
 
 export interface RDS {
@@ -3792,6 +3908,557 @@ export interface RDS {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SwitchoverReadReplicaCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeBlueGreenDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBlueGreenDeploymentsCommandOutput}.
+   */
+  paginateDescribeBlueGreenDeployments(
+    args?: DescribeBlueGreenDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBlueGreenDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCertificatesCommandOutput}.
+   */
+  paginateDescribeCertificates(
+    args?: DescribeCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCertificatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBClusterAutomatedBackupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBClusterAutomatedBackupsCommandOutput}.
+   */
+  paginateDescribeDBClusterAutomatedBackups(
+    args?: DescribeDBClusterAutomatedBackupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBClusterAutomatedBackupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBClusterBacktracksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBClusterBacktracksCommandOutput}.
+   */
+  paginateDescribeDBClusterBacktracks(
+    args: DescribeDBClusterBacktracksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBClusterBacktracksCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBClusterEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBClusterEndpointsCommandOutput}.
+   */
+  paginateDescribeDBClusterEndpoints(
+    args?: DescribeDBClusterEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBClusterEndpointsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBClusterParameterGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBClusterParameterGroupsCommandOutput}.
+   */
+  paginateDescribeDBClusterParameterGroups(
+    args?: DescribeDBClusterParameterGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBClusterParameterGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBClusterParametersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBClusterParametersCommandOutput}.
+   */
+  paginateDescribeDBClusterParameters(
+    args: DescribeDBClusterParametersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBClusterParametersCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBClustersCommandOutput}.
+   */
+  paginateDescribeDBClusters(
+    args?: DescribeDBClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBClustersCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBClusterSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBClusterSnapshotsCommandOutput}.
+   */
+  paginateDescribeDBClusterSnapshots(
+    args?: DescribeDBClusterSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBClusterSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBEngineVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBEngineVersionsCommandOutput}.
+   */
+  paginateDescribeDBEngineVersions(
+    args?: DescribeDBEngineVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBEngineVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBInstanceAutomatedBackupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBInstanceAutomatedBackupsCommandOutput}.
+   */
+  paginateDescribeDBInstanceAutomatedBackups(
+    args?: DescribeDBInstanceAutomatedBackupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBInstanceAutomatedBackupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBInstancesCommandOutput}.
+   */
+  paginateDescribeDBInstances(
+    args?: DescribeDBInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBLogFilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBLogFilesCommandOutput}.
+   */
+  paginateDescribeDBLogFiles(
+    args: DescribeDBLogFilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBLogFilesCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBMajorEngineVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBMajorEngineVersionsCommandOutput}.
+   */
+  paginateDescribeDBMajorEngineVersions(
+    args?: DescribeDBMajorEngineVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBMajorEngineVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBParameterGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBParameterGroupsCommandOutput}.
+   */
+  paginateDescribeDBParameterGroups(
+    args?: DescribeDBParameterGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBParameterGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBParametersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBParametersCommandOutput}.
+   */
+  paginateDescribeDBParameters(
+    args: DescribeDBParametersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBParametersCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBProxiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBProxiesCommandOutput}.
+   */
+  paginateDescribeDBProxies(
+    args?: DescribeDBProxiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBProxiesCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBProxyEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBProxyEndpointsCommandOutput}.
+   */
+  paginateDescribeDBProxyEndpoints(
+    args?: DescribeDBProxyEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBProxyEndpointsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBProxyTargetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBProxyTargetGroupsCommandOutput}.
+   */
+  paginateDescribeDBProxyTargetGroups(
+    args: DescribeDBProxyTargetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBProxyTargetGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBProxyTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBProxyTargetsCommandOutput}.
+   */
+  paginateDescribeDBProxyTargets(
+    args: DescribeDBProxyTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBProxyTargetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBRecommendationsCommandOutput}.
+   */
+  paginateDescribeDBRecommendations(
+    args?: DescribeDBRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBSecurityGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBSecurityGroupsCommandOutput}.
+   */
+  paginateDescribeDBSecurityGroups(
+    args?: DescribeDBSecurityGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBSecurityGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBSnapshotsCommandOutput}.
+   */
+  paginateDescribeDBSnapshots(
+    args?: DescribeDBSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBSnapshotTenantDatabasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBSnapshotTenantDatabasesCommandOutput}.
+   */
+  paginateDescribeDBSnapshotTenantDatabases(
+    args?: DescribeDBSnapshotTenantDatabasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBSnapshotTenantDatabasesCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBSubnetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDBSubnetGroupsCommandOutput}.
+   */
+  paginateDescribeDBSubnetGroups(
+    args?: DescribeDBSubnetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDBSubnetGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEngineDefaultClusterParametersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEngineDefaultClusterParametersCommandOutput}.
+   */
+  paginateDescribeEngineDefaultClusterParameters(
+    args: DescribeEngineDefaultClusterParametersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEngineDefaultClusterParametersCommandOutput>;
+
+  /**
+   * @see {@link DescribeEngineDefaultParametersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEngineDefaultParametersCommandOutput}.
+   */
+  paginateDescribeEngineDefaultParameters(
+    args: DescribeEngineDefaultParametersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEngineDefaultParametersCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventsCommandOutput}.
+   */
+  paginateDescribeEvents(
+    args?: DescribeEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventSubscriptionsCommandOutput}.
+   */
+  paginateDescribeEventSubscriptions(
+    args?: DescribeEventSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeExportTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeExportTasksCommandOutput}.
+   */
+  paginateDescribeExportTasks(
+    args?: DescribeExportTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeExportTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeGlobalClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeGlobalClustersCommandOutput}.
+   */
+  paginateDescribeGlobalClusters(
+    args?: DescribeGlobalClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeGlobalClustersCommandOutput>;
+
+  /**
+   * @see {@link DescribeIntegrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIntegrationsCommandOutput}.
+   */
+  paginateDescribeIntegrations(
+    args?: DescribeIntegrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIntegrationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeOptionGroupOptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOptionGroupOptionsCommandOutput}.
+   */
+  paginateDescribeOptionGroupOptions(
+    args: DescribeOptionGroupOptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOptionGroupOptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeOptionGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOptionGroupsCommandOutput}.
+   */
+  paginateDescribeOptionGroups(
+    args?: DescribeOptionGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOptionGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeOrderableDBInstanceOptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOrderableDBInstanceOptionsCommandOutput}.
+   */
+  paginateDescribeOrderableDBInstanceOptions(
+    args: DescribeOrderableDBInstanceOptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOrderableDBInstanceOptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribePendingMaintenanceActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePendingMaintenanceActionsCommandOutput}.
+   */
+  paginateDescribePendingMaintenanceActions(
+    args?: DescribePendingMaintenanceActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePendingMaintenanceActionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedDBInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedDBInstancesCommandOutput}.
+   */
+  paginateDescribeReservedDBInstances(
+    args?: DescribeReservedDBInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedDBInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedDBInstancesOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedDBInstancesOfferingsCommandOutput}.
+   */
+  paginateDescribeReservedDBInstancesOfferings(
+    args?: DescribeReservedDBInstancesOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedDBInstancesOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSourceRegionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSourceRegionsCommandOutput}.
+   */
+  paginateDescribeSourceRegions(
+    args?: DescribeSourceRegionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSourceRegionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTenantDatabasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTenantDatabasesCommandOutput}.
+   */
+  paginateDescribeTenantDatabases(
+    args?: DescribeTenantDatabasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTenantDatabasesCommandOutput>;
+
+  /**
+   * @see {@link DownloadDBLogFilePortionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DownloadDBLogFilePortionCommandOutput}.
+   */
+  paginateDownloadDBLogFilePortion(
+    args: DownloadDBLogFilePortionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DownloadDBLogFilePortionCommandOutput>;
+
+  /**
+   * @see {@link DescribeDBClustersCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDBClusterAvailable(
+    args: DescribeDBClustersCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDBClustersCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDBClusterDeleted(
+    args: DescribeDBClustersCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDBClusterSnapshotsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDBClusterSnapshotAvailable(
+    args: DescribeDBClusterSnapshotsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDBClusterSnapshotsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDBClusterSnapshotDeleted(
+    args: DescribeDBClusterSnapshotsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDBInstancesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDBInstanceAvailable(
+    args: DescribeDBInstancesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDBInstancesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDBInstanceDeleted(
+    args: DescribeDBInstancesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDBSnapshotsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDBSnapshotAvailable(
+    args: DescribeDBSnapshotsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDBSnapshotsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDBSnapshotDeleted(
+    args: DescribeDBSnapshotsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeTenantDatabasesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTenantDatabaseAvailable(
+    args: DescribeTenantDatabasesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeTenantDatabasesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTenantDatabaseDeleted(
+    args: DescribeTenantDatabasesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RDS>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -3799,4 +4466,4 @@ export interface RDS {
  * @public
  */
 export class RDS extends RDSClient implements RDS {}
-createAggregatedClient(commands, RDS);
+createAggregatedClient(commands, RDS, { paginators, waiters });

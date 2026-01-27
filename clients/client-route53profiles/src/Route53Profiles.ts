@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateProfileCommand,
@@ -74,6 +74,9 @@ import {
   UpdateProfileResourceAssociationCommandInput,
   UpdateProfileResourceAssociationCommandOutput,
 } from "./commands/UpdateProfileResourceAssociationCommand";
+import { paginateListProfileAssociations } from "./pagination/ListProfileAssociationsPaginator";
+import { paginateListProfileResourceAssociations } from "./pagination/ListProfileResourceAssociationsPaginator";
+import { paginateListProfiles } from "./pagination/ListProfilesPaginator";
 import { Route53ProfilesClient } from "./Route53ProfilesClient";
 
 const commands = {
@@ -93,6 +96,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateProfileResourceAssociationCommand,
+};
+const paginators = {
+  paginateListProfileAssociations,
+  paginateListProfileResourceAssociations,
+  paginateListProfiles,
 };
 
 export interface Route53Profiles {
@@ -369,6 +377,39 @@ export interface Route53Profiles {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProfileResourceAssociationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListProfileAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProfileAssociationsCommandOutput}.
+   */
+  paginateListProfileAssociations(
+    args?: ListProfileAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProfileAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListProfileResourceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProfileResourceAssociationsCommandOutput}.
+   */
+  paginateListProfileResourceAssociations(
+    args: ListProfileResourceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProfileResourceAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProfilesCommandOutput}.
+   */
+  paginateListProfiles(
+    args?: ListProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProfilesCommandOutput>;
 }
 
 /**
@@ -378,4 +419,4 @@ export interface Route53Profiles {
  * @public
  */
 export class Route53Profiles extends Route53ProfilesClient implements Route53Profiles {}
-createAggregatedClient(commands, Route53Profiles);
+createAggregatedClient(commands, Route53Profiles, { paginators });

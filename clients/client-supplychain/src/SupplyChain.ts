@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateBillOfMaterialsImportJobCommand,
@@ -144,6 +144,12 @@ import {
   UpdateInstanceCommandInput,
   UpdateInstanceCommandOutput,
 } from "./commands/UpdateInstanceCommand";
+import { paginateListDataIntegrationEvents } from "./pagination/ListDataIntegrationEventsPaginator";
+import { paginateListDataIntegrationFlowExecutions } from "./pagination/ListDataIntegrationFlowExecutionsPaginator";
+import { paginateListDataIntegrationFlows } from "./pagination/ListDataIntegrationFlowsPaginator";
+import { paginateListDataLakeDatasets } from "./pagination/ListDataLakeDatasetsPaginator";
+import { paginateListDataLakeNamespaces } from "./pagination/ListDataLakeNamespacesPaginator";
+import { paginateListInstances } from "./pagination/ListInstancesPaginator";
 import { SupplyChainClient } from "./SupplyChainClient";
 
 const commands = {
@@ -177,6 +183,14 @@ const commands = {
   UpdateDataLakeDatasetCommand,
   UpdateDataLakeNamespaceCommand,
   UpdateInstanceCommand,
+};
+const paginators = {
+  paginateListDataIntegrationEvents,
+  paginateListDataIntegrationFlowExecutions,
+  paginateListDataIntegrationFlows,
+  paginateListDataLakeDatasets,
+  paginateListDataLakeNamespaces,
+  paginateListInstances,
 };
 
 export interface SupplyChain {
@@ -691,6 +705,72 @@ export interface SupplyChain {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateInstanceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDataIntegrationEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataIntegrationEventsCommandOutput}.
+   */
+  paginateListDataIntegrationEvents(
+    args: ListDataIntegrationEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataIntegrationEventsCommandOutput>;
+
+  /**
+   * @see {@link ListDataIntegrationFlowExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataIntegrationFlowExecutionsCommandOutput}.
+   */
+  paginateListDataIntegrationFlowExecutions(
+    args: ListDataIntegrationFlowExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataIntegrationFlowExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListDataIntegrationFlowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataIntegrationFlowsCommandOutput}.
+   */
+  paginateListDataIntegrationFlows(
+    args: ListDataIntegrationFlowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataIntegrationFlowsCommandOutput>;
+
+  /**
+   * @see {@link ListDataLakeDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataLakeDatasetsCommandOutput}.
+   */
+  paginateListDataLakeDatasets(
+    args: ListDataLakeDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataLakeDatasetsCommandOutput>;
+
+  /**
+   * @see {@link ListDataLakeNamespacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataLakeNamespacesCommandOutput}.
+   */
+  paginateListDataLakeNamespaces(
+    args: ListDataLakeNamespacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataLakeNamespacesCommandOutput>;
+
+  /**
+   * @see {@link ListInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstancesCommandOutput}.
+   */
+  paginateListInstances(
+    args?: ListInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstancesCommandOutput>;
 }
 
 /**
@@ -704,4 +784,4 @@ export interface SupplyChain {
  * @public
  */
 export class SupplyChain extends SupplyChainClient implements SupplyChain {}
-createAggregatedClient(commands, SupplyChain);
+createAggregatedClient(commands, SupplyChain, { paginators });

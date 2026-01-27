@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DeleteRecommendationPreferencesCommand,
@@ -143,6 +143,13 @@ import {
   UpdateEnrollmentStatusCommandOutput,
 } from "./commands/UpdateEnrollmentStatusCommand";
 import { ComputeOptimizerClient } from "./ComputeOptimizerClient";
+import { paginateDescribeRecommendationExportJobs } from "./pagination/DescribeRecommendationExportJobsPaginator";
+import {
+  paginateGetEnrollmentStatusesForOrganization,
+} from "./pagination/GetEnrollmentStatusesForOrganizationPaginator";
+import { paginateGetLambdaFunctionRecommendations } from "./pagination/GetLambdaFunctionRecommendationsPaginator";
+import { paginateGetRecommendationPreferences } from "./pagination/GetRecommendationPreferencesPaginator";
+import { paginateGetRecommendationSummaries } from "./pagination/GetRecommendationSummariesPaginator";
 
 const commands = {
   DeleteRecommendationPreferencesCommand,
@@ -173,6 +180,13 @@ const commands = {
   GetRecommendationSummariesCommand,
   PutRecommendationPreferencesCommand,
   UpdateEnrollmentStatusCommand,
+};
+const paginators = {
+  paginateDescribeRecommendationExportJobs,
+  paginateGetEnrollmentStatusesForOrganization,
+  paginateGetLambdaFunctionRecommendations,
+  paginateGetRecommendationPreferences,
+  paginateGetRecommendationSummaries,
 };
 
 export interface ComputeOptimizer {
@@ -663,6 +677,61 @@ export interface ComputeOptimizer {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnrollmentStatusCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeRecommendationExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRecommendationExportJobsCommandOutput}.
+   */
+  paginateDescribeRecommendationExportJobs(
+    args?: DescribeRecommendationExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRecommendationExportJobsCommandOutput>;
+
+  /**
+   * @see {@link GetEnrollmentStatusesForOrganizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetEnrollmentStatusesForOrganizationCommandOutput}.
+   */
+  paginateGetEnrollmentStatusesForOrganization(
+    args?: GetEnrollmentStatusesForOrganizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetEnrollmentStatusesForOrganizationCommandOutput>;
+
+  /**
+   * @see {@link GetLambdaFunctionRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetLambdaFunctionRecommendationsCommandOutput}.
+   */
+  paginateGetLambdaFunctionRecommendations(
+    args?: GetLambdaFunctionRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetLambdaFunctionRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link GetRecommendationPreferencesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetRecommendationPreferencesCommandOutput}.
+   */
+  paginateGetRecommendationPreferences(
+    args: GetRecommendationPreferencesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetRecommendationPreferencesCommandOutput>;
+
+  /**
+   * @see {@link GetRecommendationSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetRecommendationSummariesCommandOutput}.
+   */
+  paginateGetRecommendationSummaries(
+    args?: GetRecommendationSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetRecommendationSummariesCommandOutput>;
 }
 
 /**
@@ -681,4 +750,4 @@ export interface ComputeOptimizer {
  * @public
  */
 export class ComputeOptimizer extends ComputeOptimizerClient implements ComputeOptimizer {}
-createAggregatedClient(commands, ComputeOptimizer);
+createAggregatedClient(commands, ComputeOptimizer, { paginators });

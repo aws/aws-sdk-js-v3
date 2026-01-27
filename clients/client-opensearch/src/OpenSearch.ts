@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptInboundConnectionCommand,
@@ -385,6 +385,21 @@ import {
   UpgradeDomainCommandOutput,
 } from "./commands/UpgradeDomainCommand";
 import { OpenSearchClient } from "./OpenSearchClient";
+import { paginateDescribeDomainAutoTunes } from "./pagination/DescribeDomainAutoTunesPaginator";
+import { paginateDescribeInboundConnections } from "./pagination/DescribeInboundConnectionsPaginator";
+import { paginateDescribeOutboundConnections } from "./pagination/DescribeOutboundConnectionsPaginator";
+import { paginateDescribePackages } from "./pagination/DescribePackagesPaginator";
+import { paginateDescribeReservedInstanceOfferings } from "./pagination/DescribeReservedInstanceOfferingsPaginator";
+import { paginateDescribeReservedInstances } from "./pagination/DescribeReservedInstancesPaginator";
+import { paginateGetPackageVersionHistory } from "./pagination/GetPackageVersionHistoryPaginator";
+import { paginateGetUpgradeHistory } from "./pagination/GetUpgradeHistoryPaginator";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListDomainMaintenances } from "./pagination/ListDomainMaintenancesPaginator";
+import { paginateListDomainsForPackage } from "./pagination/ListDomainsForPackagePaginator";
+import { paginateListInstanceTypeDetails } from "./pagination/ListInstanceTypeDetailsPaginator";
+import { paginateListPackagesForDomain } from "./pagination/ListPackagesForDomainPaginator";
+import { paginateListScheduledActions } from "./pagination/ListScheduledActionsPaginator";
+import { paginateListVersions } from "./pagination/ListVersionsPaginator";
 
 const commands = {
   AcceptInboundConnectionCommand,
@@ -469,6 +484,23 @@ const commands = {
   UpdateScheduledActionCommand,
   UpdateVpcEndpointCommand,
   UpgradeDomainCommand,
+};
+const paginators = {
+  paginateDescribeDomainAutoTunes,
+  paginateDescribeInboundConnections,
+  paginateDescribeOutboundConnections,
+  paginateDescribePackages,
+  paginateDescribeReservedInstanceOfferings,
+  paginateDescribeReservedInstances,
+  paginateGetPackageVersionHistory,
+  paginateGetUpgradeHistory,
+  paginateListApplications,
+  paginateListDomainMaintenances,
+  paginateListDomainsForPackage,
+  paginateListInstanceTypeDetails,
+  paginateListPackagesForDomain,
+  paginateListScheduledActions,
+  paginateListVersions,
 };
 
 export interface OpenSearch {
@@ -1877,6 +1909,171 @@ export interface OpenSearch {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpgradeDomainCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeDomainAutoTunesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDomainAutoTunesCommandOutput}.
+   */
+  paginateDescribeDomainAutoTunes(
+    args: DescribeDomainAutoTunesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDomainAutoTunesCommandOutput>;
+
+  /**
+   * @see {@link DescribeInboundConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInboundConnectionsCommandOutput}.
+   */
+  paginateDescribeInboundConnections(
+    args?: DescribeInboundConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInboundConnectionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeOutboundConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOutboundConnectionsCommandOutput}.
+   */
+  paginateDescribeOutboundConnections(
+    args?: DescribeOutboundConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOutboundConnectionsCommandOutput>;
+
+  /**
+   * @see {@link DescribePackagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePackagesCommandOutput}.
+   */
+  paginateDescribePackages(
+    args?: DescribePackagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePackagesCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedInstanceOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedInstanceOfferingsCommandOutput}.
+   */
+  paginateDescribeReservedInstanceOfferings(
+    args?: DescribeReservedInstanceOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedInstanceOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedInstancesCommandOutput}.
+   */
+  paginateDescribeReservedInstances(
+    args?: DescribeReservedInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedInstancesCommandOutput>;
+
+  /**
+   * @see {@link GetPackageVersionHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetPackageVersionHistoryCommandOutput}.
+   */
+  paginateGetPackageVersionHistory(
+    args: GetPackageVersionHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetPackageVersionHistoryCommandOutput>;
+
+  /**
+   * @see {@link GetUpgradeHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetUpgradeHistoryCommandOutput}.
+   */
+  paginateGetUpgradeHistory(
+    args: GetUpgradeHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetUpgradeHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListDomainMaintenancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainMaintenancesCommandOutput}.
+   */
+  paginateListDomainMaintenances(
+    args: ListDomainMaintenancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainMaintenancesCommandOutput>;
+
+  /**
+   * @see {@link ListDomainsForPackageCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainsForPackageCommandOutput}.
+   */
+  paginateListDomainsForPackage(
+    args: ListDomainsForPackageCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainsForPackageCommandOutput>;
+
+  /**
+   * @see {@link ListInstanceTypeDetailsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstanceTypeDetailsCommandOutput}.
+   */
+  paginateListInstanceTypeDetails(
+    args: ListInstanceTypeDetailsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstanceTypeDetailsCommandOutput>;
+
+  /**
+   * @see {@link ListPackagesForDomainCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackagesForDomainCommandOutput}.
+   */
+  paginateListPackagesForDomain(
+    args: ListPackagesForDomainCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackagesForDomainCommandOutput>;
+
+  /**
+   * @see {@link ListScheduledActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScheduledActionsCommandOutput}.
+   */
+  paginateListScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScheduledActionsCommandOutput>;
+
+  /**
+   * @see {@link ListVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVersionsCommandOutput}.
+   */
+  paginateListVersions(
+    args?: ListVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVersionsCommandOutput>;
 }
 
 /**
@@ -1888,4 +2085,4 @@ export interface OpenSearch {
  * @public
  */
 export class OpenSearch extends OpenSearchClient implements OpenSearch {}
-createAggregatedClient(commands, OpenSearch);
+createAggregatedClient(commands, OpenSearch, { paginators });

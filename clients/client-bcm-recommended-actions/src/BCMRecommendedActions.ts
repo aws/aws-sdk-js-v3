@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BCMRecommendedActionsClient } from "./BCMRecommendedActionsClient";
 import {
@@ -8,9 +8,13 @@ import {
   ListRecommendedActionsCommandInput,
   ListRecommendedActionsCommandOutput,
 } from "./commands/ListRecommendedActionsCommand";
+import { paginateListRecommendedActions } from "./pagination/ListRecommendedActionsPaginator";
 
 const commands = {
   ListRecommendedActionsCommand,
+};
+const paginators = {
+  paginateListRecommendedActions,
 };
 
 export interface BCMRecommendedActions {
@@ -31,6 +35,17 @@ export interface BCMRecommendedActions {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRecommendedActionsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListRecommendedActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendedActionsCommandOutput}.
+   */
+  paginateListRecommendedActions(
+    args?: ListRecommendedActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendedActionsCommandOutput>;
 }
 
 /**
@@ -38,4 +53,4 @@ export interface BCMRecommendedActions {
  * @public
  */
 export class BCMRecommendedActions extends BCMRecommendedActionsClient implements BCMRecommendedActions {}
-createAggregatedClient(commands, BCMRecommendedActions);
+createAggregatedClient(commands, BCMRecommendedActions, { paginators });

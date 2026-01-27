@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateEntitiesToExperienceCommand,
@@ -289,6 +289,18 @@ import {
   UpdateThesaurusCommandOutput,
 } from "./commands/UpdateThesaurusCommand";
 import { KendraClient } from "./KendraClient";
+import { paginateGetSnapshots } from "./pagination/GetSnapshotsPaginator";
+import { paginateListAccessControlConfigurations } from "./pagination/ListAccessControlConfigurationsPaginator";
+import { paginateListDataSources } from "./pagination/ListDataSourcesPaginator";
+import { paginateListDataSourceSyncJobs } from "./pagination/ListDataSourceSyncJobsPaginator";
+import { paginateListEntityPersonas } from "./pagination/ListEntityPersonasPaginator";
+import { paginateListExperienceEntities } from "./pagination/ListExperienceEntitiesPaginator";
+import { paginateListExperiences } from "./pagination/ListExperiencesPaginator";
+import { paginateListFaqs } from "./pagination/ListFaqsPaginator";
+import { paginateListGroupsOlderThanOrderingId } from "./pagination/ListGroupsOlderThanOrderingIdPaginator";
+import { paginateListIndices } from "./pagination/ListIndicesPaginator";
+import { paginateListQuerySuggestionsBlockLists } from "./pagination/ListQuerySuggestionsBlockListsPaginator";
+import { paginateListThesauri } from "./pagination/ListThesauriPaginator";
 
 const commands = {
   AssociateEntitiesToExperienceCommand,
@@ -357,6 +369,20 @@ const commands = {
   UpdateQuerySuggestionsBlockListCommand,
   UpdateQuerySuggestionsConfigCommand,
   UpdateThesaurusCommand,
+};
+const paginators = {
+  paginateGetSnapshots,
+  paginateListAccessControlConfigurations,
+  paginateListDataSources,
+  paginateListDataSourceSyncJobs,
+  paginateListEntityPersonas,
+  paginateListExperienceEntities,
+  paginateListExperiences,
+  paginateListFaqs,
+  paginateListGroupsOlderThanOrderingId,
+  paginateListIndices,
+  paginateListQuerySuggestionsBlockLists,
+  paginateListThesauri,
 };
 
 export interface Kendra {
@@ -1482,6 +1508,138 @@ export interface Kendra {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateThesaurusCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSnapshotsCommandOutput}.
+   */
+  paginateGetSnapshots(
+    args: GetSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link ListAccessControlConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessControlConfigurationsCommandOutput}.
+   */
+  paginateListAccessControlConfigurations(
+    args: ListAccessControlConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessControlConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListDataSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSourcesCommandOutput}.
+   */
+  paginateListDataSources(
+    args: ListDataSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListDataSourceSyncJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSourceSyncJobsCommandOutput}.
+   */
+  paginateListDataSourceSyncJobs(
+    args: ListDataSourceSyncJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSourceSyncJobsCommandOutput>;
+
+  /**
+   * @see {@link ListEntityPersonasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntityPersonasCommandOutput}.
+   */
+  paginateListEntityPersonas(
+    args: ListEntityPersonasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntityPersonasCommandOutput>;
+
+  /**
+   * @see {@link ListExperienceEntitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExperienceEntitiesCommandOutput}.
+   */
+  paginateListExperienceEntities(
+    args: ListExperienceEntitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExperienceEntitiesCommandOutput>;
+
+  /**
+   * @see {@link ListExperiencesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExperiencesCommandOutput}.
+   */
+  paginateListExperiences(
+    args: ListExperiencesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExperiencesCommandOutput>;
+
+  /**
+   * @see {@link ListFaqsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFaqsCommandOutput}.
+   */
+  paginateListFaqs(
+    args: ListFaqsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFaqsCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsOlderThanOrderingIdCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsOlderThanOrderingIdCommandOutput}.
+   */
+  paginateListGroupsOlderThanOrderingId(
+    args: ListGroupsOlderThanOrderingIdCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsOlderThanOrderingIdCommandOutput>;
+
+  /**
+   * @see {@link ListIndicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIndicesCommandOutput}.
+   */
+  paginateListIndices(
+    args?: ListIndicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIndicesCommandOutput>;
+
+  /**
+   * @see {@link ListQuerySuggestionsBlockListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQuerySuggestionsBlockListsCommandOutput}.
+   */
+  paginateListQuerySuggestionsBlockLists(
+    args: ListQuerySuggestionsBlockListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQuerySuggestionsBlockListsCommandOutput>;
+
+  /**
+   * @see {@link ListThesauriCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThesauriCommandOutput}.
+   */
+  paginateListThesauri(
+    args: ListThesauriCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThesauriCommandOutput>;
 }
 
 /**
@@ -1489,4 +1647,4 @@ export interface Kendra {
  * @public
  */
 export class Kendra extends KendraClient implements Kendra {}
-createAggregatedClient(commands, Kendra);
+createAggregatedClient(commands, Kendra, { paginators });

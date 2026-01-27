@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateDevicePoolCommand,
@@ -312,6 +312,24 @@ import {
   UpdateVPCEConfigurationCommandOutput,
 } from "./commands/UpdateVPCEConfigurationCommand";
 import { DeviceFarmClient } from "./DeviceFarmClient";
+import { paginateGetOfferingStatus } from "./pagination/GetOfferingStatusPaginator";
+import { paginateListArtifacts } from "./pagination/ListArtifactsPaginator";
+import { paginateListDevicePools } from "./pagination/ListDevicePoolsPaginator";
+import { paginateListDevices } from "./pagination/ListDevicesPaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
+import { paginateListOfferings } from "./pagination/ListOfferingsPaginator";
+import { paginateListOfferingTransactions } from "./pagination/ListOfferingTransactionsPaginator";
+import { paginateListProjects } from "./pagination/ListProjectsPaginator";
+import { paginateListRuns } from "./pagination/ListRunsPaginator";
+import { paginateListSamples } from "./pagination/ListSamplesPaginator";
+import { paginateListSuites } from "./pagination/ListSuitesPaginator";
+import { paginateListTestGridProjects } from "./pagination/ListTestGridProjectsPaginator";
+import { paginateListTestGridSessionActions } from "./pagination/ListTestGridSessionActionsPaginator";
+import { paginateListTestGridSessionArtifacts } from "./pagination/ListTestGridSessionArtifactsPaginator";
+import { paginateListTestGridSessions } from "./pagination/ListTestGridSessionsPaginator";
+import { paginateListTests } from "./pagination/ListTestsPaginator";
+import { paginateListUniqueProblems } from "./pagination/ListUniqueProblemsPaginator";
+import { paginateListUploads } from "./pagination/ListUploadsPaginator";
 
 const commands = {
   CreateDevicePoolCommand,
@@ -391,6 +409,26 @@ const commands = {
   UpdateTestGridProjectCommand,
   UpdateUploadCommand,
   UpdateVPCEConfigurationCommand,
+};
+const paginators = {
+  paginateGetOfferingStatus,
+  paginateListArtifacts,
+  paginateListDevicePools,
+  paginateListDevices,
+  paginateListJobs,
+  paginateListOfferings,
+  paginateListOfferingTransactions,
+  paginateListProjects,
+  paginateListRuns,
+  paginateListSamples,
+  paginateListSuites,
+  paginateListTestGridProjects,
+  paginateListTestGridSessionActions,
+  paginateListTestGridSessionArtifacts,
+  paginateListTestGridSessions,
+  paginateListTests,
+  paginateListUniqueProblems,
+  paginateListUploads,
 };
 
 export interface DeviceFarm {
@@ -1714,6 +1752,204 @@ export interface DeviceFarm {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVPCEConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetOfferingStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetOfferingStatusCommandOutput}.
+   */
+  paginateGetOfferingStatus(
+    args?: GetOfferingStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetOfferingStatusCommandOutput>;
+
+  /**
+   * @see {@link ListArtifactsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListArtifactsCommandOutput}.
+   */
+  paginateListArtifacts(
+    args: ListArtifactsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListArtifactsCommandOutput>;
+
+  /**
+   * @see {@link ListDevicePoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevicePoolsCommandOutput}.
+   */
+  paginateListDevicePools(
+    args: ListDevicePoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevicePoolsCommandOutput>;
+
+  /**
+   * @see {@link ListDevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevicesCommandOutput}.
+   */
+  paginateListDevices(
+    args?: ListDevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevicesCommandOutput>;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
+   * @see {@link ListOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOfferingsCommandOutput}.
+   */
+  paginateListOfferings(
+    args?: ListOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOfferingsCommandOutput>;
+
+  /**
+   * @see {@link ListOfferingTransactionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOfferingTransactionsCommandOutput}.
+   */
+  paginateListOfferingTransactions(
+    args?: ListOfferingTransactionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOfferingTransactionsCommandOutput>;
+
+  /**
+   * @see {@link ListProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectsCommandOutput}.
+   */
+  paginateListProjects(
+    args?: ListProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectsCommandOutput>;
+
+  /**
+   * @see {@link ListRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRunsCommandOutput}.
+   */
+  paginateListRuns(
+    args: ListRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRunsCommandOutput>;
+
+  /**
+   * @see {@link ListSamplesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSamplesCommandOutput}.
+   */
+  paginateListSamples(
+    args: ListSamplesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSamplesCommandOutput>;
+
+  /**
+   * @see {@link ListSuitesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSuitesCommandOutput}.
+   */
+  paginateListSuites(
+    args: ListSuitesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSuitesCommandOutput>;
+
+  /**
+   * @see {@link ListTestGridProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestGridProjectsCommandOutput}.
+   */
+  paginateListTestGridProjects(
+    args?: ListTestGridProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestGridProjectsCommandOutput>;
+
+  /**
+   * @see {@link ListTestGridSessionActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestGridSessionActionsCommandOutput}.
+   */
+  paginateListTestGridSessionActions(
+    args: ListTestGridSessionActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestGridSessionActionsCommandOutput>;
+
+  /**
+   * @see {@link ListTestGridSessionArtifactsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestGridSessionArtifactsCommandOutput}.
+   */
+  paginateListTestGridSessionArtifacts(
+    args: ListTestGridSessionArtifactsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestGridSessionArtifactsCommandOutput>;
+
+  /**
+   * @see {@link ListTestGridSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestGridSessionsCommandOutput}.
+   */
+  paginateListTestGridSessions(
+    args: ListTestGridSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestGridSessionsCommandOutput>;
+
+  /**
+   * @see {@link ListTestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestsCommandOutput}.
+   */
+  paginateListTests(
+    args: ListTestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestsCommandOutput>;
+
+  /**
+   * @see {@link ListUniqueProblemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUniqueProblemsCommandOutput}.
+   */
+  paginateListUniqueProblems(
+    args: ListUniqueProblemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUniqueProblemsCommandOutput>;
+
+  /**
+   * @see {@link ListUploadsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUploadsCommandOutput}.
+   */
+  paginateListUploads(
+    args: ListUploadsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUploadsCommandOutput>;
 }
 
 /**
@@ -1735,4 +1971,4 @@ export interface DeviceFarm {
  * @public
  */
 export class DeviceFarm extends DeviceFarmClient implements DeviceFarm {}
-createAggregatedClient(commands, DeviceFarm);
+createAggregatedClient(commands, DeviceFarm, { paginators });

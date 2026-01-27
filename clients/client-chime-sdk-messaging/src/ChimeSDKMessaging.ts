@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ChimeSDKMessagingClient } from "./ChimeSDKMessagingClient";
 import {
@@ -254,6 +254,23 @@ import {
   UpdateChannelReadMarkerCommandInput,
   UpdateChannelReadMarkerCommandOutput,
 } from "./commands/UpdateChannelReadMarkerCommand";
+import { paginateListChannelBans } from "./pagination/ListChannelBansPaginator";
+import { paginateListChannelFlows } from "./pagination/ListChannelFlowsPaginator";
+import {
+  paginateListChannelMembershipsForAppInstanceUser,
+} from "./pagination/ListChannelMembershipsForAppInstanceUserPaginator";
+import { paginateListChannelMemberships } from "./pagination/ListChannelMembershipsPaginator";
+import { paginateListChannelMessages } from "./pagination/ListChannelMessagesPaginator";
+import { paginateListChannelModerators } from "./pagination/ListChannelModeratorsPaginator";
+import {
+  paginateListChannelsAssociatedWithChannelFlow,
+} from "./pagination/ListChannelsAssociatedWithChannelFlowPaginator";
+import {
+  paginateListChannelsModeratedByAppInstanceUser,
+} from "./pagination/ListChannelsModeratedByAppInstanceUserPaginator";
+import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListSubChannels } from "./pagination/ListSubChannelsPaginator";
+import { paginateSearchChannels } from "./pagination/SearchChannelsPaginator";
 
 const commands = {
   AssociateChannelFlowCommand,
@@ -307,6 +324,19 @@ const commands = {
   UpdateChannelFlowCommand,
   UpdateChannelMessageCommand,
   UpdateChannelReadMarkerCommand,
+};
+const paginators = {
+  paginateListChannelBans,
+  paginateListChannelFlows,
+  paginateListChannelMemberships,
+  paginateListChannelMembershipsForAppInstanceUser,
+  paginateListChannelMessages,
+  paginateListChannelModerators,
+  paginateListChannels,
+  paginateListChannelsAssociatedWithChannelFlow,
+  paginateListChannelsModeratedByAppInstanceUser,
+  paginateListSubChannels,
+  paginateSearchChannels,
 };
 
 export interface ChimeSDKMessaging {
@@ -1177,6 +1207,127 @@ export interface ChimeSDKMessaging {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChannelBansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelBansCommandOutput}.
+   */
+  paginateListChannelBans(
+    args: ListChannelBansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelBansCommandOutput>;
+
+  /**
+   * @see {@link ListChannelFlowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelFlowsCommandOutput}.
+   */
+  paginateListChannelFlows(
+    args: ListChannelFlowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelFlowsCommandOutput>;
+
+  /**
+   * @see {@link ListChannelMembershipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelMembershipsCommandOutput}.
+   */
+  paginateListChannelMemberships(
+    args: ListChannelMembershipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelMembershipsCommandOutput>;
+
+  /**
+   * @see {@link ListChannelMembershipsForAppInstanceUserCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelMembershipsForAppInstanceUserCommandOutput}.
+   */
+  paginateListChannelMembershipsForAppInstanceUser(
+    args: ListChannelMembershipsForAppInstanceUserCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelMembershipsForAppInstanceUserCommandOutput>;
+
+  /**
+   * @see {@link ListChannelMessagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelMessagesCommandOutput}.
+   */
+  paginateListChannelMessages(
+    args: ListChannelMessagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelMessagesCommandOutput>;
+
+  /**
+   * @see {@link ListChannelModeratorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelModeratorsCommandOutput}.
+   */
+  paginateListChannelModerators(
+    args: ListChannelModeratorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelModeratorsCommandOutput>;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsCommandOutput}.
+   */
+  paginateListChannels(
+    args: ListChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListChannelsAssociatedWithChannelFlowCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsAssociatedWithChannelFlowCommandOutput}.
+   */
+  paginateListChannelsAssociatedWithChannelFlow(
+    args: ListChannelsAssociatedWithChannelFlowCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsAssociatedWithChannelFlowCommandOutput>;
+
+  /**
+   * @see {@link ListChannelsModeratedByAppInstanceUserCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsModeratedByAppInstanceUserCommandOutput}.
+   */
+  paginateListChannelsModeratedByAppInstanceUser(
+    args: ListChannelsModeratedByAppInstanceUserCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsModeratedByAppInstanceUserCommandOutput>;
+
+  /**
+   * @see {@link ListSubChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubChannelsCommandOutput}.
+   */
+  paginateListSubChannels(
+    args: ListSubChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubChannelsCommandOutput>;
+
+  /**
+   * @see {@link SearchChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchChannelsCommandOutput}.
+   */
+  paginateSearchChannels(
+    args: SearchChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchChannelsCommandOutput>;
 }
 
 /**
@@ -1187,4 +1338,4 @@ export interface ChimeSDKMessaging {
  * @public
  */
 export class ChimeSDKMessaging extends ChimeSDKMessagingClient implements ChimeSDKMessaging {}
-createAggregatedClient(commands, ChimeSDKMessaging);
+createAggregatedClient(commands, ChimeSDKMessaging, { paginators });

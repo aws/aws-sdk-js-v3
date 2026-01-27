@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CloudHSMV2Client } from "./CloudHSMV2Client";
 import {
@@ -77,6 +77,9 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateDescribeBackups } from "./pagination/DescribeBackupsPaginator";
+import { paginateDescribeClusters } from "./pagination/DescribeClustersPaginator";
+import { paginateListTags } from "./pagination/ListTagsPaginator";
 
 const commands = {
   CopyBackupToRegionCommand,
@@ -97,6 +100,11 @@ const commands = {
   RestoreBackupCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateDescribeBackups,
+  paginateDescribeClusters,
+  paginateListTags,
 };
 
 export interface CloudHSMV2 {
@@ -410,6 +418,39 @@ export interface CloudHSMV2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeBackupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBackupsCommandOutput}.
+   */
+  paginateDescribeBackups(
+    args?: DescribeBackupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBackupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClustersCommandOutput}.
+   */
+  paginateDescribeClusters(
+    args?: DescribeClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClustersCommandOutput>;
+
+  /**
+   * @see {@link ListTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsCommandOutput}.
+   */
+  paginateListTags(
+    args: ListTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsCommandOutput>;
 }
 
 /**
@@ -418,4 +459,4 @@ export interface CloudHSMV2 {
  * @public
  */
 export class CloudHSMV2 extends CloudHSMV2Client implements CloudHSMV2 {}
-createAggregatedClient(commands, CloudHSMV2);
+createAggregatedClient(commands, CloudHSMV2, { paginators });

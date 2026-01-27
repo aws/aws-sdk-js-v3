@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { BedrockAgentCoreControlClient } from "./BedrockAgentCoreControlClient";
 import {
@@ -393,6 +399,29 @@ import {
   UpdateWorkloadIdentityCommandInput,
   UpdateWorkloadIdentityCommandOutput,
 } from "./commands/UpdateWorkloadIdentityCommand";
+import { paginateListAgentRuntimeEndpoints } from "./pagination/ListAgentRuntimeEndpointsPaginator";
+import { paginateListAgentRuntimes } from "./pagination/ListAgentRuntimesPaginator";
+import { paginateListAgentRuntimeVersions } from "./pagination/ListAgentRuntimeVersionsPaginator";
+import { paginateListApiKeyCredentialProviders } from "./pagination/ListApiKeyCredentialProvidersPaginator";
+import { paginateListBrowsers } from "./pagination/ListBrowsersPaginator";
+import { paginateListCodeInterpreters } from "./pagination/ListCodeInterpretersPaginator";
+import { paginateListEvaluators } from "./pagination/ListEvaluatorsPaginator";
+import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
+import { paginateListGatewayTargets } from "./pagination/ListGatewayTargetsPaginator";
+import { paginateListMemories } from "./pagination/ListMemoriesPaginator";
+import { paginateListOauth2CredentialProviders } from "./pagination/ListOauth2CredentialProvidersPaginator";
+import { paginateListOnlineEvaluationConfigs } from "./pagination/ListOnlineEvaluationConfigsPaginator";
+import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
+import { paginateListPolicyEngines } from "./pagination/ListPolicyEnginesPaginator";
+import { paginateListPolicyGenerationAssets } from "./pagination/ListPolicyGenerationAssetsPaginator";
+import { paginateListPolicyGenerations } from "./pagination/ListPolicyGenerationsPaginator";
+import { paginateListWorkloadIdentities } from "./pagination/ListWorkloadIdentitiesPaginator";
+import { waitUntilMemoryCreated } from "./waiters/waitForMemoryCreated";
+import { waitUntilPolicyActive } from "./waiters/waitForPolicyActive";
+import { waitUntilPolicyDeleted } from "./waiters/waitForPolicyDeleted";
+import { waitUntilPolicyEngineActive } from "./waiters/waitForPolicyEngineActive";
+import { waitUntilPolicyEngineDeleted } from "./waiters/waitForPolicyEngineDeleted";
+import { waitUntilPolicyGenerationCompleted } from "./waiters/waitForPolicyGenerationCompleted";
 
 const commands = {
   CreateAgentRuntimeCommand,
@@ -477,6 +506,33 @@ const commands = {
   UpdatePolicyCommand,
   UpdatePolicyEngineCommand,
   UpdateWorkloadIdentityCommand,
+};
+const paginators = {
+  paginateListAgentRuntimeEndpoints,
+  paginateListAgentRuntimes,
+  paginateListAgentRuntimeVersions,
+  paginateListApiKeyCredentialProviders,
+  paginateListBrowsers,
+  paginateListCodeInterpreters,
+  paginateListEvaluators,
+  paginateListGateways,
+  paginateListGatewayTargets,
+  paginateListMemories,
+  paginateListOauth2CredentialProviders,
+  paginateListOnlineEvaluationConfigs,
+  paginateListPolicies,
+  paginateListPolicyEngines,
+  paginateListPolicyGenerationAssets,
+  paginateListPolicyGenerations,
+  paginateListWorkloadIdentities,
+};
+const waiters = {
+  waitUntilMemoryCreated,
+  waitUntilPolicyActive,
+  waitUntilPolicyDeleted,
+  waitUntilPolicyEngineActive,
+  waitUntilPolicyEngineDeleted,
+  waitUntilPolicyGenerationCompleted,
 };
 
 export interface BedrockAgentCoreControl {
@@ -1885,6 +1941,253 @@ export interface BedrockAgentCoreControl {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkloadIdentityCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAgentRuntimeEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentRuntimeEndpointsCommandOutput}.
+   */
+  paginateListAgentRuntimeEndpoints(
+    args: ListAgentRuntimeEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentRuntimeEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListAgentRuntimesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentRuntimesCommandOutput}.
+   */
+  paginateListAgentRuntimes(
+    args?: ListAgentRuntimesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentRuntimesCommandOutput>;
+
+  /**
+   * @see {@link ListAgentRuntimeVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentRuntimeVersionsCommandOutput}.
+   */
+  paginateListAgentRuntimeVersions(
+    args: ListAgentRuntimeVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentRuntimeVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListApiKeyCredentialProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApiKeyCredentialProvidersCommandOutput}.
+   */
+  paginateListApiKeyCredentialProviders(
+    args?: ListApiKeyCredentialProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApiKeyCredentialProvidersCommandOutput>;
+
+  /**
+   * @see {@link ListBrowsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBrowsersCommandOutput}.
+   */
+  paginateListBrowsers(
+    args?: ListBrowsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBrowsersCommandOutput>;
+
+  /**
+   * @see {@link ListCodeInterpretersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCodeInterpretersCommandOutput}.
+   */
+  paginateListCodeInterpreters(
+    args?: ListCodeInterpretersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCodeInterpretersCommandOutput>;
+
+  /**
+   * @see {@link ListEvaluatorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEvaluatorsCommandOutput}.
+   */
+  paginateListEvaluators(
+    args?: ListEvaluatorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEvaluatorsCommandOutput>;
+
+  /**
+   * @see {@link ListGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewaysCommandOutput}.
+   */
+  paginateListGateways(
+    args?: ListGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewaysCommandOutput>;
+
+  /**
+   * @see {@link ListGatewayTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewayTargetsCommandOutput}.
+   */
+  paginateListGatewayTargets(
+    args: ListGatewayTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewayTargetsCommandOutput>;
+
+  /**
+   * @see {@link ListMemoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMemoriesCommandOutput}.
+   */
+  paginateListMemories(
+    args?: ListMemoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMemoriesCommandOutput>;
+
+  /**
+   * @see {@link ListOauth2CredentialProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOauth2CredentialProvidersCommandOutput}.
+   */
+  paginateListOauth2CredentialProviders(
+    args?: ListOauth2CredentialProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOauth2CredentialProvidersCommandOutput>;
+
+  /**
+   * @see {@link ListOnlineEvaluationConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOnlineEvaluationConfigsCommandOutput}.
+   */
+  paginateListOnlineEvaluationConfigs(
+    args?: ListOnlineEvaluationConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOnlineEvaluationConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPoliciesCommandOutput}.
+   */
+  paginateListPolicies(
+    args: ListPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyEnginesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyEnginesCommandOutput}.
+   */
+  paginateListPolicyEngines(
+    args?: ListPolicyEnginesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyEnginesCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyGenerationAssetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyGenerationAssetsCommandOutput}.
+   */
+  paginateListPolicyGenerationAssets(
+    args: ListPolicyGenerationAssetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyGenerationAssetsCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyGenerationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyGenerationsCommandOutput}.
+   */
+  paginateListPolicyGenerations(
+    args: ListPolicyGenerationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyGenerationsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkloadIdentitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkloadIdentitiesCommandOutput}.
+   */
+  paginateListWorkloadIdentities(
+    args?: ListWorkloadIdentitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkloadIdentitiesCommandOutput>;
+
+  /**
+   * @see {@link GetMemoryCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMemoryCreated(
+    args: GetMemoryCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetPolicyCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPolicyActive(
+    args: GetPolicyCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetPolicyCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPolicyDeleted(
+    args: GetPolicyCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetPolicyEngineCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPolicyEngineActive(
+    args: GetPolicyEngineCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetPolicyEngineCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPolicyEngineDeleted(
+    args: GetPolicyEngineCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetPolicyGenerationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPolicyGenerationCompleted(
+    args: GetPolicyGenerationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<BedrockAgentCoreControl>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1892,4 +2195,4 @@ export interface BedrockAgentCoreControl {
  * @public
  */
 export class BedrockAgentCoreControl extends BedrockAgentCoreControlClient implements BedrockAgentCoreControl {}
-createAggregatedClient(commands, BedrockAgentCoreControl);
+createAggregatedClient(commands, BedrockAgentCoreControl, { paginators, waiters });

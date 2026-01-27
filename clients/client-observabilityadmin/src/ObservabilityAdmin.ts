@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateCentralizationRuleForOrganizationCommand,
@@ -199,6 +199,17 @@ import {
   ValidateTelemetryPipelineConfigurationCommandOutput,
 } from "./commands/ValidateTelemetryPipelineConfigurationCommand";
 import { ObservabilityAdminClient } from "./ObservabilityAdminClient";
+import {
+  paginateListCentralizationRulesForOrganization,
+} from "./pagination/ListCentralizationRulesForOrganizationPaginator";
+import {
+  paginateListResourceTelemetryForOrganization,
+} from "./pagination/ListResourceTelemetryForOrganizationPaginator";
+import { paginateListResourceTelemetry } from "./pagination/ListResourceTelemetryPaginator";
+import { paginateListS3TableIntegrations } from "./pagination/ListS3TableIntegrationsPaginator";
+import { paginateListTelemetryPipelines } from "./pagination/ListTelemetryPipelinesPaginator";
+import { paginateListTelemetryRulesForOrganization } from "./pagination/ListTelemetryRulesForOrganizationPaginator";
+import { paginateListTelemetryRules } from "./pagination/ListTelemetryRulesPaginator";
 
 const commands = {
   CreateCentralizationRuleForOrganizationCommand,
@@ -241,6 +252,15 @@ const commands = {
   UpdateTelemetryRuleCommand,
   UpdateTelemetryRuleForOrganizationCommand,
   ValidateTelemetryPipelineConfigurationCommand,
+};
+const paginators = {
+  paginateListCentralizationRulesForOrganization,
+  paginateListResourceTelemetry,
+  paginateListResourceTelemetryForOrganization,
+  paginateListS3TableIntegrations,
+  paginateListTelemetryPipelines,
+  paginateListTelemetryRules,
+  paginateListTelemetryRulesForOrganization,
 };
 
 export interface ObservabilityAdmin {
@@ -939,6 +959,83 @@ export interface ObservabilityAdmin {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateTelemetryPipelineConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCentralizationRulesForOrganizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCentralizationRulesForOrganizationCommandOutput}.
+   */
+  paginateListCentralizationRulesForOrganization(
+    args?: ListCentralizationRulesForOrganizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCentralizationRulesForOrganizationCommandOutput>;
+
+  /**
+   * @see {@link ListResourceTelemetryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceTelemetryCommandOutput}.
+   */
+  paginateListResourceTelemetry(
+    args?: ListResourceTelemetryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceTelemetryCommandOutput>;
+
+  /**
+   * @see {@link ListResourceTelemetryForOrganizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceTelemetryForOrganizationCommandOutput}.
+   */
+  paginateListResourceTelemetryForOrganization(
+    args?: ListResourceTelemetryForOrganizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceTelemetryForOrganizationCommandOutput>;
+
+  /**
+   * @see {@link ListS3TableIntegrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListS3TableIntegrationsCommandOutput}.
+   */
+  paginateListS3TableIntegrations(
+    args?: ListS3TableIntegrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListS3TableIntegrationsCommandOutput>;
+
+  /**
+   * @see {@link ListTelemetryPipelinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTelemetryPipelinesCommandOutput}.
+   */
+  paginateListTelemetryPipelines(
+    args?: ListTelemetryPipelinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTelemetryPipelinesCommandOutput>;
+
+  /**
+   * @see {@link ListTelemetryRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTelemetryRulesCommandOutput}.
+   */
+  paginateListTelemetryRules(
+    args?: ListTelemetryRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTelemetryRulesCommandOutput>;
+
+  /**
+   * @see {@link ListTelemetryRulesForOrganizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTelemetryRulesForOrganizationCommandOutput}.
+   */
+  paginateListTelemetryRulesForOrganization(
+    args?: ListTelemetryRulesForOrganizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTelemetryRulesForOrganizationCommandOutput>;
 }
 
 /**
@@ -946,4 +1043,4 @@ export interface ObservabilityAdmin {
  * @public
  */
 export class ObservabilityAdmin extends ObservabilityAdminClient implements ObservabilityAdmin {}
-createAggregatedClient(commands, ObservabilityAdmin);
+createAggregatedClient(commands, ObservabilityAdmin, { paginators });

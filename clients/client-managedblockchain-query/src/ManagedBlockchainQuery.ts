@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchGetTokenBalanceCommand,
@@ -48,6 +48,11 @@ import {
   ListTransactionsCommandOutput,
 } from "./commands/ListTransactionsCommand";
 import { ManagedBlockchainQueryClient } from "./ManagedBlockchainQueryClient";
+import { paginateListAssetContracts } from "./pagination/ListAssetContractsPaginator";
+import { paginateListFilteredTransactionEvents } from "./pagination/ListFilteredTransactionEventsPaginator";
+import { paginateListTokenBalances } from "./pagination/ListTokenBalancesPaginator";
+import { paginateListTransactionEvents } from "./pagination/ListTransactionEventsPaginator";
+import { paginateListTransactions } from "./pagination/ListTransactionsPaginator";
 
 const commands = {
   BatchGetTokenBalanceCommand,
@@ -59,6 +64,13 @@ const commands = {
   ListTokenBalancesCommand,
   ListTransactionEventsCommand,
   ListTransactionsCommand,
+};
+const paginators = {
+  paginateListAssetContracts,
+  paginateListFilteredTransactionEvents,
+  paginateListTokenBalances,
+  paginateListTransactionEvents,
+  paginateListTransactions,
 };
 
 export interface ManagedBlockchainQuery {
@@ -215,6 +227,61 @@ export interface ManagedBlockchainQuery {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTransactionsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAssetContractsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetContractsCommandOutput}.
+   */
+  paginateListAssetContracts(
+    args: ListAssetContractsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetContractsCommandOutput>;
+
+  /**
+   * @see {@link ListFilteredTransactionEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFilteredTransactionEventsCommandOutput}.
+   */
+  paginateListFilteredTransactionEvents(
+    args: ListFilteredTransactionEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFilteredTransactionEventsCommandOutput>;
+
+  /**
+   * @see {@link ListTokenBalancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTokenBalancesCommandOutput}.
+   */
+  paginateListTokenBalances(
+    args: ListTokenBalancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTokenBalancesCommandOutput>;
+
+  /**
+   * @see {@link ListTransactionEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTransactionEventsCommandOutput}.
+   */
+  paginateListTransactionEvents(
+    args: ListTransactionEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTransactionEventsCommandOutput>;
+
+  /**
+   * @see {@link ListTransactionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTransactionsCommandOutput}.
+   */
+  paginateListTransactions(
+    args: ListTransactionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTransactionsCommandOutput>;
 }
 
 /**
@@ -228,4 +295,4 @@ export interface ManagedBlockchainQuery {
  * @public
  */
 export class ManagedBlockchainQuery extends ManagedBlockchainQueryClient implements ManagedBlockchainQuery {}
-createAggregatedClient(commands, ManagedBlockchainQuery);
+createAggregatedClient(commands, ManagedBlockchainQuery, { paginators });

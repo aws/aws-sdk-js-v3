@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AmplifyClient } from "./AmplifyClient";
 import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
@@ -136,6 +136,10 @@ import {
   UpdateWebhookCommandInput,
   UpdateWebhookCommandOutput,
 } from "./commands/UpdateWebhookCommand";
+import { paginateListApps } from "./pagination/ListAppsPaginator";
+import { paginateListBranches } from "./pagination/ListBranchesPaginator";
+import { paginateListDomainAssociations } from "./pagination/ListDomainAssociationsPaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
 
 const commands = {
   CreateAppCommand,
@@ -175,6 +179,12 @@ const commands = {
   UpdateBranchCommand,
   UpdateDomainAssociationCommand,
   UpdateWebhookCommand,
+};
+const paginators = {
+  paginateListApps,
+  paginateListBranches,
+  paginateListDomainAssociations,
+  paginateListJobs,
 };
 
 export interface Amplify {
@@ -807,6 +817,50 @@ export interface Amplify {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWebhookCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAppsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppsCommandOutput}.
+   */
+  paginateListApps(
+    args?: ListAppsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppsCommandOutput>;
+
+  /**
+   * @see {@link ListBranchesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBranchesCommandOutput}.
+   */
+  paginateListBranches(
+    args: ListBranchesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBranchesCommandOutput>;
+
+  /**
+   * @see {@link ListDomainAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainAssociationsCommandOutput}.
+   */
+  paginateListDomainAssociations(
+    args: ListDomainAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
 }
 
 /**
@@ -819,4 +873,4 @@ export interface Amplify {
  * @public
  */
 export class Amplify extends AmplifyClient implements Amplify {}
-createAggregatedClient(commands, Amplify);
+createAggregatedClient(commands, Amplify, { paginators });

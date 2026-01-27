@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateServiceQuotaTemplateCommand,
@@ -128,6 +128,18 @@ import {
   UpdateAutoManagementCommandInput,
   UpdateAutoManagementCommandOutput,
 } from "./commands/UpdateAutoManagementCommand";
+import { paginateListAWSDefaultServiceQuotas } from "./pagination/ListAWSDefaultServiceQuotasPaginator";
+import {
+  paginateListRequestedServiceQuotaChangeHistoryByQuota,
+} from "./pagination/ListRequestedServiceQuotaChangeHistoryByQuotaPaginator";
+import {
+  paginateListRequestedServiceQuotaChangeHistory,
+} from "./pagination/ListRequestedServiceQuotaChangeHistoryPaginator";
+import {
+  paginateListServiceQuotaIncreaseRequestsInTemplate,
+} from "./pagination/ListServiceQuotaIncreaseRequestsInTemplatePaginator";
+import { paginateListServiceQuotas } from "./pagination/ListServiceQuotasPaginator";
+import { paginateListServices } from "./pagination/ListServicesPaginator";
 import { ServiceQuotasClient } from "./ServiceQuotasClient";
 
 const commands = {
@@ -157,6 +169,14 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAutoManagementCommand,
+};
+const paginators = {
+  paginateListAWSDefaultServiceQuotas,
+  paginateListRequestedServiceQuotaChangeHistory,
+  paginateListRequestedServiceQuotaChangeHistoryByQuota,
+  paginateListServiceQuotaIncreaseRequestsInTemplate,
+  paginateListServiceQuotas,
+  paginateListServices,
 };
 
 export interface ServiceQuotas {
@@ -611,6 +631,72 @@ export interface ServiceQuotas {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAutoManagementCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAWSDefaultServiceQuotasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAWSDefaultServiceQuotasCommandOutput}.
+   */
+  paginateListAWSDefaultServiceQuotas(
+    args: ListAWSDefaultServiceQuotasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAWSDefaultServiceQuotasCommandOutput>;
+
+  /**
+   * @see {@link ListRequestedServiceQuotaChangeHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRequestedServiceQuotaChangeHistoryCommandOutput}.
+   */
+  paginateListRequestedServiceQuotaChangeHistory(
+    args?: ListRequestedServiceQuotaChangeHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRequestedServiceQuotaChangeHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput}.
+   */
+  paginateListRequestedServiceQuotaChangeHistoryByQuota(
+    args: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput>;
+
+  /**
+   * @see {@link ListServiceQuotaIncreaseRequestsInTemplateCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceQuotaIncreaseRequestsInTemplateCommandOutput}.
+   */
+  paginateListServiceQuotaIncreaseRequestsInTemplate(
+    args?: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput>;
+
+  /**
+   * @see {@link ListServiceQuotasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceQuotasCommandOutput}.
+   */
+  paginateListServiceQuotas(
+    args: ListServiceQuotasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceQuotasCommandOutput>;
+
+  /**
+   * @see {@link ListServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicesCommandOutput}.
+   */
+  paginateListServices(
+    args?: ListServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicesCommandOutput>;
 }
 
 /**
@@ -622,4 +708,4 @@ export interface ServiceQuotas {
  * @public
  */
 export class ServiceQuotas extends ServiceQuotasClient implements ServiceQuotas {}
-createAggregatedClient(commands, ServiceQuotas);
+createAggregatedClient(commands, ServiceQuotas, { paginators });

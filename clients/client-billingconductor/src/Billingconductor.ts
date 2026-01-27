@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BillingconductorClient } from "./BillingconductorClient";
 import {
@@ -159,6 +159,23 @@ import {
   UpdatePricingRuleCommandInput,
   UpdatePricingRuleCommandOutput,
 } from "./commands/UpdatePricingRuleCommand";
+import { paginateGetBillingGroupCostReport } from "./pagination/GetBillingGroupCostReportPaginator";
+import { paginateListAccountAssociations } from "./pagination/ListAccountAssociationsPaginator";
+import { paginateListBillingGroupCostReports } from "./pagination/ListBillingGroupCostReportsPaginator";
+import { paginateListBillingGroups } from "./pagination/ListBillingGroupsPaginator";
+import { paginateListCustomLineItems } from "./pagination/ListCustomLineItemsPaginator";
+import { paginateListCustomLineItemVersions } from "./pagination/ListCustomLineItemVersionsPaginator";
+import {
+  paginateListPricingPlansAssociatedWithPricingRule,
+} from "./pagination/ListPricingPlansAssociatedWithPricingRulePaginator";
+import { paginateListPricingPlans } from "./pagination/ListPricingPlansPaginator";
+import {
+  paginateListPricingRulesAssociatedToPricingPlan,
+} from "./pagination/ListPricingRulesAssociatedToPricingPlanPaginator";
+import { paginateListPricingRules } from "./pagination/ListPricingRulesPaginator";
+import {
+  paginateListResourcesAssociatedToCustomLineItem,
+} from "./pagination/ListResourcesAssociatedToCustomLineItemPaginator";
 
 const commands = {
   AssociateAccountsCommand,
@@ -193,6 +210,19 @@ const commands = {
   UpdateCustomLineItemCommand,
   UpdatePricingPlanCommand,
   UpdatePricingRuleCommand,
+};
+const paginators = {
+  paginateGetBillingGroupCostReport,
+  paginateListAccountAssociations,
+  paginateListBillingGroupCostReports,
+  paginateListBillingGroups,
+  paginateListCustomLineItems,
+  paginateListCustomLineItemVersions,
+  paginateListPricingPlans,
+  paginateListPricingPlansAssociatedWithPricingRule,
+  paginateListPricingRules,
+  paginateListPricingRulesAssociatedToPricingPlan,
+  paginateListResourcesAssociatedToCustomLineItem,
 };
 
 export interface Billingconductor {
@@ -745,6 +775,127 @@ export interface Billingconductor {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePricingRuleCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetBillingGroupCostReportCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBillingGroupCostReportCommandOutput}.
+   */
+  paginateGetBillingGroupCostReport(
+    args: GetBillingGroupCostReportCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBillingGroupCostReportCommandOutput>;
+
+  /**
+   * @see {@link ListAccountAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountAssociationsCommandOutput}.
+   */
+  paginateListAccountAssociations(
+    args?: ListAccountAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListBillingGroupCostReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillingGroupCostReportsCommandOutput}.
+   */
+  paginateListBillingGroupCostReports(
+    args?: ListBillingGroupCostReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillingGroupCostReportsCommandOutput>;
+
+  /**
+   * @see {@link ListBillingGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillingGroupsCommandOutput}.
+   */
+  paginateListBillingGroups(
+    args?: ListBillingGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillingGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomLineItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomLineItemsCommandOutput}.
+   */
+  paginateListCustomLineItems(
+    args?: ListCustomLineItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomLineItemsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomLineItemVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomLineItemVersionsCommandOutput}.
+   */
+  paginateListCustomLineItemVersions(
+    args: ListCustomLineItemVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomLineItemVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListPricingPlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPricingPlansCommandOutput}.
+   */
+  paginateListPricingPlans(
+    args?: ListPricingPlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPricingPlansCommandOutput>;
+
+  /**
+   * @see {@link ListPricingPlansAssociatedWithPricingRuleCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPricingPlansAssociatedWithPricingRuleCommandOutput}.
+   */
+  paginateListPricingPlansAssociatedWithPricingRule(
+    args: ListPricingPlansAssociatedWithPricingRuleCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPricingPlansAssociatedWithPricingRuleCommandOutput>;
+
+  /**
+   * @see {@link ListPricingRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPricingRulesCommandOutput}.
+   */
+  paginateListPricingRules(
+    args?: ListPricingRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPricingRulesCommandOutput>;
+
+  /**
+   * @see {@link ListPricingRulesAssociatedToPricingPlanCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPricingRulesAssociatedToPricingPlanCommandOutput}.
+   */
+  paginateListPricingRulesAssociatedToPricingPlan(
+    args: ListPricingRulesAssociatedToPricingPlanCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPricingRulesAssociatedToPricingPlanCommandOutput>;
+
+  /**
+   * @see {@link ListResourcesAssociatedToCustomLineItemCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcesAssociatedToCustomLineItemCommandOutput}.
+   */
+  paginateListResourcesAssociatedToCustomLineItem(
+    args: ListResourcesAssociatedToCustomLineItemCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcesAssociatedToCustomLineItemCommandOutput>;
 }
 
 /**
@@ -752,4 +903,4 @@ export interface Billingconductor {
  * @public
  */
 export class Billingconductor extends BillingconductorClient implements Billingconductor {}
-createAggregatedClient(commands, Billingconductor);
+createAggregatedClient(commands, Billingconductor, { paginators });

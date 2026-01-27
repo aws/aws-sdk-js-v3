@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelBatchJobExecutionCommand,
@@ -184,6 +184,16 @@ import {
   UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import { M2Client } from "./M2Client";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListApplicationVersions } from "./pagination/ListApplicationVersionsPaginator";
+import { paginateListBatchJobDefinitions } from "./pagination/ListBatchJobDefinitionsPaginator";
+import { paginateListBatchJobExecutions } from "./pagination/ListBatchJobExecutionsPaginator";
+import { paginateListDataSetExportHistory } from "./pagination/ListDataSetExportHistoryPaginator";
+import { paginateListDataSetImportHistory } from "./pagination/ListDataSetImportHistoryPaginator";
+import { paginateListDataSets } from "./pagination/ListDataSetsPaginator";
+import { paginateListDeployments } from "./pagination/ListDeploymentsPaginator";
+import { paginateListEngineVersions } from "./pagination/ListEngineVersionsPaginator";
+import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
 
 const commands = {
   CancelBatchJobExecutionCommand,
@@ -223,6 +233,18 @@ const commands = {
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateEnvironmentCommand,
+};
+const paginators = {
+  paginateListApplications,
+  paginateListApplicationVersions,
+  paginateListBatchJobDefinitions,
+  paginateListBatchJobExecutions,
+  paginateListDataSetExportHistory,
+  paginateListDataSetImportHistory,
+  paginateListDataSets,
+  paginateListDeployments,
+  paginateListEngineVersions,
+  paginateListEnvironments,
 };
 
 export interface M2 {
@@ -858,6 +880,116 @@ export interface M2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationVersionsCommandOutput}.
+   */
+  paginateListApplicationVersions(
+    args: ListApplicationVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListBatchJobDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBatchJobDefinitionsCommandOutput}.
+   */
+  paginateListBatchJobDefinitions(
+    args: ListBatchJobDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBatchJobDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListBatchJobExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBatchJobExecutionsCommandOutput}.
+   */
+  paginateListBatchJobExecutions(
+    args: ListBatchJobExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBatchJobExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListDataSetExportHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSetExportHistoryCommandOutput}.
+   */
+  paginateListDataSetExportHistory(
+    args: ListDataSetExportHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSetExportHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListDataSetImportHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSetImportHistoryCommandOutput}.
+   */
+  paginateListDataSetImportHistory(
+    args: ListDataSetImportHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSetImportHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListDataSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSetsCommandOutput}.
+   */
+  paginateListDataSets(
+    args: ListDataSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSetsCommandOutput>;
+
+  /**
+   * @see {@link ListDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentsCommandOutput}.
+   */
+  paginateListDeployments(
+    args: ListDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link ListEngineVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEngineVersionsCommandOutput}.
+   */
+  paginateListEngineVersions(
+    args?: ListEngineVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEngineVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentsCommandOutput}.
+   */
+  paginateListEnvironments(
+    args?: ListEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentsCommandOutput>;
 }
 
 /**
@@ -869,4 +1001,4 @@ export interface M2 {
  * @public
  */
 export class M2 extends M2Client implements M2 {}
-createAggregatedClient(commands, M2);
+createAggregatedClient(commands, M2, { paginators });

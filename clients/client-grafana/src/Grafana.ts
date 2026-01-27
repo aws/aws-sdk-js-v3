@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateLicenseCommand,
@@ -124,6 +124,11 @@ import {
   UpdateWorkspaceConfigurationCommandOutput,
 } from "./commands/UpdateWorkspaceConfigurationCommand";
 import { GrafanaClient } from "./GrafanaClient";
+import { paginateListPermissions } from "./pagination/ListPermissionsPaginator";
+import { paginateListVersions } from "./pagination/ListVersionsPaginator";
+import { paginateListWorkspaceServiceAccounts } from "./pagination/ListWorkspaceServiceAccountsPaginator";
+import { paginateListWorkspaceServiceAccountTokens } from "./pagination/ListWorkspaceServiceAccountTokensPaginator";
+import { paginateListWorkspaces } from "./pagination/ListWorkspacesPaginator";
 
 const commands = {
   AssociateLicenseCommand,
@@ -151,6 +156,13 @@ const commands = {
   UpdateWorkspaceCommand,
   UpdateWorkspaceAuthenticationCommand,
   UpdateWorkspaceConfigurationCommand,
+};
+const paginators = {
+  paginateListPermissions,
+  paginateListVersions,
+  paginateListWorkspaces,
+  paginateListWorkspaceServiceAccounts,
+  paginateListWorkspaceServiceAccountTokens,
 };
 
 export interface Grafana {
@@ -580,6 +592,61 @@ export interface Grafana {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkspaceConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListPermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPermissionsCommandOutput}.
+   */
+  paginateListPermissions(
+    args: ListPermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPermissionsCommandOutput>;
+
+  /**
+   * @see {@link ListVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVersionsCommandOutput}.
+   */
+  paginateListVersions(
+    args?: ListVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkspacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkspacesCommandOutput}.
+   */
+  paginateListWorkspaces(
+    args?: ListWorkspacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkspacesCommandOutput>;
+
+  /**
+   * @see {@link ListWorkspaceServiceAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkspaceServiceAccountsCommandOutput}.
+   */
+  paginateListWorkspaceServiceAccounts(
+    args: ListWorkspaceServiceAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkspaceServiceAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkspaceServiceAccountTokensCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkspaceServiceAccountTokensCommandOutput}.
+   */
+  paginateListWorkspaceServiceAccountTokens(
+    args: ListWorkspaceServiceAccountTokensCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkspaceServiceAccountTokensCommandOutput>;
 }
 
 /**
@@ -595,4 +662,4 @@ export interface Grafana {
  * @public
  */
 export class Grafana extends GrafanaClient implements Grafana {}
-createAggregatedClient(commands, Grafana);
+createAggregatedClient(commands, Grafana, { paginators });

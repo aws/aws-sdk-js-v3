@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddAttributesToFindingsCommand,
@@ -188,6 +188,16 @@ import {
   UpdateAssessmentTargetCommandOutput,
 } from "./commands/UpdateAssessmentTargetCommand";
 import { InspectorClient } from "./InspectorClient";
+import { paginateGetExclusionsPreview } from "./pagination/GetExclusionsPreviewPaginator";
+import { paginateListAssessmentRunAgents } from "./pagination/ListAssessmentRunAgentsPaginator";
+import { paginateListAssessmentRuns } from "./pagination/ListAssessmentRunsPaginator";
+import { paginateListAssessmentTargets } from "./pagination/ListAssessmentTargetsPaginator";
+import { paginateListAssessmentTemplates } from "./pagination/ListAssessmentTemplatesPaginator";
+import { paginateListEventSubscriptions } from "./pagination/ListEventSubscriptionsPaginator";
+import { paginateListExclusions } from "./pagination/ListExclusionsPaginator";
+import { paginateListFindings } from "./pagination/ListFindingsPaginator";
+import { paginateListRulesPackages } from "./pagination/ListRulesPackagesPaginator";
+import { paginatePreviewAgents } from "./pagination/PreviewAgentsPaginator";
 
 const commands = {
   AddAttributesToFindingsCommand,
@@ -227,6 +237,18 @@ const commands = {
   SubscribeToEventCommand,
   UnsubscribeFromEventCommand,
   UpdateAssessmentTargetCommand,
+};
+const paginators = {
+  paginateGetExclusionsPreview,
+  paginateListAssessmentRunAgents,
+  paginateListAssessmentRuns,
+  paginateListAssessmentTargets,
+  paginateListAssessmentTemplates,
+  paginateListEventSubscriptions,
+  paginateListExclusions,
+  paginateListFindings,
+  paginateListRulesPackages,
+  paginatePreviewAgents,
 };
 
 export interface Inspector {
@@ -865,6 +887,116 @@ export interface Inspector {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAssessmentTargetCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetExclusionsPreviewCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetExclusionsPreviewCommandOutput}.
+   */
+  paginateGetExclusionsPreview(
+    args: GetExclusionsPreviewCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetExclusionsPreviewCommandOutput>;
+
+  /**
+   * @see {@link ListAssessmentRunAgentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentRunAgentsCommandOutput}.
+   */
+  paginateListAssessmentRunAgents(
+    args: ListAssessmentRunAgentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentRunAgentsCommandOutput>;
+
+  /**
+   * @see {@link ListAssessmentRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentRunsCommandOutput}.
+   */
+  paginateListAssessmentRuns(
+    args?: ListAssessmentRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentRunsCommandOutput>;
+
+  /**
+   * @see {@link ListAssessmentTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentTargetsCommandOutput}.
+   */
+  paginateListAssessmentTargets(
+    args?: ListAssessmentTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentTargetsCommandOutput>;
+
+  /**
+   * @see {@link ListAssessmentTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentTemplatesCommandOutput}.
+   */
+  paginateListAssessmentTemplates(
+    args?: ListAssessmentTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListEventSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventSubscriptionsCommandOutput}.
+   */
+  paginateListEventSubscriptions(
+    args?: ListEventSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link ListExclusionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExclusionsCommandOutput}.
+   */
+  paginateListExclusions(
+    args: ListExclusionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExclusionsCommandOutput>;
+
+  /**
+   * @see {@link ListFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFindingsCommandOutput}.
+   */
+  paginateListFindings(
+    args?: ListFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListRulesPackagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRulesPackagesCommandOutput}.
+   */
+  paginateListRulesPackages(
+    args?: ListRulesPackagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRulesPackagesCommandOutput>;
+
+  /**
+   * @see {@link PreviewAgentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link PreviewAgentsCommandOutput}.
+   */
+  paginatePreviewAgents(
+    args: PreviewAgentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<PreviewAgentsCommandOutput>;
 }
 
 /**
@@ -875,4 +1007,4 @@ export interface Inspector {
  * @public
  */
 export class Inspector extends InspectorClient implements Inspector {}
-createAggregatedClient(commands, Inspector);
+createAggregatedClient(commands, Inspector, { paginators });

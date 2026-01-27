@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptConnectionInvitationCommand,
@@ -139,6 +139,9 @@ import {
   UpdateConnectionPreferencesCommandInput,
   UpdateConnectionPreferencesCommandOutput,
 } from "./commands/UpdateConnectionPreferencesCommand";
+import { paginateListConnectionInvitations } from "./pagination/ListConnectionInvitationsPaginator";
+import { paginateListConnections } from "./pagination/ListConnectionsPaginator";
+import { paginateListPartners } from "./pagination/ListPartnersPaginator";
 import { PartnerCentralAccountClient } from "./PartnerCentralAccountClient";
 
 const commands = {
@@ -171,6 +174,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConnectionPreferencesCommand,
+};
+const paginators = {
+  paginateListConnectionInvitations,
+  paginateListConnections,
+  paginateListPartners,
 };
 
 export interface PartnerCentralAccount {
@@ -667,6 +675,39 @@ export interface PartnerCentralAccount {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateConnectionPreferencesCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListConnectionInvitationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectionInvitationsCommandOutput}.
+   */
+  paginateListConnectionInvitations(
+    args: ListConnectionInvitationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectionInvitationsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectionsCommandOutput}.
+   */
+  paginateListConnections(
+    args: ListConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectionsCommandOutput>;
+
+  /**
+   * @see {@link ListPartnersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPartnersCommandOutput}.
+   */
+  paginateListPartners(
+    args: ListPartnersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPartnersCommandOutput>;
 }
 
 /**
@@ -674,4 +715,4 @@ export interface PartnerCentralAccount {
  * @public
  */
 export class PartnerCentralAccount extends PartnerCentralAccountClient implements PartnerCentralAccount {}
-createAggregatedClient(commands, PartnerCentralAccount);
+createAggregatedClient(commands, PartnerCentralAccount, { paginators });

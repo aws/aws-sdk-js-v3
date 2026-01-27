@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchGetMetricDataCommand,
@@ -528,6 +528,27 @@ import {
   UpdateReputationEntityPolicyCommandInput,
   UpdateReputationEntityPolicyCommandOutput,
 } from "./commands/UpdateReputationEntityPolicyCommand";
+import { paginateGetDedicatedIps } from "./pagination/GetDedicatedIpsPaginator";
+import { paginateListConfigurationSets } from "./pagination/ListConfigurationSetsPaginator";
+import { paginateListContactLists } from "./pagination/ListContactListsPaginator";
+import { paginateListContacts } from "./pagination/ListContactsPaginator";
+import {
+  paginateListCustomVerificationEmailTemplates,
+} from "./pagination/ListCustomVerificationEmailTemplatesPaginator";
+import { paginateListDedicatedIpPools } from "./pagination/ListDedicatedIpPoolsPaginator";
+import { paginateListDeliverabilityTestReports } from "./pagination/ListDeliverabilityTestReportsPaginator";
+import { paginateListDomainDeliverabilityCampaigns } from "./pagination/ListDomainDeliverabilityCampaignsPaginator";
+import { paginateListEmailIdentities } from "./pagination/ListEmailIdentitiesPaginator";
+import { paginateListEmailTemplates } from "./pagination/ListEmailTemplatesPaginator";
+import { paginateListExportJobs } from "./pagination/ListExportJobsPaginator";
+import { paginateListImportJobs } from "./pagination/ListImportJobsPaginator";
+import { paginateListMultiRegionEndpoints } from "./pagination/ListMultiRegionEndpointsPaginator";
+import { paginateListRecommendations } from "./pagination/ListRecommendationsPaginator";
+import { paginateListReputationEntities } from "./pagination/ListReputationEntitiesPaginator";
+import { paginateListResourceTenants } from "./pagination/ListResourceTenantsPaginator";
+import { paginateListSuppressedDestinations } from "./pagination/ListSuppressedDestinationsPaginator";
+import { paginateListTenantResources } from "./pagination/ListTenantResourcesPaginator";
+import { paginateListTenants } from "./pagination/ListTenantsPaginator";
 import { SESv2Client } from "./SESv2Client";
 
 const commands = {
@@ -641,6 +662,27 @@ const commands = {
   UpdateEmailTemplateCommand,
   UpdateReputationEntityCustomerManagedStatusCommand,
   UpdateReputationEntityPolicyCommand,
+};
+const paginators = {
+  paginateGetDedicatedIps,
+  paginateListConfigurationSets,
+  paginateListContactLists,
+  paginateListContacts,
+  paginateListCustomVerificationEmailTemplates,
+  paginateListDedicatedIpPools,
+  paginateListDeliverabilityTestReports,
+  paginateListDomainDeliverabilityCampaigns,
+  paginateListEmailIdentities,
+  paginateListEmailTemplates,
+  paginateListExportJobs,
+  paginateListImportJobs,
+  paginateListMultiRegionEndpoints,
+  paginateListRecommendations,
+  paginateListReputationEntities,
+  paginateListResourceTenants,
+  paginateListSuppressedDestinations,
+  paginateListTenantResources,
+  paginateListTenants,
 };
 
 export interface SESv2 {
@@ -2533,6 +2575,215 @@ export interface SESv2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateReputationEntityPolicyCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetDedicatedIpsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDedicatedIpsCommandOutput}.
+   */
+  paginateGetDedicatedIps(
+    args?: GetDedicatedIpsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDedicatedIpsCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationSetsCommandOutput}.
+   */
+  paginateListConfigurationSets(
+    args?: ListConfigurationSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationSetsCommandOutput>;
+
+  /**
+   * @see {@link ListContactListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactListsCommandOutput}.
+   */
+  paginateListContactLists(
+    args?: ListContactListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactListsCommandOutput>;
+
+  /**
+   * @see {@link ListContactsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactsCommandOutput}.
+   */
+  paginateListContacts(
+    args: ListContactsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomVerificationEmailTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomVerificationEmailTemplatesCommandOutput}.
+   */
+  paginateListCustomVerificationEmailTemplates(
+    args?: ListCustomVerificationEmailTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomVerificationEmailTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListDedicatedIpPoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDedicatedIpPoolsCommandOutput}.
+   */
+  paginateListDedicatedIpPools(
+    args?: ListDedicatedIpPoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDedicatedIpPoolsCommandOutput>;
+
+  /**
+   * @see {@link ListDeliverabilityTestReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeliverabilityTestReportsCommandOutput}.
+   */
+  paginateListDeliverabilityTestReports(
+    args?: ListDeliverabilityTestReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeliverabilityTestReportsCommandOutput>;
+
+  /**
+   * @see {@link ListDomainDeliverabilityCampaignsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainDeliverabilityCampaignsCommandOutput}.
+   */
+  paginateListDomainDeliverabilityCampaigns(
+    args: ListDomainDeliverabilityCampaignsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainDeliverabilityCampaignsCommandOutput>;
+
+  /**
+   * @see {@link ListEmailIdentitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEmailIdentitiesCommandOutput}.
+   */
+  paginateListEmailIdentities(
+    args?: ListEmailIdentitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEmailIdentitiesCommandOutput>;
+
+  /**
+   * @see {@link ListEmailTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEmailTemplatesCommandOutput}.
+   */
+  paginateListEmailTemplates(
+    args?: ListEmailTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEmailTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExportJobsCommandOutput}.
+   */
+  paginateListExportJobs(
+    args?: ListExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportJobsCommandOutput}.
+   */
+  paginateListImportJobs(
+    args?: ListImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListMultiRegionEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMultiRegionEndpointsCommandOutput}.
+   */
+  paginateListMultiRegionEndpoints(
+    args?: ListMultiRegionEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMultiRegionEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationsCommandOutput}.
+   */
+  paginateListRecommendations(
+    args?: ListRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link ListReputationEntitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReputationEntitiesCommandOutput}.
+   */
+  paginateListReputationEntities(
+    args?: ListReputationEntitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReputationEntitiesCommandOutput>;
+
+  /**
+   * @see {@link ListResourceTenantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceTenantsCommandOutput}.
+   */
+  paginateListResourceTenants(
+    args: ListResourceTenantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceTenantsCommandOutput>;
+
+  /**
+   * @see {@link ListSuppressedDestinationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSuppressedDestinationsCommandOutput}.
+   */
+  paginateListSuppressedDestinations(
+    args?: ListSuppressedDestinationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSuppressedDestinationsCommandOutput>;
+
+  /**
+   * @see {@link ListTenantResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTenantResourcesCommandOutput}.
+   */
+  paginateListTenantResources(
+    args: ListTenantResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTenantResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListTenantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTenantsCommandOutput}.
+   */
+  paginateListTenants(
+    args?: ListTenantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTenantsCommandOutput>;
 }
 
 /**
@@ -2546,4 +2797,4 @@ export interface SESv2 {
  * @public
  */
 export class SESv2 extends SESv2Client implements SESv2 {}
-createAggregatedClient(commands, SESv2);
+createAggregatedClient(commands, SESv2, { paginators });

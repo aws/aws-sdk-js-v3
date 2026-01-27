@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateVolumeCommand,
@@ -59,6 +59,9 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateListInstanceTypes } from "./pagination/ListInstanceTypesPaginator";
+import { paginateListRegions } from "./pagination/ListRegionsPaginator";
+import { paginateListWorkspaceInstances } from "./pagination/ListWorkspaceInstancesPaginator";
 import { WorkspacesInstancesClient } from "./WorkspacesInstancesClient";
 
 const commands = {
@@ -75,6 +78,11 @@ const commands = {
   ListWorkspaceInstancesCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListInstanceTypes,
+  paginateListRegions,
+  paginateListWorkspaceInstances,
 };
 
 export interface WorkspacesInstances {
@@ -301,6 +309,39 @@ export interface WorkspacesInstances {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListInstanceTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstanceTypesCommandOutput}.
+   */
+  paginateListInstanceTypes(
+    args?: ListInstanceTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstanceTypesCommandOutput>;
+
+  /**
+   * @see {@link ListRegionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRegionsCommandOutput}.
+   */
+  paginateListRegions(
+    args?: ListRegionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRegionsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkspaceInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkspaceInstancesCommandOutput}.
+   */
+  paginateListWorkspaceInstances(
+    args?: ListWorkspaceInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkspaceInstancesCommandOutput>;
 }
 
 /**
@@ -308,4 +349,4 @@ export interface WorkspacesInstances {
  * @public
  */
 export class WorkspacesInstances extends WorkspacesInstancesClient implements WorkspacesInstances {}
-createAggregatedClient(commands, WorkspacesInstances);
+createAggregatedClient(commands, WorkspacesInstances, { paginators });

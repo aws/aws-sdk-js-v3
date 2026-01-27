@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchGetCollectionCommand,
@@ -213,6 +213,13 @@ import {
   UpdateVpcEndpointCommandOutput,
 } from "./commands/UpdateVpcEndpointCommand";
 import { OpenSearchServerlessClient } from "./OpenSearchServerlessClient";
+import { paginateListAccessPolicies } from "./pagination/ListAccessPoliciesPaginator";
+import { paginateListCollectionGroups } from "./pagination/ListCollectionGroupsPaginator";
+import { paginateListCollections } from "./pagination/ListCollectionsPaginator";
+import { paginateListLifecyclePolicies } from "./pagination/ListLifecyclePoliciesPaginator";
+import { paginateListSecurityConfigs } from "./pagination/ListSecurityConfigsPaginator";
+import { paginateListSecurityPolicies } from "./pagination/ListSecurityPoliciesPaginator";
+import { paginateListVpcEndpoints } from "./pagination/ListVpcEndpointsPaginator";
 
 const commands = {
   BatchGetCollectionCommand,
@@ -261,6 +268,15 @@ const commands = {
   UpdateSecurityConfigCommand,
   UpdateSecurityPolicyCommand,
   UpdateVpcEndpointCommand,
+};
+const paginators = {
+  paginateListAccessPolicies,
+  paginateListCollectionGroups,
+  paginateListCollections,
+  paginateListLifecyclePolicies,
+  paginateListSecurityConfigs,
+  paginateListSecurityPolicies,
+  paginateListVpcEndpoints,
 };
 
 export interface OpenSearchServerless {
@@ -1053,6 +1069,83 @@ export interface OpenSearchServerless {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccessPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessPoliciesCommandOutput}.
+   */
+  paginateListAccessPolicies(
+    args: ListAccessPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListCollectionGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollectionGroupsCommandOutput}.
+   */
+  paginateListCollectionGroups(
+    args?: ListCollectionGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollectionGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListCollectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollectionsCommandOutput}.
+   */
+  paginateListCollections(
+    args?: ListCollectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollectionsCommandOutput>;
+
+  /**
+   * @see {@link ListLifecyclePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLifecyclePoliciesCommandOutput}.
+   */
+  paginateListLifecyclePolicies(
+    args: ListLifecyclePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLifecyclePoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityConfigsCommandOutput}.
+   */
+  paginateListSecurityConfigs(
+    args: ListSecurityConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityPoliciesCommandOutput}.
+   */
+  paginateListSecurityPolicies(
+    args: ListSecurityPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListVpcEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVpcEndpointsCommandOutput}.
+   */
+  paginateListVpcEndpoints(
+    args?: ListVpcEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVpcEndpointsCommandOutput>;
 }
 
 /**
@@ -1060,4 +1153,4 @@ export interface OpenSearchServerless {
  * @public
  */
 export class OpenSearchServerless extends OpenSearchServerlessClient implements OpenSearchServerless {}
-createAggregatedClient(commands, OpenSearchServerless);
+createAggregatedClient(commands, OpenSearchServerless, { paginators });

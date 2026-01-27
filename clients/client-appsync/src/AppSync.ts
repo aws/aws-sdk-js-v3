@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AppSyncClient } from "./AppSyncClient";
 import {
@@ -313,6 +313,18 @@ import {
   UpdateSourceApiAssociationCommandOutput,
 } from "./commands/UpdateSourceApiAssociationCommand";
 import { UpdateTypeCommand, UpdateTypeCommandInput, UpdateTypeCommandOutput } from "./commands/UpdateTypeCommand";
+import { paginateListApiKeys } from "./pagination/ListApiKeysPaginator";
+import { paginateListApis } from "./pagination/ListApisPaginator";
+import { paginateListChannelNamespaces } from "./pagination/ListChannelNamespacesPaginator";
+import { paginateListDataSources } from "./pagination/ListDataSourcesPaginator";
+import { paginateListDomainNames } from "./pagination/ListDomainNamesPaginator";
+import { paginateListFunctions } from "./pagination/ListFunctionsPaginator";
+import { paginateListGraphqlApis } from "./pagination/ListGraphqlApisPaginator";
+import { paginateListResolversByFunction } from "./pagination/ListResolversByFunctionPaginator";
+import { paginateListResolvers } from "./pagination/ListResolversPaginator";
+import { paginateListSourceApiAssociations } from "./pagination/ListSourceApiAssociationsPaginator";
+import { paginateListTypesByAssociation } from "./pagination/ListTypesByAssociationPaginator";
+import { paginateListTypes } from "./pagination/ListTypesPaginator";
 
 const commands = {
   AssociateApiCommand,
@@ -389,6 +401,20 @@ const commands = {
   UpdateResolverCommand,
   UpdateSourceApiAssociationCommand,
   UpdateTypeCommand,
+};
+const paginators = {
+  paginateListApiKeys,
+  paginateListApis,
+  paginateListChannelNamespaces,
+  paginateListDataSources,
+  paginateListDomainNames,
+  paginateListFunctions,
+  paginateListGraphqlApis,
+  paginateListResolvers,
+  paginateListResolversByFunction,
+  paginateListSourceApiAssociations,
+  paginateListTypes,
+  paginateListTypesByAssociation,
 };
 
 export interface AppSync {
@@ -1653,6 +1679,138 @@ export interface AppSync {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTypeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApiKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApiKeysCommandOutput}.
+   */
+  paginateListApiKeys(
+    args: ListApiKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApiKeysCommandOutput>;
+
+  /**
+   * @see {@link ListApisCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApisCommandOutput}.
+   */
+  paginateListApis(
+    args?: ListApisCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApisCommandOutput>;
+
+  /**
+   * @see {@link ListChannelNamespacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelNamespacesCommandOutput}.
+   */
+  paginateListChannelNamespaces(
+    args: ListChannelNamespacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelNamespacesCommandOutput>;
+
+  /**
+   * @see {@link ListDataSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSourcesCommandOutput}.
+   */
+  paginateListDataSources(
+    args: ListDataSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListDomainNamesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainNamesCommandOutput}.
+   */
+  paginateListDomainNames(
+    args?: ListDomainNamesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainNamesCommandOutput>;
+
+  /**
+   * @see {@link ListFunctionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFunctionsCommandOutput}.
+   */
+  paginateListFunctions(
+    args: ListFunctionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFunctionsCommandOutput>;
+
+  /**
+   * @see {@link ListGraphqlApisCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGraphqlApisCommandOutput}.
+   */
+  paginateListGraphqlApis(
+    args?: ListGraphqlApisCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGraphqlApisCommandOutput>;
+
+  /**
+   * @see {@link ListResolversCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResolversCommandOutput}.
+   */
+  paginateListResolvers(
+    args: ListResolversCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResolversCommandOutput>;
+
+  /**
+   * @see {@link ListResolversByFunctionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResolversByFunctionCommandOutput}.
+   */
+  paginateListResolversByFunction(
+    args: ListResolversByFunctionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResolversByFunctionCommandOutput>;
+
+  /**
+   * @see {@link ListSourceApiAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSourceApiAssociationsCommandOutput}.
+   */
+  paginateListSourceApiAssociations(
+    args: ListSourceApiAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSourceApiAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTypesCommandOutput}.
+   */
+  paginateListTypes(
+    args: ListTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTypesCommandOutput>;
+
+  /**
+   * @see {@link ListTypesByAssociationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTypesByAssociationCommandOutput}.
+   */
+  paginateListTypesByAssociation(
+    args: ListTypesByAssociationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTypesByAssociationCommandOutput>;
 }
 
 /**
@@ -1661,4 +1819,4 @@ export interface AppSync {
  * @public
  */
 export class AppSync extends AppSyncClient implements AppSync {}
-createAggregatedClient(commands, AppSync);
+createAggregatedClient(commands, AppSync, { paginators });

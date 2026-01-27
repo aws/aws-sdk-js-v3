@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CompleteSnapshotCommand,
@@ -33,6 +33,8 @@ import {
   StartSnapshotCommandOutput,
 } from "./commands/StartSnapshotCommand";
 import { EBSClient } from "./EBSClient";
+import { paginateListChangedBlocks } from "./pagination/ListChangedBlocksPaginator";
+import { paginateListSnapshotBlocks } from "./pagination/ListSnapshotBlocksPaginator";
 
 const commands = {
   CompleteSnapshotCommand,
@@ -41,6 +43,10 @@ const commands = {
   ListSnapshotBlocksCommand,
   PutSnapshotBlockCommand,
   StartSnapshotCommand,
+};
+const paginators = {
+  paginateListChangedBlocks,
+  paginateListSnapshotBlocks,
 };
 
 export interface EBS {
@@ -145,6 +151,28 @@ export interface EBS {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartSnapshotCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChangedBlocksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChangedBlocksCommandOutput}.
+   */
+  paginateListChangedBlocks(
+    args: ListChangedBlocksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChangedBlocksCommandOutput>;
+
+  /**
+   * @see {@link ListSnapshotBlocksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSnapshotBlocksCommandOutput}.
+   */
+  paginateListSnapshotBlocks(
+    args: ListSnapshotBlocksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSnapshotBlocksCommandOutput>;
 }
 
 /**
@@ -168,4 +196,4 @@ export interface EBS {
  * @public
  */
 export class EBS extends EBSClient implements EBS {}
-createAggregatedClient(commands, EBS);
+createAggregatedClient(commands, EBS, { paginators });

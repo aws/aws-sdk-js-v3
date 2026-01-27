@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateHomeRegionControlCommand,
@@ -23,12 +23,16 @@ import {
   GetHomeRegionCommandOutput,
 } from "./commands/GetHomeRegionCommand";
 import { MigrationHubConfigClient } from "./MigrationHubConfigClient";
+import { paginateDescribeHomeRegionControls } from "./pagination/DescribeHomeRegionControlsPaginator";
 
 const commands = {
   CreateHomeRegionControlCommand,
   DeleteHomeRegionControlCommand,
   DescribeHomeRegionControlsCommand,
   GetHomeRegionCommand,
+};
+const paginators = {
+  paginateDescribeHomeRegionControls,
 };
 
 export interface MigrationHubConfig {
@@ -101,6 +105,17 @@ export interface MigrationHubConfig {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetHomeRegionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeHomeRegionControlsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeHomeRegionControlsCommandOutput}.
+   */
+  paginateDescribeHomeRegionControls(
+    args?: DescribeHomeRegionControlsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeHomeRegionControlsCommandOutput>;
 }
 
 /**
@@ -131,4 +146,4 @@ export interface MigrationHubConfig {
  * @public
  */
 export class MigrationHubConfig extends MigrationHubConfigClient implements MigrationHubConfig {}
-createAggregatedClient(commands, MigrationHubConfig);
+createAggregatedClient(commands, MigrationHubConfig, { paginators });

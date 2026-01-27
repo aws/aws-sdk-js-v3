@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddNotificationChannelCommand,
@@ -150,6 +150,22 @@ import {
   UpdateServiceIntegrationCommandOutput,
 } from "./commands/UpdateServiceIntegrationCommand";
 import { DevOpsGuruClient } from "./DevOpsGuruClient";
+import {
+  paginateDescribeOrganizationResourceCollectionHealth,
+} from "./pagination/DescribeOrganizationResourceCollectionHealthPaginator";
+import { paginateDescribeResourceCollectionHealth } from "./pagination/DescribeResourceCollectionHealthPaginator";
+import { paginateGetCostEstimation } from "./pagination/GetCostEstimationPaginator";
+import { paginateGetResourceCollection } from "./pagination/GetResourceCollectionPaginator";
+import { paginateListAnomaliesForInsight } from "./pagination/ListAnomaliesForInsightPaginator";
+import { paginateListAnomalousLogGroups } from "./pagination/ListAnomalousLogGroupsPaginator";
+import { paginateListEvents } from "./pagination/ListEventsPaginator";
+import { paginateListInsights } from "./pagination/ListInsightsPaginator";
+import { paginateListMonitoredResources } from "./pagination/ListMonitoredResourcesPaginator";
+import { paginateListNotificationChannels } from "./pagination/ListNotificationChannelsPaginator";
+import { paginateListOrganizationInsights } from "./pagination/ListOrganizationInsightsPaginator";
+import { paginateListRecommendations } from "./pagination/ListRecommendationsPaginator";
+import { paginateSearchInsights } from "./pagination/SearchInsightsPaginator";
+import { paginateSearchOrganizationInsights } from "./pagination/SearchOrganizationInsightsPaginator";
 
 const commands = {
   AddNotificationChannelCommand,
@@ -183,6 +199,22 @@ const commands = {
   UpdateEventSourcesConfigCommand,
   UpdateResourceCollectionCommand,
   UpdateServiceIntegrationCommand,
+};
+const paginators = {
+  paginateDescribeOrganizationResourceCollectionHealth,
+  paginateDescribeResourceCollectionHealth,
+  paginateGetCostEstimation,
+  paginateGetResourceCollection,
+  paginateListAnomaliesForInsight,
+  paginateListAnomalousLogGroups,
+  paginateListEvents,
+  paginateListInsights,
+  paginateListMonitoredResources,
+  paginateListNotificationChannels,
+  paginateListOrganizationInsights,
+  paginateListRecommendations,
+  paginateSearchInsights,
+  paginateSearchOrganizationInsights,
 };
 
 export interface DevOpsGuru {
@@ -722,6 +754,160 @@ export interface DevOpsGuru {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceIntegrationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeOrganizationResourceCollectionHealthCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOrganizationResourceCollectionHealthCommandOutput}.
+   */
+  paginateDescribeOrganizationResourceCollectionHealth(
+    args: DescribeOrganizationResourceCollectionHealthCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOrganizationResourceCollectionHealthCommandOutput>;
+
+  /**
+   * @see {@link DescribeResourceCollectionHealthCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeResourceCollectionHealthCommandOutput}.
+   */
+  paginateDescribeResourceCollectionHealth(
+    args: DescribeResourceCollectionHealthCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeResourceCollectionHealthCommandOutput>;
+
+  /**
+   * @see {@link GetCostEstimationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCostEstimationCommandOutput}.
+   */
+  paginateGetCostEstimation(
+    args?: GetCostEstimationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCostEstimationCommandOutput>;
+
+  /**
+   * @see {@link GetResourceCollectionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourceCollectionCommandOutput}.
+   */
+  paginateGetResourceCollection(
+    args: GetResourceCollectionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourceCollectionCommandOutput>;
+
+  /**
+   * @see {@link ListAnomaliesForInsightCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnomaliesForInsightCommandOutput}.
+   */
+  paginateListAnomaliesForInsight(
+    args: ListAnomaliesForInsightCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnomaliesForInsightCommandOutput>;
+
+  /**
+   * @see {@link ListAnomalousLogGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnomalousLogGroupsCommandOutput}.
+   */
+  paginateListAnomalousLogGroups(
+    args: ListAnomalousLogGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnomalousLogGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventsCommandOutput}.
+   */
+  paginateListEvents(
+    args: ListEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventsCommandOutput>;
+
+  /**
+   * @see {@link ListInsightsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInsightsCommandOutput}.
+   */
+  paginateListInsights(
+    args: ListInsightsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInsightsCommandOutput>;
+
+  /**
+   * @see {@link ListMonitoredResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMonitoredResourcesCommandOutput}.
+   */
+  paginateListMonitoredResources(
+    args?: ListMonitoredResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMonitoredResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListNotificationChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotificationChannelsCommandOutput}.
+   */
+  paginateListNotificationChannels(
+    args?: ListNotificationChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotificationChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationInsightsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationInsightsCommandOutput}.
+   */
+  paginateListOrganizationInsights(
+    args: ListOrganizationInsightsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationInsightsCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationsCommandOutput}.
+   */
+  paginateListRecommendations(
+    args: ListRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link SearchInsightsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchInsightsCommandOutput}.
+   */
+  paginateSearchInsights(
+    args: SearchInsightsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchInsightsCommandOutput>;
+
+  /**
+   * @see {@link SearchOrganizationInsightsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchOrganizationInsightsCommandOutput}.
+   */
+  paginateSearchOrganizationInsights(
+    args: SearchOrganizationInsightsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchOrganizationInsightsCommandOutput>;
 }
 
 /**
@@ -740,4 +926,4 @@ export interface DevOpsGuru {
  * @public
  */
 export class DevOpsGuru extends DevOpsGuruClient implements DevOpsGuru {}
-createAggregatedClient(commands, DevOpsGuru);
+createAggregatedClient(commands, DevOpsGuru, { paginators });

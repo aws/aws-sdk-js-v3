@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateActivityCommand,
@@ -175,6 +175,11 @@ import {
   ValidateStateMachineDefinitionCommandInput,
   ValidateStateMachineDefinitionCommandOutput,
 } from "./commands/ValidateStateMachineDefinitionCommand";
+import { paginateGetExecutionHistory } from "./pagination/GetExecutionHistoryPaginator";
+import { paginateListActivities } from "./pagination/ListActivitiesPaginator";
+import { paginateListExecutions } from "./pagination/ListExecutionsPaginator";
+import { paginateListMapRuns } from "./pagination/ListMapRunsPaginator";
+import { paginateListStateMachines } from "./pagination/ListStateMachinesPaginator";
 import { SFNClient } from "./SFNClient";
 
 const commands = {
@@ -215,6 +220,13 @@ const commands = {
   UpdateStateMachineCommand,
   UpdateStateMachineAliasCommand,
   ValidateStateMachineDefinitionCommand,
+};
+const paginators = {
+  paginateGetExecutionHistory,
+  paginateListActivities,
+  paginateListExecutions,
+  paginateListMapRuns,
+  paginateListStateMachines,
 };
 
 export interface SFN {
@@ -849,6 +861,61 @@ export interface SFN {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateStateMachineDefinitionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetExecutionHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetExecutionHistoryCommandOutput}.
+   */
+  paginateGetExecutionHistory(
+    args: GetExecutionHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetExecutionHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListActivitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActivitiesCommandOutput}.
+   */
+  paginateListActivities(
+    args?: ListActivitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActivitiesCommandOutput>;
+
+  /**
+   * @see {@link ListExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExecutionsCommandOutput}.
+   */
+  paginateListExecutions(
+    args?: ListExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListMapRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMapRunsCommandOutput}.
+   */
+  paginateListMapRuns(
+    args: ListMapRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMapRunsCommandOutput>;
+
+  /**
+   * @see {@link ListStateMachinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStateMachinesCommandOutput}.
+   */
+  paginateListStateMachines(
+    args?: ListStateMachinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStateMachinesCommandOutput>;
 }
 
 /**
@@ -865,4 +932,4 @@ export interface SFN {
  * @public
  */
 export class SFN extends SFNClient implements SFN {}
-createAggregatedClient(commands, SFN);
+createAggregatedClient(commands, SFN, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CloudTrailClient } from "./CloudTrailClient";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
@@ -235,6 +235,18 @@ import {
   UpdateEventDataStoreCommandOutput,
 } from "./commands/UpdateEventDataStoreCommand";
 import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand";
+import { paginateGetQueryResults } from "./pagination/GetQueryResultsPaginator";
+import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListEventDataStores } from "./pagination/ListEventDataStoresPaginator";
+import { paginateListImportFailures } from "./pagination/ListImportFailuresPaginator";
+import { paginateListImports } from "./pagination/ListImportsPaginator";
+import { paginateListInsightsData } from "./pagination/ListInsightsDataPaginator";
+import { paginateListInsightsMetricData } from "./pagination/ListInsightsMetricDataPaginator";
+import { paginateListPublicKeys } from "./pagination/ListPublicKeysPaginator";
+import { paginateListQueries } from "./pagination/ListQueriesPaginator";
+import { paginateListTags } from "./pagination/ListTagsPaginator";
+import { paginateListTrails } from "./pagination/ListTrailsPaginator";
+import { paginateLookupEvents } from "./pagination/LookupEventsPaginator";
 
 const commands = {
   AddTagsCommand,
@@ -297,6 +309,20 @@ const commands = {
   UpdateDashboardCommand,
   UpdateEventDataStoreCommand,
   UpdateTrailCommand,
+};
+const paginators = {
+  paginateGetQueryResults,
+  paginateListChannels,
+  paginateListEventDataStores,
+  paginateListImportFailures,
+  paginateListImports,
+  paginateListInsightsData,
+  paginateListInsightsMetricData,
+  paginateListPublicKeys,
+  paginateListQueries,
+  paginateListTags,
+  paginateListTrails,
+  paginateLookupEvents,
 };
 
 export interface CloudTrail {
@@ -1333,6 +1359,138 @@ export interface CloudTrail {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTrailCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetQueryResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetQueryResultsCommandOutput}.
+   */
+  paginateGetQueryResults(
+    args: GetQueryResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetQueryResultsCommandOutput>;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsCommandOutput}.
+   */
+  paginateListChannels(
+    args?: ListChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListEventDataStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventDataStoresCommandOutput}.
+   */
+  paginateListEventDataStores(
+    args?: ListEventDataStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventDataStoresCommandOutput>;
+
+  /**
+   * @see {@link ListImportFailuresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportFailuresCommandOutput}.
+   */
+  paginateListImportFailures(
+    args: ListImportFailuresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportFailuresCommandOutput>;
+
+  /**
+   * @see {@link ListImportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportsCommandOutput}.
+   */
+  paginateListImports(
+    args?: ListImportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportsCommandOutput>;
+
+  /**
+   * @see {@link ListInsightsDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInsightsDataCommandOutput}.
+   */
+  paginateListInsightsData(
+    args: ListInsightsDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInsightsDataCommandOutput>;
+
+  /**
+   * @see {@link ListInsightsMetricDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInsightsMetricDataCommandOutput}.
+   */
+  paginateListInsightsMetricData(
+    args: ListInsightsMetricDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInsightsMetricDataCommandOutput>;
+
+  /**
+   * @see {@link ListPublicKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPublicKeysCommandOutput}.
+   */
+  paginateListPublicKeys(
+    args?: ListPublicKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPublicKeysCommandOutput>;
+
+  /**
+   * @see {@link ListQueriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQueriesCommandOutput}.
+   */
+  paginateListQueries(
+    args: ListQueriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQueriesCommandOutput>;
+
+  /**
+   * @see {@link ListTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsCommandOutput}.
+   */
+  paginateListTags(
+    args: ListTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsCommandOutput>;
+
+  /**
+   * @see {@link ListTrailsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrailsCommandOutput}.
+   */
+  paginateListTrails(
+    args?: ListTrailsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrailsCommandOutput>;
+
+  /**
+   * @see {@link LookupEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link LookupEventsCommandOutput}.
+   */
+  paginateLookupEvents(
+    args?: LookupEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<LookupEventsCommandOutput>;
 }
 
 /**
@@ -1355,4 +1513,4 @@ export interface CloudTrail {
  * @public
  */
 export class CloudTrail extends CloudTrailClient implements CloudTrail {}
-createAggregatedClient(commands, CloudTrail);
+createAggregatedClient(commands, CloudTrail, { paginators });

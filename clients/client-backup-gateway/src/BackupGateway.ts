@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BackupGatewayClient } from "./BackupGatewayClient";
 import {
@@ -120,6 +120,9 @@ import {
   UpdateHypervisorCommandInput,
   UpdateHypervisorCommandOutput,
 } from "./commands/UpdateHypervisorCommand";
+import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
+import { paginateListHypervisors } from "./pagination/ListHypervisorsPaginator";
+import { paginateListVirtualMachines } from "./pagination/ListVirtualMachinesPaginator";
 
 const commands = {
   AssociateGatewayToServerCommand,
@@ -147,6 +150,11 @@ const commands = {
   UpdateGatewayInformationCommand,
   UpdateGatewaySoftwareNowCommand,
   UpdateHypervisorCommand,
+};
+const paginators = {
+  paginateListGateways,
+  paginateListHypervisors,
+  paginateListVirtualMachines,
 };
 
 export interface BackupGateway {
@@ -577,6 +585,39 @@ export interface BackupGateway {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateHypervisorCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewaysCommandOutput}.
+   */
+  paginateListGateways(
+    args?: ListGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewaysCommandOutput>;
+
+  /**
+   * @see {@link ListHypervisorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHypervisorsCommandOutput}.
+   */
+  paginateListHypervisors(
+    args?: ListHypervisorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHypervisorsCommandOutput>;
+
+  /**
+   * @see {@link ListVirtualMachinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVirtualMachinesCommandOutput}.
+   */
+  paginateListVirtualMachines(
+    args?: ListVirtualMachinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVirtualMachinesCommandOutput>;
 }
 
 /**
@@ -592,4 +633,4 @@ export interface BackupGateway {
  * @public
  */
 export class BackupGateway extends BackupGatewayClient implements BackupGateway {}
-createAggregatedClient(commands, BackupGateway);
+createAggregatedClient(commands, BackupGateway, { paginators });

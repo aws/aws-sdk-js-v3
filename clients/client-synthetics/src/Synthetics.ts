@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateResourceCommand,
@@ -80,6 +80,13 @@ import {
   UpdateCanaryCommandInput,
   UpdateCanaryCommandOutput,
 } from "./commands/UpdateCanaryCommand";
+import { paginateDescribeCanariesLastRun } from "./pagination/DescribeCanariesLastRunPaginator";
+import { paginateDescribeCanaries } from "./pagination/DescribeCanariesPaginator";
+import { paginateDescribeRuntimeVersions } from "./pagination/DescribeRuntimeVersionsPaginator";
+import { paginateGetCanaryRuns } from "./pagination/GetCanaryRunsPaginator";
+import { paginateListAssociatedGroups } from "./pagination/ListAssociatedGroupsPaginator";
+import { paginateListGroupResources } from "./pagination/ListGroupResourcesPaginator";
+import { paginateListGroups } from "./pagination/ListGroupsPaginator";
 import { SyntheticsClient } from "./SyntheticsClient";
 
 const commands = {
@@ -105,6 +112,15 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateCanaryCommand,
+};
+const paginators = {
+  paginateDescribeCanaries,
+  paginateDescribeCanariesLastRun,
+  paginateDescribeRuntimeVersions,
+  paginateGetCanaryRuns,
+  paginateListAssociatedGroups,
+  paginateListGroupResources,
+  paginateListGroups,
 };
 
 export interface Synthetics {
@@ -485,6 +501,83 @@ export interface Synthetics {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCanaryCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeCanariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCanariesCommandOutput}.
+   */
+  paginateDescribeCanaries(
+    args?: DescribeCanariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCanariesCommandOutput>;
+
+  /**
+   * @see {@link DescribeCanariesLastRunCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCanariesLastRunCommandOutput}.
+   */
+  paginateDescribeCanariesLastRun(
+    args?: DescribeCanariesLastRunCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCanariesLastRunCommandOutput>;
+
+  /**
+   * @see {@link DescribeRuntimeVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRuntimeVersionsCommandOutput}.
+   */
+  paginateDescribeRuntimeVersions(
+    args?: DescribeRuntimeVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRuntimeVersionsCommandOutput>;
+
+  /**
+   * @see {@link GetCanaryRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCanaryRunsCommandOutput}.
+   */
+  paginateGetCanaryRuns(
+    args: GetCanaryRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCanaryRunsCommandOutput>;
+
+  /**
+   * @see {@link ListAssociatedGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssociatedGroupsCommandOutput}.
+   */
+  paginateListAssociatedGroups(
+    args: ListAssociatedGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssociatedGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListGroupResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupResourcesCommandOutput}.
+   */
+  paginateListGroupResources(
+    args: ListGroupResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsCommandOutput}.
+   */
+  paginateListGroups(
+    args?: ListGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsCommandOutput>;
 }
 
 /**
@@ -506,4 +599,4 @@ export interface Synthetics {
  * @public
  */
 export class Synthetics extends SyntheticsClient implements Synthetics {}
-createAggregatedClient(commands, Synthetics);
+createAggregatedClient(commands, Synthetics, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateExperimentTemplateCommand,
@@ -121,6 +121,12 @@ import {
   UpdateTargetAccountConfigurationCommandOutput,
 } from "./commands/UpdateTargetAccountConfigurationCommand";
 import { FisClient } from "./FisClient";
+import { paginateListActions } from "./pagination/ListActionsPaginator";
+import { paginateListExperimentResolvedTargets } from "./pagination/ListExperimentResolvedTargetsPaginator";
+import { paginateListExperiments } from "./pagination/ListExperimentsPaginator";
+import { paginateListExperimentTemplates } from "./pagination/ListExperimentTemplatesPaginator";
+import { paginateListTargetAccountConfigurations } from "./pagination/ListTargetAccountConfigurationsPaginator";
+import { paginateListTargetResourceTypes } from "./pagination/ListTargetResourceTypesPaginator";
 
 const commands = {
   CreateExperimentTemplateCommand,
@@ -149,6 +155,14 @@ const commands = {
   UpdateExperimentTemplateCommand,
   UpdateSafetyLeverStateCommand,
   UpdateTargetAccountConfigurationCommand,
+};
+const paginators = {
+  paginateListActions,
+  paginateListExperimentResolvedTargets,
+  paginateListExperiments,
+  paginateListExperimentTemplates,
+  paginateListTargetAccountConfigurations,
+  paginateListTargetResourceTypes,
 };
 
 export interface Fis {
@@ -597,6 +611,72 @@ export interface Fis {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTargetAccountConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActionsCommandOutput}.
+   */
+  paginateListActions(
+    args?: ListActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActionsCommandOutput>;
+
+  /**
+   * @see {@link ListExperimentResolvedTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExperimentResolvedTargetsCommandOutput}.
+   */
+  paginateListExperimentResolvedTargets(
+    args: ListExperimentResolvedTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExperimentResolvedTargetsCommandOutput>;
+
+  /**
+   * @see {@link ListExperimentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExperimentsCommandOutput}.
+   */
+  paginateListExperiments(
+    args?: ListExperimentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExperimentsCommandOutput>;
+
+  /**
+   * @see {@link ListExperimentTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExperimentTemplatesCommandOutput}.
+   */
+  paginateListExperimentTemplates(
+    args?: ListExperimentTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExperimentTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListTargetAccountConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTargetAccountConfigurationsCommandOutput}.
+   */
+  paginateListTargetAccountConfigurations(
+    args: ListTargetAccountConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTargetAccountConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListTargetResourceTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTargetResourceTypesCommandOutput}.
+   */
+  paginateListTargetResourceTypes(
+    args?: ListTargetResourceTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTargetResourceTypesCommandOutput>;
 }
 
 /**
@@ -605,4 +685,4 @@ export interface Fis {
  * @public
  */
 export class Fis extends FisClient implements Fis {}
-createAggregatedClient(commands, Fis);
+createAggregatedClient(commands, Fis, { paginators });

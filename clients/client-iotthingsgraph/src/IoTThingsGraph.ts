@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateEntityToThingCommand,
@@ -170,6 +170,16 @@ import {
   UploadEntityDefinitionsCommandOutput,
 } from "./commands/UploadEntityDefinitionsCommand";
 import { IoTThingsGraphClient } from "./IoTThingsGraphClient";
+import { paginateGetFlowTemplateRevisions } from "./pagination/GetFlowTemplateRevisionsPaginator";
+import { paginateGetSystemTemplateRevisions } from "./pagination/GetSystemTemplateRevisionsPaginator";
+import { paginateListFlowExecutionMessages } from "./pagination/ListFlowExecutionMessagesPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateSearchEntities } from "./pagination/SearchEntitiesPaginator";
+import { paginateSearchFlowExecutions } from "./pagination/SearchFlowExecutionsPaginator";
+import { paginateSearchFlowTemplates } from "./pagination/SearchFlowTemplatesPaginator";
+import { paginateSearchSystemInstances } from "./pagination/SearchSystemInstancesPaginator";
+import { paginateSearchSystemTemplates } from "./pagination/SearchSystemTemplatesPaginator";
+import { paginateSearchThings } from "./pagination/SearchThingsPaginator";
 
 const commands = {
   AssociateEntityToThingCommand,
@@ -207,6 +217,18 @@ const commands = {
   UpdateFlowTemplateCommand,
   UpdateSystemTemplateCommand,
   UploadEntityDefinitionsCommand,
+};
+const paginators = {
+  paginateGetFlowTemplateRevisions,
+  paginateGetSystemTemplateRevisions,
+  paginateListFlowExecutionMessages,
+  paginateListTagsForResource,
+  paginateSearchEntities,
+  paginateSearchFlowExecutions,
+  paginateSearchFlowTemplates,
+  paginateSearchSystemInstances,
+  paginateSearchSystemTemplates,
+  paginateSearchThings,
 };
 
 export interface IoTThingsGraph {
@@ -814,6 +836,116 @@ export interface IoTThingsGraph {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UploadEntityDefinitionsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetFlowTemplateRevisionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFlowTemplateRevisionsCommandOutput}.
+   */
+  paginateGetFlowTemplateRevisions(
+    args: GetFlowTemplateRevisionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFlowTemplateRevisionsCommandOutput>;
+
+  /**
+   * @see {@link GetSystemTemplateRevisionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSystemTemplateRevisionsCommandOutput}.
+   */
+  paginateGetSystemTemplateRevisions(
+    args: GetSystemTemplateRevisionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSystemTemplateRevisionsCommandOutput>;
+
+  /**
+   * @see {@link ListFlowExecutionMessagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowExecutionMessagesCommandOutput}.
+   */
+  paginateListFlowExecutionMessages(
+    args: ListFlowExecutionMessagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowExecutionMessagesCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link SearchEntitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchEntitiesCommandOutput}.
+   */
+  paginateSearchEntities(
+    args: SearchEntitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchEntitiesCommandOutput>;
+
+  /**
+   * @see {@link SearchFlowExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchFlowExecutionsCommandOutput}.
+   */
+  paginateSearchFlowExecutions(
+    args: SearchFlowExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchFlowExecutionsCommandOutput>;
+
+  /**
+   * @see {@link SearchFlowTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchFlowTemplatesCommandOutput}.
+   */
+  paginateSearchFlowTemplates(
+    args?: SearchFlowTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchFlowTemplatesCommandOutput>;
+
+  /**
+   * @see {@link SearchSystemInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchSystemInstancesCommandOutput}.
+   */
+  paginateSearchSystemInstances(
+    args?: SearchSystemInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchSystemInstancesCommandOutput>;
+
+  /**
+   * @see {@link SearchSystemTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchSystemTemplatesCommandOutput}.
+   */
+  paginateSearchSystemTemplates(
+    args?: SearchSystemTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchSystemTemplatesCommandOutput>;
+
+  /**
+   * @see {@link SearchThingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchThingsCommandOutput}.
+   */
+  paginateSearchThings(
+    args: SearchThingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchThingsCommandOutput>;
 }
 
 /**
@@ -826,4 +958,4 @@ export interface IoTThingsGraph {
  * @public
  */
 export class IoTThingsGraph extends IoTThingsGraphClient implements IoTThingsGraph {}
-createAggregatedClient(commands, IoTThingsGraph);
+createAggregatedClient(commands, IoTThingsGraph, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptAdministratorInvitationCommand,
@@ -390,6 +390,22 @@ import {
   UpdateTrustedEntitySetCommandOutput,
 } from "./commands/UpdateTrustedEntitySetCommand";
 import { GuardDutyClient } from "./GuardDutyClient";
+import { paginateDescribeMalwareScans } from "./pagination/DescribeMalwareScansPaginator";
+import { paginateDescribeOrganizationConfiguration } from "./pagination/DescribeOrganizationConfigurationPaginator";
+import { paginateGetUsageStatistics } from "./pagination/GetUsageStatisticsPaginator";
+import { paginateListCoverage } from "./pagination/ListCoveragePaginator";
+import { paginateListDetectors } from "./pagination/ListDetectorsPaginator";
+import { paginateListFilters } from "./pagination/ListFiltersPaginator";
+import { paginateListFindings } from "./pagination/ListFindingsPaginator";
+import { paginateListInvitations } from "./pagination/ListInvitationsPaginator";
+import { paginateListIPSets } from "./pagination/ListIPSetsPaginator";
+import { paginateListMalwareScans } from "./pagination/ListMalwareScansPaginator";
+import { paginateListMembers } from "./pagination/ListMembersPaginator";
+import { paginateListOrganizationAdminAccounts } from "./pagination/ListOrganizationAdminAccountsPaginator";
+import { paginateListPublishingDestinations } from "./pagination/ListPublishingDestinationsPaginator";
+import { paginateListThreatEntitySets } from "./pagination/ListThreatEntitySetsPaginator";
+import { paginateListThreatIntelSets } from "./pagination/ListThreatIntelSetsPaginator";
+import { paginateListTrustedEntitySets } from "./pagination/ListTrustedEntitySetsPaginator";
 
 const commands = {
   AcceptAdministratorInvitationCommand,
@@ -479,6 +495,24 @@ const commands = {
   UpdateThreatEntitySetCommand,
   UpdateThreatIntelSetCommand,
   UpdateTrustedEntitySetCommand,
+};
+const paginators = {
+  paginateDescribeMalwareScans,
+  paginateDescribeOrganizationConfiguration,
+  paginateGetUsageStatistics,
+  paginateListCoverage,
+  paginateListDetectors,
+  paginateListFilters,
+  paginateListFindings,
+  paginateListInvitations,
+  paginateListIPSets,
+  paginateListMalwareScans,
+  paginateListMembers,
+  paginateListOrganizationAdminAccounts,
+  paginateListPublishingDestinations,
+  paginateListThreatEntitySets,
+  paginateListThreatIntelSets,
+  paginateListTrustedEntitySets,
 };
 
 export interface GuardDuty {
@@ -1968,6 +2002,182 @@ export interface GuardDuty {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTrustedEntitySetCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeMalwareScansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMalwareScansCommandOutput}.
+   */
+  paginateDescribeMalwareScans(
+    args: DescribeMalwareScansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMalwareScansCommandOutput>;
+
+  /**
+   * @see {@link DescribeOrganizationConfigurationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOrganizationConfigurationCommandOutput}.
+   */
+  paginateDescribeOrganizationConfiguration(
+    args: DescribeOrganizationConfigurationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOrganizationConfigurationCommandOutput>;
+
+  /**
+   * @see {@link GetUsageStatisticsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetUsageStatisticsCommandOutput}.
+   */
+  paginateGetUsageStatistics(
+    args: GetUsageStatisticsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetUsageStatisticsCommandOutput>;
+
+  /**
+   * @see {@link ListCoverageCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCoverageCommandOutput}.
+   */
+  paginateListCoverage(
+    args: ListCoverageCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCoverageCommandOutput>;
+
+  /**
+   * @see {@link ListDetectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDetectorsCommandOutput}.
+   */
+  paginateListDetectors(
+    args?: ListDetectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDetectorsCommandOutput>;
+
+  /**
+   * @see {@link ListFiltersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFiltersCommandOutput}.
+   */
+  paginateListFilters(
+    args: ListFiltersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFiltersCommandOutput>;
+
+  /**
+   * @see {@link ListFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFindingsCommandOutput}.
+   */
+  paginateListFindings(
+    args: ListFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListInvitationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvitationsCommandOutput}.
+   */
+  paginateListInvitations(
+    args?: ListInvitationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvitationsCommandOutput>;
+
+  /**
+   * @see {@link ListIPSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIPSetsCommandOutput}.
+   */
+  paginateListIPSets(
+    args: ListIPSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIPSetsCommandOutput>;
+
+  /**
+   * @see {@link ListMalwareScansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMalwareScansCommandOutput}.
+   */
+  paginateListMalwareScans(
+    args?: ListMalwareScansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMalwareScansCommandOutput>;
+
+  /**
+   * @see {@link ListMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMembersCommandOutput}.
+   */
+  paginateListMembers(
+    args: ListMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMembersCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationAdminAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationAdminAccountsCommandOutput}.
+   */
+  paginateListOrganizationAdminAccounts(
+    args?: ListOrganizationAdminAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationAdminAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListPublishingDestinationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPublishingDestinationsCommandOutput}.
+   */
+  paginateListPublishingDestinations(
+    args: ListPublishingDestinationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPublishingDestinationsCommandOutput>;
+
+  /**
+   * @see {@link ListThreatEntitySetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThreatEntitySetsCommandOutput}.
+   */
+  paginateListThreatEntitySets(
+    args: ListThreatEntitySetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThreatEntitySetsCommandOutput>;
+
+  /**
+   * @see {@link ListThreatIntelSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThreatIntelSetsCommandOutput}.
+   */
+  paginateListThreatIntelSets(
+    args: ListThreatIntelSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThreatIntelSetsCommandOutput>;
+
+  /**
+   * @see {@link ListTrustedEntitySetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrustedEntitySetsCommandOutput}.
+   */
+  paginateListTrustedEntitySets(
+    args: ListTrustedEntitySetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrustedEntitySetsCommandOutput>;
 }
 
 /**
@@ -1994,4 +2204,4 @@ export interface GuardDuty {
  * @public
  */
 export class GuardDuty extends GuardDutyClient implements GuardDuty {}
-createAggregatedClient(commands, GuardDuty);
+createAggregatedClient(commands, GuardDuty, { paginators });

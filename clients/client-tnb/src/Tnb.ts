@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelSolNetworkOperationCommand,
@@ -163,6 +163,11 @@ import {
   ValidateSolNetworkPackageContentCommandInput,
   ValidateSolNetworkPackageContentCommandOutput,
 } from "./commands/ValidateSolNetworkPackageContentCommand";
+import { paginateListSolFunctionInstances } from "./pagination/ListSolFunctionInstancesPaginator";
+import { paginateListSolFunctionPackages } from "./pagination/ListSolFunctionPackagesPaginator";
+import { paginateListSolNetworkInstances } from "./pagination/ListSolNetworkInstancesPaginator";
+import { paginateListSolNetworkOperations } from "./pagination/ListSolNetworkOperationsPaginator";
+import { paginateListSolNetworkPackages } from "./pagination/ListSolNetworkPackagesPaginator";
 import { TnbClient } from "./TnbClient";
 
 const commands = {
@@ -199,6 +204,13 @@ const commands = {
   UpdateSolNetworkPackageCommand,
   ValidateSolFunctionPackageContentCommand,
   ValidateSolNetworkPackageContentCommand,
+};
+const paginators = {
+  paginateListSolFunctionInstances,
+  paginateListSolFunctionPackages,
+  paginateListSolNetworkInstances,
+  paginateListSolNetworkOperations,
+  paginateListSolNetworkPackages,
 };
 
 export interface Tnb {
@@ -769,6 +781,61 @@ export interface Tnb {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateSolNetworkPackageContentCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListSolFunctionInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSolFunctionInstancesCommandOutput}.
+   */
+  paginateListSolFunctionInstances(
+    args?: ListSolFunctionInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSolFunctionInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListSolFunctionPackagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSolFunctionPackagesCommandOutput}.
+   */
+  paginateListSolFunctionPackages(
+    args?: ListSolFunctionPackagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSolFunctionPackagesCommandOutput>;
+
+  /**
+   * @see {@link ListSolNetworkInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSolNetworkInstancesCommandOutput}.
+   */
+  paginateListSolNetworkInstances(
+    args?: ListSolNetworkInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSolNetworkInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListSolNetworkOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSolNetworkOperationsCommandOutput}.
+   */
+  paginateListSolNetworkOperations(
+    args?: ListSolNetworkOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSolNetworkOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListSolNetworkPackagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSolNetworkPackagesCommandOutput}.
+   */
+  paginateListSolNetworkPackages(
+    args?: ListSolNetworkPackagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSolNetworkPackagesCommandOutput>;
 }
 
 /**
@@ -780,4 +847,4 @@ export interface Tnb {
  * @public
  */
 export class Tnb extends TnbClient implements Tnb {}
-createAggregatedClient(commands, Tnb);
+createAggregatedClient(commands, Tnb, { paginators });

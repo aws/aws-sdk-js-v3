@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CloudDirectoryClient } from "./CloudDirectoryClient";
 import {
@@ -293,6 +293,25 @@ import {
   UpgradePublishedSchemaCommandInput,
   UpgradePublishedSchemaCommandOutput,
 } from "./commands/UpgradePublishedSchemaCommand";
+import { paginateListAppliedSchemaArns } from "./pagination/ListAppliedSchemaArnsPaginator";
+import { paginateListAttachedIndices } from "./pagination/ListAttachedIndicesPaginator";
+import { paginateListDevelopmentSchemaArns } from "./pagination/ListDevelopmentSchemaArnsPaginator";
+import { paginateListDirectories } from "./pagination/ListDirectoriesPaginator";
+import { paginateListFacetAttributes } from "./pagination/ListFacetAttributesPaginator";
+import { paginateListFacetNames } from "./pagination/ListFacetNamesPaginator";
+import { paginateListIndex } from "./pagination/ListIndexPaginator";
+import { paginateListManagedSchemaArns } from "./pagination/ListManagedSchemaArnsPaginator";
+import { paginateListObjectAttributes } from "./pagination/ListObjectAttributesPaginator";
+import { paginateListObjectChildren } from "./pagination/ListObjectChildrenPaginator";
+import { paginateListObjectParentPaths } from "./pagination/ListObjectParentPathsPaginator";
+import { paginateListObjectParents } from "./pagination/ListObjectParentsPaginator";
+import { paginateListObjectPolicies } from "./pagination/ListObjectPoliciesPaginator";
+import { paginateListPolicyAttachments } from "./pagination/ListPolicyAttachmentsPaginator";
+import { paginateListPublishedSchemaArns } from "./pagination/ListPublishedSchemaArnsPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListTypedLinkFacetAttributes } from "./pagination/ListTypedLinkFacetAttributesPaginator";
+import { paginateListTypedLinkFacetNames } from "./pagination/ListTypedLinkFacetNamesPaginator";
+import { paginateLookupPolicy } from "./pagination/LookupPolicyPaginator";
 
 const commands = {
   AddFacetToObjectCommand,
@@ -361,6 +380,27 @@ const commands = {
   UpdateTypedLinkFacetCommand,
   UpgradeAppliedSchemaCommand,
   UpgradePublishedSchemaCommand,
+};
+const paginators = {
+  paginateListAppliedSchemaArns,
+  paginateListAttachedIndices,
+  paginateListDevelopmentSchemaArns,
+  paginateListDirectories,
+  paginateListFacetAttributes,
+  paginateListFacetNames,
+  paginateListIndex,
+  paginateListManagedSchemaArns,
+  paginateListObjectAttributes,
+  paginateListObjectChildren,
+  paginateListObjectParentPaths,
+  paginateListObjectParents,
+  paginateListObjectPolicies,
+  paginateListPolicyAttachments,
+  paginateListPublishedSchemaArns,
+  paginateListTagsForResource,
+  paginateListTypedLinkFacetAttributes,
+  paginateListTypedLinkFacetNames,
+  paginateLookupPolicy,
 };
 
 export interface CloudDirectory {
@@ -1489,6 +1529,215 @@ export interface CloudDirectory {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpgradePublishedSchemaCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAppliedSchemaArnsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppliedSchemaArnsCommandOutput}.
+   */
+  paginateListAppliedSchemaArns(
+    args: ListAppliedSchemaArnsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppliedSchemaArnsCommandOutput>;
+
+  /**
+   * @see {@link ListAttachedIndicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttachedIndicesCommandOutput}.
+   */
+  paginateListAttachedIndices(
+    args: ListAttachedIndicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttachedIndicesCommandOutput>;
+
+  /**
+   * @see {@link ListDevelopmentSchemaArnsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevelopmentSchemaArnsCommandOutput}.
+   */
+  paginateListDevelopmentSchemaArns(
+    args?: ListDevelopmentSchemaArnsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevelopmentSchemaArnsCommandOutput>;
+
+  /**
+   * @see {@link ListDirectoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDirectoriesCommandOutput}.
+   */
+  paginateListDirectories(
+    args?: ListDirectoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDirectoriesCommandOutput>;
+
+  /**
+   * @see {@link ListFacetAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFacetAttributesCommandOutput}.
+   */
+  paginateListFacetAttributes(
+    args: ListFacetAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFacetAttributesCommandOutput>;
+
+  /**
+   * @see {@link ListFacetNamesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFacetNamesCommandOutput}.
+   */
+  paginateListFacetNames(
+    args: ListFacetNamesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFacetNamesCommandOutput>;
+
+  /**
+   * @see {@link ListIndexCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIndexCommandOutput}.
+   */
+  paginateListIndex(
+    args: ListIndexCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIndexCommandOutput>;
+
+  /**
+   * @see {@link ListManagedSchemaArnsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedSchemaArnsCommandOutput}.
+   */
+  paginateListManagedSchemaArns(
+    args?: ListManagedSchemaArnsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedSchemaArnsCommandOutput>;
+
+  /**
+   * @see {@link ListObjectAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListObjectAttributesCommandOutput}.
+   */
+  paginateListObjectAttributes(
+    args: ListObjectAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListObjectAttributesCommandOutput>;
+
+  /**
+   * @see {@link ListObjectChildrenCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListObjectChildrenCommandOutput}.
+   */
+  paginateListObjectChildren(
+    args: ListObjectChildrenCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListObjectChildrenCommandOutput>;
+
+  /**
+   * @see {@link ListObjectParentPathsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListObjectParentPathsCommandOutput}.
+   */
+  paginateListObjectParentPaths(
+    args: ListObjectParentPathsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListObjectParentPathsCommandOutput>;
+
+  /**
+   * @see {@link ListObjectParentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListObjectParentsCommandOutput}.
+   */
+  paginateListObjectParents(
+    args: ListObjectParentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListObjectParentsCommandOutput>;
+
+  /**
+   * @see {@link ListObjectPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListObjectPoliciesCommandOutput}.
+   */
+  paginateListObjectPolicies(
+    args: ListObjectPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListObjectPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyAttachmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyAttachmentsCommandOutput}.
+   */
+  paginateListPolicyAttachments(
+    args: ListPolicyAttachmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyAttachmentsCommandOutput>;
+
+  /**
+   * @see {@link ListPublishedSchemaArnsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPublishedSchemaArnsCommandOutput}.
+   */
+  paginateListPublishedSchemaArns(
+    args?: ListPublishedSchemaArnsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPublishedSchemaArnsCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListTypedLinkFacetAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTypedLinkFacetAttributesCommandOutput}.
+   */
+  paginateListTypedLinkFacetAttributes(
+    args: ListTypedLinkFacetAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTypedLinkFacetAttributesCommandOutput>;
+
+  /**
+   * @see {@link ListTypedLinkFacetNamesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTypedLinkFacetNamesCommandOutput}.
+   */
+  paginateListTypedLinkFacetNames(
+    args: ListTypedLinkFacetNamesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTypedLinkFacetNamesCommandOutput>;
+
+  /**
+   * @see {@link LookupPolicyCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link LookupPolicyCommandOutput}.
+   */
+  paginateLookupPolicy(
+    args: LookupPolicyCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<LookupPolicyCommandOutput>;
 }
 
 /**
@@ -1501,4 +1750,4 @@ export interface CloudDirectory {
  * @public
  */
 export class CloudDirectory extends CloudDirectoryClient implements CloudDirectory {}
-createAggregatedClient(commands, CloudDirectory);
+createAggregatedClient(commands, CloudDirectory, { paginators });

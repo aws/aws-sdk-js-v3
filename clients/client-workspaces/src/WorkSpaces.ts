@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptAccountLinkInvitationCommand,
@@ -449,6 +449,12 @@ import {
   UpdateWorkspacesPoolCommandInput,
   UpdateWorkspacesPoolCommandOutput,
 } from "./commands/UpdateWorkspacesPoolCommand";
+import { paginateDescribeApplicationAssociations } from "./pagination/DescribeApplicationAssociationsPaginator";
+import { paginateDescribeApplications } from "./pagination/DescribeApplicationsPaginator";
+import { paginateDescribeWorkspaceBundles } from "./pagination/DescribeWorkspaceBundlesPaginator";
+import { paginateDescribeWorkspaceDirectories } from "./pagination/DescribeWorkspaceDirectoriesPaginator";
+import { paginateDescribeWorkspaces } from "./pagination/DescribeWorkspacesPaginator";
+import { paginateListAccountLinks } from "./pagination/ListAccountLinksPaginator";
 import { WorkSpacesClient } from "./WorkSpacesClient";
 
 const commands = {
@@ -543,6 +549,14 @@ const commands = {
   UpdateWorkspaceBundleCommand,
   UpdateWorkspaceImagePermissionCommand,
   UpdateWorkspacesPoolCommand,
+};
+const paginators = {
+  paginateDescribeApplicationAssociations,
+  paginateDescribeApplications,
+  paginateDescribeWorkspaceBundles,
+  paginateDescribeWorkspaceDirectories,
+  paginateDescribeWorkspaces,
+  paginateListAccountLinks,
 };
 
 export interface WorkSpaces {
@@ -2109,6 +2123,72 @@ export interface WorkSpaces {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkspacesPoolCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeApplicationAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeApplicationAssociationsCommandOutput}.
+   */
+  paginateDescribeApplicationAssociations(
+    args: DescribeApplicationAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeApplicationAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeApplicationsCommandOutput}.
+   */
+  paginateDescribeApplications(
+    args?: DescribeApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeApplicationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeWorkspaceBundlesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeWorkspaceBundlesCommandOutput}.
+   */
+  paginateDescribeWorkspaceBundles(
+    args?: DescribeWorkspaceBundlesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeWorkspaceBundlesCommandOutput>;
+
+  /**
+   * @see {@link DescribeWorkspaceDirectoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeWorkspaceDirectoriesCommandOutput}.
+   */
+  paginateDescribeWorkspaceDirectories(
+    args?: DescribeWorkspaceDirectoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeWorkspaceDirectoriesCommandOutput>;
+
+  /**
+   * @see {@link DescribeWorkspacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeWorkspacesCommandOutput}.
+   */
+  paginateDescribeWorkspaces(
+    args?: DescribeWorkspacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeWorkspacesCommandOutput>;
+
+  /**
+   * @see {@link ListAccountLinksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountLinksCommandOutput}.
+   */
+  paginateListAccountLinks(
+    args?: ListAccountLinksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountLinksCommandOutput>;
 }
 
 /**
@@ -2132,4 +2212,4 @@ export interface WorkSpaces {
  * @public
  */
 export class WorkSpaces extends WorkSpacesClient implements WorkSpaces {}
-createAggregatedClient(commands, WorkSpaces);
+createAggregatedClient(commands, WorkSpaces, { paginators });

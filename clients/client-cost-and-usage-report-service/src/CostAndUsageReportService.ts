@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DeleteReportDefinitionCommand,
@@ -34,6 +34,7 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { CostAndUsageReportServiceClient } from "./CostAndUsageReportServiceClient";
+import { paginateDescribeReportDefinitions } from "./pagination/DescribeReportDefinitionsPaginator";
 
 const commands = {
   DeleteReportDefinitionCommand,
@@ -43,6 +44,9 @@ const commands = {
   PutReportDefinitionCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateDescribeReportDefinitions,
 };
 
 export interface CostAndUsageReportService {
@@ -165,6 +169,17 @@ export interface CostAndUsageReportService {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeReportDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReportDefinitionsCommandOutput}.
+   */
+  paginateDescribeReportDefinitions(
+    args?: DescribeReportDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReportDefinitionsCommandOutput>;
 }
 
 /**
@@ -188,4 +203,4 @@ export interface CostAndUsageReportService {
  * @public
  */
 export class CostAndUsageReportService extends CostAndUsageReportServiceClient implements CostAndUsageReportService {}
-createAggregatedClient(commands, CostAndUsageReportService);
+createAggregatedClient(commands, CostAndUsageReportService, { paginators });

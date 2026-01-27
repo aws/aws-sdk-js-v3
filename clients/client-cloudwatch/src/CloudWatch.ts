@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CloudWatchClient } from "./CloudWatchClient";
 import {
@@ -190,6 +196,17 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateDescribeAlarmHistory } from "./pagination/DescribeAlarmHistoryPaginator";
+import { paginateDescribeAlarms } from "./pagination/DescribeAlarmsPaginator";
+import { paginateDescribeAnomalyDetectors } from "./pagination/DescribeAnomalyDetectorsPaginator";
+import { paginateDescribeInsightRules } from "./pagination/DescribeInsightRulesPaginator";
+import { paginateGetMetricData } from "./pagination/GetMetricDataPaginator";
+import { paginateListDashboards } from "./pagination/ListDashboardsPaginator";
+import { paginateListManagedInsightRules } from "./pagination/ListManagedInsightRulesPaginator";
+import { paginateListMetrics } from "./pagination/ListMetricsPaginator";
+import { paginateListMetricStreams } from "./pagination/ListMetricStreamsPaginator";
+import { waitUntilAlarmExists } from "./waiters/waitForAlarmExists";
+import { waitUntilCompositeAlarmExists } from "./waiters/waitForCompositeAlarmExists";
 
 const commands = {
   DeleteAlarmsCommand,
@@ -231,6 +248,21 @@ const commands = {
   StopMetricStreamsCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateDescribeAlarmHistory,
+  paginateDescribeAlarms,
+  paginateDescribeAnomalyDetectors,
+  paginateDescribeInsightRules,
+  paginateGetMetricData,
+  paginateListDashboards,
+  paginateListManagedInsightRules,
+  paginateListMetrics,
+  paginateListMetricStreams,
+};
+const waiters = {
+  waitUntilAlarmExists,
+  waitUntilCompositeAlarmExists,
 };
 
 export interface CloudWatch {
@@ -905,6 +937,125 @@ export interface CloudWatch {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAlarmHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAlarmHistoryCommandOutput}.
+   */
+  paginateDescribeAlarmHistory(
+    args?: DescribeAlarmHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAlarmHistoryCommandOutput>;
+
+  /**
+   * @see {@link DescribeAlarmsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAlarmsCommandOutput}.
+   */
+  paginateDescribeAlarms(
+    args?: DescribeAlarmsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAlarmsCommandOutput>;
+
+  /**
+   * @see {@link DescribeAnomalyDetectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAnomalyDetectorsCommandOutput}.
+   */
+  paginateDescribeAnomalyDetectors(
+    args?: DescribeAnomalyDetectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAnomalyDetectorsCommandOutput>;
+
+  /**
+   * @see {@link DescribeInsightRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInsightRulesCommandOutput}.
+   */
+  paginateDescribeInsightRules(
+    args?: DescribeInsightRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInsightRulesCommandOutput>;
+
+  /**
+   * @see {@link GetMetricDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetMetricDataCommandOutput}.
+   */
+  paginateGetMetricData(
+    args: GetMetricDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetMetricDataCommandOutput>;
+
+  /**
+   * @see {@link ListDashboardsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDashboardsCommandOutput}.
+   */
+  paginateListDashboards(
+    args?: ListDashboardsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDashboardsCommandOutput>;
+
+  /**
+   * @see {@link ListManagedInsightRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedInsightRulesCommandOutput}.
+   */
+  paginateListManagedInsightRules(
+    args: ListManagedInsightRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedInsightRulesCommandOutput>;
+
+  /**
+   * @see {@link ListMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMetricsCommandOutput}.
+   */
+  paginateListMetrics(
+    args?: ListMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListMetricStreamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMetricStreamsCommandOutput}.
+   */
+  paginateListMetricStreams(
+    args?: ListMetricStreamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMetricStreamsCommandOutput>;
+
+  /**
+   * @see {@link DescribeAlarmsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAlarmExists(
+    args: DescribeAlarmsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudWatch>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeAlarmsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCompositeAlarmExists(
+    args: DescribeAlarmsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudWatch>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -924,4 +1075,4 @@ export interface CloudWatch {
  * @public
  */
 export class CloudWatch extends CloudWatchClient implements CloudWatch {}
-createAggregatedClient(commands, CloudWatch);
+createAggregatedClient(commands, CloudWatch, { paginators, waiters });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateEncoderConfigurationCommand,
@@ -174,6 +174,16 @@ import {
 } from "./commands/UpdateIngestConfigurationCommand";
 import { UpdateStageCommand, UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
 import { IVSRealTimeClient } from "./IVSRealTimeClient";
+import { paginateListCompositions } from "./pagination/ListCompositionsPaginator";
+import { paginateListEncoderConfigurations } from "./pagination/ListEncoderConfigurationsPaginator";
+import { paginateListIngestConfigurations } from "./pagination/ListIngestConfigurationsPaginator";
+import { paginateListParticipantEvents } from "./pagination/ListParticipantEventsPaginator";
+import { paginateListParticipantReplicas } from "./pagination/ListParticipantReplicasPaginator";
+import { paginateListParticipants } from "./pagination/ListParticipantsPaginator";
+import { paginateListPublicKeys } from "./pagination/ListPublicKeysPaginator";
+import { paginateListStageSessions } from "./pagination/ListStageSessionsPaginator";
+import { paginateListStages } from "./pagination/ListStagesPaginator";
+import { paginateListStorageConfigurations } from "./pagination/ListStorageConfigurationsPaginator";
 
 const commands = {
   CreateEncoderConfigurationCommand,
@@ -215,6 +225,18 @@ const commands = {
   UntagResourceCommand,
   UpdateIngestConfigurationCommand,
   UpdateStageCommand,
+};
+const paginators = {
+  paginateListCompositions,
+  paginateListEncoderConfigurations,
+  paginateListIngestConfigurations,
+  paginateListParticipantEvents,
+  paginateListParticipantReplicas,
+  paginateListParticipants,
+  paginateListPublicKeys,
+  paginateListStages,
+  paginateListStageSessions,
+  paginateListStorageConfigurations,
 };
 
 export interface IVSRealTime {
@@ -888,6 +910,116 @@ export interface IVSRealTime {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStageCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCompositionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCompositionsCommandOutput}.
+   */
+  paginateListCompositions(
+    args?: ListCompositionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCompositionsCommandOutput>;
+
+  /**
+   * @see {@link ListEncoderConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEncoderConfigurationsCommandOutput}.
+   */
+  paginateListEncoderConfigurations(
+    args?: ListEncoderConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEncoderConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListIngestConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIngestConfigurationsCommandOutput}.
+   */
+  paginateListIngestConfigurations(
+    args?: ListIngestConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIngestConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListParticipantEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListParticipantEventsCommandOutput}.
+   */
+  paginateListParticipantEvents(
+    args: ListParticipantEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListParticipantEventsCommandOutput>;
+
+  /**
+   * @see {@link ListParticipantReplicasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListParticipantReplicasCommandOutput}.
+   */
+  paginateListParticipantReplicas(
+    args: ListParticipantReplicasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListParticipantReplicasCommandOutput>;
+
+  /**
+   * @see {@link ListParticipantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListParticipantsCommandOutput}.
+   */
+  paginateListParticipants(
+    args: ListParticipantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListParticipantsCommandOutput>;
+
+  /**
+   * @see {@link ListPublicKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPublicKeysCommandOutput}.
+   */
+  paginateListPublicKeys(
+    args?: ListPublicKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPublicKeysCommandOutput>;
+
+  /**
+   * @see {@link ListStagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStagesCommandOutput}.
+   */
+  paginateListStages(
+    args?: ListStagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStagesCommandOutput>;
+
+  /**
+   * @see {@link ListStageSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStageSessionsCommandOutput}.
+   */
+  paginateListStageSessions(
+    args: ListStageSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStageSessionsCommandOutput>;
+
+  /**
+   * @see {@link ListStorageConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStorageConfigurationsCommandOutput}.
+   */
+  paginateListStorageConfigurations(
+    args?: ListStorageConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStorageConfigurationsCommandOutput>;
 }
 
 /**
@@ -972,4 +1104,4 @@ export interface IVSRealTime {
  * @public
  */
 export class IVSRealTime extends IVSRealTimeClient implements IVSRealTime {}
-createAggregatedClient(commands, IVSRealTime);
+createAggregatedClient(commands, IVSRealTime, { paginators });

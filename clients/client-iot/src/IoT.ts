@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptCertificateTransferCommand,
@@ -1295,6 +1295,74 @@ import {
   ValidateSecurityProfileBehaviorsCommandOutput,
 } from "./commands/ValidateSecurityProfileBehaviorsCommand";
 import { IoTClient } from "./IoTClient";
+import { paginateGetBehaviorModelTrainingSummaries } from "./pagination/GetBehaviorModelTrainingSummariesPaginator";
+import { paginateListActiveViolations } from "./pagination/ListActiveViolationsPaginator";
+import { paginateListAttachedPolicies } from "./pagination/ListAttachedPoliciesPaginator";
+import { paginateListAuditFindings } from "./pagination/ListAuditFindingsPaginator";
+import {
+  paginateListAuditMitigationActionsExecutions,
+} from "./pagination/ListAuditMitigationActionsExecutionsPaginator";
+import { paginateListAuditMitigationActionsTasks } from "./pagination/ListAuditMitigationActionsTasksPaginator";
+import { paginateListAuditSuppressions } from "./pagination/ListAuditSuppressionsPaginator";
+import { paginateListAuditTasks } from "./pagination/ListAuditTasksPaginator";
+import { paginateListAuthorizers } from "./pagination/ListAuthorizersPaginator";
+import { paginateListBillingGroups } from "./pagination/ListBillingGroupsPaginator";
+import { paginateListCACertificates } from "./pagination/ListCACertificatesPaginator";
+import { paginateListCertificatesByCA } from "./pagination/ListCertificatesByCAPaginator";
+import { paginateListCertificates } from "./pagination/ListCertificatesPaginator";
+import { paginateListCommandExecutions } from "./pagination/ListCommandExecutionsPaginator";
+import { paginateListCommands } from "./pagination/ListCommandsPaginator";
+import { paginateListCustomMetrics } from "./pagination/ListCustomMetricsPaginator";
+import {
+  paginateListDetectMitigationActionsExecutions,
+} from "./pagination/ListDetectMitigationActionsExecutionsPaginator";
+import { paginateListDetectMitigationActionsTasks } from "./pagination/ListDetectMitigationActionsTasksPaginator";
+import { paginateListDimensions } from "./pagination/ListDimensionsPaginator";
+import { paginateListDomainConfigurations } from "./pagination/ListDomainConfigurationsPaginator";
+import { paginateListFleetMetrics } from "./pagination/ListFleetMetricsPaginator";
+import { paginateListIndices } from "./pagination/ListIndicesPaginator";
+import { paginateListJobExecutionsForJob } from "./pagination/ListJobExecutionsForJobPaginator";
+import { paginateListJobExecutionsForThing } from "./pagination/ListJobExecutionsForThingPaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
+import { paginateListJobTemplates } from "./pagination/ListJobTemplatesPaginator";
+import { paginateListManagedJobTemplates } from "./pagination/ListManagedJobTemplatesPaginator";
+import { paginateListMetricValues } from "./pagination/ListMetricValuesPaginator";
+import { paginateListMitigationActions } from "./pagination/ListMitigationActionsPaginator";
+import { paginateListOTAUpdates } from "./pagination/ListOTAUpdatesPaginator";
+import { paginateListOutgoingCertificates } from "./pagination/ListOutgoingCertificatesPaginator";
+import { paginateListPackages } from "./pagination/ListPackagesPaginator";
+import { paginateListPackageVersions } from "./pagination/ListPackageVersionsPaginator";
+import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
+import { paginateListPolicyPrincipals } from "./pagination/ListPolicyPrincipalsPaginator";
+import { paginateListPrincipalPolicies } from "./pagination/ListPrincipalPoliciesPaginator";
+import { paginateListPrincipalThings } from "./pagination/ListPrincipalThingsPaginator";
+import { paginateListPrincipalThingsV2 } from "./pagination/ListPrincipalThingsV2Paginator";
+import { paginateListProvisioningTemplates } from "./pagination/ListProvisioningTemplatesPaginator";
+import { paginateListProvisioningTemplateVersions } from "./pagination/ListProvisioningTemplateVersionsPaginator";
+import { paginateListRelatedResourcesForAuditFinding } from "./pagination/ListRelatedResourcesForAuditFindingPaginator";
+import { paginateListRoleAliases } from "./pagination/ListRoleAliasesPaginator";
+import { paginateListSbomValidationResults } from "./pagination/ListSbomValidationResultsPaginator";
+import { paginateListScheduledAudits } from "./pagination/ListScheduledAuditsPaginator";
+import { paginateListSecurityProfilesForTarget } from "./pagination/ListSecurityProfilesForTargetPaginator";
+import { paginateListSecurityProfiles } from "./pagination/ListSecurityProfilesPaginator";
+import { paginateListStreams } from "./pagination/ListStreamsPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListTargetsForPolicy } from "./pagination/ListTargetsForPolicyPaginator";
+import { paginateListTargetsForSecurityProfile } from "./pagination/ListTargetsForSecurityProfilePaginator";
+import { paginateListThingGroupsForThing } from "./pagination/ListThingGroupsForThingPaginator";
+import { paginateListThingGroups } from "./pagination/ListThingGroupsPaginator";
+import { paginateListThingPrincipals } from "./pagination/ListThingPrincipalsPaginator";
+import { paginateListThingPrincipalsV2 } from "./pagination/ListThingPrincipalsV2Paginator";
+import { paginateListThingRegistrationTaskReports } from "./pagination/ListThingRegistrationTaskReportsPaginator";
+import { paginateListThingRegistrationTasks } from "./pagination/ListThingRegistrationTasksPaginator";
+import { paginateListThingsInBillingGroup } from "./pagination/ListThingsInBillingGroupPaginator";
+import { paginateListThingsInThingGroup } from "./pagination/ListThingsInThingGroupPaginator";
+import { paginateListThings } from "./pagination/ListThingsPaginator";
+import { paginateListThingTypes } from "./pagination/ListThingTypesPaginator";
+import { paginateListTopicRuleDestinations } from "./pagination/ListTopicRuleDestinationsPaginator";
+import { paginateListTopicRules } from "./pagination/ListTopicRulesPaginator";
+import { paginateListV2LoggingLevels } from "./pagination/ListV2LoggingLevelsPaginator";
+import { paginateListViolationEvents } from "./pagination/ListViolationEventsPaginator";
 
 const commands = {
   AcceptCertificateTransferCommand,
@@ -1569,6 +1637,72 @@ const commands = {
   UpdateThingTypeCommand,
   UpdateTopicRuleDestinationCommand,
   ValidateSecurityProfileBehaviorsCommand,
+};
+const paginators = {
+  paginateGetBehaviorModelTrainingSummaries,
+  paginateListActiveViolations,
+  paginateListAttachedPolicies,
+  paginateListAuditFindings,
+  paginateListAuditMitigationActionsExecutions,
+  paginateListAuditMitigationActionsTasks,
+  paginateListAuditSuppressions,
+  paginateListAuditTasks,
+  paginateListAuthorizers,
+  paginateListBillingGroups,
+  paginateListCACertificates,
+  paginateListCertificates,
+  paginateListCertificatesByCA,
+  paginateListCommandExecutions,
+  paginateListCommands,
+  paginateListCustomMetrics,
+  paginateListDetectMitigationActionsExecutions,
+  paginateListDetectMitigationActionsTasks,
+  paginateListDimensions,
+  paginateListDomainConfigurations,
+  paginateListFleetMetrics,
+  paginateListIndices,
+  paginateListJobExecutionsForJob,
+  paginateListJobExecutionsForThing,
+  paginateListJobs,
+  paginateListJobTemplates,
+  paginateListManagedJobTemplates,
+  paginateListMetricValues,
+  paginateListMitigationActions,
+  paginateListOTAUpdates,
+  paginateListOutgoingCertificates,
+  paginateListPackages,
+  paginateListPackageVersions,
+  paginateListPolicies,
+  paginateListPolicyPrincipals,
+  paginateListPrincipalPolicies,
+  paginateListPrincipalThings,
+  paginateListPrincipalThingsV2,
+  paginateListProvisioningTemplates,
+  paginateListProvisioningTemplateVersions,
+  paginateListRelatedResourcesForAuditFinding,
+  paginateListRoleAliases,
+  paginateListSbomValidationResults,
+  paginateListScheduledAudits,
+  paginateListSecurityProfiles,
+  paginateListSecurityProfilesForTarget,
+  paginateListStreams,
+  paginateListTagsForResource,
+  paginateListTargetsForPolicy,
+  paginateListTargetsForSecurityProfile,
+  paginateListThingGroups,
+  paginateListThingGroupsForThing,
+  paginateListThingPrincipals,
+  paginateListThingPrincipalsV2,
+  paginateListThingRegistrationTaskReports,
+  paginateListThingRegistrationTasks,
+  paginateListThings,
+  paginateListThingsInBillingGroup,
+  paginateListThingsInThingGroup,
+  paginateListThingTypes,
+  paginateListTopicRuleDestinations,
+  paginateListTopicRules,
+  paginateListV2LoggingLevels,
+  paginateListViolationEvents,
 };
 
 export interface IoT {
@@ -6257,6 +6391,710 @@ export interface IoT {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateSecurityProfileBehaviorsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetBehaviorModelTrainingSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBehaviorModelTrainingSummariesCommandOutput}.
+   */
+  paginateGetBehaviorModelTrainingSummaries(
+    args?: GetBehaviorModelTrainingSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBehaviorModelTrainingSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListActiveViolationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActiveViolationsCommandOutput}.
+   */
+  paginateListActiveViolations(
+    args?: ListActiveViolationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActiveViolationsCommandOutput>;
+
+  /**
+   * @see {@link ListAttachedPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttachedPoliciesCommandOutput}.
+   */
+  paginateListAttachedPolicies(
+    args: ListAttachedPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttachedPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListAuditFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAuditFindingsCommandOutput}.
+   */
+  paginateListAuditFindings(
+    args?: ListAuditFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAuditFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListAuditMitigationActionsExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAuditMitigationActionsExecutionsCommandOutput}.
+   */
+  paginateListAuditMitigationActionsExecutions(
+    args: ListAuditMitigationActionsExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAuditMitigationActionsExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListAuditMitigationActionsTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAuditMitigationActionsTasksCommandOutput}.
+   */
+  paginateListAuditMitigationActionsTasks(
+    args: ListAuditMitigationActionsTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAuditMitigationActionsTasksCommandOutput>;
+
+  /**
+   * @see {@link ListAuditSuppressionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAuditSuppressionsCommandOutput}.
+   */
+  paginateListAuditSuppressions(
+    args?: ListAuditSuppressionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAuditSuppressionsCommandOutput>;
+
+  /**
+   * @see {@link ListAuditTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAuditTasksCommandOutput}.
+   */
+  paginateListAuditTasks(
+    args: ListAuditTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAuditTasksCommandOutput>;
+
+  /**
+   * @see {@link ListAuthorizersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAuthorizersCommandOutput}.
+   */
+  paginateListAuthorizers(
+    args?: ListAuthorizersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAuthorizersCommandOutput>;
+
+  /**
+   * @see {@link ListBillingGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillingGroupsCommandOutput}.
+   */
+  paginateListBillingGroups(
+    args?: ListBillingGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillingGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListCACertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCACertificatesCommandOutput}.
+   */
+  paginateListCACertificates(
+    args?: ListCACertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCACertificatesCommandOutput>;
+
+  /**
+   * @see {@link ListCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCertificatesCommandOutput}.
+   */
+  paginateListCertificates(
+    args?: ListCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCertificatesCommandOutput>;
+
+  /**
+   * @see {@link ListCertificatesByCACommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCertificatesByCACommandOutput}.
+   */
+  paginateListCertificatesByCA(
+    args: ListCertificatesByCACommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCertificatesByCACommandOutput>;
+
+  /**
+   * @see {@link ListCommandExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCommandExecutionsCommandOutput}.
+   */
+  paginateListCommandExecutions(
+    args?: ListCommandExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCommandExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListCommandsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCommandsCommandOutput}.
+   */
+  paginateListCommands(
+    args?: ListCommandsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCommandsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomMetricsCommandOutput}.
+   */
+  paginateListCustomMetrics(
+    args?: ListCustomMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListDetectMitigationActionsExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDetectMitigationActionsExecutionsCommandOutput}.
+   */
+  paginateListDetectMitigationActionsExecutions(
+    args?: ListDetectMitigationActionsExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDetectMitigationActionsExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListDetectMitigationActionsTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDetectMitigationActionsTasksCommandOutput}.
+   */
+  paginateListDetectMitigationActionsTasks(
+    args: ListDetectMitigationActionsTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDetectMitigationActionsTasksCommandOutput>;
+
+  /**
+   * @see {@link ListDimensionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDimensionsCommandOutput}.
+   */
+  paginateListDimensions(
+    args?: ListDimensionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDimensionsCommandOutput>;
+
+  /**
+   * @see {@link ListDomainConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainConfigurationsCommandOutput}.
+   */
+  paginateListDomainConfigurations(
+    args?: ListDomainConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListFleetMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFleetMetricsCommandOutput}.
+   */
+  paginateListFleetMetrics(
+    args?: ListFleetMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFleetMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListIndicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIndicesCommandOutput}.
+   */
+  paginateListIndices(
+    args?: ListIndicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIndicesCommandOutput>;
+
+  /**
+   * @see {@link ListJobExecutionsForJobCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobExecutionsForJobCommandOutput}.
+   */
+  paginateListJobExecutionsForJob(
+    args: ListJobExecutionsForJobCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobExecutionsForJobCommandOutput>;
+
+  /**
+   * @see {@link ListJobExecutionsForThingCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobExecutionsForThingCommandOutput}.
+   */
+  paginateListJobExecutionsForThing(
+    args: ListJobExecutionsForThingCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobExecutionsForThingCommandOutput>;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args?: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
+   * @see {@link ListJobTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobTemplatesCommandOutput}.
+   */
+  paginateListJobTemplates(
+    args?: ListJobTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListManagedJobTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedJobTemplatesCommandOutput}.
+   */
+  paginateListManagedJobTemplates(
+    args?: ListManagedJobTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedJobTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListMetricValuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMetricValuesCommandOutput}.
+   */
+  paginateListMetricValues(
+    args: ListMetricValuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMetricValuesCommandOutput>;
+
+  /**
+   * @see {@link ListMitigationActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMitigationActionsCommandOutput}.
+   */
+  paginateListMitigationActions(
+    args?: ListMitigationActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMitigationActionsCommandOutput>;
+
+  /**
+   * @see {@link ListOTAUpdatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOTAUpdatesCommandOutput}.
+   */
+  paginateListOTAUpdates(
+    args?: ListOTAUpdatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOTAUpdatesCommandOutput>;
+
+  /**
+   * @see {@link ListOutgoingCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOutgoingCertificatesCommandOutput}.
+   */
+  paginateListOutgoingCertificates(
+    args?: ListOutgoingCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOutgoingCertificatesCommandOutput>;
+
+  /**
+   * @see {@link ListPackagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackagesCommandOutput}.
+   */
+  paginateListPackages(
+    args?: ListPackagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackagesCommandOutput>;
+
+  /**
+   * @see {@link ListPackageVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackageVersionsCommandOutput}.
+   */
+  paginateListPackageVersions(
+    args: ListPackageVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackageVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPoliciesCommandOutput}.
+   */
+  paginateListPolicies(
+    args?: ListPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyPrincipalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyPrincipalsCommandOutput}.
+   */
+  paginateListPolicyPrincipals(
+    args: ListPolicyPrincipalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyPrincipalsCommandOutput>;
+
+  /**
+   * @see {@link ListPrincipalPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPrincipalPoliciesCommandOutput}.
+   */
+  paginateListPrincipalPolicies(
+    args: ListPrincipalPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPrincipalPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListPrincipalThingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPrincipalThingsCommandOutput}.
+   */
+  paginateListPrincipalThings(
+    args: ListPrincipalThingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPrincipalThingsCommandOutput>;
+
+  /**
+   * @see {@link ListPrincipalThingsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPrincipalThingsV2CommandOutput}.
+   */
+  paginateListPrincipalThingsV2(
+    args: ListPrincipalThingsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPrincipalThingsV2CommandOutput>;
+
+  /**
+   * @see {@link ListProvisioningTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProvisioningTemplatesCommandOutput}.
+   */
+  paginateListProvisioningTemplates(
+    args?: ListProvisioningTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProvisioningTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListProvisioningTemplateVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProvisioningTemplateVersionsCommandOutput}.
+   */
+  paginateListProvisioningTemplateVersions(
+    args: ListProvisioningTemplateVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProvisioningTemplateVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListRelatedResourcesForAuditFindingCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRelatedResourcesForAuditFindingCommandOutput}.
+   */
+  paginateListRelatedResourcesForAuditFinding(
+    args: ListRelatedResourcesForAuditFindingCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRelatedResourcesForAuditFindingCommandOutput>;
+
+  /**
+   * @see {@link ListRoleAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoleAliasesCommandOutput}.
+   */
+  paginateListRoleAliases(
+    args?: ListRoleAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoleAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListSbomValidationResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSbomValidationResultsCommandOutput}.
+   */
+  paginateListSbomValidationResults(
+    args: ListSbomValidationResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSbomValidationResultsCommandOutput>;
+
+  /**
+   * @see {@link ListScheduledAuditsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScheduledAuditsCommandOutput}.
+   */
+  paginateListScheduledAudits(
+    args?: ListScheduledAuditsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScheduledAuditsCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityProfilesCommandOutput}.
+   */
+  paginateListSecurityProfiles(
+    args?: ListSecurityProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityProfilesForTargetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityProfilesForTargetCommandOutput}.
+   */
+  paginateListSecurityProfilesForTarget(
+    args: ListSecurityProfilesForTargetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityProfilesForTargetCommandOutput>;
+
+  /**
+   * @see {@link ListStreamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamsCommandOutput}.
+   */
+  paginateListStreams(
+    args?: ListStreamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamsCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListTargetsForPolicyCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTargetsForPolicyCommandOutput}.
+   */
+  paginateListTargetsForPolicy(
+    args: ListTargetsForPolicyCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTargetsForPolicyCommandOutput>;
+
+  /**
+   * @see {@link ListTargetsForSecurityProfileCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTargetsForSecurityProfileCommandOutput}.
+   */
+  paginateListTargetsForSecurityProfile(
+    args: ListTargetsForSecurityProfileCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTargetsForSecurityProfileCommandOutput>;
+
+  /**
+   * @see {@link ListThingGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThingGroupsCommandOutput}.
+   */
+  paginateListThingGroups(
+    args?: ListThingGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThingGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListThingGroupsForThingCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThingGroupsForThingCommandOutput}.
+   */
+  paginateListThingGroupsForThing(
+    args: ListThingGroupsForThingCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThingGroupsForThingCommandOutput>;
+
+  /**
+   * @see {@link ListThingPrincipalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThingPrincipalsCommandOutput}.
+   */
+  paginateListThingPrincipals(
+    args: ListThingPrincipalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThingPrincipalsCommandOutput>;
+
+  /**
+   * @see {@link ListThingPrincipalsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThingPrincipalsV2CommandOutput}.
+   */
+  paginateListThingPrincipalsV2(
+    args: ListThingPrincipalsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThingPrincipalsV2CommandOutput>;
+
+  /**
+   * @see {@link ListThingRegistrationTaskReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThingRegistrationTaskReportsCommandOutput}.
+   */
+  paginateListThingRegistrationTaskReports(
+    args: ListThingRegistrationTaskReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThingRegistrationTaskReportsCommandOutput>;
+
+  /**
+   * @see {@link ListThingRegistrationTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThingRegistrationTasksCommandOutput}.
+   */
+  paginateListThingRegistrationTasks(
+    args?: ListThingRegistrationTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThingRegistrationTasksCommandOutput>;
+
+  /**
+   * @see {@link ListThingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThingsCommandOutput}.
+   */
+  paginateListThings(
+    args?: ListThingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThingsCommandOutput>;
+
+  /**
+   * @see {@link ListThingsInBillingGroupCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThingsInBillingGroupCommandOutput}.
+   */
+  paginateListThingsInBillingGroup(
+    args: ListThingsInBillingGroupCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThingsInBillingGroupCommandOutput>;
+
+  /**
+   * @see {@link ListThingsInThingGroupCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThingsInThingGroupCommandOutput}.
+   */
+  paginateListThingsInThingGroup(
+    args: ListThingsInThingGroupCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThingsInThingGroupCommandOutput>;
+
+  /**
+   * @see {@link ListThingTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThingTypesCommandOutput}.
+   */
+  paginateListThingTypes(
+    args?: ListThingTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThingTypesCommandOutput>;
+
+  /**
+   * @see {@link ListTopicRuleDestinationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTopicRuleDestinationsCommandOutput}.
+   */
+  paginateListTopicRuleDestinations(
+    args?: ListTopicRuleDestinationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTopicRuleDestinationsCommandOutput>;
+
+  /**
+   * @see {@link ListTopicRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTopicRulesCommandOutput}.
+   */
+  paginateListTopicRules(
+    args?: ListTopicRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTopicRulesCommandOutput>;
+
+  /**
+   * @see {@link ListV2LoggingLevelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListV2LoggingLevelsCommandOutput}.
+   */
+  paginateListV2LoggingLevels(
+    args?: ListV2LoggingLevelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListV2LoggingLevelsCommandOutput>;
+
+  /**
+   * @see {@link ListViolationEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListViolationEventsCommandOutput}.
+   */
+  paginateListViolationEvents(
+    args: ListViolationEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListViolationEventsCommandOutput>;
 }
 
 /**
@@ -6279,4 +7117,4 @@ export interface IoT {
  * @public
  */
 export class IoT extends IoTClient implements IoT {}
-createAggregatedClient(commands, IoT);
+createAggregatedClient(commands, IoT, { paginators });

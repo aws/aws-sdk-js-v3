@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AcceptMatchCommand, AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/AcceptMatchCommand";
 import {
@@ -533,6 +533,35 @@ import {
   ValidateMatchmakingRuleSetCommandOutput,
 } from "./commands/ValidateMatchmakingRuleSetCommand";
 import { GameLiftClient } from "./GameLiftClient";
+import { paginateDescribeFleetAttributes } from "./pagination/DescribeFleetAttributesPaginator";
+import { paginateDescribeFleetCapacity } from "./pagination/DescribeFleetCapacityPaginator";
+import { paginateDescribeFleetEvents } from "./pagination/DescribeFleetEventsPaginator";
+import { paginateDescribeFleetLocationAttributes } from "./pagination/DescribeFleetLocationAttributesPaginator";
+import { paginateDescribeFleetUtilization } from "./pagination/DescribeFleetUtilizationPaginator";
+import { paginateDescribeGameServerInstances } from "./pagination/DescribeGameServerInstancesPaginator";
+import { paginateDescribeGameSessionDetails } from "./pagination/DescribeGameSessionDetailsPaginator";
+import { paginateDescribeGameSessionQueues } from "./pagination/DescribeGameSessionQueuesPaginator";
+import { paginateDescribeGameSessions } from "./pagination/DescribeGameSessionsPaginator";
+import { paginateDescribeInstances } from "./pagination/DescribeInstancesPaginator";
+import { paginateDescribeMatchmakingConfigurations } from "./pagination/DescribeMatchmakingConfigurationsPaginator";
+import { paginateDescribeMatchmakingRuleSets } from "./pagination/DescribeMatchmakingRuleSetsPaginator";
+import { paginateDescribePlayerSessions } from "./pagination/DescribePlayerSessionsPaginator";
+import { paginateDescribeScalingPolicies } from "./pagination/DescribeScalingPoliciesPaginator";
+import { paginateListAliases } from "./pagination/ListAliasesPaginator";
+import { paginateListBuilds } from "./pagination/ListBuildsPaginator";
+import { paginateListCompute } from "./pagination/ListComputePaginator";
+import { paginateListContainerFleets } from "./pagination/ListContainerFleetsPaginator";
+import { paginateListContainerGroupDefinitions } from "./pagination/ListContainerGroupDefinitionsPaginator";
+import {
+  paginateListContainerGroupDefinitionVersions,
+} from "./pagination/ListContainerGroupDefinitionVersionsPaginator";
+import { paginateListFleetDeployments } from "./pagination/ListFleetDeploymentsPaginator";
+import { paginateListFleets } from "./pagination/ListFleetsPaginator";
+import { paginateListGameServerGroups } from "./pagination/ListGameServerGroupsPaginator";
+import { paginateListGameServers } from "./pagination/ListGameServersPaginator";
+import { paginateListLocations } from "./pagination/ListLocationsPaginator";
+import { paginateListScripts } from "./pagination/ListScriptsPaginator";
+import { paginateSearchGameSessions } from "./pagination/SearchGameSessionsPaginator";
 
 const commands = {
   AcceptMatchCommand,
@@ -653,6 +682,35 @@ const commands = {
   UpdateRuntimeConfigurationCommand,
   UpdateScriptCommand,
   ValidateMatchmakingRuleSetCommand,
+};
+const paginators = {
+  paginateDescribeFleetAttributes,
+  paginateDescribeFleetCapacity,
+  paginateDescribeFleetEvents,
+  paginateDescribeFleetLocationAttributes,
+  paginateDescribeFleetUtilization,
+  paginateDescribeGameServerInstances,
+  paginateDescribeGameSessionDetails,
+  paginateDescribeGameSessionQueues,
+  paginateDescribeGameSessions,
+  paginateDescribeInstances,
+  paginateDescribeMatchmakingConfigurations,
+  paginateDescribeMatchmakingRuleSets,
+  paginateDescribePlayerSessions,
+  paginateDescribeScalingPolicies,
+  paginateListAliases,
+  paginateListBuilds,
+  paginateListCompute,
+  paginateListContainerFleets,
+  paginateListContainerGroupDefinitions,
+  paginateListContainerGroupDefinitionVersions,
+  paginateListFleetDeployments,
+  paginateListFleets,
+  paginateListGameServerGroups,
+  paginateListGameServers,
+  paginateListLocations,
+  paginateListScripts,
+  paginateSearchGameSessions,
 };
 
 export interface GameLift {
@@ -2685,6 +2743,303 @@ export interface GameLift {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateMatchmakingRuleSetCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeFleetAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFleetAttributesCommandOutput}.
+   */
+  paginateDescribeFleetAttributes(
+    args?: DescribeFleetAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFleetAttributesCommandOutput>;
+
+  /**
+   * @see {@link DescribeFleetCapacityCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFleetCapacityCommandOutput}.
+   */
+  paginateDescribeFleetCapacity(
+    args?: DescribeFleetCapacityCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFleetCapacityCommandOutput>;
+
+  /**
+   * @see {@link DescribeFleetEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFleetEventsCommandOutput}.
+   */
+  paginateDescribeFleetEvents(
+    args: DescribeFleetEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFleetEventsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFleetLocationAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFleetLocationAttributesCommandOutput}.
+   */
+  paginateDescribeFleetLocationAttributes(
+    args: DescribeFleetLocationAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFleetLocationAttributesCommandOutput>;
+
+  /**
+   * @see {@link DescribeFleetUtilizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFleetUtilizationCommandOutput}.
+   */
+  paginateDescribeFleetUtilization(
+    args?: DescribeFleetUtilizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFleetUtilizationCommandOutput>;
+
+  /**
+   * @see {@link DescribeGameServerInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeGameServerInstancesCommandOutput}.
+   */
+  paginateDescribeGameServerInstances(
+    args: DescribeGameServerInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeGameServerInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribeGameSessionDetailsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeGameSessionDetailsCommandOutput}.
+   */
+  paginateDescribeGameSessionDetails(
+    args?: DescribeGameSessionDetailsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeGameSessionDetailsCommandOutput>;
+
+  /**
+   * @see {@link DescribeGameSessionQueuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeGameSessionQueuesCommandOutput}.
+   */
+  paginateDescribeGameSessionQueues(
+    args?: DescribeGameSessionQueuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeGameSessionQueuesCommandOutput>;
+
+  /**
+   * @see {@link DescribeGameSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeGameSessionsCommandOutput}.
+   */
+  paginateDescribeGameSessions(
+    args?: DescribeGameSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeGameSessionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstancesCommandOutput}.
+   */
+  paginateDescribeInstances(
+    args: DescribeInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribeMatchmakingConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMatchmakingConfigurationsCommandOutput}.
+   */
+  paginateDescribeMatchmakingConfigurations(
+    args?: DescribeMatchmakingConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMatchmakingConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMatchmakingRuleSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMatchmakingRuleSetsCommandOutput}.
+   */
+  paginateDescribeMatchmakingRuleSets(
+    args?: DescribeMatchmakingRuleSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMatchmakingRuleSetsCommandOutput>;
+
+  /**
+   * @see {@link DescribePlayerSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePlayerSessionsCommandOutput}.
+   */
+  paginateDescribePlayerSessions(
+    args?: DescribePlayerSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePlayerSessionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeScalingPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeScalingPoliciesCommandOutput}.
+   */
+  paginateDescribeScalingPolicies(
+    args: DescribeScalingPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeScalingPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAliasesCommandOutput}.
+   */
+  paginateListAliases(
+    args?: ListAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListBuildsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBuildsCommandOutput}.
+   */
+  paginateListBuilds(
+    args?: ListBuildsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBuildsCommandOutput>;
+
+  /**
+   * @see {@link ListComputeCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComputeCommandOutput}.
+   */
+  paginateListCompute(
+    args: ListComputeCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComputeCommandOutput>;
+
+  /**
+   * @see {@link ListContainerFleetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContainerFleetsCommandOutput}.
+   */
+  paginateListContainerFleets(
+    args?: ListContainerFleetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContainerFleetsCommandOutput>;
+
+  /**
+   * @see {@link ListContainerGroupDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContainerGroupDefinitionsCommandOutput}.
+   */
+  paginateListContainerGroupDefinitions(
+    args?: ListContainerGroupDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContainerGroupDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListContainerGroupDefinitionVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContainerGroupDefinitionVersionsCommandOutput}.
+   */
+  paginateListContainerGroupDefinitionVersions(
+    args: ListContainerGroupDefinitionVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContainerGroupDefinitionVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListFleetDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFleetDeploymentsCommandOutput}.
+   */
+  paginateListFleetDeployments(
+    args?: ListFleetDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFleetDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link ListFleetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFleetsCommandOutput}.
+   */
+  paginateListFleets(
+    args?: ListFleetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFleetsCommandOutput>;
+
+  /**
+   * @see {@link ListGameServerGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGameServerGroupsCommandOutput}.
+   */
+  paginateListGameServerGroups(
+    args?: ListGameServerGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGameServerGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListGameServersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGameServersCommandOutput}.
+   */
+  paginateListGameServers(
+    args: ListGameServersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGameServersCommandOutput>;
+
+  /**
+   * @see {@link ListLocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLocationsCommandOutput}.
+   */
+  paginateListLocations(
+    args?: ListLocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLocationsCommandOutput>;
+
+  /**
+   * @see {@link ListScriptsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScriptsCommandOutput}.
+   */
+  paginateListScripts(
+    args?: ListScriptsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScriptsCommandOutput>;
+
+  /**
+   * @see {@link SearchGameSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchGameSessionsCommandOutput}.
+   */
+  paginateSearchGameSessions(
+    args?: SearchGameSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchGameSessionsCommandOutput>;
 }
 
 /**
@@ -2749,4 +3104,4 @@ export interface GameLift {
  * @public
  */
 export class GameLift extends GameLiftClient implements GameLift {}
-createAggregatedClient(commands, GameLift);
+createAggregatedClient(commands, GameLift, { paginators });

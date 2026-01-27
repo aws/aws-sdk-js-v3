@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateDatasetCommand,
@@ -216,6 +216,17 @@ import {
   UpdateRetrainingSchedulerCommandOutput,
 } from "./commands/UpdateRetrainingSchedulerCommand";
 import { LookoutEquipmentClient } from "./LookoutEquipmentClient";
+import { paginateListDataIngestionJobs } from "./pagination/ListDataIngestionJobsPaginator";
+import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
+import { paginateListInferenceEvents } from "./pagination/ListInferenceEventsPaginator";
+import { paginateListInferenceExecutions } from "./pagination/ListInferenceExecutionsPaginator";
+import { paginateListInferenceSchedulers } from "./pagination/ListInferenceSchedulersPaginator";
+import { paginateListLabelGroups } from "./pagination/ListLabelGroupsPaginator";
+import { paginateListLabels } from "./pagination/ListLabelsPaginator";
+import { paginateListModels } from "./pagination/ListModelsPaginator";
+import { paginateListModelVersions } from "./pagination/ListModelVersionsPaginator";
+import { paginateListRetrainingSchedulers } from "./pagination/ListRetrainingSchedulersPaginator";
+import { paginateListSensorStatistics } from "./pagination/ListSensorStatisticsPaginator";
 
 const commands = {
   CreateDatasetCommand,
@@ -267,6 +278,19 @@ const commands = {
   UpdateLabelGroupCommand,
   UpdateModelCommand,
   UpdateRetrainingSchedulerCommand,
+};
+const paginators = {
+  paginateListDataIngestionJobs,
+  paginateListDatasets,
+  paginateListInferenceEvents,
+  paginateListInferenceExecutions,
+  paginateListInferenceSchedulers,
+  paginateListLabelGroups,
+  paginateListLabels,
+  paginateListModels,
+  paginateListModelVersions,
+  paginateListRetrainingSchedulers,
+  paginateListSensorStatistics,
 };
 
 export interface LookoutEquipment {
@@ -1108,6 +1132,127 @@ export interface LookoutEquipment {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRetrainingSchedulerCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDataIngestionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataIngestionJobsCommandOutput}.
+   */
+  paginateListDataIngestionJobs(
+    args?: ListDataIngestionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataIngestionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetsCommandOutput}.
+   */
+  paginateListDatasets(
+    args?: ListDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetsCommandOutput>;
+
+  /**
+   * @see {@link ListInferenceEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInferenceEventsCommandOutput}.
+   */
+  paginateListInferenceEvents(
+    args: ListInferenceEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInferenceEventsCommandOutput>;
+
+  /**
+   * @see {@link ListInferenceExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInferenceExecutionsCommandOutput}.
+   */
+  paginateListInferenceExecutions(
+    args: ListInferenceExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInferenceExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListInferenceSchedulersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInferenceSchedulersCommandOutput}.
+   */
+  paginateListInferenceSchedulers(
+    args?: ListInferenceSchedulersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInferenceSchedulersCommandOutput>;
+
+  /**
+   * @see {@link ListLabelGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLabelGroupsCommandOutput}.
+   */
+  paginateListLabelGroups(
+    args?: ListLabelGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLabelGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListLabelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLabelsCommandOutput}.
+   */
+  paginateListLabels(
+    args: ListLabelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLabelsCommandOutput>;
+
+  /**
+   * @see {@link ListModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListModelsCommandOutput}.
+   */
+  paginateListModels(
+    args?: ListModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListModelsCommandOutput>;
+
+  /**
+   * @see {@link ListModelVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListModelVersionsCommandOutput}.
+   */
+  paginateListModelVersions(
+    args: ListModelVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListModelVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListRetrainingSchedulersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRetrainingSchedulersCommandOutput}.
+   */
+  paginateListRetrainingSchedulers(
+    args?: ListRetrainingSchedulersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRetrainingSchedulersCommandOutput>;
+
+  /**
+   * @see {@link ListSensorStatisticsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSensorStatisticsCommandOutput}.
+   */
+  paginateListSensorStatistics(
+    args: ListSensorStatisticsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSensorStatisticsCommandOutput>;
 }
 
 /**
@@ -1116,4 +1261,4 @@ export interface LookoutEquipment {
  * @public
  */
 export class LookoutEquipment extends LookoutEquipmentClient implements LookoutEquipment {}
-createAggregatedClient(commands, LookoutEquipment);
+createAggregatedClient(commands, LookoutEquipment, { paginators });

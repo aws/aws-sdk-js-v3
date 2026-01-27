@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   CancelHarvestJobCommand,
@@ -145,6 +151,11 @@ import {
   UpdateOriginEndpointCommandOutput,
 } from "./commands/UpdateOriginEndpointCommand";
 import { MediaPackageV2Client } from "./MediaPackageV2Client";
+import { paginateListChannelGroups } from "./pagination/ListChannelGroupsPaginator";
+import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListHarvestJobs } from "./pagination/ListHarvestJobsPaginator";
+import { paginateListOriginEndpoints } from "./pagination/ListOriginEndpointsPaginator";
+import { waitUntilHarvestJobFinished } from "./waiters/waitForHarvestJobFinished";
 
 const commands = {
   CancelHarvestJobCommand,
@@ -177,6 +188,15 @@ const commands = {
   UpdateChannelCommand,
   UpdateChannelGroupCommand,
   UpdateOriginEndpointCommand,
+};
+const paginators = {
+  paginateListChannelGroups,
+  paginateListChannels,
+  paginateListHarvestJobs,
+  paginateListOriginEndpoints,
+};
+const waiters = {
+  waitUntilHarvestJobFinished,
 };
 
 export interface MediaPackageV2 {
@@ -690,6 +710,60 @@ export interface MediaPackageV2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOriginEndpointCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChannelGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelGroupsCommandOutput}.
+   */
+  paginateListChannelGroups(
+    args?: ListChannelGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsCommandOutput}.
+   */
+  paginateListChannels(
+    args: ListChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListHarvestJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHarvestJobsCommandOutput}.
+   */
+  paginateListHarvestJobs(
+    args: ListHarvestJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHarvestJobsCommandOutput>;
+
+  /**
+   * @see {@link ListOriginEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOriginEndpointsCommandOutput}.
+   */
+  paginateListOriginEndpoints(
+    args: ListOriginEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOriginEndpointsCommandOutput>;
+
+  /**
+   * @see {@link GetHarvestJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilHarvestJobFinished(
+    args: GetHarvestJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaPackageV2>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -697,4 +771,4 @@ export interface MediaPackageV2 {
  * @public
  */
 export class MediaPackageV2 extends MediaPackageV2Client implements MediaPackageV2 {}
-createAggregatedClient(commands, MediaPackageV2);
+createAggregatedClient(commands, MediaPackageV2, { paginators, waiters });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateConnectorCommand,
@@ -119,6 +119,13 @@ import {
   UpdateTemplateGroupAccessControlEntryCommandInput,
   UpdateTemplateGroupAccessControlEntryCommandOutput,
 } from "./commands/UpdateTemplateGroupAccessControlEntryCommand";
+import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";
+import { paginateListDirectoryRegistrations } from "./pagination/ListDirectoryRegistrationsPaginator";
+import { paginateListServicePrincipalNames } from "./pagination/ListServicePrincipalNamesPaginator";
+import {
+  paginateListTemplateGroupAccessControlEntries,
+} from "./pagination/ListTemplateGroupAccessControlEntriesPaginator";
+import { paginateListTemplates } from "./pagination/ListTemplatesPaginator";
 import { PcaConnectorAdClient } from "./PcaConnectorAdClient";
 
 const commands = {
@@ -147,6 +154,13 @@ const commands = {
   UntagResourceCommand,
   UpdateTemplateCommand,
   UpdateTemplateGroupAccessControlEntryCommand,
+};
+const paginators = {
+  paginateListConnectors,
+  paginateListDirectoryRegistrations,
+  paginateListServicePrincipalNames,
+  paginateListTemplateGroupAccessControlEntries,
+  paginateListTemplates,
 };
 
 export interface PcaConnectorAd {
@@ -576,6 +590,61 @@ export interface PcaConnectorAd {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTemplateGroupAccessControlEntryCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorsCommandOutput}.
+   */
+  paginateListConnectors(
+    args?: ListConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorsCommandOutput>;
+
+  /**
+   * @see {@link ListDirectoryRegistrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDirectoryRegistrationsCommandOutput}.
+   */
+  paginateListDirectoryRegistrations(
+    args?: ListDirectoryRegistrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDirectoryRegistrationsCommandOutput>;
+
+  /**
+   * @see {@link ListServicePrincipalNamesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicePrincipalNamesCommandOutput}.
+   */
+  paginateListServicePrincipalNames(
+    args: ListServicePrincipalNamesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicePrincipalNamesCommandOutput>;
+
+  /**
+   * @see {@link ListTemplateGroupAccessControlEntriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTemplateGroupAccessControlEntriesCommandOutput}.
+   */
+  paginateListTemplateGroupAccessControlEntries(
+    args: ListTemplateGroupAccessControlEntriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTemplateGroupAccessControlEntriesCommandOutput>;
+
+  /**
+   * @see {@link ListTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTemplatesCommandOutput}.
+   */
+  paginateListTemplates(
+    args: ListTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTemplatesCommandOutput>;
 }
 
 /**
@@ -585,4 +654,4 @@ export interface PcaConnectorAd {
  * @public
  */
 export class PcaConnectorAd extends PcaConnectorAdClient implements PcaConnectorAd {}
-createAggregatedClient(commands, PcaConnectorAd);
+createAggregatedClient(commands, PcaConnectorAd, { paginators });

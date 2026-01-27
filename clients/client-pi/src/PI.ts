@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreatePerformanceAnalysisReportCommand,
@@ -63,6 +63,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateDescribeDimensionKeys } from "./pagination/DescribeDimensionKeysPaginator";
+import { paginateGetResourceMetrics } from "./pagination/GetResourceMetricsPaginator";
+import { paginateListAvailableResourceDimensions } from "./pagination/ListAvailableResourceDimensionsPaginator";
+import { paginateListAvailableResourceMetrics } from "./pagination/ListAvailableResourceMetricsPaginator";
+import { paginateListPerformanceAnalysisReports } from "./pagination/ListPerformanceAnalysisReportsPaginator";
 import { PIClient } from "./PIClient";
 
 const commands = {
@@ -79,6 +84,13 @@ const commands = {
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateDescribeDimensionKeys,
+  paginateGetResourceMetrics,
+  paginateListAvailableResourceDimensions,
+  paginateListAvailableResourceMetrics,
+  paginateListPerformanceAnalysisReports,
 };
 
 export interface PI {
@@ -302,6 +314,61 @@ export interface PI {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeDimensionKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDimensionKeysCommandOutput}.
+   */
+  paginateDescribeDimensionKeys(
+    args: DescribeDimensionKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDimensionKeysCommandOutput>;
+
+  /**
+   * @see {@link GetResourceMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourceMetricsCommandOutput}.
+   */
+  paginateGetResourceMetrics(
+    args: GetResourceMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourceMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListAvailableResourceDimensionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAvailableResourceDimensionsCommandOutput}.
+   */
+  paginateListAvailableResourceDimensions(
+    args: ListAvailableResourceDimensionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAvailableResourceDimensionsCommandOutput>;
+
+  /**
+   * @see {@link ListAvailableResourceMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAvailableResourceMetricsCommandOutput}.
+   */
+  paginateListAvailableResourceMetrics(
+    args: ListAvailableResourceMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAvailableResourceMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListPerformanceAnalysisReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPerformanceAnalysisReportsCommandOutput}.
+   */
+  paginateListPerformanceAnalysisReports(
+    args: ListPerformanceAnalysisReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPerformanceAnalysisReportsCommandOutput>;
 }
 
 /**
@@ -333,4 +400,4 @@ export interface PI {
  * @public
  */
 export class PI extends PIClient implements PI {}
-createAggregatedClient(commands, PI);
+createAggregatedClient(commands, PI, { paginators });

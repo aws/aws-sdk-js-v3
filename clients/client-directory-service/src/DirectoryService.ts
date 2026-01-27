@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AcceptSharedDirectoryCommand,
@@ -363,6 +369,24 @@ import {
 import { UpdateTrustCommand, UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand";
 import { VerifyTrustCommand, VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand";
 import { DirectoryServiceClient } from "./DirectoryServiceClient";
+import {
+  paginateDescribeClientAuthenticationSettings,
+} from "./pagination/DescribeClientAuthenticationSettingsPaginator";
+import { paginateDescribeDirectories } from "./pagination/DescribeDirectoriesPaginator";
+import { paginateDescribeDomainControllers } from "./pagination/DescribeDomainControllersPaginator";
+import { paginateDescribeLDAPSSettings } from "./pagination/DescribeLDAPSSettingsPaginator";
+import { paginateDescribeRegions } from "./pagination/DescribeRegionsPaginator";
+import { paginateDescribeSharedDirectories } from "./pagination/DescribeSharedDirectoriesPaginator";
+import { paginateDescribeSnapshots } from "./pagination/DescribeSnapshotsPaginator";
+import { paginateDescribeTrusts } from "./pagination/DescribeTrustsPaginator";
+import { paginateDescribeUpdateDirectory } from "./pagination/DescribeUpdateDirectoryPaginator";
+import { paginateListADAssessments } from "./pagination/ListADAssessmentsPaginator";
+import { paginateListCertificates } from "./pagination/ListCertificatesPaginator";
+import { paginateListIpRoutes } from "./pagination/ListIpRoutesPaginator";
+import { paginateListLogSubscriptions } from "./pagination/ListLogSubscriptionsPaginator";
+import { paginateListSchemaExtensions } from "./pagination/ListSchemaExtensionsPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { waitUntilHybridADUpdated } from "./waiters/waitForHybridADUpdated";
 
 const commands = {
   AcceptSharedDirectoryCommand,
@@ -445,6 +469,26 @@ const commands = {
   UpdateSettingsCommand,
   UpdateTrustCommand,
   VerifyTrustCommand,
+};
+const paginators = {
+  paginateDescribeClientAuthenticationSettings,
+  paginateDescribeDirectories,
+  paginateDescribeDomainControllers,
+  paginateDescribeLDAPSSettings,
+  paginateDescribeRegions,
+  paginateDescribeSharedDirectories,
+  paginateDescribeSnapshots,
+  paginateDescribeTrusts,
+  paginateDescribeUpdateDirectory,
+  paginateListADAssessments,
+  paginateListCertificates,
+  paginateListIpRoutes,
+  paginateListLogSubscriptions,
+  paginateListSchemaExtensions,
+  paginateListTagsForResource,
+};
+const waiters = {
+  waitUntilHybridADUpdated,
 };
 
 export interface DirectoryService {
@@ -1815,6 +1859,181 @@ export interface DirectoryService {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: VerifyTrustCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeClientAuthenticationSettingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClientAuthenticationSettingsCommandOutput}.
+   */
+  paginateDescribeClientAuthenticationSettings(
+    args: DescribeClientAuthenticationSettingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClientAuthenticationSettingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDirectoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDirectoriesCommandOutput}.
+   */
+  paginateDescribeDirectories(
+    args?: DescribeDirectoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDirectoriesCommandOutput>;
+
+  /**
+   * @see {@link DescribeDomainControllersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDomainControllersCommandOutput}.
+   */
+  paginateDescribeDomainControllers(
+    args: DescribeDomainControllersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDomainControllersCommandOutput>;
+
+  /**
+   * @see {@link DescribeLDAPSSettingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLDAPSSettingsCommandOutput}.
+   */
+  paginateDescribeLDAPSSettings(
+    args: DescribeLDAPSSettingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLDAPSSettingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRegionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRegionsCommandOutput}.
+   */
+  paginateDescribeRegions(
+    args: DescribeRegionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRegionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSharedDirectoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSharedDirectoriesCommandOutput}.
+   */
+  paginateDescribeSharedDirectories(
+    args: DescribeSharedDirectoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSharedDirectoriesCommandOutput>;
+
+  /**
+   * @see {@link DescribeSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSnapshotsCommandOutput}.
+   */
+  paginateDescribeSnapshots(
+    args?: DescribeSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTrustsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTrustsCommandOutput}.
+   */
+  paginateDescribeTrusts(
+    args?: DescribeTrustsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTrustsCommandOutput>;
+
+  /**
+   * @see {@link DescribeUpdateDirectoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeUpdateDirectoryCommandOutput}.
+   */
+  paginateDescribeUpdateDirectory(
+    args: DescribeUpdateDirectoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeUpdateDirectoryCommandOutput>;
+
+  /**
+   * @see {@link ListADAssessmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListADAssessmentsCommandOutput}.
+   */
+  paginateListADAssessments(
+    args?: ListADAssessmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListADAssessmentsCommandOutput>;
+
+  /**
+   * @see {@link ListCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCertificatesCommandOutput}.
+   */
+  paginateListCertificates(
+    args: ListCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCertificatesCommandOutput>;
+
+  /**
+   * @see {@link ListIpRoutesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIpRoutesCommandOutput}.
+   */
+  paginateListIpRoutes(
+    args: ListIpRoutesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIpRoutesCommandOutput>;
+
+  /**
+   * @see {@link ListLogSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLogSubscriptionsCommandOutput}.
+   */
+  paginateListLogSubscriptions(
+    args?: ListLogSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLogSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link ListSchemaExtensionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchemaExtensionsCommandOutput}.
+   */
+  paginateListSchemaExtensions(
+    args: ListSchemaExtensionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchemaExtensionsCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link DescribeHybridADUpdateCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilHybridADUpdated(
+    args: DescribeHybridADUpdateCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DirectoryService>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1835,4 +2054,4 @@ export interface DirectoryService {
  * @public
  */
 export class DirectoryService extends DirectoryServiceClient implements DirectoryService {}
-createAggregatedClient(commands, DirectoryService);
+createAggregatedClient(commands, DirectoryService, { paginators, waiters });

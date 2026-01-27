@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateCertificateCommand,
@@ -109,6 +109,13 @@ import {
 } from "./commands/UpdatePresetCommand";
 import { UpdateQueueCommand, UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand";
 import { MediaConvertClient } from "./MediaConvertClient";
+import { paginateDescribeEndpoints } from "./pagination/DescribeEndpointsPaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
+import { paginateListJobTemplates } from "./pagination/ListJobTemplatesPaginator";
+import { paginateListPresets } from "./pagination/ListPresetsPaginator";
+import { paginateListQueues } from "./pagination/ListQueuesPaginator";
+import { paginateListVersions } from "./pagination/ListVersionsPaginator";
+import { paginateSearchJobs } from "./pagination/SearchJobsPaginator";
 
 const commands = {
   AssociateCertificateCommand,
@@ -145,6 +152,15 @@ const commands = {
   UpdateJobTemplateCommand,
   UpdatePresetCommand,
   UpdateQueueCommand,
+};
+const paginators = {
+  paginateDescribeEndpoints,
+  paginateListJobs,
+  paginateListJobTemplates,
+  paginateListPresets,
+  paginateListQueues,
+  paginateListVersions,
+  paginateSearchJobs,
 };
 
 export interface MediaConvert {
@@ -736,6 +752,83 @@ export interface MediaConvert {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQueueCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEndpointsCommandOutput}.
+   */
+  paginateDescribeEndpoints(
+    args?: DescribeEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args?: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
+   * @see {@link ListJobTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobTemplatesCommandOutput}.
+   */
+  paginateListJobTemplates(
+    args?: ListJobTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListPresetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPresetsCommandOutput}.
+   */
+  paginateListPresets(
+    args?: ListPresetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPresetsCommandOutput>;
+
+  /**
+   * @see {@link ListQueuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQueuesCommandOutput}.
+   */
+  paginateListQueues(
+    args?: ListQueuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQueuesCommandOutput>;
+
+  /**
+   * @see {@link ListVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVersionsCommandOutput}.
+   */
+  paginateListVersions(
+    args?: ListVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVersionsCommandOutput>;
+
+  /**
+   * @see {@link SearchJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchJobsCommandOutput}.
+   */
+  paginateSearchJobs(
+    args?: SearchJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchJobsCommandOutput>;
 }
 
 /**
@@ -743,4 +836,4 @@ export interface MediaConvert {
  * @public
  */
 export class MediaConvert extends MediaConvertClient implements MediaConvert {}
-createAggregatedClient(commands, MediaConvert);
+createAggregatedClient(commands, MediaConvert, { paginators });
