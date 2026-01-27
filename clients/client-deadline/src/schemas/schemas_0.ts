@@ -260,6 +260,7 @@ const _JD = "JobDescription";
 const _JDE = "JobDetailsEntity";
 const _JDEo = "JobDetailsError";
 const _JDI = "JobDetailsIdentifiers";
+const _JDO = "JobDescriptionOverride";
 const _JE = "JobEntity";
 const _JEI = "JobEntityIdentifiers";
 const _JEIU = "JobEntityIdentifiersUnion";
@@ -609,6 +610,7 @@ const _dBA = "defaultBudgetAction";
 const _dC = "dependencyCounts";
 const _dN = "displayName";
 const _dNn = "dnsName";
+const _dO = "descriptionOverride";
 const _dP = "destinationPath";
 const _dR = "dependenciesResolved";
 const _dT = "dateTime";
@@ -720,6 +722,7 @@ const _mo = "mode";
 const _mon = "monitors";
 const _n = "name";
 const _nIO = "nextItemOffset";
+const _nO = "nameOverride";
 const _nT = "nextToken";
 const _o = "operator";
 const _oF = "osFamily";
@@ -896,6 +899,7 @@ var Document: StaticSimpleSchema = [0, n0, _Do, 8, 15];
 var EnvironmentTemplate: StaticSimpleSchema = [0, n0, _ET, 8, 0];
 var HostConfigurationScript: StaticSimpleSchema = [0, n0, _HCS, 8, 0];
 var JobDescription: StaticSimpleSchema = [0, n0, _JD, 8, 0];
+var JobDescriptionOverride: StaticSimpleSchema = [0, n0, _JDO, 8, 0];
 var JobTemplate: StaticSimpleSchema = [0, n0, _JT, 8, 0];
 var SecretAccessKey: StaticSimpleSchema = [0, n0, _SAK, 8, 0];
 var SessionActionProgressMessage: StaticSimpleSchema = [0, n0, _SAPM, 8, 0];
@@ -1140,8 +1144,8 @@ export var CreateFleetResponse$: StaticStructureSchema = [3, n0, _CFRrea,
 ];
 export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJR,
   0,
-  [_fI, _qI, _pr, _cT, _te, _tT, _p, _at, _sPI, _tTRS, _mFTC, _mRPT, _mWC, _sJI],
-  [[0, 1], [0, 1], 1, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => JobTemplate, 0], 0, [() => JobParameters, 0], [() => Attachments$, 0], 0, 0, 1, 1, 1, 0], 3
+  [_fI, _qI, _pr, _cT, _te, _tT, _p, _at, _sPI, _tTRS, _mFTC, _mRPT, _mWC, _sJI, _nO, _dO],
+  [[0, 1], [0, 1], 1, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => JobTemplate, 0], 0, [() => JobParameters, 0], [() => Attachments$, 0], 0, 0, 1, 1, 1, 0, 0, [() => JobDescriptionOverride, 0]], 3
 ];
 export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRr,
   0,
@@ -2469,8 +2473,8 @@ export var UpdateFleetResponse$: StaticStructureSchema = [3, n0, _UFRpda,
 ];
 export var UpdateJobRequest$: StaticStructureSchema = [3, n0, _UJR,
   0,
-  [_fI, _qI, _jI, _cT, _tTRS, _pr, _mFTC, _mRPT, _lS, _mWC],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], 0, 1, 1, 1, 0, 1], 3
+  [_fI, _qI, _jI, _cT, _tTRS, _pr, _mFTC, _mRPT, _lS, _mWC, _n, _de],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _XACT, [_iT]: 1 }], 0, 1, 1, 1, 0, 1, 0, [() => JobDescriptionOverride, 0]], 3
 ];
 export var UpdateJobResponse$: StaticStructureSchema = [3, n0, _UJRp,
   0,

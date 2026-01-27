@@ -680,7 +680,7 @@ export interface StringFilterExpression {
 }
 
 /**
- * <p>Searches for a match within a list of strings.</p>
+ * <p>Searches for a particular list of strings.</p>
  * @public
  */
 export interface StringListFilterExpression {
@@ -691,7 +691,7 @@ export interface StringListFilterExpression {
   name: string | undefined;
 
   /**
-   * <p>The type of comparison to use for this search. ANY_EQUALS and ALL_NOT_EQUALS are supported.</p>
+   * <p>The type of comparison to use for this search.</p>
    * @public
    */
   operator: ComparisonOperator | undefined;
@@ -1593,7 +1593,7 @@ export namespace SearchFilterExpression {
   }
 
   /**
-   * <p>Filters by a list of string values.</p>
+   * <p>Filters by a list of strings.</p>
    * @public
    */
   export interface StringListFilterMember {

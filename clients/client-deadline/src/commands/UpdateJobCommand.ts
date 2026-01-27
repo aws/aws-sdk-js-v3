@@ -44,6 +44,8 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *   maxRetriesPerTask: Number("int"),
  *   lifecycleStatus: "ARCHIVED",
  *   maxWorkerCount: Number("int"),
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
  *   farmId: "STRING_VALUE", // required
  *   queueId: "STRING_VALUE", // required
  *   jobId: "STRING_VALUE", // required

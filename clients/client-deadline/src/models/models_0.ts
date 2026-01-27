@@ -2939,6 +2939,18 @@ export interface CreateJobRequest {
    * @public
    */
   sourceJobId?: string | undefined;
+
+  /**
+   * <p>A custom name to override the job name derived from the job template.</p>
+   * @public
+   */
+  nameOverride?: string | undefined;
+
+  /**
+   * <p>A custom description to override the job description derived from the job template.</p>
+   * @public
+   */
+  descriptionOverride?: string | undefined;
 }
 
 /**
@@ -7773,7 +7785,7 @@ export interface UpdateJobRequest {
   targetTaskRunStatus?: JobTargetTaskRunStatus | undefined;
 
   /**
-   * <p>The job priority to update.</p>
+   * <p>The updated job priority.</p>
    * @public
    */
   priority?: number | undefined;
@@ -7801,6 +7813,18 @@ export interface UpdateJobRequest {
    * @public
    */
   maxWorkerCount?: number | undefined;
+
+  /**
+   * <p>The updated job name.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The updated job description.</p>
+   * @public
+   */
+  description?: string | undefined;
 
   /**
    * <p>The farm ID of the job to update.</p>

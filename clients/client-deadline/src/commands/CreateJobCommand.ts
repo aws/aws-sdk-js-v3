@@ -72,6 +72,8 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *   maxRetriesPerTask: Number("int"),
  *   maxWorkerCount: Number("int"),
  *   sourceJobId: "STRING_VALUE",
+ *   nameOverride: "STRING_VALUE",
+ *   descriptionOverride: "STRING_VALUE",
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
