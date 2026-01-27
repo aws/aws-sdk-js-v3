@@ -47,6 +47,7 @@ export interface UpdateClusterSchedulerConfigCommandOutput extends UpdateCluster
  *       },
  *     ],
  *     FairShare: "Enabled" || "Disabled",
+ *     IdleResourceSharing: "Enabled" || "Disabled",
  *   },
  *   Description: "STRING_VALUE",
  * };

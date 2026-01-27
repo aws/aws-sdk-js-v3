@@ -1251,6 +1251,7 @@ import {
   IamIdentity$,
   IamPolicyConstraints$,
   IdentityProviderOAuthSetting$,
+  IdleResourceSharing,
   IdleSettings$,
   Image$,
   ImageClassificationJobConfig$,
@@ -2153,6 +2154,7 @@ import {
   ScheduleConfig$,
   ScheduledUpdateConfig$,
   SchedulerConfig$,
+  SchedulerConfigComponent,
   SchedulerResourceStatus,
   ScheduleStatus,
   Search$,
@@ -4950,6 +4952,7 @@ assert(typeof HyperParameterTuningJobSortByOptions === "object");
 assert(typeof HyperParameterTuningJobStatus === "object");
 assert(typeof HyperParameterTuningJobStrategyType === "object");
 assert(typeof HyperParameterTuningJobWarmStartType === "object");
+assert(typeof IdleResourceSharing === "object");
 assert(typeof ImageSortBy === "object");
 assert(typeof ImageSortOrder === "object");
 assert(typeof ImageStatus === "object");
@@ -5090,6 +5093,7 @@ assert(typeof S3ModelDataType === "object");
 assert(typeof SageMakerImageName === "object");
 assert(typeof SageMakerResourceName === "object");
 assert(typeof SagemakerServicecatalogStatus === "object");
+assert(typeof SchedulerConfigComponent === "object");
 assert(typeof SchedulerResourceStatus === "object");
 assert(typeof ScheduleStatus === "object");
 assert(typeof SearchSortOrder === "object");

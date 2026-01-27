@@ -49,6 +49,9 @@ export interface DescribeClusterSchedulerConfigCommandOutput extends DescribeClu
  * //   ClusterSchedulerConfigVersion: Number("int"), // required
  * //   Status: "Creating" || "CreateFailed" || "CreateRollbackFailed" || "Created" || "Updating" || "UpdateFailed" || "UpdateRollbackFailed" || "Updated" || "Deleting" || "DeleteFailed" || "DeleteRollbackFailed" || "Deleted", // required
  * //   FailureReason: "STRING_VALUE",
+ * //   StatusDetails: { // StatusDetailsMap
+ * //     "<keys>": "Creating" || "CreateFailed" || "CreateRollbackFailed" || "Created" || "Updating" || "UpdateFailed" || "UpdateRollbackFailed" || "Updated" || "Deleting" || "DeleteFailed" || "DeleteRollbackFailed" || "Deleted",
+ * //   },
  * //   ClusterArn: "STRING_VALUE",
  * //   SchedulerConfig: { // SchedulerConfig
  * //     PriorityClasses: [ // PriorityClassList
@@ -58,6 +61,7 @@ export interface DescribeClusterSchedulerConfigCommandOutput extends DescribeClu
  * //       },
  * //     ],
  * //     FairShare: "Enabled" || "Disabled",
+ * //     IdleResourceSharing: "Enabled" || "Disabled",
  * //   },
  * //   Description: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"), // required

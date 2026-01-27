@@ -1,6 +1,18 @@
 {
   "smithy": "2.0",
   "shapes": {
+    "com.amazonaws.sagemaker#AbsoluteBorrowLimitResourceList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#ComputeQuotaResourceConfig"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 15
+        }
+      }
+    },
     "com.amazonaws.sagemaker#AcceleratorPartitionConfig": {
       "type": "structure",
       "members": {
@@ -6299,7 +6311,7 @@
       "traits": {
         "smithy.api#range": {
           "min": 0,
-          "max": 500
+          "max": 10000
         }
       }
     },
@@ -23403,6 +23415,12 @@
             "smithy.api#documentation": "<p>Failure reason of the cluster policy.</p>"
           }
         },
+        "StatusDetails": {
+          "target": "com.amazonaws.sagemaker#StatusDetailsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional details about the status of the cluster policy. This field provides context when the policy is in a non-active state, such as during creation, updates, or if failures occur.</p>"
+          }
+        },
         "ClusterArn": {
           "target": "com.amazonaws.sagemaker#ClusterArn",
           "traits": {
@@ -38816,6 +38834,23 @@
         "smithy.api#length": {
           "min": 0,
           "max": 20
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#IdleResourceSharing": {
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Enabled"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Disabled"
+          }
         }
       }
     },
@@ -67377,6 +67412,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The limit on how much idle compute can be borrowed.The values can be 1 - 500 percent of idle compute that the team is allowed to borrow.</p> <p>Default is <code>50</code>.</p>"
           }
+        },
+        "AbsoluteBorrowLimits": {
+          "target": "com.amazonaws.sagemaker#AbsoluteBorrowLimitResourceList",
+          "traits": {
+            "smithy.api#documentation": "<p>The absolute limits on compute resources that can be borrowed from idle compute. When specified, these limits define the maximum amount of specific resource types (such as accelerators, vCPU, or memory) that an entity can borrow, regardless of the percentage-based <code>BorrowLimit</code>.</p>"
+          }
         }
       },
       "traits": {
@@ -70587,10 +70628,39 @@
           "traits": {
             "smithy.api#documentation": "<p>When enabled, entities borrow idle compute based on their assigned <code>FairShareWeight</code>.</p> <p>When disabled, entities borrow idle compute based on a first-come first-serve basis.</p> <p>Default is <code>Enabled</code>.</p>"
           }
+        },
+        "IdleResourceSharing": {
+          "target": "com.amazonaws.sagemaker#IdleResourceSharing",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration for sharing idle compute resources across entities in the cluster. When enabled, unallocated resources are automatically calculated and made available for entities to borrow. </p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Cluster policy configuration. This policy is used for task prioritization and fair-share allocation. This helps prioritize critical workloads and distributes idle compute across entities.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#SchedulerConfigComponent": {
+      "type": "enum",
+      "members": {
+        "PRIORITY_CLASSES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PriorityClasses"
+          }
+        },
+        "FAIR_SHARE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FairShare"
+          }
+        },
+        "IDLE_RESOURCE_SHARING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IdleResourceSharing"
+          }
+        }
       }
     },
     "com.amazonaws.sagemaker#SchedulerResourceStatus": {
@@ -73165,6 +73235,15 @@
           "max": 1024
         },
         "smithy.api#pattern": ".*"
+      }
+    },
+    "com.amazonaws.sagemaker#StatusDetailsMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.sagemaker#SchedulerConfigComponent"
+      },
+      "value": {
+        "target": "com.amazonaws.sagemaker#SchedulerResourceStatus"
       }
     },
     "com.amazonaws.sagemaker#StatusMessage": {

@@ -47,6 +47,7 @@ export interface CreateClusterSchedulerConfigCommandOutput extends CreateCluster
  *       },
  *     ],
  *     FairShare: "Enabled" || "Disabled",
+ *     IdleResourceSharing: "Enabled" || "Disabled",
  *   },
  *   Description: "STRING_VALUE",
  *   Tags: [ // TagList

@@ -8,6 +8,8 @@ const _AAl = "AlgorithmArn";
 const _AAp = "AppArn";
 const _AAr = "ArtifactArn";
 const _AArt = "ArtifactArns";
+const _ABL = "AbsoluteBorrowLimits";
+const _ABLRL = "AbsoluteBorrowLimitResourceList";
 const _ABRA = "AmazonBedrockRoleArn";
 const _AC = "AgentCount";
 const _ACC = "AnnotationConsolidationConfig";
@@ -1647,6 +1649,7 @@ const _IRJN = "InferenceRecommendationsJobName";
 const _IRJS = "InferenceRecommendationsJobStep";
 const _IRJSn = "InferenceRecommendationsJobSteps";
 const _IRJn = "InferenceRecommendationsJobs";
+const _IRS = "IdleResourceSharing";
 const _IRn = "InferenceRecommendations";
 const _IRnf = "InferenceRecommendation";
 const _IS = "IdleSettings";
@@ -5630,8 +5633,8 @@ export var DescribeClusterSchedulerConfigRequest$: StaticStructureSchema = [3, n
 ];
 export var DescribeClusterSchedulerConfigResponse$: StaticStructureSchema = [3, n0, _DCSCRes,
   0,
-  [_CSCA, _CSCI, _N, _CSCV, _St, _CT, _FR, _CAl, _SCc, _D, _CB, _LMT, _LMB],
-  [0, 0, 0, 1, 0, 4, 0, 0, () => SchedulerConfig$, 0, () => UserContext$, 4, () => UserContext$], 6
+  [_CSCA, _CSCI, _N, _CSCV, _St, _CT, _FR, _SDt, _CAl, _SCc, _D, _CB, _LMT, _LMB],
+  [0, 0, 0, 1, 0, 4, 0, 128 | 0, 0, () => SchedulerConfig$, 0, () => UserContext$, 4, () => UserContext$], 6
 ];
 export var DescribeCodeRepositoryInput$: StaticStructureSchema = [3, n0, _DCRIe,
   0,
@@ -9198,8 +9201,8 @@ export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
 TypeRegistry.for(n0).registerError(ResourceNotFound$, ResourceNotFound);
 export var ResourceSharingConfig$: StaticStructureSchema = [3, n0, _RSC,
   0,
-  [_Str, _BL],
-  [0, 1], 1
+  [_Str, _BL, _ABL],
+  [0, 1, () => AbsoluteBorrowLimitResourceList], 1
 ];
 export var ResourceSpec$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -9313,8 +9316,8 @@ export var ScheduledUpdateConfig$: StaticStructureSchema = [3, n0, _SUC,
 ];
 export var SchedulerConfig$: StaticStructureSchema = [3, n0, _SCc,
   0,
-  [_PCrio, _FSa],
-  [() => PriorityClassList, 0]
+  [_PCrio, _FSa, _IRS],
+  [() => PriorityClassList, 0, 0]
 ];
 export var SearchExpression$: StaticStructureSchema = [3, n0, _SEe,
   0,
@@ -10529,6 +10532,9 @@ export var Workteam$: StaticStructureSchema = [3, n0, _Wo,
 var __Unit = "unit" as const;
 export var SageMakerServiceException$: StaticErrorSchema = [-3, _s, "SageMakerServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(SageMakerServiceException$, SageMakerServiceException);
+var AbsoluteBorrowLimitResourceList: StaticListSchema = [1, n0, _ABLRL,
+  0, () => ComputeQuotaResourceConfig$
+];
 var ActionSummaries: StaticListSchema = [1, n0, _AScti,
   0, () => ActionSummary$
 ];
@@ -11314,6 +11320,7 @@ var ProcessingEnvironmentMap = 128 | 0;
 var ProfilingParameters = 128 | 0;
 var QueryProperties = 128 | 0;
 var RuleParameters = 128 | 0;
+var StatusDetailsMap = 128 | 0;
 var TextGenerationHyperParameters = 128 | 0;
 var TrainingEnvironmentMap = 128 | 0;
 var TransformEnvironmentMap = 128 | 0;
