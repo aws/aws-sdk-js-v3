@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateTrackerConsumerCommand,
@@ -243,6 +243,17 @@ import {
   VerifyDevicePositionCommandOutput,
 } from "./commands/VerifyDevicePositionCommand";
 import { LocationClient } from "./LocationClient";
+import { paginateForecastGeofenceEvents } from "./pagination/ForecastGeofenceEventsPaginator";
+import { paginateGetDevicePositionHistory } from "./pagination/GetDevicePositionHistoryPaginator";
+import { paginateListDevicePositions } from "./pagination/ListDevicePositionsPaginator";
+import { paginateListGeofenceCollections } from "./pagination/ListGeofenceCollectionsPaginator";
+import { paginateListGeofences } from "./pagination/ListGeofencesPaginator";
+import { paginateListKeys } from "./pagination/ListKeysPaginator";
+import { paginateListMaps } from "./pagination/ListMapsPaginator";
+import { paginateListPlaceIndexes } from "./pagination/ListPlaceIndexesPaginator";
+import { paginateListRouteCalculators } from "./pagination/ListRouteCalculatorsPaginator";
+import { paginateListTrackerConsumers } from "./pagination/ListTrackerConsumersPaginator";
+import { paginateListTrackers } from "./pagination/ListTrackersPaginator";
 
 const commands = {
   AssociateTrackerConsumerCommand,
@@ -305,6 +316,19 @@ const commands = {
   UpdateRouteCalculatorCommand,
   UpdateTrackerCommand,
   VerifyDevicePositionCommand,
+};
+const paginators = {
+  paginateForecastGeofenceEvents,
+  paginateGetDevicePositionHistory,
+  paginateListDevicePositions,
+  paginateListGeofenceCollections,
+  paginateListGeofences,
+  paginateListKeys,
+  paginateListMaps,
+  paginateListPlaceIndexes,
+  paginateListRouteCalculators,
+  paginateListTrackerConsumers,
+  paginateListTrackers,
 };
 
 export interface Location {
@@ -1333,6 +1357,127 @@ export interface Location {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: VerifyDevicePositionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ForecastGeofenceEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ForecastGeofenceEventsCommandOutput}.
+   */
+  paginateForecastGeofenceEvents(
+    args: ForecastGeofenceEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ForecastGeofenceEventsCommandOutput>;
+
+  /**
+   * @see {@link GetDevicePositionHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDevicePositionHistoryCommandOutput}.
+   */
+  paginateGetDevicePositionHistory(
+    args: GetDevicePositionHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDevicePositionHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListDevicePositionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevicePositionsCommandOutput}.
+   */
+  paginateListDevicePositions(
+    args: ListDevicePositionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevicePositionsCommandOutput>;
+
+  /**
+   * @see {@link ListGeofenceCollectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGeofenceCollectionsCommandOutput}.
+   */
+  paginateListGeofenceCollections(
+    args?: ListGeofenceCollectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGeofenceCollectionsCommandOutput>;
+
+  /**
+   * @see {@link ListGeofencesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGeofencesCommandOutput}.
+   */
+  paginateListGeofences(
+    args: ListGeofencesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGeofencesCommandOutput>;
+
+  /**
+   * @see {@link ListKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKeysCommandOutput}.
+   */
+  paginateListKeys(
+    args?: ListKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKeysCommandOutput>;
+
+  /**
+   * @see {@link ListMapsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMapsCommandOutput}.
+   */
+  paginateListMaps(
+    args?: ListMapsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMapsCommandOutput>;
+
+  /**
+   * @see {@link ListPlaceIndexesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPlaceIndexesCommandOutput}.
+   */
+  paginateListPlaceIndexes(
+    args?: ListPlaceIndexesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPlaceIndexesCommandOutput>;
+
+  /**
+   * @see {@link ListRouteCalculatorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRouteCalculatorsCommandOutput}.
+   */
+  paginateListRouteCalculators(
+    args?: ListRouteCalculatorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRouteCalculatorsCommandOutput>;
+
+  /**
+   * @see {@link ListTrackerConsumersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrackerConsumersCommandOutput}.
+   */
+  paginateListTrackerConsumers(
+    args: ListTrackerConsumersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrackerConsumersCommandOutput>;
+
+  /**
+   * @see {@link ListTrackersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrackersCommandOutput}.
+   */
+  paginateListTrackers(
+    args?: ListTrackersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrackersCommandOutput>;
 }
 
 /**
@@ -1340,4 +1485,4 @@ export interface Location {
  * @public
  */
 export class Location extends LocationClient implements Location {}
-createAggregatedClient(commands, Location);
+createAggregatedClient(commands, Location, { paginators });

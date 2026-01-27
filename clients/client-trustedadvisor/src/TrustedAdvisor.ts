@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchUpdateRecommendationResourceExclusionCommand,
@@ -53,6 +53,16 @@ import {
   UpdateRecommendationLifecycleCommandInput,
   UpdateRecommendationLifecycleCommandOutput,
 } from "./commands/UpdateRecommendationLifecycleCommand";
+import { paginateListChecks } from "./pagination/ListChecksPaginator";
+import {
+  paginateListOrganizationRecommendationAccounts,
+} from "./pagination/ListOrganizationRecommendationAccountsPaginator";
+import {
+  paginateListOrganizationRecommendationResources,
+} from "./pagination/ListOrganizationRecommendationResourcesPaginator";
+import { paginateListOrganizationRecommendations } from "./pagination/ListOrganizationRecommendationsPaginator";
+import { paginateListRecommendationResources } from "./pagination/ListRecommendationResourcesPaginator";
+import { paginateListRecommendations } from "./pagination/ListRecommendationsPaginator";
 import { TrustedAdvisorClient } from "./TrustedAdvisorClient";
 
 const commands = {
@@ -67,6 +77,14 @@ const commands = {
   ListRecommendationsCommand,
   UpdateOrganizationRecommendationLifecycleCommand,
   UpdateRecommendationLifecycleCommand,
+};
+const paginators = {
+  paginateListChecks,
+  paginateListOrganizationRecommendationAccounts,
+  paginateListOrganizationRecommendationResources,
+  paginateListOrganizationRecommendations,
+  paginateListRecommendationResources,
+  paginateListRecommendations,
 };
 
 export interface TrustedAdvisor {
@@ -259,6 +277,72 @@ export interface TrustedAdvisor {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRecommendationLifecycleCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChecksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChecksCommandOutput}.
+   */
+  paginateListChecks(
+    args?: ListChecksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChecksCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationRecommendationAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationRecommendationAccountsCommandOutput}.
+   */
+  paginateListOrganizationRecommendationAccounts(
+    args: ListOrganizationRecommendationAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationRecommendationAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationRecommendationResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationRecommendationResourcesCommandOutput}.
+   */
+  paginateListOrganizationRecommendationResources(
+    args: ListOrganizationRecommendationResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationRecommendationResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationRecommendationsCommandOutput}.
+   */
+  paginateListOrganizationRecommendations(
+    args?: ListOrganizationRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationResourcesCommandOutput}.
+   */
+  paginateListRecommendationResources(
+    args: ListRecommendationResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationsCommandOutput}.
+   */
+  paginateListRecommendations(
+    args?: ListRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationsCommandOutput>;
 }
 
 /**
@@ -266,4 +350,4 @@ export interface TrustedAdvisor {
  * @public
  */
 export class TrustedAdvisor extends TrustedAdvisorClient implements TrustedAdvisor {}
-createAggregatedClient(commands, TrustedAdvisor);
+createAggregatedClient(commands, TrustedAdvisor, { paginators });

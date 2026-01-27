@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddApplicationCloudWatchLoggingOptionCommand,
@@ -164,6 +164,10 @@ import {
   UpdateApplicationMaintenanceConfigurationCommandOutput,
 } from "./commands/UpdateApplicationMaintenanceConfigurationCommand";
 import { KinesisAnalyticsV2Client } from "./KinesisAnalyticsV2Client";
+import { paginateListApplicationOperations } from "./pagination/ListApplicationOperationsPaginator";
+import { paginateListApplicationSnapshots } from "./pagination/ListApplicationSnapshotsPaginator";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListApplicationVersions } from "./pagination/ListApplicationVersionsPaginator";
 
 const commands = {
   AddApplicationCloudWatchLoggingOptionCommand,
@@ -199,6 +203,12 @@ const commands = {
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateApplicationMaintenanceConfigurationCommand,
+};
+const paginators = {
+  paginateListApplicationOperations,
+  paginateListApplications,
+  paginateListApplicationSnapshots,
+  paginateListApplicationVersions,
 };
 
 export interface KinesisAnalyticsV2 {
@@ -763,6 +773,50 @@ export interface KinesisAnalyticsV2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApplicationMaintenanceConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationOperationsCommandOutput}.
+   */
+  paginateListApplicationOperations(
+    args: ListApplicationOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationSnapshotsCommandOutput}.
+   */
+  paginateListApplicationSnapshots(
+    args: ListApplicationSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationVersionsCommandOutput}.
+   */
+  paginateListApplicationVersions(
+    args: ListApplicationVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationVersionsCommandOutput>;
 }
 
 /**
@@ -775,4 +829,4 @@ export interface KinesisAnalyticsV2 {
  * @public
  */
 export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client implements KinesisAnalyticsV2 {}
-createAggregatedClient(commands, KinesisAnalyticsV2);
+createAggregatedClient(commands, KinesisAnalyticsV2, { paginators });

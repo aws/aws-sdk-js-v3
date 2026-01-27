@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   ConvertRecoveryPointToSnapshotCommand,
@@ -311,6 +311,20 @@ import {
   UpdateWorkgroupCommandInput,
   UpdateWorkgroupCommandOutput,
 } from "./commands/UpdateWorkgroupCommand";
+import { paginateListCustomDomainAssociations } from "./pagination/ListCustomDomainAssociationsPaginator";
+import { paginateListEndpointAccess } from "./pagination/ListEndpointAccessPaginator";
+import { paginateListManagedWorkgroups } from "./pagination/ListManagedWorkgroupsPaginator";
+import { paginateListNamespaces } from "./pagination/ListNamespacesPaginator";
+import { paginateListRecoveryPoints } from "./pagination/ListRecoveryPointsPaginator";
+import { paginateListReservationOfferings } from "./pagination/ListReservationOfferingsPaginator";
+import { paginateListReservations } from "./pagination/ListReservationsPaginator";
+import { paginateListScheduledActions } from "./pagination/ListScheduledActionsPaginator";
+import { paginateListSnapshotCopyConfigurations } from "./pagination/ListSnapshotCopyConfigurationsPaginator";
+import { paginateListSnapshots } from "./pagination/ListSnapshotsPaginator";
+import { paginateListTableRestoreStatus } from "./pagination/ListTableRestoreStatusPaginator";
+import { paginateListTracks } from "./pagination/ListTracksPaginator";
+import { paginateListUsageLimits } from "./pagination/ListUsageLimitsPaginator";
+import { paginateListWorkgroups } from "./pagination/ListWorkgroupsPaginator";
 import { RedshiftServerlessClient } from "./RedshiftServerlessClient";
 
 const commands = {
@@ -379,6 +393,22 @@ const commands = {
   UpdateSnapshotCopyConfigurationCommand,
   UpdateUsageLimitCommand,
   UpdateWorkgroupCommand,
+};
+const paginators = {
+  paginateListCustomDomainAssociations,
+  paginateListEndpointAccess,
+  paginateListManagedWorkgroups,
+  paginateListNamespaces,
+  paginateListRecoveryPoints,
+  paginateListReservationOfferings,
+  paginateListReservations,
+  paginateListScheduledActions,
+  paginateListSnapshotCopyConfigurations,
+  paginateListSnapshots,
+  paginateListTableRestoreStatus,
+  paginateListTracks,
+  paginateListUsageLimits,
+  paginateListWorkgroups,
 };
 
 export interface RedshiftServerless {
@@ -1502,6 +1532,160 @@ export interface RedshiftServerless {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkgroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCustomDomainAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomDomainAssociationsCommandOutput}.
+   */
+  paginateListCustomDomainAssociations(
+    args?: ListCustomDomainAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomDomainAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListEndpointAccessCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEndpointAccessCommandOutput}.
+   */
+  paginateListEndpointAccess(
+    args?: ListEndpointAccessCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEndpointAccessCommandOutput>;
+
+  /**
+   * @see {@link ListManagedWorkgroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedWorkgroupsCommandOutput}.
+   */
+  paginateListManagedWorkgroups(
+    args?: ListManagedWorkgroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedWorkgroupsCommandOutput>;
+
+  /**
+   * @see {@link ListNamespacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNamespacesCommandOutput}.
+   */
+  paginateListNamespaces(
+    args?: ListNamespacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNamespacesCommandOutput>;
+
+  /**
+   * @see {@link ListRecoveryPointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecoveryPointsCommandOutput}.
+   */
+  paginateListRecoveryPoints(
+    args?: ListRecoveryPointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecoveryPointsCommandOutput>;
+
+  /**
+   * @see {@link ListReservationOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReservationOfferingsCommandOutput}.
+   */
+  paginateListReservationOfferings(
+    args?: ListReservationOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReservationOfferingsCommandOutput>;
+
+  /**
+   * @see {@link ListReservationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReservationsCommandOutput}.
+   */
+  paginateListReservations(
+    args?: ListReservationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReservationsCommandOutput>;
+
+  /**
+   * @see {@link ListScheduledActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScheduledActionsCommandOutput}.
+   */
+  paginateListScheduledActions(
+    args?: ListScheduledActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScheduledActionsCommandOutput>;
+
+  /**
+   * @see {@link ListSnapshotCopyConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSnapshotCopyConfigurationsCommandOutput}.
+   */
+  paginateListSnapshotCopyConfigurations(
+    args?: ListSnapshotCopyConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSnapshotCopyConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSnapshotsCommandOutput}.
+   */
+  paginateListSnapshots(
+    args?: ListSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link ListTableRestoreStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTableRestoreStatusCommandOutput}.
+   */
+  paginateListTableRestoreStatus(
+    args?: ListTableRestoreStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTableRestoreStatusCommandOutput>;
+
+  /**
+   * @see {@link ListTracksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTracksCommandOutput}.
+   */
+  paginateListTracks(
+    args?: ListTracksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTracksCommandOutput>;
+
+  /**
+   * @see {@link ListUsageLimitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsageLimitsCommandOutput}.
+   */
+  paginateListUsageLimits(
+    args?: ListUsageLimitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsageLimitsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkgroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkgroupsCommandOutput}.
+   */
+  paginateListWorkgroups(
+    args?: ListWorkgroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkgroupsCommandOutput>;
 }
 
 /**
@@ -1509,4 +1693,4 @@ export interface RedshiftServerless {
  * @public
  */
 export class RedshiftServerless extends RedshiftServerlessClient implements RedshiftServerless {}
-createAggregatedClient(commands, RedshiftServerless);
+createAggregatedClient(commands, RedshiftServerless, { paginators });

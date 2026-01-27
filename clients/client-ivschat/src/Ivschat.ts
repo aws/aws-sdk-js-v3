@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateChatTokenCommand,
@@ -60,6 +60,8 @@ import {
 } from "./commands/UpdateLoggingConfigurationCommand";
 import { UpdateRoomCommand, UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand";
 import { IvschatClient } from "./IvschatClient";
+import { paginateListLoggingConfigurations } from "./pagination/ListLoggingConfigurationsPaginator";
+import { paginateListRooms } from "./pagination/ListRoomsPaginator";
 
 const commands = {
   CreateChatTokenCommand,
@@ -79,6 +81,10 @@ const commands = {
   UntagResourceCommand,
   UpdateLoggingConfigurationCommand,
   UpdateRoomCommand,
+};
+const paginators = {
+  paginateListLoggingConfigurations,
+  paginateListRooms,
 };
 
 export interface Ivschat {
@@ -373,6 +379,28 @@ export interface Ivschat {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRoomCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListLoggingConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLoggingConfigurationsCommandOutput}.
+   */
+  paginateListLoggingConfigurations(
+    args?: ListLoggingConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLoggingConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListRoomsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoomsCommandOutput}.
+   */
+  paginateListRooms(
+    args?: ListRoomsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoomsCommandOutput>;
 }
 
 /**
@@ -485,4 +513,4 @@ export interface Ivschat {
  * @public
  */
 export class Ivschat extends IvschatClient implements Ivschat {}
-createAggregatedClient(commands, Ivschat);
+createAggregatedClient(commands, Ivschat, { paginators });

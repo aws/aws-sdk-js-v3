@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AddTagsToResourceCommand,
@@ -598,6 +604,72 @@ import {
   UpdateSubscriptionsToEventBridgeCommandOutput,
 } from "./commands/UpdateSubscriptionsToEventBridgeCommand";
 import { DatabaseMigrationServiceClient } from "./DatabaseMigrationServiceClient";
+import {
+  paginateDescribeApplicableIndividualAssessments,
+} from "./pagination/DescribeApplicableIndividualAssessmentsPaginator";
+import { paginateDescribeCertificates } from "./pagination/DescribeCertificatesPaginator";
+import { paginateDescribeConnections } from "./pagination/DescribeConnectionsPaginator";
+import { paginateDescribeDataMigrations } from "./pagination/DescribeDataMigrationsPaginator";
+import { paginateDescribeDataProviders } from "./pagination/DescribeDataProvidersPaginator";
+import { paginateDescribeEndpointSettings } from "./pagination/DescribeEndpointSettingsPaginator";
+import { paginateDescribeEndpoints } from "./pagination/DescribeEndpointsPaginator";
+import { paginateDescribeEndpointTypes } from "./pagination/DescribeEndpointTypesPaginator";
+import { paginateDescribeEngineVersions } from "./pagination/DescribeEngineVersionsPaginator";
+import { paginateDescribeEvents } from "./pagination/DescribeEventsPaginator";
+import { paginateDescribeEventSubscriptions } from "./pagination/DescribeEventSubscriptionsPaginator";
+import { paginateDescribeExtensionPackAssociations } from "./pagination/DescribeExtensionPackAssociationsPaginator";
+import { paginateDescribeFleetAdvisorCollectors } from "./pagination/DescribeFleetAdvisorCollectorsPaginator";
+import { paginateDescribeFleetAdvisorDatabases } from "./pagination/DescribeFleetAdvisorDatabasesPaginator";
+import { paginateDescribeFleetAdvisorLsaAnalysis } from "./pagination/DescribeFleetAdvisorLsaAnalysisPaginator";
+import {
+  paginateDescribeFleetAdvisorSchemaObjectSummary,
+} from "./pagination/DescribeFleetAdvisorSchemaObjectSummaryPaginator";
+import { paginateDescribeFleetAdvisorSchemas } from "./pagination/DescribeFleetAdvisorSchemasPaginator";
+import { paginateDescribeInstanceProfiles } from "./pagination/DescribeInstanceProfilesPaginator";
+import { paginateDescribeMetadataModelAssessments } from "./pagination/DescribeMetadataModelAssessmentsPaginator";
+import { paginateDescribeMetadataModelChildren } from "./pagination/DescribeMetadataModelChildrenPaginator";
+import { paginateDescribeMetadataModelConversions } from "./pagination/DescribeMetadataModelConversionsPaginator";
+import { paginateDescribeMetadataModelCreations } from "./pagination/DescribeMetadataModelCreationsPaginator";
+import {
+  paginateDescribeMetadataModelExportsAsScript,
+} from "./pagination/DescribeMetadataModelExportsAsScriptPaginator";
+import {
+  paginateDescribeMetadataModelExportsToTarget,
+} from "./pagination/DescribeMetadataModelExportsToTargetPaginator";
+import { paginateDescribeMetadataModelImports } from "./pagination/DescribeMetadataModelImportsPaginator";
+import { paginateDescribeMigrationProjects } from "./pagination/DescribeMigrationProjectsPaginator";
+import {
+  paginateDescribeOrderableReplicationInstances,
+} from "./pagination/DescribeOrderableReplicationInstancesPaginator";
+import { paginateDescribePendingMaintenanceActions } from "./pagination/DescribePendingMaintenanceActionsPaginator";
+import { paginateDescribeRecommendationLimitations } from "./pagination/DescribeRecommendationLimitationsPaginator";
+import { paginateDescribeRecommendations } from "./pagination/DescribeRecommendationsPaginator";
+import { paginateDescribeReplicationConfigs } from "./pagination/DescribeReplicationConfigsPaginator";
+import { paginateDescribeReplicationInstances } from "./pagination/DescribeReplicationInstancesPaginator";
+import { paginateDescribeReplicationInstanceTaskLogs } from "./pagination/DescribeReplicationInstanceTaskLogsPaginator";
+import { paginateDescribeReplications } from "./pagination/DescribeReplicationsPaginator";
+import { paginateDescribeReplicationSubnetGroups } from "./pagination/DescribeReplicationSubnetGroupsPaginator";
+import { paginateDescribeReplicationTableStatistics } from "./pagination/DescribeReplicationTableStatisticsPaginator";
+import {
+  paginateDescribeReplicationTaskAssessmentResults,
+} from "./pagination/DescribeReplicationTaskAssessmentResultsPaginator";
+import {
+  paginateDescribeReplicationTaskAssessmentRuns,
+} from "./pagination/DescribeReplicationTaskAssessmentRunsPaginator";
+import {
+  paginateDescribeReplicationTaskIndividualAssessments,
+} from "./pagination/DescribeReplicationTaskIndividualAssessmentsPaginator";
+import { paginateDescribeReplicationTasks } from "./pagination/DescribeReplicationTasksPaginator";
+import { paginateDescribeSchemas } from "./pagination/DescribeSchemasPaginator";
+import { paginateDescribeTableStatistics } from "./pagination/DescribeTableStatisticsPaginator";
+import { waitUntilEndpointDeleted } from "./waiters/waitForEndpointDeleted";
+import { waitUntilReplicationInstanceAvailable } from "./waiters/waitForReplicationInstanceAvailable";
+import { waitUntilReplicationInstanceDeleted } from "./waiters/waitForReplicationInstanceDeleted";
+import { waitUntilReplicationTaskDeleted } from "./waiters/waitForReplicationTaskDeleted";
+import { waitUntilReplicationTaskReady } from "./waiters/waitForReplicationTaskReady";
+import { waitUntilReplicationTaskRunning } from "./waiters/waitForReplicationTaskRunning";
+import { waitUntilReplicationTaskStopped } from "./waiters/waitForReplicationTaskStopped";
+import { waitUntilTestConnectionSucceeds } from "./waiters/waitForTestConnectionSucceeds";
 
 const commands = {
   AddTagsToResourceCommand,
@@ -719,6 +791,60 @@ const commands = {
   StopReplicationTaskCommand,
   TestConnectionCommand,
   UpdateSubscriptionsToEventBridgeCommand,
+};
+const paginators = {
+  paginateDescribeApplicableIndividualAssessments,
+  paginateDescribeCertificates,
+  paginateDescribeConnections,
+  paginateDescribeDataMigrations,
+  paginateDescribeDataProviders,
+  paginateDescribeEndpoints,
+  paginateDescribeEndpointSettings,
+  paginateDescribeEndpointTypes,
+  paginateDescribeEngineVersions,
+  paginateDescribeEvents,
+  paginateDescribeEventSubscriptions,
+  paginateDescribeExtensionPackAssociations,
+  paginateDescribeFleetAdvisorCollectors,
+  paginateDescribeFleetAdvisorDatabases,
+  paginateDescribeFleetAdvisorLsaAnalysis,
+  paginateDescribeFleetAdvisorSchemaObjectSummary,
+  paginateDescribeFleetAdvisorSchemas,
+  paginateDescribeInstanceProfiles,
+  paginateDescribeMetadataModelAssessments,
+  paginateDescribeMetadataModelChildren,
+  paginateDescribeMetadataModelConversions,
+  paginateDescribeMetadataModelCreations,
+  paginateDescribeMetadataModelExportsAsScript,
+  paginateDescribeMetadataModelExportsToTarget,
+  paginateDescribeMetadataModelImports,
+  paginateDescribeMigrationProjects,
+  paginateDescribeOrderableReplicationInstances,
+  paginateDescribePendingMaintenanceActions,
+  paginateDescribeRecommendationLimitations,
+  paginateDescribeRecommendations,
+  paginateDescribeReplicationConfigs,
+  paginateDescribeReplicationInstances,
+  paginateDescribeReplicationInstanceTaskLogs,
+  paginateDescribeReplications,
+  paginateDescribeReplicationSubnetGroups,
+  paginateDescribeReplicationTableStatistics,
+  paginateDescribeReplicationTaskAssessmentResults,
+  paginateDescribeReplicationTaskAssessmentRuns,
+  paginateDescribeReplicationTaskIndividualAssessments,
+  paginateDescribeReplicationTasks,
+  paginateDescribeSchemas,
+  paginateDescribeTableStatistics,
+};
+const waiters = {
+  waitUntilTestConnectionSucceeds,
+  waitUntilEndpointDeleted,
+  waitUntilReplicationInstanceAvailable,
+  waitUntilReplicationInstanceDeleted,
+  waitUntilReplicationTaskDeleted,
+  waitUntilReplicationTaskReady,
+  waitUntilReplicationTaskRunning,
+  waitUntilReplicationTaskStopped,
 };
 
 export interface DatabaseMigrationService {
@@ -2780,6 +2906,548 @@ export interface DatabaseMigrationService {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSubscriptionsToEventBridgeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeApplicableIndividualAssessmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeApplicableIndividualAssessmentsCommandOutput}.
+   */
+  paginateDescribeApplicableIndividualAssessments(
+    args?: DescribeApplicableIndividualAssessmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeApplicableIndividualAssessmentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCertificatesCommandOutput}.
+   */
+  paginateDescribeCertificates(
+    args?: DescribeCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCertificatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConnectionsCommandOutput}.
+   */
+  paginateDescribeConnections(
+    args?: DescribeConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConnectionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDataMigrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDataMigrationsCommandOutput}.
+   */
+  paginateDescribeDataMigrations(
+    args?: DescribeDataMigrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDataMigrationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDataProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDataProvidersCommandOutput}.
+   */
+  paginateDescribeDataProviders(
+    args?: DescribeDataProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDataProvidersCommandOutput>;
+
+  /**
+   * @see {@link DescribeEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEndpointsCommandOutput}.
+   */
+  paginateDescribeEndpoints(
+    args?: DescribeEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEndpointsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEndpointSettingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEndpointSettingsCommandOutput}.
+   */
+  paginateDescribeEndpointSettings(
+    args: DescribeEndpointSettingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEndpointSettingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEndpointTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEndpointTypesCommandOutput}.
+   */
+  paginateDescribeEndpointTypes(
+    args?: DescribeEndpointTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEndpointTypesCommandOutput>;
+
+  /**
+   * @see {@link DescribeEngineVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEngineVersionsCommandOutput}.
+   */
+  paginateDescribeEngineVersions(
+    args?: DescribeEngineVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEngineVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventsCommandOutput}.
+   */
+  paginateDescribeEvents(
+    args?: DescribeEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventSubscriptionsCommandOutput}.
+   */
+  paginateDescribeEventSubscriptions(
+    args?: DescribeEventSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeExtensionPackAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeExtensionPackAssociationsCommandOutput}.
+   */
+  paginateDescribeExtensionPackAssociations(
+    args: DescribeExtensionPackAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeExtensionPackAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFleetAdvisorCollectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFleetAdvisorCollectorsCommandOutput}.
+   */
+  paginateDescribeFleetAdvisorCollectors(
+    args?: DescribeFleetAdvisorCollectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFleetAdvisorCollectorsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFleetAdvisorDatabasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFleetAdvisorDatabasesCommandOutput}.
+   */
+  paginateDescribeFleetAdvisorDatabases(
+    args?: DescribeFleetAdvisorDatabasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFleetAdvisorDatabasesCommandOutput>;
+
+  /**
+   * @see {@link DescribeFleetAdvisorLsaAnalysisCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFleetAdvisorLsaAnalysisCommandOutput}.
+   */
+  paginateDescribeFleetAdvisorLsaAnalysis(
+    args?: DescribeFleetAdvisorLsaAnalysisCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFleetAdvisorLsaAnalysisCommandOutput>;
+
+  /**
+   * @see {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFleetAdvisorSchemaObjectSummaryCommandOutput}.
+   */
+  paginateDescribeFleetAdvisorSchemaObjectSummary(
+    args?: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput>;
+
+  /**
+   * @see {@link DescribeFleetAdvisorSchemasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFleetAdvisorSchemasCommandOutput}.
+   */
+  paginateDescribeFleetAdvisorSchemas(
+    args?: DescribeFleetAdvisorSchemasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFleetAdvisorSchemasCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceProfilesCommandOutput}.
+   */
+  paginateDescribeInstanceProfiles(
+    args?: DescribeInstanceProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceProfilesCommandOutput>;
+
+  /**
+   * @see {@link DescribeMetadataModelAssessmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMetadataModelAssessmentsCommandOutput}.
+   */
+  paginateDescribeMetadataModelAssessments(
+    args: DescribeMetadataModelAssessmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMetadataModelAssessmentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMetadataModelChildrenCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMetadataModelChildrenCommandOutput}.
+   */
+  paginateDescribeMetadataModelChildren(
+    args: DescribeMetadataModelChildrenCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMetadataModelChildrenCommandOutput>;
+
+  /**
+   * @see {@link DescribeMetadataModelConversionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMetadataModelConversionsCommandOutput}.
+   */
+  paginateDescribeMetadataModelConversions(
+    args: DescribeMetadataModelConversionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMetadataModelConversionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMetadataModelCreationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMetadataModelCreationsCommandOutput}.
+   */
+  paginateDescribeMetadataModelCreations(
+    args: DescribeMetadataModelCreationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMetadataModelCreationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMetadataModelExportsAsScriptCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMetadataModelExportsAsScriptCommandOutput}.
+   */
+  paginateDescribeMetadataModelExportsAsScript(
+    args: DescribeMetadataModelExportsAsScriptCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMetadataModelExportsAsScriptCommandOutput>;
+
+  /**
+   * @see {@link DescribeMetadataModelExportsToTargetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMetadataModelExportsToTargetCommandOutput}.
+   */
+  paginateDescribeMetadataModelExportsToTarget(
+    args: DescribeMetadataModelExportsToTargetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMetadataModelExportsToTargetCommandOutput>;
+
+  /**
+   * @see {@link DescribeMetadataModelImportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMetadataModelImportsCommandOutput}.
+   */
+  paginateDescribeMetadataModelImports(
+    args: DescribeMetadataModelImportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMetadataModelImportsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMigrationProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMigrationProjectsCommandOutput}.
+   */
+  paginateDescribeMigrationProjects(
+    args?: DescribeMigrationProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMigrationProjectsCommandOutput>;
+
+  /**
+   * @see {@link DescribeOrderableReplicationInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOrderableReplicationInstancesCommandOutput}.
+   */
+  paginateDescribeOrderableReplicationInstances(
+    args?: DescribeOrderableReplicationInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOrderableReplicationInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribePendingMaintenanceActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePendingMaintenanceActionsCommandOutput}.
+   */
+  paginateDescribePendingMaintenanceActions(
+    args?: DescribePendingMaintenanceActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePendingMaintenanceActionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRecommendationLimitationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRecommendationLimitationsCommandOutput}.
+   */
+  paginateDescribeRecommendationLimitations(
+    args?: DescribeRecommendationLimitationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRecommendationLimitationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRecommendationsCommandOutput}.
+   */
+  paginateDescribeRecommendations(
+    args?: DescribeRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationConfigsCommandOutput}.
+   */
+  paginateDescribeReplicationConfigs(
+    args?: DescribeReplicationConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationConfigsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationInstancesCommandOutput}.
+   */
+  paginateDescribeReplicationInstances(
+    args?: DescribeReplicationInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationInstanceTaskLogsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationInstanceTaskLogsCommandOutput}.
+   */
+  paginateDescribeReplicationInstanceTaskLogs(
+    args: DescribeReplicationInstanceTaskLogsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationInstanceTaskLogsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationsCommandOutput}.
+   */
+  paginateDescribeReplications(
+    args?: DescribeReplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationSubnetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationSubnetGroupsCommandOutput}.
+   */
+  paginateDescribeReplicationSubnetGroups(
+    args?: DescribeReplicationSubnetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationSubnetGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationTableStatisticsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationTableStatisticsCommandOutput}.
+   */
+  paginateDescribeReplicationTableStatistics(
+    args: DescribeReplicationTableStatisticsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationTableStatisticsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationTaskAssessmentResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationTaskAssessmentResultsCommandOutput}.
+   */
+  paginateDescribeReplicationTaskAssessmentResults(
+    args?: DescribeReplicationTaskAssessmentResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationTaskAssessmentResultsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationTaskAssessmentRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationTaskAssessmentRunsCommandOutput}.
+   */
+  paginateDescribeReplicationTaskAssessmentRuns(
+    args?: DescribeReplicationTaskAssessmentRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationTaskAssessmentRunsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationTaskIndividualAssessmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationTaskIndividualAssessmentsCommandOutput}.
+   */
+  paginateDescribeReplicationTaskIndividualAssessments(
+    args?: DescribeReplicationTaskIndividualAssessmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationTaskIndividualAssessmentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationTasksCommandOutput}.
+   */
+  paginateDescribeReplicationTasks(
+    args?: DescribeReplicationTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeSchemasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSchemasCommandOutput}.
+   */
+  paginateDescribeSchemas(
+    args: DescribeSchemasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSchemasCommandOutput>;
+
+  /**
+   * @see {@link DescribeTableStatisticsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTableStatisticsCommandOutput}.
+   */
+  paginateDescribeTableStatistics(
+    args: DescribeTableStatisticsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTableStatisticsCommandOutput>;
+
+  /**
+   * @see {@link DescribeConnectionsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTestConnectionSucceeds(
+    args: DescribeConnectionsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeEndpointsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilEndpointDeleted(
+    args: DescribeEndpointsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeReplicationInstancesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReplicationInstanceAvailable(
+    args: DescribeReplicationInstancesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeReplicationInstancesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReplicationInstanceDeleted(
+    args: DescribeReplicationInstancesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeReplicationTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReplicationTaskDeleted(
+    args: DescribeReplicationTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeReplicationTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReplicationTaskReady(
+    args: DescribeReplicationTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeReplicationTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReplicationTaskRunning(
+    args: DescribeReplicationTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeReplicationTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReplicationTaskStopped(
+    args: DescribeReplicationTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DatabaseMigrationService>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -2796,4 +3464,4 @@ export interface DatabaseMigrationService {
  * @public
  */
 export class DatabaseMigrationService extends DatabaseMigrationServiceClient implements DatabaseMigrationService {}
-createAggregatedClient(commands, DatabaseMigrationService);
+createAggregatedClient(commands, DatabaseMigrationService, { paginators, waiters });

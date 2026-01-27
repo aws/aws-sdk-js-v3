@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CleanRoomsMLClient } from "./CleanRoomsMLClient";
 import {
@@ -294,6 +294,30 @@ import {
   UpdateConfiguredAudienceModelCommandInput,
   UpdateConfiguredAudienceModelCommandOutput,
 } from "./commands/UpdateConfiguredAudienceModelCommand";
+import { paginateListAudienceExportJobs } from "./pagination/ListAudienceExportJobsPaginator";
+import { paginateListAudienceGenerationJobs } from "./pagination/ListAudienceGenerationJobsPaginator";
+import { paginateListAudienceModels } from "./pagination/ListAudienceModelsPaginator";
+import {
+  paginateListCollaborationConfiguredModelAlgorithmAssociations,
+} from "./pagination/ListCollaborationConfiguredModelAlgorithmAssociationsPaginator";
+import { paginateListCollaborationMLInputChannels } from "./pagination/ListCollaborationMLInputChannelsPaginator";
+import {
+  paginateListCollaborationTrainedModelExportJobs,
+} from "./pagination/ListCollaborationTrainedModelExportJobsPaginator";
+import {
+  paginateListCollaborationTrainedModelInferenceJobs,
+} from "./pagination/ListCollaborationTrainedModelInferenceJobsPaginator";
+import { paginateListCollaborationTrainedModels } from "./pagination/ListCollaborationTrainedModelsPaginator";
+import { paginateListConfiguredAudienceModels } from "./pagination/ListConfiguredAudienceModelsPaginator";
+import {
+  paginateListConfiguredModelAlgorithmAssociations,
+} from "./pagination/ListConfiguredModelAlgorithmAssociationsPaginator";
+import { paginateListConfiguredModelAlgorithms } from "./pagination/ListConfiguredModelAlgorithmsPaginator";
+import { paginateListMLInputChannels } from "./pagination/ListMLInputChannelsPaginator";
+import { paginateListTrainedModelInferenceJobs } from "./pagination/ListTrainedModelInferenceJobsPaginator";
+import { paginateListTrainedModels } from "./pagination/ListTrainedModelsPaginator";
+import { paginateListTrainedModelVersions } from "./pagination/ListTrainedModelVersionsPaginator";
+import { paginateListTrainingDatasets } from "./pagination/ListTrainingDatasetsPaginator";
 
 const commands = {
   CancelTrainedModelCommand,
@@ -355,6 +379,24 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConfiguredAudienceModelCommand,
+};
+const paginators = {
+  paginateListAudienceExportJobs,
+  paginateListAudienceGenerationJobs,
+  paginateListAudienceModels,
+  paginateListCollaborationConfiguredModelAlgorithmAssociations,
+  paginateListCollaborationMLInputChannels,
+  paginateListCollaborationTrainedModelExportJobs,
+  paginateListCollaborationTrainedModelInferenceJobs,
+  paginateListCollaborationTrainedModels,
+  paginateListConfiguredAudienceModels,
+  paginateListConfiguredModelAlgorithmAssociations,
+  paginateListConfiguredModelAlgorithms,
+  paginateListMLInputChannels,
+  paginateListTrainedModelInferenceJobs,
+  paginateListTrainedModels,
+  paginateListTrainedModelVersions,
+  paginateListTrainingDatasets,
 };
 
 export interface CleanRoomsML {
@@ -1366,6 +1408,182 @@ export interface CleanRoomsML {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateConfiguredAudienceModelCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAudienceExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAudienceExportJobsCommandOutput}.
+   */
+  paginateListAudienceExportJobs(
+    args?: ListAudienceExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAudienceExportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListAudienceGenerationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAudienceGenerationJobsCommandOutput}.
+   */
+  paginateListAudienceGenerationJobs(
+    args?: ListAudienceGenerationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAudienceGenerationJobsCommandOutput>;
+
+  /**
+   * @see {@link ListAudienceModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAudienceModelsCommandOutput}.
+   */
+  paginateListAudienceModels(
+    args?: ListAudienceModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAudienceModelsCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationConfiguredModelAlgorithmAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput}.
+   */
+  paginateListCollaborationConfiguredModelAlgorithmAssociations(
+    args: ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationMLInputChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationMLInputChannelsCommandOutput}.
+   */
+  paginateListCollaborationMLInputChannels(
+    args: ListCollaborationMLInputChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationMLInputChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationTrainedModelExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationTrainedModelExportJobsCommandOutput}.
+   */
+  paginateListCollaborationTrainedModelExportJobs(
+    args: ListCollaborationTrainedModelExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationTrainedModelExportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationTrainedModelInferenceJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationTrainedModelInferenceJobsCommandOutput}.
+   */
+  paginateListCollaborationTrainedModelInferenceJobs(
+    args: ListCollaborationTrainedModelInferenceJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationTrainedModelInferenceJobsCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationTrainedModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationTrainedModelsCommandOutput}.
+   */
+  paginateListCollaborationTrainedModels(
+    args: ListCollaborationTrainedModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationTrainedModelsCommandOutput>;
+
+  /**
+   * @see {@link ListConfiguredAudienceModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfiguredAudienceModelsCommandOutput}.
+   */
+  paginateListConfiguredAudienceModels(
+    args?: ListConfiguredAudienceModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfiguredAudienceModelsCommandOutput>;
+
+  /**
+   * @see {@link ListConfiguredModelAlgorithmAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfiguredModelAlgorithmAssociationsCommandOutput}.
+   */
+  paginateListConfiguredModelAlgorithmAssociations(
+    args: ListConfiguredModelAlgorithmAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfiguredModelAlgorithmAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListConfiguredModelAlgorithmsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfiguredModelAlgorithmsCommandOutput}.
+   */
+  paginateListConfiguredModelAlgorithms(
+    args?: ListConfiguredModelAlgorithmsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfiguredModelAlgorithmsCommandOutput>;
+
+  /**
+   * @see {@link ListMLInputChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMLInputChannelsCommandOutput}.
+   */
+  paginateListMLInputChannels(
+    args: ListMLInputChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMLInputChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListTrainedModelInferenceJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrainedModelInferenceJobsCommandOutput}.
+   */
+  paginateListTrainedModelInferenceJobs(
+    args: ListTrainedModelInferenceJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrainedModelInferenceJobsCommandOutput>;
+
+  /**
+   * @see {@link ListTrainedModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrainedModelsCommandOutput}.
+   */
+  paginateListTrainedModels(
+    args: ListTrainedModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrainedModelsCommandOutput>;
+
+  /**
+   * @see {@link ListTrainedModelVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrainedModelVersionsCommandOutput}.
+   */
+  paginateListTrainedModelVersions(
+    args: ListTrainedModelVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrainedModelVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListTrainingDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrainingDatasetsCommandOutput}.
+   */
+  paginateListTrainingDatasets(
+    args?: ListTrainingDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrainingDatasetsCommandOutput>;
 }
 
 /**
@@ -1373,4 +1591,4 @@ export interface CleanRoomsML {
  * @public
  */
 export class CleanRoomsML extends CleanRoomsMLClient implements CleanRoomsML {}
-createAggregatedClient(commands, CleanRoomsML);
+createAggregatedClient(commands, CleanRoomsML, { paginators });

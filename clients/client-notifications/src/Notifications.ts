@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateChannelCommand,
@@ -194,6 +194,21 @@ import {
   UpdateNotificationConfigurationCommandOutput,
 } from "./commands/UpdateNotificationConfigurationCommand";
 import { NotificationsClient } from "./NotificationsClient";
+import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListEventRules } from "./pagination/ListEventRulesPaginator";
+import {
+  paginateListManagedNotificationChannelAssociations,
+} from "./pagination/ListManagedNotificationChannelAssociationsPaginator";
+import { paginateListManagedNotificationChildEvents } from "./pagination/ListManagedNotificationChildEventsPaginator";
+import {
+  paginateListManagedNotificationConfigurations,
+} from "./pagination/ListManagedNotificationConfigurationsPaginator";
+import { paginateListManagedNotificationEvents } from "./pagination/ListManagedNotificationEventsPaginator";
+import { paginateListMemberAccounts } from "./pagination/ListMemberAccountsPaginator";
+import { paginateListNotificationConfigurations } from "./pagination/ListNotificationConfigurationsPaginator";
+import { paginateListNotificationEvents } from "./pagination/ListNotificationEventsPaginator";
+import { paginateListNotificationHubs } from "./pagination/ListNotificationHubsPaginator";
+import { paginateListOrganizationalUnits } from "./pagination/ListOrganizationalUnitsPaginator";
 
 const commands = {
   AssociateChannelCommand,
@@ -235,6 +250,19 @@ const commands = {
   UntagResourceCommand,
   UpdateEventRuleCommand,
   UpdateNotificationConfigurationCommand,
+};
+const paginators = {
+  paginateListChannels,
+  paginateListEventRules,
+  paginateListManagedNotificationChannelAssociations,
+  paginateListManagedNotificationChildEvents,
+  paginateListManagedNotificationConfigurations,
+  paginateListManagedNotificationEvents,
+  paginateListMemberAccounts,
+  paginateListNotificationConfigurations,
+  paginateListNotificationEvents,
+  paginateListNotificationHubs,
+  paginateListOrganizationalUnits,
 };
 
 export interface Notifications {
@@ -908,6 +936,127 @@ export interface Notifications {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateNotificationConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsCommandOutput}.
+   */
+  paginateListChannels(
+    args: ListChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListEventRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventRulesCommandOutput}.
+   */
+  paginateListEventRules(
+    args: ListEventRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventRulesCommandOutput>;
+
+  /**
+   * @see {@link ListManagedNotificationChannelAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedNotificationChannelAssociationsCommandOutput}.
+   */
+  paginateListManagedNotificationChannelAssociations(
+    args: ListManagedNotificationChannelAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedNotificationChannelAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListManagedNotificationChildEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedNotificationChildEventsCommandOutput}.
+   */
+  paginateListManagedNotificationChildEvents(
+    args: ListManagedNotificationChildEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedNotificationChildEventsCommandOutput>;
+
+  /**
+   * @see {@link ListManagedNotificationConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedNotificationConfigurationsCommandOutput}.
+   */
+  paginateListManagedNotificationConfigurations(
+    args?: ListManagedNotificationConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedNotificationConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListManagedNotificationEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedNotificationEventsCommandOutput}.
+   */
+  paginateListManagedNotificationEvents(
+    args?: ListManagedNotificationEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedNotificationEventsCommandOutput>;
+
+  /**
+   * @see {@link ListMemberAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMemberAccountsCommandOutput}.
+   */
+  paginateListMemberAccounts(
+    args: ListMemberAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMemberAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListNotificationConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotificationConfigurationsCommandOutput}.
+   */
+  paginateListNotificationConfigurations(
+    args?: ListNotificationConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotificationConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListNotificationEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotificationEventsCommandOutput}.
+   */
+  paginateListNotificationEvents(
+    args?: ListNotificationEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotificationEventsCommandOutput>;
+
+  /**
+   * @see {@link ListNotificationHubsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotificationHubsCommandOutput}.
+   */
+  paginateListNotificationHubs(
+    args?: ListNotificationHubsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotificationHubsCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationalUnitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationalUnitsCommandOutput}.
+   */
+  paginateListOrganizationalUnits(
+    args: ListOrganizationalUnitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationalUnitsCommandOutput>;
 }
 
 /**
@@ -915,4 +1064,4 @@ export interface Notifications {
  * @public
  */
 export class Notifications extends NotificationsClient implements Notifications {}
-createAggregatedClient(commands, Notifications);
+createAggregatedClient(commands, Notifications, { paginators });

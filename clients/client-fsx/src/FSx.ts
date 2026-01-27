@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateFileSystemAliasesCommand,
@@ -235,6 +235,17 @@ import {
   UpdateVolumeCommandOutput,
 } from "./commands/UpdateVolumeCommand";
 import { FSxClient } from "./FSxClient";
+import { paginateDescribeBackups } from "./pagination/DescribeBackupsPaginator";
+import { paginateDescribeDataRepositoryAssociations } from "./pagination/DescribeDataRepositoryAssociationsPaginator";
+import { paginateDescribeDataRepositoryTasks } from "./pagination/DescribeDataRepositoryTasksPaginator";
+import { paginateDescribeFileCaches } from "./pagination/DescribeFileCachesPaginator";
+import { paginateDescribeFileSystemAliases } from "./pagination/DescribeFileSystemAliasesPaginator";
+import { paginateDescribeFileSystems } from "./pagination/DescribeFileSystemsPaginator";
+import { paginateDescribeS3AccessPointAttachments } from "./pagination/DescribeS3AccessPointAttachmentsPaginator";
+import { paginateDescribeSnapshots } from "./pagination/DescribeSnapshotsPaginator";
+import { paginateDescribeStorageVirtualMachines } from "./pagination/DescribeStorageVirtualMachinesPaginator";
+import { paginateDescribeVolumes } from "./pagination/DescribeVolumesPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 
 const commands = {
   AssociateFileSystemAliasesCommand,
@@ -285,6 +296,19 @@ const commands = {
   UpdateSnapshotCommand,
   UpdateStorageVirtualMachineCommand,
   UpdateVolumeCommand,
+};
+const paginators = {
+  paginateDescribeBackups,
+  paginateDescribeDataRepositoryAssociations,
+  paginateDescribeDataRepositoryTasks,
+  paginateDescribeFileCaches,
+  paginateDescribeFileSystemAliases,
+  paginateDescribeFileSystems,
+  paginateDescribeS3AccessPointAttachments,
+  paginateDescribeSnapshots,
+  paginateDescribeStorageVirtualMachines,
+  paginateDescribeVolumes,
+  paginateListTagsForResource,
 };
 
 export interface FSx {
@@ -1115,6 +1139,127 @@ export interface FSx {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVolumeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeBackupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBackupsCommandOutput}.
+   */
+  paginateDescribeBackups(
+    args?: DescribeBackupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBackupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDataRepositoryAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDataRepositoryAssociationsCommandOutput}.
+   */
+  paginateDescribeDataRepositoryAssociations(
+    args?: DescribeDataRepositoryAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDataRepositoryAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDataRepositoryTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDataRepositoryTasksCommandOutput}.
+   */
+  paginateDescribeDataRepositoryTasks(
+    args?: DescribeDataRepositoryTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDataRepositoryTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeFileCachesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFileCachesCommandOutput}.
+   */
+  paginateDescribeFileCaches(
+    args?: DescribeFileCachesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFileCachesCommandOutput>;
+
+  /**
+   * @see {@link DescribeFileSystemAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFileSystemAliasesCommandOutput}.
+   */
+  paginateDescribeFileSystemAliases(
+    args: DescribeFileSystemAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFileSystemAliasesCommandOutput>;
+
+  /**
+   * @see {@link DescribeFileSystemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFileSystemsCommandOutput}.
+   */
+  paginateDescribeFileSystems(
+    args?: DescribeFileSystemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFileSystemsCommandOutput>;
+
+  /**
+   * @see {@link DescribeS3AccessPointAttachmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeS3AccessPointAttachmentsCommandOutput}.
+   */
+  paginateDescribeS3AccessPointAttachments(
+    args?: DescribeS3AccessPointAttachmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeS3AccessPointAttachmentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSnapshotsCommandOutput}.
+   */
+  paginateDescribeSnapshots(
+    args?: DescribeSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link DescribeStorageVirtualMachinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeStorageVirtualMachinesCommandOutput}.
+   */
+  paginateDescribeStorageVirtualMachines(
+    args?: DescribeStorageVirtualMachinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeStorageVirtualMachinesCommandOutput>;
+
+  /**
+   * @see {@link DescribeVolumesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVolumesCommandOutput}.
+   */
+  paginateDescribeVolumes(
+    args?: DescribeVolumesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVolumesCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
 }
 
 /**
@@ -1123,4 +1268,4 @@ export interface FSx {
  * @public
  */
 export class FSx extends FSxClient implements FSx {}
-createAggregatedClient(commands, FSx);
+createAggregatedClient(commands, FSx, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
@@ -58,6 +58,10 @@ import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from 
 import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { IdentitystoreClient } from "./IdentitystoreClient";
+import { paginateListGroupMembershipsForMember } from "./pagination/ListGroupMembershipsForMemberPaginator";
+import { paginateListGroupMemberships } from "./pagination/ListGroupMembershipsPaginator";
+import { paginateListGroups } from "./pagination/ListGroupsPaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
 
 const commands = {
   CreateGroupCommand,
@@ -79,6 +83,12 @@ const commands = {
   ListUsersCommand,
   UpdateGroupCommand,
   UpdateUserCommand,
+};
+const paginators = {
+  paginateListGroupMemberships,
+  paginateListGroupMembershipsForMember,
+  paginateListGroups,
+  paginateListUsers,
 };
 
 export interface Identitystore {
@@ -404,6 +414,50 @@ export interface Identitystore {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListGroupMembershipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupMembershipsCommandOutput}.
+   */
+  paginateListGroupMemberships(
+    args: ListGroupMembershipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupMembershipsCommandOutput>;
+
+  /**
+   * @see {@link ListGroupMembershipsForMemberCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupMembershipsForMemberCommandOutput}.
+   */
+  paginateListGroupMembershipsForMember(
+    args: ListGroupMembershipsForMemberCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupMembershipsForMemberCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsCommandOutput}.
+   */
+  paginateListGroups(
+    args: ListGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
 }
 
 /**
@@ -411,4 +465,4 @@ export interface Identitystore {
  * @public
  */
 export class Identitystore extends IdentitystoreClient implements Identitystore {}
-createAggregatedClient(commands, Identitystore);
+createAggregatedClient(commands, Identitystore, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateAccessorCommand,
@@ -94,6 +94,13 @@ import {
   VoteOnProposalCommandOutput,
 } from "./commands/VoteOnProposalCommand";
 import { ManagedBlockchainClient } from "./ManagedBlockchainClient";
+import { paginateListAccessors } from "./pagination/ListAccessorsPaginator";
+import { paginateListInvitations } from "./pagination/ListInvitationsPaginator";
+import { paginateListMembers } from "./pagination/ListMembersPaginator";
+import { paginateListNetworks } from "./pagination/ListNetworksPaginator";
+import { paginateListNodes } from "./pagination/ListNodesPaginator";
+import { paginateListProposals } from "./pagination/ListProposalsPaginator";
+import { paginateListProposalVotes } from "./pagination/ListProposalVotesPaginator";
 
 const commands = {
   CreateAccessorCommand,
@@ -123,6 +130,15 @@ const commands = {
   UpdateMemberCommand,
   UpdateNodeCommand,
   VoteOnProposalCommand,
+};
+const paginators = {
+  paginateListAccessors,
+  paginateListInvitations,
+  paginateListMembers,
+  paginateListNetworks,
+  paginateListNodes,
+  paginateListProposals,
+  paginateListProposalVotes,
 };
 
 export interface ManagedBlockchain {
@@ -587,6 +603,83 @@ export interface ManagedBlockchain {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: VoteOnProposalCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccessorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessorsCommandOutput}.
+   */
+  paginateListAccessors(
+    args?: ListAccessorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessorsCommandOutput>;
+
+  /**
+   * @see {@link ListInvitationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvitationsCommandOutput}.
+   */
+  paginateListInvitations(
+    args?: ListInvitationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvitationsCommandOutput>;
+
+  /**
+   * @see {@link ListMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMembersCommandOutput}.
+   */
+  paginateListMembers(
+    args: ListMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMembersCommandOutput>;
+
+  /**
+   * @see {@link ListNetworksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworksCommandOutput}.
+   */
+  paginateListNetworks(
+    args?: ListNetworksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworksCommandOutput>;
+
+  /**
+   * @see {@link ListNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNodesCommandOutput}.
+   */
+  paginateListNodes(
+    args: ListNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNodesCommandOutput>;
+
+  /**
+   * @see {@link ListProposalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProposalsCommandOutput}.
+   */
+  paginateListProposals(
+    args: ListProposalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProposalsCommandOutput>;
+
+  /**
+   * @see {@link ListProposalVotesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProposalVotesCommandOutput}.
+   */
+  paginateListProposalVotes(
+    args: ListProposalVotesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProposalVotesCommandOutput>;
 }
 
 /**
@@ -597,4 +690,4 @@ export interface ManagedBlockchain {
  * @public
  */
 export class ManagedBlockchain extends ManagedBlockchainClient implements ManagedBlockchain {}
-createAggregatedClient(commands, ManagedBlockchain);
+createAggregatedClient(commands, ManagedBlockchain, { paginators });

@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   CreateClusterCommand,
@@ -123,7 +129,18 @@ import {
   UpdateSafetyRuleCommandInput,
   UpdateSafetyRuleCommandOutput,
 } from "./commands/UpdateSafetyRuleCommand";
+import { paginateListAssociatedRoute53HealthChecks } from "./pagination/ListAssociatedRoute53HealthChecksPaginator";
+import { paginateListClusters } from "./pagination/ListClustersPaginator";
+import { paginateListControlPanels } from "./pagination/ListControlPanelsPaginator";
+import { paginateListRoutingControls } from "./pagination/ListRoutingControlsPaginator";
+import { paginateListSafetyRules } from "./pagination/ListSafetyRulesPaginator";
 import { Route53RecoveryControlConfigClient } from "./Route53RecoveryControlConfigClient";
+import { waitUntilClusterCreated } from "./waiters/waitForClusterCreated";
+import { waitUntilClusterDeleted } from "./waiters/waitForClusterDeleted";
+import { waitUntilControlPanelCreated } from "./waiters/waitForControlPanelCreated";
+import { waitUntilControlPanelDeleted } from "./waiters/waitForControlPanelDeleted";
+import { waitUntilRoutingControlCreated } from "./waiters/waitForRoutingControlCreated";
+import { waitUntilRoutingControlDeleted } from "./waiters/waitForRoutingControlDeleted";
 
 const commands = {
   CreateClusterCommand,
@@ -151,6 +168,21 @@ const commands = {
   UpdateControlPanelCommand,
   UpdateRoutingControlCommand,
   UpdateSafetyRuleCommand,
+};
+const paginators = {
+  paginateListAssociatedRoute53HealthChecks,
+  paginateListClusters,
+  paginateListControlPanels,
+  paginateListRoutingControls,
+  paginateListSafetyRules,
+};
+const waiters = {
+  waitUntilClusterCreated,
+  waitUntilClusterDeleted,
+  waitUntilControlPanelCreated,
+  waitUntilControlPanelDeleted,
+  waitUntilRoutingControlCreated,
+  waitUntilRoutingControlDeleted,
 };
 
 export interface Route53RecoveryControlConfig {
@@ -582,6 +614,121 @@ export interface Route53RecoveryControlConfig {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSafetyRuleCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAssociatedRoute53HealthChecksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssociatedRoute53HealthChecksCommandOutput}.
+   */
+  paginateListAssociatedRoute53HealthChecks(
+    args: ListAssociatedRoute53HealthChecksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssociatedRoute53HealthChecksCommandOutput>;
+
+  /**
+   * @see {@link ListClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClustersCommandOutput}.
+   */
+  paginateListClusters(
+    args?: ListClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClustersCommandOutput>;
+
+  /**
+   * @see {@link ListControlPanelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListControlPanelsCommandOutput}.
+   */
+  paginateListControlPanels(
+    args?: ListControlPanelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListControlPanelsCommandOutput>;
+
+  /**
+   * @see {@link ListRoutingControlsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoutingControlsCommandOutput}.
+   */
+  paginateListRoutingControls(
+    args: ListRoutingControlsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoutingControlsCommandOutput>;
+
+  /**
+   * @see {@link ListSafetyRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSafetyRulesCommandOutput}.
+   */
+  paginateListSafetyRules(
+    args: ListSafetyRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSafetyRulesCommandOutput>;
+
+  /**
+   * @see {@link DescribeClusterCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterCreated(
+    args: DescribeClusterCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeClusterCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterDeleted(
+    args: DescribeClusterCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeControlPanelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilControlPanelCreated(
+    args: DescribeControlPanelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeControlPanelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilControlPanelDeleted(
+    args: DescribeControlPanelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeRoutingControlCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilRoutingControlCreated(
+    args: DescribeRoutingControlCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeRoutingControlCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilRoutingControlDeleted(
+    args: DescribeRoutingControlCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Route53RecoveryControlConfig>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -589,4 +736,4 @@ export interface Route53RecoveryControlConfig {
  * @public
  */
 export class Route53RecoveryControlConfig extends Route53RecoveryControlConfigClient implements Route53RecoveryControlConfig {}
-createAggregatedClient(commands, Route53RecoveryControlConfig);
+createAggregatedClient(commands, Route53RecoveryControlConfig, { paginators, waiters });

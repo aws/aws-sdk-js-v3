@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { GetControlCommand, GetControlCommandInput, GetControlCommandOutput } from "./commands/GetControlCommand";
 import {
@@ -25,6 +25,11 @@ import {
   ListObjectivesCommandOutput,
 } from "./commands/ListObjectivesCommand";
 import { ControlCatalogClient } from "./ControlCatalogClient";
+import { paginateListCommonControls } from "./pagination/ListCommonControlsPaginator";
+import { paginateListControlMappings } from "./pagination/ListControlMappingsPaginator";
+import { paginateListControls } from "./pagination/ListControlsPaginator";
+import { paginateListDomains } from "./pagination/ListDomainsPaginator";
+import { paginateListObjectives } from "./pagination/ListObjectivesPaginator";
 
 const commands = {
   GetControlCommand,
@@ -33,6 +38,13 @@ const commands = {
   ListControlsCommand,
   ListDomainsCommand,
   ListObjectivesCommand,
+};
+const paginators = {
+  paginateListCommonControls,
+  paginateListControlMappings,
+  paginateListControls,
+  paginateListDomains,
+  paginateListObjectives,
 };
 
 export interface ControlCatalog {
@@ -142,6 +154,61 @@ export interface ControlCatalog {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListObjectivesCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCommonControlsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCommonControlsCommandOutput}.
+   */
+  paginateListCommonControls(
+    args?: ListCommonControlsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCommonControlsCommandOutput>;
+
+  /**
+   * @see {@link ListControlMappingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListControlMappingsCommandOutput}.
+   */
+  paginateListControlMappings(
+    args?: ListControlMappingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListControlMappingsCommandOutput>;
+
+  /**
+   * @see {@link ListControlsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListControlsCommandOutput}.
+   */
+  paginateListControls(
+    args?: ListControlsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListControlsCommandOutput>;
+
+  /**
+   * @see {@link ListDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainsCommandOutput}.
+   */
+  paginateListDomains(
+    args?: ListDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListObjectivesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListObjectivesCommandOutput}.
+   */
+  paginateListObjectives(
+    args?: ListObjectivesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListObjectivesCommandOutput>;
 }
 
 /**
@@ -149,4 +216,4 @@ export interface ControlCatalog {
  * @public
  */
 export class ControlCatalog extends ControlCatalogClient implements ControlCatalog {}
-createAggregatedClient(commands, ControlCatalog);
+createAggregatedClient(commands, ControlCatalog, { paginators });

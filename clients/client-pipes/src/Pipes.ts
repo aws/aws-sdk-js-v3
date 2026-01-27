@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CreatePipeCommand, CreatePipeCommandInput, CreatePipeCommandOutput } from "./commands/CreatePipeCommand";
 import { DeletePipeCommand, DeletePipeCommandInput, DeletePipeCommandOutput } from "./commands/DeletePipeCommand";
@@ -24,6 +24,7 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdatePipeCommand, UpdatePipeCommandInput, UpdatePipeCommandOutput } from "./commands/UpdatePipeCommand";
+import { paginateListPipes } from "./pagination/ListPipesPaginator";
 import { PipesClient } from "./PipesClient";
 
 const commands = {
@@ -37,6 +38,9 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdatePipeCommand,
+};
+const paginators = {
+  paginateListPipes,
 };
 
 export interface Pipes {
@@ -210,6 +214,17 @@ export interface Pipes {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePipeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListPipesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPipesCommandOutput}.
+   */
+  paginateListPipes(
+    args?: ListPipesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPipesCommandOutput>;
 }
 
 /**
@@ -222,4 +237,4 @@ export interface Pipes {
  * @public
  */
 export class Pipes extends PipesClient implements Pipes {}
-createAggregatedClient(commands, Pipes);
+createAggregatedClient(commands, Pipes, { paginators });

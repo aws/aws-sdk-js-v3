@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CleanRoomsClient } from "./CleanRoomsClient";
 import {
@@ -427,6 +427,34 @@ import {
   UpdateProtectedQueryCommandInput,
   UpdateProtectedQueryCommandOutput,
 } from "./commands/UpdateProtectedQueryCommand";
+import { paginateListAnalysisTemplates } from "./pagination/ListAnalysisTemplatesPaginator";
+import { paginateListCollaborationAnalysisTemplates } from "./pagination/ListCollaborationAnalysisTemplatesPaginator";
+import { paginateListCollaborationChangeRequests } from "./pagination/ListCollaborationChangeRequestsPaginator";
+import {
+  paginateListCollaborationConfiguredAudienceModelAssociations,
+} from "./pagination/ListCollaborationConfiguredAudienceModelAssociationsPaginator";
+import {
+  paginateListCollaborationIdNamespaceAssociations,
+} from "./pagination/ListCollaborationIdNamespaceAssociationsPaginator";
+import { paginateListCollaborationPrivacyBudgets } from "./pagination/ListCollaborationPrivacyBudgetsPaginator";
+import {
+  paginateListCollaborationPrivacyBudgetTemplates,
+} from "./pagination/ListCollaborationPrivacyBudgetTemplatesPaginator";
+import { paginateListCollaborations } from "./pagination/ListCollaborationsPaginator";
+import {
+  paginateListConfiguredAudienceModelAssociations,
+} from "./pagination/ListConfiguredAudienceModelAssociationsPaginator";
+import { paginateListConfiguredTableAssociations } from "./pagination/ListConfiguredTableAssociationsPaginator";
+import { paginateListConfiguredTables } from "./pagination/ListConfiguredTablesPaginator";
+import { paginateListIdMappingTables } from "./pagination/ListIdMappingTablesPaginator";
+import { paginateListIdNamespaceAssociations } from "./pagination/ListIdNamespaceAssociationsPaginator";
+import { paginateListMemberships } from "./pagination/ListMembershipsPaginator";
+import { paginateListMembers } from "./pagination/ListMembersPaginator";
+import { paginateListPrivacyBudgets } from "./pagination/ListPrivacyBudgetsPaginator";
+import { paginateListPrivacyBudgetTemplates } from "./pagination/ListPrivacyBudgetTemplatesPaginator";
+import { paginateListProtectedJobs } from "./pagination/ListProtectedJobsPaginator";
+import { paginateListProtectedQueries } from "./pagination/ListProtectedQueriesPaginator";
+import { paginateListSchemas } from "./pagination/ListSchemasPaginator";
 
 const commands = {
   BatchGetCollaborationAnalysisTemplateCommand,
@@ -517,6 +545,28 @@ const commands = {
   UpdatePrivacyBudgetTemplateCommand,
   UpdateProtectedJobCommand,
   UpdateProtectedQueryCommand,
+};
+const paginators = {
+  paginateListAnalysisTemplates,
+  paginateListCollaborationAnalysisTemplates,
+  paginateListCollaborationChangeRequests,
+  paginateListCollaborationConfiguredAudienceModelAssociations,
+  paginateListCollaborationIdNamespaceAssociations,
+  paginateListCollaborationPrivacyBudgets,
+  paginateListCollaborationPrivacyBudgetTemplates,
+  paginateListCollaborations,
+  paginateListConfiguredAudienceModelAssociations,
+  paginateListConfiguredTableAssociations,
+  paginateListConfiguredTables,
+  paginateListIdMappingTables,
+  paginateListIdNamespaceAssociations,
+  paginateListMembers,
+  paginateListMemberships,
+  paginateListPrivacyBudgets,
+  paginateListPrivacyBudgetTemplates,
+  paginateListProtectedJobs,
+  paginateListProtectedQueries,
+  paginateListSchemas,
 };
 
 export interface CleanRooms {
@@ -2018,6 +2068,226 @@ export interface CleanRooms {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProtectedQueryCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAnalysisTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnalysisTemplatesCommandOutput}.
+   */
+  paginateListAnalysisTemplates(
+    args: ListAnalysisTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnalysisTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationAnalysisTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationAnalysisTemplatesCommandOutput}.
+   */
+  paginateListCollaborationAnalysisTemplates(
+    args: ListCollaborationAnalysisTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationAnalysisTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationChangeRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationChangeRequestsCommandOutput}.
+   */
+  paginateListCollaborationChangeRequests(
+    args: ListCollaborationChangeRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationChangeRequestsCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationConfiguredAudienceModelAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationConfiguredAudienceModelAssociationsCommandOutput}.
+   */
+  paginateListCollaborationConfiguredAudienceModelAssociations(
+    args: ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationConfiguredAudienceModelAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationIdNamespaceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationIdNamespaceAssociationsCommandOutput}.
+   */
+  paginateListCollaborationIdNamespaceAssociations(
+    args: ListCollaborationIdNamespaceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationIdNamespaceAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationPrivacyBudgetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationPrivacyBudgetsCommandOutput}.
+   */
+  paginateListCollaborationPrivacyBudgets(
+    args: ListCollaborationPrivacyBudgetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationPrivacyBudgetsCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationPrivacyBudgetTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationPrivacyBudgetTemplatesCommandOutput}.
+   */
+  paginateListCollaborationPrivacyBudgetTemplates(
+    args: ListCollaborationPrivacyBudgetTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationPrivacyBudgetTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListCollaborationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollaborationsCommandOutput}.
+   */
+  paginateListCollaborations(
+    args?: ListCollaborationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollaborationsCommandOutput>;
+
+  /**
+   * @see {@link ListConfiguredAudienceModelAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfiguredAudienceModelAssociationsCommandOutput}.
+   */
+  paginateListConfiguredAudienceModelAssociations(
+    args: ListConfiguredAudienceModelAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfiguredAudienceModelAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListConfiguredTableAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfiguredTableAssociationsCommandOutput}.
+   */
+  paginateListConfiguredTableAssociations(
+    args: ListConfiguredTableAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfiguredTableAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListConfiguredTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfiguredTablesCommandOutput}.
+   */
+  paginateListConfiguredTables(
+    args?: ListConfiguredTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfiguredTablesCommandOutput>;
+
+  /**
+   * @see {@link ListIdMappingTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdMappingTablesCommandOutput}.
+   */
+  paginateListIdMappingTables(
+    args: ListIdMappingTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdMappingTablesCommandOutput>;
+
+  /**
+   * @see {@link ListIdNamespaceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdNamespaceAssociationsCommandOutput}.
+   */
+  paginateListIdNamespaceAssociations(
+    args: ListIdNamespaceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdNamespaceAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMembersCommandOutput}.
+   */
+  paginateListMembers(
+    args: ListMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMembersCommandOutput>;
+
+  /**
+   * @see {@link ListMembershipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMembershipsCommandOutput}.
+   */
+  paginateListMemberships(
+    args?: ListMembershipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMembershipsCommandOutput>;
+
+  /**
+   * @see {@link ListPrivacyBudgetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPrivacyBudgetsCommandOutput}.
+   */
+  paginateListPrivacyBudgets(
+    args: ListPrivacyBudgetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPrivacyBudgetsCommandOutput>;
+
+  /**
+   * @see {@link ListPrivacyBudgetTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPrivacyBudgetTemplatesCommandOutput}.
+   */
+  paginateListPrivacyBudgetTemplates(
+    args: ListPrivacyBudgetTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPrivacyBudgetTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListProtectedJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProtectedJobsCommandOutput}.
+   */
+  paginateListProtectedJobs(
+    args: ListProtectedJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProtectedJobsCommandOutput>;
+
+  /**
+   * @see {@link ListProtectedQueriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProtectedQueriesCommandOutput}.
+   */
+  paginateListProtectedQueries(
+    args: ListProtectedQueriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProtectedQueriesCommandOutput>;
+
+  /**
+   * @see {@link ListSchemasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchemasCommandOutput}.
+   */
+  paginateListSchemas(
+    args: ListSchemasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchemasCommandOutput>;
 }
 
 /**
@@ -2025,4 +2295,4 @@ export interface CleanRooms {
  * @public
  */
 export class CleanRooms extends CleanRoomsClient implements CleanRooms {}
-createAggregatedClient(commands, CleanRooms);
+createAggregatedClient(commands, CleanRooms, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AcceptPageCommand, AcceptPageCommandInput, AcceptPageCommandOutput } from "./commands/AcceptPageCommand";
 import {
@@ -181,6 +181,17 @@ import {
   UpdateRotationCommandInput,
   UpdateRotationCommandOutput,
 } from "./commands/UpdateRotationCommand";
+import { paginateListContactChannels } from "./pagination/ListContactChannelsPaginator";
+import { paginateListContacts } from "./pagination/ListContactsPaginator";
+import { paginateListEngagements } from "./pagination/ListEngagementsPaginator";
+import { paginateListPageReceipts } from "./pagination/ListPageReceiptsPaginator";
+import { paginateListPageResolutions } from "./pagination/ListPageResolutionsPaginator";
+import { paginateListPagesByContact } from "./pagination/ListPagesByContactPaginator";
+import { paginateListPagesByEngagement } from "./pagination/ListPagesByEngagementPaginator";
+import { paginateListPreviewRotationShifts } from "./pagination/ListPreviewRotationShiftsPaginator";
+import { paginateListRotationOverrides } from "./pagination/ListRotationOverridesPaginator";
+import { paginateListRotationShifts } from "./pagination/ListRotationShiftsPaginator";
+import { paginateListRotations } from "./pagination/ListRotationsPaginator";
 import { SSMContactsClient } from "./SSMContactsClient";
 
 const commands = {
@@ -223,6 +234,19 @@ const commands = {
   UpdateContactCommand,
   UpdateContactChannelCommand,
   UpdateRotationCommand,
+};
+const paginators = {
+  paginateListContactChannels,
+  paginateListContacts,
+  paginateListEngagements,
+  paginateListPageReceipts,
+  paginateListPageResolutions,
+  paginateListPagesByContact,
+  paginateListPagesByEngagement,
+  paginateListPreviewRotationShifts,
+  paginateListRotationOverrides,
+  paginateListRotations,
+  paginateListRotationShifts,
 };
 
 export interface SSMContacts {
@@ -891,6 +915,127 @@ export interface SSMContacts {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRotationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListContactChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactChannelsCommandOutput}.
+   */
+  paginateListContactChannels(
+    args: ListContactChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListContactsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactsCommandOutput}.
+   */
+  paginateListContacts(
+    args?: ListContactsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactsCommandOutput>;
+
+  /**
+   * @see {@link ListEngagementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEngagementsCommandOutput}.
+   */
+  paginateListEngagements(
+    args?: ListEngagementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEngagementsCommandOutput>;
+
+  /**
+   * @see {@link ListPageReceiptsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPageReceiptsCommandOutput}.
+   */
+  paginateListPageReceipts(
+    args: ListPageReceiptsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPageReceiptsCommandOutput>;
+
+  /**
+   * @see {@link ListPageResolutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPageResolutionsCommandOutput}.
+   */
+  paginateListPageResolutions(
+    args: ListPageResolutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPageResolutionsCommandOutput>;
+
+  /**
+   * @see {@link ListPagesByContactCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPagesByContactCommandOutput}.
+   */
+  paginateListPagesByContact(
+    args: ListPagesByContactCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPagesByContactCommandOutput>;
+
+  /**
+   * @see {@link ListPagesByEngagementCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPagesByEngagementCommandOutput}.
+   */
+  paginateListPagesByEngagement(
+    args: ListPagesByEngagementCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPagesByEngagementCommandOutput>;
+
+  /**
+   * @see {@link ListPreviewRotationShiftsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPreviewRotationShiftsCommandOutput}.
+   */
+  paginateListPreviewRotationShifts(
+    args: ListPreviewRotationShiftsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPreviewRotationShiftsCommandOutput>;
+
+  /**
+   * @see {@link ListRotationOverridesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRotationOverridesCommandOutput}.
+   */
+  paginateListRotationOverrides(
+    args: ListRotationOverridesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRotationOverridesCommandOutput>;
+
+  /**
+   * @see {@link ListRotationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRotationsCommandOutput}.
+   */
+  paginateListRotations(
+    args?: ListRotationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRotationsCommandOutput>;
+
+  /**
+   * @see {@link ListRotationShiftsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRotationShiftsCommandOutput}.
+   */
+  paginateListRotationShifts(
+    args: ListRotationShiftsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRotationShiftsCommandOutput>;
 }
 
 /**
@@ -905,4 +1050,4 @@ export interface SSMContacts {
  * @public
  */
 export class SSMContacts extends SSMContactsClient implements SSMContacts {}
-createAggregatedClient(commands, SSMContacts);
+createAggregatedClient(commands, SSMContacts, { paginators });

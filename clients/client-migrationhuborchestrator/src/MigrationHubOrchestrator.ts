@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateTemplateCommand,
@@ -142,6 +142,13 @@ import {
   UpdateWorkflowStepGroupCommandOutput,
 } from "./commands/UpdateWorkflowStepGroupCommand";
 import { MigrationHubOrchestratorClient } from "./MigrationHubOrchestratorClient";
+import { paginateListPlugins } from "./pagination/ListPluginsPaginator";
+import { paginateListTemplates } from "./pagination/ListTemplatesPaginator";
+import { paginateListTemplateStepGroups } from "./pagination/ListTemplateStepGroupsPaginator";
+import { paginateListTemplateSteps } from "./pagination/ListTemplateStepsPaginator";
+import { paginateListWorkflows } from "./pagination/ListWorkflowsPaginator";
+import { paginateListWorkflowStepGroups } from "./pagination/ListWorkflowStepGroupsPaginator";
+import { paginateListWorkflowSteps } from "./pagination/ListWorkflowStepsPaginator";
 
 const commands = {
   CreateTemplateCommand,
@@ -175,6 +182,15 @@ const commands = {
   UpdateWorkflowCommand,
   UpdateWorkflowStepCommand,
   UpdateWorkflowStepGroupCommand,
+};
+const paginators = {
+  paginateListPlugins,
+  paginateListTemplates,
+  paginateListTemplateStepGroups,
+  paginateListTemplateSteps,
+  paginateListWorkflows,
+  paginateListWorkflowStepGroups,
+  paginateListWorkflowSteps,
 };
 
 export interface MigrationHubOrchestrator {
@@ -707,6 +723,83 @@ export interface MigrationHubOrchestrator {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkflowStepGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListPluginsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPluginsCommandOutput}.
+   */
+  paginateListPlugins(
+    args?: ListPluginsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPluginsCommandOutput>;
+
+  /**
+   * @see {@link ListTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTemplatesCommandOutput}.
+   */
+  paginateListTemplates(
+    args?: ListTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListTemplateStepGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTemplateStepGroupsCommandOutput}.
+   */
+  paginateListTemplateStepGroups(
+    args: ListTemplateStepGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTemplateStepGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListTemplateStepsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTemplateStepsCommandOutput}.
+   */
+  paginateListTemplateSteps(
+    args: ListTemplateStepsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTemplateStepsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowsCommandOutput}.
+   */
+  paginateListWorkflows(
+    args?: ListWorkflowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowStepGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowStepGroupsCommandOutput}.
+   */
+  paginateListWorkflowStepGroups(
+    args: ListWorkflowStepGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowStepGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowStepsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowStepsCommandOutput}.
+   */
+  paginateListWorkflowSteps(
+    args: ListWorkflowStepsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowStepsCommandOutput>;
 }
 
 /**
@@ -718,4 +811,4 @@ export interface MigrationHubOrchestrator {
  * @public
  */
 export class MigrationHubOrchestrator extends MigrationHubOrchestratorClient implements MigrationHubOrchestrator {}
-createAggregatedClient(commands, MigrationHubOrchestrator);
+createAggregatedClient(commands, MigrationHubOrchestrator, { paginators });

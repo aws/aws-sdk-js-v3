@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptAttachmentCommand,
@@ -438,6 +438,36 @@ import {
   UpdateVpcAttachmentCommandOutput,
 } from "./commands/UpdateVpcAttachmentCommand";
 import { NetworkManagerClient } from "./NetworkManagerClient";
+import { paginateDescribeGlobalNetworks } from "./pagination/DescribeGlobalNetworksPaginator";
+import { paginateGetConnections } from "./pagination/GetConnectionsPaginator";
+import { paginateGetConnectPeerAssociations } from "./pagination/GetConnectPeerAssociationsPaginator";
+import { paginateGetCoreNetworkChangeEvents } from "./pagination/GetCoreNetworkChangeEventsPaginator";
+import { paginateGetCoreNetworkChangeSet } from "./pagination/GetCoreNetworkChangeSetPaginator";
+import { paginateGetCustomerGatewayAssociations } from "./pagination/GetCustomerGatewayAssociationsPaginator";
+import { paginateGetDevices } from "./pagination/GetDevicesPaginator";
+import { paginateGetLinkAssociations } from "./pagination/GetLinkAssociationsPaginator";
+import { paginateGetLinks } from "./pagination/GetLinksPaginator";
+import { paginateGetNetworkResourceCounts } from "./pagination/GetNetworkResourceCountsPaginator";
+import { paginateGetNetworkResourceRelationships } from "./pagination/GetNetworkResourceRelationshipsPaginator";
+import { paginateGetNetworkResources } from "./pagination/GetNetworkResourcesPaginator";
+import { paginateGetNetworkTelemetry } from "./pagination/GetNetworkTelemetryPaginator";
+import { paginateGetSites } from "./pagination/GetSitesPaginator";
+import {
+  paginateGetTransitGatewayConnectPeerAssociations,
+} from "./pagination/GetTransitGatewayConnectPeerAssociationsPaginator";
+import { paginateGetTransitGatewayRegistrations } from "./pagination/GetTransitGatewayRegistrationsPaginator";
+import {
+  paginateListAttachmentRoutingPolicyAssociations,
+} from "./pagination/ListAttachmentRoutingPolicyAssociationsPaginator";
+import { paginateListAttachments } from "./pagination/ListAttachmentsPaginator";
+import { paginateListConnectPeers } from "./pagination/ListConnectPeersPaginator";
+import { paginateListCoreNetworkPolicyVersions } from "./pagination/ListCoreNetworkPolicyVersionsPaginator";
+import {
+  paginateListCoreNetworkPrefixListAssociations,
+} from "./pagination/ListCoreNetworkPrefixListAssociationsPaginator";
+import { paginateListCoreNetworkRoutingInformation } from "./pagination/ListCoreNetworkRoutingInformationPaginator";
+import { paginateListCoreNetworks } from "./pagination/ListCoreNetworksPaginator";
+import { paginateListPeerings } from "./pagination/ListPeeringsPaginator";
 
 const commands = {
   AcceptAttachmentCommand,
@@ -535,6 +565,32 @@ const commands = {
   UpdateNetworkResourceMetadataCommand,
   UpdateSiteCommand,
   UpdateVpcAttachmentCommand,
+};
+const paginators = {
+  paginateDescribeGlobalNetworks,
+  paginateGetConnections,
+  paginateGetConnectPeerAssociations,
+  paginateGetCoreNetworkChangeEvents,
+  paginateGetCoreNetworkChangeSet,
+  paginateGetCustomerGatewayAssociations,
+  paginateGetDevices,
+  paginateGetLinkAssociations,
+  paginateGetLinks,
+  paginateGetNetworkResourceCounts,
+  paginateGetNetworkResourceRelationships,
+  paginateGetNetworkResources,
+  paginateGetNetworkTelemetry,
+  paginateGetSites,
+  paginateGetTransitGatewayConnectPeerAssociations,
+  paginateGetTransitGatewayRegistrations,
+  paginateListAttachmentRoutingPolicyAssociations,
+  paginateListAttachments,
+  paginateListConnectPeers,
+  paginateListCoreNetworkPolicyVersions,
+  paginateListCoreNetworkPrefixListAssociations,
+  paginateListCoreNetworkRoutingInformation,
+  paginateListCoreNetworks,
+  paginateListPeerings,
 };
 
 export interface NetworkManager {
@@ -2159,6 +2215,270 @@ export interface NetworkManager {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVpcAttachmentCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeGlobalNetworksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeGlobalNetworksCommandOutput}.
+   */
+  paginateDescribeGlobalNetworks(
+    args?: DescribeGlobalNetworksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeGlobalNetworksCommandOutput>;
+
+  /**
+   * @see {@link GetConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetConnectionsCommandOutput}.
+   */
+  paginateGetConnections(
+    args: GetConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetConnectionsCommandOutput>;
+
+  /**
+   * @see {@link GetConnectPeerAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetConnectPeerAssociationsCommandOutput}.
+   */
+  paginateGetConnectPeerAssociations(
+    args: GetConnectPeerAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetConnectPeerAssociationsCommandOutput>;
+
+  /**
+   * @see {@link GetCoreNetworkChangeEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCoreNetworkChangeEventsCommandOutput}.
+   */
+  paginateGetCoreNetworkChangeEvents(
+    args: GetCoreNetworkChangeEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCoreNetworkChangeEventsCommandOutput>;
+
+  /**
+   * @see {@link GetCoreNetworkChangeSetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCoreNetworkChangeSetCommandOutput}.
+   */
+  paginateGetCoreNetworkChangeSet(
+    args: GetCoreNetworkChangeSetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCoreNetworkChangeSetCommandOutput>;
+
+  /**
+   * @see {@link GetCustomerGatewayAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCustomerGatewayAssociationsCommandOutput}.
+   */
+  paginateGetCustomerGatewayAssociations(
+    args: GetCustomerGatewayAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCustomerGatewayAssociationsCommandOutput>;
+
+  /**
+   * @see {@link GetDevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDevicesCommandOutput}.
+   */
+  paginateGetDevices(
+    args: GetDevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDevicesCommandOutput>;
+
+  /**
+   * @see {@link GetLinkAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetLinkAssociationsCommandOutput}.
+   */
+  paginateGetLinkAssociations(
+    args: GetLinkAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetLinkAssociationsCommandOutput>;
+
+  /**
+   * @see {@link GetLinksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetLinksCommandOutput}.
+   */
+  paginateGetLinks(
+    args: GetLinksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetLinksCommandOutput>;
+
+  /**
+   * @see {@link GetNetworkResourceCountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetNetworkResourceCountsCommandOutput}.
+   */
+  paginateGetNetworkResourceCounts(
+    args: GetNetworkResourceCountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetNetworkResourceCountsCommandOutput>;
+
+  /**
+   * @see {@link GetNetworkResourceRelationshipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetNetworkResourceRelationshipsCommandOutput}.
+   */
+  paginateGetNetworkResourceRelationships(
+    args: GetNetworkResourceRelationshipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetNetworkResourceRelationshipsCommandOutput>;
+
+  /**
+   * @see {@link GetNetworkResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetNetworkResourcesCommandOutput}.
+   */
+  paginateGetNetworkResources(
+    args: GetNetworkResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetNetworkResourcesCommandOutput>;
+
+  /**
+   * @see {@link GetNetworkTelemetryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetNetworkTelemetryCommandOutput}.
+   */
+  paginateGetNetworkTelemetry(
+    args: GetNetworkTelemetryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetNetworkTelemetryCommandOutput>;
+
+  /**
+   * @see {@link GetSitesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSitesCommandOutput}.
+   */
+  paginateGetSites(
+    args: GetSitesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSitesCommandOutput>;
+
+  /**
+   * @see {@link GetTransitGatewayConnectPeerAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTransitGatewayConnectPeerAssociationsCommandOutput}.
+   */
+  paginateGetTransitGatewayConnectPeerAssociations(
+    args: GetTransitGatewayConnectPeerAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTransitGatewayConnectPeerAssociationsCommandOutput>;
+
+  /**
+   * @see {@link GetTransitGatewayRegistrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTransitGatewayRegistrationsCommandOutput}.
+   */
+  paginateGetTransitGatewayRegistrations(
+    args: GetTransitGatewayRegistrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTransitGatewayRegistrationsCommandOutput>;
+
+  /**
+   * @see {@link ListAttachmentRoutingPolicyAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttachmentRoutingPolicyAssociationsCommandOutput}.
+   */
+  paginateListAttachmentRoutingPolicyAssociations(
+    args: ListAttachmentRoutingPolicyAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttachmentRoutingPolicyAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListAttachmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttachmentsCommandOutput}.
+   */
+  paginateListAttachments(
+    args?: ListAttachmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttachmentsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectPeersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectPeersCommandOutput}.
+   */
+  paginateListConnectPeers(
+    args?: ListConnectPeersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectPeersCommandOutput>;
+
+  /**
+   * @see {@link ListCoreNetworkPolicyVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCoreNetworkPolicyVersionsCommandOutput}.
+   */
+  paginateListCoreNetworkPolicyVersions(
+    args: ListCoreNetworkPolicyVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCoreNetworkPolicyVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListCoreNetworkPrefixListAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCoreNetworkPrefixListAssociationsCommandOutput}.
+   */
+  paginateListCoreNetworkPrefixListAssociations(
+    args: ListCoreNetworkPrefixListAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCoreNetworkPrefixListAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListCoreNetworkRoutingInformationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCoreNetworkRoutingInformationCommandOutput}.
+   */
+  paginateListCoreNetworkRoutingInformation(
+    args: ListCoreNetworkRoutingInformationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCoreNetworkRoutingInformationCommandOutput>;
+
+  /**
+   * @see {@link ListCoreNetworksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCoreNetworksCommandOutput}.
+   */
+  paginateListCoreNetworks(
+    args?: ListCoreNetworksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCoreNetworksCommandOutput>;
+
+  /**
+   * @see {@link ListPeeringsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPeeringsCommandOutput}.
+   */
+  paginateListPeerings(
+    args?: ListPeeringsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPeeringsCommandOutput>;
 }
 
 /**
@@ -2166,4 +2486,4 @@ export interface NetworkManager {
  * @public
  */
 export class NetworkManager extends NetworkManagerClient implements NetworkManager {}
-createAggregatedClient(commands, NetworkManager);
+createAggregatedClient(commands, NetworkManager, { paginators });

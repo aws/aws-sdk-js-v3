@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateBotVersionCommand,
@@ -153,6 +153,17 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { LexModelBuildingServiceClient } from "./LexModelBuildingServiceClient";
+import { paginateGetBotAliases } from "./pagination/GetBotAliasesPaginator";
+import { paginateGetBotChannelAssociations } from "./pagination/GetBotChannelAssociationsPaginator";
+import { paginateGetBots } from "./pagination/GetBotsPaginator";
+import { paginateGetBotVersions } from "./pagination/GetBotVersionsPaginator";
+import { paginateGetBuiltinIntents } from "./pagination/GetBuiltinIntentsPaginator";
+import { paginateGetBuiltinSlotTypes } from "./pagination/GetBuiltinSlotTypesPaginator";
+import { paginateGetIntents } from "./pagination/GetIntentsPaginator";
+import { paginateGetIntentVersions } from "./pagination/GetIntentVersionsPaginator";
+import { paginateGetMigrations } from "./pagination/GetMigrationsPaginator";
+import { paginateGetSlotTypes } from "./pagination/GetSlotTypesPaginator";
+import { paginateGetSlotTypeVersions } from "./pagination/GetSlotTypeVersionsPaginator";
 
 const commands = {
   CreateBotVersionCommand,
@@ -197,6 +208,19 @@ const commands = {
   StartMigrationCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateGetBotAliases,
+  paginateGetBotChannelAssociations,
+  paginateGetBots,
+  paginateGetBotVersions,
+  paginateGetBuiltinIntents,
+  paginateGetBuiltinSlotTypes,
+  paginateGetIntents,
+  paginateGetIntentVersions,
+  paginateGetMigrations,
+  paginateGetSlotTypes,
+  paginateGetSlotTypeVersions,
 };
 
 export interface LexModelBuildingService {
@@ -919,6 +943,127 @@ export interface LexModelBuildingService {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetBotAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBotAliasesCommandOutput}.
+   */
+  paginateGetBotAliases(
+    args: GetBotAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBotAliasesCommandOutput>;
+
+  /**
+   * @see {@link GetBotChannelAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBotChannelAssociationsCommandOutput}.
+   */
+  paginateGetBotChannelAssociations(
+    args: GetBotChannelAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBotChannelAssociationsCommandOutput>;
+
+  /**
+   * @see {@link GetBotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBotsCommandOutput}.
+   */
+  paginateGetBots(
+    args?: GetBotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBotsCommandOutput>;
+
+  /**
+   * @see {@link GetBotVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBotVersionsCommandOutput}.
+   */
+  paginateGetBotVersions(
+    args: GetBotVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBotVersionsCommandOutput>;
+
+  /**
+   * @see {@link GetBuiltinIntentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBuiltinIntentsCommandOutput}.
+   */
+  paginateGetBuiltinIntents(
+    args?: GetBuiltinIntentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBuiltinIntentsCommandOutput>;
+
+  /**
+   * @see {@link GetBuiltinSlotTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBuiltinSlotTypesCommandOutput}.
+   */
+  paginateGetBuiltinSlotTypes(
+    args?: GetBuiltinSlotTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBuiltinSlotTypesCommandOutput>;
+
+  /**
+   * @see {@link GetIntentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetIntentsCommandOutput}.
+   */
+  paginateGetIntents(
+    args?: GetIntentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetIntentsCommandOutput>;
+
+  /**
+   * @see {@link GetIntentVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetIntentVersionsCommandOutput}.
+   */
+  paginateGetIntentVersions(
+    args: GetIntentVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetIntentVersionsCommandOutput>;
+
+  /**
+   * @see {@link GetMigrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetMigrationsCommandOutput}.
+   */
+  paginateGetMigrations(
+    args?: GetMigrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetMigrationsCommandOutput>;
+
+  /**
+   * @see {@link GetSlotTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSlotTypesCommandOutput}.
+   */
+  paginateGetSlotTypes(
+    args?: GetSlotTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSlotTypesCommandOutput>;
+
+  /**
+   * @see {@link GetSlotTypeVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSlotTypeVersionsCommandOutput}.
+   */
+  paginateGetSlotTypeVersions(
+    args: GetSlotTypeVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSlotTypeVersionsCommandOutput>;
 }
 
 /**
@@ -929,4 +1074,4 @@ export interface LexModelBuildingService {
  * @public
  */
 export class LexModelBuildingService extends LexModelBuildingServiceClient implements LexModelBuildingService {}
-createAggregatedClient(commands, LexModelBuildingService);
+createAggregatedClient(commands, LexModelBuildingService, { paginators });

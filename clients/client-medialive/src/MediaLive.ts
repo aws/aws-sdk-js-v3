@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AcceptInputDeviceTransferCommand,
@@ -554,6 +560,51 @@ import {
   UpdateSdiSourceCommandOutput,
 } from "./commands/UpdateSdiSourceCommand";
 import { MediaLiveClient } from "./MediaLiveClient";
+import { paginateDescribeSchedule } from "./pagination/DescribeSchedulePaginator";
+import { paginateListAlerts } from "./pagination/ListAlertsPaginator";
+import { paginateListChannelPlacementGroups } from "./pagination/ListChannelPlacementGroupsPaginator";
+import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListCloudWatchAlarmTemplateGroups } from "./pagination/ListCloudWatchAlarmTemplateGroupsPaginator";
+import { paginateListCloudWatchAlarmTemplates } from "./pagination/ListCloudWatchAlarmTemplatesPaginator";
+import { paginateListClusterAlerts } from "./pagination/ListClusterAlertsPaginator";
+import { paginateListClusters } from "./pagination/ListClustersPaginator";
+import { paginateListEventBridgeRuleTemplateGroups } from "./pagination/ListEventBridgeRuleTemplateGroupsPaginator";
+import { paginateListEventBridgeRuleTemplates } from "./pagination/ListEventBridgeRuleTemplatesPaginator";
+import { paginateListInputDevices } from "./pagination/ListInputDevicesPaginator";
+import { paginateListInputDeviceTransfers } from "./pagination/ListInputDeviceTransfersPaginator";
+import { paginateListInputSecurityGroups } from "./pagination/ListInputSecurityGroupsPaginator";
+import { paginateListInputs } from "./pagination/ListInputsPaginator";
+import { paginateListMultiplexAlerts } from "./pagination/ListMultiplexAlertsPaginator";
+import { paginateListMultiplexes } from "./pagination/ListMultiplexesPaginator";
+import { paginateListMultiplexPrograms } from "./pagination/ListMultiplexProgramsPaginator";
+import { paginateListNetworks } from "./pagination/ListNetworksPaginator";
+import { paginateListNodes } from "./pagination/ListNodesPaginator";
+import { paginateListOfferings } from "./pagination/ListOfferingsPaginator";
+import { paginateListReservations } from "./pagination/ListReservationsPaginator";
+import { paginateListSdiSources } from "./pagination/ListSdiSourcesPaginator";
+import { paginateListSignalMaps } from "./pagination/ListSignalMapsPaginator";
+import { waitUntilChannelCreated } from "./waiters/waitForChannelCreated";
+import { waitUntilChannelDeleted } from "./waiters/waitForChannelDeleted";
+import { waitUntilChannelPlacementGroupAssigned } from "./waiters/waitForChannelPlacementGroupAssigned";
+import { waitUntilChannelPlacementGroupDeleted } from "./waiters/waitForChannelPlacementGroupDeleted";
+import { waitUntilChannelPlacementGroupUnassigned } from "./waiters/waitForChannelPlacementGroupUnassigned";
+import { waitUntilChannelRunning } from "./waiters/waitForChannelRunning";
+import { waitUntilChannelStopped } from "./waiters/waitForChannelStopped";
+import { waitUntilClusterCreated } from "./waiters/waitForClusterCreated";
+import { waitUntilClusterDeleted } from "./waiters/waitForClusterDeleted";
+import { waitUntilInputAttached } from "./waiters/waitForInputAttached";
+import { waitUntilInputDeleted } from "./waiters/waitForInputDeleted";
+import { waitUntilInputDetached } from "./waiters/waitForInputDetached";
+import { waitUntilMultiplexCreated } from "./waiters/waitForMultiplexCreated";
+import { waitUntilMultiplexDeleted } from "./waiters/waitForMultiplexDeleted";
+import { waitUntilMultiplexRunning } from "./waiters/waitForMultiplexRunning";
+import { waitUntilMultiplexStopped } from "./waiters/waitForMultiplexStopped";
+import { waitUntilNodeDeregistered } from "./waiters/waitForNodeDeregistered";
+import { waitUntilNodeRegistered } from "./waiters/waitForNodeRegistered";
+import { waitUntilSignalMapCreated } from "./waiters/waitForSignalMapCreated";
+import { waitUntilSignalMapMonitorDeleted } from "./waiters/waitForSignalMapMonitorDeleted";
+import { waitUntilSignalMapMonitorDeployed } from "./waiters/waitForSignalMapMonitorDeployed";
+import { waitUntilSignalMapUpdated } from "./waiters/waitForSignalMapUpdated";
 
 const commands = {
   AcceptInputDeviceTransferCommand,
@@ -679,6 +730,55 @@ const commands = {
   UpdateNodeStateCommand,
   UpdateReservationCommand,
   UpdateSdiSourceCommand,
+};
+const paginators = {
+  paginateDescribeSchedule,
+  paginateListAlerts,
+  paginateListChannelPlacementGroups,
+  paginateListChannels,
+  paginateListCloudWatchAlarmTemplateGroups,
+  paginateListCloudWatchAlarmTemplates,
+  paginateListClusterAlerts,
+  paginateListClusters,
+  paginateListEventBridgeRuleTemplateGroups,
+  paginateListEventBridgeRuleTemplates,
+  paginateListInputDevices,
+  paginateListInputDeviceTransfers,
+  paginateListInputs,
+  paginateListInputSecurityGroups,
+  paginateListMultiplexAlerts,
+  paginateListMultiplexes,
+  paginateListMultiplexPrograms,
+  paginateListNetworks,
+  paginateListNodes,
+  paginateListOfferings,
+  paginateListReservations,
+  paginateListSdiSources,
+  paginateListSignalMaps,
+};
+const waiters = {
+  waitUntilChannelCreated,
+  waitUntilChannelDeleted,
+  waitUntilChannelRunning,
+  waitUntilChannelStopped,
+  waitUntilChannelPlacementGroupAssigned,
+  waitUntilChannelPlacementGroupDeleted,
+  waitUntilChannelPlacementGroupUnassigned,
+  waitUntilClusterCreated,
+  waitUntilClusterDeleted,
+  waitUntilInputAttached,
+  waitUntilInputDeleted,
+  waitUntilInputDetached,
+  waitUntilMultiplexCreated,
+  waitUntilMultiplexDeleted,
+  waitUntilMultiplexRunning,
+  waitUntilMultiplexStopped,
+  waitUntilNodeDeregistered,
+  waitUntilNodeRegistered,
+  waitUntilSignalMapCreated,
+  waitUntilSignalMapMonitorDeleted,
+  waitUntilSignalMapMonitorDeployed,
+  waitUntilSignalMapUpdated,
 };
 
 export interface MediaLive {
@@ -2800,6 +2900,479 @@ export interface MediaLive {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSdiSourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeScheduleCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeScheduleCommandOutput}.
+   */
+  paginateDescribeSchedule(
+    args: DescribeScheduleCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeScheduleCommandOutput>;
+
+  /**
+   * @see {@link ListAlertsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAlertsCommandOutput}.
+   */
+  paginateListAlerts(
+    args: ListAlertsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAlertsCommandOutput>;
+
+  /**
+   * @see {@link ListChannelPlacementGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelPlacementGroupsCommandOutput}.
+   */
+  paginateListChannelPlacementGroups(
+    args: ListChannelPlacementGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelPlacementGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsCommandOutput}.
+   */
+  paginateListChannels(
+    args?: ListChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListCloudWatchAlarmTemplateGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCloudWatchAlarmTemplateGroupsCommandOutput}.
+   */
+  paginateListCloudWatchAlarmTemplateGroups(
+    args?: ListCloudWatchAlarmTemplateGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCloudWatchAlarmTemplateGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListCloudWatchAlarmTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCloudWatchAlarmTemplatesCommandOutput}.
+   */
+  paginateListCloudWatchAlarmTemplates(
+    args?: ListCloudWatchAlarmTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCloudWatchAlarmTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListClusterAlertsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClusterAlertsCommandOutput}.
+   */
+  paginateListClusterAlerts(
+    args: ListClusterAlertsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClusterAlertsCommandOutput>;
+
+  /**
+   * @see {@link ListClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClustersCommandOutput}.
+   */
+  paginateListClusters(
+    args?: ListClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClustersCommandOutput>;
+
+  /**
+   * @see {@link ListEventBridgeRuleTemplateGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventBridgeRuleTemplateGroupsCommandOutput}.
+   */
+  paginateListEventBridgeRuleTemplateGroups(
+    args?: ListEventBridgeRuleTemplateGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventBridgeRuleTemplateGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListEventBridgeRuleTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventBridgeRuleTemplatesCommandOutput}.
+   */
+  paginateListEventBridgeRuleTemplates(
+    args?: ListEventBridgeRuleTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventBridgeRuleTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListInputDevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInputDevicesCommandOutput}.
+   */
+  paginateListInputDevices(
+    args?: ListInputDevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInputDevicesCommandOutput>;
+
+  /**
+   * @see {@link ListInputDeviceTransfersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInputDeviceTransfersCommandOutput}.
+   */
+  paginateListInputDeviceTransfers(
+    args: ListInputDeviceTransfersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInputDeviceTransfersCommandOutput>;
+
+  /**
+   * @see {@link ListInputsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInputsCommandOutput}.
+   */
+  paginateListInputs(
+    args?: ListInputsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInputsCommandOutput>;
+
+  /**
+   * @see {@link ListInputSecurityGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInputSecurityGroupsCommandOutput}.
+   */
+  paginateListInputSecurityGroups(
+    args?: ListInputSecurityGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInputSecurityGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListMultiplexAlertsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMultiplexAlertsCommandOutput}.
+   */
+  paginateListMultiplexAlerts(
+    args: ListMultiplexAlertsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMultiplexAlertsCommandOutput>;
+
+  /**
+   * @see {@link ListMultiplexesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMultiplexesCommandOutput}.
+   */
+  paginateListMultiplexes(
+    args?: ListMultiplexesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMultiplexesCommandOutput>;
+
+  /**
+   * @see {@link ListMultiplexProgramsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMultiplexProgramsCommandOutput}.
+   */
+  paginateListMultiplexPrograms(
+    args: ListMultiplexProgramsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMultiplexProgramsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworksCommandOutput}.
+   */
+  paginateListNetworks(
+    args?: ListNetworksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworksCommandOutput>;
+
+  /**
+   * @see {@link ListNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNodesCommandOutput}.
+   */
+  paginateListNodes(
+    args: ListNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNodesCommandOutput>;
+
+  /**
+   * @see {@link ListOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOfferingsCommandOutput}.
+   */
+  paginateListOfferings(
+    args?: ListOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOfferingsCommandOutput>;
+
+  /**
+   * @see {@link ListReservationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReservationsCommandOutput}.
+   */
+  paginateListReservations(
+    args?: ListReservationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReservationsCommandOutput>;
+
+  /**
+   * @see {@link ListSdiSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSdiSourcesCommandOutput}.
+   */
+  paginateListSdiSources(
+    args?: ListSdiSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSdiSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListSignalMapsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSignalMapsCommandOutput}.
+   */
+  paginateListSignalMaps(
+    args?: ListSignalMapsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSignalMapsCommandOutput>;
+
+  /**
+   * @see {@link DescribeChannelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilChannelCreated(
+    args: DescribeChannelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeChannelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilChannelDeleted(
+    args: DescribeChannelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeChannelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilChannelRunning(
+    args: DescribeChannelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeChannelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilChannelStopped(
+    args: DescribeChannelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeChannelPlacementGroupCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilChannelPlacementGroupAssigned(
+    args: DescribeChannelPlacementGroupCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeChannelPlacementGroupCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilChannelPlacementGroupDeleted(
+    args: DescribeChannelPlacementGroupCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeChannelPlacementGroupCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilChannelPlacementGroupUnassigned(
+    args: DescribeChannelPlacementGroupCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeClusterCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterCreated(
+    args: DescribeClusterCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeClusterCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterDeleted(
+    args: DescribeClusterCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInputAttached(
+    args: DescribeInputCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInputDeleted(
+    args: DescribeInputCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInputDetached(
+    args: DescribeInputCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeMultiplexCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMultiplexCreated(
+    args: DescribeMultiplexCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeMultiplexCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMultiplexDeleted(
+    args: DescribeMultiplexCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeMultiplexCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMultiplexRunning(
+    args: DescribeMultiplexCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeMultiplexCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMultiplexStopped(
+    args: DescribeMultiplexCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeNodeCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilNodeDeregistered(
+    args: DescribeNodeCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeNodeCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilNodeRegistered(
+    args: DescribeNodeCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetSignalMapCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSignalMapCreated(
+    args: GetSignalMapCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetSignalMapCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSignalMapMonitorDeleted(
+    args: GetSignalMapCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetSignalMapCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSignalMapMonitorDeployed(
+    args: GetSignalMapCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetSignalMapCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSignalMapUpdated(
+    args: GetSignalMapCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaLive>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -2807,4 +3380,4 @@ export interface MediaLive {
  * @public
  */
 export class MediaLive extends MediaLiveClient implements MediaLive {}
-createAggregatedClient(commands, MediaLive);
+createAggregatedClient(commands, MediaLive, { paginators, waiters });

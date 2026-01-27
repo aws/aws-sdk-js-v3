@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ChatbotClient } from "./ChatbotClient";
 import {
@@ -169,6 +169,17 @@ import {
   UpdateSlackChannelConfigurationCommandInput,
   UpdateSlackChannelConfigurationCommandOutput,
 } from "./commands/UpdateSlackChannelConfigurationCommand";
+import { paginateDescribeChimeWebhookConfigurations } from "./pagination/DescribeChimeWebhookConfigurationsPaginator";
+import { paginateDescribeSlackChannelConfigurations } from "./pagination/DescribeSlackChannelConfigurationsPaginator";
+import { paginateDescribeSlackUserIdentities } from "./pagination/DescribeSlackUserIdentitiesPaginator";
+import { paginateDescribeSlackWorkspaces } from "./pagination/DescribeSlackWorkspacesPaginator";
+import { paginateListAssociations } from "./pagination/ListAssociationsPaginator";
+import { paginateListCustomActions } from "./pagination/ListCustomActionsPaginator";
+import {
+  paginateListMicrosoftTeamsChannelConfigurations,
+} from "./pagination/ListMicrosoftTeamsChannelConfigurationsPaginator";
+import { paginateListMicrosoftTeamsConfiguredTeams } from "./pagination/ListMicrosoftTeamsConfiguredTeamsPaginator";
+import { paginateListMicrosoftTeamsUserIdentities } from "./pagination/ListMicrosoftTeamsUserIdentitiesPaginator";
 
 const commands = {
   AssociateToConfigurationCommand,
@@ -205,6 +216,17 @@ const commands = {
   UpdateCustomActionCommand,
   UpdateMicrosoftTeamsChannelConfigurationCommand,
   UpdateSlackChannelConfigurationCommand,
+};
+const paginators = {
+  paginateDescribeChimeWebhookConfigurations,
+  paginateDescribeSlackChannelConfigurations,
+  paginateDescribeSlackUserIdentities,
+  paginateDescribeSlackWorkspaces,
+  paginateListAssociations,
+  paginateListCustomActions,
+  paginateListMicrosoftTeamsChannelConfigurations,
+  paginateListMicrosoftTeamsConfiguredTeams,
+  paginateListMicrosoftTeamsUserIdentities,
 };
 
 export interface Chatbot {
@@ -795,6 +817,105 @@ export interface Chatbot {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSlackChannelConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeChimeWebhookConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeChimeWebhookConfigurationsCommandOutput}.
+   */
+  paginateDescribeChimeWebhookConfigurations(
+    args?: DescribeChimeWebhookConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeChimeWebhookConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSlackChannelConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSlackChannelConfigurationsCommandOutput}.
+   */
+  paginateDescribeSlackChannelConfigurations(
+    args?: DescribeSlackChannelConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSlackChannelConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSlackUserIdentitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSlackUserIdentitiesCommandOutput}.
+   */
+  paginateDescribeSlackUserIdentities(
+    args?: DescribeSlackUserIdentitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSlackUserIdentitiesCommandOutput>;
+
+  /**
+   * @see {@link DescribeSlackWorkspacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSlackWorkspacesCommandOutput}.
+   */
+  paginateDescribeSlackWorkspaces(
+    args?: DescribeSlackWorkspacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSlackWorkspacesCommandOutput>;
+
+  /**
+   * @see {@link ListAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssociationsCommandOutput}.
+   */
+  paginateListAssociations(
+    args: ListAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomActionsCommandOutput}.
+   */
+  paginateListCustomActions(
+    args?: ListCustomActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomActionsCommandOutput>;
+
+  /**
+   * @see {@link ListMicrosoftTeamsChannelConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMicrosoftTeamsChannelConfigurationsCommandOutput}.
+   */
+  paginateListMicrosoftTeamsChannelConfigurations(
+    args?: ListMicrosoftTeamsChannelConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMicrosoftTeamsChannelConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListMicrosoftTeamsConfiguredTeamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMicrosoftTeamsConfiguredTeamsCommandOutput}.
+   */
+  paginateListMicrosoftTeamsConfiguredTeams(
+    args?: ListMicrosoftTeamsConfiguredTeamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMicrosoftTeamsConfiguredTeamsCommandOutput>;
+
+  /**
+   * @see {@link ListMicrosoftTeamsUserIdentitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMicrosoftTeamsUserIdentitiesCommandOutput}.
+   */
+  paginateListMicrosoftTeamsUserIdentities(
+    args?: ListMicrosoftTeamsUserIdentitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMicrosoftTeamsUserIdentitiesCommandOutput>;
 }
 
 /**
@@ -825,4 +946,4 @@ export interface Chatbot {
  * @public
  */
 export class Chatbot extends ChatbotClient implements Chatbot {}
-createAggregatedClient(commands, Chatbot);
+createAggregatedClient(commands, Chatbot, { paginators });

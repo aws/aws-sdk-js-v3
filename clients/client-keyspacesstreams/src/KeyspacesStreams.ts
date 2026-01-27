@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { GetRecordsCommand, GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
 import {
@@ -11,12 +11,18 @@ import {
 import { GetStreamCommand, GetStreamCommandInput, GetStreamCommandOutput } from "./commands/GetStreamCommand";
 import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import { KeyspacesStreamsClient } from "./KeyspacesStreamsClient";
+import { paginateGetStream } from "./pagination/GetStreamPaginator";
+import { paginateListStreams } from "./pagination/ListStreamsPaginator";
 
 const commands = {
   GetRecordsCommand,
   GetShardIteratorCommand,
   GetStreamCommand,
   ListStreamsCommand,
+};
+const paginators = {
+  paginateGetStream,
+  paginateListStreams,
 };
 
 export interface KeyspacesStreams {
@@ -88,6 +94,28 @@ export interface KeyspacesStreams {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListStreamsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetStreamCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetStreamCommandOutput}.
+   */
+  paginateGetStream(
+    args: GetStreamCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetStreamCommandOutput>;
+
+  /**
+   * @see {@link ListStreamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamsCommandOutput}.
+   */
+  paginateListStreams(
+    args?: ListStreamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamsCommandOutput>;
 }
 
 /**
@@ -95,4 +123,4 @@ export interface KeyspacesStreams {
  * @public
  */
 export class KeyspacesStreams extends KeyspacesStreamsClient implements KeyspacesStreams {}
-createAggregatedClient(commands, KeyspacesStreams);
+createAggregatedClient(commands, KeyspacesStreams, { paginators });

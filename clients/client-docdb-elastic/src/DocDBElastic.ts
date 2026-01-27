@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   ApplyPendingMaintenanceActionCommand,
@@ -86,6 +86,9 @@ import {
   UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import { DocDBElasticClient } from "./DocDBElasticClient";
+import { paginateListClusterSnapshots } from "./pagination/ListClusterSnapshotsPaginator";
+import { paginateListClusters } from "./pagination/ListClustersPaginator";
+import { paginateListPendingMaintenanceActions } from "./pagination/ListPendingMaintenanceActionsPaginator";
 
 const commands = {
   ApplyPendingMaintenanceActionCommand,
@@ -107,6 +110,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateClusterCommand,
+};
+const paginators = {
+  paginateListClusters,
+  paginateListClusterSnapshots,
+  paginateListPendingMaintenanceActions,
 };
 
 export interface DocDBElastic {
@@ -435,6 +443,39 @@ export interface DocDBElastic {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClustersCommandOutput}.
+   */
+  paginateListClusters(
+    args?: ListClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClustersCommandOutput>;
+
+  /**
+   * @see {@link ListClusterSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClusterSnapshotsCommandOutput}.
+   */
+  paginateListClusterSnapshots(
+    args?: ListClusterSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClusterSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link ListPendingMaintenanceActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPendingMaintenanceActionsCommandOutput}.
+   */
+  paginateListPendingMaintenanceActions(
+    args?: ListPendingMaintenanceActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPendingMaintenanceActionsCommandOutput>;
 }
 
 /**
@@ -456,4 +497,4 @@ export interface DocDBElastic {
  * @public
  */
 export class DocDBElastic extends DocDBElasticClient implements DocDBElastic {}
-createAggregatedClient(commands, DocDBElastic);
+createAggregatedClient(commands, DocDBElastic, { paginators });

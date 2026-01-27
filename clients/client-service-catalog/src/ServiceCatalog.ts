@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptPortfolioShareCommand,
@@ -448,6 +448,29 @@ import {
   UpdateTagOptionCommandInput,
   UpdateTagOptionCommandOutput,
 } from "./commands/UpdateTagOptionCommand";
+import { paginateDescribePortfolioShares } from "./pagination/DescribePortfolioSharesPaginator";
+import { paginateGetProvisionedProductOutputs } from "./pagination/GetProvisionedProductOutputsPaginator";
+import { paginateListAcceptedPortfolioShares } from "./pagination/ListAcceptedPortfolioSharesPaginator";
+import { paginateListBudgetsForResource } from "./pagination/ListBudgetsForResourcePaginator";
+import { paginateListConstraintsForPortfolio } from "./pagination/ListConstraintsForPortfolioPaginator";
+import { paginateListLaunchPaths } from "./pagination/ListLaunchPathsPaginator";
+import { paginateListOrganizationPortfolioAccess } from "./pagination/ListOrganizationPortfolioAccessPaginator";
+import { paginateListPortfolioAccess } from "./pagination/ListPortfolioAccessPaginator";
+import { paginateListPortfoliosForProduct } from "./pagination/ListPortfoliosForProductPaginator";
+import { paginateListPortfolios } from "./pagination/ListPortfoliosPaginator";
+import { paginateListPrincipalsForPortfolio } from "./pagination/ListPrincipalsForPortfolioPaginator";
+import {
+  paginateListProvisioningArtifactsForServiceAction,
+} from "./pagination/ListProvisioningArtifactsForServiceActionPaginator";
+import { paginateListResourcesForTagOption } from "./pagination/ListResourcesForTagOptionPaginator";
+import {
+  paginateListServiceActionsForProvisioningArtifact,
+} from "./pagination/ListServiceActionsForProvisioningArtifactPaginator";
+import { paginateListServiceActions } from "./pagination/ListServiceActionsPaginator";
+import { paginateListTagOptions } from "./pagination/ListTagOptionsPaginator";
+import { paginateSearchProductsAsAdmin } from "./pagination/SearchProductsAsAdminPaginator";
+import { paginateSearchProducts } from "./pagination/SearchProductsPaginator";
+import { paginateSearchProvisionedProducts } from "./pagination/SearchProvisionedProductsPaginator";
 import { ServiceCatalogClient } from "./ServiceCatalogClient";
 
 const commands = {
@@ -541,6 +564,27 @@ const commands = {
   UpdateProvisioningArtifactCommand,
   UpdateServiceActionCommand,
   UpdateTagOptionCommand,
+};
+const paginators = {
+  paginateDescribePortfolioShares,
+  paginateGetProvisionedProductOutputs,
+  paginateListAcceptedPortfolioShares,
+  paginateListBudgetsForResource,
+  paginateListConstraintsForPortfolio,
+  paginateListLaunchPaths,
+  paginateListOrganizationPortfolioAccess,
+  paginateListPortfolioAccess,
+  paginateListPortfolios,
+  paginateListPortfoliosForProduct,
+  paginateListPrincipalsForPortfolio,
+  paginateListProvisioningArtifactsForServiceAction,
+  paginateListResourcesForTagOption,
+  paginateListServiceActions,
+  paginateListServiceActionsForProvisioningArtifact,
+  paginateListTagOptions,
+  paginateSearchProducts,
+  paginateSearchProductsAsAdmin,
+  paginateSearchProvisionedProducts,
 };
 
 export interface ServiceCatalog {
@@ -2092,6 +2136,215 @@ export interface ServiceCatalog {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTagOptionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribePortfolioSharesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePortfolioSharesCommandOutput}.
+   */
+  paginateDescribePortfolioShares(
+    args: DescribePortfolioSharesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePortfolioSharesCommandOutput>;
+
+  /**
+   * @see {@link GetProvisionedProductOutputsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetProvisionedProductOutputsCommandOutput}.
+   */
+  paginateGetProvisionedProductOutputs(
+    args?: GetProvisionedProductOutputsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetProvisionedProductOutputsCommandOutput>;
+
+  /**
+   * @see {@link ListAcceptedPortfolioSharesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAcceptedPortfolioSharesCommandOutput}.
+   */
+  paginateListAcceptedPortfolioShares(
+    args?: ListAcceptedPortfolioSharesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAcceptedPortfolioSharesCommandOutput>;
+
+  /**
+   * @see {@link ListBudgetsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBudgetsForResourceCommandOutput}.
+   */
+  paginateListBudgetsForResource(
+    args: ListBudgetsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBudgetsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListConstraintsForPortfolioCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConstraintsForPortfolioCommandOutput}.
+   */
+  paginateListConstraintsForPortfolio(
+    args: ListConstraintsForPortfolioCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConstraintsForPortfolioCommandOutput>;
+
+  /**
+   * @see {@link ListLaunchPathsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLaunchPathsCommandOutput}.
+   */
+  paginateListLaunchPaths(
+    args: ListLaunchPathsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLaunchPathsCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationPortfolioAccessCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationPortfolioAccessCommandOutput}.
+   */
+  paginateListOrganizationPortfolioAccess(
+    args: ListOrganizationPortfolioAccessCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationPortfolioAccessCommandOutput>;
+
+  /**
+   * @see {@link ListPortfolioAccessCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPortfolioAccessCommandOutput}.
+   */
+  paginateListPortfolioAccess(
+    args: ListPortfolioAccessCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPortfolioAccessCommandOutput>;
+
+  /**
+   * @see {@link ListPortfoliosCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPortfoliosCommandOutput}.
+   */
+  paginateListPortfolios(
+    args?: ListPortfoliosCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPortfoliosCommandOutput>;
+
+  /**
+   * @see {@link ListPortfoliosForProductCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPortfoliosForProductCommandOutput}.
+   */
+  paginateListPortfoliosForProduct(
+    args: ListPortfoliosForProductCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPortfoliosForProductCommandOutput>;
+
+  /**
+   * @see {@link ListPrincipalsForPortfolioCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPrincipalsForPortfolioCommandOutput}.
+   */
+  paginateListPrincipalsForPortfolio(
+    args: ListPrincipalsForPortfolioCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPrincipalsForPortfolioCommandOutput>;
+
+  /**
+   * @see {@link ListProvisioningArtifactsForServiceActionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProvisioningArtifactsForServiceActionCommandOutput}.
+   */
+  paginateListProvisioningArtifactsForServiceAction(
+    args: ListProvisioningArtifactsForServiceActionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProvisioningArtifactsForServiceActionCommandOutput>;
+
+  /**
+   * @see {@link ListResourcesForTagOptionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcesForTagOptionCommandOutput}.
+   */
+  paginateListResourcesForTagOption(
+    args: ListResourcesForTagOptionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcesForTagOptionCommandOutput>;
+
+  /**
+   * @see {@link ListServiceActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceActionsCommandOutput}.
+   */
+  paginateListServiceActions(
+    args?: ListServiceActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceActionsCommandOutput>;
+
+  /**
+   * @see {@link ListServiceActionsForProvisioningArtifactCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceActionsForProvisioningArtifactCommandOutput}.
+   */
+  paginateListServiceActionsForProvisioningArtifact(
+    args: ListServiceActionsForProvisioningArtifactCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceActionsForProvisioningArtifactCommandOutput>;
+
+  /**
+   * @see {@link ListTagOptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagOptionsCommandOutput}.
+   */
+  paginateListTagOptions(
+    args?: ListTagOptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagOptionsCommandOutput>;
+
+  /**
+   * @see {@link SearchProductsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchProductsCommandOutput}.
+   */
+  paginateSearchProducts(
+    args?: SearchProductsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchProductsCommandOutput>;
+
+  /**
+   * @see {@link SearchProductsAsAdminCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchProductsAsAdminCommandOutput}.
+   */
+  paginateSearchProductsAsAdmin(
+    args?: SearchProductsAsAdminCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchProductsAsAdminCommandOutput>;
+
+  /**
+   * @see {@link SearchProvisionedProductsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchProvisionedProductsCommandOutput}.
+   */
+  paginateSearchProvisionedProducts(
+    args?: SearchProvisionedProductsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchProvisionedProductsCommandOutput>;
 }
 
 /**
@@ -2105,4 +2358,4 @@ export interface ServiceCatalog {
  * @public
  */
 export class ServiceCatalog extends ServiceCatalogClient implements ServiceCatalog {}
-createAggregatedClient(commands, ServiceCatalog);
+createAggregatedClient(commands, ServiceCatalog, { paginators });

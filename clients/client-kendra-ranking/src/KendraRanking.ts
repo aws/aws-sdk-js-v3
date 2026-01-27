@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateRescoreExecutionPlanCommand,
@@ -40,6 +40,7 @@ import {
   UpdateRescoreExecutionPlanCommandOutput,
 } from "./commands/UpdateRescoreExecutionPlanCommand";
 import { KendraRankingClient } from "./KendraRankingClient";
+import { paginateListRescoreExecutionPlans } from "./pagination/ListRescoreExecutionPlansPaginator";
 
 const commands = {
   CreateRescoreExecutionPlanCommand,
@@ -51,6 +52,9 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateRescoreExecutionPlanCommand,
+};
+const paginators = {
+  paginateListRescoreExecutionPlans,
 };
 
 export interface KendraRanking {
@@ -207,6 +211,17 @@ export interface KendraRanking {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRescoreExecutionPlanCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListRescoreExecutionPlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRescoreExecutionPlansCommandOutput}.
+   */
+  paginateListRescoreExecutionPlans(
+    args?: ListRescoreExecutionPlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRescoreExecutionPlansCommandOutput>;
 }
 
 /**
@@ -216,4 +231,4 @@ export interface KendraRanking {
  * @public
  */
 export class KendraRanking extends KendraRankingClient implements KendraRanking {}
-createAggregatedClient(commands, KendraRanking);
+createAggregatedClient(commands, KendraRanking, { paginators });

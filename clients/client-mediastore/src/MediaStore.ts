@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateContainerCommand,
@@ -104,6 +104,7 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { MediaStoreClient } from "./MediaStoreClient";
+import { paginateListContainers } from "./pagination/ListContainersPaginator";
 
 const commands = {
   CreateContainerCommand,
@@ -127,6 +128,9 @@ const commands = {
   StopAccessLoggingCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListContainers,
 };
 
 export interface MediaStore {
@@ -488,6 +492,17 @@ export interface MediaStore {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListContainersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContainersCommandOutput}.
+   */
+  paginateListContainers(
+    args?: ListContainersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContainersCommandOutput>;
 }
 
 /**
@@ -496,4 +511,4 @@ export interface MediaStore {
  * @public
  */
 export class MediaStore extends MediaStoreClient implements MediaStore {}
-createAggregatedClient(commands, MediaStore);
+createAggregatedClient(commands, MediaStore, { paginators });

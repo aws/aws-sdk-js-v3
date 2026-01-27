@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CodeCommitClient } from "./CodeCommitClient";
 import {
@@ -362,6 +362,24 @@ import {
   UpdateRepositoryNameCommandInput,
   UpdateRepositoryNameCommandOutput,
 } from "./commands/UpdateRepositoryNameCommand";
+import { paginateDescribeMergeConflicts } from "./pagination/DescribeMergeConflictsPaginator";
+import { paginateDescribePullRequestEvents } from "./pagination/DescribePullRequestEventsPaginator";
+import { paginateGetCommentReactions } from "./pagination/GetCommentReactionsPaginator";
+import { paginateGetCommentsForComparedCommit } from "./pagination/GetCommentsForComparedCommitPaginator";
+import { paginateGetCommentsForPullRequest } from "./pagination/GetCommentsForPullRequestPaginator";
+import { paginateGetDifferences } from "./pagination/GetDifferencesPaginator";
+import { paginateGetMergeConflicts } from "./pagination/GetMergeConflictsPaginator";
+import { paginateListApprovalRuleTemplates } from "./pagination/ListApprovalRuleTemplatesPaginator";
+import {
+  paginateListAssociatedApprovalRuleTemplatesForRepository,
+} from "./pagination/ListAssociatedApprovalRuleTemplatesForRepositoryPaginator";
+import { paginateListBranches } from "./pagination/ListBranchesPaginator";
+import { paginateListFileCommitHistory } from "./pagination/ListFileCommitHistoryPaginator";
+import { paginateListPullRequests } from "./pagination/ListPullRequestsPaginator";
+import {
+  paginateListRepositoriesForApprovalRuleTemplate,
+} from "./pagination/ListRepositoriesForApprovalRuleTemplatePaginator";
+import { paginateListRepositories } from "./pagination/ListRepositoriesPaginator";
 
 const commands = {
   AssociateApprovalRuleTemplateWithRepositoryCommand,
@@ -443,6 +461,22 @@ const commands = {
   UpdateRepositoryDescriptionCommand,
   UpdateRepositoryEncryptionKeyCommand,
   UpdateRepositoryNameCommand,
+};
+const paginators = {
+  paginateDescribeMergeConflicts,
+  paginateDescribePullRequestEvents,
+  paginateGetCommentReactions,
+  paginateGetCommentsForComparedCommit,
+  paginateGetCommentsForPullRequest,
+  paginateGetDifferences,
+  paginateGetMergeConflicts,
+  paginateListApprovalRuleTemplates,
+  paginateListAssociatedApprovalRuleTemplatesForRepository,
+  paginateListBranches,
+  paginateListFileCommitHistory,
+  paginateListPullRequests,
+  paginateListRepositories,
+  paginateListRepositoriesForApprovalRuleTemplate,
 };
 
 export interface CodeCommit {
@@ -1791,6 +1825,160 @@ export interface CodeCommit {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRepositoryNameCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeMergeConflictsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMergeConflictsCommandOutput}.
+   */
+  paginateDescribeMergeConflicts(
+    args: DescribeMergeConflictsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMergeConflictsCommandOutput>;
+
+  /**
+   * @see {@link DescribePullRequestEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePullRequestEventsCommandOutput}.
+   */
+  paginateDescribePullRequestEvents(
+    args: DescribePullRequestEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePullRequestEventsCommandOutput>;
+
+  /**
+   * @see {@link GetCommentReactionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCommentReactionsCommandOutput}.
+   */
+  paginateGetCommentReactions(
+    args: GetCommentReactionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCommentReactionsCommandOutput>;
+
+  /**
+   * @see {@link GetCommentsForComparedCommitCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCommentsForComparedCommitCommandOutput}.
+   */
+  paginateGetCommentsForComparedCommit(
+    args: GetCommentsForComparedCommitCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCommentsForComparedCommitCommandOutput>;
+
+  /**
+   * @see {@link GetCommentsForPullRequestCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCommentsForPullRequestCommandOutput}.
+   */
+  paginateGetCommentsForPullRequest(
+    args: GetCommentsForPullRequestCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCommentsForPullRequestCommandOutput>;
+
+  /**
+   * @see {@link GetDifferencesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDifferencesCommandOutput}.
+   */
+  paginateGetDifferences(
+    args: GetDifferencesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDifferencesCommandOutput>;
+
+  /**
+   * @see {@link GetMergeConflictsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetMergeConflictsCommandOutput}.
+   */
+  paginateGetMergeConflicts(
+    args: GetMergeConflictsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetMergeConflictsCommandOutput>;
+
+  /**
+   * @see {@link ListApprovalRuleTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApprovalRuleTemplatesCommandOutput}.
+   */
+  paginateListApprovalRuleTemplates(
+    args?: ListApprovalRuleTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApprovalRuleTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput}.
+   */
+  paginateListAssociatedApprovalRuleTemplatesForRepository(
+    args: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput>;
+
+  /**
+   * @see {@link ListBranchesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBranchesCommandOutput}.
+   */
+  paginateListBranches(
+    args: ListBranchesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBranchesCommandOutput>;
+
+  /**
+   * @see {@link ListFileCommitHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFileCommitHistoryCommandOutput}.
+   */
+  paginateListFileCommitHistory(
+    args: ListFileCommitHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFileCommitHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListPullRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPullRequestsCommandOutput}.
+   */
+  paginateListPullRequests(
+    args: ListPullRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPullRequestsCommandOutput>;
+
+  /**
+   * @see {@link ListRepositoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRepositoriesCommandOutput}.
+   */
+  paginateListRepositories(
+    args?: ListRepositoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRepositoriesCommandOutput>;
+
+  /**
+   * @see {@link ListRepositoriesForApprovalRuleTemplateCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRepositoriesForApprovalRuleTemplateCommandOutput}.
+   */
+  paginateListRepositoriesForApprovalRuleTemplate(
+    args: ListRepositoriesForApprovalRuleTemplateCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRepositoriesForApprovalRuleTemplateCommandOutput>;
 }
 
 /**
@@ -2183,4 +2371,4 @@ export interface CodeCommit {
  * @public
  */
 export class CodeCommit extends CodeCommitClient implements CodeCommit {}
-createAggregatedClient(commands, CodeCommit);
+createAggregatedClient(commands, CodeCommit, { paginators });

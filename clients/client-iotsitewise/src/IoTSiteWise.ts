@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AssociateAssetsCommand,
@@ -495,6 +501,45 @@ import {
   UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
 import { IoTSiteWiseClient } from "./IoTSiteWiseClient";
+import { paginateBatchGetAssetPropertyAggregates } from "./pagination/BatchGetAssetPropertyAggregatesPaginator";
+import { paginateBatchGetAssetPropertyValueHistory } from "./pagination/BatchGetAssetPropertyValueHistoryPaginator";
+import { paginateBatchGetAssetPropertyValue } from "./pagination/BatchGetAssetPropertyValuePaginator";
+import { paginateExecuteQuery } from "./pagination/ExecuteQueryPaginator";
+import { paginateGetAssetPropertyAggregates } from "./pagination/GetAssetPropertyAggregatesPaginator";
+import { paginateGetAssetPropertyValueHistory } from "./pagination/GetAssetPropertyValueHistoryPaginator";
+import { paginateGetInterpolatedAssetPropertyValues } from "./pagination/GetInterpolatedAssetPropertyValuesPaginator";
+import { paginateListAccessPolicies } from "./pagination/ListAccessPoliciesPaginator";
+import { paginateListAssetModelCompositeModels } from "./pagination/ListAssetModelCompositeModelsPaginator";
+import { paginateListAssetModelProperties } from "./pagination/ListAssetModelPropertiesPaginator";
+import { paginateListAssetModels } from "./pagination/ListAssetModelsPaginator";
+import { paginateListAssetProperties } from "./pagination/ListAssetPropertiesPaginator";
+import { paginateListAssetRelationships } from "./pagination/ListAssetRelationshipsPaginator";
+import { paginateListAssets } from "./pagination/ListAssetsPaginator";
+import { paginateListAssociatedAssets } from "./pagination/ListAssociatedAssetsPaginator";
+import { paginateListBulkImportJobs } from "./pagination/ListBulkImportJobsPaginator";
+import { paginateListCompositionRelationships } from "./pagination/ListCompositionRelationshipsPaginator";
+import {
+  paginateListComputationModelDataBindingUsages,
+} from "./pagination/ListComputationModelDataBindingUsagesPaginator";
+import {
+  paginateListComputationModelResolveToResources,
+} from "./pagination/ListComputationModelResolveToResourcesPaginator";
+import { paginateListComputationModels } from "./pagination/ListComputationModelsPaginator";
+import { paginateListDashboards } from "./pagination/ListDashboardsPaginator";
+import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
+import { paginateListExecutions } from "./pagination/ListExecutionsPaginator";
+import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
+import { paginateListInterfaceRelationships } from "./pagination/ListInterfaceRelationshipsPaginator";
+import { paginateListPortals } from "./pagination/ListPortalsPaginator";
+import { paginateListProjectAssets } from "./pagination/ListProjectAssetsPaginator";
+import { paginateListProjects } from "./pagination/ListProjectsPaginator";
+import { paginateListTimeSeries } from "./pagination/ListTimeSeriesPaginator";
+import { waitUntilAssetActive } from "./waiters/waitForAssetActive";
+import { waitUntilAssetModelActive } from "./waiters/waitForAssetModelActive";
+import { waitUntilAssetModelNotExists } from "./waiters/waitForAssetModelNotExists";
+import { waitUntilAssetNotExists } from "./waiters/waitForAssetNotExists";
+import { waitUntilPortalActive } from "./waiters/waitForPortalActive";
+import { waitUntilPortalNotExists } from "./waiters/waitForPortalNotExists";
 
 const commands = {
   AssociateAssetsCommand,
@@ -601,6 +646,45 @@ const commands = {
   UpdateGatewayCapabilityConfigurationCommand,
   UpdatePortalCommand,
   UpdateProjectCommand,
+};
+const paginators = {
+  paginateBatchGetAssetPropertyAggregates,
+  paginateBatchGetAssetPropertyValue,
+  paginateBatchGetAssetPropertyValueHistory,
+  paginateExecuteQuery,
+  paginateGetAssetPropertyAggregates,
+  paginateGetAssetPropertyValueHistory,
+  paginateGetInterpolatedAssetPropertyValues,
+  paginateListAccessPolicies,
+  paginateListAssetModelCompositeModels,
+  paginateListAssetModelProperties,
+  paginateListAssetModels,
+  paginateListAssetProperties,
+  paginateListAssetRelationships,
+  paginateListAssets,
+  paginateListAssociatedAssets,
+  paginateListBulkImportJobs,
+  paginateListCompositionRelationships,
+  paginateListComputationModelDataBindingUsages,
+  paginateListComputationModelResolveToResources,
+  paginateListComputationModels,
+  paginateListDashboards,
+  paginateListDatasets,
+  paginateListExecutions,
+  paginateListGateways,
+  paginateListInterfaceRelationships,
+  paginateListPortals,
+  paginateListProjectAssets,
+  paginateListProjects,
+  paginateListTimeSeries,
+};
+const waiters = {
+  waitUntilAssetActive,
+  waitUntilAssetNotExists,
+  waitUntilAssetModelActive,
+  waitUntilAssetModelNotExists,
+  waitUntilPortalActive,
+  waitUntilPortalNotExists,
 };
 
 export interface IoTSiteWise {
@@ -2386,6 +2470,385 @@ export interface IoTSiteWise {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProjectCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link BatchGetAssetPropertyAggregatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link BatchGetAssetPropertyAggregatesCommandOutput}.
+   */
+  paginateBatchGetAssetPropertyAggregates(
+    args: BatchGetAssetPropertyAggregatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<BatchGetAssetPropertyAggregatesCommandOutput>;
+
+  /**
+   * @see {@link BatchGetAssetPropertyValueCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link BatchGetAssetPropertyValueCommandOutput}.
+   */
+  paginateBatchGetAssetPropertyValue(
+    args: BatchGetAssetPropertyValueCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<BatchGetAssetPropertyValueCommandOutput>;
+
+  /**
+   * @see {@link BatchGetAssetPropertyValueHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link BatchGetAssetPropertyValueHistoryCommandOutput}.
+   */
+  paginateBatchGetAssetPropertyValueHistory(
+    args: BatchGetAssetPropertyValueHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<BatchGetAssetPropertyValueHistoryCommandOutput>;
+
+  /**
+   * @see {@link ExecuteQueryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ExecuteQueryCommandOutput}.
+   */
+  paginateExecuteQuery(
+    args: ExecuteQueryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ExecuteQueryCommandOutput>;
+
+  /**
+   * @see {@link GetAssetPropertyAggregatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAssetPropertyAggregatesCommandOutput}.
+   */
+  paginateGetAssetPropertyAggregates(
+    args: GetAssetPropertyAggregatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAssetPropertyAggregatesCommandOutput>;
+
+  /**
+   * @see {@link GetAssetPropertyValueHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAssetPropertyValueHistoryCommandOutput}.
+   */
+  paginateGetAssetPropertyValueHistory(
+    args?: GetAssetPropertyValueHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAssetPropertyValueHistoryCommandOutput>;
+
+  /**
+   * @see {@link GetInterpolatedAssetPropertyValuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetInterpolatedAssetPropertyValuesCommandOutput}.
+   */
+  paginateGetInterpolatedAssetPropertyValues(
+    args: GetInterpolatedAssetPropertyValuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetInterpolatedAssetPropertyValuesCommandOutput>;
+
+  /**
+   * @see {@link ListAccessPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessPoliciesCommandOutput}.
+   */
+  paginateListAccessPolicies(
+    args?: ListAccessPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListAssetModelCompositeModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetModelCompositeModelsCommandOutput}.
+   */
+  paginateListAssetModelCompositeModels(
+    args: ListAssetModelCompositeModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetModelCompositeModelsCommandOutput>;
+
+  /**
+   * @see {@link ListAssetModelPropertiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetModelPropertiesCommandOutput}.
+   */
+  paginateListAssetModelProperties(
+    args: ListAssetModelPropertiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetModelPropertiesCommandOutput>;
+
+  /**
+   * @see {@link ListAssetModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetModelsCommandOutput}.
+   */
+  paginateListAssetModels(
+    args?: ListAssetModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetModelsCommandOutput>;
+
+  /**
+   * @see {@link ListAssetPropertiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetPropertiesCommandOutput}.
+   */
+  paginateListAssetProperties(
+    args: ListAssetPropertiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetPropertiesCommandOutput>;
+
+  /**
+   * @see {@link ListAssetRelationshipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetRelationshipsCommandOutput}.
+   */
+  paginateListAssetRelationships(
+    args: ListAssetRelationshipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetRelationshipsCommandOutput>;
+
+  /**
+   * @see {@link ListAssetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetsCommandOutput}.
+   */
+  paginateListAssets(
+    args?: ListAssetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetsCommandOutput>;
+
+  /**
+   * @see {@link ListAssociatedAssetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssociatedAssetsCommandOutput}.
+   */
+  paginateListAssociatedAssets(
+    args: ListAssociatedAssetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssociatedAssetsCommandOutput>;
+
+  /**
+   * @see {@link ListBulkImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBulkImportJobsCommandOutput}.
+   */
+  paginateListBulkImportJobs(
+    args?: ListBulkImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBulkImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListCompositionRelationshipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCompositionRelationshipsCommandOutput}.
+   */
+  paginateListCompositionRelationships(
+    args: ListCompositionRelationshipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCompositionRelationshipsCommandOutput>;
+
+  /**
+   * @see {@link ListComputationModelDataBindingUsagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComputationModelDataBindingUsagesCommandOutput}.
+   */
+  paginateListComputationModelDataBindingUsages(
+    args: ListComputationModelDataBindingUsagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComputationModelDataBindingUsagesCommandOutput>;
+
+  /**
+   * @see {@link ListComputationModelResolveToResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComputationModelResolveToResourcesCommandOutput}.
+   */
+  paginateListComputationModelResolveToResources(
+    args: ListComputationModelResolveToResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComputationModelResolveToResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListComputationModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComputationModelsCommandOutput}.
+   */
+  paginateListComputationModels(
+    args?: ListComputationModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComputationModelsCommandOutput>;
+
+  /**
+   * @see {@link ListDashboardsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDashboardsCommandOutput}.
+   */
+  paginateListDashboards(
+    args: ListDashboardsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDashboardsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetsCommandOutput}.
+   */
+  paginateListDatasets(
+    args: ListDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetsCommandOutput>;
+
+  /**
+   * @see {@link ListExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExecutionsCommandOutput}.
+   */
+  paginateListExecutions(
+    args: ListExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewaysCommandOutput}.
+   */
+  paginateListGateways(
+    args?: ListGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewaysCommandOutput>;
+
+  /**
+   * @see {@link ListInterfaceRelationshipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInterfaceRelationshipsCommandOutput}.
+   */
+  paginateListInterfaceRelationships(
+    args: ListInterfaceRelationshipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInterfaceRelationshipsCommandOutput>;
+
+  /**
+   * @see {@link ListPortalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPortalsCommandOutput}.
+   */
+  paginateListPortals(
+    args?: ListPortalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPortalsCommandOutput>;
+
+  /**
+   * @see {@link ListProjectAssetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectAssetsCommandOutput}.
+   */
+  paginateListProjectAssets(
+    args: ListProjectAssetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectAssetsCommandOutput>;
+
+  /**
+   * @see {@link ListProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectsCommandOutput}.
+   */
+  paginateListProjects(
+    args: ListProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectsCommandOutput>;
+
+  /**
+   * @see {@link ListTimeSeriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTimeSeriesCommandOutput}.
+   */
+  paginateListTimeSeries(
+    args?: ListTimeSeriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTimeSeriesCommandOutput>;
+
+  /**
+   * @see {@link DescribeAssetCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAssetActive(
+    args: DescribeAssetCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeAssetCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAssetNotExists(
+    args: DescribeAssetCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeAssetModelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAssetModelActive(
+    args: DescribeAssetModelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeAssetModelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAssetModelNotExists(
+    args: DescribeAssetModelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribePortalCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPortalActive(
+    args: DescribePortalCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribePortalCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPortalNotExists(
+    args: DescribePortalCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<IoTSiteWise>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -2394,4 +2857,4 @@ export interface IoTSiteWise {
  * @public
  */
 export class IoTSiteWise extends IoTSiteWiseClient implements IoTSiteWise {}
-createAggregatedClient(commands, IoTSiteWise);
+createAggregatedClient(commands, IoTSiteWise, { paginators, waiters });

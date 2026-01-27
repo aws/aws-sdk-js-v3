@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BedrockAgentRuntimeClient } from "./BedrockAgentRuntimeClient";
 import {
@@ -130,6 +130,14 @@ import {
   UpdateSessionCommandInput,
   UpdateSessionCommandOutput,
 } from "./commands/UpdateSessionCommand";
+import { paginateGetAgentMemory } from "./pagination/GetAgentMemoryPaginator";
+import { paginateListFlowExecutionEvents } from "./pagination/ListFlowExecutionEventsPaginator";
+import { paginateListFlowExecutions } from "./pagination/ListFlowExecutionsPaginator";
+import { paginateListInvocations } from "./pagination/ListInvocationsPaginator";
+import { paginateListInvocationSteps } from "./pagination/ListInvocationStepsPaginator";
+import { paginateListSessions } from "./pagination/ListSessionsPaginator";
+import { paginateRerank } from "./pagination/RerankPaginator";
+import { paginateRetrieve } from "./pagination/RetrievePaginator";
 
 const commands = {
   CreateInvocationCommand,
@@ -163,6 +171,16 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateSessionCommand,
+};
+const paginators = {
+  paginateGetAgentMemory,
+  paginateListFlowExecutionEvents,
+  paginateListFlowExecutions,
+  paginateListInvocations,
+  paginateListInvocationSteps,
+  paginateListSessions,
+  paginateRerank,
+  paginateRetrieve,
 };
 
 export interface BedrockAgentRuntime {
@@ -694,6 +712,94 @@ export interface BedrockAgentRuntime {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSessionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetAgentMemoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAgentMemoryCommandOutput}.
+   */
+  paginateGetAgentMemory(
+    args: GetAgentMemoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAgentMemoryCommandOutput>;
+
+  /**
+   * @see {@link ListFlowExecutionEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowExecutionEventsCommandOutput}.
+   */
+  paginateListFlowExecutionEvents(
+    args: ListFlowExecutionEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowExecutionEventsCommandOutput>;
+
+  /**
+   * @see {@link ListFlowExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowExecutionsCommandOutput}.
+   */
+  paginateListFlowExecutions(
+    args: ListFlowExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListInvocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvocationsCommandOutput}.
+   */
+  paginateListInvocations(
+    args: ListInvocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvocationsCommandOutput>;
+
+  /**
+   * @see {@link ListInvocationStepsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvocationStepsCommandOutput}.
+   */
+  paginateListInvocationSteps(
+    args: ListInvocationStepsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvocationStepsCommandOutput>;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionsCommandOutput}.
+   */
+  paginateListSessions(
+    args?: ListSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionsCommandOutput>;
+
+  /**
+   * @see {@link RerankCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link RerankCommandOutput}.
+   */
+  paginateRerank(
+    args: RerankCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<RerankCommandOutput>;
+
+  /**
+   * @see {@link RetrieveCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link RetrieveCommandOutput}.
+   */
+  paginateRetrieve(
+    args: RetrieveCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<RetrieveCommandOutput>;
 }
 
 /**
@@ -701,4 +807,4 @@ export interface BedrockAgentRuntime {
  * @public
  */
 export class BedrockAgentRuntime extends BedrockAgentRuntimeClient implements BedrockAgentRuntime {}
-createAggregatedClient(commands, BedrockAgentRuntime);
+createAggregatedClient(commands, BedrockAgentRuntime, { paginators });

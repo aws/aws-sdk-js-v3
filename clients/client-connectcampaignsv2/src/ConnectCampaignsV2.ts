@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateCampaignCommand,
@@ -174,6 +174,8 @@ import {
   UpdateCampaignSourceCommandOutput,
 } from "./commands/UpdateCampaignSourceCommand";
 import { ConnectCampaignsV2Client } from "./ConnectCampaignsV2Client";
+import { paginateListCampaigns } from "./pagination/ListCampaignsPaginator";
+import { paginateListConnectInstanceIntegrations } from "./pagination/ListConnectInstanceIntegrationsPaginator";
 
 const commands = {
   CreateCampaignCommand,
@@ -211,6 +213,10 @@ const commands = {
   UpdateCampaignNameCommand,
   UpdateCampaignScheduleCommand,
   UpdateCampaignSourceCommand,
+};
+const paginators = {
+  paginateListCampaigns,
+  paginateListConnectInstanceIntegrations,
 };
 
 export interface ConnectCampaignsV2 {
@@ -809,6 +815,28 @@ export interface ConnectCampaignsV2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCampaignSourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCampaignsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCampaignsCommandOutput}.
+   */
+  paginateListCampaigns(
+    args?: ListCampaignsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCampaignsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectInstanceIntegrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectInstanceIntegrationsCommandOutput}.
+   */
+  paginateListConnectInstanceIntegrations(
+    args: ListConnectInstanceIntegrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectInstanceIntegrationsCommandOutput>;
 }
 
 /**
@@ -816,4 +844,4 @@ export interface ConnectCampaignsV2 {
  * @public
  */
 export class ConnectCampaignsV2 extends ConnectCampaignsV2Client implements ConnectCampaignsV2 {}
-createAggregatedClient(commands, ConnectCampaignsV2);
+createAggregatedClient(commands, ConnectCampaignsV2, { paginators });

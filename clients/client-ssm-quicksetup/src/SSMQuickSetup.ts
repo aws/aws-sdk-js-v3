@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateConfigurationManagerCommand,
@@ -68,6 +68,8 @@ import {
   UpdateServiceSettingsCommandInput,
   UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
+import { paginateListConfigurationManagers } from "./pagination/ListConfigurationManagersPaginator";
+import { paginateListConfigurations } from "./pagination/ListConfigurationsPaginator";
 import { SSMQuickSetupClient } from "./SSMQuickSetupClient";
 
 const commands = {
@@ -85,6 +87,10 @@ const commands = {
   UpdateConfigurationDefinitionCommand,
   UpdateConfigurationManagerCommand,
   UpdateServiceSettingsCommand,
+};
+const paginators = {
+  paginateListConfigurationManagers,
+  paginateListConfigurations,
 };
 
 export interface SSMQuickSetup {
@@ -330,6 +336,28 @@ export interface SSMQuickSetup {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceSettingsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListConfigurationManagersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationManagersCommandOutput}.
+   */
+  paginateListConfigurationManagers(
+    args?: ListConfigurationManagersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationManagersCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationsCommandOutput}.
+   */
+  paginateListConfigurations(
+    args?: ListConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationsCommandOutput>;
 }
 
 /**
@@ -339,4 +367,4 @@ export interface SSMQuickSetup {
  * @public
  */
 export class SSMQuickSetup extends SSMQuickSetupClient implements SSMQuickSetup {}
-createAggregatedClient(commands, SSMQuickSetup);
+createAggregatedClient(commands, SSMQuickSetup, { paginators });

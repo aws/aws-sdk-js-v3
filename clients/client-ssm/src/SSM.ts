@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AddTagsToResourceCommand,
@@ -716,7 +722,68 @@ import {
   UpdateServiceSettingCommandInput,
   UpdateServiceSettingCommandOutput,
 } from "./commands/UpdateServiceSettingCommand";
+import { paginateDescribeActivations } from "./pagination/DescribeActivationsPaginator";
+import { paginateDescribeAssociationExecutions } from "./pagination/DescribeAssociationExecutionsPaginator";
+import { paginateDescribeAssociationExecutionTargets } from "./pagination/DescribeAssociationExecutionTargetsPaginator";
+import { paginateDescribeAutomationExecutions } from "./pagination/DescribeAutomationExecutionsPaginator";
+import { paginateDescribeAutomationStepExecutions } from "./pagination/DescribeAutomationStepExecutionsPaginator";
+import { paginateDescribeAvailablePatches } from "./pagination/DescribeAvailablePatchesPaginator";
+import {
+  paginateDescribeEffectiveInstanceAssociations,
+} from "./pagination/DescribeEffectiveInstanceAssociationsPaginator";
+import {
+  paginateDescribeEffectivePatchesForPatchBaseline,
+} from "./pagination/DescribeEffectivePatchesForPatchBaselinePaginator";
+import { paginateDescribeInstanceAssociationsStatus } from "./pagination/DescribeInstanceAssociationsStatusPaginator";
+import { paginateDescribeInstanceInformation } from "./pagination/DescribeInstanceInformationPaginator";
+import { paginateDescribeInstancePatches } from "./pagination/DescribeInstancePatchesPaginator";
+import {
+  paginateDescribeInstancePatchStatesForPatchGroup,
+} from "./pagination/DescribeInstancePatchStatesForPatchGroupPaginator";
+import { paginateDescribeInstancePatchStates } from "./pagination/DescribeInstancePatchStatesPaginator";
+import { paginateDescribeInstanceProperties } from "./pagination/DescribeInstancePropertiesPaginator";
+import { paginateDescribeInventoryDeletions } from "./pagination/DescribeInventoryDeletionsPaginator";
+import { paginateDescribeMaintenanceWindowExecutions } from "./pagination/DescribeMaintenanceWindowExecutionsPaginator";
+import {
+  paginateDescribeMaintenanceWindowExecutionTaskInvocations,
+} from "./pagination/DescribeMaintenanceWindowExecutionTaskInvocationsPaginator";
+import {
+  paginateDescribeMaintenanceWindowExecutionTasks,
+} from "./pagination/DescribeMaintenanceWindowExecutionTasksPaginator";
+import { paginateDescribeMaintenanceWindowSchedule } from "./pagination/DescribeMaintenanceWindowSchedulePaginator";
+import { paginateDescribeMaintenanceWindowsForTarget } from "./pagination/DescribeMaintenanceWindowsForTargetPaginator";
+import { paginateDescribeMaintenanceWindows } from "./pagination/DescribeMaintenanceWindowsPaginator";
+import { paginateDescribeMaintenanceWindowTargets } from "./pagination/DescribeMaintenanceWindowTargetsPaginator";
+import { paginateDescribeMaintenanceWindowTasks } from "./pagination/DescribeMaintenanceWindowTasksPaginator";
+import { paginateDescribeOpsItems } from "./pagination/DescribeOpsItemsPaginator";
+import { paginateDescribeParameters } from "./pagination/DescribeParametersPaginator";
+import { paginateDescribePatchBaselines } from "./pagination/DescribePatchBaselinesPaginator";
+import { paginateDescribePatchGroups } from "./pagination/DescribePatchGroupsPaginator";
+import { paginateDescribePatchProperties } from "./pagination/DescribePatchPropertiesPaginator";
+import { paginateDescribeSessions } from "./pagination/DescribeSessionsPaginator";
+import { paginateGetInventory } from "./pagination/GetInventoryPaginator";
+import { paginateGetInventorySchema } from "./pagination/GetInventorySchemaPaginator";
+import { paginateGetOpsSummary } from "./pagination/GetOpsSummaryPaginator";
+import { paginateGetParameterHistory } from "./pagination/GetParameterHistoryPaginator";
+import { paginateGetParametersByPath } from "./pagination/GetParametersByPathPaginator";
+import { paginateGetResourcePolicies } from "./pagination/GetResourcePoliciesPaginator";
+import { paginateListAssociations } from "./pagination/ListAssociationsPaginator";
+import { paginateListAssociationVersions } from "./pagination/ListAssociationVersionsPaginator";
+import { paginateListCommandInvocations } from "./pagination/ListCommandInvocationsPaginator";
+import { paginateListCommands } from "./pagination/ListCommandsPaginator";
+import { paginateListComplianceItems } from "./pagination/ListComplianceItemsPaginator";
+import { paginateListComplianceSummaries } from "./pagination/ListComplianceSummariesPaginator";
+import { paginateListDocuments } from "./pagination/ListDocumentsPaginator";
+import { paginateListDocumentVersions } from "./pagination/ListDocumentVersionsPaginator";
+import { paginateListNodes } from "./pagination/ListNodesPaginator";
+import { paginateListNodesSummary } from "./pagination/ListNodesSummaryPaginator";
+import { paginateListOpsItemEvents } from "./pagination/ListOpsItemEventsPaginator";
+import { paginateListOpsItemRelatedItems } from "./pagination/ListOpsItemRelatedItemsPaginator";
+import { paginateListOpsMetadata } from "./pagination/ListOpsMetadataPaginator";
+import { paginateListResourceComplianceSummaries } from "./pagination/ListResourceComplianceSummariesPaginator";
+import { paginateListResourceDataSync } from "./pagination/ListResourceDataSyncPaginator";
 import { SSMClient } from "./SSMClient";
+import { waitUntilCommandExecuted } from "./waiters/waitForCommandExecuted";
 
 const commands = {
   AddTagsToResourceCommand,
@@ -865,6 +932,61 @@ const commands = {
   UpdatePatchBaselineCommand,
   UpdateResourceDataSyncCommand,
   UpdateServiceSettingCommand,
+};
+const paginators = {
+  paginateDescribeActivations,
+  paginateDescribeAssociationExecutions,
+  paginateDescribeAssociationExecutionTargets,
+  paginateDescribeAutomationExecutions,
+  paginateDescribeAutomationStepExecutions,
+  paginateDescribeAvailablePatches,
+  paginateDescribeEffectiveInstanceAssociations,
+  paginateDescribeEffectivePatchesForPatchBaseline,
+  paginateDescribeInstanceAssociationsStatus,
+  paginateDescribeInstanceInformation,
+  paginateDescribeInstancePatches,
+  paginateDescribeInstancePatchStates,
+  paginateDescribeInstancePatchStatesForPatchGroup,
+  paginateDescribeInstanceProperties,
+  paginateDescribeInventoryDeletions,
+  paginateDescribeMaintenanceWindowExecutions,
+  paginateDescribeMaintenanceWindowExecutionTaskInvocations,
+  paginateDescribeMaintenanceWindowExecutionTasks,
+  paginateDescribeMaintenanceWindows,
+  paginateDescribeMaintenanceWindowSchedule,
+  paginateDescribeMaintenanceWindowsForTarget,
+  paginateDescribeMaintenanceWindowTargets,
+  paginateDescribeMaintenanceWindowTasks,
+  paginateDescribeOpsItems,
+  paginateDescribeParameters,
+  paginateDescribePatchBaselines,
+  paginateDescribePatchGroups,
+  paginateDescribePatchProperties,
+  paginateDescribeSessions,
+  paginateGetInventory,
+  paginateGetInventorySchema,
+  paginateGetOpsSummary,
+  paginateGetParameterHistory,
+  paginateGetParametersByPath,
+  paginateGetResourcePolicies,
+  paginateListAssociations,
+  paginateListAssociationVersions,
+  paginateListCommandInvocations,
+  paginateListCommands,
+  paginateListComplianceItems,
+  paginateListComplianceSummaries,
+  paginateListDocuments,
+  paginateListDocumentVersions,
+  paginateListNodes,
+  paginateListNodesSummary,
+  paginateListOpsItemEvents,
+  paginateListOpsItemRelatedItems,
+  paginateListOpsMetadata,
+  paginateListResourceComplianceSummaries,
+  paginateListResourceDataSync,
+};
+const waiters = {
+  waitUntilCommandExecuted,
 };
 
 export interface SSM {
@@ -3379,6 +3501,566 @@ export interface SSM {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceSettingCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeActivationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeActivationsCommandOutput}.
+   */
+  paginateDescribeActivations(
+    args?: DescribeActivationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeActivationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeAssociationExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAssociationExecutionsCommandOutput}.
+   */
+  paginateDescribeAssociationExecutions(
+    args: DescribeAssociationExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAssociationExecutionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeAssociationExecutionTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAssociationExecutionTargetsCommandOutput}.
+   */
+  paginateDescribeAssociationExecutionTargets(
+    args: DescribeAssociationExecutionTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAssociationExecutionTargetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeAutomationExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAutomationExecutionsCommandOutput}.
+   */
+  paginateDescribeAutomationExecutions(
+    args?: DescribeAutomationExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAutomationExecutionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeAutomationStepExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAutomationStepExecutionsCommandOutput}.
+   */
+  paginateDescribeAutomationStepExecutions(
+    args: DescribeAutomationStepExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAutomationStepExecutionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeAvailablePatchesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAvailablePatchesCommandOutput}.
+   */
+  paginateDescribeAvailablePatches(
+    args?: DescribeAvailablePatchesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAvailablePatchesCommandOutput>;
+
+  /**
+   * @see {@link DescribeEffectiveInstanceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEffectiveInstanceAssociationsCommandOutput}.
+   */
+  paginateDescribeEffectiveInstanceAssociations(
+    args: DescribeEffectiveInstanceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEffectiveInstanceAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEffectivePatchesForPatchBaselineCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEffectivePatchesForPatchBaselineCommandOutput}.
+   */
+  paginateDescribeEffectivePatchesForPatchBaseline(
+    args: DescribeEffectivePatchesForPatchBaselineCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEffectivePatchesForPatchBaselineCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceAssociationsStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceAssociationsStatusCommandOutput}.
+   */
+  paginateDescribeInstanceAssociationsStatus(
+    args: DescribeInstanceAssociationsStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceAssociationsStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceInformationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceInformationCommandOutput}.
+   */
+  paginateDescribeInstanceInformation(
+    args?: DescribeInstanceInformationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceInformationCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstancePatchesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstancePatchesCommandOutput}.
+   */
+  paginateDescribeInstancePatches(
+    args: DescribeInstancePatchesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstancePatchesCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstancePatchStatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstancePatchStatesCommandOutput}.
+   */
+  paginateDescribeInstancePatchStates(
+    args: DescribeInstancePatchStatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstancePatchStatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstancePatchStatesForPatchGroupCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstancePatchStatesForPatchGroupCommandOutput}.
+   */
+  paginateDescribeInstancePatchStatesForPatchGroup(
+    args: DescribeInstancePatchStatesForPatchGroupCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstancePatchStatesForPatchGroupCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstancePropertiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstancePropertiesCommandOutput}.
+   */
+  paginateDescribeInstanceProperties(
+    args?: DescribeInstancePropertiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstancePropertiesCommandOutput>;
+
+  /**
+   * @see {@link DescribeInventoryDeletionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInventoryDeletionsCommandOutput}.
+   */
+  paginateDescribeInventoryDeletions(
+    args?: DescribeInventoryDeletionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInventoryDeletionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMaintenanceWindowExecutionsCommandOutput}.
+   */
+  paginateDescribeMaintenanceWindowExecutions(
+    args: DescribeMaintenanceWindowExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMaintenanceWindowExecutionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput}.
+   */
+  paginateDescribeMaintenanceWindowExecutionTaskInvocations(
+    args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowExecutionTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMaintenanceWindowExecutionTasksCommandOutput}.
+   */
+  paginateDescribeMaintenanceWindowExecutionTasks(
+    args: DescribeMaintenanceWindowExecutionTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMaintenanceWindowExecutionTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMaintenanceWindowsCommandOutput}.
+   */
+  paginateDescribeMaintenanceWindows(
+    args?: DescribeMaintenanceWindowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMaintenanceWindowsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowScheduleCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMaintenanceWindowScheduleCommandOutput}.
+   */
+  paginateDescribeMaintenanceWindowSchedule(
+    args?: DescribeMaintenanceWindowScheduleCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMaintenanceWindowScheduleCommandOutput>;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowsForTargetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMaintenanceWindowsForTargetCommandOutput}.
+   */
+  paginateDescribeMaintenanceWindowsForTarget(
+    args: DescribeMaintenanceWindowsForTargetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMaintenanceWindowsForTargetCommandOutput>;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMaintenanceWindowTargetsCommandOutput}.
+   */
+  paginateDescribeMaintenanceWindowTargets(
+    args: DescribeMaintenanceWindowTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMaintenanceWindowTargetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMaintenanceWindowTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMaintenanceWindowTasksCommandOutput}.
+   */
+  paginateDescribeMaintenanceWindowTasks(
+    args: DescribeMaintenanceWindowTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMaintenanceWindowTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeOpsItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOpsItemsCommandOutput}.
+   */
+  paginateDescribeOpsItems(
+    args?: DescribeOpsItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOpsItemsCommandOutput>;
+
+  /**
+   * @see {@link DescribeParametersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeParametersCommandOutput}.
+   */
+  paginateDescribeParameters(
+    args?: DescribeParametersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeParametersCommandOutput>;
+
+  /**
+   * @see {@link DescribePatchBaselinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePatchBaselinesCommandOutput}.
+   */
+  paginateDescribePatchBaselines(
+    args?: DescribePatchBaselinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePatchBaselinesCommandOutput>;
+
+  /**
+   * @see {@link DescribePatchGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePatchGroupsCommandOutput}.
+   */
+  paginateDescribePatchGroups(
+    args?: DescribePatchGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePatchGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribePatchPropertiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePatchPropertiesCommandOutput}.
+   */
+  paginateDescribePatchProperties(
+    args: DescribePatchPropertiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePatchPropertiesCommandOutput>;
+
+  /**
+   * @see {@link DescribeSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSessionsCommandOutput}.
+   */
+  paginateDescribeSessions(
+    args: DescribeSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSessionsCommandOutput>;
+
+  /**
+   * @see {@link GetInventoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetInventoryCommandOutput}.
+   */
+  paginateGetInventory(
+    args?: GetInventoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetInventoryCommandOutput>;
+
+  /**
+   * @see {@link GetInventorySchemaCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetInventorySchemaCommandOutput}.
+   */
+  paginateGetInventorySchema(
+    args?: GetInventorySchemaCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetInventorySchemaCommandOutput>;
+
+  /**
+   * @see {@link GetOpsSummaryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetOpsSummaryCommandOutput}.
+   */
+  paginateGetOpsSummary(
+    args?: GetOpsSummaryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetOpsSummaryCommandOutput>;
+
+  /**
+   * @see {@link GetParameterHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetParameterHistoryCommandOutput}.
+   */
+  paginateGetParameterHistory(
+    args: GetParameterHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetParameterHistoryCommandOutput>;
+
+  /**
+   * @see {@link GetParametersByPathCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetParametersByPathCommandOutput}.
+   */
+  paginateGetParametersByPath(
+    args: GetParametersByPathCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetParametersByPathCommandOutput>;
+
+  /**
+   * @see {@link GetResourcePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourcePoliciesCommandOutput}.
+   */
+  paginateGetResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourcePoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssociationsCommandOutput}.
+   */
+  paginateListAssociations(
+    args?: ListAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListAssociationVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssociationVersionsCommandOutput}.
+   */
+  paginateListAssociationVersions(
+    args: ListAssociationVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssociationVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListCommandInvocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCommandInvocationsCommandOutput}.
+   */
+  paginateListCommandInvocations(
+    args?: ListCommandInvocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCommandInvocationsCommandOutput>;
+
+  /**
+   * @see {@link ListCommandsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCommandsCommandOutput}.
+   */
+  paginateListCommands(
+    args?: ListCommandsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCommandsCommandOutput>;
+
+  /**
+   * @see {@link ListComplianceItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComplianceItemsCommandOutput}.
+   */
+  paginateListComplianceItems(
+    args?: ListComplianceItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComplianceItemsCommandOutput>;
+
+  /**
+   * @see {@link ListComplianceSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComplianceSummariesCommandOutput}.
+   */
+  paginateListComplianceSummaries(
+    args?: ListComplianceSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComplianceSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListDocumentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDocumentsCommandOutput}.
+   */
+  paginateListDocuments(
+    args?: ListDocumentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDocumentsCommandOutput>;
+
+  /**
+   * @see {@link ListDocumentVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDocumentVersionsCommandOutput}.
+   */
+  paginateListDocumentVersions(
+    args: ListDocumentVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDocumentVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNodesCommandOutput}.
+   */
+  paginateListNodes(
+    args?: ListNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNodesCommandOutput>;
+
+  /**
+   * @see {@link ListNodesSummaryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNodesSummaryCommandOutput}.
+   */
+  paginateListNodesSummary(
+    args: ListNodesSummaryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNodesSummaryCommandOutput>;
+
+  /**
+   * @see {@link ListOpsItemEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOpsItemEventsCommandOutput}.
+   */
+  paginateListOpsItemEvents(
+    args?: ListOpsItemEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOpsItemEventsCommandOutput>;
+
+  /**
+   * @see {@link ListOpsItemRelatedItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOpsItemRelatedItemsCommandOutput}.
+   */
+  paginateListOpsItemRelatedItems(
+    args?: ListOpsItemRelatedItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOpsItemRelatedItemsCommandOutput>;
+
+  /**
+   * @see {@link ListOpsMetadataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOpsMetadataCommandOutput}.
+   */
+  paginateListOpsMetadata(
+    args?: ListOpsMetadataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOpsMetadataCommandOutput>;
+
+  /**
+   * @see {@link ListResourceComplianceSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceComplianceSummariesCommandOutput}.
+   */
+  paginateListResourceComplianceSummaries(
+    args?: ListResourceComplianceSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceComplianceSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListResourceDataSyncCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceDataSyncCommandOutput}.
+   */
+  paginateListResourceDataSync(
+    args?: ListResourceDataSyncCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceDataSyncCommandOutput>;
+
+  /**
+   * @see {@link GetCommandInvocationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCommandExecuted(
+    args: GetCommandInvocationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<SSM>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -3423,4 +4105,4 @@ export interface SSM {
  * @public
  */
 export class SSM extends SSMClient implements SSM {}
-createAggregatedClient(commands, SSM);
+createAggregatedClient(commands, SSM, { paginators, waiters });

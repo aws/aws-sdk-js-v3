@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchCreateUserCommand,
@@ -172,6 +172,14 @@ import {
   UpdateSecurityGroupCommandOutput,
 } from "./commands/UpdateSecurityGroupCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import { paginateListBlockedGuestUsers } from "./pagination/ListBlockedGuestUsersPaginator";
+import { paginateListBots } from "./pagination/ListBotsPaginator";
+import { paginateListDevicesForUser } from "./pagination/ListDevicesForUserPaginator";
+import { paginateListGuestUsers } from "./pagination/ListGuestUsersPaginator";
+import { paginateListNetworks } from "./pagination/ListNetworksPaginator";
+import { paginateListSecurityGroups } from "./pagination/ListSecurityGroupsPaginator";
+import { paginateListSecurityGroupUsers } from "./pagination/ListSecurityGroupUsersPaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
 import { WickrClient } from "./WickrClient";
 
 const commands = {
@@ -217,6 +225,16 @@ const commands = {
   UpdateNetworkSettingsCommand,
   UpdateSecurityGroupCommand,
   UpdateUserCommand,
+};
+const paginators = {
+  paginateListBlockedGuestUsers,
+  paginateListBots,
+  paginateListDevicesForUser,
+  paginateListGuestUsers,
+  paginateListNetworks,
+  paginateListSecurityGroups,
+  paginateListSecurityGroupUsers,
+  paginateListUsers,
 };
 
 export interface Wickr {
@@ -934,6 +952,94 @@ export interface Wickr {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBlockedGuestUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBlockedGuestUsersCommandOutput}.
+   */
+  paginateListBlockedGuestUsers(
+    args: ListBlockedGuestUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBlockedGuestUsersCommandOutput>;
+
+  /**
+   * @see {@link ListBotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotsCommandOutput}.
+   */
+  paginateListBots(
+    args: ListBotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotsCommandOutput>;
+
+  /**
+   * @see {@link ListDevicesForUserCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevicesForUserCommandOutput}.
+   */
+  paginateListDevicesForUser(
+    args: ListDevicesForUserCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevicesForUserCommandOutput>;
+
+  /**
+   * @see {@link ListGuestUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGuestUsersCommandOutput}.
+   */
+  paginateListGuestUsers(
+    args: ListGuestUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGuestUsersCommandOutput>;
+
+  /**
+   * @see {@link ListNetworksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworksCommandOutput}.
+   */
+  paginateListNetworks(
+    args?: ListNetworksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworksCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityGroupsCommandOutput}.
+   */
+  paginateListSecurityGroups(
+    args: ListSecurityGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityGroupUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityGroupUsersCommandOutput}.
+   */
+  paginateListSecurityGroupUsers(
+    args: ListSecurityGroupUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityGroupUsersCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
 }
 
 /**
@@ -941,4 +1047,4 @@ export interface Wickr {
  * @public
  */
 export class Wickr extends WickrClient implements Wickr {}
-createAggregatedClient(commands, Wickr);
+createAggregatedClient(commands, Wickr, { paginators });

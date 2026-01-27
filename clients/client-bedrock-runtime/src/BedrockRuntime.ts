@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BedrockRuntimeClient } from "./BedrockRuntimeClient";
 import {
@@ -41,6 +41,7 @@ import {
   StartAsyncInvokeCommandInput,
   StartAsyncInvokeCommandOutput,
 } from "./commands/StartAsyncInvokeCommand";
+import { paginateListAsyncInvokes } from "./pagination/ListAsyncInvokesPaginator";
 
 const commands = {
   ApplyGuardrailCommand,
@@ -53,6 +54,9 @@ const commands = {
   InvokeModelWithResponseStreamCommand,
   ListAsyncInvokesCommand,
   StartAsyncInvokeCommand,
+};
+const paginators = {
+  paginateListAsyncInvokes,
 };
 
 export interface BedrockRuntime {
@@ -226,6 +230,17 @@ export interface BedrockRuntime {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartAsyncInvokeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAsyncInvokesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAsyncInvokesCommandOutput}.
+   */
+  paginateListAsyncInvokes(
+    args?: ListAsyncInvokesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAsyncInvokesCommandOutput>;
 }
 
 /**
@@ -233,4 +248,4 @@ export interface BedrockRuntime {
  * @public
  */
 export class BedrockRuntime extends BedrockRuntimeClient implements BedrockRuntime {}
-createAggregatedClient(commands, BedrockRuntime);
+createAggregatedClient(commands, BedrockRuntime, { paginators });

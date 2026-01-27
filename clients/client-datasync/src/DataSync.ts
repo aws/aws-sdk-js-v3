@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelTaskExecutionCommand,
@@ -232,6 +232,11 @@ import {
   UpdateTaskExecutionCommandOutput,
 } from "./commands/UpdateTaskExecutionCommand";
 import { DataSyncClient } from "./DataSyncClient";
+import { paginateListAgents } from "./pagination/ListAgentsPaginator";
+import { paginateListLocations } from "./pagination/ListLocationsPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListTaskExecutions } from "./pagination/ListTaskExecutionsPaginator";
+import { paginateListTasks } from "./pagination/ListTasksPaginator";
 
 const commands = {
   CancelTaskExecutionCommand,
@@ -287,6 +292,13 @@ const commands = {
   UpdateLocationSmbCommand,
   UpdateTaskCommand,
   UpdateTaskExecutionCommand,
+};
+const paginators = {
+  paginateListAgents,
+  paginateListLocations,
+  paginateListTagsForResource,
+  paginateListTaskExecutions,
+  paginateListTasks,
 };
 
 export interface DataSync {
@@ -1194,6 +1206,61 @@ export interface DataSync {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTaskExecutionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAgentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentsCommandOutput}.
+   */
+  paginateListAgents(
+    args?: ListAgentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentsCommandOutput>;
+
+  /**
+   * @see {@link ListLocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLocationsCommandOutput}.
+   */
+  paginateListLocations(
+    args?: ListLocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLocationsCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListTaskExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTaskExecutionsCommandOutput}.
+   */
+  paginateListTaskExecutions(
+    args?: ListTaskExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTaskExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTasksCommandOutput}.
+   */
+  paginateListTasks(
+    args?: ListTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTasksCommandOutput>;
 }
 
 /**
@@ -1209,4 +1276,4 @@ export interface DataSync {
  * @public
  */
 export class DataSync extends DataSyncClient implements DataSync {}
-createAggregatedClient(commands, DataSync);
+createAggregatedClient(commands, DataSync, { paginators });

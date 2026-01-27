@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CancelTaskCommand, CancelTaskCommandInput, CancelTaskCommandOutput } from "./commands/CancelTaskCommand";
 import { CreateTaskCommand, CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
@@ -47,6 +47,10 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateListDeviceResources } from "./pagination/ListDeviceResourcesPaginator";
+import { paginateListDevices } from "./pagination/ListDevicesPaginator";
+import { paginateListExecutions } from "./pagination/ListExecutionsPaginator";
+import { paginateListTasks } from "./pagination/ListTasksPaginator";
 import { SnowDeviceManagementClient } from "./SnowDeviceManagementClient";
 
 const commands = {
@@ -63,6 +67,12 @@ const commands = {
   ListTasksCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListDeviceResources,
+  paginateListDevices,
+  paginateListExecutions,
+  paginateListTasks,
 };
 
 export interface SnowDeviceManagement {
@@ -288,6 +298,50 @@ export interface SnowDeviceManagement {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDeviceResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeviceResourcesCommandOutput}.
+   */
+  paginateListDeviceResources(
+    args: ListDeviceResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeviceResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListDevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevicesCommandOutput}.
+   */
+  paginateListDevices(
+    args?: ListDevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevicesCommandOutput>;
+
+  /**
+   * @see {@link ListExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExecutionsCommandOutput}.
+   */
+  paginateListExecutions(
+    args: ListExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTasksCommandOutput}.
+   */
+  paginateListTasks(
+    args?: ListTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTasksCommandOutput>;
 }
 
 /**
@@ -295,4 +349,4 @@ export interface SnowDeviceManagement {
  * @public
  */
 export class SnowDeviceManagement extends SnowDeviceManagementClient implements SnowDeviceManagement {}
-createAggregatedClient(commands, SnowDeviceManagement);
+createAggregatedClient(commands, SnowDeviceManagement, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DescribeAffectedAccountsForOrganizationCommand,
@@ -73,6 +73,17 @@ import {
   EnableHealthServiceAccessForOrganizationCommandOutput,
 } from "./commands/EnableHealthServiceAccessForOrganizationCommand";
 import { HealthClient } from "./HealthClient";
+import {
+  paginateDescribeAffectedAccountsForOrganization,
+} from "./pagination/DescribeAffectedAccountsForOrganizationPaginator";
+import {
+  paginateDescribeAffectedEntitiesForOrganization,
+} from "./pagination/DescribeAffectedEntitiesForOrganizationPaginator";
+import { paginateDescribeAffectedEntities } from "./pagination/DescribeAffectedEntitiesPaginator";
+import { paginateDescribeEventAggregates } from "./pagination/DescribeEventAggregatesPaginator";
+import { paginateDescribeEventsForOrganization } from "./pagination/DescribeEventsForOrganizationPaginator";
+import { paginateDescribeEvents } from "./pagination/DescribeEventsPaginator";
+import { paginateDescribeEventTypes } from "./pagination/DescribeEventTypesPaginator";
 
 const commands = {
   DescribeAffectedAccountsForOrganizationCommand,
@@ -89,6 +100,15 @@ const commands = {
   DescribeHealthServiceStatusForOrganizationCommand,
   DisableHealthServiceAccessForOrganizationCommand,
   EnableHealthServiceAccessForOrganizationCommand,
+};
+const paginators = {
+  paginateDescribeAffectedAccountsForOrganization,
+  paginateDescribeAffectedEntities,
+  paginateDescribeAffectedEntitiesForOrganization,
+  paginateDescribeEventAggregates,
+  paginateDescribeEvents,
+  paginateDescribeEventsForOrganization,
+  paginateDescribeEventTypes,
 };
 
 export interface Health {
@@ -337,6 +357,83 @@ export interface Health {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableHealthServiceAccessForOrganizationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAffectedAccountsForOrganizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAffectedAccountsForOrganizationCommandOutput}.
+   */
+  paginateDescribeAffectedAccountsForOrganization(
+    args: DescribeAffectedAccountsForOrganizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAffectedAccountsForOrganizationCommandOutput>;
+
+  /**
+   * @see {@link DescribeAffectedEntitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAffectedEntitiesCommandOutput}.
+   */
+  paginateDescribeAffectedEntities(
+    args: DescribeAffectedEntitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAffectedEntitiesCommandOutput>;
+
+  /**
+   * @see {@link DescribeAffectedEntitiesForOrganizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAffectedEntitiesForOrganizationCommandOutput}.
+   */
+  paginateDescribeAffectedEntitiesForOrganization(
+    args?: DescribeAffectedEntitiesForOrganizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAffectedEntitiesForOrganizationCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventAggregatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventAggregatesCommandOutput}.
+   */
+  paginateDescribeEventAggregates(
+    args: DescribeEventAggregatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventAggregatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventsCommandOutput}.
+   */
+  paginateDescribeEvents(
+    args?: DescribeEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventsForOrganizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventsForOrganizationCommandOutput}.
+   */
+  paginateDescribeEventsForOrganization(
+    args?: DescribeEventsForOrganizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventsForOrganizationCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventTypesCommandOutput}.
+   */
+  paginateDescribeEventTypes(
+    args?: DescribeEventTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventTypesCommandOutput>;
 }
 
 /**
@@ -386,4 +483,4 @@ export interface Health {
  * @public
  */
 export class Health extends HealthClient implements Health {}
-createAggregatedClient(commands, Health);
+createAggregatedClient(commands, Health, { paginators });

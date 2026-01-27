@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AddTagsToResourceCommand,
@@ -366,6 +372,29 @@ import {
   TestMigrationCommandOutput,
 } from "./commands/TestMigrationCommand";
 import { ElastiCacheClient } from "./ElastiCacheClient";
+import { paginateDescribeCacheClusters } from "./pagination/DescribeCacheClustersPaginator";
+import { paginateDescribeCacheEngineVersions } from "./pagination/DescribeCacheEngineVersionsPaginator";
+import { paginateDescribeCacheParameterGroups } from "./pagination/DescribeCacheParameterGroupsPaginator";
+import { paginateDescribeCacheParameters } from "./pagination/DescribeCacheParametersPaginator";
+import { paginateDescribeCacheSecurityGroups } from "./pagination/DescribeCacheSecurityGroupsPaginator";
+import { paginateDescribeCacheSubnetGroups } from "./pagination/DescribeCacheSubnetGroupsPaginator";
+import { paginateDescribeEngineDefaultParameters } from "./pagination/DescribeEngineDefaultParametersPaginator";
+import { paginateDescribeEvents } from "./pagination/DescribeEventsPaginator";
+import { paginateDescribeGlobalReplicationGroups } from "./pagination/DescribeGlobalReplicationGroupsPaginator";
+import { paginateDescribeReplicationGroups } from "./pagination/DescribeReplicationGroupsPaginator";
+import { paginateDescribeReservedCacheNodesOfferings } from "./pagination/DescribeReservedCacheNodesOfferingsPaginator";
+import { paginateDescribeReservedCacheNodes } from "./pagination/DescribeReservedCacheNodesPaginator";
+import { paginateDescribeServerlessCacheSnapshots } from "./pagination/DescribeServerlessCacheSnapshotsPaginator";
+import { paginateDescribeServerlessCaches } from "./pagination/DescribeServerlessCachesPaginator";
+import { paginateDescribeServiceUpdates } from "./pagination/DescribeServiceUpdatesPaginator";
+import { paginateDescribeSnapshots } from "./pagination/DescribeSnapshotsPaginator";
+import { paginateDescribeUpdateActions } from "./pagination/DescribeUpdateActionsPaginator";
+import { paginateDescribeUserGroups } from "./pagination/DescribeUserGroupsPaginator";
+import { paginateDescribeUsers } from "./pagination/DescribeUsersPaginator";
+import { waitUntilCacheClusterAvailable } from "./waiters/waitForCacheClusterAvailable";
+import { waitUntilCacheClusterDeleted } from "./waiters/waitForCacheClusterDeleted";
+import { waitUntilReplicationGroupAvailable } from "./waiters/waitForReplicationGroupAvailable";
+import { waitUntilReplicationGroupDeleted } from "./waiters/waitForReplicationGroupDeleted";
 
 const commands = {
   AddTagsToResourceCommand,
@@ -443,6 +472,33 @@ const commands = {
   StartMigrationCommand,
   TestFailoverCommand,
   TestMigrationCommand,
+};
+const paginators = {
+  paginateDescribeCacheClusters,
+  paginateDescribeCacheEngineVersions,
+  paginateDescribeCacheParameterGroups,
+  paginateDescribeCacheParameters,
+  paginateDescribeCacheSecurityGroups,
+  paginateDescribeCacheSubnetGroups,
+  paginateDescribeEngineDefaultParameters,
+  paginateDescribeEvents,
+  paginateDescribeGlobalReplicationGroups,
+  paginateDescribeReplicationGroups,
+  paginateDescribeReservedCacheNodes,
+  paginateDescribeReservedCacheNodesOfferings,
+  paginateDescribeServerlessCaches,
+  paginateDescribeServerlessCacheSnapshots,
+  paginateDescribeServiceUpdates,
+  paginateDescribeSnapshots,
+  paginateDescribeUpdateActions,
+  paginateDescribeUserGroups,
+  paginateDescribeUsers,
+};
+const waiters = {
+  waitUntilCacheClusterAvailable,
+  waitUntilCacheClusterDeleted,
+  waitUntilReplicationGroupAvailable,
+  waitUntilReplicationGroupDeleted,
 };
 
 export interface ElastiCache {
@@ -1738,6 +1794,255 @@ export interface ElastiCache {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TestMigrationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeCacheClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCacheClustersCommandOutput}.
+   */
+  paginateDescribeCacheClusters(
+    args?: DescribeCacheClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCacheClustersCommandOutput>;
+
+  /**
+   * @see {@link DescribeCacheEngineVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCacheEngineVersionsCommandOutput}.
+   */
+  paginateDescribeCacheEngineVersions(
+    args?: DescribeCacheEngineVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCacheEngineVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCacheParameterGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCacheParameterGroupsCommandOutput}.
+   */
+  paginateDescribeCacheParameterGroups(
+    args?: DescribeCacheParameterGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCacheParameterGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCacheParametersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCacheParametersCommandOutput}.
+   */
+  paginateDescribeCacheParameters(
+    args: DescribeCacheParametersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCacheParametersCommandOutput>;
+
+  /**
+   * @see {@link DescribeCacheSecurityGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCacheSecurityGroupsCommandOutput}.
+   */
+  paginateDescribeCacheSecurityGroups(
+    args?: DescribeCacheSecurityGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCacheSecurityGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCacheSubnetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCacheSubnetGroupsCommandOutput}.
+   */
+  paginateDescribeCacheSubnetGroups(
+    args?: DescribeCacheSubnetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCacheSubnetGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEngineDefaultParametersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEngineDefaultParametersCommandOutput}.
+   */
+  paginateDescribeEngineDefaultParameters(
+    args: DescribeEngineDefaultParametersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEngineDefaultParametersCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventsCommandOutput}.
+   */
+  paginateDescribeEvents(
+    args?: DescribeEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventsCommandOutput>;
+
+  /**
+   * @see {@link DescribeGlobalReplicationGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeGlobalReplicationGroupsCommandOutput}.
+   */
+  paginateDescribeGlobalReplicationGroups(
+    args?: DescribeGlobalReplicationGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeGlobalReplicationGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationGroupsCommandOutput}.
+   */
+  paginateDescribeReplicationGroups(
+    args?: DescribeReplicationGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedCacheNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedCacheNodesCommandOutput}.
+   */
+  paginateDescribeReservedCacheNodes(
+    args?: DescribeReservedCacheNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedCacheNodesCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedCacheNodesOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedCacheNodesOfferingsCommandOutput}.
+   */
+  paginateDescribeReservedCacheNodesOfferings(
+    args?: DescribeReservedCacheNodesOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedCacheNodesOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeServerlessCachesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeServerlessCachesCommandOutput}.
+   */
+  paginateDescribeServerlessCaches(
+    args?: DescribeServerlessCachesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeServerlessCachesCommandOutput>;
+
+  /**
+   * @see {@link DescribeServerlessCacheSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeServerlessCacheSnapshotsCommandOutput}.
+   */
+  paginateDescribeServerlessCacheSnapshots(
+    args?: DescribeServerlessCacheSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeServerlessCacheSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link DescribeServiceUpdatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeServiceUpdatesCommandOutput}.
+   */
+  paginateDescribeServiceUpdates(
+    args?: DescribeServiceUpdatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeServiceUpdatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSnapshotsCommandOutput}.
+   */
+  paginateDescribeSnapshots(
+    args?: DescribeSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link DescribeUpdateActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeUpdateActionsCommandOutput}.
+   */
+  paginateDescribeUpdateActions(
+    args?: DescribeUpdateActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeUpdateActionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeUserGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeUserGroupsCommandOutput}.
+   */
+  paginateDescribeUserGroups(
+    args?: DescribeUserGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeUserGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeUsersCommandOutput}.
+   */
+  paginateDescribeUsers(
+    args?: DescribeUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeUsersCommandOutput>;
+
+  /**
+   * @see {@link DescribeCacheClustersCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCacheClusterAvailable(
+    args: DescribeCacheClustersCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElastiCache>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeCacheClustersCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCacheClusterDeleted(
+    args: DescribeCacheClustersCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElastiCache>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeReplicationGroupsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReplicationGroupAvailable(
+    args: DescribeReplicationGroupsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElastiCache>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeReplicationGroupsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReplicationGroupDeleted(
+    args: DescribeReplicationGroupsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElastiCache>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1754,4 +2059,4 @@ export interface ElastiCache {
  * @public
  */
 export class ElastiCache extends ElastiCacheClient implements ElastiCache {}
-createAggregatedClient(commands, ElastiCache);
+createAggregatedClient(commands, ElastiCache, { paginators, waiters });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DescribeAgreementCommand,
@@ -18,11 +18,17 @@ import {
   SearchAgreementsCommandOutput,
 } from "./commands/SearchAgreementsCommand";
 import { MarketplaceAgreementClient } from "./MarketplaceAgreementClient";
+import { paginateGetAgreementTerms } from "./pagination/GetAgreementTermsPaginator";
+import { paginateSearchAgreements } from "./pagination/SearchAgreementsPaginator";
 
 const commands = {
   DescribeAgreementCommand,
   GetAgreementTermsCommand,
   SearchAgreementsCommand,
+};
+const paginators = {
+  paginateGetAgreementTerms,
+  paginateSearchAgreements,
 };
 
 export interface MarketplaceAgreement {
@@ -77,6 +83,28 @@ export interface MarketplaceAgreement {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchAgreementsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetAgreementTermsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAgreementTermsCommandOutput}.
+   */
+  paginateGetAgreementTerms(
+    args: GetAgreementTermsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAgreementTermsCommandOutput>;
+
+  /**
+   * @see {@link SearchAgreementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchAgreementsCommandOutput}.
+   */
+  paginateSearchAgreements(
+    args?: SearchAgreementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchAgreementsCommandOutput>;
 }
 
 /**
@@ -84,4 +112,4 @@ export interface MarketplaceAgreement {
  * @public
  */
 export class MarketplaceAgreement extends MarketplaceAgreementClient implements MarketplaceAgreement {}
-createAggregatedClient(commands, MarketplaceAgreement);
+createAggregatedClient(commands, MarketplaceAgreement, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchCreateTopicReviewedAnswerCommand,
@@ -1060,6 +1060,47 @@ import {
   UpdateVPCConnectionCommandInput,
   UpdateVPCConnectionCommandOutput,
 } from "./commands/UpdateVPCConnectionCommand";
+import { paginateDescribeFolderPermissions } from "./pagination/DescribeFolderPermissionsPaginator";
+import { paginateDescribeFolderResolvedPermissions } from "./pagination/DescribeFolderResolvedPermissionsPaginator";
+import { paginateListActionConnectors } from "./pagination/ListActionConnectorsPaginator";
+import { paginateListAnalyses } from "./pagination/ListAnalysesPaginator";
+import { paginateListAssetBundleExportJobs } from "./pagination/ListAssetBundleExportJobsPaginator";
+import { paginateListAssetBundleImportJobs } from "./pagination/ListAssetBundleImportJobsPaginator";
+import { paginateListBrands } from "./pagination/ListBrandsPaginator";
+import { paginateListCustomPermissions } from "./pagination/ListCustomPermissionsPaginator";
+import { paginateListDashboards } from "./pagination/ListDashboardsPaginator";
+import { paginateListDashboardVersions } from "./pagination/ListDashboardVersionsPaginator";
+import { paginateListDataSets } from "./pagination/ListDataSetsPaginator";
+import { paginateListDataSources } from "./pagination/ListDataSourcesPaginator";
+import { paginateListFlows } from "./pagination/ListFlowsPaginator";
+import { paginateListFolderMembers } from "./pagination/ListFolderMembersPaginator";
+import { paginateListFoldersForResource } from "./pagination/ListFoldersForResourcePaginator";
+import { paginateListFolders } from "./pagination/ListFoldersPaginator";
+import { paginateListGroupMemberships } from "./pagination/ListGroupMembershipsPaginator";
+import { paginateListGroups } from "./pagination/ListGroupsPaginator";
+import { paginateListIAMPolicyAssignmentsForUser } from "./pagination/ListIAMPolicyAssignmentsForUserPaginator";
+import { paginateListIAMPolicyAssignments } from "./pagination/ListIAMPolicyAssignmentsPaginator";
+import { paginateListIngestions } from "./pagination/ListIngestionsPaginator";
+import { paginateListNamespaces } from "./pagination/ListNamespacesPaginator";
+import { paginateListRoleMemberships } from "./pagination/ListRoleMembershipsPaginator";
+import { paginateListTemplateAliases } from "./pagination/ListTemplateAliasesPaginator";
+import { paginateListTemplates } from "./pagination/ListTemplatesPaginator";
+import { paginateListTemplateVersions } from "./pagination/ListTemplateVersionsPaginator";
+import { paginateListThemes } from "./pagination/ListThemesPaginator";
+import { paginateListThemeVersions } from "./pagination/ListThemeVersionsPaginator";
+import { paginateListTopics } from "./pagination/ListTopicsPaginator";
+import { paginateListUserGroups } from "./pagination/ListUserGroupsPaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
+import { paginateListVPCConnections } from "./pagination/ListVPCConnectionsPaginator";
+import { paginateSearchActionConnectors } from "./pagination/SearchActionConnectorsPaginator";
+import { paginateSearchAnalyses } from "./pagination/SearchAnalysesPaginator";
+import { paginateSearchDashboards } from "./pagination/SearchDashboardsPaginator";
+import { paginateSearchDataSets } from "./pagination/SearchDataSetsPaginator";
+import { paginateSearchDataSources } from "./pagination/SearchDataSourcesPaginator";
+import { paginateSearchFlows } from "./pagination/SearchFlowsPaginator";
+import { paginateSearchFolders } from "./pagination/SearchFoldersPaginator";
+import { paginateSearchGroups } from "./pagination/SearchGroupsPaginator";
+import { paginateSearchTopics } from "./pagination/SearchTopicsPaginator";
 import { QuickSightClient } from "./QuickSightClient";
 
 const commands = {
@@ -1293,6 +1334,49 @@ const commands = {
   UpdateUserCommand,
   UpdateUserCustomPermissionCommand,
   UpdateVPCConnectionCommand,
+};
+const paginators = {
+  paginateDescribeFolderPermissions,
+  paginateDescribeFolderResolvedPermissions,
+  paginateListActionConnectors,
+  paginateListAnalyses,
+  paginateListAssetBundleExportJobs,
+  paginateListAssetBundleImportJobs,
+  paginateListBrands,
+  paginateListCustomPermissions,
+  paginateListDashboards,
+  paginateListDashboardVersions,
+  paginateListDataSets,
+  paginateListDataSources,
+  paginateListFlows,
+  paginateListFolderMembers,
+  paginateListFolders,
+  paginateListFoldersForResource,
+  paginateListGroupMemberships,
+  paginateListGroups,
+  paginateListIAMPolicyAssignments,
+  paginateListIAMPolicyAssignmentsForUser,
+  paginateListIngestions,
+  paginateListNamespaces,
+  paginateListRoleMemberships,
+  paginateListTemplateAliases,
+  paginateListTemplates,
+  paginateListTemplateVersions,
+  paginateListThemes,
+  paginateListThemeVersions,
+  paginateListTopics,
+  paginateListUserGroups,
+  paginateListUsers,
+  paginateListVPCConnections,
+  paginateSearchActionConnectors,
+  paginateSearchAnalyses,
+  paginateSearchDashboards,
+  paginateSearchDataSets,
+  paginateSearchDataSources,
+  paginateSearchFlows,
+  paginateSearchFolders,
+  paginateSearchGroups,
+  paginateSearchTopics,
 };
 
 export interface QuickSight {
@@ -5205,6 +5289,457 @@ export interface QuickSight {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVPCConnectionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeFolderPermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFolderPermissionsCommandOutput}.
+   */
+  paginateDescribeFolderPermissions(
+    args: DescribeFolderPermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFolderPermissionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFolderResolvedPermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFolderResolvedPermissionsCommandOutput}.
+   */
+  paginateDescribeFolderResolvedPermissions(
+    args: DescribeFolderResolvedPermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFolderResolvedPermissionsCommandOutput>;
+
+  /**
+   * @see {@link ListActionConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActionConnectorsCommandOutput}.
+   */
+  paginateListActionConnectors(
+    args: ListActionConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActionConnectorsCommandOutput>;
+
+  /**
+   * @see {@link ListAnalysesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnalysesCommandOutput}.
+   */
+  paginateListAnalyses(
+    args: ListAnalysesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnalysesCommandOutput>;
+
+  /**
+   * @see {@link ListAssetBundleExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetBundleExportJobsCommandOutput}.
+   */
+  paginateListAssetBundleExportJobs(
+    args: ListAssetBundleExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetBundleExportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListAssetBundleImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetBundleImportJobsCommandOutput}.
+   */
+  paginateListAssetBundleImportJobs(
+    args: ListAssetBundleImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetBundleImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListBrandsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBrandsCommandOutput}.
+   */
+  paginateListBrands(
+    args: ListBrandsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBrandsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomPermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomPermissionsCommandOutput}.
+   */
+  paginateListCustomPermissions(
+    args: ListCustomPermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomPermissionsCommandOutput>;
+
+  /**
+   * @see {@link ListDashboardsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDashboardsCommandOutput}.
+   */
+  paginateListDashboards(
+    args: ListDashboardsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDashboardsCommandOutput>;
+
+  /**
+   * @see {@link ListDashboardVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDashboardVersionsCommandOutput}.
+   */
+  paginateListDashboardVersions(
+    args: ListDashboardVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDashboardVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListDataSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSetsCommandOutput}.
+   */
+  paginateListDataSets(
+    args: ListDataSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSetsCommandOutput>;
+
+  /**
+   * @see {@link ListDataSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSourcesCommandOutput}.
+   */
+  paginateListDataSources(
+    args: ListDataSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListFlowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowsCommandOutput}.
+   */
+  paginateListFlows(
+    args: ListFlowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowsCommandOutput>;
+
+  /**
+   * @see {@link ListFolderMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFolderMembersCommandOutput}.
+   */
+  paginateListFolderMembers(
+    args: ListFolderMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFolderMembersCommandOutput>;
+
+  /**
+   * @see {@link ListFoldersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFoldersCommandOutput}.
+   */
+  paginateListFolders(
+    args: ListFoldersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFoldersCommandOutput>;
+
+  /**
+   * @see {@link ListFoldersForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFoldersForResourceCommandOutput}.
+   */
+  paginateListFoldersForResource(
+    args: ListFoldersForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFoldersForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListGroupMembershipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupMembershipsCommandOutput}.
+   */
+  paginateListGroupMemberships(
+    args: ListGroupMembershipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupMembershipsCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsCommandOutput}.
+   */
+  paginateListGroups(
+    args: ListGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListIAMPolicyAssignmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIAMPolicyAssignmentsCommandOutput}.
+   */
+  paginateListIAMPolicyAssignments(
+    args: ListIAMPolicyAssignmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIAMPolicyAssignmentsCommandOutput>;
+
+  /**
+   * @see {@link ListIAMPolicyAssignmentsForUserCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIAMPolicyAssignmentsForUserCommandOutput}.
+   */
+  paginateListIAMPolicyAssignmentsForUser(
+    args: ListIAMPolicyAssignmentsForUserCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIAMPolicyAssignmentsForUserCommandOutput>;
+
+  /**
+   * @see {@link ListIngestionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIngestionsCommandOutput}.
+   */
+  paginateListIngestions(
+    args: ListIngestionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIngestionsCommandOutput>;
+
+  /**
+   * @see {@link ListNamespacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNamespacesCommandOutput}.
+   */
+  paginateListNamespaces(
+    args: ListNamespacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNamespacesCommandOutput>;
+
+  /**
+   * @see {@link ListRoleMembershipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoleMembershipsCommandOutput}.
+   */
+  paginateListRoleMemberships(
+    args: ListRoleMembershipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoleMembershipsCommandOutput>;
+
+  /**
+   * @see {@link ListTemplateAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTemplateAliasesCommandOutput}.
+   */
+  paginateListTemplateAliases(
+    args: ListTemplateAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTemplateAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTemplatesCommandOutput}.
+   */
+  paginateListTemplates(
+    args: ListTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListTemplateVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTemplateVersionsCommandOutput}.
+   */
+  paginateListTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTemplateVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListThemesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThemesCommandOutput}.
+   */
+  paginateListThemes(
+    args: ListThemesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThemesCommandOutput>;
+
+  /**
+   * @see {@link ListThemeVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThemeVersionsCommandOutput}.
+   */
+  paginateListThemeVersions(
+    args: ListThemeVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThemeVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListTopicsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTopicsCommandOutput}.
+   */
+  paginateListTopics(
+    args: ListTopicsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTopicsCommandOutput>;
+
+  /**
+   * @see {@link ListUserGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUserGroupsCommandOutput}.
+   */
+  paginateListUserGroups(
+    args: ListUserGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUserGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
+
+  /**
+   * @see {@link ListVPCConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVPCConnectionsCommandOutput}.
+   */
+  paginateListVPCConnections(
+    args: ListVPCConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVPCConnectionsCommandOutput>;
+
+  /**
+   * @see {@link SearchActionConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchActionConnectorsCommandOutput}.
+   */
+  paginateSearchActionConnectors(
+    args: SearchActionConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchActionConnectorsCommandOutput>;
+
+  /**
+   * @see {@link SearchAnalysesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchAnalysesCommandOutput}.
+   */
+  paginateSearchAnalyses(
+    args: SearchAnalysesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchAnalysesCommandOutput>;
+
+  /**
+   * @see {@link SearchDashboardsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchDashboardsCommandOutput}.
+   */
+  paginateSearchDashboards(
+    args: SearchDashboardsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchDashboardsCommandOutput>;
+
+  /**
+   * @see {@link SearchDataSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchDataSetsCommandOutput}.
+   */
+  paginateSearchDataSets(
+    args: SearchDataSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchDataSetsCommandOutput>;
+
+  /**
+   * @see {@link SearchDataSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchDataSourcesCommandOutput}.
+   */
+  paginateSearchDataSources(
+    args: SearchDataSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchDataSourcesCommandOutput>;
+
+  /**
+   * @see {@link SearchFlowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchFlowsCommandOutput}.
+   */
+  paginateSearchFlows(
+    args: SearchFlowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchFlowsCommandOutput>;
+
+  /**
+   * @see {@link SearchFoldersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchFoldersCommandOutput}.
+   */
+  paginateSearchFolders(
+    args: SearchFoldersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchFoldersCommandOutput>;
+
+  /**
+   * @see {@link SearchGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchGroupsCommandOutput}.
+   */
+  paginateSearchGroups(
+    args: SearchGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchGroupsCommandOutput>;
+
+  /**
+   * @see {@link SearchTopicsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchTopicsCommandOutput}.
+   */
+  paginateSearchTopics(
+    args: SearchTopicsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchTopicsCommandOutput>;
 }
 
 /**
@@ -5216,4 +5751,4 @@ export interface QuickSight {
  * @public
  */
 export class QuickSight extends QuickSightClient implements QuickSight {}
-createAggregatedClient(commands, QuickSight);
+createAggregatedClient(commands, QuickSight, { paginators });

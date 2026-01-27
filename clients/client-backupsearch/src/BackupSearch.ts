@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BackupSearchClient } from "./BackupSearchClient";
 import {
@@ -59,6 +59,10 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateListSearchJobBackups } from "./pagination/ListSearchJobBackupsPaginator";
+import { paginateListSearchJobResults } from "./pagination/ListSearchJobResultsPaginator";
+import { paginateListSearchJobs } from "./pagination/ListSearchJobsPaginator";
+import { paginateListSearchResultExportJobs } from "./pagination/ListSearchResultExportJobsPaginator";
 
 const commands = {
   GetSearchJobCommand,
@@ -73,6 +77,12 @@ const commands = {
   StopSearchJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListSearchJobBackups,
+  paginateListSearchJobResults,
+  paginateListSearchJobs,
+  paginateListSearchResultExportJobs,
 };
 
 export interface BackupSearch {
@@ -281,6 +291,50 @@ export interface BackupSearch {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListSearchJobBackupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSearchJobBackupsCommandOutput}.
+   */
+  paginateListSearchJobBackups(
+    args: ListSearchJobBackupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSearchJobBackupsCommandOutput>;
+
+  /**
+   * @see {@link ListSearchJobResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSearchJobResultsCommandOutput}.
+   */
+  paginateListSearchJobResults(
+    args: ListSearchJobResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSearchJobResultsCommandOutput>;
+
+  /**
+   * @see {@link ListSearchJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSearchJobsCommandOutput}.
+   */
+  paginateListSearchJobs(
+    args?: ListSearchJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSearchJobsCommandOutput>;
+
+  /**
+   * @see {@link ListSearchResultExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSearchResultExportJobsCommandOutput}.
+   */
+  paginateListSearchResultExportJobs(
+    args?: ListSearchResultExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSearchResultExportJobsCommandOutput>;
 }
 
 /**
@@ -288,4 +342,4 @@ export interface BackupSearch {
  * @public
  */
 export class BackupSearch extends BackupSearchClient implements BackupSearch {}
-createAggregatedClient(commands, BackupSearch);
+createAggregatedClient(commands, BackupSearch, { paginators });

@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AddListenerCertificatesCommand,
@@ -234,6 +240,20 @@ import {
 } from "./commands/SetSecurityGroupsCommand";
 import { SetSubnetsCommand, SetSubnetsCommandInput, SetSubnetsCommandOutput } from "./commands/SetSubnetsCommand";
 import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
+import { paginateDescribeAccountLimits } from "./pagination/DescribeAccountLimitsPaginator";
+import { paginateDescribeListenerCertificates } from "./pagination/DescribeListenerCertificatesPaginator";
+import { paginateDescribeListeners } from "./pagination/DescribeListenersPaginator";
+import { paginateDescribeLoadBalancers } from "./pagination/DescribeLoadBalancersPaginator";
+import { paginateDescribeRules } from "./pagination/DescribeRulesPaginator";
+import { paginateDescribeTargetGroups } from "./pagination/DescribeTargetGroupsPaginator";
+import { paginateDescribeTrustStoreAssociations } from "./pagination/DescribeTrustStoreAssociationsPaginator";
+import { paginateDescribeTrustStoreRevocations } from "./pagination/DescribeTrustStoreRevocationsPaginator";
+import { paginateDescribeTrustStores } from "./pagination/DescribeTrustStoresPaginator";
+import { waitUntilLoadBalancerAvailable } from "./waiters/waitForLoadBalancerAvailable";
+import { waitUntilLoadBalancerExists } from "./waiters/waitForLoadBalancerExists";
+import { waitUntilLoadBalancersDeleted } from "./waiters/waitForLoadBalancersDeleted";
+import { waitUntilTargetDeregistered } from "./waiters/waitForTargetDeregistered";
+import { waitUntilTargetInService } from "./waiters/waitForTargetInService";
 
 const commands = {
   AddListenerCertificatesCommand,
@@ -287,6 +307,24 @@ const commands = {
   SetRulePrioritiesCommand,
   SetSecurityGroupsCommand,
   SetSubnetsCommand,
+};
+const paginators = {
+  paginateDescribeAccountLimits,
+  paginateDescribeListenerCertificates,
+  paginateDescribeListeners,
+  paginateDescribeLoadBalancers,
+  paginateDescribeRules,
+  paginateDescribeTargetGroups,
+  paginateDescribeTrustStoreAssociations,
+  paginateDescribeTrustStoreRevocations,
+  paginateDescribeTrustStores,
+};
+const waiters = {
+  waitUntilLoadBalancerAvailable,
+  waitUntilLoadBalancerExists,
+  waitUntilLoadBalancersDeleted,
+  waitUntilTargetDeregistered,
+  waitUntilTargetInService,
 };
 
 export interface ElasticLoadBalancingV2 {
@@ -1163,6 +1201,155 @@ export interface ElasticLoadBalancingV2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SetSubnetsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAccountLimitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAccountLimitsCommandOutput}.
+   */
+  paginateDescribeAccountLimits(
+    args?: DescribeAccountLimitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAccountLimitsCommandOutput>;
+
+  /**
+   * @see {@link DescribeListenerCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeListenerCertificatesCommandOutput}.
+   */
+  paginateDescribeListenerCertificates(
+    args: DescribeListenerCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeListenerCertificatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeListenersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeListenersCommandOutput}.
+   */
+  paginateDescribeListeners(
+    args?: DescribeListenersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeListenersCommandOutput>;
+
+  /**
+   * @see {@link DescribeLoadBalancersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLoadBalancersCommandOutput}.
+   */
+  paginateDescribeLoadBalancers(
+    args?: DescribeLoadBalancersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLoadBalancersCommandOutput>;
+
+  /**
+   * @see {@link DescribeRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRulesCommandOutput}.
+   */
+  paginateDescribeRules(
+    args?: DescribeRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRulesCommandOutput>;
+
+  /**
+   * @see {@link DescribeTargetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTargetGroupsCommandOutput}.
+   */
+  paginateDescribeTargetGroups(
+    args?: DescribeTargetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTargetGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTrustStoreAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTrustStoreAssociationsCommandOutput}.
+   */
+  paginateDescribeTrustStoreAssociations(
+    args: DescribeTrustStoreAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTrustStoreAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTrustStoreRevocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTrustStoreRevocationsCommandOutput}.
+   */
+  paginateDescribeTrustStoreRevocations(
+    args: DescribeTrustStoreRevocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTrustStoreRevocationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTrustStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTrustStoresCommandOutput}.
+   */
+  paginateDescribeTrustStores(
+    args?: DescribeTrustStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTrustStoresCommandOutput>;
+
+  /**
+   * @see {@link DescribeLoadBalancersCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilLoadBalancerAvailable(
+    args: DescribeLoadBalancersCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancingV2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeLoadBalancersCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilLoadBalancerExists(
+    args: DescribeLoadBalancersCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancingV2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeLoadBalancersCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilLoadBalancersDeleted(
+    args: DescribeLoadBalancersCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancingV2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeTargetHealthCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTargetDeregistered(
+    args: DescribeTargetHealthCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancingV2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeTargetHealthCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTargetInService(
+    args: DescribeTargetHealthCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancingV2>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1198,4 +1385,4 @@ export interface ElasticLoadBalancingV2 {
  * @public
  */
 export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client implements ElasticLoadBalancingV2 {}
-createAggregatedClient(commands, ElasticLoadBalancingV2);
+createAggregatedClient(commands, ElasticLoadBalancingV2, { paginators, waiters });

@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AcceptAddressTransferCommand,
@@ -3676,6 +3682,278 @@ import {
   WithdrawByoipCidrCommandOutput,
 } from "./commands/WithdrawByoipCidrCommand";
 import { EC2Client } from "./EC2Client";
+import { paginateDescribeAddressesAttribute } from "./pagination/DescribeAddressesAttributePaginator";
+import { paginateDescribeAddressTransfers } from "./pagination/DescribeAddressTransfersPaginator";
+import {
+  paginateDescribeAwsNetworkPerformanceMetricSubscriptions,
+} from "./pagination/DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator";
+import { paginateDescribeByoipCidrs } from "./pagination/DescribeByoipCidrsPaginator";
+import {
+  paginateDescribeCapacityBlockExtensionHistory,
+} from "./pagination/DescribeCapacityBlockExtensionHistoryPaginator";
+import {
+  paginateDescribeCapacityBlockExtensionOfferings,
+} from "./pagination/DescribeCapacityBlockExtensionOfferingsPaginator";
+import { paginateDescribeCapacityBlockOfferings } from "./pagination/DescribeCapacityBlockOfferingsPaginator";
+import { paginateDescribeCapacityBlocks } from "./pagination/DescribeCapacityBlocksPaginator";
+import { paginateDescribeCapacityBlockStatus } from "./pagination/DescribeCapacityBlockStatusPaginator";
+import { paginateDescribeCapacityManagerDataExports } from "./pagination/DescribeCapacityManagerDataExportsPaginator";
+import {
+  paginateDescribeCapacityReservationBillingRequests,
+} from "./pagination/DescribeCapacityReservationBillingRequestsPaginator";
+import { paginateDescribeCapacityReservationFleets } from "./pagination/DescribeCapacityReservationFleetsPaginator";
+import { paginateDescribeCapacityReservations } from "./pagination/DescribeCapacityReservationsPaginator";
+import { paginateDescribeCarrierGateways } from "./pagination/DescribeCarrierGatewaysPaginator";
+import { paginateDescribeClassicLinkInstances } from "./pagination/DescribeClassicLinkInstancesPaginator";
+import { paginateDescribeClientVpnAuthorizationRules } from "./pagination/DescribeClientVpnAuthorizationRulesPaginator";
+import { paginateDescribeClientVpnConnections } from "./pagination/DescribeClientVpnConnectionsPaginator";
+import { paginateDescribeClientVpnEndpoints } from "./pagination/DescribeClientVpnEndpointsPaginator";
+import { paginateDescribeClientVpnRoutes } from "./pagination/DescribeClientVpnRoutesPaginator";
+import { paginateDescribeClientVpnTargetNetworks } from "./pagination/DescribeClientVpnTargetNetworksPaginator";
+import { paginateDescribeCoipPools } from "./pagination/DescribeCoipPoolsPaginator";
+import { paginateDescribeDhcpOptions } from "./pagination/DescribeDhcpOptionsPaginator";
+import { paginateDescribeEgressOnlyInternetGateways } from "./pagination/DescribeEgressOnlyInternetGatewaysPaginator";
+import { paginateDescribeExportImageTasks } from "./pagination/DescribeExportImageTasksPaginator";
+import { paginateDescribeFastLaunchImages } from "./pagination/DescribeFastLaunchImagesPaginator";
+import { paginateDescribeFastSnapshotRestores } from "./pagination/DescribeFastSnapshotRestoresPaginator";
+import { paginateDescribeFleets } from "./pagination/DescribeFleetsPaginator";
+import { paginateDescribeFlowLogs } from "./pagination/DescribeFlowLogsPaginator";
+import { paginateDescribeFpgaImages } from "./pagination/DescribeFpgaImagesPaginator";
+import { paginateDescribeHostReservationOfferings } from "./pagination/DescribeHostReservationOfferingsPaginator";
+import { paginateDescribeHostReservations } from "./pagination/DescribeHostReservationsPaginator";
+import { paginateDescribeHosts } from "./pagination/DescribeHostsPaginator";
+import {
+  paginateDescribeIamInstanceProfileAssociations,
+} from "./pagination/DescribeIamInstanceProfileAssociationsPaginator";
+import { paginateDescribeImageReferences } from "./pagination/DescribeImageReferencesPaginator";
+import { paginateDescribeImages } from "./pagination/DescribeImagesPaginator";
+import { paginateDescribeImageUsageReportEntries } from "./pagination/DescribeImageUsageReportEntriesPaginator";
+import { paginateDescribeImageUsageReports } from "./pagination/DescribeImageUsageReportsPaginator";
+import { paginateDescribeImportImageTasks } from "./pagination/DescribeImportImageTasksPaginator";
+import { paginateDescribeImportSnapshotTasks } from "./pagination/DescribeImportSnapshotTasksPaginator";
+import { paginateDescribeInstanceConnectEndpoints } from "./pagination/DescribeInstanceConnectEndpointsPaginator";
+import {
+  paginateDescribeInstanceCreditSpecifications,
+} from "./pagination/DescribeInstanceCreditSpecificationsPaginator";
+import { paginateDescribeInstanceEventWindows } from "./pagination/DescribeInstanceEventWindowsPaginator";
+import { paginateDescribeInstanceImageMetadata } from "./pagination/DescribeInstanceImageMetadataPaginator";
+import { paginateDescribeInstances } from "./pagination/DescribeInstancesPaginator";
+import { paginateDescribeInstanceStatus } from "./pagination/DescribeInstanceStatusPaginator";
+import { paginateDescribeInstanceTopology } from "./pagination/DescribeInstanceTopologyPaginator";
+import { paginateDescribeInstanceTypeOfferings } from "./pagination/DescribeInstanceTypeOfferingsPaginator";
+import { paginateDescribeInstanceTypes } from "./pagination/DescribeInstanceTypesPaginator";
+import { paginateDescribeInternetGateways } from "./pagination/DescribeInternetGatewaysPaginator";
+import { paginateDescribeIpamPools } from "./pagination/DescribeIpamPoolsPaginator";
+import { paginateDescribeIpamPrefixListResolvers } from "./pagination/DescribeIpamPrefixListResolversPaginator";
+import {
+  paginateDescribeIpamPrefixListResolverTargets,
+} from "./pagination/DescribeIpamPrefixListResolverTargetsPaginator";
+import { paginateDescribeIpamResourceDiscoveries } from "./pagination/DescribeIpamResourceDiscoveriesPaginator";
+import {
+  paginateDescribeIpamResourceDiscoveryAssociations,
+} from "./pagination/DescribeIpamResourceDiscoveryAssociationsPaginator";
+import { paginateDescribeIpamScopes } from "./pagination/DescribeIpamScopesPaginator";
+import { paginateDescribeIpams } from "./pagination/DescribeIpamsPaginator";
+import { paginateDescribeIpv6Pools } from "./pagination/DescribeIpv6PoolsPaginator";
+import { paginateDescribeLaunchTemplates } from "./pagination/DescribeLaunchTemplatesPaginator";
+import { paginateDescribeLaunchTemplateVersions } from "./pagination/DescribeLaunchTemplateVersionsPaginator";
+import { paginateDescribeLocalGatewayRouteTables } from "./pagination/DescribeLocalGatewayRouteTablesPaginator";
+import {
+  paginateDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations,
+} from "./pagination/DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator";
+import {
+  paginateDescribeLocalGatewayRouteTableVpcAssociations,
+} from "./pagination/DescribeLocalGatewayRouteTableVpcAssociationsPaginator";
+import { paginateDescribeLocalGateways } from "./pagination/DescribeLocalGatewaysPaginator";
+import {
+  paginateDescribeLocalGatewayVirtualInterfaceGroups,
+} from "./pagination/DescribeLocalGatewayVirtualInterfaceGroupsPaginator";
+import {
+  paginateDescribeLocalGatewayVirtualInterfaces,
+} from "./pagination/DescribeLocalGatewayVirtualInterfacesPaginator";
+import { paginateDescribeMacHosts } from "./pagination/DescribeMacHostsPaginator";
+import { paginateDescribeMacModificationTasks } from "./pagination/DescribeMacModificationTasksPaginator";
+import { paginateDescribeManagedPrefixLists } from "./pagination/DescribeManagedPrefixListsPaginator";
+import { paginateDescribeMovingAddresses } from "./pagination/DescribeMovingAddressesPaginator";
+import { paginateDescribeNatGateways } from "./pagination/DescribeNatGatewaysPaginator";
+import { paginateDescribeNetworkAcls } from "./pagination/DescribeNetworkAclsPaginator";
+import {
+  paginateDescribeNetworkInsightsAccessScopeAnalyses,
+} from "./pagination/DescribeNetworkInsightsAccessScopeAnalysesPaginator";
+import { paginateDescribeNetworkInsightsAccessScopes } from "./pagination/DescribeNetworkInsightsAccessScopesPaginator";
+import { paginateDescribeNetworkInsightsAnalyses } from "./pagination/DescribeNetworkInsightsAnalysesPaginator";
+import { paginateDescribeNetworkInsightsPaths } from "./pagination/DescribeNetworkInsightsPathsPaginator";
+import { paginateDescribeNetworkInterfacePermissions } from "./pagination/DescribeNetworkInterfacePermissionsPaginator";
+import { paginateDescribeNetworkInterfaces } from "./pagination/DescribeNetworkInterfacesPaginator";
+import { paginateDescribePrefixLists } from "./pagination/DescribePrefixListsPaginator";
+import { paginateDescribePrincipalIdFormat } from "./pagination/DescribePrincipalIdFormatPaginator";
+import { paginateDescribePublicIpv4Pools } from "./pagination/DescribePublicIpv4PoolsPaginator";
+import { paginateDescribeReplaceRootVolumeTasks } from "./pagination/DescribeReplaceRootVolumeTasksPaginator";
+import {
+  paginateDescribeReservedInstancesModifications,
+} from "./pagination/DescribeReservedInstancesModificationsPaginator";
+import { paginateDescribeReservedInstancesOfferings } from "./pagination/DescribeReservedInstancesOfferingsPaginator";
+import { paginateDescribeRouteServerEndpoints } from "./pagination/DescribeRouteServerEndpointsPaginator";
+import { paginateDescribeRouteServerPeers } from "./pagination/DescribeRouteServerPeersPaginator";
+import { paginateDescribeRouteServers } from "./pagination/DescribeRouteServersPaginator";
+import { paginateDescribeRouteTables } from "./pagination/DescribeRouteTablesPaginator";
+import {
+  paginateDescribeScheduledInstanceAvailability,
+} from "./pagination/DescribeScheduledInstanceAvailabilityPaginator";
+import { paginateDescribeScheduledInstances } from "./pagination/DescribeScheduledInstancesPaginator";
+import { paginateDescribeSecurityGroupRules } from "./pagination/DescribeSecurityGroupRulesPaginator";
+import { paginateDescribeSecurityGroups } from "./pagination/DescribeSecurityGroupsPaginator";
+import {
+  paginateDescribeSecurityGroupVpcAssociations,
+} from "./pagination/DescribeSecurityGroupVpcAssociationsPaginator";
+import { paginateDescribeSnapshots } from "./pagination/DescribeSnapshotsPaginator";
+import { paginateDescribeSnapshotTierStatus } from "./pagination/DescribeSnapshotTierStatusPaginator";
+import { paginateDescribeSpotFleetRequests } from "./pagination/DescribeSpotFleetRequestsPaginator";
+import { paginateDescribeSpotInstanceRequests } from "./pagination/DescribeSpotInstanceRequestsPaginator";
+import { paginateDescribeSpotPriceHistory } from "./pagination/DescribeSpotPriceHistoryPaginator";
+import { paginateDescribeStaleSecurityGroups } from "./pagination/DescribeStaleSecurityGroupsPaginator";
+import { paginateDescribeStoreImageTasks } from "./pagination/DescribeStoreImageTasksPaginator";
+import { paginateDescribeSubnets } from "./pagination/DescribeSubnetsPaginator";
+import { paginateDescribeTags } from "./pagination/DescribeTagsPaginator";
+import { paginateDescribeTrafficMirrorFilters } from "./pagination/DescribeTrafficMirrorFiltersPaginator";
+import { paginateDescribeTrafficMirrorSessions } from "./pagination/DescribeTrafficMirrorSessionsPaginator";
+import { paginateDescribeTrafficMirrorTargets } from "./pagination/DescribeTrafficMirrorTargetsPaginator";
+import { paginateDescribeTransitGatewayAttachments } from "./pagination/DescribeTransitGatewayAttachmentsPaginator";
+import { paginateDescribeTransitGatewayConnectPeers } from "./pagination/DescribeTransitGatewayConnectPeersPaginator";
+import { paginateDescribeTransitGatewayConnects } from "./pagination/DescribeTransitGatewayConnectsPaginator";
+import {
+  paginateDescribeTransitGatewayMulticastDomains,
+} from "./pagination/DescribeTransitGatewayMulticastDomainsPaginator";
+import {
+  paginateDescribeTransitGatewayPeeringAttachments,
+} from "./pagination/DescribeTransitGatewayPeeringAttachmentsPaginator";
+import { paginateDescribeTransitGatewayPolicyTables } from "./pagination/DescribeTransitGatewayPolicyTablesPaginator";
+import {
+  paginateDescribeTransitGatewayRouteTableAnnouncements,
+} from "./pagination/DescribeTransitGatewayRouteTableAnnouncementsPaginator";
+import { paginateDescribeTransitGatewayRouteTables } from "./pagination/DescribeTransitGatewayRouteTablesPaginator";
+import { paginateDescribeTransitGateways } from "./pagination/DescribeTransitGatewaysPaginator";
+import {
+  paginateDescribeTransitGatewayVpcAttachments,
+} from "./pagination/DescribeTransitGatewayVpcAttachmentsPaginator";
+import { paginateDescribeTrunkInterfaceAssociations } from "./pagination/DescribeTrunkInterfaceAssociationsPaginator";
+import { paginateDescribeVerifiedAccessEndpoints } from "./pagination/DescribeVerifiedAccessEndpointsPaginator";
+import { paginateDescribeVerifiedAccessGroups } from "./pagination/DescribeVerifiedAccessGroupsPaginator";
+import {
+  paginateDescribeVerifiedAccessInstanceLoggingConfigurations,
+} from "./pagination/DescribeVerifiedAccessInstanceLoggingConfigurationsPaginator";
+import { paginateDescribeVerifiedAccessInstances } from "./pagination/DescribeVerifiedAccessInstancesPaginator";
+import {
+  paginateDescribeVerifiedAccessTrustProviders,
+} from "./pagination/DescribeVerifiedAccessTrustProvidersPaginator";
+import { paginateDescribeVolumesModifications } from "./pagination/DescribeVolumesModificationsPaginator";
+import { paginateDescribeVolumes } from "./pagination/DescribeVolumesPaginator";
+import { paginateDescribeVolumeStatus } from "./pagination/DescribeVolumeStatusPaginator";
+import { paginateDescribeVpcClassicLinkDnsSupport } from "./pagination/DescribeVpcClassicLinkDnsSupportPaginator";
+import {
+  paginateDescribeVpcEndpointConnectionNotifications,
+} from "./pagination/DescribeVpcEndpointConnectionNotificationsPaginator";
+import { paginateDescribeVpcEndpointConnections } from "./pagination/DescribeVpcEndpointConnectionsPaginator";
+import {
+  paginateDescribeVpcEndpointServiceConfigurations,
+} from "./pagination/DescribeVpcEndpointServiceConfigurationsPaginator";
+import {
+  paginateDescribeVpcEndpointServicePermissions,
+} from "./pagination/DescribeVpcEndpointServicePermissionsPaginator";
+import { paginateDescribeVpcEndpoints } from "./pagination/DescribeVpcEndpointsPaginator";
+import { paginateDescribeVpcPeeringConnections } from "./pagination/DescribeVpcPeeringConnectionsPaginator";
+import { paginateDescribeVpcs } from "./pagination/DescribeVpcsPaginator";
+import { paginateDescribeVpnConcentrators } from "./pagination/DescribeVpnConcentratorsPaginator";
+import { paginateGetAssociatedIpv6PoolCidrs } from "./pagination/GetAssociatedIpv6PoolCidrsPaginator";
+import { paginateGetAwsNetworkPerformanceData } from "./pagination/GetAwsNetworkPerformanceDataPaginator";
+import { paginateGetCapacityManagerMetricData } from "./pagination/GetCapacityManagerMetricDataPaginator";
+import { paginateGetCapacityManagerMetricDimensions } from "./pagination/GetCapacityManagerMetricDimensionsPaginator";
+import { paginateGetGroupsForCapacityReservation } from "./pagination/GetGroupsForCapacityReservationPaginator";
+import {
+  paginateGetInstanceTypesFromInstanceRequirements,
+} from "./pagination/GetInstanceTypesFromInstanceRequirementsPaginator";
+import { paginateGetIpamAddressHistory } from "./pagination/GetIpamAddressHistoryPaginator";
+import { paginateGetIpamDiscoveredAccounts } from "./pagination/GetIpamDiscoveredAccountsPaginator";
+import { paginateGetIpamDiscoveredResourceCidrs } from "./pagination/GetIpamDiscoveredResourceCidrsPaginator";
+import { paginateGetIpamPoolAllocations } from "./pagination/GetIpamPoolAllocationsPaginator";
+import { paginateGetIpamPoolCidrs } from "./pagination/GetIpamPoolCidrsPaginator";
+import { paginateGetIpamPrefixListResolverRules } from "./pagination/GetIpamPrefixListResolverRulesPaginator";
+import {
+  paginateGetIpamPrefixListResolverVersionEntries,
+} from "./pagination/GetIpamPrefixListResolverVersionEntriesPaginator";
+import { paginateGetIpamPrefixListResolverVersions } from "./pagination/GetIpamPrefixListResolverVersionsPaginator";
+import { paginateGetIpamResourceCidrs } from "./pagination/GetIpamResourceCidrsPaginator";
+import { paginateGetManagedPrefixListAssociations } from "./pagination/GetManagedPrefixListAssociationsPaginator";
+import { paginateGetManagedPrefixListEntries } from "./pagination/GetManagedPrefixListEntriesPaginator";
+import {
+  paginateGetNetworkInsightsAccessScopeAnalysisFindings,
+} from "./pagination/GetNetworkInsightsAccessScopeAnalysisFindingsPaginator";
+import { paginateGetSecurityGroupsForVpc } from "./pagination/GetSecurityGroupsForVpcPaginator";
+import { paginateGetSpotPlacementScores } from "./pagination/GetSpotPlacementScoresPaginator";
+import {
+  paginateGetTransitGatewayAttachmentPropagations,
+} from "./pagination/GetTransitGatewayAttachmentPropagationsPaginator";
+import {
+  paginateGetTransitGatewayMulticastDomainAssociations,
+} from "./pagination/GetTransitGatewayMulticastDomainAssociationsPaginator";
+import {
+  paginateGetTransitGatewayPolicyTableAssociations,
+} from "./pagination/GetTransitGatewayPolicyTableAssociationsPaginator";
+import {
+  paginateGetTransitGatewayPrefixListReferences,
+} from "./pagination/GetTransitGatewayPrefixListReferencesPaginator";
+import {
+  paginateGetTransitGatewayRouteTableAssociations,
+} from "./pagination/GetTransitGatewayRouteTableAssociationsPaginator";
+import {
+  paginateGetTransitGatewayRouteTablePropagations,
+} from "./pagination/GetTransitGatewayRouteTablePropagationsPaginator";
+import { paginateGetVpnConnectionDeviceTypes } from "./pagination/GetVpnConnectionDeviceTypesPaginator";
+import { paginateListImagesInRecycleBin } from "./pagination/ListImagesInRecycleBinPaginator";
+import { paginateListSnapshotsInRecycleBin } from "./pagination/ListSnapshotsInRecycleBinPaginator";
+import { paginateSearchLocalGatewayRoutes } from "./pagination/SearchLocalGatewayRoutesPaginator";
+import { paginateSearchTransitGatewayMulticastGroups } from "./pagination/SearchTransitGatewayMulticastGroupsPaginator";
+import { waitUntilBundleTaskComplete } from "./waiters/waitForBundleTaskComplete";
+import { waitUntilConversionTaskCancelled } from "./waiters/waitForConversionTaskCancelled";
+import { waitUntilConversionTaskCompleted } from "./waiters/waitForConversionTaskCompleted";
+import { waitUntilConversionTaskDeleted } from "./waiters/waitForConversionTaskDeleted";
+import { waitUntilCustomerGatewayAvailable } from "./waiters/waitForCustomerGatewayAvailable";
+import { waitUntilExportTaskCancelled } from "./waiters/waitForExportTaskCancelled";
+import { waitUntilExportTaskCompleted } from "./waiters/waitForExportTaskCompleted";
+import { waitUntilImageAvailable } from "./waiters/waitForImageAvailable";
+import { waitUntilImageExists } from "./waiters/waitForImageExists";
+import { waitUntilImageUsageReportAvailable } from "./waiters/waitForImageUsageReportAvailable";
+import { waitUntilInstanceExists } from "./waiters/waitForInstanceExists";
+import { waitUntilInstanceRunning } from "./waiters/waitForInstanceRunning";
+import { waitUntilInstanceStatusOk } from "./waiters/waitForInstanceStatusOk";
+import { waitUntilInstanceStopped } from "./waiters/waitForInstanceStopped";
+import { waitUntilInstanceTerminated } from "./waiters/waitForInstanceTerminated";
+import { waitUntilInternetGatewayExists } from "./waiters/waitForInternetGatewayExists";
+import { waitUntilKeyPairExists } from "./waiters/waitForKeyPairExists";
+import { waitUntilNatGatewayAvailable } from "./waiters/waitForNatGatewayAvailable";
+import { waitUntilNatGatewayDeleted } from "./waiters/waitForNatGatewayDeleted";
+import { waitUntilNetworkInterfaceAvailable } from "./waiters/waitForNetworkInterfaceAvailable";
+import { waitUntilPasswordDataAvailable } from "./waiters/waitForPasswordDataAvailable";
+import { waitUntilSecurityGroupExists } from "./waiters/waitForSecurityGroupExists";
+import { waitUntilSecurityGroupVpcAssociationAssociated } from "./waiters/waitForSecurityGroupVpcAssociationAssociated";
+import {
+  waitUntilSecurityGroupVpcAssociationDisassociated,
+} from "./waiters/waitForSecurityGroupVpcAssociationDisassociated";
+import { waitUntilSnapshotCompleted } from "./waiters/waitForSnapshotCompleted";
+import { waitUntilSnapshotImported } from "./waiters/waitForSnapshotImported";
+import { waitUntilSpotInstanceRequestFulfilled } from "./waiters/waitForSpotInstanceRequestFulfilled";
+import { waitUntilStoreImageTaskComplete } from "./waiters/waitForStoreImageTaskComplete";
+import { waitUntilSubnetAvailable } from "./waiters/waitForSubnetAvailable";
+import { waitUntilSystemStatusOk } from "./waiters/waitForSystemStatusOk";
+import { waitUntilVolumeAvailable } from "./waiters/waitForVolumeAvailable";
+import { waitUntilVolumeDeleted } from "./waiters/waitForVolumeDeleted";
+import { waitUntilVolumeInUse } from "./waiters/waitForVolumeInUse";
+import { waitUntilVpcAvailable } from "./waiters/waitForVpcAvailable";
+import { waitUntilVpcExists } from "./waiters/waitForVpcExists";
+import { waitUntilVpcPeeringConnectionDeleted } from "./waiters/waitForVpcPeeringConnectionDeleted";
+import { waitUntilVpcPeeringConnectionExists } from "./waiters/waitForVpcPeeringConnectionExists";
+import { waitUntilVpnConnectionAvailable } from "./waiters/waitForVpnConnectionAvailable";
+import { waitUntilVpnConnectionDeleted } from "./waiters/waitForVpnConnectionDeleted";
 
 const commands = {
   AcceptAddressTransferCommand,
@@ -4427,6 +4705,212 @@ const commands = {
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
   UpdateSecurityGroupRuleDescriptionsIngressCommand,
   WithdrawByoipCidrCommand,
+};
+const paginators = {
+  paginateDescribeAddressesAttribute,
+  paginateDescribeAddressTransfers,
+  paginateDescribeAwsNetworkPerformanceMetricSubscriptions,
+  paginateDescribeByoipCidrs,
+  paginateDescribeCapacityBlockExtensionHistory,
+  paginateDescribeCapacityBlockExtensionOfferings,
+  paginateDescribeCapacityBlockOfferings,
+  paginateDescribeCapacityBlocks,
+  paginateDescribeCapacityBlockStatus,
+  paginateDescribeCapacityManagerDataExports,
+  paginateDescribeCapacityReservationBillingRequests,
+  paginateDescribeCapacityReservationFleets,
+  paginateDescribeCapacityReservations,
+  paginateDescribeCarrierGateways,
+  paginateDescribeClassicLinkInstances,
+  paginateDescribeClientVpnAuthorizationRules,
+  paginateDescribeClientVpnConnections,
+  paginateDescribeClientVpnEndpoints,
+  paginateDescribeClientVpnRoutes,
+  paginateDescribeClientVpnTargetNetworks,
+  paginateDescribeCoipPools,
+  paginateDescribeDhcpOptions,
+  paginateDescribeEgressOnlyInternetGateways,
+  paginateDescribeExportImageTasks,
+  paginateDescribeFastLaunchImages,
+  paginateDescribeFastSnapshotRestores,
+  paginateDescribeFleets,
+  paginateDescribeFlowLogs,
+  paginateDescribeFpgaImages,
+  paginateDescribeHostReservationOfferings,
+  paginateDescribeHostReservations,
+  paginateDescribeHosts,
+  paginateDescribeIamInstanceProfileAssociations,
+  paginateDescribeImageReferences,
+  paginateDescribeImages,
+  paginateDescribeImageUsageReportEntries,
+  paginateDescribeImageUsageReports,
+  paginateDescribeImportImageTasks,
+  paginateDescribeImportSnapshotTasks,
+  paginateDescribeInstanceConnectEndpoints,
+  paginateDescribeInstanceCreditSpecifications,
+  paginateDescribeInstanceEventWindows,
+  paginateDescribeInstanceImageMetadata,
+  paginateDescribeInstances,
+  paginateDescribeInstanceStatus,
+  paginateDescribeInstanceTopology,
+  paginateDescribeInstanceTypeOfferings,
+  paginateDescribeInstanceTypes,
+  paginateDescribeInternetGateways,
+  paginateDescribeIpamPools,
+  paginateDescribeIpamPrefixListResolvers,
+  paginateDescribeIpamPrefixListResolverTargets,
+  paginateDescribeIpamResourceDiscoveries,
+  paginateDescribeIpamResourceDiscoveryAssociations,
+  paginateDescribeIpams,
+  paginateDescribeIpamScopes,
+  paginateDescribeIpv6Pools,
+  paginateDescribeLaunchTemplates,
+  paginateDescribeLaunchTemplateVersions,
+  paginateDescribeLocalGatewayRouteTables,
+  paginateDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations,
+  paginateDescribeLocalGatewayRouteTableVpcAssociations,
+  paginateDescribeLocalGateways,
+  paginateDescribeLocalGatewayVirtualInterfaceGroups,
+  paginateDescribeLocalGatewayVirtualInterfaces,
+  paginateDescribeMacHosts,
+  paginateDescribeMacModificationTasks,
+  paginateDescribeManagedPrefixLists,
+  paginateDescribeMovingAddresses,
+  paginateDescribeNatGateways,
+  paginateDescribeNetworkAcls,
+  paginateDescribeNetworkInsightsAccessScopeAnalyses,
+  paginateDescribeNetworkInsightsAccessScopes,
+  paginateDescribeNetworkInsightsAnalyses,
+  paginateDescribeNetworkInsightsPaths,
+  paginateDescribeNetworkInterfacePermissions,
+  paginateDescribeNetworkInterfaces,
+  paginateDescribePrefixLists,
+  paginateDescribePrincipalIdFormat,
+  paginateDescribePublicIpv4Pools,
+  paginateDescribeReplaceRootVolumeTasks,
+  paginateDescribeReservedInstancesModifications,
+  paginateDescribeReservedInstancesOfferings,
+  paginateDescribeRouteServerEndpoints,
+  paginateDescribeRouteServerPeers,
+  paginateDescribeRouteServers,
+  paginateDescribeRouteTables,
+  paginateDescribeScheduledInstanceAvailability,
+  paginateDescribeScheduledInstances,
+  paginateDescribeSecurityGroupRules,
+  paginateDescribeSecurityGroups,
+  paginateDescribeSecurityGroupVpcAssociations,
+  paginateDescribeSnapshots,
+  paginateDescribeSnapshotTierStatus,
+  paginateDescribeSpotFleetRequests,
+  paginateDescribeSpotInstanceRequests,
+  paginateDescribeSpotPriceHistory,
+  paginateDescribeStaleSecurityGroups,
+  paginateDescribeStoreImageTasks,
+  paginateDescribeSubnets,
+  paginateDescribeTags,
+  paginateDescribeTrafficMirrorFilters,
+  paginateDescribeTrafficMirrorSessions,
+  paginateDescribeTrafficMirrorTargets,
+  paginateDescribeTransitGatewayAttachments,
+  paginateDescribeTransitGatewayConnectPeers,
+  paginateDescribeTransitGatewayConnects,
+  paginateDescribeTransitGatewayMulticastDomains,
+  paginateDescribeTransitGatewayPeeringAttachments,
+  paginateDescribeTransitGatewayPolicyTables,
+  paginateDescribeTransitGatewayRouteTableAnnouncements,
+  paginateDescribeTransitGatewayRouteTables,
+  paginateDescribeTransitGateways,
+  paginateDescribeTransitGatewayVpcAttachments,
+  paginateDescribeTrunkInterfaceAssociations,
+  paginateDescribeVerifiedAccessEndpoints,
+  paginateDescribeVerifiedAccessGroups,
+  paginateDescribeVerifiedAccessInstanceLoggingConfigurations,
+  paginateDescribeVerifiedAccessInstances,
+  paginateDescribeVerifiedAccessTrustProviders,
+  paginateDescribeVolumes,
+  paginateDescribeVolumesModifications,
+  paginateDescribeVolumeStatus,
+  paginateDescribeVpcClassicLinkDnsSupport,
+  paginateDescribeVpcEndpointConnectionNotifications,
+  paginateDescribeVpcEndpointConnections,
+  paginateDescribeVpcEndpoints,
+  paginateDescribeVpcEndpointServiceConfigurations,
+  paginateDescribeVpcEndpointServicePermissions,
+  paginateDescribeVpcPeeringConnections,
+  paginateDescribeVpcs,
+  paginateDescribeVpnConcentrators,
+  paginateGetAssociatedIpv6PoolCidrs,
+  paginateGetAwsNetworkPerformanceData,
+  paginateGetCapacityManagerMetricData,
+  paginateGetCapacityManagerMetricDimensions,
+  paginateGetGroupsForCapacityReservation,
+  paginateGetInstanceTypesFromInstanceRequirements,
+  paginateGetIpamAddressHistory,
+  paginateGetIpamDiscoveredAccounts,
+  paginateGetIpamDiscoveredResourceCidrs,
+  paginateGetIpamPoolAllocations,
+  paginateGetIpamPoolCidrs,
+  paginateGetIpamPrefixListResolverRules,
+  paginateGetIpamPrefixListResolverVersionEntries,
+  paginateGetIpamPrefixListResolverVersions,
+  paginateGetIpamResourceCidrs,
+  paginateGetManagedPrefixListAssociations,
+  paginateGetManagedPrefixListEntries,
+  paginateGetNetworkInsightsAccessScopeAnalysisFindings,
+  paginateGetSecurityGroupsForVpc,
+  paginateGetSpotPlacementScores,
+  paginateGetTransitGatewayAttachmentPropagations,
+  paginateGetTransitGatewayMulticastDomainAssociations,
+  paginateGetTransitGatewayPolicyTableAssociations,
+  paginateGetTransitGatewayPrefixListReferences,
+  paginateGetTransitGatewayRouteTableAssociations,
+  paginateGetTransitGatewayRouteTablePropagations,
+  paginateGetVpnConnectionDeviceTypes,
+  paginateListImagesInRecycleBin,
+  paginateListSnapshotsInRecycleBin,
+  paginateSearchLocalGatewayRoutes,
+  paginateSearchTransitGatewayMulticastGroups,
+};
+const waiters = {
+  waitUntilBundleTaskComplete,
+  waitUntilConversionTaskCancelled,
+  waitUntilConversionTaskCompleted,
+  waitUntilConversionTaskDeleted,
+  waitUntilCustomerGatewayAvailable,
+  waitUntilExportTaskCancelled,
+  waitUntilExportTaskCompleted,
+  waitUntilImageAvailable,
+  waitUntilImageExists,
+  waitUntilImageUsageReportAvailable,
+  waitUntilSnapshotImported,
+  waitUntilInstanceExists,
+  waitUntilInstanceRunning,
+  waitUntilInstanceStopped,
+  waitUntilInstanceTerminated,
+  waitUntilInstanceStatusOk,
+  waitUntilSystemStatusOk,
+  waitUntilInternetGatewayExists,
+  waitUntilKeyPairExists,
+  waitUntilNatGatewayAvailable,
+  waitUntilNatGatewayDeleted,
+  waitUntilNetworkInterfaceAvailable,
+  waitUntilSecurityGroupExists,
+  waitUntilSecurityGroupVpcAssociationAssociated,
+  waitUntilSecurityGroupVpcAssociationDisassociated,
+  waitUntilSnapshotCompleted,
+  waitUntilSpotInstanceRequestFulfilled,
+  waitUntilStoreImageTaskComplete,
+  waitUntilSubnetAvailable,
+  waitUntilVolumeAvailable,
+  waitUntilVolumeDeleted,
+  waitUntilVolumeInUse,
+  waitUntilVpcPeeringConnectionDeleted,
+  waitUntilVpcPeeringConnectionExists,
+  waitUntilVpcAvailable,
+  waitUntilVpcExists,
+  waitUntilVpnConnectionAvailable,
+  waitUntilVpnConnectionDeleted,
+  waitUntilPasswordDataAvailable,
 };
 
 export interface EC2 {
@@ -17388,6 +17872,2189 @@ export interface EC2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: WithdrawByoipCidrCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAddressesAttributeCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAddressesAttributeCommandOutput}.
+   */
+  paginateDescribeAddressesAttribute(
+    args?: DescribeAddressesAttributeCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAddressesAttributeCommandOutput>;
+
+  /**
+   * @see {@link DescribeAddressTransfersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAddressTransfersCommandOutput}.
+   */
+  paginateDescribeAddressTransfers(
+    args?: DescribeAddressTransfersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAddressTransfersCommandOutput>;
+
+  /**
+   * @see {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput}.
+   */
+  paginateDescribeAwsNetworkPerformanceMetricSubscriptions(
+    args?: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeByoipCidrsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeByoipCidrsCommandOutput}.
+   */
+  paginateDescribeByoipCidrs(
+    args: DescribeByoipCidrsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeByoipCidrsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCapacityBlockExtensionHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCapacityBlockExtensionHistoryCommandOutput}.
+   */
+  paginateDescribeCapacityBlockExtensionHistory(
+    args?: DescribeCapacityBlockExtensionHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCapacityBlockExtensionHistoryCommandOutput>;
+
+  /**
+   * @see {@link DescribeCapacityBlockExtensionOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCapacityBlockExtensionOfferingsCommandOutput}.
+   */
+  paginateDescribeCapacityBlockExtensionOfferings(
+    args: DescribeCapacityBlockExtensionOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCapacityBlockExtensionOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCapacityBlockOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCapacityBlockOfferingsCommandOutput}.
+   */
+  paginateDescribeCapacityBlockOfferings(
+    args: DescribeCapacityBlockOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCapacityBlockOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCapacityBlocksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCapacityBlocksCommandOutput}.
+   */
+  paginateDescribeCapacityBlocks(
+    args?: DescribeCapacityBlocksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCapacityBlocksCommandOutput>;
+
+  /**
+   * @see {@link DescribeCapacityBlockStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCapacityBlockStatusCommandOutput}.
+   */
+  paginateDescribeCapacityBlockStatus(
+    args?: DescribeCapacityBlockStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCapacityBlockStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeCapacityManagerDataExportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCapacityManagerDataExportsCommandOutput}.
+   */
+  paginateDescribeCapacityManagerDataExports(
+    args?: DescribeCapacityManagerDataExportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCapacityManagerDataExportsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCapacityReservationBillingRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCapacityReservationBillingRequestsCommandOutput}.
+   */
+  paginateDescribeCapacityReservationBillingRequests(
+    args: DescribeCapacityReservationBillingRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCapacityReservationBillingRequestsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCapacityReservationFleetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCapacityReservationFleetsCommandOutput}.
+   */
+  paginateDescribeCapacityReservationFleets(
+    args?: DescribeCapacityReservationFleetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCapacityReservationFleetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCapacityReservationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCapacityReservationsCommandOutput}.
+   */
+  paginateDescribeCapacityReservations(
+    args?: DescribeCapacityReservationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCapacityReservationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCarrierGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCarrierGatewaysCommandOutput}.
+   */
+  paginateDescribeCarrierGateways(
+    args?: DescribeCarrierGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCarrierGatewaysCommandOutput>;
+
+  /**
+   * @see {@link DescribeClassicLinkInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClassicLinkInstancesCommandOutput}.
+   */
+  paginateDescribeClassicLinkInstances(
+    args?: DescribeClassicLinkInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClassicLinkInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribeClientVpnAuthorizationRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClientVpnAuthorizationRulesCommandOutput}.
+   */
+  paginateDescribeClientVpnAuthorizationRules(
+    args: DescribeClientVpnAuthorizationRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClientVpnAuthorizationRulesCommandOutput>;
+
+  /**
+   * @see {@link DescribeClientVpnConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClientVpnConnectionsCommandOutput}.
+   */
+  paginateDescribeClientVpnConnections(
+    args: DescribeClientVpnConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClientVpnConnectionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClientVpnEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClientVpnEndpointsCommandOutput}.
+   */
+  paginateDescribeClientVpnEndpoints(
+    args?: DescribeClientVpnEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClientVpnEndpointsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClientVpnRoutesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClientVpnRoutesCommandOutput}.
+   */
+  paginateDescribeClientVpnRoutes(
+    args: DescribeClientVpnRoutesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClientVpnRoutesCommandOutput>;
+
+  /**
+   * @see {@link DescribeClientVpnTargetNetworksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClientVpnTargetNetworksCommandOutput}.
+   */
+  paginateDescribeClientVpnTargetNetworks(
+    args: DescribeClientVpnTargetNetworksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClientVpnTargetNetworksCommandOutput>;
+
+  /**
+   * @see {@link DescribeCoipPoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCoipPoolsCommandOutput}.
+   */
+  paginateDescribeCoipPools(
+    args?: DescribeCoipPoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCoipPoolsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDhcpOptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDhcpOptionsCommandOutput}.
+   */
+  paginateDescribeDhcpOptions(
+    args?: DescribeDhcpOptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDhcpOptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEgressOnlyInternetGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEgressOnlyInternetGatewaysCommandOutput}.
+   */
+  paginateDescribeEgressOnlyInternetGateways(
+    args?: DescribeEgressOnlyInternetGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEgressOnlyInternetGatewaysCommandOutput>;
+
+  /**
+   * @see {@link DescribeExportImageTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeExportImageTasksCommandOutput}.
+   */
+  paginateDescribeExportImageTasks(
+    args?: DescribeExportImageTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeExportImageTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeFastLaunchImagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFastLaunchImagesCommandOutput}.
+   */
+  paginateDescribeFastLaunchImages(
+    args?: DescribeFastLaunchImagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFastLaunchImagesCommandOutput>;
+
+  /**
+   * @see {@link DescribeFastSnapshotRestoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFastSnapshotRestoresCommandOutput}.
+   */
+  paginateDescribeFastSnapshotRestores(
+    args?: DescribeFastSnapshotRestoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFastSnapshotRestoresCommandOutput>;
+
+  /**
+   * @see {@link DescribeFleetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFleetsCommandOutput}.
+   */
+  paginateDescribeFleets(
+    args?: DescribeFleetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFleetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFlowLogsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFlowLogsCommandOutput}.
+   */
+  paginateDescribeFlowLogs(
+    args?: DescribeFlowLogsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFlowLogsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFpgaImagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFpgaImagesCommandOutput}.
+   */
+  paginateDescribeFpgaImages(
+    args?: DescribeFpgaImagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFpgaImagesCommandOutput>;
+
+  /**
+   * @see {@link DescribeHostReservationOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeHostReservationOfferingsCommandOutput}.
+   */
+  paginateDescribeHostReservationOfferings(
+    args?: DescribeHostReservationOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeHostReservationOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeHostReservationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeHostReservationsCommandOutput}.
+   */
+  paginateDescribeHostReservations(
+    args?: DescribeHostReservationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeHostReservationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeHostsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeHostsCommandOutput}.
+   */
+  paginateDescribeHosts(
+    args?: DescribeHostsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeHostsCommandOutput>;
+
+  /**
+   * @see {@link DescribeIamInstanceProfileAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIamInstanceProfileAssociationsCommandOutput}.
+   */
+  paginateDescribeIamInstanceProfileAssociations(
+    args?: DescribeIamInstanceProfileAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIamInstanceProfileAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeImageReferencesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImageReferencesCommandOutput}.
+   */
+  paginateDescribeImageReferences(
+    args: DescribeImageReferencesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImageReferencesCommandOutput>;
+
+  /**
+   * @see {@link DescribeImagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImagesCommandOutput}.
+   */
+  paginateDescribeImages(
+    args?: DescribeImagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImagesCommandOutput>;
+
+  /**
+   * @see {@link DescribeImageUsageReportEntriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImageUsageReportEntriesCommandOutput}.
+   */
+  paginateDescribeImageUsageReportEntries(
+    args?: DescribeImageUsageReportEntriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImageUsageReportEntriesCommandOutput>;
+
+  /**
+   * @see {@link DescribeImageUsageReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImageUsageReportsCommandOutput}.
+   */
+  paginateDescribeImageUsageReports(
+    args?: DescribeImageUsageReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImageUsageReportsCommandOutput>;
+
+  /**
+   * @see {@link DescribeImportImageTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImportImageTasksCommandOutput}.
+   */
+  paginateDescribeImportImageTasks(
+    args?: DescribeImportImageTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImportImageTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeImportSnapshotTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImportSnapshotTasksCommandOutput}.
+   */
+  paginateDescribeImportSnapshotTasks(
+    args?: DescribeImportSnapshotTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImportSnapshotTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceConnectEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceConnectEndpointsCommandOutput}.
+   */
+  paginateDescribeInstanceConnectEndpoints(
+    args?: DescribeInstanceConnectEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceConnectEndpointsCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceCreditSpecificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceCreditSpecificationsCommandOutput}.
+   */
+  paginateDescribeInstanceCreditSpecifications(
+    args?: DescribeInstanceCreditSpecificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceCreditSpecificationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceEventWindowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceEventWindowsCommandOutput}.
+   */
+  paginateDescribeInstanceEventWindows(
+    args?: DescribeInstanceEventWindowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceEventWindowsCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceImageMetadataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceImageMetadataCommandOutput}.
+   */
+  paginateDescribeInstanceImageMetadata(
+    args?: DescribeInstanceImageMetadataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceImageMetadataCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstancesCommandOutput}.
+   */
+  paginateDescribeInstances(
+    args?: DescribeInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceStatusCommandOutput}.
+   */
+  paginateDescribeInstanceStatus(
+    args?: DescribeInstanceStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceTopologyCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceTopologyCommandOutput}.
+   */
+  paginateDescribeInstanceTopology(
+    args?: DescribeInstanceTopologyCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceTopologyCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceTypeOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceTypeOfferingsCommandOutput}.
+   */
+  paginateDescribeInstanceTypeOfferings(
+    args?: DescribeInstanceTypeOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceTypeOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInstanceTypesCommandOutput}.
+   */
+  paginateDescribeInstanceTypes(
+    args?: DescribeInstanceTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInstanceTypesCommandOutput>;
+
+  /**
+   * @see {@link DescribeInternetGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInternetGatewaysCommandOutput}.
+   */
+  paginateDescribeInternetGateways(
+    args?: DescribeInternetGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInternetGatewaysCommandOutput>;
+
+  /**
+   * @see {@link DescribeIpamPoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIpamPoolsCommandOutput}.
+   */
+  paginateDescribeIpamPools(
+    args?: DescribeIpamPoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIpamPoolsCommandOutput>;
+
+  /**
+   * @see {@link DescribeIpamPrefixListResolversCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIpamPrefixListResolversCommandOutput}.
+   */
+  paginateDescribeIpamPrefixListResolvers(
+    args?: DescribeIpamPrefixListResolversCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIpamPrefixListResolversCommandOutput>;
+
+  /**
+   * @see {@link DescribeIpamPrefixListResolverTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIpamPrefixListResolverTargetsCommandOutput}.
+   */
+  paginateDescribeIpamPrefixListResolverTargets(
+    args?: DescribeIpamPrefixListResolverTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIpamPrefixListResolverTargetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeIpamResourceDiscoveriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIpamResourceDiscoveriesCommandOutput}.
+   */
+  paginateDescribeIpamResourceDiscoveries(
+    args?: DescribeIpamResourceDiscoveriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIpamResourceDiscoveriesCommandOutput>;
+
+  /**
+   * @see {@link DescribeIpamResourceDiscoveryAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIpamResourceDiscoveryAssociationsCommandOutput}.
+   */
+  paginateDescribeIpamResourceDiscoveryAssociations(
+    args?: DescribeIpamResourceDiscoveryAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIpamResourceDiscoveryAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeIpamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIpamsCommandOutput}.
+   */
+  paginateDescribeIpams(
+    args?: DescribeIpamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIpamsCommandOutput>;
+
+  /**
+   * @see {@link DescribeIpamScopesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIpamScopesCommandOutput}.
+   */
+  paginateDescribeIpamScopes(
+    args?: DescribeIpamScopesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIpamScopesCommandOutput>;
+
+  /**
+   * @see {@link DescribeIpv6PoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIpv6PoolsCommandOutput}.
+   */
+  paginateDescribeIpv6Pools(
+    args?: DescribeIpv6PoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIpv6PoolsCommandOutput>;
+
+  /**
+   * @see {@link DescribeLaunchTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLaunchTemplatesCommandOutput}.
+   */
+  paginateDescribeLaunchTemplates(
+    args?: DescribeLaunchTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLaunchTemplatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeLaunchTemplateVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLaunchTemplateVersionsCommandOutput}.
+   */
+  paginateDescribeLaunchTemplateVersions(
+    args?: DescribeLaunchTemplateVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLaunchTemplateVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeLocalGatewayRouteTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLocalGatewayRouteTablesCommandOutput}.
+   */
+  paginateDescribeLocalGatewayRouteTables(
+    args?: DescribeLocalGatewayRouteTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLocalGatewayRouteTablesCommandOutput>;
+
+  /**
+   * @see {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput}.
+   */
+  paginateDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
+    args?: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeLocalGatewayRouteTableVpcAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput}.
+   */
+  paginateDescribeLocalGatewayRouteTableVpcAssociations(
+    args?: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeLocalGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLocalGatewaysCommandOutput}.
+   */
+  paginateDescribeLocalGateways(
+    args?: DescribeLocalGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLocalGatewaysCommandOutput>;
+
+  /**
+   * @see {@link DescribeLocalGatewayVirtualInterfaceGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput}.
+   */
+  paginateDescribeLocalGatewayVirtualInterfaceGroups(
+    args?: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeLocalGatewayVirtualInterfacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLocalGatewayVirtualInterfacesCommandOutput}.
+   */
+  paginateDescribeLocalGatewayVirtualInterfaces(
+    args?: DescribeLocalGatewayVirtualInterfacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLocalGatewayVirtualInterfacesCommandOutput>;
+
+  /**
+   * @see {@link DescribeMacHostsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMacHostsCommandOutput}.
+   */
+  paginateDescribeMacHosts(
+    args?: DescribeMacHostsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMacHostsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMacModificationTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMacModificationTasksCommandOutput}.
+   */
+  paginateDescribeMacModificationTasks(
+    args?: DescribeMacModificationTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMacModificationTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeManagedPrefixListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeManagedPrefixListsCommandOutput}.
+   */
+  paginateDescribeManagedPrefixLists(
+    args?: DescribeManagedPrefixListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeManagedPrefixListsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMovingAddressesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMovingAddressesCommandOutput}.
+   */
+  paginateDescribeMovingAddresses(
+    args?: DescribeMovingAddressesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMovingAddressesCommandOutput>;
+
+  /**
+   * @see {@link DescribeNatGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNatGatewaysCommandOutput}.
+   */
+  paginateDescribeNatGateways(
+    args?: DescribeNatGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNatGatewaysCommandOutput>;
+
+  /**
+   * @see {@link DescribeNetworkAclsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNetworkAclsCommandOutput}.
+   */
+  paginateDescribeNetworkAcls(
+    args?: DescribeNetworkAclsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNetworkAclsCommandOutput>;
+
+  /**
+   * @see {@link DescribeNetworkInsightsAccessScopeAnalysesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNetworkInsightsAccessScopeAnalysesCommandOutput}.
+   */
+  paginateDescribeNetworkInsightsAccessScopeAnalyses(
+    args?: DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNetworkInsightsAccessScopeAnalysesCommandOutput>;
+
+  /**
+   * @see {@link DescribeNetworkInsightsAccessScopesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNetworkInsightsAccessScopesCommandOutput}.
+   */
+  paginateDescribeNetworkInsightsAccessScopes(
+    args?: DescribeNetworkInsightsAccessScopesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNetworkInsightsAccessScopesCommandOutput>;
+
+  /**
+   * @see {@link DescribeNetworkInsightsAnalysesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNetworkInsightsAnalysesCommandOutput}.
+   */
+  paginateDescribeNetworkInsightsAnalyses(
+    args?: DescribeNetworkInsightsAnalysesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNetworkInsightsAnalysesCommandOutput>;
+
+  /**
+   * @see {@link DescribeNetworkInsightsPathsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNetworkInsightsPathsCommandOutput}.
+   */
+  paginateDescribeNetworkInsightsPaths(
+    args?: DescribeNetworkInsightsPathsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNetworkInsightsPathsCommandOutput>;
+
+  /**
+   * @see {@link DescribeNetworkInterfacePermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNetworkInterfacePermissionsCommandOutput}.
+   */
+  paginateDescribeNetworkInterfacePermissions(
+    args?: DescribeNetworkInterfacePermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNetworkInterfacePermissionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeNetworkInterfacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNetworkInterfacesCommandOutput}.
+   */
+  paginateDescribeNetworkInterfaces(
+    args?: DescribeNetworkInterfacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNetworkInterfacesCommandOutput>;
+
+  /**
+   * @see {@link DescribePrefixListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePrefixListsCommandOutput}.
+   */
+  paginateDescribePrefixLists(
+    args?: DescribePrefixListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePrefixListsCommandOutput>;
+
+  /**
+   * @see {@link DescribePrincipalIdFormatCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePrincipalIdFormatCommandOutput}.
+   */
+  paginateDescribePrincipalIdFormat(
+    args?: DescribePrincipalIdFormatCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePrincipalIdFormatCommandOutput>;
+
+  /**
+   * @see {@link DescribePublicIpv4PoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePublicIpv4PoolsCommandOutput}.
+   */
+  paginateDescribePublicIpv4Pools(
+    args?: DescribePublicIpv4PoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePublicIpv4PoolsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplaceRootVolumeTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplaceRootVolumeTasksCommandOutput}.
+   */
+  paginateDescribeReplaceRootVolumeTasks(
+    args?: DescribeReplaceRootVolumeTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplaceRootVolumeTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedInstancesModificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedInstancesModificationsCommandOutput}.
+   */
+  paginateDescribeReservedInstancesModifications(
+    args?: DescribeReservedInstancesModificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedInstancesModificationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedInstancesOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedInstancesOfferingsCommandOutput}.
+   */
+  paginateDescribeReservedInstancesOfferings(
+    args?: DescribeReservedInstancesOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedInstancesOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRouteServerEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRouteServerEndpointsCommandOutput}.
+   */
+  paginateDescribeRouteServerEndpoints(
+    args?: DescribeRouteServerEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRouteServerEndpointsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRouteServerPeersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRouteServerPeersCommandOutput}.
+   */
+  paginateDescribeRouteServerPeers(
+    args?: DescribeRouteServerPeersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRouteServerPeersCommandOutput>;
+
+  /**
+   * @see {@link DescribeRouteServersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRouteServersCommandOutput}.
+   */
+  paginateDescribeRouteServers(
+    args?: DescribeRouteServersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRouteServersCommandOutput>;
+
+  /**
+   * @see {@link DescribeRouteTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRouteTablesCommandOutput}.
+   */
+  paginateDescribeRouteTables(
+    args?: DescribeRouteTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRouteTablesCommandOutput>;
+
+  /**
+   * @see {@link DescribeScheduledInstanceAvailabilityCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeScheduledInstanceAvailabilityCommandOutput}.
+   */
+  paginateDescribeScheduledInstanceAvailability(
+    args: DescribeScheduledInstanceAvailabilityCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeScheduledInstanceAvailabilityCommandOutput>;
+
+  /**
+   * @see {@link DescribeScheduledInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeScheduledInstancesCommandOutput}.
+   */
+  paginateDescribeScheduledInstances(
+    args?: DescribeScheduledInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeScheduledInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribeSecurityGroupRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSecurityGroupRulesCommandOutput}.
+   */
+  paginateDescribeSecurityGroupRules(
+    args?: DescribeSecurityGroupRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSecurityGroupRulesCommandOutput>;
+
+  /**
+   * @see {@link DescribeSecurityGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSecurityGroupsCommandOutput}.
+   */
+  paginateDescribeSecurityGroups(
+    args?: DescribeSecurityGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSecurityGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSecurityGroupVpcAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSecurityGroupVpcAssociationsCommandOutput}.
+   */
+  paginateDescribeSecurityGroupVpcAssociations(
+    args?: DescribeSecurityGroupVpcAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSecurityGroupVpcAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSnapshotsCommandOutput}.
+   */
+  paginateDescribeSnapshots(
+    args?: DescribeSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSnapshotTierStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSnapshotTierStatusCommandOutput}.
+   */
+  paginateDescribeSnapshotTierStatus(
+    args?: DescribeSnapshotTierStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSnapshotTierStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeSpotFleetRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSpotFleetRequestsCommandOutput}.
+   */
+  paginateDescribeSpotFleetRequests(
+    args?: DescribeSpotFleetRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSpotFleetRequestsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSpotInstanceRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSpotInstanceRequestsCommandOutput}.
+   */
+  paginateDescribeSpotInstanceRequests(
+    args?: DescribeSpotInstanceRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSpotInstanceRequestsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSpotPriceHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSpotPriceHistoryCommandOutput}.
+   */
+  paginateDescribeSpotPriceHistory(
+    args?: DescribeSpotPriceHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSpotPriceHistoryCommandOutput>;
+
+  /**
+   * @see {@link DescribeStaleSecurityGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeStaleSecurityGroupsCommandOutput}.
+   */
+  paginateDescribeStaleSecurityGroups(
+    args: DescribeStaleSecurityGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeStaleSecurityGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeStoreImageTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeStoreImageTasksCommandOutput}.
+   */
+  paginateDescribeStoreImageTasks(
+    args?: DescribeStoreImageTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeStoreImageTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeSubnetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSubnetsCommandOutput}.
+   */
+  paginateDescribeSubnets(
+    args?: DescribeSubnetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSubnetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTagsCommandOutput}.
+   */
+  paginateDescribeTags(
+    args?: DescribeTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTagsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTrafficMirrorFiltersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTrafficMirrorFiltersCommandOutput}.
+   */
+  paginateDescribeTrafficMirrorFilters(
+    args?: DescribeTrafficMirrorFiltersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTrafficMirrorFiltersCommandOutput>;
+
+  /**
+   * @see {@link DescribeTrafficMirrorSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTrafficMirrorSessionsCommandOutput}.
+   */
+  paginateDescribeTrafficMirrorSessions(
+    args?: DescribeTrafficMirrorSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTrafficMirrorSessionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTrafficMirrorTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTrafficMirrorTargetsCommandOutput}.
+   */
+  paginateDescribeTrafficMirrorTargets(
+    args?: DescribeTrafficMirrorTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTrafficMirrorTargetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTransitGatewayAttachmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTransitGatewayAttachmentsCommandOutput}.
+   */
+  paginateDescribeTransitGatewayAttachments(
+    args?: DescribeTransitGatewayAttachmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTransitGatewayAttachmentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTransitGatewayConnectPeersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTransitGatewayConnectPeersCommandOutput}.
+   */
+  paginateDescribeTransitGatewayConnectPeers(
+    args?: DescribeTransitGatewayConnectPeersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTransitGatewayConnectPeersCommandOutput>;
+
+  /**
+   * @see {@link DescribeTransitGatewayConnectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTransitGatewayConnectsCommandOutput}.
+   */
+  paginateDescribeTransitGatewayConnects(
+    args?: DescribeTransitGatewayConnectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTransitGatewayConnectsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTransitGatewayMulticastDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTransitGatewayMulticastDomainsCommandOutput}.
+   */
+  paginateDescribeTransitGatewayMulticastDomains(
+    args?: DescribeTransitGatewayMulticastDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTransitGatewayMulticastDomainsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTransitGatewayPeeringAttachmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTransitGatewayPeeringAttachmentsCommandOutput}.
+   */
+  paginateDescribeTransitGatewayPeeringAttachments(
+    args?: DescribeTransitGatewayPeeringAttachmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTransitGatewayPeeringAttachmentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTransitGatewayPolicyTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTransitGatewayPolicyTablesCommandOutput}.
+   */
+  paginateDescribeTransitGatewayPolicyTables(
+    args?: DescribeTransitGatewayPolicyTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTransitGatewayPolicyTablesCommandOutput>;
+
+  /**
+   * @see {@link DescribeTransitGatewayRouteTableAnnouncementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTransitGatewayRouteTableAnnouncementsCommandOutput}.
+   */
+  paginateDescribeTransitGatewayRouteTableAnnouncements(
+    args?: DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTransitGatewayRouteTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTransitGatewayRouteTablesCommandOutput}.
+   */
+  paginateDescribeTransitGatewayRouteTables(
+    args?: DescribeTransitGatewayRouteTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTransitGatewayRouteTablesCommandOutput>;
+
+  /**
+   * @see {@link DescribeTransitGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTransitGatewaysCommandOutput}.
+   */
+  paginateDescribeTransitGateways(
+    args?: DescribeTransitGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTransitGatewaysCommandOutput>;
+
+  /**
+   * @see {@link DescribeTransitGatewayVpcAttachmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTransitGatewayVpcAttachmentsCommandOutput}.
+   */
+  paginateDescribeTransitGatewayVpcAttachments(
+    args?: DescribeTransitGatewayVpcAttachmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTransitGatewayVpcAttachmentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTrunkInterfaceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTrunkInterfaceAssociationsCommandOutput}.
+   */
+  paginateDescribeTrunkInterfaceAssociations(
+    args?: DescribeTrunkInterfaceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTrunkInterfaceAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVerifiedAccessEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVerifiedAccessEndpointsCommandOutput}.
+   */
+  paginateDescribeVerifiedAccessEndpoints(
+    args?: DescribeVerifiedAccessEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVerifiedAccessEndpointsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVerifiedAccessGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVerifiedAccessGroupsCommandOutput}.
+   */
+  paginateDescribeVerifiedAccessGroups(
+    args?: DescribeVerifiedAccessGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVerifiedAccessGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput}.
+   */
+  paginateDescribeVerifiedAccessInstanceLoggingConfigurations(
+    args?: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVerifiedAccessInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVerifiedAccessInstancesCommandOutput}.
+   */
+  paginateDescribeVerifiedAccessInstances(
+    args?: DescribeVerifiedAccessInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVerifiedAccessInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribeVerifiedAccessTrustProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVerifiedAccessTrustProvidersCommandOutput}.
+   */
+  paginateDescribeVerifiedAccessTrustProviders(
+    args?: DescribeVerifiedAccessTrustProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVerifiedAccessTrustProvidersCommandOutput>;
+
+  /**
+   * @see {@link DescribeVolumesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVolumesCommandOutput}.
+   */
+  paginateDescribeVolumes(
+    args?: DescribeVolumesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVolumesCommandOutput>;
+
+  /**
+   * @see {@link DescribeVolumesModificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVolumesModificationsCommandOutput}.
+   */
+  paginateDescribeVolumesModifications(
+    args?: DescribeVolumesModificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVolumesModificationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVolumeStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVolumeStatusCommandOutput}.
+   */
+  paginateDescribeVolumeStatus(
+    args?: DescribeVolumeStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVolumeStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeVpcClassicLinkDnsSupportCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVpcClassicLinkDnsSupportCommandOutput}.
+   */
+  paginateDescribeVpcClassicLinkDnsSupport(
+    args?: DescribeVpcClassicLinkDnsSupportCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVpcClassicLinkDnsSupportCommandOutput>;
+
+  /**
+   * @see {@link DescribeVpcEndpointConnectionNotificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVpcEndpointConnectionNotificationsCommandOutput}.
+   */
+  paginateDescribeVpcEndpointConnectionNotifications(
+    args?: DescribeVpcEndpointConnectionNotificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVpcEndpointConnectionNotificationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVpcEndpointConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVpcEndpointConnectionsCommandOutput}.
+   */
+  paginateDescribeVpcEndpointConnections(
+    args?: DescribeVpcEndpointConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVpcEndpointConnectionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVpcEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVpcEndpointsCommandOutput}.
+   */
+  paginateDescribeVpcEndpoints(
+    args?: DescribeVpcEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVpcEndpointsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVpcEndpointServiceConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVpcEndpointServiceConfigurationsCommandOutput}.
+   */
+  paginateDescribeVpcEndpointServiceConfigurations(
+    args?: DescribeVpcEndpointServiceConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVpcEndpointServiceConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVpcEndpointServicePermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVpcEndpointServicePermissionsCommandOutput}.
+   */
+  paginateDescribeVpcEndpointServicePermissions(
+    args: DescribeVpcEndpointServicePermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVpcEndpointServicePermissionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVpcPeeringConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVpcPeeringConnectionsCommandOutput}.
+   */
+  paginateDescribeVpcPeeringConnections(
+    args?: DescribeVpcPeeringConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVpcPeeringConnectionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVpcsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVpcsCommandOutput}.
+   */
+  paginateDescribeVpcs(
+    args?: DescribeVpcsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVpcsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVpnConcentratorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVpnConcentratorsCommandOutput}.
+   */
+  paginateDescribeVpnConcentrators(
+    args?: DescribeVpnConcentratorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVpnConcentratorsCommandOutput>;
+
+  /**
+   * @see {@link GetAssociatedIpv6PoolCidrsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAssociatedIpv6PoolCidrsCommandOutput}.
+   */
+  paginateGetAssociatedIpv6PoolCidrs(
+    args: GetAssociatedIpv6PoolCidrsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAssociatedIpv6PoolCidrsCommandOutput>;
+
+  /**
+   * @see {@link GetAwsNetworkPerformanceDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAwsNetworkPerformanceDataCommandOutput}.
+   */
+  paginateGetAwsNetworkPerformanceData(
+    args?: GetAwsNetworkPerformanceDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAwsNetworkPerformanceDataCommandOutput>;
+
+  /**
+   * @see {@link GetCapacityManagerMetricDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCapacityManagerMetricDataCommandOutput}.
+   */
+  paginateGetCapacityManagerMetricData(
+    args: GetCapacityManagerMetricDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCapacityManagerMetricDataCommandOutput>;
+
+  /**
+   * @see {@link GetCapacityManagerMetricDimensionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCapacityManagerMetricDimensionsCommandOutput}.
+   */
+  paginateGetCapacityManagerMetricDimensions(
+    args: GetCapacityManagerMetricDimensionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCapacityManagerMetricDimensionsCommandOutput>;
+
+  /**
+   * @see {@link GetGroupsForCapacityReservationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetGroupsForCapacityReservationCommandOutput}.
+   */
+  paginateGetGroupsForCapacityReservation(
+    args: GetGroupsForCapacityReservationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetGroupsForCapacityReservationCommandOutput>;
+
+  /**
+   * @see {@link GetInstanceTypesFromInstanceRequirementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetInstanceTypesFromInstanceRequirementsCommandOutput}.
+   */
+  paginateGetInstanceTypesFromInstanceRequirements(
+    args: GetInstanceTypesFromInstanceRequirementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetInstanceTypesFromInstanceRequirementsCommandOutput>;
+
+  /**
+   * @see {@link GetIpamAddressHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetIpamAddressHistoryCommandOutput}.
+   */
+  paginateGetIpamAddressHistory(
+    args: GetIpamAddressHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetIpamAddressHistoryCommandOutput>;
+
+  /**
+   * @see {@link GetIpamDiscoveredAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetIpamDiscoveredAccountsCommandOutput}.
+   */
+  paginateGetIpamDiscoveredAccounts(
+    args: GetIpamDiscoveredAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetIpamDiscoveredAccountsCommandOutput>;
+
+  /**
+   * @see {@link GetIpamDiscoveredResourceCidrsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetIpamDiscoveredResourceCidrsCommandOutput}.
+   */
+  paginateGetIpamDiscoveredResourceCidrs(
+    args: GetIpamDiscoveredResourceCidrsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetIpamDiscoveredResourceCidrsCommandOutput>;
+
+  /**
+   * @see {@link GetIpamPoolAllocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetIpamPoolAllocationsCommandOutput}.
+   */
+  paginateGetIpamPoolAllocations(
+    args: GetIpamPoolAllocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetIpamPoolAllocationsCommandOutput>;
+
+  /**
+   * @see {@link GetIpamPoolCidrsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetIpamPoolCidrsCommandOutput}.
+   */
+  paginateGetIpamPoolCidrs(
+    args: GetIpamPoolCidrsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetIpamPoolCidrsCommandOutput>;
+
+  /**
+   * @see {@link GetIpamPrefixListResolverRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetIpamPrefixListResolverRulesCommandOutput}.
+   */
+  paginateGetIpamPrefixListResolverRules(
+    args: GetIpamPrefixListResolverRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetIpamPrefixListResolverRulesCommandOutput>;
+
+  /**
+   * @see {@link GetIpamPrefixListResolverVersionEntriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetIpamPrefixListResolverVersionEntriesCommandOutput}.
+   */
+  paginateGetIpamPrefixListResolverVersionEntries(
+    args: GetIpamPrefixListResolverVersionEntriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetIpamPrefixListResolverVersionEntriesCommandOutput>;
+
+  /**
+   * @see {@link GetIpamPrefixListResolverVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetIpamPrefixListResolverVersionsCommandOutput}.
+   */
+  paginateGetIpamPrefixListResolverVersions(
+    args: GetIpamPrefixListResolverVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetIpamPrefixListResolverVersionsCommandOutput>;
+
+  /**
+   * @see {@link GetIpamResourceCidrsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetIpamResourceCidrsCommandOutput}.
+   */
+  paginateGetIpamResourceCidrs(
+    args: GetIpamResourceCidrsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetIpamResourceCidrsCommandOutput>;
+
+  /**
+   * @see {@link GetManagedPrefixListAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetManagedPrefixListAssociationsCommandOutput}.
+   */
+  paginateGetManagedPrefixListAssociations(
+    args: GetManagedPrefixListAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetManagedPrefixListAssociationsCommandOutput>;
+
+  /**
+   * @see {@link GetManagedPrefixListEntriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetManagedPrefixListEntriesCommandOutput}.
+   */
+  paginateGetManagedPrefixListEntries(
+    args: GetManagedPrefixListEntriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetManagedPrefixListEntriesCommandOutput>;
+
+  /**
+   * @see {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput}.
+   */
+  paginateGetNetworkInsightsAccessScopeAnalysisFindings(
+    args: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput>;
+
+  /**
+   * @see {@link GetSecurityGroupsForVpcCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSecurityGroupsForVpcCommandOutput}.
+   */
+  paginateGetSecurityGroupsForVpc(
+    args: GetSecurityGroupsForVpcCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSecurityGroupsForVpcCommandOutput>;
+
+  /**
+   * @see {@link GetSpotPlacementScoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSpotPlacementScoresCommandOutput}.
+   */
+  paginateGetSpotPlacementScores(
+    args: GetSpotPlacementScoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSpotPlacementScoresCommandOutput>;
+
+  /**
+   * @see {@link GetTransitGatewayAttachmentPropagationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTransitGatewayAttachmentPropagationsCommandOutput}.
+   */
+  paginateGetTransitGatewayAttachmentPropagations(
+    args: GetTransitGatewayAttachmentPropagationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTransitGatewayAttachmentPropagationsCommandOutput>;
+
+  /**
+   * @see {@link GetTransitGatewayMulticastDomainAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTransitGatewayMulticastDomainAssociationsCommandOutput}.
+   */
+  paginateGetTransitGatewayMulticastDomainAssociations(
+    args: GetTransitGatewayMulticastDomainAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTransitGatewayMulticastDomainAssociationsCommandOutput>;
+
+  /**
+   * @see {@link GetTransitGatewayPolicyTableAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTransitGatewayPolicyTableAssociationsCommandOutput}.
+   */
+  paginateGetTransitGatewayPolicyTableAssociations(
+    args: GetTransitGatewayPolicyTableAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTransitGatewayPolicyTableAssociationsCommandOutput>;
+
+  /**
+   * @see {@link GetTransitGatewayPrefixListReferencesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTransitGatewayPrefixListReferencesCommandOutput}.
+   */
+  paginateGetTransitGatewayPrefixListReferences(
+    args: GetTransitGatewayPrefixListReferencesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTransitGatewayPrefixListReferencesCommandOutput>;
+
+  /**
+   * @see {@link GetTransitGatewayRouteTableAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTransitGatewayRouteTableAssociationsCommandOutput}.
+   */
+  paginateGetTransitGatewayRouteTableAssociations(
+    args: GetTransitGatewayRouteTableAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTransitGatewayRouteTableAssociationsCommandOutput>;
+
+  /**
+   * @see {@link GetTransitGatewayRouteTablePropagationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTransitGatewayRouteTablePropagationsCommandOutput}.
+   */
+  paginateGetTransitGatewayRouteTablePropagations(
+    args: GetTransitGatewayRouteTablePropagationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTransitGatewayRouteTablePropagationsCommandOutput>;
+
+  /**
+   * @see {@link GetVpnConnectionDeviceTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetVpnConnectionDeviceTypesCommandOutput}.
+   */
+  paginateGetVpnConnectionDeviceTypes(
+    args?: GetVpnConnectionDeviceTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetVpnConnectionDeviceTypesCommandOutput>;
+
+  /**
+   * @see {@link ListImagesInRecycleBinCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImagesInRecycleBinCommandOutput}.
+   */
+  paginateListImagesInRecycleBin(
+    args?: ListImagesInRecycleBinCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImagesInRecycleBinCommandOutput>;
+
+  /**
+   * @see {@link ListSnapshotsInRecycleBinCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSnapshotsInRecycleBinCommandOutput}.
+   */
+  paginateListSnapshotsInRecycleBin(
+    args?: ListSnapshotsInRecycleBinCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSnapshotsInRecycleBinCommandOutput>;
+
+  /**
+   * @see {@link SearchLocalGatewayRoutesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchLocalGatewayRoutesCommandOutput}.
+   */
+  paginateSearchLocalGatewayRoutes(
+    args: SearchLocalGatewayRoutesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchLocalGatewayRoutesCommandOutput>;
+
+  /**
+   * @see {@link SearchTransitGatewayMulticastGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchTransitGatewayMulticastGroupsCommandOutput}.
+   */
+  paginateSearchTransitGatewayMulticastGroups(
+    args: SearchTransitGatewayMulticastGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchTransitGatewayMulticastGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeBundleTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBundleTaskComplete(
+    args: DescribeBundleTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeConversionTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilConversionTaskCancelled(
+    args: DescribeConversionTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeConversionTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilConversionTaskCompleted(
+    args: DescribeConversionTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeConversionTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilConversionTaskDeleted(
+    args: DescribeConversionTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeCustomerGatewaysCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCustomerGatewayAvailable(
+    args: DescribeCustomerGatewaysCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeExportTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilExportTaskCancelled(
+    args: DescribeExportTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeExportTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilExportTaskCompleted(
+    args: DescribeExportTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeImagesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilImageAvailable(
+    args: DescribeImagesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeImagesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilImageExists(
+    args: DescribeImagesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeImageUsageReportsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilImageUsageReportAvailable(
+    args: DescribeImageUsageReportsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeImportSnapshotTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSnapshotImported(
+    args: DescribeImportSnapshotTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInstancesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInstanceExists(
+    args: DescribeInstancesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInstancesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInstanceRunning(
+    args: DescribeInstancesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInstancesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInstanceStopped(
+    args: DescribeInstancesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInstancesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInstanceTerminated(
+    args: DescribeInstancesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInstanceStatusCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInstanceStatusOk(
+    args: DescribeInstanceStatusCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInstanceStatusCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSystemStatusOk(
+    args: DescribeInstanceStatusCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInternetGatewaysCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInternetGatewayExists(
+    args: DescribeInternetGatewaysCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeKeyPairsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilKeyPairExists(
+    args: DescribeKeyPairsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeNatGatewaysCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilNatGatewayAvailable(
+    args: DescribeNatGatewaysCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeNatGatewaysCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilNatGatewayDeleted(
+    args: DescribeNatGatewaysCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeNetworkInterfacesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilNetworkInterfaceAvailable(
+    args: DescribeNetworkInterfacesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeSecurityGroupsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSecurityGroupExists(
+    args: DescribeSecurityGroupsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeSecurityGroupVpcAssociationsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSecurityGroupVpcAssociationAssociated(
+    args: DescribeSecurityGroupVpcAssociationsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeSecurityGroupVpcAssociationsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSecurityGroupVpcAssociationDisassociated(
+    args: DescribeSecurityGroupVpcAssociationsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeSnapshotsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSnapshotCompleted(
+    args: DescribeSnapshotsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeSpotInstanceRequestsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSpotInstanceRequestFulfilled(
+    args: DescribeSpotInstanceRequestsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeStoreImageTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStoreImageTaskComplete(
+    args: DescribeStoreImageTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeSubnetsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSubnetAvailable(
+    args: DescribeSubnetsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeVolumesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVolumeAvailable(
+    args: DescribeVolumesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeVolumesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVolumeDeleted(
+    args: DescribeVolumesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeVolumesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVolumeInUse(
+    args: DescribeVolumesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeVpcPeeringConnectionsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVpcPeeringConnectionDeleted(
+    args: DescribeVpcPeeringConnectionsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeVpcPeeringConnectionsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVpcPeeringConnectionExists(
+    args: DescribeVpcPeeringConnectionsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeVpcsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVpcAvailable(
+    args: DescribeVpcsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeVpcsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVpcExists(
+    args: DescribeVpcsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeVpnConnectionsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVpnConnectionAvailable(
+    args: DescribeVpnConnectionsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeVpnConnectionsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVpnConnectionDeleted(
+    args: DescribeVpnConnectionsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetPasswordDataCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPasswordDataAvailable(
+    args: GetPasswordDataCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EC2>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -17397,4 +20064,4 @@ export interface EC2 {
  * @public
  */
 export class EC2 extends EC2Client implements EC2 {}
-createAggregatedClient(commands, EC2);
+createAggregatedClient(commands, EC2, { paginators, waiters });

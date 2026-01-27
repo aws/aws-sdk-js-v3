@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { AppStreamClient } from "./AppStreamClient";
 import {
@@ -383,6 +389,14 @@ import {
   UpdateThemeForStackCommandInput,
   UpdateThemeForStackCommandOutput,
 } from "./commands/UpdateThemeForStackCommand";
+import {
+  paginateDescribeAppBlockBuilderAppBlockAssociations,
+} from "./pagination/DescribeAppBlockBuilderAppBlockAssociationsPaginator";
+import { paginateDescribeAppBlockBuilders } from "./pagination/DescribeAppBlockBuildersPaginator";
+import { paginateDescribeImagePermissions } from "./pagination/DescribeImagePermissionsPaginator";
+import { paginateDescribeImages } from "./pagination/DescribeImagesPaginator";
+import { waitUntilFleetStarted } from "./waiters/waitForFleetStarted";
+import { waitUntilFleetStopped } from "./waiters/waitForFleetStopped";
 
 const commands = {
   AssociateAppBlockBuilderAppBlockCommand,
@@ -473,6 +487,16 @@ const commands = {
   UpdateImagePermissionsCommand,
   UpdateStackCommand,
   UpdateThemeForStackCommand,
+};
+const paginators = {
+  paginateDescribeAppBlockBuilderAppBlockAssociations,
+  paginateDescribeAppBlockBuilders,
+  paginateDescribeImagePermissions,
+  paginateDescribeImages,
+};
+const waiters = {
+  waitUntilFleetStarted,
+  waitUntilFleetStopped,
 };
 
 export interface AppStream {
@@ -1988,6 +2012,70 @@ export interface AppStream {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateThemeForStackCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAppBlockBuilderAppBlockAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAppBlockBuilderAppBlockAssociationsCommandOutput}.
+   */
+  paginateDescribeAppBlockBuilderAppBlockAssociations(
+    args?: DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAppBlockBuilderAppBlockAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeAppBlockBuildersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAppBlockBuildersCommandOutput}.
+   */
+  paginateDescribeAppBlockBuilders(
+    args?: DescribeAppBlockBuildersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAppBlockBuildersCommandOutput>;
+
+  /**
+   * @see {@link DescribeImagePermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImagePermissionsCommandOutput}.
+   */
+  paginateDescribeImagePermissions(
+    args: DescribeImagePermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImagePermissionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeImagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImagesCommandOutput}.
+   */
+  paginateDescribeImages(
+    args?: DescribeImagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImagesCommandOutput>;
+
+  /**
+   * @see {@link DescribeFleetsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFleetStarted(
+    args: DescribeFleetsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<AppStream>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeFleetsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFleetStopped(
+    args: DescribeFleetsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<AppStream>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -2012,4 +2100,4 @@ export interface AppStream {
  * @public
  */
 export class AppStream extends AppStreamClient implements AppStream {}
-createAggregatedClient(commands, AppStream);
+createAggregatedClient(commands, AppStream, { paginators, waiters });

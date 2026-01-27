@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AbortMultipartUploadCommand,
@@ -496,7 +502,15 @@ import {
   WriteGetObjectResponseCommandInput,
   WriteGetObjectResponseCommandOutput,
 } from "./commands/WriteGetObjectResponseCommand";
+import { paginateListBuckets } from "./pagination/ListBucketsPaginator";
+import { paginateListDirectoryBuckets } from "./pagination/ListDirectoryBucketsPaginator";
+import { paginateListObjectsV2 } from "./pagination/ListObjectsV2Paginator";
+import { paginateListParts } from "./pagination/ListPartsPaginator";
 import { S3Client } from "./S3Client";
+import { waitUntilBucketExists } from "./waiters/waitForBucketExists";
+import { waitUntilBucketNotExists } from "./waiters/waitForBucketNotExists";
+import { waitUntilObjectExists } from "./waiters/waitForObjectExists";
+import { waitUntilObjectNotExists } from "./waiters/waitForObjectNotExists";
 
 const commands = {
   AbortMultipartUploadCommand,
@@ -605,6 +619,18 @@ const commands = {
   UploadPartCommand,
   UploadPartCopyCommand,
   WriteGetObjectResponseCommand,
+};
+const paginators = {
+  paginateListBuckets,
+  paginateListDirectoryBuckets,
+  paginateListObjectsV2,
+  paginateListParts,
+};
+const waiters = {
+  waitUntilBucketExists,
+  waitUntilBucketNotExists,
+  waitUntilObjectExists,
+  waitUntilObjectNotExists,
 };
 
 export interface S3 {
@@ -2411,6 +2437,90 @@ export interface S3 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: WriteGetObjectResponseCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBucketsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBucketsCommandOutput}.
+   */
+  paginateListBuckets(
+    args?: ListBucketsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBucketsCommandOutput>;
+
+  /**
+   * @see {@link ListDirectoryBucketsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDirectoryBucketsCommandOutput}.
+   */
+  paginateListDirectoryBuckets(
+    args?: ListDirectoryBucketsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDirectoryBucketsCommandOutput>;
+
+  /**
+   * @see {@link ListObjectsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListObjectsV2CommandOutput}.
+   */
+  paginateListObjectsV2(
+    args: ListObjectsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListObjectsV2CommandOutput>;
+
+  /**
+   * @see {@link ListPartsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPartsCommandOutput}.
+   */
+  paginateListParts(
+    args: ListPartsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPartsCommandOutput>;
+
+  /**
+   * @see {@link HeadBucketCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBucketExists(
+    args: HeadBucketCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<S3>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link HeadBucketCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBucketNotExists(
+    args: HeadBucketCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<S3>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link HeadObjectCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilObjectExists(
+    args: HeadObjectCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<S3>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link HeadObjectCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilObjectNotExists(
+    args: HeadObjectCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<S3>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -2418,4 +2528,4 @@ export interface S3 {
  * @public
  */
 export class S3 extends S3Client implements S3 {}
-createAggregatedClient(commands, S3);
+createAggregatedClient(commands, S3, { paginators, waiters });

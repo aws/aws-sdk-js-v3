@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptResourceGroupingRecommendationsCommand,
@@ -289,6 +289,26 @@ import {
   UpdateResiliencyPolicyCommandInput,
   UpdateResiliencyPolicyCommandOutput,
 } from "./commands/UpdateResiliencyPolicyCommand";
+import { paginateListAlarmRecommendations } from "./pagination/ListAlarmRecommendationsPaginator";
+import { paginateListAppAssessmentComplianceDrifts } from "./pagination/ListAppAssessmentComplianceDriftsPaginator";
+import { paginateListAppAssessmentResourceDrifts } from "./pagination/ListAppAssessmentResourceDriftsPaginator";
+import { paginateListAppAssessments } from "./pagination/ListAppAssessmentsPaginator";
+import { paginateListAppComponentCompliances } from "./pagination/ListAppComponentCompliancesPaginator";
+import { paginateListAppComponentRecommendations } from "./pagination/ListAppComponentRecommendationsPaginator";
+import { paginateListAppInputSources } from "./pagination/ListAppInputSourcesPaginator";
+import { paginateListApps } from "./pagination/ListAppsPaginator";
+import { paginateListAppVersionAppComponents } from "./pagination/ListAppVersionAppComponentsPaginator";
+import { paginateListAppVersionResourceMappings } from "./pagination/ListAppVersionResourceMappingsPaginator";
+import { paginateListAppVersionResources } from "./pagination/ListAppVersionResourcesPaginator";
+import { paginateListAppVersions } from "./pagination/ListAppVersionsPaginator";
+import { paginateListMetrics } from "./pagination/ListMetricsPaginator";
+import { paginateListRecommendationTemplates } from "./pagination/ListRecommendationTemplatesPaginator";
+import { paginateListResiliencyPolicies } from "./pagination/ListResiliencyPoliciesPaginator";
+import { paginateListResourceGroupingRecommendations } from "./pagination/ListResourceGroupingRecommendationsPaginator";
+import { paginateListSopRecommendations } from "./pagination/ListSopRecommendationsPaginator";
+import { paginateListSuggestedResiliencyPolicies } from "./pagination/ListSuggestedResiliencyPoliciesPaginator";
+import { paginateListTestRecommendations } from "./pagination/ListTestRecommendationsPaginator";
+import { paginateListUnsupportedAppVersionResources } from "./pagination/ListUnsupportedAppVersionResourcesPaginator";
 import { ResiliencehubClient } from "./ResiliencehubClient";
 
 const commands = {
@@ -355,6 +375,28 @@ const commands = {
   UpdateAppVersionAppComponentCommand,
   UpdateAppVersionResourceCommand,
   UpdateResiliencyPolicyCommand,
+};
+const paginators = {
+  paginateListAlarmRecommendations,
+  paginateListAppAssessmentComplianceDrifts,
+  paginateListAppAssessmentResourceDrifts,
+  paginateListAppAssessments,
+  paginateListAppComponentCompliances,
+  paginateListAppComponentRecommendations,
+  paginateListAppInputSources,
+  paginateListApps,
+  paginateListAppVersionAppComponents,
+  paginateListAppVersionResourceMappings,
+  paginateListAppVersionResources,
+  paginateListAppVersions,
+  paginateListMetrics,
+  paginateListRecommendationTemplates,
+  paginateListResiliencyPolicies,
+  paginateListResourceGroupingRecommendations,
+  paginateListSopRecommendations,
+  paginateListSuggestedResiliencyPolicies,
+  paginateListTestRecommendations,
+  paginateListUnsupportedAppVersionResources,
 };
 
 export interface Resiliencehub {
@@ -1436,6 +1478,226 @@ export interface Resiliencehub {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateResiliencyPolicyCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAlarmRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAlarmRecommendationsCommandOutput}.
+   */
+  paginateListAlarmRecommendations(
+    args: ListAlarmRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAlarmRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link ListAppAssessmentComplianceDriftsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppAssessmentComplianceDriftsCommandOutput}.
+   */
+  paginateListAppAssessmentComplianceDrifts(
+    args: ListAppAssessmentComplianceDriftsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppAssessmentComplianceDriftsCommandOutput>;
+
+  /**
+   * @see {@link ListAppAssessmentResourceDriftsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppAssessmentResourceDriftsCommandOutput}.
+   */
+  paginateListAppAssessmentResourceDrifts(
+    args: ListAppAssessmentResourceDriftsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppAssessmentResourceDriftsCommandOutput>;
+
+  /**
+   * @see {@link ListAppAssessmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppAssessmentsCommandOutput}.
+   */
+  paginateListAppAssessments(
+    args?: ListAppAssessmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppAssessmentsCommandOutput>;
+
+  /**
+   * @see {@link ListAppComponentCompliancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppComponentCompliancesCommandOutput}.
+   */
+  paginateListAppComponentCompliances(
+    args: ListAppComponentCompliancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppComponentCompliancesCommandOutput>;
+
+  /**
+   * @see {@link ListAppComponentRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppComponentRecommendationsCommandOutput}.
+   */
+  paginateListAppComponentRecommendations(
+    args: ListAppComponentRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppComponentRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link ListAppInputSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppInputSourcesCommandOutput}.
+   */
+  paginateListAppInputSources(
+    args: ListAppInputSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppInputSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListAppsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppsCommandOutput}.
+   */
+  paginateListApps(
+    args?: ListAppsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppsCommandOutput>;
+
+  /**
+   * @see {@link ListAppVersionAppComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppVersionAppComponentsCommandOutput}.
+   */
+  paginateListAppVersionAppComponents(
+    args: ListAppVersionAppComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppVersionAppComponentsCommandOutput>;
+
+  /**
+   * @see {@link ListAppVersionResourceMappingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppVersionResourceMappingsCommandOutput}.
+   */
+  paginateListAppVersionResourceMappings(
+    args: ListAppVersionResourceMappingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppVersionResourceMappingsCommandOutput>;
+
+  /**
+   * @see {@link ListAppVersionResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppVersionResourcesCommandOutput}.
+   */
+  paginateListAppVersionResources(
+    args: ListAppVersionResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppVersionResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListAppVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppVersionsCommandOutput}.
+   */
+  paginateListAppVersions(
+    args: ListAppVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMetricsCommandOutput}.
+   */
+  paginateListMetrics(
+    args?: ListMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationTemplatesCommandOutput}.
+   */
+  paginateListRecommendationTemplates(
+    args?: ListRecommendationTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListResiliencyPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResiliencyPoliciesCommandOutput}.
+   */
+  paginateListResiliencyPolicies(
+    args?: ListResiliencyPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResiliencyPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListResourceGroupingRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceGroupingRecommendationsCommandOutput}.
+   */
+  paginateListResourceGroupingRecommendations(
+    args?: ListResourceGroupingRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceGroupingRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link ListSopRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSopRecommendationsCommandOutput}.
+   */
+  paginateListSopRecommendations(
+    args: ListSopRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSopRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link ListSuggestedResiliencyPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSuggestedResiliencyPoliciesCommandOutput}.
+   */
+  paginateListSuggestedResiliencyPolicies(
+    args?: ListSuggestedResiliencyPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSuggestedResiliencyPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListTestRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestRecommendationsCommandOutput}.
+   */
+  paginateListTestRecommendations(
+    args: ListTestRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link ListUnsupportedAppVersionResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUnsupportedAppVersionResourcesCommandOutput}.
+   */
+  paginateListUnsupportedAppVersionResources(
+    args: ListUnsupportedAppVersionResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUnsupportedAppVersionResourcesCommandOutput>;
 }
 
 /**
@@ -1447,4 +1709,4 @@ export interface Resiliencehub {
  * @public
  */
 export class Resiliencehub extends ResiliencehubClient implements Resiliencehub {}
-createAggregatedClient(commands, Resiliencehub);
+createAggregatedClient(commands, Resiliencehub, { paginators });

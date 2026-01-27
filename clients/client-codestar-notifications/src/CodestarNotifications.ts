@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CodestarNotificationsClient } from "./CodestarNotificationsClient";
 import {
@@ -52,6 +52,9 @@ import {
   UpdateNotificationRuleCommandInput,
   UpdateNotificationRuleCommandOutput,
 } from "./commands/UpdateNotificationRuleCommand";
+import { paginateListEventTypes } from "./pagination/ListEventTypesPaginator";
+import { paginateListNotificationRules } from "./pagination/ListNotificationRulesPaginator";
+import { paginateListTargets } from "./pagination/ListTargetsPaginator";
 
 const commands = {
   CreateNotificationRuleCommand,
@@ -67,6 +70,11 @@ const commands = {
   UnsubscribeCommand,
   UntagResourceCommand,
   UpdateNotificationRuleCommand,
+};
+const paginators = {
+  paginateListEventTypes,
+  paginateListNotificationRules,
+  paginateListTargets,
 };
 
 export interface CodestarNotifications {
@@ -293,6 +301,39 @@ export interface CodestarNotifications {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateNotificationRuleCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListEventTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventTypesCommandOutput}.
+   */
+  paginateListEventTypes(
+    args?: ListEventTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventTypesCommandOutput>;
+
+  /**
+   * @see {@link ListNotificationRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotificationRulesCommandOutput}.
+   */
+  paginateListNotificationRules(
+    args?: ListNotificationRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotificationRulesCommandOutput>;
+
+  /**
+   * @see {@link ListTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTargetsCommandOutput}.
+   */
+  paginateListTargets(
+    args?: ListTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTargetsCommandOutput>;
 }
 
 /**
@@ -377,4 +418,4 @@ export interface CodestarNotifications {
  * @public
  */
 export class CodestarNotifications extends CodestarNotificationsClient implements CodestarNotifications {}
-createAggregatedClient(commands, CodestarNotifications);
+createAggregatedClient(commands, CodestarNotifications, { paginators });

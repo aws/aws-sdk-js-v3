@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AddLayerVersionPermissionCommand,
@@ -380,6 +386,30 @@ import {
   UpdateFunctionUrlConfigCommandOutput,
 } from "./commands/UpdateFunctionUrlConfigCommand";
 import { LambdaClient } from "./LambdaClient";
+import { paginateGetDurableExecutionHistory } from "./pagination/GetDurableExecutionHistoryPaginator";
+import { paginateGetDurableExecutionState } from "./pagination/GetDurableExecutionStatePaginator";
+import { paginateListAliases } from "./pagination/ListAliasesPaginator";
+import { paginateListCapacityProviders } from "./pagination/ListCapacityProvidersPaginator";
+import { paginateListCodeSigningConfigs } from "./pagination/ListCodeSigningConfigsPaginator";
+import { paginateListDurableExecutionsByFunction } from "./pagination/ListDurableExecutionsByFunctionPaginator";
+import { paginateListEventSourceMappings } from "./pagination/ListEventSourceMappingsPaginator";
+import { paginateListFunctionEventInvokeConfigs } from "./pagination/ListFunctionEventInvokeConfigsPaginator";
+import { paginateListFunctionsByCodeSigningConfig } from "./pagination/ListFunctionsByCodeSigningConfigPaginator";
+import { paginateListFunctions } from "./pagination/ListFunctionsPaginator";
+import { paginateListFunctionUrlConfigs } from "./pagination/ListFunctionUrlConfigsPaginator";
+import {
+  paginateListFunctionVersionsByCapacityProvider,
+} from "./pagination/ListFunctionVersionsByCapacityProviderPaginator";
+import { paginateListLayers } from "./pagination/ListLayersPaginator";
+import { paginateListLayerVersions } from "./pagination/ListLayerVersionsPaginator";
+import { paginateListProvisionedConcurrencyConfigs } from "./pagination/ListProvisionedConcurrencyConfigsPaginator";
+import { paginateListVersionsByFunction } from "./pagination/ListVersionsByFunctionPaginator";
+import { waitUntilFunctionActive } from "./waiters/waitForFunctionActive";
+import { waitUntilFunctionActiveV2 } from "./waiters/waitForFunctionActiveV2";
+import { waitUntilFunctionExists } from "./waiters/waitForFunctionExists";
+import { waitUntilFunctionUpdated } from "./waiters/waitForFunctionUpdated";
+import { waitUntilFunctionUpdatedV2 } from "./waiters/waitForFunctionUpdatedV2";
+import { waitUntilPublishedVersionActive } from "./waiters/waitForPublishedVersionActive";
 
 const commands = {
   AddLayerVersionPermissionCommand,
@@ -467,6 +497,32 @@ const commands = {
   UpdateFunctionConfigurationCommand,
   UpdateFunctionEventInvokeConfigCommand,
   UpdateFunctionUrlConfigCommand,
+};
+const paginators = {
+  paginateGetDurableExecutionHistory,
+  paginateGetDurableExecutionState,
+  paginateListAliases,
+  paginateListCapacityProviders,
+  paginateListCodeSigningConfigs,
+  paginateListDurableExecutionsByFunction,
+  paginateListEventSourceMappings,
+  paginateListFunctionEventInvokeConfigs,
+  paginateListFunctions,
+  paginateListFunctionsByCodeSigningConfig,
+  paginateListFunctionUrlConfigs,
+  paginateListFunctionVersionsByCapacityProvider,
+  paginateListLayers,
+  paginateListLayerVersions,
+  paginateListProvisionedConcurrencyConfigs,
+  paginateListVersionsByFunction,
+};
+const waiters = {
+  waitUntilFunctionActiveV2,
+  waitUntilFunctionExists,
+  waitUntilFunctionUpdatedV2,
+  waitUntilFunctionActive,
+  waitUntilFunctionUpdated,
+  waitUntilPublishedVersionActive,
 };
 
 export interface Lambda {
@@ -1920,6 +1976,242 @@ export interface Lambda {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateFunctionUrlConfigCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetDurableExecutionHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDurableExecutionHistoryCommandOutput}.
+   */
+  paginateGetDurableExecutionHistory(
+    args: GetDurableExecutionHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDurableExecutionHistoryCommandOutput>;
+
+  /**
+   * @see {@link GetDurableExecutionStateCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDurableExecutionStateCommandOutput}.
+   */
+  paginateGetDurableExecutionState(
+    args: GetDurableExecutionStateCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDurableExecutionStateCommandOutput>;
+
+  /**
+   * @see {@link ListAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAliasesCommandOutput}.
+   */
+  paginateListAliases(
+    args: ListAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListCapacityProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCapacityProvidersCommandOutput}.
+   */
+  paginateListCapacityProviders(
+    args?: ListCapacityProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCapacityProvidersCommandOutput>;
+
+  /**
+   * @see {@link ListCodeSigningConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCodeSigningConfigsCommandOutput}.
+   */
+  paginateListCodeSigningConfigs(
+    args?: ListCodeSigningConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCodeSigningConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListDurableExecutionsByFunctionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDurableExecutionsByFunctionCommandOutput}.
+   */
+  paginateListDurableExecutionsByFunction(
+    args: ListDurableExecutionsByFunctionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDurableExecutionsByFunctionCommandOutput>;
+
+  /**
+   * @see {@link ListEventSourceMappingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventSourceMappingsCommandOutput}.
+   */
+  paginateListEventSourceMappings(
+    args?: ListEventSourceMappingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventSourceMappingsCommandOutput>;
+
+  /**
+   * @see {@link ListFunctionEventInvokeConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFunctionEventInvokeConfigsCommandOutput}.
+   */
+  paginateListFunctionEventInvokeConfigs(
+    args: ListFunctionEventInvokeConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFunctionEventInvokeConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListFunctionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFunctionsCommandOutput}.
+   */
+  paginateListFunctions(
+    args?: ListFunctionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFunctionsCommandOutput>;
+
+  /**
+   * @see {@link ListFunctionsByCodeSigningConfigCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFunctionsByCodeSigningConfigCommandOutput}.
+   */
+  paginateListFunctionsByCodeSigningConfig(
+    args: ListFunctionsByCodeSigningConfigCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFunctionsByCodeSigningConfigCommandOutput>;
+
+  /**
+   * @see {@link ListFunctionUrlConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFunctionUrlConfigsCommandOutput}.
+   */
+  paginateListFunctionUrlConfigs(
+    args: ListFunctionUrlConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFunctionUrlConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListFunctionVersionsByCapacityProviderCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFunctionVersionsByCapacityProviderCommandOutput}.
+   */
+  paginateListFunctionVersionsByCapacityProvider(
+    args: ListFunctionVersionsByCapacityProviderCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFunctionVersionsByCapacityProviderCommandOutput>;
+
+  /**
+   * @see {@link ListLayersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLayersCommandOutput}.
+   */
+  paginateListLayers(
+    args?: ListLayersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLayersCommandOutput>;
+
+  /**
+   * @see {@link ListLayerVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLayerVersionsCommandOutput}.
+   */
+  paginateListLayerVersions(
+    args: ListLayerVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLayerVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListProvisionedConcurrencyConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProvisionedConcurrencyConfigsCommandOutput}.
+   */
+  paginateListProvisionedConcurrencyConfigs(
+    args: ListProvisionedConcurrencyConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProvisionedConcurrencyConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListVersionsByFunctionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVersionsByFunctionCommandOutput}.
+   */
+  paginateListVersionsByFunction(
+    args: ListVersionsByFunctionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVersionsByFunctionCommandOutput>;
+
+  /**
+   * @see {@link GetFunctionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFunctionActiveV2(
+    args: GetFunctionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetFunctionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFunctionExists(
+    args: GetFunctionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetFunctionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFunctionUpdatedV2(
+    args: GetFunctionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetFunctionConfigurationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFunctionActive(
+    args: GetFunctionConfigurationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetFunctionConfigurationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFunctionUpdated(
+    args: GetFunctionConfigurationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetFunctionConfigurationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPublishedVersionActive(
+    args: GetFunctionConfigurationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Lambda>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1927,4 +2219,4 @@ export interface Lambda {
  * @public
  */
 export class Lambda extends LambdaClient implements Lambda {}
-createAggregatedClient(commands, Lambda);
+createAggregatedClient(commands, Lambda, { paginators, waiters });

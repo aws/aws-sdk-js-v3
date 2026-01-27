@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DeleteObjectCommand,
@@ -16,6 +16,7 @@ import { GetObjectCommand, GetObjectCommandInput, GetObjectCommandOutput } from 
 import { ListItemsCommand, ListItemsCommandInput, ListItemsCommandOutput } from "./commands/ListItemsCommand";
 import { PutObjectCommand, PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand";
 import { MediaStoreDataClient } from "./MediaStoreDataClient";
+import { paginateListItems } from "./pagination/ListItemsPaginator";
 
 const commands = {
   DeleteObjectCommand,
@@ -23,6 +24,9 @@ const commands = {
   GetObjectCommand,
   ListItemsCommand,
   PutObjectCommand,
+};
+const paginators = {
+  paginateListItems,
 };
 
 export interface MediaStoreData {
@@ -111,6 +115,17 @@ export interface MediaStoreData {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutObjectCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListItemsCommandOutput}.
+   */
+  paginateListItems(
+    args?: ListItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListItemsCommandOutput>;
 }
 
 /**
@@ -120,4 +135,4 @@ export interface MediaStoreData {
  * @public
  */
 export class MediaStoreData extends MediaStoreDataClient implements MediaStoreData {}
-createAggregatedClient(commands, MediaStoreData);
+createAggregatedClient(commands, MediaStoreData, { paginators });

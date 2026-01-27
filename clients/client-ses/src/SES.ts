@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   CloneReceiptRuleSetCommand,
@@ -345,7 +351,12 @@ import {
   VerifyEmailIdentityCommandInput,
   VerifyEmailIdentityCommandOutput,
 } from "./commands/VerifyEmailIdentityCommand";
+import {
+  paginateListCustomVerificationEmailTemplates,
+} from "./pagination/ListCustomVerificationEmailTemplatesPaginator";
+import { paginateListIdentities } from "./pagination/ListIdentitiesPaginator";
 import { SESClient } from "./SESClient";
+import { waitUntilIdentityExists } from "./waiters/waitForIdentityExists";
 
 const commands = {
   CloneReceiptRuleSetCommand,
@@ -419,6 +430,13 @@ const commands = {
   VerifyDomainIdentityCommand,
   VerifyEmailAddressCommand,
   VerifyEmailIdentityCommand,
+};
+const paginators = {
+  paginateListCustomVerificationEmailTemplates,
+  paginateListIdentities,
+};
+const waiters = {
+  waitUntilIdentityExists,
 };
 
 export interface SES {
@@ -1641,6 +1659,38 @@ export interface SES {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: VerifyEmailIdentityCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCustomVerificationEmailTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomVerificationEmailTemplatesCommandOutput}.
+   */
+  paginateListCustomVerificationEmailTemplates(
+    args?: ListCustomVerificationEmailTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomVerificationEmailTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListIdentitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdentitiesCommandOutput}.
+   */
+  paginateListIdentities(
+    args?: ListIdentitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdentitiesCommandOutput>;
+
+  /**
+   * @see {@link GetIdentityVerificationAttributesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilIdentityExists(
+    args: GetIdentityVerificationAttributesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<SES>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1681,4 +1731,4 @@ export interface SES {
  * @public
  */
 export class SES extends SESClient implements SES {}
-createAggregatedClient(commands, SES);
+createAggregatedClient(commands, SES, { paginators, waiters });

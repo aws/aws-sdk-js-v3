@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AddProfilePermissionCommand,
@@ -89,7 +95,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateListSigningJobs } from "./pagination/ListSigningJobsPaginator";
+import { paginateListSigningPlatforms } from "./pagination/ListSigningPlatformsPaginator";
+import { paginateListSigningProfiles } from "./pagination/ListSigningProfilesPaginator";
 import { SignerClient } from "./SignerClient";
+import { waitUntilSuccessfulSigningJob } from "./waiters/waitForSuccessfulSigningJob";
 
 const commands = {
   AddProfilePermissionCommand,
@@ -111,6 +121,14 @@ const commands = {
   StartSigningJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListSigningJobs,
+  paginateListSigningPlatforms,
+  paginateListSigningProfiles,
+};
+const waiters = {
+  waitUntilSuccessfulSigningJob,
 };
 
 export interface Signer {
@@ -439,6 +457,49 @@ export interface Signer {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListSigningJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSigningJobsCommandOutput}.
+   */
+  paginateListSigningJobs(
+    args?: ListSigningJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSigningJobsCommandOutput>;
+
+  /**
+   * @see {@link ListSigningPlatformsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSigningPlatformsCommandOutput}.
+   */
+  paginateListSigningPlatforms(
+    args?: ListSigningPlatformsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSigningPlatformsCommandOutput>;
+
+  /**
+   * @see {@link ListSigningProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSigningProfilesCommandOutput}.
+   */
+  paginateListSigningProfiles(
+    args?: ListSigningProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSigningProfilesCommandOutput>;
+
+  /**
+   * @see {@link DescribeSigningJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSuccessfulSigningJob(
+    args: DescribeSigningJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Signer>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -463,4 +524,4 @@ export interface Signer {
  * @public
  */
 export class Signer extends SignerClient implements Signer {}
-createAggregatedClient(commands, Signer);
+createAggregatedClient(commands, Signer, { paginators, waiters });

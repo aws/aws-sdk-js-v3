@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AddBridgeOutputsCommand,
@@ -381,6 +387,26 @@ import {
   UpdateRouterOutputCommandOutput,
 } from "./commands/UpdateRouterOutputCommand";
 import { MediaConnectClient } from "./MediaConnectClient";
+import { paginateListBridges } from "./pagination/ListBridgesPaginator";
+import { paginateListEntitlements } from "./pagination/ListEntitlementsPaginator";
+import { paginateListFlows } from "./pagination/ListFlowsPaginator";
+import { paginateListGatewayInstances } from "./pagination/ListGatewayInstancesPaginator";
+import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
+import { paginateListOfferings } from "./pagination/ListOfferingsPaginator";
+import { paginateListReservations } from "./pagination/ListReservationsPaginator";
+import { paginateListRouterInputs } from "./pagination/ListRouterInputsPaginator";
+import { paginateListRouterNetworkInterfaces } from "./pagination/ListRouterNetworkInterfacesPaginator";
+import { paginateListRouterOutputs } from "./pagination/ListRouterOutputsPaginator";
+import { waitUntilFlowActive } from "./waiters/waitForFlowActive";
+import { waitUntilFlowDeleted } from "./waiters/waitForFlowDeleted";
+import { waitUntilFlowStandby } from "./waiters/waitForFlowStandby";
+import { waitUntilInputActive } from "./waiters/waitForInputActive";
+import { waitUntilInputDeleted } from "./waiters/waitForInputDeleted";
+import { waitUntilInputStandby } from "./waiters/waitForInputStandby";
+import { waitUntilOutputActive } from "./waiters/waitForOutputActive";
+import { waitUntilOutputDeleted } from "./waiters/waitForOutputDeleted";
+import { waitUntilOutputRouted } from "./waiters/waitForOutputRouted";
+import { waitUntilOutputStandby } from "./waiters/waitForOutputStandby";
 
 const commands = {
   AddBridgeOutputsCommand,
@@ -465,6 +491,30 @@ const commands = {
   UpdateRouterInputCommand,
   UpdateRouterNetworkInterfaceCommand,
   UpdateRouterOutputCommand,
+};
+const paginators = {
+  paginateListBridges,
+  paginateListEntitlements,
+  paginateListFlows,
+  paginateListGatewayInstances,
+  paginateListGateways,
+  paginateListOfferings,
+  paginateListReservations,
+  paginateListRouterInputs,
+  paginateListRouterNetworkInterfaces,
+  paginateListRouterOutputs,
+};
+const waiters = {
+  waitUntilFlowActive,
+  waitUntilFlowDeleted,
+  waitUntilFlowStandby,
+  waitUntilInputStandby,
+  waitUntilInputDeleted,
+  waitUntilInputActive,
+  waitUntilOutputDeleted,
+  waitUntilOutputActive,
+  waitUntilOutputStandby,
+  waitUntilOutputRouted,
 };
 
 export interface MediaConnect {
@@ -1871,6 +1921,216 @@ export interface MediaConnect {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRouterOutputCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBridgesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBridgesCommandOutput}.
+   */
+  paginateListBridges(
+    args?: ListBridgesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBridgesCommandOutput>;
+
+  /**
+   * @see {@link ListEntitlementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntitlementsCommandOutput}.
+   */
+  paginateListEntitlements(
+    args?: ListEntitlementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntitlementsCommandOutput>;
+
+  /**
+   * @see {@link ListFlowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowsCommandOutput}.
+   */
+  paginateListFlows(
+    args?: ListFlowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowsCommandOutput>;
+
+  /**
+   * @see {@link ListGatewayInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewayInstancesCommandOutput}.
+   */
+  paginateListGatewayInstances(
+    args?: ListGatewayInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewayInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewaysCommandOutput}.
+   */
+  paginateListGateways(
+    args?: ListGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewaysCommandOutput>;
+
+  /**
+   * @see {@link ListOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOfferingsCommandOutput}.
+   */
+  paginateListOfferings(
+    args?: ListOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOfferingsCommandOutput>;
+
+  /**
+   * @see {@link ListReservationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReservationsCommandOutput}.
+   */
+  paginateListReservations(
+    args?: ListReservationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReservationsCommandOutput>;
+
+  /**
+   * @see {@link ListRouterInputsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRouterInputsCommandOutput}.
+   */
+  paginateListRouterInputs(
+    args?: ListRouterInputsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRouterInputsCommandOutput>;
+
+  /**
+   * @see {@link ListRouterNetworkInterfacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRouterNetworkInterfacesCommandOutput}.
+   */
+  paginateListRouterNetworkInterfaces(
+    args?: ListRouterNetworkInterfacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRouterNetworkInterfacesCommandOutput>;
+
+  /**
+   * @see {@link ListRouterOutputsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRouterOutputsCommandOutput}.
+   */
+  paginateListRouterOutputs(
+    args?: ListRouterOutputsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRouterOutputsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFlowCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFlowActive(
+    args: DescribeFlowCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeFlowCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFlowDeleted(
+    args: DescribeFlowCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeFlowCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFlowStandby(
+    args: DescribeFlowCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRouterInputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInputStandby(
+    args: GetRouterInputCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRouterInputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInputDeleted(
+    args: GetRouterInputCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRouterInputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInputActive(
+    args: GetRouterInputCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRouterOutputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilOutputDeleted(
+    args: GetRouterOutputCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRouterOutputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilOutputActive(
+    args: GetRouterOutputCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRouterOutputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilOutputStandby(
+    args: GetRouterOutputCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRouterOutputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilOutputRouted(
+    args: GetRouterOutputCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1878,4 +2138,4 @@ export interface MediaConnect {
  * @public
  */
 export class MediaConnect extends MediaConnectClient implements MediaConnect {}
-createAggregatedClient(commands, MediaConnect);
+createAggregatedClient(commands, MediaConnect, { paginators, waiters });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelKeyDeletionCommand,
@@ -184,6 +184,14 @@ import {
 import { VerifyCommand, VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand";
 import { VerifyMacCommand, VerifyMacCommandInput, VerifyMacCommandOutput } from "./commands/VerifyMacCommand";
 import { KMSClient } from "./KMSClient";
+import { paginateDescribeCustomKeyStores } from "./pagination/DescribeCustomKeyStoresPaginator";
+import { paginateListAliases } from "./pagination/ListAliasesPaginator";
+import { paginateListGrants } from "./pagination/ListGrantsPaginator";
+import { paginateListKeyPolicies } from "./pagination/ListKeyPoliciesPaginator";
+import { paginateListKeyRotations } from "./pagination/ListKeyRotationsPaginator";
+import { paginateListKeys } from "./pagination/ListKeysPaginator";
+import { paginateListResourceTags } from "./pagination/ListResourceTagsPaginator";
+import { paginateListRetirableGrants } from "./pagination/ListRetirableGrantsPaginator";
 
 const commands = {
   CancelKeyDeletionCommand,
@@ -239,6 +247,16 @@ const commands = {
   UpdatePrimaryRegionCommand,
   VerifyCommand,
   VerifyMacCommand,
+};
+const paginators = {
+  paginateDescribeCustomKeyStores,
+  paginateListAliases,
+  paginateListGrants,
+  paginateListKeyPolicies,
+  paginateListKeyRotations,
+  paginateListKeys,
+  paginateListResourceTags,
+  paginateListRetirableGrants,
 };
 
 export interface KMS {
@@ -1148,6 +1166,94 @@ export interface KMS {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: VerifyMacCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeCustomKeyStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCustomKeyStoresCommandOutput}.
+   */
+  paginateDescribeCustomKeyStores(
+    args?: DescribeCustomKeyStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCustomKeyStoresCommandOutput>;
+
+  /**
+   * @see {@link ListAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAliasesCommandOutput}.
+   */
+  paginateListAliases(
+    args?: ListAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListGrantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGrantsCommandOutput}.
+   */
+  paginateListGrants(
+    args: ListGrantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGrantsCommandOutput>;
+
+  /**
+   * @see {@link ListKeyPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKeyPoliciesCommandOutput}.
+   */
+  paginateListKeyPolicies(
+    args: ListKeyPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKeyPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListKeyRotationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKeyRotationsCommandOutput}.
+   */
+  paginateListKeyRotations(
+    args: ListKeyRotationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKeyRotationsCommandOutput>;
+
+  /**
+   * @see {@link ListKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKeysCommandOutput}.
+   */
+  paginateListKeys(
+    args?: ListKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKeysCommandOutput>;
+
+  /**
+   * @see {@link ListResourceTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceTagsCommandOutput}.
+   */
+  paginateListResourceTags(
+    args: ListResourceTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceTagsCommandOutput>;
+
+  /**
+   * @see {@link ListRetirableGrantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRetirableGrantsCommandOutput}.
+   */
+  paginateListRetirableGrants(
+    args: ListRetirableGrantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRetirableGrantsCommandOutput>;
 }
 
 /**
@@ -1252,4 +1358,4 @@ export interface KMS {
  * @public
  */
 export class KMS extends KMSClient implements KMS {}
-createAggregatedClient(commands, KMS);
+createAggregatedClient(commands, KMS, { paginators });

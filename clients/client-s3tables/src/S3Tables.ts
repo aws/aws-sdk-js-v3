@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateNamespaceCommand,
@@ -223,6 +223,9 @@ import {
   UpdateTableMetadataLocationCommandInput,
   UpdateTableMetadataLocationCommandOutput,
 } from "./commands/UpdateTableMetadataLocationCommand";
+import { paginateListNamespaces } from "./pagination/ListNamespacesPaginator";
+import { paginateListTableBuckets } from "./pagination/ListTableBucketsPaginator";
+import { paginateListTables } from "./pagination/ListTablesPaginator";
 import { S3TablesClient } from "./S3TablesClient";
 
 const commands = {
@@ -275,6 +278,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateTableMetadataLocationCommand,
+};
+const paginators = {
+  paginateListNamespaces,
+  paginateListTableBuckets,
+  paginateListTables,
 };
 
 export interface S3Tables {
@@ -1112,6 +1120,39 @@ export interface S3Tables {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTableMetadataLocationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListNamespacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNamespacesCommandOutput}.
+   */
+  paginateListNamespaces(
+    args: ListNamespacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNamespacesCommandOutput>;
+
+  /**
+   * @see {@link ListTableBucketsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTableBucketsCommandOutput}.
+   */
+  paginateListTableBuckets(
+    args?: ListTableBucketsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTableBucketsCommandOutput>;
+
+  /**
+   * @see {@link ListTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTablesCommandOutput}.
+   */
+  paginateListTables(
+    args: ListTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTablesCommandOutput>;
 }
 
 /**
@@ -1119,4 +1160,4 @@ export interface S3Tables {
  * @public
  */
 export class S3Tables extends S3TablesClient implements S3Tables {}
-createAggregatedClient(commands, S3Tables);
+createAggregatedClient(commands, S3Tables, { paginators });

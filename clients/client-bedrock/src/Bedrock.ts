@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BedrockClient } from "./BedrockClient";
 import {
@@ -489,6 +489,30 @@ import {
   UpdateProvisionedModelThroughputCommandInput,
   UpdateProvisionedModelThroughputCommandOutput,
 } from "./commands/UpdateProvisionedModelThroughputCommand";
+import { paginateListAutomatedReasoningPolicies } from "./pagination/ListAutomatedReasoningPoliciesPaginator";
+import {
+  paginateListAutomatedReasoningPolicyBuildWorkflows,
+} from "./pagination/ListAutomatedReasoningPolicyBuildWorkflowsPaginator";
+import {
+  paginateListAutomatedReasoningPolicyTestCases,
+} from "./pagination/ListAutomatedReasoningPolicyTestCasesPaginator";
+import {
+  paginateListAutomatedReasoningPolicyTestResults,
+} from "./pagination/ListAutomatedReasoningPolicyTestResultsPaginator";
+import { paginateListCustomModelDeployments } from "./pagination/ListCustomModelDeploymentsPaginator";
+import { paginateListCustomModels } from "./pagination/ListCustomModelsPaginator";
+import { paginateListEnforcedGuardrailsConfiguration } from "./pagination/ListEnforcedGuardrailsConfigurationPaginator";
+import { paginateListEvaluationJobs } from "./pagination/ListEvaluationJobsPaginator";
+import { paginateListGuardrails } from "./pagination/ListGuardrailsPaginator";
+import { paginateListImportedModels } from "./pagination/ListImportedModelsPaginator";
+import { paginateListInferenceProfiles } from "./pagination/ListInferenceProfilesPaginator";
+import { paginateListMarketplaceModelEndpoints } from "./pagination/ListMarketplaceModelEndpointsPaginator";
+import { paginateListModelCopyJobs } from "./pagination/ListModelCopyJobsPaginator";
+import { paginateListModelCustomizationJobs } from "./pagination/ListModelCustomizationJobsPaginator";
+import { paginateListModelImportJobs } from "./pagination/ListModelImportJobsPaginator";
+import { paginateListModelInvocationJobs } from "./pagination/ListModelInvocationJobsPaginator";
+import { paginateListPromptRouters } from "./pagination/ListPromptRoutersPaginator";
+import { paginateListProvisionedModelThroughputs } from "./pagination/ListProvisionedModelThroughputsPaginator";
 
 const commands = {
   BatchDeleteEvaluationJobCommand,
@@ -589,6 +613,26 @@ const commands = {
   UpdateGuardrailCommand,
   UpdateMarketplaceModelEndpointCommand,
   UpdateProvisionedModelThroughputCommand,
+};
+const paginators = {
+  paginateListAutomatedReasoningPolicies,
+  paginateListAutomatedReasoningPolicyBuildWorkflows,
+  paginateListAutomatedReasoningPolicyTestCases,
+  paginateListAutomatedReasoningPolicyTestResults,
+  paginateListCustomModelDeployments,
+  paginateListCustomModels,
+  paginateListEnforcedGuardrailsConfiguration,
+  paginateListEvaluationJobs,
+  paginateListGuardrails,
+  paginateListImportedModels,
+  paginateListInferenceProfiles,
+  paginateListMarketplaceModelEndpoints,
+  paginateListModelCopyJobs,
+  paginateListModelCustomizationJobs,
+  paginateListModelImportJobs,
+  paginateListModelInvocationJobs,
+  paginateListPromptRouters,
+  paginateListProvisionedModelThroughputs,
 };
 
 export interface Bedrock {
@@ -2276,6 +2320,204 @@ export interface Bedrock {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProvisionedModelThroughputCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAutomatedReasoningPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutomatedReasoningPoliciesCommandOutput}.
+   */
+  paginateListAutomatedReasoningPolicies(
+    args?: ListAutomatedReasoningPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutomatedReasoningPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListAutomatedReasoningPolicyBuildWorkflowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput}.
+   */
+  paginateListAutomatedReasoningPolicyBuildWorkflows(
+    args: ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput>;
+
+  /**
+   * @see {@link ListAutomatedReasoningPolicyTestCasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutomatedReasoningPolicyTestCasesCommandOutput}.
+   */
+  paginateListAutomatedReasoningPolicyTestCases(
+    args: ListAutomatedReasoningPolicyTestCasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutomatedReasoningPolicyTestCasesCommandOutput>;
+
+  /**
+   * @see {@link ListAutomatedReasoningPolicyTestResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutomatedReasoningPolicyTestResultsCommandOutput}.
+   */
+  paginateListAutomatedReasoningPolicyTestResults(
+    args: ListAutomatedReasoningPolicyTestResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutomatedReasoningPolicyTestResultsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomModelDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomModelDeploymentsCommandOutput}.
+   */
+  paginateListCustomModelDeployments(
+    args?: ListCustomModelDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomModelDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomModelsCommandOutput}.
+   */
+  paginateListCustomModels(
+    args?: ListCustomModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomModelsCommandOutput>;
+
+  /**
+   * @see {@link ListEnforcedGuardrailsConfigurationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnforcedGuardrailsConfigurationCommandOutput}.
+   */
+  paginateListEnforcedGuardrailsConfiguration(
+    args?: ListEnforcedGuardrailsConfigurationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnforcedGuardrailsConfigurationCommandOutput>;
+
+  /**
+   * @see {@link ListEvaluationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEvaluationJobsCommandOutput}.
+   */
+  paginateListEvaluationJobs(
+    args?: ListEvaluationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEvaluationJobsCommandOutput>;
+
+  /**
+   * @see {@link ListGuardrailsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGuardrailsCommandOutput}.
+   */
+  paginateListGuardrails(
+    args?: ListGuardrailsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGuardrailsCommandOutput>;
+
+  /**
+   * @see {@link ListImportedModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportedModelsCommandOutput}.
+   */
+  paginateListImportedModels(
+    args?: ListImportedModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportedModelsCommandOutput>;
+
+  /**
+   * @see {@link ListInferenceProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInferenceProfilesCommandOutput}.
+   */
+  paginateListInferenceProfiles(
+    args?: ListInferenceProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInferenceProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListMarketplaceModelEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMarketplaceModelEndpointsCommandOutput}.
+   */
+  paginateListMarketplaceModelEndpoints(
+    args?: ListMarketplaceModelEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMarketplaceModelEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListModelCopyJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListModelCopyJobsCommandOutput}.
+   */
+  paginateListModelCopyJobs(
+    args?: ListModelCopyJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListModelCopyJobsCommandOutput>;
+
+  /**
+   * @see {@link ListModelCustomizationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListModelCustomizationJobsCommandOutput}.
+   */
+  paginateListModelCustomizationJobs(
+    args?: ListModelCustomizationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListModelCustomizationJobsCommandOutput>;
+
+  /**
+   * @see {@link ListModelImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListModelImportJobsCommandOutput}.
+   */
+  paginateListModelImportJobs(
+    args?: ListModelImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListModelImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListModelInvocationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListModelInvocationJobsCommandOutput}.
+   */
+  paginateListModelInvocationJobs(
+    args?: ListModelInvocationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListModelInvocationJobsCommandOutput>;
+
+  /**
+   * @see {@link ListPromptRoutersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPromptRoutersCommandOutput}.
+   */
+  paginateListPromptRouters(
+    args?: ListPromptRoutersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPromptRoutersCommandOutput>;
+
+  /**
+   * @see {@link ListProvisionedModelThroughputsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProvisionedModelThroughputsCommandOutput}.
+   */
+  paginateListProvisionedModelThroughputs(
+    args?: ListProvisionedModelThroughputsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProvisionedModelThroughputsCommandOutput>;
 }
 
 /**
@@ -2283,4 +2525,4 @@ export interface Bedrock {
  * @public
  */
 export class Bedrock extends BedrockClient implements Bedrock {}
-createAggregatedClient(commands, Bedrock);
+createAggregatedClient(commands, Bedrock, { paginators });

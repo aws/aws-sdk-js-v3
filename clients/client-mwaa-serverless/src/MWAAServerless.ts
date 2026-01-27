@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateWorkflowCommand,
@@ -70,6 +70,10 @@ import {
   UpdateWorkflowCommandOutput,
 } from "./commands/UpdateWorkflowCommand";
 import { MWAAServerlessClient } from "./MWAAServerlessClient";
+import { paginateListTaskInstances } from "./pagination/ListTaskInstancesPaginator";
+import { paginateListWorkflowRuns } from "./pagination/ListWorkflowRunsPaginator";
+import { paginateListWorkflows } from "./pagination/ListWorkflowsPaginator";
+import { paginateListWorkflowVersions } from "./pagination/ListWorkflowVersionsPaginator";
 
 const commands = {
   CreateWorkflowCommand,
@@ -87,6 +91,12 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateWorkflowCommand,
+};
+const paginators = {
+  paginateListTaskInstances,
+  paginateListWorkflowRuns,
+  paginateListWorkflows,
+  paginateListWorkflowVersions,
 };
 
 export interface MWAAServerless {
@@ -345,6 +355,50 @@ export interface MWAAServerless {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkflowCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListTaskInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTaskInstancesCommandOutput}.
+   */
+  paginateListTaskInstances(
+    args: ListTaskInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTaskInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowRunsCommandOutput}.
+   */
+  paginateListWorkflowRuns(
+    args: ListWorkflowRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowRunsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowsCommandOutput}.
+   */
+  paginateListWorkflows(
+    args?: ListWorkflowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowVersionsCommandOutput}.
+   */
+  paginateListWorkflowVersions(
+    args: ListWorkflowVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowVersionsCommandOutput>;
 }
 
 /**
@@ -352,4 +406,4 @@ export interface MWAAServerless {
  * @public
  */
 export class MWAAServerless extends MWAAServerlessClient implements MWAAServerless {}
-createAggregatedClient(commands, MWAAServerless);
+createAggregatedClient(commands, MWAAServerless, { paginators });

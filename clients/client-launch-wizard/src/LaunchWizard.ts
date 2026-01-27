@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateDeploymentCommand,
@@ -70,6 +70,11 @@ import {
   UpdateDeploymentCommandOutput,
 } from "./commands/UpdateDeploymentCommand";
 import { LaunchWizardClient } from "./LaunchWizardClient";
+import { paginateListDeploymentEvents } from "./pagination/ListDeploymentEventsPaginator";
+import { paginateListDeploymentPatternVersions } from "./pagination/ListDeploymentPatternVersionsPaginator";
+import { paginateListDeployments } from "./pagination/ListDeploymentsPaginator";
+import { paginateListWorkloadDeploymentPatterns } from "./pagination/ListWorkloadDeploymentPatternsPaginator";
+import { paginateListWorkloads } from "./pagination/ListWorkloadsPaginator";
 
 const commands = {
   CreateDeploymentCommand,
@@ -87,6 +92,13 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDeploymentCommand,
+};
+const paginators = {
+  paginateListDeploymentEvents,
+  paginateListDeploymentPatternVersions,
+  paginateListDeployments,
+  paginateListWorkloadDeploymentPatterns,
+  paginateListWorkloads,
 };
 
 export interface LaunchWizard {
@@ -346,6 +358,61 @@ export interface LaunchWizard {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDeploymentCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDeploymentEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentEventsCommandOutput}.
+   */
+  paginateListDeploymentEvents(
+    args: ListDeploymentEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentEventsCommandOutput>;
+
+  /**
+   * @see {@link ListDeploymentPatternVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentPatternVersionsCommandOutput}.
+   */
+  paginateListDeploymentPatternVersions(
+    args: ListDeploymentPatternVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentPatternVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentsCommandOutput}.
+   */
+  paginateListDeployments(
+    args?: ListDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkloadDeploymentPatternsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkloadDeploymentPatternsCommandOutput}.
+   */
+  paginateListWorkloadDeploymentPatterns(
+    args: ListWorkloadDeploymentPatternsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkloadDeploymentPatternsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkloadsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkloadsCommandOutput}.
+   */
+  paginateListWorkloads(
+    args?: ListWorkloadsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkloadsCommandOutput>;
 }
 
 /**
@@ -353,4 +420,4 @@ export interface LaunchWizard {
  * @public
  */
 export class LaunchWizard extends LaunchWizardClient implements LaunchWizard {}
-createAggregatedClient(commands, LaunchWizard);
+createAggregatedClient(commands, LaunchWizard, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateAssistantAssociationCommand,
@@ -195,6 +195,16 @@ import {
   UpdateQuickResponseCommandInput,
   UpdateQuickResponseCommandOutput,
 } from "./commands/UpdateQuickResponseCommand";
+import { paginateListAssistantAssociations } from "./pagination/ListAssistantAssociationsPaginator";
+import { paginateListAssistants } from "./pagination/ListAssistantsPaginator";
+import { paginateListContents } from "./pagination/ListContentsPaginator";
+import { paginateListImportJobs } from "./pagination/ListImportJobsPaginator";
+import { paginateListKnowledgeBases } from "./pagination/ListKnowledgeBasesPaginator";
+import { paginateListQuickResponses } from "./pagination/ListQuickResponsesPaginator";
+import { paginateQueryAssistant } from "./pagination/QueryAssistantPaginator";
+import { paginateSearchContent } from "./pagination/SearchContentPaginator";
+import { paginateSearchQuickResponses } from "./pagination/SearchQuickResponsesPaginator";
+import { paginateSearchSessions } from "./pagination/SearchSessionsPaginator";
 import { WisdomClient } from "./WisdomClient";
 
 const commands = {
@@ -239,6 +249,18 @@ const commands = {
   UpdateContentCommand,
   UpdateKnowledgeBaseTemplateUriCommand,
   UpdateQuickResponseCommand,
+};
+const paginators = {
+  paginateListAssistantAssociations,
+  paginateListAssistants,
+  paginateListContents,
+  paginateListImportJobs,
+  paginateListKnowledgeBases,
+  paginateListQuickResponses,
+  paginateQueryAssistant,
+  paginateSearchContent,
+  paginateSearchQuickResponses,
+  paginateSearchSessions,
 };
 
 export interface Wisdom {
@@ -940,6 +962,116 @@ export interface Wisdom {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQuickResponseCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAssistantAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssistantAssociationsCommandOutput}.
+   */
+  paginateListAssistantAssociations(
+    args: ListAssistantAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssistantAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListAssistantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssistantsCommandOutput}.
+   */
+  paginateListAssistants(
+    args?: ListAssistantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssistantsCommandOutput>;
+
+  /**
+   * @see {@link ListContentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContentsCommandOutput}.
+   */
+  paginateListContents(
+    args: ListContentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContentsCommandOutput>;
+
+  /**
+   * @see {@link ListImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportJobsCommandOutput}.
+   */
+  paginateListImportJobs(
+    args: ListImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListKnowledgeBasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKnowledgeBasesCommandOutput}.
+   */
+  paginateListKnowledgeBases(
+    args?: ListKnowledgeBasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKnowledgeBasesCommandOutput>;
+
+  /**
+   * @see {@link ListQuickResponsesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQuickResponsesCommandOutput}.
+   */
+  paginateListQuickResponses(
+    args: ListQuickResponsesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQuickResponsesCommandOutput>;
+
+  /**
+   * @see {@link QueryAssistantCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link QueryAssistantCommandOutput}.
+   */
+  paginateQueryAssistant(
+    args: QueryAssistantCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<QueryAssistantCommandOutput>;
+
+  /**
+   * @see {@link SearchContentCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchContentCommandOutput}.
+   */
+  paginateSearchContent(
+    args: SearchContentCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchContentCommandOutput>;
+
+  /**
+   * @see {@link SearchQuickResponsesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchQuickResponsesCommandOutput}.
+   */
+  paginateSearchQuickResponses(
+    args: SearchQuickResponsesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchQuickResponsesCommandOutput>;
+
+  /**
+   * @see {@link SearchSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchSessionsCommandOutput}.
+   */
+  paginateSearchSessions(
+    args: SearchSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchSessionsCommandOutput>;
 }
 
 /**
@@ -950,4 +1082,4 @@ export interface Wisdom {
  * @public
  */
 export class Wisdom extends WisdomClient implements Wisdom {}
-createAggregatedClient(commands, Wisdom);
+createAggregatedClient(commands, Wisdom, { paginators });

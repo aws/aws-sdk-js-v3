@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateConfigurationSetCommand,
@@ -200,6 +200,12 @@ import {
   UpdateConfigurationSetEventDestinationCommandInput,
   UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
+import { paginateGetDedicatedIps } from "./pagination/GetDedicatedIpsPaginator";
+import { paginateListConfigurationSets } from "./pagination/ListConfigurationSetsPaginator";
+import { paginateListDedicatedIpPools } from "./pagination/ListDedicatedIpPoolsPaginator";
+import { paginateListDeliverabilityTestReports } from "./pagination/ListDeliverabilityTestReportsPaginator";
+import { paginateListDomainDeliverabilityCampaigns } from "./pagination/ListDomainDeliverabilityCampaignsPaginator";
+import { paginateListEmailIdentities } from "./pagination/ListEmailIdentitiesPaginator";
 import { PinpointEmailClient } from "./PinpointEmailClient";
 
 const commands = {
@@ -245,6 +251,14 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConfigurationSetEventDestinationCommand,
+};
+const paginators = {
+  paginateGetDedicatedIps,
+  paginateListConfigurationSets,
+  paginateListDedicatedIpPools,
+  paginateListDeliverabilityTestReports,
+  paginateListDomainDeliverabilityCampaigns,
+  paginateListEmailIdentities,
 };
 
 export interface PinpointEmail {
@@ -970,6 +984,72 @@ export interface PinpointEmail {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetDedicatedIpsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDedicatedIpsCommandOutput}.
+   */
+  paginateGetDedicatedIps(
+    args?: GetDedicatedIpsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDedicatedIpsCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationSetsCommandOutput}.
+   */
+  paginateListConfigurationSets(
+    args?: ListConfigurationSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationSetsCommandOutput>;
+
+  /**
+   * @see {@link ListDedicatedIpPoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDedicatedIpPoolsCommandOutput}.
+   */
+  paginateListDedicatedIpPools(
+    args?: ListDedicatedIpPoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDedicatedIpPoolsCommandOutput>;
+
+  /**
+   * @see {@link ListDeliverabilityTestReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeliverabilityTestReportsCommandOutput}.
+   */
+  paginateListDeliverabilityTestReports(
+    args?: ListDeliverabilityTestReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeliverabilityTestReportsCommandOutput>;
+
+  /**
+   * @see {@link ListDomainDeliverabilityCampaignsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainDeliverabilityCampaignsCommandOutput}.
+   */
+  paginateListDomainDeliverabilityCampaigns(
+    args: ListDomainDeliverabilityCampaignsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainDeliverabilityCampaignsCommandOutput>;
+
+  /**
+   * @see {@link ListEmailIdentitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEmailIdentitiesCommandOutput}.
+   */
+  paginateListEmailIdentities(
+    args?: ListEmailIdentitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEmailIdentitiesCommandOutput>;
 }
 
 /**
@@ -1005,4 +1085,4 @@ export interface PinpointEmail {
  * @public
  */
 export class PinpointEmail extends PinpointEmailClient implements PinpointEmail {}
-createAggregatedClient(commands, PinpointEmail);
+createAggregatedClient(commands, PinpointEmail, { paginators });

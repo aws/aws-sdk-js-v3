@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AcceptInvitationCommand,
@@ -388,6 +394,24 @@ import {
   UpdateSensitivityInspectionTemplateCommandOutput,
 } from "./commands/UpdateSensitivityInspectionTemplateCommand";
 import { Macie2Client } from "./Macie2Client";
+import { paginateDescribeBuckets } from "./pagination/DescribeBucketsPaginator";
+import { paginateGetUsageStatistics } from "./pagination/GetUsageStatisticsPaginator";
+import { paginateListAllowLists } from "./pagination/ListAllowListsPaginator";
+import { paginateListAutomatedDiscoveryAccounts } from "./pagination/ListAutomatedDiscoveryAccountsPaginator";
+import { paginateListClassificationJobs } from "./pagination/ListClassificationJobsPaginator";
+import { paginateListClassificationScopes } from "./pagination/ListClassificationScopesPaginator";
+import { paginateListCustomDataIdentifiers } from "./pagination/ListCustomDataIdentifiersPaginator";
+import { paginateListFindingsFilters } from "./pagination/ListFindingsFiltersPaginator";
+import { paginateListFindings } from "./pagination/ListFindingsPaginator";
+import { paginateListInvitations } from "./pagination/ListInvitationsPaginator";
+import { paginateListManagedDataIdentifiers } from "./pagination/ListManagedDataIdentifiersPaginator";
+import { paginateListMembers } from "./pagination/ListMembersPaginator";
+import { paginateListOrganizationAdminAccounts } from "./pagination/ListOrganizationAdminAccountsPaginator";
+import { paginateListResourceProfileArtifacts } from "./pagination/ListResourceProfileArtifactsPaginator";
+import { paginateListResourceProfileDetections } from "./pagination/ListResourceProfileDetectionsPaginator";
+import { paginateListSensitivityInspectionTemplates } from "./pagination/ListSensitivityInspectionTemplatesPaginator";
+import { paginateSearchResources } from "./pagination/SearchResourcesPaginator";
+import { waitUntilFindingRevealed } from "./waiters/waitForFindingRevealed";
 
 const commands = {
   AcceptInvitationCommand,
@@ -471,6 +495,28 @@ const commands = {
   UpdateResourceProfileDetectionsCommand,
   UpdateRevealConfigurationCommand,
   UpdateSensitivityInspectionTemplateCommand,
+};
+const paginators = {
+  paginateDescribeBuckets,
+  paginateGetUsageStatistics,
+  paginateListAllowLists,
+  paginateListAutomatedDiscoveryAccounts,
+  paginateListClassificationJobs,
+  paginateListClassificationScopes,
+  paginateListCustomDataIdentifiers,
+  paginateListFindings,
+  paginateListFindingsFilters,
+  paginateListInvitations,
+  paginateListManagedDataIdentifiers,
+  paginateListMembers,
+  paginateListOrganizationAdminAccounts,
+  paginateListResourceProfileArtifacts,
+  paginateListResourceProfileDetections,
+  paginateListSensitivityInspectionTemplates,
+  paginateSearchResources,
+};
+const waiters = {
+  waitUntilFindingRevealed,
 };
 
 export interface Macie2 {
@@ -1885,6 +1931,203 @@ export interface Macie2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSensitivityInspectionTemplateCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeBucketsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBucketsCommandOutput}.
+   */
+  paginateDescribeBuckets(
+    args?: DescribeBucketsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBucketsCommandOutput>;
+
+  /**
+   * @see {@link GetUsageStatisticsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetUsageStatisticsCommandOutput}.
+   */
+  paginateGetUsageStatistics(
+    args?: GetUsageStatisticsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetUsageStatisticsCommandOutput>;
+
+  /**
+   * @see {@link ListAllowListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAllowListsCommandOutput}.
+   */
+  paginateListAllowLists(
+    args?: ListAllowListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAllowListsCommandOutput>;
+
+  /**
+   * @see {@link ListAutomatedDiscoveryAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutomatedDiscoveryAccountsCommandOutput}.
+   */
+  paginateListAutomatedDiscoveryAccounts(
+    args?: ListAutomatedDiscoveryAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutomatedDiscoveryAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListClassificationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClassificationJobsCommandOutput}.
+   */
+  paginateListClassificationJobs(
+    args?: ListClassificationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClassificationJobsCommandOutput>;
+
+  /**
+   * @see {@link ListClassificationScopesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClassificationScopesCommandOutput}.
+   */
+  paginateListClassificationScopes(
+    args?: ListClassificationScopesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClassificationScopesCommandOutput>;
+
+  /**
+   * @see {@link ListCustomDataIdentifiersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomDataIdentifiersCommandOutput}.
+   */
+  paginateListCustomDataIdentifiers(
+    args?: ListCustomDataIdentifiersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomDataIdentifiersCommandOutput>;
+
+  /**
+   * @see {@link ListFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFindingsCommandOutput}.
+   */
+  paginateListFindings(
+    args?: ListFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListFindingsFiltersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFindingsFiltersCommandOutput}.
+   */
+  paginateListFindingsFilters(
+    args?: ListFindingsFiltersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFindingsFiltersCommandOutput>;
+
+  /**
+   * @see {@link ListInvitationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvitationsCommandOutput}.
+   */
+  paginateListInvitations(
+    args?: ListInvitationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvitationsCommandOutput>;
+
+  /**
+   * @see {@link ListManagedDataIdentifiersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedDataIdentifiersCommandOutput}.
+   */
+  paginateListManagedDataIdentifiers(
+    args?: ListManagedDataIdentifiersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedDataIdentifiersCommandOutput>;
+
+  /**
+   * @see {@link ListMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMembersCommandOutput}.
+   */
+  paginateListMembers(
+    args?: ListMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMembersCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationAdminAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationAdminAccountsCommandOutput}.
+   */
+  paginateListOrganizationAdminAccounts(
+    args?: ListOrganizationAdminAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationAdminAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListResourceProfileArtifactsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceProfileArtifactsCommandOutput}.
+   */
+  paginateListResourceProfileArtifacts(
+    args: ListResourceProfileArtifactsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceProfileArtifactsCommandOutput>;
+
+  /**
+   * @see {@link ListResourceProfileDetectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceProfileDetectionsCommandOutput}.
+   */
+  paginateListResourceProfileDetections(
+    args: ListResourceProfileDetectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceProfileDetectionsCommandOutput>;
+
+  /**
+   * @see {@link ListSensitivityInspectionTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSensitivityInspectionTemplatesCommandOutput}.
+   */
+  paginateListSensitivityInspectionTemplates(
+    args?: ListSensitivityInspectionTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSensitivityInspectionTemplatesCommandOutput>;
+
+  /**
+   * @see {@link SearchResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchResourcesCommandOutput}.
+   */
+  paginateSearchResources(
+    args?: SearchResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchResourcesCommandOutput>;
+
+  /**
+   * @see {@link GetSensitiveDataOccurrencesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFindingRevealed(
+    args: GetSensitiveDataOccurrencesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Macie2>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1892,4 +2135,4 @@ export interface Macie2 {
  * @public
  */
 export class Macie2 extends Macie2Client implements Macie2 {}
-createAggregatedClient(commands, Macie2);
+createAggregatedClient(commands, Macie2, { paginators, waiters });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateApplicationCommand,
@@ -72,6 +72,9 @@ import {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
+import { paginateListApplicationDependencies } from "./pagination/ListApplicationDependenciesPaginator";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListApplicationVersions } from "./pagination/ListApplicationVersionsPaginator";
 import { ServerlessApplicationRepositoryClient } from "./ServerlessApplicationRepositoryClient";
 
 const commands = {
@@ -89,6 +92,11 @@ const commands = {
   PutApplicationPolicyCommand,
   UnshareApplicationCommand,
   UpdateApplicationCommand,
+};
+const paginators = {
+  paginateListApplicationDependencies,
+  paginateListApplications,
+  paginateListApplicationVersions,
 };
 
 export interface ServerlessApplicationRepository {
@@ -330,6 +338,39 @@ export interface ServerlessApplicationRepository {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationDependenciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationDependenciesCommandOutput}.
+   */
+  paginateListApplicationDependencies(
+    args: ListApplicationDependenciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationDependenciesCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationVersionsCommandOutput}.
+   */
+  paginateListApplicationVersions(
+    args: ListApplicationVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationVersionsCommandOutput>;
 }
 
 /**
@@ -356,4 +397,4 @@ export interface ServerlessApplicationRepository {
  * @public
  */
 export class ServerlessApplicationRepository extends ServerlessApplicationRepositoryClient implements ServerlessApplicationRepository {}
-createAggregatedClient(commands, ServerlessApplicationRepository);
+createAggregatedClient(commands, ServerlessApplicationRepository, { paginators });

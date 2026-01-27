@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DescribeReportCreationCommand,
@@ -43,6 +43,11 @@ import {
   UntagResourcesCommandInput,
   UntagResourcesCommandOutput,
 } from "./commands/UntagResourcesCommand";
+import { paginateGetComplianceSummary } from "./pagination/GetComplianceSummaryPaginator";
+import { paginateGetResources } from "./pagination/GetResourcesPaginator";
+import { paginateGetTagKeys } from "./pagination/GetTagKeysPaginator";
+import { paginateGetTagValues } from "./pagination/GetTagValuesPaginator";
+import { paginateListRequiredTags } from "./pagination/ListRequiredTagsPaginator";
 import { ResourceGroupsTaggingAPIClient } from "./ResourceGroupsTaggingAPIClient";
 
 const commands = {
@@ -55,6 +60,13 @@ const commands = {
   StartReportCreationCommand,
   TagResourcesCommand,
   UntagResourcesCommand,
+};
+const paginators = {
+  paginateGetComplianceSummary,
+  paginateGetResources,
+  paginateGetTagKeys,
+  paginateGetTagValues,
+  paginateListRequiredTags,
 };
 
 export interface ResourceGroupsTaggingAPI {
@@ -215,6 +227,61 @@ export interface ResourceGroupsTaggingAPI {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourcesCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetComplianceSummaryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetComplianceSummaryCommandOutput}.
+   */
+  paginateGetComplianceSummary(
+    args?: GetComplianceSummaryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetComplianceSummaryCommandOutput>;
+
+  /**
+   * @see {@link GetResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourcesCommandOutput}.
+   */
+  paginateGetResources(
+    args?: GetResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourcesCommandOutput>;
+
+  /**
+   * @see {@link GetTagKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTagKeysCommandOutput}.
+   */
+  paginateGetTagKeys(
+    args?: GetTagKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTagKeysCommandOutput>;
+
+  /**
+   * @see {@link GetTagValuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTagValuesCommandOutput}.
+   */
+  paginateGetTagValues(
+    args: GetTagValuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTagValuesCommandOutput>;
+
+  /**
+   * @see {@link ListRequiredTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRequiredTagsCommandOutput}.
+   */
+  paginateListRequiredTags(
+    args?: ListRequiredTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRequiredTagsCommandOutput>;
 }
 
 /**
@@ -222,4 +289,4 @@ export interface ResourceGroupsTaggingAPI {
  * @public
  */
 export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient implements ResourceGroupsTaggingAPI {}
-createAggregatedClient(commands, ResourceGroupsTaggingAPI);
+createAggregatedClient(commands, ResourceGroupsTaggingAPI, { paginators });

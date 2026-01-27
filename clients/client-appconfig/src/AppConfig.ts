@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { AppConfigClient } from "./AppConfigClient";
 import {
@@ -224,6 +230,16 @@ import {
   ValidateConfigurationCommandInput,
   ValidateConfigurationCommandOutput,
 } from "./commands/ValidateConfigurationCommand";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListConfigurationProfiles } from "./pagination/ListConfigurationProfilesPaginator";
+import { paginateListDeployments } from "./pagination/ListDeploymentsPaginator";
+import { paginateListDeploymentStrategies } from "./pagination/ListDeploymentStrategiesPaginator";
+import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
+import { paginateListExtensionAssociations } from "./pagination/ListExtensionAssociationsPaginator";
+import { paginateListExtensions } from "./pagination/ListExtensionsPaginator";
+import { paginateListHostedConfigurationVersions } from "./pagination/ListHostedConfigurationVersionsPaginator";
+import { waitUntilDeploymentComplete } from "./waiters/waitForDeploymentComplete";
+import { waitUntilEnvironmentReadyForDeployment } from "./waiters/waitForEnvironmentReadyForDeployment";
 
 const commands = {
   CreateApplicationCommand,
@@ -271,6 +287,20 @@ const commands = {
   UpdateExtensionCommand,
   UpdateExtensionAssociationCommand,
   ValidateConfigurationCommand,
+};
+const paginators = {
+  paginateListApplications,
+  paginateListConfigurationProfiles,
+  paginateListDeployments,
+  paginateListDeploymentStrategies,
+  paginateListEnvironments,
+  paginateListExtensionAssociations,
+  paginateListExtensions,
+  paginateListHostedConfigurationVersions,
+};
+const waiters = {
+  waitUntilDeploymentComplete,
+  waitUntilEnvironmentReadyForDeployment,
 };
 
 export interface AppConfig {
@@ -1044,6 +1074,114 @@ export interface AppConfig {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationProfilesCommandOutput}.
+   */
+  paginateListConfigurationProfiles(
+    args: ListConfigurationProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentsCommandOutput}.
+   */
+  paginateListDeployments(
+    args: ListDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link ListDeploymentStrategiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentStrategiesCommandOutput}.
+   */
+  paginateListDeploymentStrategies(
+    args?: ListDeploymentStrategiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentStrategiesCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentsCommandOutput}.
+   */
+  paginateListEnvironments(
+    args: ListEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentsCommandOutput>;
+
+  /**
+   * @see {@link ListExtensionAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExtensionAssociationsCommandOutput}.
+   */
+  paginateListExtensionAssociations(
+    args?: ListExtensionAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExtensionAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListExtensionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExtensionsCommandOutput}.
+   */
+  paginateListExtensions(
+    args?: ListExtensionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExtensionsCommandOutput>;
+
+  /**
+   * @see {@link ListHostedConfigurationVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHostedConfigurationVersionsCommandOutput}.
+   */
+  paginateListHostedConfigurationVersions(
+    args: ListHostedConfigurationVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHostedConfigurationVersionsCommandOutput>;
+
+  /**
+   * @see {@link GetDeploymentCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDeploymentComplete(
+    args: GetDeploymentCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<AppConfig>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetEnvironmentCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilEnvironmentReadyForDeployment(
+    args: GetEnvironmentCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<AppConfig>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1200,4 +1338,4 @@ export interface AppConfig {
  * @public
  */
 export class AppConfig extends AppConfigClient implements AppConfig {}
-createAggregatedClient(commands, AppConfig);
+createAggregatedClient(commands, AppConfig, { paginators, waiters });

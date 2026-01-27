@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateAccessPointCommand,
@@ -146,6 +146,12 @@ import {
   UpdateFileSystemProtectionCommandOutput,
 } from "./commands/UpdateFileSystemProtectionCommand";
 import { EFSClient } from "./EFSClient";
+import { paginateDescribeAccessPoints } from "./pagination/DescribeAccessPointsPaginator";
+import { paginateDescribeFileSystems } from "./pagination/DescribeFileSystemsPaginator";
+import { paginateDescribeMountTargets } from "./pagination/DescribeMountTargetsPaginator";
+import { paginateDescribeReplicationConfigurations } from "./pagination/DescribeReplicationConfigurationsPaginator";
+import { paginateDescribeTags } from "./pagination/DescribeTagsPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 
 const commands = {
   CreateAccessPointCommand,
@@ -179,6 +185,14 @@ const commands = {
   UntagResourceCommand,
   UpdateFileSystemCommand,
   UpdateFileSystemProtectionCommand,
+};
+const paginators = {
+  paginateDescribeAccessPoints,
+  paginateDescribeFileSystems,
+  paginateDescribeMountTargets,
+  paginateDescribeReplicationConfigurations,
+  paginateDescribeTags,
+  paginateListTagsForResource,
 };
 
 export interface EFS {
@@ -713,6 +727,72 @@ export interface EFS {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateFileSystemProtectionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAccessPointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAccessPointsCommandOutput}.
+   */
+  paginateDescribeAccessPoints(
+    args?: DescribeAccessPointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAccessPointsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFileSystemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFileSystemsCommandOutput}.
+   */
+  paginateDescribeFileSystems(
+    args?: DescribeFileSystemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFileSystemsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMountTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMountTargetsCommandOutput}.
+   */
+  paginateDescribeMountTargets(
+    args?: DescribeMountTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMountTargetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationConfigurationsCommandOutput}.
+   */
+  paginateDescribeReplicationConfigurations(
+    args?: DescribeReplicationConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTagsCommandOutput}.
+   */
+  paginateDescribeTags(
+    args: DescribeTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTagsCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
 }
 
 /**
@@ -727,4 +807,4 @@ export interface EFS {
  * @public
  */
 export class EFS extends EFSClient implements EFS {}
-createAggregatedClient(commands, EFS);
+createAggregatedClient(commands, EFS, { paginators });

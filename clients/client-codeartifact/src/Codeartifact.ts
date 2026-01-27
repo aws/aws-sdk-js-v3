@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CodeartifactClient } from "./CodeartifactClient";
 import {
@@ -235,6 +235,16 @@ import {
   UpdateRepositoryCommandInput,
   UpdateRepositoryCommandOutput,
 } from "./commands/UpdateRepositoryCommand";
+import { paginateListAllowedRepositoriesForGroup } from "./pagination/ListAllowedRepositoriesForGroupPaginator";
+import { paginateListAssociatedPackages } from "./pagination/ListAssociatedPackagesPaginator";
+import { paginateListDomains } from "./pagination/ListDomainsPaginator";
+import { paginateListPackageGroups } from "./pagination/ListPackageGroupsPaginator";
+import { paginateListPackages } from "./pagination/ListPackagesPaginator";
+import { paginateListPackageVersionAssets } from "./pagination/ListPackageVersionAssetsPaginator";
+import { paginateListPackageVersions } from "./pagination/ListPackageVersionsPaginator";
+import { paginateListRepositoriesInDomain } from "./pagination/ListRepositoriesInDomainPaginator";
+import { paginateListRepositories } from "./pagination/ListRepositoriesPaginator";
+import { paginateListSubPackageGroups } from "./pagination/ListSubPackageGroupsPaginator";
 
 const commands = {
   AssociateExternalConnectionCommand,
@@ -285,6 +295,18 @@ const commands = {
   UpdatePackageGroupOriginConfigurationCommand,
   UpdatePackageVersionsStatusCommand,
   UpdateRepositoryCommand,
+};
+const paginators = {
+  paginateListAllowedRepositoriesForGroup,
+  paginateListAssociatedPackages,
+  paginateListDomains,
+  paginateListPackageGroups,
+  paginateListPackages,
+  paginateListPackageVersionAssets,
+  paginateListPackageVersions,
+  paginateListRepositories,
+  paginateListRepositoriesInDomain,
+  paginateListSubPackageGroups,
 };
 
 export interface Codeartifact {
@@ -1105,6 +1127,116 @@ export interface Codeartifact {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRepositoryCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAllowedRepositoriesForGroupCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAllowedRepositoriesForGroupCommandOutput}.
+   */
+  paginateListAllowedRepositoriesForGroup(
+    args: ListAllowedRepositoriesForGroupCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAllowedRepositoriesForGroupCommandOutput>;
+
+  /**
+   * @see {@link ListAssociatedPackagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssociatedPackagesCommandOutput}.
+   */
+  paginateListAssociatedPackages(
+    args: ListAssociatedPackagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssociatedPackagesCommandOutput>;
+
+  /**
+   * @see {@link ListDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainsCommandOutput}.
+   */
+  paginateListDomains(
+    args?: ListDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListPackageGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackageGroupsCommandOutput}.
+   */
+  paginateListPackageGroups(
+    args: ListPackageGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackageGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListPackagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackagesCommandOutput}.
+   */
+  paginateListPackages(
+    args: ListPackagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackagesCommandOutput>;
+
+  /**
+   * @see {@link ListPackageVersionAssetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackageVersionAssetsCommandOutput}.
+   */
+  paginateListPackageVersionAssets(
+    args: ListPackageVersionAssetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackageVersionAssetsCommandOutput>;
+
+  /**
+   * @see {@link ListPackageVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackageVersionsCommandOutput}.
+   */
+  paginateListPackageVersions(
+    args: ListPackageVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackageVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListRepositoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRepositoriesCommandOutput}.
+   */
+  paginateListRepositories(
+    args?: ListRepositoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRepositoriesCommandOutput>;
+
+  /**
+   * @see {@link ListRepositoriesInDomainCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRepositoriesInDomainCommandOutput}.
+   */
+  paginateListRepositoriesInDomain(
+    args: ListRepositoriesInDomainCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRepositoriesInDomainCommandOutput>;
+
+  /**
+   * @see {@link ListSubPackageGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubPackageGroupsCommandOutput}.
+   */
+  paginateListSubPackageGroups(
+    args: ListSubPackageGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubPackageGroupsCommandOutput>;
 }
 
 /**
@@ -1455,4 +1587,4 @@ export interface Codeartifact {
  * @public
  */
 export class Codeartifact extends CodeartifactClient implements Codeartifact {}
-createAggregatedClient(commands, Codeartifact);
+createAggregatedClient(commands, Codeartifact, { paginators });

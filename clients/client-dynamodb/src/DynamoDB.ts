@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   BatchExecuteStatementCommand,
@@ -228,6 +234,18 @@ import {
   UpdateTimeToLiveCommandOutput,
 } from "./commands/UpdateTimeToLiveCommand";
 import { DynamoDBClient } from "./DynamoDBClient";
+import { paginateListContributorInsights } from "./pagination/ListContributorInsightsPaginator";
+import { paginateListExports } from "./pagination/ListExportsPaginator";
+import { paginateListImports } from "./pagination/ListImportsPaginator";
+import { paginateListTables } from "./pagination/ListTablesPaginator";
+import { paginateQuery } from "./pagination/QueryPaginator";
+import { paginateScan } from "./pagination/ScanPaginator";
+import { waitUntilContributorInsightsEnabled } from "./waiters/waitForContributorInsightsEnabled";
+import { waitUntilExportCompleted } from "./waiters/waitForExportCompleted";
+import { waitUntilImportCompleted } from "./waiters/waitForImportCompleted";
+import { waitUntilKinesisStreamingDestinationActive } from "./waiters/waitForKinesisStreamingDestinationActive";
+import { waitUntilTableExists } from "./waiters/waitForTableExists";
+import { waitUntilTableNotExists } from "./waiters/waitForTableNotExists";
 
 const commands = {
   BatchExecuteStatementCommand,
@@ -287,6 +305,22 @@ const commands = {
   UpdateTableCommand,
   UpdateTableReplicaAutoScalingCommand,
   UpdateTimeToLiveCommand,
+};
+const paginators = {
+  paginateListContributorInsights,
+  paginateListExports,
+  paginateListImports,
+  paginateListTables,
+  paginateQuery,
+  paginateScan,
+};
+const waiters = {
+  waitUntilContributorInsightsEnabled,
+  waitUntilExportCompleted,
+  waitUntilImportCompleted,
+  waitUntilKinesisStreamingDestinationActive,
+  waitUntilTableExists,
+  waitUntilTableNotExists,
 };
 
 export interface DynamoDB {
@@ -1266,6 +1300,132 @@ export interface DynamoDB {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTimeToLiveCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListContributorInsightsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContributorInsightsCommandOutput}.
+   */
+  paginateListContributorInsights(
+    args?: ListContributorInsightsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContributorInsightsCommandOutput>;
+
+  /**
+   * @see {@link ListExportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExportsCommandOutput}.
+   */
+  paginateListExports(
+    args?: ListExportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExportsCommandOutput>;
+
+  /**
+   * @see {@link ListImportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportsCommandOutput}.
+   */
+  paginateListImports(
+    args?: ListImportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportsCommandOutput>;
+
+  /**
+   * @see {@link ListTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTablesCommandOutput}.
+   */
+  paginateListTables(
+    args?: ListTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTablesCommandOutput>;
+
+  /**
+   * @see {@link QueryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link QueryCommandOutput}.
+   */
+  paginateQuery(
+    args: QueryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<QueryCommandOutput>;
+
+  /**
+   * @see {@link ScanCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ScanCommandOutput}.
+   */
+  paginateScan(
+    args: ScanCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ScanCommandOutput>;
+
+  /**
+   * @see {@link DescribeContributorInsightsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilContributorInsightsEnabled(
+    args: DescribeContributorInsightsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeExportCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilExportCompleted(
+    args: DescribeExportCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeImportCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilImportCompleted(
+    args: DescribeImportCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeKinesisStreamingDestinationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilKinesisStreamingDestinationActive(
+    args: DescribeKinesisStreamingDestinationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeTableCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTableExists(
+    args: DescribeTableCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeTableCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTableNotExists(
+    args: DescribeTableCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DynamoDB>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1289,4 +1449,4 @@ export interface DynamoDB {
  * @public
  */
 export class DynamoDB extends DynamoDBClient implements DynamoDB {}
-createAggregatedClient(commands, DynamoDB);
+createAggregatedClient(commands, DynamoDB, { paginators, waiters });

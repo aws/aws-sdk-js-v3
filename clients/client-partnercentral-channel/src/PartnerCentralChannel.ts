@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptChannelHandshakeCommand,
@@ -83,6 +83,9 @@ import {
   UpdateRelationshipCommandInput,
   UpdateRelationshipCommandOutput,
 } from "./commands/UpdateRelationshipCommand";
+import { paginateListChannelHandshakes } from "./pagination/ListChannelHandshakesPaginator";
+import { paginateListProgramManagementAccounts } from "./pagination/ListProgramManagementAccountsPaginator";
+import { paginateListRelationships } from "./pagination/ListRelationshipsPaginator";
 import { PartnerCentralChannelClient } from "./PartnerCentralChannelClient";
 
 const commands = {
@@ -103,6 +106,11 @@ const commands = {
   UntagResourceCommand,
   UpdateProgramManagementAccountCommand,
   UpdateRelationshipCommand,
+};
+const paginators = {
+  paginateListChannelHandshakes,
+  paginateListProgramManagementAccounts,
+  paginateListRelationships,
 };
 
 export interface PartnerCentralChannel {
@@ -394,6 +402,39 @@ export interface PartnerCentralChannel {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRelationshipCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChannelHandshakesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelHandshakesCommandOutput}.
+   */
+  paginateListChannelHandshakes(
+    args: ListChannelHandshakesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelHandshakesCommandOutput>;
+
+  /**
+   * @see {@link ListProgramManagementAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProgramManagementAccountsCommandOutput}.
+   */
+  paginateListProgramManagementAccounts(
+    args: ListProgramManagementAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProgramManagementAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListRelationshipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRelationshipsCommandOutput}.
+   */
+  paginateListRelationships(
+    args: ListRelationshipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRelationshipsCommandOutput>;
 }
 
 /**
@@ -401,4 +442,4 @@ export interface PartnerCentralChannel {
  * @public
  */
 export class PartnerCentralChannel extends PartnerCentralChannelClient implements PartnerCentralChannel {}
-createAggregatedClient(commands, PartnerCentralChannel);
+createAggregatedClient(commands, PartnerCentralChannel, { paginators });

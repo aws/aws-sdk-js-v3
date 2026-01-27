@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateAttributeGroupCommand,
@@ -118,6 +118,11 @@ import {
   UpdateAttributeGroupCommandInput,
   UpdateAttributeGroupCommandOutput,
 } from "./commands/UpdateAttributeGroupCommand";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListAssociatedAttributeGroups } from "./pagination/ListAssociatedAttributeGroupsPaginator";
+import { paginateListAssociatedResources } from "./pagination/ListAssociatedResourcesPaginator";
+import { paginateListAttributeGroupsForApplication } from "./pagination/ListAttributeGroupsForApplicationPaginator";
+import { paginateListAttributeGroups } from "./pagination/ListAttributeGroupsPaginator";
 import { ServiceCatalogAppRegistryClient } from "./ServiceCatalogAppRegistryClient";
 
 const commands = {
@@ -145,6 +150,13 @@ const commands = {
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateAttributeGroupCommand,
+};
+const paginators = {
+  paginateListApplications,
+  paginateListAssociatedAttributeGroups,
+  paginateListAssociatedResources,
+  paginateListAttributeGroups,
+  paginateListAttributeGroupsForApplication,
 };
 
 export interface ServiceCatalogAppRegistry {
@@ -558,6 +570,61 @@ export interface ServiceCatalogAppRegistry {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAttributeGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListAssociatedAttributeGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssociatedAttributeGroupsCommandOutput}.
+   */
+  paginateListAssociatedAttributeGroups(
+    args: ListAssociatedAttributeGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssociatedAttributeGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListAssociatedResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssociatedResourcesCommandOutput}.
+   */
+  paginateListAssociatedResources(
+    args: ListAssociatedResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssociatedResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListAttributeGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttributeGroupsCommandOutput}.
+   */
+  paginateListAttributeGroups(
+    args?: ListAttributeGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttributeGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListAttributeGroupsForApplicationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttributeGroupsForApplicationCommandOutput}.
+   */
+  paginateListAttributeGroupsForApplication(
+    args: ListAttributeGroupsForApplicationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttributeGroupsForApplicationCommandOutput>;
 }
 
 /**
@@ -565,4 +632,4 @@ export interface ServiceCatalogAppRegistry {
  * @public
  */
 export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient implements ServiceCatalogAppRegistry {}
-createAggregatedClient(commands, ServiceCatalogAppRegistry);
+createAggregatedClient(commands, ServiceCatalogAppRegistry, { paginators });

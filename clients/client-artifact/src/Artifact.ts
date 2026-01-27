@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ArtifactClient } from "./ArtifactClient";
 import {
@@ -35,6 +35,9 @@ import {
   PutAccountSettingsCommandInput,
   PutAccountSettingsCommandOutput,
 } from "./commands/PutAccountSettingsCommand";
+import { paginateListCustomerAgreements } from "./pagination/ListCustomerAgreementsPaginator";
+import { paginateListReports } from "./pagination/ListReportsPaginator";
+import { paginateListReportVersions } from "./pagination/ListReportVersionsPaginator";
 
 const commands = {
   GetAccountSettingsCommand,
@@ -45,6 +48,11 @@ const commands = {
   ListReportsCommand,
   ListReportVersionsCommand,
   PutAccountSettingsCommand,
+};
+const paginators = {
+  paginateListCustomerAgreements,
+  paginateListReports,
+  paginateListReportVersions,
 };
 
 export interface Artifact {
@@ -187,6 +195,39 @@ export interface Artifact {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutAccountSettingsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCustomerAgreementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomerAgreementsCommandOutput}.
+   */
+  paginateListCustomerAgreements(
+    args?: ListCustomerAgreementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomerAgreementsCommandOutput>;
+
+  /**
+   * @see {@link ListReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReportsCommandOutput}.
+   */
+  paginateListReports(
+    args?: ListReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReportsCommandOutput>;
+
+  /**
+   * @see {@link ListReportVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReportVersionsCommandOutput}.
+   */
+  paginateListReportVersions(
+    args: ListReportVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReportVersionsCommandOutput>;
 }
 
 /**
@@ -194,4 +235,4 @@ export interface Artifact {
  * @public
  */
 export class Artifact extends ArtifactClient implements Artifact {}
-createAggregatedClient(commands, Artifact);
+createAggregatedClient(commands, Artifact, { paginators });

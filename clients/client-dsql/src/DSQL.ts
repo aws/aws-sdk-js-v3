@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   CreateClusterCommand,
@@ -55,6 +61,9 @@ import {
   UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import { DSQLClient } from "./DSQLClient";
+import { paginateListClusters } from "./pagination/ListClustersPaginator";
+import { waitUntilClusterActive } from "./waiters/waitForClusterActive";
+import { waitUntilClusterNotExists } from "./waiters/waitForClusterNotExists";
 
 const commands = {
   CreateClusterCommand,
@@ -69,6 +78,13 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateClusterCommand,
+};
+const paginators = {
+  paginateListClusters,
+};
+const waiters = {
+  waitUntilClusterActive,
+  waitUntilClusterNotExists,
 };
 
 export interface DSQL {
@@ -277,6 +293,37 @@ export interface DSQL {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClustersCommandOutput}.
+   */
+  paginateListClusters(
+    args?: ListClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClustersCommandOutput>;
+
+  /**
+   * @see {@link GetClusterCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterActive(
+    args: GetClusterCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DSQL>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetClusterCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterNotExists(
+    args: GetClusterCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<DSQL>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -284,4 +331,4 @@ export interface DSQL {
  * @public
  */
 export class DSQL extends DSQLClient implements DSQL {}
-createAggregatedClient(commands, DSQL);
+createAggregatedClient(commands, DSQL, { paginators, waiters });

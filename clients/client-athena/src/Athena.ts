@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AthenaClient } from "./AthenaClient";
 import {
@@ -341,6 +341,21 @@ import {
   UpdateWorkGroupCommandInput,
   UpdateWorkGroupCommandOutput,
 } from "./commands/UpdateWorkGroupCommand";
+import { paginateGetQueryResults } from "./pagination/GetQueryResultsPaginator";
+import { paginateListApplicationDPUSizes } from "./pagination/ListApplicationDPUSizesPaginator";
+import { paginateListCalculationExecutions } from "./pagination/ListCalculationExecutionsPaginator";
+import { paginateListCapacityReservations } from "./pagination/ListCapacityReservationsPaginator";
+import { paginateListDatabases } from "./pagination/ListDatabasesPaginator";
+import { paginateListDataCatalogs } from "./pagination/ListDataCatalogsPaginator";
+import { paginateListEngineVersions } from "./pagination/ListEngineVersionsPaginator";
+import { paginateListExecutors } from "./pagination/ListExecutorsPaginator";
+import { paginateListNamedQueries } from "./pagination/ListNamedQueriesPaginator";
+import { paginateListPreparedStatements } from "./pagination/ListPreparedStatementsPaginator";
+import { paginateListQueryExecutions } from "./pagination/ListQueryExecutionsPaginator";
+import { paginateListSessions } from "./pagination/ListSessionsPaginator";
+import { paginateListTableMetadata } from "./pagination/ListTableMetadataPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListWorkGroups } from "./pagination/ListWorkGroupsPaginator";
 
 const commands = {
   BatchGetNamedQueryCommand,
@@ -413,6 +428,23 @@ const commands = {
   UpdateNotebookMetadataCommand,
   UpdatePreparedStatementCommand,
   UpdateWorkGroupCommand,
+};
+const paginators = {
+  paginateGetQueryResults,
+  paginateListApplicationDPUSizes,
+  paginateListCalculationExecutions,
+  paginateListCapacityReservations,
+  paginateListDatabases,
+  paginateListDataCatalogs,
+  paginateListEngineVersions,
+  paginateListExecutors,
+  paginateListNamedQueries,
+  paginateListPreparedStatements,
+  paginateListQueryExecutions,
+  paginateListSessions,
+  paginateListTableMetadata,
+  paginateListTagsForResource,
+  paginateListWorkGroups,
 };
 
 export interface Athena {
@@ -1612,6 +1644,171 @@ export interface Athena {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetQueryResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetQueryResultsCommandOutput}.
+   */
+  paginateGetQueryResults(
+    args: GetQueryResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetQueryResultsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationDPUSizesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationDPUSizesCommandOutput}.
+   */
+  paginateListApplicationDPUSizes(
+    args?: ListApplicationDPUSizesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationDPUSizesCommandOutput>;
+
+  /**
+   * @see {@link ListCalculationExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCalculationExecutionsCommandOutput}.
+   */
+  paginateListCalculationExecutions(
+    args: ListCalculationExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCalculationExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListCapacityReservationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCapacityReservationsCommandOutput}.
+   */
+  paginateListCapacityReservations(
+    args?: ListCapacityReservationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCapacityReservationsCommandOutput>;
+
+  /**
+   * @see {@link ListDatabasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatabasesCommandOutput}.
+   */
+  paginateListDatabases(
+    args: ListDatabasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatabasesCommandOutput>;
+
+  /**
+   * @see {@link ListDataCatalogsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataCatalogsCommandOutput}.
+   */
+  paginateListDataCatalogs(
+    args?: ListDataCatalogsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataCatalogsCommandOutput>;
+
+  /**
+   * @see {@link ListEngineVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEngineVersionsCommandOutput}.
+   */
+  paginateListEngineVersions(
+    args?: ListEngineVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEngineVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListExecutorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExecutorsCommandOutput}.
+   */
+  paginateListExecutors(
+    args: ListExecutorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExecutorsCommandOutput>;
+
+  /**
+   * @see {@link ListNamedQueriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNamedQueriesCommandOutput}.
+   */
+  paginateListNamedQueries(
+    args?: ListNamedQueriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNamedQueriesCommandOutput>;
+
+  /**
+   * @see {@link ListPreparedStatementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPreparedStatementsCommandOutput}.
+   */
+  paginateListPreparedStatements(
+    args: ListPreparedStatementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPreparedStatementsCommandOutput>;
+
+  /**
+   * @see {@link ListQueryExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQueryExecutionsCommandOutput}.
+   */
+  paginateListQueryExecutions(
+    args?: ListQueryExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQueryExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionsCommandOutput}.
+   */
+  paginateListSessions(
+    args: ListSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionsCommandOutput>;
+
+  /**
+   * @see {@link ListTableMetadataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTableMetadataCommandOutput}.
+   */
+  paginateListTableMetadata(
+    args: ListTableMetadataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTableMetadataCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListWorkGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkGroupsCommandOutput}.
+   */
+  paginateListWorkGroups(
+    args?: ListWorkGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkGroupsCommandOutput>;
 }
 
 /**
@@ -1629,4 +1826,4 @@ export interface Athena {
  * @public
  */
 export class Athena extends AthenaClient implements Athena {}
-createAggregatedClient(commands, Athena);
+createAggregatedClient(commands, Athena, { paginators });

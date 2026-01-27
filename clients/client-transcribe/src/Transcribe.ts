@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   CreateCallAnalyticsCategoryCommand,
@@ -213,7 +219,23 @@ import {
   UpdateVocabularyFilterCommandInput,
   UpdateVocabularyFilterCommandOutput,
 } from "./commands/UpdateVocabularyFilterCommand";
+import { paginateListCallAnalyticsCategories } from "./pagination/ListCallAnalyticsCategoriesPaginator";
+import { paginateListCallAnalyticsJobs } from "./pagination/ListCallAnalyticsJobsPaginator";
+import { paginateListLanguageModels } from "./pagination/ListLanguageModelsPaginator";
+import { paginateListMedicalScribeJobs } from "./pagination/ListMedicalScribeJobsPaginator";
+import { paginateListMedicalTranscriptionJobs } from "./pagination/ListMedicalTranscriptionJobsPaginator";
+import { paginateListMedicalVocabularies } from "./pagination/ListMedicalVocabulariesPaginator";
+import { paginateListTranscriptionJobs } from "./pagination/ListTranscriptionJobsPaginator";
+import { paginateListVocabularies } from "./pagination/ListVocabulariesPaginator";
+import { paginateListVocabularyFilters } from "./pagination/ListVocabularyFiltersPaginator";
 import { TranscribeClient } from "./TranscribeClient";
+import { waitUntilCallAnalyticsJobCompleted } from "./waiters/waitForCallAnalyticsJobCompleted";
+import { waitUntilLanguageModelCompleted } from "./waiters/waitForLanguageModelCompleted";
+import { waitUntilMedicalScribeJobCompleted } from "./waiters/waitForMedicalScribeJobCompleted";
+import { waitUntilMedicalTranscriptionJobCompleted } from "./waiters/waitForMedicalTranscriptionJobCompleted";
+import { waitUntilMedicalVocabularyReady } from "./waiters/waitForMedicalVocabularyReady";
+import { waitUntilTranscriptionJobCompleted } from "./waiters/waitForTranscriptionJobCompleted";
+import { waitUntilVocabularyReady } from "./waiters/waitForVocabularyReady";
 
 const commands = {
   CreateCallAnalyticsCategoryCommand,
@@ -259,6 +281,26 @@ const commands = {
   UpdateMedicalVocabularyCommand,
   UpdateVocabularyCommand,
   UpdateVocabularyFilterCommand,
+};
+const paginators = {
+  paginateListCallAnalyticsCategories,
+  paginateListCallAnalyticsJobs,
+  paginateListLanguageModels,
+  paginateListMedicalScribeJobs,
+  paginateListMedicalTranscriptionJobs,
+  paginateListMedicalVocabularies,
+  paginateListTranscriptionJobs,
+  paginateListVocabularies,
+  paginateListVocabularyFilters,
+};
+const waiters = {
+  waitUntilLanguageModelCompleted,
+  waitUntilCallAnalyticsJobCompleted,
+  waitUntilMedicalScribeJobCompleted,
+  waitUntilMedicalTranscriptionJobCompleted,
+  waitUntilMedicalVocabularyReady,
+  waitUntilTranscriptionJobCompleted,
+  waitUntilVocabularyReady,
 };
 
 export interface Transcribe {
@@ -1001,6 +1043,175 @@ export interface Transcribe {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVocabularyFilterCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCallAnalyticsCategoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCallAnalyticsCategoriesCommandOutput}.
+   */
+  paginateListCallAnalyticsCategories(
+    args?: ListCallAnalyticsCategoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCallAnalyticsCategoriesCommandOutput>;
+
+  /**
+   * @see {@link ListCallAnalyticsJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCallAnalyticsJobsCommandOutput}.
+   */
+  paginateListCallAnalyticsJobs(
+    args?: ListCallAnalyticsJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCallAnalyticsJobsCommandOutput>;
+
+  /**
+   * @see {@link ListLanguageModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLanguageModelsCommandOutput}.
+   */
+  paginateListLanguageModels(
+    args?: ListLanguageModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLanguageModelsCommandOutput>;
+
+  /**
+   * @see {@link ListMedicalScribeJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMedicalScribeJobsCommandOutput}.
+   */
+  paginateListMedicalScribeJobs(
+    args?: ListMedicalScribeJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMedicalScribeJobsCommandOutput>;
+
+  /**
+   * @see {@link ListMedicalTranscriptionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMedicalTranscriptionJobsCommandOutput}.
+   */
+  paginateListMedicalTranscriptionJobs(
+    args?: ListMedicalTranscriptionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMedicalTranscriptionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListMedicalVocabulariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMedicalVocabulariesCommandOutput}.
+   */
+  paginateListMedicalVocabularies(
+    args?: ListMedicalVocabulariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMedicalVocabulariesCommandOutput>;
+
+  /**
+   * @see {@link ListTranscriptionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTranscriptionJobsCommandOutput}.
+   */
+  paginateListTranscriptionJobs(
+    args?: ListTranscriptionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTranscriptionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListVocabulariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVocabulariesCommandOutput}.
+   */
+  paginateListVocabularies(
+    args?: ListVocabulariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVocabulariesCommandOutput>;
+
+  /**
+   * @see {@link ListVocabularyFiltersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVocabularyFiltersCommandOutput}.
+   */
+  paginateListVocabularyFilters(
+    args?: ListVocabularyFiltersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVocabularyFiltersCommandOutput>;
+
+  /**
+   * @see {@link DescribeLanguageModelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilLanguageModelCompleted(
+    args: DescribeLanguageModelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetCallAnalyticsJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCallAnalyticsJobCompleted(
+    args: GetCallAnalyticsJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetMedicalScribeJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMedicalScribeJobCompleted(
+    args: GetMedicalScribeJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetMedicalTranscriptionJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMedicalTranscriptionJobCompleted(
+    args: GetMedicalTranscriptionJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetMedicalVocabularyCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMedicalVocabularyReady(
+    args: GetMedicalVocabularyCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetTranscriptionJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTranscriptionJobCompleted(
+    args: GetTranscriptionJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetVocabularyCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVocabularyReady(
+    args: GetVocabularyCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Transcribe>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1029,4 +1240,4 @@ export interface Transcribe {
  * @public
  */
 export class Transcribe extends TranscribeClient implements Transcribe {}
-createAggregatedClient(commands, Transcribe);
+createAggregatedClient(commands, Transcribe, { paginators, waiters });

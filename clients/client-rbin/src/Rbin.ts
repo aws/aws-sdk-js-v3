@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CreateRuleCommand, CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
@@ -20,6 +20,7 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateRuleCommand, UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
+import { paginateListRules } from "./pagination/ListRulesPaginator";
 import { RbinClient } from "./RbinClient";
 
 const commands = {
@@ -33,6 +34,9 @@ const commands = {
   UnlockRuleCommand,
   UntagResourceCommand,
   UpdateRuleCommand,
+};
+const paginators = {
+  paginateListRules,
 };
 
 export interface Rbin {
@@ -205,6 +209,17 @@ export interface Rbin {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRuleCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRulesCommandOutput}.
+   */
+  paginateListRules(
+    args: ListRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRulesCommandOutput>;
 }
 
 /**
@@ -223,4 +238,4 @@ export interface Rbin {
  * @public
  */
 export class Rbin extends RbinClient implements Rbin {}
-createAggregatedClient(commands, Rbin);
+createAggregatedClient(commands, Rbin, { paginators });

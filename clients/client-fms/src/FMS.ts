@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateAdminAccountCommand,
@@ -193,6 +193,16 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { FMSClient } from "./FMSClient";
+import { paginateListAdminAccountsForOrganization } from "./pagination/ListAdminAccountsForOrganizationPaginator";
+import { paginateListAdminsManagingAccount } from "./pagination/ListAdminsManagingAccountPaginator";
+import { paginateListAppsLists } from "./pagination/ListAppsListsPaginator";
+import { paginateListComplianceStatus } from "./pagination/ListComplianceStatusPaginator";
+import { paginateListMemberAccounts } from "./pagination/ListMemberAccountsPaginator";
+import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
+import { paginateListProtocolsLists } from "./pagination/ListProtocolsListsPaginator";
+import {
+  paginateListThirdPartyFirewallFirewallPolicies,
+} from "./pagination/ListThirdPartyFirewallFirewallPoliciesPaginator";
 
 const commands = {
   AssociateAdminAccountCommand,
@@ -237,6 +247,16 @@ const commands = {
   PutResourceSetCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListAdminAccountsForOrganization,
+  paginateListAdminsManagingAccount,
+  paginateListAppsLists,
+  paginateListComplianceStatus,
+  paginateListMemberAccounts,
+  paginateListPolicies,
+  paginateListProtocolsLists,
+  paginateListThirdPartyFirewallFirewallPolicies,
 };
 
 export interface FMS {
@@ -962,6 +982,94 @@ export interface FMS {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAdminAccountsForOrganizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAdminAccountsForOrganizationCommandOutput}.
+   */
+  paginateListAdminAccountsForOrganization(
+    args?: ListAdminAccountsForOrganizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAdminAccountsForOrganizationCommandOutput>;
+
+  /**
+   * @see {@link ListAdminsManagingAccountCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAdminsManagingAccountCommandOutput}.
+   */
+  paginateListAdminsManagingAccount(
+    args?: ListAdminsManagingAccountCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAdminsManagingAccountCommandOutput>;
+
+  /**
+   * @see {@link ListAppsListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppsListsCommandOutput}.
+   */
+  paginateListAppsLists(
+    args: ListAppsListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppsListsCommandOutput>;
+
+  /**
+   * @see {@link ListComplianceStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComplianceStatusCommandOutput}.
+   */
+  paginateListComplianceStatus(
+    args: ListComplianceStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComplianceStatusCommandOutput>;
+
+  /**
+   * @see {@link ListMemberAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMemberAccountsCommandOutput}.
+   */
+  paginateListMemberAccounts(
+    args?: ListMemberAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMemberAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPoliciesCommandOutput}.
+   */
+  paginateListPolicies(
+    args?: ListPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListProtocolsListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProtocolsListsCommandOutput}.
+   */
+  paginateListProtocolsLists(
+    args: ListProtocolsListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProtocolsListsCommandOutput>;
+
+  /**
+   * @see {@link ListThirdPartyFirewallFirewallPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThirdPartyFirewallFirewallPoliciesCommandOutput}.
+   */
+  paginateListThirdPartyFirewallFirewallPolicies(
+    args: ListThirdPartyFirewallFirewallPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThirdPartyFirewallFirewallPoliciesCommandOutput>;
 }
 
 /**
@@ -975,4 +1083,4 @@ export interface FMS {
  * @public
  */
 export class FMS extends FMSClient implements FMS {}
-createAggregatedClient(commands, FMS);
+createAggregatedClient(commands, FMS, { paginators });

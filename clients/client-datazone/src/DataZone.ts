@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptPredictionsCommand,
@@ -802,6 +802,45 @@ import {
   UpdateUserProfileCommandOutput,
 } from "./commands/UpdateUserProfileCommand";
 import { DataZoneClient } from "./DataZoneClient";
+import { paginateListAccountPools } from "./pagination/ListAccountPoolsPaginator";
+import { paginateListAccountsInAccountPool } from "./pagination/ListAccountsInAccountPoolPaginator";
+import { paginateListAssetFilters } from "./pagination/ListAssetFiltersPaginator";
+import { paginateListAssetRevisions } from "./pagination/ListAssetRevisionsPaginator";
+import { paginateListConnections } from "./pagination/ListConnectionsPaginator";
+import { paginateListDataProductRevisions } from "./pagination/ListDataProductRevisionsPaginator";
+import { paginateListDataSourceRunActivities } from "./pagination/ListDataSourceRunActivitiesPaginator";
+import { paginateListDataSourceRuns } from "./pagination/ListDataSourceRunsPaginator";
+import { paginateListDataSources } from "./pagination/ListDataSourcesPaginator";
+import { paginateListDomains } from "./pagination/ListDomainsPaginator";
+import { paginateListDomainUnitsForParent } from "./pagination/ListDomainUnitsForParentPaginator";
+import { paginateListEntityOwners } from "./pagination/ListEntityOwnersPaginator";
+import { paginateListEnvironmentActions } from "./pagination/ListEnvironmentActionsPaginator";
+import {
+  paginateListEnvironmentBlueprintConfigurations,
+} from "./pagination/ListEnvironmentBlueprintConfigurationsPaginator";
+import { paginateListEnvironmentBlueprints } from "./pagination/ListEnvironmentBlueprintsPaginator";
+import { paginateListEnvironmentProfiles } from "./pagination/ListEnvironmentProfilesPaginator";
+import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
+import { paginateListJobRuns } from "./pagination/ListJobRunsPaginator";
+import { paginateListLineageEvents } from "./pagination/ListLineageEventsPaginator";
+import { paginateListLineageNodeHistory } from "./pagination/ListLineageNodeHistoryPaginator";
+import { paginateListMetadataGenerationRuns } from "./pagination/ListMetadataGenerationRunsPaginator";
+import { paginateListNotifications } from "./pagination/ListNotificationsPaginator";
+import { paginateListPolicyGrants } from "./pagination/ListPolicyGrantsPaginator";
+import { paginateListProjectMemberships } from "./pagination/ListProjectMembershipsPaginator";
+import { paginateListProjectProfiles } from "./pagination/ListProjectProfilesPaginator";
+import { paginateListProjects } from "./pagination/ListProjectsPaginator";
+import { paginateListRules } from "./pagination/ListRulesPaginator";
+import { paginateListSubscriptionGrants } from "./pagination/ListSubscriptionGrantsPaginator";
+import { paginateListSubscriptionRequests } from "./pagination/ListSubscriptionRequestsPaginator";
+import { paginateListSubscriptions } from "./pagination/ListSubscriptionsPaginator";
+import { paginateListSubscriptionTargets } from "./pagination/ListSubscriptionTargetsPaginator";
+import { paginateListTimeSeriesDataPoints } from "./pagination/ListTimeSeriesDataPointsPaginator";
+import { paginateSearchGroupProfiles } from "./pagination/SearchGroupProfilesPaginator";
+import { paginateSearchListings } from "./pagination/SearchListingsPaginator";
+import { paginateSearch } from "./pagination/SearchPaginator";
+import { paginateSearchTypes } from "./pagination/SearchTypesPaginator";
+import { paginateSearchUserProfiles } from "./pagination/SearchUserProfilesPaginator";
 
 const commands = {
   AcceptPredictionsCommand,
@@ -979,6 +1018,45 @@ const commands = {
   UpdateSubscriptionRequestCommand,
   UpdateSubscriptionTargetCommand,
   UpdateUserProfileCommand,
+};
+const paginators = {
+  paginateListAccountPools,
+  paginateListAccountsInAccountPool,
+  paginateListAssetFilters,
+  paginateListAssetRevisions,
+  paginateListConnections,
+  paginateListDataProductRevisions,
+  paginateListDataSourceRunActivities,
+  paginateListDataSourceRuns,
+  paginateListDataSources,
+  paginateListDomains,
+  paginateListDomainUnitsForParent,
+  paginateListEntityOwners,
+  paginateListEnvironmentActions,
+  paginateListEnvironmentBlueprintConfigurations,
+  paginateListEnvironmentBlueprints,
+  paginateListEnvironmentProfiles,
+  paginateListEnvironments,
+  paginateListJobRuns,
+  paginateListLineageEvents,
+  paginateListLineageNodeHistory,
+  paginateListMetadataGenerationRuns,
+  paginateListNotifications,
+  paginateListPolicyGrants,
+  paginateListProjectMemberships,
+  paginateListProjectProfiles,
+  paginateListProjects,
+  paginateListRules,
+  paginateListSubscriptionGrants,
+  paginateListSubscriptionRequests,
+  paginateListSubscriptions,
+  paginateListSubscriptionTargets,
+  paginateListTimeSeriesDataPoints,
+  paginateSearch,
+  paginateSearchGroupProfiles,
+  paginateSearchListings,
+  paginateSearchTypes,
+  paginateSearchUserProfiles,
 };
 
 export interface DataZone {
@@ -3957,6 +4035,413 @@ export interface DataZone {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserProfileCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccountPoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountPoolsCommandOutput}.
+   */
+  paginateListAccountPools(
+    args: ListAccountPoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountPoolsCommandOutput>;
+
+  /**
+   * @see {@link ListAccountsInAccountPoolCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountsInAccountPoolCommandOutput}.
+   */
+  paginateListAccountsInAccountPool(
+    args: ListAccountsInAccountPoolCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountsInAccountPoolCommandOutput>;
+
+  /**
+   * @see {@link ListAssetFiltersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetFiltersCommandOutput}.
+   */
+  paginateListAssetFilters(
+    args: ListAssetFiltersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetFiltersCommandOutput>;
+
+  /**
+   * @see {@link ListAssetRevisionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetRevisionsCommandOutput}.
+   */
+  paginateListAssetRevisions(
+    args: ListAssetRevisionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetRevisionsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectionsCommandOutput}.
+   */
+  paginateListConnections(
+    args: ListConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectionsCommandOutput>;
+
+  /**
+   * @see {@link ListDataProductRevisionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataProductRevisionsCommandOutput}.
+   */
+  paginateListDataProductRevisions(
+    args: ListDataProductRevisionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataProductRevisionsCommandOutput>;
+
+  /**
+   * @see {@link ListDataSourceRunActivitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSourceRunActivitiesCommandOutput}.
+   */
+  paginateListDataSourceRunActivities(
+    args: ListDataSourceRunActivitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSourceRunActivitiesCommandOutput>;
+
+  /**
+   * @see {@link ListDataSourceRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSourceRunsCommandOutput}.
+   */
+  paginateListDataSourceRuns(
+    args: ListDataSourceRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSourceRunsCommandOutput>;
+
+  /**
+   * @see {@link ListDataSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSourcesCommandOutput}.
+   */
+  paginateListDataSources(
+    args: ListDataSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainsCommandOutput}.
+   */
+  paginateListDomains(
+    args?: ListDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListDomainUnitsForParentCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainUnitsForParentCommandOutput}.
+   */
+  paginateListDomainUnitsForParent(
+    args: ListDomainUnitsForParentCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainUnitsForParentCommandOutput>;
+
+  /**
+   * @see {@link ListEntityOwnersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntityOwnersCommandOutput}.
+   */
+  paginateListEntityOwners(
+    args: ListEntityOwnersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntityOwnersCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentActionsCommandOutput}.
+   */
+  paginateListEnvironmentActions(
+    args: ListEnvironmentActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentActionsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentBlueprintConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentBlueprintConfigurationsCommandOutput}.
+   */
+  paginateListEnvironmentBlueprintConfigurations(
+    args: ListEnvironmentBlueprintConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentBlueprintConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentBlueprintsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentBlueprintsCommandOutput}.
+   */
+  paginateListEnvironmentBlueprints(
+    args: ListEnvironmentBlueprintsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentBlueprintsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentProfilesCommandOutput}.
+   */
+  paginateListEnvironmentProfiles(
+    args: ListEnvironmentProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentsCommandOutput}.
+   */
+  paginateListEnvironments(
+    args: ListEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentsCommandOutput>;
+
+  /**
+   * @see {@link ListJobRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobRunsCommandOutput}.
+   */
+  paginateListJobRuns(
+    args: ListJobRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobRunsCommandOutput>;
+
+  /**
+   * @see {@link ListLineageEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLineageEventsCommandOutput}.
+   */
+  paginateListLineageEvents(
+    args: ListLineageEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLineageEventsCommandOutput>;
+
+  /**
+   * @see {@link ListLineageNodeHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLineageNodeHistoryCommandOutput}.
+   */
+  paginateListLineageNodeHistory(
+    args: ListLineageNodeHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLineageNodeHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListMetadataGenerationRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMetadataGenerationRunsCommandOutput}.
+   */
+  paginateListMetadataGenerationRuns(
+    args: ListMetadataGenerationRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMetadataGenerationRunsCommandOutput>;
+
+  /**
+   * @see {@link ListNotificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotificationsCommandOutput}.
+   */
+  paginateListNotifications(
+    args: ListNotificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotificationsCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyGrantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyGrantsCommandOutput}.
+   */
+  paginateListPolicyGrants(
+    args: ListPolicyGrantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyGrantsCommandOutput>;
+
+  /**
+   * @see {@link ListProjectMembershipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectMembershipsCommandOutput}.
+   */
+  paginateListProjectMemberships(
+    args: ListProjectMembershipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectMembershipsCommandOutput>;
+
+  /**
+   * @see {@link ListProjectProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectProfilesCommandOutput}.
+   */
+  paginateListProjectProfiles(
+    args: ListProjectProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectsCommandOutput}.
+   */
+  paginateListProjects(
+    args: ListProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectsCommandOutput>;
+
+  /**
+   * @see {@link ListRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRulesCommandOutput}.
+   */
+  paginateListRules(
+    args: ListRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRulesCommandOutput>;
+
+  /**
+   * @see {@link ListSubscriptionGrantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubscriptionGrantsCommandOutput}.
+   */
+  paginateListSubscriptionGrants(
+    args: ListSubscriptionGrantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubscriptionGrantsCommandOutput>;
+
+  /**
+   * @see {@link ListSubscriptionRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubscriptionRequestsCommandOutput}.
+   */
+  paginateListSubscriptionRequests(
+    args: ListSubscriptionRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubscriptionRequestsCommandOutput>;
+
+  /**
+   * @see {@link ListSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubscriptionsCommandOutput}.
+   */
+  paginateListSubscriptions(
+    args: ListSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link ListSubscriptionTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubscriptionTargetsCommandOutput}.
+   */
+  paginateListSubscriptionTargets(
+    args: ListSubscriptionTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubscriptionTargetsCommandOutput>;
+
+  /**
+   * @see {@link ListTimeSeriesDataPointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTimeSeriesDataPointsCommandOutput}.
+   */
+  paginateListTimeSeriesDataPoints(
+    args: ListTimeSeriesDataPointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTimeSeriesDataPointsCommandOutput>;
+
+  /**
+   * @see {@link SearchCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchCommandOutput}.
+   */
+  paginateSearch(
+    args: SearchCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchCommandOutput>;
+
+  /**
+   * @see {@link SearchGroupProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchGroupProfilesCommandOutput}.
+   */
+  paginateSearchGroupProfiles(
+    args: SearchGroupProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchGroupProfilesCommandOutput>;
+
+  /**
+   * @see {@link SearchListingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchListingsCommandOutput}.
+   */
+  paginateSearchListings(
+    args: SearchListingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchListingsCommandOutput>;
+
+  /**
+   * @see {@link SearchTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchTypesCommandOutput}.
+   */
+  paginateSearchTypes(
+    args: SearchTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchTypesCommandOutput>;
+
+  /**
+   * @see {@link SearchUserProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchUserProfilesCommandOutput}.
+   */
+  paginateSearchUserProfiles(
+    args: SearchUserProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchUserProfilesCommandOutput>;
 }
 
 /**
@@ -3964,4 +4449,4 @@ export interface DataZone {
  * @public
  */
 export class DataZone extends DataZoneClient implements DataZone {}
-createAggregatedClient(commands, DataZone);
+createAggregatedClient(commands, DataZone, { paginators });

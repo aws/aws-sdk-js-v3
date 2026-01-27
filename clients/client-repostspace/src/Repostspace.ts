@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   BatchAddChannelRoleToAccessorsCommand,
@@ -65,7 +71,13 @@ import {
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import { UpdateSpaceCommand, UpdateSpaceCommandInput, UpdateSpaceCommandOutput } from "./commands/UpdateSpaceCommand";
+import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListSpaces } from "./pagination/ListSpacesPaginator";
 import { RepostspaceClient } from "./RepostspaceClient";
+import { waitUntilChannelCreated } from "./waiters/waitForChannelCreated";
+import { waitUntilChannelDeleted } from "./waiters/waitForChannelDeleted";
+import { waitUntilSpaceCreated } from "./waiters/waitForSpaceCreated";
+import { waitUntilSpaceDeleted } from "./waiters/waitForSpaceDeleted";
 
 const commands = {
   BatchAddChannelRoleToAccessorsCommand,
@@ -87,6 +99,16 @@ const commands = {
   UntagResourceCommand,
   UpdateChannelCommand,
   UpdateSpaceCommand,
+};
+const paginators = {
+  paginateListChannels,
+  paginateListSpaces,
+};
+const waiters = {
+  waitUntilChannelCreated,
+  waitUntilChannelDeleted,
+  waitUntilSpaceCreated,
+  waitUntilSpaceDeleted,
 };
 
 export interface Repostspace {
@@ -413,6 +435,68 @@ export interface Repostspace {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSpaceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsCommandOutput}.
+   */
+  paginateListChannels(
+    args: ListChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListSpacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSpacesCommandOutput}.
+   */
+  paginateListSpaces(
+    args?: ListSpacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSpacesCommandOutput>;
+
+  /**
+   * @see {@link GetChannelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilChannelCreated(
+    args: GetChannelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Repostspace>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetChannelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilChannelDeleted(
+    args: GetChannelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Repostspace>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetSpaceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSpaceCreated(
+    args: GetSpaceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Repostspace>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetSpaceCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSpaceDeleted(
+    args: GetSpaceCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Repostspace>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -420,4 +504,4 @@ export interface Repostspace {
  * @public
  */
 export class Repostspace extends RepostspaceClient implements Repostspace {}
-createAggregatedClient(commands, Repostspace);
+createAggregatedClient(commands, Repostspace, { paginators, waiters });

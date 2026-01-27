@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   ActivateKeySigningKeyCommand,
@@ -349,7 +355,14 @@ import {
   UpdateTrafficPolicyInstanceCommandInput,
   UpdateTrafficPolicyInstanceCommandOutput,
 } from "./commands/UpdateTrafficPolicyInstanceCommand";
+import { paginateListCidrBlocks } from "./pagination/ListCidrBlocksPaginator";
+import { paginateListCidrCollections } from "./pagination/ListCidrCollectionsPaginator";
+import { paginateListCidrLocations } from "./pagination/ListCidrLocationsPaginator";
+import { paginateListHealthChecks } from "./pagination/ListHealthChecksPaginator";
+import { paginateListHostedZones } from "./pagination/ListHostedZonesPaginator";
+import { paginateListQueryLoggingConfigs } from "./pagination/ListQueryLoggingConfigsPaginator";
 import { Route53Client } from "./Route53Client";
+import { waitUntilResourceRecordSetsChanged } from "./waiters/waitForResourceRecordSetsChanged";
 
 const commands = {
   ActivateKeySigningKeyCommand,
@@ -423,6 +436,17 @@ const commands = {
   UpdateHostedZoneFeaturesCommand,
   UpdateTrafficPolicyCommentCommand,
   UpdateTrafficPolicyInstanceCommand,
+};
+const paginators = {
+  paginateListCidrBlocks,
+  paginateListCidrCollections,
+  paginateListCidrLocations,
+  paginateListHealthChecks,
+  paginateListHostedZones,
+  paginateListQueryLoggingConfigs,
+};
+const waiters = {
+  waitUntilResourceRecordSetsChanged,
 };
 
 export interface Route53 {
@@ -1646,6 +1670,82 @@ export interface Route53 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTrafficPolicyInstanceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCidrBlocksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCidrBlocksCommandOutput}.
+   */
+  paginateListCidrBlocks(
+    args: ListCidrBlocksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCidrBlocksCommandOutput>;
+
+  /**
+   * @see {@link ListCidrCollectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCidrCollectionsCommandOutput}.
+   */
+  paginateListCidrCollections(
+    args?: ListCidrCollectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCidrCollectionsCommandOutput>;
+
+  /**
+   * @see {@link ListCidrLocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCidrLocationsCommandOutput}.
+   */
+  paginateListCidrLocations(
+    args: ListCidrLocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCidrLocationsCommandOutput>;
+
+  /**
+   * @see {@link ListHealthChecksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHealthChecksCommandOutput}.
+   */
+  paginateListHealthChecks(
+    args?: ListHealthChecksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHealthChecksCommandOutput>;
+
+  /**
+   * @see {@link ListHostedZonesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHostedZonesCommandOutput}.
+   */
+  paginateListHostedZones(
+    args?: ListHostedZonesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHostedZonesCommandOutput>;
+
+  /**
+   * @see {@link ListQueryLoggingConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQueryLoggingConfigsCommandOutput}.
+   */
+  paginateListQueryLoggingConfigs(
+    args?: ListQueryLoggingConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQueryLoggingConfigsCommandOutput>;
+
+  /**
+   * @see {@link GetChangeCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilResourceRecordSetsChanged(
+    args: GetChangeCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Route53>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1669,4 +1769,4 @@ export interface Route53 {
  * @public
  */
 export class Route53 extends Route53Client implements Route53 {}
-createAggregatedClient(commands, Route53);
+createAggregatedClient(commands, Route53, { paginators, waiters });

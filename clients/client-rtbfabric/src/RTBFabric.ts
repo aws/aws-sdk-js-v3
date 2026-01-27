@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { AcceptLinkCommand, AcceptLinkCommandInput, AcceptLinkCommandOutput } from "./commands/AcceptLinkCommand";
 import {
@@ -105,7 +111,18 @@ import {
   UpdateResponderGatewayCommandInput,
   UpdateResponderGatewayCommandOutput,
 } from "./commands/UpdateResponderGatewayCommand";
+import { paginateListLinks } from "./pagination/ListLinksPaginator";
+import { paginateListRequesterGateways } from "./pagination/ListRequesterGatewaysPaginator";
+import { paginateListResponderGateways } from "./pagination/ListResponderGatewaysPaginator";
 import { RTBFabricClient } from "./RTBFabricClient";
+import { waitUntilInboundExternalLinkActive } from "./waiters/waitForInboundExternalLinkActive";
+import { waitUntilLinkAccepted } from "./waiters/waitForLinkAccepted";
+import { waitUntilLinkActive } from "./waiters/waitForLinkActive";
+import { waitUntilOutboundExternalLinkActive } from "./waiters/waitForOutboundExternalLinkActive";
+import { waitUntilRequesterGatewayActive } from "./waiters/waitForRequesterGatewayActive";
+import { waitUntilRequesterGatewayDeleted } from "./waiters/waitForRequesterGatewayDeleted";
+import { waitUntilResponderGatewayActive } from "./waiters/waitForResponderGatewayActive";
+import { waitUntilResponderGatewayDeleted } from "./waiters/waitForResponderGatewayDeleted";
 
 const commands = {
   AcceptLinkCommand,
@@ -135,6 +152,21 @@ const commands = {
   UpdateLinkModuleFlowCommand,
   UpdateRequesterGatewayCommand,
   UpdateResponderGatewayCommand,
+};
+const paginators = {
+  paginateListLinks,
+  paginateListRequesterGateways,
+  paginateListResponderGateways,
+};
+const waiters = {
+  waitUntilInboundExternalLinkActive,
+  waitUntilLinkAccepted,
+  waitUntilLinkActive,
+  waitUntilOutboundExternalLinkActive,
+  waitUntilRequesterGatewayActive,
+  waitUntilRequesterGatewayDeleted,
+  waitUntilResponderGatewayActive,
+  waitUntilResponderGatewayDeleted,
 };
 
 export interface RTBFabric {
@@ -598,6 +630,119 @@ export interface RTBFabric {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateResponderGatewayCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListLinksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLinksCommandOutput}.
+   */
+  paginateListLinks(
+    args: ListLinksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLinksCommandOutput>;
+
+  /**
+   * @see {@link ListRequesterGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRequesterGatewaysCommandOutput}.
+   */
+  paginateListRequesterGateways(
+    args?: ListRequesterGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRequesterGatewaysCommandOutput>;
+
+  /**
+   * @see {@link ListResponderGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResponderGatewaysCommandOutput}.
+   */
+  paginateListResponderGateways(
+    args?: ListResponderGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResponderGatewaysCommandOutput>;
+
+  /**
+   * @see {@link GetInboundExternalLinkCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInboundExternalLinkActive(
+    args: GetInboundExternalLinkCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetLinkCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilLinkAccepted(
+    args: GetLinkCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetLinkCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilLinkActive(
+    args: GetLinkCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetOutboundExternalLinkCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilOutboundExternalLinkActive(
+    args: GetOutboundExternalLinkCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRequesterGatewayCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilRequesterGatewayActive(
+    args: GetRequesterGatewayCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRequesterGatewayCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilRequesterGatewayDeleted(
+    args: GetRequesterGatewayCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetResponderGatewayCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilResponderGatewayActive(
+    args: GetResponderGatewayCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetResponderGatewayCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilResponderGatewayDeleted(
+    args: GetResponderGatewayCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<RTBFabric>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -605,4 +750,4 @@ export interface RTBFabric {
  * @public
  */
 export class RTBFabric extends RTBFabricClient implements RTBFabric {}
-createAggregatedClient(commands, RTBFabric);
+createAggregatedClient(commands, RTBFabric, { paginators, waiters });

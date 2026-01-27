@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ARCZonalShiftClient } from "./ARCZonalShiftClient";
 import {
@@ -78,6 +78,9 @@ import {
   UpdateZonalShiftCommandInput,
   UpdateZonalShiftCommandOutput,
 } from "./commands/UpdateZonalShiftCommand";
+import { paginateListAutoshifts } from "./pagination/ListAutoshiftsPaginator";
+import { paginateListManagedResources } from "./pagination/ListManagedResourcesPaginator";
+import { paginateListZonalShifts } from "./pagination/ListZonalShiftsPaginator";
 
 const commands = {
   CancelPracticeRunCommand,
@@ -95,6 +98,11 @@ const commands = {
   UpdatePracticeRunConfigurationCommand,
   UpdateZonalAutoshiftConfigurationCommand,
   UpdateZonalShiftCommand,
+};
+const paginators = {
+  paginateListAutoshifts,
+  paginateListManagedResources,
+  paginateListZonalShifts,
 };
 
 export interface ARCZonalShift {
@@ -356,6 +364,39 @@ export interface ARCZonalShift {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateZonalShiftCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAutoshiftsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutoshiftsCommandOutput}.
+   */
+  paginateListAutoshifts(
+    args?: ListAutoshiftsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutoshiftsCommandOutput>;
+
+  /**
+   * @see {@link ListManagedResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedResourcesCommandOutput}.
+   */
+  paginateListManagedResources(
+    args?: ListManagedResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListZonalShiftsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListZonalShiftsCommandOutput}.
+   */
+  paginateListZonalShifts(
+    args?: ListZonalShiftsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListZonalShiftsCommandOutput>;
 }
 
 /**
@@ -363,4 +404,4 @@ export interface ARCZonalShift {
  * @public
  */
 export class ARCZonalShift extends ARCZonalShiftClient implements ARCZonalShift {}
-createAggregatedClient(commands, ARCZonalShift);
+createAggregatedClient(commands, ARCZonalShift, { paginators });

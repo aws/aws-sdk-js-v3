@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateBatchInferenceJobCommand,
@@ -341,6 +341,22 @@ import {
   UpdateSolutionCommandInput,
   UpdateSolutionCommandOutput,
 } from "./commands/UpdateSolutionCommand";
+import { paginateListBatchInferenceJobs } from "./pagination/ListBatchInferenceJobsPaginator";
+import { paginateListBatchSegmentJobs } from "./pagination/ListBatchSegmentJobsPaginator";
+import { paginateListCampaigns } from "./pagination/ListCampaignsPaginator";
+import { paginateListDatasetExportJobs } from "./pagination/ListDatasetExportJobsPaginator";
+import { paginateListDatasetGroups } from "./pagination/ListDatasetGroupsPaginator";
+import { paginateListDatasetImportJobs } from "./pagination/ListDatasetImportJobsPaginator";
+import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
+import { paginateListEventTrackers } from "./pagination/ListEventTrackersPaginator";
+import { paginateListFilters } from "./pagination/ListFiltersPaginator";
+import { paginateListMetricAttributionMetrics } from "./pagination/ListMetricAttributionMetricsPaginator";
+import { paginateListMetricAttributions } from "./pagination/ListMetricAttributionsPaginator";
+import { paginateListRecipes } from "./pagination/ListRecipesPaginator";
+import { paginateListRecommenders } from "./pagination/ListRecommendersPaginator";
+import { paginateListSchemas } from "./pagination/ListSchemasPaginator";
+import { paginateListSolutions } from "./pagination/ListSolutionsPaginator";
+import { paginateListSolutionVersions } from "./pagination/ListSolutionVersionsPaginator";
 import { PersonalizeClient } from "./PersonalizeClient";
 
 const commands = {
@@ -415,6 +431,24 @@ const commands = {
   UpdateMetricAttributionCommand,
   UpdateRecommenderCommand,
   UpdateSolutionCommand,
+};
+const paginators = {
+  paginateListBatchInferenceJobs,
+  paginateListBatchSegmentJobs,
+  paginateListCampaigns,
+  paginateListDatasetExportJobs,
+  paginateListDatasetGroups,
+  paginateListDatasetImportJobs,
+  paginateListDatasets,
+  paginateListEventTrackers,
+  paginateListFilters,
+  paginateListMetricAttributionMetrics,
+  paginateListMetricAttributions,
+  paginateListRecipes,
+  paginateListRecommenders,
+  paginateListSchemas,
+  paginateListSolutions,
+  paginateListSolutionVersions,
 };
 
 export interface Personalize {
@@ -1642,6 +1676,182 @@ export interface Personalize {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSolutionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBatchInferenceJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBatchInferenceJobsCommandOutput}.
+   */
+  paginateListBatchInferenceJobs(
+    args?: ListBatchInferenceJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBatchInferenceJobsCommandOutput>;
+
+  /**
+   * @see {@link ListBatchSegmentJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBatchSegmentJobsCommandOutput}.
+   */
+  paginateListBatchSegmentJobs(
+    args?: ListBatchSegmentJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBatchSegmentJobsCommandOutput>;
+
+  /**
+   * @see {@link ListCampaignsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCampaignsCommandOutput}.
+   */
+  paginateListCampaigns(
+    args?: ListCampaignsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCampaignsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetExportJobsCommandOutput}.
+   */
+  paginateListDatasetExportJobs(
+    args?: ListDatasetExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetExportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetGroupsCommandOutput}.
+   */
+  paginateListDatasetGroups(
+    args?: ListDatasetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetImportJobsCommandOutput}.
+   */
+  paginateListDatasetImportJobs(
+    args?: ListDatasetImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetsCommandOutput}.
+   */
+  paginateListDatasets(
+    args?: ListDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetsCommandOutput>;
+
+  /**
+   * @see {@link ListEventTrackersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventTrackersCommandOutput}.
+   */
+  paginateListEventTrackers(
+    args?: ListEventTrackersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventTrackersCommandOutput>;
+
+  /**
+   * @see {@link ListFiltersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFiltersCommandOutput}.
+   */
+  paginateListFilters(
+    args?: ListFiltersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFiltersCommandOutput>;
+
+  /**
+   * @see {@link ListMetricAttributionMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMetricAttributionMetricsCommandOutput}.
+   */
+  paginateListMetricAttributionMetrics(
+    args?: ListMetricAttributionMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMetricAttributionMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListMetricAttributionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMetricAttributionsCommandOutput}.
+   */
+  paginateListMetricAttributions(
+    args?: ListMetricAttributionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMetricAttributionsCommandOutput>;
+
+  /**
+   * @see {@link ListRecipesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecipesCommandOutput}.
+   */
+  paginateListRecipes(
+    args?: ListRecipesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecipesCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendersCommandOutput}.
+   */
+  paginateListRecommenders(
+    args?: ListRecommendersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendersCommandOutput>;
+
+  /**
+   * @see {@link ListSchemasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchemasCommandOutput}.
+   */
+  paginateListSchemas(
+    args?: ListSchemasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchemasCommandOutput>;
+
+  /**
+   * @see {@link ListSolutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSolutionsCommandOutput}.
+   */
+  paginateListSolutions(
+    args?: ListSolutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSolutionsCommandOutput>;
+
+  /**
+   * @see {@link ListSolutionVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSolutionVersionsCommandOutput}.
+   */
+  paginateListSolutionVersions(
+    args?: ListSolutionVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSolutionVersionsCommandOutput>;
 }
 
 /**
@@ -1650,4 +1860,4 @@ export interface Personalize {
  * @public
  */
 export class Personalize extends PersonalizeClient implements Personalize {}
-createAggregatedClient(commands, Personalize);
+createAggregatedClient(commands, Personalize, { paginators });

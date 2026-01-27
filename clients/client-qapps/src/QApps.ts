@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateLibraryItemReviewCommand,
@@ -149,6 +149,8 @@ import {
   UpdateQAppSessionMetadataCommandInput,
   UpdateQAppSessionMetadataCommandOutput,
 } from "./commands/UpdateQAppSessionMetadataCommand";
+import { paginateListLibraryItems } from "./pagination/ListLibraryItemsPaginator";
+import { paginateListQApps } from "./pagination/ListQAppsPaginator";
 import { QAppsClient } from "./QAppsClient";
 
 const commands = {
@@ -187,6 +189,10 @@ const commands = {
   UpdateQAppPermissionsCommand,
   UpdateQAppSessionCommand,
   UpdateQAppSessionMetadataCommand,
+};
+const paginators = {
+  paginateListLibraryItems,
+  paginateListQApps,
 };
 
 export interface QApps {
@@ -784,6 +790,28 @@ export interface QApps {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQAppSessionMetadataCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListLibraryItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLibraryItemsCommandOutput}.
+   */
+  paginateListLibraryItems(
+    args: ListLibraryItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLibraryItemsCommandOutput>;
+
+  /**
+   * @see {@link ListQAppsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQAppsCommandOutput}.
+   */
+  paginateListQApps(
+    args: ListQAppsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQAppsCommandOutput>;
 }
 
 /**
@@ -791,4 +819,4 @@ export interface QApps {
  * @public
  */
 export class QApps extends QAppsClient implements QApps {}
-createAggregatedClient(commands, QApps);
+createAggregatedClient(commands, QApps, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DeleteEarthObservationJobCommand,
@@ -89,6 +89,10 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateListEarthObservationJobs } from "./pagination/ListEarthObservationJobsPaginator";
+import { paginateListRasterDataCollections } from "./pagination/ListRasterDataCollectionsPaginator";
+import { paginateListVectorEnrichmentJobs } from "./pagination/ListVectorEnrichmentJobsPaginator";
+import { paginateSearchRasterDataCollection } from "./pagination/SearchRasterDataCollectionPaginator";
 import { SageMakerGeospatialClient } from "./SageMakerGeospatialClient";
 
 const commands = {
@@ -111,6 +115,12 @@ const commands = {
   StopVectorEnrichmentJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListEarthObservationJobs,
+  paginateListRasterDataCollections,
+  paginateListVectorEnrichmentJobs,
+  paginateSearchRasterDataCollection,
 };
 
 export interface SageMakerGeospatial {
@@ -439,6 +449,50 @@ export interface SageMakerGeospatial {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListEarthObservationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEarthObservationJobsCommandOutput}.
+   */
+  paginateListEarthObservationJobs(
+    args?: ListEarthObservationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEarthObservationJobsCommandOutput>;
+
+  /**
+   * @see {@link ListRasterDataCollectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRasterDataCollectionsCommandOutput}.
+   */
+  paginateListRasterDataCollections(
+    args?: ListRasterDataCollectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRasterDataCollectionsCommandOutput>;
+
+  /**
+   * @see {@link ListVectorEnrichmentJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVectorEnrichmentJobsCommandOutput}.
+   */
+  paginateListVectorEnrichmentJobs(
+    args?: ListVectorEnrichmentJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVectorEnrichmentJobsCommandOutput>;
+
+  /**
+   * @see {@link SearchRasterDataCollectionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchRasterDataCollectionCommandOutput}.
+   */
+  paginateSearchRasterDataCollection(
+    args: SearchRasterDataCollectionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchRasterDataCollectionCommandOutput>;
 }
 
 /**
@@ -446,4 +500,4 @@ export interface SageMakerGeospatial {
  * @public
  */
 export class SageMakerGeospatial extends SageMakerGeospatialClient implements SageMakerGeospatial {}
-createAggregatedClient(commands, SageMakerGeospatial);
+createAggregatedClient(commands, SageMakerGeospatial, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreatePipelineCommand,
@@ -105,6 +105,9 @@ import {
   ValidatePipelineCommandOutput,
 } from "./commands/ValidatePipelineCommand";
 import { OSISClient } from "./OSISClient";
+import { paginateListPipelineEndpointConnections } from "./pagination/ListPipelineEndpointConnectionsPaginator";
+import { paginateListPipelineEndpoints } from "./pagination/ListPipelineEndpointsPaginator";
+import { paginateListPipelines } from "./pagination/ListPipelinesPaginator";
 
 const commands = {
   CreatePipelineCommand,
@@ -129,6 +132,11 @@ const commands = {
   UntagResourceCommand,
   UpdatePipelineCommand,
   ValidatePipelineCommand,
+};
+const paginators = {
+  paginateListPipelineEndpointConnections,
+  paginateListPipelineEndpoints,
+  paginateListPipelines,
 };
 
 export interface OSIS {
@@ -509,6 +517,39 @@ export interface OSIS {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidatePipelineCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListPipelineEndpointConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPipelineEndpointConnectionsCommandOutput}.
+   */
+  paginateListPipelineEndpointConnections(
+    args?: ListPipelineEndpointConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPipelineEndpointConnectionsCommandOutput>;
+
+  /**
+   * @see {@link ListPipelineEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPipelineEndpointsCommandOutput}.
+   */
+  paginateListPipelineEndpoints(
+    args?: ListPipelineEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPipelineEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListPipelinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPipelinesCommandOutput}.
+   */
+  paginateListPipelines(
+    args?: ListPipelinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPipelinesCommandOutput>;
 }
 
 /**
@@ -518,4 +559,4 @@ export interface OSIS {
  * @public
  */
 export class OSIS extends OSISClient implements OSIS {}
-createAggregatedClient(commands, OSIS);
+createAggregatedClient(commands, OSIS, { paginators });

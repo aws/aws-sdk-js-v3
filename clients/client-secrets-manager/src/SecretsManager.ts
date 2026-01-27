@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchGetSecretValueCommand,
@@ -109,6 +109,9 @@ import {
   ValidateResourcePolicyCommandInput,
   ValidateResourcePolicyCommandOutput,
 } from "./commands/ValidateResourcePolicyCommand";
+import { paginateBatchGetSecretValue } from "./pagination/BatchGetSecretValuePaginator";
+import { paginateListSecrets } from "./pagination/ListSecretsPaginator";
+import { paginateListSecretVersionIds } from "./pagination/ListSecretVersionIdsPaginator";
 import { SecretsManagerClient } from "./SecretsManagerClient";
 
 const commands = {
@@ -135,6 +138,11 @@ const commands = {
   UpdateSecretCommand,
   UpdateSecretVersionStageCommand,
   ValidateResourcePolicyCommand,
+};
+const paginators = {
+  paginateBatchGetSecretValue,
+  paginateListSecrets,
+  paginateListSecretVersionIds,
 };
 
 export interface SecretsManager {
@@ -531,6 +539,39 @@ export interface SecretsManager {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateResourcePolicyCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link BatchGetSecretValueCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link BatchGetSecretValueCommandOutput}.
+   */
+  paginateBatchGetSecretValue(
+    args?: BatchGetSecretValueCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<BatchGetSecretValueCommandOutput>;
+
+  /**
+   * @see {@link ListSecretsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecretsCommandOutput}.
+   */
+  paginateListSecrets(
+    args?: ListSecretsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecretsCommandOutput>;
+
+  /**
+   * @see {@link ListSecretVersionIdsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecretVersionIdsCommandOutput}.
+   */
+  paginateListSecretVersionIds(
+    args: ListSecretVersionIdsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecretVersionIdsCommandOutput>;
 }
 
 /**
@@ -563,4 +604,4 @@ export interface SecretsManager {
  * @public
  */
 export class SecretsManager extends SecretsManagerClient implements SecretsManager {}
-createAggregatedClient(commands, SecretsManager);
+createAggregatedClient(commands, SecretsManager, { paginators });

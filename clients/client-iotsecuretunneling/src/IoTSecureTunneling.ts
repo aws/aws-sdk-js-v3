@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CloseTunnelCommand, CloseTunnelCommandInput, CloseTunnelCommandOutput } from "./commands/CloseTunnelCommand";
 import {
@@ -27,6 +27,7 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { IoTSecureTunnelingClient } from "./IoTSecureTunnelingClient";
+import { paginateListTunnels } from "./pagination/ListTunnelsPaginator";
 
 const commands = {
   CloseTunnelCommand,
@@ -37,6 +38,9 @@ const commands = {
   RotateTunnelAccessTokenCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListTunnels,
 };
 
 export interface IoTSecureTunneling {
@@ -177,6 +181,17 @@ export interface IoTSecureTunneling {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListTunnelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTunnelsCommandOutput}.
+   */
+  paginateListTunnels(
+    args?: ListTunnelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTunnelsCommandOutput>;
 }
 
 /**
@@ -188,4 +203,4 @@ export interface IoTSecureTunneling {
  * @public
  */
 export class IoTSecureTunneling extends IoTSecureTunnelingClient implements IoTSecureTunneling {}
-createAggregatedClient(commands, IoTSecureTunneling);
+createAggregatedClient(commands, IoTSecureTunneling, { paginators });

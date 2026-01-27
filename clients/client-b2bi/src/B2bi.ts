@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { B2biClient } from "./B2biClient";
 import {
@@ -137,6 +143,11 @@ import {
   UpdateTransformerCommandInput,
   UpdateTransformerCommandOutput,
 } from "./commands/UpdateTransformerCommand";
+import { paginateListCapabilities } from "./pagination/ListCapabilitiesPaginator";
+import { paginateListPartnerships } from "./pagination/ListPartnershipsPaginator";
+import { paginateListProfiles } from "./pagination/ListProfilesPaginator";
+import { paginateListTransformers } from "./pagination/ListTransformersPaginator";
+import { waitUntilTransformerJobSucceeded } from "./waiters/waitForTransformerJobSucceeded";
 
 const commands = {
   CreateCapabilityCommand,
@@ -169,6 +180,15 @@ const commands = {
   UpdatePartnershipCommand,
   UpdateProfileCommand,
   UpdateTransformerCommand,
+};
+const paginators = {
+  paginateListCapabilities,
+  paginateListPartnerships,
+  paginateListProfiles,
+  paginateListTransformers,
+};
+const waiters = {
+  waitUntilTransformerJobSucceeded,
 };
 
 export interface B2bi {
@@ -685,6 +705,60 @@ export interface B2bi {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTransformerCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCapabilitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCapabilitiesCommandOutput}.
+   */
+  paginateListCapabilities(
+    args?: ListCapabilitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCapabilitiesCommandOutput>;
+
+  /**
+   * @see {@link ListPartnershipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPartnershipsCommandOutput}.
+   */
+  paginateListPartnerships(
+    args?: ListPartnershipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPartnershipsCommandOutput>;
+
+  /**
+   * @see {@link ListProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProfilesCommandOutput}.
+   */
+  paginateListProfiles(
+    args?: ListProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListTransformersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTransformersCommandOutput}.
+   */
+  paginateListTransformers(
+    args?: ListTransformersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTransformersCommandOutput>;
+
+  /**
+   * @see {@link GetTransformerJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTransformerJobSucceeded(
+    args: GetTransformerJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<B2bi>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -692,4 +766,4 @@ export interface B2bi {
  * @public
  */
 export class B2bi extends B2biClient implements B2bi {}
-createAggregatedClient(commands, B2bi);
+createAggregatedClient(commands, B2bi, { paginators, waiters });

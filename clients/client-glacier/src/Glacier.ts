@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   type AbortMultipartUploadCommandInput,
@@ -160,6 +166,12 @@ import {
   UploadMultipartPartCommand,
 } from "./commands/UploadMultipartPartCommand";
 import { GlacierClient } from "./GlacierClient";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
+import { paginateListMultipartUploads } from "./pagination/ListMultipartUploadsPaginator";
+import { paginateListParts } from "./pagination/ListPartsPaginator";
+import { paginateListVaults } from "./pagination/ListVaultsPaginator";
+import { waitUntilVaultExists } from "./waiters/waitForVaultExists";
+import { waitUntilVaultNotExists } from "./waiters/waitForVaultNotExists";
 
 const commands = {
   AbortMultipartUploadCommand,
@@ -195,6 +207,16 @@ const commands = {
   SetVaultNotificationsCommand,
   UploadArchiveCommand,
   UploadMultipartPartCommand,
+};
+const paginators = {
+  paginateListJobs,
+  paginateListMultipartUploads,
+  paginateListParts,
+  paginateListVaults,
+};
+const waiters = {
+  waitUntilVaultExists,
+  waitUntilVaultNotExists,
 };
 
 export interface Glacier {
@@ -758,6 +780,70 @@ export interface Glacier {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UploadMultipartPartCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
+   * @see {@link ListMultipartUploadsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMultipartUploadsCommandOutput}.
+   */
+  paginateListMultipartUploads(
+    args: ListMultipartUploadsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMultipartUploadsCommandOutput>;
+
+  /**
+   * @see {@link ListPartsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPartsCommandOutput}.
+   */
+  paginateListParts(
+    args: ListPartsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPartsCommandOutput>;
+
+  /**
+   * @see {@link ListVaultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVaultsCommandOutput}.
+   */
+  paginateListVaults(
+    args: ListVaultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVaultsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVaultCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVaultExists(
+    args: DescribeVaultCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Glacier>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeVaultCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVaultNotExists(
+    args: DescribeVaultCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Glacier>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -802,4 +888,4 @@ export interface Glacier {
  * @public
  */
 export class Glacier extends GlacierClient implements Glacier {}
-createAggregatedClient(commands, Glacier);
+createAggregatedClient(commands, Glacier, { paginators, waiters });

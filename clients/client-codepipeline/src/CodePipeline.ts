@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CodePipelineClient } from "./CodePipelineClient";
 import {
@@ -207,6 +207,14 @@ import {
   UpdatePipelineCommandInput,
   UpdatePipelineCommandOutput,
 } from "./commands/UpdatePipelineCommand";
+import { paginateListActionExecutions } from "./pagination/ListActionExecutionsPaginator";
+import { paginateListActionTypes } from "./pagination/ListActionTypesPaginator";
+import { paginateListDeployActionExecutionTargets } from "./pagination/ListDeployActionExecutionTargetsPaginator";
+import { paginateListPipelineExecutions } from "./pagination/ListPipelineExecutionsPaginator";
+import { paginateListPipelines } from "./pagination/ListPipelinesPaginator";
+import { paginateListRuleExecutions } from "./pagination/ListRuleExecutionsPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListWebhooks } from "./pagination/ListWebhooksPaginator";
 
 const commands = {
   AcknowledgeJobCommand,
@@ -253,6 +261,16 @@ const commands = {
   UntagResourceCommand,
   UpdateActionTypeCommand,
   UpdatePipelineCommand,
+};
+const paginators = {
+  paginateListActionExecutions,
+  paginateListActionTypes,
+  paginateListDeployActionExecutionTargets,
+  paginateListPipelineExecutions,
+  paginateListPipelines,
+  paginateListRuleExecutions,
+  paginateListTagsForResource,
+  paginateListWebhooks,
 };
 
 export interface CodePipeline {
@@ -1009,6 +1027,94 @@ export interface CodePipeline {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListActionExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActionExecutionsCommandOutput}.
+   */
+  paginateListActionExecutions(
+    args: ListActionExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActionExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListActionTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActionTypesCommandOutput}.
+   */
+  paginateListActionTypes(
+    args?: ListActionTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActionTypesCommandOutput>;
+
+  /**
+   * @see {@link ListDeployActionExecutionTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeployActionExecutionTargetsCommandOutput}.
+   */
+  paginateListDeployActionExecutionTargets(
+    args: ListDeployActionExecutionTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeployActionExecutionTargetsCommandOutput>;
+
+  /**
+   * @see {@link ListPipelineExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPipelineExecutionsCommandOutput}.
+   */
+  paginateListPipelineExecutions(
+    args: ListPipelineExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPipelineExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListPipelinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPipelinesCommandOutput}.
+   */
+  paginateListPipelines(
+    args?: ListPipelinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPipelinesCommandOutput>;
+
+  /**
+   * @see {@link ListRuleExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRuleExecutionsCommandOutput}.
+   */
+  paginateListRuleExecutions(
+    args: ListRuleExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRuleExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListWebhooksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWebhooksCommandOutput}.
+   */
+  paginateListWebhooks(
+    args?: ListWebhooksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWebhooksCommandOutput>;
 }
 
 /**
@@ -1212,4 +1318,4 @@ export interface CodePipeline {
  * @public
  */
 export class CodePipeline extends CodePipelineClient implements CodePipeline {}
-createAggregatedClient(commands, CodePipeline);
+createAggregatedClient(commands, CodePipeline, { paginators });

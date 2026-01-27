@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateBrowserSettingsCommand,
@@ -361,6 +361,18 @@ import {
   UpdateUserSettingsCommandInput,
   UpdateUserSettingsCommandOutput,
 } from "./commands/UpdateUserSettingsCommand";
+import { paginateListBrowserSettings } from "./pagination/ListBrowserSettingsPaginator";
+import { paginateListDataProtectionSettings } from "./pagination/ListDataProtectionSettingsPaginator";
+import { paginateListIdentityProviders } from "./pagination/ListIdentityProvidersPaginator";
+import { paginateListIpAccessSettings } from "./pagination/ListIpAccessSettingsPaginator";
+import { paginateListNetworkSettings } from "./pagination/ListNetworkSettingsPaginator";
+import { paginateListPortals } from "./pagination/ListPortalsPaginator";
+import { paginateListSessionLoggers } from "./pagination/ListSessionLoggersPaginator";
+import { paginateListSessions } from "./pagination/ListSessionsPaginator";
+import { paginateListTrustStoreCertificates } from "./pagination/ListTrustStoreCertificatesPaginator";
+import { paginateListTrustStores } from "./pagination/ListTrustStoresPaginator";
+import { paginateListUserAccessLoggingSettings } from "./pagination/ListUserAccessLoggingSettingsPaginator";
+import { paginateListUserSettings } from "./pagination/ListUserSettingsPaginator";
 import { WorkSpacesWebClient } from "./WorkSpacesWebClient";
 
 const commands = {
@@ -439,6 +451,20 @@ const commands = {
   UpdateTrustStoreCommand,
   UpdateUserAccessLoggingSettingsCommand,
   UpdateUserSettingsCommand,
+};
+const paginators = {
+  paginateListBrowserSettings,
+  paginateListDataProtectionSettings,
+  paginateListIdentityProviders,
+  paginateListIpAccessSettings,
+  paginateListNetworkSettings,
+  paginateListPortals,
+  paginateListSessionLoggers,
+  paginateListSessions,
+  paginateListTrustStoreCertificates,
+  paginateListTrustStores,
+  paginateListUserAccessLoggingSettings,
+  paginateListUserSettings,
 };
 
 export interface WorkSpacesWeb {
@@ -1728,6 +1754,138 @@ export interface WorkSpacesWeb {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserSettingsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBrowserSettingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBrowserSettingsCommandOutput}.
+   */
+  paginateListBrowserSettings(
+    args?: ListBrowserSettingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBrowserSettingsCommandOutput>;
+
+  /**
+   * @see {@link ListDataProtectionSettingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataProtectionSettingsCommandOutput}.
+   */
+  paginateListDataProtectionSettings(
+    args?: ListDataProtectionSettingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataProtectionSettingsCommandOutput>;
+
+  /**
+   * @see {@link ListIdentityProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdentityProvidersCommandOutput}.
+   */
+  paginateListIdentityProviders(
+    args: ListIdentityProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdentityProvidersCommandOutput>;
+
+  /**
+   * @see {@link ListIpAccessSettingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIpAccessSettingsCommandOutput}.
+   */
+  paginateListIpAccessSettings(
+    args?: ListIpAccessSettingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIpAccessSettingsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkSettingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkSettingsCommandOutput}.
+   */
+  paginateListNetworkSettings(
+    args?: ListNetworkSettingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkSettingsCommandOutput>;
+
+  /**
+   * @see {@link ListPortalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPortalsCommandOutput}.
+   */
+  paginateListPortals(
+    args?: ListPortalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPortalsCommandOutput>;
+
+  /**
+   * @see {@link ListSessionLoggersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionLoggersCommandOutput}.
+   */
+  paginateListSessionLoggers(
+    args?: ListSessionLoggersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionLoggersCommandOutput>;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionsCommandOutput}.
+   */
+  paginateListSessions(
+    args: ListSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionsCommandOutput>;
+
+  /**
+   * @see {@link ListTrustStoreCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrustStoreCertificatesCommandOutput}.
+   */
+  paginateListTrustStoreCertificates(
+    args: ListTrustStoreCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrustStoreCertificatesCommandOutput>;
+
+  /**
+   * @see {@link ListTrustStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrustStoresCommandOutput}.
+   */
+  paginateListTrustStores(
+    args?: ListTrustStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrustStoresCommandOutput>;
+
+  /**
+   * @see {@link ListUserAccessLoggingSettingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUserAccessLoggingSettingsCommandOutput}.
+   */
+  paginateListUserAccessLoggingSettings(
+    args?: ListUserAccessLoggingSettingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUserAccessLoggingSettingsCommandOutput>;
+
+  /**
+   * @see {@link ListUserSettingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUserSettingsCommandOutput}.
+   */
+  paginateListUserSettings(
+    args?: ListUserSettingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUserSettingsCommandOutput>;
 }
 
 /**
@@ -1735,4 +1893,4 @@ export interface WorkSpacesWeb {
  * @public
  */
 export class WorkSpacesWeb extends WorkSpacesWebClient implements WorkSpacesWeb {}
-createAggregatedClient(commands, WorkSpacesWeb);
+createAggregatedClient(commands, WorkSpacesWeb, { paginators });

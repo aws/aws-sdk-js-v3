@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AddTagsToStreamCommand,
@@ -166,6 +172,10 @@ import {
   UpdateStreamWarmThroughputCommandOutput,
 } from "./commands/UpdateStreamWarmThroughputCommand";
 import { KinesisClient } from "./KinesisClient";
+import { paginateListStreamConsumers } from "./pagination/ListStreamConsumersPaginator";
+import { paginateListStreams } from "./pagination/ListStreamsPaginator";
+import { waitUntilStreamExists } from "./waiters/waitForStreamExists";
+import { waitUntilStreamNotExists } from "./waiters/waitForStreamNotExists";
 
 const commands = {
   AddTagsToStreamCommand,
@@ -207,6 +217,14 @@ const commands = {
   UpdateShardCountCommand,
   UpdateStreamModeCommand,
   UpdateStreamWarmThroughputCommand,
+};
+const paginators = {
+  paginateListStreamConsumers,
+  paginateListStreams,
+};
+const waiters = {
+  waitUntilStreamExists,
+  waitUntilStreamNotExists,
 };
 
 export interface Kinesis {
@@ -882,6 +900,48 @@ export interface Kinesis {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStreamWarmThroughputCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListStreamConsumersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamConsumersCommandOutput}.
+   */
+  paginateListStreamConsumers(
+    args: ListStreamConsumersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamConsumersCommandOutput>;
+
+  /**
+   * @see {@link ListStreamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamsCommandOutput}.
+   */
+  paginateListStreams(
+    args?: ListStreamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamsCommandOutput>;
+
+  /**
+   * @see {@link DescribeStreamCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStreamExists(
+    args: DescribeStreamCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Kinesis>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeStreamCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStreamNotExists(
+    args: DescribeStreamCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Kinesis>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -891,4 +951,4 @@ export interface Kinesis {
  * @public
  */
 export class Kinesis extends KinesisClient implements Kinesis {}
-createAggregatedClient(commands, Kinesis);
+createAggregatedClient(commands, Kinesis, { paginators, waiters });

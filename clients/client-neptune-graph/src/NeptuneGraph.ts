@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   CancelExportTaskCommand,
@@ -125,6 +131,22 @@ import {
 } from "./commands/UntagResourceCommand";
 import { UpdateGraphCommand, UpdateGraphCommandInput, UpdateGraphCommandOutput } from "./commands/UpdateGraphCommand";
 import { NeptuneGraphClient } from "./NeptuneGraphClient";
+import { paginateListExportTasks } from "./pagination/ListExportTasksPaginator";
+import { paginateListGraphSnapshots } from "./pagination/ListGraphSnapshotsPaginator";
+import { paginateListGraphs } from "./pagination/ListGraphsPaginator";
+import { paginateListImportTasks } from "./pagination/ListImportTasksPaginator";
+import { paginateListPrivateGraphEndpoints } from "./pagination/ListPrivateGraphEndpointsPaginator";
+import { waitUntilExportTaskCancelled } from "./waiters/waitForExportTaskCancelled";
+import { waitUntilExportTaskSuccessful } from "./waiters/waitForExportTaskSuccessful";
+import { waitUntilGraphAvailable } from "./waiters/waitForGraphAvailable";
+import { waitUntilGraphDeleted } from "./waiters/waitForGraphDeleted";
+import { waitUntilGraphSnapshotAvailable } from "./waiters/waitForGraphSnapshotAvailable";
+import { waitUntilGraphSnapshotDeleted } from "./waiters/waitForGraphSnapshotDeleted";
+import { waitUntilGraphStopped } from "./waiters/waitForGraphStopped";
+import { waitUntilImportTaskCancelled } from "./waiters/waitForImportTaskCancelled";
+import { waitUntilImportTaskSuccessful } from "./waiters/waitForImportTaskSuccessful";
+import { waitUntilPrivateGraphEndpointAvailable } from "./waiters/waitForPrivateGraphEndpointAvailable";
+import { waitUntilPrivateGraphEndpointDeleted } from "./waiters/waitForPrivateGraphEndpointDeleted";
 
 const commands = {
   CancelExportTaskCommand,
@@ -161,6 +183,26 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateGraphCommand,
+};
+const paginators = {
+  paginateListExportTasks,
+  paginateListGraphs,
+  paginateListGraphSnapshots,
+  paginateListImportTasks,
+  paginateListPrivateGraphEndpoints,
+};
+const waiters = {
+  waitUntilExportTaskSuccessful,
+  waitUntilExportTaskCancelled,
+  waitUntilGraphAvailable,
+  waitUntilGraphDeleted,
+  waitUntilGraphStopped,
+  waitUntilGraphSnapshotAvailable,
+  waitUntilGraphSnapshotDeleted,
+  waitUntilImportTaskSuccessful,
+  waitUntilImportTaskCancelled,
+  waitUntilPrivateGraphEndpointAvailable,
+  waitUntilPrivateGraphEndpointDeleted,
 };
 
 export interface NeptuneGraph {
@@ -745,6 +787,171 @@ export interface NeptuneGraph {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateGraphCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListExportTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExportTasksCommandOutput}.
+   */
+  paginateListExportTasks(
+    args?: ListExportTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExportTasksCommandOutput>;
+
+  /**
+   * @see {@link ListGraphsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGraphsCommandOutput}.
+   */
+  paginateListGraphs(
+    args?: ListGraphsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGraphsCommandOutput>;
+
+  /**
+   * @see {@link ListGraphSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGraphSnapshotsCommandOutput}.
+   */
+  paginateListGraphSnapshots(
+    args?: ListGraphSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGraphSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link ListImportTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportTasksCommandOutput}.
+   */
+  paginateListImportTasks(
+    args?: ListImportTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportTasksCommandOutput>;
+
+  /**
+   * @see {@link ListPrivateGraphEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPrivateGraphEndpointsCommandOutput}.
+   */
+  paginateListPrivateGraphEndpoints(
+    args: ListPrivateGraphEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPrivateGraphEndpointsCommandOutput>;
+
+  /**
+   * @see {@link GetExportTaskCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilExportTaskSuccessful(
+    args: GetExportTaskCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetExportTaskCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilExportTaskCancelled(
+    args: GetExportTaskCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetGraphCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilGraphAvailable(
+    args: GetGraphCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetGraphCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilGraphDeleted(
+    args: GetGraphCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetGraphCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilGraphStopped(
+    args: GetGraphCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetGraphSnapshotCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilGraphSnapshotAvailable(
+    args: GetGraphSnapshotCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetGraphSnapshotCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilGraphSnapshotDeleted(
+    args: GetGraphSnapshotCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetImportTaskCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilImportTaskSuccessful(
+    args: GetImportTaskCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetImportTaskCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilImportTaskCancelled(
+    args: GetImportTaskCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetPrivateGraphEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPrivateGraphEndpointAvailable(
+    args: GetPrivateGraphEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetPrivateGraphEndpointCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPrivateGraphEndpointDeleted(
+    args: GetPrivateGraphEndpointCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<NeptuneGraph>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -752,4 +959,4 @@ export interface NeptuneGraph {
  * @public
  */
 export class NeptuneGraph extends NeptuneGraphClient implements NeptuneGraph {}
-createAggregatedClient(commands, NeptuneGraph);
+createAggregatedClient(commands, NeptuneGraph, { paginators, waiters });

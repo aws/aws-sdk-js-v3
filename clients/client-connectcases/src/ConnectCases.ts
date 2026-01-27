@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchGetCaseRuleCommand,
@@ -153,6 +153,18 @@ import {
   UpdateTemplateCommandOutput,
 } from "./commands/UpdateTemplateCommand";
 import { ConnectCasesClient } from "./ConnectCasesClient";
+import { paginateGetCaseAuditEvents } from "./pagination/GetCaseAuditEventsPaginator";
+import { paginateGetCase } from "./pagination/GetCasePaginator";
+import { paginateListCaseRules } from "./pagination/ListCaseRulesPaginator";
+import { paginateListCasesForContact } from "./pagination/ListCasesForContactPaginator";
+import { paginateListDomains } from "./pagination/ListDomainsPaginator";
+import { paginateListFieldOptions } from "./pagination/ListFieldOptionsPaginator";
+import { paginateListFields } from "./pagination/ListFieldsPaginator";
+import { paginateListLayouts } from "./pagination/ListLayoutsPaginator";
+import { paginateListTemplates } from "./pagination/ListTemplatesPaginator";
+import { paginateSearchAllRelatedItems } from "./pagination/SearchAllRelatedItemsPaginator";
+import { paginateSearchCases } from "./pagination/SearchCasesPaginator";
+import { paginateSearchRelatedItems } from "./pagination/SearchRelatedItemsPaginator";
 
 const commands = {
   BatchGetCaseRuleCommand,
@@ -197,6 +209,20 @@ const commands = {
   UpdateFieldCommand,
   UpdateLayoutCommand,
   UpdateTemplateCommand,
+};
+const paginators = {
+  paginateGetCase,
+  paginateGetCaseAuditEvents,
+  paginateListCaseRules,
+  paginateListCasesForContact,
+  paginateListDomains,
+  paginateListFieldOptions,
+  paginateListFields,
+  paginateListLayouts,
+  paginateListTemplates,
+  paginateSearchAllRelatedItems,
+  paginateSearchCases,
+  paginateSearchRelatedItems,
 };
 
 export interface ConnectCases {
@@ -914,6 +940,138 @@ export interface ConnectCases {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTemplateCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetCaseCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCaseCommandOutput}.
+   */
+  paginateGetCase(
+    args: GetCaseCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCaseCommandOutput>;
+
+  /**
+   * @see {@link GetCaseAuditEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCaseAuditEventsCommandOutput}.
+   */
+  paginateGetCaseAuditEvents(
+    args: GetCaseAuditEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCaseAuditEventsCommandOutput>;
+
+  /**
+   * @see {@link ListCaseRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCaseRulesCommandOutput}.
+   */
+  paginateListCaseRules(
+    args: ListCaseRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCaseRulesCommandOutput>;
+
+  /**
+   * @see {@link ListCasesForContactCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCasesForContactCommandOutput}.
+   */
+  paginateListCasesForContact(
+    args: ListCasesForContactCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCasesForContactCommandOutput>;
+
+  /**
+   * @see {@link ListDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainsCommandOutput}.
+   */
+  paginateListDomains(
+    args?: ListDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListFieldOptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFieldOptionsCommandOutput}.
+   */
+  paginateListFieldOptions(
+    args: ListFieldOptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFieldOptionsCommandOutput>;
+
+  /**
+   * @see {@link ListFieldsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFieldsCommandOutput}.
+   */
+  paginateListFields(
+    args: ListFieldsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFieldsCommandOutput>;
+
+  /**
+   * @see {@link ListLayoutsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLayoutsCommandOutput}.
+   */
+  paginateListLayouts(
+    args: ListLayoutsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLayoutsCommandOutput>;
+
+  /**
+   * @see {@link ListTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTemplatesCommandOutput}.
+   */
+  paginateListTemplates(
+    args: ListTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTemplatesCommandOutput>;
+
+  /**
+   * @see {@link SearchAllRelatedItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchAllRelatedItemsCommandOutput}.
+   */
+  paginateSearchAllRelatedItems(
+    args: SearchAllRelatedItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchAllRelatedItemsCommandOutput>;
+
+  /**
+   * @see {@link SearchCasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchCasesCommandOutput}.
+   */
+  paginateSearchCases(
+    args: SearchCasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchCasesCommandOutput>;
+
+  /**
+   * @see {@link SearchRelatedItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchRelatedItemsCommandOutput}.
+   */
+  paginateSearchRelatedItems(
+    args: SearchRelatedItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchRelatedItemsCommandOutput>;
 }
 
 /**
@@ -921,4 +1079,4 @@ export interface ConnectCases {
  * @public
  */
 export class ConnectCases extends ConnectCasesClient implements ConnectCases {}
-createAggregatedClient(commands, ConnectCases);
+createAggregatedClient(commands, ConnectCases, { paginators });

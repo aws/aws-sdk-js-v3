@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateScheduleCommand,
@@ -54,6 +54,8 @@ import {
   UpdateScheduleCommandInput,
   UpdateScheduleCommandOutput,
 } from "./commands/UpdateScheduleCommand";
+import { paginateListScheduleGroups } from "./pagination/ListScheduleGroupsPaginator";
+import { paginateListSchedules } from "./pagination/ListSchedulesPaginator";
 import { SchedulerClient } from "./SchedulerClient";
 
 const commands = {
@@ -69,6 +71,10 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateScheduleCommand,
+};
+const paginators = {
+  paginateListScheduleGroups,
+  paginateListSchedules,
 };
 
 export interface Scheduler {
@@ -277,6 +283,28 @@ export interface Scheduler {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateScheduleCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListScheduleGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScheduleGroupsCommandOutput}.
+   */
+  paginateListScheduleGroups(
+    args?: ListScheduleGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScheduleGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListSchedulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchedulesCommandOutput}.
+   */
+  paginateListSchedules(
+    args?: ListSchedulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchedulesCommandOutput>;
 }
 
 /**
@@ -288,4 +316,4 @@ export interface Scheduler {
  * @public
  */
 export class Scheduler extends SchedulerClient implements Scheduler {}
-createAggregatedClient(commands, Scheduler);
+createAggregatedClient(commands, Scheduler, { paginators });

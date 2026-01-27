@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddAttachmentsToSetCommand,
@@ -74,6 +74,8 @@ import {
   RefreshTrustedAdvisorCheckCommandOutput,
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
 import { ResolveCaseCommand, ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
+import { paginateDescribeCases } from "./pagination/DescribeCasesPaginator";
+import { paginateDescribeCommunications } from "./pagination/DescribeCommunicationsPaginator";
 import { SupportClient } from "./SupportClient";
 
 const commands = {
@@ -93,6 +95,10 @@ const commands = {
   DescribeTrustedAdvisorCheckSummariesCommand,
   RefreshTrustedAdvisorCheckCommand,
   ResolveCaseCommand,
+};
+const paginators = {
+  paginateDescribeCases,
+  paginateDescribeCommunications,
 };
 
 export interface Support {
@@ -371,6 +377,28 @@ export interface Support {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ResolveCaseCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeCasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCasesCommandOutput}.
+   */
+  paginateDescribeCases(
+    args?: DescribeCasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCasesCommandOutput>;
+
+  /**
+   * @see {@link DescribeCommunicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCommunicationsCommandOutput}.
+   */
+  paginateDescribeCommunications(
+    args: DescribeCommunicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCommunicationsCommandOutput>;
 }
 
 /**
@@ -421,4 +449,4 @@ export interface Support {
  * @public
  */
 export class Support extends SupportClient implements Support {}
-createAggregatedClient(commands, Support);
+createAggregatedClient(commands, Support, { paginators });

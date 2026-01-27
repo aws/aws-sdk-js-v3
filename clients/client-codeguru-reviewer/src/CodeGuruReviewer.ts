@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CodeGuruReviewerClient } from "./CodeGuruReviewerClient";
 import {
@@ -69,6 +75,12 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateListCodeReviews } from "./pagination/ListCodeReviewsPaginator";
+import { paginateListRecommendationFeedback } from "./pagination/ListRecommendationFeedbackPaginator";
+import { paginateListRecommendations } from "./pagination/ListRecommendationsPaginator";
+import { paginateListRepositoryAssociations } from "./pagination/ListRepositoryAssociationsPaginator";
+import { waitUntilCodeReviewCompleted } from "./waiters/waitForCodeReviewCompleted";
+import { waitUntilRepositoryAssociationSucceeded } from "./waiters/waitForRepositoryAssociationSucceeded";
 
 const commands = {
   AssociateRepositoryCommand,
@@ -85,6 +97,16 @@ const commands = {
   PutRecommendationFeedbackCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListCodeReviews,
+  paginateListRecommendationFeedback,
+  paginateListRecommendations,
+  paginateListRepositoryAssociations,
+};
+const waiters = {
+  waitUntilCodeReviewCompleted,
+  waitUntilRepositoryAssociationSucceeded,
 };
 
 export interface CodeGuruReviewer {
@@ -326,6 +348,70 @@ export interface CodeGuruReviewer {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCodeReviewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCodeReviewsCommandOutput}.
+   */
+  paginateListCodeReviews(
+    args: ListCodeReviewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCodeReviewsCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationFeedbackCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationFeedbackCommandOutput}.
+   */
+  paginateListRecommendationFeedback(
+    args: ListRecommendationFeedbackCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationFeedbackCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationsCommandOutput}.
+   */
+  paginateListRecommendations(
+    args: ListRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link ListRepositoryAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRepositoryAssociationsCommandOutput}.
+   */
+  paginateListRepositoryAssociations(
+    args?: ListRepositoryAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRepositoryAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCodeReviewCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCodeReviewCompleted(
+    args: DescribeCodeReviewCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CodeGuruReviewer>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeRepositoryAssociationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilRepositoryAssociationSucceeded(
+    args: DescribeRepositoryAssociationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CodeGuruReviewer>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -347,4 +433,4 @@ export interface CodeGuruReviewer {
  * @public
  */
 export class CodeGuruReviewer extends CodeGuruReviewerClient implements CodeGuruReviewer {}
-createAggregatedClient(commands, CodeGuruReviewer);
+createAggregatedClient(commands, CodeGuruReviewer, { paginators, waiters });

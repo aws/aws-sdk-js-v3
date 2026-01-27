@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptDataGrantCommand,
@@ -144,6 +144,13 @@ import {
   UpdateRevisionCommandOutput,
 } from "./commands/UpdateRevisionCommand";
 import { DataExchangeClient } from "./DataExchangeClient";
+import { paginateListDataGrants } from "./pagination/ListDataGrantsPaginator";
+import { paginateListDataSetRevisions } from "./pagination/ListDataSetRevisionsPaginator";
+import { paginateListDataSets } from "./pagination/ListDataSetsPaginator";
+import { paginateListEventActions } from "./pagination/ListEventActionsPaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
+import { paginateListReceivedDataGrants } from "./pagination/ListReceivedDataGrantsPaginator";
+import { paginateListRevisionAssets } from "./pagination/ListRevisionAssetsPaginator";
 
 const commands = {
   AcceptDataGrantCommand,
@@ -183,6 +190,15 @@ const commands = {
   UpdateDataSetCommand,
   UpdateEventActionCommand,
   UpdateRevisionCommand,
+};
+const paginators = {
+  paginateListDataGrants,
+  paginateListDataSetRevisions,
+  paginateListDataSets,
+  paginateListEventActions,
+  paginateListJobs,
+  paginateListReceivedDataGrants,
+  paginateListRevisionAssets,
 };
 
 export interface DataExchange {
@@ -819,6 +835,83 @@ export interface DataExchange {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRevisionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDataGrantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataGrantsCommandOutput}.
+   */
+  paginateListDataGrants(
+    args?: ListDataGrantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataGrantsCommandOutput>;
+
+  /**
+   * @see {@link ListDataSetRevisionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSetRevisionsCommandOutput}.
+   */
+  paginateListDataSetRevisions(
+    args: ListDataSetRevisionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSetRevisionsCommandOutput>;
+
+  /**
+   * @see {@link ListDataSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSetsCommandOutput}.
+   */
+  paginateListDataSets(
+    args?: ListDataSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSetsCommandOutput>;
+
+  /**
+   * @see {@link ListEventActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventActionsCommandOutput}.
+   */
+  paginateListEventActions(
+    args?: ListEventActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventActionsCommandOutput>;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args?: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
+   * @see {@link ListReceivedDataGrantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReceivedDataGrantsCommandOutput}.
+   */
+  paginateListReceivedDataGrants(
+    args?: ListReceivedDataGrantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReceivedDataGrantsCommandOutput>;
+
+  /**
+   * @see {@link ListRevisionAssetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRevisionAssetsCommandOutput}.
+   */
+  paginateListRevisionAssets(
+    args: ListRevisionAssetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRevisionAssetsCommandOutput>;
 }
 
 /**
@@ -843,4 +936,4 @@ export interface DataExchange {
  * @public
  */
 export class DataExchange extends DataExchangeClient implements DataExchange {}
-createAggregatedClient(commands, DataExchange);
+createAggregatedClient(commands, DataExchange, { paginators });

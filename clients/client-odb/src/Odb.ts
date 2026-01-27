@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptMarketplaceRegistrationCommand,
@@ -194,6 +194,17 @@ import {
   UpdateOdbPeeringConnectionCommandOutput,
 } from "./commands/UpdateOdbPeeringConnectionCommand";
 import { OdbClient } from "./OdbClient";
+import { paginateListAutonomousVirtualMachines } from "./pagination/ListAutonomousVirtualMachinesPaginator";
+import { paginateListCloudAutonomousVmClusters } from "./pagination/ListCloudAutonomousVmClustersPaginator";
+import { paginateListCloudExadataInfrastructures } from "./pagination/ListCloudExadataInfrastructuresPaginator";
+import { paginateListCloudVmClusters } from "./pagination/ListCloudVmClustersPaginator";
+import { paginateListDbNodes } from "./pagination/ListDbNodesPaginator";
+import { paginateListDbServers } from "./pagination/ListDbServersPaginator";
+import { paginateListDbSystemShapes } from "./pagination/ListDbSystemShapesPaginator";
+import { paginateListGiVersions } from "./pagination/ListGiVersionsPaginator";
+import { paginateListOdbNetworks } from "./pagination/ListOdbNetworksPaginator";
+import { paginateListOdbPeeringConnections } from "./pagination/ListOdbPeeringConnectionsPaginator";
+import { paginateListSystemVersions } from "./pagination/ListSystemVersionsPaginator";
 
 const commands = {
   AcceptMarketplaceRegistrationCommand,
@@ -239,6 +250,19 @@ const commands = {
   UpdateCloudExadataInfrastructureCommand,
   UpdateOdbNetworkCommand,
   UpdateOdbPeeringConnectionCommand,
+};
+const paginators = {
+  paginateListAutonomousVirtualMachines,
+  paginateListCloudAutonomousVmClusters,
+  paginateListCloudExadataInfrastructures,
+  paginateListCloudVmClusters,
+  paginateListDbNodes,
+  paginateListDbServers,
+  paginateListDbSystemShapes,
+  paginateListGiVersions,
+  paginateListOdbNetworks,
+  paginateListOdbPeeringConnections,
+  paginateListSystemVersions,
 };
 
 export interface Odb {
@@ -981,6 +1005,127 @@ export interface Odb {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOdbPeeringConnectionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAutonomousVirtualMachinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutonomousVirtualMachinesCommandOutput}.
+   */
+  paginateListAutonomousVirtualMachines(
+    args: ListAutonomousVirtualMachinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutonomousVirtualMachinesCommandOutput>;
+
+  /**
+   * @see {@link ListCloudAutonomousVmClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCloudAutonomousVmClustersCommandOutput}.
+   */
+  paginateListCloudAutonomousVmClusters(
+    args?: ListCloudAutonomousVmClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCloudAutonomousVmClustersCommandOutput>;
+
+  /**
+   * @see {@link ListCloudExadataInfrastructuresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCloudExadataInfrastructuresCommandOutput}.
+   */
+  paginateListCloudExadataInfrastructures(
+    args?: ListCloudExadataInfrastructuresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCloudExadataInfrastructuresCommandOutput>;
+
+  /**
+   * @see {@link ListCloudVmClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCloudVmClustersCommandOutput}.
+   */
+  paginateListCloudVmClusters(
+    args?: ListCloudVmClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCloudVmClustersCommandOutput>;
+
+  /**
+   * @see {@link ListDbNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDbNodesCommandOutput}.
+   */
+  paginateListDbNodes(
+    args: ListDbNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDbNodesCommandOutput>;
+
+  /**
+   * @see {@link ListDbServersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDbServersCommandOutput}.
+   */
+  paginateListDbServers(
+    args: ListDbServersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDbServersCommandOutput>;
+
+  /**
+   * @see {@link ListDbSystemShapesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDbSystemShapesCommandOutput}.
+   */
+  paginateListDbSystemShapes(
+    args?: ListDbSystemShapesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDbSystemShapesCommandOutput>;
+
+  /**
+   * @see {@link ListGiVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGiVersionsCommandOutput}.
+   */
+  paginateListGiVersions(
+    args?: ListGiVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGiVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListOdbNetworksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOdbNetworksCommandOutput}.
+   */
+  paginateListOdbNetworks(
+    args?: ListOdbNetworksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOdbNetworksCommandOutput>;
+
+  /**
+   * @see {@link ListOdbPeeringConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOdbPeeringConnectionsCommandOutput}.
+   */
+  paginateListOdbPeeringConnections(
+    args?: ListOdbPeeringConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOdbPeeringConnectionsCommandOutput>;
+
+  /**
+   * @see {@link ListSystemVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSystemVersionsCommandOutput}.
+   */
+  paginateListSystemVersions(
+    args: ListSystemVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSystemVersionsCommandOutput>;
 }
 
 /**
@@ -988,4 +1133,4 @@ export interface Odb {
  * @public
  */
 export class Odb extends OdbClient implements Odb {}
-createAggregatedClient(commands, Odb);
+createAggregatedClient(commands, Odb, { paginators });

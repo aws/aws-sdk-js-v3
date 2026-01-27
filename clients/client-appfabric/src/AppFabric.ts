@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AppFabricClient } from "./AppFabricClient";
 import {
@@ -129,6 +129,10 @@ import {
   UpdateIngestionDestinationCommandInput,
   UpdateIngestionDestinationCommandOutput,
 } from "./commands/UpdateIngestionDestinationCommand";
+import { paginateListAppAuthorizations } from "./pagination/ListAppAuthorizationsPaginator";
+import { paginateListAppBundles } from "./pagination/ListAppBundlesPaginator";
+import { paginateListIngestionDestinations } from "./pagination/ListIngestionDestinationsPaginator";
+import { paginateListIngestions } from "./pagination/ListIngestionsPaginator";
 
 const commands = {
   BatchGetUserAccessTasksCommand,
@@ -157,6 +161,12 @@ const commands = {
   UntagResourceCommand,
   UpdateAppAuthorizationCommand,
   UpdateIngestionDestinationCommand,
+};
+const paginators = {
+  paginateListAppAuthorizations,
+  paginateListAppBundles,
+  paginateListIngestionDestinations,
+  paginateListIngestions,
 };
 
 export interface AppFabric {
@@ -603,6 +613,50 @@ export interface AppFabric {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIngestionDestinationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAppAuthorizationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppAuthorizationsCommandOutput}.
+   */
+  paginateListAppAuthorizations(
+    args: ListAppAuthorizationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppAuthorizationsCommandOutput>;
+
+  /**
+   * @see {@link ListAppBundlesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppBundlesCommandOutput}.
+   */
+  paginateListAppBundles(
+    args?: ListAppBundlesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppBundlesCommandOutput>;
+
+  /**
+   * @see {@link ListIngestionDestinationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIngestionDestinationsCommandOutput}.
+   */
+  paginateListIngestionDestinations(
+    args: ListIngestionDestinationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIngestionDestinationsCommandOutput>;
+
+  /**
+   * @see {@link ListIngestionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIngestionsCommandOutput}.
+   */
+  paginateListIngestions(
+    args: ListIngestionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIngestionsCommandOutput>;
 }
 
 /**
@@ -618,4 +672,4 @@ export interface AppFabric {
  * @public
  */
 export class AppFabric extends AppFabricClient implements AppFabric {}
-createAggregatedClient(commands, AppFabric);
+createAggregatedClient(commands, AppFabric, { paginators });

@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AssociateAccessPolicyCommand,
@@ -299,6 +305,29 @@ import {
   UpdatePodIdentityAssociationCommandOutput,
 } from "./commands/UpdatePodIdentityAssociationCommand";
 import { EKSClient } from "./EKSClient";
+import { paginateDescribeAddonVersions } from "./pagination/DescribeAddonVersionsPaginator";
+import { paginateDescribeClusterVersions } from "./pagination/DescribeClusterVersionsPaginator";
+import { paginateListAccessEntries } from "./pagination/ListAccessEntriesPaginator";
+import { paginateListAccessPolicies } from "./pagination/ListAccessPoliciesPaginator";
+import { paginateListAddons } from "./pagination/ListAddonsPaginator";
+import { paginateListAssociatedAccessPolicies } from "./pagination/ListAssociatedAccessPoliciesPaginator";
+import { paginateListCapabilities } from "./pagination/ListCapabilitiesPaginator";
+import { paginateListClusters } from "./pagination/ListClustersPaginator";
+import { paginateListEksAnywhereSubscriptions } from "./pagination/ListEksAnywhereSubscriptionsPaginator";
+import { paginateListFargateProfiles } from "./pagination/ListFargateProfilesPaginator";
+import { paginateListIdentityProviderConfigs } from "./pagination/ListIdentityProviderConfigsPaginator";
+import { paginateListInsights } from "./pagination/ListInsightsPaginator";
+import { paginateListNodegroups } from "./pagination/ListNodegroupsPaginator";
+import { paginateListPodIdentityAssociations } from "./pagination/ListPodIdentityAssociationsPaginator";
+import { paginateListUpdates } from "./pagination/ListUpdatesPaginator";
+import { waitUntilAddonActive } from "./waiters/waitForAddonActive";
+import { waitUntilAddonDeleted } from "./waiters/waitForAddonDeleted";
+import { waitUntilClusterActive } from "./waiters/waitForClusterActive";
+import { waitUntilClusterDeleted } from "./waiters/waitForClusterDeleted";
+import { waitUntilFargateProfileActive } from "./waiters/waitForFargateProfileActive";
+import { waitUntilFargateProfileDeleted } from "./waiters/waitForFargateProfileDeleted";
+import { waitUntilNodegroupActive } from "./waiters/waitForNodegroupActive";
+import { waitUntilNodegroupDeleted } from "./waiters/waitForNodegroupDeleted";
 
 const commands = {
   AssociateAccessPolicyCommand,
@@ -365,6 +394,33 @@ const commands = {
   UpdateNodegroupConfigCommand,
   UpdateNodegroupVersionCommand,
   UpdatePodIdentityAssociationCommand,
+};
+const paginators = {
+  paginateDescribeAddonVersions,
+  paginateDescribeClusterVersions,
+  paginateListAccessEntries,
+  paginateListAccessPolicies,
+  paginateListAddons,
+  paginateListAssociatedAccessPolicies,
+  paginateListCapabilities,
+  paginateListClusters,
+  paginateListEksAnywhereSubscriptions,
+  paginateListFargateProfiles,
+  paginateListIdentityProviderConfigs,
+  paginateListInsights,
+  paginateListNodegroups,
+  paginateListPodIdentityAssociations,
+  paginateListUpdates,
+};
+const waiters = {
+  waitUntilAddonActive,
+  waitUntilAddonDeleted,
+  waitUntilClusterActive,
+  waitUntilClusterDeleted,
+  waitUntilFargateProfileActive,
+  waitUntilFargateProfileDeleted,
+  waitUntilNodegroupActive,
+  waitUntilNodegroupDeleted,
 };
 
 export interface EKS {
@@ -1460,6 +1516,251 @@ export interface EKS {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePodIdentityAssociationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAddonVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAddonVersionsCommandOutput}.
+   */
+  paginateDescribeAddonVersions(
+    args?: DescribeAddonVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAddonVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClusterVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClusterVersionsCommandOutput}.
+   */
+  paginateDescribeClusterVersions(
+    args?: DescribeClusterVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClusterVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListAccessEntriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessEntriesCommandOutput}.
+   */
+  paginateListAccessEntries(
+    args: ListAccessEntriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessEntriesCommandOutput>;
+
+  /**
+   * @see {@link ListAccessPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessPoliciesCommandOutput}.
+   */
+  paginateListAccessPolicies(
+    args?: ListAccessPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListAddonsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAddonsCommandOutput}.
+   */
+  paginateListAddons(
+    args: ListAddonsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAddonsCommandOutput>;
+
+  /**
+   * @see {@link ListAssociatedAccessPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssociatedAccessPoliciesCommandOutput}.
+   */
+  paginateListAssociatedAccessPolicies(
+    args: ListAssociatedAccessPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssociatedAccessPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListCapabilitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCapabilitiesCommandOutput}.
+   */
+  paginateListCapabilities(
+    args: ListCapabilitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCapabilitiesCommandOutput>;
+
+  /**
+   * @see {@link ListClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClustersCommandOutput}.
+   */
+  paginateListClusters(
+    args?: ListClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClustersCommandOutput>;
+
+  /**
+   * @see {@link ListEksAnywhereSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEksAnywhereSubscriptionsCommandOutput}.
+   */
+  paginateListEksAnywhereSubscriptions(
+    args?: ListEksAnywhereSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEksAnywhereSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link ListFargateProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFargateProfilesCommandOutput}.
+   */
+  paginateListFargateProfiles(
+    args: ListFargateProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFargateProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListIdentityProviderConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdentityProviderConfigsCommandOutput}.
+   */
+  paginateListIdentityProviderConfigs(
+    args: ListIdentityProviderConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdentityProviderConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListInsightsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInsightsCommandOutput}.
+   */
+  paginateListInsights(
+    args: ListInsightsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInsightsCommandOutput>;
+
+  /**
+   * @see {@link ListNodegroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNodegroupsCommandOutput}.
+   */
+  paginateListNodegroups(
+    args: ListNodegroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNodegroupsCommandOutput>;
+
+  /**
+   * @see {@link ListPodIdentityAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPodIdentityAssociationsCommandOutput}.
+   */
+  paginateListPodIdentityAssociations(
+    args: ListPodIdentityAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPodIdentityAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListUpdatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUpdatesCommandOutput}.
+   */
+  paginateListUpdates(
+    args: ListUpdatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUpdatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeAddonCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAddonActive(
+    args: DescribeAddonCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeAddonCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAddonDeleted(
+    args: DescribeAddonCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeClusterCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterActive(
+    args: DescribeClusterCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeClusterCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterDeleted(
+    args: DescribeClusterCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeFargateProfileCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFargateProfileActive(
+    args: DescribeFargateProfileCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeFargateProfileCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFargateProfileDeleted(
+    args: DescribeFargateProfileCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeNodegroupCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilNodegroupActive(
+    args: DescribeNodegroupCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeNodegroupCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilNodegroupDeleted(
+    args: DescribeNodegroupCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1476,4 +1777,4 @@ export interface EKS {
  * @public
  */
 export class EKS extends EKSClient implements EKS {}
-createAggregatedClient(commands, EKS);
+createAggregatedClient(commands, EKS, { paginators, waiters });

@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CloudControlClient } from "./CloudControlClient";
 import {
@@ -39,6 +45,9 @@ import {
   UpdateResourceCommandInput,
   UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand";
+import { paginateListResourceRequests } from "./pagination/ListResourceRequestsPaginator";
+import { paginateListResources } from "./pagination/ListResourcesPaginator";
+import { waitUntilResourceRequestSuccess } from "./waiters/waitForResourceRequestSuccess";
 
 const commands = {
   CancelResourceRequestCommand,
@@ -49,6 +58,13 @@ const commands = {
   ListResourceRequestsCommand,
   ListResourcesCommand,
   UpdateResourceCommand,
+};
+const paginators = {
+  paginateListResourceRequests,
+  paginateListResources,
+};
+const waiters = {
+  waitUntilResourceRequestSuccess,
 };
 
 export interface CloudControl {
@@ -188,6 +204,38 @@ export interface CloudControl {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListResourceRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceRequestsCommandOutput}.
+   */
+  paginateListResourceRequests(
+    args?: ListResourceRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceRequestsCommandOutput>;
+
+  /**
+   * @see {@link ListResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcesCommandOutput}.
+   */
+  paginateListResources(
+    args: ListResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcesCommandOutput>;
+
+  /**
+   * @see {@link GetResourceRequestStatusCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilResourceRequestSuccess(
+    args: GetResourceRequestStatusCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudControl>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -196,4 +244,4 @@ export interface CloudControl {
  * @public
  */
 export class CloudControl extends CloudControlClient implements CloudControl {}
-createAggregatedClient(commands, CloudControl);
+createAggregatedClient(commands, CloudControl, { paginators, waiters });

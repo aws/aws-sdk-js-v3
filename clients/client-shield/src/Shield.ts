@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateDRTLogBucketCommand,
@@ -174,6 +174,10 @@ import {
   UpdateSubscriptionCommandInput,
   UpdateSubscriptionCommandOutput,
 } from "./commands/UpdateSubscriptionCommand";
+import { paginateListAttacks } from "./pagination/ListAttacksPaginator";
+import { paginateListProtectionGroups } from "./pagination/ListProtectionGroupsPaginator";
+import { paginateListProtections } from "./pagination/ListProtectionsPaginator";
+import { paginateListResourcesInProtectionGroup } from "./pagination/ListResourcesInProtectionGroupPaginator";
 import { ShieldClient } from "./ShieldClient";
 
 const commands = {
@@ -213,6 +217,12 @@ const commands = {
   UpdateEmergencyContactSettingsCommand,
   UpdateProtectionGroupCommand,
   UpdateSubscriptionCommand,
+};
+const paginators = {
+  paginateListAttacks,
+  paginateListProtectionGroups,
+  paginateListProtections,
+  paginateListResourcesInProtectionGroup,
 };
 
 export interface Shield {
@@ -843,6 +853,50 @@ export interface Shield {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSubscriptionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAttacksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttacksCommandOutput}.
+   */
+  paginateListAttacks(
+    args?: ListAttacksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttacksCommandOutput>;
+
+  /**
+   * @see {@link ListProtectionGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProtectionGroupsCommandOutput}.
+   */
+  paginateListProtectionGroups(
+    args?: ListProtectionGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProtectionGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListProtectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProtectionsCommandOutput}.
+   */
+  paginateListProtections(
+    args?: ListProtectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProtectionsCommandOutput>;
+
+  /**
+   * @see {@link ListResourcesInProtectionGroupCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcesInProtectionGroupCommandOutput}.
+   */
+  paginateListResourcesInProtectionGroup(
+    args: ListResourcesInProtectionGroupCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcesInProtectionGroupCommandOutput>;
 }
 
 /**
@@ -853,4 +907,4 @@ export interface Shield {
  * @public
  */
 export class Shield extends ShieldClient implements Shield {}
-createAggregatedClient(commands, Shield);
+createAggregatedClient(commands, Shield, { paginators });

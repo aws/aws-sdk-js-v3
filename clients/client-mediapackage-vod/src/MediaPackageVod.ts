@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   ConfigureLogsCommand,
@@ -72,6 +72,9 @@ import {
   UpdatePackagingGroupCommandOutput,
 } from "./commands/UpdatePackagingGroupCommand";
 import { MediaPackageVodClient } from "./MediaPackageVodClient";
+import { paginateListAssets } from "./pagination/ListAssetsPaginator";
+import { paginateListPackagingConfigurations } from "./pagination/ListPackagingConfigurationsPaginator";
+import { paginateListPackagingGroups } from "./pagination/ListPackagingGroupsPaginator";
 
 const commands = {
   ConfigureLogsCommand,
@@ -91,6 +94,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdatePackagingGroupCommand,
+};
+const paginators = {
+  paginateListAssets,
+  paginateListPackagingConfigurations,
+  paginateListPackagingGroups,
 };
 
 export interface MediaPackageVod {
@@ -385,6 +393,39 @@ export interface MediaPackageVod {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePackagingGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAssetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssetsCommandOutput}.
+   */
+  paginateListAssets(
+    args?: ListAssetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssetsCommandOutput>;
+
+  /**
+   * @see {@link ListPackagingConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackagingConfigurationsCommandOutput}.
+   */
+  paginateListPackagingConfigurations(
+    args?: ListPackagingConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackagingConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListPackagingGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPackagingGroupsCommandOutput}.
+   */
+  paginateListPackagingGroups(
+    args?: ListPackagingGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPackagingGroupsCommandOutput>;
 }
 
 /**
@@ -392,4 +433,4 @@ export interface MediaPackageVod {
  * @public
  */
 export class MediaPackageVod extends MediaPackageVodClient implements MediaPackageVod {}
-createAggregatedClient(commands, MediaPackageVod);
+createAggregatedClient(commands, MediaPackageVod, { paginators });

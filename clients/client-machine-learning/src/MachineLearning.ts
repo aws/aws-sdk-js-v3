@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { type AddTagsCommandInput, type AddTagsCommandOutput, AddTagsCommand } from "./commands/AddTagsCommand";
 import {
@@ -135,6 +141,14 @@ import {
   UpdateMLModelCommand,
 } from "./commands/UpdateMLModelCommand";
 import { MachineLearningClient } from "./MachineLearningClient";
+import { paginateDescribeBatchPredictions } from "./pagination/DescribeBatchPredictionsPaginator";
+import { paginateDescribeDataSources } from "./pagination/DescribeDataSourcesPaginator";
+import { paginateDescribeEvaluations } from "./pagination/DescribeEvaluationsPaginator";
+import { paginateDescribeMLModels } from "./pagination/DescribeMLModelsPaginator";
+import { waitUntilBatchPredictionAvailable } from "./waiters/waitForBatchPredictionAvailable";
+import { waitUntilDataSourceAvailable } from "./waiters/waitForDataSourceAvailable";
+import { waitUntilEvaluationAvailable } from "./waiters/waitForEvaluationAvailable";
+import { waitUntilMLModelAvailable } from "./waiters/waitForMLModelAvailable";
 
 const commands = {
   AddTagsCommand,
@@ -165,6 +179,18 @@ const commands = {
   UpdateDataSourceCommand,
   UpdateEvaluationCommand,
   UpdateMLModelCommand,
+};
+const paginators = {
+  paginateDescribeBatchPredictions,
+  paginateDescribeDataSources,
+  paginateDescribeEvaluations,
+  paginateDescribeMLModels,
+};
+const waiters = {
+  waitUntilBatchPredictionAvailable,
+  waitUntilDataSourceAvailable,
+  waitUntilEvaluationAvailable,
+  waitUntilMLModelAvailable,
 };
 
 export interface MachineLearning {
@@ -647,6 +673,90 @@ export interface MachineLearning {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMLModelCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeBatchPredictionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBatchPredictionsCommandOutput}.
+   */
+  paginateDescribeBatchPredictions(
+    args?: DescribeBatchPredictionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBatchPredictionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDataSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDataSourcesCommandOutput}.
+   */
+  paginateDescribeDataSources(
+    args?: DescribeDataSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDataSourcesCommandOutput>;
+
+  /**
+   * @see {@link DescribeEvaluationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEvaluationsCommandOutput}.
+   */
+  paginateDescribeEvaluations(
+    args?: DescribeEvaluationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEvaluationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMLModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMLModelsCommandOutput}.
+   */
+  paginateDescribeMLModels(
+    args?: DescribeMLModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMLModelsCommandOutput>;
+
+  /**
+   * @see {@link DescribeBatchPredictionsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilBatchPredictionAvailable(
+    args: DescribeBatchPredictionsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MachineLearning>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeDataSourcesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDataSourceAvailable(
+    args: DescribeDataSourcesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MachineLearning>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeEvaluationsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilEvaluationAvailable(
+    args: DescribeEvaluationsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MachineLearning>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeMLModelsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilMLModelAvailable(
+    args: DescribeMLModelsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MachineLearning>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -655,4 +765,4 @@ export interface MachineLearning {
  * @public
  */
 export class MachineLearning extends MachineLearningClient implements MachineLearning {}
-createAggregatedClient(commands, MachineLearning);
+createAggregatedClient(commands, MachineLearning, { paginators, waiters });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   GetPreferencesCommand,
@@ -43,6 +43,10 @@ import {
   UpdatePreferencesCommandOutput,
 } from "./commands/UpdatePreferencesCommand";
 import { CostOptimizationHubClient } from "./CostOptimizationHubClient";
+import { paginateListEfficiencyMetrics } from "./pagination/ListEfficiencyMetricsPaginator";
+import { paginateListEnrollmentStatuses } from "./pagination/ListEnrollmentStatusesPaginator";
+import { paginateListRecommendations } from "./pagination/ListRecommendationsPaginator";
+import { paginateListRecommendationSummaries } from "./pagination/ListRecommendationSummariesPaginator";
 
 const commands = {
   GetPreferencesCommand,
@@ -53,6 +57,12 @@ const commands = {
   ListRecommendationSummariesCommand,
   UpdateEnrollmentStatusCommand,
   UpdatePreferencesCommand,
+};
+const paginators = {
+  paginateListEfficiencyMetrics,
+  paginateListEnrollmentStatuses,
+  paginateListRecommendations,
+  paginateListRecommendationSummaries,
 };
 
 export interface CostOptimizationHub {
@@ -195,6 +205,50 @@ export interface CostOptimizationHub {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePreferencesCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListEfficiencyMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEfficiencyMetricsCommandOutput}.
+   */
+  paginateListEfficiencyMetrics(
+    args: ListEfficiencyMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEfficiencyMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListEnrollmentStatusesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnrollmentStatusesCommandOutput}.
+   */
+  paginateListEnrollmentStatuses(
+    args?: ListEnrollmentStatusesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnrollmentStatusesCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationsCommandOutput}.
+   */
+  paginateListRecommendations(
+    args?: ListRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationSummariesCommandOutput}.
+   */
+  paginateListRecommendationSummaries(
+    args: ListRecommendationSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationSummariesCommandOutput>;
 }
 
 /**
@@ -202,4 +256,4 @@ export interface CostOptimizationHub {
  * @public
  */
 export class CostOptimizationHub extends CostOptimizationHubClient implements CostOptimizationHub {}
-createAggregatedClient(commands, CostOptimizationHub);
+createAggregatedClient(commands, CostOptimizationHub, { paginators });
