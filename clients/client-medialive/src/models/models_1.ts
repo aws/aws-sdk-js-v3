@@ -294,6 +294,18 @@ export interface InputLossBehavior {
 }
 
 /**
+ * Disabled Locking Settings
+ * @public
+ */
+export interface DisabledLockingSettings {
+  /**
+   * Optional. Only applies to CMAF Ingest Output Group and MediaPackage V2 Output Group. Enter a value here to use a custom epoch, instead of the standard epoch (which started at 1970-01-01T00:00:00 UTC). Specify the start time of the custom epoch, in YYYY-MM-DDTHH:MM:SS in UTC. The time must be 2000-01-01T00:00:00 or later. Always set the MM:SS portion to 00:00.
+   * @public
+   */
+  CustomEpoch?: string | undefined;
+}
+
+/**
  * Epoch Locking Settings
  * @public
  */
@@ -321,6 +333,12 @@ export interface PipelineLockingSettings {
    * @public
    */
   PipelineLockingMethod?: PipelineLockingMethod | undefined;
+
+  /**
+   * Optional. Only applies to CMAF Ingest Output Group and MediaPackage V2 Output Group Only. Enter a value here to use a custom epoch, instead of the standard epoch (which started at 1970-01-01T00:00:00 UTC). Specify the start time of the custom epoch, in YYYY-MM-DDTHH:MM:SS in UTC. The time must be 2000-01-01T00:00:00 or later. Always set the MM:SS portion to 00:00.
+   * @public
+   */
+  CustomEpoch?: string | undefined;
 }
 
 /**
@@ -339,6 +357,12 @@ export interface OutputLockingSettings {
    * @public
    */
   PipelineLockingSettings?: PipelineLockingSettings | undefined;
+
+  /**
+   * Disabled Locking Settings
+   * @public
+   */
+  DisabledLockingSettings?: DisabledLockingSettings | undefined;
 }
 
 /**

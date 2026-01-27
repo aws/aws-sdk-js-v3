@@ -32,6 +32,7 @@ import {
   Av1SceneChangeDetect,
   Av1SpatialAq,
   Av1TemporalAq,
+  Av1TimecodeInsertionBehavior,
   AvailBlankingState,
   BandwidthReductionFilterStrength,
   BandwidthReductionPostFilterSharpening,
@@ -8821,6 +8822,14 @@ export interface Av1Settings {
    * @public
    */
   TemporalAq?: Av1TemporalAq | undefined;
+
+  /**
+   * Controls how MediaLive inserts timecodes into the video output encode.
+   * DISABLED: Do not insert timecodes.
+   * METADATA_OBU: Include timecodes. MediaLive inserts timecode metadata based on the timecode from the source specified in the Timecode Config property. The timecode metadata is a metadata OBU (Open Bitstream Unit) of type METADATA_TYPE_TIMECODE, in accordance with https://aomediacodec.github.io/av1-spec/#metadata-timecode-syntax.
+   * @public
+   */
+  TimecodeInsertion?: Av1TimecodeInsertionBehavior | undefined;
 }
 
 /**
