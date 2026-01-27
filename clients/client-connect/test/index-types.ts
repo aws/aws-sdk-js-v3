@@ -2212,6 +2212,7 @@ export type {
   TagSearchCondition,
   TagSet,
   TaskActionDefinition,
+  TaskAttachment,
   TaskTemplateConstraints,
   TaskTemplateDefaultFieldValue,
   TaskTemplateDefaults,

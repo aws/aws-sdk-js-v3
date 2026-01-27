@@ -1848,6 +1848,7 @@ import {
   TagSet$,
   TargetListType,
   TaskActionDefinition$,
+  TaskAttachment$,
   TaskTemplateConstraints$,
   TaskTemplateDefaultFieldValue$,
   TaskTemplateDefaults$,
@@ -3862,6 +3863,7 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagSearchCondition$ === "object");
 assert(typeof TagSet$ === "object");
 assert(typeof TaskActionDefinition$ === "object");
+assert(typeof TaskAttachment$ === "object");
 assert(typeof TaskTemplateConstraints$ === "object");
 assert(typeof TaskTemplateDefaultFieldValue$ === "object");
 assert(typeof TaskTemplateDefaults$ === "object");

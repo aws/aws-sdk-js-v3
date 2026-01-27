@@ -2255,6 +2255,8 @@ const _TACL = "TagAndConditionList";
 const _TAD = "TaskActionDefinition";
 const _TAI = "TargetAccountId";
 const _TAa = "TaskAction";
+const _TAas = "TaskAttachment";
+const _TAask = "TaskAttachments";
 const _TAe = "TextActive";
 const _TAem = "TemplateAttributes";
 const _TAo = "ToAddresses";
@@ -7563,8 +7565,8 @@ export var StartScreenSharingResponse$: StaticStructureSchema = [3, n0, _SSSRt,
 ];
 export var StartTaskContactRequest$: StaticStructureSchema = [3, n0, _STCRt,
   0,
-  [_II, _N, _PCI, _CFI, _Attr, _Ref, _D, _CT, _STch, _TTIa, _QCIu, _RCI, _SAe],
-  [0, [() => Name, 0], 0, 0, 128 | 0, () => ContactReferences, [() => Description, 0], [0, 4], 4, 0, 0, 0, () => SegmentAttributes], 2
+  [_II, _N, _PCI, _CFI, _Attr, _Ref, _D, _CT, _STch, _TTIa, _QCIu, _RCI, _SAe, _Atta],
+  [0, [() => Name, 0], 0, 0, 128 | 0, () => ContactReferences, [() => Description, 0], [0, 4], 4, 0, 0, 0, () => SegmentAttributes, [() => TaskAttachments, 0]], 2
 ];
 export var StartTaskContactResponse$: StaticStructureSchema = [3, n0, _STCRta,
   0,
@@ -7730,6 +7732,11 @@ export var TaskActionDefinition$: StaticStructureSchema = [3, n0, _TAD,
   0,
   [_N, _CFI, _D, _Ref],
   [0, 0, 0, () => ContactReferences], 2
+];
+export var TaskAttachment$: StaticStructureSchema = [3, n0, _TAas,
+  0,
+  [_FN, _SUr],
+  [0, 0], 2
 ];
 export var TaskTemplateConstraints$: StaticStructureSchema = [3, n0, _TTC,
   0,
@@ -9220,6 +9227,9 @@ var TagOrConditionList: StaticListSchema = [1, n0, _TOCL,
 var TagRestrictedResourceList = 64 | 0;
 var TagsList: StaticListSchema = [1, n0, _TLa,
   0, () => TagSet$
+];
+var TaskAttachments: StaticListSchema = [1, n0, _TAask,
+  8, () => TaskAttachment$
 ];
 var TaskTemplateDefaultFieldValueList: StaticListSchema = [1, n0, _TTDFVL,
   0, () => TaskTemplateDefaultFieldValue$

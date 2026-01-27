@@ -1357,6 +1357,24 @@ export interface StartScreenSharingRequest {
 export interface StartScreenSharingResponse {}
 
 /**
+ * <p>Information about the task attachment files.</p>
+ * @public
+ */
+export interface TaskAttachment {
+  /**
+   * <p>A case-sensitive name of the attached file being uploaded.</p>
+   * @public
+   */
+  FileName: string | undefined;
+
+  /**
+   * <p>The pre-signed URLs for the S3 bucket where the task attachment is stored.</p>
+   * @public
+   */
+  S3Url: string | undefined;
+}
+
+/**
  * @public
  */
 export interface StartTaskContactResponse {
@@ -6985,6 +7003,12 @@ export interface StartTaskContactRequest {
    * @public
    */
   SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
+
+  /**
+   * <p>List of S3 presigned URLs of task attachments and their file name. You can have a maximum of 5 attachments per task.</p>
+   * @public
+   */
+  Attachments?: TaskAttachment[] | undefined;
 }
 
 /**
