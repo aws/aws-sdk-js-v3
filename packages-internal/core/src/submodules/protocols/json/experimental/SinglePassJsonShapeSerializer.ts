@@ -12,7 +12,6 @@ import type {
 import { toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
-import { serializingStructIterator } from "../../structIterator";
 import type { JsonSettings } from "../JsonCodec";
 
 /**
@@ -75,7 +74,7 @@ export class SinglePassJsonShapeSerializer extends SerdeContextConfig implements
     } else if (ns.isStructSchema()) {
       b += "{";
       let didWriteMember = false;
-      for (const [name, member] of serializingStructIterator(ns, value)) {
+      for (const [name, member] of ns.structIterator()) {
         const item = (value as any)[name];
         const targetKey = this.settings.jsonName ? member.getMergedTraits().jsonName ?? name : name;
         const serializableValue = this.writeValue(member, item);

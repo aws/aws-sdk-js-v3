@@ -12,7 +12,6 @@ import type {
 import { toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
-import { serializingStructIterator } from "../structIterator";
 import type { JsonSettings } from "./JsonCodec";
 import { JsonReplacer } from "./jsonReplacer";
 
@@ -81,7 +80,7 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
           nameMap = {};
         }
 
-        for (const [memberName, memberSchema] of serializingStructIterator(ns, record)) {
+        for (const [memberName, memberSchema] of ns.structIterator()) {
           const serializableValue = this._write(memberSchema, record[memberName], ns);
           if (serializableValue !== undefined) {
             let targetKey = memberName;
