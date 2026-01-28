@@ -496,6 +496,7 @@ const _CTo = "ComparisonType";
 const _CTon = "ContentType";
 const _CTond = "ConditionType";
 const _CTont = "ContrastText";
+const _CTonta = "ContactTags";
 const _CTr = "CreationTime";
 const _CTre = "CreatedTime";
 const _CTrea = "CreateTimestamp";
@@ -3500,8 +3501,8 @@ export var ContactNotFoundException$: StaticErrorSchema = [-3, n0, _CNFE,
 TypeRegistry.for(n0).registerError(ContactNotFoundException$, ContactNotFoundException);
 export var ContactSearchSummary$: StaticStructureSchema = [3, n0, _CSS,
   0,
-  [_A, _I, _ICI, _PCI, _IM, _C, _QIu, _AI, _IT, _DT, _STc, _SAe, _N, _RC, _GRM],
-  [0, 0, 0, 0, 0, 0, () => ContactSearchSummaryQueueInfo$, () => ContactSearchSummaryAgentInfo$, 4, 4, 4, [() => ContactSearchSummarySegmentAttributes, 0], [() => Name, 0], () => RoutingCriteria$, () => GlobalResiliencyMetadata$]
+  [_A, _I, _ICI, _PCI, _IM, _C, _QIu, _AI, _IT, _DT, _STc, _SAe, _N, _RC, _Ta, _GRM],
+  [0, 0, 0, 0, 0, 0, () => ContactSearchSummaryQueueInfo$, () => ContactSearchSummaryAgentInfo$, 4, 4, 4, [() => ContactSearchSummarySegmentAttributes, 0], [() => Name, 0], () => RoutingCriteria$, 128 | 0, () => GlobalResiliencyMetadata$]
 ];
 export var ContactSearchSummaryAgentInfo$: StaticStructureSchema = [3, n0, _CSSAI,
   0,
@@ -7164,8 +7165,8 @@ export var SearchContactsTimestampCondition$: StaticStructureSchema = [3, n0, _S
 ];
 export var SearchCriteria$: StaticStructureSchema = [3, n0, _SCe,
   0,
-  [_N, _AIg, _AHGg, _Ch, _CAo, _IMn, _QIue, _RC, _ATR, _SCA, _SSA, _ARct],
-  [[() => NameCriteria$, 0], 64 | 0, () => AgentHierarchyGroups$, 64 | 0, [() => ContactAnalysis$, 0], 64 | 0, 64 | 0, () => SearchableRoutingCriteria$, () => SearchContactsAdditionalTimeRange$, [() => SearchableContactAttributes$, 0], [() => SearchableSegmentAttributes$, 0], 64 | 0]
+  [_N, _AIg, _AHGg, _Ch, _CAo, _IMn, _QIue, _RC, _ATR, _SCA, _SSA, _ARct, _CTonta],
+  [[() => NameCriteria$, 0], 64 | 0, () => AgentHierarchyGroups$, 64 | 0, [() => ContactAnalysis$, 0], 64 | 0, 64 | 0, () => SearchableRoutingCriteria$, () => SearchContactsAdditionalTimeRange$, [() => SearchableContactAttributes$, 0], [() => SearchableSegmentAttributes$, 0], 64 | 0, () => ControlPlaneTagFilter$]
 ];
 export var SearchDataTablesRequest$: StaticStructureSchema = [3, n0, _SDTR,
   0,

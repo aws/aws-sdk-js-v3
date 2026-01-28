@@ -8065,6 +8065,12 @@ export interface ContactSearchSummary {
   RoutingCriteria?: RoutingCriteria | undefined;
 
   /**
+   * <p>Tags associated with the contact. This contains both Amazon Web Services generated and user-defined tags.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
    * <p>Additional routing information for contacts created in ACGR instances.</p>
    * @public
    */
