@@ -1,11 +1,10 @@
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
+import { GetObjectCommand, PutObjectCommand, S3 } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import { GetObjectCommand, PutObjectCommand, S3 } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
-
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 
 describe("@aws-sdk/client-s3", () => {
   let client: S3;
@@ -336,6 +335,44 @@ describe("@aws-sdk/client-s3", () => {
 
       const response = await fetch(getPsu);
       expect(await response.text()).toEqual("PRESIGNED BODY CONTENTS");
+    });
+  });
+
+  describe("aggregated client features", () => {
+    it("can call paginators and waiters from the aggregated client", async () => {
+      let i = 0;
+      for await (const page of client.paginateListObjectsV2({ Bucket })) {
+        expect(page).toMatchObject({
+          $metadata: {
+            httpStatusCode: 200,
+          },
+        });
+        expect(page.Contents).toBeInstanceOf(Array);
+        if (++i > 3) {
+          break;
+        }
+      }
+
+      await client.putObject({
+        Bucket,
+        Key: "waitable",
+        Body: "jit",
+      });
+      const waiterResult = await client.waitUntilObjectExists({ Bucket, Key: "waitable" }, 60);
+      expect(waiterResult.reason).toMatchObject({
+        ContentLength: 3,
+        $metadata: {
+          httpStatusCode: 200,
+        },
+      });
+      await client.deleteObject({ Bucket, Key: "waitable" });
+      await client.waitUntilObjectNotExists(
+        {
+          Bucket,
+          Key: "waitable",
+        },
+        30
+      );
     });
   });
 }, 60_000);
