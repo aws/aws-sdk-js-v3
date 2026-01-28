@@ -151,8 +151,10 @@ import {
   EventInput$,
   EventResult$,
   EventSourceMappingConfiguration$,
+  EventSourceMappingLoggingConfig$,
   EventSourceMappingMetric,
   EventSourceMappingMetricsConfig$,
+  EventSourceMappingSystemLogLevel,
   EventSourcePosition,
   EventType,
   Execution$,
@@ -845,6 +847,7 @@ assert(typeof EventError$ === "object");
 assert(typeof EventInput$ === "object");
 assert(typeof EventResult$ === "object");
 assert(typeof EventSourceMappingConfiguration$ === "object");
+assert(typeof EventSourceMappingLoggingConfig$ === "object");
 assert(typeof EventSourceMappingMetricsConfig$ === "object");
 assert(typeof Execution$ === "object");
 assert(typeof ExecutionDetails$ === "object");
@@ -1037,6 +1040,7 @@ assert(typeof CapacityProviderState === "object");
 assert(typeof CodeSigningPolicy === "object");
 assert(typeof EndPointType === "object");
 assert(typeof EventSourceMappingMetric === "object");
+assert(typeof EventSourceMappingSystemLogLevel === "object");
 assert(typeof EventSourcePosition === "object");
 assert(typeof EventType === "object");
 assert(typeof ExecutionStatus === "object");

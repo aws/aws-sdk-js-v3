@@ -196,6 +196,7 @@ const _ESM = "EventSourceMappings";
 const _ESMA = "EventSourceMappingArn";
 const _ESMC = "EventSourceMappingConfiguration";
 const _ESML = "EventSourceMappingsList";
+const _ESMLC = "EventSourceMappingLoggingConfig";
 const _ESMMC = "EventSourceMappingMetricsConfig";
 const _EST = "EventSourceToken";
 const _ESv = "EventStream";
@@ -1043,8 +1044,8 @@ export var CreateCodeSigningConfigResponse$: StaticStructureSchema = [3, n0, _CC
 ];
 export var CreateEventSourceMappingRequest$: StaticStructureSchema = [3, n0, _CESMR,
   0,
-  [_FN, _ESA, _En, _BSa, _FCi, _MBWIS, _PF, _SPt, _SPT, _DC, _MRAIS, _BBOFE, _MRA, _Ta, _TWIS, _To, _Qu, _SAC, _SMES, _FRT, _AMKESC, _SMKESC, _SC, _DDBESC, _KMSKA, _MC, _PPC],
-  [0, 0, 2, 1, () => FilterCriteria$, 1, 1, 0, 4, () => DestinationConfig$, 1, 2, 1, 128 | 0, 1, 64 | 0, 64 | 0, () => SourceAccessConfigurations, () => SelfManagedEventSource$, 64 | 0, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => ScalingConfig$, () => DocumentDBEventSourceConfig$, 0, () => EventSourceMappingMetricsConfig$, () => ProvisionedPollerConfig$], 1
+  [_FN, _ESA, _En, _BSa, _FCi, _MBWIS, _PF, _SPt, _SPT, _DC, _MRAIS, _BBOFE, _MRA, _Ta, _TWIS, _To, _Qu, _SAC, _SMES, _FRT, _AMKESC, _SMKESC, _SC, _DDBESC, _KMSKA, _MC, _LC, _PPC],
+  [0, 0, 2, 1, () => FilterCriteria$, 1, 1, 0, 4, () => DestinationConfig$, 1, 2, 1, 128 | 0, 1, 64 | 0, 64 | 0, () => SourceAccessConfigurations, () => SelfManagedEventSource$, 64 | 0, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => ScalingConfig$, () => DocumentDBEventSourceConfig$, 0, () => EventSourceMappingMetricsConfig$, () => EventSourceMappingLoggingConfig$, () => ProvisionedPollerConfig$], 1
 ];
 export var CreateFunctionRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
@@ -1252,8 +1253,13 @@ export var EventResult$: StaticStructureSchema = [3, n0, _ERv,
 ];
 export var EventSourceMappingConfiguration$: StaticStructureSchema = [3, n0, _ESMC,
   0,
-  [_UUID, _SPt, _SPT, _BSa, _MBWIS, _PF, _ESA, _FCi, _FA, _LM, _LPR, _St, _STR, _DC, _To, _Qu, _SAC, _SMES, _MRAIS, _BBOFE, _MRA, _TWIS, _FRT, _AMKESC, _SMKESC, _SC, _DDBESC, _KMSKA, _FCE, _ESMA, _MC, _PPC],
-  [0, 0, 4, 1, 1, 1, 0, () => FilterCriteria$, 0, 4, 0, 0, 0, () => DestinationConfig$, 64 | 0, 64 | 0, () => SourceAccessConfigurations, () => SelfManagedEventSource$, 1, 2, 1, 1, 64 | 0, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => ScalingConfig$, () => DocumentDBEventSourceConfig$, 0, () => FilterCriteriaError$, 0, () => EventSourceMappingMetricsConfig$, () => ProvisionedPollerConfig$]
+  [_UUID, _SPt, _SPT, _BSa, _MBWIS, _PF, _ESA, _FCi, _FA, _LM, _LPR, _St, _STR, _DC, _To, _Qu, _SAC, _SMES, _MRAIS, _BBOFE, _MRA, _TWIS, _FRT, _AMKESC, _SMKESC, _SC, _DDBESC, _KMSKA, _FCE, _ESMA, _MC, _LC, _PPC],
+  [0, 0, 4, 1, 1, 1, 0, () => FilterCriteria$, 0, 4, 0, 0, 0, () => DestinationConfig$, 64 | 0, 64 | 0, () => SourceAccessConfigurations, () => SelfManagedEventSource$, 1, 2, 1, 1, 64 | 0, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => ScalingConfig$, () => DocumentDBEventSourceConfig$, 0, () => FilterCriteriaError$, 0, () => EventSourceMappingMetricsConfig$, () => EventSourceMappingLoggingConfig$, () => ProvisionedPollerConfig$]
+];
+export var EventSourceMappingLoggingConfig$: StaticStructureSchema = [3, n0, _ESMLC,
+  0,
+  [_SLL],
+  [0]
 ];
 export var EventSourceMappingMetricsConfig$: StaticStructureSchema = [3, n0, _ESMMC,
   0,
@@ -2282,8 +2288,8 @@ export var UpdateCodeSigningConfigResponse$: StaticStructureSchema = [3, n0, _UC
 ];
 export var UpdateEventSourceMappingRequest$: StaticStructureSchema = [3, n0, _UESMR,
   0,
-  [_UUID, _FN, _En, _BSa, _FCi, _MBWIS, _DC, _MRAIS, _BBOFE, _MRA, _PF, _SAC, _TWIS, _FRT, _SC, _AMKESC, _SMKESC, _DDBESC, _KMSKA, _MC, _PPC],
-  [[0, 1], 0, 2, 1, () => FilterCriteria$, 1, () => DestinationConfig$, 1, 2, 1, 1, () => SourceAccessConfigurations, 1, 64 | 0, () => ScalingConfig$, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => DocumentDBEventSourceConfig$, 0, () => EventSourceMappingMetricsConfig$, () => ProvisionedPollerConfig$], 1
+  [_UUID, _FN, _En, _BSa, _FCi, _MBWIS, _DC, _MRAIS, _BBOFE, _MRA, _PF, _SAC, _TWIS, _FRT, _SC, _AMKESC, _SMKESC, _DDBESC, _KMSKA, _MC, _LC, _PPC],
+  [[0, 1], 0, 2, 1, () => FilterCriteria$, 1, () => DestinationConfig$, 1, 2, 1, 1, () => SourceAccessConfigurations, 1, 64 | 0, () => ScalingConfig$, () => AmazonManagedKafkaEventSourceConfig$, () => SelfManagedKafkaEventSourceConfig$, () => DocumentDBEventSourceConfig$, 0, () => EventSourceMappingMetricsConfig$, () => EventSourceMappingLoggingConfig$, () => ProvisionedPollerConfig$], 1
 ];
 export var UpdateFunctionCodeRequest$: StaticStructureSchema = [3, n0, _UFCR,
   0,

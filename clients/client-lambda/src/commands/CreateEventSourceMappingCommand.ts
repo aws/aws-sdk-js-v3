@@ -136,8 +136,11 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *   KMSKeyArn: "STRING_VALUE",
  *   MetricsConfig: { // EventSourceMappingMetricsConfig
  *     Metrics: [ // EventSourceMappingMetricList
- *       "EventCount",
+ *       "EventCount" || "ErrorCount" || "KafkaMetrics",
  *     ],
+ *   },
+ *   LoggingConfig: { // EventSourceMappingLoggingConfig
+ *     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
  *   },
  *   ProvisionedPollerConfig: { // ProvisionedPollerConfig
  *     MinimumPollers: Number("int"),
@@ -253,8 +256,11 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * //   EventSourceMappingArn: "STRING_VALUE",
  * //   MetricsConfig: { // EventSourceMappingMetricsConfig
  * //     Metrics: [ // EventSourceMappingMetricList
- * //       "EventCount",
+ * //       "EventCount" || "ErrorCount" || "KafkaMetrics",
  * //     ],
+ * //   },
+ * //   LoggingConfig: { // EventSourceMappingLoggingConfig
+ * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
  * //   },
  * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
  * //     MinimumPollers: Number("int"),

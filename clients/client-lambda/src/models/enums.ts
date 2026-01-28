@@ -257,8 +257,25 @@ export type FunctionResponseType = (typeof FunctionResponseType)[keyof typeof Fu
  * @public
  * @enum
  */
+export const EventSourceMappingSystemLogLevel = {
+  Debug: "DEBUG",
+  Info: "INFO",
+  Warn: "WARN",
+} as const;
+/**
+ * @public
+ */
+export type EventSourceMappingSystemLogLevel =
+  (typeof EventSourceMappingSystemLogLevel)[keyof typeof EventSourceMappingSystemLogLevel];
+
+/**
+ * @public
+ * @enum
+ */
 export const EventSourceMappingMetric = {
+  ErrorCount: "ErrorCount",
   EventCount: "EventCount",
+  KafkaMetrics: "KafkaMetrics",
 } as const;
 /**
  * @public

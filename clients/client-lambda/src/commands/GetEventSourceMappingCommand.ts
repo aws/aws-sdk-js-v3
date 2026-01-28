@@ -147,8 +147,11 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * //   EventSourceMappingArn: "STRING_VALUE",
  * //   MetricsConfig: { // EventSourceMappingMetricsConfig
  * //     Metrics: [ // EventSourceMappingMetricList
- * //       "EventCount",
+ * //       "EventCount" || "ErrorCount" || "KafkaMetrics",
  * //     ],
+ * //   },
+ * //   LoggingConfig: { // EventSourceMappingLoggingConfig
+ * //     SystemLogLevel: "DEBUG" || "INFO" || "WARN",
  * //   },
  * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
  * //     MinimumPollers: Number("int"),
