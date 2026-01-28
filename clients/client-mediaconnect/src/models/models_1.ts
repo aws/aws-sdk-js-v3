@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import {
   MaintenanceScheduleType,
+  RouterInputState,
+  RouterInputTier,
   RouterOutputRoutedState,
   RouterOutputState,
   RouterOutputTier,
@@ -9,11 +11,158 @@ import {
 import type {
   MaintenanceConfiguration,
   MaintenanceSchedule,
+  RouterInput,
+  RouterInputConfiguration,
+  RouterInputTransitEncryption,
   RouterNetworkInterface,
   RouterNetworkInterfaceConfiguration,
   RouterOutput,
   RouterOutputConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface StartRouterInputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input that you want to start.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRouterInputResponse {
+  /**
+   * <p>The ARN of the router input that was started.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the router input that was started.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current state of the router input after being started.</p>
+   * @public
+   */
+  State: RouterInputState | undefined;
+
+  /**
+   * <p>The type of maintenance schedule associated with the router input.</p>
+   * @public
+   */
+  MaintenanceScheduleType: MaintenanceScheduleType | undefined;
+
+  /**
+   * <p>The details of the maintenance schedule for the router input.</p>
+   * @public
+   */
+  MaintenanceSchedule: MaintenanceSchedule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopRouterInputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input that you want to stop.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopRouterInputResponse {
+  /**
+   * <p>The ARN of the router input that was stopped.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the router input that was stopped.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current state of the router input after being stopped.</p>
+   * @public
+   */
+  State: RouterInputState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRouterInputRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the router input that you want to update.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The updated name for the router input.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The updated configuration settings for the router input. Changing the type of the configuration is not supported.</p>
+   * @public
+   */
+  Configuration?: RouterInputConfiguration | undefined;
+
+  /**
+   * <p>The updated maximum bitrate for the router input.</p>
+   * @public
+   */
+  MaximumBitrate?: number | undefined;
+
+  /**
+   * <p>Specifies whether the router input can be assigned to outputs in different Regions. REGIONAL (default) - can be assigned only to outputs in the same Region. GLOBAL - can be assigned to outputs in any Region.</p>
+   * @public
+   */
+  RoutingScope?: RoutingScope | undefined;
+
+  /**
+   * <p>The updated tier level for the router input.</p>
+   * @public
+   */
+  Tier?: RouterInputTier | undefined;
+
+  /**
+   * <p>The updated transit encryption settings for the router input.</p>
+   * @public
+   */
+  TransitEncryption?: RouterInputTransitEncryption | undefined;
+
+  /**
+   * <p>The updated maintenance configuration settings for the router input, including any changes to preferred maintenance windows and schedules.</p>
+   * @public
+   */
+  MaintenanceConfiguration?: MaintenanceConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRouterInputResponse {
+  /**
+   * <p>The updated router input.</p>
+   * @public
+   */
+  RouterInput: RouterInput | undefined;
+}
 
 /**
  * @public

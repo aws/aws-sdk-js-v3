@@ -11,42 +11,18 @@ const checkState = async (client: MediaConnectClient, input: GetRouterOutputComm
     reason = result;
     try {
       const returnComparator = () => {
-        return result.RouterOutput.State;
+        return result.RouterOutput.RoutedState;
       }
-      if (returnComparator() === "ACTIVE") {
+      if (returnComparator() === "UNROUTED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
       const returnComparator = () => {
-        return result.RouterOutput.State;
+        return result.RouterOutput.RoutedState;
       }
-      if (returnComparator() === "STARTING") {
+      if (returnComparator() === "ROUTING") {
         return { state: WaiterState.RETRY, reason };
-      }
-    } catch (e) {}
-    try {
-      const returnComparator = () => {
-        return result.RouterOutput.State;
-      }
-      if (returnComparator() === "UPDATING") {
-        return { state: WaiterState.RETRY, reason };
-      }
-    } catch (e) {}
-    try {
-      const returnComparator = () => {
-        return result.RouterOutput.State;
-      }
-      if (returnComparator() === "MIGRATING") {
-        return { state: WaiterState.RETRY, reason };
-      }
-    } catch (e) {}
-    try {
-      const returnComparator = () => {
-        return result.RouterOutput.State;
-      }
-      if (returnComparator() === "ERROR") {
-        return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
   } catch (exception) {
@@ -61,10 +37,10 @@ const checkState = async (client: MediaConnectClient, input: GetRouterOutputComm
   return { state: WaiterState.RETRY, reason };
 };
 /**
- * Wait until the Output is ACTIVE
- *  @deprecated Use waitUntilOutputActive instead. waitForOutputActive does not throw error in non-success cases.
+ * Wait until the Output is UNROUTED
+ *  @deprecated Use waitUntilOutputUnrouted instead. waitForOutputUnrouted does not throw error in non-success cases.
  */
-export const waitForOutputActive = async (
+export const waitForOutputUnrouted = async (
   params: WaiterConfiguration<MediaConnectClient>,
   input: GetRouterOutputCommandInput
 ): Promise<WaiterResult> => {
@@ -72,11 +48,11 @@ export const waitForOutputActive = async (
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
- * Wait until the Output is ACTIVE
+ * Wait until the Output is UNROUTED
  *  @param params - Waiter configuration options.
  *  @param input - The input to GetRouterOutputCommand for polling.
  */
-export const waitUntilOutputActive = async (
+export const waitUntilOutputUnrouted = async (
   params: WaiterConfiguration<MediaConnectClient>,
   input: GetRouterOutputCommandInput
 ): Promise<WaiterResult> => {

@@ -5,6 +5,7 @@ export * from "./waitForFlowStandby";
 export * from "./waitForInputStandby";
 export * from "./waitForInputDeleted";
 export * from "./waitForInputActive";
+export * from "./waitForOutputUnrouted";
 export * from "./waitForOutputDeleted";
 export * from "./waitForOutputActive";
 export * from "./waitForOutputStandby";

@@ -37,6 +37,14 @@ const checkState = async (client: MediaConnectClient, input: GetRouterInputComma
       const returnComparator = () => {
         return result.RouterInput.State;
       }
+      if (returnComparator() === "MIGRATING") {
+        return { state: WaiterState.RETRY, reason };
+      }
+    } catch (e) {}
+    try {
+      const returnComparator = () => {
+        return result.RouterInput.State;
+      }
       if (returnComparator() === "ERROR") {
         return { state: WaiterState.FAILURE, reason };
       }

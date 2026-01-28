@@ -34,6 +34,7 @@ const _AMSu = "AudioMonitoringSettings";
 const _AOC = "AssociatedOutputCount";
 const _AOR = "AddOutputRequest";
 const _AR = "AllowRules";
+const _AS = "ActiveSource";
 const _AZ = "AvailabilityZone";
 const _Al = "Algorithm";
 const _Ar = "Arn";
@@ -167,9 +168,10 @@ const _DROR = "DeleteRouterOutputRequest";
 const _DRORe = "DeleteRouterOutputResponse";
 const _DRR = "DescribeReservationRequest";
 const _DRRe = "DescribeReservationResponse";
-const _DS = "DesiredState";
+const _DS = "DiscoveredSources";
 const _DSA = "DiscoveryServerAddress";
 const _DSP = "DiscoveryServerPort";
+const _DSe = "DesiredState";
 const _DTE = "DestinationTransitEncryption";
 const _DTSFP = "DataTransferSubscriberFeePercent";
 const _DU = "DurationUnits";
@@ -180,8 +182,9 @@ const _Def = "Default";
 const _Du = "Duration";
 const _E = "Encryption";
 const _EA = "EntitlementArn";
-const _EC = "EncryptionConfiguration";
+const _EC = "EncodingConfig";
 const _ECB = "EgressCidrBlocks";
+const _ECn = "EncryptionConfiguration";
 const _EF = "ExactFramerate";
 const _EGB = "EgressGatewayBridge";
 const _EI = "EgressIp";
@@ -190,9 +193,10 @@ const _EKC = "EncryptionKeyConfiguration";
 const _EKT = "EncryptionKeyType";
 const _EN = "EntitlementName";
 const _ENn = "EncodingName";
-const _EP = "EncodingParameters";
+const _EP = "EncodingProfile";
 const _EPR = "EncodingParametersRequest";
-const _EPn = "EncoderProfile";
+const _EPn = "EncodingParameters";
+const _EPnc = "EncoderProfile";
 const _ES = "EntitlementStatus";
 const _ET = "EntitlementTags";
 const _En = "Entitlements";
@@ -345,6 +349,7 @@ const _MD = "MaintenanceDay";
 const _MDa = "MaintenanceDeadline";
 const _MDe = "MessageDetail";
 const _MI = "MulticastIp";
+const _MIe = "MediaInfo";
 const _ML = "MaxLatency";
 const _MLI = "MediaLiveInput";
 const _MLIA = "MediaLiveInputArn";
@@ -397,17 +402,23 @@ const _NDNII = "NonDeletedNetworkInterfaceIds";
 const _NDS = "NdiDiscoveryServers";
 const _NDSC = "NdiDiscoveryServerConfig";
 const _NFE = "NotFoundException";
+const _NI = "NdiInfo";
 const _NIA = "NetworkInterfaceArn";
 const _NIAe = "NetworkInterfaceArns";
 const _NII = "NetworkInterfaceIds";
 const _NIRL = "NetworkInterfaceRuleList";
 const _NIT = "NetworkInterfaceType";
 const _NITe = "NetworkInterfaceTypes";
+const _NMI = "NdiMediaInfo";
+const _NMSI = "NdiMediaStreamInfo";
 const _NN = "NetworkName";
 const _NO = "NetworkOutput";
 const _NPN = "NdiProgramName";
 const _NS = "NetworkSource";
 const _NSHQ = "NdiSpeedHqQuality";
+const _NSI = "NdiSourceInfo";
+const _NSMI = "NdiSourceMetadataInfo";
+const _NSS = "NdiSourceSettings";
 const _NSd = "NdiState";
 const _NT = "NextToken";
 const _Ne = "Networks";
@@ -715,6 +726,7 @@ const _VIN = "VpcInterfaceName";
 const _VIR = "VpcInterfaceRequest";
 const _VIT = "VpcInterfaceTags";
 const _VIp = "VpcInterface";
+const _VMB = "VideoMaxBitrate";
 const _VMS = "VideoMonitoringSettings";
 const _VMSi = "VideoMonitoringSetting";
 const _VRNIC = "VpcRouterNetworkInterfaceConfiguration";
@@ -726,6 +738,7 @@ const _aIC = "associatedInputCount";
 const _aMS = "audioMonitoringSettings";
 const _aOC = "associatedOutputCount";
 const _aR = "allowRules";
+const _aS = "activeSource";
 const _aZ = "availabilityZone";
 const _al = "algorithm";
 const _ar = "arn";
@@ -768,9 +781,10 @@ const _dI = "destinationIp";
 const _dIA = "destinationIpAddress";
 const _dIe = "deviceId";
 const _dP = "destinationPort";
-const _dS = "desiredState";
+const _dS = "discoveredSources";
 const _dSA = "discoveryServerAddress";
 const _dSP = "discoveryServerPort";
+const _dSe = "desiredState";
 const _dTE = "destinationTransitEncryption";
 const _dTSFP = "dataTransferSubscriberFeePercent";
 const _dU = "durationUnits";
@@ -781,8 +795,9 @@ const _def = "default";
 const _du = "duration";
 const _e = "error";
 const _eA = "entitlementArn";
-const _eC = "encryptionConfiguration";
+const _eC = "encodingConfig";
 const _eCB = "egressCidrBlocks";
+const _eCn = "encryptionConfiguration";
 const _eF = "exactFramerate";
 const _eGB = "egressGatewayBridge";
 const _eI = "egressIp";
@@ -791,8 +806,9 @@ const _eKC = "encryptionKeyConfiguration";
 const _eKT = "encryptionKeyType";
 const _eN = "entitlementName";
 const _eNn = "encodingName";
-const _eP = "encoderProfile";
-const _ePn = "encodingParameters";
+const _eP = "encodingProfile";
+const _ePn = "encoderProfile";
+const _ePnc = "encodingParameters";
 const _eS = "entitlementStatus";
 const _eT = "entitlementTags";
 const _en = "encryption";
@@ -809,8 +825,8 @@ const _fH = "frameHeight";
 const _fM = "failoverMode";
 const _fO = "flowOutput";
 const _fOA = "flowOutputArn";
-const _fR = "frameRate";
-const _fRr = "frameResolution";
+const _fR = "frameResolution";
+const _fRr = "frameRate";
 const _fS = "flowSource";
 const _fSA = "flowSourceArn";
 const _fSl = "flowSize";
@@ -880,6 +896,8 @@ const _lOMSOCR = "__listOfMediaStreamOutputConfigurationRequest";
 const _lOMSSC = "__listOfMediaStreamSourceConfiguration";
 const _lOMSSCR = "__listOfMediaStreamSourceConfigurationRequest";
 const _lONDSC = "__listOfNdiDiscoveryServerConfig";
+const _lONMSI = "__listOfNdiMediaStreamInfo";
+const _lONSI = "__listOfNdiSourceInfo";
 const _lOO = "__listOfOffering";
 const _lOOi = "__listOfOutput";
 const _lOR = "__listOfReservation";
@@ -899,6 +917,7 @@ const _mCe = "messageCount";
 const _mD = "maintenanceDay";
 const _mDa = "maintenanceDeadline";
 const _mI = "multicastIp";
+const _mIe = "mediaInfo";
 const _mL = "maxLatency";
 const _mLI = "mediaLiveInput";
 const _mLIA = "mediaLiveInputArn";
@@ -934,6 +953,7 @@ const _nC = "ndiConfig";
 const _nCa = "nameContains";
 const _nDNII = "nonDeletedNetworkInterfaceIds";
 const _nDS = "ndiDiscoveryServers";
+const _nI = "ndiInfo";
 const _nIA = "networkInterfaceArn";
 const _nIAe = "networkInterfaceArns";
 const _nII = "networkInterfaceIds";
@@ -944,6 +964,7 @@ const _nO = "networkOutput";
 const _nPN = "ndiProgramName";
 const _nS = "networkSource";
 const _nSHQ = "ndiSpeedHqQuality";
+const _nSS = "ndiSourceSettings";
 const _nSd = "ndiState";
 const _nT = "nextToken";
 const _ne = "networks";
@@ -1092,6 +1113,7 @@ const _vIA = "vpcInterfaceAttachment";
 const _vIAp = "vpcInterfaceAdapter";
 const _vIN = "vpcInterfaceName";
 const _vIT = "vpcInterfaceTags";
+const _vMB = "videoMaxBitrate";
 const _vMS = "videoMonitoringSettings";
 const _w = "window";
 const _wC = "whitelistCidr";
@@ -1375,8 +1397,8 @@ export var CreateFlow420Exception$: StaticErrorSchema = [-3, n0, _CFE,
 TypeRegistry.for(n0).registerError(CreateFlow420Exception$, CreateFlow420Exception);
 export var CreateFlowRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_N, _AZ, _En, _MS, _O, _So, _SFC, _S, _VI, _Ma, _SMC, _FSl, _NC, _FT],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _aZ }], [() => __listOfGrantEntitlementRequest, { [_jN]: _ent }], [() => __listOfAddMediaStreamRequest, { [_jN]: _mS }], [() => __listOfAddOutputRequest, { [_jN]: _o }], [() => SetSourceRequest$, { [_jN]: _so }], [() => FailoverConfig$, { [_jN]: _sFC }], [() => __listOfSetSourceRequest, { [_jN]: _s }], [() => __listOfVpcInterfaceRequest, { [_jN]: _vI }], [() => AddMaintenance$, { [_jN]: _ma }], [() => MonitoringConfig$, { [_jN]: _sMC }], [0, { [_jN]: _fSl }], [() => NdiConfig$, { [_jN]: _nC }], [128 | 0, { [_jN]: _fT }]], 1
+  [_N, _AZ, _En, _MS, _O, _So, _SFC, _S, _VI, _Ma, _SMC, _FSl, _NC, _EC, _FT],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _aZ }], [() => __listOfGrantEntitlementRequest, { [_jN]: _ent }], [() => __listOfAddMediaStreamRequest, { [_jN]: _mS }], [() => __listOfAddOutputRequest, { [_jN]: _o }], [() => SetSourceRequest$, { [_jN]: _so }], [() => FailoverConfig$, { [_jN]: _sFC }], [() => __listOfSetSourceRequest, { [_jN]: _s }], [() => __listOfVpcInterfaceRequest, { [_jN]: _vI }], [() => AddMaintenance$, { [_jN]: _ma }], [() => MonitoringConfig$, { [_jN]: _sMC }], [0, { [_jN]: _fSl }], [() => NdiConfig$, { [_jN]: _nC }], [() => EncodingConfig$, { [_jN]: _eC }], [128 | 0, { [_jN]: _fT }]], 1
 ];
 export var CreateFlowResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -1531,8 +1553,8 @@ export var DescribeFlowSourceMetadataRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var DescribeFlowSourceMetadataResponse$: StaticStructureSchema = [3, n0, _DFSMRe,
   0,
-  [_FA, _Me, _Tim, _TMI],
-  [[0, { [_jN]: _fA }], [() => __listOfMessageDetail, { [_jN]: _me }], [5, { [_jN]: _tim }], [() => TransportMediaInfo$, { [_jN]: _tMI }]]
+  [_FA, _Me, _Tim, _TMI, _NI],
+  [[0, { [_jN]: _fA }], [() => __listOfMessageDetail, { [_jN]: _me }], [5, { [_jN]: _tim }], [() => TransportMediaInfo$, { [_jN]: _tMI }], [() => NdiSourceMetadataInfo$, { [_jN]: _nI }]]
 ];
 export var DescribeFlowSourceThumbnailRequest$: StaticStructureSchema = [3, n0, _DFSTR,
   0,
@@ -1599,15 +1621,20 @@ export var EgressGatewayBridge$: StaticStructureSchema = [3, n0, _EGB,
   [_MB, _II],
   [[1, { [_jN]: _mB }], [0, { [_jN]: _iI }]], 1
 ];
-export var EncodingParameters$: StaticStructureSchema = [3, n0, _EP,
+export var EncodingConfig$: StaticStructureSchema = [3, n0, _EC,
   0,
-  [_CF, _EPn],
-  [[1, { [_jN]: _cF }], [0, { [_jN]: _eP }]], 2
+  [_EP, _VMB],
+  [[0, { [_jN]: _eP }], [1, { [_jN]: _vMB }]]
+];
+export var EncodingParameters$: StaticStructureSchema = [3, n0, _EPn,
+  0,
+  [_CF, _EPnc],
+  [[1, { [_jN]: _cF }], [0, { [_jN]: _ePn }]], 2
 ];
 export var EncodingParametersRequest$: StaticStructureSchema = [3, n0, _EPR,
   0,
-  [_CF, _EPn],
-  [[1, { [_jN]: _cF }], [0, { [_jN]: _eP }]], 2
+  [_CF, _EPnc],
+  [[1, { [_jN]: _cF }], [0, { [_jN]: _ePn }]], 2
 ];
 export var Encryption$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -1641,8 +1668,8 @@ export var FailoverRouterInputStreamDetails$: StaticStructureSchema = [3, n0, _F
 ];
 export var Flow$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_AZ, _En, _FA, _N, _O, _So, _Sta, _D, _EI, _MS, _SFC, _S, _VI, _Ma, _SMC, _FSl, _NC],
-  [[0, { [_jN]: _aZ }], [() => __listOfEntitlement, { [_jN]: _ent }], [0, { [_jN]: _fA }], [0, { [_jN]: _n }], [() => __listOfOutput, { [_jN]: _o }], [() => Source$, { [_jN]: _so }], [0, { [_jN]: _sta }], [0, { [_jN]: _d }], [0, { [_jN]: _eI }], [() => __listOfMediaStream, { [_jN]: _mS }], [() => FailoverConfig$, { [_jN]: _sFC }], [() => __listOfSource, { [_jN]: _s }], [() => __listOfVpcInterface, { [_jN]: _vI }], [() => Maintenance$, { [_jN]: _ma }], [() => MonitoringConfig$, { [_jN]: _sMC }], [0, { [_jN]: _fSl }], [() => NdiConfig$, { [_jN]: _nC }]], 7
+  [_AZ, _En, _FA, _N, _O, _So, _Sta, _D, _EI, _MS, _SFC, _S, _VI, _Ma, _SMC, _FSl, _NC, _EC],
+  [[0, { [_jN]: _aZ }], [() => __listOfEntitlement, { [_jN]: _ent }], [0, { [_jN]: _fA }], [0, { [_jN]: _n }], [() => __listOfOutput, { [_jN]: _o }], [() => Source$, { [_jN]: _so }], [0, { [_jN]: _sta }], [0, { [_jN]: _d }], [0, { [_jN]: _eI }], [() => __listOfMediaStream, { [_jN]: _mS }], [() => FailoverConfig$, { [_jN]: _sFC }], [() => __listOfSource, { [_jN]: _s }], [() => __listOfVpcInterface, { [_jN]: _vI }], [() => Maintenance$, { [_jN]: _ma }], [() => MonitoringConfig$, { [_jN]: _sMC }], [0, { [_jN]: _fSl }], [() => NdiConfig$, { [_jN]: _nC }], [() => EncodingConfig$, { [_jN]: _eC }]], 7
 ];
 export var FlowTransitEncryption$: StaticStructureSchema = [3, n0, _FTE,
   0,
@@ -2014,13 +2041,13 @@ export var MediaStreamAttributesRequest$: StaticStructureSchema = [3, n0, _MSAR,
 ];
 export var MediaStreamOutputConfiguration$: StaticStructureSchema = [3, n0, _MSOCe,
   0,
-  [_ENn, _MSN, _DCe, _EP],
-  [[0, { [_jN]: _eNn }], [0, { [_jN]: _mSN }], [() => __listOfDestinationConfiguration, { [_jN]: _dC }], [() => EncodingParameters$, { [_jN]: _ePn }]], 2
+  [_ENn, _MSN, _DCe, _EPn],
+  [[0, { [_jN]: _eNn }], [0, { [_jN]: _mSN }], [() => __listOfDestinationConfiguration, { [_jN]: _dC }], [() => EncodingParameters$, { [_jN]: _ePnc }]], 2
 ];
 export var MediaStreamOutputConfigurationRequest$: StaticStructureSchema = [3, n0, _MSOCR,
   0,
-  [_ENn, _MSN, _DCe, _EP],
-  [[0, { [_jN]: _eNn }], [0, { [_jN]: _mSN }], [() => __listOfDestinationConfigurationRequest, { [_jN]: _dC }], [() => EncodingParametersRequest$, { [_jN]: _ePn }]], 2
+  [_ENn, _MSN, _DCe, _EPn],
+  [[0, { [_jN]: _eNn }], [0, { [_jN]: _mSN }], [() => __listOfDestinationConfigurationRequest, { [_jN]: _dC }], [() => EncodingParametersRequest$, { [_jN]: _ePnc }]], 2
 ];
 export var MediaStreamSourceConfiguration$: StaticStructureSchema = [3, n0, _MSSC,
   0,
@@ -2076,6 +2103,31 @@ export var NdiDiscoveryServerConfig$: StaticStructureSchema = [3, n0, _NDSC,
   0,
   [_DSA, _VIAp, _DSP],
   [[0, { [_jN]: _dSA }], [0, { [_jN]: _vIAp }], [1, { [_jN]: _dSP }]], 2
+];
+export var NdiMediaInfo$: StaticStructureSchema = [3, n0, _NMI,
+  0,
+  [_Str],
+  [[() => __listOfNdiMediaStreamInfo, { [_jN]: _str }]], 1
+];
+export var NdiMediaStreamInfo$: StaticStructureSchema = [3, n0, _NMSI,
+  0,
+  [_STt, _Cod, _SI, _SM, _FRr, _FRra, _Ch, _SR],
+  [[0, { [_jN]: _sTt }], [0, { [_jN]: _cod }], [1, { [_jN]: _sI }], [0, { [_jN]: _sM }], [() => FrameResolution$, { [_jN]: _fR }], [0, { [_jN]: _fRr }], [1, { [_jN]: _ch }], [1, { [_jN]: _sR }]], 3
+];
+export var NdiSourceInfo$: StaticStructureSchema = [3, n0, _NSI,
+  0,
+  [_SN],
+  [[0, { [_jN]: _sN }]], 1
+];
+export var NdiSourceMetadataInfo$: StaticStructureSchema = [3, n0, _NSMI,
+  0,
+  [_DS, _MIe, _Me, _AS],
+  [[() => __listOfNdiSourceInfo, { [_jN]: _dS }], [() => NdiMediaInfo$, { [_jN]: _mIe }], [() => __listOfMessageDetail, { [_jN]: _me }], [() => NdiSourceInfo$, { [_jN]: _aS }]], 3
+];
+export var NdiSourceSettings$: StaticStructureSchema = [3, n0, _NSS,
+  0,
+  [_SN],
+  [[0, { [_jN]: _sN }]]
 ];
 export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_e]: _c, [_hE]: 404 },
@@ -2314,8 +2366,8 @@ export var SetGatewayBridgeSourceRequest$: StaticStructureSchema = [3, n0, _SGBS
 ];
 export var SetSourceRequest$: StaticStructureSchema = [3, n0, _SSR,
   0,
-  [_Dec, _D, _EA, _IPn, _MB, _ML, _MSB, _MSSCe, _MLi, _N, _Pr, _SCP, _SIAe, _SLA, _SLP, _SI, _VIN, _WC, _GBS, _STo, _RIS, _RITDo],
-  [[() => Encryption$, { [_jN]: _dec }], [0, { [_jN]: _d }], [0, { [_jN]: _eA }], [1, { [_jN]: _iPn }], [1, { [_jN]: _mB }], [1, { [_jN]: _mL }], [1, { [_jN]: _mSB }], [() => __listOfMediaStreamSourceConfigurationRequest, { [_jN]: _mSSC }], [1, { [_jN]: _mLi }], [0, { [_jN]: _n }], [0, { [_jN]: _pr }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [0, { [_jN]: _sLA }], [1, { [_jN]: _sLP }], [0, { [_jN]: _sI }], [0, { [_jN]: _vIN }], [0, { [_jN]: _wC }], [() => SetGatewayBridgeSourceRequest$, { [_jN]: _gBS }], [128 | 0, { [_jN]: _sTo }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITD }]]
+  [_Dec, _D, _EA, _IPn, _MB, _ML, _MSB, _MSSCe, _MLi, _N, _Pr, _SCP, _SIAe, _SLA, _SLP, _SI, _VIN, _WC, _GBS, _NSS, _STo, _RIS, _RITDo],
+  [[() => Encryption$, { [_jN]: _dec }], [0, { [_jN]: _d }], [0, { [_jN]: _eA }], [1, { [_jN]: _iPn }], [1, { [_jN]: _mB }], [1, { [_jN]: _mL }], [1, { [_jN]: _mSB }], [() => __listOfMediaStreamSourceConfigurationRequest, { [_jN]: _mSSC }], [1, { [_jN]: _mLi }], [0, { [_jN]: _n }], [0, { [_jN]: _pr }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [0, { [_jN]: _sLA }], [1, { [_jN]: _sLP }], [0, { [_jN]: _sI }], [0, { [_jN]: _vIN }], [0, { [_jN]: _wC }], [() => SetGatewayBridgeSourceRequest$, { [_jN]: _gBS }], [() => NdiSourceSettings$, { [_jN]: _nSS }], [128 | 0, { [_jN]: _sTo }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITD }]]
 ];
 export var SilentAudio$: StaticStructureSchema = [3, n0, _SA,
   0,
@@ -2339,8 +2391,8 @@ export var SrtCallerRouterInputConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var SrtCallerRouterOutputConfiguration$: StaticStructureSchema = [3, n0, _SCROC,
   0,
-  [_DA, _DP, _MLM, _SI, _EC],
-  [[0, { [_jN]: _dA }], [1, { [_jN]: _dP }], [1, { [_jN]: _mLM }], [0, { [_jN]: _sI }], [() => SrtEncryptionConfiguration$, { [_jN]: _eC }]], 3
+  [_DA, _DP, _MLM, _SI, _ECn],
+  [[0, { [_jN]: _dA }], [1, { [_jN]: _dP }], [1, { [_jN]: _mLM }], [0, { [_jN]: _sI }], [() => SrtEncryptionConfiguration$, { [_jN]: _eCn }]], 3
 ];
 export var SrtDecryptionConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
@@ -2359,8 +2411,8 @@ export var SrtListenerRouterInputConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var SrtListenerRouterOutputConfiguration$: StaticStructureSchema = [3, n0, _SLROC,
   0,
-  [_P, _MLM, _EC],
-  [[1, { [_jN]: _p }], [1, { [_jN]: _mLM }], [() => SrtEncryptionConfiguration$, { [_jN]: _eC }]], 2
+  [_P, _MLM, _ECn],
+  [[1, { [_jN]: _p }], [1, { [_jN]: _mLM }], [() => SrtEncryptionConfiguration$, { [_jN]: _eCn }]], 2
 ];
 export var StandardRouterInputConfiguration$: StaticStructureSchema = [3, n0, _SRIC,
   0,
@@ -2475,8 +2527,8 @@ export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
 TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var Transport$: StaticStructureSchema = [3, n0, _Tr,
   0,
-  [_Pr, _CAL, _MB, _ML, _MSB, _MLi, _RI, _SCP, _SIAe, _SL, _SLA, _SLP, _SI, _NSHQ, _NPN],
-  [[0, { [_jN]: _pr }], [64 | 0, { [_jN]: _cAL }], [1, { [_jN]: _mB }], [1, { [_jN]: _mL }], [1, { [_jN]: _mSB }], [1, { [_jN]: _mLi }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLA }], [1, { [_jN]: _sLP }], [0, { [_jN]: _sI }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _nPN }]], 1
+  [_Pr, _CAL, _MB, _ML, _MSB, _MLi, _RI, _SCP, _SIAe, _SL, _SLA, _SLP, _SI, _NSHQ, _NPN, _NSS],
+  [[0, { [_jN]: _pr }], [64 | 0, { [_jN]: _cAL }], [1, { [_jN]: _mB }], [1, { [_jN]: _mL }], [1, { [_jN]: _mSB }], [1, { [_jN]: _mLi }], [0, { [_jN]: _rI }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLA }], [1, { [_jN]: _sLP }], [0, { [_jN]: _sI }], [1, { [_jN]: _nSHQ }], [0, { [_jN]: _nPN }], [() => NdiSourceSettings$, { [_jN]: _nSS }]], 1
 ];
 export var TransportMediaInfo$: StaticStructureSchema = [3, n0, _TMI,
   0,
@@ -2486,7 +2538,7 @@ export var TransportMediaInfo$: StaticStructureSchema = [3, n0, _TMI,
 export var TransportStream$: StaticStructureSchema = [3, n0, _TSr,
   0,
   [_Pi, _STt, _Ch, _Cod, _FRra, _FRr, _SR, _SS],
-  [[1, { [_jN]: _pi }], [0, { [_jN]: _sTt }], [1, { [_jN]: _ch }], [0, { [_jN]: _cod }], [0, { [_jN]: _fR }], [() => FrameResolution$, { [_jN]: _fRr }], [1, { [_jN]: _sR }], [1, { [_jN]: _sS }]], 2
+  [[1, { [_jN]: _pi }], [0, { [_jN]: _sTt }], [1, { [_jN]: _ch }], [0, { [_jN]: _cod }], [0, { [_jN]: _fRr }], [() => FrameResolution$, { [_jN]: _fR }], [1, { [_jN]: _sR }], [1, { [_jN]: _sS }]], 2
 ];
 export var TransportStreamProgram$: StaticStructureSchema = [3, n0, _TSP,
   0,
@@ -2550,13 +2602,13 @@ export var UpdateBridgeSourceResponse$: StaticStructureSchema = [3, n0, _UBSRp,
 ];
 export var UpdateBridgeStateRequest$: StaticStructureSchema = [3, n0, _UBSRpd,
   0,
-  [_BA, _DS],
-  [[0, 1], [0, { [_jN]: _dS }]], 2
+  [_BA, _DSe],
+  [[0, 1], [0, { [_jN]: _dSe }]], 2
 ];
 export var UpdateBridgeStateResponse$: StaticStructureSchema = [3, n0, _UBSRpda,
   0,
-  [_BA, _DS],
-  [[0, { [_jN]: _bA }], [0, { [_jN]: _dS }]]
+  [_BA, _DSe],
+  [[0, { [_jN]: _bA }], [0, { [_jN]: _dSe }]]
 ];
 export var UpdateEgressGatewayBridgeRequest$: StaticStructureSchema = [3, n0, _UEGBR,
   0,
@@ -2605,8 +2657,8 @@ export var UpdateFlowOutputResponse$: StaticStructureSchema = [3, n0, _UFORp,
 ];
 export var UpdateFlowRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_FA, _SFC, _Ma, _SMC, _NC, _FSl],
-  [[0, 1], [() => UpdateFailoverConfig$, { [_jN]: _sFC }], [() => UpdateMaintenance$, { [_jN]: _ma }], [() => MonitoringConfig$, { [_jN]: _sMC }], [() => NdiConfig$, { [_jN]: _nC }], [0, { [_jN]: _fSl }]], 1
+  [_FA, _SFC, _Ma, _SMC, _NC, _FSl, _EC],
+  [[0, 1], [() => UpdateFailoverConfig$, { [_jN]: _sFC }], [() => UpdateMaintenance$, { [_jN]: _ma }], [() => MonitoringConfig$, { [_jN]: _sMC }], [() => NdiConfig$, { [_jN]: _nC }], [0, { [_jN]: _fSl }], [() => EncodingConfig$, { [_jN]: _eC }]], 1
 ];
 export var UpdateFlowResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
@@ -2615,8 +2667,8 @@ export var UpdateFlowResponse$: StaticStructureSchema = [3, n0, _UFRp,
 ];
 export var UpdateFlowSourceRequest$: StaticStructureSchema = [3, n0, _UFSR,
   0,
-  [_FA, _SAo, _Dec, _D, _EA, _IPn, _MB, _ML, _MSB, _MSSCe, _MLi, _Pr, _SCP, _SIAe, _SLA, _SLP, _SI, _VIN, _WC, _GBS, _RIS, _RITDo],
-  [[0, 1], [0, 1], [() => UpdateEncryption$, { [_jN]: _dec }], [0, { [_jN]: _d }], [0, { [_jN]: _eA }], [1, { [_jN]: _iPn }], [1, { [_jN]: _mB }], [1, { [_jN]: _mL }], [1, { [_jN]: _mSB }], [() => __listOfMediaStreamSourceConfigurationRequest, { [_jN]: _mSSC }], [1, { [_jN]: _mLi }], [0, { [_jN]: _pr }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [0, { [_jN]: _sLA }], [1, { [_jN]: _sLP }], [0, { [_jN]: _sI }], [0, { [_jN]: _vIN }], [0, { [_jN]: _wC }], [() => UpdateGatewayBridgeSourceRequest$, { [_jN]: _gBS }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITD }]], 2
+  [_FA, _SAo, _Dec, _D, _EA, _IPn, _MB, _ML, _MSB, _MSSCe, _MLi, _Pr, _SCP, _SIAe, _SLA, _SLP, _SI, _VIN, _WC, _GBS, _NSS, _RIS, _RITDo],
+  [[0, 1], [0, 1], [() => UpdateEncryption$, { [_jN]: _dec }], [0, { [_jN]: _d }], [0, { [_jN]: _eA }], [1, { [_jN]: _iPn }], [1, { [_jN]: _mB }], [1, { [_jN]: _mL }], [1, { [_jN]: _mSB }], [() => __listOfMediaStreamSourceConfigurationRequest, { [_jN]: _mSSC }], [1, { [_jN]: _mLi }], [0, { [_jN]: _pr }], [1, { [_jN]: _sCP }], [0, { [_jN]: _sIAe }], [0, { [_jN]: _sLA }], [1, { [_jN]: _sLP }], [0, { [_jN]: _sI }], [0, { [_jN]: _vIN }], [0, { [_jN]: _wC }], [() => UpdateGatewayBridgeSourceRequest$, { [_jN]: _gBS }], [() => NdiSourceSettings$, { [_jN]: _nSS }], [0, { [_jN]: _rIS }], [() => FlowTransitEncryption$, { [_jN]: _rITD }]], 2
 ];
 export var UpdateFlowSourceResponse$: StaticStructureSchema = [3, n0, _UFSRp,
   0,
@@ -2814,6 +2866,14 @@ var __listOfMessageDetail: StaticListSchema = [1, n0, _lOMD,
 ];
 var __listOfNdiDiscoveryServerConfig: StaticListSchema = [1, n0, _lONDSC,
   0, [() => NdiDiscoveryServerConfig$,
+    0]
+];
+var __listOfNdiMediaStreamInfo: StaticListSchema = [1, n0, _lONMSI,
+  0, [() => NdiMediaStreamInfo$,
+    0]
+];
+var __listOfNdiSourceInfo: StaticListSchema = [1, n0, _lONSI,
+  0, [() => NdiSourceInfo$,
     0]
 ];
 var __listOfOffering: StaticListSchema = [1, n0, _lOO,

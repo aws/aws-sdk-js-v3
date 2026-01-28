@@ -11,6 +11,7 @@ import {
   DurationUnits,
   EncoderProfile,
   EncodingName,
+  EncodingProfile,
   EntitlementStatus,
   FailoverInputSourcePriorityMode,
   FailoverMode,
@@ -338,7 +339,7 @@ export interface AddMediaStreamRequest {
 }
 
 /**
- * <p> Information about the encryption of the flow.</p>
+ * <p> Encryption information.</p>
  * @public
  */
 export interface Encryption {
@@ -488,18 +489,18 @@ export interface MediaStreamOutputConfigurationRequest {
 export interface AutomaticEncryptionKeyConfiguration {}
 
 /**
- * <p>The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.</p>
+ * <p>The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.</p>
  * @public
  */
 export interface SecretsManagerEncryptionKeyConfiguration {
   /**
-   * <p>The ARN of the AWS Secrets Manager secret used for transit encryption.</p>
+   * <p>The ARN of the Secrets Manager secret used for transit encryption.</p>
    * @public
    */
   SecretArn: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.</p>
+   * <p>The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.</p>
    * @public
    */
   RoleArn: string | undefined;
@@ -519,7 +520,7 @@ export type FlowTransitEncryptionKeyConfiguration =
  */
 export namespace FlowTransitEncryptionKeyConfiguration {
   /**
-   * <p>The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.</p>
+   * <p>The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.</p>
    * @public
    */
   export interface SecretsManagerMember {
@@ -684,7 +685,7 @@ export interface AddOutputRequest {
   NdiSpeedHqQuality?: number | undefined;
 
   /**
-   * <p> A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name. </p>
+   * <p> A suffix for the name of the NDI® sender that the flow creates. If a custom name isn't specified, MediaConnect uses the output name. </p>
    * @public
    */
   NdiProgramName?: string | undefined;
@@ -1543,7 +1544,7 @@ export interface MessageDetail {
 }
 
 /**
- * <p>Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed. </p>
+ * <p>Specifies the configuration settings for individual NDI® discovery servers. A maximum of 3 servers is allowed. </p>
  * @public
  */
 export interface NdiDiscoveryServerConfig {
@@ -1564,6 +1565,90 @@ export interface NdiDiscoveryServerConfig {
    * @public
    */
   VpcInterfaceAdapter: string | undefined;
+}
+
+/**
+ * <p> The frame resolution used by the video stream.</p>
+ * @public
+ */
+export interface FrameResolution {
+  /**
+   * <p> The number of pixels in the height of the video frame.</p>
+   * @public
+   */
+  FrameHeight: number | undefined;
+
+  /**
+   * <p> The number of pixels in the width of the video frame.</p>
+   * @public
+   */
+  FrameWidth: number | undefined;
+}
+
+/**
+ * <p> Detailed information about a single media stream that is part of an NDI® source. This includes details about the stream type, codec, resolution, frame rate, audio channels, and sample rate. </p>
+ * @public
+ */
+export interface NdiMediaStreamInfo {
+  /**
+   * <p> The type of media stream (for example, <code>Video</code> or <code>Audio</code>). </p>
+   * @public
+   */
+  StreamType: string | undefined;
+
+  /**
+   * <p> The codec used for the media stream. For NDI sources, use <code>speed-hq</code>. </p>
+   * @public
+   */
+  Codec: string | undefined;
+
+  /**
+   * <p> A unique identifier for the media stream. </p>
+   * @public
+   */
+  StreamId: number | undefined;
+
+  /**
+   * <p> The method used to display video frames. Used when the <code>streamType</code> is <code>Video</code>.</p>
+   * @public
+   */
+  ScanMode?: ScanMode | undefined;
+
+  /**
+   * <p> The width and height dimensions of the video frame in pixels. Used when the <code>streamType</code> is <code>Video</code>. </p>
+   * @public
+   */
+  FrameResolution?: FrameResolution | undefined;
+
+  /**
+   * <p> The number of video frames displayed per second. Used when the <code>streamType</code> is <code>Video</code>. </p>
+   * @public
+   */
+  FrameRate?: string | undefined;
+
+  /**
+   * <p> The number of audio channels in the stream. Used when the <code>streamType</code> is <code>Audio</code>.</p>
+   * @public
+   */
+  Channels?: number | undefined;
+
+  /**
+   * <p> The number of audio samples captured per second, measured in kilohertz (kHz). Used when the <code>streamType</code> is <code>Audio</code>.</p>
+   * @public
+   */
+  SampleRate?: number | undefined;
+}
+
+/**
+ * <p> Information about a single NDI® sender, including its name. </p>
+ * @public
+ */
+export interface NdiSourceInfo {
+  /**
+   * <p> The name of the upstream NDI sender. </p>
+   * @public
+   */
+  SourceName: string | undefined;
 }
 
 /**
@@ -1636,6 +1721,18 @@ export interface Offering {
    * @public
    */
   ResourceSpecification: ResourceSpecification | undefined;
+}
+
+/**
+ * <p> The settings for the NDI® source. This includes the exact name of the upstream NDI sender that you want to connect to your source. </p>
+ * @public
+ */
+export interface NdiSourceSettings {
+  /**
+   * <p> The exact name of an existing NDI sender that's registered with your discovery server. If included, the format of this name must be <code>MACHINENAME (ProgramName)</code>. </p>
+   * @public
+   */
+  SourceName?: string | undefined;
 }
 
 /**
@@ -1728,10 +1825,16 @@ export interface Transport {
   NdiSpeedHqQuality?: number | undefined;
 
   /**
-   * <p>A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name. </p>
+   * <p>A suffix for the name of the NDI® sender that the flow creates. If a custom name isn't specified, MediaConnect uses the output name. </p>
    * @public
    */
   NdiProgramName?: string | undefined;
+
+  /**
+   * <p> The settings for the NDI source. This includes the exact name of the upstream NDI sender that you want to connect to your source. </p>
+   * @public
+   */
+  NdiSourceSettings?: NdiSourceSettings | undefined;
 }
 
 /**
@@ -1836,7 +1939,7 @@ export interface Output {
   OutputStatus?: OutputStatus | undefined;
 
   /**
-   * <p>The IP address of the device that is currently receiving content from this output.</p> <note> <ul> <li> <p>For outputs that use protocols where you specify the destination (such as SRT Caller or Zixi Push), this value matches the configured destination address.</p> </li> <li> <p>For outputs that use listener protocols (such as SRT Listener), this value shows the address of the connected receiver. </p> </li> <li> <p>Peer IP addresses aren't available for entitlements, managed MediaLive outputs, NDI outputs, and CDI/ST2110 outputs. </p> </li> <li> <p>The peer IP address might not be visible for flows that haven't been started yet, or flows that were started before May 2025. In these cases, restart your flow to see the peer IP address.</p> </li> </ul> </note>
+   * <p>The IP address of the device that is currently receiving content from this output.</p> <note> <ul> <li> <p>For outputs that use protocols where you specify the destination (such as SRT Caller or Zixi Push), this value matches the configured destination address.</p> </li> <li> <p>For outputs that use listener protocols (such as SRT Listener), this value shows the address of the connected receiver. </p> </li> <li> <p>Peer IP addresses aren't available for entitlements, managed MediaLive outputs, NDI® sources and outputs, and CDI/ST2110 outputs. </p> </li> <li> <p>The peer IP address might not be visible for flows that haven't been started yet, or flows that were started before May 2025. In these cases, restart your flow to see the peer IP address.</p> </li> </ul> </note>
    * @public
    */
   PeerIpAddress?: string | undefined;
@@ -2082,6 +2185,12 @@ export interface SetSourceRequest {
   GatewayBridgeSource?: SetGatewayBridgeSourceRequest | undefined;
 
   /**
+   * <p> The settings for the NDI® source. This includes the exact name of the upstream NDI sender that you want to connect to your source. </p>
+   * @public
+   */
+  NdiSourceSettings?: NdiSourceSettings | undefined;
+
+  /**
    * <p> The key-value pairs that can be used to tag and organize the source. </p>
    * @public
    */
@@ -2236,24 +2345,6 @@ export interface Source {
    * @public
    */
   ConnectedRouterOutputArn?: string | undefined;
-}
-
-/**
- * <p> The frame resolution used by the video stream.</p>
- * @public
- */
-export interface FrameResolution {
-  /**
-   * <p> The number of pixels in the height of the video frame.</p>
-   * @public
-   */
-  FrameHeight: number | undefined;
-
-  /**
-   * <p> The number of pixels in the width of the video frame.</p>
-   * @public
-   */
-  FrameWidth: number | undefined;
 }
 
 /**
@@ -3644,7 +3735,7 @@ export type RouterInputTransitEncryptionKeyConfiguration =
  */
 export namespace RouterInputTransitEncryptionKeyConfiguration {
   /**
-   * <p>The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.</p>
+   * <p>The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.</p>
    * @public
    */
   export interface SecretsManagerMember {
@@ -3755,7 +3846,7 @@ export interface RouterInput {
   MaximumRoutedOutputs?: number | undefined;
 
   /**
-   * <p>The AWS Region where the router input is located.</p>
+   * <p>The Amazon Web Services Region where the router input is located.</p>
    * @public
    */
   RegionName: string | undefined;
@@ -4052,7 +4143,7 @@ export interface RouterNetworkInterface {
   AssociatedInputCount: number | undefined;
 
   /**
-   * <p>The AWS Region where the router network interface is located.</p>
+   * <p>The Amazon Web Services Region where the router network interface is located.</p>
    * @public
    */
   RegionName: string | undefined;
@@ -4166,7 +4257,7 @@ export type MediaLiveTransitEncryptionKeyConfiguration =
  */
 export namespace MediaLiveTransitEncryptionKeyConfiguration {
   /**
-   * <p>The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.</p>
+   * <p>The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.</p>
    * @public
    */
   export interface SecretsManagerMember {
@@ -4206,7 +4297,7 @@ export namespace MediaLiveTransitEncryptionKeyConfiguration {
 }
 
 /**
- * <p>The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.</p>
+ * <p>The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.</p>
  * @public
  */
 export interface MediaLiveTransitEncryption {
@@ -4700,7 +4791,7 @@ export interface RouterOutput {
   RoutedState: RouterOutputRoutedState | undefined;
 
   /**
-   * <p>The AWS Region where the router output is located.</p>
+   * <p>The Amazon Web Services Region where the router output is located.</p>
    * @public
    */
   RegionName: string | undefined;
@@ -5484,12 +5575,30 @@ export interface UpdateBridgeStateResponse {
 }
 
 /**
- * <p>Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs. </p>
+ * <p> The encoding configuration to apply to the NDI® source when transcoding it to a transport stream for downstream distribution. You can choose between several predefined encoding profiles based on common use cases. </p>
+ * @public
+ */
+export interface EncodingConfig {
+  /**
+   * <p> The encoding profile to use when transcoding the NDI source content to a transport stream. You can change this value while the flow is running. </p>
+   * @public
+   */
+  EncodingProfile?: EncodingProfile | undefined;
+
+  /**
+   * <p> The maximum video bitrate to use when transcoding the NDI source to a transport stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. </p> <p> The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you don't specify a value, MediaConnect uses the default value of 20,000,000 bps. </p>
+   * @public
+   */
+  VideoMaxBitrate?: number | undefined;
+}
+
+/**
+ * <p>Specifies the configuration settings for NDI sources and outputs. </p>
  * @public
  */
 export interface NdiConfig {
   /**
-   * <p>A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED. </p>
+   * <p>A setting that controls whether NDI® sources or outputs can be used in the flow. </p> <p> The default value is <code>DISABLED</code>. This value must be set as <code>ENABLED</code> for your flow to support NDI sources or outputs. </p>
    * @public
    */
   NdiState?: NdiState | undefined;
@@ -5608,16 +5717,22 @@ export interface CreateFlowRequest {
   SourceMonitoringConfig?: MonitoringConfig | undefined;
 
   /**
-   * <p> Determines the processing capacity and feature set of the flow. Set this optional parameter to <code>LARGE</code> if you want to enable NDI outputs on the flow. </p>
+   * <p> Determines the processing capacity and feature set of the flow. Set this optional parameter to <code>LARGE</code> if you want to enable NDI sources or outputs on the flow. </p>
    * @public
    */
   FlowSize?: FlowSize | undefined;
 
   /**
-   * <p> Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs. </p>
+   * <p> Specifies the configuration settings for a flow's NDI source or output. Required when the flow includes an NDI source or output. </p>
    * @public
    */
   NdiConfig?: NdiConfig | undefined;
+
+  /**
+   * <p> The encoding configuration to apply to the NDI® source when transcoding it to a transport stream for downstream distribution. You can choose between several predefined encoding profiles based on common use cases. </p>
+   * @public
+   */
+  EncodingConfig?: EncodingConfig | undefined;
 
   /**
    * <p> The key-value pairs that can be used to tag and organize the flow. </p>
@@ -5722,16 +5837,22 @@ export interface Flow {
   SourceMonitoringConfig?: MonitoringConfig | undefined;
 
   /**
-   * <p> Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow. </p>
+   * <p> Determines the processing capacity and feature set of the flow. </p>
    * @public
    */
   FlowSize?: FlowSize | undefined;
 
   /**
-   * <p>Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs. </p>
+   * <p>Specifies the configuration settings for a flow's NDI source or output. Required when the flow includes an NDI source or output.</p>
    * @public
    */
   NdiConfig?: NdiConfig | undefined;
+
+  /**
+   * <p> The encoding configuration to apply to the NDI® source when transcoding it to a transport stream for downstream distribution. </p>
+   * @public
+   */
+  EncodingConfig?: EncodingConfig | undefined;
 }
 
 /**
@@ -5856,7 +5977,7 @@ export interface CreateRouterInputRequest {
   Tier: RouterInputTier | undefined;
 
   /**
-   * <p>The AWS Region for the router input. Defaults to the current region if not specified.</p>
+   * <p>The Amazon Web Services Region for the router input. Defaults to the current region if not specified.</p>
    * @public
    */
   RegionName?: string | undefined;
@@ -5920,7 +6041,7 @@ export interface CreateRouterNetworkInterfaceRequest {
   Configuration: RouterNetworkInterfaceConfiguration | undefined;
 
   /**
-   * <p>The AWS Region for the router network interface. Defaults to the current region if not specified.</p>
+   * <p>The Amazon Web Services Region for the router network interface. Defaults to the current region if not specified.</p>
    * @public
    */
   RegionName?: string | undefined;
@@ -5984,7 +6105,7 @@ export interface CreateRouterOutputRequest {
   Tier: RouterOutputTier | undefined;
 
   /**
-   * <p>The AWS Region for the router output. Defaults to the current region if not specified.</p>
+   * <p>The Amazon Web Services Region for the router output. Defaults to the current region if not specified.</p>
    * @public
    */
   RegionName?: string | undefined;
@@ -6263,6 +6384,48 @@ export interface DescribeFlowSourceMetadataRequest {
 }
 
 /**
+ * <p> Metadata about the audio and video media that is part of the NDI® source content. This includes details about the individual media streams. </p>
+ * @public
+ */
+export interface NdiMediaInfo {
+  /**
+   * <p> A list of the individual media streams that make up the NDI source. This includes details about each stream's codec, resolution, frame rate, audio channels, and other parameters. </p>
+   * @public
+   */
+  Streams: NdiMediaStreamInfo[] | undefined;
+}
+
+/**
+ * <p> Comprehensive information about the NDI® source that's associated with a flow. This includes the currently active NDI source, a list of all discovered NDI senders, metadata about the media streams, and any relevant status messages. </p>
+ * @public
+ */
+export interface NdiSourceMetadataInfo {
+  /**
+   * <p> The connected NDI sender that's currently sending source content to the flow's NDI source. </p>
+   * @public
+   */
+  ActiveSource?: NdiSourceInfo | undefined;
+
+  /**
+   * <p> A list of the available upstream NDI senders aggregated from all of your configured discovery servers. </p>
+   * @public
+   */
+  DiscoveredSources: NdiSourceInfo[] | undefined;
+
+  /**
+   * <p> Detailed information about the media streams (video, audio, and so on) that are part of the active NDI source. </p>
+   * @public
+   */
+  MediaInfo: NdiMediaInfo | undefined;
+
+  /**
+   * <p> Any status messages or error codes related to the NDI source and its metadata. </p>
+   * @public
+   */
+  Messages: MessageDetail[] | undefined;
+}
+
+/**
  * <p> The metadata of the transport stream in the current flow's source.</p>
  * @public
  */
@@ -6301,6 +6464,12 @@ export interface DescribeFlowSourceMetadataResponse {
    * @public
    */
   TransportMediaInfo?: TransportMediaInfo | undefined;
+
+  /**
+   * <p> The NDI® specific information about the flow's source. This includes the current active NDI sender, a list of all discovered NDI senders, the associated media streams for the active NDI sender, and any relevant status messages. </p>
+   * @public
+   */
+  NdiInfo?: NdiSourceMetadataInfo | undefined;
 }
 
 /**
@@ -6856,7 +7025,7 @@ export interface UpdateFlowRequest {
   SourceMonitoringConfig?: MonitoringConfig | undefined;
 
   /**
-   * <p> Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs. </p>
+   * <p> Specifies the configuration settings for a flow's NDI source or output. Required when the flow includes an NDI source or output. </p>
    * @public
    */
   NdiConfig?: NdiConfig | undefined;
@@ -6866,6 +7035,12 @@ export interface UpdateFlowRequest {
    * @public
    */
   FlowSize?: FlowSize | undefined;
+
+  /**
+   * <p> The encoding configuration to apply to the NDI® source when transcoding it to a transport stream for downstream distribution. You can choose between several predefined encoding profiles based on common use cases. </p>
+   * @public
+   */
+  EncodingConfig?: EncodingConfig | undefined;
 }
 
 /**
@@ -7174,7 +7349,7 @@ export interface UpdateFlowOutputRequest {
   OutputStatus?: OutputStatus | undefined;
 
   /**
-   * <p> A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name. </p>
+   * <p> A suffix for the name of the NDI® sender that the flow creates. If a custom name isn't specified, MediaConnect uses the output name. </p>
    * @public
    */
   NdiProgramName?: string | undefined;
@@ -7358,6 +7533,12 @@ export interface UpdateFlowSourceRequest {
   GatewayBridgeSource?: UpdateGatewayBridgeSourceRequest | undefined;
 
   /**
+   * <p> The settings for the NDI source. This includes the exact name of the upstream NDI sender that you want to connect to your source. </p>
+   * @public
+   */
+  NdiSourceSettings?: NdiSourceSettings | undefined;
+
+  /**
    * <p>Indicates whether to enable or disable router integration for this flow source.</p>
    * @public
    */
@@ -7375,7 +7556,7 @@ export interface UpdateFlowSourceRequest {
  */
 export interface UpdateFlowSourceResponse {
   /**
-   * <p>The ARN of the flow that you was updated. </p>
+   * <p>The ARN of the flow that you updated.</p>
    * @public
    */
   FlowArn?: string | undefined;
@@ -7764,7 +7945,7 @@ export interface ListedRouterInput {
   RoutedOutputs: number | undefined;
 
   /**
-   * <p>The AWS Region where the router input is located.</p>
+   * <p>The Amazon Web Services Region where the router input is located.</p>
    * @public
    */
   RegionName: string | undefined;
@@ -7872,7 +8053,7 @@ export interface ListedRouterNetworkInterface {
   State: RouterNetworkInterfaceState | undefined;
 
   /**
-   * <p>The AWS Region where the router network interface is located.</p>
+   * <p>The Amazon Web Services Region where the router network interface is located.</p>
    * @public
    */
   RegionName: string | undefined;
@@ -7932,7 +8113,7 @@ export interface ListedRouterOutput {
   RoutedState: RouterOutputRoutedState | undefined;
 
   /**
-   * <p>The AWS Region where the router output is located.</p>
+   * <p>The AAmazon Web Services Region where the router output is located.</p>
    * @public
    */
   RegionName: string | undefined;
@@ -8635,148 +8816,4 @@ export interface RestartRouterInputResponse {
    * @public
    */
   State: RouterInputState | undefined;
-}
-
-/**
- * @public
- */
-export interface StartRouterInputRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router input that you want to start.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartRouterInputResponse {
-  /**
-   * <p>The ARN of the router input that was started.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The name of the router input that was started.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The current state of the router input after being started.</p>
-   * @public
-   */
-  State: RouterInputState | undefined;
-
-  /**
-   * <p>The type of maintenance schedule associated with the router input.</p>
-   * @public
-   */
-  MaintenanceScheduleType: MaintenanceScheduleType | undefined;
-
-  /**
-   * <p>The details of the maintenance schedule for the router input.</p>
-   * @public
-   */
-  MaintenanceSchedule: MaintenanceSchedule | undefined;
-}
-
-/**
- * @public
- */
-export interface StopRouterInputRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router input that you want to stop.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopRouterInputResponse {
-  /**
-   * <p>The ARN of the router input that was stopped.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The name of the router input that was stopped.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The current state of the router input after being stopped.</p>
-   * @public
-   */
-  State: RouterInputState | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRouterInputRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the router input that you want to update.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The updated name for the router input.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The updated configuration settings for the router input. Changing the type of the configuration is not supported.</p>
-   * @public
-   */
-  Configuration?: RouterInputConfiguration | undefined;
-
-  /**
-   * <p>The updated maximum bitrate for the router input.</p>
-   * @public
-   */
-  MaximumBitrate?: number | undefined;
-
-  /**
-   * <p>Specifies whether the router input can be assigned to outputs in different Regions. REGIONAL (default) - can be assigned only to outputs in the same Region. GLOBAL - can be assigned to outputs in any Region.</p>
-   * @public
-   */
-  RoutingScope?: RoutingScope | undefined;
-
-  /**
-   * <p>The updated tier level for the router input.</p>
-   * @public
-   */
-  Tier?: RouterInputTier | undefined;
-
-  /**
-   * <p>The updated transit encryption settings for the router input.</p>
-   * @public
-   */
-  TransitEncryption?: RouterInputTransitEncryption | undefined;
-
-  /**
-   * <p>The updated maintenance configuration settings for the router input, including any changes to preferred maintenance windows and schedules.</p>
-   * @public
-   */
-  MaintenanceConfiguration?: MaintenanceConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRouterInputResponse {
-  /**
-   * <p>The updated router input.</p>
-   * @public
-   */
-  RouterInput: RouterInput | undefined;
 }

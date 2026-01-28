@@ -407,6 +407,7 @@ import { waitUntilOutputActive } from "./waiters/waitForOutputActive";
 import { waitUntilOutputDeleted } from "./waiters/waitForOutputDeleted";
 import { waitUntilOutputRouted } from "./waiters/waitForOutputRouted";
 import { waitUntilOutputStandby } from "./waiters/waitForOutputStandby";
+import { waitUntilOutputUnrouted } from "./waiters/waitForOutputUnrouted";
 
 const commands = {
   AddBridgeOutputsCommand,
@@ -511,6 +512,7 @@ const waiters = {
   waitUntilInputStandby,
   waitUntilInputDeleted,
   waitUntilInputActive,
+  waitUntilOutputUnrouted,
   waitUntilOutputDeleted,
   waitUntilOutputActive,
   waitUntilOutputStandby,
@@ -2089,6 +2091,16 @@ export interface MediaConnect {
    */
   waitUntilInputActive(
     args: GetRouterInputCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRouterOutputCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilOutputUnrouted(
+    args: GetRouterOutputCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<MediaConnect>, "client">
   ): Promise<WaiterResult>;
 

@@ -76,6 +76,40 @@ export interface DescribeFlowSourceMetadataCommandOutput extends DescribeFlowSou
  * //       },
  * //     ],
  * //   },
+ * //   NdiInfo: { // NdiSourceMetadataInfo
+ * //     ActiveSource: { // NdiSourceInfo
+ * //       SourceName: "STRING_VALUE", // required
+ * //     },
+ * //     DiscoveredSources: [ // __listOfNdiSourceInfo // required
+ * //       {
+ * //         SourceName: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     MediaInfo: { // NdiMediaInfo
+ * //       Streams: [ // __listOfNdiMediaStreamInfo // required
+ * //         { // NdiMediaStreamInfo
+ * //           StreamType: "STRING_VALUE", // required
+ * //           Codec: "STRING_VALUE", // required
+ * //           StreamId: Number("int"), // required
+ * //           ScanMode: "progressive" || "interlace" || "progressive-segmented-frame",
+ * //           FrameResolution: {
+ * //             FrameHeight: Number("int"), // required
+ * //             FrameWidth: Number("int"), // required
+ * //           },
+ * //           FrameRate: "STRING_VALUE",
+ * //           Channels: Number("int"),
+ * //           SampleRate: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //     Messages: [ // required
+ * //       {
+ * //         Code: "STRING_VALUE", // required
+ * //         Message: "STRING_VALUE", // required
+ * //         ResourceName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
  * // };
  *
  * ```
