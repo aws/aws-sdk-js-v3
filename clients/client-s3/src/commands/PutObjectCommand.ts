@@ -174,6 +174,29 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *                      <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
+ *          <dl>
+ *             <dt>Errors</dt>
+ *             <dd>
+ *                <ul>
+ *                   <li>
+ *                      <p>You might receive an <code>InvalidRequest</code> error for several reasons. Depending on the reason for the error, you might receive one of the following messages:</p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>Cannot specify both a write offset value and user-defined object metadata for existing
+ *                     objects.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Checksum Type mismatch occurred, expected checksum Type: sha1, actual checksum Type:
+ *                     crc32c.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Request body cannot be empty when 'write offset' is specified.</p>
+ *                         </li>
+ *                      </ul>
+ *                   </li>
+ *                </ul>
+ *             </dd>
+ *          </dl>
  *          <p>For more information about related Amazon S3 APIs, see the following:</p>
  *          <ul>
  *             <li>
@@ -278,21 +301,8 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *       include the appropriate encryption parameters in the request or while creating the session. </p>
  *
  * @throws {@link InvalidRequest} (client fault)
- *  <p>You may receive this error in multiple cases. Depending on the reason for the error, you may receive
- *       one of the messages below:</p>
- *          <ul>
- *             <li>
- *                <p>Cannot specify both a write offset value and user-defined object metadata for existing
- *           objects.</p>
- *             </li>
- *             <li>
- *                <p>Checksum Type mismatch occurred, expected checksum Type: sha1, actual checksum Type:
- *           crc32c.</p>
- *             </li>
- *             <li>
- *                <p>Request body cannot be empty when 'write offset' is specified.</p>
- *             </li>
- *          </ul>
+ *  <p>A parameter or header in your request isn't valid. For details, see the description of this API
+ *       operation.</p>
  *
  * @throws {@link InvalidWriteOffset} (client fault)
  *  <p> The write offset value that you specified does not match the current object size. </p>

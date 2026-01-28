@@ -43,8 +43,6 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends PutBucketL
  *          </note>
  *          <dl>
  *             <dt>Rules</dt>
- *             <dt>Permissions</dt>
- *             <dt>HTTP Host header syntax</dt>
  *             <dd>
  *                <p>You specify the lifecycle configuration in your request body. The lifecycle configuration is
  *             specified as XML consisting of one or more rules. An Amazon S3 Lifecycle configuration can have up to
@@ -80,6 +78,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends PutBucketL
  *               <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html">Lifecycle
  *               Configuration Elements</a>.</p>
  *             </dd>
+ *             <dt>Permissions</dt>
  *             <dd>
  *                <ul>
  *                   <li>
@@ -135,6 +134,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends PutBucketL
  *                   </li>
  *                </ul>
  *             </dd>
+ *             <dt>HTTP Host header syntax</dt>
  *             <dd>
  *                <p>
  *                   <b>Directory buckets </b> - The HTTP Host header syntax is

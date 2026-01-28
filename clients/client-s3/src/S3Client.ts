@@ -377,6 +377,10 @@ import {
   UpdateBucketMetadataJournalTableConfigurationCommandInput,
   UpdateBucketMetadataJournalTableConfigurationCommandOutput,
 } from "./commands/UpdateBucketMetadataJournalTableConfigurationCommand";
+import {
+  UpdateObjectEncryptionCommandInput,
+  UpdateObjectEncryptionCommandOutput,
+} from "./commands/UpdateObjectEncryptionCommand";
 import { UploadPartCommandInput, UploadPartCommandOutput } from "./commands/UploadPartCommand";
 import { UploadPartCopyCommandInput, UploadPartCopyCommandOutput } from "./commands/UploadPartCopyCommand";
 import {
@@ -501,6 +505,7 @@ export type ServiceInputTypes =
   | SelectObjectContentCommandInput
   | UpdateBucketMetadataInventoryTableConfigurationCommandInput
   | UpdateBucketMetadataJournalTableConfigurationCommandInput
+  | UpdateObjectEncryptionCommandInput
   | UploadPartCommandInput
   | UploadPartCopyCommandInput
   | WriteGetObjectResponseCommandInput;
@@ -612,6 +617,7 @@ export type ServiceOutputTypes =
   | SelectObjectContentCommandOutput
   | UpdateBucketMetadataInventoryTableConfigurationCommandOutput
   | UpdateBucketMetadataJournalTableConfigurationCommandOutput
+  | UpdateObjectEncryptionCommandOutput
   | UploadPartCommandOutput
   | UploadPartCopyCommandOutput
   | WriteGetObjectResponseCommandOutput;

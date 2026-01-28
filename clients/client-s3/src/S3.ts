@@ -491,6 +491,11 @@ import {
   UpdateBucketMetadataJournalTableConfigurationCommandInput,
   UpdateBucketMetadataJournalTableConfigurationCommandOutput,
 } from "./commands/UpdateBucketMetadataJournalTableConfigurationCommand";
+import {
+  UpdateObjectEncryptionCommand,
+  UpdateObjectEncryptionCommandInput,
+  UpdateObjectEncryptionCommandOutput,
+} from "./commands/UpdateObjectEncryptionCommand";
 import { UploadPartCommand, UploadPartCommandInput, UploadPartCommandOutput } from "./commands/UploadPartCommand";
 import {
   UploadPartCopyCommand,
@@ -616,6 +621,7 @@ const commands = {
   SelectObjectContentCommand,
   UpdateBucketMetadataInventoryTableConfigurationCommand,
   UpdateBucketMetadataJournalTableConfigurationCommand,
+  UpdateObjectEncryptionCommand,
   UploadPartCommand,
   UploadPartCopyCommand,
   WriteGetObjectResponseCommand,
@@ -2385,6 +2391,23 @@ export interface S3 {
     args: UpdateBucketMetadataJournalTableConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateBucketMetadataJournalTableConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateObjectEncryptionCommand}
+   */
+  updateObjectEncryption(
+    args: UpdateObjectEncryptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateObjectEncryptionCommandOutput>;
+  updateObjectEncryption(
+    args: UpdateObjectEncryptionCommandInput,
+    cb: (err: any, data?: UpdateObjectEncryptionCommandOutput) => void
+  ): void;
+  updateObjectEncryption(
+    args: UpdateObjectEncryptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateObjectEncryptionCommandOutput) => void
   ): void;
 
   /**

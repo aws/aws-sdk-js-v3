@@ -7,7 +7,8 @@ const _ACLn = "AnalyticsConfigurationList";
 const _ACP = "AccessControlPolicy";
 const _ACT = "AccessControlTranslation";
 const _ACn = "AnalyticsConfiguration";
-const _AD = "AbortDate";
+const _AD = "AccessDenied";
+const _ADb = "AbortDate";
 const _AED = "AnalyticsExportDestination";
 const _AF = "AnalyticsFilter";
 const _AH = "AllowedHeaders";
@@ -424,6 +425,7 @@ const _KI = "KeyId";
 const _KKA = "KmsKeyArn";
 const _KM = "KeyMarker";
 const _KMSC = "KMSContext";
+const _KMSKA = "KMSKeyArn";
 const _KMSKI = "KMSKeyId";
 const _KMSMKID = "KMSMasterKeyID";
 const _KPE = "KeyPrefixEquals";
@@ -522,6 +524,7 @@ const _NC = "NotificationConfiguration";
 const _NCF = "NotificationConfigurationFilter";
 const _NCT = "NextContinuationToken";
 const _ND = "NoncurrentDays";
+const _NEKKAS = "NonEmptyKmsKeyArnString";
 const _NF = "NotFound";
 const _NKM = "NextKeyMarker";
 const _NM = "NextMarker";
@@ -542,6 +545,7 @@ const _OAIATE = "ObjectAlreadyInActiveTierError";
 const _OC = "OwnershipControls";
 const _OCR = "OwnershipControlsRule";
 const _OCRw = "OwnershipControlsRules";
+const _OE = "ObjectEncryption";
 const _OF = "OptionalFields";
 const _OI = "ObjectIdentifier";
 const _OIL = "ObjectIdentifierList";
@@ -751,6 +755,7 @@ const _SSECA = "SSECustomerAlgorithm";
 const _SSECK = "SSECustomerKey";
 const _SSECKMD = "SSECustomerKeyMD5";
 const _SSEKMS = "SSEKMS";
+const _SSEKMSE = "SSEKMSEncryption";
 const _SSEKMSEC = "SSEKMSEncryptionContext";
 const _SSEKMSKI = "SSEKMSKeyId";
 const _SSER = "ServerSideEncryptionRule";
@@ -808,6 +813,9 @@ const _UBMJTCR = "UpdateBucketMetadataJournalTableConfigurationRequest";
 const _UI = "UploadId";
 const _UIM = "UploadIdMarker";
 const _UM = "UserMetadata";
+const _UOE = "UpdateObjectEncryption";
+const _UOER = "UpdateObjectEncryptionRequest";
+const _UOERp = "UpdateObjectEncryptionResponse";
 const _UP = "UploadPart";
 const _UPC = "UploadPartCopy";
 const _UPCO = "UploadPartCopyOutput";
@@ -1018,6 +1026,7 @@ import type {
 } from "@smithy/types";
 
 import {
+  AccessDenied,
   BucketAlreadyExists,
   BucketAlreadyOwnedByYou,
   EncryptionTypeMismatch,
@@ -1037,6 +1046,7 @@ import { S3ServiceException } from "../models/S3ServiceException";
 
 /* eslint no-var: 0 */
 var CopySourceSSECustomerKey: StaticSimpleSchema = [0, n0, _CSSSECK, 8, 0];
+var NonEmptyKmsKeyArnString: StaticSimpleSchema = [0, n0, _NEKKAS, 8, 0];
 var SessionCredentialValue: StaticSimpleSchema = [0, n0, _SCV, 8, 0];
 var SSECustomerKey: StaticSimpleSchema = [0, n0, _SSECK, 8, 0];
 var SSEKMSEncryptionContext: StaticSimpleSchema = [0, n0, _SSEKMSEC, 8, 0];
@@ -1077,6 +1087,12 @@ export var AccessControlTranslation$: StaticStructureSchema = [3, n0, _ACT,
   [_O],
   [0], 1
 ];
+export var AccessDenied$: StaticErrorSchema = [-3, n0, _AD,
+  { [_e]: _c, [_hE]: 403 },
+  [],
+  []
+];
+TypeRegistry.for(n0).registerError(AccessDenied$, AccessDenied);
 export var AnalyticsAndOperator$: StaticStructureSchema = [3, n0, _AAO,
   0,
   [_P, _T],
@@ -1231,7 +1247,7 @@ export var CreateBucketRequest$: StaticStructureSchema = [3, n0, _CBR,
 ];
 export var CreateMultipartUploadOutput$: StaticStructureSchema = [3, n0, _CMUOr,
   { [_xN]: _IMUR },
-  [_AD, _ARI, _B, _K, _UI, _SSE, _SSECA, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _RC, _CA, _CT],
+  [_ADb, _ARI, _B, _K, _UI, _SSE, _SSECA, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _RC, _CA, _CT],
   [[4, { [_hH]: _xaad }], [0, { [_hH]: _xaari }], [0, { [_xN]: _B }], 0, 0, [0, { [_hH]: _xasse }], [0, { [_hH]: _xasseca }], [0, { [_hH]: _xasseckM }], [() => SSEKMSKeyId, { [_hH]: _xasseakki }], [() => SSEKMSEncryptionContext, { [_hH]: _xassec }], [2, { [_hH]: _xassebke }], [0, { [_hH]: _xarc }], [0, { [_hH]: _xaca }], [0, { [_hH]: _xact }]]
 ];
 export var CreateMultipartUploadRequest$: StaticStructureSchema = [3, n0, _CMURr,
@@ -2071,7 +2087,7 @@ export var ListObjectVersionsRequest$: StaticStructureSchema = [3, n0, _LOVRi,
 ];
 export var ListPartsOutput$: StaticStructureSchema = [3, n0, _LPO,
   { [_xN]: _LPR },
-  [_AD, _ARI, _B, _K, _UI, _PNM, _NPNM, _MP, _IT, _Pa, _In, _O, _SC, _RC, _CA, _CT],
+  [_ADb, _ARI, _B, _K, _UI, _PNM, _NPNM, _MP, _IT, _Pa, _In, _O, _SC, _RC, _CA, _CT],
   [[4, { [_hH]: _xaad }], [0, { [_hH]: _xaari }], 0, 0, 0, 0, 0, 1, 2, [() => Parts, { [_xF]: 1, [_xN]: _Par }], () => Initiator$, () => Owner$, 0, [0, { [_hH]: _xarc }], 0, 0]
 ];
 export var ListPartsRequest$: StaticStructureSchema = [3, n0, _LPRi,
@@ -2645,6 +2661,11 @@ export var SseKmsEncryptedObjects$: StaticStructureSchema = [3, n0, _SKEO,
   [_S],
   [0], 1
 ];
+export var SSEKMSEncryption$: StaticStructureSchema = [3, n0, _SSEKMSE,
+  { [_xN]: _SK },
+  [_KMSKA, _BKE],
+  [[() => NonEmptyKmsKeyArnString, 0], 2], 1
+];
 export var SSES3$: StaticStructureSchema = [3, n0, _SSES,
   { [_xN]: _SS },
   [],
@@ -2720,6 +2741,16 @@ export var UpdateBucketMetadataJournalTableConfigurationRequest$: StaticStructur
   0,
   [_B, _JTC, _CMD, _CA, _EBO],
   [[0, 1], [() => JournalTableConfigurationUpdates$, { [_hP]: 1, [_xN]: _JTC }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }], [0, { [_hH]: _xaebo }]], 2
+];
+export var UpdateObjectEncryptionRequest$: StaticStructureSchema = [3, n0, _UOER,
+  0,
+  [_B, _K, _OE, _VI, _RP, _EBO, _CMD, _CA],
+  [[0, 1], [0, 1], [() => ObjectEncryption$, 16], [0, { [_hQ]: _vI }], [0, { [_hH]: _xarp }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _CM }], [0, { [_hH]: _xasca }]], 3
+];
+export var UpdateObjectEncryptionResponse$: StaticStructureSchema = [3, n0, _UOERp,
+  0,
+  [_RC],
+  [[0, { [_hH]: _xarc }]]
 ];
 export var UploadPartCopyOutput$: StaticStructureSchema = [3, n0, _UPCO,
   0,
@@ -2903,6 +2934,11 @@ export var MetricsFilter$: StaticUnionSchema = [4, n0, _MF,
   0,
   [_P, _Ta, _APAc, _An],
   [0, () => Tag$, 0, [() => MetricsAndOperator$, 0]]
+];
+export var ObjectEncryption$: StaticUnionSchema = [4, n0, _OE,
+  0,
+  [_SSEKMS],
+  [[() => SSEKMSEncryption$, { [_xN]: _SK }]]
 ];
 export var SelectObjectContentEventStream$: StaticUnionSchema = [4, n0, _SOCES,
   { [_s]: 1 },
@@ -3217,6 +3253,9 @@ export var UpdateBucketMetadataInventoryTableConfiguration$: StaticOperationSche
 ];
 export var UpdateBucketMetadataJournalTableConfiguration$: StaticOperationSchema = [9, n0, _UBMJTC,
   { [_hC]: "-", [_h]: ["PUT", "/?metadataJournalTable", 200] }, () => UpdateBucketMetadataJournalTableConfigurationRequest$, () => __Unit
+];
+export var UpdateObjectEncryption$: StaticOperationSchema = [9, n0, _UOE,
+  { [_hC]: "-", [_h]: ["PUT", "/{Key+}?encryption", 200] }, () => UpdateObjectEncryptionRequest$, () => UpdateObjectEncryptionResponse$
 ];
 export var UploadPart$: StaticOperationSchema = [9, n0, _UP,
   { [_hC]: "-", [_h]: ["PUT", "/{Key+}?x-id=UploadPart", 200] }, () => UploadPartRequest$, () => UploadPartOutput$
