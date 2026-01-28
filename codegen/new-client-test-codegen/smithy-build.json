@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "sources": ["models"],
+  "plugins": {
+    "typescript-client-codegen": {
+      "service": "example.weather#Weather",
+      "package": "@aws-sdk/client-test-weather",
+      "packageVersion": "0.0.1"
+    }
+  }
+}
