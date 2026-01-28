@@ -124,6 +124,10 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *       LambdaArn: "STRING_VALUE", // required
  *     },
  *     KMSKeyID: "STRING_VALUE",
+ *     InboundFederation: { // InboundFederationLambdaType
+ *       LambdaVersion: "V1_0", // required
+ *       LambdaArn: "STRING_VALUE", // required
+ *     },
  *   },
  *   AutoVerifiedAttributes: [ // VerifiedAttributesListType
  *     "phone_number" || "email",
@@ -263,6 +267,10 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * //         LambdaArn: "STRING_VALUE", // required
  * //       },
  * //       KMSKeyID: "STRING_VALUE",
+ * //       InboundFederation: { // InboundFederationLambdaType
+ * //         LambdaVersion: "V1_0", // required
+ * //         LambdaArn: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     Status: "Enabled" || "Disabled",
  * //     LastModifiedDate: new Date("TIMESTAMP"),
@@ -472,6 +480,10 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *       LambdaVersion: "V1_0"
  *     },
  *     DefineAuthChallenge: "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",
+ *     InboundFederation: {
+ *       LambdaArn: "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",
+ *       LambdaVersion: "V1_0"
+ *     },
  *     KMSKeyID: "arn:aws:kms:us-east-1:123456789012:key/a6c4f8e2-0c45-47db-925f-87854bc9e357",
  *     PostAuthentication: "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",
  *     PostConfirmation: "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",
@@ -596,6 +608,10 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *         LambdaVersion: "V1_0"
  *       },
  *       DefineAuthChallenge: "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",
+ *       InboundFederation: {
+ *         LambdaArn: "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",
+ *         LambdaVersion: "V1_0"
+ *       },
  *       KMSKeyID: "arn:aws:kms:us-east-1:767671399759:key/4d43904c-8edf-4bb4-9fca-fb1a80e41cbe",
  *       PostAuthentication: "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",
  *       PostConfirmation: "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",

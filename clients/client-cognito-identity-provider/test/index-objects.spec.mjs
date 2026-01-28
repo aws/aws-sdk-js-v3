@@ -388,6 +388,8 @@ import {
   HttpHeader$,
   IdentityProviderType$,
   IdentityProviderTypeType,
+  InboundFederationLambdaType$,
+  InboundFederationLambdaVersionType,
   InitiateAuth$,
   InitiateAuthCommand,
   InitiateAuthRequest$,
@@ -1139,6 +1141,7 @@ assert(typeof GlobalSignOutResponse$ === "object");
 assert(typeof GroupType$ === "object");
 assert(typeof HttpHeader$ === "object");
 assert(typeof IdentityProviderType$ === "object");
+assert(typeof InboundFederationLambdaType$ === "object");
 assert(typeof InitiateAuthRequest$ === "object");
 assert(typeof InitiateAuthResponse$ === "object");
 assert(typeof LambdaConfigType$ === "object");
@@ -1299,6 +1302,7 @@ assert(typeof ExplicitAuthFlowsType === "object");
 assert(typeof FeatureType === "object");
 assert(typeof FeedbackValueType === "object");
 assert(typeof IdentityProviderTypeType === "object");
+assert(typeof InboundFederationLambdaVersionType === "object");
 assert(typeof LogLevel === "object");
 assert(typeof MessageActionType === "object");
 assert(typeof OAuthFlowType === "object");

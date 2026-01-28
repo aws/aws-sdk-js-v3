@@ -448,7 +448,9 @@ const _IARn = "InitiateAuthResponse";
 const _IAn = "InitiateAuth";
 const _IEE = "InternalErrorException";
 const _IERAPE = "InvalidEmailRoleAccessPolicyException";
-const _IF = "ImageFile";
+const _IF = "InboundFederation";
+const _IFLT = "InboundFederationLambdaType";
+const _IFm = "ImageFile";
 const _II = "IdpIdentifiers";
 const _IId = "IdpIdentifier";
 const _ILRE = "InvalidLambdaResponseException";
@@ -1917,6 +1919,11 @@ export var IdentityProviderType$: StaticStructureSchema = [3, n0, _IPT,
   [_UPI, _PN, _PTr, _PD, _AMt, _II, _LMD, _CDr],
   [0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 4, 4]
 ];
+export var InboundFederationLambdaType$: StaticStructureSchema = [3, n0, _IFLT,
+  0,
+  [_LV, _LAa],
+  [0, 0], 2
+];
 export var InitiateAuthRequest$: StaticStructureSchema = [3, n0, _IAR,
   0,
   [_AF, _CI, _AP, _CM, _AM, _UCDs, _S],
@@ -1983,8 +1990,8 @@ export var InvalidUserPoolConfigurationException$: StaticErrorSchema = [-3, n0, 
 TypeRegistry.for(n0).registerError(InvalidUserPoolConfigurationException$, InvalidUserPoolConfigurationException);
 export var LambdaConfigType$: StaticStructureSchema = [3, n0, _LCT,
   0,
-  [_PSU, _CMu, _PC, _PA, _PAo, _DAC, _CAC, _VACR, _PTG, _UM, _PTGC, _CSMSS, _CES, _KMSKID],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => PreTokenGenerationVersionConfigType$, () => CustomSMSLambdaVersionConfigType$, () => CustomEmailLambdaVersionConfigType$, 0]
+  [_PSU, _CMu, _PC, _PA, _PAo, _DAC, _CAC, _VACR, _PTG, _UM, _PTGC, _CSMSS, _CES, _KMSKID, _IF],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => PreTokenGenerationVersionConfigType$, () => CustomSMSLambdaVersionConfigType$, () => CustomEmailLambdaVersionConfigType$, 0, () => InboundFederationLambdaType$]
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _c, [_hE]: 400 },
@@ -2323,7 +2330,7 @@ export var SetRiskConfigurationResponse$: StaticStructureSchema = [3, n0, _SRCRe
 ];
 export var SetUICustomizationRequest$: StaticStructureSchema = [3, n0, _SUICR,
   0,
-  [_UPI, _CI, _CSS, _IF],
+  [_UPI, _CI, _CSS, _IFm],
   [0, [() => ClientIdType, 0], 0, 21], 1
 ];
 export var SetUICustomizationResponse$: StaticStructureSchema = [3, n0, _SUICRe,
