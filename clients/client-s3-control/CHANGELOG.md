@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.978.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.977.0...v3.978.0) (2026-01-28)
+
+
+### Features
+
+* **client-s3-control:** Adds support for the UpdateObjectEncryption API to change the server-side encryption type of objects in general purpose buckets. ([8248439](https://github.com/aws/aws-sdk-js-v3/commit/8248439e1282117f33ab10921235f52f75d3621e))
+
+
+
+
+
 # [3.975.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.974.0...v3.975.0) (2026-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.978.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.977.0...v3.978.0) (2026-01-28)
+
+
+### Features
+
+* **client-cognito-identity-provider:** This release adds support for a new lambda trigger to transform federated user attributes during the authentication with external identity providers on Cognito Managed Login. ([a291dae](https://github.com/aws/aws-sdk-js-v3/commit/a291daefe8967585ee9bd1f8086690af87568623))
+* **client-connect:** Adds support for filtering search results based on tags assigned to contacts. ([c3e7a41](https://github.com/aws/aws-sdk-js-v3/commit/c3e7a41b040835b894c6908438839cd0ef44fc24))
+* **client-ec2:** SearchTransitGatewayRoutes API response now includes a NextToken field, enabling pagination when retrieving large sets of transit gateway routes. Pass the returned NextToken value in subsequent requests to retrieve the next page of results. ([11fdee1](https://github.com/aws/aws-sdk-js-v3/commit/11fdee1e4f51117f3025fb04b399e594021ad674))
+* **client-lambda:** We are launching ESM Metrics and logging for Kafka ESM to allow customers to monitor Kafka event processing using CloudWatch Metrics and Logs. ([af7d3d5](https://github.com/aws/aws-sdk-js-v3/commit/af7d3d552abf4749a75b6f38b7d1fe6aa5f371c3))
+* **client-mediaconnect:** This release adds support for NDI flow sources in AWS Elemental MediaConnect. You can now send content to your MediaConnect transport streams directly from your NDI environment using the new NDI source type. Also adds support for LARGE 4X flow size, which can be used when creating CDI JPEG-XS flows. ([a5e075c](https://github.com/aws/aws-sdk-js-v3/commit/a5e075c88f5ca8e19e57c2c20082cd98e972618f))
+* **client-mediaconvert:** This release adds a follow source mode for audio output channel count, an AES audio frame wrapping option for MXF outputs, and an option to signal DolbyVision compatibility using the SUPPLEMENTAL-CODECS tag in HLS manifests. ([9ee4545](https://github.com/aws/aws-sdk-js-v3/commit/9ee454571eddbb0bc108b35a3dac0154ae36750e))
+* **client-s3-control:** Adds support for the UpdateObjectEncryption API to change the server-side encryption type of objects in general purpose buckets. ([8248439](https://github.com/aws/aws-sdk-js-v3/commit/8248439e1282117f33ab10921235f52f75d3621e))
+* **client-s3:** Adds support for the UpdateObjectEncryption API to change the server-side encryption type of objects in general purpose buckets. ([b56cea5](https://github.com/aws/aws-sdk-js-v3/commit/b56cea5532c5b36fcc5e88c8f5c5c8b67a0e4a12))
+
+
+
+
+
 # [3.977.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.976.0...v3.977.0) (2026-01-27)
 
 

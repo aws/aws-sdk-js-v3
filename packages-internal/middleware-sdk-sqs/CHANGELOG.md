@@ -6,6 +6,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.4 (2026-01-27)
+### Chores
+* **codegen:** update for aggregated paginators and waiters ([#7685](https://github.com/aws/aws-sdk-js-v3/issues/7685)) ([024c073](https://github.com/aws/aws-sdk-js-v3/commit/024c073179273a46703ed5bf371006fc48e6ebee))
+
+
+
 # 3.972.3 (2026-01-25)
 ### Chores
 * **packages-internal:** update metadata url paths ([#7679](https://github.com/aws/aws-sdk-js-v3/issues/7679)) ([c3a351c](https://github.com/aws/aws-sdk-js-v3/commit/c3a351c1fdbb8e8124ddadfd07a2d29f88ec47f1))

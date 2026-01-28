@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.978.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.977.0...v3.978.0) (2026-01-28)
+
+
+### Features
+
+* **client-cognito-identity-provider:** This release adds support for a new lambda trigger to transform federated user attributes during the authentication with external identity providers on Cognito Managed Login. ([a291dae](https://github.com/aws/aws-sdk-js-v3/commit/a291daefe8967585ee9bd1f8086690af87568623))
+
+
+
+
+
 # [3.975.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.974.0...v3.975.0) (2026-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

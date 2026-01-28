@@ -7,6 +7,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.4 (2026-01-27)
+### Chores
+* **codegen:** update for aggregated paginators and waiters ([#7685](https://github.com/aws/aws-sdk-js-v3/issues/7685)) ([024c073](https://github.com/aws/aws-sdk-js-v3/commit/024c073179273a46703ed5bf371006fc48e6ebee))
+
+
+
 # 3.973.3 (2026-01-27)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.978.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.977.0...v3.978.0) (2026-01-28)
+
+
+### Features
+
+* **client-connect:** Adds support for filtering search results based on tags assigned to contacts. ([c3e7a41](https://github.com/aws/aws-sdk-js-v3/commit/c3e7a41b040835b894c6908438839cd0ef44fc24))
+
+
+
+
+
 # [3.977.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.976.0...v3.977.0) (2026-01-27)
 
 
