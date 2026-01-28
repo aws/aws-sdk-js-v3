@@ -22684,15 +22684,16 @@ export var SearchTransitGatewayMulticastGroupsResult$: StaticStructureSchema = [
 ];
 export var SearchTransitGatewayRoutesRequest$: StaticStructureSchema = [3, n0, _STGRR,
   0,
-  [_TGRTI, _Fi, _MR, _DR],
-  [0, [() => FilterList, { [_xN]: _Fil }], 1, 2], 2
+  [_TGRTI, _Fi, _MR, _DR, _NTe],
+  [0, [() => FilterList, { [_xN]: _Fil }], 1, 2, 0], 2
 ];
 export var SearchTransitGatewayRoutesResult$: StaticStructureSchema = [3, n0, _STGRRe,
   0,
-  [_Rou, _ARAd],
+  [_Rou, _ARAd, _NTe],
   [[() => TransitGatewayRouteList, { [_eQN]: `RouteSet`
   , [_xN]: _rSou }], [2, { [_eQN]: `AdditionalRoutesAvailable`
-  , [_xN]: _aRAd }]]
+  , [_xN]: _aRAd }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
 ];
 export var SecurityGroup$: StaticStructureSchema = [3, n0, _SGe,
   0,

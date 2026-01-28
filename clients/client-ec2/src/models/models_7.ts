@@ -6248,6 +6248,12 @@ export interface SearchTransitGatewayRoutesRequest {
    * @public
    */
   DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6265,6 +6271,12 @@ export interface SearchTransitGatewayRoutesResult {
    * @public
    */
   AdditionalRoutesAvailable?: boolean | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**

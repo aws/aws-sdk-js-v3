@@ -3913,6 +3913,7 @@ import { paginateListImagesInRecycleBin } from "./pagination/ListImagesInRecycle
 import { paginateListSnapshotsInRecycleBin } from "./pagination/ListSnapshotsInRecycleBinPaginator";
 import { paginateSearchLocalGatewayRoutes } from "./pagination/SearchLocalGatewayRoutesPaginator";
 import { paginateSearchTransitGatewayMulticastGroups } from "./pagination/SearchTransitGatewayMulticastGroupsPaginator";
+import { paginateSearchTransitGatewayRoutes } from "./pagination/SearchTransitGatewayRoutesPaginator";
 import { waitUntilBundleTaskComplete } from "./waiters/waitForBundleTaskComplete";
 import { waitUntilConversionTaskCancelled } from "./waiters/waitForConversionTaskCancelled";
 import { waitUntilConversionTaskCompleted } from "./waiters/waitForConversionTaskCompleted";
@@ -4870,6 +4871,7 @@ const paginators = {
   paginateListSnapshotsInRecycleBin,
   paginateSearchLocalGatewayRoutes,
   paginateSearchTransitGatewayMulticastGroups,
+  paginateSearchTransitGatewayRoutes,
 };
 const waiters = {
   waitUntilBundleTaskComplete,
@@ -19665,6 +19667,17 @@ export interface EC2 {
     args: SearchTransitGatewayMulticastGroupsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<SearchTransitGatewayMulticastGroupsCommandOutput>;
+
+  /**
+   * @see {@link SearchTransitGatewayRoutesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchTransitGatewayRoutesCommandOutput}.
+   */
+  paginateSearchTransitGatewayRoutes(
+    args: SearchTransitGatewayRoutesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchTransitGatewayRoutesCommandOutput>;
 
   /**
    * @see {@link DescribeBundleTasksCommand}

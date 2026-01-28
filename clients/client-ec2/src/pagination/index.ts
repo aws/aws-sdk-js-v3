@@ -163,3 +163,4 @@ export * from "./ListImagesInRecycleBinPaginator";
 export * from "./ListSnapshotsInRecycleBinPaginator";
 export * from "./SearchLocalGatewayRoutesPaginator";
 export * from "./SearchTransitGatewayMulticastGroupsPaginator";
+export * from "./SearchTransitGatewayRoutesPaginator";

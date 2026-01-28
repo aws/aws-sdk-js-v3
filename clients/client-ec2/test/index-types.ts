@@ -5245,4 +5245,5 @@ export type {
   paginateListSnapshotsInRecycleBin,
   paginateSearchLocalGatewayRoutes,
   paginateSearchTransitGatewayMulticastGroups,
+  paginateSearchTransitGatewayRoutes,
 } from "../dist-types/index.d";

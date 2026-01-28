@@ -3646,6 +3646,7 @@ import {
   paginateListSnapshotsInRecycleBin,
   paginateSearchLocalGatewayRoutes,
   paginateSearchTransitGatewayMulticastGroups,
+  paginateSearchTransitGatewayRoutes,
   PartitionLoadFrequency,
   PathComponent$,
   PathFilter$,
@@ -9000,4 +9001,5 @@ assert(typeof paginateListImagesInRecycleBin === "function");
 assert(typeof paginateListSnapshotsInRecycleBin === "function");
 assert(typeof paginateSearchLocalGatewayRoutes === "function");
 assert(typeof paginateSearchTransitGatewayMulticastGroups === "function");
+assert(typeof paginateSearchTransitGatewayRoutes === "function");
 console.log(`EC2 index test passed.`);
