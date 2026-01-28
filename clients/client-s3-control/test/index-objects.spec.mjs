@@ -388,6 +388,7 @@ import {
   NotFoundException,
   NotFoundException$,
   NotSSEFilter$,
+  ObjectEncryption$,
   ObjectEncryptionFilter$,
   ObjectLambdaAccessPoint$,
   ObjectLambdaAccessPointAlias$,
@@ -522,6 +523,8 @@ import {
   S3SSEAlgorithm,
   S3StorageClass,
   S3Tag$,
+  S3UpdateObjectEncryptionOperation$,
+  S3UpdateObjectEncryptionSSEKMS$,
   Scope$,
   ScopePermission,
   SelectionCriteria$,
@@ -983,6 +986,7 @@ assert(typeof MultiRegionAccessPointsAsyncResponse$ === "object");
 assert(typeof NoncurrentVersionExpiration$ === "object");
 assert(typeof NoncurrentVersionTransition$ === "object");
 assert(typeof NotSSEFilter$ === "object");
+assert(typeof ObjectEncryption$ === "object");
 assert(typeof ObjectEncryptionFilter$ === "object");
 assert(typeof ObjectLambdaAccessPoint$ === "object");
 assert(typeof ObjectLambdaAccessPointAlias$ === "object");
@@ -1046,6 +1050,8 @@ assert(typeof S3SetObjectLegalHoldOperation$ === "object");
 assert(typeof S3SetObjectRetentionOperation$ === "object");
 assert(typeof S3SetObjectTaggingOperation$ === "object");
 assert(typeof S3Tag$ === "object");
+assert(typeof S3UpdateObjectEncryptionOperation$ === "object");
+assert(typeof S3UpdateObjectEncryptionSSEKMS$ === "object");
 assert(typeof Scope$ === "object");
 assert(typeof SelectionCriteria$ === "object");
 assert(typeof SourceSelectionCriteria$ === "object");

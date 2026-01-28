@@ -35,7 +35,6 @@ import {
   ReplicationStatus,
   ReplicationStorageClass,
   ReplicationTimeStatus,
-  RequestedJobStatus,
   S3CannedAccessControlList,
   S3ChecksumAlgorithm,
   S3GlacierJobTier,
@@ -2792,6 +2791,66 @@ export interface S3SetObjectTaggingOperation {
 export interface S3ReplicateObjectOperation {}
 
 /**
+ * <p>If <code>SSEKMS</code> is specified for <code>UpdateObjectEncryption</code>,
+ *  this data type specifies the Amazon Web Services KMS key Amazon Resource Name (ARN) to use
+ *  and whether to use an S3 Bucket Key for server-side encryption using
+ *  Key Management Service (KMS) keys (SSE-KMS).</p>
+ * @public
+ */
+export interface S3UpdateObjectEncryptionSSEKMS {
+  /**
+   * <p>Specifies the Amazon Web Services KMS key Amazon Resource Name (ARN) to use for the
+   *  updated server-side encryption type. Required if <code>UpdateObjectEncryption</code>
+   *  specifies <code>SSEKMS</code>.</p>
+   * @public
+   */
+  KMSKeyArn: string | undefined;
+
+  /**
+   * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption
+   *  with server-side encryption using Key Management Service (KMS) keys (SSE-KMS). If this
+   *  value isn't specified, it defaults to <code>false</code>. Setting this value
+   *  to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for update object
+   *  encryption with SSE-KMS.</p>
+   * @public
+   */
+  BucketKeyEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>The updated server-side encryption type for this object. The
+ *  <code>UpdateObjectEncryption</code> operation supports the
+ *  SSE-KMS encryption type.</p>
+ *          <p>Valid Values: <code>SSEKMS</code>
+ *          </p>
+ * @public
+ */
+export interface ObjectEncryption {
+  /**
+   * <p>Specifies to update the object encryption type to server-side encryption
+   *  with Key Management Service (KMS) keys (SSE-KMS).</p>
+   * @public
+   */
+  SSEKMS?: S3UpdateObjectEncryptionSSEKMS | undefined;
+}
+
+/**
+ * <p>With the <code>UpdateObjectEncryption</code> operation, you can atomically
+ *  update the server-side encryption type of an existing object in a general
+ *  purpose bucket without any data movement.</p>
+ * @public
+ */
+export interface S3UpdateObjectEncryptionOperation {
+  /**
+   * <p>The updated server-side encryption type for this S3 object. The
+   *  <code>UpdateObjectEncryption</code> operation supports the
+   *  SSE-KMS encryption type.</p>
+   * @public
+   */
+  ObjectEncryption?: ObjectEncryption | undefined;
+}
+
+/**
  * <p>The operation that you want this job to perform on every object listed in the manifest.
  *          For more information about the available operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html">Operations</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
@@ -2897,6 +2956,19 @@ export interface JobOperation {
    * @public
    */
   S3ComputeObjectChecksum?: S3ComputeObjectChecksumOperation | undefined;
+
+  /**
+   * <p>Updates the server-side encryption type of an existing encrypted
+   *  object in a general purpose bucket. You can use the <code>UpdateObjectEncryption</code>
+   *  operation to change encrypted objects from server-side encryption with
+   *  Amazon S3 managed keys (SSE-S3) to server-side encryption with Key Management Service (KMS)
+   *  keys (SSE-KMS), or to apply S3 Bucket Keys. You can also use the
+   *  <code>UpdateObjectEncryption</code> operation to change the customer-managed
+   *  KMS key used to encrypt your data so that you can comply with custom
+   *  key-rotation standards.</p>
+   * @public
+   */
+  S3UpdateObjectEncryption?: S3UpdateObjectEncryptionOperation | undefined;
 }
 
 /**
@@ -7934,74 +8006,4 @@ export interface UpdateAccessGrantsLocationResult {
    * @public
    */
   IAMRoleArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateJobPriorityRequest {
-  /**
-   * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The ID for the job whose priority you want to update.</p>
-   * @public
-   */
-  JobId: string | undefined;
-
-  /**
-   * <p>The priority you want to assign to this job.</p>
-   * @public
-   */
-  Priority: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateJobPriorityResult {
-  /**
-   * <p>The ID for the job whose priority Amazon S3 updated.</p>
-   * @public
-   */
-  JobId: string | undefined;
-
-  /**
-   * <p>The new priority assigned to the specified job.</p>
-   * @public
-   */
-  Priority: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateJobStatusRequest {
-  /**
-   * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The ID of the job whose status you want to update.</p>
-   * @public
-   */
-  JobId: string | undefined;
-
-  /**
-   * <p>The status that you want to move the specified job to.</p>
-   * @public
-   */
-  RequestedJobStatus: RequestedJobStatus | undefined;
-
-  /**
-   * <p>A description of the reason why you want to change the specified job's status. This
-   *          field can be any string up to the maximum length.</p>
-   * @public
-   */
-  StatusUpdateReason?: string | undefined;
 }

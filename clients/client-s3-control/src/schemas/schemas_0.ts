@@ -357,6 +357,7 @@ const _Jo = "Jobs";
 const _K = "Key";
 const _KI = "KeyId";
 const _KKA = "KmsKeyArn";
+const _KMSKA = "KMSKeyArn";
 const _KNC = "KeyNameConstraint";
 const _L = "Location";
 const _LAG = "ListAccessGrants";
@@ -678,6 +679,9 @@ const _SSP = "S3SubPrefix";
 const _ST = "SessionToken";
 const _STS = "S3TagSet";
 const _STa = "S3Tag";
+const _SUOE = "S3UpdateObjectEncryption";
+const _SUOEO = "S3UpdateObjectEncryptionOperation";
+const _SUOESSEKMS = "S3UpdateObjectEncryptionSSEKMS";
 const _SUR = "StatusUpdateReason";
 const _Sp = "Spec";
 const _St = "Status";
@@ -981,7 +985,7 @@ export var CreateBucketResult$: StaticStructureSchema = [3, n0, _CBRr,
 export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJR,
   0,
   [_Op, _Re, _Pr, _RA, _AI, _CR, _CRT, _Ma, _D, _T, _MG],
-  [() => JobOperation$, () => JobReport$, 1, 0, [0, { [_hL]: 1, [_hH]: _xaai }], 2, [0, 4], () => JobManifest$, 0, () => S3TagSet, [() => JobManifestGenerator$, 0]], 4
+  [[() => JobOperation$, 0], () => JobReport$, 1, 0, [0, { [_hL]: 1, [_hH]: _xaai }], 2, [0, 4], () => JobManifest$, 0, () => S3TagSet, [() => JobManifestGenerator$, 0]], 4
 ];
 export var CreateJobResult$: StaticStructureSchema = [3, n0, _CJRr,
   0,
@@ -1530,7 +1534,7 @@ TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestExcep
 export var JobDescriptor$: StaticStructureSchema = [3, n0, _JD,
   0,
   [_JI, _CR, _D, _JA, _St, _Ma, _Op, _Pr, _PSr, _SUR, _FR, _Re, _CT, _TD, _RA, _SD, _SCu, _MG, _GMD],
-  [0, 2, 0, 0, 0, () => JobManifest$, () => JobOperation$, 1, () => JobProgressSummary$, 0, () => JobFailureList, () => JobReport$, 4, 4, 0, 4, 0, [() => JobManifestGenerator$, 0], () => S3GeneratedManifestDescriptor$]
+  [0, 2, 0, 0, 0, () => JobManifest$, [() => JobOperation$, 0], 1, () => JobProgressSummary$, 0, () => JobFailureList, () => JobReport$, 4, 4, 0, 4, 0, [() => JobManifestGenerator$, 0], () => S3GeneratedManifestDescriptor$]
 ];
 export var JobFailure$: StaticStructureSchema = [3, n0, _JF,
   0,
@@ -1564,8 +1568,8 @@ export var JobManifestSpec$: StaticStructureSchema = [3, n0, _JMS,
 ];
 export var JobOperation$: StaticStructureSchema = [3, n0, _JO,
   0,
-  [_LI, _SPOC, _SPOA, _SPOT, _SDOT, _SIRO, _SPOLH, _SPOR, _SRO, _SCOC],
-  [() => LambdaInvokeOperation$, () => S3CopyObjectOperation$, () => S3SetObjectAclOperation$, () => S3SetObjectTaggingOperation$, () => S3DeleteObjectTaggingOperation$, () => S3InitiateRestoreObjectOperation$, () => S3SetObjectLegalHoldOperation$, () => S3SetObjectRetentionOperation$, () => S3ReplicateObjectOperation$, () => S3ComputeObjectChecksumOperation$]
+  [_LI, _SPOC, _SPOA, _SPOT, _SDOT, _SIRO, _SPOLH, _SPOR, _SRO, _SCOC, _SUOE],
+  [() => LambdaInvokeOperation$, () => S3CopyObjectOperation$, () => S3SetObjectAclOperation$, () => S3SetObjectTaggingOperation$, () => S3DeleteObjectTaggingOperation$, () => S3InitiateRestoreObjectOperation$, () => S3SetObjectLegalHoldOperation$, () => S3SetObjectRetentionOperation$, () => S3ReplicateObjectOperation$, () => S3ComputeObjectChecksumOperation$, [() => S3UpdateObjectEncryptionOperation$, 0]]
 ];
 export var JobProgressSummary$: StaticStructureSchema = [3, n0, _JPS,
   0,
@@ -1849,6 +1853,11 @@ export var NotSSEFilter$: StaticStructureSchema = [3, n0, _NSSEF,
   0,
   [],
   []
+];
+export var ObjectEncryption$: StaticStructureSchema = [3, n0, _OE,
+  0,
+  [_SSEKMS],
+  [[() => S3UpdateObjectEncryptionSSEKMS$, { [_xN]: _SK }]]
 ];
 export var ObjectLambdaAccessPoint$: StaticStructureSchema = [3, n0, _OLAP,
   0,
@@ -2154,6 +2163,16 @@ export var S3Tag$: StaticStructureSchema = [3, n0, _STa,
   0,
   [_K, _V],
   [0, 0], 2
+];
+export var S3UpdateObjectEncryptionOperation$: StaticStructureSchema = [3, n0, _SUOEO,
+  0,
+  [_OE],
+  [[() => ObjectEncryption$, 0]]
+];
+export var S3UpdateObjectEncryptionSSEKMS$: StaticStructureSchema = [3, n0, _SUOESSEKMS,
+  { [_xN]: _SK },
+  [_KMSKA, _BKE],
+  [0, 2], 1
 ];
 export var Scope$: StaticStructureSchema = [3, n0, _S,
   0,

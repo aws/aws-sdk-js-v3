@@ -86,7 +86,7 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * //     { // JobListDescriptor
  * //       JobId: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       Operation: "LambdaInvoke" || "S3PutObjectCopy" || "S3PutObjectAcl" || "S3PutObjectTagging" || "S3DeleteObjectTagging" || "S3InitiateRestoreObject" || "S3PutObjectLegalHold" || "S3PutObjectRetention" || "S3ReplicateObject" || "S3ComputeObjectChecksum",
+ * //       Operation: "LambdaInvoke" || "S3PutObjectCopy" || "S3PutObjectAcl" || "S3PutObjectTagging" || "S3DeleteObjectTagging" || "S3InitiateRestoreObject" || "S3PutObjectLegalHold" || "S3PutObjectRetention" || "S3ReplicateObject" || "S3ComputeObjectChecksum" || "S3UpdateObjectEncryption",
  * //       Priority: Number("int"),
  * //       Status: "Active" || "Cancelled" || "Cancelling" || "Complete" || "Completing" || "Failed" || "Failing" || "New" || "Paused" || "Pausing" || "Preparing" || "Ready" || "Suspended",
  * //       CreationTime: new Date("TIMESTAMP"),
