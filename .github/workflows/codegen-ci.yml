@@ -29,6 +29,11 @@ jobs:
           java-version: ${{ matrix.java }}
           distribution: 'corretto'
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
         with:
@@ -47,3 +52,28 @@ jobs:
         run: |
           cd ./codegen
           ./gradlew :smithy-aws-typescript-codegen:publish
+
+      - name: Clean previous client generation
+        run: |
+          rm -rf codegen/new-client-test-codegen/build/smithyprojections
+
+      - name: Generate new client from test model
+        run: |
+          cd codegen
+          ./gradlew :new-client-test-codegen:build
+
+      - name: Verify client was generated
+        run: |
+          if [ ! -d "codegen/new-client-test-codegen/build/smithyprojections/new-client-test-codegen/source/typescript-client-codegen" ]; then
+            echo "ERROR: Client was not generated"
+            exit 1
+          fi
+          echo "Client generated successfully"
+
+      - name: Install dependencies and build client
+        run: |
+          cd codegen/new-client-test-codegen/build/smithyprojections/new-client-test-codegen/source/typescript-client-codegen
+          # create an empty yarn.lock
+          touch yarn.lock
+          yarn install
+          yarn build
