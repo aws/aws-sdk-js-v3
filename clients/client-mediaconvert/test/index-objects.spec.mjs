@@ -233,6 +233,7 @@ import {
   DisassociateCertificateRequest$,
   DisassociateCertificateResponse$,
   DolbyVision$,
+  DolbyVisionCompatibility,
   DolbyVisionLevel6Metadata$,
   DolbyVisionLevel6Mode,
   DolbyVisionMapping,
@@ -588,6 +589,7 @@ import {
   MxfAfdSignaling,
   MxfProfile,
   MxfSettings$,
+  MxfUncompressedAudioWrapping,
   MxfXavcDurationMode,
   MxfXavcProfileSettings$,
   NexGuardFileMarkerSettings$,
@@ -1298,6 +1300,7 @@ assert(typeof DeinterlaceAlgorithm === "object");
 assert(typeof DeinterlacerControl === "object");
 assert(typeof DeinterlacerMode === "object");
 assert(typeof DescribeEndpointsMode === "object");
+assert(typeof DolbyVisionCompatibility === "object");
 assert(typeof DolbyVisionLevel6Mode === "object");
 assert(typeof DolbyVisionMapping === "object");
 assert(typeof DolbyVisionProfile === "object");
@@ -1522,6 +1525,7 @@ assert(typeof MsSmoothFragmentLengthControl === "object");
 assert(typeof MsSmoothManifestEncoding === "object");
 assert(typeof MxfAfdSignaling === "object");
 assert(typeof MxfProfile === "object");
+assert(typeof MxfUncompressedAudioWrapping === "object");
 assert(typeof MxfXavcDurationMode === "object");
 assert(typeof NielsenActiveWatermarkProcessType === "object");
 assert(typeof NielsenSourceWatermarkStatusType === "object");

@@ -188,7 +188,8 @@ const _CV = "CttsVersion";
 const _Ca = "Category";
 const _Co = "Codec";
 const _Cod = "Code";
-const _Com = "Commitment";
+const _Com = "Compatibility";
+const _Comm = "Commitment";
 const _Con = "Contrast";
 const _Cont = "Container";
 const _Contr = "Control";
@@ -888,6 +889,7 @@ const _Tr = "Track";
 const _Tra = "Transitions";
 const _Ty = "Type";
 const _U = "Url";
+const _UAW = "UncompressedAudioWrapping";
 const _UCJ = "UnallocatedConcurrentJobs";
 const _UJT = "UpdateJobTemplate";
 const _UJTR = "UpdateJobTemplateRequest";
@@ -1115,7 +1117,8 @@ const _ca = "category";
 const _cl = "client";
 const _co = "codec";
 const _cod = "code";
-const _com = "commitment";
+const _com = "compatibility";
+const _comm = "commitment";
 const _con = "contrast";
 const _cont = "container";
 const _contr = "control";
@@ -1736,6 +1739,7 @@ const _timi = "timing";
 const _tr = "transitions";
 const _ty = "type";
 const _u = "url";
+const _uAW = "uncompressedAudioWrapping";
 const _uCJ = "unallocatedConcurrentJobs";
 const _uM = "userMetadata";
 const _uS = "uncompressedSettings";
@@ -2209,8 +2213,8 @@ export var DisassociateCertificateResponse$: StaticStructureSchema = [3, n0, _DC
 ];
 export var DolbyVision$: StaticStructureSchema = [3, n0, _DV,
   0,
-  [_LM, _LMo, _Ma, _Pr],
-  [[() => DolbyVisionLevel6Metadata$, { [_jN]: _lM }], [0, { [_jN]: _lMo }], [0, { [_jN]: _ma }], [0, { [_jN]: _pr }]]
+  [_Com, _LM, _LMo, _Ma, _Pr],
+  [[0, { [_jN]: _com }], [() => DolbyVisionLevel6Metadata$, { [_jN]: _lM }], [0, { [_jN]: _lMo }], [0, { [_jN]: _ma }], [0, { [_jN]: _pr }]]
 ];
 export var DolbyVisionLevel6Metadata$: StaticStructureSchema = [3, n0, _DVLM,
   0,
@@ -2721,8 +2725,8 @@ export var MsSmoothGroupSettings$: StaticStructureSchema = [3, n0, _MSGS,
 ];
 export var MxfSettings$: StaticStructureSchema = [3, n0, _MSx,
   0,
-  [_ASf, _Pr, _XPS],
-  [[0, { [_jN]: _aSf }], [0, { [_jN]: _pr }], [() => MxfXavcProfileSettings$, { [_jN]: _xPS }]]
+  [_ASf, _Pr, _UAW, _XPS],
+  [[0, { [_jN]: _aSf }], [0, { [_jN]: _pr }], [0, { [_jN]: _uAW }], [() => MxfXavcProfileSettings$, { [_jN]: _xPS }]]
 ];
 export var MxfXavcProfileSettings$: StaticStructureSchema = [3, n0, _MXPS,
   0,
@@ -2892,13 +2896,13 @@ export var RemixSettings$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var ReservationPlan$: StaticStructureSchema = [3, n0, _RPe,
   0,
-  [_Com, _EA, _PA, _RTe, _RSe, _Sta],
-  [[0, { [_jN]: _com }], [7, { [_jN]: _eA }], [7, { [_jN]: _pA }], [0, { [_jN]: _rTe }], [1, { [_jN]: _rSe }], [0, { [_jN]: _sta }]]
+  [_Comm, _EA, _PA, _RTe, _RSe, _Sta],
+  [[0, { [_jN]: _comm }], [7, { [_jN]: _eA }], [7, { [_jN]: _pA }], [0, { [_jN]: _rTe }], [1, { [_jN]: _rSe }], [0, { [_jN]: _sta }]]
 ];
 export var ReservationPlanSettings$: StaticStructureSchema = [3, n0, _RPS,
   0,
-  [_Com, _RTe, _RSe],
-  [[0, { [_jN]: _com }], [0, { [_jN]: _rTe }], [1, { [_jN]: _rSe }]], 3
+  [_Comm, _RTe, _RSe],
+  [[0, { [_jN]: _comm }], [0, { [_jN]: _rTe }], [1, { [_jN]: _rSe }]], 3
 ];
 export var ResourceTags$: StaticStructureSchema = [3, n0, _RT,
   0,

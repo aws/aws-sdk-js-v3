@@ -174,6 +174,7 @@ export const AacCodingMode = {
   CODING_MODE_1_1: "CODING_MODE_1_1",
   CODING_MODE_2_0: "CODING_MODE_2_0",
   CODING_MODE_5_1: "CODING_MODE_5_1",
+  CODING_MODE_AUTO: "CODING_MODE_AUTO",
 } as const;
 /**
  * @public
@@ -275,6 +276,7 @@ export const Ac3CodingMode = {
   CODING_MODE_1_1: "CODING_MODE_1_1",
   CODING_MODE_2_0: "CODING_MODE_2_0",
   CODING_MODE_3_2_LFE: "CODING_MODE_3_2_LFE",
+  CODING_MODE_AUTO: "CODING_MODE_AUTO",
 } as const;
 /**
  * @public
@@ -566,6 +568,7 @@ export const Eac3CodingMode = {
   CODING_MODE_1_0: "CODING_MODE_1_0",
   CODING_MODE_2_0: "CODING_MODE_2_0",
   CODING_MODE_3_2: "CODING_MODE_3_2",
+  CODING_MODE_AUTO: "CODING_MODE_AUTO",
 } as const;
 /**
  * @public
@@ -3818,6 +3821,20 @@ export type MxfProfile = (typeof MxfProfile)[keyof typeof MxfProfile];
  * @public
  * @enum
  */
+export const MxfUncompressedAudioWrapping = {
+  AES3: "AES3",
+  AUTO: "AUTO",
+} as const;
+/**
+ * @public
+ */
+export type MxfUncompressedAudioWrapping =
+  (typeof MxfUncompressedAudioWrapping)[keyof typeof MxfUncompressedAudioWrapping];
+
+/**
+ * @public
+ * @enum
+ */
 export const MxfXavcDurationMode = {
   ALLOW_ANY_DURATION: "ALLOW_ANY_DURATION",
   DROP_FRAMES_FOR_COMPLIANCE: "DROP_FRAMES_FOR_COMPLIANCE",
@@ -6264,6 +6281,19 @@ export type DeinterlacerMode = (typeof DeinterlacerMode)[keyof typeof Deinterlac
  * @public
  * @enum
  */
+export const DolbyVisionCompatibility = {
+  DUPLICATE_STREAM: "DUPLICATE_STREAM",
+  SUPPLEMENTAL_CODECS: "SUPPLEMENTAL_CODECS",
+} as const;
+/**
+ * @public
+ */
+export type DolbyVisionCompatibility = (typeof DolbyVisionCompatibility)[keyof typeof DolbyVisionCompatibility];
+
+/**
+ * @public
+ * @enum
+ */
 export const DolbyVisionLevel6Mode = {
   PASSTHROUGH: "PASSTHROUGH",
   RECALCULATE: "RECALCULATE",
@@ -6508,6 +6538,7 @@ export const Format = {
   mp4: "mp4",
   mxf: "mxf",
   quicktime: "quicktime",
+  wave: "wave",
   webm: "webm",
 } as const;
 /**
