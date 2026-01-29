@@ -76,3 +76,9 @@ jobs:
           touch yarn.lock
           yarn install --no-immutable
           yarn build
+
+      - name: Run validation checks on generated client
+        run: |
+          cd codegen/new-client-test-codegen/build/smithyprojections/new-client-test-codegen/source/typescript-client-codegen
+          node ../../../../../../../scripts/runtime-dependency-version-check/runtime-dep-version-check.js
+          node ../../../../../../../scripts/runtime-dependency-version-check/check-dependencies.js
