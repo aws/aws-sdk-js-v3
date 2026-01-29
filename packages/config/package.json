@@ -86,9 +86,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "*",
-    "@aws-sdk/credential-providers": "*",
-    "@aws-sdk/types": "*",
+    "@aws-sdk/core": "workspace:^3.973.4",
+    "@aws-sdk/credential-providers": "workspace:3.978.0",
+    "@aws-sdk/types": "workspace:^3.973.1",
     "@smithy/core": "^3.22.0",
     "@smithy/fetch-http-handler": "^5.3.9",
     "@smithy/node-http-handler": "^4.4.8",

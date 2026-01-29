@@ -22,7 +22,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/util-user-agent-node": "*",
+    "@aws-sdk/util-user-agent-node": "workspace:^3.972.2",
     "aws-crt": "^1.24.0",
     "tslib": "^2.6.2"
   },

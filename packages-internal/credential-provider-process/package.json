@@ -26,8 +26,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "*",
-    "@aws-sdk/types": "*",
+    "@aws-sdk/core": "workspace:^3.973.4",
+    "@aws-sdk/types": "workspace:^3.973.1",
     "@smithy/property-provider": "^4.2.8",
     "@smithy/shared-ini-file-loader": "^4.4.3",
     "@smithy/types": "^4.12.0",

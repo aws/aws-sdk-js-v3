@@ -22,9 +22,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/chunked-stream-reader-node": "*",
-    "@aws-sdk/sha256-tree-hash": "*",
-    "@aws-sdk/types": "*",
+    "@aws-sdk/chunked-stream-reader-node": "workspace:^3.972.2",
+    "@aws-sdk/sha256-tree-hash": "workspace:^3.972.2",
+    "@aws-sdk/types": "workspace:^3.973.1",
     "@smithy/is-array-buffer": "^4.2.0",
     "@smithy/protocol-http": "^5.3.8",
     "@smithy/types": "^4.12.0",

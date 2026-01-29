@@ -21,7 +21,7 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/types": "*",
+    "@aws-sdk/types": "workspace:^3.973.1",
     "@smithy/protocol-http": "^5.3.8",
     "@smithy/querystring-builder": "^4.2.8",
     "@smithy/types": "^4.12.0",
