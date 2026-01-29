@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.979.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.978.0...v3.979.0) (2026-01-29)
+
+
+### Bug Fixes
+
+* **credential-provider-node:** open credential provider lock after failed chain ([#7692](https://github.com/aws/aws-sdk-js-v3/issues/7692)) ([2320c7c](https://github.com/aws/aws-sdk-js-v3/commit/2320c7c0b3dea3d17177c9ba2d20b16fd0d9b0b0))
+
+
+### Features
+
+* **client-ec2:** G7e instances feature up to 8 NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs with 768 GB of memory and 5th generation Intel Xeon Scalable processors. Supporting up to 192 vCPUs, 1600 Gbps networking bandwidth with EFA, up to 2 TiB of system memory, and up to 15.2 TB of local NVMe SSD storage. ([5678db8](https://github.com/aws/aws-sdk-js-v3/commit/5678db816bf3dc3b202016cd3fe8b70ab27f0b67))
+* **client-gamelift:** Amazon GameLift Servers now supports automatic scaling to and from zero instances based on game session activity. Fleets scale down to zero following a defined period of no game session activity and scale up from zero when game sessions are requested, providing an option for cost optimization. ([6b625f5](https://github.com/aws/aws-sdk-js-v3/commit/6b625f59eb1d74b23d68fd3a4136190bf1b6b4b2))
+
+
+
+
+
 # [3.978.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.977.0...v3.978.0) (2026-01-28)
 
 

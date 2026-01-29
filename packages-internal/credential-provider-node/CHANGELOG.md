@@ -5,6 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.3 (2026-01-29)
+### Bug Fixes
+* **credential-provider-node:** open credential provider lock after failed chain ([#7692](https://github.com/aws/aws-sdk-js-v3/issues/7692)) ([2320c7c](https://github.com/aws/aws-sdk-js-v3/commit/2320c7c0b3dea3d17177c9ba2d20b16fd0d9b0b0))
+
+
+
 # 3.972.2 (2026-01-25)
 ### Chores
 * **packages-internal:** update metadata url paths ([#7679](https://github.com/aws/aws-sdk-js-v3/issues/7679)) ([c3a351c](https://github.com/aws/aws-sdk-js-v3/commit/c3a351c1fdbb8e8124ddadfd07a2d29f88ec47f1))

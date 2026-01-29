@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.979.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.978.0...v3.979.0) (2026-01-29)
+
+
+### Features
+
+* **client-gamelift:** Amazon GameLift Servers now supports automatic scaling to and from zero instances based on game session activity. Fleets scale down to zero following a defined period of no game session activity and scale up from zero when game sessions are requested, providing an option for cost optimization. ([6b625f5](https://github.com/aws/aws-sdk-js-v3/commit/6b625f59eb1d74b23d68fd3a4136190bf1b6b4b2))
+
+
+
+
+
 # [3.978.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.977.0...v3.978.0) (2026-01-28)
 
 **Note:** Version bump only for package @aws-sdk/client-gamelift
