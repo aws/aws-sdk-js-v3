@@ -34,7 +34,6 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  *             capacity determines the number of game sessions and players that the fleet can host
  *             based on its configuration. For fleets with multiple locations, use this operation to
  *             manage capacity settings in each location individually.</p>
- *          <p>Use this operation to set these fleet capacity properties: </p>
  *          <ul>
  *             <li>
  *                <p>Minimum/maximum size: Set hard limits on the number of Amazon EC2 instances allowed. If Amazon GameLift Servers receives a
@@ -60,7 +59,19 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  *          <p>Updates often prompt an immediate change in fleet capacity, such as when current
  *             capacity is different than the new desired capacity or outside the new limits. In this
  *             scenario, Amazon GameLift Servers automatically initiates steps to add or remove instances in the fleet
- *             location. You can track a fleet's current capacity by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html">DescribeFleetCapacity</a> or <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">DescribeFleetLocationCapacity</a>. </p>
+ *             location. You can track a fleet's current capacity by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html">DescribeFleetCapacity</a> or <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">DescribeFleetLocationCapacity</a>.</p>
+ *          <p> Use ManagedCapacityConfiguration with the "SCALE_TO_AND_FROM_ZERO" ZeroCapacityStrategy to enable Amazon
+ *             GameLift Servers to fully manage the MinSize value, switching between 0 and 1 based on game session
+ *             activity. This is ideal for eliminating compute costs during periods of no game activity.
+ *             It is particularly beneficial during development when you're away from your desk, iterating on builds
+ *             for extended periods, in production environments serving low-traffic locations, or for games with long,
+ *             predictable downtime windows. By automatically managing capacity between 0 and 1 instances, you avoid paying
+ *             for idle instances while maintaining the ability to serve game sessions when demand arrives. Note that while
+ *             scale-out is triggered immediately upon receiving a game session request, actual game session availability
+ *             depends on your server process startup time, so this approach works best with multi-location Fleets where
+ *             cold-start latency is tolerable. With a "MANUAL" ZeroCapacityStrategy Amazon GameLift Servers will not
+ *             modify Fleet MinSize values automatically and will not scale out from zero instances in response to game
+ *             sessions. This is configurable per-location.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
@@ -82,6 +93,10 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  *   MinSize: Number("int"),
  *   MaxSize: Number("int"),
  *   Location: "STRING_VALUE",
+ *   ManagedCapacityConfiguration: { // ManagedCapacityConfiguration
+ *     ZeroCapacityStrategy: "MANUAL" || "SCALE_TO_AND_FROM_ZERO",
+ *     ScaleInAfterInactivityMinutes: Number("int"),
+ *   },
  * };
  * const command = new UpdateFleetCapacityCommand(input);
  * const response = await client.send(command);
@@ -89,6 +104,10 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  * //   FleetId: "STRING_VALUE",
  * //   FleetArn: "STRING_VALUE",
  * //   Location: "STRING_VALUE",
+ * //   ManagedCapacityConfiguration: { // ManagedCapacityConfiguration
+ * //     ZeroCapacityStrategy: "MANUAL" || "SCALE_TO_AND_FROM_ZERO",
+ * //     ScaleInAfterInactivityMinutes: Number("int"),
+ * //   },
  * // };
  *
  * ```

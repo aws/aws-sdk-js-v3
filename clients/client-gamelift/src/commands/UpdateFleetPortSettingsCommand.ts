@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import type { UpdateFleetPortSettingsInput, UpdateFleetPortSettingsOutput } from "../models/models_0";
+import type { UpdateFleetPortSettingsInput } from "../models/models_0";
+import type { UpdateFleetPortSettingsOutput } from "../models/models_1";
 import { UpdateFleetPortSettings$ } from "../schemas/schemas_0";
 
 /**

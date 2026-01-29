@@ -458,6 +458,7 @@ import {
   LocationUpdateStatus,
   LogConfiguration$,
   LogDestination,
+  ManagedCapacityConfiguration$,
   MatchedPlayerSession$,
   MatchmakingConfiguration$,
   MatchmakingConfigurationStatus,
@@ -673,6 +674,7 @@ import {
   VpcPeeringAuthorization$,
   VpcPeeringConnection$,
   VpcPeeringConnectionStatus$,
+  ZeroCapacityStrategy,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -1138,6 +1140,7 @@ assert(typeof LocationConfiguration$ === "object");
 assert(typeof LocationModel$ === "object");
 assert(typeof LocationState$ === "object");
 assert(typeof LogConfiguration$ === "object");
+assert(typeof ManagedCapacityConfiguration$ === "object");
 assert(typeof MatchedPlayerSession$ === "object");
 assert(typeof MatchmakingConfiguration$ === "object");
 assert(typeof MatchmakingRuleSet$ === "object");
@@ -1293,6 +1296,7 @@ assert(typeof ScalingAdjustmentType === "object");
 assert(typeof ScalingStatusType === "object");
 assert(typeof SortOrder === "object");
 assert(typeof TerminationMode === "object");
+assert(typeof ZeroCapacityStrategy === "object");
 // errors
 assert(ConflictException.prototype instanceof GameLiftServiceException);
 assert(typeof ConflictException$ === "object");

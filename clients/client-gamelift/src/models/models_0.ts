@@ -59,6 +59,7 @@ import {
   ScalingStatusType,
   SortOrder,
   TerminationMode,
+  ZeroCapacityStrategy,
 } from "./enums";
 
 /**
@@ -4222,6 +4223,9 @@ export interface CreateGameSessionQueueInput {
 
   /**
    * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status. If you don't specify a request timeout, the queue uses a default value.</p>
+   *          <note>
+   *             <p>The minimum value is 10 and the maximum value is 600.</p>
+   *          </note>
    * @public
    */
   TimeoutInSeconds?: number | undefined;
@@ -4304,6 +4308,9 @@ export interface GameSessionQueue {
 
   /**
    * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status.</p>
+   *          <note>
+   *             <p>The minimum value is 10 and the maximum value is 600.</p>
+   *          </note>
    * @public
    */
   TimeoutInSeconds?: number | undefined;
@@ -6084,6 +6091,54 @@ export interface EC2InstanceCounts {
 }
 
 /**
+ * <p>Use ManagedCapacityConfiguration with the "SCALE_TO_AND_FROM_ZERO" ZeroCapacityStrategy to enable Amazon
+ *             GameLift Servers to fully manage the MinSize value, switching between 0 and 1 based on game session
+ *             activity. This is ideal for eliminating compute costs during periods of no game activity.
+ *             It is particularly beneficial during development when you're away from your desk, iterating on builds
+ *             for extended periods, in production environments serving low-traffic locations, or for games with long,
+ *             predictable downtime windows. By automatically managing capacity between 0 and 1 instances, you avoid paying
+ *             for idle instances while maintaining the ability to serve game sessions when demand arrives. Note that while
+ *             scale-out is triggered immediately upon receiving a game session request, actual game session availability
+ *             depends on your server process startup time, so this approach works best with multi-location Fleets where
+ *             cold-start latency is tolerable. With a "MANUAL" ZeroCapacityStrategy Amazon GameLift Servers will not
+ *             modify Fleet MinSize values automatically and will not scale out from zero instances in response to game
+ *             sessions.
+ *         </p>
+ * @public
+ */
+export interface ManagedCapacityConfiguration {
+  /**
+   * <p>The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero
+   *             instances in response to game session activity. Game session activity refers to any active running sessions
+   *             or game session requests.</p>
+   *          <p>Possible ZeroCapacityStrategy types include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>MANUAL</b> -- (default value) Amazon GameLift Servers will not update
+   *                 capacity to and from zero on your behalf.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SCALE_TO_AND_FROM_ZERO</b> --  Amazon GameLift Servers will automatically
+   *                 scale out MinSize and DesiredInstances from 0 to 1 in response to a game session request, and will scale
+   *                 in MinSize and DesiredInstances to 0 after a period with no game session activity. The duration of
+   *                 this scale in period can be configured using ScaleInAfterInactivityMinutes. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ZeroCapacityStrategy?: ZeroCapacityStrategy | undefined;
+
+  /**
+   * <p>Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and
+   *             DesiredInstances to 0 after a period with no game session activity. Default: 30 minutes.</p>
+   * @public
+   */
+  ScaleInAfterInactivityMinutes?: number | undefined;
+}
+
+/**
  * <p>Current resource capacity settings for managed EC2 fleets and managed container fleets. For
  *             multi-location fleets, location values might refer to a fleet's remote location or its
  *             home Region. </p>
@@ -6135,6 +6190,12 @@ export interface FleetCapacity {
    * @public
    */
   GameServerContainerGroupCounts?: GameServerContainerGroupCounts | undefined;
+
+  /**
+   * <p>Configuration settings for managed capacity scaling.</p>
+   * @public
+   */
+  ManagedCapacityConfiguration?: ManagedCapacityConfiguration | undefined;
 }
 
 /**
@@ -11012,7 +11073,8 @@ export interface UpdateFleetCapacityInput {
 
   /**
    * <p>The minimum number of instances that are allowed in the specified fleet location. If
-   *             this parameter is not set, the default is 0.</p>
+   *             this parameter is not set, the default is 0. This parameter cannot be set when using a
+   *             ManagedCapacityConfiguration where ZeroCapacityStrategy has a value of SCALE_TO_AND_FROM_ZERO.</p>
    * @public
    */
   MinSize?: number | undefined;
@@ -11030,6 +11092,12 @@ export interface UpdateFleetCapacityInput {
    * @public
    */
   Location?: string | undefined;
+
+  /**
+   * <p>Configuration for Amazon GameLift Servers-managed capacity scaling options.</p>
+   * @public
+   */
+  ManagedCapacityConfiguration?: ManagedCapacityConfiguration | undefined;
 }
 
 /**
@@ -11054,6 +11122,12 @@ export interface UpdateFleetCapacityOutput {
    * @public
    */
   Location?: string | undefined;
+
+  /**
+   * <p>Configuration for Amazon GameLift Servers-managed capacity scaling options.</p>
+   * @public
+   */
+  ManagedCapacityConfiguration?: ManagedCapacityConfiguration | undefined;
 }
 
 /**
@@ -11078,21 +11152,4 @@ export interface UpdateFleetPortSettingsInput {
    * @public
    */
   InboundPermissionRevocations?: IpPermission[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFleetPortSettingsOutput {
-  /**
-   * <p>A unique identifier for the fleet that was updated.</p>
-   * @public
-   */
-  FleetId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
-   * @public
-   */
-  FleetArn?: string | undefined;
 }

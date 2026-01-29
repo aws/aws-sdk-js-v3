@@ -522,6 +522,7 @@ const _Lo = "Locations";
 const _M = "Message";
 const _MAXIMUM = "MAXIMUM";
 const _MC = "MatchmakingConfiguration";
+const _MCC = "ManagedCapacityConfiguration";
 const _MCGSA = "MaxConcurrentGameSessionActivations";
 const _MCL = "MatchmakingConfigurationList";
 const _MD = "MatchmakerData";
@@ -681,6 +682,7 @@ const _SGSPO = "StartGameSessionPlacementOutput";
 const _SGSPOt = "StopGameSessionPlacementOutput";
 const _SGSPt = "StopGameSessionPlacement";
 const _SI = "ScriptId";
+const _SIAIM = "ScaleInAfterInactivityMinutes";
 const _SL = "SL";
 const _SLP = "ServerLaunchPath";
 const _SLPe = "ServerLaunchParameters";
@@ -817,6 +819,7 @@ const _Va = "Value";
 const _Val = "Valid";
 const _Vc = "Vcpu";
 const _WC = "WeightedCapacity";
+const _ZCS = "ZeroCapacityStrategy";
 const _ZF = "ZipFile";
 const _c = "client";
 const _e = "error";
@@ -1658,8 +1661,8 @@ export var FleetAttributes$: StaticStructureSchema = [3, n0, _FAl,
 ];
 export var FleetCapacity$: StaticStructureSchema = [3, n0, _FCl,
   0,
-  [_FI, _FA, _IT, _IC, _L, _GSCGC],
-  [0, 0, 0, () => EC2InstanceCounts$, 0, () => GameServerContainerGroupCounts$]
+  [_FI, _FA, _IT, _IC, _L, _GSCGC, _MCC],
+  [0, 0, 0, () => EC2InstanceCounts$, 0, () => GameServerContainerGroupCounts$, () => ManagedCapacityConfiguration$]
 ];
 export var FleetCapacityExceededException$: StaticErrorSchema = [-3, n0, _FCEE,
   { [_e]: _c },
@@ -2023,6 +2026,11 @@ export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_LDog, _SBN, _LGA],
   [0, 0, 0]
+];
+export var ManagedCapacityConfiguration$: StaticStructureSchema = [3, n0, _MCC,
+  0,
+  [_ZCS, _SIAIM],
+  [0, 1]
 ];
 export var MatchedPlayerSession$: StaticStructureSchema = [3, n0, _MPSa,
   0,
@@ -2423,13 +2431,13 @@ export var UpdateFleetAttributesOutput$: StaticStructureSchema = [3, n0, _UFAO,
 ];
 export var UpdateFleetCapacityInput$: StaticStructureSchema = [3, n0, _UFCI,
   0,
-  [_FI, _DIe, _MS, _MSa, _L],
-  [0, 1, 1, 1, 0], 1
+  [_FI, _DIe, _MS, _MSa, _L, _MCC],
+  [0, 1, 1, 1, 0, () => ManagedCapacityConfiguration$], 1
 ];
 export var UpdateFleetCapacityOutput$: StaticStructureSchema = [3, n0, _UFCO,
   0,
-  [_FI, _FA, _L],
-  [0, 0, 0]
+  [_FI, _FA, _L, _MCC],
+  [0, 0, 0, () => ManagedCapacityConfiguration$]
 ];
 export var UpdateFleetPortSettingsInput$: StaticStructureSchema = [3, n0, _UFPSI,
   0,
