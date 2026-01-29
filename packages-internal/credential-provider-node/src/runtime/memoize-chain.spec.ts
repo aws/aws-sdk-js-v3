@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { credentialsWillNeedRefresh } from "../defaultProvider";
 import { memoizeChain } from "./memoize-chain";
+import { CredentialsProviderError } from "@smithy/property-provider";
 
 describe("memoize runtime config aware AWS credential chain", () => {
   let staticCredentials!: RuntimeConfigAwsCredentialIdentityProvider;
@@ -155,5 +156,38 @@ describe("memoize runtime config aware AWS credential chain", () => {
     }
 
     expect(expiringCredentials).toHaveBeenCalledTimes(5);
+  });
+
+  it("should release locks on credential resolution failure at the end of the chain", async () => {
+    const neverAvailableCredentialProvider: () => RuntimeConfigAwsCredentialIdentityProvider = () => async () => {
+      throw new CredentialsProviderError("never available", { tryNextLink: true });
+    };
+
+    let n = 0;
+    const eventuallyAvailableCredentialProvider: RuntimeConfigAwsCredentialIdentityProvider = async () => {
+      if (n++ === 0) {
+        throw new CredentialsProviderError("initially unavailable", { tryNextLink: false });
+      }
+      return {
+        accessKeyId: "xyz",
+        secretAccessKey: "xyz",
+      };
+    };
+
+    const provider = memoizeChain(
+      [neverAvailableCredentialProvider(), neverAvailableCredentialProvider(), eventuallyAvailableCredentialProvider],
+      credentialsWillNeedRefresh
+    );
+
+    try {
+      await provider();
+    } catch (e) {
+      const credentials = await provider();
+      expect(credentials).toEqual({
+        accessKeyId: "xyz",
+        secretAccessKey: "xyz",
+      });
+    }
+    expect.assertions(1);
   });
 });
