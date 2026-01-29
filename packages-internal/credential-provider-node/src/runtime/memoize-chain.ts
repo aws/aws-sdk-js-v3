@@ -44,16 +44,22 @@ export function memoizeChain(
     } else if (!credentials || treatAsExpired?.(credentials!)) {
       if (credentials) {
         if (!passiveLock) {
-          passiveLock = chain(options).then((c) => {
-            credentials = c;
-            passiveLock = undefined;
-          });
+          passiveLock = chain(options)
+            .then((c) => {
+              credentials = c;
+            })
+            .finally(() => {
+              passiveLock = undefined;
+            });
         }
       } else {
-        activeLock = chain(options).then((c) => {
-          credentials = c;
-          activeLock = undefined;
-        });
+        activeLock = chain(options)
+          .then((c) => {
+            credentials = c;
+          })
+          .finally(() => {
+            activeLock = undefined;
+          });
         return provider(options);
       }
     }
