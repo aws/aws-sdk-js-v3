@@ -73,7 +73,6 @@ jobs:
       - name: Install dependencies and build client
         run: |
           cd codegen/new-client-test-codegen/build/smithyprojections/new-client-test-codegen/source/typescript-client-codegen
-          # create an empty yarn.lock
           touch yarn.lock
-          yarn install
+          yarn install --no-immutable
           yarn build
