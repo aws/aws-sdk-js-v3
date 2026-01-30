@@ -4,7 +4,6 @@ const { copySync, removeSync } = require("fs-extra");
 const prettier = require("prettier");
 const semver = require("semver");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
-const { getDepToDefaultVersionHash } = require("../update-versions/getDepToDefaultVersionHash.mjs");
 
 const getOverwritableDirectories = (subDirectories, packageName) => {
   const additionalOverwritablePaths = {
