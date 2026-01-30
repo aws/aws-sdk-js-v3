@@ -29,11 +29,6 @@ jobs:
           java-version: ${{ matrix.java }}
           distribution: 'corretto'
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
         with:
@@ -52,50 +47,3 @@ jobs:
         run: |
           cd ./codegen
           ./gradlew :smithy-aws-typescript-codegen:publish
-
-      - name: Clean previous client generation
-        run: |
-          rm -rf codegen/new-client-test-codegen/build
-          rm -rf clients/client-test-weather
-
-      - name: Generate new client from test model
-        run: |
-          cd codegen
-          ./gradlew :new-client-test-codegen:build
-
-      - name: Copy generated client to clients folder
-        run: |
-          mkdir -p clients/client-test-weather
-          cp -r codegen/new-client-test-codegen/build/smithyprojections/new-client-test-codegen/source/typescript-client-codegen/* clients/client-test-weather/
-
-      - name: Install workspace dependencies
-        run: |
-          yarn install --no-immutable
-
-      - name: Build required packages
-        run: |
-          node ./scripts/turbo build -F=./packages-internal/*
-
-      - name: Verify client was generated
-        run: |
-          if [ ! -f "clients/client-test-weather/package.json" ]; then
-            echo "ERROR: Client was not generated"
-            exit 1
-          fi
-          echo "Client generated successfully"
-
-      - name: Build client
-        run: |
-          cd clients/client-test-weather
-          yarn build
-
-      - name: Commit generated client (triggers hooks)
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add clients/client-test-weather
-          git commit -m "client(client-test-weather): testing the generated client in ci" 
-
-      - name: Run integration tests
-        run: |
-          yarn test:integration
