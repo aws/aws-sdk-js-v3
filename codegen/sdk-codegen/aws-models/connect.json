@@ -8975,18 +8975,24 @@
         "Name": {
           "target": "com.amazonaws.connect#ContactMetricName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the metric being retrieved in type String.</p>",
+            "smithy.api#documentation": "<p>The name of the metric to retrieve. Supported values are POSITION_IN_QUEUE (returns the contact's\n   current position in the queue) and ESTIMATED_WAIT_TIME (returns the predicted wait time in seconds).</p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The object that contains information about metric being requested.</p>"
+        "smithy.api#documentation": "<p>Contains the details of a metric to be retrieved for a contact. Use this object to specify which\n   contact level metrics you want to include in your GetContactMetrics request.</p>"
       }
     },
     "com.amazonaws.connect#ContactMetricName": {
       "type": "enum",
       "members": {
+        "ESTIMATED_WAIT_TIME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ESTIMATED_WAIT_TIME"
+          }
+        },
         "POSITION_IN_QUEUE": {
           "target": "smithy.api#Unit",
           "traits": {
@@ -9001,20 +9007,20 @@
         "Name": {
           "target": "com.amazonaws.connect#ContactMetricName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the metric being retrieved in type String.</p>",
+            "smithy.api#documentation": "<p>The name of the metric that was retrieved. This corresponds to the metric name specified in the\n   request, such as POSITION_IN_QUEUE or ESTIMATED_WAIT_TIME.</p>",
             "smithy.api#required": {}
           }
         },
         "Value": {
           "target": "com.amazonaws.connect#ContactMetricValue",
           "traits": {
-            "smithy.api#documentation": "<p>Object result associated with the metric received.</p>",
+            "smithy.api#documentation": "<p>The calculated value for the requested metric. This object contains the numeric result based on\n   the contact's current state in the queue.</p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Object containing information about metric requested for the contact.</p>"
+        "smithy.api#documentation": "<p>Contains the result of a requested metric for the contact. This object is returned as part of the\n   GetContactMetrics response and includes both the metric name and its calculated value.</p>"
       }
     },
     "com.amazonaws.connect#ContactMetricResults": {
@@ -9029,12 +9035,12 @@
         "Number": {
           "target": "com.amazonaws.connect#Double",
           "traits": {
-            "smithy.api#documentation": "<p>The number of type Double. This number is the contact's position in queue.</p>"
+            "smithy.api#documentation": "<p>The numeric value of the metric result. For POSITION_IN_QUEUE, this represents the contact's\n   current position in the queue (e.g., 3.00 means third in line). For ESTIMATED_WAIT_TIME, this represents\n   the predicted wait time in seconds (e.g., 120.00 means approximately 2 minutes).</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Object which contains the number.</p>"
+        "smithy.api#documentation": "<p>Contains the numeric value of a contact metric result.</p>"
       }
     },
     "com.amazonaws.connect#ContactMetrics": {
@@ -13925,6 +13931,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "SLOTS_AVAILABLE"
+          }
+        },
+        "ESTIMATED_WAIT_TIME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ESTIMATED_WAIT_TIME"
           }
         }
       },
@@ -26353,7 +26365,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the position of the contact in the queue.</p>\n         <p>\n            <b>Use cases</b>\n         </p>\n         <p>Following are common uses cases for position in queue:</p>\n         <ul>\n            <li>\n               <p>Understand the expected wait experience of a contact.</p>\n            </li>\n            <li>\n               <p>Inform customers of their position in queue and potentially offer a callback.</p>\n            </li>\n            <li>\n               <p>Make data-driven routing decisions between primary and alternative queues.</p>\n            </li>\n            <li>\n               <p>Enhance queue visibility and leverage agent proficiencies to streamline contact routing.</p>\n            </li>\n         </ul>\n         <p>\n            <b>Important things to know</b>\n         </p>\n         <ul>\n            <li>\n               <p>The only way to retrieve the position of the contact in queue is by using this API. You can't retrieve the\n     position by using flows and attributes.</p>\n            </li>\n            <li>\n               <p>For more information, see the <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html\">Position in queue</a> metric in the <i>Amazon Connect Administrator Guide</i>. </p>\n            </li>\n         </ul>\n         <p>\n            <b>Endpoints</b>: See <a href=\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\">Amazon Connect endpoints and quotas</a>.</p>",
+        "smithy.api#documentation": "<p>Retrieves contact metric data for a specified contact.</p>\n         <p>\n            <b>Use cases</b>\n         </p>\n         <p>Following are common use cases for position in queue and estimated wait time:</p>\n         <ul>\n            <li>\n               <p>Customer-Facing Wait Time Announcements - Display or announce the estimated wait time and position in queue to customers before or during their queue experience.\n    </p>\n            </li>\n            <li>\n               <p>Callback Offerings - Offer customers a callback option when the estimated wait time or position in queue exceeds a defined threshold.\n    </p>\n            </li>\n            <li>\n               <p>Queue Routing Decisions - Route incoming contacts to less congested queues by comparing estimated wait time and position in queue across multiple queues.\n    </p>\n            </li>\n            <li>\n               <p>Self-Service Deflection - Redirect customers to self-service options like chatbots or FAQs when estimated wait time is high or position in queue is unfavorable.\n    </p>\n            </li>\n         </ul>\n         <p>\n            <b>Important things to know</b>\n         </p>\n         <ul>\n            <li>\n               <p>Metrics are only available while the contact is actively in queue.</p>\n            </li>\n            <li>\n               <p>For more information, see the <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html\">Position in queue</a> metric in the <i>Amazon Connect Administrator Guide</i>. </p>\n            </li>\n         </ul>\n         <p>\n            <b>Endpoints</b>: See <a href=\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\">Amazon Connect endpoints and quotas</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/metrics/contact",
@@ -26381,7 +26393,7 @@
         "Metrics": {
           "target": "com.amazonaws.connect#ContactMetrics",
           "traits": {
-            "smithy.api#documentation": "<p>A list of contact-level metrics to retrieve.</p>",
+            "smithy.api#documentation": "<p>A list of contact level metrics to retrieve.Supported metrics include POSITION_IN_QUEUE (the contact's\n   current position in the queue) and ESTIMATED_WAIT_TIME (the predicted time in seconds until the contact is\n   connected to an agent)</p>",
             "smithy.api#required": {}
           }
         }
@@ -26396,13 +26408,13 @@
         "MetricResults": {
           "target": "com.amazonaws.connect#ContactMetricResults",
           "traits": {
-            "smithy.api#documentation": "<p>A list of metric results containing the calculated values for each requested metric. Each result includes the\n   metric name and its corresponding calculated value.</p>"
+            "smithy.api#documentation": "<p>A list of metric results containing the calculated values for each requested metric. Each result includes\n   the metric name and its corresponding value. For example, POSITION_IN_QUEUE returns a numeric value representing\n   the contact's position in queue, and ESTIMATED_WAIT_TIME returns the predicted wait time in seconds.</p>"
           }
         },
         "Id": {
           "target": "com.amazonaws.connect#ContactId",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the contact for which metrics were retrieved.</p>"
+            "smithy.api#documentation": "<p>The unique identifier of the contact for which metrics were retrieved. This matches the ContactId provided\n   in the request.</p>"
           }
         },
         "Arn": {
@@ -26482,7 +26494,7 @@
         "CurrentMetrics": {
           "target": "com.amazonaws.connect#CurrentMetrics",
           "traits": {
-            "smithy.api#documentation": "<p>The metrics to retrieve. Specify the name or metricId, and unit for each metric. The following metrics are available. For a\n   description of all the metrics, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html\">Metrics definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\n         <note>\n            <p> MetricId should be used to reference custom metrics or out of the box metrics as Arn. If using MetricId, the limit is 10 MetricId per request.</p>\n         </note>\n         <dl>\n            <dt>AGENTS_AFTER_CONTACT_WORK</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#aftercallwork-real-time\">ACW</a>\n               </p>\n            </dd>\n            <dt>AGENTS_AVAILABLE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#available-real-time\">Available</a>\n               </p>\n            </dd>\n            <dt>AGENTS_ERROR</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#error-real-time\">Error</a>\n               </p>\n            </dd>\n            <dt>AGENTS_NON_PRODUCTIVE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#non-productive-time-real-time\">NPT (Non-Productive\n       Time)</a>\n               </p>\n            </dd>\n            <dt>AGENTS_ON_CALL</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time\">On contact</a>\n               </p>\n            </dd>\n            <dt>AGENTS_ON_CONTACT</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time\">On contact</a>\n               </p>\n            </dd>\n            <dt>AGENTS_ONLINE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#online-real-time\">Online</a>\n               </p>\n            </dd>\n            <dt>AGENTS_STAFFED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#staffed-real-time\">Staffed</a>\n               </p>\n            </dd>\n            <dt>CONTACTS_IN_QUEUE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#in-queue-real-time\">In queue</a>\n               </p>\n            </dd>\n            <dt>CONTACTS_SCHEDULED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#scheduled-real-time\">Scheduled</a>\n               </p>\n            </dd>\n            <dt>OLDEST_CONTACT_AGE</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>When you use groupings, Unit says SECONDS and the Value is returned in SECONDS. </p>\n               <p>When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if\n      you get a response like this:</p>\n               <p>\n                  <code>{ \"Metric\": { \"Name\": \"OLDEST_CONTACT_AGE\", \"Unit\": \"SECONDS\" }, \"Value\": 24113.0 </code>}</p>\n               <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p>\n               <p>When the filter <code>RoutingStepExpression</code> is used, this metric is still calculated from enqueue\n      time. For example, if a contact that has been queued under <code><Expression 1></code> for 10 seconds has\n      expired and <code><Expression 2></code> becomes active, then <code>OLDEST_CONTACT_AGE</code> for this queue\n      will be counted starting from 10, not 0.</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#oldest-real-time\">Oldest</a>\n               </p>\n            </dd>\n            <dt>SLOTS_ACTIVE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#active-real-time\">Active</a>\n               </p>\n            </dd>\n            <dt>SLOTS_AVAILABLE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#availability-real-time\">Availability</a>\n               </p>\n            </dd>\n         </dl>",
+            "smithy.api#documentation": "<p>The metrics to retrieve. Specify the name or metricId, and unit for each metric. The following metrics are available. For a\n   description of all the metrics, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html\">Metrics definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\n         <note>\n            <p> MetricId should be used to reference custom metrics or out of the box metrics as Arn. If using MetricId, the limit is 10 MetricId per request.</p>\n         </note>\n         <dl>\n            <dt>AGENTS_AFTER_CONTACT_WORK</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#aftercallwork-real-time\">ACW</a>\n               </p>\n            </dd>\n            <dt>AGENTS_AVAILABLE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#available-real-time\">Available</a>\n               </p>\n            </dd>\n            <dt>AGENTS_ERROR</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#error-real-time\">Error</a>\n               </p>\n            </dd>\n            <dt>AGENTS_NON_PRODUCTIVE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#non-productive-time-real-time\">NPT (Non-Productive\n       Time)</a>\n               </p>\n            </dd>\n            <dt>AGENTS_ON_CALL</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time\">On contact</a>\n               </p>\n            </dd>\n            <dt>AGENTS_ON_CONTACT</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time\">On contact</a>\n               </p>\n            </dd>\n            <dt>AGENTS_ONLINE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#online-real-time\">Online</a>\n               </p>\n            </dd>\n            <dt>AGENTS_STAFFED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#staffed-real-time\">Staffed</a>\n               </p>\n            </dd>\n            <dt>CONTACTS_IN_QUEUE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#in-queue-real-time\">In queue</a>\n               </p>\n            </dd>\n            <dt>CONTACTS_SCHEDULED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#scheduled-real-time\">Scheduled</a>\n               </p>\n            </dd>\n            <dt>ESTIMATED_WAIT_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>This metric supports filter and grouping combination only used for core routing purpose.\n              Valid filter and grouping use cases:\n          </p>\n               <ul>\n                  <li>\n                     <p>Filter by a list of [Queues] and a list of [Channels], group by [“QUEUE”, “CHANNEL”]</p>\n                  </li>\n                  <li>\n                     <p>Filter by a singleton list of [Queue], a singleton list of [Channel], a list of [RoutingStepExpression], group by [“ROUTING_STEP_EXPRESSION”].</p>\n                  </li>\n               </ul>\n            </dd>\n            <dt>OLDEST_CONTACT_AGE</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>When you use groupings, Unit says SECONDS and the Value is returned in SECONDS. </p>\n               <p>When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if\n      you get a response like this:</p>\n               <p>\n                  <code>{ \"Metric\": { \"Name\": \"OLDEST_CONTACT_AGE\", \"Unit\": \"SECONDS\" }, \"Value\": 24113.0 </code>}</p>\n               <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p>\n               <p>When the filter <code>RoutingStepExpression</code> is used, this metric is still calculated from enqueue\n      time. For example, if a contact that has been queued under <code><Expression 1></code> for 10 seconds has\n      expired and <code><Expression 2></code> becomes active, then <code>OLDEST_CONTACT_AGE</code> for this queue\n      will be counted starting from 10, not 0.</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#oldest-real-time\">Oldest</a>\n               </p>\n            </dd>\n            <dt>SLOTS_ACTIVE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#active-real-time\">Active</a>\n               </p>\n            </dd>\n            <dt>SLOTS_AVAILABLE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Name in real-time metrics report: <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#availability-real-time\">Availability</a>\n               </p>\n            </dd>\n         </dl>",
             "smithy.api#required": {}
           }
         },

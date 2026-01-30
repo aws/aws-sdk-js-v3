@@ -6139,12 +6139,14 @@ export interface GetContactAttributesResponse {
 }
 
 /**
- * <p>The object that contains information about metric being requested.</p>
+ * <p>Contains the details of a metric to be retrieved for a contact. Use this object to specify which
+ *    contact level metrics you want to include in your GetContactMetrics request.</p>
  * @public
  */
 export interface ContactMetricInfo {
   /**
-   * <p>The name of the metric being retrieved in type String.</p>
+   * <p>The name of the metric to retrieve. Supported values are POSITION_IN_QUEUE (returns the contact's
+   *    current position in the queue) and ESTIMATED_WAIT_TIME (returns the predicted wait time in seconds).</p>
    * @public
    */
   Name: ContactMetricName | undefined;
@@ -6167,14 +6169,16 @@ export interface GetContactMetricsRequest {
   ContactId: string | undefined;
 
   /**
-   * <p>A list of contact-level metrics to retrieve.</p>
+   * <p>A list of contact level metrics to retrieve.Supported metrics include POSITION_IN_QUEUE (the contact's
+   *    current position in the queue) and ESTIMATED_WAIT_TIME (the predicted time in seconds until the contact is
+   *    connected to an agent)</p>
    * @public
    */
   Metrics: ContactMetricInfo[] | undefined;
 }
 
 /**
- * <p>Object which contains the number.</p>
+ * <p>Contains the numeric value of a contact metric result.</p>
  * @public
  */
 export type ContactMetricValue =
@@ -6186,7 +6190,9 @@ export type ContactMetricValue =
  */
 export namespace ContactMetricValue {
   /**
-   * <p>The number of type Double. This number is the contact's position in queue.</p>
+   * <p>The numeric value of the metric result. For POSITION_IN_QUEUE, this represents the contact's
+   *    current position in the queue (e.g., 3.00 means third in line). For ESTIMATED_WAIT_TIME, this represents
+   *    the predicted wait time in seconds (e.g., 120.00 means approximately 2 minutes).</p>
    * @public
    */
   export interface NumberMember {
@@ -6213,18 +6219,21 @@ export namespace ContactMetricValue {
 }
 
 /**
- * <p>Object containing information about metric requested for the contact.</p>
+ * <p>Contains the result of a requested metric for the contact. This object is returned as part of the
+ *    GetContactMetrics response and includes both the metric name and its calculated value.</p>
  * @public
  */
 export interface ContactMetricResult {
   /**
-   * <p>The name of the metric being retrieved in type String.</p>
+   * <p>The name of the metric that was retrieved. This corresponds to the metric name specified in the
+   *    request, such as POSITION_IN_QUEUE or ESTIMATED_WAIT_TIME.</p>
    * @public
    */
   Name: ContactMetricName | undefined;
 
   /**
-   * <p>Object result associated with the metric received.</p>
+   * <p>The calculated value for the requested metric. This object contains the numeric result based on
+   *    the contact's current state in the queue.</p>
    * @public
    */
   Value: ContactMetricValue | undefined;
@@ -6235,14 +6244,16 @@ export interface ContactMetricResult {
  */
 export interface GetContactMetricsResponse {
   /**
-   * <p>A list of metric results containing the calculated values for each requested metric. Each result includes the
-   *    metric name and its corresponding calculated value.</p>
+   * <p>A list of metric results containing the calculated values for each requested metric. Each result includes
+   *    the metric name and its corresponding value. For example, POSITION_IN_QUEUE returns a numeric value representing
+   *    the contact's position in queue, and ESTIMATED_WAIT_TIME returns the predicted wait time in seconds.</p>
    * @public
    */
   MetricResults?: ContactMetricResult[] | undefined;
 
   /**
-   * <p>The unique identifier of the contact for which metrics were retrieved.</p>
+   * <p>The unique identifier of the contact for which metrics were retrieved. This matches the ContactId provided
+   *    in the request.</p>
    * @public
    */
   Id?: string | undefined;
@@ -6503,6 +6514,21 @@ export interface GetCurrentMetricDataRequest {
    *                <p>Unit: COUNT</p>
    *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#scheduled-real-time">Scheduled</a>
    *                </p>
+   *             </dd>
+   *             <dt>ESTIMATED_WAIT_TIME</dt>
+   *             <dd>
+   *                <p>Unit: SECONDS</p>
+   *                <p>This metric supports filter and grouping combination only used for core routing purpose.
+   *               Valid filter and grouping use cases:
+   *           </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Filter by a list of [Queues] and a list of [Channels], group by [“QUEUE”, “CHANNEL”]</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Filter by a singleton list of [Queue], a singleton list of [Channel], a list of [RoutingStepExpression], group by [“ROUTING_STEP_EXPRESSION”].</p>
+   *                   </li>
+   *                </ul>
    *             </dd>
    *             <dt>OLDEST_CONTACT_AGE</dt>
    *             <dd>

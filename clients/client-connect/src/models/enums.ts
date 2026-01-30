@@ -2007,6 +2007,7 @@ export type Visibility = (typeof Visibility)[keyof typeof Visibility];
  * @enum
  */
 export const ContactMetricName = {
+  ESTIMATED_WAIT_TIME: "ESTIMATED_WAIT_TIME",
   POSITION_IN_QUEUE: "POSITION_IN_QUEUE",
 } as const;
 /**
@@ -2029,6 +2030,7 @@ export const CurrentMetricName = {
   AGENTS_STAFFED: "AGENTS_STAFFED",
   CONTACTS_IN_QUEUE: "CONTACTS_IN_QUEUE",
   CONTACTS_SCHEDULED: "CONTACTS_SCHEDULED",
+  ESTIMATED_WAIT_TIME: "ESTIMATED_WAIT_TIME",
   OLDEST_CONTACT_AGE: "OLDEST_CONTACT_AGE",
   SLOTS_ACTIVE: "SLOTS_ACTIVE",
   SLOTS_AVAILABLE: "SLOTS_AVAILABLE",
