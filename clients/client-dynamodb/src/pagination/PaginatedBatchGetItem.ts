@@ -1,12 +1,12 @@
-import { BatchGetItemCommand, BatchGetItemCommandInput, DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import { type DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
+import { BatchGetItemCommand, BatchGetItemCommandInput } from "../commands/BatchGetItemCommand";
+import { DynamoDBClient } from "../DynamoDBClient";
 
 /**
  * Async generator that issues {@link BatchGetItemCommand}s repeatedly until all keys are processed or an error response is received.
  *
  * @public
  *
- * @see {@link paginatedBatchGetItem} for a variant that uses the {@link DynamoDBDocumentClient | DynamoDB document client}.
+ * @see {@link paginatedBatchGetItem} for a variant that uses the {@link DynamoDBClient}.
  *
  * @example
  *
