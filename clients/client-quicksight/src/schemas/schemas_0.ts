@@ -9158,8 +9158,8 @@ export var RegisteredUserDashboardEmbeddingConfiguration$: StaticStructureSchema
 ];
 export var RegisteredUserDashboardFeatureConfigurations$: StaticStructureSchema = [3, n0, _RUDFC,
   0,
-  [_SPta, _SV, _Boo, _AQIQS, _Sch, _RSec, _TAhr],
-  [() => StatePersistenceConfigurations$, () => SharedViewConfigurations$, () => BookmarksConfigurations$, () => AmazonQInQuickSightDashboardConfigurations$, () => SchedulesConfigurations$, () => RecentSnapshotsConfigurations$, () => ThresholdAlertsConfigurations$]
+  [_SPta, _Boo, _SV, _AQIQS, _Sch, _RSec, _TAhr],
+  [() => StatePersistenceConfigurations$, () => BookmarksConfigurations$, () => SharedViewConfigurations$, () => AmazonQInQuickSightDashboardConfigurations$, () => SchedulesConfigurations$, () => RecentSnapshotsConfigurations$, () => ThresholdAlertsConfigurations$]
 ];
 export var RegisteredUserDashboardVisualEmbeddingConfiguration$: StaticStructureSchema = [3, n0, _RUDVEC,
   0,

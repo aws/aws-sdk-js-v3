@@ -59,10 +59,10 @@ export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput exte
  *         StatePersistence: { // StatePersistenceConfigurations
  *           Enabled: true || false, // required
  *         },
- *         SharedView: { // SharedViewConfigurations
+ *         Bookmarks: { // BookmarksConfigurations
  *           Enabled: true || false, // required
  *         },
- *         Bookmarks: { // BookmarksConfigurations
+ *         SharedView: { // SharedViewConfigurations
  *           Enabled: true || false, // required
  *         },
  *         AmazonQInQuickSight: { // AmazonQInQuickSightDashboardConfigurations

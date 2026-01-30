@@ -1524,14 +1524,14 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
   Namespace: string | undefined;
 
   /**
-   * <p>The session tags used for row-level security. Before you use this parameter, make sure
-   *             that you have configured the relevant datasets using the
-   *                 <code>DataSet$RowLevelPermissionTagConfiguration</code> parameter so that session
-   *             tags can be used to provide row-level security.</p>
-   *          <p>These are not the tags used for the Amazon Web Services resource tagging feature. For
-   *             more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security
-   *                 (RLS) with Tags</a>in the <i>Amazon Quick Sight User
-   *             Guide</i>.</p>
+   * <p>Session tags are user-specified strings that identify a session in your application. You can use these tags to implement row-level security (RLS) controls.
+   *             Before you use the <code>SessionTags</code> parameter, make sure that you have configured the relevant datasets using the <code>DataSet$RowLevelPermissionTagConfiguration</code> parameter
+   *             so that session tags can be used to provide row-level security.</p>
+   *          <p>When using session tags, you must call <code>GenerateEmbedUrlForAnonymousUser</code> from a secure, trusted environment.
+   *             The API call passes session tags that enable server-side data redaction by using the row-level security (RLS) rules configured in your datasets.
+   *             A secure, trusted environment has access controls that you implement. These controls ensure that only your server or authorized users can add or modify session tags.</p>
+   *          <p>Besides, these are not the tags used for the Amazon Web Services resource tagging feature.
+   *             For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   SessionTags?: SessionTag[] | undefined;
@@ -1658,16 +1658,16 @@ export interface RegisteredUserDashboardFeatureConfigurations {
   StatePersistence?: StatePersistenceConfigurations | undefined;
 
   /**
-   * <p>The shared view settings of an embedded dashboard.</p>
-   * @public
-   */
-  SharedView?: SharedViewConfigurations | undefined;
-
-  /**
    * <p>The bookmarks configuration for an embedded dashboard in Amazon Quick Sight.</p>
    * @public
    */
   Bookmarks?: BookmarksConfigurations | undefined;
+
+  /**
+   * <p>The shared view settings of an embedded dashboard.</p>
+   * @public
+   */
+  SharedView?: SharedViewConfigurations | undefined;
 
   /**
    * <p>The Amazon Q configurations of an embedded Amazon Quick Sight
