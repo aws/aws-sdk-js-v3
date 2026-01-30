@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/dynamodb-codec",
-  "version": "3.972.4",
+  "version": "3.972.5",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline dynamodb-codec",
@@ -22,7 +22,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.973.4",
+    "@aws-sdk/core": "workspace:^3.973.5",
     "@smithy/core": "^3.22.0",
     "@smithy/smithy-client": "^4.11.1",
     "@smithy/types": "^4.12.0",
@@ -37,7 +37,7 @@
     "typescript": "~5.8.3"
   },
   "peerDependencies": {
-    "@aws-sdk/client-dynamodb": "workspace:3.978.0"
+    "@aws-sdk/client-dynamodb": "workspace:3.980.0"
   },
   "engines": {
     "node": ">=20.0.0"

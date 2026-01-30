@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-client-retry-test",
   "description": "Integration test suite for middleware-retry",
-  "version": "3.978.0",
+  "version": "3.980.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,7 +18,7 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@aws-sdk/client-lambda": "workspace:3.978.0",
+    "@aws-sdk/client-lambda": "workspace:3.980.0",
     "@smithy/protocol-http": "^5.3.8",
     "@smithy/types": "^4.12.0",
     "@smithy/util-retry": "^4.2.8",

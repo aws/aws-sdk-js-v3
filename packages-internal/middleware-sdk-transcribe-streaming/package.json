@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "3.972.2",
+  "version": "3.972.3",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -25,7 +25,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.1",
-    "@aws-sdk/util-format-url": "workspace:^3.972.2",
+    "@aws-sdk/util-format-url": "workspace:^3.972.3",
     "@smithy/eventstream-serde-browser": "^4.2.8",
     "@smithy/protocol-http": "^5.3.8",
     "@smithy/signature-v4": "^5.3.8",

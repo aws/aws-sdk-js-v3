@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-user-agent-node",
-  "version": "3.972.2",
+  "version": "3.972.3",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline util-user-agent-node",
@@ -22,7 +22,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-user-agent": "workspace:^3.972.4",
+    "@aws-sdk/middleware-user-agent": "workspace:^3.972.5",
     "@aws-sdk/types": "workspace:^3.973.1",
     "@smithy/node-config-provider": "^4.3.8",
     "@smithy/types": "^4.12.0",

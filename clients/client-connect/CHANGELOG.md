@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.980.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.979.0...v3.980.0) (2026-01-30)
+
+
+### Features
+
+* **client-connect:** This release adds Estimated Wait Time support to the GetContactMetrics API for Amazon Connect. ([e7dbc0a](https://github.com/aws/aws-sdk-js-v3/commit/e7dbc0a563abd942d82bfde49036f9dfa8f5172c))
+
+
+
+
+
 # [3.978.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.977.0...v3.978.0) (2026-01-28)
 
 

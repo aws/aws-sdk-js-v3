@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/lib-storage",
-  "version": "3.978.0",
+  "version": "3.980.0",
   "description": "Storage higher order operation",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -39,10 +39,10 @@
     "tslib": "^2.6.2"
   },
   "peerDependencies": {
-    "@aws-sdk/client-s3": "workspace:3.978.0"
+    "@aws-sdk/client-s3": "workspace:3.980.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "workspace:3.978.0",
+    "@aws-sdk/client-s3": "workspace:3.980.0",
     "@smithy/types": "^4.12.0",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^20.14.8",

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-websocket",
-  "version": "3.972.2",
+  "version": "3.972.3",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -25,7 +25,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.1",
-    "@aws-sdk/util-format-url": "workspace:^3.972.2",
+    "@aws-sdk/util-format-url": "workspace:^3.972.3",
     "@smithy/eventstream-codec": "^4.2.8",
     "@smithy/eventstream-serde-browser": "^4.2.8",
     "@smithy/fetch-http-handler": "^5.3.9",

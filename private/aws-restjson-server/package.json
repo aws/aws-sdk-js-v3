@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-restjson-server",
   "description": "@aws-sdk/aws-restjson-server server",
-  "version": "3.978.0",
+  "version": "3.980.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -20,7 +20,7 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
-    "@aws-sdk/core": "workspace:^3.973.4",
+    "@aws-sdk/core": "workspace:^3.973.5",
     "@aws-sdk/types": "workspace:^3.973.1",
     "@aws-smithy/server-common": "1.0.0-alpha.10",
     "@smithy/config-resolver": "^4.4.6",

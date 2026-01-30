@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.980.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.979.0...v3.980.0) (2026-01-30)
+
+
+### Features
+
+* **client-quicksight:** Improve SessionTag usage guidelines in the GenerateEmbedURLForAnonymousUser API documentation. Update the GetIdentityContext document with the region support context. ([cf53c93](https://github.com/aws/aws-sdk-js-v3/commit/cf53c93f9a0c662c6aed1bf31c4bec2886f32325))
+
+
+
+
+
 # [3.978.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.977.0...v3.978.0) (2026-01-28)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

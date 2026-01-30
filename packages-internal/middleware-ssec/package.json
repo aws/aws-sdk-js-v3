@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-ssec",
-  "version": "3.972.2",
+  "version": "3.972.3",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-ssec",

@@ -7,6 +7,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.5 (2026-01-30)
+### Chores
+* use yarn workspace versioning for monorepo packages ([#7693](https://github.com/aws/aws-sdk-js-v3/issues/7693)) ([b951130](https://github.com/aws/aws-sdk-js-v3/commit/b951130e92a694d06656632ec6ccc940cbd8fb3f))
+
+
+
 # 3.972.4 (2026-01-27)
 ### Chores
 * **codegen:** update for aggregated paginators and waiters ([#7685](https://github.com/aws/aws-sdk-js-v3/issues/7685)) ([024c073](https://github.com/aws/aws-sdk-js-v3/commit/024c073179273a46703ed5bf371006fc48e6ebee))

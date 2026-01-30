@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3",
-  "version": "3.972.4",
+  "version": "3.972.5",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-s3",
@@ -28,7 +28,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.973.4",
+    "@aws-sdk/core": "workspace:^3.973.5",
     "@aws-sdk/types": "workspace:^3.973.1",
     "@aws-sdk/util-arn-parser": "workspace:^3.972.2",
     "@smithy/core": "^3.22.0",

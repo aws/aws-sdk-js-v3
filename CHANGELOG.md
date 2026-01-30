@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.980.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.979.0...v3.980.0) (2026-01-30)
+
+
+### Features
+
+* **client-connect:** This release adds Estimated Wait Time support to the GetContactMetrics API for Amazon Connect. ([e7dbc0a](https://github.com/aws/aws-sdk-js-v3/commit/e7dbc0a563abd942d82bfde49036f9dfa8f5172c))
+* **client-quicksight:** Improve SessionTag usage guidelines in the GenerateEmbedURLForAnonymousUser API documentation. Update the GetIdentityContext document with the region support context. ([cf53c93](https://github.com/aws/aws-sdk-js-v3/commit/cf53c93f9a0c662c6aed1bf31c4bec2886f32325))
+* **clients:** update client endpoints as of 2026-01-30 ([1169913](https://github.com/aws/aws-sdk-js-v3/commit/11699137e3b6e327f047218a6bdc7c2b9260a571))
+
+
+
+
+
 # [3.979.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.978.0...v3.979.0) (2026-01-29)
 
 
