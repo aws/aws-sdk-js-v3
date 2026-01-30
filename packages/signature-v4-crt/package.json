@@ -23,9 +23,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/crt-loader": "*",
-    "@aws-sdk/signature-v4-multi-region": "*",
-    "@aws-sdk/types": "*",
+    "@aws-sdk/crt-loader": "workspace:^3.972.2",
+    "@aws-sdk/signature-v4-multi-region": "workspace:3.972.0",
+    "@aws-sdk/types": "workspace:^3.973.1",
     "@smithy/querystring-parser": "^4.2.8",
     "@smithy/signature-v4": "^5.3.8",
     "@smithy/types": "^4.12.0",

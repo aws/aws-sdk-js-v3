@@ -25,9 +25,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "*",
-    "@aws-sdk/types": "*",
-    "@aws-sdk/util-endpoints": "*",
+    "@aws-sdk/core": "workspace:^3.973.4",
+    "@aws-sdk/types": "workspace:^3.973.1",
+    "@aws-sdk/util-endpoints": "workspace:3.972.0",
     "@smithy/core": "^3.22.0",
     "@smithy/protocol-http": "^5.3.8",
     "@smithy/types": "^4.12.0",

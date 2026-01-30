@@ -32,8 +32,8 @@
     "typescript": "~5.8.3"
   },
   "dependencies": {
-    "@aws-sdk/endpoint-cache": "*",
-    "@aws-sdk/types": "*",
+    "@aws-sdk/endpoint-cache": "workspace:^3.972.2",
+    "@aws-sdk/types": "workspace:^3.973.1",
     "@smithy/node-config-provider": "^4.3.8",
     "@smithy/protocol-http": "^5.3.8",
     "@smithy/types": "^4.12.0",

@@ -39,10 +39,10 @@
     "tslib": "^2.6.2"
   },
   "peerDependencies": {
-    "@aws-sdk/client-s3": "*"
+    "@aws-sdk/client-s3": "workspace:3.978.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "*",
+    "@aws-sdk/client-s3": "workspace:3.978.0",
     "@smithy/types": "^4.12.0",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^20.14.8",

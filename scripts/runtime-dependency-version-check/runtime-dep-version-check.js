@@ -35,9 +35,22 @@ const _private = listFolders(path.join(root, "private"), false);
 const setCanonicalVersion = process.argv.includes("--set-smithy-version");
 const colocatedSmithy = fs.existsSync(path.join(root, "..", "smithy-typescript", "packages"));
 
-const clientPackages = [...clients, ..._private.filter((p) => !p.endsWith("-test"))];
+const localCanonicalVersions = {};
 
+const clientPackages = [...clients, ..._private.filter((p) => !p.endsWith("-test"))];
 const nonClientPackages = [...lib, ...packages, ...packagesInternal, ..._private.filter((p) => p.endsWith("-test"))];
+
+for (const pkg of [...clientPackages, ...nonClientPackages]) {
+  const pkgJsonPath = path.join(pkg, "package.json");
+
+  // Check if package.json exists before requiring it
+  if (!fs.existsSync(pkgJsonPath)) {
+    continue;
+  }
+
+  const pkgJson = require(pkgJsonPath);
+  localCanonicalVersions[pkgJson.name] = pkgJson.version;
+}
 
 const deps = {
   /* @namespace/name: {
@@ -127,6 +140,7 @@ checkVersions();
 
 function checkVersions() {
   const errors = [];
+  const nonCanonicalVersions = [];
 
   for (const [pkg, versions] of Object.entries(deps)) {
     if (ignored.includes(pkg)) {
@@ -144,8 +158,21 @@ function checkVersions() {
       );
       errors.push(pkg);
     }
+
+    if (pkg.startsWith("@aws-sdk/")) {
+      for (const v of Object.keys(versions)) {
+        if (v !== `workspace:${localCanonicalVersions[pkg]}` && v !== `workspace:^${localCanonicalVersions[pkg]}`) {
+          nonCanonicalVersions.push(
+            `${pkg}: use of ${v} is non-canonical with version in monorepo (${localCanonicalVersions[pkg]}).`
+          );
+        }
+      }
+    }
   }
 
+  if (nonCanonicalVersions.length) {
+    throw new Error(nonCanonicalVersions.join("\n"));
+  }
   if (errors.length) {
     const violations = errors.join(", ");
     throw new Error(violations + " have inconsistent declared versions.");

@@ -85,6 +85,7 @@ async function retry(fn, attempts = 3) {
 
 async function localPublishChangedPackages(root) {
   await spawnProcess("rm", ["-rf", "verdaccio/storage"], { cwd: root, stdio: "inherit" });
+  await spawnProcess("yarn", ["update:versions:current"], { cwd: root, stdio: "inherit" });
 
   const args = [
     "lerna",

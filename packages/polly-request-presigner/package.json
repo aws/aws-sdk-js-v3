@@ -25,9 +25,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-polly": "*",
-    "@aws-sdk/types": "*",
-    "@aws-sdk/util-format-url": "*",
+    "@aws-sdk/client-polly": "workspace:3.978.0",
+    "@aws-sdk/types": "workspace:^3.973.1",
+    "@aws-sdk/util-format-url": "workspace:^3.972.2",
     "@smithy/protocol-http": "^5.3.8",
     "@smithy/signature-v4": "^5.3.8",
     "@smithy/types": "^4.12.0",
