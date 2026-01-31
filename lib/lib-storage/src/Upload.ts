@@ -16,7 +16,6 @@ import {
   UploadPartCommand,
   UploadPartCommandInput,
 } from "@aws-sdk/client-s3";
-import { AbortController } from "@smithy/abort-controller";
 import {
   EndpointParameterInstructionsSupplier,
   getEndpointFromInstructions,
@@ -24,12 +23,13 @@ import {
 } from "@smithy/middleware-endpoint";
 import { HttpRequest } from "@smithy/protocol-http";
 import { extendedEncodeURIComponent } from "@smithy/smithy-client";
-import type { AbortController as IAbortController, AbortSignal as IAbortSignal, Endpoint } from "@smithy/types";
+import type { Endpoint } from "@smithy/types";
 import { EventEmitter } from "events";
 
 import { byteLength } from "./byteLength";
 import { BYTE_LENGTH_SOURCE, byteLengthSource } from "./byteLengthSource";
 import { getChunk } from "./chunker";
+import { wireSignal } from "./signal";
 import { BodyDataTypes, Options, Progress } from "./types";
 
 export interface RawDataPart {
@@ -65,8 +65,7 @@ export class Upload extends EventEmitter {
   private bytesUploadedSoFar: number;
 
   // used in the upload.
-  private abortController: IAbortController;
-  private concurrentUploaders: Promise<void>[] = [];
+  private abortController = new AbortController();
   private createMultiPartPromise?: Promise<CreateMultipartUploadCommandOutput>;
   private abortMultipartUploadCommand: AbortMultipartUploadCommand | null = null;
 
@@ -98,12 +97,13 @@ export class Upload extends EventEmitter {
       throw new Error(`InputError: Upload requires params to be passed to upload.`);
     }
 
+    wireSignal(this.abortController, options.abortSignal);
+    wireSignal(this.abortController, options.abortController?.signal);
+
     // set progress defaults
     this.totalBytes = this.params.ContentLength ?? byteLength(this.params.Body);
     this.totalBytesSource = byteLengthSource(this.params.Body, this.params.ContentLength);
     this.bytesUploadedSoFar = 0;
-    this.abortController = options.abortController ?? new AbortController();
-
     this.partSize =
       options.partSize || Math.max(Upload.MIN_PART_SIZE, Math.floor((this.totalBytes || 0) / this.MAX_PARTS));
 
@@ -129,7 +129,12 @@ export class Upload extends EventEmitter {
       );
     }
     this.sent = true;
-    return await Promise.race([this.__doMultipartUpload(), this.__abortTimeout(this.abortController.signal)]);
+
+    try {
+      return await this.__doMultipartUpload();
+    } finally {
+      this.abortController.abort();
+    }
   }
 
   public on(event: "httpUploadProgress", listener: (progress: Progress) => void): this {
@@ -161,7 +166,12 @@ export class Upload extends EventEmitter {
       eventEmitter.on("xhr.upload.progress", uploadEventListener);
     }
 
-    const resolved = await Promise.all([this.client.send(new PutObjectCommand(params)), clientConfig?.endpoint?.()]);
+    const resolved = await Promise.all([
+      this.client.send(new PutObjectCommand(params), {
+        abortSignal: this.abortController.signal,
+      }),
+      clientConfig?.endpoint?.(),
+    ]);
     const putResult = resolved[0];
     let endpoint: Endpoint | undefined = resolved[1];
 
@@ -311,7 +321,10 @@ export class Upload extends EventEmitter {
           UploadId: this.uploadId,
           Body: dataPart.data,
           PartNumber: dataPart.partNumber,
-        })
+        }),
+        {
+          abortSignal: this.abortController.signal,
+        }
       );
 
       if (eventEmitter !== null) {
@@ -353,28 +366,27 @@ export class Upload extends EventEmitter {
 
   private async __doMultipartUpload(): Promise<CompleteMultipartUploadCommandOutput> {
     const dataFeeder = getChunk(this.params.Body, this.partSize);
-    const concurrentUploaderFailures: Error[] = [];
+    const concurrentUploads: Promise<void>[] = [];
 
     for (let index = 0; index < this.queueSize; index++) {
-      const currentUpload = this.__doConcurrentUpload(dataFeeder).catch((err) => {
-        concurrentUploaderFailures.push(err);
-      });
-      this.concurrentUploaders.push(currentUpload);
+      const currentUpload = this.__doConcurrentUpload(dataFeeder);
+      concurrentUploads.push(currentUpload);
     }
 
-    await Promise.all(this.concurrentUploaders);
-    if (concurrentUploaderFailures.length >= 1) {
+    /**
+     * Previously, each promise in concurrentUploads could potentially throw
+     * and immediately return control to user code. However, we want to wait for
+     * all uploaders to finish before calling AbortMultipartUpload to avoid
+     * stranding uploaded parts.
+     *
+     * We throw only the first error to be consistent with prior behavior,
+     * but may consider combining the errors into a report in the future.
+     */
+    const results = await Promise.allSettled(concurrentUploads);
+    const firstFailure = results.find((result) => result.status === "rejected");
+    if (firstFailure) {
       await this.markUploadAsAborted();
-      /**
-       * Previously, each promise in concurrentUploaders could potentially throw
-       * and immediately return control to user code. However, we want to wait for
-       * all uploaders to finish before calling AbortMultipartUpload to avoid
-       * stranding uploaded parts.
-       *
-       * We throw only the first error to be consistent with prior behavior,
-       * but may consider combining the errors into a report in the future.
-       */
-      throw concurrentUploaderFailures[0];
+      throw firstFailure.reason;
     }
 
     if (this.abortController.signal.aborted) {
@@ -445,16 +457,6 @@ to input.params.ContentLength in bytes.
     if (this.uploadEvent) {
       this.emit(this.uploadEvent, progress);
     }
-  }
-
-  private async __abortTimeout(abortSignal: IAbortSignal): Promise<never> {
-    return new Promise((resolve, reject) => {
-      abortSignal.onabort = () => {
-        const abortError = new Error("Upload aborted.");
-        abortError.name = "AbortError";
-        reject(abortError);
-      };
-    });
   }
 
   private __validateUploadPart(dataPart: RawDataPart): void {
