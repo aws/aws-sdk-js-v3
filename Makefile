@@ -22,6 +22,13 @@ test-unit: bundles
 	yarn g:vitest run -c vitest.config.clients.unit.mts
 	npx jest -c jest.config.js
 
+test-client-codegen:
+	rm -rf codegen/new-client-test-codegen/build
+	rm -rf clients/client-test-weather
+	cd codegen && ./gradlew :new-client-test-codegen:build
+	mkdir -p clients/client-test-weather
+	cp -r codegen/new-client-test-codegen/build/smithyprojections/new-client-test-codegen/source/typescript-client-codegen/* clients/client-test-weather/
+	
 # typecheck for test code.
 test-types:
 	npx tsc -p tsconfig.test.json

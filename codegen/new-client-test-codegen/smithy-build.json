@@ -5,7 +5,8 @@
     "typescript-client-codegen": {
       "service": "example.weather#Weather",
       "package": "@aws-sdk/client-test-weather",
-      "packageVersion": "0.0.1"
+      "packageVersion": "0.0.1",
+      "private": true
     }
   }
 }
