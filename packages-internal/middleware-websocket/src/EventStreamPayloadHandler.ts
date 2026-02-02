@@ -15,6 +15,9 @@ import {
 
 import { getEventSigningTransformStream } from "./get-event-signing-stream";
 
+/**
+ * @internal
+ */
 export interface EventStreamPayloadHandlerOptions {
   messageSigner: Provider<MessageSigner>;
   utf8Encoder: Encoder;
@@ -28,6 +31,8 @@ export interface EventStreamPayloadHandlerOptions {
  * 2. Close the stream if initial request fails.
  * 3. Start piping payload when connection is established.
  * 4. Sign the payload after payload stream starting to flow.
+ *
+ * @internal
  */
 export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   private readonly messageSigner: Provider<MessageSigner>;
@@ -40,7 +45,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     this.systemClockOffsetProvider = async () => options.systemClockOffset ?? 0;
   }
 
-  async handle<T extends MetadataBearer>(
+  public async handle<T extends MetadataBearer>(
     next: FinalizeHandler<any, T>,
     args: FinalizeHandlerArguments<any>,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -56,19 +61,9 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     const placeHolderStream = new TransformStream();
     request.body = placeHolderStream.readable;
 
-    let result: FinalizeHandlerOutput<any>;
-    try {
-      result = await next(args);
-    } catch (e) {
-      // Close the payload stream otherwise the retry would hang
-      // because of the previous connection.
-      request.body.cancel();
-      throw e;
-    }
-
-    const match = (headers["authorization"] || "").match(/Signature=([\w]+)$/);
+    const match = (headers?.authorization ?? "").match(/Signature=(\w+)$/);
     // Sign the eventstream based on the signature from initial request.
-    const priorSignature = (match || [])[1] || (query && (query["X-Amz-Signature"] as string)) || "";
+    const priorSignature = (match ?? [])[1] ?? (query && (query["X-Amz-Signature"] as string)) ?? "";
     const signingStream = getEventSigningTransformStream(
       priorSignature,
       await this.messageSigner(),
@@ -76,8 +71,21 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       this.systemClockOffsetProvider
     );
 
-    const signedPayload = payload.pipeThrough(signingStream);
-    signedPayload.pipeThrough(placeHolderStream);
+    payload.pipeThrough(signingStream).pipeThrough(placeHolderStream);
+
+    let result: FinalizeHandlerOutput<any>;
+    try {
+      result = await next(args);
+    } catch (e) {
+      // Close the stream if we can. It's likely that the stream's
+      // lock is held by something we have no access to, so failure
+      // to close here is ignored.
+      const p = payload.cancel?.();
+      if (p instanceof Promise) {
+        p.catch(() => {});
+      }
+      throw e;
+    }
 
     return result;
   }

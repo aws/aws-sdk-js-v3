@@ -24318,7 +24318,6 @@ __metadata:
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
     vitest-websocket-mock: "npm:0.2.3"
-    web-streams-polyfill: "npm:3.2.1"
   languageName: unknown
   linkType: soft
 

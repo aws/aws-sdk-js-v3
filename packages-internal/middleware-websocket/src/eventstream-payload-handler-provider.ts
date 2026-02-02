@@ -2,7 +2,9 @@ import { Decoder, Encoder, EventStreamPayloadHandlerProvider, MessageSigner, Pro
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 
-/** NodeJS event stream utils provider */
+/**
+ * @internal
+ */
 export const eventStreamPayloadHandlerProvider: EventStreamPayloadHandlerProvider = (options: {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;

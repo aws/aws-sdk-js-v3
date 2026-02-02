@@ -202,8 +202,12 @@ export class WebSocketFetchHandler {
 
     const send = async (): Promise<void> => {
       try {
-        for await (const inputChunk of data) {
-          socket.send(inputChunk);
+        for await (const chunk of data) {
+          if (socket.readyState >= WebSocket.CLOSING) {
+            break;
+          } else {
+            socket.send(chunk);
+          }
         }
       } catch (err) {
         // We don't throw the error here because the send()'s returned
