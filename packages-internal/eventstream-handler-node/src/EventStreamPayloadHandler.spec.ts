@@ -207,4 +207,47 @@ describe(EventStreamPayloadHandler.name, () => {
     const collected = await collectData(handledRequest.body);
     expect(collected).toEqual("Some Data");
   });
+
+  it("should catch pipeline errors without crashing the process", async () => {
+    const authorization =
+      "AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=1234567890";
+    const originalPayload = new PassThrough();
+    const mockRequest = {
+      body: originalPayload,
+      headers: { authorization },
+    } as any;
+    const handler = new EventStreamPayloadHandler({
+      messageSigner: () => Promise.resolve(mockMessageSigner),
+      utf8Decoder: mockUtf8Decoder,
+      utf8Encoder: mockUtf8encoder,
+    });
+
+    const pipelineError = new Error("ERR_STREAM_PREMATURE_CLOSE");
+
+    (EventSigningStream as unknown as any).mockImplementationOnce(function () {
+      const stream = new PassThrough();
+      // destroy stream after a short delay to simulate premature close
+      setTimeout(() => stream.destroy(pipelineError), 10);
+      return stream;
+    });
+
+    // middleware that simulates HTTP request
+    (mockNextHandler as any).mockImplementationOnce(async () => {
+      // http request takes longer than pipeline failure
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      return Promise.resolve({ output: {} });
+    });
+
+    // Expect the pipeline error to be caught and propagated with metadata
+    try {
+      await handler.handle(mockNextHandler, {
+        request: mockRequest,
+        input: {},
+      });
+      expect.fail("Expected error to be thrown");
+    } catch (error: any) {
+      expect(error).toBe(pipelineError);
+      expect(error.$source).toBe("@aws-sdk/eventstream-handler-node");
+    }
+  });
 });
