@@ -245,13 +245,13 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountSettingsNotificationConfiguration$: StaticStructureSchema = [3, n0, _ASNC,
   0,
-  [_SC, _RA],
-  [() => SnsConfiguration$, 0]
+  [_RA, _SC],
+  [0, () => SnsConfiguration$], 1
 ];
 export var CancelQueryRequest$: StaticStructureSchema = [3, n0, _CQR,
   0,
   [_QI],
-  [0]
+  [0], 1
 ];
 export var CancelQueryResponse$: StaticStructureSchema = [3, n0, _CQRa,
   0,
@@ -260,8 +260,8 @@ export var CancelQueryResponse$: StaticStructureSchema = [3, n0, _CQRa,
 ];
 export var ColumnInfo$: StaticStructureSchema = [3, n0, _CI,
   0,
-  [_N, _T],
-  [0, () => Type$]
+  [_T, _N],
+  [() => Type$, 0], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -271,13 +271,13 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateScheduledQueryRequest$: StaticStructureSchema = [3, n0, _CSQR,
   0,
-  [_N, _QS, _SCc, _NC, _TC, _CT, _SQERA, _Ta, _KKI, _ERC],
-  [0, [() => QueryString, 0], () => ScheduleConfiguration$, () => NotificationConfiguration$, () => TargetConfiguration$, [() => ClientToken, 4], 0, () => TagList, 0, () => ErrorReportConfiguration$]
+  [_N, _QS, _SCc, _NC, _SQERA, _ERC, _TC, _CT, _Ta, _KKI],
+  [0, [() => QueryString, 0], () => ScheduleConfiguration$, () => NotificationConfiguration$, 0, () => ErrorReportConfiguration$, () => TargetConfiguration$, [() => ClientToken, 4], () => TagList, 0], 6
 ];
 export var CreateScheduledQueryResponse$: StaticStructureSchema = [3, n0, _CSQRr,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var Datum$: StaticStructureSchema = [3, n0, _D,
   0,
@@ -287,7 +287,7 @@ export var Datum$: StaticStructureSchema = [3, n0, _D,
 export var DeleteScheduledQueryRequest$: StaticStructureSchema = [3, n0, _DSQR,
   0,
   [_SQA],
-  [0]
+  [0], 1
 ];
 export var DescribeAccountSettingsRequest$: StaticStructureSchema = [3, n0, _DASR,
   0,
@@ -307,32 +307,32 @@ export var DescribeEndpointsRequest$: StaticStructureSchema = [3, n0, _DER,
 export var DescribeEndpointsResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
   [_E],
-  [() => Endpoints]
+  [() => Endpoints], 1
 ];
 export var DescribeScheduledQueryRequest$: StaticStructureSchema = [3, n0, _DSQRe,
   0,
   [_SQA],
-  [0]
+  [0], 1
 ];
 export var DescribeScheduledQueryResponse$: StaticStructureSchema = [3, n0, _DSQRes,
   0,
   [_SQ],
-  [[() => ScheduledQueryDescription$, 0]]
+  [[() => ScheduledQueryDescription$, 0]], 1
 ];
 export var DimensionMapping$: StaticStructureSchema = [3, n0, _DM,
   0,
   [_N, _DVT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Endpoint$: StaticStructureSchema = [3, n0, _En,
   0,
   [_Ad, _CPIM],
-  [0, 1]
+  [0, 1], 2
 ];
 export var ErrorReportConfiguration$: StaticStructureSchema = [3, n0, _ERC,
   0,
   [_SCo],
-  [() => S3Configuration$]
+  [() => S3Configuration$], 1
 ];
 export var ErrorReportLocation$: StaticStructureSchema = [3, n0, _ERL,
   0,
@@ -342,7 +342,7 @@ export var ErrorReportLocation$: StaticStructureSchema = [3, n0, _ERL,
 export var ExecuteScheduledQueryRequest$: StaticStructureSchema = [3, n0, _ESQR,
   0,
   [_SQA, _IT, _CT, _QIu],
-  [0, 4, [() => ClientToken, 4], () => ScheduledQueryInsights$]
+  [0, 4, [() => ClientToken, 4], () => ScheduledQueryInsights$], 2
 ];
 export var ExecutionStats$: StaticStructureSchema = [3, n0, _ES,
   0,
@@ -374,57 +374,57 @@ export var ListScheduledQueriesRequest$: StaticStructureSchema = [3, n0, _LSQR,
 export var ListScheduledQueriesResponse$: StaticStructureSchema = [3, n0, _LSQRi,
   0,
   [_SQc, _NT],
-  [() => ScheduledQueryList, 0]
+  [() => ScheduledQueryList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_Ta, _NT],
-  [() => TagList, 0]
+  [() => TagList, 0], 1
 ];
 export var MixedMeasureMapping$: StaticStructureSchema = [3, n0, _MMM,
   0,
-  [_MN, _SCou, _TMN, _MVT, _MMAM],
-  [0, 0, 0, 0, () => MultiMeasureAttributeMappingList]
+  [_MVT, _MN, _SCou, _TMN, _MMAM],
+  [0, 0, 0, 0, () => MultiMeasureAttributeMappingList], 1
 ];
 export var MultiMeasureAttributeMapping$: StaticStructureSchema = [3, n0, _MMAMu,
   0,
-  [_SCou, _TMMAN, _MVT],
-  [0, 0, 0]
+  [_SCou, _MVT, _TMMAN],
+  [0, 0, 0], 2
 ];
 export var MultiMeasureMappings$: StaticStructureSchema = [3, n0, _MMMu,
   0,
-  [_TMMN, _MMAM],
-  [0, () => MultiMeasureAttributeMappingList]
+  [_MMAM, _TMMN],
+  [() => MultiMeasureAttributeMappingList, 0], 1
 ];
 export var NotificationConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
   [_SC],
-  [() => SnsConfiguration$]
+  [() => SnsConfiguration$], 1
 ];
 export var ParameterMapping$: StaticStructureSchema = [3, n0, _PM,
   0,
   [_N, _T],
-  [0, () => Type$]
+  [0, () => Type$], 2
 ];
 export var PrepareQueryRequest$: StaticStructureSchema = [3, n0, _PQR,
   0,
   [_QS, _VO],
-  [[() => QueryString, 0], 2]
+  [[() => QueryString, 0], 2], 1
 ];
 export var PrepareQueryResponse$: StaticStructureSchema = [3, n0, _PQRr,
   0,
   [_QS, _C, _P],
-  [[() => QueryString, 0], () => SelectColumnList, () => ParameterMappingList]
+  [[() => QueryString, 0], () => SelectColumnList, () => ParameterMappingList], 3
 ];
 export var ProvisionedCapacityRequest$: StaticStructureSchema = [3, n0, _PCR,
   0,
   [_TQTCU, _NC],
-  [1, () => AccountSettingsNotificationConfiguration$]
+  [1, () => AccountSettingsNotificationConfiguration$], 1
 ];
 export var ProvisionedCapacityResponse$: StaticStructureSchema = [3, n0, _PCRr,
   0,
@@ -450,7 +450,7 @@ TypeRegistry.for(n0).registerError(QueryExecutionException$, QueryExecutionExcep
 export var QueryInsights$: StaticStructureSchema = [3, n0, _QIu,
   0,
   [_Mo],
-  [0]
+  [0], 1
 ];
 export var QueryInsightsResponse$: StaticStructureSchema = [3, n0, _QIR,
   0,
@@ -460,12 +460,12 @@ export var QueryInsightsResponse$: StaticStructureSchema = [3, n0, _QIR,
 export var QueryRequest$: StaticStructureSchema = [3, n0, _QR,
   0,
   [_QS, _CT, _NT, _MRa, _QIu],
-  [[() => QueryString, 0], [() => ClientRequestToken, 4], 0, 1, () => QueryInsights$]
+  [[() => QueryString, 0], [() => ClientRequestToken, 4], 0, 1, () => QueryInsights$], 1
 ];
 export var QueryResponse$: StaticStructureSchema = [3, n0, _QRu,
   0,
-  [_QI, _NT, _R, _CI, _QSu, _QIR],
-  [0, 0, () => RowList, () => ColumnInfoList, () => QueryStatus$, () => QueryInsightsResponse$]
+  [_QI, _R, _CI, _NT, _QSu, _QIR],
+  [0, () => RowList, () => ColumnInfoList, 0, () => QueryStatus$, () => QueryInsightsResponse$], 3
 ];
 export var QuerySpatialCoverage$: StaticStructureSchema = [3, n0, _QSC,
   0,
@@ -501,12 +501,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var Row$: StaticStructureSchema = [3, n0, _Ro,
   0,
   [_Da],
-  [() => DatumList]
+  [() => DatumList], 1
 ];
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SCo,
   0,
   [_BN, _OKP, _EO],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var S3ReportLocation$: StaticStructureSchema = [3, n0, _SRL,
   0,
@@ -516,22 +516,22 @@ export var S3ReportLocation$: StaticStructureSchema = [3, n0, _SRL,
 export var ScheduleConfiguration$: StaticStructureSchema = [3, n0, _SCc,
   0,
   [_SE],
-  [0]
+  [0], 1
 ];
 export var ScheduledQuery$: StaticStructureSchema = [3, n0, _SQ,
   0,
-  [_A, _N, _CTr, _St, _PIT, _NIT, _ERC, _TD, _LRS],
-  [0, 0, 4, 0, 4, 4, () => ErrorReportConfiguration$, () => TargetDestination$, 0]
+  [_A, _N, _St, _CTr, _PIT, _NIT, _ERC, _TD, _LRS],
+  [0, 0, 0, 4, 4, 4, () => ErrorReportConfiguration$, () => TargetDestination$, 0], 3
 ];
 export var ScheduledQueryDescription$: StaticStructureSchema = [3, n0, _SQD,
   0,
-  [_A, _N, _QS, _CTr, _St, _PIT, _NIT, _SCc, _NC, _TC, _SQERA, _KKI, _ERC, _LRSa, _RFR],
-  [0, 0, [() => QueryString, 0], 4, 0, 4, 4, () => ScheduleConfiguration$, () => NotificationConfiguration$, () => TargetConfiguration$, 0, 0, () => ErrorReportConfiguration$, () => ScheduledQueryRunSummary$, () => ScheduledQueryRunSummaryList]
+  [_A, _N, _QS, _St, _SCc, _NC, _CTr, _PIT, _NIT, _TC, _SQERA, _KKI, _ERC, _LRSa, _RFR],
+  [0, 0, [() => QueryString, 0], 0, () => ScheduleConfiguration$, () => NotificationConfiguration$, 4, 4, 4, () => TargetConfiguration$, 0, 0, () => ErrorReportConfiguration$, () => ScheduledQueryRunSummary$, () => ScheduledQueryRunSummaryList], 6
 ];
 export var ScheduledQueryInsights$: StaticStructureSchema = [3, n0, _SQI,
   0,
   [_Mo],
-  [0]
+  [0], 1
 ];
 export var ScheduledQueryInsightsResponse$: StaticStructureSchema = [3, n0, _SQIR,
   0,
@@ -557,17 +557,17 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var SnsConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_TAo],
-  [0]
+  [0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -577,7 +577,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TargetConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_TCi],
-  [() => TimestreamConfiguration$]
+  [() => TimestreamConfiguration$], 1
 ];
 export var TargetDestination$: StaticStructureSchema = [3, n0, _TD,
   0,
@@ -593,12 +593,12 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeSeriesDataPoint$: StaticStructureSchema = [3, n0, _TSDP,
   0,
   [_Ti, _V],
-  [0, () => Datum$]
+  [0, () => Datum$], 2
 ];
 export var TimestreamConfiguration$: StaticStructureSchema = [3, n0, _TCi,
   0,
   [_DN, _TN, _TCim, _DMi, _MMMu, _MMMi, _MNC],
-  [0, 0, 0, () => DimensionMappingList, () => MultiMeasureMappings$, () => MixedMeasureMappingList, 0]
+  [0, 0, 0, () => DimensionMappingList, () => MultiMeasureMappings$, () => MixedMeasureMappingList, 0], 4
 ];
 export var TimestreamDestination$: StaticStructureSchema = [3, n0, _TDi,
   0,
@@ -613,7 +613,7 @@ export var Type$: StaticStructureSchema = [3, n0, _T,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -633,7 +633,7 @@ export var UpdateAccountSettingsResponse$: StaticStructureSchema = [3, n0, _UASR
 export var UpdateScheduledQueryRequest$: StaticStructureSchema = [3, n0, _USQR,
   0,
   [_SQA, _St],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

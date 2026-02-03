@@ -376,29 +376,29 @@ var SynthesizedJsonModelMetrics: StaticSimpleSchema = [0, n0, _SJMM, { [_mT]: _a
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var CategoricalValues$: StaticStructureSchema = [3, n0, _CV,
   0,
   [_S, _NOC],
-  [0, 1]
+  [0, 1], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CountPercent$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_C, _P],
-  [1, 1]
+  [1, 1], 2
 ];
 export var CreateDatasetRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_DN, _DS, _SSKKI, _CT, _T],
-  [0, [() => DatasetSchema$, 0], 0, [0, 4], () => TagList]
+  [0, [() => DatasetSchema$, 0], 0, [0, 4], () => TagList], 1
 ];
 export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -407,8 +407,8 @@ export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
 ];
 export var CreateInferenceSchedulerRequest$: StaticStructureSchema = [3, n0, _CISR,
   0,
-  [_MN, _ISN, _DDOIM, _DUF, _DIC, _DOC, _RA, _SSKKI, _CT, _T],
-  [0, 0, 1, 0, () => InferenceInputConfiguration$, () => InferenceOutputConfiguration$, 0, 0, [0, 4], () => TagList]
+  [_MN, _ISN, _DUF, _DIC, _DOC, _RA, _DDOIM, _SSKKI, _CT, _T],
+  [0, 0, 0, () => InferenceInputConfiguration$, () => InferenceOutputConfiguration$, 0, 1, 0, [0, 4], () => TagList], 6
 ];
 export var CreateInferenceSchedulerResponse$: StaticStructureSchema = [3, n0, _CISRr,
   0,
@@ -418,7 +418,7 @@ export var CreateInferenceSchedulerResponse$: StaticStructureSchema = [3, n0, _C
 export var CreateLabelGroupRequest$: StaticStructureSchema = [3, n0, _CLGR,
   0,
   [_LGN, _FC, _CT, _T],
-  [0, 64 | 0, [0, 4], () => TagList]
+  [0, 64 | 0, [0, 4], () => TagList], 1
 ];
 export var CreateLabelGroupResponse$: StaticStructureSchema = [3, n0, _CLGRr,
   0,
@@ -428,7 +428,7 @@ export var CreateLabelGroupResponse$: StaticStructureSchema = [3, n0, _CLGRr,
 export var CreateLabelRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
   [_LGN, _ST, _ET, _R, _FCa, _N, _E, _CT],
-  [0, 4, 4, 0, 0, 0, 0, [0, 4]]
+  [0, 4, 4, 0, 0, 0, 0, [0, 4]], 4
 ];
 export var CreateLabelResponse$: StaticStructureSchema = [3, n0, _CLRr,
   0,
@@ -438,7 +438,7 @@ export var CreateLabelResponse$: StaticStructureSchema = [3, n0, _CLRr,
 export var CreateModelRequest$: StaticStructureSchema = [3, n0, _CMR,
   0,
   [_MN, _DN, _DS, _LIC, _CT, _TDST, _TDET, _EDST, _EDET, _RA, _DPPC, _SSKKI, _T, _OC, _MDOC],
-  [0, 0, [() => DatasetSchema$, 0], () => LabelsInputConfiguration$, [0, 4], 4, 4, 4, 4, 0, () => DataPreProcessingConfiguration$, 0, () => TagList, 0, () => ModelDiagnosticsOutputConfiguration$]
+  [0, 0, [() => DatasetSchema$, 0], () => LabelsInputConfiguration$, [0, 4], 4, 4, 4, 4, 0, () => DataPreProcessingConfiguration$, 0, () => TagList, 0, () => ModelDiagnosticsOutputConfiguration$], 2
 ];
 export var CreateModelResponse$: StaticStructureSchema = [3, n0, _CMRr,
   0,
@@ -447,8 +447,8 @@ export var CreateModelResponse$: StaticStructureSchema = [3, n0, _CMRr,
 ];
 export var CreateRetrainingSchedulerRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
-  [_MN, _RSD, _RF, _LW, _PM, _CT],
-  [0, 4, 0, 0, 0, [0, 4]]
+  [_MN, _RF, _LW, _RSD, _PM, _CT],
+  [0, 0, 0, 4, 0, [0, 4]], 3
 ];
 export var CreateRetrainingSchedulerResponse$: StaticStructureSchema = [3, n0, _CRSRr,
   0,
@@ -468,7 +468,7 @@ export var DataPreProcessingConfiguration$: StaticStructureSchema = [3, n0, _DPP
 export var DataQualitySummary$: StaticStructureSchema = [3, n0, _DQS,
   0,
   [_ISD, _MSD, _ISDn, _UT, _DT],
-  [() => InsufficientSensorData$, () => MissingSensorData$, () => InvalidSensorData$, () => UnsupportedTimestamps$, () => DuplicateTimestamps$]
+  [() => InsufficientSensorData$, () => MissingSensorData$, () => InvalidSensorData$, () => UnsupportedTimestamps$, () => DuplicateTimestamps$], 5
 ];
 export var DatasetSchema$: StaticStructureSchema = [3, n0, _DS,
   0,
@@ -483,42 +483,42 @@ export var DatasetSummary$: StaticStructureSchema = [3, n0, _DSa,
 export var DeleteDatasetRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var DeleteInferenceSchedulerRequest$: StaticStructureSchema = [3, n0, _DISR,
   0,
   [_ISN],
-  [0]
+  [0], 1
 ];
 export var DeleteLabelGroupRequest$: StaticStructureSchema = [3, n0, _DLGR,
   0,
   [_LGN],
-  [0]
+  [0], 1
 ];
 export var DeleteLabelRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_LGN, _LI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteModelRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_MN],
-  [0]
+  [0], 1
 ];
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_RAe],
-  [0]
+  [0], 1
 ];
 export var DeleteRetrainingSchedulerRequest$: StaticStructureSchema = [3, n0, _DRSR,
   0,
   [_MN],
-  [0]
+  [0], 1
 ];
 export var DescribeDataIngestionJobRequest$: StaticStructureSchema = [3, n0, _DDIJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeDataIngestionJobResponse$: StaticStructureSchema = [3, n0, _DDIJRe,
   0,
@@ -528,7 +528,7 @@ export var DescribeDataIngestionJobResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeDatasetRequest$: StaticStructureSchema = [3, n0, _DDRe,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDRes,
   0,
@@ -538,7 +538,7 @@ export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDRes,
 export var DescribeInferenceSchedulerRequest$: StaticStructureSchema = [3, n0, _DISRe,
   0,
   [_ISN],
-  [0]
+  [0], 1
 ];
 export var DescribeInferenceSchedulerResponse$: StaticStructureSchema = [3, n0, _DISRes,
   0,
@@ -548,7 +548,7 @@ export var DescribeInferenceSchedulerResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeLabelGroupRequest$: StaticStructureSchema = [3, n0, _DLGRe,
   0,
   [_LGN],
-  [0]
+  [0], 1
 ];
 export var DescribeLabelGroupResponse$: StaticStructureSchema = [3, n0, _DLGRes,
   0,
@@ -558,7 +558,7 @@ export var DescribeLabelGroupResponse$: StaticStructureSchema = [3, n0, _DLGRes,
 export var DescribeLabelRequest$: StaticStructureSchema = [3, n0, _DLRe,
   0,
   [_LGN, _LI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeLabelResponse$: StaticStructureSchema = [3, n0, _DLRes,
   0,
@@ -568,7 +568,7 @@ export var DescribeLabelResponse$: StaticStructureSchema = [3, n0, _DLRes,
 export var DescribeModelRequest$: StaticStructureSchema = [3, n0, _DMRe,
   0,
   [_MN],
-  [0]
+  [0], 1
 ];
 export var DescribeModelResponse$: StaticStructureSchema = [3, n0, _DMRes,
   0,
@@ -578,7 +578,7 @@ export var DescribeModelResponse$: StaticStructureSchema = [3, n0, _DMRes,
 export var DescribeModelVersionRequest$: StaticStructureSchema = [3, n0, _DMVR,
   0,
   [_MN, _MV],
-  [0, 1]
+  [0, 1], 2
 ];
 export var DescribeModelVersionResponse$: StaticStructureSchema = [3, n0, _DMVRe,
   0,
@@ -588,7 +588,7 @@ export var DescribeModelVersionResponse$: StaticStructureSchema = [3, n0, _DMVRe
 export var DescribeResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
   [_RAe],
-  [0]
+  [0], 1
 ];
 export var DescribeResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRes,
   0,
@@ -598,7 +598,7 @@ export var DescribeResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRP
 export var DescribeRetrainingSchedulerRequest$: StaticStructureSchema = [3, n0, _DRSRe,
   0,
   [_MN],
-  [0]
+  [0], 1
 ];
 export var DescribeRetrainingSchedulerResponse$: StaticStructureSchema = [3, n0, _DRSRes,
   0,
@@ -608,12 +608,12 @@ export var DescribeRetrainingSchedulerResponse$: StaticStructureSchema = [3, n0,
 export var DuplicateTimestamps$: StaticStructureSchema = [3, n0, _DT,
   0,
   [_TNODT],
-  [1]
+  [1], 1
 ];
 export var ImportDatasetRequest$: StaticStructureSchema = [3, n0, _IDR,
   0,
   [_SDA, _DN, _CT, _SSKKI, _T],
-  [0, 0, [0, 4], 0, () => TagList]
+  [0, 0, [0, 4], 0, () => TagList], 1
 ];
 export var ImportDatasetResponse$: StaticStructureSchema = [3, n0, _IDRm,
   0,
@@ -622,8 +622,8 @@ export var ImportDatasetResponse$: StaticStructureSchema = [3, n0, _IDRm,
 ];
 export var ImportModelVersionRequest$: StaticStructureSchema = [3, n0, _IMVR,
   0,
-  [_SMVA, _MN, _DN, _LIC, _CT, _RA, _SSKKI, _T, _IDIS],
-  [0, 0, 0, () => LabelsInputConfiguration$, [0, 4], 0, 0, () => TagList, 0]
+  [_SMVA, _DN, _MN, _LIC, _CT, _RA, _SSKKI, _T, _IDIS],
+  [0, 0, 0, () => LabelsInputConfiguration$, [0, 4], 0, 0, () => TagList, 0], 2
 ];
 export var ImportModelVersionResponse$: StaticStructureSchema = [3, n0, _IMVRm,
   0,
@@ -653,17 +653,17 @@ export var InferenceInputNameConfiguration$: StaticStructureSchema = [3, n0, _II
 export var InferenceOutputConfiguration$: StaticStructureSchema = [3, n0, _IOC,
   0,
   [_SOC, _KKI],
-  [() => InferenceS3OutputConfiguration$, 0]
+  [() => InferenceS3OutputConfiguration$, 0], 1
 ];
 export var InferenceS3InputConfiguration$: StaticStructureSchema = [3, n0, _ISIC,
   0,
   [_B, _Pr],
-  [0, 0]
+  [0, 0], 1
 ];
 export var InferenceS3OutputConfiguration$: StaticStructureSchema = [3, n0, _ISOC,
   0,
   [_B, _Pr],
-  [0, 0]
+  [0, 0], 1
 ];
 export var InferenceSchedulerSummary$: StaticStructureSchema = [3, n0, _ISS,
   0,
@@ -673,33 +673,33 @@ export var InferenceSchedulerSummary$: StaticStructureSchema = [3, n0, _ISS,
 export var IngestedFilesSummary$: StaticStructureSchema = [3, n0, _IFS,
   0,
   [_TNOF, _INOF, _DF],
-  [1, 1, () => ListOfDiscardedFiles]
+  [1, 1, () => ListOfDiscardedFiles], 2
 ];
 export var IngestionInputConfiguration$: StaticStructureSchema = [3, n0, _IIC,
   0,
   [_SIC],
-  [() => IngestionS3InputConfiguration$]
+  [() => IngestionS3InputConfiguration$], 1
 ];
 export var IngestionS3InputConfiguration$: StaticStructureSchema = [3, n0, _ISICn,
   0,
   [_B, _Pr, _KP],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var InsufficientSensorData$: StaticStructureSchema = [3, n0, _ISD,
   0,
   [_MCSD, _SWSDR],
-  [() => MissingCompleteSensorData$, () => SensorsWithShortDateRange$]
+  [() => MissingCompleteSensorData$, () => SensorsWithShortDateRange$], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidSensorData$: StaticStructureSchema = [3, n0, _ISDn,
   0,
   [_ASC, _TNOIV],
-  [1, 1]
+  [1, 1], 2
 ];
 export var LabelGroupSummary$: StaticStructureSchema = [3, n0, _LGS,
   0,
@@ -714,7 +714,7 @@ export var LabelsInputConfiguration$: StaticStructureSchema = [3, n0, _LIC,
 export var LabelsS3InputConfiguration$: StaticStructureSchema = [3, n0, _LSIC,
   0,
   [_B, _Pr],
-  [0, 0]
+  [0, 0], 1
 ];
 export var LabelSummary$: StaticStructureSchema = [3, n0, _LS,
   0,
@@ -724,7 +724,7 @@ export var LabelSummary$: StaticStructureSchema = [3, n0, _LS,
 export var LargeTimestampGaps$: StaticStructureSchema = [3, n0, _LTG,
   0,
   [_S, _NOLTG, _MTGID],
-  [0, 1, 1]
+  [0, 1, 1], 1
 ];
 export var ListDataIngestionJobsRequest$: StaticStructureSchema = [3, n0, _LDIJR,
   0,
@@ -748,8 +748,8 @@ export var ListDatasetsResponse$: StaticStructureSchema = [3, n0, _LDRi,
 ];
 export var ListInferenceEventsRequest$: StaticStructureSchema = [3, n0, _LIER,
   0,
-  [_NT, _MR, _ISN, _IST, _IET],
-  [0, 1, 0, 4, 4]
+  [_ISN, _IST, _IET, _NT, _MR],
+  [0, 4, 4, 0, 1], 3
 ];
 export var ListInferenceEventsResponse$: StaticStructureSchema = [3, n0, _LIERi,
   0,
@@ -758,8 +758,8 @@ export var ListInferenceEventsResponse$: StaticStructureSchema = [3, n0, _LIERi,
 ];
 export var ListInferenceExecutionsRequest$: StaticStructureSchema = [3, n0, _LIERis,
   0,
-  [_NT, _MR, _ISN, _DSTA, _DETB, _S],
-  [0, 1, 0, 4, 4, 0]
+  [_ISN, _NT, _MR, _DSTA, _DETB, _S],
+  [0, 0, 1, 4, 4, 0], 1
 ];
 export var ListInferenceExecutionsResponse$: StaticStructureSchema = [3, n0, _LIERist,
   0,
@@ -789,7 +789,7 @@ export var ListLabelGroupsResponse$: StaticStructureSchema = [3, n0, _LLGRi,
 export var ListLabelsRequest$: StaticStructureSchema = [3, n0, _LLR,
   0,
   [_LGN, _IST, _IET, _FCa, _E, _NT, _MR],
-  [0, 4, 4, 0, 0, 0, 1]
+  [0, 4, 4, 0, 0, 0, 1], 1
 ];
 export var ListLabelsResponse$: StaticStructureSchema = [3, n0, _LLRi,
   0,
@@ -809,7 +809,7 @@ export var ListModelsResponse$: StaticStructureSchema = [3, n0, _LMRi,
 export var ListModelVersionsRequest$: StaticStructureSchema = [3, n0, _LMVR,
   0,
   [_MN, _NT, _MR, _S, _STo, _CAET, _CAST, _MMV, _MMVi],
-  [0, 0, 1, 0, 0, 4, 4, 1, 1]
+  [0, 0, 1, 0, 0, 4, 4, 1, 1], 1
 ];
 export var ListModelVersionsResponse$: StaticStructureSchema = [3, n0, _LMVRi,
   0,
@@ -829,7 +829,7 @@ export var ListRetrainingSchedulersResponse$: StaticStructureSchema = [3, n0, _L
 export var ListSensorStatisticsRequest$: StaticStructureSchema = [3, n0, _LSSR,
   0,
   [_DN, _IJI, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListSensorStatisticsResponse$: StaticStructureSchema = [3, n0, _LSSRi,
   0,
@@ -839,7 +839,7 @@ export var ListSensorStatisticsResponse$: StaticStructureSchema = [3, n0, _LSSRi
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -849,22 +849,22 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var MissingCompleteSensorData$: StaticStructureSchema = [3, n0, _MCSD,
   0,
   [_ASC],
-  [1]
+  [1], 1
 ];
 export var MissingSensorData$: StaticStructureSchema = [3, n0, _MSD,
   0,
   [_ASC, _TNOMV],
-  [1, 1]
+  [1, 1], 2
 ];
 export var ModelDiagnosticsOutputConfiguration$: StaticStructureSchema = [3, n0, _MDOC,
   0,
   [_SOC, _KKI],
-  [() => ModelDiagnosticsS3OutputConfiguration$, 0]
+  [() => ModelDiagnosticsS3OutputConfiguration$, 0], 1
 ];
 export var ModelDiagnosticsS3OutputConfiguration$: StaticStructureSchema = [3, n0, _MDSOC,
   0,
   [_B, _Pr],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ModelSummary$: StaticStructureSchema = [3, n0, _MSo,
   0,
@@ -879,17 +879,17 @@ export var ModelVersionSummary$: StaticStructureSchema = [3, n0, _MVSo,
 export var MonotonicValues$: StaticStructureSchema = [3, n0, _MVo,
   0,
   [_S, _Mo],
-  [0, 0]
+  [0, 0], 1
 ];
 export var MultipleOperatingModes$: StaticStructureSchema = [3, n0, _MOM,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_RAe, _RP, _PRI, _CT],
-  [0, 0, 0, [0, 4]]
+  [0, 0, 0, [0, 4]], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -899,7 +899,7 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetrainingSchedulerSummary$: StaticStructureSchema = [3, n0, _RSSet,
@@ -910,7 +910,7 @@ export var RetrainingSchedulerSummary$: StaticStructureSchema = [3, n0, _RSSet,
 export var S3Object$: StaticStructureSchema = [3, n0, _SO,
   0,
   [_B, _K],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SensorStatisticsSummary$: StaticStructureSchema = [3, n0, _SSSe,
   0,
@@ -920,18 +920,18 @@ export var SensorStatisticsSummary$: StaticStructureSchema = [3, n0, _SSSe,
 export var SensorsWithShortDateRange$: StaticStructureSchema = [3, n0, _SWSDR,
   0,
   [_ASC],
-  [1]
+  [1], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartDataIngestionJobRequest$: StaticStructureSchema = [3, n0, _SDIJR,
   0,
   [_DN, _IIC, _RA, _CT],
-  [0, () => IngestionInputConfiguration$, 0, [0, 4]]
+  [0, () => IngestionInputConfiguration$, 0, [0, 4]], 3
 ];
 export var StartDataIngestionJobResponse$: StaticStructureSchema = [3, n0, _SDIJRt,
   0,
@@ -941,7 +941,7 @@ export var StartDataIngestionJobResponse$: StaticStructureSchema = [3, n0, _SDIJ
 export var StartInferenceSchedulerRequest$: StaticStructureSchema = [3, n0, _SISR,
   0,
   [_ISN],
-  [0]
+  [0], 1
 ];
 export var StartInferenceSchedulerResponse$: StaticStructureSchema = [3, n0, _SISRt,
   0,
@@ -951,7 +951,7 @@ export var StartInferenceSchedulerResponse$: StaticStructureSchema = [3, n0, _SI
 export var StartRetrainingSchedulerRequest$: StaticStructureSchema = [3, n0, _SRSR,
   0,
   [_MN],
-  [0]
+  [0], 1
 ];
 export var StartRetrainingSchedulerResponse$: StaticStructureSchema = [3, n0, _SRSRt,
   0,
@@ -961,7 +961,7 @@ export var StartRetrainingSchedulerResponse$: StaticStructureSchema = [3, n0, _S
 export var StopInferenceSchedulerRequest$: StaticStructureSchema = [3, n0, _SISRto,
   0,
   [_ISN],
-  [0]
+  [0], 1
 ];
 export var StopInferenceSchedulerResponse$: StaticStructureSchema = [3, n0, _SISRtop,
   0,
@@ -971,7 +971,7 @@ export var StopInferenceSchedulerResponse$: StaticStructureSchema = [3, n0, _SIS
 export var StopRetrainingSchedulerRequest$: StaticStructureSchema = [3, n0, _SRSRto,
   0,
   [_MN],
-  [0]
+  [0], 1
 ];
 export var StopRetrainingSchedulerResponse$: StaticStructureSchema = [3, n0, _SRSRtop,
   0,
@@ -981,12 +981,12 @@ export var StopRetrainingSchedulerResponse$: StaticStructureSchema = [3, n0, _SR
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -996,18 +996,18 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UnsupportedTimestamps$: StaticStructureSchema = [3, n0, _UT,
   0,
   [_TNOUT],
-  [1]
+  [1], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1017,7 +1017,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateActiveModelVersionRequest$: StaticStructureSchema = [3, n0, _UAMVR,
   0,
   [_MN, _MV],
-  [0, 1]
+  [0, 1], 2
 ];
 export var UpdateActiveModelVersionResponse$: StaticStructureSchema = [3, n0, _UAMVRp,
   0,
@@ -1027,27 +1027,27 @@ export var UpdateActiveModelVersionResponse$: StaticStructureSchema = [3, n0, _U
 export var UpdateInferenceSchedulerRequest$: StaticStructureSchema = [3, n0, _UISR,
   0,
   [_ISN, _DDOIM, _DUF, _DIC, _DOC, _RA],
-  [0, 1, 0, () => InferenceInputConfiguration$, () => InferenceOutputConfiguration$, 0]
+  [0, 1, 0, () => InferenceInputConfiguration$, () => InferenceOutputConfiguration$, 0], 1
 ];
 export var UpdateLabelGroupRequest$: StaticStructureSchema = [3, n0, _ULGR,
   0,
   [_LGN, _FC],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var UpdateModelRequest$: StaticStructureSchema = [3, n0, _UMR,
   0,
   [_MN, _LIC, _RA, _MDOC],
-  [0, () => LabelsInputConfiguration$, 0, () => ModelDiagnosticsOutputConfiguration$]
+  [0, () => LabelsInputConfiguration$, 0, () => ModelDiagnosticsOutputConfiguration$], 1
 ];
 export var UpdateRetrainingSchedulerRequest$: StaticStructureSchema = [3, n0, _URSR,
   0,
   [_MN, _RSD, _RF, _LW, _PM],
-  [0, 4, 0, 0, 0]
+  [0, 4, 0, 0, 0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;

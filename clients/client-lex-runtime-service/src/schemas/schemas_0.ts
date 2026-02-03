@@ -172,7 +172,7 @@ var Text: StaticSimpleSchema = [0, n0, _T, 8, 0];
 export var ActiveContext$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_n, _tTL, _p],
-  [0, () => ActiveContextTimeToLive$, [() => ActiveContextParametersMap, 0]]
+  [0, () => ActiveContextTimeToLive$, [() => ActiveContextParametersMap, 0]], 3
 ];
 export var ActiveContextTimeToLive$: StaticStructureSchema = [3, n0, _ACTTL,
   0,
@@ -194,7 +194,7 @@ TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var Button$: StaticStructureSchema = [3, n0, _B,
   0,
   [_t, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -205,7 +205,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DeleteSessionRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_bN, _bA, _uI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteSessionResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -221,7 +221,7 @@ TypeRegistry.for(n0).registerError(DependencyFailedException$, DependencyFailedE
 export var DialogAction$: StaticStructureSchema = [3, n0, _DA,
   0,
   [_ty, _iN, _sl, _sTE, _fS, _m, _mF],
-  [0, 0, [() => StringMap, 0], 0, 0, [() => Text, 0], 0]
+  [0, 0, [() => StringMap, 0], 0, 0, [() => Text, 0], 0], 1
 ];
 export var GenericAttachment$: StaticStructureSchema = [3, n0, _GA,
   0,
@@ -231,7 +231,7 @@ export var GenericAttachment$: StaticStructureSchema = [3, n0, _GA,
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_bN, _bA, _uI, _cLF],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _cLF }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _cLF }]], 3
 ];
 export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -245,8 +245,8 @@ export var IntentConfidence$: StaticStructureSchema = [3, n0, _IC,
 ];
 export var IntentSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
-  [_iN, _cL, _sl, _cS, _dAT, _fS, _sTE],
-  [0, 0, [() => StringMap, 0], 0, 0, 0, 0]
+  [_dAT, _iN, _cL, _sl, _cS, _fS, _sTE],
+  [0, 0, 0, [() => StringMap, 0], 0, 0, 0], 1
 ];
 export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
   { [_e]: _ser, [_hE]: 500 },
@@ -280,8 +280,8 @@ export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
 TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PostContentRequest$: StaticStructureSchema = [3, n0, _PCR,
   0,
-  [_bN, _bA, _uI, _sA, _rA, _cT, _ac, _iS, _aC],
-  [[0, 1], [0, 1], [0, 1], [() => SynthesizedJsonAttributesString, { [_hH]: _xalsa }], [() => SynthesizedJsonAttributesString, { [_hH]: _xalra }], [0, { [_hH]: _CT }], [0, { [_hH]: _A }], [() => BlobStream, 16], [() => SynthesizedJsonActiveContextsString, { [_hH]: _xalac }]]
+  [_bN, _bA, _uI, _cT, _iS, _sA, _rA, _ac, _aC],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _CT }], [() => BlobStream, 16], [() => SynthesizedJsonAttributesString, { [_hH]: _xalsa }], [() => SynthesizedJsonAttributesString, { [_hH]: _xalra }], [0, { [_hH]: _A }], [() => SynthesizedJsonActiveContextsString, { [_hH]: _xalac }]], 5
 ];
 export var PostContentResponse$: StaticStructureSchema = [3, n0, _PCRo,
   0,
@@ -290,8 +290,8 @@ export var PostContentResponse$: StaticStructureSchema = [3, n0, _PCRo,
 ];
 export var PostTextRequest$: StaticStructureSchema = [3, n0, _PTR,
   0,
-  [_bN, _bA, _uI, _sA, _rA, _iTn, _aC],
-  [[0, 1], [0, 1], [0, 1], [() => StringMap, 0], [() => StringMap, 0], [() => Text, 0], [() => ActiveContextsList, 0]]
+  [_bN, _bA, _uI, _iTn, _sA, _rA, _aC],
+  [[0, 1], [0, 1], [0, 1], [() => Text, 0], [() => StringMap, 0], [() => StringMap, 0], [() => ActiveContextsList, 0]], 4
 ];
 export var PostTextResponse$: StaticStructureSchema = [3, n0, _PTRo,
   0,
@@ -306,7 +306,7 @@ export var PredictedIntent$: StaticStructureSchema = [3, n0, _PI,
 export var PutSessionRequest$: StaticStructureSchema = [3, n0, _PSR,
   0,
   [_bN, _bA, _uI, _sA, _dA, _rISV, _ac, _aC],
-  [[0, 1], [0, 1], [0, 1], [() => StringMap, 0], [() => DialogAction$, 0], [() => IntentSummaryList, 0], [0, { [_hH]: _A }], [() => ActiveContextsList, 0]]
+  [[0, 1], [0, 1], [0, 1], [() => StringMap, 0], [() => DialogAction$, 0], [() => IntentSummaryList, 0], [0, { [_hH]: _A }], [() => ActiveContextsList, 0]], 3
 ];
 export var PutSessionResponse$: StaticStructureSchema = [3, n0, _PSRu,
   0,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BCMPricingCalculatorClient } from "./BCMPricingCalculatorClient";
 import {
@@ -179,6 +179,22 @@ import {
   UpdateWorkloadEstimateCommandInput,
   UpdateWorkloadEstimateCommandOutput,
 } from "./commands/UpdateWorkloadEstimateCommand";
+import { paginateListBillEstimateCommitments } from "./pagination/ListBillEstimateCommitmentsPaginator";
+import {
+  paginateListBillEstimateInputCommitmentModifications,
+} from "./pagination/ListBillEstimateInputCommitmentModificationsPaginator";
+import {
+  paginateListBillEstimateInputUsageModifications,
+} from "./pagination/ListBillEstimateInputUsageModificationsPaginator";
+import { paginateListBillEstimateLineItems } from "./pagination/ListBillEstimateLineItemsPaginator";
+import { paginateListBillEstimates } from "./pagination/ListBillEstimatesPaginator";
+import {
+  paginateListBillScenarioCommitmentModifications,
+} from "./pagination/ListBillScenarioCommitmentModificationsPaginator";
+import { paginateListBillScenarios } from "./pagination/ListBillScenariosPaginator";
+import { paginateListBillScenarioUsageModifications } from "./pagination/ListBillScenarioUsageModificationsPaginator";
+import { paginateListWorkloadEstimates } from "./pagination/ListWorkloadEstimatesPaginator";
+import { paginateListWorkloadEstimateUsage } from "./pagination/ListWorkloadEstimateUsagePaginator";
 
 const commands = {
   BatchCreateBillScenarioCommitmentModificationCommand,
@@ -217,6 +233,18 @@ const commands = {
   UpdateBillScenarioCommand,
   UpdatePreferencesCommand,
   UpdateWorkloadEstimateCommand,
+};
+const paginators = {
+  paginateListBillEstimateCommitments,
+  paginateListBillEstimateInputCommitmentModifications,
+  paginateListBillEstimateInputUsageModifications,
+  paginateListBillEstimateLineItems,
+  paginateListBillEstimates,
+  paginateListBillScenarioCommitmentModifications,
+  paginateListBillScenarios,
+  paginateListBillScenarioUsageModifications,
+  paginateListWorkloadEstimates,
+  paginateListWorkloadEstimateUsage,
 };
 
 export interface BCMPricingCalculator {
@@ -836,6 +864,116 @@ export interface BCMPricingCalculator {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkloadEstimateCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBillEstimateCommitmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillEstimateCommitmentsCommandOutput}.
+   */
+  paginateListBillEstimateCommitments(
+    args: ListBillEstimateCommitmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillEstimateCommitmentsCommandOutput>;
+
+  /**
+   * @see {@link ListBillEstimateInputCommitmentModificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillEstimateInputCommitmentModificationsCommandOutput}.
+   */
+  paginateListBillEstimateInputCommitmentModifications(
+    args: ListBillEstimateInputCommitmentModificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillEstimateInputCommitmentModificationsCommandOutput>;
+
+  /**
+   * @see {@link ListBillEstimateInputUsageModificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillEstimateInputUsageModificationsCommandOutput}.
+   */
+  paginateListBillEstimateInputUsageModifications(
+    args: ListBillEstimateInputUsageModificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillEstimateInputUsageModificationsCommandOutput>;
+
+  /**
+   * @see {@link ListBillEstimateLineItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillEstimateLineItemsCommandOutput}.
+   */
+  paginateListBillEstimateLineItems(
+    args: ListBillEstimateLineItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillEstimateLineItemsCommandOutput>;
+
+  /**
+   * @see {@link ListBillEstimatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillEstimatesCommandOutput}.
+   */
+  paginateListBillEstimates(
+    args?: ListBillEstimatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillEstimatesCommandOutput>;
+
+  /**
+   * @see {@link ListBillScenarioCommitmentModificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillScenarioCommitmentModificationsCommandOutput}.
+   */
+  paginateListBillScenarioCommitmentModifications(
+    args: ListBillScenarioCommitmentModificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillScenarioCommitmentModificationsCommandOutput>;
+
+  /**
+   * @see {@link ListBillScenariosCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillScenariosCommandOutput}.
+   */
+  paginateListBillScenarios(
+    args?: ListBillScenariosCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillScenariosCommandOutput>;
+
+  /**
+   * @see {@link ListBillScenarioUsageModificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillScenarioUsageModificationsCommandOutput}.
+   */
+  paginateListBillScenarioUsageModifications(
+    args: ListBillScenarioUsageModificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillScenarioUsageModificationsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkloadEstimatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkloadEstimatesCommandOutput}.
+   */
+  paginateListWorkloadEstimates(
+    args?: ListWorkloadEstimatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkloadEstimatesCommandOutput>;
+
+  /**
+   * @see {@link ListWorkloadEstimateUsageCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkloadEstimateUsageCommandOutput}.
+   */
+  paginateListWorkloadEstimateUsage(
+    args: ListWorkloadEstimateUsageCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkloadEstimateUsageCommandOutput>;
 }
 
 /**
@@ -843,4 +981,4 @@ export interface BCMPricingCalculator {
  * @public
  */
 export class BCMPricingCalculator extends BCMPricingCalculatorClient implements BCMPricingCalculator {}
-createAggregatedClient(commands, BCMPricingCalculator);
+createAggregatedClient(commands, BCMPricingCalculator, { paginators });

@@ -44,12 +44,12 @@ var messageContentBlob: StaticSimpleSchema = [0, n0, _mCB, { [_s]: 1 }, 42];
 export var GetRawMessageContentRequest$: StaticStructureSchema = [3, n0, _GRMCR,
   0,
   [_mI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetRawMessageContentResponse$: StaticStructureSchema = [3, n0, _GRMCRe,
   0,
   [_mC],
-  [[() => messageContentBlob, 16]]
+  [[() => messageContentBlob, 16]], 1
 ];
 export var InvalidContentLocation$: StaticErrorSchema = [-3, n0, _ICL,
   { [_e]: _c },
@@ -72,7 +72,7 @@ TypeRegistry.for(n0).registerError(MessageRejected$, MessageRejected);
 export var PutRawMessageContentRequest$: StaticStructureSchema = [3, n0, _PRMCR,
   0,
   [_mI, _co],
-  [[0, 1], () => RawMessageContent$]
+  [[0, 1], () => RawMessageContent$], 2
 ];
 export var PutRawMessageContentResponse$: StaticStructureSchema = [3, n0, _PRMCRu,
   0,
@@ -82,7 +82,7 @@ export var PutRawMessageContentResponse$: StaticStructureSchema = [3, n0, _PRMCR
 export var RawMessageContent$: StaticStructureSchema = [3, n0, _RMC,
   0,
   [_sR],
-  [() => S3Reference$]
+  [() => S3Reference$], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -93,7 +93,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var S3Reference$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_b, _k, _oV],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var WorkMailMessageFlowServiceException$: StaticErrorSchema = [-3, _sm, "WorkMailMessageFlowServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WorkMailMessageFlowServiceException$, WorkMailMessageFlowServiceException);

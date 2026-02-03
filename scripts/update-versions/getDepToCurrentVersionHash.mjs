@@ -14,8 +14,6 @@ export const getDepToCurrentVersionHash = () =>
       targetVersion = "^" + targetVersion;
     }
 
-    return {
-      ...acc,
-      [`@aws-sdk/${basename(workspacePath)}`]: targetVersion,
-    };
+    acc[`@aws-sdk/${basename(workspacePath)}`] = targetVersion;
+    return acc;
   }, {});

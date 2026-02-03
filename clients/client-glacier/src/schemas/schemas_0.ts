@@ -277,17 +277,17 @@ var _Stream: StaticSimpleSchema = [0, n0, _S, { [_s]: 1 }, 42];
 export var AbortMultipartUploadInput$: StaticStructureSchema = [3, n0, _AMUI,
   0,
   [_aI, _vN, _uI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var AbortVaultLockInput$: StaticStructureSchema = [3, n0, _AVLI,
   0,
   [_aI, _vN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var AddTagsToVaultInput$: StaticStructureSchema = [3, n0, _ATTVI,
   0,
   [_aI, _vN, _T],
-  [[0, 1], [0, 1], 128 | 0]
+  [[0, 1], [0, 1], 128 | 0], 2
 ];
 export var ArchiveCreationOutput$: StaticStructureSchema = [3, n0, _ACO,
   0,
@@ -297,17 +297,17 @@ export var ArchiveCreationOutput$: StaticStructureSchema = [3, n0, _ACO,
 export var CompleteMultipartUploadInput$: StaticStructureSchema = [3, n0, _CMUI,
   0,
   [_aI, _vN, _uI, _aS, _c],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _xaas }], [0, { [_hH]: _xasth }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _xaas }], [0, { [_hH]: _xasth }]], 3
 ];
 export var CompleteVaultLockInput$: StaticStructureSchema = [3, n0, _CVLI,
   0,
   [_aI, _vN, _lI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var CreateVaultInput$: StaticStructureSchema = [3, n0, _CVI,
   0,
   [_aI, _vN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var CreateVaultOutput$: StaticStructureSchema = [3, n0, _CVO,
   0,
@@ -337,32 +337,32 @@ export var DataRetrievalRule$: StaticStructureSchema = [3, n0, _DRR,
 export var DeleteArchiveInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_aI, _vN, _aIr],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteVaultAccessPolicyInput$: StaticStructureSchema = [3, n0, _DVAPI,
   0,
   [_aI, _vN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteVaultInput$: StaticStructureSchema = [3, n0, _DVI,
   0,
   [_aI, _vN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteVaultNotificationsInput$: StaticStructureSchema = [3, n0, _DVNI,
   0,
   [_aI, _vN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeJobInput$: StaticStructureSchema = [3, n0, _DJI,
   0,
   [_aI, _vN, _jI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DescribeVaultInput$: StaticStructureSchema = [3, n0, _DVIe,
   0,
   [_aI, _vN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeVaultOutput$: StaticStructureSchema = [3, n0, _DVO,
   0,
@@ -377,7 +377,7 @@ export var Encryption$: StaticStructureSchema = [3, n0, _E,
 export var GetDataRetrievalPolicyInput$: StaticStructureSchema = [3, n0, _GDRPI,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDataRetrievalPolicyOutput$: StaticStructureSchema = [3, n0, _GDRPO,
   0,
@@ -387,7 +387,7 @@ export var GetDataRetrievalPolicyOutput$: StaticStructureSchema = [3, n0, _GDRPO
 export var GetJobOutputInput$: StaticStructureSchema = [3, n0, _GJOI,
   0,
   [_aI, _vN, _jI, _r],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _Ra }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _Ra }]], 3
 ];
 export var GetJobOutputOutput$: StaticStructureSchema = [3, n0, _GJOO,
   0,
@@ -397,7 +397,7 @@ export var GetJobOutputOutput$: StaticStructureSchema = [3, n0, _GJOO,
 export var GetVaultAccessPolicyInput$: StaticStructureSchema = [3, n0, _GVAPI,
   0,
   [_aI, _vN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetVaultAccessPolicyOutput$: StaticStructureSchema = [3, n0, _GVAPO,
   0,
@@ -407,7 +407,7 @@ export var GetVaultAccessPolicyOutput$: StaticStructureSchema = [3, n0, _GVAPO,
 export var GetVaultLockInput$: StaticStructureSchema = [3, n0, _GVLI,
   0,
   [_aI, _vN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetVaultLockOutput$: StaticStructureSchema = [3, n0, _GVLO,
   0,
@@ -417,7 +417,7 @@ export var GetVaultLockOutput$: StaticStructureSchema = [3, n0, _GVLO,
 export var GetVaultNotificationsInput$: StaticStructureSchema = [3, n0, _GVNI,
   0,
   [_aI, _vN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetVaultNotificationsOutput$: StaticStructureSchema = [3, n0, _GVNO,
   0,
@@ -437,12 +437,12 @@ export var Grant$: StaticStructureSchema = [3, n0, _G,
 export var Grantee$: StaticStructureSchema = [3, n0, _Gr,
   0,
   [_Ty, _DN, _URI, _ID, _EA],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 1
 ];
 export var InitiateJobInput$: StaticStructureSchema = [3, n0, _IJI,
   0,
   [_aI, _vN, _jP],
-  [[0, 1], [0, 1], [() => JobParameters$, 16]]
+  [[0, 1], [0, 1], [() => JobParameters$, 16]], 2
 ];
 export var InitiateJobOutput$: StaticStructureSchema = [3, n0, _IJO,
   0,
@@ -452,7 +452,7 @@ export var InitiateJobOutput$: StaticStructureSchema = [3, n0, _IJO,
 export var InitiateMultipartUploadInput$: StaticStructureSchema = [3, n0, _IMUI,
   0,
   [_aI, _vN, _aD, _pS],
-  [[0, 1], [0, 1], [0, { [_hH]: _xaad }], [0, { [_hH]: _xaps }]]
+  [[0, 1], [0, 1], [0, { [_hH]: _xaad }], [0, { [_hH]: _xaps }]], 2
 ];
 export var InitiateMultipartUploadOutput$: StaticStructureSchema = [3, n0, _IMUO,
   0,
@@ -462,7 +462,7 @@ export var InitiateMultipartUploadOutput$: StaticStructureSchema = [3, n0, _IMUO
 export var InitiateVaultLockInput$: StaticStructureSchema = [3, n0, _IVLI,
   0,
   [_aI, _vN, _p],
-  [[0, 1], [0, 1], [() => VaultLockPolicy$, 16]]
+  [[0, 1], [0, 1], [() => VaultLockPolicy$, 16]], 2
 ];
 export var InitiateVaultLockOutput$: StaticStructureSchema = [3, n0, _IVLO,
   0,
@@ -510,7 +510,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListJobsInput$: StaticStructureSchema = [3, n0, _LJI,
   0,
   [_aI, _vN, _li, _ma, _sta, _com],
-  [[0, 1], [0, 1], [1, { [_hQ]: _li }], [0, { [_hQ]: _ma }], [0, { [_hQ]: _sta }], [0, { [_hQ]: _com }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _li }], [0, { [_hQ]: _ma }], [0, { [_hQ]: _sta }], [0, { [_hQ]: _com }]], 2
 ];
 export var ListJobsOutput$: StaticStructureSchema = [3, n0, _LJO,
   0,
@@ -520,7 +520,7 @@ export var ListJobsOutput$: StaticStructureSchema = [3, n0, _LJO,
 export var ListMultipartUploadsInput$: StaticStructureSchema = [3, n0, _LMUI,
   0,
   [_aI, _vN, _li, _ma],
-  [[0, 1], [0, 1], [1, { [_hQ]: _li }], [0, { [_hQ]: _ma }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _li }], [0, { [_hQ]: _ma }]], 2
 ];
 export var ListMultipartUploadsOutput$: StaticStructureSchema = [3, n0, _LMUO,
   0,
@@ -530,7 +530,7 @@ export var ListMultipartUploadsOutput$: StaticStructureSchema = [3, n0, _LMUO,
 export var ListPartsInput$: StaticStructureSchema = [3, n0, _LPI,
   0,
   [_aI, _vN, _uI, _ma, _li],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _ma }], [1, { [_hQ]: _li }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _ma }], [1, { [_hQ]: _li }]], 3
 ];
 export var ListPartsOutput$: StaticStructureSchema = [3, n0, _LPO,
   0,
@@ -540,7 +540,7 @@ export var ListPartsOutput$: StaticStructureSchema = [3, n0, _LPO,
 export var ListProvisionedCapacityInput$: StaticStructureSchema = [3, n0, _LPCI,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListProvisionedCapacityOutput$: StaticStructureSchema = [3, n0, _LPCO,
   0,
@@ -550,7 +550,7 @@ export var ListProvisionedCapacityOutput$: StaticStructureSchema = [3, n0, _LPCO
 export var ListTagsForVaultInput$: StaticStructureSchema = [3, n0, _LTFVI,
   0,
   [_aI, _vN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var ListTagsForVaultOutput$: StaticStructureSchema = [3, n0, _LTFVO,
   0,
@@ -560,7 +560,7 @@ export var ListTagsForVaultOutput$: StaticStructureSchema = [3, n0, _LTFVO,
 export var ListVaultsInput$: StaticStructureSchema = [3, n0, _LVI,
   0,
   [_aI, _ma, _li],
-  [[0, 1], [0, { [_hQ]: _ma }], [1, { [_hQ]: _li }]]
+  [[0, 1], [0, { [_hQ]: _ma }], [1, { [_hQ]: _li }]], 1
 ];
 export var ListVaultsOutput$: StaticStructureSchema = [3, n0, _LVO,
   0,
@@ -608,7 +608,7 @@ export var ProvisionedCapacityDescription$: StaticStructureSchema = [3, n0, _PCD
 export var PurchaseProvisionedCapacityInput$: StaticStructureSchema = [3, n0, _PPCI,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var PurchaseProvisionedCapacityOutput$: StaticStructureSchema = [3, n0, _PPCO,
   0,
@@ -618,7 +618,7 @@ export var PurchaseProvisionedCapacityOutput$: StaticStructureSchema = [3, n0, _
 export var RemoveTagsFromVaultInput$: StaticStructureSchema = [3, n0, _RTFVI,
   0,
   [_aI, _vN, _TK],
-  [[0, 1], [0, 1], 64 | 0]
+  [[0, 1], [0, 1], 64 | 0], 2
 ];
 export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
   { [_e]: _cl, [_hE]: 408 },
@@ -651,22 +651,22 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var SetDataRetrievalPolicyInput$: StaticStructureSchema = [3, n0, _SDRPI,
   0,
   [_aI, _P],
-  [[0, 1], () => DataRetrievalPolicy$]
+  [[0, 1], () => DataRetrievalPolicy$], 1
 ];
 export var SetVaultAccessPolicyInput$: StaticStructureSchema = [3, n0, _SVAPI,
   0,
   [_aI, _vN, _p],
-  [[0, 1], [0, 1], [() => VaultAccessPolicy$, 16]]
+  [[0, 1], [0, 1], [() => VaultAccessPolicy$, 16]], 2
 ];
 export var SetVaultNotificationsInput$: StaticStructureSchema = [3, n0, _SVNI,
   0,
   [_aI, _vN, _vNC],
-  [[0, 1], [0, 1], [() => VaultNotificationConfig$, 16]]
+  [[0, 1], [0, 1], [() => VaultNotificationConfig$, 16]], 2
 ];
 export var UploadArchiveInput$: StaticStructureSchema = [3, n0, _UAI,
   0,
   [_vN, _aI, _aD, _c, _b],
-  [[0, 1], [0, 1], [0, { [_hH]: _xaad }], [0, { [_hH]: _xasth }], [() => _Stream, 16]]
+  [[0, 1], [0, 1], [0, { [_hH]: _xaad }], [0, { [_hH]: _xasth }], [() => _Stream, 16]], 2
 ];
 export var UploadListElement$: StaticStructureSchema = [3, n0, _ULE,
   0,
@@ -676,7 +676,7 @@ export var UploadListElement$: StaticStructureSchema = [3, n0, _ULE,
 export var UploadMultipartPartInput$: StaticStructureSchema = [3, n0, _UMPI,
   0,
   [_aI, _vN, _uI, _c, _r, _b],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _xasth }], [0, { [_hH]: _CR }], [() => _Stream, 16]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _xasth }], [0, { [_hH]: _CR }], [() => _Stream, 16]], 3
 ];
 export var UploadMultipartPartOutput$: StaticStructureSchema = [3, n0, _UMPO,
   0,

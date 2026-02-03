@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptNetworkFirewallTransitGatewayAttachmentCommand,
@@ -378,6 +378,19 @@ import {
   UpdateTLSInspectionConfigurationCommandOutput,
 } from "./commands/UpdateTLSInspectionConfigurationCommand";
 import { NetworkFirewallClient } from "./NetworkFirewallClient";
+import { paginateGetAnalysisReportResults } from "./pagination/GetAnalysisReportResultsPaginator";
+import { paginateListAnalysisReports } from "./pagination/ListAnalysisReportsPaginator";
+import { paginateListFirewallPolicies } from "./pagination/ListFirewallPoliciesPaginator";
+import { paginateListFirewalls } from "./pagination/ListFirewallsPaginator";
+import { paginateListFlowOperationResults } from "./pagination/ListFlowOperationResultsPaginator";
+import { paginateListFlowOperations } from "./pagination/ListFlowOperationsPaginator";
+import { paginateListProxies } from "./pagination/ListProxiesPaginator";
+import { paginateListProxyConfigurations } from "./pagination/ListProxyConfigurationsPaginator";
+import { paginateListProxyRuleGroups } from "./pagination/ListProxyRuleGroupsPaginator";
+import { paginateListRuleGroups } from "./pagination/ListRuleGroupsPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListTLSInspectionConfigurations } from "./pagination/ListTLSInspectionConfigurationsPaginator";
+import { paginateListVpcEndpointAssociations } from "./pagination/ListVpcEndpointAssociationsPaginator";
 
 const commands = {
   AcceptNetworkFirewallTransitGatewayAttachmentCommand,
@@ -459,6 +472,21 @@ const commands = {
   UpdateRuleGroupCommand,
   UpdateSubnetChangeProtectionCommand,
   UpdateTLSInspectionConfigurationCommand,
+};
+const paginators = {
+  paginateGetAnalysisReportResults,
+  paginateListAnalysisReports,
+  paginateListFirewallPolicies,
+  paginateListFirewalls,
+  paginateListFlowOperationResults,
+  paginateListFlowOperations,
+  paginateListProxies,
+  paginateListProxyConfigurations,
+  paginateListProxyRuleGroups,
+  paginateListRuleGroups,
+  paginateListTagsForResource,
+  paginateListTLSInspectionConfigurations,
+  paginateListVpcEndpointAssociations,
 };
 
 export interface NetworkFirewall {
@@ -1834,6 +1862,149 @@ export interface NetworkFirewall {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTLSInspectionConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetAnalysisReportResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAnalysisReportResultsCommandOutput}.
+   */
+  paginateGetAnalysisReportResults(
+    args: GetAnalysisReportResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAnalysisReportResultsCommandOutput>;
+
+  /**
+   * @see {@link ListAnalysisReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnalysisReportsCommandOutput}.
+   */
+  paginateListAnalysisReports(
+    args?: ListAnalysisReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnalysisReportsCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallPoliciesCommandOutput}.
+   */
+  paginateListFirewallPolicies(
+    args?: ListFirewallPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallsCommandOutput}.
+   */
+  paginateListFirewalls(
+    args?: ListFirewallsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallsCommandOutput>;
+
+  /**
+   * @see {@link ListFlowOperationResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowOperationResultsCommandOutput}.
+   */
+  paginateListFlowOperationResults(
+    args: ListFlowOperationResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowOperationResultsCommandOutput>;
+
+  /**
+   * @see {@link ListFlowOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowOperationsCommandOutput}.
+   */
+  paginateListFlowOperations(
+    args: ListFlowOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListProxiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProxiesCommandOutput}.
+   */
+  paginateListProxies(
+    args?: ListProxiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProxiesCommandOutput>;
+
+  /**
+   * @see {@link ListProxyConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProxyConfigurationsCommandOutput}.
+   */
+  paginateListProxyConfigurations(
+    args?: ListProxyConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProxyConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListProxyRuleGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProxyRuleGroupsCommandOutput}.
+   */
+  paginateListProxyRuleGroups(
+    args?: ListProxyRuleGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProxyRuleGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListRuleGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRuleGroupsCommandOutput}.
+   */
+  paginateListRuleGroups(
+    args?: ListRuleGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRuleGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListTLSInspectionConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTLSInspectionConfigurationsCommandOutput}.
+   */
+  paginateListTLSInspectionConfigurations(
+    args?: ListTLSInspectionConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTLSInspectionConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListVpcEndpointAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVpcEndpointAssociationsCommandOutput}.
+   */
+  paginateListVpcEndpointAssociations(
+    args?: ListVpcEndpointAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVpcEndpointAssociationsCommandOutput>;
 }
 
 /**
@@ -1927,4 +2098,4 @@ export interface NetworkFirewall {
  * @public
  */
 export class NetworkFirewall extends NetworkFirewallClient implements NetworkFirewall {}
-createAggregatedClient(commands, NetworkFirewall);
+createAggregatedClient(commands, NetworkFirewall, { paginators });

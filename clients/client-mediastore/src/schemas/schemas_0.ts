@@ -148,23 +148,23 @@ export var CorsPolicyNotFoundException$: StaticErrorSchema = [-3, n0, _CPNFE,
 TypeRegistry.for(n0).registerError(CorsPolicyNotFoundException$, CorsPolicyNotFoundException);
 export var CorsRule$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_AO, _AM, _AH, _MAS, _EH],
-  [64 | 0, 64 | 0, 64 | 0, 1, 64 | 0]
+  [_AO, _AH, _AM, _MAS, _EH],
+  [64 | 0, 64 | 0, 64 | 0, 1, 64 | 0], 2
 ];
 export var CreateContainerInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
   [_CN, _T],
-  [0, () => TagList]
+  [0, () => TagList], 1
 ];
 export var CreateContainerOutput$: StaticStructureSchema = [3, n0, _CCO,
   0,
   [_C],
-  [() => Container$]
+  [() => Container$], 1
 ];
 export var DeleteContainerInput$: StaticStructureSchema = [3, n0, _DCI,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var DeleteContainerOutput$: StaticStructureSchema = [3, n0, _DCO,
   0,
@@ -174,7 +174,7 @@ export var DeleteContainerOutput$: StaticStructureSchema = [3, n0, _DCO,
 export var DeleteContainerPolicyInput$: StaticStructureSchema = [3, n0, _DCPI,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var DeleteContainerPolicyOutput$: StaticStructureSchema = [3, n0, _DCPO,
   0,
@@ -184,7 +184,7 @@ export var DeleteContainerPolicyOutput$: StaticStructureSchema = [3, n0, _DCPO,
 export var DeleteCorsPolicyInput$: StaticStructureSchema = [3, n0, _DCPIe,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var DeleteCorsPolicyOutput$: StaticStructureSchema = [3, n0, _DCPOe,
   0,
@@ -194,7 +194,7 @@ export var DeleteCorsPolicyOutput$: StaticStructureSchema = [3, n0, _DCPOe,
 export var DeleteLifecyclePolicyInput$: StaticStructureSchema = [3, n0, _DLPI,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var DeleteLifecyclePolicyOutput$: StaticStructureSchema = [3, n0, _DLPO,
   0,
@@ -204,7 +204,7 @@ export var DeleteLifecyclePolicyOutput$: StaticStructureSchema = [3, n0, _DLPO,
 export var DeleteMetricPolicyInput$: StaticStructureSchema = [3, n0, _DMPI,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var DeleteMetricPolicyOutput$: StaticStructureSchema = [3, n0, _DMPO,
   0,
@@ -224,42 +224,42 @@ export var DescribeContainerOutput$: StaticStructureSchema = [3, n0, _DCOe,
 export var GetContainerPolicyInput$: StaticStructureSchema = [3, n0, _GCPI,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var GetContainerPolicyOutput$: StaticStructureSchema = [3, n0, _GCPO,
   0,
   [_P],
-  [0]
+  [0], 1
 ];
 export var GetCorsPolicyInput$: StaticStructureSchema = [3, n0, _GCPIe,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var GetCorsPolicyOutput$: StaticStructureSchema = [3, n0, _GCPOe,
   0,
   [_CP],
-  [() => CorsPolicy]
+  [() => CorsPolicy], 1
 ];
 export var GetLifecyclePolicyInput$: StaticStructureSchema = [3, n0, _GLPI,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var GetLifecyclePolicyOutput$: StaticStructureSchema = [3, n0, _GLPO,
   0,
   [_LP],
-  [0]
+  [0], 1
 ];
 export var GetMetricPolicyInput$: StaticStructureSchema = [3, n0, _GMPI,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var GetMetricPolicyOutput$: StaticStructureSchema = [3, n0, _GMPO,
   0,
   [_MP],
-  [() => MetricPolicy$]
+  [() => MetricPolicy$], 1
 ];
 export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s },
@@ -281,12 +281,12 @@ export var ListContainersInput$: StaticStructureSchema = [3, n0, _LCI,
 export var ListContainersOutput$: StaticStructureSchema = [3, n0, _LCO,
   0,
   [_Co, _NT],
-  [() => ContainerList, 0]
+  [() => ContainerList, 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_R],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -296,12 +296,12 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 export var MetricPolicy$: StaticStructureSchema = [3, n0, _MP,
   0,
   [_CLM, _MPR],
-  [0, () => MetricPolicyRules]
+  [0, () => MetricPolicyRules], 1
 ];
 export var MetricPolicyRule$: StaticStructureSchema = [3, n0, _MPRe,
   0,
   [_OG, _OGN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
   { [_e]: _c },
@@ -312,7 +312,7 @@ TypeRegistry.for(n0).registerError(PolicyNotFoundException$, PolicyNotFoundExcep
 export var PutContainerPolicyInput$: StaticStructureSchema = [3, n0, _PCPI,
   0,
   [_CN, _P],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutContainerPolicyOutput$: StaticStructureSchema = [3, n0, _PCPO,
   0,
@@ -322,7 +322,7 @@ export var PutContainerPolicyOutput$: StaticStructureSchema = [3, n0, _PCPO,
 export var PutCorsPolicyInput$: StaticStructureSchema = [3, n0, _PCPIu,
   0,
   [_CN, _CP],
-  [0, () => CorsPolicy]
+  [0, () => CorsPolicy], 2
 ];
 export var PutCorsPolicyOutput$: StaticStructureSchema = [3, n0, _PCPOu,
   0,
@@ -332,7 +332,7 @@ export var PutCorsPolicyOutput$: StaticStructureSchema = [3, n0, _PCPOu,
 export var PutLifecyclePolicyInput$: StaticStructureSchema = [3, n0, _PLPI,
   0,
   [_CN, _LP],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutLifecyclePolicyOutput$: StaticStructureSchema = [3, n0, _PLPO,
   0,
@@ -342,7 +342,7 @@ export var PutLifecyclePolicyOutput$: StaticStructureSchema = [3, n0, _PLPO,
 export var PutMetricPolicyInput$: StaticStructureSchema = [3, n0, _PMPI,
   0,
   [_CN, _MP],
-  [0, () => MetricPolicy$]
+  [0, () => MetricPolicy$], 2
 ];
 export var PutMetricPolicyOutput$: StaticStructureSchema = [3, n0, _PMPO,
   0,
@@ -352,7 +352,7 @@ export var PutMetricPolicyOutput$: StaticStructureSchema = [3, n0, _PMPO,
 export var StartAccessLoggingInput$: StaticStructureSchema = [3, n0, _SALI,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var StartAccessLoggingOutput$: StaticStructureSchema = [3, n0, _SALO,
   0,
@@ -362,7 +362,7 @@ export var StartAccessLoggingOutput$: StaticStructureSchema = [3, n0, _SALO,
 export var StopAccessLoggingInput$: StaticStructureSchema = [3, n0, _SALIt,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var StopAccessLoggingOutput$: StaticStructureSchema = [3, n0, _SALOt,
   0,
@@ -372,12 +372,12 @@ export var StopAccessLoggingOutput$: StaticStructureSchema = [3, n0, _SALOt,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_R, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -387,7 +387,7 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_R, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,

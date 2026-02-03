@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateMonitorCommand,
@@ -67,6 +67,10 @@ import {
   UpdateMonitorCommandOutput,
 } from "./commands/UpdateMonitorCommand";
 import { InternetMonitorClient } from "./InternetMonitorClient";
+import { paginateGetQueryResults } from "./pagination/GetQueryResultsPaginator";
+import { paginateListHealthEvents } from "./pagination/ListHealthEventsPaginator";
+import { paginateListInternetEvents } from "./pagination/ListInternetEventsPaginator";
+import { paginateListMonitors } from "./pagination/ListMonitorsPaginator";
 
 const commands = {
   CreateMonitorCommand,
@@ -85,6 +89,12 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateMonitorCommand,
+};
+const paginators = {
+  paginateGetQueryResults,
+  paginateListHealthEvents,
+  paginateListInternetEvents,
+  paginateListMonitors,
 };
 
 export interface InternetMonitor {
@@ -361,6 +371,50 @@ export interface InternetMonitor {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMonitorCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetQueryResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetQueryResultsCommandOutput}.
+   */
+  paginateGetQueryResults(
+    args: GetQueryResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetQueryResultsCommandOutput>;
+
+  /**
+   * @see {@link ListHealthEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHealthEventsCommandOutput}.
+   */
+  paginateListHealthEvents(
+    args: ListHealthEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHealthEventsCommandOutput>;
+
+  /**
+   * @see {@link ListInternetEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInternetEventsCommandOutput}.
+   */
+  paginateListInternetEvents(
+    args?: ListInternetEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInternetEventsCommandOutput>;
+
+  /**
+   * @see {@link ListMonitorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMonitorsCommandOutput}.
+   */
+  paginateListMonitors(
+    args?: ListMonitorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMonitorsCommandOutput>;
 }
 
 /**
@@ -383,4 +437,4 @@ export interface InternetMonitor {
  * @public
  */
 export class InternetMonitor extends InternetMonitorClient implements InternetMonitor {}
-createAggregatedClient(commands, InternetMonitor);
+createAggregatedClient(commands, InternetMonitor, { paginators });

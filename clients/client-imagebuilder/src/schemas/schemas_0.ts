@@ -764,7 +764,7 @@ export var AmiDistributionConfiguration$: StaticStructureSchema = [3, n0, _ADC,
 export var AutoDisablePolicy$: StaticStructureSchema = [3, n0, _ADP,
   0,
   [_fC],
-  [1]
+  [1], 1
 ];
 export var CallRateLimitExceededException$: StaticErrorSchema = [-3, n0, _CRLEE,
   { [_e]: _c, [_hE]: 429 },
@@ -775,7 +775,7 @@ TypeRegistry.for(n0).registerError(CallRateLimitExceededException$, CallRateLimi
 export var CancelImageCreationRequest$: StaticStructureSchema = [3, n0, _CICR,
   0,
   [_iBVA, _cT],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var CancelImageCreationResponse$: StaticStructureSchema = [3, n0, _CICRa,
   0,
@@ -785,7 +785,7 @@ export var CancelImageCreationResponse$: StaticStructureSchema = [3, n0, _CICRa,
 export var CancelLifecycleExecutionRequest$: StaticStructureSchema = [3, n0, _CLER,
   0,
   [_lEI, _cT],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var CancelLifecycleExecutionResponse$: StaticStructureSchema = [3, n0, _CLERa,
   0,
@@ -806,17 +806,17 @@ export var Component$: StaticStructureSchema = [3, n0, _C,
 export var ComponentConfiguration$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_cA, _pa],
-  [0, () => ComponentParameterList]
+  [0, () => ComponentParameterList], 1
 ];
 export var ComponentParameter$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_n, _va],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var ComponentParameterDetail$: StaticStructureSchema = [3, n0, _CPD,
   0,
   [_n, _t, _dV, _d],
-  [0, 0, 64 | 0, 0]
+  [0, 0, 64 | 0, 0], 2
 ];
 export var ComponentState$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -840,8 +840,8 @@ export var Container$: StaticStructureSchema = [3, n0, _Co,
 ];
 export var ContainerDistributionConfiguration$: StaticStructureSchema = [3, n0, _CDC,
   0,
-  [_d, _cTo, _tR],
-  [0, 64 | 0, () => TargetContainerRepository$]
+  [_tR, _d, _cTo],
+  [() => TargetContainerRepository$, 0, 64 | 0], 1
 ];
 export var ContainerRecipe$: StaticStructureSchema = [3, n0, _CR,
   0,
@@ -855,8 +855,8 @@ export var ContainerRecipeSummary$: StaticStructureSchema = [3, n0, _CRS,
 ];
 export var CreateComponentRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_n, _sV, _d, _cD, _p, _sOV, _da, _u, _kKI, _ta, _cT, _dR],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 128 | 0, [0, 4], 2]
+  [_n, _sV, _p, _d, _cD, _sOV, _da, _u, _kKI, _ta, _cT, _dR],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 128 | 0, [0, 4], 2], 3
 ];
 export var CreateComponentResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -865,8 +865,8 @@ export var CreateComponentResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateContainerRecipeRequest$: StaticStructureSchema = [3, n0, _CCRR,
   0,
-  [_cTon, _n, _d, _sV, _co, _iC, _dTD, _dTU, _pO, _iOVO, _pI, _ta, _wD, _tR, _kKI, _cT],
-  [0, 0, 0, 0, () => ComponentConfigurationList, () => InstanceConfiguration$, 0, 0, 0, 0, 0, 128 | 0, 0, () => TargetContainerRepository$, 0, [0, 4]]
+  [_cTon, _n, _sV, _pI, _tR, _d, _co, _iC, _dTD, _dTU, _pO, _iOVO, _ta, _wD, _kKI, _cT],
+  [0, 0, 0, 0, () => TargetContainerRepository$, 0, () => ComponentConfigurationList, () => InstanceConfiguration$, 0, 0, 0, 0, 128 | 0, 0, 0, [0, 4]], 5
 ];
 export var CreateContainerRecipeResponse$: StaticStructureSchema = [3, n0, _CCRRr,
   0,
@@ -875,8 +875,8 @@ export var CreateContainerRecipeResponse$: StaticStructureSchema = [3, n0, _CCRR
 ];
 export var CreateDistributionConfigurationRequest$: StaticStructureSchema = [3, n0, _CDCR,
   0,
-  [_n, _d, _di, _ta, _cT],
-  [0, 0, () => DistributionList, 128 | 0, [0, 4]]
+  [_n, _di, _d, _ta, _cT],
+  [0, () => DistributionList, 0, 128 | 0, [0, 4]], 2
 ];
 export var CreateDistributionConfigurationResponse$: StaticStructureSchema = [3, n0, _CDCRr,
   0,
@@ -885,8 +885,8 @@ export var CreateDistributionConfigurationResponse$: StaticStructureSchema = [3,
 ];
 export var CreateImagePipelineRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
-  [_n, _d, _iRA, _cRA, _iCA, _dCA, _iTC, _eIME, _sc, _st, _ta, _cT, _iSC, _w, _eR, _lC],
-  [0, 0, 0, 0, 0, 0, () => ImageTestsConfiguration$, 2, () => Schedule$, 0, 128 | 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, 0, () => PipelineLoggingConfiguration$]
+  [_n, _iCA, _d, _iRA, _cRA, _dCA, _iTC, _eIME, _sc, _st, _ta, _cT, _iSC, _w, _eR, _lC],
+  [0, 0, 0, 0, 0, 0, () => ImageTestsConfiguration$, 2, () => Schedule$, 0, 128 | 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, 0, () => PipelineLoggingConfiguration$], 2
 ];
 export var CreateImagePipelineResponse$: StaticStructureSchema = [3, n0, _CIPRr,
   0,
@@ -895,8 +895,8 @@ export var CreateImagePipelineResponse$: StaticStructureSchema = [3, n0, _CIPRr,
 ];
 export var CreateImageRecipeRequest$: StaticStructureSchema = [3, n0, _CIRR,
   0,
-  [_n, _d, _sV, _co, _pI, _bDM, _ta, _wD, _aIC, _aT, _cT],
-  [0, 0, 0, () => ComponentConfigurationList, 0, () => InstanceBlockDeviceMappings, 128 | 0, 0, () => AdditionalInstanceConfiguration$, 128 | 0, [0, 4]]
+  [_n, _sV, _pI, _d, _co, _bDM, _ta, _wD, _aIC, _aT, _cT],
+  [0, 0, 0, 0, () => ComponentConfigurationList, () => InstanceBlockDeviceMappings, 128 | 0, 0, () => AdditionalInstanceConfiguration$, 128 | 0, [0, 4]], 3
 ];
 export var CreateImageRecipeResponse$: StaticStructureSchema = [3, n0, _CIRRr,
   0,
@@ -905,8 +905,8 @@ export var CreateImageRecipeResponse$: StaticStructureSchema = [3, n0, _CIRRr,
 ];
 export var CreateImageRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
-  [_iRA, _cRA, _dCA, _iCA, _iTC, _eIME, _ta, _cT, _iSC, _w, _eR, _lC],
-  [0, 0, 0, 0, () => ImageTestsConfiguration$, 2, 128 | 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, 0, () => ImageLoggingConfiguration$]
+  [_iCA, _iRA, _cRA, _dCA, _iTC, _eIME, _ta, _cT, _iSC, _w, _eR, _lC],
+  [0, 0, 0, 0, () => ImageTestsConfiguration$, 2, 128 | 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, 0, () => ImageLoggingConfiguration$], 1
 ];
 export var CreateImageResponse$: StaticStructureSchema = [3, n0, _CIRr,
   0,
@@ -915,8 +915,8 @@ export var CreateImageResponse$: StaticStructureSchema = [3, n0, _CIRr,
 ];
 export var CreateInfrastructureConfigurationRequest$: StaticStructureSchema = [3, n0, _CICRr,
   0,
-  [_n, _d, _iT, _iPN, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _ta, _pl, _cT],
-  [0, 0, 64 | 0, 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 128 | 0, () => InstanceMetadataOptions$, 128 | 0, () => Placement$, [0, 4]]
+  [_n, _iPN, _d, _iT, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _ta, _pl, _cT],
+  [0, 0, 0, 64 | 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 128 | 0, () => InstanceMetadataOptions$, 128 | 0, () => Placement$, [0, 4]], 2
 ];
 export var CreateInfrastructureConfigurationResponse$: StaticStructureSchema = [3, n0, _CICRre,
   0,
@@ -925,8 +925,8 @@ export var CreateInfrastructureConfigurationResponse$: StaticStructureSchema = [
 ];
 export var CreateLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _CLPR,
   0,
-  [_n, _d, _st, _eR, _rTe, _pD, _rS, _ta, _cT],
-  [0, 0, 0, 0, 0, () => LifecyclePolicyDetails, () => LifecyclePolicyResourceSelection$, 128 | 0, [0, 4]]
+  [_n, _eR, _rTe, _pD, _rS, _d, _st, _ta, _cT],
+  [0, 0, 0, () => LifecyclePolicyDetails, () => LifecyclePolicyResourceSelection$, 0, 0, 128 | 0, [0, 4]], 5
 ];
 export var CreateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _CLPRr,
   0,
@@ -935,8 +935,8 @@ export var CreateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _CLPR
 ];
 export var CreateWorkflowRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
-  [_n, _sV, _d, _cD, _da, _u, _kKI, _ta, _cT, _t, _dR],
-  [0, 0, 0, 0, 0, 0, 0, 128 | 0, [0, 4], 0, 2]
+  [_n, _sV, _t, _d, _cD, _da, _u, _kKI, _ta, _cT, _dR],
+  [0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, [0, 4], 2], 3
 ];
 export var CreateWorkflowResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
@@ -961,7 +961,7 @@ export var CvssScoreDetails$: StaticStructureSchema = [3, n0, _CSD,
 export var DeleteComponentRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cBVA],
-  [[0, { [_hQ]: _cBVA }]]
+  [[0, { [_hQ]: _cBVA }]], 1
 ];
 export var DeleteComponentResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -971,7 +971,7 @@ export var DeleteComponentResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteContainerRecipeRequest$: StaticStructureSchema = [3, n0, _DCRR,
   0,
   [_cRA],
-  [[0, { [_hQ]: _cRA }]]
+  [[0, { [_hQ]: _cRA }]], 1
 ];
 export var DeleteContainerRecipeResponse$: StaticStructureSchema = [3, n0, _DCRRe,
   0,
@@ -981,7 +981,7 @@ export var DeleteContainerRecipeResponse$: StaticStructureSchema = [3, n0, _DCRR
 export var DeleteDistributionConfigurationRequest$: StaticStructureSchema = [3, n0, _DDCR,
   0,
   [_dCA],
-  [[0, { [_hQ]: _dCA }]]
+  [[0, { [_hQ]: _dCA }]], 1
 ];
 export var DeleteDistributionConfigurationResponse$: StaticStructureSchema = [3, n0, _DDCRe,
   0,
@@ -991,7 +991,7 @@ export var DeleteDistributionConfigurationResponse$: StaticStructureSchema = [3,
 export var DeleteImagePipelineRequest$: StaticStructureSchema = [3, n0, _DIPR,
   0,
   [_iPA],
-  [[0, { [_hQ]: _iPA }]]
+  [[0, { [_hQ]: _iPA }]], 1
 ];
 export var DeleteImagePipelineResponse$: StaticStructureSchema = [3, n0, _DIPRe,
   0,
@@ -1001,7 +1001,7 @@ export var DeleteImagePipelineResponse$: StaticStructureSchema = [3, n0, _DIPRe,
 export var DeleteImageRecipeRequest$: StaticStructureSchema = [3, n0, _DIRR,
   0,
   [_iRA],
-  [[0, { [_hQ]: _iRA }]]
+  [[0, { [_hQ]: _iRA }]], 1
 ];
 export var DeleteImageRecipeResponse$: StaticStructureSchema = [3, n0, _DIRRe,
   0,
@@ -1011,7 +1011,7 @@ export var DeleteImageRecipeResponse$: StaticStructureSchema = [3, n0, _DIRRe,
 export var DeleteImageRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_iBVA],
-  [[0, { [_hQ]: _iBVA }]]
+  [[0, { [_hQ]: _iBVA }]], 1
 ];
 export var DeleteImageResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
@@ -1021,7 +1021,7 @@ export var DeleteImageResponse$: StaticStructureSchema = [3, n0, _DIRe,
 export var DeleteInfrastructureConfigurationRequest$: StaticStructureSchema = [3, n0, _DICR,
   0,
   [_iCA],
-  [[0, { [_hQ]: _iCA }]]
+  [[0, { [_hQ]: _iCA }]], 1
 ];
 export var DeleteInfrastructureConfigurationResponse$: StaticStructureSchema = [3, n0, _DICRe,
   0,
@@ -1031,7 +1031,7 @@ export var DeleteInfrastructureConfigurationResponse$: StaticStructureSchema = [
 export var DeleteLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _DLPR,
   0,
   [_lPA],
-  [[0, { [_hQ]: _lPA }]]
+  [[0, { [_hQ]: _lPA }]], 1
 ];
 export var DeleteLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _DLPRe,
   0,
@@ -1041,7 +1041,7 @@ export var DeleteLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _DLPR
 export var DeleteWorkflowRequest$: StaticStructureSchema = [3, n0, _DWR,
   0,
   [_wBVA],
-  [[0, { [_hQ]: _wBVA }]]
+  [[0, { [_hQ]: _wBVA }]], 1
 ];
 export var DeleteWorkflowResponse$: StaticStructureSchema = [3, n0, _DWRe,
   0,
@@ -1051,7 +1051,7 @@ export var DeleteWorkflowResponse$: StaticStructureSchema = [3, n0, _DWRe,
 export var DistributeImageRequest$: StaticStructureSchema = [3, n0, _DIRi,
   0,
   [_sIo, _dCA, _eR, _ta, _cT, _lC],
-  [0, 0, 0, 128 | 0, [0, 4], () => ImageLoggingConfiguration$]
+  [0, 0, 0, 128 | 0, [0, 4], () => ImageLoggingConfiguration$], 3
 ];
 export var DistributeImageResponse$: StaticStructureSchema = [3, n0, _DIRis,
   0,
@@ -1061,12 +1061,12 @@ export var DistributeImageResponse$: StaticStructureSchema = [3, n0, _DIRis,
 export var Distribution$: StaticStructureSchema = [3, n0, _D,
   0,
   [_r, _aDC, _cDC, _lCA, _lTC, _sEC, _fLC, _sPC],
-  [0, () => AmiDistributionConfiguration$, () => ContainerDistributionConfiguration$, 64 | 0, () => LaunchTemplateConfigurationList, () => S3ExportConfiguration$, () => FastLaunchConfigurationList, () => SsmParameterConfigurationList]
+  [0, () => AmiDistributionConfiguration$, () => ContainerDistributionConfiguration$, 64 | 0, () => LaunchTemplateConfigurationList, () => S3ExportConfiguration$, () => FastLaunchConfigurationList, () => SsmParameterConfigurationList], 1
 ];
 export var DistributionConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_a, _n, _d, _di, _tM, _dC, _dU, _ta],
-  [0, 0, 0, () => DistributionList, 1, 0, 0, 128 | 0]
+  [_tM, _a, _n, _d, _di, _dC, _dU, _ta],
+  [1, 0, 0, 0, () => DistributionList, 0, 0, 128 | 0], 1
 ];
 export var DistributionConfigurationSummary$: StaticStructureSchema = [3, n0, _DCS,
   0,
@@ -1092,7 +1092,7 @@ export var EcrConfiguration$: StaticStructureSchema = [3, n0, _EC,
 export var FastLaunchConfiguration$: StaticStructureSchema = [3, n0, _FLC,
   0,
   [_ena, _sCn, _mPL, _lT, _aI],
-  [2, () => FastLaunchSnapshotConfiguration$, 1, () => FastLaunchLaunchTemplateSpecification$, 0]
+  [2, () => FastLaunchSnapshotConfiguration$, 1, () => FastLaunchLaunchTemplateSpecification$, 0], 1
 ];
 export var FastLaunchLaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _FLLTS,
   0,
@@ -1118,7 +1118,7 @@ TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetComponentPolicyRequest$: StaticStructureSchema = [3, n0, _GCPR,
   0,
   [_cA],
-  [[0, { [_hQ]: _cA }]]
+  [[0, { [_hQ]: _cA }]], 1
 ];
 export var GetComponentPolicyResponse$: StaticStructureSchema = [3, n0, _GCPRe,
   0,
@@ -1128,7 +1128,7 @@ export var GetComponentPolicyResponse$: StaticStructureSchema = [3, n0, _GCPRe,
 export var GetComponentRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_cBVA],
-  [[0, { [_hQ]: _cBVA }]]
+  [[0, { [_hQ]: _cBVA }]], 1
 ];
 export var GetComponentResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -1138,7 +1138,7 @@ export var GetComponentResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var GetContainerRecipePolicyRequest$: StaticStructureSchema = [3, n0, _GCRPR,
   0,
   [_cRA],
-  [[0, { [_hQ]: _cRA }]]
+  [[0, { [_hQ]: _cRA }]], 1
 ];
 export var GetContainerRecipePolicyResponse$: StaticStructureSchema = [3, n0, _GCRPRe,
   0,
@@ -1148,7 +1148,7 @@ export var GetContainerRecipePolicyResponse$: StaticStructureSchema = [3, n0, _G
 export var GetContainerRecipeRequest$: StaticStructureSchema = [3, n0, _GCRR,
   0,
   [_cRA],
-  [[0, { [_hQ]: _cRA }]]
+  [[0, { [_hQ]: _cRA }]], 1
 ];
 export var GetContainerRecipeResponse$: StaticStructureSchema = [3, n0, _GCRRe,
   0,
@@ -1158,7 +1158,7 @@ export var GetContainerRecipeResponse$: StaticStructureSchema = [3, n0, _GCRRe,
 export var GetDistributionConfigurationRequest$: StaticStructureSchema = [3, n0, _GDCR,
   0,
   [_dCA],
-  [[0, { [_hQ]: _dCA }]]
+  [[0, { [_hQ]: _dCA }]], 1
 ];
 export var GetDistributionConfigurationResponse$: StaticStructureSchema = [3, n0, _GDCRe,
   0,
@@ -1168,7 +1168,7 @@ export var GetDistributionConfigurationResponse$: StaticStructureSchema = [3, n0
 export var GetImagePipelineRequest$: StaticStructureSchema = [3, n0, _GIPR,
   0,
   [_iPA],
-  [[0, { [_hQ]: _iPA }]]
+  [[0, { [_hQ]: _iPA }]], 1
 ];
 export var GetImagePipelineResponse$: StaticStructureSchema = [3, n0, _GIPRe,
   0,
@@ -1178,7 +1178,7 @@ export var GetImagePipelineResponse$: StaticStructureSchema = [3, n0, _GIPRe,
 export var GetImagePolicyRequest$: StaticStructureSchema = [3, n0, _GIPRet,
   0,
   [_iA],
-  [[0, { [_hQ]: _iA }]]
+  [[0, { [_hQ]: _iA }]], 1
 ];
 export var GetImagePolicyResponse$: StaticStructureSchema = [3, n0, _GIPRetm,
   0,
@@ -1188,7 +1188,7 @@ export var GetImagePolicyResponse$: StaticStructureSchema = [3, n0, _GIPRetm,
 export var GetImageRecipePolicyRequest$: StaticStructureSchema = [3, n0, _GIRPR,
   0,
   [_iRA],
-  [[0, { [_hQ]: _iRA }]]
+  [[0, { [_hQ]: _iRA }]], 1
 ];
 export var GetImageRecipePolicyResponse$: StaticStructureSchema = [3, n0, _GIRPRe,
   0,
@@ -1198,7 +1198,7 @@ export var GetImageRecipePolicyResponse$: StaticStructureSchema = [3, n0, _GIRPR
 export var GetImageRecipeRequest$: StaticStructureSchema = [3, n0, _GIRR,
   0,
   [_iRA],
-  [[0, { [_hQ]: _iRA }]]
+  [[0, { [_hQ]: _iRA }]], 1
 ];
 export var GetImageRecipeResponse$: StaticStructureSchema = [3, n0, _GIRRe,
   0,
@@ -1208,7 +1208,7 @@ export var GetImageRecipeResponse$: StaticStructureSchema = [3, n0, _GIRRe,
 export var GetImageRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
   [_iBVA],
-  [[0, { [_hQ]: _iBVA }]]
+  [[0, { [_hQ]: _iBVA }]], 1
 ];
 export var GetImageResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
@@ -1218,7 +1218,7 @@ export var GetImageResponse$: StaticStructureSchema = [3, n0, _GIRe,
 export var GetInfrastructureConfigurationRequest$: StaticStructureSchema = [3, n0, _GICR,
   0,
   [_iCA],
-  [[0, { [_hQ]: _iCA }]]
+  [[0, { [_hQ]: _iCA }]], 1
 ];
 export var GetInfrastructureConfigurationResponse$: StaticStructureSchema = [3, n0, _GICRe,
   0,
@@ -1228,7 +1228,7 @@ export var GetInfrastructureConfigurationResponse$: StaticStructureSchema = [3, 
 export var GetLifecycleExecutionRequest$: StaticStructureSchema = [3, n0, _GLER,
   0,
   [_lEI],
-  [[0, { [_hQ]: _lEI }]]
+  [[0, { [_hQ]: _lEI }]], 1
 ];
 export var GetLifecycleExecutionResponse$: StaticStructureSchema = [3, n0, _GLERe,
   0,
@@ -1238,7 +1238,7 @@ export var GetLifecycleExecutionResponse$: StaticStructureSchema = [3, n0, _GLER
 export var GetLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _GLPR,
   0,
   [_lPA],
-  [[0, { [_hQ]: _lPA }]]
+  [[0, { [_hQ]: _lPA }]], 1
 ];
 export var GetLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _GLPRe,
   0,
@@ -1248,7 +1248,7 @@ export var GetLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _GLPRe,
 export var GetMarketplaceResourceRequest$: StaticStructureSchema = [3, n0, _GMRR,
   0,
   [_rTe, _rA, _rL],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var GetMarketplaceResourceResponse$: StaticStructureSchema = [3, n0, _GMRRe,
   0,
@@ -1258,7 +1258,7 @@ export var GetMarketplaceResourceResponse$: StaticStructureSchema = [3, n0, _GMR
 export var GetWorkflowExecutionRequest$: StaticStructureSchema = [3, n0, _GWER,
   0,
   [_wEI],
-  [[0, { [_hQ]: _wEI }]]
+  [[0, { [_hQ]: _wEI }]], 1
 ];
 export var GetWorkflowExecutionResponse$: StaticStructureSchema = [3, n0, _GWERe,
   0,
@@ -1268,7 +1268,7 @@ export var GetWorkflowExecutionResponse$: StaticStructureSchema = [3, n0, _GWERe
 export var GetWorkflowRequest$: StaticStructureSchema = [3, n0, _GWR,
   0,
   [_wBVA],
-  [[0, { [_hQ]: _wBVA }]]
+  [[0, { [_hQ]: _wBVA }]], 1
 ];
 export var GetWorkflowResponse$: StaticStructureSchema = [3, n0, _GWRe,
   0,
@@ -1278,7 +1278,7 @@ export var GetWorkflowResponse$: StaticStructureSchema = [3, n0, _GWRe,
 export var GetWorkflowStepExecutionRequest$: StaticStructureSchema = [3, n0, _GWSER,
   0,
   [_sEI],
-  [[0, { [_hQ]: _sEI }]]
+  [[0, { [_hQ]: _sEI }]], 1
 ];
 export var GetWorkflowStepExecutionResponse$: StaticStructureSchema = [3, n0, _GWSERe,
   0,
@@ -1378,8 +1378,8 @@ export var ImageVersion$: StaticStructureSchema = [3, n0, _IV,
 ];
 export var ImportComponentRequest$: StaticStructureSchema = [3, n0, _ICR,
   0,
-  [_n, _sV, _d, _cD, _t, _f, _p, _da, _u, _kKI, _ta, _cT],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, [0, 4]]
+  [_n, _sV, _t, _f, _p, _d, _cD, _da, _u, _kKI, _ta, _cT],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, [0, 4]], 5
 ];
 export var ImportComponentResponse$: StaticStructureSchema = [3, n0, _ICRm,
   0,
@@ -1388,8 +1388,8 @@ export var ImportComponentResponse$: StaticStructureSchema = [3, n0, _ICRm,
 ];
 export var ImportDiskImageRequest$: StaticStructureSchema = [3, n0, _IDIR,
   0,
-  [_n, _sV, _d, _p, _oV, _eR, _iCA, _u, _lC, _ta, _cT],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => ImageLoggingConfiguration$, 128 | 0, [0, 4]]
+  [_n, _sV, _p, _oV, _iCA, _u, _d, _eR, _lC, _ta, _cT],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => ImageLoggingConfiguration$, 128 | 0, [0, 4]], 6
 ];
 export var ImportDiskImageResponse$: StaticStructureSchema = [3, n0, _IDIRm,
   0,
@@ -1398,8 +1398,8 @@ export var ImportDiskImageResponse$: StaticStructureSchema = [3, n0, _IDIRm,
 ];
 export var ImportVmImageRequest$: StaticStructureSchema = [3, n0, _IVIR,
   0,
-  [_n, _sV, _d, _p, _oV, _vITI, _lC, _ta, _cT],
-  [0, 0, 0, 0, 0, 0, () => ImageLoggingConfiguration$, 128 | 0, [0, 4]]
+  [_n, _sV, _p, _vITI, _d, _oV, _lC, _ta, _cT],
+  [0, 0, 0, 0, 0, 0, () => ImageLoggingConfiguration$, 128 | 0, [0, 4]], 4
 ];
 export var ImportVmImageResponse$: StaticStructureSchema = [3, n0, _IVIRm,
   0,
@@ -1485,7 +1485,7 @@ export var LaunchPermissionConfiguration$: StaticStructureSchema = [3, n0, _LPC,
 export var LaunchTemplateConfiguration$: StaticStructureSchema = [3, n0, _LTC,
   0,
   [_lTI, _aI, _sDV],
-  [0, 0, 2]
+  [0, 0, 2], 1
 ];
 export var LifecycleExecution$: StaticStructureSchema = [3, n0, _LE,
   0,
@@ -1530,12 +1530,12 @@ export var LifecyclePolicy$: StaticStructureSchema = [3, n0, _LP,
 export var LifecyclePolicyDetail$: StaticStructureSchema = [3, n0, _LPD,
   0,
   [_ac, _fi, _eRx],
-  [() => LifecyclePolicyDetailAction$, () => LifecyclePolicyDetailFilter$, () => LifecyclePolicyDetailExclusionRules$]
+  [() => LifecyclePolicyDetailAction$, () => LifecyclePolicyDetailFilter$, () => LifecyclePolicyDetailExclusionRules$], 2
 ];
 export var LifecyclePolicyDetailAction$: StaticStructureSchema = [3, n0, _LPDA,
   0,
   [_t, _iRn],
-  [0, () => LifecyclePolicyDetailActionIncludeResources$]
+  [0, () => LifecyclePolicyDetailActionIncludeResources$], 1
 ];
 export var LifecyclePolicyDetailActionIncludeResources$: StaticStructureSchema = [3, n0, _LPDAIR,
   0,
@@ -1555,12 +1555,12 @@ export var LifecyclePolicyDetailExclusionRulesAmis$: StaticStructureSchema = [3,
 export var LifecyclePolicyDetailExclusionRulesAmisLastLaunched$: StaticStructureSchema = [3, n0, _LPDERALL,
   0,
   [_va, _un],
-  [1, 0]
+  [1, 0], 2
 ];
 export var LifecyclePolicyDetailFilter$: StaticStructureSchema = [3, n0, _LPDF,
   0,
   [_t, _va, _un, _rAL],
-  [0, 1, 0, 1]
+  [0, 1, 0, 1], 2
 ];
 export var LifecyclePolicyResourceSelection$: StaticStructureSchema = [3, n0, _LPRS,
   0,
@@ -1570,7 +1570,7 @@ export var LifecyclePolicyResourceSelection$: StaticStructureSchema = [3, n0, _L
 export var LifecyclePolicyResourceSelectionRecipe$: StaticStructureSchema = [3, n0, _LPRSR,
   0,
   [_n, _sV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LifecyclePolicySummary$: StaticStructureSchema = [3, n0, _LPS,
   0,
@@ -1630,7 +1630,7 @@ export var ListImageBuildVersionsResponse$: StaticStructureSchema = [3, n0, _LIB
 export var ListImagePackagesRequest$: StaticStructureSchema = [3, n0, _LIPR,
   0,
   [_iBVA, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListImagePackagesResponse$: StaticStructureSchema = [3, n0, _LIPRi,
   0,
@@ -1640,7 +1640,7 @@ export var ListImagePackagesResponse$: StaticStructureSchema = [3, n0, _LIPRi,
 export var ListImagePipelineImagesRequest$: StaticStructureSchema = [3, n0, _LIPIR,
   0,
   [_iPA, _fil, _mR, _nT],
-  [0, () => FilterList, 1, 0]
+  [0, () => FilterList, 1, 0], 1
 ];
 export var ListImagePipelineImagesResponse$: StaticStructureSchema = [3, n0, _LIPIRi,
   0,
@@ -1710,7 +1710,7 @@ export var ListInfrastructureConfigurationsResponse$: StaticStructureSchema = [3
 export var ListLifecycleExecutionResourcesRequest$: StaticStructureSchema = [3, n0, _LLERR,
   0,
   [_lEI, _pRI, _mR, _nT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListLifecycleExecutionResourcesResponse$: StaticStructureSchema = [3, n0, _LLERRi,
   0,
@@ -1719,8 +1719,8 @@ export var ListLifecycleExecutionResourcesResponse$: StaticStructureSchema = [3,
 ];
 export var ListLifecycleExecutionsRequest$: StaticStructureSchema = [3, n0, _LLER,
   0,
-  [_mR, _nT, _rA],
-  [1, 0, 0]
+  [_rA, _mR, _nT],
+  [0, 1, 0], 1
 ];
 export var ListLifecycleExecutionsResponse$: StaticStructureSchema = [3, n0, _LLERi,
   0,
@@ -1740,7 +1740,7 @@ export var ListLifecyclePoliciesResponse$: StaticStructureSchema = [3, n0, _LLPR
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1769,8 +1769,8 @@ export var ListWorkflowBuildVersionsResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var ListWorkflowExecutionsRequest$: StaticStructureSchema = [3, n0, _LWER,
   0,
-  [_mR, _nT, _iBVA],
-  [1, 0, 0]
+  [_iBVA, _mR, _nT],
+  [0, 1, 0], 1
 ];
 export var ListWorkflowExecutionsResponse$: StaticStructureSchema = [3, n0, _LWERi,
   0,
@@ -1789,8 +1789,8 @@ export var ListWorkflowsResponse$: StaticStructureSchema = [3, n0, _LWRi,
 ];
 export var ListWorkflowStepExecutionsRequest$: StaticStructureSchema = [3, n0, _LWSER,
   0,
-  [_mR, _nT, _wEI],
-  [1, 0, 0]
+  [_wEI, _mR, _nT],
+  [0, 1, 0], 1
 ];
 export var ListWorkflowStepExecutionsResponse$: StaticStructureSchema = [3, n0, _LWSERi,
   0,
@@ -1810,7 +1810,7 @@ export var OutputResources$: StaticStructureSchema = [3, n0, _OR,
 export var PackageVulnerabilityDetails$: StaticStructureSchema = [3, n0, _PVD,
   0,
   [_vI, _vP, _so, _cv, _rV, _sU, _vSe, _vCA, _vUA, _rU],
-  [0, () => VulnerablePackageList, 0, () => CvssScoreList, 64 | 0, 0, 0, 4, 4, 64 | 0]
+  [0, () => VulnerablePackageList, 0, () => CvssScoreList, 64 | 0, 0, 0, 4, 4, 64 | 0], 1
 ];
 export var PipelineLoggingConfiguration$: StaticStructureSchema = [3, n0, _PLC,
   0,
@@ -1825,12 +1825,12 @@ export var Placement$: StaticStructureSchema = [3, n0, _P,
 export var ProductCodeListItem$: StaticStructureSchema = [3, n0, _PCLI,
   0,
   [_pCI, _pCT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutComponentPolicyRequest$: StaticStructureSchema = [3, n0, _PCPR,
   0,
   [_cA, _po],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutComponentPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
   0,
@@ -1840,7 +1840,7 @@ export var PutComponentPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
 export var PutContainerRecipePolicyRequest$: StaticStructureSchema = [3, n0, _PCRPR,
   0,
   [_cRA, _po],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutContainerRecipePolicyResponse$: StaticStructureSchema = [3, n0, _PCRPRu,
   0,
@@ -1850,7 +1850,7 @@ export var PutContainerRecipePolicyResponse$: StaticStructureSchema = [3, n0, _P
 export var PutImagePolicyRequest$: StaticStructureSchema = [3, n0, _PIPR,
   0,
   [_iA, _po],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutImagePolicyResponse$: StaticStructureSchema = [3, n0, _PIPRu,
   0,
@@ -1860,7 +1860,7 @@ export var PutImagePolicyResponse$: StaticStructureSchema = [3, n0, _PIPRu,
 export var PutImageRecipePolicyRequest$: StaticStructureSchema = [3, n0, _PIRPR,
   0,
   [_iRA, _po],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutImageRecipePolicyResponse$: StaticStructureSchema = [3, n0, _PIRPRu,
   0,
@@ -1919,7 +1919,7 @@ export var ResourceStateUpdateIncludeResources$: StaticStructureSchema = [3, n0,
 export var RetryImageRequest$: StaticStructureSchema = [3, n0, _RIR,
   0,
   [_iBVA, _cT],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var RetryImageResponse$: StaticStructureSchema = [3, n0, _RIRe,
   0,
@@ -1929,7 +1929,7 @@ export var RetryImageResponse$: StaticStructureSchema = [3, n0, _RIRe,
 export var S3ExportConfiguration$: StaticStructureSchema = [3, n0, _SEC,
   0,
   [_rNo, _dIF, _sB, _sP],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var S3Logs$: StaticStructureSchema = [3, n0, _SL,
   0,
@@ -1944,7 +1944,7 @@ export var Schedule$: StaticStructureSchema = [3, n0, _S,
 export var SendWorkflowStepActionRequest$: StaticStructureSchema = [3, n0, _SWSAR,
   0,
   [_sEI, _iBVA, _ac, _re, _cT],
-  [0, 0, 0, 0, [0, 4]]
+  [0, 0, 0, 0, [0, 4]], 3
 ];
 export var SendWorkflowStepActionResponse$: StaticStructureSchema = [3, n0, _SWSARe,
   0,
@@ -1976,13 +1976,13 @@ export var SeverityCounts$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var SsmParameterConfiguration$: StaticStructureSchema = [3, n0, _SPC,
   0,
-  [_aAIm, _pNa, _dTa],
-  [0, 0, 0]
+  [_pNa, _aAIm, _dTa],
+  [0, 0, 0], 1
 ];
 export var StartImagePipelineExecutionRequest$: StaticStructureSchema = [3, n0, _SIPER,
   0,
   [_iPA, _cT, _ta],
-  [0, [0, 4], 128 | 0]
+  [0, [0, 4], 128 | 0], 1
 ];
 export var StartImagePipelineExecutionResponse$: StaticStructureSchema = [3, n0, _SIPERt,
   0,
@@ -1992,7 +1992,7 @@ export var StartImagePipelineExecutionResponse$: StaticStructureSchema = [3, n0,
 export var StartResourceStateUpdateRequest$: StaticStructureSchema = [3, n0, _SRSUR,
   0,
   [_rA, _s, _eR, _iRn, _eRx, _uAp, _cT],
-  [0, () => ResourceState$, 0, () => ResourceStateUpdateIncludeResources$, () => ResourceStateUpdateExclusionRules$, 4, [0, 4]]
+  [0, () => ResourceState$, 0, () => ResourceStateUpdateIncludeResources$, () => ResourceStateUpdateExclusionRules$, 4, [0, 4]], 2
 ];
 export var StartResourceStateUpdateResponse$: StaticStructureSchema = [3, n0, _SRSURt,
   0,
@@ -2007,7 +2007,7 @@ export var SystemsManagerAgent$: StaticStructureSchema = [3, n0, _SMA,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -2017,7 +2017,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TargetContainerRepository$: StaticStructureSchema = [3, n0, _TCR,
   0,
   [_serv, _rN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c, [_hE]: 429 },
@@ -2028,7 +2028,7 @@ TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsExc
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2037,8 +2037,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateDistributionConfigurationRequest$: StaticStructureSchema = [3, n0, _UDCR,
   0,
-  [_dCA, _d, _di, _cT],
-  [0, 0, () => DistributionList, [0, 4]]
+  [_dCA, _di, _d, _cT],
+  [0, () => DistributionList, 0, [0, 4]], 2
 ];
 export var UpdateDistributionConfigurationResponse$: StaticStructureSchema = [3, n0, _UDCRp,
   0,
@@ -2047,8 +2047,8 @@ export var UpdateDistributionConfigurationResponse$: StaticStructureSchema = [3,
 ];
 export var UpdateImagePipelineRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
-  [_iPA, _d, _iRA, _cRA, _iCA, _dCA, _iTC, _eIME, _sc, _st, _cT, _iSC, _w, _lC, _eR],
-  [0, 0, 0, 0, 0, 0, () => ImageTestsConfiguration$, 2, () => Schedule$, 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, () => PipelineLoggingConfiguration$, 0]
+  [_iPA, _iCA, _d, _iRA, _cRA, _dCA, _iTC, _eIME, _sc, _st, _cT, _iSC, _w, _lC, _eR],
+  [0, 0, 0, 0, 0, 0, () => ImageTestsConfiguration$, 2, () => Schedule$, 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, () => PipelineLoggingConfiguration$, 0], 2
 ];
 export var UpdateImagePipelineResponse$: StaticStructureSchema = [3, n0, _UIPRp,
   0,
@@ -2057,8 +2057,8 @@ export var UpdateImagePipelineResponse$: StaticStructureSchema = [3, n0, _UIPRp,
 ];
 export var UpdateInfrastructureConfigurationRequest$: StaticStructureSchema = [3, n0, _UICR,
   0,
-  [_iCA, _d, _iT, _iPN, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _pl, _cT],
-  [0, 0, 64 | 0, 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 128 | 0, () => InstanceMetadataOptions$, () => Placement$, [0, 4]]
+  [_iCA, _iPN, _d, _iT, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _pl, _cT],
+  [0, 0, 0, 64 | 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 128 | 0, () => InstanceMetadataOptions$, () => Placement$, [0, 4]], 2
 ];
 export var UpdateInfrastructureConfigurationResponse$: StaticStructureSchema = [3, n0, _UICRp,
   0,
@@ -2067,8 +2067,8 @@ export var UpdateInfrastructureConfigurationResponse$: StaticStructureSchema = [
 ];
 export var UpdateLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _ULPR,
   0,
-  [_lPA, _d, _st, _eR, _rTe, _pD, _rS, _cT],
-  [0, 0, 0, 0, 0, () => LifecyclePolicyDetails, () => LifecyclePolicyResourceSelection$, [0, 4]]
+  [_lPA, _eR, _rTe, _pD, _rS, _d, _st, _cT],
+  [0, 0, 0, () => LifecyclePolicyDetails, () => LifecyclePolicyResourceSelection$, 0, 0, [0, 4]], 5
 ];
 export var UpdateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _ULPRp,
   0,
@@ -2093,7 +2093,7 @@ export var Workflow$: StaticStructureSchema = [3, n0, _W,
 export var WorkflowConfiguration$: StaticStructureSchema = [3, n0, _WC,
   0,
   [_wA, _pa, _pG, _oF],
-  [0, () => WorkflowParameterList, 0, 0]
+  [0, () => WorkflowParameterList, 0, 0], 1
 ];
 export var WorkflowExecutionMetadata$: StaticStructureSchema = [3, n0, _WEM,
   0,
@@ -2103,12 +2103,12 @@ export var WorkflowExecutionMetadata$: StaticStructureSchema = [3, n0, _WEM,
 export var WorkflowParameter$: StaticStructureSchema = [3, n0, _WP,
   0,
   [_n, _va],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var WorkflowParameterDetail$: StaticStructureSchema = [3, n0, _WPD,
   0,
   [_n, _t, _dV, _d],
-  [0, 0, 64 | 0, 0]
+  [0, 0, 64 | 0, 0], 2
 ];
 export var WorkflowState$: StaticStructureSchema = [3, n0, _WS,
   0,

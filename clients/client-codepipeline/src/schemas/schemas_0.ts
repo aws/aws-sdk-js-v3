@@ -627,7 +627,7 @@ var SessionToken: StaticSimpleSchema = [0, n0, _ST, 8, 0];
 export var AcknowledgeJobInput$: StaticStructureSchema = [3, n0, _AJI,
   0,
   [_jI, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AcknowledgeJobOutput$: StaticStructureSchema = [3, n0, _AJO,
   0,
@@ -637,7 +637,7 @@ export var AcknowledgeJobOutput$: StaticStructureSchema = [3, n0, _AJO,
 export var AcknowledgeThirdPartyJobInput$: StaticStructureSchema = [3, n0, _ATPJI,
   0,
   [_jI, _n, _cT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var AcknowledgeThirdPartyJobOutput$: StaticStructureSchema = [3, n0, _ATPJO,
   0,
@@ -652,7 +652,7 @@ export var ActionConfiguration$: StaticStructureSchema = [3, n0, _AC,
 export var ActionConfigurationProperty$: StaticStructureSchema = [3, n0, _ACP,
   0,
   [_na, _r, _k, _se, _q, _d, _t],
-  [0, 2, 2, 2, 2, 0, 0]
+  [0, 2, 2, 2, 2, 0, 0], 4
 ];
 export var ActionContext$: StaticStructureSchema = [3, n0, _ACc,
   0,
@@ -662,7 +662,7 @@ export var ActionContext$: StaticStructureSchema = [3, n0, _ACc,
 export var ActionDeclaration$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_na, _aTI, _rO, _c, _co, _oA, _iA, _oV, _rA, _re, _nam, _tIM, _eV],
-  [0, () => ActionTypeId$, 1, 128 | 0, 64 | 0, () => OutputArtifactList, () => InputArtifactList, 64 | 0, 0, 0, 0, 1, () => EnvironmentVariableList]
+  [0, () => ActionTypeId$, 1, 128 | 0, 64 | 0, () => OutputArtifactList, () => InputArtifactList, 64 | 0, 0, 0, 0, 1, () => EnvironmentVariableList], 2
 ];
 export var ActionExecution$: StaticStructureSchema = [3, n0, _AE,
   0,
@@ -709,7 +709,7 @@ TypeRegistry.for(n0).registerError(ActionNotFoundException$, ActionNotFoundExcep
 export var ActionRevision$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_rI, _rCI, _cr],
-  [0, 0, 4]
+  [0, 0, 4], 3
 ];
 export var ActionState$: StaticStructureSchema = [3, n0, _AS,
   0,
@@ -718,33 +718,33 @@ export var ActionState$: StaticStructureSchema = [3, n0, _AS,
 ];
 export var ActionType$: StaticStructureSchema = [3, n0, _AT,
   0,
-  [_id, _set, _aCP, _iAD, _oAD],
-  [() => ActionTypeId$, () => ActionTypeSettings$, () => ActionConfigurationPropertyList, () => ArtifactDetails$, () => ArtifactDetails$]
+  [_id, _iAD, _oAD, _set, _aCP],
+  [() => ActionTypeId$, () => ArtifactDetails$, () => ArtifactDetails$, () => ActionTypeSettings$, () => ActionConfigurationPropertyList], 3
 ];
 export var ActionTypeArtifactDetails$: StaticStructureSchema = [3, n0, _ATAD,
   0,
   [_mC, _mCa],
-  [1, 1]
+  [1, 1], 2
 ];
 export var ActionTypeDeclaration$: StaticStructureSchema = [3, n0, _ATD,
   0,
-  [_d, _ex, _id, _iAD, _oAD, _p, _pr, _u],
-  [0, () => ActionTypeExecutor$, () => ActionTypeIdentifier$, () => ActionTypeArtifactDetails$, () => ActionTypeArtifactDetails$, () => ActionTypePermissions$, () => ActionTypeProperties, () => ActionTypeUrls$]
+  [_ex, _id, _iAD, _oAD, _d, _p, _pr, _u],
+  [() => ActionTypeExecutor$, () => ActionTypeIdentifier$, () => ActionTypeArtifactDetails$, () => ActionTypeArtifactDetails$, 0, () => ActionTypePermissions$, () => ActionTypeProperties, () => ActionTypeUrls$], 4
 ];
 export var ActionTypeExecutor$: StaticStructureSchema = [3, n0, _ATE,
   0,
   [_c, _t, _pST, _jT],
-  [() => ExecutorConfiguration$, 0, 0, 1]
+  [() => ExecutorConfiguration$, 0, 0, 1], 2
 ];
 export var ActionTypeId$: StaticStructureSchema = [3, n0, _ATI,
   0,
   [_ca, _ow, _pro, _v],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ActionTypeIdentifier$: StaticStructureSchema = [3, n0, _ATIc,
   0,
   [_ca, _ow, _pro, _v],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ActionTypeNotFoundException$: StaticErrorSchema = [-3, n0, _ATNFE,
   { [_e]: _cl },
@@ -755,12 +755,12 @@ TypeRegistry.for(n0).registerError(ActionTypeNotFoundException$, ActionTypeNotFo
 export var ActionTypePermissions$: StaticStructureSchema = [3, n0, _ATP,
   0,
   [_aA],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var ActionTypeProperty$: StaticStructureSchema = [3, n0, _ATPc,
   0,
   [_na, _op, _k, _nE, _q, _d],
-  [0, 2, 2, 2, 2, 0]
+  [0, 2, 2, 2, 2, 0], 4
 ];
 export var ActionTypeSettings$: StaticStructureSchema = [3, n0, _ATS,
   0,
@@ -781,7 +781,7 @@ TypeRegistry.for(n0).registerError(ApprovalAlreadyCompletedException$, ApprovalA
 export var ApprovalResult$: StaticStructureSchema = [3, n0, _ARp,
   0,
   [_su, _s],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Artifact$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -796,7 +796,7 @@ export var ArtifactDetail$: StaticStructureSchema = [3, n0, _ADr,
 export var ArtifactDetails$: StaticStructureSchema = [3, n0, _ADrt,
   0,
   [_mC, _mCa],
-  [1, 1]
+  [1, 1], 2
 ];
 export var ArtifactLocation$: StaticStructureSchema = [3, n0, _AL,
   0,
@@ -811,22 +811,22 @@ export var ArtifactRevision$: StaticStructureSchema = [3, n0, _ARr,
 export var ArtifactStore$: StaticStructureSchema = [3, n0, _ASr,
   0,
   [_t, _l, _eK],
-  [0, 0, () => EncryptionKey$]
+  [0, 0, () => EncryptionKey$], 2
 ];
 export var AWSSessionCredentials$: StaticStructureSchema = [3, n0, _AWSSC,
   8,
   [_aKI, _sAK, _sTe],
-  [[() => AccessKeyId, 0], [() => SecretAccessKey, 0], [() => SessionToken, 0]]
+  [[() => AccessKeyId, 0], [() => SecretAccessKey, 0], [() => SessionToken, 0]], 3
 ];
 export var BeforeEntryConditions$: StaticStructureSchema = [3, n0, _BEC,
   0,
   [_con],
-  [() => ConditionList]
+  [() => ConditionList], 1
 ];
 export var BlockerDeclaration$: StaticStructureSchema = [3, n0, _BD,
   0,
   [_na, _t],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
   { [_e]: _cl },
@@ -869,18 +869,18 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCustomActionTypeInput$: StaticStructureSchema = [3, n0, _CCATI,
   0,
-  [_ca, _pro, _v, _set, _cP, _iAD, _oAD, _ta],
-  [0, 0, 0, () => ActionTypeSettings$, () => ActionConfigurationPropertyList, () => ArtifactDetails$, () => ArtifactDetails$, () => TagList]
+  [_ca, _pro, _v, _iAD, _oAD, _set, _cP, _ta],
+  [0, 0, 0, () => ArtifactDetails$, () => ArtifactDetails$, () => ActionTypeSettings$, () => ActionConfigurationPropertyList, () => TagList], 5
 ];
 export var CreateCustomActionTypeOutput$: StaticStructureSchema = [3, n0, _CCATO,
   0,
   [_aT, _ta],
-  [() => ActionType$, () => TagList]
+  [() => ActionType$, () => TagList], 1
 ];
 export var CreatePipelineInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
   [_pi, _ta],
-  [() => PipelineDeclaration$, () => TagList]
+  [() => PipelineDeclaration$, () => TagList], 1
 ];
 export var CreatePipelineOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
@@ -890,22 +890,22 @@ export var CreatePipelineOutput$: StaticStructureSchema = [3, n0, _CPO,
 export var CurrentRevision$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_rev, _cI, _cr, _rS],
-  [0, 0, 4, 0]
+  [0, 0, 4, 0], 2
 ];
 export var DeleteCustomActionTypeInput$: StaticStructureSchema = [3, n0, _DCATI,
   0,
   [_ca, _pro, _v],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeletePipelineInput$: StaticStructureSchema = [3, n0, _DPI,
   0,
   [_na],
-  [0]
+  [0], 1
 ];
 export var DeleteWebhookInput$: StaticStructureSchema = [3, n0, _DWI,
   0,
   [_na],
-  [0]
+  [0], 1
 ];
 export var DeleteWebhookOutput$: StaticStructureSchema = [3, n0, _DWO,
   0,
@@ -940,7 +940,7 @@ export var DeregisterWebhookWithThirdPartyOutput$: StaticStructureSchema = [3, n
 export var DisableStageTransitionInput$: StaticStructureSchema = [3, n0, _DSTI,
   0,
   [_pN, _sN, _tTr, _rea],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var DuplicatedStopRequestException$: StaticErrorSchema = [-3, n0, _DSRE,
   { [_e]: _cl },
@@ -951,17 +951,17 @@ TypeRegistry.for(n0).registerError(DuplicatedStopRequestException$, DuplicatedSt
 export var EnableStageTransitionInput$: StaticStructureSchema = [3, n0, _ESTI,
   0,
   [_pN, _sN, _tTr],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var EncryptionKey$: StaticStructureSchema = [3, n0, _EK,
   0,
   [_id, _t],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EnvironmentVariable$: StaticStructureSchema = [3, n0, _EV,
   0,
   [_na, _va, _t],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
   0,
@@ -991,12 +991,12 @@ export var FailureConditions$: StaticStructureSchema = [3, n0, _FC,
 export var FailureDetails$: StaticStructureSchema = [3, n0, _FD,
   0,
   [_t, _m, _eEI],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var GetActionTypeInput$: StaticStructureSchema = [3, n0, _GATI,
   0,
   [_ca, _ow, _pro, _v],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var GetActionTypeOutput$: StaticStructureSchema = [3, n0, _GATO,
   0,
@@ -1006,7 +1006,7 @@ export var GetActionTypeOutput$: StaticStructureSchema = [3, n0, _GATO,
 export var GetJobDetailsInput$: StaticStructureSchema = [3, n0, _GJDI,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var GetJobDetailsOutput$: StaticStructureSchema = [3, n0, _GJDO,
   0,
@@ -1016,7 +1016,7 @@ export var GetJobDetailsOutput$: StaticStructureSchema = [3, n0, _GJDO,
 export var GetPipelineExecutionInput$: StaticStructureSchema = [3, n0, _GPEI,
   0,
   [_pN, _pEI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPipelineExecutionOutput$: StaticStructureSchema = [3, n0, _GPEO,
   0,
@@ -1026,7 +1026,7 @@ export var GetPipelineExecutionOutput$: StaticStructureSchema = [3, n0, _GPEO,
 export var GetPipelineInput$: StaticStructureSchema = [3, n0, _GPI,
   0,
   [_na, _v],
-  [0, 1]
+  [0, 1], 1
 ];
 export var GetPipelineOutput$: StaticStructureSchema = [3, n0, _GPO,
   0,
@@ -1036,7 +1036,7 @@ export var GetPipelineOutput$: StaticStructureSchema = [3, n0, _GPO,
 export var GetPipelineStateInput$: StaticStructureSchema = [3, n0, _GPSI,
   0,
   [_na],
-  [0]
+  [0], 1
 ];
 export var GetPipelineStateOutput$: StaticStructureSchema = [3, n0, _GPSO,
   0,
@@ -1046,7 +1046,7 @@ export var GetPipelineStateOutput$: StaticStructureSchema = [3, n0, _GPSO,
 export var GetThirdPartyJobDetailsInput$: StaticStructureSchema = [3, n0, _GTPJDI,
   0,
   [_jI, _cT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetThirdPartyJobDetailsOutput$: StaticStructureSchema = [3, n0, _GTPJDO,
   0,
@@ -1061,7 +1061,7 @@ export var GitBranchFilterCriteria$: StaticStructureSchema = [3, n0, _GBFC,
 export var GitConfiguration$: StaticStructureSchema = [3, n0, _GC,
   0,
   [_sAN, _pu, _pR],
-  [0, () => GitPushFilterList, () => GitPullRequestFilterList]
+  [0, () => GitPushFilterList, () => GitPullRequestFilterList], 1
 ];
 export var GitFilePathFilterCriteria$: StaticStructureSchema = [3, n0, _GFPFC,
   0,
@@ -1086,7 +1086,7 @@ export var GitTagFilterCriteria$: StaticStructureSchema = [3, n0, _GTFC,
 export var InputArtifact$: StaticStructureSchema = [3, n0, _IA,
   0,
   [_na],
-  [0]
+  [0], 1
 ];
 export var InvalidActionDeclarationException$: StaticErrorSchema = [-3, n0, _IADE,
   { [_e]: _cl },
@@ -1201,12 +1201,12 @@ export var JobWorkerExecutorConfiguration$: StaticStructureSchema = [3, n0, _JWE
 export var LambdaExecutorConfiguration$: StaticStructureSchema = [3, n0, _LEC,
   0,
   [_lFA],
-  [0]
+  [0], 1
 ];
 export var LatestInPipelineExecutionFilter$: StaticStructureSchema = [3, n0, _LIPEF,
   0,
   [_pEI, _sTR],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _cl },
@@ -1217,7 +1217,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListActionExecutionsInput$: StaticStructureSchema = [3, n0, _LAEI,
   0,
   [_pN, _f, _mR, _nT],
-  [0, () => ActionExecutionFilter$, 1, 0]
+  [0, () => ActionExecutionFilter$, 1, 0], 1
 ];
 export var ListActionExecutionsOutput$: StaticStructureSchema = [3, n0, _LAEO,
   0,
@@ -1232,12 +1232,12 @@ export var ListActionTypesInput$: StaticStructureSchema = [3, n0, _LATI,
 export var ListActionTypesOutput$: StaticStructureSchema = [3, n0, _LATO,
   0,
   [_aTc, _nT],
-  [() => ActionTypeList, 0]
+  [() => ActionTypeList, 0], 1
 ];
 export var ListDeployActionExecutionTargetsInput$: StaticStructureSchema = [3, n0, _LDAETI,
   0,
-  [_pN, _aEI, _fi, _mR, _nT],
-  [0, 0, () => TargetFilterList, 1, 0]
+  [_aEI, _pN, _fi, _mR, _nT],
+  [0, 0, () => TargetFilterList, 1, 0], 1
 ];
 export var ListDeployActionExecutionTargetsOutput$: StaticStructureSchema = [3, n0, _LDAETO,
   0,
@@ -1247,7 +1247,7 @@ export var ListDeployActionExecutionTargetsOutput$: StaticStructureSchema = [3, 
 export var ListPipelineExecutionsInput$: StaticStructureSchema = [3, n0, _LPEI,
   0,
   [_pN, _mR, _f, _nT],
-  [0, 1, () => PipelineExecutionFilter$, 0]
+  [0, 1, () => PipelineExecutionFilter$, 0], 1
 ];
 export var ListPipelineExecutionsOutput$: StaticStructureSchema = [3, n0, _LPEO,
   0,
@@ -1267,7 +1267,7 @@ export var ListPipelinesOutput$: StaticStructureSchema = [3, n0, _LPO,
 export var ListRuleExecutionsInput$: StaticStructureSchema = [3, n0, _LREI,
   0,
   [_pN, _f, _mR, _nT],
-  [0, () => RuleExecutionFilter$, 1, 0]
+  [0, () => RuleExecutionFilter$, 1, 0], 1
 ];
 export var ListRuleExecutionsOutput$: StaticStructureSchema = [3, n0, _LREO,
   0,
@@ -1282,12 +1282,12 @@ export var ListRuleTypesInput$: StaticStructureSchema = [3, n0, _LRTI,
 export var ListRuleTypesOutput$: StaticStructureSchema = [3, n0, _LRTO,
   0,
   [_rT],
-  [() => RuleTypeList]
+  [() => RuleTypeList], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rAe, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -1297,7 +1297,7 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 export var ListWebhookItem$: StaticStructureSchema = [3, n0, _LWI,
   0,
   [_de, _ur, _eM, _eC, _lT, _a, _ta],
-  [() => WebhookDefinition$, 0, 0, 0, 4, 0, () => TagList]
+  [() => WebhookDefinition$, 0, 0, 0, 4, 0, () => TagList], 2
 ];
 export var ListWebhooksInput$: StaticStructureSchema = [3, n0, _LWIi,
   0,
@@ -1318,7 +1318,7 @@ TypeRegistry.for(n0).registerError(NotLatestPipelineExecutionException$, NotLate
 export var OutputArtifact$: StaticStructureSchema = [3, n0, _OA,
   0,
   [_na, _fil],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var OutputVariablesSizeExceededException$: StaticErrorSchema = [-3, n0, _OVSEE,
   { [_e]: _cl },
@@ -1329,7 +1329,7 @@ TypeRegistry.for(n0).registerError(OutputVariablesSizeExceededException$, Output
 export var OverrideStageConditionInput$: StaticStructureSchema = [3, n0, _OSCI,
   0,
   [_pN, _sN, _pEI, _cTon],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var PipelineContext$: StaticStructureSchema = [3, n0, _PC,
   0,
@@ -1338,8 +1338,8 @@ export var PipelineContext$: StaticStructureSchema = [3, n0, _PC,
 ];
 export var PipelineDeclaration$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_na, _rA, _aS, _aSr, _sta, _v, _eMx, _pT, _var, _tr],
-  [0, 0, () => ArtifactStore$, () => ArtifactStoreMap, () => PipelineStageDeclarationList, 1, 0, 0, () => PipelineVariableDeclarationList, () => PipelineTriggerDeclarationList]
+  [_na, _rA, _sta, _aS, _aSr, _v, _eMx, _pT, _var, _tr],
+  [0, 0, () => PipelineStageDeclarationList, () => ArtifactStore$, () => ArtifactStoreMap, 1, 0, 0, () => PipelineVariableDeclarationList, () => PipelineTriggerDeclarationList], 3
 ];
 export var PipelineExecution$: StaticStructureSchema = [3, n0, _PE,
   0,
@@ -1404,17 +1404,17 @@ export var PipelineSummary$: StaticStructureSchema = [3, n0, _PS,
 export var PipelineTriggerDeclaration$: StaticStructureSchema = [3, n0, _PTD,
   0,
   [_pTr, _gC],
-  [0, () => GitConfiguration$]
+  [0, () => GitConfiguration$], 2
 ];
 export var PipelineVariable$: StaticStructureSchema = [3, n0, _PV,
   0,
   [_na, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PipelineVariableDeclaration$: StaticStructureSchema = [3, n0, _PVD,
   0,
   [_na, _dV, _d],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var PipelineVersionNotFoundException$: StaticErrorSchema = [-3, n0, _PVNFE,
   { [_e]: _cl },
@@ -1425,7 +1425,7 @@ TypeRegistry.for(n0).registerError(PipelineVersionNotFoundException$, PipelineVe
 export var PollForJobsInput$: StaticStructureSchema = [3, n0, _PFJI,
   0,
   [_aTI, _mBS, _qP],
-  [() => ActionTypeId$, 1, 128 | 0]
+  [() => ActionTypeId$, 1, 128 | 0], 1
 ];
 export var PollForJobsOutput$: StaticStructureSchema = [3, n0, _PFJO,
   0,
@@ -1435,7 +1435,7 @@ export var PollForJobsOutput$: StaticStructureSchema = [3, n0, _PFJO,
 export var PollForThirdPartyJobsInput$: StaticStructureSchema = [3, n0, _PFTPJI,
   0,
   [_aTI, _mBS],
-  [() => ActionTypeId$, 1]
+  [() => ActionTypeId$, 1], 1
 ];
 export var PollForThirdPartyJobsOutput$: StaticStructureSchema = [3, n0, _PFTPJO,
   0,
@@ -1445,7 +1445,7 @@ export var PollForThirdPartyJobsOutput$: StaticStructureSchema = [3, n0, _PFTPJO
 export var PutActionRevisionInput$: StaticStructureSchema = [3, n0, _PARI,
   0,
   [_pN, _sN, _aN, _aRc],
-  [0, 0, 0, () => ActionRevision$]
+  [0, 0, 0, () => ActionRevision$], 4
 ];
 export var PutActionRevisionOutput$: StaticStructureSchema = [3, n0, _PARO,
   0,
@@ -1455,7 +1455,7 @@ export var PutActionRevisionOutput$: StaticStructureSchema = [3, n0, _PARO,
 export var PutApprovalResultInput$: StaticStructureSchema = [3, n0, _PARIu,
   0,
   [_pN, _sN, _aN, _res, _to],
-  [0, 0, 0, () => ApprovalResult$, 0]
+  [0, 0, 0, () => ApprovalResult$, 0], 5
 ];
 export var PutApprovalResultOutput$: StaticStructureSchema = [3, n0, _PAROu,
   0,
@@ -1465,27 +1465,27 @@ export var PutApprovalResultOutput$: StaticStructureSchema = [3, n0, _PAROu,
 export var PutJobFailureResultInput$: StaticStructureSchema = [3, n0, _PJFRI,
   0,
   [_jI, _fD],
-  [0, () => FailureDetails$]
+  [0, () => FailureDetails$], 2
 ];
 export var PutJobSuccessResultInput$: StaticStructureSchema = [3, n0, _PJSRI,
   0,
   [_jI, _cR, _cTo, _eDx, _oV],
-  [0, () => CurrentRevision$, 0, () => ExecutionDetails$, 128 | 0]
+  [0, () => CurrentRevision$, 0, () => ExecutionDetails$, 128 | 0], 1
 ];
 export var PutThirdPartyJobFailureResultInput$: StaticStructureSchema = [3, n0, _PTPJFRI,
   0,
   [_jI, _cT, _fD],
-  [0, 0, () => FailureDetails$]
+  [0, 0, () => FailureDetails$], 3
 ];
 export var PutThirdPartyJobSuccessResultInput$: StaticStructureSchema = [3, n0, _PTPJSRI,
   0,
   [_jI, _cT, _cR, _cTo, _eDx],
-  [0, 0, () => CurrentRevision$, 0, () => ExecutionDetails$]
+  [0, 0, () => CurrentRevision$, 0, () => ExecutionDetails$], 2
 ];
 export var PutWebhookInput$: StaticStructureSchema = [3, n0, _PWI,
   0,
   [_we, _ta],
-  [() => WebhookDefinition$, () => TagList]
+  [() => WebhookDefinition$, () => TagList], 1
 ];
 export var PutWebhookOutput$: StaticStructureSchema = [3, n0, _PWO,
   0,
@@ -1527,7 +1527,7 @@ export var RetryConfiguration$: StaticStructureSchema = [3, n0, _RC,
 export var RetryStageExecutionInput$: StaticStructureSchema = [3, n0, _RSEI,
   0,
   [_pN, _sN, _pEI, _rMe],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var RetryStageExecutionOutput$: StaticStructureSchema = [3, n0, _RSEO,
   0,
@@ -1542,22 +1542,22 @@ export var RetryStageMetadata$: StaticStructureSchema = [3, n0, _RSM,
 export var RollbackStageInput$: StaticStructureSchema = [3, n0, _RSI,
   0,
   [_pN, _sN, _tPEI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var RollbackStageOutput$: StaticStructureSchema = [3, n0, _RSO,
   0,
   [_pEI],
-  [0]
+  [0], 1
 ];
 export var RuleConfigurationProperty$: StaticStructureSchema = [3, n0, _RCP,
   0,
   [_na, _r, _k, _se, _q, _d, _t],
-  [0, 2, 2, 2, 2, 0, 0]
+  [0, 2, 2, 2, 2, 0, 0], 4
 ];
 export var RuleDeclaration$: StaticStructureSchema = [3, n0, _RD,
   0,
   [_na, _rTI, _c, _co, _iA, _rA, _re, _tIM],
-  [0, () => RuleTypeId$, 128 | 0, 64 | 0, () => InputArtifactList, 0, 0, 1]
+  [0, () => RuleTypeId$, 128 | 0, 64 | 0, () => InputArtifactList, 0, 0, 1], 2
 ];
 export var RuleExecution$: StaticStructureSchema = [3, n0, _RE,
   0,
@@ -1592,7 +1592,7 @@ export var RuleExecutionResult$: StaticStructureSchema = [3, n0, _RER,
 export var RuleRevision$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_rI, _rCI, _cr],
-  [0, 0, 4]
+  [0, 0, 4], 3
 ];
 export var RuleState$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -1601,13 +1601,13 @@ export var RuleState$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var RuleType$: StaticStructureSchema = [3, n0, _RT,
   0,
-  [_id, _set, _rCP, _iAD],
-  [() => RuleTypeId$, () => RuleTypeSettings$, () => RuleConfigurationPropertyList, () => ArtifactDetails$]
+  [_id, _iAD, _set, _rCP],
+  [() => RuleTypeId$, () => ArtifactDetails$, () => RuleTypeSettings$, () => RuleConfigurationPropertyList], 2
 ];
 export var RuleTypeId$: StaticStructureSchema = [3, n0, _RTI,
   0,
-  [_ca, _ow, _pro, _v],
-  [0, 0, 0, 0]
+  [_ca, _pro, _ow, _v],
+  [0, 0, 0, 0], 2
 ];
 export var RuleTypeSettings$: StaticStructureSchema = [3, n0, _RTS,
   0,
@@ -1617,7 +1617,7 @@ export var RuleTypeSettings$: StaticStructureSchema = [3, n0, _RTS,
 export var S3ArtifactLocation$: StaticStructureSchema = [3, n0, _SAL,
   0,
   [_bN, _oK],
-  [0, 0]
+  [0, 0], 2
 ];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
@@ -1627,12 +1627,12 @@ export var S3Location$: StaticStructureSchema = [3, n0, _SL,
 export var SourceRevision$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_aN, _rI, _rS, _rU],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var SourceRevisionOverride$: StaticStructureSchema = [3, n0, _SRO,
   0,
   [_aN, _rTe, _rVe],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var StageConditionsExecution$: StaticStructureSchema = [3, n0, _SCE,
   0,
@@ -1651,13 +1651,13 @@ export var StageContext$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var StageDeclaration$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_na, _bl, _act, _oF, _oS, _bE],
-  [0, () => StageBlockerDeclarationList, () => StageActionDeclarationList, () => FailureConditions$, () => SuccessConditions$, () => BeforeEntryConditions$]
+  [_na, _act, _bl, _oF, _oS, _bE],
+  [0, () => StageActionDeclarationList, () => StageBlockerDeclarationList, () => FailureConditions$, () => SuccessConditions$, () => BeforeEntryConditions$], 2
 ];
 export var StageExecution$: StaticStructureSchema = [3, n0, _SE,
   0,
   [_pEI, _s, _t],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var StageNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
   { [_e]: _cl },
@@ -1679,7 +1679,7 @@ export var StageState$: StaticStructureSchema = [3, n0, _SS,
 export var StartPipelineExecutionInput$: StaticStructureSchema = [3, n0, _SPEI,
   0,
   [_na, _var, _cRT, _sR],
-  [0, () => PipelineVariableList, [0, 4], () => SourceRevisionOverrideList]
+  [0, () => PipelineVariableList, [0, 4], () => SourceRevisionOverrideList], 1
 ];
 export var StartPipelineExecutionOutput$: StaticStructureSchema = [3, n0, _SPEO,
   0,
@@ -1694,7 +1694,7 @@ export var StopExecutionTrigger$: StaticStructureSchema = [3, n0, _SET,
 export var StopPipelineExecutionInput$: StaticStructureSchema = [3, n0, _SPEIt,
   0,
   [_pN, _pEI, _ab, _rea],
-  [0, 0, 2, 0]
+  [0, 0, 2, 0], 2
 ];
 export var StopPipelineExecutionOutput$: StaticStructureSchema = [3, n0, _SPEOt,
   0,
@@ -1709,17 +1709,17 @@ export var SucceededInStageFilter$: StaticStructureSchema = [3, n0, _SISF,
 export var SuccessConditions$: StaticStructureSchema = [3, n0, _SCu,
   0,
   [_con],
-  [() => ConditionList]
+  [() => ConditionList], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rAe, _ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -1766,7 +1766,7 @@ TypeRegistry.for(n0).registerError(UnableToRollbackStageException$, UnableToRoll
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rAe, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -1776,12 +1776,12 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateActionTypeInput$: StaticStructureSchema = [3, n0, _UATI,
   0,
   [_aT],
-  [() => ActionTypeDeclaration$]
+  [() => ActionTypeDeclaration$], 1
 ];
 export var UpdatePipelineInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
   [_pi],
-  [() => PipelineDeclaration$]
+  [() => PipelineDeclaration$], 1
 ];
 export var UpdatePipelineOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
@@ -1802,12 +1802,12 @@ export var WebhookAuthConfiguration$: StaticStructureSchema = [3, n0, _WAC,
 export var WebhookDefinition$: StaticStructureSchema = [3, n0, _WD,
   0,
   [_na, _tP, _tA, _fi, _au, _aCu],
-  [0, 0, 0, () => WebhookFilters, 0, () => WebhookAuthConfiguration$]
+  [0, 0, 0, () => WebhookFilters, 0, () => WebhookAuthConfiguration$], 6
 ];
 export var WebhookFilterRule$: StaticStructureSchema = [3, n0, _WFR,
   0,
   [_jP, _mE],
-  [0, 0]
+  [0, 0], 1
 ];
 export var WebhookNotFoundException$: StaticErrorSchema = [-3, n0, _WNFE,
   { [_e]: _cl },

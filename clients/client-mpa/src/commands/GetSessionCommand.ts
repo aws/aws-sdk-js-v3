@@ -79,6 +79,9 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //       ResponseTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
+ * //   AdditionalSecurityRequirements: [ // AdditionalSecurityRequirements
+ * //     "APPROVER_VERIFICATION_REQUIRED",
+ * //   ],
  * // };
  *
  * ```

@@ -82,7 +82,7 @@ import { STSServiceException } from "../models/STSServiceException";
 /* eslint no-var: 0 */
 var accessKeySecretType: StaticSimpleSchema = [0, n0, _aKST, 8, 0];
 var clientTokenType: StaticSimpleSchema = [0, n0, _cTT, 8, 0];
-export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU, 0, [_ARI, _A], [0, 0]];
+export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU, 0, [_ARI, _A], [0, 0], 2];
 export var AssumeRoleRequest$: StaticStructureSchema = [
   3,
   n0,
@@ -90,6 +90,7 @@ export var AssumeRoleRequest$: StaticStructureSchema = [
   0,
   [_RA, _RSN, _PA, _P, _DS, _T, _TTK, _EI, _SN, _TC, _SI, _PC],
   [0, 0, () => policyDescriptorListType, 0, 1, () => tagListType, 64 | 0, 0, 0, 0, 0, () => ProvidedContextsListType],
+  2,
 ];
 export var AssumeRoleResponse$: StaticStructureSchema = [
   3,
@@ -106,6 +107,7 @@ export var AssumeRoleWithWebIdentityRequest$: StaticStructureSchema = [
   0,
   [_RA, _RSN, _WIT, _PI, _PA, _P, _DS],
   [0, 0, [() => clientTokenType, 0], 0, () => policyDescriptorListType, 0, 1],
+  3,
 ];
 export var AssumeRoleWithWebIdentityResponse$: StaticStructureSchema = [
   3,
@@ -122,6 +124,7 @@ export var Credentials$: StaticStructureSchema = [
   0,
   [_AKI, _SAK, _ST, _E],
   [0, [() => accessKeySecretType, 0], 0, 4],
+  4,
 ];
 export var ExpiredTokenException$: StaticErrorSchema = [
   -3,
@@ -188,7 +191,7 @@ export var RegionDisabledException$: StaticErrorSchema = [
   [0],
 ];
 TypeRegistry.for(n0).registerError(RegionDisabledException$, RegionDisabledException);
-export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
+export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0], 2];
 export var STSServiceException$: StaticErrorSchema = [-3, _s, "STSServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(STSServiceException$, STSServiceException);
 var policyDescriptorListType: StaticListSchema = [1, n0, _pDLT, 0, () => PolicyDescriptorType$];

@@ -275,6 +275,10 @@ import {
   DeleteConnectionCommand,
   DeleteConnectionInput$,
   DeleteConnectionOutput$,
+  DeleteDataExportConfiguration$,
+  DeleteDataExportConfigurationCommand,
+  DeleteDataExportConfigurationInput$,
+  DeleteDataExportConfigurationOutput$,
   DeleteDataProduct$,
   DeleteDataProductCommand,
   DeleteDataProductInput$,
@@ -404,6 +408,7 @@ import {
   FilterClause$,
   FilterExpression$,
   FilterExpressionType,
+  FilterOperator,
   FilterStatus,
   FormEntryInput$,
   FormEntryOutput$,
@@ -994,6 +999,8 @@ import {
   SubscribedAssetListing$,
   SubscribedGroup$,
   SubscribedGroupInput$,
+  SubscribedIamPrincipal$,
+  SubscribedIamPrincipalInput$,
   SubscribedListing$,
   SubscribedListingInput$,
   SubscribedListingItem$,
@@ -1004,6 +1011,7 @@ import {
   SubscribedProjectInput$,
   SubscribedUser$,
   SubscribedUserInput$,
+  SubscriptionGrantCreationMode,
   SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
   SubscriptionGrantSummary$,
@@ -1227,6 +1235,8 @@ assert(typeof DeleteAssetTypeCommand === "function");
 assert(typeof DeleteAssetType$ === "object");
 assert(typeof DeleteConnectionCommand === "function");
 assert(typeof DeleteConnection$ === "object");
+assert(typeof DeleteDataExportConfigurationCommand === "function");
+assert(typeof DeleteDataExportConfiguration$ === "object");
 assert(typeof DeleteDataProductCommand === "function");
 assert(typeof DeleteDataProduct$ === "object");
 assert(typeof DeleteDataSourceCommand === "function");
@@ -1654,6 +1664,8 @@ assert(typeof DeleteAssetTypeInput$ === "object");
 assert(typeof DeleteAssetTypeOutput$ === "object");
 assert(typeof DeleteConnectionInput$ === "object");
 assert(typeof DeleteConnectionOutput$ === "object");
+assert(typeof DeleteDataExportConfigurationInput$ === "object");
+assert(typeof DeleteDataExportConfigurationOutput$ === "object");
 assert(typeof DeleteDataProductInput$ === "object");
 assert(typeof DeleteDataProductOutput$ === "object");
 assert(typeof DeleteDataSourceInput$ === "object");
@@ -2056,6 +2068,8 @@ assert(typeof SubscribedAsset$ === "object");
 assert(typeof SubscribedAssetListing$ === "object");
 assert(typeof SubscribedGroup$ === "object");
 assert(typeof SubscribedGroupInput$ === "object");
+assert(typeof SubscribedIamPrincipal$ === "object");
+assert(typeof SubscribedIamPrincipalInput$ === "object");
 assert(typeof SubscribedListing$ === "object");
 assert(typeof SubscribedListingInput$ === "object");
 assert(typeof SubscribedListingItem$ === "object");
@@ -2161,6 +2175,7 @@ assert(typeof EnableSetting === "object");
 assert(typeof EntityType === "object");
 assert(typeof EnvironmentStatus === "object");
 assert(typeof FilterExpressionType === "object");
+assert(typeof FilterOperator === "object");
 assert(typeof FilterStatus === "object");
 assert(typeof FormTypeStatus === "object");
 assert(typeof GlossaryStatus === "object");
@@ -2208,6 +2223,7 @@ assert(typeof SortFieldProject === "object");
 assert(typeof SortKey === "object");
 assert(typeof SortOrder === "object");
 assert(typeof Status === "object");
+assert(typeof SubscriptionGrantCreationMode === "object");
 assert(typeof SubscriptionGrantOverallStatus === "object");
 assert(typeof SubscriptionGrantStatus === "object");
 assert(typeof SubscriptionRequestStatus === "object");

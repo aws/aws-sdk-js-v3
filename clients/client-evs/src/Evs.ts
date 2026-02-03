@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateEipToVlanCommand,
@@ -37,6 +37,7 @@ import {
   GetEnvironmentCommandInput,
   GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
+import { GetVersionsCommand, GetVersionsCommandInput, GetVersionsCommandOutput } from "./commands/GetVersionsCommand";
 import {
   ListEnvironmentHostsCommand,
   ListEnvironmentHostsCommandInput,
@@ -64,6 +65,9 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { EvsClient } from "./EvsClient";
+import { paginateListEnvironmentHosts } from "./pagination/ListEnvironmentHostsPaginator";
+import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
+import { paginateListEnvironmentVlans } from "./pagination/ListEnvironmentVlansPaginator";
 
 const commands = {
   AssociateEipToVlanCommand,
@@ -73,12 +77,18 @@ const commands = {
   DeleteEnvironmentHostCommand,
   DisassociateEipFromVlanCommand,
   GetEnvironmentCommand,
+  GetVersionsCommand,
   ListEnvironmentHostsCommand,
   ListEnvironmentsCommand,
   ListEnvironmentVlansCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListEnvironmentHosts,
+  paginateListEnvironments,
+  paginateListEnvironmentVlans,
 };
 
 export interface Evs {
@@ -202,6 +212,24 @@ export interface Evs {
   ): void;
 
   /**
+   * @see {@link GetVersionsCommand}
+   */
+  getVersions(): Promise<GetVersionsCommandOutput>;
+  getVersions(
+    args: GetVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVersionsCommandOutput>;
+  getVersions(
+    args: GetVersionsCommandInput,
+    cb: (err: any, data?: GetVersionsCommandOutput) => void
+  ): void;
+  getVersions(
+    args: GetVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListEnvironmentHostsCommand}
    */
   listEnvironmentHosts(
@@ -303,6 +331,39 @@ export interface Evs {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListEnvironmentHostsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentHostsCommandOutput}.
+   */
+  paginateListEnvironmentHosts(
+    args: ListEnvironmentHostsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentHostsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentsCommandOutput}.
+   */
+  paginateListEnvironments(
+    args?: ListEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentVlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentVlansCommandOutput}.
+   */
+  paginateListEnvironmentVlans(
+    args: ListEnvironmentVlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentVlansCommandOutput>;
 }
 
 /**
@@ -310,4 +371,4 @@ export interface Evs {
  * @public
  */
 export class Evs extends EvsClient implements Evs {}
-createAggregatedClient(commands, Evs);
+createAggregatedClient(commands, Evs, { paginators });

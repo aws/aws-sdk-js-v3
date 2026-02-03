@@ -243,6 +243,7 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput extends ModifySn
  * //     },
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
+ * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
  * //   },
  * // };
  *

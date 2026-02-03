@@ -289,7 +289,7 @@ var ErrorMessage: StaticSimpleSchema = [0, n0, _EM, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 401 },
   [_m],
-  [[() => ErrorMessage, 0]]
+  [[() => ErrorMessage, 0]], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountDetails$: StaticStructureSchema = [3, n0, _AD,
@@ -314,39 +314,39 @@ export var AdditionalInfoResponse$: StaticStructureSchema = [3, n0, _AIRd,
 ];
 export var Address$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_aL, _aLd, _aLdd, _dOC, _ci, _sOR, _pC, _cC],
-  [0, 0, 0, 0, 0, 0, 0, 0]
+  [_aL, _ci, _pC, _cC, _aLd, _aLdd, _dOC, _sOR],
+  [0, 0, 0, 0, 0, 0, 0, 0], 4
 ];
 export var AttachmentUploadException$: StaticErrorSchema = [-3, n0, _AUE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [[() => ErrorMessage, 0]]
+  [[() => ErrorMessage, 0]], 1
 ];
 TypeRegistry.for(n0).registerError(AttachmentUploadException$, AttachmentUploadException);
 export var Authority$: StaticStructureSchema = [3, n0, _Au,
   0,
   [_co, _st],
-  [0, 0]
+  [0, 0], 1
 ];
 export var BatchDeleteTaxRegistrationError$: StaticStructureSchema = [3, n0, _BDTRE,
   0,
   [_aI, _m, _cod],
-  [0, [() => ErrorMessage, 0], 0]
+  [0, [() => ErrorMessage, 0], 0], 2
 ];
 export var BatchDeleteTaxRegistrationRequest$: StaticStructureSchema = [3, n0, _BDTRR,
   0,
   [_aIc],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchDeleteTaxRegistrationResponse$: StaticStructureSchema = [3, n0, _BDTRRa,
   0,
   [_er],
-  [[() => BatchDeleteTaxRegistrationErrors, 0]]
+  [[() => BatchDeleteTaxRegistrationErrors, 0]], 1
 ];
 export var BatchGetTaxExemptionsRequest$: StaticStructureSchema = [3, n0, _BGTER,
   0,
   [_aIc],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetTaxExemptionsResponse$: StaticStructureSchema = [3, n0, _BGTERa,
   0,
@@ -356,17 +356,17 @@ export var BatchGetTaxExemptionsResponse$: StaticStructureSchema = [3, n0, _BGTE
 export var BatchPutTaxRegistrationError$: StaticStructureSchema = [3, n0, _BPTRE,
   0,
   [_aI, _m, _cod],
-  [0, [() => ErrorMessage, 0], 0]
+  [0, [() => ErrorMessage, 0], 0], 2
 ];
 export var BatchPutTaxRegistrationRequest$: StaticStructureSchema = [3, n0, _BPTRR,
   0,
   [_aIc, _tRE],
-  [64 | 0, [() => TaxRegistrationEntry$, 0]]
+  [64 | 0, [() => TaxRegistrationEntry$, 0]], 2
 ];
 export var BatchPutTaxRegistrationResponse$: StaticStructureSchema = [3, n0, _BPTRRa,
   0,
-  [_sta, _er],
-  [0, [() => BatchPutTaxRegistrationErrors, 0]]
+  [_er, _sta],
+  [[() => BatchPutTaxRegistrationErrors, 0], 0], 1
 ];
 export var BrazilAdditionalInfo$: StaticStructureSchema = [3, n0, _BAI,
   0,
@@ -381,19 +381,19 @@ export var CanadaAdditionalInfo$: StaticStructureSchema = [3, n0, _CAI,
 export var CaseCreationLimitExceededException$: StaticErrorSchema = [-3, n0, _CCLEE,
   { [_e]: _c, [_hE]: 413 },
   [_m],
-  [[() => ErrorMessage, 0]]
+  [[() => ErrorMessage, 0]], 1
 ];
 TypeRegistry.for(n0).registerError(CaseCreationLimitExceededException$, CaseCreationLimitExceededException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _eC],
-  [[() => ErrorMessage, 0], 0]
+  [[() => ErrorMessage, 0], 0], 2
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DeleteSupplementalTaxRegistrationRequest$: StaticStructureSchema = [3, n0, _DSTRR,
   0,
   [_aIu],
-  [0]
+  [0], 1
 ];
 export var DeleteSupplementalTaxRegistrationResponse$: StaticStructureSchema = [3, n0, _DSTRRe,
   0,
@@ -413,7 +413,7 @@ export var DeleteTaxRegistrationResponse$: StaticStructureSchema = [3, n0, _DTRR
 export var DestinationS3Location$: StaticStructureSchema = [3, n0, _DSL,
   0,
   [_b, _p],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EgyptAdditionalInfo$: StaticStructureSchema = [3, n0, _EAI,
   0,
@@ -423,17 +423,17 @@ export var EgyptAdditionalInfo$: StaticStructureSchema = [3, n0, _EAI,
 export var EstoniaAdditionalInfo$: StaticStructureSchema = [3, n0, _EAIs,
   0,
   [_rCC],
-  [0]
+  [0], 1
 ];
 export var ExemptionCertificate$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_dN, _dF],
-  [0, 21]
+  [0, 21], 2
 ];
 export var GeorgiaAdditionalInfo$: StaticStructureSchema = [3, n0, _GAI,
   0,
   [_pT],
-  [0]
+  [0], 1
 ];
 export var GetTaxExemptionTypesRequest$: StaticStructureSchema = [3, n0, _GTETR,
   0,
@@ -457,8 +457,8 @@ export var GetTaxInheritanceResponse$: StaticStructureSchema = [3, n0, _GTIRe,
 ];
 export var GetTaxRegistrationDocumentRequest$: StaticStructureSchema = [3, n0, _GTRDR,
   0,
-  [_dSL, _tDM],
-  [() => DestinationS3Location$, () => TaxDocumentMetadata$]
+  [_tDM, _dSL],
+  [() => TaxDocumentMetadata$, () => DestinationS3Location$], 1
 ];
 export var GetTaxRegistrationDocumentResponse$: StaticStructureSchema = [3, n0, _GTRDRe,
   0,
@@ -493,13 +493,13 @@ export var IndonesiaAdditionalInfo$: StaticStructureSchema = [3, n0, _IAIn,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _eC],
-  [[() => ErrorMessage, 0], 0]
+  [[() => ErrorMessage, 0], 0], 2
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IsraelAdditionalInfo$: StaticStructureSchema = [3, n0, _IAIs,
   0,
   [_dT, _cT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ItalyAdditionalInfo$: StaticStructureSchema = [3, n0, _IAIt,
   0,
@@ -508,13 +508,13 @@ export var ItalyAdditionalInfo$: StaticStructureSchema = [3, n0, _IAIt,
 ];
 export var Jurisdiction$: StaticStructureSchema = [3, n0, _J,
   0,
-  [_sOR, _cC],
-  [0, 0]
+  [_cC, _sOR],
+  [0, 0], 1
 ];
 export var KenyaAdditionalInfo$: StaticStructureSchema = [3, n0, _KAI,
   0,
   [_pT],
-  [0]
+  [0], 1
 ];
 export var ListSupplementalTaxRegistrationsRequest$: StaticStructureSchema = [3, n0, _LSTRR,
   0,
@@ -524,7 +524,7 @@ export var ListSupplementalTaxRegistrationsRequest$: StaticStructureSchema = [3,
 export var ListSupplementalTaxRegistrationsResponse$: StaticStructureSchema = [3, n0, _LSTRRi,
   0,
   [_tRa, _nT],
-  [[() => SupplementalTaxRegistrationList, 0], 0]
+  [[() => SupplementalTaxRegistrationList, 0], 0], 1
 ];
 export var ListTaxExemptionsRequest$: StaticStructureSchema = [3, n0, _LTER,
   0,
@@ -544,7 +544,7 @@ export var ListTaxRegistrationsRequest$: StaticStructureSchema = [3, n0, _LTRR,
 export var ListTaxRegistrationsResponse$: StaticStructureSchema = [3, n0, _LTRRi,
   0,
   [_aD, _nT],
-  [[() => AccountDetailsList, 0], 0]
+  [[() => AccountDetailsList, 0], 0], 1
 ];
 export var MalaysiaAdditionalInfo$: StaticStructureSchema = [3, n0, _MAI,
   0,
@@ -559,17 +559,17 @@ export var PolandAdditionalInfo$: StaticStructureSchema = [3, n0, _PAI,
 export var PutSupplementalTaxRegistrationRequest$: StaticStructureSchema = [3, n0, _PSTRR,
   0,
   [_tRE],
-  [[() => SupplementalTaxRegistrationEntry$, 0]]
+  [[() => SupplementalTaxRegistrationEntry$, 0]], 1
 ];
 export var PutSupplementalTaxRegistrationResponse$: StaticStructureSchema = [3, n0, _PSTRRu,
   0,
   [_aIu, _sta],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutTaxExemptionRequest$: StaticStructureSchema = [3, n0, _PTER,
   0,
   [_aIc, _au, _eT, _eCx],
-  [64 | 0, () => Authority$, 0, () => ExemptionCertificate$]
+  [64 | 0, () => Authority$, 0, () => ExemptionCertificate$], 4
 ];
 export var PutTaxExemptionResponse$: StaticStructureSchema = [3, n0, _PTERu,
   0,
@@ -588,8 +588,8 @@ export var PutTaxInheritanceResponse$: StaticStructureSchema = [3, n0, _PTIRu,
 ];
 export var PutTaxRegistrationRequest$: StaticStructureSchema = [3, n0, _PTRR,
   0,
-  [_aI, _tRE],
-  [0, [() => TaxRegistrationEntry$, 0]]
+  [_tRE, _aI],
+  [[() => TaxRegistrationEntry$, 0], 0], 1
 ];
 export var PutTaxRegistrationResponse$: StaticStructureSchema = [3, n0, _PTRRu,
   0,
@@ -599,13 +599,13 @@ export var PutTaxRegistrationResponse$: StaticStructureSchema = [3, n0, _PTRRu,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _eC],
-  [[() => ErrorMessage, 0], 0]
+  [[() => ErrorMessage, 0], 0], 2
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RomaniaAdditionalInfo$: StaticStructureSchema = [3, n0, _RAI,
   0,
   [_tRNT],
-  [0]
+  [0], 1
 ];
 export var SaudiArabiaAdditionalInfo$: StaticStructureSchema = [3, n0, _SAAI,
   0,
@@ -615,37 +615,37 @@ export var SaudiArabiaAdditionalInfo$: StaticStructureSchema = [3, n0, _SAAI,
 export var SourceS3Location$: StaticStructureSchema = [3, n0, _SSL,
   0,
   [_b, _k],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SouthKoreaAdditionalInfo$: StaticStructureSchema = [3, n0, _SKAI,
   0,
   [_bRNu, _lOB, _iOB],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var SpainAdditionalInfo$: StaticStructureSchema = [3, n0, _SAI,
   0,
   [_rT],
-  [0]
+  [0], 1
 ];
 export var SupplementalTaxRegistration$: StaticStructureSchema = [3, n0, _STR,
   8,
   [_rI, _rT, _lN, _a, _aIu, _sta],
-  [0, 0, 0, () => Address$, 0, 0]
+  [0, 0, 0, () => Address$, 0, 0], 6
 ];
 export var SupplementalTaxRegistrationEntry$: StaticStructureSchema = [3, n0, _STRE,
   8,
   [_rI, _rT, _lN, _a],
-  [0, 0, 0, () => Address$]
+  [0, 0, 0, () => Address$], 4
 ];
 export var TaxDocumentMetadata$: StaticStructureSchema = [3, n0, _TDM,
   0,
   [_tDAT, _tDN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TaxExemption$: StaticStructureSchema = [3, n0, _TE,
   0,
   [_au, _tETa, _eD, _eDx, _sED, _sta],
-  [() => Authority$, () => TaxExemptionType$, 4, 4, 4, 0]
+  [() => Authority$, () => TaxExemptionType$, 4, 4, 4, 0], 2
 ];
 export var TaxExemptionDetails$: StaticStructureSchema = [3, n0, _TED,
   0,
@@ -664,13 +664,13 @@ export var TaxInheritanceDetails$: StaticStructureSchema = [3, n0, _TID,
 ];
 export var TaxRegistration$: StaticStructureSchema = [3, n0, _TR,
   8,
-  [_rI, _rT, _lN, _sta, _sec, _tDMa, _cEI, _aTI, _lA],
-  [0, 0, 0, 0, 0, () => TaxDocumentMetadatas, 0, () => AdditionalInfoResponse$, () => Address$]
+  [_rI, _rT, _lN, _sta, _lA, _sec, _tDMa, _cEI, _aTI],
+  [0, 0, 0, 0, () => Address$, 0, () => TaxDocumentMetadatas, 0, () => AdditionalInfoResponse$], 5
 ];
 export var TaxRegistrationDocFile$: StaticStructureSchema = [3, n0, _TRDF,
   0,
   [_fN, _fC],
-  [0, 21]
+  [0, 21], 2
 ];
 export var TaxRegistrationDocument$: StaticStructureSchema = [3, n0, _TRD,
   0,
@@ -680,12 +680,12 @@ export var TaxRegistrationDocument$: StaticStructureSchema = [3, n0, _TRD,
 export var TaxRegistrationEntry$: StaticStructureSchema = [3, n0, _TRE,
   8,
   [_rI, _rT, _lN, _lA, _sec, _aTI, _vD, _cEI],
-  [0, 0, 0, () => Address$, 0, () => AdditionalInfoRequest$, () => VerificationDetails$, 0]
+  [0, 0, 0, () => Address$, 0, () => AdditionalInfoRequest$, () => VerificationDetails$, 0], 2
 ];
 export var TaxRegistrationWithJurisdiction$: StaticStructureSchema = [3, n0, _TRWJ,
   8,
-  [_rI, _rT, _lN, _sta, _sec, _tDMa, _cEI, _aTI, _j],
-  [0, 0, 0, 0, 0, () => TaxDocumentMetadatas, 0, () => AdditionalInfoResponse$, () => Jurisdiction$]
+  [_rI, _rT, _lN, _sta, _j, _sec, _tDMa, _cEI, _aTI],
+  [0, 0, 0, 0, () => Jurisdiction$, 0, () => TaxDocumentMetadatas, 0, () => AdditionalInfoResponse$], 5
 ];
 export var TurkeyAdditionalInfo$: StaticStructureSchema = [3, n0, _TAI,
   0,
@@ -695,7 +695,7 @@ export var TurkeyAdditionalInfo$: StaticStructureSchema = [3, n0, _TAI,
 export var UkraineAdditionalInfo$: StaticStructureSchema = [3, n0, _UAI,
   0,
   [_uTT],
-  [0]
+  [0], 1
 ];
 export var UzbekistanAdditionalInfo$: StaticStructureSchema = [3, n0, _UAIz,
   0,
@@ -705,13 +705,13 @@ export var UzbekistanAdditionalInfo$: StaticStructureSchema = [3, n0, _UAIz,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _eC, _fL],
-  [[() => ErrorMessage, 0], 0, () => ValidationExceptionFieldList]
+  [[() => ErrorMessage, 0], 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var VerificationDetails$: StaticStructureSchema = [3, n0, _VD,
   0,

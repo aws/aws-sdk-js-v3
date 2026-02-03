@@ -27,10 +27,16 @@ const _ESL = "EnvironmentSummaryList";
 const _GE = "GetEnvironment";
 const _GER = "GetEnvironmentRequest";
 const _GERe = "GetEnvironmentResponse";
+const _GV = "GetVersions";
+const _GVR = "GetVersionsRequest";
+const _GVRe = "GetVersionsResponse";
 const _H = "Host";
 const _HIFC = "HostInfoForCreate";
 const _HIFCL = "HostInfoForCreateList";
 const _HL = "HostList";
+const _ISE = "InternalServerException";
+const _ITEVI = "InstanceTypeEsxVersionsInfo";
+const _ITEVL = "InstanceTypeEsxVersionsList";
 const _IV = "InitialVlans";
 const _IVI = "InitialVlanInfo";
 const _LE = "ListEnvironments";
@@ -70,6 +76,8 @@ const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _VH = "VcfHostnames";
 const _VL = "VlanList";
+const _VVI = "VcfVersionInfo";
+const _VVL = "VcfVersionList";
 const _aI = "allocationId";
 const _aIs = "associationId";
 const _aZ = "availabilityZone";
@@ -81,6 +89,7 @@ const _cT = "clientToken";
 const _ci = "cidr";
 const _cl = "client";
 const _cr = "credentials";
+const _dEV = "defaultEsxVersion";
 const _dHI = "dedicatedHostId";
 const _e = "environment";
 const _eA = "environmentArn";
@@ -93,10 +102,12 @@ const _eS = "environmentSummary";
 const _eSn = "environmentState";
 const _eSnv = "environmentStatus";
 const _eSnvi = "environmentSummaries";
-const _eV = "expansionVlan1";
+const _eV = "esxVersion";
 const _eVT = "edgeVTep";
 const _eVn = "environmentVlans";
-const _eVx = "expansionVlan2";
+const _eVs = "esxVersions";
+const _eVx = "expansionVlan1";
+const _eVxp = "expansionVlan2";
 const _er = "error";
 const _fL = "fieldList";
 const _fN = "functionName";
@@ -114,6 +125,8 @@ const _iHP = "isHcxPublic";
 const _iP = "isPublic";
 const _iS = "impairedSince";
 const _iT = "instanceType";
+const _iTEV = "instanceTypeEsxVersions";
+const _iTn = "instanceTypes";
 const _iV = "initialVlans";
 const _kKI = "kmsKeyId";
 const _kN = "keyName";
@@ -141,7 +154,7 @@ const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
 const _rT = "resourceType";
 const _re = "reason";
-const _s = "state";
+const _s = "server";
 const _sA = "secretArn";
 const _sASG = "serviceAccessSecurityGroups";
 const _sASI = "serviceAccessSubnetId";
@@ -152,6 +165,8 @@ const _sIu = "subnetId";
 const _sK = "solutionKey";
 const _sM = "sddcManager";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.evs";
+const _st = "state";
+const _sta = "status";
 const _t = "type";
 const _tA = "termsAccepted";
 const _tK = "tagKeys";
@@ -170,6 +185,7 @@ const _vS = "vSan";
 const _vSl = "vlanState";
 const _vT = "vTep";
 const _vV = "vcfVersion";
+const _vVc = "vcfVersions";
 const n0 = "com.amazonaws.evs";
 
 // smithy-typescript generated code
@@ -183,6 +199,7 @@ import type {
 } from "@smithy/types";
 
 import {
+  InternalServerException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   TagPolicyException,
@@ -195,8 +212,8 @@ import { EvsServiceException } from "../models/EvsServiceException";
 /* eslint no-var: 0 */
 export var AssociateEipToVlanRequest$: StaticStructureSchema = [3, n0, _AETVR,
   0,
-  [_cT, _eI, _vN, _aI],
-  [[0, 4], 0, 0, 0]
+  [_eI, _vN, _aI, _cT],
+  [0, 0, 0, [0, 4]], 3
 ];
 export var AssociateEipToVlanResponse$: StaticStructureSchema = [3, n0, _AETVRs,
   0,
@@ -211,12 +228,12 @@ export var Check$: StaticStructureSchema = [3, n0, _C,
 export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_pRSP],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var CreateEnvironmentHostRequest$: StaticStructureSchema = [3, n0, _CEHR,
   0,
-  [_cT, _eI, _h],
-  [[0, 4], 0, () => HostInfoForCreate$]
+  [_eI, _h, _cT, _eV],
+  [0, () => HostInfoForCreate$, [0, 4], 0], 2
 ];
 export var CreateEnvironmentHostResponse$: StaticStructureSchema = [3, n0, _CEHRr,
   0,
@@ -225,8 +242,8 @@ export var CreateEnvironmentHostResponse$: StaticStructureSchema = [3, n0, _CEHR
 ];
 export var CreateEnvironmentRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
-  [_cT, _eN, _kKI, _ta, _sASG, _vI, _sASI, _vV, _tA, _lI, _iV, _ho, _cI, _vH, _sI],
-  [[0, 4], 0, 0, 128 | 0, () => ServiceAccessSecurityGroups$, 0, 0, 0, 2, () => LicenseInfoList, () => InitialVlans$, () => HostInfoForCreateList, () => ConnectivityInfo$, () => VcfHostnames$, 0]
+  [_vI, _sASI, _vV, _tA, _lI, _iV, _ho, _cI, _vH, _sI, _cT, _eN, _kKI, _ta, _sASG],
+  [0, 0, 0, 2, () => LicenseInfoList, () => InitialVlans$, () => HostInfoForCreateList, () => ConnectivityInfo$, () => VcfHostnames$, 0, [0, 4], 0, 0, 128 | 0, () => ServiceAccessSecurityGroups$], 10
 ];
 export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
@@ -235,8 +252,8 @@ export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERr,
 ];
 export var DeleteEnvironmentHostRequest$: StaticStructureSchema = [3, n0, _DEHR,
   0,
-  [_cT, _eI, _hN],
-  [[0, 4], 0, 0]
+  [_eI, _hN, _cT],
+  [0, 0, [0, 4]], 2
 ];
 export var DeleteEnvironmentHostResponse$: StaticStructureSchema = [3, n0, _DEHRe,
   0,
@@ -245,8 +262,8 @@ export var DeleteEnvironmentHostResponse$: StaticStructureSchema = [3, n0, _DEHR
 ];
 export var DeleteEnvironmentRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
-  [_cT, _eI],
-  [[0, 4], [0, 1]]
+  [_eI, _cT],
+  [[0, 1], [0, 4]], 1
 ];
 export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -255,8 +272,8 @@ export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe,
 ];
 export var DisassociateEipFromVlanRequest$: StaticStructureSchema = [3, n0, _DEFVR,
   0,
-  [_cT, _eI, _vN, _aIs],
-  [[0, 4], 0, 0, 0]
+  [_eI, _vN, _aIs, _cT],
+  [0, 0, 0, [0, 4]], 3
 ];
 export var DisassociateEipFromVlanResponse$: StaticStructureSchema = [3, n0, _DEFVRi,
   0,
@@ -281,12 +298,22 @@ export var EnvironmentSummary$: StaticStructureSchema = [3, n0, _ES,
 export var GetEnvironmentRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_eI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetEnvironmentResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
   [_e],
   [() => Environment$]
+];
+export var GetVersionsRequest$: StaticStructureSchema = [3, n0, _GVR,
+  0,
+  [],
+  []
+];
+export var GetVersionsResponse$: StaticStructureSchema = [3, n0, _GVRe,
+  0,
+  [_vVc, _iTEV],
+  [() => VcfVersionList, () => InstanceTypeEsxVersionsList], 2
 ];
 export var Host$: StaticStructureSchema = [3, n0, _H,
   0,
@@ -296,27 +323,38 @@ export var Host$: StaticStructureSchema = [3, n0, _H,
 export var HostInfoForCreate$: StaticStructureSchema = [3, n0, _HIFC,
   0,
   [_hN, _kN, _iT, _pGI, _dHI],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 3
 ];
 export var InitialVlanInfo$: StaticStructureSchema = [3, n0, _IVI,
   0,
   [_ci],
-  [0]
+  [0], 1
 ];
 export var InitialVlans$: StaticStructureSchema = [3, n0, _IV,
   0,
-  [_vM, _vMm, _vMo, _vS, _vT, _eVT, _nU, _hc, _eV, _eVx, _iHP, _hNAI],
-  [() => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, 2, 0]
+  [_vM, _vMm, _vMo, _vS, _vT, _eVT, _nU, _hc, _eVx, _eVxp, _iHP, _hNAI],
+  [() => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, () => InitialVlanInfo$, 2, 0], 10
 ];
+export var InstanceTypeEsxVersionsInfo$: StaticStructureSchema = [3, n0, _ITEVI,
+  0,
+  [_iT, _eVs],
+  [0, 64 | 0], 2
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_er]: _s, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LicenseInfo$: StaticStructureSchema = [3, n0, _LI,
   0,
   [_sK, _vK],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ListEnvironmentHostsRequest$: StaticStructureSchema = [3, n0, _LEHR,
   0,
-  [_nT, _mR, _eI],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+  [_eI, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListEnvironmentHostsResponse$: StaticStructureSchema = [3, n0, _LEHRi,
   0,
@@ -325,8 +363,8 @@ export var ListEnvironmentHostsResponse$: StaticStructureSchema = [3, n0, _LEHRi
 ];
 export var ListEnvironmentsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
-  [_nT, _mR, _s],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [64 | 0, { [_hQ]: _s }]]
+  [_nT, _mR, _st],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [64 | 0, { [_hQ]: _st }]]
 ];
 export var ListEnvironmentsResponse$: StaticStructureSchema = [3, n0, _LERi,
   0,
@@ -335,8 +373,8 @@ export var ListEnvironmentsResponse$: StaticStructureSchema = [3, n0, _LERi,
 ];
 export var ListEnvironmentVlansRequest$: StaticStructureSchema = [3, n0, _LEVR,
   0,
-  [_nT, _mR, _eI],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+  [_eI, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListEnvironmentVlansResponse$: StaticStructureSchema = [3, n0, _LEVRi,
   0,
@@ -346,7 +384,7 @@ export var ListEnvironmentVlansResponse$: StaticStructureSchema = [3, n0, _LEVRi
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -361,7 +399,7 @@ export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_er]: _cl, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Secret$: StaticStructureSchema = [3, n0, _S,
@@ -377,19 +415,19 @@ export var ServiceAccessSecurityGroups$: StaticStructureSchema = [3, n0, _SASG,
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_er]: _cl, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagPolicyException$: StaticErrorSchema = [-3, n0, _TPE,
   { [_er]: _cl, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(TagPolicyException$, TagPolicyException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -399,19 +437,19 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_er]: _cl, [_hE]: 429 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
   { [_er]: _cl, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -421,18 +459,23 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_er]: _cl, [_hE]: 400 },
   [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VcfHostnames$: StaticStructureSchema = [3, n0, _VH,
   0,
   [_vC, _ns, _nM, _nMs, _nMsx, _nE, _nEs, _sM, _cB],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0], 9
+];
+export var VcfVersionInfo$: StaticStructureSchema = [3, n0, _VVI,
+  0,
+  [_vV, _sta, _dEV, _iTn],
+  [0, 0, 0, 64 | 0], 4
 ];
 export var Vlan$: StaticStructureSchema = [3, n0, _V,
   0,
@@ -451,12 +494,17 @@ var EnvironmentStateList = 64 | 0;
 var EnvironmentSummaryList: StaticListSchema = [1, n0, _ESL,
   0, () => EnvironmentSummary$
 ];
+var EsxVersionList = 64 | 0;
 var HostInfoForCreateList: StaticListSchema = [1, n0, _HIFCL,
   0, () => HostInfoForCreate$
 ];
 var HostList: StaticListSchema = [1, n0, _HL,
   0, () => Host$
 ];
+var InstanceTypeEsxVersionsList: StaticListSchema = [1, n0, _ITEVL,
+  0, () => InstanceTypeEsxVersionsInfo$
+];
+var InstanceTypeList = 64 | 0;
 var LicenseInfoList: StaticListSchema = [1, n0, _LIL,
   0, () => LicenseInfo$
 ];
@@ -471,6 +519,9 @@ var SecurityGroups = 64 | 0;
 var TagKeys = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
+];
+var VcfVersionList: StaticListSchema = [1, n0, _VVL,
+  0, () => VcfVersionInfo$
 ];
 var VlanList: StaticListSchema = [1, n0, _VL,
   0, () => Vlan$
@@ -497,6 +548,9 @@ export var DisassociateEipFromVlan$: StaticOperationSchema = [9, n0, _DEFV,
 ];
 export var GetEnvironment$: StaticOperationSchema = [9, n0, _GE,
   0, () => GetEnvironmentRequest$, () => GetEnvironmentResponse$
+];
+export var GetVersions$: StaticOperationSchema = [9, n0, _GV,
+  0, () => GetVersionsRequest$, () => GetVersionsResponse$
 ];
 export var ListEnvironmentHosts$: StaticOperationSchema = [9, n0, _LEH,
   0, () => ListEnvironmentHostsRequest$, () => ListEnvironmentHostsResponse$

@@ -138,7 +138,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AssociateProfileRequest$: StaticStructureSchema = [3, n0, _APR,
   0,
   [_PI, _RI, _N, _T],
-  [0, 0, 0, () => TagList]
+  [0, 0, 0, () => TagList], 3
 ];
 export var AssociateProfileResponse$: StaticStructureSchema = [3, n0, _APRs,
   0,
@@ -148,7 +148,7 @@ export var AssociateProfileResponse$: StaticStructureSchema = [3, n0, _APRs,
 export var AssociateResourceToProfileRequest$: StaticStructureSchema = [3, n0, _ARTPR,
   0,
   [_PI, _RA, _N, _RP],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var AssociateResourceToProfileResponse$: StaticStructureSchema = [3, n0, _ARTPRs,
   0,
@@ -164,7 +164,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateProfileRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_N, _CT, _T],
-  [0, [0, 4], () => TagList]
+  [0, [0, 4], () => TagList], 1
 ];
 export var CreateProfileResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -174,7 +174,7 @@ export var CreateProfileResponse$: StaticStructureSchema = [3, n0, _CPRr,
 export var DeleteProfileRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteProfileResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -184,7 +184,7 @@ export var DeleteProfileResponse$: StaticStructureSchema = [3, n0, _DPRe,
 export var DisassociateProfileRequest$: StaticStructureSchema = [3, n0, _DPRi,
   0,
   [_PI, _RI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DisassociateProfileResponse$: StaticStructureSchema = [3, n0, _DPRis,
   0,
@@ -194,7 +194,7 @@ export var DisassociateProfileResponse$: StaticStructureSchema = [3, n0, _DPRis,
 export var DisassociateResourceFromProfileRequest$: StaticStructureSchema = [3, n0, _DRFPR,
   0,
   [_PI, _RA],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DisassociateResourceFromProfileResponse$: StaticStructureSchema = [3, n0, _DRFPRi,
   0,
@@ -204,7 +204,7 @@ export var DisassociateResourceFromProfileResponse$: StaticStructureSchema = [3,
 export var GetProfileAssociationRequest$: StaticStructureSchema = [3, n0, _GPAR,
   0,
   [_PAI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetProfileAssociationResponse$: StaticStructureSchema = [3, n0, _GPARe,
   0,
@@ -214,12 +214,12 @@ export var GetProfileAssociationResponse$: StaticStructureSchema = [3, n0, _GPAR
 export var GetProfileRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_PI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetProfileResourceAssociationRequest$: StaticStructureSchema = [3, n0, _GPRAR,
   0,
   [_PRAI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetProfileResourceAssociationResponse$: StaticStructureSchema = [3, n0, _GPRARe,
   0,
@@ -246,7 +246,7 @@ TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenE
 export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
   { [_e]: _c },
   [_M, _FN],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
@@ -268,7 +268,7 @@ export var ListProfileAssociationsResponse$: StaticStructureSchema = [3, n0, _LP
 export var ListProfileResourceAssociationsRequest$: StaticStructureSchema = [3, n0, _LPRAR,
   0,
   [_PI, _RT, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _rT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _rT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListProfileResourceAssociationsResponse$: StaticStructureSchema = [3, n0, _LPRARi,
   0,
@@ -288,12 +288,12 @@ export var ListProfilesResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_T],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var Profile$: StaticStructureSchema = [3, n0, _P,
   0,
@@ -330,12 +330,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -351,7 +351,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -361,7 +361,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateProfileResourceAssociationRequest$: StaticStructureSchema = [3, n0, _UPRAR,
   0,
   [_PRAI, _N, _RP],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateProfileResourceAssociationResponse$: StaticStructureSchema = [3, n0, _UPRARp,
   0,

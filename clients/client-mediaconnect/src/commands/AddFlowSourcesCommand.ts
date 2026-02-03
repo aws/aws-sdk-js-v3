@@ -87,6 +87,9 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  *           VpcInterfaceName: "STRING_VALUE",
  *         },
  *       },
+ *       NdiSourceSettings: { // NdiSourceSettings
+ *         SourceName: "STRING_VALUE",
+ *       },
  *       SourceTags: { // __mapOfString
  *         "<keys>": "STRING_VALUE",
  *       },
@@ -163,6 +166,9 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  * //         StreamId: "STRING_VALUE",
  * //         NdiSpeedHqQuality: Number("int"),
  * //         NdiProgramName: "STRING_VALUE",
+ * //         NdiSourceSettings: { // NdiSourceSettings
+ * //           SourceName: "STRING_VALUE",
+ * //         },
  * //       },
  * //       VpcInterfaceName: "STRING_VALUE",
  * //       WhitelistCidr: "STRING_VALUE",

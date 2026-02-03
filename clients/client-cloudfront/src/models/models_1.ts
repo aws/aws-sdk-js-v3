@@ -83,6 +83,17 @@ import {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface GetManagedCertificateDetailsRequest {
+  /**
+   * <p>The identifier of the distribution tenant. You can specify the ARN, ID, or name of the distribution tenant.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
  * <p>Contains details about the validation token.</p>
  * @public
  */

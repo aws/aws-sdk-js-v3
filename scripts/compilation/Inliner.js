@@ -21,7 +21,7 @@ module.exports = class Inliner {
     this.isPackage = fs.existsSync(path.join(root, "packages", pkg));
     this.isInternalPackage = fs.existsSync(path.join(root, "packages-internal", pkg));
     this.isLib = fs.existsSync(path.join(root, "lib", pkg));
-    this.submodulePackages = ["core", "nested-clients"];
+    this.submodulePackages = ["core", "nested-clients", "config"];
     this.hasSubmodules = this.submodulePackages.includes(pkg);
     this.reExportStubs = false;
     this.subfolder = (() => {
@@ -53,7 +53,7 @@ module.exports = class Inliner {
    * step 0: delete the dist-cjs folder.
    */
   async clean() {
-    await spawnProcess("yarn", ["rimraf", "./dist-cjs", "tsconfig.cjs.tsbuildinfo"], { cwd: this.packageDirectory });
+    await spawnProcess("yarn", ["premove", "./dist-cjs", "tsconfig.cjs.tsbuildinfo"], { cwd: this.packageDirectory });
     if (this.verbose) {
       console.log("Deleted ./dist-cjs in " + this.package);
     }

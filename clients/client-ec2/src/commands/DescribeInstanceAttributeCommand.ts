@@ -61,6 +61,7 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * //           Managed: true || false,
  * //           Principal: "STRING_VALUE",
  * //         },
+ * //         EbsCardIndex: Number("int"),
  * //       },
  * //     },
  * //   ],

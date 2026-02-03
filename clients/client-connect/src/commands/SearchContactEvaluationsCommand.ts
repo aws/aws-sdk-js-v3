@@ -187,7 +187,7 @@ export interface SearchContactEvaluationsCommandOutput extends SearchContactEval
  * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT",
  * //         ContactParticipantId: "STRING_VALUE",
  * //       },
- * //       Status: "DRAFT" || "SUBMITTED", // required
+ * //       Status: "DRAFT" || "SUBMITTED" || "REVIEW_REQUESTED" || "UNDER_REVIEW", // required
  * //       EvaluationType: "STANDARD" || "CALIBRATION",
  * //       CreatedTime: new Date("TIMESTAMP"), // required
  * //       LastModifiedTime: new Date("TIMESTAMP"), // required

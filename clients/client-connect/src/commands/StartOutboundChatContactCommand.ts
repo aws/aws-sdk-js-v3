@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StartOutboundChatContactResponse } from "../models/models_2";
-import type { StartOutboundChatContactRequest } from "../models/models_3";
+import type { StartOutboundChatContactRequest, StartOutboundChatContactResponse } from "../models/models_3";
 import { StartOutboundChatContact$ } from "../schemas/schemas_0";
 
 /**

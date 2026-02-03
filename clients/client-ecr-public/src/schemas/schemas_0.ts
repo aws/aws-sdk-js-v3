@@ -234,8 +234,8 @@ export var AuthorizationData$: StaticStructureSchema = [3, n0, _AD,
 ];
 export var BatchCheckLayerAvailabilityRequest$: StaticStructureSchema = [3, n0, _BCLAR,
   0,
-  [_rI, _rN, _lD],
-  [0, 0, 64 | 0]
+  [_rN, _lD, _rI],
+  [0, 64 | 0, 0], 2
 ];
 export var BatchCheckLayerAvailabilityResponse$: StaticStructureSchema = [3, n0, _BCLARa,
   0,
@@ -244,8 +244,8 @@ export var BatchCheckLayerAvailabilityResponse$: StaticStructureSchema = [3, n0,
 ];
 export var BatchDeleteImageRequest$: StaticStructureSchema = [3, n0, _BDIR,
   0,
-  [_rI, _rN, _iI],
-  [0, 0, () => ImageIdentifierList]
+  [_rN, _iI, _rI],
+  [0, () => ImageIdentifierList, 0], 2
 ];
 export var BatchDeleteImageResponse$: StaticStructureSchema = [3, n0, _BDIRa,
   0,
@@ -254,8 +254,8 @@ export var BatchDeleteImageResponse$: StaticStructureSchema = [3, n0, _BDIRa,
 ];
 export var CompleteLayerUploadRequest$: StaticStructureSchema = [3, n0, _CLUR,
   0,
-  [_rI, _rN, _uI, _lD],
-  [0, 0, 0, 64 | 0]
+  [_rN, _uI, _lD, _rI],
+  [0, 0, 64 | 0, 0], 3
 ];
 export var CompleteLayerUploadResponse$: StaticStructureSchema = [3, n0, _CLURo,
   0,
@@ -265,7 +265,7 @@ export var CompleteLayerUploadResponse$: StaticStructureSchema = [3, n0, _CLURo,
 export var CreateRepositoryRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
   [_rN, _cD, _t],
-  [0, () => RepositoryCatalogDataInput$, () => TagList]
+  [0, () => RepositoryCatalogDataInput$, () => TagList], 1
 ];
 export var CreateRepositoryResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -274,8 +274,8 @@ export var CreateRepositoryResponse$: StaticStructureSchema = [3, n0, _CRRr,
 ];
 export var DeleteRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
-  [_rI, _rN],
-  [0, 0]
+  [_rN, _rI],
+  [0, 0], 1
 ];
 export var DeleteRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -284,8 +284,8 @@ export var DeleteRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _DRP
 ];
 export var DeleteRepositoryRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
-  [_rI, _rN, _fo],
-  [0, 0, 2]
+  [_rN, _rI, _fo],
+  [0, 0, 2], 1
 ];
 export var DeleteRepositoryResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -294,8 +294,8 @@ export var DeleteRepositoryResponse$: StaticStructureSchema = [3, n0, _DRRe,
 ];
 export var DescribeImagesRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
-  [_rI, _rN, _iI, _nT, _mR],
-  [0, 0, () => ImageIdentifierList, 0, 1]
+  [_rN, _rI, _iI, _nT, _mR],
+  [0, 0, () => ImageIdentifierList, 0, 1], 1
 ];
 export var DescribeImagesResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
@@ -304,8 +304,8 @@ export var DescribeImagesResponse$: StaticStructureSchema = [3, n0, _DIRe,
 ];
 export var DescribeImageTagsRequest$: StaticStructureSchema = [3, n0, _DITR,
   0,
-  [_rI, _rN, _nT, _mR],
-  [0, 0, 0, 1]
+  [_rN, _rI, _nT, _mR],
+  [0, 0, 0, 1], 1
 ];
 export var DescribeImageTagsResponse$: StaticStructureSchema = [3, n0, _DITRe,
   0,
@@ -320,7 +320,7 @@ export var DescribeRegistriesRequest$: StaticStructureSchema = [3, n0, _DRRes,
 export var DescribeRegistriesResponse$: StaticStructureSchema = [3, n0, _DRResc,
   0,
   [_re, _nT],
-  [() => RegistryList, 0]
+  [() => RegistryList, 0], 1
 ];
 export var DescribeRepositoriesRequest$: StaticStructureSchema = [3, n0, _DRRescr,
   0,
@@ -356,12 +356,12 @@ export var GetRegistryCatalogDataRequest$: StaticStructureSchema = [3, n0, _GRCD
 export var GetRegistryCatalogDataResponse$: StaticStructureSchema = [3, n0, _GRCDRe,
   0,
   [_rCD],
-  [() => RegistryCatalogData$]
+  [() => RegistryCatalogData$], 1
 ];
 export var GetRepositoryCatalogDataRequest$: StaticStructureSchema = [3, n0, _GRCDRet,
   0,
-  [_rI, _rN],
-  [0, 0]
+  [_rN, _rI],
+  [0, 0], 1
 ];
 export var GetRepositoryCatalogDataResponse$: StaticStructureSchema = [3, n0, _GRCDRete,
   0,
@@ -370,8 +370,8 @@ export var GetRepositoryCatalogDataResponse$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
-  [_rI, _rN],
-  [0, 0]
+  [_rN, _rI],
+  [0, 0], 1
 ];
 export var GetRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
@@ -429,8 +429,8 @@ export var ImageTagDetail$: StaticStructureSchema = [3, n0, _ITD,
 ];
 export var InitiateLayerUploadRequest$: StaticStructureSchema = [3, n0, _ILUR,
   0,
-  [_rI, _rN],
-  [0, 0]
+  [_rN, _rI],
+  [0, 0], 1
 ];
 export var InitiateLayerUploadResponse$: StaticStructureSchema = [3, n0, _ILURn,
   0,
@@ -498,7 +498,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -507,8 +507,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var PutImageRequest$: StaticStructureSchema = [3, n0, _PIR,
   0,
-  [_rI, _rN, _iM, _iMMT, _iTm, _iDm],
-  [0, 0, 0, 0, 0, 0]
+  [_rN, _iM, _rI, _iMMT, _iTm, _iDm],
+  [0, 0, 0, 0, 0, 0], 2
 ];
 export var PutImageResponse$: StaticStructureSchema = [3, n0, _PIRu,
   0,
@@ -523,12 +523,12 @@ export var PutRegistryCatalogDataRequest$: StaticStructureSchema = [3, n0, _PRCD
 export var PutRegistryCatalogDataResponse$: StaticStructureSchema = [3, n0, _PRCDRu,
   0,
   [_rCD],
-  [() => RegistryCatalogData$]
+  [() => RegistryCatalogData$], 1
 ];
 export var PutRepositoryCatalogDataRequest$: StaticStructureSchema = [3, n0, _PRCDRut,
   0,
-  [_rI, _rN, _cD],
-  [0, 0, () => RepositoryCatalogDataInput$]
+  [_rN, _cD, _rI],
+  [0, () => RepositoryCatalogDataInput$, 0], 2
 ];
 export var PutRepositoryCatalogDataResponse$: StaticStructureSchema = [3, n0, _PRCDRute,
   0,
@@ -549,12 +549,12 @@ TypeRegistry.for(n0).registerError(ReferencedImagesNotFoundException$, Reference
 export var Registry$: StaticStructureSchema = [3, n0, _R,
   0,
   [_rI, _rAe, _rU, _v, _a],
-  [0, 0, 0, 2, () => RegistryAliasList]
+  [0, 0, 0, 2, () => RegistryAliasList], 5
 ];
 export var RegistryAlias$: StaticStructureSchema = [3, n0, _RA,
   0,
   [_n, _s, _pRA, _dRA],
-  [0, 0, 2, 2]
+  [0, 0, 2, 2], 4
 ];
 export var RegistryCatalogData$: StaticStructureSchema = [3, n0, _RCD,
   0,
@@ -620,8 +620,8 @@ export var ServerException$: StaticErrorSchema = [-3, n0, _SE,
 TypeRegistry.for(n0).registerError(ServerException$, ServerException);
 export var SetRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _SRPR,
   0,
-  [_rI, _rN, _pT, _fo],
-  [0, 0, 0, 2]
+  [_rN, _pT, _rI, _fo],
+  [0, 0, 0, 2], 2
 ];
 export var SetRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _SRPRe,
   0,
@@ -636,7 +636,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -658,7 +658,7 @@ TypeRegistry.for(n0).registerError(UnsupportedCommandException$, UnsupportedComm
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -667,8 +667,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UploadLayerPartRequest$: StaticStructureSchema = [3, n0, _ULPR,
   0,
-  [_rI, _rN, _uI, _pFB, _pLB, _lPB],
-  [0, 0, 0, 1, 1, 21]
+  [_rN, _uI, _pFB, _pLB, _lPB, _rI],
+  [0, 0, 1, 1, 21, 0], 5
 ];
 export var UploadLayerPartResponse$: StaticStructureSchema = [3, n0, _ULPRp,
   0,

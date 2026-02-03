@@ -27,11 +27,7 @@ export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Modifies settings for a DB instance.
- *           You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
- *             To learn what modifications you can make to your DB instance,
- *             call <code>DescribeValidDBInstanceModifications</code>
- *             before you call <code>ModifyDBInstance</code>.</p>
+ * <p>Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. To learn what modifications you can make to your DB instance, call <code>DescribeValidDBInstanceModifications</code> before you call <code>ModifyDBInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,6 +116,17 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *   MultiTenant: true || false,
  *   DedicatedLogVolume: true || false,
  *   Engine: "STRING_VALUE",
+ *   AdditionalStorageVolumes: [ // ModifyAdditionalStorageVolumesList
+ *     { // ModifyAdditionalStorageVolume
+ *       VolumeName: "STRING_VALUE", // required
+ *       AllocatedStorage: Number("int"),
+ *       IOPS: Number("int"),
+ *       MaxAllocatedStorage: Number("int"),
+ *       StorageThroughput: Number("int"),
+ *       StorageType: "STRING_VALUE",
+ *       SetForDelete: true || false,
+ *     },
+ *   ],
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
  *       ResourceType: "STRING_VALUE",
@@ -132,17 +139,6 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *     },
  *   ],
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
- *   AdditionalStorageVolumes: [ // ModifyAdditionalStorageVolumesList
- *     { // ModifyAdditionalStorageVolume
- *       VolumeName: "STRING_VALUE", // required
- *       AllocatedStorage: Number("int"),
- *       IOPS: Number("int"),
- *       MaxAllocatedStorage: Number("int"),
- *       StorageThroughput: Number("int"),
- *       StorageType: "STRING_VALUE",
- *       SetForDelete: true || false,
- *     },
- *   ],
  * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
@@ -406,45 +402,34 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized
- *             for the specified DB security group.</p>
- *          <p>Or, RDS might not be authorized to perform necessary actions using IAM on your
- *             behalf.</p>
+ *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
  *
  * @throws {@link BackupPolicyNotFoundFault} (client fault)
  *
+ *
  * @throws {@link CertificateNotFoundFault} (client fault)
- *  <p>
- *             <code>CertificateIdentifier</code> doesn't refer to an
- *         existing certificate.</p>
+ *  <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
  *  <p>The user already has a DB instance with the given identifier.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an
- *         existing DB parameter group.</p>
+ *  <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
  *
  * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *  <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
  *
  * @throws {@link DBUpgradeDependencyFailureFault} (client fault)
- *  <p>The DB upgrade failed because a resource the DB depends on can't be
- *             modified.</p>
+ *  <p>The DB upgrade failed because a resource the DB depends on can't be modified.</p>
  *
  * @throws {@link DomainNotFoundFault} (client fault)
- *  <p>
- *             <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+ *  <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified DB instance class isn't available in the specified Availability
- *             Zone.</p>
+ *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
@@ -456,8 +441,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *  <p>The state of the DB security group doesn't allow deletion.</p>
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The DB subnet group doesn't cover all Availability Zones after it's
- *             created because of users' change.</p>
+ *  <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
@@ -472,20 +456,16 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *  <p>Provisioned IOPS not available in the specified Availability Zone.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed amount of storage
- *             available across all DB instances.</p>
+ *  <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
  *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
  *
  * @throws {@link TenantDatabaseQuotaExceededFault} (client fault)
- *  <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services
- *             account.</p>
+ *  <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services account.</p>
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB
- *             instance type supports the Nitro encryption-in-transit capability,
- *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

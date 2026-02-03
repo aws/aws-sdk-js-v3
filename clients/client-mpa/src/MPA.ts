@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelSessionCommand,
@@ -100,6 +100,12 @@ import {
   UpdateApprovalTeamCommandOutput,
 } from "./commands/UpdateApprovalTeamCommand";
 import { MPAClient } from "./MPAClient";
+import { paginateListApprovalTeams } from "./pagination/ListApprovalTeamsPaginator";
+import { paginateListIdentitySources } from "./pagination/ListIdentitySourcesPaginator";
+import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
+import { paginateListPolicyVersions } from "./pagination/ListPolicyVersionsPaginator";
+import { paginateListResourcePolicies } from "./pagination/ListResourcePoliciesPaginator";
+import { paginateListSessions } from "./pagination/ListSessionsPaginator";
 
 const commands = {
   CancelSessionCommand,
@@ -123,6 +129,14 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApprovalTeamCommand,
+};
+const paginators = {
+  paginateListApprovalTeams,
+  paginateListIdentitySources,
+  paginateListPolicies,
+  paginateListPolicyVersions,
+  paginateListResourcePolicies,
+  paginateListSessions,
 };
 
 export interface MPA {
@@ -485,6 +499,72 @@ export interface MPA {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApprovalTeamCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApprovalTeamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApprovalTeamsCommandOutput}.
+   */
+  paginateListApprovalTeams(
+    args?: ListApprovalTeamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApprovalTeamsCommandOutput>;
+
+  /**
+   * @see {@link ListIdentitySourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdentitySourcesCommandOutput}.
+   */
+  paginateListIdentitySources(
+    args?: ListIdentitySourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdentitySourcesCommandOutput>;
+
+  /**
+   * @see {@link ListPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPoliciesCommandOutput}.
+   */
+  paginateListPolicies(
+    args?: ListPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyVersionsCommandOutput}.
+   */
+  paginateListPolicyVersions(
+    args: ListPolicyVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListResourcePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcePoliciesCommandOutput}.
+   */
+  paginateListResourcePolicies(
+    args: ListResourcePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcePoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionsCommandOutput}.
+   */
+  paginateListSessions(
+    args: ListSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionsCommandOutput>;
 }
 
 /**
@@ -492,4 +572,4 @@ export interface MPA {
  * @public
  */
 export class MPA extends MPAClient implements MPA {}
-createAggregatedClient(commands, MPA);
+createAggregatedClient(commands, MPA, { paginators });

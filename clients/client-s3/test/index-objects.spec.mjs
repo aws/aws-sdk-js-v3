@@ -10,6 +10,8 @@ import {
   AccelerateConfiguration$,
   AccessControlPolicy$,
   AccessControlTranslation$,
+  AccessDenied,
+  AccessDenied$,
   AnalyticsAndOperator$,
   AnalyticsConfiguration$,
   AnalyticsExportDestination$,
@@ -424,6 +426,7 @@ import {
   ObjectAlreadyInActiveTierError$,
   ObjectAttributes,
   ObjectCannedACL,
+  ObjectEncryption$,
   ObjectIdentifier$,
   ObjectLockConfiguration$,
   ObjectLockEnabled,
@@ -606,6 +609,7 @@ import {
   SSEKMS$,
   SseKmsEncryptedObjects$,
   SseKmsEncryptedObjectsStatus,
+  SSEKMSEncryption$,
   SSES3$,
   Stats$,
   StatsEvent$,
@@ -634,6 +638,10 @@ import {
   UpdateBucketMetadataJournalTableConfiguration$,
   UpdateBucketMetadataJournalTableConfigurationCommand,
   UpdateBucketMetadataJournalTableConfigurationRequest$,
+  UpdateObjectEncryption$,
+  UpdateObjectEncryptionCommand,
+  UpdateObjectEncryptionRequest$,
+  UpdateObjectEncryptionResponse$,
   UploadPart$,
   UploadPartCommand,
   UploadPartCopy$,
@@ -867,6 +875,8 @@ assert(typeof UpdateBucketMetadataInventoryTableConfigurationCommand === "functi
 assert(typeof UpdateBucketMetadataInventoryTableConfiguration$ === "object");
 assert(typeof UpdateBucketMetadataJournalTableConfigurationCommand === "function");
 assert(typeof UpdateBucketMetadataJournalTableConfiguration$ === "object");
+assert(typeof UpdateObjectEncryptionCommand === "function");
+assert(typeof UpdateObjectEncryption$ === "object");
 assert(typeof UploadPartCommand === "function");
 assert(typeof UploadPart$ === "object");
 assert(typeof UploadPartCopyCommand === "function");
@@ -1092,6 +1102,7 @@ assert(typeof NoncurrentVersionTransition$ === "object");
 assert(typeof NotificationConfiguration$ === "object");
 assert(typeof NotificationConfigurationFilter$ === "object");
 assert(typeof _Object$ === "object");
+assert(typeof ObjectEncryption$ === "object");
 assert(typeof ObjectIdentifier$ === "object");
 assert(typeof ObjectLockConfiguration$ === "object");
 assert(typeof ObjectLockLegalHold$ === "object");
@@ -1182,6 +1193,7 @@ assert(typeof SimplePrefix$ === "object");
 assert(typeof SourceSelectionCriteria$ === "object");
 assert(typeof SSEKMS$ === "object");
 assert(typeof SseKmsEncryptedObjects$ === "object");
+assert(typeof SSEKMSEncryption$ === "object");
 assert(typeof SSES3$ === "object");
 assert(typeof Stats$ === "object");
 assert(typeof StatsEvent$ === "object");
@@ -1196,6 +1208,8 @@ assert(typeof TopicConfiguration$ === "object");
 assert(typeof Transition$ === "object");
 assert(typeof UpdateBucketMetadataInventoryTableConfigurationRequest$ === "object");
 assert(typeof UpdateBucketMetadataJournalTableConfigurationRequest$ === "object");
+assert(typeof UpdateObjectEncryptionRequest$ === "object");
+assert(typeof UpdateObjectEncryptionResponse$ === "object");
 assert(typeof UploadPartCopyOutput$ === "object");
 assert(typeof UploadPartCopyRequest$ === "object");
 assert(typeof UploadPartOutput$ === "object");
@@ -1277,6 +1291,8 @@ assert(typeof TransitionDefaultMinimumObjectSize === "object");
 assert(typeof TransitionStorageClass === "object");
 assert(typeof Type === "object");
 // errors
+assert(AccessDenied.prototype instanceof S3ServiceException);
+assert(typeof AccessDenied$ === "object");
 assert(BucketAlreadyExists.prototype instanceof S3ServiceException);
 assert(typeof BucketAlreadyExists$ === "object");
 assert(BucketAlreadyOwnedByYou.prototype instanceof S3ServiceException);

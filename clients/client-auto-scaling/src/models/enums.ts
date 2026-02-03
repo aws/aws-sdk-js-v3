@@ -121,6 +121,20 @@ export type CapacityReservationPreference =
  * @public
  * @enum
  */
+export const DeletionProtection = {
+  None: "none",
+  PreventAllDeletion: "prevent-all-deletion",
+  PreventForceDeletion: "prevent-force-deletion",
+} as const;
+/**
+ * @public
+ */
+export type DeletionProtection = (typeof DeletionProtection)[keyof typeof DeletionProtection];
+
+/**
+ * @public
+ * @enum
+ */
 export const RetentionAction = {
   Retain: "retain",
   Terminate: "terminate",

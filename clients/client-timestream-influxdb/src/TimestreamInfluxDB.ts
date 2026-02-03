@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateDbClusterCommand,
@@ -93,6 +93,10 @@ import {
   UpdateDbInstanceCommandInput,
   UpdateDbInstanceCommandOutput,
 } from "./commands/UpdateDbInstanceCommand";
+import { paginateListDbClusters } from "./pagination/ListDbClustersPaginator";
+import { paginateListDbInstancesForCluster } from "./pagination/ListDbInstancesForClusterPaginator";
+import { paginateListDbInstances } from "./pagination/ListDbInstancesPaginator";
+import { paginateListDbParameterGroups } from "./pagination/ListDbParameterGroupsPaginator";
 import { TimestreamInfluxDBClient } from "./TimestreamInfluxDBClient";
 
 const commands = {
@@ -115,6 +119,12 @@ const commands = {
   UntagResourceCommand,
   UpdateDbClusterCommand,
   UpdateDbInstanceCommand,
+};
+const paginators = {
+  paginateListDbClusters,
+  paginateListDbInstances,
+  paginateListDbInstancesForCluster,
+  paginateListDbParameterGroups,
 };
 
 export interface TimestreamInfluxDB {
@@ -443,6 +453,50 @@ export interface TimestreamInfluxDB {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDbInstanceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDbClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDbClustersCommandOutput}.
+   */
+  paginateListDbClusters(
+    args?: ListDbClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDbClustersCommandOutput>;
+
+  /**
+   * @see {@link ListDbInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDbInstancesCommandOutput}.
+   */
+  paginateListDbInstances(
+    args?: ListDbInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDbInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListDbInstancesForClusterCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDbInstancesForClusterCommandOutput}.
+   */
+  paginateListDbInstancesForCluster(
+    args: ListDbInstancesForClusterCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDbInstancesForClusterCommandOutput>;
+
+  /**
+   * @see {@link ListDbParameterGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDbParameterGroupsCommandOutput}.
+   */
+  paginateListDbParameterGroups(
+    args?: ListDbParameterGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDbParameterGroupsCommandOutput>;
 }
 
 /**
@@ -451,4 +505,4 @@ export interface TimestreamInfluxDB {
  * @public
  */
 export class TimestreamInfluxDB extends TimestreamInfluxDBClient implements TimestreamInfluxDB {}
-createAggregatedClient(commands, TimestreamInfluxDB);
+createAggregatedClient(commands, TimestreamInfluxDB, { paginators });

@@ -25,6 +25,7 @@ export * from "./DescribeDBSecurityGroupsPaginator";
 export * from "./DescribeDBSnapshotsPaginator";
 export * from "./DescribeDBSnapshotTenantDatabasesPaginator";
 export * from "./DescribeDBSubnetGroupsPaginator";
+export * from "./DescribeEngineDefaultClusterParametersPaginator";
 export * from "./DescribeEngineDefaultParametersPaginator";
 export * from "./DescribeEventsPaginator";
 export * from "./DescribeEventSubscriptionsPaginator";

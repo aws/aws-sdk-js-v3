@@ -42,6 +42,7 @@ export * from "./DeleteAssetCommand";
 export * from "./DeleteAssetFilterCommand";
 export * from "./DeleteAssetTypeCommand";
 export * from "./DeleteConnectionCommand";
+export * from "./DeleteDataExportConfigurationCommand";
 export * from "./DeleteDataProductCommand";
 export * from "./DeleteDataSourceCommand";
 export * from "./DeleteDomainCommand";

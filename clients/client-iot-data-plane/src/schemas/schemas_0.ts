@@ -110,17 +110,17 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DeleteConnectionRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cI, _cS, _pWM],
-  [[0, 1], [2, { [_hQ]: _cS }], [2, { [_hQ]: _pWM }]]
+  [[0, 1], [2, { [_hQ]: _cS }], [2, { [_hQ]: _pWM }]], 1
 ];
 export var DeleteThingShadowRequest$: StaticStructureSchema = [3, n0, _DTSR,
   0,
   [_tN, _sN],
-  [[0, 1], [0, { [_hQ]: _n }]]
+  [[0, 1], [0, { [_hQ]: _n }]], 1
 ];
 export var DeleteThingShadowResponse$: StaticStructureSchema = [3, n0, _DTSRe,
   0,
   [_p],
-  [[21, 16]]
+  [[21, 16]], 1
 ];
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c, [_hE]: 403 },
@@ -131,7 +131,7 @@ TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetRetainedMessageRequest$: StaticStructureSchema = [3, n0, _GRMR,
   0,
   [_t],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetRetainedMessageResponse$: StaticStructureSchema = [3, n0, _GRMRe,
   0,
@@ -141,7 +141,7 @@ export var GetRetainedMessageResponse$: StaticStructureSchema = [3, n0, _GRMRe,
 export var GetThingShadowRequest$: StaticStructureSchema = [3, n0, _GTSR,
   0,
   [_tN, _sN],
-  [[0, 1], [0, { [_hQ]: _n }]]
+  [[0, 1], [0, { [_hQ]: _n }]], 1
 ];
 export var GetThingShadowResponse$: StaticStructureSchema = [3, n0, _GTSRe,
   0,
@@ -163,7 +163,7 @@ TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestExcep
 export var ListNamedShadowsForThingRequest$: StaticStructureSchema = [3, n0, _LNSFTR,
   0,
   [_tN, _nT, _pS],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _pS }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _pS }]], 1
 ];
 export var ListNamedShadowsForThingResponse$: StaticStructureSchema = [3, n0, _LNSFTRi,
   0,
@@ -189,7 +189,7 @@ TypeRegistry.for(n0).registerError(MethodNotAllowedException$, MethodNotAllowedE
 export var PublishRequest$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_t, _q, _re, _p, _uP, _pFI, _cT, _rTe, _cD, _mE],
-  [[0, 1], [1, { [_hQ]: _q }], [2, { [_hQ]: _re }], [21, 16], [() => SynthesizedJsonUserProperties, { [_hH]: _xamup }], [0, { [_hH]: _xampfi }], [0, { [_hQ]: _cT }], [0, { [_hQ]: _rTe }], [0, { [_hH]: _xamcd }], [1, { [_hQ]: _mE }]]
+  [[0, 1], [1, { [_hQ]: _q }], [2, { [_hQ]: _re }], [21, 16], [() => SynthesizedJsonUserProperties, { [_hH]: _xamup }], [0, { [_hH]: _xampfi }], [0, { [_hQ]: _cT }], [0, { [_hQ]: _rTe }], [0, { [_hH]: _xamcd }], [1, { [_hQ]: _mE }]], 1
 ];
 export var RequestEntityTooLargeException$: StaticErrorSchema = [-3, n0, _RETLE,
   { [_e]: _c, [_hE]: 413 },
@@ -234,8 +234,8 @@ export var UnsupportedDocumentEncodingException$: StaticErrorSchema = [-3, n0, _
 TypeRegistry.for(n0).registerError(UnsupportedDocumentEncodingException$, UnsupportedDocumentEncodingException);
 export var UpdateThingShadowRequest$: StaticStructureSchema = [3, n0, _UTSR,
   0,
-  [_tN, _sN, _p],
-  [[0, 1], [0, { [_hQ]: _n }], [21, 16]]
+  [_tN, _p, _sN],
+  [[0, 1], [21, 16], [0, { [_hQ]: _n }]], 2
 ];
 export var UpdateThingShadowResponse$: StaticStructureSchema = [3, n0, _UTSRp,
   0,

@@ -271,7 +271,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AssociateUserToPermissionGroupRequest$: StaticStructureSchema = [3, n0, _AUTPGR,
   0,
   [_pGI, _uI, _cT],
-  [[0, 1], [0, 1], [0, 4]]
+  [[0, 1], [0, 1], [0, 4]], 2
 ];
 export var AssociateUserToPermissionGroupResponse$: StaticStructureSchema = [3, n0, _AUTPGRs,
   0,
@@ -306,8 +306,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateChangesetRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_cT, _dI, _cTh, _sP, _fP],
-  [[0, 4], [0, 1], 0, 128 | 0, 128 | 0]
+  [_dI, _cTh, _sP, _fP, _cT],
+  [[0, 1], 0, 128 | 0, 128 | 0, [0, 4]], 4
 ];
 export var CreateChangesetResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -316,8 +316,8 @@ export var CreateChangesetResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateDatasetRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_cT, _dTa, _k, _dD, _oI, _pGP, _a, _sD],
-  [[0, 4], 0, 0, 0, [() => DatasetOwnerInfo$, 0], () => PermissionGroupParams$, 0, () => SchemaUnion$]
+  [_dTa, _k, _pGP, _cT, _dD, _oI, _a, _sD],
+  [0, 0, () => PermissionGroupParams$, [0, 4], 0, [() => DatasetOwnerInfo$, 0], 0, () => SchemaUnion$], 3
 ];
 export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -326,8 +326,8 @@ export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
 ];
 export var CreateDataViewRequest$: StaticStructureSchema = [3, n0, _CDVR,
   0,
-  [_cT, _dI, _aU, _sCo, _pC, _aOT, _dTP],
-  [[0, 4], [0, 1], 2, 64 | 0, 64 | 0, 1, () => DataViewDestinationTypeParams$]
+  [_dI, _dTP, _cT, _aU, _sCo, _pC, _aOT],
+  [[0, 1], () => DataViewDestinationTypeParams$, [0, 4], 2, 64 | 0, 64 | 0, 1], 2
 ];
 export var CreateDataViewResponse$: StaticStructureSchema = [3, n0, _CDVRr,
   0,
@@ -336,8 +336,8 @@ export var CreateDataViewResponse$: StaticStructureSchema = [3, n0, _CDVRr,
 ];
 export var CreatePermissionGroupRequest$: StaticStructureSchema = [3, n0, _CPGR,
   0,
-  [_n, _d, _aP, _cT],
-  [[() => PermissionGroupName, 0], [() => PermissionGroupDescription, 0], 64 | 0, [0, 4]]
+  [_n, _aP, _d, _cT],
+  [[() => PermissionGroupName, 0], 64 | 0, [() => PermissionGroupDescription, 0], [0, 4]], 2
 ];
 export var CreatePermissionGroupResponse$: StaticStructureSchema = [3, n0, _CPGRr,
   0,
@@ -347,7 +347,7 @@ export var CreatePermissionGroupResponse$: StaticStructureSchema = [3, n0, _CPGR
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
   [_eA, _t, _fN, _lN, _aA, _aAPA, _cT],
-  [[() => Email, 0], 0, [() => FirstName, 0], [() => LastName, 0], 0, 0, [0, 4]]
+  [[() => Email, 0], 0, [() => FirstName, 0], [() => LastName, 0], 0, 0, [0, 4]], 2
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
@@ -372,7 +372,7 @@ export var DatasetOwnerInfo$: StaticStructureSchema = [3, n0, _DOI,
 export var DataViewDestinationTypeParams$: StaticStructureSchema = [3, n0, _DVDTP,
   0,
   [_dTe, _sDEFF, _sDEFFO],
-  [0, 0, 128 | 0]
+  [0, 0, 128 | 0], 1
 ];
 export var DataViewErrorInfo$: StaticStructureSchema = [3, n0, _DVEI,
   0,
@@ -386,8 +386,8 @@ export var DataViewSummary$: StaticStructureSchema = [3, n0, _DVS,
 ];
 export var DeleteDatasetRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
-  [_cT, _dI],
-  [[0, { [_hQ]: _cT, [_iT]: 1 }], [0, 1]]
+  [_dI, _cT],
+  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]], 1
 ];
 export var DeleteDatasetResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -397,7 +397,7 @@ export var DeleteDatasetResponse$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeletePermissionGroupRequest$: StaticStructureSchema = [3, n0, _DPGR,
   0,
   [_pGI, _cT],
-  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]]
+  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]], 1
 ];
 export var DeletePermissionGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe,
   0,
@@ -407,7 +407,7 @@ export var DeletePermissionGroupResponse$: StaticStructureSchema = [3, n0, _DPGR
 export var DisableUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_uI, _cT],
-  [[0, 1], [0, 4]]
+  [[0, 1], [0, 4]], 1
 ];
 export var DisableUserResponse$: StaticStructureSchema = [3, n0, _DURi,
   0,
@@ -417,7 +417,7 @@ export var DisableUserResponse$: StaticStructureSchema = [3, n0, _DURi,
 export var DisassociateUserFromPermissionGroupRequest$: StaticStructureSchema = [3, n0, _DUFPGR,
   0,
   [_pGI, _uI, _cT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]], 2
 ];
 export var DisassociateUserFromPermissionGroupResponse$: StaticStructureSchema = [3, n0, _DUFPGRi,
   0,
@@ -427,7 +427,7 @@ export var DisassociateUserFromPermissionGroupResponse$: StaticStructureSchema =
 export var EnableUserRequest$: StaticStructureSchema = [3, n0, _EUR,
   0,
   [_uI, _cT],
-  [[0, 1], [0, 4]]
+  [[0, 1], [0, 4]], 1
 ];
 export var EnableUserResponse$: StaticStructureSchema = [3, n0, _EURn,
   0,
@@ -437,7 +437,7 @@ export var EnableUserResponse$: StaticStructureSchema = [3, n0, _EURn,
 export var GetChangesetRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_dI, _cI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetChangesetResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -447,7 +447,7 @@ export var GetChangesetResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var GetDatasetRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_dI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDatasetResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
@@ -457,7 +457,7 @@ export var GetDatasetResponse$: StaticStructureSchema = [3, n0, _GDRe,
 export var GetDataViewRequest$: StaticStructureSchema = [3, n0, _GDVR,
   0,
   [_dVI, _dI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetDataViewResponse$: StaticStructureSchema = [3, n0, _GDVRe,
   0,
@@ -467,7 +467,7 @@ export var GetDataViewResponse$: StaticStructureSchema = [3, n0, _GDVRe,
 export var GetExternalDataViewAccessDetailsRequest$: StaticStructureSchema = [3, n0, _GEDVADR,
   0,
   [_dVI, _dI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetExternalDataViewAccessDetailsResponse$: StaticStructureSchema = [3, n0, _GEDVADRe,
   0,
@@ -477,7 +477,7 @@ export var GetExternalDataViewAccessDetailsResponse$: StaticStructureSchema = [3
 export var GetPermissionGroupRequest$: StaticStructureSchema = [3, n0, _GPGR,
   0,
   [_pGI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPermissionGroupResponse$: StaticStructureSchema = [3, n0, _GPGRe,
   0,
@@ -486,8 +486,8 @@ export var GetPermissionGroupResponse$: StaticStructureSchema = [3, n0, _GPGRe,
 ];
 export var GetProgrammaticAccessCredentialsRequest$: StaticStructureSchema = [3, n0, _GPACR,
   0,
-  [_dIM, _eIn],
-  [[1, { [_hQ]: _dIM }], [0, { [_hQ]: _eIn }]]
+  [_eIn, _dIM],
+  [[0, { [_hQ]: _eIn }], [1, { [_hQ]: _dIM }]], 1
 ];
 export var GetProgrammaticAccessCredentialsResponse$: StaticStructureSchema = [3, n0, _GPACRe,
   0,
@@ -497,7 +497,7 @@ export var GetProgrammaticAccessCredentialsResponse$: StaticStructureSchema = [3
 export var GetUserRequest$: StaticStructureSchema = [3, n0, _GUR,
   0,
   [_uI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetUserResponse$: StaticStructureSchema = [3, n0, _GURe,
   0,
@@ -529,7 +529,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListChangesetsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_dI, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListChangesetsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -549,7 +549,7 @@ export var ListDatasetsResponse$: StaticStructureSchema = [3, n0, _LDRi,
 export var ListDataViewsRequest$: StaticStructureSchema = [3, n0, _LDVR,
   0,
   [_dI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListDataViewsResponse$: StaticStructureSchema = [3, n0, _LDVRi,
   0,
@@ -558,8 +558,8 @@ export var ListDataViewsResponse$: StaticStructureSchema = [3, n0, _LDVRi,
 ];
 export var ListPermissionGroupsByUserRequest$: StaticStructureSchema = [3, n0, _LPGBUR,
   0,
-  [_uI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [_uI, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListPermissionGroupsByUserResponse$: StaticStructureSchema = [3, n0, _LPGBURi,
   0,
@@ -568,8 +568,8 @@ export var ListPermissionGroupsByUserResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListPermissionGroupsRequest$: StaticStructureSchema = [3, n0, _LPGR,
   0,
-  [_nT, _mR],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [_mR, _nT],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListPermissionGroupsResponse$: StaticStructureSchema = [3, n0, _LPGRi,
   0,
@@ -578,8 +578,8 @@ export var ListPermissionGroupsResponse$: StaticStructureSchema = [3, n0, _LPGRi
 ];
 export var ListUsersByPermissionGroupRequest$: StaticStructureSchema = [3, n0, _LUBPGR,
   0,
-  [_pGI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [_pGI, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListUsersByPermissionGroupResponse$: StaticStructureSchema = [3, n0, _LUBPGRi,
   0,
@@ -588,8 +588,8 @@ export var ListUsersByPermissionGroupResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListUsersRequest$: StaticStructureSchema = [3, n0, _LUR,
   0,
-  [_nT, _mR],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [_mR, _nT],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
   0,
@@ -614,7 +614,7 @@ export var PermissionGroupParams$: StaticStructureSchema = [3, n0, _PGP,
 export var ResetUserPasswordRequest$: StaticStructureSchema = [3, n0, _RUPR,
   0,
   [_uI, _cT],
-  [[0, 1], [0, 4]]
+  [[0, 1], [0, 4]], 1
 ];
 export var ResetUserPasswordResponse$: StaticStructureSchema = [3, n0, _RUPRe,
   0,
@@ -635,7 +635,7 @@ export var ResourcePermission$: StaticStructureSchema = [3, n0, _RP,
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_b, _ke],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SchemaDefinition$: StaticStructureSchema = [3, n0, _SD,
   0,
@@ -655,8 +655,8 @@ export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateChangesetRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_cT, _dI, _cI, _sP, _fP],
-  [[0, 4], [0, 1], [0, 1], 128 | 0, 128 | 0]
+  [_dI, _cI, _sP, _fP, _cT],
+  [[0, 1], [0, 1], 128 | 0, 128 | 0, [0, 4]], 4
 ];
 export var UpdateChangesetResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -665,8 +665,8 @@ export var UpdateChangesetResponse$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateDatasetRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_cT, _dI, _dTa, _k, _dD, _a, _sD],
-  [[0, 4], [0, 1], 0, 0, 0, 0, () => SchemaUnion$]
+  [_dI, _dTa, _k, _cT, _dD, _a, _sD],
+  [[0, 1], 0, 0, [0, 4], 0, 0, () => SchemaUnion$], 3
 ];
 export var UpdateDatasetResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -676,7 +676,7 @@ export var UpdateDatasetResponse$: StaticStructureSchema = [3, n0, _UDRp,
 export var UpdatePermissionGroupRequest$: StaticStructureSchema = [3, n0, _UPGR,
   0,
   [_pGI, _n, _d, _aP, _cT],
-  [[0, 1], [() => PermissionGroupName, 0], [() => PermissionGroupDescription, 0], 64 | 0, [0, 4]]
+  [[0, 1], [() => PermissionGroupName, 0], [() => PermissionGroupDescription, 0], 64 | 0, [0, 4]], 1
 ];
 export var UpdatePermissionGroupResponse$: StaticStructureSchema = [3, n0, _UPGRp,
   0,
@@ -686,7 +686,7 @@ export var UpdatePermissionGroupResponse$: StaticStructureSchema = [3, n0, _UPGR
 export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
   [_uI, _t, _fN, _lN, _aA, _aAPA, _cT],
-  [[0, 1], 0, [() => FirstName, 0], [() => LastName, 0], 0, 0, [0, 4]]
+  [[0, 1], 0, [() => FirstName, 0], [() => LastName, 0], 0, 0, [0, 4]], 1
 ];
 export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
   0,

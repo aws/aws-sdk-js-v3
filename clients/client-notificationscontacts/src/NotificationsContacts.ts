@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   ActivateEmailContactCommand,
@@ -44,6 +44,7 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { NotificationsContactsClient } from "./NotificationsContactsClient";
+import { paginateListEmailContacts } from "./pagination/ListEmailContactsPaginator";
 
 const commands = {
   ActivateEmailContactCommand,
@@ -55,6 +56,9 @@ const commands = {
   SendActivationCodeCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListEmailContacts,
 };
 
 export interface NotificationsContacts {
@@ -211,6 +215,17 @@ export interface NotificationsContacts {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListEmailContactsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEmailContactsCommandOutput}.
+   */
+  paginateListEmailContacts(
+    args?: ListEmailContactsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEmailContactsCommandOutput>;
 }
 
 /**
@@ -218,4 +233,4 @@ export interface NotificationsContacts {
  * @public
  */
 export class NotificationsContacts extends NotificationsContactsClient implements NotificationsContacts {}
-createAggregatedClient(commands, NotificationsContacts);
+createAggregatedClient(commands, NotificationsContacts, { paginators });

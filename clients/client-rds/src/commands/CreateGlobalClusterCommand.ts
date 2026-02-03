@@ -27,19 +27,7 @@ export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMess
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Creates an Aurora global database
- *         spread across multiple Amazon Web Services Regions. The global database
- *         contains a single primary cluster with read-write capability,
- *         and a read-only secondary cluster that receives
- *         data from the primary cluster through high-speed replication
- *         performed by the Aurora storage subsystem.</p>
- *          <p>You can create a global database that is initially empty, and then
- *         create the primary and secondary DB clusters in the global database.
- *         Or you can specify an existing Aurora cluster during the create operation,
- *         and this cluster becomes the primary cluster of the global database.</p>
- *          <note>
- *             <p>This operation applies only to Aurora DB clusters.</p>
- *          </note>
+ * <p>Creates an Aurora global database spread across multiple Amazon Web Services Regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.</p> <p>You can create a global database that is initially empty, and then create the primary and secondary DB clusters in the global database. Or you can specify an existing Aurora cluster during the create operation, and this cluster becomes the primary cluster of the global database.</p> <note> <p>This operation applies only to Aurora DB clusters.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,12 +102,10 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link GlobalClusterAlreadyExistsFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier
- *         (unique name) to create a new global database cluster or to rename an existing one.</p>
+ *  <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier (unique name) to create a new global database cluster or to rename an existing one.</p>
  *
  * @throws {@link GlobalClusterQuotaExceededFault} (client fault)
  *  <p>The number of global database clusters for this account is already at the maximum allowed.</p>

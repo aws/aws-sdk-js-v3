@@ -200,6 +200,14 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //         ChecksumAlgorithm: "CRC32" || "CRC32C" || "CRC64NVME" || "MD5" || "SHA1" || "SHA256",
  * //         ChecksumType: "FULL_OBJECT" || "COMPOSITE",
  * //       },
+ * //       S3UpdateObjectEncryption: { // S3UpdateObjectEncryptionOperation
+ * //         ObjectEncryption: { // ObjectEncryption
+ * //           SSEKMS: { // S3UpdateObjectEncryptionSSEKMS
+ * //             KMSKeyArn: "STRING_VALUE", // required
+ * //             BucketKeyEnabled: true || false,
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //     Priority: Number("int"),
  * //     ProgressSummary: { // JobProgressSummary

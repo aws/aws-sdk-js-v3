@@ -403,6 +403,32 @@ export class PropertyValidationException extends __BaseException {
 }
 
 /**
+ * <p>The test is not valid.</p>
+ * @public
+ */
+export class InvalidTestCaseException extends __BaseException {
+  readonly name = "InvalidTestCaseException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The problems with the test. Please fix before trying again.</p>
+   * @public
+   */
+  Problems?: ProblemDetail[] | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTestCaseException, __BaseException>) {
+    super({
+      name: "InvalidTestCaseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTestCaseException.prototype);
+    this.Problems = opts.Problems;
+  }
+}
+
+/**
  * <p>The resource is not ready.</p>
  * @public
  */

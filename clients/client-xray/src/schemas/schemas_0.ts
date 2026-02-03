@@ -465,7 +465,7 @@ export var BackendConnectionErrors$: StaticStructureSchema = [3, n0, _BCE,
 export var BatchGetTracesRequest$: StaticStructureSchema = [3, n0, _BGTR,
   0,
   [_TI, _NT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var BatchGetTracesResult$: StaticStructureSchema = [3, n0, _BGTRa,
   0,
@@ -475,7 +475,7 @@ export var BatchGetTracesResult$: StaticStructureSchema = [3, n0, _BGTRa,
 export var CancelTraceRetrievalRequest$: StaticStructureSchema = [3, n0, _CTRR,
   0,
   [_RT],
-  [0]
+  [0], 1
 ];
 export var CancelTraceRetrievalResult$: StaticStructureSchema = [3, n0, _CTRRa,
   0,
@@ -485,7 +485,7 @@ export var CancelTraceRetrievalResult$: StaticStructureSchema = [3, n0, _CTRRa,
 export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
   [_GN, _FE, _IC, _Ta],
-  [0, 0, () => InsightsConfiguration$, () => TagList]
+  [0, 0, () => InsightsConfiguration$, () => TagList], 1
 ];
 export var CreateGroupResult$: StaticStructureSchema = [3, n0, _CGRr,
   0,
@@ -495,7 +495,7 @@ export var CreateGroupResult$: StaticStructureSchema = [3, n0, _CGRr,
 export var CreateSamplingRuleRequest$: StaticStructureSchema = [3, n0, _CSRR,
   0,
   [_SR, _Ta],
-  [() => SamplingRule$, () => TagList]
+  [() => SamplingRule$, () => TagList], 1
 ];
 export var CreateSamplingRuleResult$: StaticStructureSchema = [3, n0, _CSRRr,
   0,
@@ -515,7 +515,7 @@ export var DeleteGroupResult$: StaticStructureSchema = [3, n0, _DGRe,
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_PN, _PRI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteResourcePolicyResult$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -635,7 +635,7 @@ export var GetIndexingRulesResult$: StaticStructureSchema = [3, n0, _GIRRe,
 export var GetInsightEventsRequest$: StaticStructureSchema = [3, n0, _GIER,
   0,
   [_II, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetInsightEventsResult$: StaticStructureSchema = [3, n0, _GIERe,
   0,
@@ -645,7 +645,7 @@ export var GetInsightEventsResult$: StaticStructureSchema = [3, n0, _GIERe,
 export var GetInsightImpactGraphRequest$: StaticStructureSchema = [3, n0, _GIIGR,
   0,
   [_II, _ST, _ET, _NT],
-  [0, 4, 4, 0]
+  [0, 4, 4, 0], 3
 ];
 export var GetInsightImpactGraphResult$: StaticStructureSchema = [3, n0, _GIIGRe,
   0,
@@ -655,7 +655,7 @@ export var GetInsightImpactGraphResult$: StaticStructureSchema = [3, n0, _GIIGRe
 export var GetInsightRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
   [_II],
-  [0]
+  [0], 1
 ];
 export var GetInsightResult$: StaticStructureSchema = [3, n0, _GIRe,
   0,
@@ -664,8 +664,8 @@ export var GetInsightResult$: StaticStructureSchema = [3, n0, _GIRe,
 ];
 export var GetInsightSummariesRequest$: StaticStructureSchema = [3, n0, _GISR,
   0,
-  [_St, _GARN, _GN, _ST, _ET, _MR, _NT],
-  [64 | 0, 0, 0, 4, 4, 1, 0]
+  [_ST, _ET, _St, _GARN, _GN, _MR, _NT],
+  [4, 4, 64 | 0, 0, 0, 1, 0], 2
 ];
 export var GetInsightSummariesResult$: StaticStructureSchema = [3, n0, _GISRe,
   0,
@@ -675,7 +675,7 @@ export var GetInsightSummariesResult$: StaticStructureSchema = [3, n0, _GISRe,
 export var GetRetrievedTracesGraphRequest$: StaticStructureSchema = [3, n0, _GRTGR,
   0,
   [_RT, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetRetrievedTracesGraphResult$: StaticStructureSchema = [3, n0, _GRTGRe,
   0,
@@ -705,7 +705,7 @@ export var GetSamplingStatisticSummariesResult$: StaticStructureSchema = [3, n0,
 export var GetSamplingTargetsRequest$: StaticStructureSchema = [3, n0, _GSTR,
   0,
   [_SSD, _SBSD],
-  [() => SamplingStatisticsDocumentList, () => SamplingBoostStatisticsDocumentList]
+  [() => SamplingStatisticsDocumentList, () => SamplingBoostStatisticsDocumentList], 1
 ];
 export var GetSamplingTargetsResult$: StaticStructureSchema = [3, n0, _GSTRe,
   0,
@@ -715,7 +715,7 @@ export var GetSamplingTargetsResult$: StaticStructureSchema = [3, n0, _GSTRe,
 export var GetServiceGraphRequest$: StaticStructureSchema = [3, n0, _GSGR,
   0,
   [_ST, _ET, _GN, _GARN, _NT],
-  [4, 4, 0, 0, 0]
+  [4, 4, 0, 0, 0], 2
 ];
 export var GetServiceGraphResult$: StaticStructureSchema = [3, n0, _GSGRe,
   0,
@@ -725,7 +725,7 @@ export var GetServiceGraphResult$: StaticStructureSchema = [3, n0, _GSGRe,
 export var GetTimeSeriesServiceStatisticsRequest$: StaticStructureSchema = [3, n0, _GTSSSR,
   0,
   [_ST, _ET, _GN, _GARN, _ESE, _P, _FSo, _NT],
-  [4, 4, 0, 0, 0, 1, 2, 0]
+  [4, 4, 0, 0, 0, 1, 2, 0], 2
 ];
 export var GetTimeSeriesServiceStatisticsResult$: StaticStructureSchema = [3, n0, _GTSSSRe,
   0,
@@ -735,7 +735,7 @@ export var GetTimeSeriesServiceStatisticsResult$: StaticStructureSchema = [3, n0
 export var GetTraceGraphRequest$: StaticStructureSchema = [3, n0, _GTGR,
   0,
   [_TI, _NT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var GetTraceGraphResult$: StaticStructureSchema = [3, n0, _GTGRe,
   0,
@@ -755,7 +755,7 @@ export var GetTraceSegmentDestinationResult$: StaticStructureSchema = [3, n0, _G
 export var GetTraceSummariesRequest$: StaticStructureSchema = [3, n0, _GTSR,
   0,
   [_ST, _ET, _TRTi, _Sa, _SSa, _FE, _NT],
-  [4, 4, 0, 2, () => SamplingStrategy$, 0, 0]
+  [4, 4, 0, 2, () => SamplingStrategy$, 0, 0], 2
 ];
 export var GetTraceSummariesResult$: StaticStructureSchema = [3, n0, _GTSRe,
   0,
@@ -852,7 +852,7 @@ export var ListResourcePoliciesResult$: StaticStructureSchema = [3, n0, _LRPRi,
 export var ListRetrievedTracesRequest$: StaticStructureSchema = [3, n0, _LRTR,
   0,
   [_RT, _TF, _NT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ListRetrievedTracesResult$: StaticStructureSchema = [3, n0, _LRTRi,
   0,
@@ -862,7 +862,7 @@ export var ListRetrievedTracesResult$: StaticStructureSchema = [3, n0, _LRTRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARNe, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -896,17 +896,17 @@ TypeRegistry.for(n0).registerError(PolicySizeLimitExceededException$, PolicySize
 export var ProbabilisticRuleValue$: StaticStructureSchema = [3, n0, _PRV,
   0,
   [_DSP, _ASP],
-  [1, 1]
+  [1, 1], 1
 ];
 export var ProbabilisticRuleValueUpdate$: StaticStructureSchema = [3, n0, _PRVU,
   0,
   [_DSP],
-  [1]
+  [1], 1
 ];
 export var PutEncryptionConfigRequest$: StaticStructureSchema = [3, n0, _PECR,
   0,
-  [_KI, _T],
-  [0, 0]
+  [_T, _KI],
+  [0, 0], 1
 ];
 export var PutEncryptionConfigResult$: StaticStructureSchema = [3, n0, _PECRu,
   0,
@@ -916,7 +916,7 @@ export var PutEncryptionConfigResult$: StaticStructureSchema = [3, n0, _PECRu,
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_PN, _PD, _PRI, _BPLC],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 2
 ];
 export var PutResourcePolicyResult$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -926,7 +926,7 @@ export var PutResourcePolicyResult$: StaticStructureSchema = [3, n0, _PRPRu,
 export var PutTelemetryRecordsRequest$: StaticStructureSchema = [3, n0, _PTRR,
   0,
   [_TR, _ECII, _Ho, _RARNe],
-  [() => TelemetryRecordList, 0, 0, 0]
+  [() => TelemetryRecordList, 0, 0, 0], 1
 ];
 export var PutTelemetryRecordsResult$: StaticStructureSchema = [3, n0, _PTRRu,
   0,
@@ -936,7 +936,7 @@ export var PutTelemetryRecordsResult$: StaticStructureSchema = [3, n0, _PTRRu,
 export var PutTraceSegmentsRequest$: StaticStructureSchema = [3, n0, _PTSR,
   0,
   [_TSD],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var PutTraceSegmentsResult$: StaticStructureSchema = [3, n0, _PTSRu,
   0,
@@ -1003,22 +1003,22 @@ TypeRegistry.for(n0).registerError(RuleLimitExceededException$, RuleLimitExceede
 export var SamplingBoost$: StaticStructureSchema = [3, n0, _SB,
   0,
   [_BR, _BRTTL],
-  [1, 4]
+  [1, 4], 2
 ];
 export var SamplingBoostStatisticsDocument$: StaticStructureSchema = [3, n0, _SBSDa,
   0,
   [_RN, _SN, _Ti, _AC, _TCo, _SAC],
-  [0, 0, 4, 1, 1, 1]
+  [0, 0, 4, 1, 1, 1], 6
 ];
 export var SamplingRateBoost$: StaticStructureSchema = [3, n0, _SRB,
   0,
   [_MRa, _CWM],
-  [1, 1]
+  [1, 1], 2
 ];
 export var SamplingRule$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_RN, _RARN, _RARNe, _Pr, _FR, _RSes, _SN, _STe, _Hos, _HTTPM, _URLP, _Ve, _At, _SRB],
-  [0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 128 | 0, () => SamplingRateBoost$]
+  [_RARNe, _Pr, _FR, _RSes, _SN, _STe, _Hos, _HTTPM, _URLP, _Ve, _RN, _RARN, _At, _SRB],
+  [0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 128 | 0, () => SamplingRateBoost$], 10
 ];
 export var SamplingRuleRecord$: StaticStructureSchema = [3, n0, _SRR,
   0,
@@ -1033,7 +1033,7 @@ export var SamplingRuleUpdate$: StaticStructureSchema = [3, n0, _SRU,
 export var SamplingStatisticsDocument$: StaticStructureSchema = [3, n0, _SSDa,
   0,
   [_RN, _CID, _Ti, _RC, _SC, _BC],
-  [0, 0, 4, 1, 1, 1]
+  [0, 0, 4, 1, 1, 1], 5
 ];
 export var SamplingStatisticSummary$: StaticStructureSchema = [3, n0, _SSSa,
   0,
@@ -1078,7 +1078,7 @@ export var Span$: StaticStructureSchema = [3, n0, _Spa,
 export var StartTraceRetrievalRequest$: StaticStructureSchema = [3, n0, _STRR,
   0,
   [_TI, _ST, _ET],
-  [64 | 0, 4, 4]
+  [64 | 0, 4, 4], 3
 ];
 export var StartTraceRetrievalResult$: StaticStructureSchema = [3, n0, _STRRt,
   0,
@@ -1088,12 +1088,12 @@ export var StartTraceRetrievalResult$: StaticStructureSchema = [3, n0, _STRRt,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARNe, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1103,7 +1103,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TelemetryRecord$: StaticStructureSchema = [3, n0, _TRe,
   0,
   [_Ti, _SRC, _SSC, _SSCe, _SRCe, _BCE],
-  [4, 1, 1, 1, 1, () => BackendConnectionErrors$]
+  [4, 1, 1, 1, 1, () => BackendConnectionErrors$], 1
 ];
 export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
@@ -1150,7 +1150,7 @@ export var UnprocessedTraceSegment$: StaticStructureSchema = [3, n0, _UTSn,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARNe, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1170,7 +1170,7 @@ export var UpdateGroupResult$: StaticStructureSchema = [3, n0, _UGRp,
 export var UpdateIndexingRuleRequest$: StaticStructureSchema = [3, n0, _UIRR,
   0,
   [_N, _Ru],
-  [0, () => IndexingRuleValueUpdate$]
+  [0, () => IndexingRuleValueUpdate$], 2
 ];
 export var UpdateIndexingRuleResult$: StaticStructureSchema = [3, n0, _UIRRp,
   0,
@@ -1180,7 +1180,7 @@ export var UpdateIndexingRuleResult$: StaticStructureSchema = [3, n0, _UIRRp,
 export var UpdateSamplingRuleRequest$: StaticStructureSchema = [3, n0, _USRR,
   0,
   [_SRU],
-  [() => SamplingRuleUpdate$]
+  [() => SamplingRuleUpdate$], 1
 ];
 export var UpdateSamplingRuleResult$: StaticStructureSchema = [3, n0, _USRRp,
   0,

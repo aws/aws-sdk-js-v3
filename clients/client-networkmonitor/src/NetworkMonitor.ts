@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateMonitorCommand,
@@ -39,6 +39,7 @@ import {
 } from "./commands/UpdateMonitorCommand";
 import { UpdateProbeCommand, UpdateProbeCommandInput, UpdateProbeCommandOutput } from "./commands/UpdateProbeCommand";
 import { NetworkMonitorClient } from "./NetworkMonitorClient";
+import { paginateListMonitors } from "./pagination/ListMonitorsPaginator";
 
 const commands = {
   CreateMonitorCommand,
@@ -53,6 +54,9 @@ const commands = {
   UntagResourceCommand,
   UpdateMonitorCommand,
   UpdateProbeCommand,
+};
+const paginators = {
+  paginateListMonitors,
 };
 
 export interface NetworkMonitor {
@@ -260,6 +264,17 @@ export interface NetworkMonitor {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProbeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListMonitorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMonitorsCommandOutput}.
+   */
+  paginateListMonitors(
+    args?: ListMonitorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMonitorsCommandOutput>;
 }
 
 /**
@@ -278,4 +293,4 @@ export interface NetworkMonitor {
  * @public
  */
 export class NetworkMonitor extends NetworkMonitorClient implements NetworkMonitor {}
-createAggregatedClient(commands, NetworkMonitor);
+createAggregatedClient(commands, NetworkMonitor, { paginators });

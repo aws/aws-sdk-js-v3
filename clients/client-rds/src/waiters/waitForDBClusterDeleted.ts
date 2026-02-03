@@ -11,7 +11,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClustersCommandInp
     reason = result;
     try {
       const returnComparator = () => {
-        return (result.DBClusters.length == 0.0);
+        return (result.DBClusters.length == 0);
       }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };
@@ -89,7 +89,7 @@ export const waitForDBClusterDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBClustersCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 30, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
@@ -101,7 +101,7 @@ export const waitUntilDBClusterDeleted = async (
   params: WaiterConfiguration<RDSClient>,
   input: DescribeDBClustersCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 30, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 30, maxDelay: 1800 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
   return checkExceptions(result);
 };

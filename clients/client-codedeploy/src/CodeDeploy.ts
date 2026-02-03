@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CodeDeployClient } from "./CodeDeployClient";
 import {
@@ -234,6 +240,13 @@ import {
   UpdateDeploymentGroupCommandInput,
   UpdateDeploymentGroupCommandOutput,
 } from "./commands/UpdateDeploymentGroupCommand";
+import { paginateListApplicationRevisions } from "./pagination/ListApplicationRevisionsPaginator";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListDeploymentConfigs } from "./pagination/ListDeploymentConfigsPaginator";
+import { paginateListDeploymentGroups } from "./pagination/ListDeploymentGroupsPaginator";
+import { paginateListDeploymentInstances } from "./pagination/ListDeploymentInstancesPaginator";
+import { paginateListDeployments } from "./pagination/ListDeploymentsPaginator";
+import { waitUntilDeploymentSuccessful } from "./waiters/waitForDeploymentSuccessful";
 
 const commands = {
   AddTagsToOnPremisesInstancesCommand,
@@ -283,6 +296,17 @@ const commands = {
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateDeploymentGroupCommand,
+};
+const paginators = {
+  paginateListApplicationRevisions,
+  paginateListApplications,
+  paginateListDeploymentConfigs,
+  paginateListDeploymentGroups,
+  paginateListDeploymentInstances,
+  paginateListDeployments,
+};
+const waiters = {
+  waitUntilDeploymentSuccessful,
 };
 
 export interface CodeDeploy {
@@ -1095,6 +1119,82 @@ export interface CodeDeploy {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDeploymentGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationRevisionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationRevisionsCommandOutput}.
+   */
+  paginateListApplicationRevisions(
+    args: ListApplicationRevisionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationRevisionsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListDeploymentConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentConfigsCommandOutput}.
+   */
+  paginateListDeploymentConfigs(
+    args?: ListDeploymentConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListDeploymentGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentGroupsCommandOutput}.
+   */
+  paginateListDeploymentGroups(
+    args: ListDeploymentGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListDeploymentInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentInstancesCommandOutput}.
+   */
+  paginateListDeploymentInstances(
+    args: ListDeploymentInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentsCommandOutput}.
+   */
+  paginateListDeployments(
+    args?: ListDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link GetDeploymentCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDeploymentSuccessful(
+    args: GetDeploymentCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CodeDeploy>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1194,4 +1294,4 @@ export interface CodeDeploy {
  * @public
  */
 export class CodeDeploy extends CodeDeployClient implements CodeDeploy {}
-createAggregatedClient(commands, CodeDeploy);
+createAggregatedClient(commands, CodeDeploy, { paginators, waiters });

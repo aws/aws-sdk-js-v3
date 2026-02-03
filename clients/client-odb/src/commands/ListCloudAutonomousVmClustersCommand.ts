@@ -123,6 +123,14 @@ export interface ListCloudAutonomousVmClustersCommandOutput extends ListCloudAut
  * //       timeOrdsCertificateExpires: new Date("TIMESTAMP"),
  * //       timeZone: "STRING_VALUE",
  * //       totalContainerDatabases: Number("int"),
+ * //       iamRoles: [ // IamRoleList
+ * //         { // IamRole
+ * //           iamRoleArn: "STRING_VALUE",
+ * //           status: "ASSOCIATING" || "DISASSOCIATING" || "FAILED" || "CONNECTED" || "DISCONNECTED" || "PARTIALLY_CONNECTED" || "UNKNOWN",
+ * //           statusReason: "STRING_VALUE",
+ * //           awsIntegration: "KmsTde",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

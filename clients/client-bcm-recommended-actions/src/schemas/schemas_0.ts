@@ -62,18 +62,18 @@ import {
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_aQE]: [`BCMRecommendedActionsAccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActionFilter$: StaticStructureSchema = [3, n0, _AF,
   0,
   [_k, _mO, _v],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_aQE]: [`BCMRecommendedActionsInternalServer`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListRecommendedActionsRequest$: StaticStructureSchema = [3, n0, _LRAR,
@@ -84,7 +84,7 @@ export var ListRecommendedActionsRequest$: StaticStructureSchema = [3, n0, _LRAR
 export var ListRecommendedActionsResponse$: StaticStructureSchema = [3, n0, _LRARi,
   0,
   [_rA, _nT],
-  [() => RecommendedActions, 0]
+  [() => RecommendedActions, 0], 1
 ];
 export var RecommendedAction$: StaticStructureSchema = [3, n0, _RA,
   0,
@@ -99,19 +99,19 @@ export var RequestFilter$: StaticStructureSchema = [3, n0, _RF,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_aQE]: [`BCMRecommendedActionsThrottling`, 429], [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_aQE]: [`BCMRecommendedActionsValidation`, 400], [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BCMRecommendedActionsServiceException$: StaticErrorSchema = [-3, _sm, "BCMRecommendedActionsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BCMRecommendedActionsServiceException$, BCMRecommendedActionsServiceException);

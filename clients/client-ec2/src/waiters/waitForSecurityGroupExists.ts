@@ -18,7 +18,7 @@ const checkState = async (client: EC2Client, input: DescribeSecurityGroupsComman
         let projection_3 = flat_1.map((element_2: any) => {
           return element_2.GroupId;
         });
-        return (projection_3.length > 0.0);
+        return (projection_3.length > 0);
       }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };

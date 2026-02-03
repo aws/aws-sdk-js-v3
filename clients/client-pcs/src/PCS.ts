@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateClusterCommand,
@@ -69,6 +69,9 @@ import {
   UpdateComputeNodeGroupCommandOutput,
 } from "./commands/UpdateComputeNodeGroupCommand";
 import { UpdateQueueCommand, UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand";
+import { paginateListClusters } from "./pagination/ListClustersPaginator";
+import { paginateListComputeNodeGroups } from "./pagination/ListComputeNodeGroupsPaginator";
+import { paginateListQueues } from "./pagination/ListQueuesPaginator";
 import { PCSClient } from "./PCSClient";
 
 const commands = {
@@ -91,6 +94,11 @@ const commands = {
   UpdateClusterCommand,
   UpdateComputeNodeGroupCommand,
   UpdateQueueCommand,
+};
+const paginators = {
+  paginateListClusters,
+  paginateListComputeNodeGroups,
+  paginateListQueues,
 };
 
 export interface PCS {
@@ -417,6 +425,39 @@ export interface PCS {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQueueCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClustersCommandOutput}.
+   */
+  paginateListClusters(
+    args?: ListClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClustersCommandOutput>;
+
+  /**
+   * @see {@link ListComputeNodeGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComputeNodeGroupsCommandOutput}.
+   */
+  paginateListComputeNodeGroups(
+    args: ListComputeNodeGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComputeNodeGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListQueuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQueuesCommandOutput}.
+   */
+  paginateListQueues(
+    args: ListQueuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQueuesCommandOutput>;
 }
 
 /**
@@ -424,4 +465,4 @@ export interface PCS {
  * @public
  */
 export class PCS extends PCSClient implements PCS {}
-createAggregatedClient(commands, PCS);
+createAggregatedClient(commands, PCS, { paginators });

@@ -27,12 +27,7 @@ export interface DescribeCertificatesCommandInput extends DescribeCertificatesMe
 export interface DescribeCertificatesCommandOutput extends CertificateMessage, __MetadataBearer {}
 
 /**
- * <p>Lists the set of certificate authority (CA) certificates provided by Amazon RDS for this Amazon Web Services account.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
- *             instance</a> in the <i>Amazon RDS User Guide</i> and
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
- *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
- *             User Guide</i>.</p>
+ * <p>Lists the set of certificate authority (CA) certificates provided by Amazon RDS for this Amazon Web Services account.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB instance</a> in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html"> Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,13 +77,62 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link CertificateNotFoundFault} (client fault)
- *  <p>
- *             <code>CertificateIdentifier</code> doesn't refer to an
- *         existing certificate.</p>
+ *  <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
+ * @example To describe certificates
+ * ```javascript
+ * // The following example retrieves the details of the certificate associated with the user's default region.
+ * const input = { /* empty *\/ };
+ * const command = new DescribeCertificatesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Certificates: [
+ *     {
+ *       CertificateArn: "arn:aws:rds:us-east-1::cert:rds-ca-ecc384-g1",
+ *       CertificateIdentifier: "rds-ca-ecc384-g1",
+ *       CertificateType: "CA",
+ *       CustomerOverride: false,
+ *       Thumbprint: "24a97b91cbe86911190576c35c36aab4fEXAMPLE",
+ *       ValidFrom: "2021-05-25T22:41:55Z",
+ *       ValidTill: "2121-05-25T23:41:55Z"
+ *     },
+ *     {
+ *       CertificateArn: "arn:aws:rds:us-east-1::cert:rds-ca-rsa4096-g1",
+ *       CertificateIdentifier: "rds-ca-rsa4096-g1",
+ *       CertificateType: "CA",
+ *       CustomerOverride: false,
+ *       Thumbprint: "9da6fa7fd2ec09c569a400d876b01b0c1EXAMPLE",
+ *       ValidFrom: "2021-05-25T22:38:35Z",
+ *       ValidTill: "2121-05-25T23:38:35Z"
+ *     },
+ *     {
+ *       CertificateArn: "arn:aws:rds:us-east-1::cert:rds-ca-rsa2048-g1",
+ *       CertificateIdentifier: "rds-ca-rsa2048-g1",
+ *       CertificateType: "CA",
+ *       CustomerOverride: true,
+ *       CustomerOverrideValidTill: "2061-05-25T23:34:57Z",
+ *       Thumbprint: "2fa77ef894d983ba9d37ad699c84ab0f6EXAMPLE",
+ *       ValidFrom: "2021-05-25T22:34:57Z",
+ *       ValidTill: "2061-05-25T23:34:57Z"
+ *     },
+ *     {
+ *       CertificateArn: "arn:aws:rds:us-east-1::cert:rds-ca-2019",
+ *       CertificateIdentifier: "rds-ca-2019",
+ *       CertificateType: "CA",
+ *       CustomerOverride: false,
+ *       Thumbprint: "f0ed823ed14447bab557fdf3e49274669EXAMPLE",
+ *       ValidFrom: "2019-09-19T18:16:53Z",
+ *       ValidTill: "2024-08-22T17:08:50Z"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

@@ -127,7 +127,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateLinkInput$: StaticStructureSchema = [3, n0, _CLI,
   0,
   [_LT, _RT, _SI, _T, _LC],
-  [0, 64 | 0, 0, 128 | 0, () => LinkConfiguration$]
+  [0, 64 | 0, 0, 128 | 0, () => LinkConfiguration$], 3
 ];
 export var CreateLinkOutput$: StaticStructureSchema = [3, n0, _CLO,
   0,
@@ -137,7 +137,7 @@ export var CreateLinkOutput$: StaticStructureSchema = [3, n0, _CLO,
 export var CreateSinkInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_N, _T],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var CreateSinkOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
@@ -147,7 +147,7 @@ export var CreateSinkOutput$: StaticStructureSchema = [3, n0, _CSO,
 export var DeleteLinkInput$: StaticStructureSchema = [3, n0, _DLI,
   0,
   [_Id],
-  [0]
+  [0], 1
 ];
 export var DeleteLinkOutput$: StaticStructureSchema = [3, n0, _DLO,
   0,
@@ -157,7 +157,7 @@ export var DeleteLinkOutput$: StaticStructureSchema = [3, n0, _DLO,
 export var DeleteSinkInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_Id],
-  [0]
+  [0], 1
 ];
 export var DeleteSinkOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
@@ -167,7 +167,7 @@ export var DeleteSinkOutput$: StaticStructureSchema = [3, n0, _DSO,
 export var GetLinkInput$: StaticStructureSchema = [3, n0, _GLI,
   0,
   [_Id, _IT],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetLinkOutput$: StaticStructureSchema = [3, n0, _GLO,
   0,
@@ -177,7 +177,7 @@ export var GetLinkOutput$: StaticStructureSchema = [3, n0, _GLO,
 export var GetSinkInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
   [_Id, _IT],
-  [0, 2]
+  [0, 2], 1
 ];
 export var GetSinkOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
@@ -187,7 +187,7 @@ export var GetSinkOutput$: StaticStructureSchema = [3, n0, _GSO,
 export var GetSinkPolicyInput$: StaticStructureSchema = [3, n0, _GSPI,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var GetSinkPolicyOutput$: StaticStructureSchema = [3, n0, _GSPO,
   0,
@@ -213,8 +213,8 @@ export var LinkConfiguration$: StaticStructureSchema = [3, n0, _LC,
 ];
 export var ListAttachedLinksInput$: StaticStructureSchema = [3, n0, _LALI,
   0,
-  [_MR, _NT, _SI],
-  [1, 0, 0]
+  [_SI, _MR, _NT],
+  [0, 1, 0], 1
 ];
 export var ListAttachedLinksItem$: StaticStructureSchema = [3, n0, _LALIi,
   0,
@@ -224,7 +224,7 @@ export var ListAttachedLinksItem$: StaticStructureSchema = [3, n0, _LALIi,
 export var ListAttachedLinksOutput$: StaticStructureSchema = [3, n0, _LALO,
   0,
   [_It, _NT],
-  [() => ListAttachedLinksItems, 0]
+  [() => ListAttachedLinksItems, 0], 1
 ];
 export var ListLinksInput$: StaticStructureSchema = [3, n0, _LLI,
   0,
@@ -239,7 +239,7 @@ export var ListLinksItem$: StaticStructureSchema = [3, n0, _LLIi,
 export var ListLinksOutput$: StaticStructureSchema = [3, n0, _LLO,
   0,
   [_It, _NT],
-  [() => ListLinksItems, 0]
+  [() => ListLinksItems, 0], 1
 ];
 export var ListSinksInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
@@ -254,12 +254,12 @@ export var ListSinksItem$: StaticStructureSchema = [3, n0, _LSIi,
 export var ListSinksOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
   [_It, _NT],
-  [() => ListSinksItems, 0]
+  [() => ListSinksItems, 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -269,12 +269,12 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 export var LogGroupConfiguration$: StaticStructureSchema = [3, n0, _LGC,
   0,
   [_F],
-  [0]
+  [0], 1
 ];
 export var MetricConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
   [_F],
-  [0]
+  [0], 1
 ];
 export var MissingRequiredParameterException$: StaticErrorSchema = [-3, n0, _MRPE,
   { [_e]: _c, [_hE]: 400 },
@@ -285,7 +285,7 @@ TypeRegistry.for(n0).registerError(MissingRequiredParameterException$, MissingRe
 export var PutSinkPolicyInput$: StaticStructureSchema = [3, n0, _PSPI,
   0,
   [_SI, _P],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutSinkPolicyOutput$: StaticStructureSchema = [3, n0, _PSPO,
   0,
@@ -307,7 +307,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RA, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -323,7 +323,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -333,7 +333,7 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateLinkInput$: StaticStructureSchema = [3, n0, _ULI,
   0,
   [_Id, _RT, _LC, _IT],
-  [0, 64 | 0, () => LinkConfiguration$, 2]
+  [0, 64 | 0, () => LinkConfiguration$, 2], 2
 ];
 export var UpdateLinkOutput$: StaticStructureSchema = [3, n0, _ULO,
   0,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateSnapshotCommand,
@@ -50,6 +50,8 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateListApps } from "./pagination/ListAppsPaginator";
+import { paginateListSimulations } from "./pagination/ListSimulationsPaginator";
 import { SimSpaceWeaverClient } from "./SimSpaceWeaverClient";
 
 const commands = {
@@ -69,6 +71,10 @@ const commands = {
   StopSimulationCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListApps,
+  paginateListSimulations,
 };
 
 export interface SimSpaceWeaver {
@@ -344,6 +350,28 @@ export interface SimSpaceWeaver {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAppsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppsCommandOutput}.
+   */
+  paginateListApps(
+    args: ListAppsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppsCommandOutput>;
+
+  /**
+   * @see {@link ListSimulationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSimulationsCommandOutput}.
+   */
+  paginateListSimulations(
+    args?: ListSimulationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSimulationsCommandOutput>;
 }
 
 /**
@@ -361,4 +389,4 @@ export interface SimSpaceWeaver {
  * @public
  */
 export class SimSpaceWeaver extends SimSpaceWeaverClient implements SimSpaceWeaver {}
-createAggregatedClient(commands, SimSpaceWeaver);
+createAggregatedClient(commands, SimSpaceWeaver, { paginators });

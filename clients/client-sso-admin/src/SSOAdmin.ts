@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
@@ -373,6 +373,36 @@ import {
   UpdateTrustedTokenIssuerCommandInput,
   UpdateTrustedTokenIssuerCommandOutput,
 } from "./commands/UpdateTrustedTokenIssuerCommand";
+import { paginateListAccountAssignmentCreationStatus } from "./pagination/ListAccountAssignmentCreationStatusPaginator";
+import { paginateListAccountAssignmentDeletionStatus } from "./pagination/ListAccountAssignmentDeletionStatusPaginator";
+import { paginateListAccountAssignmentsForPrincipal } from "./pagination/ListAccountAssignmentsForPrincipalPaginator";
+import { paginateListAccountAssignments } from "./pagination/ListAccountAssignmentsPaginator";
+import {
+  paginateListAccountsForProvisionedPermissionSet,
+} from "./pagination/ListAccountsForProvisionedPermissionSetPaginator";
+import { paginateListApplicationAccessScopes } from "./pagination/ListApplicationAccessScopesPaginator";
+import {
+  paginateListApplicationAssignmentsForPrincipal,
+} from "./pagination/ListApplicationAssignmentsForPrincipalPaginator";
+import { paginateListApplicationAssignments } from "./pagination/ListApplicationAssignmentsPaginator";
+import {
+  paginateListApplicationAuthenticationMethods,
+} from "./pagination/ListApplicationAuthenticationMethodsPaginator";
+import { paginateListApplicationGrants } from "./pagination/ListApplicationGrantsPaginator";
+import { paginateListApplicationProviders } from "./pagination/ListApplicationProvidersPaginator";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import {
+  paginateListCustomerManagedPolicyReferencesInPermissionSet,
+} from "./pagination/ListCustomerManagedPolicyReferencesInPermissionSetPaginator";
+import { paginateListInstances } from "./pagination/ListInstancesPaginator";
+import { paginateListManagedPoliciesInPermissionSet } from "./pagination/ListManagedPoliciesInPermissionSetPaginator";
+import { paginateListPermissionSetProvisioningStatus } from "./pagination/ListPermissionSetProvisioningStatusPaginator";
+import { paginateListPermissionSets } from "./pagination/ListPermissionSetsPaginator";
+import {
+  paginateListPermissionSetsProvisionedToAccount,
+} from "./pagination/ListPermissionSetsProvisionedToAccountPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListTrustedTokenIssuers } from "./pagination/ListTrustedTokenIssuersPaginator";
 import { SSOAdminClient } from "./SSOAdminClient";
 
 const commands = {
@@ -451,6 +481,28 @@ const commands = {
   UpdateInstanceAccessControlAttributeConfigurationCommand,
   UpdatePermissionSetCommand,
   UpdateTrustedTokenIssuerCommand,
+};
+const paginators = {
+  paginateListAccountAssignmentCreationStatus,
+  paginateListAccountAssignmentDeletionStatus,
+  paginateListAccountAssignments,
+  paginateListAccountAssignmentsForPrincipal,
+  paginateListAccountsForProvisionedPermissionSet,
+  paginateListApplicationAccessScopes,
+  paginateListApplicationAssignments,
+  paginateListApplicationAssignmentsForPrincipal,
+  paginateListApplicationAuthenticationMethods,
+  paginateListApplicationGrants,
+  paginateListApplicationProviders,
+  paginateListApplications,
+  paginateListCustomerManagedPolicyReferencesInPermissionSet,
+  paginateListInstances,
+  paginateListManagedPoliciesInPermissionSet,
+  paginateListPermissionSetProvisioningStatus,
+  paginateListPermissionSets,
+  paginateListPermissionSetsProvisionedToAccount,
+  paginateListTagsForResource,
+  paginateListTrustedTokenIssuers,
 };
 
 export interface SSOAdmin {
@@ -1731,6 +1783,226 @@ export interface SSOAdmin {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTrustedTokenIssuerCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccountAssignmentCreationStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountAssignmentCreationStatusCommandOutput}.
+   */
+  paginateListAccountAssignmentCreationStatus(
+    args: ListAccountAssignmentCreationStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountAssignmentCreationStatusCommandOutput>;
+
+  /**
+   * @see {@link ListAccountAssignmentDeletionStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountAssignmentDeletionStatusCommandOutput}.
+   */
+  paginateListAccountAssignmentDeletionStatus(
+    args: ListAccountAssignmentDeletionStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountAssignmentDeletionStatusCommandOutput>;
+
+  /**
+   * @see {@link ListAccountAssignmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountAssignmentsCommandOutput}.
+   */
+  paginateListAccountAssignments(
+    args: ListAccountAssignmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountAssignmentsCommandOutput>;
+
+  /**
+   * @see {@link ListAccountAssignmentsForPrincipalCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountAssignmentsForPrincipalCommandOutput}.
+   */
+  paginateListAccountAssignmentsForPrincipal(
+    args: ListAccountAssignmentsForPrincipalCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountAssignmentsForPrincipalCommandOutput>;
+
+  /**
+   * @see {@link ListAccountsForProvisionedPermissionSetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountsForProvisionedPermissionSetCommandOutput}.
+   */
+  paginateListAccountsForProvisionedPermissionSet(
+    args: ListAccountsForProvisionedPermissionSetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountsForProvisionedPermissionSetCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationAccessScopesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationAccessScopesCommandOutput}.
+   */
+  paginateListApplicationAccessScopes(
+    args: ListApplicationAccessScopesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationAccessScopesCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationAssignmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationAssignmentsCommandOutput}.
+   */
+  paginateListApplicationAssignments(
+    args: ListApplicationAssignmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationAssignmentsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationAssignmentsForPrincipalCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationAssignmentsForPrincipalCommandOutput}.
+   */
+  paginateListApplicationAssignmentsForPrincipal(
+    args: ListApplicationAssignmentsForPrincipalCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationAssignmentsForPrincipalCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationAuthenticationMethodsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationAuthenticationMethodsCommandOutput}.
+   */
+  paginateListApplicationAuthenticationMethods(
+    args: ListApplicationAuthenticationMethodsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationAuthenticationMethodsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationGrantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationGrantsCommandOutput}.
+   */
+  paginateListApplicationGrants(
+    args: ListApplicationGrantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationGrantsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationProvidersCommandOutput}.
+   */
+  paginateListApplicationProviders(
+    args?: ListApplicationProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationProvidersCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomerManagedPolicyReferencesInPermissionSetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput}.
+   */
+  paginateListCustomerManagedPolicyReferencesInPermissionSet(
+    args: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput>;
+
+  /**
+   * @see {@link ListInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstancesCommandOutput}.
+   */
+  paginateListInstances(
+    args?: ListInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListManagedPoliciesInPermissionSetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedPoliciesInPermissionSetCommandOutput}.
+   */
+  paginateListManagedPoliciesInPermissionSet(
+    args: ListManagedPoliciesInPermissionSetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedPoliciesInPermissionSetCommandOutput>;
+
+  /**
+   * @see {@link ListPermissionSetProvisioningStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPermissionSetProvisioningStatusCommandOutput}.
+   */
+  paginateListPermissionSetProvisioningStatus(
+    args: ListPermissionSetProvisioningStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPermissionSetProvisioningStatusCommandOutput>;
+
+  /**
+   * @see {@link ListPermissionSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPermissionSetsCommandOutput}.
+   */
+  paginateListPermissionSets(
+    args: ListPermissionSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPermissionSetsCommandOutput>;
+
+  /**
+   * @see {@link ListPermissionSetsProvisionedToAccountCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPermissionSetsProvisionedToAccountCommandOutput}.
+   */
+  paginateListPermissionSetsProvisionedToAccount(
+    args: ListPermissionSetsProvisionedToAccountCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPermissionSetsProvisionedToAccountCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListTrustedTokenIssuersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrustedTokenIssuersCommandOutput}.
+   */
+  paginateListTrustedTokenIssuers(
+    args: ListTrustedTokenIssuersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrustedTokenIssuersCommandOutput>;
 }
 
 /**
@@ -1738,4 +2010,4 @@ export interface SSOAdmin {
  * @public
  */
 export class SSOAdmin extends SSOAdminClient implements SSOAdmin {}
-createAggregatedClient(commands, SSOAdmin);
+createAggregatedClient(commands, SSOAdmin, { paginators });

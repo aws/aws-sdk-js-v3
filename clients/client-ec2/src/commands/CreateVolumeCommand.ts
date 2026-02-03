@@ -111,6 +111,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * //       DeleteOnTermination: true || false,
  * //       AssociatedResource: "STRING_VALUE",
  * //       InstanceOwningService: "STRING_VALUE",
+ * //       EbsCardIndex: Number("int"),
  * //       VolumeId: "STRING_VALUE",
  * //       InstanceId: "STRING_VALUE",
  * //       Device: "STRING_VALUE",

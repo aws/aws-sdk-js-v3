@@ -321,13 +321,13 @@ var BuildSpec: StaticSimpleSchema = [0, n0, _BS, 8, 0];
 var OauthToken: StaticSimpleSchema = [0, n0, _OT, 8, 0];
 export var App$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_aI, _aA, _n, _t, _d, _r, _p, _cT, _uT, _cRA, _iSRA, _eV, _dD, _eBAB, _eBAD, _eBA, _bAC, _cR, _pB, _bS, _cH, _eABC, _aBCP, _aBCC, _rCM, _cC, _wCT, _wC, _jC],
-  [0, 0, 0, 128 | 0, 0, 0, 0, 4, 4, 0, 0, 128 | 0, 0, 2, 2, 2, [() => BasicAuthCredentials, 0], () => CustomRules, () => ProductionBranch$, [() => BuildSpec, 0], 0, 2, 64 | 0, [() => AutoBranchCreationConfig$, 0], 0, () => CacheConfig$, 4, () => WafConfiguration$, () => JobConfig$]
+  [_aI, _aA, _n, _d, _r, _p, _cT, _uT, _eV, _dD, _eBAB, _eBA, _t, _cRA, _iSRA, _eBAD, _bAC, _cR, _pB, _bS, _cH, _eABC, _aBCP, _aBCC, _rCM, _cC, _wCT, _wC, _jC],
+  [0, 0, 0, 0, 0, 0, 4, 4, 128 | 0, 0, 2, 2, 128 | 0, 0, 0, 2, [() => BasicAuthCredentials, 0], () => CustomRules, () => ProductionBranch$, [() => BuildSpec, 0], 0, 2, 64 | 0, [() => AutoBranchCreationConfig$, 0], 0, () => CacheConfig$, 4, () => WafConfiguration$, () => JobConfig$], 12
 ];
 export var Artifact$: StaticStructureSchema = [3, n0, _Ar,
   0,
   [_aFN, _aIr],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AutoBranchCreationConfig$: StaticStructureSchema = [3, n0, _ABCC,
   0,
@@ -341,8 +341,8 @@ export var Backend$: StaticStructureSchema = [3, n0, _B,
 ];
 export var BackendEnvironment$: StaticStructureSchema = [3, n0, _BE,
   0,
-  [_bEA, _eN, _sN, _dA, _cT, _uT],
-  [0, 0, 0, 0, 4, 4]
+  [_bEA, _eN, _cT, _uT, _sN, _dA],
+  [0, 0, 4, 4, 0, 0], 4
 ];
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
@@ -352,148 +352,148 @@ export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
 TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var Branch$: StaticStructureSchema = [3, n0, _Br,
   0,
-  [_bA, _bN, _d, _t, _s, _dN, _eNn, _cT, _uT, _eV, _eAB, _eSP, _cD, _f, _aJI, _tNOJ, _eBA, _ePM, _tU, _bAC, _bS, _tt, _aR, _ePRP, _pREN, _dB, _sB, _bEA, _b, _cRA],
-  [0, 0, 0, 128 | 0, 0, 0, 2, 4, 4, 128 | 0, 2, 2, 64 | 0, 0, 0, 0, 2, 2, 0, [() => BasicAuthCredentials, 0], [() => BuildSpec, 0], 0, 64 | 0, 2, 0, 0, 0, 0, () => Backend$, 0]
+  [_bA, _bN, _d, _s, _dN, _eNn, _cT, _uT, _eV, _eAB, _cD, _f, _aJI, _tNOJ, _eBA, _tt, _ePRP, _t, _eSP, _ePM, _tU, _bAC, _bS, _aR, _pREN, _dB, _sB, _bEA, _b, _cRA],
+  [0, 0, 0, 0, 0, 2, 4, 4, 128 | 0, 2, 64 | 0, 0, 0, 0, 2, 0, 2, 128 | 0, 2, 2, 0, [() => BasicAuthCredentials, 0], [() => BuildSpec, 0], 64 | 0, 0, 0, 0, 0, () => Backend$, 0], 17
 ];
 export var CacheConfig$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_ty],
-  [0]
+  [0], 1
 ];
 export var Certificate$: StaticStructureSchema = [3, n0, _C,
   0,
   [_ty, _cCA, _cVDNSR],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var CertificateSettings$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_ty, _cCA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CreateAppRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_n, _d, _r, _p, _cRA, _iSRA, _oT, _aT, _eV, _eBAB, _eBAD, _eBA, _bAC, _cR, _t, _bS, _cH, _eABC, _aBCP, _aBCC, _jC, _cC],
-  [0, 0, 0, 0, 0, 0, [() => OauthToken, 0], [() => AccessToken, 0], 128 | 0, 2, 2, 2, [() => BasicAuthCredentials, 0], () => CustomRules, 128 | 0, [() => BuildSpec, 0], 0, 2, 64 | 0, [() => AutoBranchCreationConfig$, 0], () => JobConfig$, () => CacheConfig$]
+  [0, 0, 0, 0, 0, 0, [() => OauthToken, 0], [() => AccessToken, 0], 128 | 0, 2, 2, 2, [() => BasicAuthCredentials, 0], () => CustomRules, 128 | 0, [() => BuildSpec, 0], 0, 2, 64 | 0, [() => AutoBranchCreationConfig$, 0], () => JobConfig$, () => CacheConfig$], 1
 ];
 export var CreateAppResult$: StaticStructureSchema = [3, n0, _CARr,
   0,
   [_a],
-  [[() => App$, 0]]
+  [[() => App$, 0]], 1
 ];
 export var CreateBackendEnvironmentRequest$: StaticStructureSchema = [3, n0, _CBER,
   0,
   [_aI, _eN, _sN, _dA],
-  [[0, 1], 0, 0, 0]
+  [[0, 1], 0, 0, 0], 2
 ];
 export var CreateBackendEnvironmentResult$: StaticStructureSchema = [3, n0, _CBERr,
   0,
   [_bE],
-  [() => BackendEnvironment$]
+  [() => BackendEnvironment$], 1
 ];
 export var CreateBranchRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
   [_aI, _bN, _d, _s, _f, _eNn, _eAB, _eSP, _eV, _bAC, _eBA, _ePM, _t, _bS, _tt, _dN, _ePRP, _pREN, _bEA, _b, _cRA],
-  [[0, 1], 0, 0, 0, 0, 2, 2, 2, 128 | 0, [() => BasicAuthCredentials, 0], 2, 2, 128 | 0, [() => BuildSpec, 0], 0, 0, 2, 0, 0, () => Backend$, 0]
+  [[0, 1], 0, 0, 0, 0, 2, 2, 2, 128 | 0, [() => BasicAuthCredentials, 0], 2, 2, 128 | 0, [() => BuildSpec, 0], 0, 0, 2, 0, 0, () => Backend$, 0], 2
 ];
 export var CreateBranchResult$: StaticStructureSchema = [3, n0, _CBRr,
   0,
   [_br],
-  [[() => Branch$, 0]]
+  [[() => Branch$, 0]], 1
 ];
 export var CreateDeploymentRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_aI, _bN, _fM],
-  [[0, 1], [0, 1], 128 | 0]
+  [[0, 1], [0, 1], 128 | 0], 2
 ];
 export var CreateDeploymentResult$: StaticStructureSchema = [3, n0, _CDRr,
   0,
-  [_jI, _fUU, _zUU],
-  [0, 128 | 0, 0]
+  [_fUU, _zUU, _jI],
+  [128 | 0, 0, 0], 2
 ];
 export var CreateDomainAssociationRequest$: StaticStructureSchema = [3, n0, _CDAR,
   0,
-  [_aI, _dNo, _eASD, _sDS, _aSDCP, _aSDIAMR, _cS],
-  [[0, 1], 0, 2, () => SubDomainSettings, 64 | 0, 0, () => CertificateSettings$]
+  [_aI, _dNo, _sDS, _eASD, _aSDCP, _aSDIAMR, _cS],
+  [[0, 1], 0, () => SubDomainSettings, 2, 64 | 0, 0, () => CertificateSettings$], 3
 ];
 export var CreateDomainAssociationResult$: StaticStructureSchema = [3, n0, _CDARr,
   0,
   [_dAo],
-  [() => DomainAssociation$]
+  [() => DomainAssociation$], 1
 ];
 export var CreateWebhookRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
   [_aI, _bN, _d],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 2
 ];
 export var CreateWebhookResult$: StaticStructureSchema = [3, n0, _CWRr,
   0,
   [_w],
-  [() => Webhook$]
+  [() => Webhook$], 1
 ];
 export var CustomRule$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_so, _ta, _st, _co],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var DeleteAppRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAppResult$: StaticStructureSchema = [3, n0, _DARe,
   0,
   [_a],
-  [[() => App$, 0]]
+  [[() => App$, 0]], 1
 ];
 export var DeleteBackendEnvironmentRequest$: StaticStructureSchema = [3, n0, _DBER,
   0,
   [_aI, _eN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteBackendEnvironmentResult$: StaticStructureSchema = [3, n0, _DBERe,
   0,
   [_bE],
-  [() => BackendEnvironment$]
+  [() => BackendEnvironment$], 1
 ];
 export var DeleteBranchRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
   [_aI, _bN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteBranchResult$: StaticStructureSchema = [3, n0, _DBRe,
   0,
   [_br],
-  [[() => Branch$, 0]]
+  [[() => Branch$, 0]], 1
 ];
 export var DeleteDomainAssociationRequest$: StaticStructureSchema = [3, n0, _DDAR,
   0,
   [_aI, _dNo],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteDomainAssociationResult$: StaticStructureSchema = [3, n0, _DDARe,
   0,
   [_dAo],
-  [() => DomainAssociation$]
+  [() => DomainAssociation$], 1
 ];
 export var DeleteJobRequest$: StaticStructureSchema = [3, n0, _DJR,
   0,
   [_aI, _bN, _jI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteJobResult$: StaticStructureSchema = [3, n0, _DJRe,
   0,
   [_jS],
-  [() => JobSummary$]
+  [() => JobSummary$], 1
 ];
 export var DeleteWebhookRequest$: StaticStructureSchema = [3, n0, _DWR,
   0,
   [_wI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteWebhookResult$: StaticStructureSchema = [3, n0, _DWRe,
   0,
   [_w],
-  [() => Webhook$]
+  [() => Webhook$], 1
 ];
 export var DependentServiceFailureException$: StaticErrorSchema = [-3, n0, _DSFE,
   { [_e]: _se, [_hE]: 503 },
@@ -503,13 +503,13 @@ export var DependentServiceFailureException$: StaticErrorSchema = [-3, n0, _DSFE
 TypeRegistry.for(n0).registerError(DependentServiceFailureException$, DependentServiceFailureException);
 export var DomainAssociation$: StaticStructureSchema = [3, n0, _DA,
   0,
-  [_dAA, _dNo, _eASD, _aSDCP, _aSDIAMR, _dS, _uS, _sR, _cVDNSR, _sD, _ce],
-  [0, 0, 2, 64 | 0, 0, 0, 0, 0, 0, () => SubDomains, () => Certificate$]
+  [_dAA, _dNo, _eASD, _dS, _sR, _sD, _aSDCP, _aSDIAMR, _uS, _cVDNSR, _ce],
+  [0, 0, 2, 0, 0, () => SubDomains, 64 | 0, 0, 0, 0, () => Certificate$], 6
 ];
 export var GenerateAccessLogsRequest$: StaticStructureSchema = [3, n0, _GALR,
   0,
-  [_sT, _eT, _dNo, _aI],
-  [4, 4, 0, [0, 1]]
+  [_dNo, _aI, _sT, _eT],
+  [0, [0, 1], 4, 4], 2
 ];
 export var GenerateAccessLogsResult$: StaticStructureSchema = [3, n0, _GALRe,
   0,
@@ -519,72 +519,72 @@ export var GenerateAccessLogsResult$: StaticStructureSchema = [3, n0, _GALRe,
 export var GetAppRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAppResult$: StaticStructureSchema = [3, n0, _GARe,
   0,
   [_a],
-  [[() => App$, 0]]
+  [[() => App$, 0]], 1
 ];
 export var GetArtifactUrlRequest$: StaticStructureSchema = [3, n0, _GAUR,
   0,
   [_aIr],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetArtifactUrlResult$: StaticStructureSchema = [3, n0, _GAURe,
   0,
   [_aIr, _aU],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetBackendEnvironmentRequest$: StaticStructureSchema = [3, n0, _GBER,
   0,
   [_aI, _eN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetBackendEnvironmentResult$: StaticStructureSchema = [3, n0, _GBERe,
   0,
   [_bE],
-  [() => BackendEnvironment$]
+  [() => BackendEnvironment$], 1
 ];
 export var GetBranchRequest$: StaticStructureSchema = [3, n0, _GBR,
   0,
   [_aI, _bN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetBranchResult$: StaticStructureSchema = [3, n0, _GBRe,
   0,
   [_br],
-  [[() => Branch$, 0]]
+  [[() => Branch$, 0]], 1
 ];
 export var GetDomainAssociationRequest$: StaticStructureSchema = [3, n0, _GDAR,
   0,
   [_aI, _dNo],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetDomainAssociationResult$: StaticStructureSchema = [3, n0, _GDARe,
   0,
   [_dAo],
-  [() => DomainAssociation$]
+  [() => DomainAssociation$], 1
 ];
 export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR,
   0,
   [_aI, _bN, _jI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetJobResult$: StaticStructureSchema = [3, n0, _GJRe,
   0,
   [_j],
-  [() => Job$]
+  [() => Job$], 1
 ];
 export var GetWebhookRequest$: StaticStructureSchema = [3, n0, _GWR,
   0,
   [_wI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetWebhookResult$: StaticStructureSchema = [3, n0, _GWRe,
   0,
   [_w],
-  [() => Webhook$]
+  [() => Webhook$], 1
 ];
 export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
   { [_e]: _se, [_hE]: 500 },
@@ -595,17 +595,17 @@ TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureExc
 export var Job$: StaticStructureSchema = [3, n0, _J,
   0,
   [_su, _ste],
-  [() => JobSummary$, () => Steps]
+  [() => JobSummary$, () => Steps], 2
 ];
 export var JobConfig$: StaticStructureSchema = [3, n0, _JC,
   0,
   [_bCT],
-  [0]
+  [0], 1
 ];
 export var JobSummary$: StaticStructureSchema = [3, n0, _JS,
   0,
-  [_jA, _jI, _cI, _cM, _cTo, _sT, _st, _eT, _jT, _sU, _sUT],
-  [0, 0, 0, 0, 4, 4, 0, 4, 0, 0, 0]
+  [_jA, _jI, _cI, _cM, _cTo, _sT, _st, _jT, _eT, _sU, _sUT],
+  [0, 0, 0, 0, 4, 4, 0, 0, 4, 0, 0], 8
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _c, [_hE]: 429 },
@@ -621,62 +621,62 @@ export var ListAppsRequest$: StaticStructureSchema = [3, n0, _LAR,
 export var ListAppsResult$: StaticStructureSchema = [3, n0, _LARi,
   0,
   [_ap, _nT],
-  [[() => Apps, 0], 0]
+  [[() => Apps, 0], 0], 1
 ];
 export var ListArtifactsRequest$: StaticStructureSchema = [3, n0, _LARis,
   0,
   [_aI, _bN, _jI, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 3
 ];
 export var ListArtifactsResult$: StaticStructureSchema = [3, n0, _LARist,
   0,
   [_ar, _nT],
-  [() => Artifacts, 0]
+  [() => Artifacts, 0], 1
 ];
 export var ListBackendEnvironmentsRequest$: StaticStructureSchema = [3, n0, _LBER,
   0,
   [_aI, _eN, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _eN }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _eN }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListBackendEnvironmentsResult$: StaticStructureSchema = [3, n0, _LBERi,
   0,
   [_bEa, _nT],
-  [() => BackendEnvironments, 0]
+  [() => BackendEnvironments, 0], 1
 ];
 export var ListBranchesRequest$: StaticStructureSchema = [3, n0, _LBR,
   0,
   [_aI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListBranchesResult$: StaticStructureSchema = [3, n0, _LBRi,
   0,
   [_bra, _nT],
-  [[() => Branches, 0], 0]
+  [[() => Branches, 0], 0], 1
 ];
 export var ListDomainAssociationsRequest$: StaticStructureSchema = [3, n0, _LDAR,
   0,
   [_aI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListDomainAssociationsResult$: StaticStructureSchema = [3, n0, _LDARi,
   0,
   [_dAom, _nT],
-  [() => DomainAssociations, 0]
+  [() => DomainAssociations, 0], 1
 ];
 export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
   0,
   [_aI, _bN, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListJobsResult$: StaticStructureSchema = [3, n0, _LJRi,
   0,
   [_jSo, _nT],
-  [() => JobSummaries, 0]
+  [() => JobSummaries, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -686,12 +686,12 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListWebhooksRequest$: StaticStructureSchema = [3, n0, _LWR,
   0,
   [_aI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListWebhooksResult$: StaticStructureSchema = [3, n0, _LWRi,
   0,
   [_we, _nT],
-  [() => Webhooks, 0]
+  [() => Webhooks, 0], 1
 ];
 export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_e]: _c, [_hE]: 404 },
@@ -707,58 +707,58 @@ export var ProductionBranch$: StaticStructureSchema = [3, n0, _PB,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_cod, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var StartDeploymentRequest$: StaticStructureSchema = [3, n0, _SDR,
   0,
   [_aI, _bN, _jI, _sU, _sUT],
-  [[0, 1], [0, 1], 0, 0, 0]
+  [[0, 1], [0, 1], 0, 0, 0], 2
 ];
 export var StartDeploymentResult$: StaticStructureSchema = [3, n0, _SDRt,
   0,
   [_jS],
-  [() => JobSummary$]
+  [() => JobSummary$], 1
 ];
 export var StartJobRequest$: StaticStructureSchema = [3, n0, _SJR,
   0,
-  [_aI, _bN, _jI, _jT, _jR, _cI, _cM, _cTo],
-  [[0, 1], [0, 1], 0, 0, 0, 0, 0, 4]
+  [_aI, _bN, _jT, _jI, _jR, _cI, _cM, _cTo],
+  [[0, 1], [0, 1], 0, 0, 0, 0, 0, 4], 3
 ];
 export var StartJobResult$: StaticStructureSchema = [3, n0, _SJRt,
   0,
   [_jS],
-  [() => JobSummary$]
+  [() => JobSummary$], 1
 ];
 export var Step$: StaticStructureSchema = [3, n0, _S,
   0,
   [_sNt, _sT, _st, _eT, _lU, _aUr, _tAU, _tCU, _sc, _sR, _con],
-  [0, 4, 0, 4, 0, 0, 0, 0, 128 | 0, 0, 0]
+  [0, 4, 0, 4, 0, 0, 0, 0, 128 | 0, 0, 0], 4
 ];
 export var StopJobRequest$: StaticStructureSchema = [3, n0, _SJRto,
   0,
   [_aI, _bN, _jI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var StopJobResult$: StaticStructureSchema = [3, n0, _SJRtop,
   0,
   [_jS],
-  [() => JobSummary$]
+  [() => JobSummary$], 1
 ];
 export var SubDomain$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_sDSu, _v, _dR],
-  [() => SubDomainSetting$, 2, 0]
+  [() => SubDomainSetting$, 2, 0], 3
 ];
 export var SubDomainSetting$: StaticStructureSchema = [3, n0, _SDS,
   0,
   [_pr, _bN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -774,7 +774,7 @@ TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -784,42 +784,42 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAppRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_aI, _n, _d, _p, _cRA, _iSRA, _eV, _eBAB, _eBAD, _eBA, _bAC, _cR, _bS, _cH, _eABC, _aBCP, _aBCC, _r, _oT, _aT, _jC, _cC],
-  [[0, 1], 0, 0, 0, 0, 0, 128 | 0, 2, 2, 2, [() => BasicAuthCredentials, 0], () => CustomRules, [() => BuildSpec, 0], 0, 2, 64 | 0, [() => AutoBranchCreationConfig$, 0], 0, [() => OauthToken, 0], [() => AccessToken, 0], () => JobConfig$, () => CacheConfig$]
+  [[0, 1], 0, 0, 0, 0, 0, 128 | 0, 2, 2, 2, [() => BasicAuthCredentials, 0], () => CustomRules, [() => BuildSpec, 0], 0, 2, 64 | 0, [() => AutoBranchCreationConfig$, 0], 0, [() => OauthToken, 0], [() => AccessToken, 0], () => JobConfig$, () => CacheConfig$], 1
 ];
 export var UpdateAppResult$: StaticStructureSchema = [3, n0, _UARp,
   0,
   [_a],
-  [[() => App$, 0]]
+  [[() => App$, 0]], 1
 ];
 export var UpdateBranchRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
   [_aI, _bN, _d, _f, _s, _eNn, _eAB, _eSP, _eV, _bAC, _eBA, _ePM, _bS, _tt, _dN, _ePRP, _pREN, _bEA, _b, _cRA],
-  [[0, 1], [0, 1], 0, 0, 0, 2, 2, 2, 128 | 0, [() => BasicAuthCredentials, 0], 2, 2, [() => BuildSpec, 0], 0, 0, 2, 0, 0, () => Backend$, 0]
+  [[0, 1], [0, 1], 0, 0, 0, 2, 2, 2, 128 | 0, [() => BasicAuthCredentials, 0], 2, 2, [() => BuildSpec, 0], 0, 0, 2, 0, 0, () => Backend$, 0], 2
 ];
 export var UpdateBranchResult$: StaticStructureSchema = [3, n0, _UBRp,
   0,
   [_br],
-  [[() => Branch$, 0]]
+  [[() => Branch$, 0]], 1
 ];
 export var UpdateDomainAssociationRequest$: StaticStructureSchema = [3, n0, _UDAR,
   0,
   [_aI, _dNo, _eASD, _sDS, _aSDCP, _aSDIAMR, _cS],
-  [[0, 1], [0, 1], 2, () => SubDomainSettings, 64 | 0, 0, () => CertificateSettings$]
+  [[0, 1], [0, 1], 2, () => SubDomainSettings, 64 | 0, 0, () => CertificateSettings$], 2
 ];
 export var UpdateDomainAssociationResult$: StaticStructureSchema = [3, n0, _UDARp,
   0,
   [_dAo],
-  [() => DomainAssociation$]
+  [() => DomainAssociation$], 1
 ];
 export var UpdateWebhookRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
   [_wI, _bN, _d],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateWebhookResult$: StaticStructureSchema = [3, n0, _UWRp,
   0,
   [_w],
-  [() => Webhook$]
+  [() => Webhook$], 1
 ];
 export var WafConfiguration$: StaticStructureSchema = [3, n0, _WC,
   0,
@@ -828,8 +828,8 @@ export var WafConfiguration$: StaticStructureSchema = [3, n0, _WC,
 ];
 export var Webhook$: StaticStructureSchema = [3, n0, _W,
   0,
-  [_wA, _wI, _wU, _aI, _bN, _d, _cT, _uT],
-  [0, 0, 0, 0, 0, 0, 4, 4]
+  [_wA, _wI, _wU, _bN, _d, _cT, _uT, _aI],
+  [0, 0, 0, 0, 0, 4, 4, 0], 7
 ];
 export var AmplifyServiceException$: StaticErrorSchema = [-3, _sm, "AmplifyServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(AmplifyServiceException$, AmplifyServiceException);

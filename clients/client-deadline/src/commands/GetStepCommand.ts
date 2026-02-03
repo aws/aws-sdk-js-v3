@@ -93,6 +93,11 @@ export interface GetStepCommandOutput extends GetStepResponse, __MetadataBearer 
  * //       { // StepParameter
  * //         name: "STRING_VALUE", // required
  * //         type: "INT" || "FLOAT" || "STRING" || "PATH" || "CHUNK_INT", // required
+ * //         chunks: { // StepParameterChunks
+ * //           defaultTaskCount: Number("int"), // required
+ * //           targetRuntimeSeconds: Number("int"),
+ * //           rangeConstraint: "CONTIGUOUS" || "NONCONTIGUOUS", // required
+ * //         },
  * //       },
  * //     ],
  * //     combination: "STRING_VALUE",
@@ -121,8 +126,7 @@ export interface GetStepCommandOutput extends GetStepResponse, __MetadataBearer 
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

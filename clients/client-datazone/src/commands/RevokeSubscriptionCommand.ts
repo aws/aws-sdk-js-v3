@@ -74,6 +74,9 @@ export interface RevokeSubscriptionCommandOutput extends RevokeSubscriptionOutpu
  * //       id: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //     },
+ * //     iam: { // SubscribedIamPrincipal
+ * //       principalArn: "STRING_VALUE",
+ * //     },
  * //   },
  * //   subscribedListing: { // SubscribedListing
  * //     id: "STRING_VALUE", // required

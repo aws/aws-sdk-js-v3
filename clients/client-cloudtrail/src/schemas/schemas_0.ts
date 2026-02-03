@@ -639,7 +639,7 @@ TypeRegistry.for(n0).registerError(AccountRegisteredException$, AccountRegistere
 export var AddTagsRequest$: StaticStructureSchema = [3, n0, _ATR,
   0,
   [_RI, _TL],
-  [0, () => TagsList]
+  [0, () => TagsList], 2
 ];
 export var AddTagsResponse$: StaticStructureSchema = [3, n0, _ATRd,
   0,
@@ -648,28 +648,28 @@ export var AddTagsResponse$: StaticStructureSchema = [3, n0, _ATRd,
 ];
 export var AdvancedEventSelector$: StaticStructureSchema = [3, n0, _AES,
   0,
-  [_N, _FS],
-  [0, () => AdvancedFieldSelectors]
+  [_FS, _N],
+  [() => AdvancedFieldSelectors, 0], 1
 ];
 export var AdvancedFieldSelector$: StaticStructureSchema = [3, n0, _AFS,
   0,
   [_F, _E, _SW, _EW, _NE, _NSW, _NEW],
-  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var AggregationConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_T, _EC],
-  [64 | 0, 0]
+  [64 | 0, 0], 2
 ];
 export var CancelQueryRequest$: StaticStructureSchema = [3, n0, _CQR,
   0,
-  [_EDS, _QI, _EDSOAI],
-  [0, 0, 0]
+  [_QI, _EDS, _EDSOAI],
+  [0, 0, 0], 1
 ];
 export var CancelQueryResponse$: StaticStructureSchema = [3, n0, _CQRa,
   0,
   [_QI, _QS, _EDSOAI],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var CannotDelegateManagementAccountException$: StaticErrorSchema = [-3, n0, _CDMAE,
   { [_aQE]: [`CannotDelegateManagementAccount`, 400], [_e]: _c, [_hE]: 400 },
@@ -751,12 +751,12 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContextKeySelector$: StaticStructureSchema = [3, n0, _CKS,
   0,
   [_Ty, _E],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_N, _S, _D, _Ta],
-  [0, 0, () => Destinations, () => TagsList]
+  [0, 0, () => Destinations, () => TagsList], 3
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -766,7 +766,7 @@ export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateDashboardRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_N, _RS, _TL, _TPE, _W],
-  [0, () => RefreshSchedule$, () => TagsList, 2, () => RequestWidgetList]
+  [0, () => RefreshSchedule$, () => TagsList, 2, () => RequestWidgetList], 1
 ];
 export var CreateDashboardResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -776,7 +776,7 @@ export var CreateDashboardResponse$: StaticStructureSchema = [3, n0, _CDRr,
 export var CreateEventDataStoreRequest$: StaticStructureSchema = [3, n0, _CEDSR,
   0,
   [_N, _AESd, _MRE, _OE, _RP, _TPE, _TL, _KKI, _SI, _BM],
-  [0, () => AdvancedEventSelectors, 2, 2, 1, 2, () => TagsList, 0, 2, 0]
+  [0, () => AdvancedEventSelectors, 2, 2, 1, 2, () => TagsList, 0, 2, 0], 1
 ];
 export var CreateEventDataStoreResponse$: StaticStructureSchema = [3, n0, _CEDSRr,
   0,
@@ -786,7 +786,7 @@ export var CreateEventDataStoreResponse$: StaticStructureSchema = [3, n0, _CEDSR
 export var CreateTrailRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_N, _SBN, _SKP, _STN, _IGSE, _IMRT, _ELFV, _CWLLGA, _CWLRA, _KKI, _IOT, _TL],
-  [0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2, () => TagsList]
+  [0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2, () => TagsList], 2
 ];
 export var CreateTrailResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -812,7 +812,7 @@ TypeRegistry.for(n0).registerError(DelegatedAdminAccountLimitExceededException$,
 export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_C],
-  [0]
+  [0], 1
 ];
 export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -822,7 +822,7 @@ export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteDashboardRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var DeleteDashboardResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -832,7 +832,7 @@ export var DeleteDashboardResponse$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeleteEventDataStoreRequest$: StaticStructureSchema = [3, n0, _DEDSR,
   0,
   [_EDS],
-  [0]
+  [0], 1
 ];
 export var DeleteEventDataStoreResponse$: StaticStructureSchema = [3, n0, _DEDSRe,
   0,
@@ -842,7 +842,7 @@ export var DeleteEventDataStoreResponse$: StaticStructureSchema = [3, n0, _DEDSR
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -852,7 +852,7 @@ export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
 export var DeleteTrailRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteTrailResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -862,7 +862,7 @@ export var DeleteTrailResponse$: StaticStructureSchema = [3, n0, _DTRe,
 export var DeregisterOrganizationDelegatedAdminRequest$: StaticStructureSchema = [3, n0, _DODAR,
   0,
   [_DAAI],
-  [0]
+  [0], 1
 ];
 export var DeregisterOrganizationDelegatedAdminResponse$: StaticStructureSchema = [3, n0, _DODARe,
   0,
@@ -892,12 +892,12 @@ export var DescribeTrailsResponse$: StaticStructureSchema = [3, n0, _DTResc,
 export var Destination$: StaticStructureSchema = [3, n0, _De,
   0,
   [_Ty, _L],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisableFederationRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_EDS],
-  [0]
+  [0], 1
 ];
 export var DisableFederationResponse$: StaticStructureSchema = [3, n0, _DFRi,
   0,
@@ -907,7 +907,7 @@ export var DisableFederationResponse$: StaticStructureSchema = [3, n0, _DFRi,
 export var EnableFederationRequest$: StaticStructureSchema = [3, n0, _EFR,
   0,
   [_EDS, _FRA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EnableFederationResponse$: StaticStructureSchema = [3, n0, _EFRn,
   0,
@@ -974,7 +974,7 @@ export var EventSelector$: StaticStructureSchema = [3, n0, _ESv,
 export var GenerateQueryRequest$: StaticStructureSchema = [3, n0, _GQR,
   0,
   [_EDSv, _P],
-  [64 | 0, 0]
+  [64 | 0, 0], 2
 ];
 export var GenerateQueryResponse$: StaticStructureSchema = [3, n0, _GQRe,
   0,
@@ -990,7 +990,7 @@ TypeRegistry.for(n0).registerError(GenerateResponseException$, GenerateResponseE
 export var GetChannelRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_C],
-  [0]
+  [0], 1
 ];
 export var GetChannelResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -1000,7 +1000,7 @@ export var GetChannelResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var GetDashboardRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var GetDashboardResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
@@ -1020,7 +1020,7 @@ export var GetEventConfigurationResponse$: StaticStructureSchema = [3, n0, _GECR
 export var GetEventDataStoreRequest$: StaticStructureSchema = [3, n0, _GEDSR,
   0,
   [_EDS],
-  [0]
+  [0], 1
 ];
 export var GetEventDataStoreResponse$: StaticStructureSchema = [3, n0, _GEDSRe,
   0,
@@ -1030,7 +1030,7 @@ export var GetEventDataStoreResponse$: StaticStructureSchema = [3, n0, _GEDSRe,
 export var GetEventSelectorsRequest$: StaticStructureSchema = [3, n0, _GESR,
   0,
   [_TN],
-  [0]
+  [0], 1
 ];
 export var GetEventSelectorsResponse$: StaticStructureSchema = [3, n0, _GESRe,
   0,
@@ -1040,7 +1040,7 @@ export var GetEventSelectorsResponse$: StaticStructureSchema = [3, n0, _GESRe,
 export var GetImportRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
   [_II],
-  [0]
+  [0], 1
 ];
 export var GetImportResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
@@ -1059,8 +1059,8 @@ export var GetInsightSelectorsResponse$: StaticStructureSchema = [3, n0, _GISRe,
 ];
 export var GetQueryResultsRequest$: StaticStructureSchema = [3, n0, _GQRR,
   0,
-  [_EDS, _QI, _NT, _MQR, _EDSOAI],
-  [0, 0, 0, 1, 0]
+  [_QI, _EDS, _NT, _MQR, _EDSOAI],
+  [0, 0, 0, 1, 0], 1
 ];
 export var GetQueryResultsResponse$: StaticStructureSchema = [3, n0, _GQRRe,
   0,
@@ -1070,7 +1070,7 @@ export var GetQueryResultsResponse$: StaticStructureSchema = [3, n0, _GQRRe,
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
@@ -1080,7 +1080,7 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
 export var GetTrailRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var GetTrailResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
@@ -1090,7 +1090,7 @@ export var GetTrailResponse$: StaticStructureSchema = [3, n0, _GTRe,
 export var GetTrailStatusRequest$: StaticStructureSchema = [3, n0, _GTSR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var GetTrailStatusResponse$: StaticStructureSchema = [3, n0, _GTSRe,
   0,
@@ -1116,7 +1116,7 @@ export var ImportsListItem$: StaticStructureSchema = [3, n0, _ILI,
 export var ImportSource$: StaticStructureSchema = [3, n0, _ISm,
   0,
   [_S_],
-  [() => S3ImportSource$]
+  [() => S3ImportSource$], 1
 ];
 export var ImportStatistics$: StaticStructureSchema = [3, n0, _ISmpo,
   0,
@@ -1388,7 +1388,7 @@ export var ListEventDataStoresResponse$: StaticStructureSchema = [3, n0, _LEDSRi
 export var ListImportFailuresRequest$: StaticStructureSchema = [3, n0, _LIFR,
   0,
   [_II, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListImportFailuresResponse$: StaticStructureSchema = [3, n0, _LIFRi,
   0,
@@ -1408,7 +1408,7 @@ export var ListImportsResponse$: StaticStructureSchema = [3, n0, _LIRi,
 export var ListInsightsDataRequest$: StaticStructureSchema = [3, n0, _LIDR,
   0,
   [_ISnsi, _DT, _Di, _ST, _ETn, _MR, _NT],
-  [0, 0, 128 | 0, 4, 4, 1, 0]
+  [0, 0, 128 | 0, 4, 4, 1, 0], 2
 ];
 export var ListInsightsDataResponse$: StaticStructureSchema = [3, n0, _LIDRi,
   0,
@@ -1417,8 +1417,8 @@ export var ListInsightsDataResponse$: StaticStructureSchema = [3, n0, _LIDRi,
 ];
 export var ListInsightsMetricDataRequest$: StaticStructureSchema = [3, n0, _LIMDR,
   0,
-  [_TN, _ES, _EN, _IT, _ECr, _ST, _ETn, _Pe, _DT, _MR, _NT],
-  [0, 0, 0, 0, 0, 4, 4, 1, 0, 1, 0]
+  [_ES, _EN, _IT, _TN, _ECr, _ST, _ETn, _Pe, _DT, _MR, _NT],
+  [0, 0, 0, 0, 0, 4, 4, 1, 0, 1, 0], 3
 ];
 export var ListInsightsMetricDataResponse$: StaticStructureSchema = [3, n0, _LIMDRi,
   0,
@@ -1438,7 +1438,7 @@ export var ListPublicKeysResponse$: StaticStructureSchema = [3, n0, _LPKRi,
 export var ListQueriesRequest$: StaticStructureSchema = [3, n0, _LQR,
   0,
   [_EDS, _NT, _MR, _ST, _ETn, _QS],
-  [0, 0, 1, 4, 4, 0]
+  [0, 0, 1, 4, 4, 0], 1
 ];
 export var ListQueriesResponse$: StaticStructureSchema = [3, n0, _LQRi,
   0,
@@ -1448,7 +1448,7 @@ export var ListQueriesResponse$: StaticStructureSchema = [3, n0, _LQRi,
 export var ListTagsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_RIL, _NT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var ListTagsResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -1468,7 +1468,7 @@ export var ListTrailsResponse$: StaticStructureSchema = [3, n0, _LTRist,
 export var LookupAttribute$: StaticStructureSchema = [3, n0, _LA,
   0,
   [_AK, _AV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LookupEventsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
@@ -1531,7 +1531,7 @@ TypeRegistry.for(n0).registerError(OrganizationsNotInUseException$, Organization
 export var PartitionKey$: StaticStructureSchema = [3, n0, _PKa,
   0,
   [_N, _Ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PublicKey$: StaticStructureSchema = [3, n0, _PKu,
   0,
@@ -1551,7 +1551,7 @@ export var PutEventConfigurationResponse$: StaticStructureSchema = [3, n0, _PECR
 export var PutEventSelectorsRequest$: StaticStructureSchema = [3, n0, _PESR,
   0,
   [_TN, _ESve, _AESd],
-  [0, () => EventSelectors, () => AdvancedEventSelectors]
+  [0, () => EventSelectors, () => AdvancedEventSelectors], 1
 ];
 export var PutEventSelectorsResponse$: StaticStructureSchema = [3, n0, _PESRu,
   0,
@@ -1560,8 +1560,8 @@ export var PutEventSelectorsResponse$: StaticStructureSchema = [3, n0, _PESRu,
 ];
 export var PutInsightSelectorsRequest$: StaticStructureSchema = [3, n0, _PISR,
   0,
-  [_TN, _ISn, _EDS, _ID],
-  [0, () => InsightSelectors, 0, 0]
+  [_ISn, _TN, _EDS, _ID],
+  [() => InsightSelectors, 0, 0, 0], 1
 ];
 export var PutInsightSelectorsResponse$: StaticStructureSchema = [3, n0, _PISRu,
   0,
@@ -1571,7 +1571,7 @@ export var PutInsightSelectorsResponse$: StaticStructureSchema = [3, n0, _PISRu,
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_RA, _RPe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -1612,7 +1612,7 @@ export var RefreshScheduleFrequency$: StaticStructureSchema = [3, n0, _RSF,
 export var RegisterOrganizationDelegatedAdminRequest$: StaticStructureSchema = [3, n0, _RODAR,
   0,
   [_MAI],
-  [0]
+  [0], 1
 ];
 export var RegisterOrganizationDelegatedAdminResponse$: StaticStructureSchema = [3, n0, _RODARe,
   0,
@@ -1622,7 +1622,7 @@ export var RegisterOrganizationDelegatedAdminResponse$: StaticStructureSchema = 
 export var RemoveTagsRequest$: StaticStructureSchema = [3, n0, _RTR,
   0,
   [_RI, _TL],
-  [0, () => TagsList]
+  [0, () => TagsList], 2
 ];
 export var RemoveTagsResponse$: StaticStructureSchema = [3, n0, _RTRe,
   0,
@@ -1631,8 +1631,8 @@ export var RemoveTagsResponse$: StaticStructureSchema = [3, n0, _RTRe,
 ];
 export var RequestWidget$: StaticStructureSchema = [3, n0, _RW,
   0,
-  [_QSuer, _QP, _VP],
-  [0, 64 | 0, 128 | 0]
+  [_QSuer, _VP, _QP],
+  [0, 128 | 0, 64 | 0], 2
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _Re,
   0,
@@ -1677,7 +1677,7 @@ TypeRegistry.for(n0).registerError(ResourceTypeNotSupportedException$, ResourceT
 export var RestoreEventDataStoreRequest$: StaticStructureSchema = [3, n0, _REDSR,
   0,
   [_EDS],
-  [0]
+  [0], 1
 ];
 export var RestoreEventDataStoreResponse$: StaticStructureSchema = [3, n0, _REDSRe,
   0,
@@ -1693,12 +1693,12 @@ TypeRegistry.for(n0).registerError(S3BucketDoesNotExistException$, S3BucketDoesN
 export var S3ImportSource$: StaticStructureSchema = [3, n0, _SIS,
   0,
   [_SLU, _SBR, _SBARA],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var SearchSampleQueriesRequest$: StaticStructureSchema = [3, n0, _SSQR,
   0,
   [_SP, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var SearchSampleQueriesResponse$: StaticStructureSchema = [3, n0, _SSQRe,
   0,
@@ -1724,7 +1724,7 @@ export var SourceConfig$: StaticStructureSchema = [3, n0, _SC,
 export var StartDashboardRefreshRequest$: StaticStructureSchema = [3, n0, _SDRR,
   0,
   [_DI, _QPV],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var StartDashboardRefreshResponse$: StaticStructureSchema = [3, n0, _SDRRt,
   0,
@@ -1734,7 +1734,7 @@ export var StartDashboardRefreshResponse$: StaticStructureSchema = [3, n0, _SDRR
 export var StartEventDataStoreIngestionRequest$: StaticStructureSchema = [3, n0, _SEDSIR,
   0,
   [_EDS],
-  [0]
+  [0], 1
 ];
 export var StartEventDataStoreIngestionResponse$: StaticStructureSchema = [3, n0, _SEDSIRt,
   0,
@@ -1754,7 +1754,7 @@ export var StartImportResponse$: StaticStructureSchema = [3, n0, _SIRt,
 export var StartLoggingRequest$: StaticStructureSchema = [3, n0, _SLR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var StartLoggingResponse$: StaticStructureSchema = [3, n0, _SLRt,
   0,
@@ -1774,7 +1774,7 @@ export var StartQueryResponse$: StaticStructureSchema = [3, n0, _SQRt,
 export var StopEventDataStoreIngestionRequest$: StaticStructureSchema = [3, n0, _SEDSIRto,
   0,
   [_EDS],
-  [0]
+  [0], 1
 ];
 export var StopEventDataStoreIngestionResponse$: StaticStructureSchema = [3, n0, _SEDSIRtop,
   0,
@@ -1784,7 +1784,7 @@ export var StopEventDataStoreIngestionResponse$: StaticStructureSchema = [3, n0,
 export var StopImportRequest$: StaticStructureSchema = [3, n0, _SIRto,
   0,
   [_II],
-  [0]
+  [0], 1
 ];
 export var StopImportResponse$: StaticStructureSchema = [3, n0, _SIRtop,
   0,
@@ -1794,7 +1794,7 @@ export var StopImportResponse$: StaticStructureSchema = [3, n0, _SIRtop,
 export var StopLoggingRequest$: StaticStructureSchema = [3, n0, _SLRto,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var StopLoggingResponse$: StaticStructureSchema = [3, n0, _SLRtop,
   0,
@@ -1804,7 +1804,7 @@ export var StopLoggingResponse$: StaticStructureSchema = [3, n0, _SLRtop,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagsLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
   { [_aQE]: [`TagsLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
@@ -1855,7 +1855,7 @@ TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOp
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_C, _D, _N],
-  [0, () => Destinations, 0]
+  [0, () => Destinations, 0], 1
 ];
 export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -1865,7 +1865,7 @@ export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateDashboardRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_DI, _W, _RS, _TPE],
-  [0, () => RequestWidgetList, () => RefreshSchedule$, 2]
+  [0, () => RequestWidgetList, () => RefreshSchedule$, 2], 1
 ];
 export var UpdateDashboardResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -1875,7 +1875,7 @@ export var UpdateDashboardResponse$: StaticStructureSchema = [3, n0, _UDRp,
 export var UpdateEventDataStoreRequest$: StaticStructureSchema = [3, n0, _UEDSR,
   0,
   [_EDS, _N, _AESd, _MRE, _OE, _RP, _TPE, _KKI, _BM],
-  [0, 0, () => AdvancedEventSelectors, 2, 2, 1, 2, 0, 0]
+  [0, 0, () => AdvancedEventSelectors, 2, 2, 1, 2, 0, 0], 1
 ];
 export var UpdateEventDataStoreResponse$: StaticStructureSchema = [3, n0, _UEDSRp,
   0,
@@ -1885,7 +1885,7 @@ export var UpdateEventDataStoreResponse$: StaticStructureSchema = [3, n0, _UEDSR
 export var UpdateTrailRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
   [_N, _SBN, _SKP, _STN, _IGSE, _IMRT, _ELFV, _CWLLGA, _CWLRA, _KKI, _IOT],
-  [0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2]
+  [0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2], 1
 ];
 export var UpdateTrailResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,

@@ -192,170 +192,170 @@ var WorkflowDescription: StaticSimpleSchema = [0, n0, _WD, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActError$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_m, _t],
-  [[() => SensitiveString, 0], 0]
+  [[() => SensitiveString, 0], 0], 1
 ];
 export var ActSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_wRI, _sI, _aI, _s, _sA, _eA, _tL],
-  [0, 0, 0, 0, 5, 5, () => TraceLocation$]
+  [0, 0, 0, 0, 5, 5, () => TraceLocation$], 5
 ];
 export var Call$: StaticStructureSchema = [3, n0, _C,
   0,
   [_cI, _i, _n],
-  [0, [() => SensitiveDocument, 0], 0]
+  [0, [() => SensitiveDocument, 0], 0], 3
 ];
 export var CallResult$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_cI, _co],
-  [0, [() => CallResultContents, 0]]
+  [_co, _cI],
+  [[() => CallResultContents, 0], 0], 1
 ];
 export var ClientInfo$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_cV, _sV],
-  [1, 0]
+  [1, 0], 1
 ];
 export var CompatibilityInformation$: StaticStructureSchema = [3, n0, _CIo,
   0,
   [_cCV, _sMI, _m],
-  [1, 64 | 0, 0]
+  [1, 64 | 0, 0], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateActRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_wDN, _wRI, _sI, _ta, _tS, _cT],
-  [[0, 1], [0, 1], [0, 1], [() => Task, 0], [() => ToolSpecs, 0], [0, 4]]
+  [[0, 1], [0, 1], [0, 1], [() => Task, 0], [() => ToolSpecs, 0], [0, 4]], 4
 ];
 export var CreateActResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
   [_aI, _s],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateSessionRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_wDN, _wRI, _cT],
-  [[0, 1], [0, 1], [0, 4]]
+  [[0, 1], [0, 1], [0, 4]], 2
 ];
 export var CreateSessionResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
   [_sI],
-  [0]
+  [0], 1
 ];
 export var CreateWorkflowDefinitionRequest$: StaticStructureSchema = [3, n0, _CWDR,
   0,
   [_n, _d, _eC, _cT],
-  [0, [() => WorkflowDescription, 0], () => WorkflowExportConfig$, [0, 4]]
+  [0, [() => WorkflowDescription, 0], () => WorkflowExportConfig$, [0, 4]], 1
 ];
 export var CreateWorkflowDefinitionResponse$: StaticStructureSchema = [3, n0, _CWDRr,
   0,
   [_s],
-  [0]
+  [0], 1
 ];
 export var CreateWorkflowRunRequest$: StaticStructureSchema = [3, n0, _CWRR,
   0,
-  [_wDN, _mI, _cT, _lGN, _cIl],
-  [[0, 1], 0, [0, 4], 0, () => ClientInfo$]
+  [_wDN, _mI, _cIl, _cT, _lGN],
+  [[0, 1], 0, () => ClientInfo$, [0, 4], 0], 3
 ];
 export var CreateWorkflowRunResponse$: StaticStructureSchema = [3, n0, _CWRRr,
   0,
   [_wRI, _s],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteWorkflowDefinitionRequest$: StaticStructureSchema = [3, n0, _DWDR,
   0,
   [_wDN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteWorkflowDefinitionResponse$: StaticStructureSchema = [3, n0, _DWDRe,
   0,
   [_s],
-  [0]
+  [0], 1
 ];
 export var DeleteWorkflowRunRequest$: StaticStructureSchema = [3, n0, _DWRR,
   0,
   [_wDN, _wRI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteWorkflowRunResponse$: StaticStructureSchema = [3, n0, _DWRRe,
   0,
   [_s],
-  [0]
+  [0], 1
 ];
 export var GetWorkflowDefinitionRequest$: StaticStructureSchema = [3, n0, _GWDR,
   0,
   [_wDN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetWorkflowDefinitionResponse$: StaticStructureSchema = [3, n0, _GWDRe,
   0,
-  [_n, _a, _cA, _d, _eC, _s],
-  [0, 0, 5, [() => WorkflowDescription, 0], () => WorkflowExportConfig$, 0]
+  [_n, _a, _cA, _s, _d, _eC],
+  [0, 0, 5, 0, [() => WorkflowDescription, 0], () => WorkflowExportConfig$], 4
 ];
 export var GetWorkflowRunRequest$: StaticStructureSchema = [3, n0, _GWRR,
   0,
   [_wDN, _wRI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetWorkflowRunResponse$: StaticStructureSchema = [3, n0, _GWRRe,
   0,
-  [_wRA, _wRI, _s, _sA, _eA, _mI, _lGN],
-  [0, 0, 0, 5, 5, 0, 0]
+  [_wRA, _wRI, _s, _sA, _mI, _eA, _lGN],
+  [0, 0, 0, 5, 0, 5, 0], 5
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _rAS, _r],
-  [0, [1, { [_hH]: _RA }], 0]
+  [0, [1, { [_hH]: _RA }], 0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvokeActStepRequest$: StaticStructureSchema = [3, n0, _IASR,
   0,
   [_wDN, _wRI, _sI, _aI, _cR, _pSI],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [() => CallResults, 0], 0]
+  [[0, 1], [0, 1], [0, 1], [0, 1], [() => CallResults, 0], 0], 5
 ];
 export var InvokeActStepResponse$: StaticStructureSchema = [3, n0, _IASRn,
   0,
   [_ca, _sIt],
-  [[() => Calls, 0], 0]
+  [[() => Calls, 0], 0], 2
 ];
 export var ListActsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_wDN, _wRI, _sI, _mR, _nT, _sO],
-  [[0, 1], [0, { [_hQ]: _wRI }], [0, { [_hQ]: _sI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0]
+  [[0, 1], [0, { [_hQ]: _wRI }], [0, { [_hQ]: _sI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0], 1
 ];
 export var ListActsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
   [_aS, _nT],
-  [() => ActSummaries, 0]
+  [() => ActSummaries, 0], 1
 ];
 export var ListModelsRequest$: StaticStructureSchema = [3, n0, _LMR,
   0,
   [_cCV],
-  [[1, { [_hQ]: _cCV }]]
+  [[1, { [_hQ]: _cCV }]], 1
 ];
 export var ListModelsResponse$: StaticStructureSchema = [3, n0, _LMRi,
   0,
   [_mS, _mA, _cIo],
-  [() => ModelSummaries, () => ModelAliases, () => CompatibilityInformation$]
+  [() => ModelSummaries, () => ModelAliases, () => CompatibilityInformation$], 3
 ];
 export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_wDN, _wRI, _mR, _nT, _sO],
-  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0]
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0], 2
 ];
 export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
   [_sS, _nT],
-  [() => SessionSummaries, 0]
+  [() => SessionSummaries, 0], 1
 ];
 export var ListWorkflowDefinitionsRequest$: StaticStructureSchema = [3, n0, _LWDR,
   0,
@@ -365,70 +365,70 @@ export var ListWorkflowDefinitionsRequest$: StaticStructureSchema = [3, n0, _LWD
 export var ListWorkflowDefinitionsResponse$: StaticStructureSchema = [3, n0, _LWDRi,
   0,
   [_wDS, _nT],
-  [() => WorkflowDefinitionSummaries, 0]
+  [() => WorkflowDefinitionSummaries, 0], 1
 ];
 export var ListWorkflowRunsRequest$: StaticStructureSchema = [3, n0, _LWRR,
   0,
   [_wDN, _mR, _nT, _sO],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0], 1
 ];
 export var ListWorkflowRunsResponse$: StaticStructureSchema = [3, n0, _LWRRi,
   0,
   [_wRS, _nT],
-  [() => WorkflowRunSummaries, 0]
+  [() => WorkflowRunSummaries, 0], 1
 ];
 export var ModelAlias$: StaticStructureSchema = [3, n0, _MA,
   0,
   [_aN, _lMI, _rMI],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ModelLifecycle$: StaticStructureSchema = [3, n0, _ML,
   0,
   [_s],
-  [0]
+  [0], 1
 ];
 export var ModelSummary$: StaticStructureSchema = [3, n0, _MS,
   0,
   [_mI, _mL, _mCV],
-  [0, () => ModelLifecycle$, 1]
+  [0, () => ModelLifecycle$, 1], 3
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SessionSummary$: StaticStructureSchema = [3, n0, _SSe,
   0,
   [_sI],
-  [0]
+  [0], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ToolSpec$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_n, _d, _iS],
-  [0, [() => ToolDescription, 0], [() => ToolInputSchema$, 0]]
+  [0, [() => ToolDescription, 0], [() => ToolInputSchema$, 0]], 3
 ];
 export var TraceLocation$: StaticStructureSchema = [3, n0, _TL,
   0,
   [_lT, _l],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateActRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_wDN, _wRI, _sI, _aI, _s, _e],
-  [[0, 1], [0, 1], [0, 1], [0, 1], 0, [() => ActError$, 0]]
+  [[0, 1], [0, 1], [0, 1], [0, 1], 0, [() => ActError$, 0]], 5
 ];
 export var UpdateActResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -438,7 +438,7 @@ export var UpdateActResponse$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateWorkflowRunRequest$: StaticStructureSchema = [3, n0, _UWRR,
   0,
   [_wDN, _wRI, _s],
-  [[0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], 0], 3
 ];
 export var UpdateWorkflowRunResponse$: StaticStructureSchema = [3, n0, _UWRRp,
   0,
@@ -448,28 +448,28 @@ export var UpdateWorkflowRunResponse$: StaticStructureSchema = [3, n0, _UWRRp,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var WorkflowDefinitionSummary$: StaticStructureSchema = [3, n0, _WDS,
   0,
   [_wDA, _wDN, _cA, _s],
-  [0, 0, 5, 0]
+  [0, 0, 5, 0], 4
 ];
 export var WorkflowExportConfig$: StaticStructureSchema = [3, n0, _WEC,
   0,
   [_sBN, _sKP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var WorkflowRunSummary$: StaticStructureSchema = [3, n0, _WRS,
   0,
   [_wRA, _wRI, _s, _sA, _eA, _tL],
-  [0, 0, 0, 5, 5, () => TraceLocation$]
+  [0, 0, 0, 5, 5, () => TraceLocation$], 4
 ];
 export var NovaActServiceException$: StaticErrorSchema = [-3, _sm, "NovaActServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(NovaActServiceException$, NovaActServiceException);

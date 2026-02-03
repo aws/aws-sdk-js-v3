@@ -2663,8 +2663,8 @@ const _RCep = "RepositoryCredentials";
 const _RCepl = "ReplicationConfig";
 const _RCeq = "RequiresCompatibilities";
 const _RCes = "ResponseCode";
-const _RCeso = "ResourceCategory";
-const _RCesou = "ResourceConfig";
+const _RCeso = "ResourceConfig";
+const _RCesou = "ResourceCategory";
 const _RCesour = "ResourcesCount";
 const _RCo = "RoutingConfig";
 const _RD = "RootDirectory";
@@ -3454,7 +3454,7 @@ import { SecurityHubServiceException } from "../models/SecurityHubServiceExcepti
 export var AcceptAdministratorInvitationRequest$: StaticStructureSchema = [3, n0, _AAIR,
   0,
   [_AI, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AcceptAdministratorInvitationResponse$: StaticStructureSchema = [3, n0, _AAIRc,
   0,
@@ -3464,7 +3464,7 @@ export var AcceptAdministratorInvitationResponse$: StaticStructureSchema = [3, n
 export var AcceptInvitationRequest$: StaticStructureSchema = [3, n0, _AIR,
   0,
   [_MI, _II],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AcceptInvitationResponse$: StaticStructureSchema = [3, n0, _AIRc,
   0,
@@ -3480,7 +3480,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AccountDetails$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_AIc, _E],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -3510,7 +3510,7 @@ export var ActionRemotePortDetails$: StaticStructureSchema = [3, n0, _ARPD,
 export var ActionTarget$: StaticStructureSchema = [3, n0, _ATc,
   0,
   [_ATA, _N, _D],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var Actor$: StaticStructureSchema = [3, n0, _Ac,
   0,
@@ -3575,7 +3575,7 @@ export var AutomationRulesActionTypeObjectV2$: StaticStructureSchema = [3, n0, _
 export var AutomationRulesActionV2$: StaticStructureSchema = [3, n0, _ARAV,
   0,
   [_T, _FFU, _EIC],
-  [0, () => AutomationRulesFindingFieldsUpdateV2$, () => ExternalIntegrationConfiguration$]
+  [0, () => AutomationRulesFindingFieldsUpdateV2$, () => ExternalIntegrationConfiguration$], 1
 ];
 export var AutomationRulesConfig$: StaticStructureSchema = [3, n0, _ARC,
   0,
@@ -5844,8 +5844,8 @@ export var AwsSecretsManagerSecretRotationRules$: StaticStructureSchema = [3, n0
 ];
 export var AwsSecurityFinding$: StaticStructureSchema = [3, n0, _ASF,
   0,
-  [_SVc, _I, _PA, _PNr, _CN, _Reg, _GIe, _AAI, _Ty, _FOA, _LOA, _CA, _UA, _Se, _Con, _Cri, _Ti, _D, _Rem, _SU, _PFr, _UDF, _Mal, _Ne, _NP, _Proc, _Thre, _TII, _Res, _Comp, _VS, _WSo, _W, _RSe, _RF, _No, _Vu, _PSa, _A, _FPFi, _Sam, _GD, _PAr, _AAN, _Det],
-  [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, () => Severity$, 1, 1, 0, 0, () => Remediation$, 0, 128 | 0, 128 | 0, () => MalwareList, () => Network$, () => NetworkPathList, () => ProcessDetails$, () => ThreatList, () => ThreatIntelIndicatorList, () => ResourceList, () => Compliance$, 0, 0, () => Workflow$, 0, () => RelatedFindingList, () => Note$, () => VulnerabilityList, () => PatchSummary$, () => Action$, () => FindingProviderFields$, 2, () => GeneratorDetails$, 0, 0, () => Detection$]
+  [_SVc, _I, _PA, _GIe, _AAI, _CA, _UA, _Ti, _D, _Res, _PNr, _CN, _Reg, _Ty, _FOA, _LOA, _Se, _Con, _Cri, _Rem, _SU, _PFr, _UDF, _Mal, _Ne, _NP, _Proc, _Thre, _TII, _Comp, _VS, _WSo, _W, _RSe, _RF, _No, _Vu, _PSa, _A, _FPFi, _Sam, _GD, _PAr, _AAN, _Det],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ResourceList, 0, 0, 0, 64 | 0, 0, 0, () => Severity$, 1, 1, () => Remediation$, 0, 128 | 0, 128 | 0, () => MalwareList, () => Network$, () => NetworkPathList, () => ProcessDetails$, () => ThreatList, () => ThreatIntelIndicatorList, () => Compliance$, 0, 0, () => Workflow$, 0, () => RelatedFindingList, () => Note$, () => VulnerabilityList, () => PatchSummary$, () => Action$, () => FindingProviderFields$, 2, () => GeneratorDetails$, 0, 0, () => Detection$], 10
 ];
 export var AwsSecurityFindingFilters$: StaticStructureSchema = [3, n0, _ASFF,
   0,
@@ -5855,7 +5855,7 @@ export var AwsSecurityFindingFilters$: StaticStructureSchema = [3, n0, _ASFF,
 export var AwsSecurityFindingIdentifier$: StaticStructureSchema = [3, n0, _ASFI,
   0,
   [_I, _PA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AwsSnsTopicDetails$: StaticStructureSchema = [3, n0, _ASTD,
   0,
@@ -6095,7 +6095,7 @@ export var AwsXrayEncryptionConfigDetails$: StaticStructureSchema = [3, n0, _AXE
 export var BatchDeleteAutomationRulesRequest$: StaticStructureSchema = [3, n0, _BDARR,
   0,
   [_ARAu],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchDeleteAutomationRulesResponse$: StaticStructureSchema = [3, n0, _BDARRa,
   0,
@@ -6105,7 +6105,7 @@ export var BatchDeleteAutomationRulesResponse$: StaticStructureSchema = [3, n0, 
 export var BatchDisableStandardsRequest$: StaticStructureSchema = [3, n0, _BDSR,
   0,
   [_SSA],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchDisableStandardsResponse$: StaticStructureSchema = [3, n0, _BDSRa,
   0,
@@ -6115,7 +6115,7 @@ export var BatchDisableStandardsResponse$: StaticStructureSchema = [3, n0, _BDSR
 export var BatchEnableStandardsRequest$: StaticStructureSchema = [3, n0, _BESR,
   0,
   [_SSRt],
-  [() => StandardsSubscriptionRequests]
+  [() => StandardsSubscriptionRequests], 1
 ];
 export var BatchEnableStandardsResponse$: StaticStructureSchema = [3, n0, _BESRa,
   0,
@@ -6125,7 +6125,7 @@ export var BatchEnableStandardsResponse$: StaticStructureSchema = [3, n0, _BESRa
 export var BatchGetAutomationRulesRequest$: StaticStructureSchema = [3, n0, _BGARR,
   0,
   [_ARAu],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetAutomationRulesResponse$: StaticStructureSchema = [3, n0, _BGARRa,
   0,
@@ -6135,7 +6135,7 @@ export var BatchGetAutomationRulesResponse$: StaticStructureSchema = [3, n0, _BG
 export var BatchGetConfigurationPolicyAssociationsRequest$: StaticStructureSchema = [3, n0, _BGCPAR,
   0,
   [_CPAI],
-  [() => ConfigurationPolicyAssociationsList]
+  [() => ConfigurationPolicyAssociationsList], 1
 ];
 export var BatchGetConfigurationPolicyAssociationsResponse$: StaticStructureSchema = [3, n0, _BGCPARa,
   0,
@@ -6145,37 +6145,37 @@ export var BatchGetConfigurationPolicyAssociationsResponse$: StaticStructureSche
 export var BatchGetSecurityControlsRequest$: StaticStructureSchema = [3, n0, _BGSCR,
   0,
   [_SCIe],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetSecurityControlsResponse$: StaticStructureSchema = [3, n0, _BGSCRa,
   0,
   [_SCec, _UIn],
-  [() => SecurityControls, () => UnprocessedSecurityControls]
+  [() => SecurityControls, () => UnprocessedSecurityControls], 1
 ];
 export var BatchGetStandardsControlAssociationsRequest$: StaticStructureSchema = [3, n0, _BGSCAR,
   0,
   [_SCAI],
-  [() => StandardsControlAssociationIds]
+  [() => StandardsControlAssociationIds], 1
 ];
 export var BatchGetStandardsControlAssociationsResponse$: StaticStructureSchema = [3, n0, _BGSCARa,
   0,
   [_SCAD, _UAn],
-  [() => StandardsControlAssociationDetails, () => UnprocessedStandardsControlAssociations]
+  [() => StandardsControlAssociationDetails, () => UnprocessedStandardsControlAssociations], 1
 ];
 export var BatchImportFindingsRequest$: StaticStructureSchema = [3, n0, _BIFR,
   0,
   [_Fin],
-  [() => BatchImportFindingsRequestFindingList]
+  [() => BatchImportFindingsRequestFindingList], 1
 ];
 export var BatchImportFindingsResponse$: StaticStructureSchema = [3, n0, _BIFRa,
   0,
   [_FCai, _SCu, _FF],
-  [1, 1, () => ImportFindingsErrorList]
+  [1, 1, () => ImportFindingsErrorList], 2
 ];
 export var BatchUpdateAutomationRulesRequest$: StaticStructureSchema = [3, n0, _BUARR,
   0,
   [_UARRI],
-  [() => UpdateAutomationRulesRequestItemsList]
+  [() => UpdateAutomationRulesRequestItemsList], 1
 ];
 export var BatchUpdateAutomationRulesResponse$: StaticStructureSchema = [3, n0, _BUARRa,
   0,
@@ -6185,17 +6185,17 @@ export var BatchUpdateAutomationRulesResponse$: StaticStructureSchema = [3, n0, 
 export var BatchUpdateFindingsRequest$: StaticStructureSchema = [3, n0, _BUFR,
   0,
   [_FIin, _No, _Se, _VS, _Con, _Cri, _Ty, _UDF, _W, _RF],
-  [() => AwsSecurityFindingIdentifierList, () => NoteUpdate$, () => SeverityUpdate$, 0, 1, 1, 64 | 0, 128 | 0, () => WorkflowUpdate$, () => RelatedFindingList]
+  [() => AwsSecurityFindingIdentifierList, () => NoteUpdate$, () => SeverityUpdate$, 0, 1, 1, 64 | 0, 128 | 0, () => WorkflowUpdate$, () => RelatedFindingList], 1
 ];
 export var BatchUpdateFindingsResponse$: StaticStructureSchema = [3, n0, _BUFRa,
   0,
   [_PFro, _UF],
-  [() => AwsSecurityFindingIdentifierList, () => BatchUpdateFindingsUnprocessedFindingsList]
+  [() => AwsSecurityFindingIdentifierList, () => BatchUpdateFindingsUnprocessedFindingsList], 2
 ];
 export var BatchUpdateFindingsUnprocessedFinding$: StaticStructureSchema = [3, n0, _BUFUF,
   0,
   [_FIind, _ECr, _EMr],
-  [() => AwsSecurityFindingIdentifier$, 0, 0]
+  [() => AwsSecurityFindingIdentifier$, 0, 0], 3
 ];
 export var BatchUpdateFindingsV2ProcessedFinding$: StaticStructureSchema = [3, n0, _BUFVPF,
   0,
@@ -6210,7 +6210,7 @@ export var BatchUpdateFindingsV2Request$: StaticStructureSchema = [3, n0, _BUFVR
 export var BatchUpdateFindingsV2Response$: StaticStructureSchema = [3, n0, _BUFVRa,
   0,
   [_PFro, _UF],
-  [() => BatchUpdateFindingsV2ProcessedFindingsList, () => BatchUpdateFindingsV2UnprocessedFindingsList]
+  [() => BatchUpdateFindingsV2ProcessedFindingsList, () => BatchUpdateFindingsV2UnprocessedFindingsList], 2
 ];
 export var BatchUpdateFindingsV2UnprocessedFinding$: StaticStructureSchema = [3, n0, _BUFVUF,
   0,
@@ -6220,7 +6220,7 @@ export var BatchUpdateFindingsV2UnprocessedFinding$: StaticStructureSchema = [3,
 export var BatchUpdateStandardsControlAssociationsRequest$: StaticStructureSchema = [3, n0, _BUSCAR,
   0,
   [_SCAU],
-  [() => StandardsControlAssociationUpdates]
+  [() => StandardsControlAssociationUpdates], 1
 ];
 export var BatchUpdateStandardsControlAssociationsResponse$: StaticStructureSchema = [3, n0, _BUSCARa,
   0,
@@ -6310,8 +6310,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectorSummary$: StaticStructureSchema = [3, n0, _CSon,
   0,
-  [_CAon, _CIo, _N, _D, _PSr, _CA],
-  [0, 0, 0, 0, () => ProviderSummary$, 5]
+  [_CIo, _N, _PSr, _CA, _CAon, _D],
+  [0, 0, () => ProviderSummary$, 5, 0, 0], 4
 ];
 export var ContainerDetails$: StaticStructureSchema = [3, n0, _CDont,
   0,
@@ -6326,17 +6326,17 @@ export var Country$: StaticStructureSchema = [3, n0, _Co,
 export var CreateActionTargetRequest$: StaticStructureSchema = [3, n0, _CATR,
   0,
   [_N, _D, _I],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreateActionTargetResponse$: StaticStructureSchema = [3, n0, _CATRr,
   0,
   [_ATA],
-  [0]
+  [0], 1
 ];
 export var CreateAggregatorV2Request$: StaticStructureSchema = [3, n0, _CAVR,
   0,
   [_RLM, _LR, _Tags, _CTl],
-  [0, 64 | 0, 128 | 0, [0, 4]]
+  [0, 64 | 0, 128 | 0, [0, 4]], 1
 ];
 export var CreateAggregatorV2Response$: StaticStructureSchema = [3, n0, _CAVRr,
   0,
@@ -6345,8 +6345,8 @@ export var CreateAggregatorV2Response$: StaticStructureSchema = [3, n0, _CAVRr,
 ];
 export var CreateAutomationRuleRequest$: StaticStructureSchema = [3, n0, _CARR,
   0,
-  [_Tags, _RS, _RO, _RN, _D, _IT, _Cr, _Act],
-  [128 | 0, 0, 1, 0, 0, 2, () => AutomationRulesFindingFilters$, () => ActionList]
+  [_RO, _RN, _D, _Cr, _Act, _Tags, _RS, _IT],
+  [1, 0, 0, () => AutomationRulesFindingFilters$, () => ActionList, 128 | 0, 0, 2], 5
 ];
 export var CreateAutomationRuleResponse$: StaticStructureSchema = [3, n0, _CARRr,
   0,
@@ -6355,8 +6355,8 @@ export var CreateAutomationRuleResponse$: StaticStructureSchema = [3, n0, _CARRr
 ];
 export var CreateAutomationRuleV2Request$: StaticStructureSchema = [3, n0, _CARVR,
   0,
-  [_RN, _RS, _D, _RO, _Cr, _Act, _Tags, _CTl],
-  [0, 0, 0, 1, () => Criteria$, () => AutomationRulesActionListV2, 128 | 0, [0, 4]]
+  [_RN, _D, _RO, _Cr, _Act, _RS, _Tags, _CTl],
+  [0, 0, 1, () => Criteria$, () => AutomationRulesActionListV2, 0, 128 | 0, [0, 4]], 5
 ];
 export var CreateAutomationRuleV2Response$: StaticStructureSchema = [3, n0, _CARVRr,
   0,
@@ -6365,8 +6365,8 @@ export var CreateAutomationRuleV2Response$: StaticStructureSchema = [3, n0, _CAR
 ];
 export var CreateConfigurationPolicyRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
-  [_N, _D, _CPonf, _Tags],
-  [0, 0, () => Policy$, 128 | 0]
+  [_N, _CPonf, _D, _Tags],
+  [0, () => Policy$, 0, 128 | 0], 2
 ];
 export var CreateConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _CCPRr,
   0,
@@ -6375,18 +6375,18 @@ export var CreateConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateConnectorV2Request$: StaticStructureSchema = [3, n0, _CCVR,
   0,
-  [_N, _D, _Prov, _KKA, _Tags, _CTl],
-  [0, 0, () => ProviderConfiguration$, 0, 128 | 0, [0, 4]]
+  [_N, _Prov, _D, _KKA, _Tags, _CTl],
+  [0, () => ProviderConfiguration$, 0, 0, 128 | 0, [0, 4]], 2
 ];
 export var CreateConnectorV2Response$: StaticStructureSchema = [3, n0, _CCVRr,
   0,
   [_CAon, _CIo, _AUut, _CSonn],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var CreateFindingAggregatorRequest$: StaticStructureSchema = [3, n0, _CFAR,
   0,
   [_RLM, _Regi],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var CreateFindingAggregatorResponse$: StaticStructureSchema = [3, n0, _CFARr,
   0,
@@ -6396,17 +6396,17 @@ export var CreateFindingAggregatorResponse$: StaticStructureSchema = [3, n0, _CF
 export var CreateInsightRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_N, _Filt, _GBA],
-  [0, () => AwsSecurityFindingFilters$, 0]
+  [0, () => AwsSecurityFindingFilters$, 0], 3
 ];
 export var CreateInsightResponse$: StaticStructureSchema = [3, n0, _CIRr,
   0,
   [_IAns],
-  [0]
+  [0], 1
 ];
 export var CreateMembersRequest$: StaticStructureSchema = [3, n0, _CMR,
   0,
   [_AD],
-  [() => AccountDetailsList]
+  [() => AccountDetailsList], 1
 ];
 export var CreateMembersResponse$: StaticStructureSchema = [3, n0, _CMRr,
   0,
@@ -6416,12 +6416,12 @@ export var CreateMembersResponse$: StaticStructureSchema = [3, n0, _CMRr,
 export var CreateTicketV2Request$: StaticStructureSchema = [3, n0, _CTVR,
   0,
   [_CIo, _FMU, _CTl, _Mod],
-  [0, 0, [0, 4], 0]
+  [0, 0, [0, 4], 0], 2
 ];
 export var CreateTicketV2Response$: StaticStructureSchema = [3, n0, _CTVRr,
   0,
   [_TIi, _TSU],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CustomDataIdentifiersDetections$: StaticStructureSchema = [3, n0, _CDID,
   0,
@@ -6456,7 +6456,7 @@ export var DateRange$: StaticStructureSchema = [3, n0, _DRa,
 export var DeclineInvitationsRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_AIcc],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DeclineInvitationsResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
@@ -6466,17 +6466,17 @@ export var DeclineInvitationsResponse$: StaticStructureSchema = [3, n0, _DIRe,
 export var DeleteActionTargetRequest$: StaticStructureSchema = [3, n0, _DATR,
   0,
   [_ATA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteActionTargetResponse$: StaticStructureSchema = [3, n0, _DATRe,
   0,
   [_ATA],
-  [0]
+  [0], 1
 ];
 export var DeleteAggregatorV2Request$: StaticStructureSchema = [3, n0, _DAVR,
   0,
   [_AVA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAggregatorV2Response$: StaticStructureSchema = [3, n0, _DAVRe,
   0,
@@ -6486,7 +6486,7 @@ export var DeleteAggregatorV2Response$: StaticStructureSchema = [3, n0, _DAVRe,
 export var DeleteAutomationRuleV2Request$: StaticStructureSchema = [3, n0, _DARVR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAutomationRuleV2Response$: StaticStructureSchema = [3, n0, _DARVRe,
   0,
@@ -6496,7 +6496,7 @@ export var DeleteAutomationRuleV2Response$: StaticStructureSchema = [3, n0, _DAR
 export var DeleteConfigurationPolicyRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _DCPRe,
   0,
@@ -6506,7 +6506,7 @@ export var DeleteConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _
 export var DeleteConnectorV2Request$: StaticStructureSchema = [3, n0, _DCVR,
   0,
   [_CIo],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteConnectorV2Response$: StaticStructureSchema = [3, n0, _DCVRe,
   0,
@@ -6516,7 +6516,7 @@ export var DeleteConnectorV2Response$: StaticStructureSchema = [3, n0, _DCVRe,
 export var DeleteFindingAggregatorRequest$: StaticStructureSchema = [3, n0, _DFAR,
   0,
   [_FAA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteFindingAggregatorResponse$: StaticStructureSchema = [3, n0, _DFARe,
   0,
@@ -6526,17 +6526,17 @@ export var DeleteFindingAggregatorResponse$: StaticStructureSchema = [3, n0, _DF
 export var DeleteInsightRequest$: StaticStructureSchema = [3, n0, _DIRel,
   0,
   [_IAns],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteInsightResponse$: StaticStructureSchema = [3, n0, _DIRele,
   0,
   [_IAns],
-  [0]
+  [0], 1
 ];
 export var DeleteInvitationsRequest$: StaticStructureSchema = [3, n0, _DIRelet,
   0,
   [_AIcc],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DeleteInvitationsResponse$: StaticStructureSchema = [3, n0, _DIRelete,
   0,
@@ -6546,7 +6546,7 @@ export var DeleteInvitationsResponse$: StaticStructureSchema = [3, n0, _DIRelete
 export var DeleteMembersRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_AIcc],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DeleteMembersResponse$: StaticStructureSchema = [3, n0, _DMRe,
   0,
@@ -6561,7 +6561,7 @@ export var DescribeActionTargetsRequest$: StaticStructureSchema = [3, n0, _DATRe
 export var DescribeActionTargetsResponse$: StaticStructureSchema = [3, n0, _DATResc,
   0,
   [_ATct, _NTe],
-  [() => ActionTargetList, 0]
+  [() => ActionTargetList, 0], 1
 ];
 export var DescribeHubRequest$: StaticStructureSchema = [3, n0, _DHR,
   0,
@@ -6591,7 +6591,7 @@ export var DescribeProductsRequest$: StaticStructureSchema = [3, n0, _DPR,
 export var DescribeProductsResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
   [_Prod, _NTe],
-  [() => ProductsList, 0]
+  [() => ProductsList, 0], 1
 ];
 export var DescribeProductsV2Request$: StaticStructureSchema = [3, n0, _DPVR,
   0,
@@ -6601,7 +6601,7 @@ export var DescribeProductsV2Request$: StaticStructureSchema = [3, n0, _DPVR,
 export var DescribeProductsV2Response$: StaticStructureSchema = [3, n0, _DPVRe,
   0,
   [_PVr, _NTe],
-  [() => ProductsV2List, 0]
+  [() => ProductsV2List, 0], 1
 ];
 export var DescribeSecurityHubV2Request$: StaticStructureSchema = [3, n0, _DSHVR,
   0,
@@ -6616,7 +6616,7 @@ export var DescribeSecurityHubV2Response$: StaticStructureSchema = [3, n0, _DSHV
 export var DescribeStandardsControlsRequest$: StaticStructureSchema = [3, n0, _DSCR,
   0,
   [_SSAt, _NTe, _MRa],
-  [[0, 1], [0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }]]
+  [[0, 1], [0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }]], 1
 ];
 export var DescribeStandardsControlsResponse$: StaticStructureSchema = [3, n0, _DSCRe,
   0,
@@ -6641,7 +6641,7 @@ export var Detection$: StaticStructureSchema = [3, n0, _Det,
 export var DisableImportFindingsForProductRequest$: StaticStructureSchema = [3, n0, _DIFFPR,
   0,
   [_PSA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisableImportFindingsForProductResponse$: StaticStructureSchema = [3, n0, _DIFFPRi,
   0,
@@ -6651,7 +6651,7 @@ export var DisableImportFindingsForProductResponse$: StaticStructureSchema = [3,
 export var DisableOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _DOAAR,
   0,
   [_AAId, _Fea],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DisableOrganizationAdminAccountResponse$: StaticStructureSchema = [3, n0, _DOAARi,
   0,
@@ -6701,7 +6701,7 @@ export var DisassociateFromMasterAccountResponse$: StaticStructureSchema = [3, n
 export var DisassociateMembersRequest$: StaticStructureSchema = [3, n0, _DMRi,
   0,
   [_AIcc],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DisassociateMembersResponse$: StaticStructureSchema = [3, n0, _DMRis,
   0,
@@ -6721,7 +6721,7 @@ export var DoubleConfigurationOptions$: StaticStructureSchema = [3, n0, _DCO,
 export var EnableImportFindingsForProductRequest$: StaticStructureSchema = [3, n0, _EIFFPR,
   0,
   [_PA],
-  [0]
+  [0], 1
 ];
 export var EnableImportFindingsForProductResponse$: StaticStructureSchema = [3, n0, _EIFFPRn,
   0,
@@ -6731,7 +6731,7 @@ export var EnableImportFindingsForProductResponse$: StaticStructureSchema = [3, 
 export var EnableOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _EOAAR,
   0,
   [_AAId, _Fea],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EnableOrganizationAdminAccountResponse$: StaticStructureSchema = [3, n0, _EOAARn,
   0,
@@ -6866,7 +6866,7 @@ export var GetAdministratorAccountResponse$: StaticStructureSchema = [3, n0, _GA
 export var GetAggregatorV2Request$: StaticStructureSchema = [3, n0, _GAVR,
   0,
   [_AVA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAggregatorV2Response$: StaticStructureSchema = [3, n0, _GAVRe,
   0,
@@ -6876,7 +6876,7 @@ export var GetAggregatorV2Response$: StaticStructureSchema = [3, n0, _GAVRe,
 export var GetAutomationRuleV2Request$: StaticStructureSchema = [3, n0, _GARVR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAutomationRuleV2Response$: StaticStructureSchema = [3, n0, _GARVRe,
   0,
@@ -6886,7 +6886,7 @@ export var GetAutomationRuleV2Response$: StaticStructureSchema = [3, n0, _GARVRe
 export var GetConfigurationPolicyAssociationRequest$: StaticStructureSchema = [3, n0, _GCPAR,
   0,
   [_Ta],
-  [() => Target$]
+  [() => Target$], 1
 ];
 export var GetConfigurationPolicyAssociationResponse$: StaticStructureSchema = [3, n0, _GCPARe,
   0,
@@ -6896,7 +6896,7 @@ export var GetConfigurationPolicyAssociationResponse$: StaticStructureSchema = [
 export var GetConfigurationPolicyRequest$: StaticStructureSchema = [3, n0, _GCPR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _GCPRe,
   0,
@@ -6906,12 +6906,12 @@ export var GetConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _GCP
 export var GetConnectorV2Request$: StaticStructureSchema = [3, n0, _GCVR,
   0,
   [_CIo],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConnectorV2Response$: StaticStructureSchema = [3, n0, _GCVRe,
   0,
-  [_CAon, _CIo, _N, _D, _KKA, _CA, _LUA, _He, _PD],
-  [0, 0, 0, 0, 0, 5, 5, () => HealthCheck$, () => ProviderDetail$]
+  [_CIo, _N, _CA, _LUA, _He, _PD, _CAon, _D, _KKA],
+  [0, 0, 5, 5, () => HealthCheck$, () => ProviderDetail$, 0, 0, 0], 6
 ];
 export var GetEnabledStandardsRequest$: StaticStructureSchema = [3, n0, _GESR,
   0,
@@ -6926,7 +6926,7 @@ export var GetEnabledStandardsResponse$: StaticStructureSchema = [3, n0, _GESRe,
 export var GetFindingAggregatorRequest$: StaticStructureSchema = [3, n0, _GFAR,
   0,
   [_FAA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetFindingAggregatorResponse$: StaticStructureSchema = [3, n0, _GFARe,
   0,
@@ -6936,7 +6936,7 @@ export var GetFindingAggregatorResponse$: StaticStructureSchema = [3, n0, _GFARe
 export var GetFindingHistoryRequest$: StaticStructureSchema = [3, n0, _GFHR,
   0,
   [_FIind, _STtar, _ETnd, _NTe, _MRa],
-  [() => AwsSecurityFindingIdentifier$, 5, 5, 0, 1]
+  [() => AwsSecurityFindingIdentifier$, 5, 5, 0, 1], 1
 ];
 export var GetFindingHistoryResponse$: StaticStructureSchema = [3, n0, _GFHRe,
   0,
@@ -6951,12 +6951,12 @@ export var GetFindingsRequest$: StaticStructureSchema = [3, n0, _GFR,
 export var GetFindingsResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
   [_Fin, _NTe],
-  [() => AwsSecurityFindingList, 0]
+  [() => AwsSecurityFindingList, 0], 1
 ];
 export var GetFindingStatisticsV2Request$: StaticStructureSchema = [3, n0, _GFSVR,
   0,
   [_GBR, _SOo, _MSR],
-  [() => GroupByRules, 0, 1]
+  [() => GroupByRules, 0, 1], 1
 ];
 export var GetFindingStatisticsV2Response$: StaticStructureSchema = [3, n0, _GFSVRe,
   0,
@@ -6965,13 +6965,13 @@ export var GetFindingStatisticsV2Response$: StaticStructureSchema = [3, n0, _GFS
 ];
 export var GetFindingsTrendsV2Request$: StaticStructureSchema = [3, n0, _GFTVR,
   0,
-  [_Filt, _STtar, _ETnd, _NTe, _MRa],
-  [() => FindingsTrendsFilters$, 5, 5, 0, 1]
+  [_STtar, _ETnd, _Filt, _NTe, _MRa],
+  [5, 5, () => FindingsTrendsFilters$, 0, 1], 2
 ];
 export var GetFindingsTrendsV2Response$: StaticStructureSchema = [3, n0, _GFTVRe,
   0,
   [_Gra, _TMr, _NTe],
-  [0, () => TrendsMetrics, 0]
+  [0, () => TrendsMetrics, 0], 2
 ];
 export var GetFindingsV2Request$: StaticStructureSchema = [3, n0, _GFVR,
   0,
@@ -6986,12 +6986,12 @@ export var GetFindingsV2Response$: StaticStructureSchema = [3, n0, _GFVRe,
 export var GetInsightResultsRequest$: StaticStructureSchema = [3, n0, _GIRR,
   0,
   [_IAns],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetInsightResultsResponse$: StaticStructureSchema = [3, n0, _GIRRe,
   0,
   [_IRn],
-  [() => InsightResults$]
+  [() => InsightResults$], 1
 ];
 export var GetInsightsRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
@@ -7001,7 +7001,7 @@ export var GetInsightsRequest$: StaticStructureSchema = [3, n0, _GIR,
 export var GetInsightsResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
   [_Insi, _NTe],
-  [() => InsightList, 0]
+  [() => InsightList, 0], 1
 ];
 export var GetInvitationsCountRequest$: StaticStructureSchema = [3, n0, _GICR,
   0,
@@ -7026,7 +7026,7 @@ export var GetMasterAccountResponse$: StaticStructureSchema = [3, n0, _GMARe,
 export var GetMembersRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
   [_AIcc],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var GetMembersResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
@@ -7036,22 +7036,22 @@ export var GetMembersResponse$: StaticStructureSchema = [3, n0, _GMRe,
 export var GetResourcesStatisticsV2Request$: StaticStructureSchema = [3, n0, _GRSVR,
   0,
   [_GBR, _SOo, _MSR],
-  [() => ResourceGroupByRules, 0, 1]
+  [() => ResourceGroupByRules, 0, 1], 1
 ];
 export var GetResourcesStatisticsV2Response$: StaticStructureSchema = [3, n0, _GRSVRe,
   0,
   [_GBRr],
-  [() => GroupByResults]
+  [() => GroupByResults], 1
 ];
 export var GetResourcesTrendsV2Request$: StaticStructureSchema = [3, n0, _GRTVR,
   0,
-  [_Filt, _STtar, _ETnd, _NTe, _MRa],
-  [() => ResourcesTrendsFilters$, 5, 5, 0, 1]
+  [_STtar, _ETnd, _Filt, _NTe, _MRa],
+  [5, 5, () => ResourcesTrendsFilters$, 0, 1], 2
 ];
 export var GetResourcesTrendsV2Response$: StaticStructureSchema = [3, n0, _GRTVRe,
   0,
   [_Gra, _TMr, _NTe],
-  [0, () => ResourcesTrendsMetrics, 0]
+  [0, () => ResourcesTrendsMetrics, 0], 2
 ];
 export var GetResourcesV2Request$: StaticStructureSchema = [3, n0, _GRVR,
   0,
@@ -7061,17 +7061,17 @@ export var GetResourcesV2Request$: StaticStructureSchema = [3, n0, _GRVR,
 export var GetResourcesV2Response$: StaticStructureSchema = [3, n0, _GRVRe,
   0,
   [_Res, _NTe],
-  [() => Resources, 0]
+  [() => Resources, 0], 1
 ];
 export var GetSecurityControlDefinitionRequest$: StaticStructureSchema = [3, n0, _GSCDR,
   0,
   [_SCIec],
-  [[0, { [_hQ]: _SCIec }]]
+  [[0, { [_hQ]: _SCIec }]], 1
 ];
 export var GetSecurityControlDefinitionResponse$: StaticStructureSchema = [3, n0, _GSCDRe,
   0,
   [_SCD],
-  [() => SecurityControlDefinition$]
+  [() => SecurityControlDefinition$], 1
 ];
 export var GroupByResult$: StaticStructureSchema = [3, n0, _GBRro,
   0,
@@ -7080,8 +7080,8 @@ export var GroupByResult$: StaticStructureSchema = [3, n0, _GBRro,
 ];
 export var GroupByRule$: StaticStructureSchema = [3, n0, _GBRrou,
   0,
-  [_Filt, _GBF],
-  [() => OcsfFindingFilters$, 0]
+  [_GBF, _Filt],
+  [0, () => OcsfFindingFilters$], 1
 ];
 export var GroupByValue$: StaticStructureSchema = [3, n0, _GBVr,
   0,
@@ -7090,8 +7090,8 @@ export var GroupByValue$: StaticStructureSchema = [3, n0, _GBVr,
 ];
 export var HealthCheck$: StaticStructureSchema = [3, n0, _HC,
   0,
-  [_CSonn, _M, _LCAa],
-  [0, 0, 5]
+  [_CSonn, _LCAa, _M],
+  [0, 5, 0], 2
 ];
 export var IcmpTypeCode$: StaticStructureSchema = [3, n0, _ITC,
   0,
@@ -7101,7 +7101,7 @@ export var IcmpTypeCode$: StaticStructureSchema = [3, n0, _ITC,
 export var ImportFindingsError$: StaticStructureSchema = [3, n0, _IFE,
   0,
   [_I, _ECr, _EMr],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var Indicator$: StaticStructureSchema = [3, n0, _Ind,
   0,
@@ -7111,17 +7111,17 @@ export var Indicator$: StaticStructureSchema = [3, n0, _Ind,
 export var Insight$: StaticStructureSchema = [3, n0, _Insig,
   0,
   [_IAns, _N, _Filt, _GBA],
-  [0, 0, () => AwsSecurityFindingFilters$, 0]
+  [0, 0, () => AwsSecurityFindingFilters$, 0], 4
 ];
 export var InsightResults$: StaticStructureSchema = [3, n0, _IRn,
   0,
   [_IAns, _GBA, _RV],
-  [0, 0, () => InsightResultValueList]
+  [0, 0, () => InsightResultValueList], 3
 ];
 export var InsightResultValue$: StaticStructureSchema = [3, n0, _IRV,
   0,
   [_GBAV, _Cou],
-  [0, 1]
+  [0, 1], 2
 ];
 export var IntegerConfigurationOptions$: StaticStructureSchema = [3, n0, _ICO,
   0,
@@ -7165,7 +7165,7 @@ export var Invitation$: StaticStructureSchema = [3, n0, _Inv,
 export var InviteMembersRequest$: StaticStructureSchema = [3, n0, _IMR,
   0,
   [_AIcc],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var InviteMembersResponse$: StaticStructureSchema = [3, n0, _IMRn,
   0,
@@ -7270,8 +7270,8 @@ export var ListConnectorsV2Request$: StaticStructureSchema = [3, n0, _LCVR,
 ];
 export var ListConnectorsV2Response$: StaticStructureSchema = [3, n0, _LCVRi,
   0,
-  [_NTe, _Conn],
-  [0, () => ConnectorSummaryList]
+  [_Conn, _NTe],
+  [() => ConnectorSummaryList, 0], 1
 ];
 export var ListEnabledProductsForImportRequest$: StaticStructureSchema = [3, n0, _LEPFIR,
   0,
@@ -7331,22 +7331,22 @@ export var ListSecurityControlDefinitionsRequest$: StaticStructureSchema = [3, n
 export var ListSecurityControlDefinitionsResponse$: StaticStructureSchema = [3, n0, _LSCDRi,
   0,
   [_SCDe, _NTe],
-  [() => SecurityControlDefinitions, 0]
+  [() => SecurityControlDefinitions, 0], 1
 ];
 export var ListStandardsControlAssociationsRequest$: StaticStructureSchema = [3, n0, _LSCAR,
   0,
   [_SCIec, _NTe, _MRa],
-  [[0, { [_hQ]: _SCIec }], [0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }]]
+  [[0, { [_hQ]: _SCIec }], [0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }]], 1
 ];
 export var ListStandardsControlAssociationsResponse$: StaticStructureSchema = [3, n0, _LSCARi,
   0,
   [_SCAS, _NTe],
-  [() => StandardsControlAssociationSummaries, 0]
+  [() => StandardsControlAssociationSummaries, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -7361,7 +7361,7 @@ export var LoadBalancerState$: StaticStructureSchema = [3, n0, _LBS,
 export var Malware$: StaticStructureSchema = [3, n0, _Mal,
   0,
   [_N, _T, _Pat, _Sta],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var MapFilter$: StaticStructureSchema = [3, n0, _MFa,
   0,
@@ -7421,12 +7421,12 @@ export var NetworkPathComponentDetails$: StaticStructureSchema = [3, n0, _NPCD,
 export var Note$: StaticStructureSchema = [3, n0, _No,
   0,
   [_Tex, _UBp, _UA],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var NoteUpdate$: StaticStructureSchema = [3, n0, _NU,
   0,
   [_Tex, _UBp],
-  [0, 0]
+  [0, 0], 2
 ];
 export var NumberFilter$: StaticStructureSchema = [3, n0, _NFu,
   0,
@@ -7456,7 +7456,7 @@ export var OcsfFindingFilters$: StaticStructureSchema = [3, n0, _OFF,
 export var OcsfFindingIdentifier$: StaticStructureSchema = [3, n0, _OFI,
   0,
   [_CAU, _FIU, _MPU],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var OcsfIpFilter$: StaticStructureSchema = [3, n0, _OIF,
   0,
@@ -7491,17 +7491,17 @@ export var Page$: StaticStructureSchema = [3, n0, _Page,
 export var ParameterConfiguration$: StaticStructureSchema = [3, n0, _PCa,
   0,
   [_VTa, _Val],
-  [0, () => ParameterValue$]
+  [0, () => ParameterValue$], 1
 ];
 export var ParameterDefinition$: StaticStructureSchema = [3, n0, _PDa,
   0,
   [_D, _COon],
-  [0, () => ConfigurationOptions$]
+  [0, () => ConfigurationOptions$], 2
 ];
 export var PatchSummary$: StaticStructureSchema = [3, n0, _PSa,
   0,
   [_I, _ICns, _MC, _FCai, _IOC, _IRC, _IPR, _OST, _OET, _ROeb, _Opera],
-  [0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0]
+  [0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0], 1
 ];
 export var PortProbeAction$: StaticStructureSchema = [3, n0, _PPA,
   0,
@@ -7531,7 +7531,7 @@ export var ProcessDetails$: StaticStructureSchema = [3, n0, _PDr,
 export var Product$: StaticStructureSchema = [3, n0, _Produ,
   0,
   [_PA, _PNr, _CN, _D, _Cate, _ITnte, _MUa, _AUc, _PSRP],
-  [0, 0, 0, 0, 64 | 0, 64 | 0, 0, 0, 0]
+  [0, 0, 0, 0, 64 | 0, 64 | 0, 0, 0, 0], 1
 ];
 export var ProductV2$: StaticStructureSchema = [3, n0, _PVro,
   0,
@@ -7566,17 +7566,17 @@ export var _Record$: StaticStructureSchema = [3, n0, _Recor,
 export var RegisterConnectorV2Request$: StaticStructureSchema = [3, n0, _RCVR,
   0,
   [_ACut, _ASuth],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RegisterConnectorV2Response$: StaticStructureSchema = [3, n0, _RCVRe,
   0,
-  [_CAon, _CIo],
-  [0, 0]
+  [_CIo, _CAon],
+  [0, 0], 1
 ];
 export var RelatedFinding$: StaticStructureSchema = [3, n0, _RFe,
   0,
   [_PA, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Remediation$: StaticStructureSchema = [3, n0, _Rem,
   0,
@@ -7586,7 +7586,7 @@ export var Remediation$: StaticStructureSchema = [3, n0, _Rem,
 export var Resource$: StaticStructureSchema = [3, n0, _Reso,
   0,
   [_T, _I, _Par, _Reg, _RReso, _Tags, _DCat, _Deta, _ANp, _AAp],
-  [0, 0, 0, 0, 0, 128 | 0, () => DataClassificationDetails$, () => ResourceDetails$, 0, 0]
+  [0, 0, 0, 0, 0, 128 | 0, () => DataClassificationDetails$, () => ResourceDetails$, 0, 0], 2
 ];
 export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE,
   { [_e]: _c, [_hE]: 409 },
@@ -7602,12 +7602,12 @@ export var ResourceDetails$: StaticStructureSchema = [3, n0, _RDe,
 export var ResourceFindingsSummary$: StaticStructureSchema = [3, n0, _RFS,
   0,
   [_FT, _PNr, _TF, _Sev],
-  [0, 0, 1, () => ResourceSeverityBreakdown$]
+  [0, 0, 1, () => ResourceSeverityBreakdown$], 3
 ];
 export var ResourceGroupByRule$: StaticStructureSchema = [3, n0, _RGBR,
   0,
   [_GBF, _Filt],
-  [0, () => ResourcesFilters$]
+  [0, () => ResourcesFilters$], 1
 ];
 export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
   { [_e]: _c, [_hE]: 400 },
@@ -7623,8 +7623,8 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceResult$: StaticStructureSchema = [3, n0, _RResou,
   0,
-  [_RGe, _RI, _AIc, _Reg, _RCeso, _RT, _RNes, _RCTD, _RDCTD, _FSi, _RTe, _RCesou],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ResourceFindingsSummaryList, () => ResourceTagList, 15]
+  [_RI, _AIc, _Reg, _RDCTD, _RCeso, _RGe, _RCesou, _RT, _RNes, _RCTD, _FSi, _RTe],
+  [0, 0, 0, 0, 15, 0, 0, 0, 0, 0, () => ResourceFindingsSummaryList, () => ResourceTagList], 5
 ];
 export var ResourcesCompositeFilter$: StaticStructureSchema = [3, n0, _RCF,
   0,
@@ -7634,7 +7634,7 @@ export var ResourcesCompositeFilter$: StaticStructureSchema = [3, n0, _RCF,
 export var ResourcesCount$: StaticStructureSchema = [3, n0, _RCesour,
   0,
   [_ARl],
-  [1]
+  [1], 1
 ];
 export var ResourcesDateFilter$: StaticStructureSchema = [3, n0, _RDF,
   0,
@@ -7679,7 +7679,7 @@ export var ResourcesTrendsFilters$: StaticStructureSchema = [3, n0, _RTF,
 export var ResourcesTrendsMetricsResult$: StaticStructureSchema = [3, n0, _RTMR,
   0,
   [_Times, _TV],
-  [5, () => ResourcesTrendsValues$]
+  [5, () => ResourcesTrendsValues$], 2
 ];
 export var ResourcesTrendsStringFilter$: StaticStructureSchema = [3, n0, _RTSF,
   0,
@@ -7689,12 +7689,12 @@ export var ResourcesTrendsStringFilter$: StaticStructureSchema = [3, n0, _RTSF,
 export var ResourcesTrendsValues$: StaticStructureSchema = [3, n0, _RTV,
   0,
   [_RCesour],
-  [() => ResourcesCount$]
+  [() => ResourcesCount$], 1
 ];
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTeso,
   0,
   [_K, _Val],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Result$: StaticStructureSchema = [3, n0, _Resu,
   0,
@@ -7804,7 +7804,7 @@ export var RuleGroupVariablesPortSetsDetails$: StaticStructureSchema = [3, n0, _
 export var SecurityControl$: StaticStructureSchema = [3, n0, _SCecu,
   0,
   [_SCIec, _SCAe, _Ti, _D, _RU, _SRev, _SCS, _US, _Para, _LUR],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => _Parameters, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0, () => _Parameters, 0], 7
 ];
 export var SecurityControlCustomParameter$: StaticStructureSchema = [3, n0, _SCCP,
   0,
@@ -7814,7 +7814,7 @@ export var SecurityControlCustomParameter$: StaticStructureSchema = [3, n0, _SCC
 export var SecurityControlDefinition$: StaticStructureSchema = [3, n0, _SCD,
   0,
   [_SCIec, _Ti, _D, _RU, _SRev, _CRA, _CPu, _PDar],
-  [0, 0, 0, 0, 0, 0, 64 | 0, () => ParameterDefinitions]
+  [0, 0, 0, 0, 0, 0, 64 | 0, () => ParameterDefinitions], 6
 ];
 export var SecurityControlParameter$: StaticStructureSchema = [3, n0, _SCPec,
   0,
@@ -7848,13 +7848,13 @@ export var Sequence$: StaticStructureSchema = [3, n0, _Seq,
 ];
 export var ServiceNowDetail$: StaticStructureSchema = [3, n0, _SND,
   0,
-  [_INn, _SAec, _ASut],
-  [0, 0, 0]
+  [_SAec, _ASut, _INn],
+  [0, 0, 0], 2
 ];
 export var ServiceNowProviderConfiguration$: StaticStructureSchema = [3, n0, _SNPC,
   0,
   [_INn, _SAec],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ServiceNowUpdateConfiguration$: StaticStructureSchema = [3, n0, _SNUC,
   0,
@@ -7875,7 +7875,7 @@ export var Severity$: StaticStructureSchema = [3, n0, _Se,
 export var SeverityTrendsCount$: StaticStructureSchema = [3, n0, _STC,
   0,
   [_Unk, _Inf, _Low, _Med, _Hi, _Crit, _Fat, _Ot],
-  [1, 1, 1, 1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1, 1, 1, 1], 8
 ];
 export var SeverityUpdate$: StaticStructureSchema = [3, n0, _SUe,
   0,
@@ -7910,22 +7910,22 @@ export var StandardsControl$: StaticStructureSchema = [3, n0, _SCtan,
 export var StandardsControlAssociationDetail$: StaticStructureSchema = [3, n0, _SCADt,
   0,
   [_SAta, _SCIec, _SCAe, _ASss, _RRel, _UA, _UR, _SCTt, _SCDt, _SCAtan],
-  [0, 0, 0, 0, 64 | 0, 5, 0, 0, 0, 64 | 0]
+  [0, 0, 0, 0, 64 | 0, 5, 0, 0, 0, 64 | 0], 4
 ];
 export var StandardsControlAssociationId$: StaticStructureSchema = [3, n0, _SCAIt,
   0,
   [_SCIec, _SAta],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StandardsControlAssociationSummary$: StaticStructureSchema = [3, n0, _SCASt,
   0,
   [_SAta, _SCIec, _SCAe, _ASss, _RRel, _UA, _UR, _SCTt, _SCDt],
-  [0, 0, 0, 0, 64 | 0, 5, 0, 0, 0]
+  [0, 0, 0, 0, 64 | 0, 5, 0, 0, 0], 4
 ];
 export var StandardsControlAssociationUpdate$: StaticStructureSchema = [3, n0, _SCAUt,
   0,
   [_SAta, _SCIec, _ASss, _UR],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var StandardsManagedBy$: StaticStructureSchema = [3, n0, _SMB,
   0,
@@ -7935,22 +7935,22 @@ export var StandardsManagedBy$: StaticStructureSchema = [3, n0, _SMB,
 export var StandardsStatusReason$: StaticStructureSchema = [3, n0, _SSRta,
   0,
   [_SRC],
-  [0]
+  [0], 1
 ];
 export var StandardsSubscription$: StaticStructureSchema = [3, n0, _SStan,
   0,
   [_SSAt, _SAta, _SItan, _SStand, _SCU, _SSRta],
-  [0, 0, 128 | 0, 0, 0, () => StandardsStatusReason$]
+  [0, 0, 128 | 0, 0, 0, () => StandardsStatusReason$], 4
 ];
 export var StandardsSubscriptionRequest$: StaticStructureSchema = [3, n0, _SSRtan,
   0,
   [_SAta, _SItan],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var StartConfigurationPolicyAssociationRequest$: StaticStructureSchema = [3, n0, _SCPAR,
   0,
   [_CPIo, _Ta],
-  [0, () => Target$]
+  [0, () => Target$], 2
 ];
 export var StartConfigurationPolicyAssociationResponse$: StaticStructureSchema = [3, n0, _SCPARt,
   0,
@@ -7959,8 +7959,8 @@ export var StartConfigurationPolicyAssociationResponse$: StaticStructureSchema =
 ];
 export var StartConfigurationPolicyDisassociationRequest$: StaticStructureSchema = [3, n0, _SCPDR,
   0,
-  [_Ta, _CPIo],
-  [() => Target$, 0]
+  [_CPIo, _Ta],
+  [0, () => Target$], 1
 ];
 export var StartConfigurationPolicyDisassociationResponse$: StaticStructureSchema = [3, n0, _SCPDRt,
   0,
@@ -7985,7 +7985,7 @@ export var StatelessCustomPublishMetricActionDimension$: StaticStructureSchema =
 export var StatusReason$: StaticStructureSchema = [3, n0, _SRtatu,
   0,
   [_RCea, _D],
-  [0, 0]
+  [0, 0], 1
 ];
 export var StringConfigurationOptions$: StaticStructureSchema = [3, n0, _SCO,
   0,
@@ -8005,7 +8005,7 @@ export var StringListConfigurationOptions$: StaticStructureSchema = [3, n0, _SLC
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _Tags],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -8031,12 +8031,12 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrendsMetricsResult$: StaticStructureSchema = [3, n0, _TMR,
   0,
   [_Times, _TV],
-  [5, () => TrendsValues$]
+  [5, () => TrendsValues$], 2
 ];
 export var TrendsValues$: StaticStructureSchema = [3, n0, _TV,
   0,
   [_STev],
-  [() => SeverityTrendsCount$]
+  [() => SeverityTrendsCount$], 1
 ];
 export var UnprocessedAutomationRule$: StaticStructureSchema = [3, n0, _UARn,
   0,
@@ -8051,22 +8051,22 @@ export var UnprocessedConfigurationPolicyAssociation$: StaticStructureSchema = [
 export var UnprocessedSecurityControl$: StaticStructureSchema = [3, n0, _USCn,
   0,
   [_SCIec, _ECr, _ERr],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var UnprocessedStandardsControlAssociation$: StaticStructureSchema = [3, n0, _USCA,
   0,
   [_SCAIt, _ECr, _ERr],
-  [() => StandardsControlAssociationId$, 0, 0]
+  [() => StandardsControlAssociationId$, 0, 0], 2
 ];
 export var UnprocessedStandardsControlAssociationUpdate$: StaticStructureSchema = [3, n0, _USCAU,
   0,
   [_SCAUt, _ECr, _ERr],
-  [() => StandardsControlAssociationUpdate$, 0, 0]
+  [() => StandardsControlAssociationUpdate$, 0, 0], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -8076,7 +8076,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateActionTargetRequest$: StaticStructureSchema = [3, n0, _UATR,
   0,
   [_ATA, _N, _D],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateActionTargetResponse$: StaticStructureSchema = [3, n0, _UATRp,
   0,
@@ -8086,7 +8086,7 @@ export var UpdateActionTargetResponse$: StaticStructureSchema = [3, n0, _UATRp,
 export var UpdateAggregatorV2Request$: StaticStructureSchema = [3, n0, _UAVR,
   0,
   [_AVA, _RLM, _LR],
-  [[0, 1], 0, 64 | 0]
+  [[0, 1], 0, 64 | 0], 2
 ];
 export var UpdateAggregatorV2Response$: StaticStructureSchema = [3, n0, _UAVRp,
   0,
@@ -8096,12 +8096,12 @@ export var UpdateAggregatorV2Response$: StaticStructureSchema = [3, n0, _UAVRp,
 export var UpdateAutomationRulesRequestItem$: StaticStructureSchema = [3, n0, _UARRIp,
   0,
   [_RA, _RS, _RO, _D, _RN, _IT, _Cr, _Act],
-  [0, 0, 1, 0, 0, 2, () => AutomationRulesFindingFilters$, () => ActionList]
+  [0, 0, 1, 0, 0, 2, () => AutomationRulesFindingFilters$, () => ActionList], 1
 ];
 export var UpdateAutomationRuleV2Request$: StaticStructureSchema = [3, n0, _UARVR,
   0,
   [_Id, _RS, _RO, _D, _RN, _Cr, _Act],
-  [[0, 1], 0, 1, 0, 0, () => Criteria$, () => AutomationRulesActionListV2]
+  [[0, 1], 0, 1, 0, 0, () => Criteria$, () => AutomationRulesActionListV2], 1
 ];
 export var UpdateAutomationRuleV2Response$: StaticStructureSchema = [3, n0, _UARVRp,
   0,
@@ -8111,7 +8111,7 @@ export var UpdateAutomationRuleV2Response$: StaticStructureSchema = [3, n0, _UAR
 export var UpdateConfigurationPolicyRequest$: StaticStructureSchema = [3, n0, _UCPR,
   0,
   [_Id, _N, _D, _UR, _CPonf],
-  [[0, 1], 0, 0, 0, () => Policy$]
+  [[0, 1], 0, 0, 0, () => Policy$], 1
 ];
 export var UpdateConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _UCPRp,
   0,
@@ -8121,7 +8121,7 @@ export var UpdateConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _
 export var UpdateConnectorV2Request$: StaticStructureSchema = [3, n0, _UCVR,
   0,
   [_CIo, _D, _Prov],
-  [[0, 1], 0, () => ProviderUpdateConfiguration$]
+  [[0, 1], 0, () => ProviderUpdateConfiguration$], 1
 ];
 export var UpdateConnectorV2Response$: StaticStructureSchema = [3, n0, _UCVRp,
   0,
@@ -8131,7 +8131,7 @@ export var UpdateConnectorV2Response$: StaticStructureSchema = [3, n0, _UCVRp,
 export var UpdateFindingAggregatorRequest$: StaticStructureSchema = [3, n0, _UFAR,
   0,
   [_FAA, _RLM, _Regi],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 2
 ];
 export var UpdateFindingAggregatorResponse$: StaticStructureSchema = [3, n0, _UFARp,
   0,
@@ -8141,7 +8141,7 @@ export var UpdateFindingAggregatorResponse$: StaticStructureSchema = [3, n0, _UF
 export var UpdateFindingsRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
   [_Filt, _No, _RSe],
-  [() => AwsSecurityFindingFilters$, () => NoteUpdate$, 0]
+  [() => AwsSecurityFindingFilters$, () => NoteUpdate$, 0], 1
 ];
 export var UpdateFindingsResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
@@ -8151,7 +8151,7 @@ export var UpdateFindingsResponse$: StaticStructureSchema = [3, n0, _UFRp,
 export var UpdateInsightRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
   [_IAns, _N, _Filt, _GBA],
-  [[0, 1], 0, () => AwsSecurityFindingFilters$, 0]
+  [[0, 1], 0, () => AwsSecurityFindingFilters$, 0], 1
 ];
 export var UpdateInsightResponse$: StaticStructureSchema = [3, n0, _UIRp,
   0,
@@ -8161,7 +8161,7 @@ export var UpdateInsightResponse$: StaticStructureSchema = [3, n0, _UIRp,
 export var UpdateOrganizationConfigurationRequest$: StaticStructureSchema = [3, n0, _UOCR,
   0,
   [_AEu, _AES, _OC],
-  [2, 0, () => OrganizationConfiguration$]
+  [2, 0, () => OrganizationConfiguration$], 1
 ];
 export var UpdateOrganizationConfigurationResponse$: StaticStructureSchema = [3, n0, _UOCRp,
   0,
@@ -8171,7 +8171,7 @@ export var UpdateOrganizationConfigurationResponse$: StaticStructureSchema = [3,
 export var UpdateSecurityControlRequest$: StaticStructureSchema = [3, n0, _USCR,
   0,
   [_SCIec, _Para, _LUR],
-  [0, () => _Parameters, 0]
+  [0, () => _Parameters, 0], 2
 ];
 export var UpdateSecurityControlResponse$: StaticStructureSchema = [3, n0, _USCRp,
   0,
@@ -8191,7 +8191,7 @@ export var UpdateSecurityHubConfigurationResponse$: StaticStructureSchema = [3, 
 export var UpdateStandardsControlRequest$: StaticStructureSchema = [3, n0, _USCRpd,
   0,
   [_SCAta, _CSont, _DRi],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateStandardsControlResponse$: StaticStructureSchema = [3, n0, _USCRpda,
   0,
@@ -8232,7 +8232,7 @@ export var VpcInfoPeeringOptionsDetails$: StaticStructureSchema = [3, n0, _VIPOD
 export var Vulnerability$: StaticStructureSchema = [3, n0, _Vul,
   0,
   [_I, _VPu, _Cv, _RVe, _Ve, _RUe, _FAix, _ESp, _EAx, _LKEA, _CVo],
-  [0, () => SoftwarePackageList, () => CvssList, 64 | 0, () => VulnerabilityVendor$, 64 | 0, 0, 1, 0, 0, () => VulnerabilityCodeVulnerabilitiesList]
+  [0, () => SoftwarePackageList, () => CvssList, 64 | 0, () => VulnerabilityVendor$, 64 | 0, 0, 1, 0, 0, () => VulnerabilityCodeVulnerabilitiesList], 1
 ];
 export var VulnerabilityCodeVulnerabilities$: StaticStructureSchema = [3, n0, _VCV,
   0,
@@ -8242,7 +8242,7 @@ export var VulnerabilityCodeVulnerabilities$: StaticStructureSchema = [3, n0, _V
 export var VulnerabilityVendor$: StaticStructureSchema = [3, n0, _VV,
   0,
   [_N, _Ur, _VSe, _VCA, _VUA],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 1
 ];
 export var WafAction$: StaticStructureSchema = [3, n0, _WA,
   0,

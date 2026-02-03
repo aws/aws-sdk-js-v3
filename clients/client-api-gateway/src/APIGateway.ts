@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { APIGatewayClient } from "./APIGatewayClient";
 import {
@@ -579,6 +579,18 @@ import {
   type UpdateVpcLinkCommandOutput,
   UpdateVpcLinkCommand,
 } from "./commands/UpdateVpcLinkCommand";
+import { paginateGetApiKeys } from "./pagination/GetApiKeysPaginator";
+import { paginateGetBasePathMappings } from "./pagination/GetBasePathMappingsPaginator";
+import { paginateGetClientCertificates } from "./pagination/GetClientCertificatesPaginator";
+import { paginateGetDeployments } from "./pagination/GetDeploymentsPaginator";
+import { paginateGetDomainNames } from "./pagination/GetDomainNamesPaginator";
+import { paginateGetModels } from "./pagination/GetModelsPaginator";
+import { paginateGetResources } from "./pagination/GetResourcesPaginator";
+import { paginateGetRestApis } from "./pagination/GetRestApisPaginator";
+import { paginateGetUsage } from "./pagination/GetUsagePaginator";
+import { paginateGetUsagePlanKeys } from "./pagination/GetUsagePlanKeysPaginator";
+import { paginateGetUsagePlans } from "./pagination/GetUsagePlansPaginator";
+import { paginateGetVpcLinks } from "./pagination/GetVpcLinksPaginator";
 
 const commands = {
   CreateApiKeyCommand,
@@ -705,6 +717,20 @@ const commands = {
   UpdateUsageCommand,
   UpdateUsagePlanCommand,
   UpdateVpcLinkCommand,
+};
+const paginators = {
+  paginateGetApiKeys,
+  paginateGetBasePathMappings,
+  paginateGetClientCertificates,
+  paginateGetDeployments,
+  paginateGetDomainNames,
+  paginateGetModels,
+  paginateGetResources,
+  paginateGetRestApis,
+  paginateGetUsage,
+  paginateGetUsagePlanKeys,
+  paginateGetUsagePlans,
+  paginateGetVpcLinks,
 };
 
 export interface APIGateway {
@@ -2827,6 +2853,138 @@ export interface APIGateway {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVpcLinkCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetApiKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetApiKeysCommandOutput}.
+   */
+  paginateGetApiKeys(
+    args?: GetApiKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetApiKeysCommandOutput>;
+
+  /**
+   * @see {@link GetBasePathMappingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBasePathMappingsCommandOutput}.
+   */
+  paginateGetBasePathMappings(
+    args: GetBasePathMappingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBasePathMappingsCommandOutput>;
+
+  /**
+   * @see {@link GetClientCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetClientCertificatesCommandOutput}.
+   */
+  paginateGetClientCertificates(
+    args?: GetClientCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetClientCertificatesCommandOutput>;
+
+  /**
+   * @see {@link GetDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDeploymentsCommandOutput}.
+   */
+  paginateGetDeployments(
+    args: GetDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link GetDomainNamesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDomainNamesCommandOutput}.
+   */
+  paginateGetDomainNames(
+    args?: GetDomainNamesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDomainNamesCommandOutput>;
+
+  /**
+   * @see {@link GetModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetModelsCommandOutput}.
+   */
+  paginateGetModels(
+    args: GetModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetModelsCommandOutput>;
+
+  /**
+   * @see {@link GetResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourcesCommandOutput}.
+   */
+  paginateGetResources(
+    args: GetResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourcesCommandOutput>;
+
+  /**
+   * @see {@link GetRestApisCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetRestApisCommandOutput}.
+   */
+  paginateGetRestApis(
+    args?: GetRestApisCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetRestApisCommandOutput>;
+
+  /**
+   * @see {@link GetUsageCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetUsageCommandOutput}.
+   */
+  paginateGetUsage(
+    args: GetUsageCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetUsageCommandOutput>;
+
+  /**
+   * @see {@link GetUsagePlanKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetUsagePlanKeysCommandOutput}.
+   */
+  paginateGetUsagePlanKeys(
+    args: GetUsagePlanKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetUsagePlanKeysCommandOutput>;
+
+  /**
+   * @see {@link GetUsagePlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetUsagePlansCommandOutput}.
+   */
+  paginateGetUsagePlans(
+    args?: GetUsagePlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetUsagePlansCommandOutput>;
+
+  /**
+   * @see {@link GetVpcLinksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetVpcLinksCommandOutput}.
+   */
+  paginateGetVpcLinks(
+    args?: GetVpcLinksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetVpcLinksCommandOutput>;
 }
 
 /**
@@ -2835,4 +2993,4 @@ export interface APIGateway {
  * @public
  */
 export class APIGateway extends APIGatewayClient implements APIGateway {}
-createAggregatedClient(commands, APIGateway);
+createAggregatedClient(commands, APIGateway, { paginators });

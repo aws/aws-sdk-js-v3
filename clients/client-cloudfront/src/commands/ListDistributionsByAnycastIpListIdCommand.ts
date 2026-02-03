@@ -100,6 +100,9 @@ export interface ListDistributionsByAnycastIpListIdCommandOutput extends ListDis
  * //                 OriginReadTimeout: Number("int"),
  * //                 OriginKeepaliveTimeout: Number("int"),
  * //                 IpAddressType: "ipv4" || "ipv6" || "dualstack",
+ * //                 OriginMtlsConfig: { // OriginMtlsConfig
+ * //                   ClientCertificateArn: "STRING_VALUE", // required
+ * //                 },
  * //               },
  * //               VpcOriginConfig: { // VpcOriginConfig
  * //                 VpcOriginId: "STRING_VALUE", // required

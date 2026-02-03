@@ -80,6 +80,9 @@ export interface CreateOnlineEvaluationConfigCommandOutput extends CreateOnlineE
  *   ],
  *   evaluationExecutionRoleArn: "STRING_VALUE", // required
  *   enableOnCreate: true || false, // required
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateOnlineEvaluationConfigCommand(input);
  * const response = await client.send(command);

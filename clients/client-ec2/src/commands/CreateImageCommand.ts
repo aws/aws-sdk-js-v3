@@ -88,6 +88,7 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  *         Encrypted: true || false,
  *         VolumeInitializationRate: Number("int"),
  *         AvailabilityZoneId: "STRING_VALUE",
+ *         EbsCardIndex: Number("int"),
  *       },
  *       NoDevice: "STRING_VALUE",
  *       DeviceName: "STRING_VALUE",

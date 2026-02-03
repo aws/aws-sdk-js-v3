@@ -922,6 +922,13 @@ UpdateBucketMetadataJournalTableConfiguration
 </details>
 <details>
 <summary>
+UpdateObjectEncryption
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/UpdateObjectEncryptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/UpdateObjectEncryptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3/Interface/UpdateObjectEncryptionCommandOutput/)
+</details>
+<details>
+<summary>
 UploadPart
 </summary>
 

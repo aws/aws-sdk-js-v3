@@ -69,7 +69,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *             AudioDescriptionBroadcasterMix: "BROADCASTER_MIXED_AD" || "NORMAL",
  *             Bitrate: Number("int"),
  *             CodecProfile: "LC" || "HEV1" || "HEV2" || "XHE",
- *             CodingMode: "AD_RECEIVER_MIX" || "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_5_1",
+ *             CodingMode: "AD_RECEIVER_MIX" || "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_5_1" || "CODING_MODE_AUTO",
  *             LoudnessMeasurementMode: "PROGRAM" || "ANCHOR",
  *             RapInterval: Number("int"),
  *             RateControlMode: "CBR" || "VBR",
@@ -82,7 +82,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           Ac3Settings: { // Ac3Settings
  *             Bitrate: Number("int"),
  *             BitstreamMode: "COMPLETE_MAIN" || "COMMENTARY" || "DIALOGUE" || "EMERGENCY" || "HEARING_IMPAIRED" || "MUSIC_AND_EFFECTS" || "VISUALLY_IMPAIRED" || "VOICE_OVER",
- *             CodingMode: "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_3_2_LFE",
+ *             CodingMode: "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_3_2_LFE" || "CODING_MODE_AUTO",
  *             Dialnorm: Number("int"),
  *             DynamicRangeCompressionLine: "FILM_STANDARD" || "FILM_LIGHT" || "MUSIC_STANDARD" || "MUSIC_LIGHT" || "SPEECH" || "NONE",
  *             DynamicRangeCompressionProfile: "FILM_STANDARD" || "NONE",
@@ -120,7 +120,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *             AttenuationControl: "ATTENUATE_3_DB" || "NONE",
  *             Bitrate: Number("int"),
  *             BitstreamMode: "COMPLETE_MAIN" || "COMMENTARY" || "EMERGENCY" || "HEARING_IMPAIRED" || "VISUALLY_IMPAIRED",
- *             CodingMode: "CODING_MODE_1_0" || "CODING_MODE_2_0" || "CODING_MODE_3_2",
+ *             CodingMode: "CODING_MODE_1_0" || "CODING_MODE_2_0" || "CODING_MODE_3_2" || "CODING_MODE_AUTO",
  *             DcFilter: "ENABLED" || "DISABLED",
  *             Dialnorm: Number("int"),
  *             DynamicRangeCompressionLine: "NONE" || "FILM_STANDARD" || "FILM_LIGHT" || "MUSIC_STANDARD" || "MUSIC_LIGHT" || "SPEECH",
@@ -445,6 +445,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *       MxfSettings: { // MxfSettings
  *         AfdSignaling: "NO_COPY" || "COPY_FROM_VIDEO",
  *         Profile: "D_10" || "XDCAM" || "OP1A" || "XAVC" || "XDCAM_RDD9",
+ *         UncompressedAudioWrapping: "AUTO" || "AES3",
  *         XavcProfileSettings: { // MxfXavcProfileSettings
  *           DurationMode: "ALLOW_ANY_DURATION" || "DROP_FRAMES_FOR_COMPLIANCE",
  *           MaxAncDataSize: Number("int"),
@@ -841,6 +842,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           Mode: "DEINTERLACE" || "INVERSE_TELECINE" || "ADAPTIVE",
  *         },
  *         DolbyVision: { // DolbyVision
+ *           Compatibility: "DUPLICATE_STREAM" || "SUPPLEMENTAL_CODECS",
  *           L6Metadata: { // DolbyVisionLevel6Metadata
  *             MaxCll: Number("int"),
  *             MaxFall: Number("int"),
@@ -949,7 +951,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //               AudioDescriptionBroadcasterMix: "BROADCASTER_MIXED_AD" || "NORMAL",
  * //               Bitrate: Number("int"),
  * //               CodecProfile: "LC" || "HEV1" || "HEV2" || "XHE",
- * //               CodingMode: "AD_RECEIVER_MIX" || "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_5_1",
+ * //               CodingMode: "AD_RECEIVER_MIX" || "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_5_1" || "CODING_MODE_AUTO",
  * //               LoudnessMeasurementMode: "PROGRAM" || "ANCHOR",
  * //               RapInterval: Number("int"),
  * //               RateControlMode: "CBR" || "VBR",
@@ -962,7 +964,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             Ac3Settings: { // Ac3Settings
  * //               Bitrate: Number("int"),
  * //               BitstreamMode: "COMPLETE_MAIN" || "COMMENTARY" || "DIALOGUE" || "EMERGENCY" || "HEARING_IMPAIRED" || "MUSIC_AND_EFFECTS" || "VISUALLY_IMPAIRED" || "VOICE_OVER",
- * //               CodingMode: "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_3_2_LFE",
+ * //               CodingMode: "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_3_2_LFE" || "CODING_MODE_AUTO",
  * //               Dialnorm: Number("int"),
  * //               DynamicRangeCompressionLine: "FILM_STANDARD" || "FILM_LIGHT" || "MUSIC_STANDARD" || "MUSIC_LIGHT" || "SPEECH" || "NONE",
  * //               DynamicRangeCompressionProfile: "FILM_STANDARD" || "NONE",
@@ -1000,7 +1002,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //               AttenuationControl: "ATTENUATE_3_DB" || "NONE",
  * //               Bitrate: Number("int"),
  * //               BitstreamMode: "COMPLETE_MAIN" || "COMMENTARY" || "EMERGENCY" || "HEARING_IMPAIRED" || "VISUALLY_IMPAIRED",
- * //               CodingMode: "CODING_MODE_1_0" || "CODING_MODE_2_0" || "CODING_MODE_3_2",
+ * //               CodingMode: "CODING_MODE_1_0" || "CODING_MODE_2_0" || "CODING_MODE_3_2" || "CODING_MODE_AUTO",
  * //               DcFilter: "ENABLED" || "DISABLED",
  * //               Dialnorm: Number("int"),
  * //               DynamicRangeCompressionLine: "NONE" || "FILM_STANDARD" || "FILM_LIGHT" || "MUSIC_STANDARD" || "MUSIC_LIGHT" || "SPEECH",
@@ -1325,6 +1327,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //         MxfSettings: { // MxfSettings
  * //           AfdSignaling: "NO_COPY" || "COPY_FROM_VIDEO",
  * //           Profile: "D_10" || "XDCAM" || "OP1A" || "XAVC" || "XDCAM_RDD9",
+ * //           UncompressedAudioWrapping: "AUTO" || "AES3",
  * //           XavcProfileSettings: { // MxfXavcProfileSettings
  * //             DurationMode: "ALLOW_ANY_DURATION" || "DROP_FRAMES_FOR_COMPLIANCE",
  * //             MaxAncDataSize: Number("int"),
@@ -1721,6 +1724,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             Mode: "DEINTERLACE" || "INVERSE_TELECINE" || "ADAPTIVE",
  * //           },
  * //           DolbyVision: { // DolbyVision
+ * //             Compatibility: "DUPLICATE_STREAM" || "SUPPLEMENTAL_CODECS",
  * //             L6Metadata: { // DolbyVisionLevel6Metadata
  * //               MaxCll: Number("int"),
  * //               MaxFall: Number("int"),

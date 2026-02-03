@@ -200,8 +200,8 @@ import { SupportServiceException } from "../models/SupportServiceException";
 /* eslint no-var: 0 */
 export var AddAttachmentsToSetRequest$: StaticStructureSchema = [3, n0, _AATSR,
   0,
-  [_aSI, _a],
-  [0, () => Attachments]
+  [_a, _aSI],
+  [() => Attachments, 0], 1
 ];
 export var AddAttachmentsToSetResponse$: StaticStructureSchema = [3, n0, _AATSRd,
   0,
@@ -210,8 +210,8 @@ export var AddAttachmentsToSetResponse$: StaticStructureSchema = [3, n0, _AATSRd
 ];
 export var AddCommunicationToCaseRequest$: StaticStructureSchema = [3, n0, _ACTCR,
   0,
-  [_cI, _cB, _cEA, _aSI],
-  [0, 0, 64 | 0, 0]
+  [_cB, _cI, _cEA, _aSI],
+  [0, 0, 64 | 0, 0], 1
 ];
 export var AddCommunicationToCaseResponse$: StaticStructureSchema = [3, n0, _ACTCRd,
   0,
@@ -292,8 +292,8 @@ export var CommunicationTypeOptions$: StaticStructureSchema = [3, n0, _CTO,
 ];
 export var CreateCaseRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_s, _sC, _sCe, _cC, _cB, _cEA, _l, _iT, _aSI],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 0]
+  [_s, _cB, _sC, _sCe, _cC, _cEA, _l, _iT, _aSI],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 0], 2
 ];
 export var CreateCaseResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -314,7 +314,7 @@ TypeRegistry.for(n0).registerError(DescribeAttachmentLimitExceeded$, DescribeAtt
 export var DescribeAttachmentRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_aI],
-  [0]
+  [0], 1
 ];
 export var DescribeAttachmentResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -334,7 +334,7 @@ export var DescribeCasesResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DescribeCommunicationsRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_cI, _bT, _aT, _nT, _mR],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 1
 ];
 export var DescribeCommunicationsResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
@@ -344,7 +344,7 @@ export var DescribeCommunicationsResponse$: StaticStructureSchema = [3, n0, _DCR
 export var DescribeCreateCaseOptionsRequest$: StaticStructureSchema = [3, n0, _DCCOR,
   0,
   [_iT, _sC, _l, _cC],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var DescribeCreateCaseOptionsResponse$: StaticStructureSchema = [3, n0, _DCCORe,
   0,
@@ -374,7 +374,7 @@ export var DescribeSeverityLevelsResponse$: StaticStructureSchema = [3, n0, _DSL
 export var DescribeSupportedLanguagesRequest$: StaticStructureSchema = [3, n0, _DSLRes,
   0,
   [_iT, _sC, _cC],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DescribeSupportedLanguagesResponse$: StaticStructureSchema = [3, n0, _DSLResc,
   0,
@@ -384,17 +384,17 @@ export var DescribeSupportedLanguagesResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeTrustedAdvisorCheckRefreshStatusesRequest$: StaticStructureSchema = [3, n0, _DTACRSR,
   0,
   [_cIh],
-  [[() => StringList, 0]]
+  [[() => StringList, 0]], 1
 ];
 export var DescribeTrustedAdvisorCheckRefreshStatusesResponse$: StaticStructureSchema = [3, n0, _DTACRSRe,
   0,
   [_sta],
-  [() => TrustedAdvisorCheckRefreshStatusList]
+  [() => TrustedAdvisorCheckRefreshStatusList], 1
 ];
 export var DescribeTrustedAdvisorCheckResultRequest$: StaticStructureSchema = [3, n0, _DTACRR,
   0,
   [_cIhe, _l],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeTrustedAdvisorCheckResultResponse$: StaticStructureSchema = [3, n0, _DTACRRe,
   0,
@@ -404,22 +404,22 @@ export var DescribeTrustedAdvisorCheckResultResponse$: StaticStructureSchema = [
 export var DescribeTrustedAdvisorChecksRequest$: StaticStructureSchema = [3, n0, _DTACR,
   0,
   [_l],
-  [0]
+  [0], 1
 ];
 export var DescribeTrustedAdvisorChecksResponse$: StaticStructureSchema = [3, n0, _DTACRe,
   0,
   [_ch],
-  [[() => TrustedAdvisorCheckList, 0]]
+  [[() => TrustedAdvisorCheckList, 0]], 1
 ];
 export var DescribeTrustedAdvisorCheckSummariesRequest$: StaticStructureSchema = [3, n0, _DTACSR,
   0,
   [_cIh],
-  [[() => StringList, 0]]
+  [[() => StringList, 0]], 1
 ];
 export var DescribeTrustedAdvisorCheckSummariesResponse$: StaticStructureSchema = [3, n0, _DTACSRe,
   0,
   [_su],
-  [() => TrustedAdvisorCheckSummaryList]
+  [() => TrustedAdvisorCheckSummaryList], 1
 ];
 export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _ser },
@@ -435,12 +435,12 @@ export var RecentCaseCommunications$: StaticStructureSchema = [3, n0, _RCC,
 export var RefreshTrustedAdvisorCheckRequest$: StaticStructureSchema = [3, n0, _RTACR,
   0,
   [_cIhe],
-  [0]
+  [0], 1
 ];
 export var RefreshTrustedAdvisorCheckResponse$: StaticStructureSchema = [3, n0, _RTACRe,
   0,
   [_st],
-  [() => TrustedAdvisorCheckRefreshStatus$]
+  [() => TrustedAdvisorCheckRefreshStatus$], 1
 ];
 export var ResolveCaseRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
@@ -486,37 +486,37 @@ export var TrustedAdvisorCategorySpecificSummary$: StaticStructureSchema = [3, n
 export var TrustedAdvisorCheckDescription$: StaticStructureSchema = [3, n0, _TACD,
   0,
   [_i, _n, _de, _cate, _me],
-  [0, 0, 0, 0, [() => StringList, 0]]
+  [0, 0, 0, 0, [() => StringList, 0]], 5
 ];
 export var TrustedAdvisorCheckRefreshStatus$: StaticStructureSchema = [3, n0, _TACRS,
   0,
   [_cIhe, _st, _mUNR],
-  [0, 0, 1]
+  [0, 0, 1], 3
 ];
 export var TrustedAdvisorCheckResult$: StaticStructureSchema = [3, n0, _TACR,
   0,
   [_cIhe, _ti, _st, _rS, _cSS, _fR],
-  [0, 0, 0, () => TrustedAdvisorResourcesSummary$, () => TrustedAdvisorCategorySpecificSummary$, [() => TrustedAdvisorResourceDetailList, 0]]
+  [0, 0, 0, () => TrustedAdvisorResourcesSummary$, () => TrustedAdvisorCategorySpecificSummary$, [() => TrustedAdvisorResourceDetailList, 0]], 6
 ];
 export var TrustedAdvisorCheckSummary$: StaticStructureSchema = [3, n0, _TACS,
   0,
-  [_cIhe, _ti, _st, _hFR, _rS, _cSS],
-  [0, 0, 0, 2, () => TrustedAdvisorResourcesSummary$, () => TrustedAdvisorCategorySpecificSummary$]
+  [_cIhe, _ti, _st, _rS, _cSS, _hFR],
+  [0, 0, 0, () => TrustedAdvisorResourcesSummary$, () => TrustedAdvisorCategorySpecificSummary$, 2], 5
 ];
 export var TrustedAdvisorCostOptimizingSummary$: StaticStructureSchema = [3, n0, _TACOS,
   0,
   [_eMS, _ePMS],
-  [1, 1]
+  [1, 1], 2
 ];
 export var TrustedAdvisorResourceDetail$: StaticStructureSchema = [3, n0, _TARD,
   0,
-  [_st, _re, _rI, _iS, _me],
-  [0, 0, 0, 2, [() => StringList, 0]]
+  [_st, _rI, _me, _re, _iS],
+  [0, 0, [() => StringList, 0], 0, 2], 3
 ];
 export var TrustedAdvisorResourcesSummary$: StaticStructureSchema = [3, n0, _TARS,
   0,
   [_rP, _rF, _rIe, _rSe],
-  [1, 1, 1, 1]
+  [1, 1, 1, 1], 4
 ];
 export var SupportServiceException$: StaticErrorSchema = [-3, _sm, "SupportServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SupportServiceException$, SupportServiceException);

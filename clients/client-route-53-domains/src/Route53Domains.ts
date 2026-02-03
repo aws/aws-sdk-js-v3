@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptDomainTransferFromAnotherAwsAccountCommand,
@@ -152,6 +152,10 @@ import {
   UpdateTagsForDomainCommandOutput,
 } from "./commands/UpdateTagsForDomainCommand";
 import { ViewBillingCommand, ViewBillingCommandInput, ViewBillingCommandOutput } from "./commands/ViewBillingCommand";
+import { paginateListDomains } from "./pagination/ListDomainsPaginator";
+import { paginateListOperations } from "./pagination/ListOperationsPaginator";
+import { paginateListPrices } from "./pagination/ListPricesPaginator";
+import { paginateViewBilling } from "./pagination/ViewBillingPaginator";
 import { Route53DomainsClient } from "./Route53DomainsClient";
 
 const commands = {
@@ -189,6 +193,12 @@ const commands = {
   UpdateDomainNameserversCommand,
   UpdateTagsForDomainCommand,
   ViewBillingCommand,
+};
+const paginators = {
+  paginateListDomains,
+  paginateListOperations,
+  paginateListPrices,
+  paginateViewBilling,
 };
 
 export interface Route53Domains {
@@ -775,6 +785,50 @@ export interface Route53Domains {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ViewBillingCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainsCommandOutput}.
+   */
+  paginateListDomains(
+    args?: ListDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOperationsCommandOutput}.
+   */
+  paginateListOperations(
+    args?: ListOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListPricesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPricesCommandOutput}.
+   */
+  paginateListPrices(
+    args?: ListPricesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPricesCommandOutput>;
+
+  /**
+   * @see {@link ViewBillingCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ViewBillingCommandOutput}.
+   */
+  paginateViewBilling(
+    args?: ViewBillingCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ViewBillingCommandOutput>;
 }
 
 /**
@@ -783,4 +837,4 @@ export interface Route53Domains {
  * @public
  */
 export class Route53Domains extends Route53DomainsClient implements Route53Domains {}
-createAggregatedClient(commands, Route53Domains);
+createAggregatedClient(commands, Route53Domains, { paginators });

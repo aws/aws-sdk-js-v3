@@ -82,12 +82,10 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
  *
  * @throws {@link DBSubnetQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of subnets in a
- *             DB subnet groups.</p>
+ *  <p>The request would result in the user exceeding the allowed number of subnets in a DB subnet groups.</p>
  *
  * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
  *  <p>The DB subnet group cannot be deleted because it's in use.</p>

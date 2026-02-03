@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AccountClient } from "./AccountClient";
 import {
@@ -74,6 +74,7 @@ import {
   StartPrimaryEmailUpdateCommandInput,
   StartPrimaryEmailUpdateCommandOutput,
 } from "./commands/StartPrimaryEmailUpdateCommand";
+import { paginateListRegions } from "./pagination/ListRegionsPaginator";
 
 const commands = {
   AcceptPrimaryEmailUpdateCommand,
@@ -91,6 +92,9 @@ const commands = {
   PutAlternateContactCommand,
   PutContactInformationCommand,
   StartPrimaryEmailUpdateCommand,
+};
+const paginators = {
+  paginateListRegions,
 };
 
 export interface Account {
@@ -352,6 +356,17 @@ export interface Account {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartPrimaryEmailUpdateCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListRegionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRegionsCommandOutput}.
+   */
+  paginateListRegions(
+    args?: ListRegionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRegionsCommandOutput>;
 }
 
 /**
@@ -359,4 +374,4 @@ export interface Account {
  * @public
  */
 export class Account extends AccountClient implements Account {}
-createAggregatedClient(commands, Account);
+createAggregatedClient(commands, Account, { paginators });

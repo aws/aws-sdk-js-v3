@@ -455,8 +455,16 @@ import {
   UpdateTimeToLiveCommand,
   UpdateTimeToLiveInput$,
   UpdateTimeToLiveOutput$,
+  waitForContributorInsightsEnabled,
+  waitForExportCompleted,
+  waitForImportCompleted,
+  waitForKinesisStreamingDestinationActive,
   waitForTableExists,
   waitForTableNotExists,
+  waitUntilContributorInsightsEnabled,
+  waitUntilExportCompleted,
+  waitUntilImportCompleted,
+  waitUntilKinesisStreamingDestinationActive,
   waitUntilTableExists,
   waitUntilTableNotExists,
   WarmThroughput$,
@@ -923,8 +931,16 @@ assert(TransactionInProgressException.prototype instanceof DynamoDBServiceExcept
 assert(typeof TransactionInProgressException$ === "object");
 assert(DynamoDBServiceException.prototype instanceof Error);
 // waiters
+assert(typeof waitForContributorInsightsEnabled === "function");
+assert(typeof waitForExportCompleted === "function");
+assert(typeof waitForImportCompleted === "function");
+assert(typeof waitForKinesisStreamingDestinationActive === "function");
 assert(typeof waitForTableExists === "function");
 assert(typeof waitForTableNotExists === "function");
+assert(typeof waitUntilContributorInsightsEnabled === "function");
+assert(typeof waitUntilExportCompleted === "function");
+assert(typeof waitUntilImportCompleted === "function");
+assert(typeof waitUntilKinesisStreamingDestinationActive === "function");
 assert(typeof waitUntilTableExists === "function");
 assert(typeof waitUntilTableNotExists === "function");
 // paginators

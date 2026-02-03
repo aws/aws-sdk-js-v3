@@ -27,12 +27,7 @@ export interface DescribeBlueGreenDeploymentsCommandInput extends DescribeBlueGr
 export interface DescribeBlueGreenDeploymentsCommandOutput extends DescribeBlueGreenDeploymentsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes one or more blue/green deployments.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
- *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
- *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
- *             User Guide</i>.</p>
+ * <p>Describes one or more blue/green deployments.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html"> Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,12 +95,223 @@ export interface DescribeBlueGreenDeploymentsCommandOutput extends DescribeBlueG
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link BlueGreenDeploymentNotFoundFault} (client fault)
- *  <p>
- *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+ *  <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
+ * @example To describe a blue/green deployment of an RDS DB instance after creation completes
+ * ```javascript
+ * // The following example retrieves the details of a blue/green deployment after creation completes.
+ * const input = {
+ *   BlueGreenDeploymentIdentifier: "bgd-v53303651eexfake"
+ * };
+ * const command = new DescribeBlueGreenDeploymentsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   BlueGreenDeployments: [
+ *     {
+ *       BlueGreenDeploymentIdentifier: "bgd-v53303651eexfake",
+ *       BlueGreenDeploymentName: "bgd-cli-test-instance",
+ *       CreateTime: "2022-02-25T21:18:51.183Z",
+ *       Source: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
+ *       Status: "AVAILABLE",
+ *       SwitchoverDetails: [
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
+ *           Status: "AVAILABLE",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-green-rkfbpe"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-1",
+ *           Status: "AVAILABLE",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-1-green-j382ha"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-2",
+ *           Status: "AVAILABLE",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-2-green-ejv4ao"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-3",
+ *           Status: "AVAILABLE",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-3-green-vlpz3t"
+ *         }
+ *       ],
+ *       Target: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-green-rkfbpe",
+ *       Tasks: [
+ *         {
+ *           Name: "CREATING_READ_REPLICA_OF_SOURCE",
+ *           Status: "COMPLETED"
+ *         },
+ *         {
+ *           Name: "DB_ENGINE_VERSION_UPGRADE",
+ *           Status: "COMPLETED"
+ *         },
+ *         {
+ *           Name: "CONFIGURE_BACKUPS",
+ *           Status: "COMPLETED"
+ *         },
+ *         {
+ *           Name: "CREATING_TOPOLOGY_OF_SOURCE",
+ *           Status: "COMPLETED"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example To describe a blue/green deployment for an Aurora MySQL DB cluster
+ * ```javascript
+ * // The following example retrieves the details of a blue/green deployment.
+ * const input = {
+ *   BlueGreenDeploymentIdentifier: "bgd-wi89nwzglccsfake"
+ * };
+ * const command = new DescribeBlueGreenDeploymentsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   BlueGreenDeployments: [
+ *     {
+ *       BlueGreenDeploymentIdentifier: "bgd-wi89nwzglccsfake",
+ *       BlueGreenDeploymentName: "my-blue-green-deployment",
+ *       CreateTime: "2022-02-25T21:12:00.288Z",
+ *       Source: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *       Status: "AVAILABLE",
+ *       SwitchoverDetails: [
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *           Status: "AVAILABLE",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster-green-3rnukl"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1",
+ *           Status: "AVAILABLE",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1-green-gpmaxf"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2",
+ *           Status: "AVAILABLE",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2-green-j2oajq"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3",
+ *           Status: "AVAILABLE",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3-green-mkxies"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint",
+ *           Status: "AVAILABLE",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint-green-4sqjrq"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint",
+ *           Status: "AVAILABLE",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint-green-gwwzlg"
+ *         }
+ *       ],
+ *       Target: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster-green-3rnukl",
+ *       Tasks: [
+ *         {
+ *           Name: "CREATING_READ_REPLICA_OF_SOURCE",
+ *           Status: "COMPLETED"
+ *         },
+ *         {
+ *           Name: "DB_ENGINE_VERSION_UPGRADE",
+ *           Status: "COMPLETED"
+ *         },
+ *         {
+ *           Name: "CREATE_DB_INSTANCES_FOR_CLUSTER",
+ *           Status: "COMPLETED"
+ *         },
+ *         {
+ *           Name: "CREATE_CUSTOM_ENDPOINTS",
+ *           Status: "COMPLETED"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example To describe a blue/green deployment for an Aurora MySQL cluster after switchover
+ * ```javascript
+ * // The following example retrieves the details about a blue/green deployment after the green environment is promoted to be the production environment.
+ * const input = {
+ *   BlueGreenDeploymentIdentifier: "bgd-wi89nwzglccsfake"
+ * };
+ * const command = new DescribeBlueGreenDeploymentsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   BlueGreenDeployments: [
+ *     {
+ *       BlueGreenDeploymentIdentifier: "bgd-wi89nwzglccsfake",
+ *       BlueGreenDeploymentName: "my-blue-green-deployment",
+ *       CreateTime: "2022-02-25T22:38:49.522Z",
+ *       Source: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster-old1",
+ *       Status: "SWITCHOVER_COMPLETED",
+ *       SwitchoverDetails: [
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster-old1",
+ *           Status: "SWITCHOVER_COMPLETED",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1-old1",
+ *           Status: "SWITCHOVER_COMPLETED",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2-old1",
+ *           Status: "SWITCHOVER_COMPLETED",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3-old1",
+ *           Status: "SWITCHOVER_COMPLETED",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint-old1",
+ *           Status: "SWITCHOVER_COMPLETED",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint"
+ *         },
+ *         {
+ *           SourceMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint-old1",
+ *           Status: "SWITCHOVER_COMPLETED",
+ *           TargetMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint"
+ *         }
+ *       ],
+ *       Target: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *       Tasks: [
+ *         {
+ *           Name: "CREATING_READ_REPLICA_OF_SOURCE",
+ *           Status: "COMPLETED"
+ *         },
+ *         {
+ *           Name: "DB_ENGINE_VERSION_UPGRADE",
+ *           Status: "COMPLETED"
+ *         },
+ *         {
+ *           Name: "CREATE_DB_INSTANCES_FOR_CLUSTER",
+ *           Status: "COMPLETED"
+ *         },
+ *         {
+ *           Name: "CREATE_CUSTOM_ENDPOINTS",
+ *           Status: "COMPLETED"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

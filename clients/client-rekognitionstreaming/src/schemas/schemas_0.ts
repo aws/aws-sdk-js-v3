@@ -120,7 +120,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var BoundingBox$: StaticStructureSchema = [3, n0, _BB,
   0,
   [_W, _H, _L, _T],
-  [1, 1, 1, 1]
+  [1, 1, 1, 1], 4
 ];
 export var ChallengeConfig$: StaticStructureSchema = [3, n0, _CC,
   0,
@@ -130,57 +130,57 @@ export var ChallengeConfig$: StaticStructureSchema = [3, n0, _CC,
 export var ChallengeEvent$: StaticStructureSchema = [3, n0, _CE,
   0,
   [_V, _Ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ClientSessionInformationEvent$: StaticStructureSchema = [3, n0, _CSIE,
   0,
   [_Ch],
-  [() => ClientChallenge$]
+  [() => ClientChallenge$], 1
 ];
 export var ColorDisplayed$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_CCu, _PC, _SN, _CCST],
-  [() => FreshnessColor$, () => FreshnessColor$, 1, 1]
+  [_CCu, _SN, _CCST, _PC],
+  [() => FreshnessColor$, 1, 1, () => FreshnessColor$], 3
 ];
 export var ColorSequence$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_FC, _DD, _FDD],
-  [() => FreshnessColor$, 1, 1]
+  [() => FreshnessColor$, 1, 1], 3
 ];
 export var DisconnectionEvent$: StaticStructureSchema = [3, n0, _DE,
   0,
   [_TM],
-  [1]
+  [1], 1
 ];
 export var FaceMovementAndLightClientChallenge$: StaticStructureSchema = [3, n0, _FMALCC,
   0,
   [_CI, _VST, _VET, _IF, _TF, _CD],
-  [0, 1, 1, () => InitialFace$, () => TargetFace$, () => ColorDisplayed$]
+  [0, 1, 1, () => InitialFace$, () => TargetFace$, () => ColorDisplayed$], 1
 ];
 export var FaceMovementAndLightServerChallenge$: StaticStructureSchema = [3, n0, _FMALSC,
   0,
   [_OP, _LCT, _CC, _CSo],
-  [() => OvalParameters$, 0, () => ChallengeConfig$, () => ColorSequences]
+  [() => OvalParameters$, 0, () => ChallengeConfig$, () => ColorSequences], 4
 ];
 export var FaceMovementClientChallenge$: StaticStructureSchema = [3, n0, _FMCC,
   0,
   [_CI, _VST, _VET, _IF, _TF],
-  [0, 1, 1, () => InitialFace$, () => TargetFace$]
+  [0, 1, 1, () => InitialFace$, () => TargetFace$], 1
 ];
 export var FaceMovementServerChallenge$: StaticStructureSchema = [3, n0, _FMSC,
   0,
   [_OP, _CC],
-  [() => OvalParameters$, () => ChallengeConfig$]
+  [() => OvalParameters$, () => ChallengeConfig$], 2
 ];
 export var FreshnessColor$: StaticStructureSchema = [3, n0, _FC,
   0,
   [_RGB],
-  [64 | 1]
+  [64 | 1], 1
 ];
 export var InitialFace$: StaticStructureSchema = [3, n0, _IF,
   0,
   [_BB, _IFDT],
-  [() => BoundingBox$, 1]
+  [() => BoundingBox$, 1], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -191,12 +191,12 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var OvalParameters$: StaticStructureSchema = [3, n0, _OP,
   0,
   [_W, _H, _CX, _CY],
-  [1, 1, 1, 1]
+  [1, 1, 1, 1], 4
 ];
 export var ServerSessionInformationEvent$: StaticStructureSchema = [3, n0, _SSIE,
   0,
   [_SI],
-  [() => SessionInformation$]
+  [() => SessionInformation$], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 429 },
@@ -213,7 +213,7 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var SessionInformation$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_Ch],
-  [() => ServerChallenge$]
+  [() => ServerChallenge$], 1
 ];
 export var SessionNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
   { [_e]: _c, [_hE]: 400 },
@@ -224,17 +224,17 @@ TypeRegistry.for(n0).registerError(SessionNotFoundException$, SessionNotFoundExc
 export var StartFaceLivenessSessionRequest$: StaticStructureSchema = [3, n0, _SFLSR,
   0,
   [_SIe, _VW, _VH, _CV, _LRS],
-  [[0, { [_hH]: _xarslsi }], [0, { [_hH]: _xarslvw }], [0, { [_hH]: _xarslvh }], [0, { [_hH]: _xarslcv }], [() => LivenessRequestStream$, 16]]
+  [[0, { [_hH]: _xarslsi }], [0, { [_hH]: _xarslvw }], [0, { [_hH]: _xarslvh }], [0, { [_hH]: _xarslcv }], [() => LivenessRequestStream$, 16]], 4
 ];
 export var StartFaceLivenessSessionResponse$: StaticStructureSchema = [3, n0, _SFLSRt,
   0,
   [_SIe, _LRSi],
-  [[0, { [_hH]: _xarslsi }], [() => LivenessResponseStream$, 16]]
+  [[0, { [_hH]: _xarslsi }], [() => LivenessResponseStream$, 16]], 1
 ];
 export var TargetFace$: StaticStructureSchema = [3, n0, _TF,
   0,
   [_BB, _FDITPST, _FDITPET],
-  [() => BoundingBox$, 1, 1]
+  [() => BoundingBox$, 1, 1], 3
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },

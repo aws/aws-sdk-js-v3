@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelClusterCommand,
@@ -117,6 +117,13 @@ import {
   UpdateLongTermPricingCommandInput,
   UpdateLongTermPricingCommandOutput,
 } from "./commands/UpdateLongTermPricingCommand";
+import { paginateDescribeAddresses } from "./pagination/DescribeAddressesPaginator";
+import { paginateListClusterJobs } from "./pagination/ListClusterJobsPaginator";
+import { paginateListClusters } from "./pagination/ListClustersPaginator";
+import { paginateListCompatibleImages } from "./pagination/ListCompatibleImagesPaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
+import { paginateListLongTermPricing } from "./pagination/ListLongTermPricingPaginator";
+import { paginateListPickupLocations } from "./pagination/ListPickupLocationsPaginator";
 import { SnowballClient } from "./SnowballClient";
 
 const commands = {
@@ -147,6 +154,15 @@ const commands = {
   UpdateJobCommand,
   UpdateJobShipmentStateCommand,
   UpdateLongTermPricingCommand,
+};
+const paginators = {
+  paginateDescribeAddresses,
+  paginateListClusterJobs,
+  paginateListClusters,
+  paginateListCompatibleImages,
+  paginateListJobs,
+  paginateListLongTermPricing,
+  paginateListPickupLocations,
 };
 
 export interface Snowball {
@@ -616,6 +632,83 @@ export interface Snowball {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLongTermPricingCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAddressesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAddressesCommandOutput}.
+   */
+  paginateDescribeAddresses(
+    args?: DescribeAddressesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAddressesCommandOutput>;
+
+  /**
+   * @see {@link ListClusterJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClusterJobsCommandOutput}.
+   */
+  paginateListClusterJobs(
+    args: ListClusterJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClusterJobsCommandOutput>;
+
+  /**
+   * @see {@link ListClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClustersCommandOutput}.
+   */
+  paginateListClusters(
+    args?: ListClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClustersCommandOutput>;
+
+  /**
+   * @see {@link ListCompatibleImagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCompatibleImagesCommandOutput}.
+   */
+  paginateListCompatibleImages(
+    args?: ListCompatibleImagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCompatibleImagesCommandOutput>;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args?: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
+   * @see {@link ListLongTermPricingCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLongTermPricingCommandOutput}.
+   */
+  paginateListLongTermPricing(
+    args?: ListLongTermPricingCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLongTermPricingCommandOutput>;
+
+  /**
+   * @see {@link ListPickupLocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPickupLocationsCommandOutput}.
+   */
+  paginateListPickupLocations(
+    args?: ListPickupLocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPickupLocationsCommandOutput>;
 }
 
 /**
@@ -628,4 +721,4 @@ export interface Snowball {
  * @public
  */
 export class Snowball extends SnowballClient implements Snowball {}
-createAggregatedClient(commands, Snowball);
+createAggregatedClient(commands, Snowball, { paginators });

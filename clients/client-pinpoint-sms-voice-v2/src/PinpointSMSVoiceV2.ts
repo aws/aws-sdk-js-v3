@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateOriginationIdentityCommand,
@@ -437,6 +437,34 @@ import {
   VerifyDestinationNumberCommandInput,
   VerifyDestinationNumberCommandOutput,
 } from "./commands/VerifyDestinationNumberCommand";
+import { paginateDescribeAccountAttributes } from "./pagination/DescribeAccountAttributesPaginator";
+import { paginateDescribeAccountLimits } from "./pagination/DescribeAccountLimitsPaginator";
+import { paginateDescribeConfigurationSets } from "./pagination/DescribeConfigurationSetsPaginator";
+import { paginateDescribeKeywords } from "./pagination/DescribeKeywordsPaginator";
+import { paginateDescribeOptedOutNumbers } from "./pagination/DescribeOptedOutNumbersPaginator";
+import { paginateDescribeOptOutLists } from "./pagination/DescribeOptOutListsPaginator";
+import { paginateDescribePhoneNumbers } from "./pagination/DescribePhoneNumbersPaginator";
+import { paginateDescribePools } from "./pagination/DescribePoolsPaginator";
+import { paginateDescribeProtectConfigurations } from "./pagination/DescribeProtectConfigurationsPaginator";
+import { paginateDescribeRegistrationAttachments } from "./pagination/DescribeRegistrationAttachmentsPaginator";
+import {
+  paginateDescribeRegistrationFieldDefinitions,
+} from "./pagination/DescribeRegistrationFieldDefinitionsPaginator";
+import { paginateDescribeRegistrationFieldValues } from "./pagination/DescribeRegistrationFieldValuesPaginator";
+import {
+  paginateDescribeRegistrationSectionDefinitions,
+} from "./pagination/DescribeRegistrationSectionDefinitionsPaginator";
+import { paginateDescribeRegistrations } from "./pagination/DescribeRegistrationsPaginator";
+import { paginateDescribeRegistrationTypeDefinitions } from "./pagination/DescribeRegistrationTypeDefinitionsPaginator";
+import { paginateDescribeRegistrationVersions } from "./pagination/DescribeRegistrationVersionsPaginator";
+import { paginateDescribeSenderIds } from "./pagination/DescribeSenderIdsPaginator";
+import { paginateDescribeSpendLimits } from "./pagination/DescribeSpendLimitsPaginator";
+import { paginateDescribeVerifiedDestinationNumbers } from "./pagination/DescribeVerifiedDestinationNumbersPaginator";
+import { paginateListPoolOriginationIdentities } from "./pagination/ListPoolOriginationIdentitiesPaginator";
+import {
+  paginateListProtectConfigurationRuleSetNumberOverrides,
+} from "./pagination/ListProtectConfigurationRuleSetNumberOverridesPaginator";
+import { paginateListRegistrationAssociations } from "./pagination/ListRegistrationAssociationsPaginator";
 import { PinpointSMSVoiceV2Client } from "./PinpointSMSVoiceV2Client";
 
 const commands = {
@@ -531,6 +559,30 @@ const commands = {
   UpdateProtectConfigurationCountryRuleSetCommand,
   UpdateSenderIdCommand,
   VerifyDestinationNumberCommand,
+};
+const paginators = {
+  paginateDescribeAccountAttributes,
+  paginateDescribeAccountLimits,
+  paginateDescribeConfigurationSets,
+  paginateDescribeKeywords,
+  paginateDescribeOptedOutNumbers,
+  paginateDescribeOptOutLists,
+  paginateDescribePhoneNumbers,
+  paginateDescribePools,
+  paginateDescribeProtectConfigurations,
+  paginateDescribeRegistrationAttachments,
+  paginateDescribeRegistrationFieldDefinitions,
+  paginateDescribeRegistrationFieldValues,
+  paginateDescribeRegistrations,
+  paginateDescribeRegistrationSectionDefinitions,
+  paginateDescribeRegistrationTypeDefinitions,
+  paginateDescribeRegistrationVersions,
+  paginateDescribeSenderIds,
+  paginateDescribeSpendLimits,
+  paginateDescribeVerifiedDestinationNumbers,
+  paginateListPoolOriginationIdentities,
+  paginateListProtectConfigurationRuleSetNumberOverrides,
+  paginateListRegistrationAssociations,
 };
 
 export interface PinpointSMSVoiceV2 {
@@ -2099,6 +2151,248 @@ export interface PinpointSMSVoiceV2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: VerifyDestinationNumberCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAccountAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAccountAttributesCommandOutput}.
+   */
+  paginateDescribeAccountAttributes(
+    args?: DescribeAccountAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAccountAttributesCommandOutput>;
+
+  /**
+   * @see {@link DescribeAccountLimitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAccountLimitsCommandOutput}.
+   */
+  paginateDescribeAccountLimits(
+    args?: DescribeAccountLimitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAccountLimitsCommandOutput>;
+
+  /**
+   * @see {@link DescribeConfigurationSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConfigurationSetsCommandOutput}.
+   */
+  paginateDescribeConfigurationSets(
+    args?: DescribeConfigurationSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConfigurationSetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeKeywordsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeKeywordsCommandOutput}.
+   */
+  paginateDescribeKeywords(
+    args: DescribeKeywordsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeKeywordsCommandOutput>;
+
+  /**
+   * @see {@link DescribeOptedOutNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOptedOutNumbersCommandOutput}.
+   */
+  paginateDescribeOptedOutNumbers(
+    args: DescribeOptedOutNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOptedOutNumbersCommandOutput>;
+
+  /**
+   * @see {@link DescribeOptOutListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOptOutListsCommandOutput}.
+   */
+  paginateDescribeOptOutLists(
+    args?: DescribeOptOutListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOptOutListsCommandOutput>;
+
+  /**
+   * @see {@link DescribePhoneNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePhoneNumbersCommandOutput}.
+   */
+  paginateDescribePhoneNumbers(
+    args?: DescribePhoneNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePhoneNumbersCommandOutput>;
+
+  /**
+   * @see {@link DescribePoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePoolsCommandOutput}.
+   */
+  paginateDescribePools(
+    args?: DescribePoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePoolsCommandOutput>;
+
+  /**
+   * @see {@link DescribeProtectConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeProtectConfigurationsCommandOutput}.
+   */
+  paginateDescribeProtectConfigurations(
+    args?: DescribeProtectConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeProtectConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRegistrationAttachmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRegistrationAttachmentsCommandOutput}.
+   */
+  paginateDescribeRegistrationAttachments(
+    args?: DescribeRegistrationAttachmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRegistrationAttachmentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRegistrationFieldDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRegistrationFieldDefinitionsCommandOutput}.
+   */
+  paginateDescribeRegistrationFieldDefinitions(
+    args: DescribeRegistrationFieldDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRegistrationFieldDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRegistrationFieldValuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRegistrationFieldValuesCommandOutput}.
+   */
+  paginateDescribeRegistrationFieldValues(
+    args: DescribeRegistrationFieldValuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRegistrationFieldValuesCommandOutput>;
+
+  /**
+   * @see {@link DescribeRegistrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRegistrationsCommandOutput}.
+   */
+  paginateDescribeRegistrations(
+    args?: DescribeRegistrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRegistrationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRegistrationSectionDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRegistrationSectionDefinitionsCommandOutput}.
+   */
+  paginateDescribeRegistrationSectionDefinitions(
+    args: DescribeRegistrationSectionDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRegistrationSectionDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRegistrationTypeDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRegistrationTypeDefinitionsCommandOutput}.
+   */
+  paginateDescribeRegistrationTypeDefinitions(
+    args?: DescribeRegistrationTypeDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRegistrationTypeDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRegistrationVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRegistrationVersionsCommandOutput}.
+   */
+  paginateDescribeRegistrationVersions(
+    args: DescribeRegistrationVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRegistrationVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSenderIdsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSenderIdsCommandOutput}.
+   */
+  paginateDescribeSenderIds(
+    args?: DescribeSenderIdsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSenderIdsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSpendLimitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSpendLimitsCommandOutput}.
+   */
+  paginateDescribeSpendLimits(
+    args?: DescribeSpendLimitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSpendLimitsCommandOutput>;
+
+  /**
+   * @see {@link DescribeVerifiedDestinationNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVerifiedDestinationNumbersCommandOutput}.
+   */
+  paginateDescribeVerifiedDestinationNumbers(
+    args?: DescribeVerifiedDestinationNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVerifiedDestinationNumbersCommandOutput>;
+
+  /**
+   * @see {@link ListPoolOriginationIdentitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPoolOriginationIdentitiesCommandOutput}.
+   */
+  paginateListPoolOriginationIdentities(
+    args: ListPoolOriginationIdentitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPoolOriginationIdentitiesCommandOutput>;
+
+  /**
+   * @see {@link ListProtectConfigurationRuleSetNumberOverridesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProtectConfigurationRuleSetNumberOverridesCommandOutput}.
+   */
+  paginateListProtectConfigurationRuleSetNumberOverrides(
+    args: ListProtectConfigurationRuleSetNumberOverridesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProtectConfigurationRuleSetNumberOverridesCommandOutput>;
+
+  /**
+   * @see {@link ListRegistrationAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRegistrationAssociationsCommandOutput}.
+   */
+  paginateListRegistrationAssociations(
+    args: ListRegistrationAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRegistrationAssociationsCommandOutput>;
 }
 
 /**
@@ -2106,4 +2400,4 @@ export interface PinpointSMSVoiceV2 {
  * @public
  */
 export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client implements PinpointSMSVoiceV2 {}
-createAggregatedClient(commands, PinpointSMSVoiceV2);
+createAggregatedClient(commands, PinpointSMSVoiceV2, { paginators });

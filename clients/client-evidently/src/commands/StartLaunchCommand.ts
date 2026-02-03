@@ -27,8 +27,9 @@ export interface StartLaunchCommandInput extends StartLaunchRequest {}
 export interface StartLaunchCommandOutput extends StartLaunchResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an existing launch. To create a launch,
- *        use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateLaunch.html">CreateLaunch</a>.</p>
+ * <p>Starts an existing launch. To create a launch, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateLaunch.html">CreateLaunch</a>.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

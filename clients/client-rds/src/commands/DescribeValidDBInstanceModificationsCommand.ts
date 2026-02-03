@@ -30,9 +30,7 @@ export interface DescribeValidDBInstanceModificationsCommandInput extends Descri
 export interface DescribeValidDBInstanceModificationsCommandOutput extends DescribeValidDBInstanceModificationsResult, __MetadataBearer {}
 
 /**
- * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications you can make to
- *             your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.</p>
- *          <p>This command doesn't apply to RDS Custom.</p>
+ * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications you can make to your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.</p> <p>This command doesn't apply to RDS Custom.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -148,8 +146,7 @@ export interface DescribeValidDBInstanceModificationsCommandOutput extends Descr
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>

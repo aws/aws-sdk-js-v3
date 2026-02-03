@@ -217,6 +217,8 @@ export type BudgetStatus = (typeof BudgetStatus)[keyof typeof BudgetStatus];
  * @enum
  */
 export const ComparisonOperator = {
+  ALL_NOT_EQUALS: "ALL_NOT_EQUALS",
+  ANY_EQUALS: "ANY_EQUALS",
   EQUAL: "EQUAL",
   GREATER_THAN: "GREATER_THAN",
   GREATER_THAN_EQUAL_TO: "GREATER_THAN_EQUAL_TO",
@@ -610,6 +612,19 @@ export const StepLifecycleStatus = {
  * @public
  */
 export type StepLifecycleStatus = (typeof StepLifecycleStatus)[keyof typeof StepLifecycleStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RangeConstraint = {
+  CONTIGUOUS: "CONTIGUOUS",
+  NONCONTIGUOUS: "NONCONTIGUOUS",
+} as const;
+/**
+ * @public
+ */
+export type RangeConstraint = (typeof RangeConstraint)[keyof typeof RangeConstraint];
 
 /**
  * @public

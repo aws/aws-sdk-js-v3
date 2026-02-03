@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   CreateFHIRDatastoreCommand,
@@ -64,6 +70,13 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { HealthLakeClient } from "./HealthLakeClient";
+import { paginateListFHIRDatastores } from "./pagination/ListFHIRDatastoresPaginator";
+import { paginateListFHIRExportJobs } from "./pagination/ListFHIRExportJobsPaginator";
+import { paginateListFHIRImportJobs } from "./pagination/ListFHIRImportJobsPaginator";
+import { waitUntilFHIRDatastoreActive } from "./waiters/waitForFHIRDatastoreActive";
+import { waitUntilFHIRDatastoreDeleted } from "./waiters/waitForFHIRDatastoreDeleted";
+import { waitUntilFHIRExportJobCompleted } from "./waiters/waitForFHIRExportJobCompleted";
+import { waitUntilFHIRImportJobCompleted } from "./waiters/waitForFHIRImportJobCompleted";
 
 const commands = {
   CreateFHIRDatastoreCommand,
@@ -79,6 +92,17 @@ const commands = {
   StartFHIRImportJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListFHIRDatastores,
+  paginateListFHIRExportJobs,
+  paginateListFHIRImportJobs,
+};
+const waiters = {
+  waitUntilFHIRDatastoreActive,
+  waitUntilFHIRDatastoreDeleted,
+  waitUntilFHIRExportJobCompleted,
+  waitUntilFHIRImportJobCompleted,
 };
 
 export interface HealthLake {
@@ -303,6 +327,79 @@ export interface HealthLake {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListFHIRDatastoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFHIRDatastoresCommandOutput}.
+   */
+  paginateListFHIRDatastores(
+    args?: ListFHIRDatastoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFHIRDatastoresCommandOutput>;
+
+  /**
+   * @see {@link ListFHIRExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFHIRExportJobsCommandOutput}.
+   */
+  paginateListFHIRExportJobs(
+    args: ListFHIRExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFHIRExportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListFHIRImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFHIRImportJobsCommandOutput}.
+   */
+  paginateListFHIRImportJobs(
+    args: ListFHIRImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFHIRImportJobsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFHIRDatastoreCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFHIRDatastoreActive(
+    args: DescribeFHIRDatastoreCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<HealthLake>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeFHIRDatastoreCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFHIRDatastoreDeleted(
+    args: DescribeFHIRDatastoreCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<HealthLake>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeFHIRExportJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFHIRExportJobCompleted(
+    args: DescribeFHIRExportJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<HealthLake>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeFHIRImportJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilFHIRImportJobCompleted(
+    args: DescribeFHIRImportJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<HealthLake>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -312,4 +409,4 @@ export interface HealthLake {
  * @public
  */
 export class HealthLake extends HealthLakeClient implements HealthLake {}
-createAggregatedClient(commands, HealthLake);
+createAggregatedClient(commands, HealthLake, { paginators, waiters });

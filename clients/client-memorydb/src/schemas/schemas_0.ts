@@ -539,7 +539,7 @@ export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ,
 export var BatchUpdateClusterRequest$: StaticStructureSchema = [3, n0, _BUCR,
   0,
   [_CN, _SU],
-  [64 | 0, () => ServiceUpdateRequest$]
+  [64 | 0, () => ServiceUpdateRequest$], 1
 ];
 export var BatchUpdateClusterResponse$: StaticStructureSchema = [3, n0, _BUCRa,
   0,
@@ -582,7 +582,7 @@ TypeRegistry.for(n0).registerError(ClusterQuotaForCustomerExceededFault$, Cluste
 export var CopySnapshotRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_SSN, _TSN, _TB, _KKI, _Ta],
-  [0, 0, 0, 0, [() => TagList, 0]]
+  [0, 0, 0, 0, [() => TagList, 0]], 2
 ];
 export var CopySnapshotResponse$: StaticStructureSchema = [3, n0, _CSRo,
   0,
@@ -592,7 +592,7 @@ export var CopySnapshotResponse$: StaticStructureSchema = [3, n0, _CSRo,
 export var CreateACLRequest$: StaticStructureSchema = [3, n0, _CACLR,
   0,
   [_ACLN, _UN, _Ta],
-  [0, 64 | 0, [() => TagList, 0]]
+  [0, 64 | 0, [() => TagList, 0]], 1
 ];
 export var CreateACLResponse$: StaticStructureSchema = [3, n0, _CACLRr,
   0,
@@ -601,8 +601,8 @@ export var CreateACLResponse$: StaticStructureSchema = [3, n0, _CACLRr,
 ];
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_CNl, _NT, _MRCN, _PGN, _D, _NS, _NRPS, _SGN, _SGI, _MW, _Po, _STA, _TLSE, _KKI, _SA, _SN, _SRL, _Ta, _SW, _ACLN, _E, _EV, _AMVU, _DT, _NTe, _ID],
-  [0, 0, 0, 0, 0, 1, 1, 0, [() => SecurityGroupIdsList, 0], 0, 1, 0, 2, 0, [() => SnapshotArnsList, 0], 0, 1, [() => TagList, 0], 0, 0, 0, 0, 2, 2, 0, 0]
+  [_CNl, _NT, _ACLN, _MRCN, _PGN, _D, _NS, _NRPS, _SGN, _SGI, _MW, _Po, _STA, _TLSE, _KKI, _SA, _SN, _SRL, _Ta, _SW, _E, _EV, _AMVU, _DT, _NTe, _ID],
+  [0, 0, 0, 0, 0, 0, 1, 1, 0, [() => SecurityGroupIdsList, 0], 0, 1, 0, 2, 0, [() => SnapshotArnsList, 0], 0, 1, [() => TagList, 0], 0, 0, 0, 2, 2, 0, 0], 3
 ];
 export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -611,8 +611,8 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateMultiRegionClusterRequest$: StaticStructureSchema = [3, n0, _CMRCR,
   0,
-  [_MRCNS, _D, _E, _EV, _NT, _MRPGN, _NS, _TLSE, _Ta],
-  [0, 0, 0, 0, 0, 0, 1, 2, [() => TagList, 0]]
+  [_MRCNS, _NT, _D, _E, _EV, _MRPGN, _NS, _TLSE, _Ta],
+  [0, 0, 0, 0, 0, 0, 1, 2, [() => TagList, 0]], 2
 ];
 export var CreateMultiRegionClusterResponse$: StaticStructureSchema = [3, n0, _CMRCRr,
   0,
@@ -622,7 +622,7 @@ export var CreateMultiRegionClusterResponse$: StaticStructureSchema = [3, n0, _C
 export var CreateParameterGroupRequest$: StaticStructureSchema = [3, n0, _CPGR,
   0,
   [_PGN, _F, _D, _Ta],
-  [0, 0, 0, [() => TagList, 0]]
+  [0, 0, 0, [() => TagList, 0]], 2
 ];
 export var CreateParameterGroupResponse$: StaticStructureSchema = [3, n0, _CPGRr,
   0,
@@ -632,7 +632,7 @@ export var CreateParameterGroupResponse$: StaticStructureSchema = [3, n0, _CPGRr
 export var CreateSnapshotRequest$: StaticStructureSchema = [3, n0, _CSRr,
   0,
   [_CNl, _SN, _KKI, _Ta],
-  [0, 0, 0, [() => TagList, 0]]
+  [0, 0, 0, [() => TagList, 0]], 2
 ];
 export var CreateSnapshotResponse$: StaticStructureSchema = [3, n0, _CSRre,
   0,
@@ -641,8 +641,8 @@ export var CreateSnapshotResponse$: StaticStructureSchema = [3, n0, _CSRre,
 ];
 export var CreateSubnetGroupRequest$: StaticStructureSchema = [3, n0, _CSGR,
   0,
-  [_SGN, _D, _SI, _Ta],
-  [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]]
+  [_SGN, _SI, _D, _Ta],
+  [0, [() => SubnetIdentifierList, 0], 0, [() => TagList, 0]], 2
 ];
 export var CreateSubnetGroupResponse$: StaticStructureSchema = [3, n0, _CSGRr,
   0,
@@ -652,7 +652,7 @@ export var CreateSubnetGroupResponse$: StaticStructureSchema = [3, n0, _CSGRr,
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
   [_UNs, _AM, _AS, _Ta],
-  [0, () => AuthenticationMode$, 0, [() => TagList, 0]]
+  [0, () => AuthenticationMode$, 0, [() => TagList, 0]], 3
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
@@ -668,7 +668,7 @@ TypeRegistry.for(n0).registerError(DefaultUserRequired$, DefaultUserRequired);
 export var DeleteACLRequest$: StaticStructureSchema = [3, n0, _DACLR,
   0,
   [_ACLN],
-  [0]
+  [0], 1
 ];
 export var DeleteACLResponse$: StaticStructureSchema = [3, n0, _DACLRe,
   0,
@@ -678,7 +678,7 @@ export var DeleteACLResponse$: StaticStructureSchema = [3, n0, _DACLRe,
 export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CNl, _MRCN, _FSN],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -688,7 +688,7 @@ export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteMultiRegionClusterRequest$: StaticStructureSchema = [3, n0, _DMRCR,
   0,
   [_MRCN],
-  [0]
+  [0], 1
 ];
 export var DeleteMultiRegionClusterResponse$: StaticStructureSchema = [3, n0, _DMRCRe,
   0,
@@ -698,7 +698,7 @@ export var DeleteMultiRegionClusterResponse$: StaticStructureSchema = [3, n0, _D
 export var DeleteParameterGroupRequest$: StaticStructureSchema = [3, n0, _DPGR,
   0,
   [_PGN],
-  [0]
+  [0], 1
 ];
 export var DeleteParameterGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe,
   0,
@@ -708,7 +708,7 @@ export var DeleteParameterGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe
 export var DeleteSnapshotRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_SN],
-  [0]
+  [0], 1
 ];
 export var DeleteSnapshotResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -718,7 +718,7 @@ export var DeleteSnapshotResponse$: StaticStructureSchema = [3, n0, _DSRe,
 export var DeleteSubnetGroupRequest$: StaticStructureSchema = [3, n0, _DSGR,
   0,
   [_SGN],
-  [0]
+  [0], 1
 ];
 export var DeleteSubnetGroupResponse$: StaticStructureSchema = [3, n0, _DSGRe,
   0,
@@ -728,7 +728,7 @@ export var DeleteSubnetGroupResponse$: StaticStructureSchema = [3, n0, _DSGRe,
 export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DURe,
   0,
   [_UNs],
-  [0]
+  [0], 1
 ];
 export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURel,
   0,
@@ -798,7 +798,7 @@ export var DescribeMultiRegionParameterGroupsResponse$: StaticStructureSchema = 
 export var DescribeMultiRegionParametersRequest$: StaticStructureSchema = [3, n0, _DMRPR,
   0,
   [_MRPGN, _So, _MR, _NTex],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var DescribeMultiRegionParametersResponse$: StaticStructureSchema = [3, n0, _DMRPRe,
   0,
@@ -818,7 +818,7 @@ export var DescribeParameterGroupsResponse$: StaticStructureSchema = [3, n0, _DP
 export var DescribeParametersRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PGN, _MR, _NTex],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeParametersResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -909,7 +909,7 @@ export var Event$: StaticStructureSchema = [3, n0, _Eve,
 export var FailoverShardRequest$: StaticStructureSchema = [3, n0, _FSR,
   0,
   [_CNl, _SNh],
-  [0, 0]
+  [0, 0], 2
 ];
 export var FailoverShardResponse$: StaticStructureSchema = [3, n0, _FSRa,
   0,
@@ -919,7 +919,7 @@ export var FailoverShardResponse$: StaticStructureSchema = [3, n0, _FSRa,
 export var Filter$: StaticStructureSchema = [3, n0, _Fil,
   0,
   [_N, _V],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var InsufficientClusterCapacityFault$: StaticErrorSchema = [-3, n0, _ICCF,
   { [_aQE]: [`InsufficientClusterCapacity`, 400], [_e]: _c, [_hE]: 400 },
@@ -1014,7 +1014,7 @@ TypeRegistry.for(n0).registerError(InvalidVPCNetworkStateFault$, InvalidVPCNetwo
 export var ListAllowedMultiRegionClusterUpdatesRequest$: StaticStructureSchema = [3, n0, _LAMRCUR,
   0,
   [_MRCN],
-  [0]
+  [0], 1
 ];
 export var ListAllowedMultiRegionClusterUpdatesResponse$: StaticStructureSchema = [3, n0, _LAMRCURi,
   0,
@@ -1024,7 +1024,7 @@ export var ListAllowedMultiRegionClusterUpdatesResponse$: StaticStructureSchema 
 export var ListAllowedNodeTypeUpdatesRequest$: StaticStructureSchema = [3, n0, _LANTUR,
   0,
   [_CNl],
-  [0]
+  [0], 1
 ];
 export var ListAllowedNodeTypeUpdatesResponse$: StaticStructureSchema = [3, n0, _LANTURi,
   0,
@@ -1034,7 +1034,7 @@ export var ListAllowedNodeTypeUpdatesResponse$: StaticStructureSchema = [3, n0, 
 export var ListTagsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -1138,7 +1138,7 @@ export var PendingModifiedServiceUpdate$: StaticStructureSchema = [3, n0, _PMSU,
 export var PurchaseReservedNodesOfferingRequest$: StaticStructureSchema = [3, n0, _PRNOR,
   0,
   [_RNOI, _RI, _NC, _Ta],
-  [0, 0, 1, [() => TagList, 0]]
+  [0, 0, 1, [() => TagList, 0]], 1
 ];
 export var PurchaseReservedNodesOfferingResponse$: StaticStructureSchema = [3, n0, _PRNORu,
   0,
@@ -1197,7 +1197,7 @@ TypeRegistry.for(n0).registerError(ReservedNodesOfferingNotFoundFault$, Reserved
 export var ResetParameterGroupRequest$: StaticStructureSchema = [3, n0, _RPGR,
   0,
   [_PGN, _AP, _PNa],
-  [0, 2, 64 | 0]
+  [0, 2, 64 | 0], 1
 ];
 export var ResetParameterGroupResponse$: StaticStructureSchema = [3, n0, _RPGRe,
   0,
@@ -1368,7 +1368,7 @@ TypeRegistry.for(n0).registerError(TagQuotaPerResourceExceeded$, TagQuotaPerReso
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, [() => TagList, 0]]
+  [0, [() => TagList, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1389,7 +1389,7 @@ export var UnprocessedCluster$: StaticStructureSchema = [3, n0, _UCn,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1399,7 +1399,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateACLRequest$: StaticStructureSchema = [3, n0, _UACLR,
   0,
   [_ACLN, _UNTA, _UNTR],
-  [0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0], 1
 ];
 export var UpdateACLResponse$: StaticStructureSchema = [3, n0, _UACLRp,
   0,
@@ -1409,7 +1409,7 @@ export var UpdateACLResponse$: StaticStructureSchema = [3, n0, _UACLRp,
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_CNl, _D, _SGI, _MW, _STA, _STS, _PGN, _SW, _SRL, _NT, _E, _EV, _RCepl, _SC, _ACLN, _ID],
-  [0, 0, [() => SecurityGroupIdsList, 0], 0, 0, 0, 0, 0, 1, 0, 0, 0, () => ReplicaConfigurationRequest$, () => ShardConfigurationRequest$, 0, 0]
+  [0, 0, [() => SecurityGroupIdsList, 0], 0, 0, 0, 0, 0, 1, 0, 0, 0, () => ReplicaConfigurationRequest$, () => ShardConfigurationRequest$, 0, 0], 1
 ];
 export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -1419,7 +1419,7 @@ export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateMultiRegionClusterRequest$: StaticStructureSchema = [3, n0, _UMRCR,
   0,
   [_MRCN, _NT, _D, _EV, _SC, _MRPGN, _US],
-  [0, 0, 0, 0, () => ShardConfigurationRequest$, 0, 0]
+  [0, 0, 0, 0, () => ShardConfigurationRequest$, 0, 0], 1
 ];
 export var UpdateMultiRegionClusterResponse$: StaticStructureSchema = [3, n0, _UMRCRp,
   0,
@@ -1429,7 +1429,7 @@ export var UpdateMultiRegionClusterResponse$: StaticStructureSchema = [3, n0, _U
 export var UpdateParameterGroupRequest$: StaticStructureSchema = [3, n0, _UPGR,
   0,
   [_PGN, _PNVa],
-  [0, [() => ParameterNameValueList, 0]]
+  [0, [() => ParameterNameValueList, 0]], 2
 ];
 export var UpdateParameterGroupResponse$: StaticStructureSchema = [3, n0, _UPGRp,
   0,
@@ -1439,7 +1439,7 @@ export var UpdateParameterGroupResponse$: StaticStructureSchema = [3, n0, _UPGRp
 export var UpdateSubnetGroupRequest$: StaticStructureSchema = [3, n0, _USGR,
   0,
   [_SGN, _D, _SI],
-  [0, 0, [() => SubnetIdentifierList, 0]]
+  [0, 0, [() => SubnetIdentifierList, 0]], 1
 ];
 export var UpdateSubnetGroupResponse$: StaticStructureSchema = [3, n0, _USGRp,
   0,
@@ -1449,7 +1449,7 @@ export var UpdateSubnetGroupResponse$: StaticStructureSchema = [3, n0, _USGRp,
 export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
   [_UNs, _AM, _AS],
-  [0, () => AuthenticationMode$, 0]
+  [0, () => AuthenticationMode$, 0], 1
 ];
 export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
   0,

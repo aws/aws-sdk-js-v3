@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchCreateVariableCommand,
@@ -288,6 +288,22 @@ import {
   UpdateVariableCommandOutput,
 } from "./commands/UpdateVariableCommand";
 import { FraudDetectorClient } from "./FraudDetectorClient";
+import { paginateDescribeModelVersions } from "./pagination/DescribeModelVersionsPaginator";
+import { paginateGetBatchImportJobs } from "./pagination/GetBatchImportJobsPaginator";
+import { paginateGetBatchPredictionJobs } from "./pagination/GetBatchPredictionJobsPaginator";
+import { paginateGetDetectors } from "./pagination/GetDetectorsPaginator";
+import { paginateGetEntityTypes } from "./pagination/GetEntityTypesPaginator";
+import { paginateGetEventTypes } from "./pagination/GetEventTypesPaginator";
+import { paginateGetExternalModels } from "./pagination/GetExternalModelsPaginator";
+import { paginateGetLabels } from "./pagination/GetLabelsPaginator";
+import { paginateGetListElements } from "./pagination/GetListElementsPaginator";
+import { paginateGetListsMetadata } from "./pagination/GetListsMetadataPaginator";
+import { paginateGetModels } from "./pagination/GetModelsPaginator";
+import { paginateGetOutcomes } from "./pagination/GetOutcomesPaginator";
+import { paginateGetRules } from "./pagination/GetRulesPaginator";
+import { paginateGetVariables } from "./pagination/GetVariablesPaginator";
+import { paginateListEventPredictions } from "./pagination/ListEventPredictionsPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 
 const commands = {
   BatchCreateVariableCommand,
@@ -363,6 +379,24 @@ const commands = {
   UpdateRuleMetadataCommand,
   UpdateRuleVersionCommand,
   UpdateVariableCommand,
+};
+const paginators = {
+  paginateDescribeModelVersions,
+  paginateGetBatchImportJobs,
+  paginateGetBatchPredictionJobs,
+  paginateGetDetectors,
+  paginateGetEntityTypes,
+  paginateGetEventTypes,
+  paginateGetExternalModels,
+  paginateGetLabels,
+  paginateGetListElements,
+  paginateGetListsMetadata,
+  paginateGetModels,
+  paginateGetOutcomes,
+  paginateGetRules,
+  paginateGetVariables,
+  paginateListEventPredictions,
+  paginateListTagsForResource,
 };
 
 export interface FraudDetector {
@@ -1620,6 +1654,182 @@ export interface FraudDetector {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVariableCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeModelVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeModelVersionsCommandOutput}.
+   */
+  paginateDescribeModelVersions(
+    args?: DescribeModelVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeModelVersionsCommandOutput>;
+
+  /**
+   * @see {@link GetBatchImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBatchImportJobsCommandOutput}.
+   */
+  paginateGetBatchImportJobs(
+    args?: GetBatchImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBatchImportJobsCommandOutput>;
+
+  /**
+   * @see {@link GetBatchPredictionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBatchPredictionJobsCommandOutput}.
+   */
+  paginateGetBatchPredictionJobs(
+    args?: GetBatchPredictionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBatchPredictionJobsCommandOutput>;
+
+  /**
+   * @see {@link GetDetectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDetectorsCommandOutput}.
+   */
+  paginateGetDetectors(
+    args?: GetDetectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDetectorsCommandOutput>;
+
+  /**
+   * @see {@link GetEntityTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetEntityTypesCommandOutput}.
+   */
+  paginateGetEntityTypes(
+    args?: GetEntityTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetEntityTypesCommandOutput>;
+
+  /**
+   * @see {@link GetEventTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetEventTypesCommandOutput}.
+   */
+  paginateGetEventTypes(
+    args?: GetEventTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetEventTypesCommandOutput>;
+
+  /**
+   * @see {@link GetExternalModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetExternalModelsCommandOutput}.
+   */
+  paginateGetExternalModels(
+    args?: GetExternalModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetExternalModelsCommandOutput>;
+
+  /**
+   * @see {@link GetLabelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetLabelsCommandOutput}.
+   */
+  paginateGetLabels(
+    args?: GetLabelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetLabelsCommandOutput>;
+
+  /**
+   * @see {@link GetListElementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetListElementsCommandOutput}.
+   */
+  paginateGetListElements(
+    args: GetListElementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetListElementsCommandOutput>;
+
+  /**
+   * @see {@link GetListsMetadataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetListsMetadataCommandOutput}.
+   */
+  paginateGetListsMetadata(
+    args?: GetListsMetadataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetListsMetadataCommandOutput>;
+
+  /**
+   * @see {@link GetModelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetModelsCommandOutput}.
+   */
+  paginateGetModels(
+    args?: GetModelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetModelsCommandOutput>;
+
+  /**
+   * @see {@link GetOutcomesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetOutcomesCommandOutput}.
+   */
+  paginateGetOutcomes(
+    args?: GetOutcomesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetOutcomesCommandOutput>;
+
+  /**
+   * @see {@link GetRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetRulesCommandOutput}.
+   */
+  paginateGetRules(
+    args: GetRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetRulesCommandOutput>;
+
+  /**
+   * @see {@link GetVariablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetVariablesCommandOutput}.
+   */
+  paginateGetVariables(
+    args?: GetVariablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetVariablesCommandOutput>;
+
+  /**
+   * @see {@link ListEventPredictionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventPredictionsCommandOutput}.
+   */
+  paginateListEventPredictions(
+    args?: ListEventPredictionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventPredictionsCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
 }
 
 /**
@@ -1636,4 +1846,4 @@ export interface FraudDetector {
  * @public
  */
 export class FraudDetector extends FraudDetectorClient implements FraudDetector {}
-createAggregatedClient(commands, FraudDetector);
+createAggregatedClient(commands, FraudDetector, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateAccessGrantsIdentityCenterCommand,
@@ -467,6 +467,18 @@ import {
   UpdateStorageLensGroupCommandInput,
   UpdateStorageLensGroupCommandOutput,
 } from "./commands/UpdateStorageLensGroupCommand";
+import { paginateListAccessGrantsInstances } from "./pagination/ListAccessGrantsInstancesPaginator";
+import { paginateListAccessGrantsLocations } from "./pagination/ListAccessGrantsLocationsPaginator";
+import { paginateListAccessGrants } from "./pagination/ListAccessGrantsPaginator";
+import { paginateListAccessPointsForDirectoryBuckets } from "./pagination/ListAccessPointsForDirectoryBucketsPaginator";
+import { paginateListAccessPointsForObjectLambda } from "./pagination/ListAccessPointsForObjectLambdaPaginator";
+import { paginateListAccessPoints } from "./pagination/ListAccessPointsPaginator";
+import { paginateListCallerAccessGrants } from "./pagination/ListCallerAccessGrantsPaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
+import { paginateListMultiRegionAccessPoints } from "./pagination/ListMultiRegionAccessPointsPaginator";
+import { paginateListRegionalBuckets } from "./pagination/ListRegionalBucketsPaginator";
+import { paginateListStorageLensConfigurations } from "./pagination/ListStorageLensConfigurationsPaginator";
+import { paginateListStorageLensGroups } from "./pagination/ListStorageLensGroupsPaginator";
 import { S3ControlClient } from "./S3ControlClient";
 
 const commands = {
@@ -567,6 +579,20 @@ const commands = {
   UpdateJobPriorityCommand,
   UpdateJobStatusCommand,
   UpdateStorageLensGroupCommand,
+};
+const paginators = {
+  paginateListAccessGrants,
+  paginateListAccessGrantsInstances,
+  paginateListAccessGrantsLocations,
+  paginateListAccessPoints,
+  paginateListAccessPointsForDirectoryBuckets,
+  paginateListAccessPointsForObjectLambda,
+  paginateListCallerAccessGrants,
+  paginateListJobs,
+  paginateListMultiRegionAccessPoints,
+  paginateListRegionalBuckets,
+  paginateListStorageLensConfigurations,
+  paginateListStorageLensGroups,
 };
 
 export interface S3Control {
@@ -2238,6 +2264,138 @@ export interface S3Control {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStorageLensGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccessGrantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessGrantsCommandOutput}.
+   */
+  paginateListAccessGrants(
+    args?: ListAccessGrantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessGrantsCommandOutput>;
+
+  /**
+   * @see {@link ListAccessGrantsInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessGrantsInstancesCommandOutput}.
+   */
+  paginateListAccessGrantsInstances(
+    args?: ListAccessGrantsInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessGrantsInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListAccessGrantsLocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessGrantsLocationsCommandOutput}.
+   */
+  paginateListAccessGrantsLocations(
+    args?: ListAccessGrantsLocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessGrantsLocationsCommandOutput>;
+
+  /**
+   * @see {@link ListAccessPointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessPointsCommandOutput}.
+   */
+  paginateListAccessPoints(
+    args?: ListAccessPointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessPointsCommandOutput>;
+
+  /**
+   * @see {@link ListAccessPointsForDirectoryBucketsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessPointsForDirectoryBucketsCommandOutput}.
+   */
+  paginateListAccessPointsForDirectoryBuckets(
+    args?: ListAccessPointsForDirectoryBucketsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessPointsForDirectoryBucketsCommandOutput>;
+
+  /**
+   * @see {@link ListAccessPointsForObjectLambdaCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessPointsForObjectLambdaCommandOutput}.
+   */
+  paginateListAccessPointsForObjectLambda(
+    args?: ListAccessPointsForObjectLambdaCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessPointsForObjectLambdaCommandOutput>;
+
+  /**
+   * @see {@link ListCallerAccessGrantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCallerAccessGrantsCommandOutput}.
+   */
+  paginateListCallerAccessGrants(
+    args?: ListCallerAccessGrantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCallerAccessGrantsCommandOutput>;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args?: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
+   * @see {@link ListMultiRegionAccessPointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMultiRegionAccessPointsCommandOutput}.
+   */
+  paginateListMultiRegionAccessPoints(
+    args?: ListMultiRegionAccessPointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMultiRegionAccessPointsCommandOutput>;
+
+  /**
+   * @see {@link ListRegionalBucketsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRegionalBucketsCommandOutput}.
+   */
+  paginateListRegionalBuckets(
+    args?: ListRegionalBucketsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRegionalBucketsCommandOutput>;
+
+  /**
+   * @see {@link ListStorageLensConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStorageLensConfigurationsCommandOutput}.
+   */
+  paginateListStorageLensConfigurations(
+    args?: ListStorageLensConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStorageLensConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListStorageLensGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStorageLensGroupsCommandOutput}.
+   */
+  paginateListStorageLensGroups(
+    args?: ListStorageLensGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStorageLensGroupsCommandOutput>;
 }
 
 /**
@@ -2245,4 +2403,4 @@ export interface S3Control {
  * @public
  */
 export class S3Control extends S3ControlClient implements S3Control {}
-createAggregatedClient(commands, S3Control);
+createAggregatedClient(commands, S3Control, { paginators });

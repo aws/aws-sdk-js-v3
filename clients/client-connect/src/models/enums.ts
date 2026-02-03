@@ -814,6 +814,19 @@ export type EvaluationFormLanguageCode = (typeof EvaluationFormLanguageCode)[key
  * @public
  * @enum
  */
+export const EvaluationReviewNotificationRecipientType = {
+  USER_ID: "USER_ID",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationReviewNotificationRecipientType =
+  (typeof EvaluationReviewNotificationRecipientType)[keyof typeof EvaluationReviewNotificationRecipientType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationFormScoringMode = {
   QUESTION_ONLY: "QUESTION_ONLY",
   SECTION_ONLY: "SECTION_ONLY",
@@ -885,6 +898,34 @@ export const OverrideDays = {
  * @public
  */
 export type OverrideDays = (typeof OverrideDays)[keyof typeof OverrideDays];
+
+/**
+ * @public
+ * @enum
+ */
+export const OverrideType = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type OverrideType = (typeof OverrideType)[keyof typeof OverrideType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecurrenceFrequency = {
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+  YEARLY: "YEARLY",
+} as const;
+/**
+ * @public
+ */
+export type RecurrenceFrequency = (typeof RecurrenceFrequency)[keyof typeof RecurrenceFrequency];
 
 /**
  * @public
@@ -1163,6 +1204,31 @@ export const PropertyValidationExceptionReason = {
  */
 export type PropertyValidationExceptionReason =
   (typeof PropertyValidationExceptionReason)[keyof typeof PropertyValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestCaseEntryPointType = {
+  VOICE_CALL: "VOICE_CALL",
+} as const;
+/**
+ * @public
+ */
+export type TestCaseEntryPointType = (typeof TestCaseEntryPointType)[keyof typeof TestCaseEntryPointType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestCaseStatus = {
+  PUBLISHED: "PUBLISHED",
+  SAVED: "SAVED",
+} as const;
+/**
+ * @public
+ */
+export type TestCaseStatus = (typeof TestCaseStatus)[keyof typeof TestCaseStatus];
 
 /**
  * @public
@@ -1494,7 +1560,9 @@ export type ContactParticipantRole = (typeof ContactParticipantRole)[keyof typeo
  */
 export const EvaluationStatus = {
   DRAFT: "DRAFT",
+  REVIEW_REQUESTED: "REVIEW_REQUESTED",
   SUBMITTED: "SUBMITTED",
+  UNDER_REVIEW: "UNDER_REVIEW",
 } as const;
 /**
  * @public
@@ -1939,6 +2007,7 @@ export type Visibility = (typeof Visibility)[keyof typeof Visibility];
  * @enum
  */
 export const ContactMetricName = {
+  ESTIMATED_WAIT_TIME: "ESTIMATED_WAIT_TIME",
   POSITION_IN_QUEUE: "POSITION_IN_QUEUE",
 } as const;
 /**
@@ -1961,6 +2030,7 @@ export const CurrentMetricName = {
   AGENTS_STAFFED: "AGENTS_STAFFED",
   CONTACTS_IN_QUEUE: "CONTACTS_IN_QUEUE",
   CONTACTS_SCHEDULED: "CONTACTS_SCHEDULED",
+  ESTIMATED_WAIT_TIME: "ESTIMATED_WAIT_TIME",
   OLDEST_CONTACT_AGE: "OLDEST_CONTACT_AGE",
   SLOTS_ACTIVE: "SLOTS_ACTIVE",
   SLOTS_AVAILABLE: "SLOTS_AVAILABLE",
@@ -2014,6 +2084,19 @@ export const SortOrder = {
  * @public
  */
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationalStatus = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+} as const;
+/**
+ * @public
+ */
+export type OperationalStatus = (typeof OperationalStatus)[keyof typeof OperationalStatus];
 
 /**
  * @public
@@ -2106,6 +2189,22 @@ export const IntervalPeriod = {
  * @public
  */
 export type IntervalPeriod = (typeof IntervalPeriod)[keyof typeof IntervalPeriod];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestCaseExecutionStatus = {
+  FAILED: "FAILED",
+  INITIATED: "INITIATED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PASSED: "PASSED",
+  STOPPED: "STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type TestCaseExecutionStatus = (typeof TestCaseExecutionStatus)[keyof typeof TestCaseExecutionStatus];
 
 /**
  * @public
@@ -2253,6 +2352,21 @@ export const RealTimeContactAnalysisStatus = {
  */
 export type RealTimeContactAnalysisStatus =
   (typeof RealTimeContactAnalysisStatus)[keyof typeof RealTimeContactAnalysisStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionRecordStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PASSED: "PASSED",
+  STOPPED: "STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type ExecutionRecordStatus = (typeof ExecutionRecordStatus)[keyof typeof ExecutionRecordStatus];
 
 /**
  * @public

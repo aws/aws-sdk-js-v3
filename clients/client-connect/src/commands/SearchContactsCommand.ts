@@ -147,6 +147,23 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  *     ActiveRegions: [ // ActiveRegionList
  *       "STRING_VALUE",
  *     ],
+ *     ContactTags: { // ControlPlaneTagFilter
+ *       OrConditions: [ // TagOrConditionList
+ *         [ // TagAndConditionList
+ *           { // TagCondition
+ *             TagKey: "STRING_VALUE",
+ *             TagValue: "STRING_VALUE",
+ *           },
+ *         ],
+ *       ],
+ *       AndConditions: [
+ *         {
+ *           TagKey: "STRING_VALUE",
+ *           TagValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       TagCondition: "<TagCondition>",
+ *     },
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -299,6 +316,9 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * //         ],
  * //         ActivationTimestamp: new Date("TIMESTAMP"),
  * //         Index: Number("int"),
+ * //       },
+ * //       Tags: { // ContactTagMap
+ * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       GlobalResiliencyMetadata: { // GlobalResiliencyMetadata
  * //         ActiveRegion: "STRING_VALUE",

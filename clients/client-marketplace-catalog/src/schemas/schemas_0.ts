@@ -308,7 +308,7 @@ export var AmiProductVisibilityFilter$: StaticStructureSchema = [3, n0, _APVF,
 export var BatchDescribeEntitiesRequest$: StaticStructureSchema = [3, n0, _BDER,
   0,
   [_ERL],
-  [() => EntityRequestList]
+  [() => EntityRequestList], 1
 ];
 export var BatchDescribeEntitiesResponse$: StaticStructureSchema = [3, n0, _BDERa,
   0,
@@ -323,7 +323,7 @@ export var BatchDescribeErrorDetail$: StaticStructureSchema = [3, n0, _BDED,
 export var CancelChangeSetRequest$: StaticStructureSchema = [3, n0, _CCSR,
   0,
   [_C, _CSI],
-  [[0, { [_hQ]: _ca }], [0, { [_hQ]: _cSI }]]
+  [[0, { [_hQ]: _ca }], [0, { [_hQ]: _cSI }]], 2
 ];
 export var CancelChangeSetResponse$: StaticStructureSchema = [3, n0, _CCSRa,
   0,
@@ -333,7 +333,7 @@ export var CancelChangeSetResponse$: StaticStructureSchema = [3, n0, _CCSRa,
 export var Change$: StaticStructureSchema = [3, n0, _Ch,
   0,
   [_CT, _En, _ET, _D, _DD, _CN],
-  [0, () => Entity$, () => TagList, 0, 15, 0]
+  [0, () => Entity$, () => TagList, 0, 15, 0], 2
 ];
 export var ChangeSetSummaryListItem$: StaticStructureSchema = [3, n0, _CSSLI,
   0,
@@ -428,7 +428,7 @@ export var DataProductVisibilityFilter$: StaticStructureSchema = [3, n0, _DPVF,
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_RA],
-  [[0, { [_hQ]: _rA }]]
+  [[0, { [_hQ]: _rA }]], 1
 ];
 export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -438,7 +438,7 @@ export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
 export var DescribeChangeSetRequest$: StaticStructureSchema = [3, n0, _DCSR,
   0,
   [_C, _CSI],
-  [[0, { [_hQ]: _ca }], [0, { [_hQ]: _cSI }]]
+  [[0, { [_hQ]: _ca }], [0, { [_hQ]: _cSI }]], 2
 ];
 export var DescribeChangeSetResponse$: StaticStructureSchema = [3, n0, _DCSRe,
   0,
@@ -448,7 +448,7 @@ export var DescribeChangeSetResponse$: StaticStructureSchema = [3, n0, _DCSRe,
 export var DescribeEntityRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_C, _EI],
-  [[0, { [_hQ]: _ca }], [0, { [_hQ]: _eI }]]
+  [[0, { [_hQ]: _ca }], [0, { [_hQ]: _eI }]], 2
 ];
 export var DescribeEntityResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -458,7 +458,7 @@ export var DescribeEntityResponse$: StaticStructureSchema = [3, n0, _DERe,
 export var Entity$: StaticStructureSchema = [3, n0, _En,
   0,
   [_T, _Id],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EntityDetail$: StaticStructureSchema = [3, n0, _EDn,
   0,
@@ -468,7 +468,7 @@ export var EntityDetail$: StaticStructureSchema = [3, n0, _EDn,
 export var EntityRequest$: StaticStructureSchema = [3, n0, _ER,
   0,
   [_C, _EI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EntitySummary$: StaticStructureSchema = [3, n0, _ES,
   0,
@@ -488,7 +488,7 @@ export var Filter$: StaticStructureSchema = [3, n0, _F,
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_RA],
-  [[0, { [_hQ]: _rA }]]
+  [[0, { [_hQ]: _rA }]], 1
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
@@ -504,7 +504,7 @@ TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceExc
 export var ListChangeSetsRequest$: StaticStructureSchema = [3, n0, _LCSR,
   0,
   [_C, _FL, _So, _MR, _NT],
-  [0, () => FilterList, () => Sort$, 1, 0]
+  [0, () => FilterList, () => Sort$, 1, 0], 1
 ];
 export var ListChangeSetsResponse$: StaticStructureSchema = [3, n0, _LCSRi,
   0,
@@ -514,7 +514,7 @@ export var ListChangeSetsResponse$: StaticStructureSchema = [3, n0, _LCSRi,
 export var ListEntitiesRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
   [_C, _ETnt, _FL, _So, _NT, _MR, _OT, _ETF, _ETS],
-  [0, 0, () => FilterList, () => Sort$, 0, 1, 0, () => EntityTypeFilters$, () => EntityTypeSort$]
+  [0, 0, () => FilterList, () => Sort$, 0, 1, 0, () => EntityTypeFilters$, () => EntityTypeSort$], 2
 ];
 export var ListEntitiesResponse$: StaticStructureSchema = [3, n0, _LERi,
   0,
@@ -524,7 +524,7 @@ export var ListEntitiesResponse$: StaticStructureSchema = [3, n0, _LERi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -719,7 +719,7 @@ export var OfferTargetingFilter$: StaticStructureSchema = [3, n0, _OTF,
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_RA, _P],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -893,7 +893,7 @@ export var Sort$: StaticStructureSchema = [3, n0, _So,
 export var StartChangeSetRequest$: StaticStructureSchema = [3, n0, _SCSR,
   0,
   [_C, _CSh, _CSN, _CRT, _CST, _I],
-  [0, () => RequestedChangeList, 0, [0, 4], () => TagList, 0]
+  [0, () => RequestedChangeList, 0, [0, 4], () => TagList, 0], 2
 ];
 export var StartChangeSetResponse$: StaticStructureSchema = [3, n0, _SCSRt,
   0,
@@ -903,12 +903,12 @@ export var StartChangeSetResponse$: StaticStructureSchema = [3, n0, _SCSRt,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -924,7 +924,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,

@@ -27,8 +27,9 @@ export interface DeleteSegmentCommandInput extends DeleteSegmentRequest {}
 export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a segment. You can't delete a segment that is being used in a launch or experiment, even if that
- *     launch or experiment is not currently running.</p>
+ * <p>Deletes a segment. You can't delete a segment that is being used in a launch or experiment, even if that launch or experiment is not currently running.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

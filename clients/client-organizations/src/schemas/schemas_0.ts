@@ -420,7 +420,7 @@ var ResponsibilityTransferName: StaticSimpleSchema = [0, n0, _RTN, 8, 0];
 export var AcceptHandshakeRequest$: StaticStructureSchema = [3, n0, _AHR,
   0,
   [_HI],
-  [0]
+  [0], 1
 ];
 export var AcceptHandshakeResponse$: StaticStructureSchema = [3, n0, _AHRc,
   0,
@@ -483,7 +483,7 @@ TypeRegistry.for(n0).registerError(AlreadyInOrganizationException$, AlreadyInOrg
 export var AttachPolicyRequest$: StaticStructureSchema = [3, n0, _APR,
   0,
   [_PI, _TI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AWSOrganizationsNotInUseException$: StaticErrorSchema = [-3, n0, _AWSONIUE,
   { [_e]: _c, [_hE]: 404 },
@@ -494,7 +494,7 @@ TypeRegistry.for(n0).registerError(AWSOrganizationsNotInUseException$, AWSOrgani
 export var CancelHandshakeRequest$: StaticStructureSchema = [3, n0, _CHR,
   0,
   [_HI],
-  [0]
+  [0], 1
 ];
 export var CancelHandshakeResponse$: StaticStructureSchema = [3, n0, _CHRa,
   0,
@@ -515,7 +515,7 @@ TypeRegistry.for(n0).registerError(ChildNotFoundException$, ChildNotFoundExcepti
 export var CloseAccountRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
   { [_e]: _c, [_hE]: 409 },
@@ -538,7 +538,7 @@ TypeRegistry.for(n0).registerError(ConstraintViolationException$, ConstraintViol
 export var CreateAccountRequest$: StaticStructureSchema = [3, n0, _CARr,
   0,
   [_E, _AN, _RN, _IUATB, _Ta],
-  [[() => Email, 0], [() => CreateAccountName, 0], 0, 0, () => Tags]
+  [[() => Email, 0], [() => CreateAccountName, 0], 0, 0, () => Tags], 2
 ];
 export var CreateAccountResponse$: StaticStructureSchema = [3, n0, _CARre,
   0,
@@ -559,7 +559,7 @@ TypeRegistry.for(n0).registerError(CreateAccountStatusNotFoundException$, Create
 export var CreateGovCloudAccountRequest$: StaticStructureSchema = [3, n0, _CGCAR,
   0,
   [_E, _AN, _RN, _IUATB, _Ta],
-  [[() => Email, 0], [() => CreateAccountName, 0], 0, 0, () => Tags]
+  [[() => Email, 0], [() => CreateAccountName, 0], 0, 0, () => Tags], 2
 ];
 export var CreateGovCloudAccountResponse$: StaticStructureSchema = [3, n0, _CGCARr,
   0,
@@ -569,7 +569,7 @@ export var CreateGovCloudAccountResponse$: StaticStructureSchema = [3, n0, _CGCA
 export var CreateOrganizationalUnitRequest$: StaticStructureSchema = [3, n0, _COUR,
   0,
   [_PIa, _N, _Ta],
-  [0, 0, () => Tags]
+  [0, 0, () => Tags], 2
 ];
 export var CreateOrganizationalUnitResponse$: StaticStructureSchema = [3, n0, _COURr,
   0,
@@ -589,7 +589,7 @@ export var CreateOrganizationResponse$: StaticStructureSchema = [3, n0, _CORr,
 export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_Co, _D, _N, _T, _Ta],
-  [0, 0, 0, 0, () => Tags]
+  [0, 0, 0, 0, () => Tags], 4
 ];
 export var CreatePolicyResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -599,7 +599,7 @@ export var CreatePolicyResponse$: StaticStructureSchema = [3, n0, _CPRr,
 export var DeclineHandshakeRequest$: StaticStructureSchema = [3, n0, _DHR,
   0,
   [_HI],
-  [0]
+  [0], 1
 ];
 export var DeclineHandshakeResponse$: StaticStructureSchema = [3, n0, _DHRe,
   0,
@@ -619,22 +619,22 @@ export var DelegatedService$: StaticStructureSchema = [3, n0, _DS,
 export var DeleteOrganizationalUnitRequest$: StaticStructureSchema = [3, n0, _DOUR,
   0,
   [_OUI],
-  [0]
+  [0], 1
 ];
 export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var DeregisterDelegatedAdministratorRequest$: StaticStructureSchema = [3, n0, _DDAR,
   0,
   [_AI, _SP],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeAccountRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var DescribeAccountResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -644,7 +644,7 @@ export var DescribeAccountResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DescribeCreateAccountStatusRequest$: StaticStructureSchema = [3, n0, _DCASR,
   0,
   [_CARI],
-  [0]
+  [0], 1
 ];
 export var DescribeCreateAccountStatusResponse$: StaticStructureSchema = [3, n0, _DCASRe,
   0,
@@ -654,7 +654,7 @@ export var DescribeCreateAccountStatusResponse$: StaticStructureSchema = [3, n0,
 export var DescribeEffectivePolicyRequest$: StaticStructureSchema = [3, n0, _DEPR,
   0,
   [_PT, _TI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeEffectivePolicyResponse$: StaticStructureSchema = [3, n0, _DEPRe,
   0,
@@ -664,7 +664,7 @@ export var DescribeEffectivePolicyResponse$: StaticStructureSchema = [3, n0, _DE
 export var DescribeHandshakeRequest$: StaticStructureSchema = [3, n0, _DHRes,
   0,
   [_HI],
-  [0]
+  [0], 1
 ];
 export var DescribeHandshakeResponse$: StaticStructureSchema = [3, n0, _DHResc,
   0,
@@ -674,7 +674,7 @@ export var DescribeHandshakeResponse$: StaticStructureSchema = [3, n0, _DHResc,
 export var DescribeOrganizationalUnitRequest$: StaticStructureSchema = [3, n0, _DOURe,
   0,
   [_OUI],
-  [0]
+  [0], 1
 ];
 export var DescribeOrganizationalUnitResponse$: StaticStructureSchema = [3, n0, _DOURes,
   0,
@@ -689,7 +689,7 @@ export var DescribeOrganizationResponse$: StaticStructureSchema = [3, n0, _DOR,
 export var DescribePolicyRequest$: StaticStructureSchema = [3, n0, _DPRe,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var DescribePolicyResponse$: StaticStructureSchema = [3, n0, _DPRes,
   0,
@@ -704,7 +704,7 @@ export var DescribeResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRP
 export var DescribeResponsibilityTransferRequest$: StaticStructureSchema = [3, n0, _DRTR,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var DescribeResponsibilityTransferResponse$: StaticStructureSchema = [3, n0, _DRTRe,
   0,
@@ -720,17 +720,17 @@ TypeRegistry.for(n0).registerError(DestinationParentNotFoundException$, Destinat
 export var DetachPolicyRequest$: StaticStructureSchema = [3, n0, _DPRet,
   0,
   [_PI, _TI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisableAWSServiceAccessRequest$: StaticStructureSchema = [3, n0, _DAWSSAR,
   0,
   [_SP],
-  [0]
+  [0], 1
 ];
 export var DisablePolicyTypeRequest$: StaticStructureSchema = [3, n0, _DPTR,
   0,
   [_RI, _PT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisablePolicyTypeResponse$: StaticStructureSchema = [3, n0, _DPTRi,
   0,
@@ -796,7 +796,7 @@ export var EnableAllFeaturesResponse$: StaticStructureSchema = [3, n0, _EAFRn,
 export var EnableAWSServiceAccessRequest$: StaticStructureSchema = [3, n0, _EAWSSAR,
   0,
   [_SP],
-  [0]
+  [0], 1
 ];
 export var EnabledServicePrincipal$: StaticStructureSchema = [3, n0, _ESP,
   0,
@@ -806,7 +806,7 @@ export var EnabledServicePrincipal$: StaticStructureSchema = [3, n0, _ESP,
 export var EnablePolicyTypeRequest$: StaticStructureSchema = [3, n0, _EPTR,
   0,
   [_RI, _PT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EnablePolicyTypeResponse$: StaticStructureSchema = [3, n0, _EPTRn,
   0,
@@ -850,7 +850,7 @@ TypeRegistry.for(n0).registerError(HandshakeNotFoundException$, HandshakeNotFoun
 export var HandshakeParty$: StaticStructureSchema = [3, n0, _HP,
   0,
   [_I, _T],
-  [[() => HandshakePartyId, 0], 0]
+  [[() => HandshakePartyId, 0], 0], 2
 ];
 export var HandshakeResource$: StaticStructureSchema = [3, n0, _HR,
   0,
@@ -878,7 +878,7 @@ TypeRegistry.for(n0).registerError(InvalidResponsibilityTransferTransitionExcept
 export var InviteAccountToOrganizationRequest$: StaticStructureSchema = [3, n0, _IATOR,
   0,
   [_Tar, _No, _Ta],
-  [[() => HandshakeParty$, 0], [() => HandshakeNotes, 0], () => Tags]
+  [[() => HandshakeParty$, 0], [() => HandshakeNotes, 0], () => Tags], 1
 ];
 export var InviteAccountToOrganizationResponse$: StaticStructureSchema = [3, n0, _IATORn,
   0,
@@ -887,8 +887,8 @@ export var InviteAccountToOrganizationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var InviteOrganizationToTransferResponsibilityRequest$: StaticStructureSchema = [3, n0, _IOTTRR,
   0,
-  [_T, _Tar, _No, _ST, _SN, _Ta],
-  [0, [() => HandshakeParty$, 0], [() => HandshakeNotes, 0], 4, [() => ResponsibilityTransferName, 0], () => Tags]
+  [_T, _Tar, _ST, _SN, _No, _Ta],
+  [0, [() => HandshakeParty$, 0], 4, [() => ResponsibilityTransferName, 0], [() => HandshakeNotes, 0], () => Tags], 4
 ];
 export var InviteOrganizationToTransferResponsibilityResponse$: StaticStructureSchema = [3, n0, _IOTTRRn,
   0,
@@ -898,7 +898,7 @@ export var InviteOrganizationToTransferResponsibilityResponse$: StaticStructureS
 export var ListAccountsForParentRequest$: StaticStructureSchema = [3, n0, _LAFPR,
   0,
   [_PIa, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAccountsForParentResponse$: StaticStructureSchema = [3, n0, _LAFPRi,
   0,
@@ -918,7 +918,7 @@ export var ListAccountsResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListAccountsWithInvalidEffectivePolicyRequest$: StaticStructureSchema = [3, n0, _LAWIEPR,
   0,
   [_PT, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAccountsWithInvalidEffectivePolicyResponse$: StaticStructureSchema = [3, n0, _LAWIEPRi,
   0,
@@ -938,7 +938,7 @@ export var ListAWSServiceAccessForOrganizationResponse$: StaticStructureSchema =
 export var ListChildrenRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_PIa, _CTh, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListChildrenResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -968,7 +968,7 @@ export var ListDelegatedAdministratorsResponse$: StaticStructureSchema = [3, n0,
 export var ListDelegatedServicesForAccountRequest$: StaticStructureSchema = [3, n0, _LDSFAR,
   0,
   [_AI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListDelegatedServicesForAccountResponse$: StaticStructureSchema = [3, n0, _LDSFARi,
   0,
@@ -978,7 +978,7 @@ export var ListDelegatedServicesForAccountResponse$: StaticStructureSchema = [3,
 export var ListEffectivePolicyValidationErrorsRequest$: StaticStructureSchema = [3, n0, _LEPVER,
   0,
   [_AI, _PT, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListEffectivePolicyValidationErrorsResponse$: StaticStructureSchema = [3, n0, _LEPVERi,
   0,
@@ -1008,7 +1008,7 @@ export var ListHandshakesForOrganizationResponse$: StaticStructureSchema = [3, n
 export var ListInboundResponsibilityTransfersRequest$: StaticStructureSchema = [3, n0, _LIRTR,
   0,
   [_T, _I, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 1
 ];
 export var ListInboundResponsibilityTransfersResponse$: StaticStructureSchema = [3, n0, _LIRTRi,
   0,
@@ -1018,7 +1018,7 @@ export var ListInboundResponsibilityTransfersResponse$: StaticStructureSchema = 
 export var ListOrganizationalUnitsForParentRequest$: StaticStructureSchema = [3, n0, _LOUFPR,
   0,
   [_PIa, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListOrganizationalUnitsForParentResponse$: StaticStructureSchema = [3, n0, _LOUFPRi,
   0,
@@ -1028,7 +1028,7 @@ export var ListOrganizationalUnitsForParentResponse$: StaticStructureSchema = [3
 export var ListOutboundResponsibilityTransfersRequest$: StaticStructureSchema = [3, n0, _LORTR,
   0,
   [_T, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListOutboundResponsibilityTransfersResponse$: StaticStructureSchema = [3, n0, _LORTRi,
   0,
@@ -1038,7 +1038,7 @@ export var ListOutboundResponsibilityTransfersResponse$: StaticStructureSchema =
 export var ListParentsRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
   [_CI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListParentsResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
@@ -1048,7 +1048,7 @@ export var ListParentsResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListPoliciesForTargetRequest$: StaticStructureSchema = [3, n0, _LPFTR,
   0,
   [_TI, _F, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListPoliciesForTargetResponse$: StaticStructureSchema = [3, n0, _LPFTRi,
   0,
@@ -1058,7 +1058,7 @@ export var ListPoliciesForTargetResponse$: StaticStructureSchema = [3, n0, _LPFT
 export var ListPoliciesRequest$: StaticStructureSchema = [3, n0, _LPRis,
   0,
   [_F, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListPoliciesResponse$: StaticStructureSchema = [3, n0, _LPRist,
   0,
@@ -1078,7 +1078,7 @@ export var ListRootsResponse$: StaticStructureSchema = [3, n0, _LRRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RIe, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1088,7 +1088,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListTargetsForPolicyRequest$: StaticStructureSchema = [3, n0, _LTFPR,
   0,
   [_PI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListTargetsForPolicyResponse$: StaticStructureSchema = [3, n0, _LTFPRi,
   0,
@@ -1110,7 +1110,7 @@ TypeRegistry.for(n0).registerError(MasterCannotLeaveOrganizationException$, Mast
 export var MoveAccountRequest$: StaticStructureSchema = [3, n0, _MAR,
   0,
   [_AI, _SPI, _DPI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var Organization$: StaticStructureSchema = [3, n0, _O,
   0,
@@ -1216,7 +1216,7 @@ export var PolicyTypeSummary$: StaticStructureSchema = [3, n0, _PTSo,
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_Co, _Ta],
-  [0, () => Tags]
+  [0, () => Tags], 1
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -1226,12 +1226,12 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
 export var RegisterDelegatedAdministratorRequest$: StaticStructureSchema = [3, n0, _RDAR,
   0,
   [_AI, _SP],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RemoveAccountFromOrganizationRequest$: StaticStructureSchema = [3, n0, _RAFOR,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RP,
   0,
@@ -1292,12 +1292,12 @@ TypeRegistry.for(n0).registerError(SourceParentNotFoundException$, SourceParentN
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RIe, _Ta],
-  [0, () => Tags]
+  [0, () => Tags], 2
 ];
 export var TargetNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -1308,7 +1308,7 @@ TypeRegistry.for(n0).registerError(TargetNotFoundException$, TargetNotFoundExcep
 export var TerminateResponsibilityTransferRequest$: StaticStructureSchema = [3, n0, _TRTR,
   0,
   [_I, _ETn],
-  [0, 4]
+  [0, 4], 1
 ];
 export var TerminateResponsibilityTransferResponse$: StaticStructureSchema = [3, n0, _TRTRe,
   0,
@@ -1335,12 +1335,12 @@ TypeRegistry.for(n0).registerError(UnsupportedAPIEndpointException$, Unsupported
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RIe, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UpdateOrganizationalUnitRequest$: StaticStructureSchema = [3, n0, _UOUR,
   0,
   [_OUI, _N],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UpdateOrganizationalUnitResponse$: StaticStructureSchema = [3, n0, _UOURp,
   0,
@@ -1350,7 +1350,7 @@ export var UpdateOrganizationalUnitResponse$: StaticStructureSchema = [3, n0, _U
 export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_PI, _N, _D, _Co],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var UpdatePolicyResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -1360,7 +1360,7 @@ export var UpdatePolicyResponse$: StaticStructureSchema = [3, n0, _UPRp,
 export var UpdateResponsibilityTransferRequest$: StaticStructureSchema = [3, n0, _URTR,
   0,
   [_I, _N],
-  [0, [() => ResponsibilityTransferName, 0]]
+  [0, [() => ResponsibilityTransferName, 0]], 2
 ];
 export var UpdateResponsibilityTransferResponse$: StaticStructureSchema = [3, n0, _URTRp,
   0,

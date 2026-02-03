@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateBatchLoadTaskCommand,
@@ -77,6 +77,9 @@ import {
   WriteRecordsCommandInput,
   WriteRecordsCommandOutput,
 } from "./commands/WriteRecordsCommand";
+import { paginateListBatchLoadTasks } from "./pagination/ListBatchLoadTasksPaginator";
+import { paginateListDatabases } from "./pagination/ListDatabasesPaginator";
+import { paginateListTables } from "./pagination/ListTablesPaginator";
 import { TimestreamWriteClient } from "./TimestreamWriteClient";
 
 const commands = {
@@ -99,6 +102,11 @@ const commands = {
   UpdateDatabaseCommand,
   UpdateTableCommand,
   WriteRecordsCommand,
+};
+const paginators = {
+  paginateListBatchLoadTasks,
+  paginateListDatabases,
+  paginateListTables,
 };
 
 export interface TimestreamWrite {
@@ -428,6 +436,39 @@ export interface TimestreamWrite {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: WriteRecordsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBatchLoadTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBatchLoadTasksCommandOutput}.
+   */
+  paginateListBatchLoadTasks(
+    args?: ListBatchLoadTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBatchLoadTasksCommandOutput>;
+
+  /**
+   * @see {@link ListDatabasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatabasesCommandOutput}.
+   */
+  paginateListDatabases(
+    args?: ListDatabasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatabasesCommandOutput>;
+
+  /**
+   * @see {@link ListTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTablesCommandOutput}.
+   */
+  paginateListTables(
+    args?: ListTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTablesCommandOutput>;
 }
 
 /**
@@ -447,4 +488,4 @@ export interface TimestreamWrite {
  * @public
  */
 export class TimestreamWrite extends TimestreamWriteClient implements TimestreamWrite {}
-createAggregatedClient(commands, TimestreamWrite);
+createAggregatedClient(commands, TimestreamWrite, { paginators });

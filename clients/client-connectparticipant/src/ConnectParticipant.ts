@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelParticipantAuthenticationCommand,
@@ -50,6 +50,7 @@ import {
   StartAttachmentUploadCommandOutput,
 } from "./commands/StartAttachmentUploadCommand";
 import { ConnectParticipantClient } from "./ConnectParticipantClient";
+import { paginateGetTranscript } from "./pagination/GetTranscriptPaginator";
 
 const commands = {
   CancelParticipantAuthenticationCommand,
@@ -63,6 +64,9 @@ const commands = {
   SendEventCommand,
   SendMessageCommand,
   StartAttachmentUploadCommand,
+};
+const paginators = {
+  paginateGetTranscript,
 };
 
 export interface ConnectParticipant {
@@ -252,6 +256,17 @@ export interface ConnectParticipant {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartAttachmentUploadCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetTranscriptCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTranscriptCommandOutput}.
+   */
+  paginateGetTranscript(
+    args: GetTranscriptCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTranscriptCommandOutput>;
 }
 
 /**
@@ -279,4 +294,4 @@ export interface ConnectParticipant {
  * @public
  */
 export class ConnectParticipant extends ConnectParticipantClient implements ConnectParticipant {}
-createAggregatedClient(commands, ConnectParticipant);
+createAggregatedClient(commands, ConnectParticipant, { paginators });

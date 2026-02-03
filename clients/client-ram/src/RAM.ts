@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptResourceShareInvitationCommand,
@@ -168,6 +168,21 @@ import {
   UpdateResourceShareCommandInput,
   UpdateResourceShareCommandOutput,
 } from "./commands/UpdateResourceShareCommand";
+import { paginateGetResourcePolicies } from "./pagination/GetResourcePoliciesPaginator";
+import { paginateGetResourceShareAssociations } from "./pagination/GetResourceShareAssociationsPaginator";
+import { paginateGetResourceShareInvitations } from "./pagination/GetResourceShareInvitationsPaginator";
+import { paginateGetResourceShares } from "./pagination/GetResourceSharesPaginator";
+import { paginateListPendingInvitationResources } from "./pagination/ListPendingInvitationResourcesPaginator";
+import { paginateListPermissionAssociations } from "./pagination/ListPermissionAssociationsPaginator";
+import { paginateListPermissions } from "./pagination/ListPermissionsPaginator";
+import { paginateListPermissionVersions } from "./pagination/ListPermissionVersionsPaginator";
+import { paginateListPrincipals } from "./pagination/ListPrincipalsPaginator";
+import {
+  paginateListReplacePermissionAssociationsWork,
+} from "./pagination/ListReplacePermissionAssociationsWorkPaginator";
+import { paginateListResourceSharePermissions } from "./pagination/ListResourceSharePermissionsPaginator";
+import { paginateListResources } from "./pagination/ListResourcesPaginator";
+import { paginateListResourceTypes } from "./pagination/ListResourceTypesPaginator";
 import { RAMClient } from "./RAMClient";
 
 const commands = {
@@ -205,6 +220,21 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateResourceShareCommand,
+};
+const paginators = {
+  paginateGetResourcePolicies,
+  paginateGetResourceShareAssociations,
+  paginateGetResourceShareInvitations,
+  paginateGetResourceShares,
+  paginateListPendingInvitationResources,
+  paginateListPermissionAssociations,
+  paginateListPermissions,
+  paginateListPermissionVersions,
+  paginateListPrincipals,
+  paginateListReplacePermissionAssociationsWork,
+  paginateListResources,
+  paginateListResourceSharePermissions,
+  paginateListResourceTypes,
 };
 
 export interface RAM {
@@ -791,6 +821,149 @@ export interface RAM {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateResourceShareCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetResourcePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourcePoliciesCommandOutput}.
+   */
+  paginateGetResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourcePoliciesCommandOutput>;
+
+  /**
+   * @see {@link GetResourceShareAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourceShareAssociationsCommandOutput}.
+   */
+  paginateGetResourceShareAssociations(
+    args: GetResourceShareAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourceShareAssociationsCommandOutput>;
+
+  /**
+   * @see {@link GetResourceShareInvitationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourceShareInvitationsCommandOutput}.
+   */
+  paginateGetResourceShareInvitations(
+    args?: GetResourceShareInvitationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourceShareInvitationsCommandOutput>;
+
+  /**
+   * @see {@link GetResourceSharesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourceSharesCommandOutput}.
+   */
+  paginateGetResourceShares(
+    args: GetResourceSharesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourceSharesCommandOutput>;
+
+  /**
+   * @see {@link ListPendingInvitationResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPendingInvitationResourcesCommandOutput}.
+   */
+  paginateListPendingInvitationResources(
+    args: ListPendingInvitationResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPendingInvitationResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListPermissionAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPermissionAssociationsCommandOutput}.
+   */
+  paginateListPermissionAssociations(
+    args?: ListPermissionAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPermissionAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListPermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPermissionsCommandOutput}.
+   */
+  paginateListPermissions(
+    args?: ListPermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPermissionsCommandOutput>;
+
+  /**
+   * @see {@link ListPermissionVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPermissionVersionsCommandOutput}.
+   */
+  paginateListPermissionVersions(
+    args: ListPermissionVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPermissionVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListPrincipalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPrincipalsCommandOutput}.
+   */
+  paginateListPrincipals(
+    args: ListPrincipalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPrincipalsCommandOutput>;
+
+  /**
+   * @see {@link ListReplacePermissionAssociationsWorkCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReplacePermissionAssociationsWorkCommandOutput}.
+   */
+  paginateListReplacePermissionAssociationsWork(
+    args?: ListReplacePermissionAssociationsWorkCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReplacePermissionAssociationsWorkCommandOutput>;
+
+  /**
+   * @see {@link ListResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcesCommandOutput}.
+   */
+  paginateListResources(
+    args: ListResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListResourceSharePermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceSharePermissionsCommandOutput}.
+   */
+  paginateListResourceSharePermissions(
+    args: ListResourceSharePermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceSharePermissionsCommandOutput>;
+
+  /**
+   * @see {@link ListResourceTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceTypesCommandOutput}.
+   */
+  paginateListResourceTypes(
+    args?: ListResourceTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceTypesCommandOutput>;
 }
 
 /**
@@ -817,4 +990,4 @@ export interface RAM {
  * @public
  */
 export class RAM extends RAMClient implements RAM {}
-createAggregatedClient(commands, RAM);
+createAggregatedClient(commands, RAM, { paginators });

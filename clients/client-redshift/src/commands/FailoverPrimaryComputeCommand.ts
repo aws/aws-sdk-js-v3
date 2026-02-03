@@ -232,6 +232,7 @@ export interface FailoverPrimaryComputeCommandOutput extends FailoverPrimaryComp
  * //     },
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
+ * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
  * //   },
  * // };
  *

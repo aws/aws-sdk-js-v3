@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AmplifyUIBuilderClient } from "./AmplifyUIBuilderClient";
 import {
@@ -91,6 +91,13 @@ import {
 } from "./commands/UpdateComponentCommand";
 import { UpdateFormCommand, UpdateFormCommandInput, UpdateFormCommandOutput } from "./commands/UpdateFormCommand";
 import { UpdateThemeCommand, UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
+import { paginateExportComponents } from "./pagination/ExportComponentsPaginator";
+import { paginateExportForms } from "./pagination/ExportFormsPaginator";
+import { paginateExportThemes } from "./pagination/ExportThemesPaginator";
+import { paginateListCodegenJobs } from "./pagination/ListCodegenJobsPaginator";
+import { paginateListComponents } from "./pagination/ListComponentsPaginator";
+import { paginateListForms } from "./pagination/ListFormsPaginator";
+import { paginateListThemes } from "./pagination/ListThemesPaginator";
 
 const commands = {
   CreateComponentCommand,
@@ -121,6 +128,15 @@ const commands = {
   UpdateComponentCommand,
   UpdateFormCommand,
   UpdateThemeCommand,
+};
+const paginators = {
+  paginateExportComponents,
+  paginateExportForms,
+  paginateExportThemes,
+  paginateListCodegenJobs,
+  paginateListComponents,
+  paginateListForms,
+  paginateListThemes,
 };
 
 export interface AmplifyUIBuilder {
@@ -599,6 +615,83 @@ export interface AmplifyUIBuilder {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateThemeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ExportComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ExportComponentsCommandOutput}.
+   */
+  paginateExportComponents(
+    args: ExportComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ExportComponentsCommandOutput>;
+
+  /**
+   * @see {@link ExportFormsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ExportFormsCommandOutput}.
+   */
+  paginateExportForms(
+    args: ExportFormsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ExportFormsCommandOutput>;
+
+  /**
+   * @see {@link ExportThemesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ExportThemesCommandOutput}.
+   */
+  paginateExportThemes(
+    args: ExportThemesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ExportThemesCommandOutput>;
+
+  /**
+   * @see {@link ListCodegenJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCodegenJobsCommandOutput}.
+   */
+  paginateListCodegenJobs(
+    args: ListCodegenJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCodegenJobsCommandOutput>;
+
+  /**
+   * @see {@link ListComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentsCommandOutput}.
+   */
+  paginateListComponents(
+    args: ListComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentsCommandOutput>;
+
+  /**
+   * @see {@link ListFormsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFormsCommandOutput}.
+   */
+  paginateListForms(
+    args: ListFormsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFormsCommandOutput>;
+
+  /**
+   * @see {@link ListThemesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListThemesCommandOutput}.
+   */
+  paginateListThemes(
+    args: ListThemesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListThemesCommandOutput>;
 }
 
 /**
@@ -614,4 +707,4 @@ export interface AmplifyUIBuilder {
  * @public
  */
 export class AmplifyUIBuilder extends AmplifyUIBuilderClient implements AmplifyUIBuilder {}
-createAggregatedClient(commands, AmplifyUIBuilder);
+createAggregatedClient(commands, AmplifyUIBuilder, { paginators });

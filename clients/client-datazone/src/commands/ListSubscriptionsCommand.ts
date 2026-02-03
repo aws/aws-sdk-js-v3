@@ -42,6 +42,7 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsOutput,
  *   status: "APPROVED" || "REVOKED" || "CANCELLED",
  *   subscribedListingId: "STRING_VALUE",
  *   owningProjectId: "STRING_VALUE",
+ *   owningIamPrincipalArn: "STRING_VALUE",
  *   owningUserId: "STRING_VALUE",
  *   owningGroupId: "STRING_VALUE",
  *   approverProjectId: "STRING_VALUE",
@@ -84,6 +85,9 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsOutput,
  * //         group: { // SubscribedGroup
  * //           id: "STRING_VALUE",
  * //           name: "STRING_VALUE",
+ * //         },
+ * //         iam: { // SubscribedIamPrincipal
+ * //           principalArn: "STRING_VALUE",
  * //         },
  * //       },
  * //       subscribedListing: { // SubscribedListing

@@ -27,10 +27,7 @@ export interface GetWorkloadDeploymentPatternCommandInput extends GetWorkloadDep
 export interface GetWorkloadDeploymentPatternCommandOutput extends GetWorkloadDeploymentPatternOutput, __MetadataBearer {}
 
 /**
- * <p>Returns details for a given workload and deployment pattern, including the available
- *          specifications. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html">ListWorkloads</a>
- *          operation to discover the available workload names and the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html">ListWorkloadDeploymentPatterns</a> operation to discover the available deployment
- *          pattern names of a given workload.</p>
+ * <p>Returns details for a given workload and deployment pattern, including the available specifications. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html">ListWorkloads</a> operation to discover the available workload names and the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html">ListWorkloadDeploymentPatterns</a> operation to discover the available deployment pattern names of a given workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +47,7 @@ export interface GetWorkloadDeploymentPatternCommandOutput extends GetWorkloadDe
  * //     workloadName: "STRING_VALUE",
  * //     deploymentPatternName: "STRING_VALUE",
  * //     workloadVersionName: "STRING_VALUE",
+ * //     deploymentPatternVersionName: "STRING_VALUE",
  * //     displayName: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     status: "ACTIVE" || "INACTIVE" || "DISABLED" || "DELETED",
@@ -83,8 +81,7 @@ export interface GetWorkloadDeploymentPatternCommandOutput extends GetWorkloadDe
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact
- *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified workload or deployment resource can't be found.</p>
@@ -109,6 +106,7 @@ export interface GetWorkloadDeploymentPatternCommandOutput extends GetWorkloadDe
  * {
  *   workloadDeploymentPattern: {
  *     deploymentPatternName: "adSelfManagedNewVpc",
+ *     deploymentPatternVersionName: "2024-03-19-14-00-09",
  *     description: "Builds a new AWS environment (VPC and other components), and deploys AD DS into this new VPC.",
  *     displayName: "Self-managed AD - new VPC",
  *     specifications: [
@@ -129,8 +127,7 @@ export interface GetWorkloadDeploymentPatternCommandOutput extends GetWorkloadDe
  *       }
  *     ],
  *     status: "ACTIVE",
- *     workloadName: "MicrosoftActiveDirectory",
- *     workloadVersionName: "2024-03-19-14-00-09"
+ *     workloadName: "MicrosoftActiveDirectory"
  *   }
  * }
  * *\/

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateAutoPredictorCommand,
@@ -314,6 +314,20 @@ import {
   UpdateDatasetGroupCommandOutput,
 } from "./commands/UpdateDatasetGroupCommand";
 import { ForecastClient } from "./ForecastClient";
+import { paginateListDatasetGroups } from "./pagination/ListDatasetGroupsPaginator";
+import { paginateListDatasetImportJobs } from "./pagination/ListDatasetImportJobsPaginator";
+import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
+import { paginateListExplainabilities } from "./pagination/ListExplainabilitiesPaginator";
+import { paginateListExplainabilityExports } from "./pagination/ListExplainabilityExportsPaginator";
+import { paginateListForecastExportJobs } from "./pagination/ListForecastExportJobsPaginator";
+import { paginateListForecasts } from "./pagination/ListForecastsPaginator";
+import { paginateListMonitorEvaluations } from "./pagination/ListMonitorEvaluationsPaginator";
+import { paginateListMonitors } from "./pagination/ListMonitorsPaginator";
+import { paginateListPredictorBacktestExportJobs } from "./pagination/ListPredictorBacktestExportJobsPaginator";
+import { paginateListPredictors } from "./pagination/ListPredictorsPaginator";
+import { paginateListWhatIfAnalyses } from "./pagination/ListWhatIfAnalysesPaginator";
+import { paginateListWhatIfForecastExports } from "./pagination/ListWhatIfForecastExportsPaginator";
+import { paginateListWhatIfForecasts } from "./pagination/ListWhatIfForecastsPaginator";
 
 const commands = {
   CreateAutoPredictorCommand,
@@ -379,6 +393,22 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDatasetGroupCommand,
+};
+const paginators = {
+  paginateListDatasetGroups,
+  paginateListDatasetImportJobs,
+  paginateListDatasets,
+  paginateListExplainabilities,
+  paginateListExplainabilityExports,
+  paginateListForecastExportJobs,
+  paginateListForecasts,
+  paginateListMonitorEvaluations,
+  paginateListMonitors,
+  paginateListPredictorBacktestExportJobs,
+  paginateListPredictors,
+  paginateListWhatIfAnalyses,
+  paginateListWhatIfForecastExports,
+  paginateListWhatIfForecasts,
 };
 
 export interface Forecast {
@@ -1465,6 +1495,160 @@ export interface Forecast {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDatasetGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDatasetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetGroupsCommandOutput}.
+   */
+  paginateListDatasetGroups(
+    args?: ListDatasetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetImportJobsCommandOutput}.
+   */
+  paginateListDatasetImportJobs(
+    args?: ListDatasetImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetsCommandOutput}.
+   */
+  paginateListDatasets(
+    args?: ListDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetsCommandOutput>;
+
+  /**
+   * @see {@link ListExplainabilitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExplainabilitiesCommandOutput}.
+   */
+  paginateListExplainabilities(
+    args?: ListExplainabilitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExplainabilitiesCommandOutput>;
+
+  /**
+   * @see {@link ListExplainabilityExportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExplainabilityExportsCommandOutput}.
+   */
+  paginateListExplainabilityExports(
+    args?: ListExplainabilityExportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExplainabilityExportsCommandOutput>;
+
+  /**
+   * @see {@link ListForecastExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListForecastExportJobsCommandOutput}.
+   */
+  paginateListForecastExportJobs(
+    args?: ListForecastExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListForecastExportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListForecastsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListForecastsCommandOutput}.
+   */
+  paginateListForecasts(
+    args?: ListForecastsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListForecastsCommandOutput>;
+
+  /**
+   * @see {@link ListMonitorEvaluationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMonitorEvaluationsCommandOutput}.
+   */
+  paginateListMonitorEvaluations(
+    args: ListMonitorEvaluationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMonitorEvaluationsCommandOutput>;
+
+  /**
+   * @see {@link ListMonitorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMonitorsCommandOutput}.
+   */
+  paginateListMonitors(
+    args?: ListMonitorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMonitorsCommandOutput>;
+
+  /**
+   * @see {@link ListPredictorBacktestExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPredictorBacktestExportJobsCommandOutput}.
+   */
+  paginateListPredictorBacktestExportJobs(
+    args?: ListPredictorBacktestExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPredictorBacktestExportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListPredictorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPredictorsCommandOutput}.
+   */
+  paginateListPredictors(
+    args?: ListPredictorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPredictorsCommandOutput>;
+
+  /**
+   * @see {@link ListWhatIfAnalysesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWhatIfAnalysesCommandOutput}.
+   */
+  paginateListWhatIfAnalyses(
+    args?: ListWhatIfAnalysesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWhatIfAnalysesCommandOutput>;
+
+  /**
+   * @see {@link ListWhatIfForecastExportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWhatIfForecastExportsCommandOutput}.
+   */
+  paginateListWhatIfForecastExports(
+    args?: ListWhatIfForecastExportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWhatIfForecastExportsCommandOutput>;
+
+  /**
+   * @see {@link ListWhatIfForecastsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWhatIfForecastsCommandOutput}.
+   */
+  paginateListWhatIfForecasts(
+    args?: ListWhatIfForecastsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWhatIfForecastsCommandOutput>;
 }
 
 /**
@@ -1472,4 +1656,4 @@ export interface Forecast {
  * @public
  */
 export class Forecast extends ForecastClient implements Forecast {}
-createAggregatedClient(commands, Forecast);
+createAggregatedClient(commands, Forecast, { paginators });

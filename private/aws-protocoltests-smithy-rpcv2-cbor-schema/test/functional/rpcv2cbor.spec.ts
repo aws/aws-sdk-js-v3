@@ -166,6 +166,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
 const clientParams = {
   region: "us-west-2",
   credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+  apiKey: { apiKey: "apiKey" },
   endpoint: () => {
     const url = new URL("https://localhost/");
     return Promise.resolve({

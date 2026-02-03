@@ -136,7 +136,7 @@ export var AwsAdditionalDetails$: StaticStructureSchema = [3, n0, _AAD,
 export var CreateTokenRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_cI, _cS, _gT, _dC, _co, _rT, _s, _rU, _cV],
-  [0, [() => ClientSecret, 0], 0, 0, 0, [() => RefreshToken, 0], 64 | 0, 0, [() => CodeVerifier, 0]]
+  [0, [() => ClientSecret, 0], 0, 0, 0, [() => RefreshToken, 0], 64 | 0, 0, [() => CodeVerifier, 0]], 3
 ];
 export var CreateTokenResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -146,7 +146,7 @@ export var CreateTokenResponse$: StaticStructureSchema = [3, n0, _CTRr,
 export var CreateTokenWithIAMRequest$: StaticStructureSchema = [3, n0, _CTWIAMR,
   0,
   [_cI, _gT, _co, _rT, _a, _s, _rU, _sT, _sTT, _rTT, _cV],
-  [0, 0, 0, [() => RefreshToken, 0], [() => Assertion, 0], 64 | 0, 0, [() => SubjectToken, 0], 0, 0, [() => CodeVerifier, 0]]
+  [0, 0, 0, [() => RefreshToken, 0], [() => Assertion, 0], 64 | 0, 0, [() => SubjectToken, 0], 0, 0, [() => CodeVerifier, 0]], 2
 ];
 export var CreateTokenWithIAMResponse$: StaticStructureSchema = [3, n0, _CTWIAMRr,
   0,
@@ -210,7 +210,7 @@ TypeRegistry.for(n0).registerError(InvalidScopeException$, InvalidScopeException
 export var RegisterClientRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_cN, _cT, _sc, _rUe, _gTr, _iU, _eAA],
-  [0, 0, 64 | 0, 64 | 0, 64 | 0, 0, 0]
+  [0, 0, 64 | 0, 64 | 0, 64 | 0, 0, 0], 2
 ];
 export var RegisterClientResponse$: StaticStructureSchema = [3, n0, _RCRe,
   0,
@@ -226,7 +226,7 @@ TypeRegistry.for(n0).registerError(SlowDownException$, SlowDownException);
 export var StartDeviceAuthorizationRequest$: StaticStructureSchema = [3, n0, _SDAR,
   0,
   [_cI, _cS, _sU],
-  [0, [() => ClientSecret, 0], 0]
+  [0, [() => ClientSecret, 0], 0], 3
 ];
 export var StartDeviceAuthorizationResponse$: StaticStructureSchema = [3, n0, _SDARt,
   0,

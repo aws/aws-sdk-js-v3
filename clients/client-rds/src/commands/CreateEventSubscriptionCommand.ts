@@ -27,30 +27,7 @@ export interface CreateEventSubscriptionCommandInput extends CreateEventSubscrip
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Creates an RDS event notification subscription. This operation requires a topic Amazon
- *             Resource Name (ARN) created by either the RDS console, the SNS console, or the SNS API.
- *             To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the
- *             topic. The ARN is displayed in the SNS console.</p>
- *          <p>You can specify the type of source (<code>SourceType</code>) that you want to be
- *             notified of and provide a list of RDS sources (<code>SourceIds</code>) that triggers the
- *             events. You can also provide a list of event categories (<code>EventCategories</code>)
- *             for events that you want to be notified of. For example, you can specify
- *                 <code>SourceType</code> = <code>db-instance</code>, <code>SourceIds</code> =
- *                 <code>mydbinstance1</code>, <code>mydbinstance2</code> and
- *                 <code>EventCategories</code> = <code>Availability</code>,
- *             <code>Backup</code>.</p>
- *          <p>If you specify both the <code>SourceType</code> and <code>SourceIds</code>, such as <code>SourceType</code> = <code>db-instance</code>
- *           and <code>SourceIds</code> = <code>myDBInstance1</code>, you are notified of all the <code>db-instance</code> events for
- *           the specified source. If you specify a <code>SourceType</code> but do not specify <code>SourceIds</code>,
- *           you receive notice of the events for that source type for all your RDS sources. If you
- *           don't specify either the SourceType or the <code>SourceIds</code>, you are notified of events
- *           generated from all RDS sources belonging to your customer account.</p>
- *          <p>For more information about subscribing to an event for RDS DB engines, see
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Subscribing.html">
- *                 Subscribing to Amazon RDS event notification</a> in the <i>Amazon RDS User Guide</i>.</p>
- *          <p>For more information about subscribing to an event for Aurora DB engines, see
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Subscribing.html">
- *                 Subscribing to Amazon RDS event notification</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ * <p>Creates an RDS event notification subscription. This operation requires a topic Amazon Resource Name (ARN) created by either the RDS console, the SNS console, or the SNS API. To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the SNS console.</p> <p>You can specify the type of source (<code>SourceType</code>) that you want to be notified of and provide a list of RDS sources (<code>SourceIds</code>) that triggers the events. You can also provide a list of event categories (<code>EventCategories</code>) for events that you want to be notified of. For example, you can specify <code>SourceType</code> = <code>db-instance</code>, <code>SourceIds</code> = <code>mydbinstance1</code>, <code>mydbinstance2</code> and <code>EventCategories</code> = <code>Availability</code>, <code>Backup</code>.</p> <p>If you specify both the <code>SourceType</code> and <code>SourceIds</code>, such as <code>SourceType</code> = <code>db-instance</code> and <code>SourceIds</code> = <code>myDBInstance1</code>, you are notified of all the <code>db-instance</code> events for the specified source. If you specify a <code>SourceType</code> but do not specify <code>SourceIds</code>, you receive notice of the events for that source type for all your RDS sources. If you don't specify either the SourceType or the <code>SourceIds</code>, you are notified of events generated from all RDS sources belonging to your customer account.</p> <p>For more information about subscribing to an event for RDS DB engines, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Subscribing.html"> Subscribing to Amazon RDS event notification</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For more information about subscribing to an event for Aurora DB engines, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Subscribing.html"> Subscribing to Amazon RDS event notification</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

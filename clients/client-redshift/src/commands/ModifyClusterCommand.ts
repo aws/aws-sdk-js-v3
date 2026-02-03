@@ -100,6 +100,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  *   MasterPasswordSecretKmsKeyId: "STRING_VALUE",
  *   IpAddressType: "STRING_VALUE",
  *   MultiAZ: true || false,
+ *   ExtraComputeForAutomaticOptimization: true || false,
  * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
@@ -294,6 +295,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * //     },
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
+ * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DescribeServicesCommand,
@@ -23,6 +23,10 @@ import {
   ListPriceListsCommandInput,
   ListPriceListsCommandOutput,
 } from "./commands/ListPriceListsCommand";
+import { paginateDescribeServices } from "./pagination/DescribeServicesPaginator";
+import { paginateGetAttributeValues } from "./pagination/GetAttributeValuesPaginator";
+import { paginateGetProducts } from "./pagination/GetProductsPaginator";
+import { paginateListPriceLists } from "./pagination/ListPriceListsPaginator";
 import { PricingClient } from "./PricingClient";
 
 const commands = {
@@ -31,6 +35,12 @@ const commands = {
   GetPriceListFileUrlCommand,
   GetProductsCommand,
   ListPriceListsCommand,
+};
+const paginators = {
+  paginateDescribeServices,
+  paginateGetAttributeValues,
+  paginateGetProducts,
+  paginateListPriceLists,
 };
 
 export interface Pricing {
@@ -119,6 +129,50 @@ export interface Pricing {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPriceListsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeServicesCommandOutput}.
+   */
+  paginateDescribeServices(
+    args?: DescribeServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeServicesCommandOutput>;
+
+  /**
+   * @see {@link GetAttributeValuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAttributeValuesCommandOutput}.
+   */
+  paginateGetAttributeValues(
+    args: GetAttributeValuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAttributeValuesCommandOutput>;
+
+  /**
+   * @see {@link GetProductsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetProductsCommandOutput}.
+   */
+  paginateGetProducts(
+    args: GetProductsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetProductsCommandOutput>;
+
+  /**
+   * @see {@link ListPriceListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPriceListsCommandOutput}.
+   */
+  paginateListPriceLists(
+    args: ListPriceListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPriceListsCommandOutput>;
 }
 
 /**
@@ -154,4 +208,4 @@ export interface Pricing {
  * @public
  */
 export class Pricing extends PricingClient implements Pricing {}
-createAggregatedClient(commands, Pricing);
+createAggregatedClient(commands, Pricing, { paginators });

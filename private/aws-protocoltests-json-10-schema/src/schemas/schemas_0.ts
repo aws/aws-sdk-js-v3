@@ -199,7 +199,7 @@ export var EmptyInputAndEmptyOutputOutput$: StaticStructureSchema = [3, n0, _EIA
 export var EndpointWithHostLabelOperationInput$: StaticStructureSchema = [3, n0, _EWHLOI,
   0,
   [_la],
-  [[0, { [_hL]: 1 }]]
+  [[0, { [_hL]: 1 }]], 1
 ];
 export var Farewell$: StaticStructureSchema = [3, n0, _Fa,
   0,
@@ -256,22 +256,22 @@ export var OperationWithDefaultsOutput$: StaticStructureSchema = [3, n0, _OWDO,
 export var OperationWithNestedStructureInput$: StaticStructureSchema = [3, n0, _OWNSI,
   0,
   [_tL],
-  [() => TopLevel$]
+  [() => TopLevel$], 1
 ];
 export var OperationWithNestedStructureOutput$: StaticStructureSchema = [3, n0, _OWNSO,
   0,
   [_di, _dLi, _dMi],
-  [() => Dialog$, () => DialogList, () => DialogMap]
+  [() => Dialog$, () => DialogList, () => DialogMap], 1
 ];
 export var OperationWithRequiredMembersOutput$: StaticStructureSchema = [3, n0, _OWRMO,
   0,
   [_rS, _rB, _rL, _rT, _rBe, _rBeq, _rSe, _rI, _rLe, _rF, _rD, _rM],
-  [0, 2, 64 | 0, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0]
+  [0, 2, 64 | 0, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0], 12
 ];
 export var OperationWithRequiredMembersWithDefaultsOutput$: StaticStructureSchema = [3, n0, _OWRMWDO,
   0,
   [_rS, _rB, _rL, _rT, _rBe, _rBeq, _rSe, _rI, _rLe, _rF, _rD, _rM, _rE, _rIE],
-  [0, 2, 64 | 0, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0, 0, 1]
+  [0, 2, 64 | 0, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0, 0, 1], 14
 ];
 export var PutWithContentEncodingInput$: StaticStructureSchema = [3, n0, _PWCEI,
   0,
@@ -291,7 +291,7 @@ export var SimpleScalarPropertiesOutput$: StaticStructureSchema = [3, n0, _SSPO,
 export var TopLevel$: StaticStructureSchema = [3, n0, _TL,
   0,
   [_di, _dLi, _dMi],
-  [() => Dialog$, () => DialogList, () => DialogMap]
+  [() => Dialog$, () => DialogList, () => DialogMap], 1
 ];
 export var GreetingStruct$: StaticStructureSchema = [3, n1, _GS,
   0,

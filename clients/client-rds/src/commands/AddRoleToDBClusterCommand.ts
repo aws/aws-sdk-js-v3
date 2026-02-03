@@ -54,8 +54,7 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBClusterRoleAlreadyExistsFault} (client fault)
  *  <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>

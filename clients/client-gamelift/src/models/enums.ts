@@ -1221,6 +1221,19 @@ export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof Deployment
  * @public
  * @enum
  */
+export const ZeroCapacityStrategy = {
+  MANUAL: "MANUAL",
+  SCALE_TO_AND_FROM_ZERO: "SCALE_TO_AND_FROM_ZERO",
+} as const;
+/**
+ * @public
+ */
+export type ZeroCapacityStrategy = (typeof ZeroCapacityStrategy)[keyof typeof ZeroCapacityStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const EventCode = {
   COMPUTE_LOG_UPLOAD_FAILED: "COMPUTE_LOG_UPLOAD_FAILED",
   FLEET_ACTIVATION_FAILED: "FLEET_ACTIVATION_FAILED",

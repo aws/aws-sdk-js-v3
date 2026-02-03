@@ -219,6 +219,7 @@ export type UsageLimitBreachAction = (typeof UsageLimitBreachAction)[keyof typeo
 export const UsageLimitFeatureType = {
   CONCURRENCY_SCALING: "concurrency-scaling",
   CROSS_REGION_DATASHARING: "cross-region-datasharing",
+  EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION: "extra-compute-for-automatic-optimization",
   SPECTRUM: "spectrum",
 } as const;
 /**

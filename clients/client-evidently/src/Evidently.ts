@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchEvaluateFeatureCommand,
@@ -165,6 +165,12 @@ import {
   UpdateProjectDataDeliveryCommandOutput,
 } from "./commands/UpdateProjectDataDeliveryCommand";
 import { EvidentlyClient } from "./EvidentlyClient";
+import { paginateListExperiments } from "./pagination/ListExperimentsPaginator";
+import { paginateListFeatures } from "./pagination/ListFeaturesPaginator";
+import { paginateListLaunches } from "./pagination/ListLaunchesPaginator";
+import { paginateListProjects } from "./pagination/ListProjectsPaginator";
+import { paginateListSegmentReferences } from "./pagination/ListSegmentReferencesPaginator";
+import { paginateListSegments } from "./pagination/ListSegmentsPaginator";
 
 const commands = {
   BatchEvaluateFeatureCommand,
@@ -205,6 +211,14 @@ const commands = {
   UpdateLaunchCommand,
   UpdateProjectCommand,
   UpdateProjectDataDeliveryCommand,
+};
+const paginators = {
+  paginateListExperiments,
+  paginateListFeatures,
+  paginateListLaunches,
+  paginateListProjects,
+  paginateListSegmentReferences,
+  paginateListSegments,
 };
 
 export interface Evidently {
@@ -855,20 +869,77 @@ export interface Evidently {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProjectDataDeliveryCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListExperimentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExperimentsCommandOutput}.
+   */
+  paginateListExperiments(
+    args: ListExperimentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExperimentsCommandOutput>;
+
+  /**
+   * @see {@link ListFeaturesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFeaturesCommandOutput}.
+   */
+  paginateListFeatures(
+    args: ListFeaturesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFeaturesCommandOutput>;
+
+  /**
+   * @see {@link ListLaunchesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLaunchesCommandOutput}.
+   */
+  paginateListLaunches(
+    args: ListLaunchesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLaunchesCommandOutput>;
+
+  /**
+   * @see {@link ListProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectsCommandOutput}.
+   */
+  paginateListProjects(
+    args?: ListProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectsCommandOutput>;
+
+  /**
+   * @see {@link ListSegmentReferencesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSegmentReferencesCommandOutput}.
+   */
+  paginateListSegmentReferences(
+    args: ListSegmentReferencesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSegmentReferencesCommandOutput>;
+
+  /**
+   * @see {@link ListSegmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSegmentsCommandOutput}.
+   */
+  paginateListSegments(
+    args?: ListSegmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSegmentsCommandOutput>;
 }
 
 /**
- * <p>You can use Amazon CloudWatch Evidently to safely validate new features by serving
- *       them to a specified percentage
- *       of your users while you roll out the feature. You can monitor the performance of the new feature
- *       to help you decide when to ramp up traffic to your users. This helps you
- *       reduce risk and identify unintended consequences before you fully launch the feature.</p>
- *          <p>You can also conduct A/B experiments to make feature design decisions based on evidence
- *       and data. An experiment can test as many as five variations at once. Evidently collects
- *       experiment data and analyzes it using statistical methods. It also provides clear
- *       recommendations about which variations perform better. You can test both user-facing features
- *       and backend features.</p>
+ * <p>You can use Amazon CloudWatch Evidently to safely validate new features by serving them to a specified percentage of your users while you roll out the feature. You can monitor the performance of the new feature to help you decide when to ramp up traffic to your users. This helps you reduce risk and identify unintended consequences before you fully launch the feature.</p> <p>You can also conduct A/B experiments to make feature design decisions based on evidence and data. An experiment can test as many as five variations at once. Evidently collects experiment data and analyzes it using statistical methods. It also provides clear recommendations about which variations perform better. You can test both user-facing features and backend features.</p>
  * @public
  */
 export class Evidently extends EvidentlyClient implements Evidently {}
-createAggregatedClient(commands, Evidently);
+createAggregatedClient(commands, Evidently, { paginators });

@@ -30,8 +30,8 @@ import { MarketplaceCommerceAnalyticsServiceException } from "../models/Marketpl
 /* eslint no-var: 0 */
 export var GenerateDataSetRequest$: StaticStructureSchema = [3, n0, _GDSR,
   0,
-  [_dST, _dSPD, _rNA, _dSBN, _dSP, _sTA, _cDV],
-  [0, 4, 0, 0, 0, 0, 128 | 0]
+  [_dST, _dSPD, _rNA, _dSBN, _sTA, _dSP, _cDV],
+  [0, 4, 0, 0, 0, 0, 128 | 0], 5
 ];
 export var GenerateDataSetResult$: StaticStructureSchema = [3, n0, _GDSRe,
   0,
@@ -46,8 +46,8 @@ export var MarketplaceCommerceAnalyticsException$: StaticErrorSchema = [-3, n0, 
 TypeRegistry.for(n0).registerError(MarketplaceCommerceAnalyticsException$, MarketplaceCommerceAnalyticsException);
 export var StartSupportDataExportRequest$: StaticStructureSchema = [3, n0, _SSDER,
   0,
-  [_dST, _fD, _rNA, _dSBN, _dSP, _sTA, _cDV],
-  [0, 4, 0, 0, 0, 0, 128 | 0]
+  [_dST, _fD, _rNA, _dSBN, _sTA, _dSP, _cDV],
+  [0, 4, 0, 0, 0, 0, 128 | 0], 5
 ];
 export var StartSupportDataExportResult$: StaticStructureSchema = [3, n0, _SSDERt,
   0,

@@ -2621,6 +2621,12 @@ export interface CreateEvaluatorRequest {
    * @public
    */
   level: EvaluatorLevel | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to an AgentCore Evaluator. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -8019,6 +8025,12 @@ export interface CreateOnlineEvaluationConfigRequest {
    * @public
    */
   enableOnCreate: boolean | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to an AgentCore Online Evaluation Config. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
-import { ExecuteTransactionCommand as __ExecuteTransactionCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { type HttpHandlerOptions as __HttpHandlerOptions, Handler, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { ALL_MEMBERS, ALL_VALUES } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
+import { ExecuteTransactionCommand as __ExecuteTransactionCommand } from "@aws-sdk/client-dynamodb";
 
 /**
  * @public
@@ -15,23 +15,39 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type ExecuteTransactionCommandInput = Omit<__ExecuteTransactionCommandInput, "TransactStatements"> & {
+export type ExecuteTransactionCommandInput = Omit<__ExecuteTransactionCommandInput, 'TransactStatements'> & {
   TransactStatements:
-    | (Omit<ParameterizedStatement, "Parameters"> & {
-        Parameters?: NativeAttributeValue[] | undefined;
-      })[]
-    | undefined;
+    (
+      Omit<ParameterizedStatement, 'Parameters'> & {
+        Parameters?:
+          (
+            NativeAttributeValue
+          )[]
+           | undefined
+        ;
+      }
+    )[]
+     | undefined
+  ;
 };
 
 /**
  * @public
  */
-export type ExecuteTransactionCommandOutput = Omit<__ExecuteTransactionCommandOutput, "Responses"> & {
+export type ExecuteTransactionCommandOutput = Omit<__ExecuteTransactionCommandOutput, 'Responses'> & {
   Responses?:
-    | (Omit<ItemResponse, "Item"> & {
-        Item?: Record<string, NativeAttributeValue> | undefined;
-      })[]
-    | undefined;
+    (
+      Omit<ItemResponse, 'Item'> & {
+        Item?:
+          Record<string,
+            NativeAttributeValue
+          >
+           | undefined
+        ;
+      }
+    )[]
+     | undefined
+  ;
 };
 
 /**
@@ -43,33 +59,35 @@ export type ExecuteTransactionCommandOutput = Omit<__ExecuteTransactionCommandOu
  *
  * @public
  */
-export class ExecuteTransactionCommand extends DynamoDBDocumentClientCommand<
-  ExecuteTransactionCommandInput,
-  ExecuteTransactionCommandOutput,
-  __ExecuteTransactionCommandInput,
-  __ExecuteTransactionCommandOutput,
-  DynamoDBDocumentClientResolvedConfig
-> {
+export class ExecuteTransactionCommand extends DynamoDBDocumentClientCommand<ExecuteTransactionCommandInput, ExecuteTransactionCommandOutput, __ExecuteTransactionCommandInput, __ExecuteTransactionCommandOutput, DynamoDBDocumentClientResolvedConfig> {
   protected readonly inputKeyNodes = {
-    TransactStatements: {
-      "*": {
-        Parameters: ALL_MEMBERS, // set/list of AttributeValue
-      },
-    },
+    'TransactStatements':
+      {
+        '*':
+        {
+          'Parameters':
+            ALL_MEMBERS // set/list of AttributeValue
+          ,
+        }
+      }
+    ,
   };
   protected readonly outputKeyNodes = {
-    Responses: {
-      "*": {
-        Item: ALL_VALUES, // map with AttributeValue
-      },
-    },
+    'Responses':
+      {
+        '*':
+        {
+          'Item':
+            ALL_VALUES // map with AttributeValue
+          ,
+        }
+      }
+    ,
   };
 
   protected readonly clientCommand: __ExecuteTransactionCommand;
-  public readonly middlewareStack: MiddlewareStack<
-    ExecuteTransactionCommandInput | __ExecuteTransactionCommandInput,
-    ExecuteTransactionCommandOutput | __ExecuteTransactionCommandOutput
-  >;
+  public readonly middlewareStack: MiddlewareStack<ExecuteTransactionCommandInput | __ExecuteTransactionCommandInput,
+  ExecuteTransactionCommandOutput | __ExecuteTransactionCommandOutput>;
 
   constructor(readonly input: ExecuteTransactionCommandInput) {
     super();
@@ -85,18 +103,25 @@ export class ExecuteTransactionCommand extends DynamoDBDocumentClientCommand<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExecuteTransactionCommandInput, ExecuteTransactionCommandOutput> {
-    this.addMarshallingMiddleware(configuration);
+    this.addMarshallingMiddleware(
+      configuration
+    );
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand)
   }
 }
 
 import type {
   ExecuteTransactionCommandInput as __ExecuteTransactionCommandInput,
+
   ExecuteTransactionCommandOutput as __ExecuteTransactionCommandOutput,
+
   ItemResponse,
   ParameterizedStatement,
 } from "@aws-sdk/client-dynamodb";
-import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  NativeAttributeValue,
+} from "@aws-sdk/util-dynamodb";

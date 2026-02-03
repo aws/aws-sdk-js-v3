@@ -51,6 +51,22 @@ export interface GetIdentityContextCommandOutput extends GetIdentityContextRespo
  *          </p>
  *          <p>This API supports Quick Sight native users, IAM federated users, and Active Directory users. For Quick Sight users authenticated by Amazon Web Services Identity Center, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.html">Identity Center documentation on identity-enhanced IAM role sessions</a>.</p>
  *          <p>
+ *             <b>Supported Regions</b>
+ *          </p>
+ *          <p>The GetIdentityContext API works only in regions that support at least one of these identity types:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Amazon Quick Sight native identity</p>
+ *             </li>
+ *             <li>
+ *                <p>IAM federated identity</p>
+ *             </li>
+ *             <li>
+ *                <p>Active Directory</p>
+ *             </li>
+ *          </ul>
+ *          <p>To use this API successfully, call it in the same region where your user's identity resides. For example, if your user's identity is in us-east-1, make the API call in us-east-1. For more information about managing identities in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/userguide/identity.html">Identity and access management in Amazon Quick Sight</a> in the Amazon Quick Sight User Guide.</p>
+ *          <p>
  *             <b>Getting Identity-Enhanced Credentials</b>
  *          </p>
  *          <p>To obtain identity-enhanced credentials, follow these steps:</p>

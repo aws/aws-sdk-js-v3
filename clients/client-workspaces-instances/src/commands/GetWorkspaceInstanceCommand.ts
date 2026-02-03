@@ -64,6 +64,9 @@ export interface GetWorkspaceInstanceCommandOutput extends GetWorkspaceInstanceR
  * //   EC2ManagedInstance: { // EC2ManagedInstance
  * //     InstanceId: "STRING_VALUE",
  * //   },
+ * //   BillingConfiguration: { // BillingConfiguration
+ * //     BillingMode: "MONTHLY" || "HOURLY", // required
+ * //   },
  * // };
  *
  * ```

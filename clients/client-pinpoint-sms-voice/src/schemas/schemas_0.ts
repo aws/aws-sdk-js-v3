@@ -111,7 +111,7 @@ export var CloudWatchLogsDestination$: StaticStructureSchema = [3, n0, _CWLD,
 export var CreateConfigurationSetEventDestinationRequest$: StaticStructureSchema = [3, n0, _CCSEDR,
   0,
   [_CSN, _ED, _EDN],
-  [[0, 1], () => EventDestinationDefinition$, 0]
+  [[0, 1], () => EventDestinationDefinition$, 0], 1
 ];
 export var CreateConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _CCSEDRr,
   0,
@@ -131,7 +131,7 @@ export var CreateConfigurationSetResponse$: StaticStructureSchema = [3, n0, _CCS
 export var DeleteConfigurationSetEventDestinationRequest$: StaticStructureSchema = [3, n0, _DCSEDR,
   0,
   [_CSN, _EDN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _DCSEDRe,
   0,
@@ -141,7 +141,7 @@ export var DeleteConfigurationSetEventDestinationResponse$: StaticStructureSchem
 export var DeleteConfigurationSetRequest$: StaticStructureSchema = [3, n0, _DCSR,
   0,
   [_CSN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteConfigurationSetResponse$: StaticStructureSchema = [3, n0, _DCSRe,
   0,
@@ -161,7 +161,7 @@ export var EventDestinationDefinition$: StaticStructureSchema = [3, n0, _EDD,
 export var GetConfigurationSetEventDestinationsRequest$: StaticStructureSchema = [3, n0, _GCSEDR,
   0,
   [_CSN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConfigurationSetEventDestinationsResponse$: StaticStructureSchema = [3, n0, _GCSEDRe,
   0,
@@ -234,8 +234,8 @@ export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
 TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UpdateConfigurationSetEventDestinationRequest$: StaticStructureSchema = [3, n0, _UCSEDR,
   0,
-  [_CSN, _ED, _EDN],
-  [[0, 1], () => EventDestinationDefinition$, [0, 1]]
+  [_CSN, _EDN, _ED],
+  [[0, 1], [0, 1], () => EventDestinationDefinition$], 2
 ];
 export var UpdateConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _UCSEDRp,
   0,

@@ -322,6 +322,17 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //     AutoEvaluationConfiguration: { // EvaluationFormAutoEvaluationConfiguration
  * //       Enabled: true || false, // required
  * //     },
+ * //     ReviewConfiguration: { // EvaluationReviewConfiguration
+ * //       ReviewNotificationRecipients: [ // EvaluationReviewNotificationRecipientList // required
+ * //         { // EvaluationReviewNotificationRecipient
+ * //           Type: "USER_ID", // required
+ * //           Value: { // EvaluationReviewNotificationRecipientValue
+ * //             UserId: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       EligibilityDays: Number("int"),
+ * //     },
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },

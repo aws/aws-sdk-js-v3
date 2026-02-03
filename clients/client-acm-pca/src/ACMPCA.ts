@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { ACMPCAClient } from "./ACMPCAClient";
 import {
@@ -106,6 +112,12 @@ import {
   UpdateCertificateAuthorityCommandInput,
   UpdateCertificateAuthorityCommandOutput,
 } from "./commands/UpdateCertificateAuthorityCommand";
+import { paginateListCertificateAuthorities } from "./pagination/ListCertificateAuthoritiesPaginator";
+import { paginateListPermissions } from "./pagination/ListPermissionsPaginator";
+import { paginateListTags } from "./pagination/ListTagsPaginator";
+import { waitUntilAuditReportCreated } from "./waiters/waitForAuditReportCreated";
+import { waitUntilCertificateAuthorityCSRCreated } from "./waiters/waitForCertificateAuthorityCSRCreated";
+import { waitUntilCertificateIssued } from "./waiters/waitForCertificateIssued";
 
 const commands = {
   CreateCertificateAuthorityCommand,
@@ -131,6 +143,16 @@ const commands = {
   TagCertificateAuthorityCommand,
   UntagCertificateAuthorityCommand,
   UpdateCertificateAuthorityCommand,
+};
+const paginators = {
+  paginateListCertificateAuthorities,
+  paginateListPermissions,
+  paginateListTags,
+};
+const waiters = {
+  waitUntilAuditReportCreated,
+  waitUntilCertificateIssued,
+  waitUntilCertificateAuthorityCSRCreated,
 };
 
 export interface ACMPCA {
@@ -525,6 +547,69 @@ export interface ACMPCA {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCertificateAuthorityCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCertificateAuthoritiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCertificateAuthoritiesCommandOutput}.
+   */
+  paginateListCertificateAuthorities(
+    args?: ListCertificateAuthoritiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCertificateAuthoritiesCommandOutput>;
+
+  /**
+   * @see {@link ListPermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPermissionsCommandOutput}.
+   */
+  paginateListPermissions(
+    args: ListPermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPermissionsCommandOutput>;
+
+  /**
+   * @see {@link ListTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsCommandOutput}.
+   */
+  paginateListTags(
+    args: ListTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCertificateAuthorityAuditReportCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAuditReportCreated(
+    args: DescribeCertificateAuthorityAuditReportCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ACMPCA>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetCertificateCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCertificateIssued(
+    args: GetCertificateCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ACMPCA>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetCertificateAuthorityCsrCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCertificateAuthorityCSRCreated(
+    args: GetCertificateAuthorityCsrCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ACMPCA>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -532,4 +617,4 @@ export interface ACMPCA {
  * @public
  */
 export class ACMPCA extends ACMPCAClient implements ACMPCA {}
-createAggregatedClient(commands, ACMPCA);
+createAggregatedClient(commands, ACMPCA, { paginators, waiters });

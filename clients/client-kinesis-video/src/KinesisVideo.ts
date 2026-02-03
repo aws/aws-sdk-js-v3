@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateSignalingChannelCommand,
@@ -147,6 +147,10 @@ import {
   UpdateStreamStorageConfigurationCommandOutput,
 } from "./commands/UpdateStreamStorageConfigurationCommand";
 import { KinesisVideoClient } from "./KinesisVideoClient";
+import { paginateDescribeMappedResourceConfiguration } from "./pagination/DescribeMappedResourceConfigurationPaginator";
+import { paginateListEdgeAgentConfigurations } from "./pagination/ListEdgeAgentConfigurationsPaginator";
+import { paginateListSignalingChannels } from "./pagination/ListSignalingChannelsPaginator";
+import { paginateListStreams } from "./pagination/ListStreamsPaginator";
 
 const commands = {
   CreateSignalingChannelCommand,
@@ -181,6 +185,12 @@ const commands = {
   UpdateSignalingChannelCommand,
   UpdateStreamCommand,
   UpdateStreamStorageConfigurationCommand,
+};
+const paginators = {
+  paginateDescribeMappedResourceConfiguration,
+  paginateListEdgeAgentConfigurations,
+  paginateListSignalingChannels,
+  paginateListStreams,
 };
 
 export interface KinesisVideo {
@@ -741,6 +751,50 @@ export interface KinesisVideo {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStreamStorageConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeMappedResourceConfigurationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMappedResourceConfigurationCommandOutput}.
+   */
+  paginateDescribeMappedResourceConfiguration(
+    args?: DescribeMappedResourceConfigurationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMappedResourceConfigurationCommandOutput>;
+
+  /**
+   * @see {@link ListEdgeAgentConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEdgeAgentConfigurationsCommandOutput}.
+   */
+  paginateListEdgeAgentConfigurations(
+    args: ListEdgeAgentConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEdgeAgentConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListSignalingChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSignalingChannelsCommandOutput}.
+   */
+  paginateListSignalingChannels(
+    args?: ListSignalingChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSignalingChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListStreamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamsCommandOutput}.
+   */
+  paginateListStreams(
+    args?: ListStreamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamsCommandOutput>;
 }
 
 /**
@@ -748,4 +802,4 @@ export interface KinesisVideo {
  * @public
  */
 export class KinesisVideo extends KinesisVideoClient implements KinesisVideo {}
-createAggregatedClient(commands, KinesisVideo);
+createAggregatedClient(commands, KinesisVideo, { paginators });

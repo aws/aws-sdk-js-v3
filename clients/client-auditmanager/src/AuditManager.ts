@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AuditManagerClient } from "./AuditManagerClient";
 import {
@@ -293,6 +293,30 @@ import {
   ValidateAssessmentReportIntegrityCommandInput,
   ValidateAssessmentReportIntegrityCommandOutput,
 } from "./commands/ValidateAssessmentReportIntegrityCommand";
+import { paginateGetChangeLogs } from "./pagination/GetChangeLogsPaginator";
+import { paginateGetDelegations } from "./pagination/GetDelegationsPaginator";
+import { paginateGetEvidenceByEvidenceFolder } from "./pagination/GetEvidenceByEvidenceFolderPaginator";
+import {
+  paginateGetEvidenceFoldersByAssessmentControl,
+} from "./pagination/GetEvidenceFoldersByAssessmentControlPaginator";
+import { paginateGetEvidenceFoldersByAssessment } from "./pagination/GetEvidenceFoldersByAssessmentPaginator";
+import {
+  paginateListAssessmentControlInsightsByControlDomain,
+} from "./pagination/ListAssessmentControlInsightsByControlDomainPaginator";
+import {
+  paginateListAssessmentFrameworkShareRequests,
+} from "./pagination/ListAssessmentFrameworkShareRequestsPaginator";
+import { paginateListAssessmentFrameworks } from "./pagination/ListAssessmentFrameworksPaginator";
+import { paginateListAssessmentReports } from "./pagination/ListAssessmentReportsPaginator";
+import { paginateListAssessments } from "./pagination/ListAssessmentsPaginator";
+import {
+  paginateListControlDomainInsightsByAssessment,
+} from "./pagination/ListControlDomainInsightsByAssessmentPaginator";
+import { paginateListControlDomainInsights } from "./pagination/ListControlDomainInsightsPaginator";
+import { paginateListControlInsightsByControlDomain } from "./pagination/ListControlInsightsByControlDomainPaginator";
+import { paginateListControls } from "./pagination/ListControlsPaginator";
+import { paginateListKeywordsForDataSource } from "./pagination/ListKeywordsForDataSourcePaginator";
+import { paginateListNotifications } from "./pagination/ListNotificationsPaginator";
 
 const commands = {
   AssociateAssessmentReportEvidenceFolderCommand,
@@ -357,6 +381,24 @@ const commands = {
   UpdateControlCommand,
   UpdateSettingsCommand,
   ValidateAssessmentReportIntegrityCommand,
+};
+const paginators = {
+  paginateGetChangeLogs,
+  paginateGetDelegations,
+  paginateGetEvidenceByEvidenceFolder,
+  paginateGetEvidenceFoldersByAssessment,
+  paginateGetEvidenceFoldersByAssessmentControl,
+  paginateListAssessmentControlInsightsByControlDomain,
+  paginateListAssessmentFrameworks,
+  paginateListAssessmentFrameworkShareRequests,
+  paginateListAssessmentReports,
+  paginateListAssessments,
+  paginateListControlDomainInsights,
+  paginateListControlDomainInsightsByAssessment,
+  paginateListControlInsightsByControlDomain,
+  paginateListControls,
+  paginateListKeywordsForDataSource,
+  paginateListNotifications,
 };
 
 export interface AuditManager {
@@ -1426,6 +1468,182 @@ export interface AuditManager {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateAssessmentReportIntegrityCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetChangeLogsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetChangeLogsCommandOutput}.
+   */
+  paginateGetChangeLogs(
+    args: GetChangeLogsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetChangeLogsCommandOutput>;
+
+  /**
+   * @see {@link GetDelegationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDelegationsCommandOutput}.
+   */
+  paginateGetDelegations(
+    args?: GetDelegationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDelegationsCommandOutput>;
+
+  /**
+   * @see {@link GetEvidenceByEvidenceFolderCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetEvidenceByEvidenceFolderCommandOutput}.
+   */
+  paginateGetEvidenceByEvidenceFolder(
+    args: GetEvidenceByEvidenceFolderCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetEvidenceByEvidenceFolderCommandOutput>;
+
+  /**
+   * @see {@link GetEvidenceFoldersByAssessmentCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetEvidenceFoldersByAssessmentCommandOutput}.
+   */
+  paginateGetEvidenceFoldersByAssessment(
+    args: GetEvidenceFoldersByAssessmentCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetEvidenceFoldersByAssessmentCommandOutput>;
+
+  /**
+   * @see {@link GetEvidenceFoldersByAssessmentControlCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetEvidenceFoldersByAssessmentControlCommandOutput}.
+   */
+  paginateGetEvidenceFoldersByAssessmentControl(
+    args: GetEvidenceFoldersByAssessmentControlCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetEvidenceFoldersByAssessmentControlCommandOutput>;
+
+  /**
+   * @see {@link ListAssessmentControlInsightsByControlDomainCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentControlInsightsByControlDomainCommandOutput}.
+   */
+  paginateListAssessmentControlInsightsByControlDomain(
+    args: ListAssessmentControlInsightsByControlDomainCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentControlInsightsByControlDomainCommandOutput>;
+
+  /**
+   * @see {@link ListAssessmentFrameworksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentFrameworksCommandOutput}.
+   */
+  paginateListAssessmentFrameworks(
+    args: ListAssessmentFrameworksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentFrameworksCommandOutput>;
+
+  /**
+   * @see {@link ListAssessmentFrameworkShareRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentFrameworkShareRequestsCommandOutput}.
+   */
+  paginateListAssessmentFrameworkShareRequests(
+    args: ListAssessmentFrameworkShareRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentFrameworkShareRequestsCommandOutput>;
+
+  /**
+   * @see {@link ListAssessmentReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentReportsCommandOutput}.
+   */
+  paginateListAssessmentReports(
+    args?: ListAssessmentReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentReportsCommandOutput>;
+
+  /**
+   * @see {@link ListAssessmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentsCommandOutput}.
+   */
+  paginateListAssessments(
+    args?: ListAssessmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentsCommandOutput>;
+
+  /**
+   * @see {@link ListControlDomainInsightsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListControlDomainInsightsCommandOutput}.
+   */
+  paginateListControlDomainInsights(
+    args?: ListControlDomainInsightsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListControlDomainInsightsCommandOutput>;
+
+  /**
+   * @see {@link ListControlDomainInsightsByAssessmentCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListControlDomainInsightsByAssessmentCommandOutput}.
+   */
+  paginateListControlDomainInsightsByAssessment(
+    args: ListControlDomainInsightsByAssessmentCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListControlDomainInsightsByAssessmentCommandOutput>;
+
+  /**
+   * @see {@link ListControlInsightsByControlDomainCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListControlInsightsByControlDomainCommandOutput}.
+   */
+  paginateListControlInsightsByControlDomain(
+    args: ListControlInsightsByControlDomainCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListControlInsightsByControlDomainCommandOutput>;
+
+  /**
+   * @see {@link ListControlsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListControlsCommandOutput}.
+   */
+  paginateListControls(
+    args: ListControlsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListControlsCommandOutput>;
+
+  /**
+   * @see {@link ListKeywordsForDataSourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKeywordsForDataSourceCommandOutput}.
+   */
+  paginateListKeywordsForDataSource(
+    args: ListKeywordsForDataSourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKeywordsForDataSourceCommandOutput>;
+
+  /**
+   * @see {@link ListNotificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotificationsCommandOutput}.
+   */
+  paginateListNotifications(
+    args?: ListNotificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotificationsCommandOutput>;
 }
 
 /**
@@ -1468,4 +1686,4 @@ export interface AuditManager {
  * @public
  */
 export class AuditManager extends AuditManagerClient implements AuditManager {}
-createAggregatedClient(commands, AuditManager);
+createAggregatedClient(commands, AuditManager, { paginators });

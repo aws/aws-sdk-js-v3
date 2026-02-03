@@ -27,14 +27,7 @@ export interface SwitchoverBlueGreenDeploymentCommandInput extends SwitchoverBlu
 export interface SwitchoverBlueGreenDeploymentCommandOutput extends SwitchoverBlueGreenDeploymentResponse, __MetadataBearer {}
 
 /**
- * <p>Switches over a blue/green deployment.</p>
- *          <p>Before you switch over, production traffic is routed to the databases in the blue environment.
- *             After you switch over, production traffic is routed to the databases in the green environment.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS
- *                 Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
- *                 Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using Amazon RDS
- *                 Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
- *                 User Guide</i>.</p>
+ * <p>Switches over a blue/green deployment.</p> <p>Before you switch over, production traffic is routed to the databases in the blue environment. After you switch over, production traffic is routed to the databases in the green environment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,16 +83,150 @@ export interface SwitchoverBlueGreenDeploymentCommandOutput extends SwitchoverBl
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link BlueGreenDeploymentNotFoundFault} (client fault)
- *  <p>
- *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+ *  <p> <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
  *
  * @throws {@link InvalidBlueGreenDeploymentStateFault} (client fault)
- *  <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in
- *             the green environment.</p>
+ *  <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in the green environment.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
+ * @example To switch a blue/green deployment for an RDS DB instance
+ * ```javascript
+ * // The following example promotes the specified green environment as the new production environment.
+ * const input = {
+ *   BlueGreenDeploymentIdentifier: "bgd-wi89nwzglccsfake",
+ *   SwitchoverTimeout: 300
+ * };
+ * const command = new SwitchoverBlueGreenDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   BlueGreenDeployment: {
+ *     BlueGreenDeploymentIdentifier: "bgd-v53303651eexfake",
+ *     BlueGreenDeploymentName: "bgd-cli-test-instance",
+ *     CreateTime: "2022-02-25T22:33:22.225Z",
+ *     Source: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
+ *     Status: "SWITCHOVER_IN_PROGRESS",
+ *     SwitchoverDetails: [
+ *       {
+ *         SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
+ *         Status: "AVAILABLE",
+ *         TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-green-blhi1e"
+ *       },
+ *       {
+ *         SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-1",
+ *         Status: "AVAILABLE",
+ *         TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-1-green-k5fv7u"
+ *       },
+ *       {
+ *         SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-2",
+ *         Status: "AVAILABLE",
+ *         TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-2-green-ggsh8m"
+ *       },
+ *       {
+ *         SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-3",
+ *         Status: "AVAILABLE",
+ *         TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-3-green-o2vwm0"
+ *       }
+ *     ],
+ *     Target: "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-green-blhi1e",
+ *     Tasks: [
+ *       {
+ *         Name: "CREATING_READ_REPLICA_OF_SOURCE",
+ *         Status: "COMPLETED"
+ *       },
+ *       {
+ *         Name: "DB_ENGINE_VERSION_UPGRADE",
+ *         Status: "COMPLETED"
+ *       },
+ *       {
+ *         Name: "CONFIGURE_BACKUPS",
+ *         Status: "COMPLETED"
+ *       },
+ *       {
+ *         Name: "CREATING_TOPOLOGY_OF_SOURCE",
+ *         Status: "COMPLETED"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To promote a blue/green deployment for an Aurora MySQL DB cluster
+ * ```javascript
+ * // The following example promotes the specified green environment as the new production environment.
+ * const input = {
+ *   BlueGreenDeploymentIdentifier: "bgd-wi89nwzglccsfake",
+ *   SwitchoverTimeout: 300
+ * };
+ * const command = new SwitchoverBlueGreenDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   BlueGreenDeployment: {
+ *     BlueGreenDeploymentIdentifier: "bgd-wi89nwzglccsfake",
+ *     BlueGreenDeploymentName: "my-blue-green-deployment",
+ *     CreateTime: "2022-02-25T22:38:49.522Z",
+ *     Source: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *     Status: "SWITCHOVER_IN_PROGRESS",
+ *     SwitchoverDetails: [
+ *       {
+ *         SourceMember: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
+ *         Status: "AVAILABLE",
+ *         TargetMember: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster-green-3ud8z6"
+ *       },
+ *       {
+ *         SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1",
+ *         Status: "AVAILABLE",
+ *         TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1-green-bvxc73"
+ *       },
+ *       {
+ *         SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2",
+ *         Status: "AVAILABLE",
+ *         TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2-green-7wc4ie"
+ *       },
+ *       {
+ *         SourceMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3",
+ *         Status: "AVAILABLE",
+ *         TargetMember: "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3-green-p4xxkz"
+ *       },
+ *       {
+ *         SourceMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint",
+ *         Status: "AVAILABLE",
+ *         TargetMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint-green-np1ikl"
+ *       },
+ *       {
+ *         SourceMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint",
+ *         Status: "AVAILABLE",
+ *         TargetMember: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint-green-miszlf"
+ *       }
+ *     ],
+ *     Target: "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster-green-3ud8z6",
+ *     Tasks: [
+ *       {
+ *         Name: "CREATING_READ_REPLICA_OF_SOURCE",
+ *         Status: "COMPLETED"
+ *       },
+ *       {
+ *         Name: "DB_ENGINE_VERSION_UPGRADE",
+ *         Status: "COMPLETED"
+ *       },
+ *       {
+ *         Name: "CREATE_DB_INSTANCES_FOR_CLUSTER",
+ *         Status: "COMPLETED"
+ *       },
+ *       {
+ *         Name: "CREATE_CUSTOM_ENDPOINTS",
+ *         Status: "COMPLETED"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

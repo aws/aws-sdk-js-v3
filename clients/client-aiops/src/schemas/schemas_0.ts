@@ -124,7 +124,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateInvestigationGroupInput$: StaticStructureSchema = [3, n0, _CIGI,
   0,
   [_n, _rA, _eC, _rID, _t, _tKB, _cNC, _iCTEHE, _cAC],
-  [0, 0, () => EncryptionConfiguration$, 1, 128 | 0, 64 | 0, [2, n0, _CNC, 0, 0, 64 | 0], 2, () => CrossAccountConfigurations]
+  [0, 0, () => EncryptionConfiguration$, 1, 128 | 0, 64 | 0, [2, n0, _CNC, 0, 0, 64 | 0], 2, () => CrossAccountConfigurations], 2
 ];
 export var CreateInvestigationGroupOutput$: StaticStructureSchema = [3, n0, _CIGO,
   0,
@@ -144,12 +144,12 @@ export var DeleteInvestigationGroupPolicyOutput$: StaticStructureSchema = [3, n0
 export var DeleteInvestigationGroupPolicyRequest$: StaticStructureSchema = [3, n0, _DIGPR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteInvestigationGroupRequest$: StaticStructureSchema = [3, n0, _DIGR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -165,7 +165,7 @@ TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetInvestigationGroupPolicyRequest$: StaticStructureSchema = [3, n0, _GIGPR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetInvestigationGroupPolicyResponse$: StaticStructureSchema = [3, n0, _GIGPRe,
   0,
@@ -175,7 +175,7 @@ export var GetInvestigationGroupPolicyResponse$: StaticStructureSchema = [3, n0,
 export var GetInvestigationGroupRequest$: StaticStructureSchema = [3, n0, _GIGR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetInvestigationGroupResponse$: StaticStructureSchema = [3, n0, _GIGRe,
   0,
@@ -211,12 +211,12 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var PutInvestigationGroupPolicyRequest$: StaticStructureSchema = [3, n0, _PIGPR,
   0,
   [_i, _p],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var PutInvestigationGroupPolicyResponse$: StaticStructureSchema = [3, n0, _PIGPRu,
   0,
@@ -238,7 +238,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAe, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -254,7 +254,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -269,7 +269,7 @@ export var UpdateInvestigationGroupOutput$: StaticStructureSchema = [3, n0, _UIG
 export var UpdateInvestigationGroupRequest$: StaticStructureSchema = [3, n0, _UIGR,
   0,
   [_i, _rA, _eC, _tKB, _cNC, _iCTEHE, _cAC],
-  [[0, 1], 0, () => EncryptionConfiguration$, 64 | 0, [2, n0, _CNC, 0, 0, 64 | 0], 2, () => CrossAccountConfigurations]
+  [[0, 1], 0, () => EncryptionConfiguration$, 64 | 0, [2, n0, _CNC, 0, 0, 64 | 0], 2, () => CrossAccountConfigurations], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateBrokerCommand,
@@ -87,6 +87,7 @@ import {
 } from "./commands/UpdateConfigurationCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { MqClient } from "./MqClient";
+import { paginateListBrokers } from "./pagination/ListBrokersPaginator";
 
 const commands = {
   CreateBrokerCommand,
@@ -113,6 +114,9 @@ const commands = {
   UpdateBrokerCommand,
   UpdateConfigurationCommand,
   UpdateUserCommand,
+};
+const paginators = {
+  paginateListBrokers,
 };
 
 export interface Mq {
@@ -527,6 +531,17 @@ export interface Mq {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBrokersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBrokersCommandOutput}.
+   */
+  paginateListBrokers(
+    args?: ListBrokersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBrokersCommandOutput>;
 }
 
 /**
@@ -534,4 +549,4 @@ export interface Mq {
  * @public
  */
 export class Mq extends MqClient implements Mq {}
-createAggregatedClient(commands, Mq);
+createAggregatedClient(commands, Mq, { paginators });

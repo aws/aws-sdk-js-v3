@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CloudFormationClient } from "./CloudFormationClient";
 import {
@@ -413,6 +419,40 @@ import {
   ValidateTemplateCommandInput,
   ValidateTemplateCommandOutput,
 } from "./commands/ValidateTemplateCommand";
+import { paginateDescribeAccountLimits } from "./pagination/DescribeAccountLimitsPaginator";
+import { paginateDescribeChangeSet } from "./pagination/DescribeChangeSetPaginator";
+import { paginateDescribeEvents } from "./pagination/DescribeEventsPaginator";
+import { paginateDescribeStackEvents } from "./pagination/DescribeStackEventsPaginator";
+import { paginateDescribeStackResourceDrifts } from "./pagination/DescribeStackResourceDriftsPaginator";
+import { paginateDescribeStacks } from "./pagination/DescribeStacksPaginator";
+import { paginateListChangeSets } from "./pagination/ListChangeSetsPaginator";
+import { paginateListExports } from "./pagination/ListExportsPaginator";
+import { paginateListGeneratedTemplates } from "./pagination/ListGeneratedTemplatesPaginator";
+import { paginateListImports } from "./pagination/ListImportsPaginator";
+import { paginateListResourceScanRelatedResources } from "./pagination/ListResourceScanRelatedResourcesPaginator";
+import { paginateListResourceScanResources } from "./pagination/ListResourceScanResourcesPaginator";
+import { paginateListResourceScans } from "./pagination/ListResourceScansPaginator";
+import { paginateListStackInstances } from "./pagination/ListStackInstancesPaginator";
+import { paginateListStackRefactorActions } from "./pagination/ListStackRefactorActionsPaginator";
+import { paginateListStackRefactors } from "./pagination/ListStackRefactorsPaginator";
+import { paginateListStackResources } from "./pagination/ListStackResourcesPaginator";
+import { paginateListStackSetOperationResults } from "./pagination/ListStackSetOperationResultsPaginator";
+import { paginateListStackSetOperations } from "./pagination/ListStackSetOperationsPaginator";
+import { paginateListStackSets } from "./pagination/ListStackSetsPaginator";
+import { paginateListStacks } from "./pagination/ListStacksPaginator";
+import { paginateListTypeRegistrations } from "./pagination/ListTypeRegistrationsPaginator";
+import { paginateListTypes } from "./pagination/ListTypesPaginator";
+import { paginateListTypeVersions } from "./pagination/ListTypeVersionsPaginator";
+import { waitUntilChangeSetCreateComplete } from "./waiters/waitForChangeSetCreateComplete";
+import { waitUntilStackCreateComplete } from "./waiters/waitForStackCreateComplete";
+import { waitUntilStackDeleteComplete } from "./waiters/waitForStackDeleteComplete";
+import { waitUntilStackExists } from "./waiters/waitForStackExists";
+import { waitUntilStackImportComplete } from "./waiters/waitForStackImportComplete";
+import { waitUntilStackRefactorCreateComplete } from "./waiters/waitForStackRefactorCreateComplete";
+import { waitUntilStackRefactorExecuteComplete } from "./waiters/waitForStackRefactorExecuteComplete";
+import { waitUntilStackRollbackComplete } from "./waiters/waitForStackRollbackComplete";
+import { waitUntilStackUpdateComplete } from "./waiters/waitForStackUpdateComplete";
+import { waitUntilTypeRegistrationComplete } from "./waiters/waitForTypeRegistrationComplete";
 
 const commands = {
   ActivateOrganizationsAccessCommand,
@@ -505,6 +545,44 @@ const commands = {
   UpdateStackSetCommand,
   UpdateTerminationProtectionCommand,
   ValidateTemplateCommand,
+};
+const paginators = {
+  paginateDescribeAccountLimits,
+  paginateDescribeChangeSet,
+  paginateDescribeEvents,
+  paginateDescribeStackEvents,
+  paginateDescribeStackResourceDrifts,
+  paginateDescribeStacks,
+  paginateListChangeSets,
+  paginateListExports,
+  paginateListGeneratedTemplates,
+  paginateListImports,
+  paginateListResourceScanRelatedResources,
+  paginateListResourceScanResources,
+  paginateListResourceScans,
+  paginateListStackInstances,
+  paginateListStackRefactorActions,
+  paginateListStackRefactors,
+  paginateListStackResources,
+  paginateListStacks,
+  paginateListStackSetOperationResults,
+  paginateListStackSetOperations,
+  paginateListStackSets,
+  paginateListTypeRegistrations,
+  paginateListTypes,
+  paginateListTypeVersions,
+};
+const waiters = {
+  waitUntilChangeSetCreateComplete,
+  waitUntilStackRefactorCreateComplete,
+  waitUntilStackRefactorExecuteComplete,
+  waitUntilStackCreateComplete,
+  waitUntilStackDeleteComplete,
+  waitUntilStackExists,
+  waitUntilStackImportComplete,
+  waitUntilStackRollbackComplete,
+  waitUntilStackUpdateComplete,
+  waitUntilTypeRegistrationComplete,
 };
 
 export interface CloudFormation {
@@ -2069,6 +2147,370 @@ export interface CloudFormation {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateTemplateCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAccountLimitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAccountLimitsCommandOutput}.
+   */
+  paginateDescribeAccountLimits(
+    args?: DescribeAccountLimitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAccountLimitsCommandOutput>;
+
+  /**
+   * @see {@link DescribeChangeSetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeChangeSetCommandOutput}.
+   */
+  paginateDescribeChangeSet(
+    args: DescribeChangeSetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeChangeSetCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventsCommandOutput}.
+   */
+  paginateDescribeEvents(
+    args?: DescribeEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventsCommandOutput>;
+
+  /**
+   * @see {@link DescribeStackEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeStackEventsCommandOutput}.
+   */
+  paginateDescribeStackEvents(
+    args: DescribeStackEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeStackEventsCommandOutput>;
+
+  /**
+   * @see {@link DescribeStackResourceDriftsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeStackResourceDriftsCommandOutput}.
+   */
+  paginateDescribeStackResourceDrifts(
+    args: DescribeStackResourceDriftsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeStackResourceDriftsCommandOutput>;
+
+  /**
+   * @see {@link DescribeStacksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeStacksCommandOutput}.
+   */
+  paginateDescribeStacks(
+    args?: DescribeStacksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeStacksCommandOutput>;
+
+  /**
+   * @see {@link ListChangeSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChangeSetsCommandOutput}.
+   */
+  paginateListChangeSets(
+    args: ListChangeSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChangeSetsCommandOutput>;
+
+  /**
+   * @see {@link ListExportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExportsCommandOutput}.
+   */
+  paginateListExports(
+    args?: ListExportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExportsCommandOutput>;
+
+  /**
+   * @see {@link ListGeneratedTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGeneratedTemplatesCommandOutput}.
+   */
+  paginateListGeneratedTemplates(
+    args?: ListGeneratedTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGeneratedTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListImportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportsCommandOutput}.
+   */
+  paginateListImports(
+    args: ListImportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportsCommandOutput>;
+
+  /**
+   * @see {@link ListResourceScanRelatedResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceScanRelatedResourcesCommandOutput}.
+   */
+  paginateListResourceScanRelatedResources(
+    args: ListResourceScanRelatedResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceScanRelatedResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListResourceScanResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceScanResourcesCommandOutput}.
+   */
+  paginateListResourceScanResources(
+    args: ListResourceScanResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceScanResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListResourceScansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceScansCommandOutput}.
+   */
+  paginateListResourceScans(
+    args?: ListResourceScansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceScansCommandOutput>;
+
+  /**
+   * @see {@link ListStackInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStackInstancesCommandOutput}.
+   */
+  paginateListStackInstances(
+    args: ListStackInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStackInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListStackRefactorActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStackRefactorActionsCommandOutput}.
+   */
+  paginateListStackRefactorActions(
+    args: ListStackRefactorActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStackRefactorActionsCommandOutput>;
+
+  /**
+   * @see {@link ListStackRefactorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStackRefactorsCommandOutput}.
+   */
+  paginateListStackRefactors(
+    args?: ListStackRefactorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStackRefactorsCommandOutput>;
+
+  /**
+   * @see {@link ListStackResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStackResourcesCommandOutput}.
+   */
+  paginateListStackResources(
+    args: ListStackResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStackResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListStacksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStacksCommandOutput}.
+   */
+  paginateListStacks(
+    args?: ListStacksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStacksCommandOutput>;
+
+  /**
+   * @see {@link ListStackSetOperationResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStackSetOperationResultsCommandOutput}.
+   */
+  paginateListStackSetOperationResults(
+    args: ListStackSetOperationResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStackSetOperationResultsCommandOutput>;
+
+  /**
+   * @see {@link ListStackSetOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStackSetOperationsCommandOutput}.
+   */
+  paginateListStackSetOperations(
+    args: ListStackSetOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStackSetOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListStackSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStackSetsCommandOutput}.
+   */
+  paginateListStackSets(
+    args?: ListStackSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStackSetsCommandOutput>;
+
+  /**
+   * @see {@link ListTypeRegistrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTypeRegistrationsCommandOutput}.
+   */
+  paginateListTypeRegistrations(
+    args?: ListTypeRegistrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTypeRegistrationsCommandOutput>;
+
+  /**
+   * @see {@link ListTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTypesCommandOutput}.
+   */
+  paginateListTypes(
+    args?: ListTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTypesCommandOutput>;
+
+  /**
+   * @see {@link ListTypeVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTypeVersionsCommandOutput}.
+   */
+  paginateListTypeVersions(
+    args?: ListTypeVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTypeVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeChangeSetCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilChangeSetCreateComplete(
+    args: DescribeChangeSetCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeStackRefactorCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStackRefactorCreateComplete(
+    args: DescribeStackRefactorCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeStackRefactorCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStackRefactorExecuteComplete(
+    args: DescribeStackRefactorCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeStacksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStackCreateComplete(
+    args: DescribeStacksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeStacksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStackDeleteComplete(
+    args: DescribeStacksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeStacksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStackExists(
+    args: DescribeStacksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeStacksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStackImportComplete(
+    args: DescribeStacksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeStacksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStackRollbackComplete(
+    args: DescribeStacksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeStacksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStackUpdateComplete(
+    args: DescribeStacksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeTypeRegistrationCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTypeRegistrationComplete(
+    args: DescribeTypeRegistrationCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudFormation>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -2087,4 +2529,4 @@ export interface CloudFormation {
  * @public
  */
 export class CloudFormation extends CloudFormationClient implements CloudFormation {}
-createAggregatedClient(commands, CloudFormation);
+createAggregatedClient(commands, CloudFormation, { paginators, waiters });

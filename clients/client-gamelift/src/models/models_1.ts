@@ -29,6 +29,23 @@ import {
 /**
  * @public
  */
+export interface UpdateFleetPortSettingsOutput {
+  /**
+   * <p>A unique identifier for the fleet that was updated.</p>
+   * @public
+   */
+  FleetId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
+   * @public
+   */
+  FleetArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running.</p>
@@ -218,6 +235,9 @@ export interface UpdateGameSessionInput {
    *         There is no way to delete properties.
    *         For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update">Update the value of a game property</a>.
    *       </p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -246,6 +266,9 @@ export interface UpdateGameSessionQueueInput {
 
   /**
    * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status.</p>
+   *          <note>
+   *             <p>The minimum value is 10 and the maximum value is 600.</p>
+   *          </note>
    * @public
    */
   TimeoutInSeconds?: number | undefined;
@@ -391,6 +414,9 @@ export interface UpdateMatchmakingConfigurationInput {
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
    *             is set to <code>STANDALONE</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;

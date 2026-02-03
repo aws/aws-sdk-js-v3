@@ -7793,6 +7793,12 @@ export interface PutConformancePackRequest {
    * @public
    */
   TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails | undefined;
+
+  /**
+   * <p>The tags for the conformance pack. Each tag consists of a key and an optional value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**

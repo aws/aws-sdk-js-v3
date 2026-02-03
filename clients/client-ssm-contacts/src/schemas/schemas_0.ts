@@ -297,8 +297,8 @@ import { SSMContactsServiceException } from "../models/SSMContactsServiceExcepti
 /* eslint no-var: 0 */
 export var AcceptPageRequest$: StaticStructureSchema = [3, n0, _APR,
   0,
-  [_PI, _CCI, _AT, _N, _AC, _ACV],
-  [0, 0, 0, 0, 0, 0]
+  [_PI, _AT, _AC, _CCI, _N, _ACV],
+  [0, 0, 0, 0, 0, 0], 3
 ];
 export var AcceptPageResult$: StaticStructureSchema = [3, n0, _APRc,
   0,
@@ -308,13 +308,13 @@ export var AcceptPageResult$: StaticStructureSchema = [3, n0, _APRc,
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActivateContactChannelRequest$: StaticStructureSchema = [3, n0, _ACCR,
   0,
   [_CCI, _ACc],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ActivateContactChannelResult$: StaticStructureSchema = [3, n0, _ACCRc,
   0,
@@ -324,23 +324,23 @@ export var ActivateContactChannelResult$: StaticStructureSchema = [3, n0, _ACCRc
 export var ChannelTargetInfo$: StaticStructureSchema = [3, n0, _CTI,
   0,
   [_CCI, _RIIM],
-  [0, 1]
+  [0, 1], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _RI, _RT, _DE],
-  [0, 0, 0, () => DependentEntityList]
+  [0, 0, 0, () => DependentEntityList], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Contact$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_CA, _A, _DN, _T],
-  [0, 0, 0, 0]
+  [_CA, _A, _T, _DN],
+  [0, 0, 0, 0], 3
 ];
 export var ContactChannel$: StaticStructureSchema = [3, n0, _CC,
   0,
-  [_CCA, _CA, _Na, _T, _DA, _AS],
-  [0, 0, 0, 0, () => ContactChannelAddress$, 0]
+  [_CCA, _CA, _Na, _DA, _AS, _T],
+  [0, 0, 0, () => ContactChannelAddress$, 0, 0], 5
 ];
 export var ContactChannelAddress$: StaticStructureSchema = [3, n0, _CCAo,
   0,
@@ -349,8 +349,8 @@ export var ContactChannelAddress$: StaticStructureSchema = [3, n0, _CCAo,
 ];
 export var ContactTargetInfo$: StaticStructureSchema = [3, n0, _CTIo,
   0,
-  [_CI, _IE],
-  [0, 2]
+  [_IE, _CI],
+  [2, 0], 1
 ];
 export var CoverageTime$: StaticStructureSchema = [3, n0, _CT,
   0,
@@ -360,53 +360,53 @@ export var CoverageTime$: StaticStructureSchema = [3, n0, _CT,
 export var CreateContactChannelRequest$: StaticStructureSchema = [3, n0, _CCCR,
   0,
   [_CI, _Na, _T, _DA, _DAe, _IT],
-  [0, 0, 0, () => ContactChannelAddress$, 2, [0, 4]]
+  [0, 0, 0, () => ContactChannelAddress$, 2, [0, 4]], 4
 ];
 export var CreateContactChannelResult$: StaticStructureSchema = [3, n0, _CCCRr,
   0,
   [_CCA],
-  [0]
+  [0], 1
 ];
 export var CreateContactRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_A, _DN, _T, _P, _Ta, _IT],
-  [0, 0, 0, () => Plan$, () => TagsList, [0, 4]]
+  [_A, _T, _P, _DN, _Ta, _IT],
+  [0, 0, () => Plan$, 0, () => TagsList, [0, 4]], 3
 ];
 export var CreateContactResult$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var CreateRotationOverrideRequest$: StaticStructureSchema = [3, n0, _CROR,
   0,
   [_RIo, _NCI, _ST, _ET, _IT],
-  [0, 64 | 0, 4, 4, 0]
+  [0, 64 | 0, 4, 4, 0], 4
 ];
 export var CreateRotationOverrideResult$: StaticStructureSchema = [3, n0, _CRORr,
   0,
   [_ROI],
-  [0]
+  [0], 1
 ];
 export var CreateRotationRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_Na, _CIo, _ST, _TZI, _R, _Ta, _IT],
-  [0, 64 | 0, 4, 0, () => RecurrenceSettings$, () => TagsList, 0]
+  [_Na, _CIo, _TZI, _R, _ST, _Ta, _IT],
+  [0, 64 | 0, 0, () => RecurrenceSettings$, 4, () => TagsList, 0], 4
 ];
 export var CreateRotationResult$: StaticStructureSchema = [3, n0, _CRRr,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var DataEncryptionException$: StaticErrorSchema = [-3, n0, _DEE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(DataEncryptionException$, DataEncryptionException);
 export var DeactivateContactChannelRequest$: StaticStructureSchema = [3, n0, _DCCR,
   0,
   [_CCI],
-  [0]
+  [0], 1
 ];
 export var DeactivateContactChannelResult$: StaticStructureSchema = [3, n0, _DCCRe,
   0,
@@ -416,7 +416,7 @@ export var DeactivateContactChannelResult$: StaticStructureSchema = [3, n0, _DCC
 export var DeleteContactChannelRequest$: StaticStructureSchema = [3, n0, _DCCRel,
   0,
   [_CCI],
-  [0]
+  [0], 1
 ];
 export var DeleteContactChannelResult$: StaticStructureSchema = [3, n0, _DCCRele,
   0,
@@ -426,7 +426,7 @@ export var DeleteContactChannelResult$: StaticStructureSchema = [3, n0, _DCCRele
 export var DeleteContactRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var DeleteContactResult$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -436,7 +436,7 @@ export var DeleteContactResult$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteRotationOverrideRequest$: StaticStructureSchema = [3, n0, _DROR,
   0,
   [_RIo, _ROI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteRotationOverrideResult$: StaticStructureSchema = [3, n0, _DRORe,
   0,
@@ -446,7 +446,7 @@ export var DeleteRotationOverrideResult$: StaticStructureSchema = [3, n0, _DRORe
 export var DeleteRotationRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_RIo],
-  [0]
+  [0], 1
 ];
 export var DeleteRotationResult$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -456,47 +456,47 @@ export var DeleteRotationResult$: StaticStructureSchema = [3, n0, _DRRe,
 export var DependentEntity$: StaticStructureSchema = [3, n0, _DEe,
   0,
   [_RTe, _DRI],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DescribeEngagementRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_EI],
-  [0]
+  [0], 1
 ];
 export var DescribeEngagementResult$: StaticStructureSchema = [3, n0, _DERe,
   0,
   [_CA, _EA, _Se, _Su, _Co, _PS, _PC, _II, _ST, _STt],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4]
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4], 5
 ];
 export var DescribePageRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var DescribePageResult$: StaticStructureSchema = [3, n0, _DPRe,
   0,
   [_PA, _EA, _CA, _Se, _Su, _Co, _PS, _PC, _II, _STe, _RTea, _DT],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4], 6
 ];
 export var Engagement$: StaticStructureSchema = [3, n0, _En,
   0,
   [_EA, _CA, _Se, _II, _ST, _STt],
-  [0, 0, 0, 0, 4, 4]
+  [0, 0, 0, 0, 4, 4], 3
 ];
 export var GetContactChannelRequest$: StaticStructureSchema = [3, n0, _GCCR,
   0,
   [_CCI],
-  [0]
+  [0], 1
 ];
 export var GetContactChannelResult$: StaticStructureSchema = [3, n0, _GCCRe,
   0,
   [_CA, _CCA, _Na, _T, _DA, _AS],
-  [0, 0, 0, 0, () => ContactChannelAddress$, 0]
+  [0, 0, 0, 0, () => ContactChannelAddress$, 0], 5
 ];
 export var GetContactPolicyRequest$: StaticStructureSchema = [3, n0, _GCPR,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var GetContactPolicyResult$: StaticStructureSchema = [3, n0, _GCPRe,
   0,
@@ -506,17 +506,17 @@ export var GetContactPolicyResult$: StaticStructureSchema = [3, n0, _GCPRe,
 export var GetContactRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var GetContactResult$: StaticStructureSchema = [3, n0, _GCRe,
   0,
-  [_CA, _A, _DN, _T, _P],
-  [0, 0, 0, 0, () => Plan$]
+  [_CA, _A, _T, _P, _DN],
+  [0, 0, 0, () => Plan$, 0], 4
 ];
 export var GetRotationOverrideRequest$: StaticStructureSchema = [3, n0, _GROR,
   0,
   [_RIo, _ROI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetRotationOverrideResult$: StaticStructureSchema = [3, n0, _GRORe,
   0,
@@ -526,33 +526,33 @@ export var GetRotationOverrideResult$: StaticStructureSchema = [3, n0, _GRORe,
 export var GetRotationRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_RIo],
-  [0]
+  [0], 1
 ];
 export var GetRotationResult$: StaticStructureSchema = [3, n0, _GRRe,
   0,
   [_RA, _Na, _CIo, _ST, _TZI, _R],
-  [0, 0, 64 | 0, 4, 0, () => RecurrenceSettings$]
+  [0, 0, 64 | 0, 4, 0, () => RecurrenceSettings$], 6
 ];
 export var HandOffTime$: StaticStructureSchema = [3, n0, _HOT,
   0,
   [_HOD, _MOH],
-  [1, 1]
+  [1, 1], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M, _RAS],
-  [0, [1, { [_hH]: _RA_ }]]
+  [0, [1, { [_hH]: _RA_ }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListContactChannelsRequest$: StaticStructureSchema = [3, n0, _LCCR,
   0,
   [_CI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListContactChannelsResult$: StaticStructureSchema = [3, n0, _LCCRi,
   0,
-  [_NT, _CCo],
-  [0, () => ContactChannelList]
+  [_CCo, _NT],
+  [() => ContactChannelList, 0], 1
 ];
 export var ListContactsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
@@ -571,13 +571,13 @@ export var ListEngagementsRequest$: StaticStructureSchema = [3, n0, _LER,
 ];
 export var ListEngagementsResult$: StaticStructureSchema = [3, n0, _LERi,
   0,
-  [_NT, _Eng],
-  [0, () => EngagementsList]
+  [_Eng, _NT],
+  [() => EngagementsList, 0], 1
 ];
 export var ListPageReceiptsRequest$: StaticStructureSchema = [3, n0, _LPRR,
   0,
   [_PI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListPageReceiptsResult$: StaticStructureSchema = [3, n0, _LPRRi,
   0,
@@ -586,38 +586,38 @@ export var ListPageReceiptsResult$: StaticStructureSchema = [3, n0, _LPRRi,
 ];
 export var ListPageResolutionsRequest$: StaticStructureSchema = [3, n0, _LPRRis,
   0,
-  [_NT, _PI],
-  [0, 0]
+  [_PI, _NT],
+  [0, 0], 1
 ];
 export var ListPageResolutionsResult$: StaticStructureSchema = [3, n0, _LPRRist,
   0,
-  [_NT, _PR],
-  [0, () => ResolutionList]
+  [_PR, _NT],
+  [() => ResolutionList, 0], 1
 ];
 export var ListPagesByContactRequest$: StaticStructureSchema = [3, n0, _LPBCR,
   0,
   [_CI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListPagesByContactResult$: StaticStructureSchema = [3, n0, _LPBCRi,
   0,
-  [_NT, _Pa],
-  [0, () => PagesList]
+  [_Pa, _NT],
+  [() => PagesList, 0], 1
 ];
 export var ListPagesByEngagementRequest$: StaticStructureSchema = [3, n0, _LPBER,
   0,
   [_EI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListPagesByEngagementResult$: StaticStructureSchema = [3, n0, _LPBERi,
   0,
-  [_NT, _Pa],
-  [0, () => PagesList]
+  [_Pa, _NT],
+  [() => PagesList, 0], 1
 ];
 export var ListPreviewRotationShiftsRequest$: StaticStructureSchema = [3, n0, _LPRSR,
   0,
-  [_RST, _ST, _ET, _Me, _TZI, _R, _O, _NT, _MR],
-  [4, 4, 4, 64 | 0, 0, () => RecurrenceSettings$, () => OverrideList, 0, 1]
+  [_ET, _Me, _TZI, _R, _RST, _ST, _O, _NT, _MR],
+  [4, 64 | 0, 0, () => RecurrenceSettings$, 4, 4, () => OverrideList, 0, 1], 4
 ];
 export var ListPreviewRotationShiftsResult$: StaticStructureSchema = [3, n0, _LPRSRi,
   0,
@@ -627,7 +627,7 @@ export var ListPreviewRotationShiftsResult$: StaticStructureSchema = [3, n0, _LP
 export var ListRotationOverridesRequest$: StaticStructureSchema = [3, n0, _LROR,
   0,
   [_RIo, _ST, _ET, _NT, _MR],
-  [0, 4, 4, 0, 1]
+  [0, 4, 4, 0, 1], 3
 ];
 export var ListRotationOverridesResult$: StaticStructureSchema = [3, n0, _LRORi,
   0,
@@ -636,8 +636,8 @@ export var ListRotationOverridesResult$: StaticStructureSchema = [3, n0, _LRORi,
 ];
 export var ListRotationShiftsRequest$: StaticStructureSchema = [3, n0, _LRSR,
   0,
-  [_RIo, _ST, _ET, _NT, _MR],
-  [0, 4, 4, 0, 1]
+  [_RIo, _ET, _ST, _NT, _MR],
+  [0, 4, 4, 0, 1], 2
 ];
 export var ListRotationShiftsResult$: StaticStructureSchema = [3, n0, _LRSRi,
   0,
@@ -651,13 +651,13 @@ export var ListRotationsRequest$: StaticStructureSchema = [3, n0, _LRR,
 ];
 export var ListRotationsResult$: StaticStructureSchema = [3, n0, _LRRi,
   0,
-  [_NT, _Ro],
-  [0, () => Rotations]
+  [_Ro, _NT],
+  [() => Rotations, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -667,12 +667,12 @@ export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
 export var MonthlySetting$: StaticStructureSchema = [3, n0, _MS,
   0,
   [_DOM, _HOT],
-  [1, () => HandOffTime$]
+  [1, () => HandOffTime$], 2
 ];
 export var Page$: StaticStructureSchema = [3, n0, _Pag,
   0,
   [_PA, _EA, _CA, _Se, _II, _STe, _DT, _RTea],
-  [0, 0, 0, 0, 0, 4, 4, 4]
+  [0, 0, 0, 0, 0, 4, 4, 4], 4
 ];
 export var Plan$: StaticStructureSchema = [3, n0, _P,
   0,
@@ -687,7 +687,7 @@ export var PreviewOverride$: StaticStructureSchema = [3, n0, _PO,
 export var PutContactPolicyRequest$: StaticStructureSchema = [3, n0, _PCPR,
   0,
   [_CA, _Po],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutContactPolicyResult$: StaticStructureSchema = [3, n0, _PCPRu,
   0,
@@ -696,44 +696,44 @@ export var PutContactPolicyResult$: StaticStructureSchema = [3, n0, _PCPRu,
 ];
 export var Receipt$: StaticStructureSchema = [3, n0, _Rec,
   0,
-  [_CCA, _RTec, _RIe, _RTece],
-  [0, 0, 0, 4]
+  [_RTec, _RTece, _CCA, _RIe],
+  [0, 4, 0, 0], 2
 ];
 export var RecurrenceSettings$: StaticStructureSchema = [3, n0, _RSe,
   0,
-  [_MSo, _WS, _DS, _NOOC, _SC, _RM],
-  [() => MonthlySettings, () => WeeklySettings, () => DailySettings, 1, () => ShiftCoveragesMap, 1]
+  [_NOOC, _RM, _MSo, _WS, _DS, _SC],
+  [1, 1, () => MonthlySettings, () => WeeklySettings, () => DailySettings, () => ShiftCoveragesMap], 2
 ];
 export var ResolutionContact$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_CA, _T, _SI],
-  [0, 0, 1]
+  [0, 0, 1], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Rotation$: StaticStructureSchema = [3, n0, _Rot,
   0,
   [_RA, _Na, _CIo, _ST, _TZI, _R],
-  [0, 0, 64 | 0, 4, 0, () => RecurrenceSettings$]
+  [0, 0, 64 | 0, 4, 0, () => RecurrenceSettings$], 2
 ];
 export var RotationOverride$: StaticStructureSchema = [3, n0, _ROo,
   0,
   [_ROI, _NCI, _ST, _ET, _CTr],
-  [0, 64 | 0, 4, 4, 4]
+  [0, 64 | 0, 4, 4, 4], 5
 ];
 export var RotationShift$: StaticStructureSchema = [3, n0, _RSo,
   0,
-  [_CIo, _ST, _ET, _T, _SD],
-  [64 | 0, 4, 4, 0, () => ShiftDetails$]
+  [_ST, _ET, _CIo, _T, _SD],
+  [4, 4, 64 | 0, 0, () => ShiftDetails$], 2
 ];
 export var SendActivationCodeRequest$: StaticStructureSchema = [3, n0, _SACR,
   0,
   [_CCI],
-  [0]
+  [0], 1
 ];
 export var SendActivationCodeResult$: StaticStructureSchema = [3, n0, _SACRe,
   0,
@@ -742,34 +742,34 @@ export var SendActivationCodeResult$: StaticStructureSchema = [3, n0, _SACRe,
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
-  [_M, _RI, _RT, _QC, _SCe],
-  [0, 0, 0, 0, 0]
+  [_M, _QC, _SCe, _RI, _RT],
+  [0, 0, 0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ShiftDetails$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_OCI],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var Stage$: StaticStructureSchema = [3, n0, _Sta,
   0,
   [_DIM, _Tar],
-  [1, () => TargetsList]
+  [1, () => TargetsList], 2
 ];
 export var StartEngagementRequest$: StaticStructureSchema = [3, n0, _SER,
   0,
   [_CI, _Se, _Su, _Co, _PS, _PC, _II, _IT],
-  [0, 0, 0, 0, 0, 0, 0, [0, 4]]
+  [0, 0, 0, 0, 0, 0, 0, [0, 4]], 4
 ];
 export var StartEngagementResult$: StaticStructureSchema = [3, n0, _SERt,
   0,
   [_EA],
-  [0]
+  [0], 1
 ];
 export var StopEngagementRequest$: StaticStructureSchema = [3, n0, _SERto,
   0,
   [_EI, _Rea],
-  [0, 0]
+  [0, 0], 1
 ];
 export var StopEngagementResult$: StaticStructureSchema = [3, n0, _SERtop,
   0,
@@ -784,7 +784,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
-  [0, () => TagsList]
+  [0, () => TagsList], 2
 ];
 export var TagResourceResult$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -799,7 +799,7 @@ export var Target$: StaticStructureSchema = [3, n0, _Targ,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M, _QC, _SCe, _RAS],
-  [0, 0, 0, [1, { [_hH]: _RA_ }]]
+  [0, 0, 0, [1, { [_hH]: _RA_ }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeRange$: StaticStructureSchema = [3, n0, _TR,
@@ -810,7 +810,7 @@ export var TimeRange$: StaticStructureSchema = [3, n0, _TR,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResult$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -820,7 +820,7 @@ export var UntagResourceResult$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateContactChannelRequest$: StaticStructureSchema = [3, n0, _UCCR,
   0,
   [_CCI, _Na, _DA],
-  [0, 0, () => ContactChannelAddress$]
+  [0, 0, () => ContactChannelAddress$], 1
 ];
 export var UpdateContactChannelResult$: StaticStructureSchema = [3, n0, _UCCRp,
   0,
@@ -830,7 +830,7 @@ export var UpdateContactChannelResult$: StaticStructureSchema = [3, n0, _UCCRp,
 export var UpdateContactRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_CI, _DN, _P],
-  [0, 0, () => Plan$]
+  [0, 0, () => Plan$], 1
 ];
 export var UpdateContactResult$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -839,8 +839,8 @@ export var UpdateContactResult$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateRotationRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
-  [_RIo, _CIo, _ST, _TZI, _R],
-  [0, 64 | 0, 4, 0, () => RecurrenceSettings$]
+  [_RIo, _R, _CIo, _ST, _TZI],
+  [0, () => RecurrenceSettings$, 64 | 0, 4, 0], 2
 ];
 export var UpdateRotationResult$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -850,18 +850,18 @@ export var UpdateRotationResult$: StaticStructureSchema = [3, n0, _URRpd,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _Rea, _F],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_Na, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 export var WeeklySetting$: StaticStructureSchema = [3, n0, _WSe,
   0,
   [_DOW, _HOT],
-  [0, () => HandOffTime$]
+  [0, () => HandOffTime$], 2
 ];
 export var SSMContactsServiceException$: StaticErrorSchema = [-3, _sm, "SSMContactsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(SSMContactsServiceException$, SSMContactsServiceException);

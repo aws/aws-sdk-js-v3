@@ -50,6 +50,9 @@ export interface UpdateApprovalTeamCommandOutput extends UpdateApprovalTeamRespo
  *   ],
  *   Description: "STRING_VALUE",
  *   Arn: "STRING_VALUE", // required
+ *   UpdateActions: [ // UpdateActions
+ *     "SYNCHRONIZE_MFA_DEVICES",
+ *   ],
  * };
  * const command = new UpdateApprovalTeamCommand(input);
  * const response = await client.send(command);

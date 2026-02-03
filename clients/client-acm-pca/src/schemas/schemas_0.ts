@@ -248,7 +248,7 @@ import {
 export var AccessDescription$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_AM, _AL],
-  [() => AccessMethod$, () => GeneralName$]
+  [() => AccessMethod$, () => GeneralName$], 2
 ];
 export var AccessMethod$: StaticStructureSchema = [3, n0, _AM,
   0,
@@ -273,7 +273,7 @@ export var CertificateAuthority$: StaticStructureSchema = [3, n0, _CAe,
 export var CertificateAuthorityConfiguration$: StaticStructureSchema = [3, n0, _CAC,
   0,
   [_KA, _SA, _S, _CE],
-  [0, 0, () => ASN1Subject$, () => CsrExtensions$]
+  [0, 0, () => ASN1Subject$, () => CsrExtensions$], 3
 ];
 export var CertificateMismatchException$: StaticErrorSchema = [-3, n0, _CME,
   { [_e]: _c },
@@ -290,7 +290,7 @@ TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentM
 export var CreateCertificateAuthorityAuditReportRequest$: StaticStructureSchema = [3, n0, _CCAARR,
   0,
   [_CAA, _SBN, _ARRF],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreateCertificateAuthorityAuditReportResponse$: StaticStructureSchema = [3, n0, _CCAARRr,
   0,
@@ -299,8 +299,8 @@ export var CreateCertificateAuthorityAuditReportResponse$: StaticStructureSchema
 ];
 export var CreateCertificateAuthorityRequest$: StaticStructureSchema = [3, n0, _CCAR,
   0,
-  [_CAC, _RC, _CAT, _IT, _KSSS, _Ta, _UM],
-  [() => CertificateAuthorityConfiguration$, () => RevocationConfiguration$, 0, 0, 0, () => TagList, 0]
+  [_CAC, _CAT, _RC, _IT, _KSSS, _Ta, _UM],
+  [() => CertificateAuthorityConfiguration$, 0, () => RevocationConfiguration$, 0, 0, () => TagList, 0], 2
 ];
 export var CreateCertificateAuthorityResponse$: StaticStructureSchema = [3, n0, _CCARr,
   0,
@@ -309,18 +309,18 @@ export var CreateCertificateAuthorityResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreatePermissionRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_CAA, _Pr, _SAo, _Ac],
-  [0, 0, 0, 64 | 0]
+  [_CAA, _Pr, _Ac, _SAo],
+  [0, 0, 64 | 0, 0], 3
 ];
 export var CrlConfiguration$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_En, _EID, _CCu, _SBN, _SOA, _CDPEC, _CT, _CP],
-  [2, 1, 0, 0, 0, () => CrlDistributionPointExtensionConfiguration$, 0, 0]
+  [2, 1, 0, 0, 0, () => CrlDistributionPointExtensionConfiguration$, 0, 0], 1
 ];
 export var CrlDistributionPointExtensionConfiguration$: StaticStructureSchema = [3, n0, _CDPEC,
   0,
   [_OE],
-  [2]
+  [2], 1
 ];
 export var CsrExtensions$: StaticStructureSchema = [3, n0, _CE,
   0,
@@ -330,32 +330,32 @@ export var CsrExtensions$: StaticStructureSchema = [3, n0, _CE,
 export var CustomAttribute$: StaticStructureSchema = [3, n0, _CAu,
   0,
   [_OI, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CustomExtension$: StaticStructureSchema = [3, n0, _CEu,
   0,
   [_OI, _V, _Cr],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var DeleteCertificateAuthorityRequest$: StaticStructureSchema = [3, n0, _DCAR,
   0,
   [_CAA, _PDTID],
-  [0, 1]
+  [0, 1], 1
 ];
 export var DeletePermissionRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_CAA, _Pr, _SAo],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPRe,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var DescribeCertificateAuthorityAuditReportRequest$: StaticStructureSchema = [3, n0, _DCAARR,
   0,
   [_CAA, _ARI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeCertificateAuthorityAuditReportResponse$: StaticStructureSchema = [3, n0, _DCAARRe,
   0,
@@ -365,7 +365,7 @@ export var DescribeCertificateAuthorityAuditReportResponse$: StaticStructureSche
 export var DescribeCertificateAuthorityRequest$: StaticStructureSchema = [3, n0, _DCARe,
   0,
   [_CAA],
-  [0]
+  [0], 1
 ];
 export var DescribeCertificateAuthorityResponse$: StaticStructureSchema = [3, n0, _DCARes,
   0,
@@ -375,7 +375,7 @@ export var DescribeCertificateAuthorityResponse$: StaticStructureSchema = [3, n0
 export var EdiPartyName$: StaticStructureSchema = [3, n0, _EPN,
   0,
   [_PN, _NAa],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ExtendedKeyUsage$: StaticStructureSchema = [3, n0, _EKU,
   0,
@@ -395,7 +395,7 @@ export var GeneralName$: StaticStructureSchema = [3, n0, _GNe,
 export var GetCertificateAuthorityCertificateRequest$: StaticStructureSchema = [3, n0, _GCACR,
   0,
   [_CAA],
-  [0]
+  [0], 1
 ];
 export var GetCertificateAuthorityCertificateResponse$: StaticStructureSchema = [3, n0, _GCACRe,
   0,
@@ -405,7 +405,7 @@ export var GetCertificateAuthorityCertificateResponse$: StaticStructureSchema = 
 export var GetCertificateAuthorityCsrRequest$: StaticStructureSchema = [3, n0, _GCACRet,
   0,
   [_CAA],
-  [0]
+  [0], 1
 ];
 export var GetCertificateAuthorityCsrResponse$: StaticStructureSchema = [3, n0, _GCACRete,
   0,
@@ -415,7 +415,7 @@ export var GetCertificateAuthorityCsrResponse$: StaticStructureSchema = [3, n0, 
 export var GetCertificateRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_CAA, _CAer],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetCertificateResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -425,7 +425,7 @@ export var GetCertificateResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -435,7 +435,7 @@ export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
 export var ImportCertificateAuthorityCertificateRequest$: StaticStructureSchema = [3, n0, _ICACR,
   0,
   [_CAA, _Ce, _CCe],
-  [0, 21, 21]
+  [0, 21, 21], 2
 ];
 export var InvalidArgsException$: StaticErrorSchema = [-3, n0, _IAE,
   { [_e]: _c },
@@ -481,8 +481,8 @@ export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
 TypeRegistry.for(n0).registerError(InvalidTagException$, InvalidTagException);
 export var IssueCertificateRequest$: StaticStructureSchema = [3, n0, _ICR,
   0,
-  [_AP, _CAA, _Cs, _SA, _TA, _Va, _VNB, _IT],
-  [() => ApiPassthrough$, 0, 21, 0, 0, () => Validity$, () => Validity$, 0]
+  [_CAA, _Cs, _SA, _Va, _AP, _TA, _VNB, _IT],
+  [0, 21, 0, () => Validity$, () => ApiPassthrough$, 0, () => Validity$, 0], 4
 ];
 export var IssueCertificateResponse$: StaticStructureSchema = [3, n0, _ICRs,
   0,
@@ -512,8 +512,8 @@ export var ListCertificateAuthoritiesResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListPermissionsRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
-  [_MR, _NT, _CAA],
-  [1, 0, 0]
+  [_CAA, _MR, _NT],
+  [0, 1, 0], 1
 ];
 export var ListPermissionsResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
@@ -522,8 +522,8 @@ export var ListPermissionsResponse$: StaticStructureSchema = [3, n0, _LPRi,
 ];
 export var ListTagsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
-  [_MR, _NT, _CAA],
-  [1, 0, 0]
+  [_CAA, _MR, _NT],
+  [0, 1, 0], 1
 ];
 export var ListTagsResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -551,12 +551,12 @@ TypeRegistry.for(n0).registerError(MalformedCSRException$, MalformedCSRException
 export var OcspConfiguration$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_En, _OCC],
-  [2, 0]
+  [2, 0], 1
 ];
 export var OtherName$: StaticStructureSchema = [3, n0, _ON,
   0,
   [_TI, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Permission$: StaticStructureSchema = [3, n0, _Per,
   0,
@@ -572,22 +572,22 @@ TypeRegistry.for(n0).registerError(PermissionAlreadyExistsException$, Permission
 export var PolicyInformation$: StaticStructureSchema = [3, n0, _PI,
   0,
   [_CPI, _PQ],
-  [0, () => PolicyQualifierInfoList]
+  [0, () => PolicyQualifierInfoList], 1
 ];
 export var PolicyQualifierInfo$: StaticStructureSchema = [3, n0, _PQI,
   0,
   [_PQIo, _Q],
-  [0, () => Qualifier$]
+  [0, () => Qualifier$], 2
 ];
 export var PutPolicyRequest$: StaticStructureSchema = [3, n0, _PPR,
   0,
   [_RA, _Po],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Qualifier$: StaticStructureSchema = [3, n0, _Q,
   0,
   [_CU],
-  [0]
+  [0], 1
 ];
 export var RequestAlreadyProcessedException$: StaticErrorSchema = [-3, n0, _RAPE,
   { [_e]: _c },
@@ -616,7 +616,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var RestoreCertificateAuthorityRequest$: StaticStructureSchema = [3, n0, _RCAR,
   0,
   [_CAA],
-  [0]
+  [0], 1
 ];
 export var RevocationConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
@@ -626,17 +626,17 @@ export var RevocationConfiguration$: StaticStructureSchema = [3, n0, _RC,
 export var RevokeCertificateRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_CAA, _CS, _RR],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagCertificateAuthorityRequest$: StaticStructureSchema = [3, n0, _TCAR,
   0,
   [_CAA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
   { [_e]: _c },
@@ -647,17 +647,17 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagCertificateAuthorityRequest$: StaticStructureSchema = [3, n0, _UCAR,
   0,
   [_CAA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var UpdateCertificateAuthorityRequest$: StaticStructureSchema = [3, n0, _UCARp,
   0,
   [_CAA, _RC, _Sta],
-  [0, () => RevocationConfiguration$, 0]
+  [0, () => RevocationConfiguration$, 0], 1
 ];
 export var Validity$: StaticStructureSchema = [3, n0, _Va,
   0,
   [_V, _Ty],
-  [1, 0]
+  [1, 0], 2
 ];
 var __Unit = "unit" as const;
 export var ACMPCAServiceException$: StaticErrorSchema = [-3, _s, "ACMPCAServiceException", 0, [], []];

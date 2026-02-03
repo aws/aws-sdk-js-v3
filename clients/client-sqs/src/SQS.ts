@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddPermissionCommand,
@@ -85,6 +85,8 @@ import {
 } from "./commands/StartMessageMoveTaskCommand";
 import { TagQueueCommand, TagQueueCommandInput, TagQueueCommandOutput } from "./commands/TagQueueCommand";
 import { UntagQueueCommand, UntagQueueCommandInput, UntagQueueCommandOutput } from "./commands/UntagQueueCommand";
+import { paginateListDeadLetterSourceQueues } from "./pagination/ListDeadLetterSourceQueuesPaginator";
+import { paginateListQueues } from "./pagination/ListQueuesPaginator";
 import { SQSClient } from "./SQSClient";
 
 const commands = {
@@ -111,6 +113,10 @@ const commands = {
   StartMessageMoveTaskCommand,
   TagQueueCommand,
   UntagQueueCommand,
+};
+const paginators = {
+  paginateListDeadLetterSourceQueues,
+  paginateListQueues,
 };
 
 export interface SQS {
@@ -505,6 +511,28 @@ export interface SQS {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagQueueCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDeadLetterSourceQueuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeadLetterSourceQueuesCommandOutput}.
+   */
+  paginateListDeadLetterSourceQueues(
+    args: ListDeadLetterSourceQueuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeadLetterSourceQueuesCommandOutput>;
+
+  /**
+   * @see {@link ListQueuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQueuesCommandOutput}.
+   */
+  paginateListQueues(
+    args?: ListQueuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQueuesCommandOutput>;
 }
 
 /**
@@ -582,4 +610,4 @@ export interface SQS {
  * @public
  */
 export class SQS extends SQSClient implements SQS {}
-createAggregatedClient(commands, SQS);
+createAggregatedClient(commands, SQS, { paginators });

@@ -220,7 +220,7 @@ export var AcceptChannelHandshakeDetail$: StaticStructureSchema = [3, n0, _ACHD,
 export var AcceptChannelHandshakeRequest$: StaticStructureSchema = [3, n0, _ACHR,
   0,
   [_c, _id],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AcceptChannelHandshakeResponse$: StaticStructureSchema = [3, n0, _ACHRc,
   0,
@@ -230,7 +230,7 @@ export var AcceptChannelHandshakeResponse$: StaticStructureSchema = [3, n0, _ACH
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _cl, [_hE]: 403 },
   [_m, _r],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var CancelChannelHandshakeDetail$: StaticStructureSchema = [3, n0, _CCHD,
@@ -241,7 +241,7 @@ export var CancelChannelHandshakeDetail$: StaticStructureSchema = [3, n0, _CCHD,
 export var CancelChannelHandshakeRequest$: StaticStructureSchema = [3, n0, _CCHR,
   0,
   [_c, _id],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CancelChannelHandshakeResponse$: StaticStructureSchema = [3, n0, _CCHRa,
   0,
@@ -256,7 +256,7 @@ export var ChannelHandshakeSummary$: StaticStructureSchema = [3, n0, _CHS,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _cl, [_hE]: 409 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateChannelHandshakeDetail$: StaticStructureSchema = [3, n0, _CCHDr,
@@ -267,7 +267,7 @@ export var CreateChannelHandshakeDetail$: StaticStructureSchema = [3, n0, _CCHDr
 export var CreateChannelHandshakeRequest$: StaticStructureSchema = [3, n0, _CCHRr,
   0,
   [_hT, _c, _aRIs, _p, _cT, _t],
-  [0, 0, 0, () => ChannelHandshakePayload$, [0, 4], () => TagList]
+  [0, 0, 0, () => ChannelHandshakePayload$, [0, 4], () => TagList], 3
 ];
 export var CreateChannelHandshakeResponse$: StaticStructureSchema = [3, n0, _CCHRre,
   0,
@@ -282,7 +282,7 @@ export var CreateProgramManagementAccountDetail$: StaticStructureSchema = [3, n0
 export var CreateProgramManagementAccountRequest$: StaticStructureSchema = [3, n0, _CPMAR,
   0,
   [_c, _pr, _dN, _aI, _cT, _t],
-  [0, 0, 0, 0, [0, 4], () => TagList]
+  [0, 0, 0, 0, [0, 4], () => TagList], 4
 ];
 export var CreateProgramManagementAccountResponse$: StaticStructureSchema = [3, n0, _CPMARr,
   0,
@@ -296,8 +296,8 @@ export var CreateRelationshipDetail$: StaticStructureSchema = [3, n0, _CRD,
 ];
 export var CreateRelationshipRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_c, _aT, _pMAI, _aAI, _dN, _rAM, _se, _cT, _t, _rSP],
-  [0, 0, 0, 0, 0, 0, 0, [0, 4], () => TagList, () => SupportPlan$]
+  [_c, _aT, _pMAI, _aAI, _dN, _se, _rAM, _cT, _t, _rSP],
+  [0, 0, 0, 0, 0, 0, 0, [0, 4], () => TagList, () => SupportPlan$], 6
 ];
 export var CreateRelationshipResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -307,7 +307,7 @@ export var CreateRelationshipResponse$: StaticStructureSchema = [3, n0, _CRRr,
 export var DeleteProgramManagementAccountRequest$: StaticStructureSchema = [3, n0, _DPMAR,
   0,
   [_c, _id, _cT],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 2
 ];
 export var DeleteProgramManagementAccountResponse$: StaticStructureSchema = [3, n0, _DPMARe,
   0,
@@ -317,7 +317,7 @@ export var DeleteProgramManagementAccountResponse$: StaticStructureSchema = [3, 
 export var DeleteRelationshipRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_c, _id, _pMAI, _cT],
-  [0, 0, 0, [0, 4]]
+  [0, 0, 0, [0, 4]], 3
 ];
 export var DeleteRelationshipResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -327,7 +327,7 @@ export var DeleteRelationshipResponse$: StaticStructureSchema = [3, n0, _DRRe,
 export var GetRelationshipRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_c, _pMAI, _id],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetRelationshipResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
@@ -337,13 +337,13 @@ export var GetRelationshipResponse$: StaticStructureSchema = [3, n0, _GRRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _ser, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListChannelHandshakesRequest$: StaticStructureSchema = [3, n0, _LCHR,
   0,
   [_hT, _c, _pT, _mR, _st, _aRIss, _hTF, _hTS, _nT],
-  [0, 0, 0, 1, 64 | 0, 64 | 0, () => ListChannelHandshakesTypeFilters$, () => ListChannelHandshakesTypeSort$, 0]
+  [0, 0, 0, 1, 64 | 0, 64 | 0, () => ListChannelHandshakesTypeFilters$, () => ListChannelHandshakesTypeSort$, 0], 3
 ];
 export var ListChannelHandshakesResponse$: StaticStructureSchema = [3, n0, _LCHRi,
   0,
@@ -353,7 +353,7 @@ export var ListChannelHandshakesResponse$: StaticStructureSchema = [3, n0, _LCHR
 export var ListProgramManagementAccountsRequest$: StaticStructureSchema = [3, n0, _LPMAR,
   0,
   [_c, _mR, _dNi, _pro, _aIc, _st, _so, _nT],
-  [0, 1, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => ListProgramManagementAccountsSortBase$, 0]
+  [0, 1, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => ListProgramManagementAccountsSortBase$, 0], 1
 ];
 export var ListProgramManagementAccountsResponse$: StaticStructureSchema = [3, n0, _LPMARi,
   0,
@@ -363,12 +363,12 @@ export var ListProgramManagementAccountsResponse$: StaticStructureSchema = [3, n
 export var ListProgramManagementAccountsSortBase$: StaticStructureSchema = [3, n0, _LPMASB,
   0,
   [_sO, _sB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ListRelationshipsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_c, _mR, _aAIs, _aTs, _dNi, _pMAIr, _so, _nT],
-  [0, 1, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => ListRelationshipsSortBase$, 0]
+  [0, 1, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => ListRelationshipsSortBase$, 0], 1
 ];
 export var ListRelationshipsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
@@ -378,12 +378,12 @@ export var ListRelationshipsResponse$: StaticStructureSchema = [3, n0, _LRRi,
 export var ListRelationshipsSortBase$: StaticStructureSchema = [3, n0, _LRSB,
   0,
   [_sO, _sB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -392,8 +392,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var PartnerLedSupport$: StaticStructureSchema = [3, n0, _PLS,
   0,
-  [_co, _prov, _tL],
-  [0, 0, 0]
+  [_co, _tL, _prov],
+  [0, 0, 0], 2
 ];
 export var ProgramManagementAccountHandshakeDetail$: StaticStructureSchema = [3, n0, _PMAHD,
   0,
@@ -413,7 +413,7 @@ export var ProgramManagementAccountTypeFilters$: StaticStructureSchema = [3, n0,
 export var ProgramManagementAccountTypeSort$: StaticStructureSchema = [3, n0, _PMATS,
   0,
   [_sO, _sB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RejectChannelHandshakeDetail$: StaticStructureSchema = [3, n0, _RCHD,
   0,
@@ -423,7 +423,7 @@ export var RejectChannelHandshakeDetail$: StaticStructureSchema = [3, n0, _RCHD,
 export var RejectChannelHandshakeRequest$: StaticStructureSchema = [3, n0, _RCHR,
   0,
   [_c, _id],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RejectChannelHandshakeResponse$: StaticStructureSchema = [3, n0, _RCHRe,
   0,
@@ -443,17 +443,17 @@ export var RelationshipSummary$: StaticStructureSchema = [3, n0, _RS,
 export var ResoldBusiness$: StaticStructureSchema = [3, n0, _RB,
   0,
   [_co],
-  [0]
+  [0], 1
 ];
 export var ResoldEnterprise$: StaticStructureSchema = [3, n0, _RE,
   0,
   [_co, _tL, _cAI],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _cl, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RevokeServicePeriodHandshakeDetail$: StaticStructureSchema = [3, n0, _RSPHD,
@@ -464,7 +464,7 @@ export var RevokeServicePeriodHandshakeDetail$: StaticStructureSchema = [3, n0, 
 export var RevokeServicePeriodPayload$: StaticStructureSchema = [3, n0, _RSPP,
   0,
   [_pMAI, _n],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RevokeServicePeriodTypeFilters$: StaticStructureSchema = [3, n0, _RSPTF,
   0,
@@ -474,12 +474,12 @@ export var RevokeServicePeriodTypeFilters$: StaticStructureSchema = [3, n0, _RSP
 export var RevokeServicePeriodTypeSort$: StaticStructureSchema = [3, n0, _RSPTS,
   0,
   [_sO, _sB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _cl, [_hE]: 402 },
   [_m, _rI, _rT, _qC],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartServicePeriodHandshakeDetail$: StaticStructureSchema = [3, n0, _SSPHD,
@@ -489,8 +489,8 @@ export var StartServicePeriodHandshakeDetail$: StaticStructureSchema = [3, n0, _
 ];
 export var StartServicePeriodPayload$: StaticStructureSchema = [3, n0, _SSPP,
   0,
-  [_pMAI, _n, _sPT, _mND, _eD],
-  [0, 0, 0, 0, 5]
+  [_pMAI, _sPT, _n, _mND, _eD],
+  [0, 0, 0, 0, 5], 2
 ];
 export var StartServicePeriodTypeFilters$: StaticStructureSchema = [3, n0, _SSPTF,
   0,
@@ -500,17 +500,17 @@ export var StartServicePeriodTypeFilters$: StaticStructureSchema = [3, n0, _SSPT
 export var StartServicePeriodTypeSort$: StaticStructureSchema = [3, n0, _SSPTS,
   0,
   [_sO, _sB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -520,13 +520,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _cl, [_hE]: 429 },
   [_m, _sC, _qC],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -541,7 +541,7 @@ export var UpdateProgramManagementAccountDetail$: StaticStructureSchema = [3, n0
 export var UpdateProgramManagementAccountRequest$: StaticStructureSchema = [3, n0, _UPMAR,
   0,
   [_c, _id, _re, _dN],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var UpdateProgramManagementAccountResponse$: StaticStructureSchema = [3, n0, _UPMARp,
   0,
@@ -556,7 +556,7 @@ export var UpdateRelationshipDetail$: StaticStructureSchema = [3, n0, _URD,
 export var UpdateRelationshipRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_c, _id, _pMAI, _re, _dN, _rSP],
-  [0, 0, 0, 0, 0, () => SupportPlan$]
+  [0, 0, 0, 0, 0, () => SupportPlan$], 3
 ];
 export var UpdateRelationshipResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -566,13 +566,13 @@ export var UpdateRelationshipResponse$: StaticStructureSchema = [3, n0, _URRpd,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _cl, [_hE]: 400 },
   [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_na, _cod, _m],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var PartnerCentralChannelServiceException$: StaticErrorSchema = [-3, _sm, "PartnerCentralChannelServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PartnerCentralChannelServiceException$, PartnerCentralChannelServiceException);

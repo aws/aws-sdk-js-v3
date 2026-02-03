@@ -158,7 +158,7 @@ export interface AbortMultipartUploadRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -664,7 +664,7 @@ export interface CompleteMultipartUploadRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -1584,7 +1584,7 @@ export interface CopyObjectRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -2876,7 +2876,7 @@ export interface CreateMultipartUploadRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -3552,7 +3552,7 @@ export interface DeleteObjectRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -5695,7 +5695,7 @@ export interface DeleteObjectsRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -5910,7 +5910,7 @@ export interface GetBucketAccelerateConfigurationRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -10077,7 +10077,7 @@ export interface GetObjectRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -10168,7 +10168,7 @@ export interface GetObjectAclRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -10546,7 +10546,7 @@ export interface GetObjectAttributesRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -10622,7 +10622,7 @@ export interface GetObjectLegalHoldRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -10807,7 +10807,7 @@ export interface GetObjectRetentionRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -10880,7 +10880,7 @@ export interface GetObjectTaggingRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -10934,7 +10934,7 @@ export interface GetObjectTorrentRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -11726,7 +11726,7 @@ export interface HeadObjectRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -12537,7 +12537,7 @@ export interface ListMultipartUploadsRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -13488,7 +13488,7 @@ export interface ListObjectVersionsRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -13778,7 +13778,7 @@ export interface ListPartsRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -15620,7 +15620,7 @@ export interface PutObjectRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -15790,7 +15790,7 @@ export interface PutObjectAclRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -15861,7 +15861,7 @@ export interface PutObjectLegalHoldRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -15940,7 +15940,7 @@ export interface PutObjectLockConfigurationRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -16027,7 +16027,7 @@ export interface PutObjectRetentionRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>

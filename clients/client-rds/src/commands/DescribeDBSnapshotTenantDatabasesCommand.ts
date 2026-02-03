@@ -27,12 +27,7 @@ export interface DescribeDBSnapshotTenantDatabasesCommandInput extends DescribeD
 export interface DescribeDBSnapshotTenantDatabasesCommandOutput extends DBSnapshotTenantDatabasesMessage, __MetadataBearer {}
 
 /**
- * <p>Describes the tenant databases that exist in a DB snapshot. This command only applies
- *             to RDS for Oracle DB instances in the multi-tenant configuration.</p>
- *          <p>You can use this command to inspect the tenant databases within a snapshot before
- *             restoring it. You can't directly interact with the tenant databases in a DB snapshot. If
- *             you restore a snapshot that was taken from DB instance using the multi-tenant
- *             configuration, you restore all its tenant databases.</p>
+ * <p>Describes the tenant databases that exist in a DB snapshot. This command only applies to RDS for Oracle DB instances in the multi-tenant configuration.</p> <p>You can use this command to inspect the tenant databases within a snapshot before restoring it. You can't directly interact with the tenant databases in a DB snapshot. If you restore a snapshot that was taken from DB instance using the multi-tenant configuration, you restore all its tenant databases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,8 +89,7 @@ export interface DescribeDBSnapshotTenantDatabasesCommandOutput extends DBSnapsh
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

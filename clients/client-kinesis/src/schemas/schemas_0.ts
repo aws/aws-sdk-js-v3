@@ -278,38 +278,38 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AddTagsToStreamInput$: StaticStructureSchema = [3, n0, _ATTSI,
   0,
-  [_SN, _T, _SARN],
-  [0, 128 | 0, 0]
+  [_T, _SN, _SARN],
+  [128 | 0, 0, 0], 1
 ];
 export var ChildShard$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_SI, _PS, _HKR],
-  [0, 64 | 0, () => HashKeyRange$]
+  [0, 64 | 0, () => HashKeyRange$], 3
 ];
 export var Consumer$: StaticStructureSchema = [3, n0, _C,
   0,
   [_CN, _CARN, _CSo, _CCT],
-  [0, 0, 0, 4]
+  [0, 0, 0, 4], 4
 ];
 export var ConsumerDescription$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_CN, _CARN, _CSo, _CCT, _SARN],
-  [0, 0, 0, 4, 0]
+  [0, 0, 0, 4, 0], 5
 ];
 export var CreateStreamInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_SN, _SC, _SMD, _T, _WTMB, _MRSIKB],
-  [0, 1, () => StreamModeDetails$, 128 | 0, 1, 1]
+  [0, 1, () => StreamModeDetails$, 128 | 0, 1, 1], 1
 ];
 export var DecreaseStreamRetentionPeriodInput$: StaticStructureSchema = [3, n0, _DSRPI,
   0,
-  [_SN, _RPH, _SARN],
-  [0, 1, 0]
+  [_RPH, _SN, _SARN],
+  [1, 0, 0], 1
 ];
 export var DeleteResourcePolicyInput$: StaticStructureSchema = [3, n0, _DRPI,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var DeleteStreamInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
@@ -339,7 +339,7 @@ export var DescribeLimitsInput$: StaticStructureSchema = [3, n0, _DLI,
 export var DescribeLimitsOutput$: StaticStructureSchema = [3, n0, _DLO,
   0,
   [_SL, _OSC, _ODSC, _ODSCL],
-  [1, 1, 1, 1]
+  [1, 1, 1, 1], 4
 ];
 export var DescribeStreamConsumerInput$: StaticStructureSchema = [3, n0, _DSCIe,
   0,
@@ -349,7 +349,7 @@ export var DescribeStreamConsumerInput$: StaticStructureSchema = [3, n0, _DSCIe,
 export var DescribeStreamConsumerOutput$: StaticStructureSchema = [3, n0, _DSCO,
   0,
   [_CD],
-  [() => ConsumerDescription$]
+  [() => ConsumerDescription$], 1
 ];
 export var DescribeStreamInput$: StaticStructureSchema = [3, n0, _DSIe,
   0,
@@ -359,7 +359,7 @@ export var DescribeStreamInput$: StaticStructureSchema = [3, n0, _DSIe,
 export var DescribeStreamOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
   [_SD],
-  [() => StreamDescription$]
+  [() => StreamDescription$], 1
 ];
 export var DescribeStreamSummaryInput$: StaticStructureSchema = [3, n0, _DSSI,
   0,
@@ -369,17 +369,17 @@ export var DescribeStreamSummaryInput$: StaticStructureSchema = [3, n0, _DSSI,
 export var DescribeStreamSummaryOutput$: StaticStructureSchema = [3, n0, _DSSO,
   0,
   [_SDS],
-  [() => StreamDescriptionSummary$]
+  [() => StreamDescriptionSummary$], 1
 ];
 export var DisableEnhancedMonitoringInput$: StaticStructureSchema = [3, n0, _DEMI,
   0,
-  [_SN, _SLM, _SARN],
-  [0, 64 | 0, 0]
+  [_SLM, _SN, _SARN],
+  [64 | 0, 0, 0], 1
 ];
 export var EnableEnhancedMonitoringInput$: StaticStructureSchema = [3, n0, _EEMI,
   0,
-  [_SN, _SLM, _SARN],
-  [0, 64 | 0, 0]
+  [_SLM, _SN, _SARN],
+  [64 | 0, 0, 0], 1
 ];
 export var EnhancedMetrics$: StaticStructureSchema = [3, n0, _EM,
   0,
@@ -406,27 +406,27 @@ TypeRegistry.for(n0).registerError(ExpiredNextTokenException$, ExpiredNextTokenE
 export var GetRecordsInput$: StaticStructureSchema = [3, n0, _GRI,
   0,
   [_SIh, _L, _SARN],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetRecordsOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
   [_R, _NSI, _MBL, _CSh],
-  [() => RecordList, 0, 1, () => ChildShardList]
+  [() => RecordList, 0, 1, () => ChildShardList], 1
 ];
 export var GetResourcePolicyInput$: StaticStructureSchema = [3, n0, _GRPI,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO,
   0,
   [_P],
-  [0]
+  [0], 1
 ];
 export var GetShardIteratorInput$: StaticStructureSchema = [3, n0, _GSII,
   0,
-  [_SN, _SI, _SIT, _SSN, _Ti, _SARN],
-  [0, 0, 0, 0, 4, 0]
+  [_SI, _SIT, _SN, _SSN, _Ti, _SARN],
+  [0, 0, 0, 0, 4, 0], 2
 ];
 export var GetShardIteratorOutput$: StaticStructureSchema = [3, n0, _GSIO,
   0,
@@ -436,12 +436,12 @@ export var GetShardIteratorOutput$: StaticStructureSchema = [3, n0, _GSIO,
 export var HashKeyRange$: StaticStructureSchema = [3, n0, _HKR,
   0,
   [_SHK, _EHK],
-  [0, 0]
+  [0, 0], 2
 ];
 export var IncreaseStreamRetentionPeriodInput$: StaticStructureSchema = [3, n0, _ISRPI,
   0,
-  [_SN, _RPH, _SARN],
-  [0, 1, 0]
+  [_RPH, _SN, _SARN],
+  [1, 0, 0], 1
 ];
 export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
   { [_e]: _s },
@@ -510,7 +510,7 @@ export var ListShardsOutput$: StaticStructureSchema = [3, n0, _LSO,
 export var ListStreamConsumersInput$: StaticStructureSchema = [3, n0, _LSCI,
   0,
   [_SARN, _NT, _MR, _SCT],
-  [0, 0, 1, 4]
+  [0, 0, 1, 4], 1
 ];
 export var ListStreamConsumersOutput$: StaticStructureSchema = [3, n0, _LSCO,
   0,
@@ -525,12 +525,12 @@ export var ListStreamsInput$: StaticStructureSchema = [3, n0, _LSIi,
 export var ListStreamsOutput$: StaticStructureSchema = [3, n0, _LSOi,
   0,
   [_SNt, _HMS, _NT, _SS],
-  [64 | 0, 2, 0, () => StreamSummaryList]
+  [64 | 0, 2, 0, () => StreamSummaryList], 2
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -545,22 +545,22 @@ export var ListTagsForStreamInput$: StaticStructureSchema = [3, n0, _LTFSI,
 export var ListTagsForStreamOutput$: StaticStructureSchema = [3, n0, _LTFSO,
   0,
   [_T, _HMT],
-  [() => TagList, 2]
+  [() => TagList, 2], 2
 ];
 export var MergeShardsInput$: StaticStructureSchema = [3, n0, _MSI,
   0,
-  [_SN, _STM, _ASTM, _SARN],
-  [0, 0, 0, 0]
+  [_STM, _ASTM, _SN, _SARN],
+  [0, 0, 0, 0], 2
 ];
 export var MinimumThroughputBillingCommitmentInput$: StaticStructureSchema = [3, n0, _MTBCI,
   0,
   [_St],
-  [0]
+  [0], 1
 ];
 export var MinimumThroughputBillingCommitmentOutput$: StaticStructureSchema = [3, n0, _MTBCO,
   0,
   [_St, _SA, _EA, _EAEA],
-  [0, 4, 4, 4]
+  [0, 4, 4, 4], 1
 ];
 export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _PTEE,
   { [_e]: _c },
@@ -570,28 +570,28 @@ export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0,
 TypeRegistry.for(n0).registerError(ProvisionedThroughputExceededException$, ProvisionedThroughputExceededException);
 export var PutRecordInput$: StaticStructureSchema = [3, n0, _PRI,
   0,
-  [_SN, _D, _PK, _EHKx, _SNFO, _SARN],
-  [0, 21, 0, 0, 0, 0]
+  [_D, _PK, _SN, _EHKx, _SNFO, _SARN],
+  [21, 0, 0, 0, 0, 0], 2
 ];
 export var PutRecordOutput$: StaticStructureSchema = [3, n0, _PRO,
   0,
   [_SI, _SNe, _ET],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var PutRecordsInput$: StaticStructureSchema = [3, n0, _PRIu,
   0,
   [_R, _SN, _SARN],
-  [() => PutRecordsRequestEntryList, 0, 0]
+  [() => PutRecordsRequestEntryList, 0, 0], 1
 ];
 export var PutRecordsOutput$: StaticStructureSchema = [3, n0, _PROu,
   0,
-  [_FRC, _R, _ET],
-  [1, () => PutRecordsResultEntryList, 0]
+  [_R, _FRC, _ET],
+  [() => PutRecordsResultEntryList, 1, 0], 1
 ];
 export var PutRecordsRequestEntry$: StaticStructureSchema = [3, n0, _PRRE,
   0,
-  [_D, _EHKx, _PK],
-  [21, 0, 0]
+  [_D, _PK, _EHKx],
+  [21, 0, 0], 2
 ];
 export var PutRecordsResultEntry$: StaticStructureSchema = [3, n0, _PRREu,
   0,
@@ -601,27 +601,27 @@ export var PutRecordsResultEntry$: StaticStructureSchema = [3, n0, _PRREu,
 export var PutResourcePolicyInput$: StaticStructureSchema = [3, n0, _PRPI,
   0,
   [_RARN, _P],
-  [0, 0]
+  [0, 0], 2
 ];
 export var _Record$: StaticStructureSchema = [3, n0, _Re,
   0,
-  [_SNe, _AAT, _D, _PK, _ET],
-  [0, 4, 21, 0, 0]
+  [_SNe, _D, _PK, _AAT, _ET],
+  [0, 21, 0, 4, 0], 3
 ];
 export var RegisterStreamConsumerInput$: StaticStructureSchema = [3, n0, _RSCI,
   0,
   [_SARN, _CN, _T],
-  [0, 0, 128 | 0]
+  [0, 0, 128 | 0], 2
 ];
 export var RegisterStreamConsumerOutput$: StaticStructureSchema = [3, n0, _RSCO,
   0,
   [_C],
-  [() => Consumer$]
+  [() => Consumer$], 1
 ];
 export var RemoveTagsFromStreamInput$: StaticStructureSchema = [3, n0, _RTFSI,
   0,
-  [_SN, _TK, _SARN],
-  [0, 64 | 0, 0]
+  [_TK, _SN, _SARN],
+  [64 | 0, 0, 0], 1
 ];
 export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
   { [_e]: _c },
@@ -638,92 +638,92 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var SequenceNumberRange$: StaticStructureSchema = [3, n0, _SNR,
   0,
   [_SSN, _ESN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Shard$: StaticStructureSchema = [3, n0, _Sh,
   0,
-  [_SI, _PSI, _APSI, _HKR, _SNR],
-  [0, 0, 0, () => HashKeyRange$, () => SequenceNumberRange$]
+  [_SI, _HKR, _SNR, _PSI, _APSI],
+  [0, () => HashKeyRange$, () => SequenceNumberRange$, 0, 0], 3
 ];
 export var ShardFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
   [_Ty, _SI, _Ti],
-  [0, 0, 4]
+  [0, 0, 4], 1
 ];
 export var SplitShardInput$: StaticStructureSchema = [3, n0, _SSI,
   0,
-  [_SN, _STS, _NSHK, _SARN],
-  [0, 0, 0, 0]
+  [_STS, _NSHK, _SN, _SARN],
+  [0, 0, 0, 0], 2
 ];
 export var StartingPosition$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_Ty, _SNe, _Ti],
-  [0, 0, 4]
+  [0, 0, 4], 1
 ];
 export var StartStreamEncryptionInput$: StaticStructureSchema = [3, n0, _SSEI,
   0,
-  [_SN, _ET, _KI, _SARN],
-  [0, 0, 0, 0]
+  [_ET, _KI, _SN, _SARN],
+  [0, 0, 0, 0], 2
 ];
 export var StopStreamEncryptionInput$: StaticStructureSchema = [3, n0, _SSEIt,
   0,
-  [_SN, _ET, _KI, _SARN],
-  [0, 0, 0, 0]
+  [_ET, _KI, _SN, _SARN],
+  [0, 0, 0, 0], 2
 ];
 export var StreamDescription$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_SN, _SARN, _SSt, _SMD, _S, _HMSa, _RPH, _SCT, _EMn, _ET, _KI],
-  [0, 0, 0, () => StreamModeDetails$, () => ShardList, 2, 1, 4, () => EnhancedMonitoringList, 0, 0]
+  [_SN, _SARN, _SSt, _S, _HMSa, _RPH, _SCT, _EMn, _SMD, _ET, _KI],
+  [0, 0, 0, () => ShardList, 2, 1, 4, () => EnhancedMonitoringList, () => StreamModeDetails$, 0, 0], 8
 ];
 export var StreamDescriptionSummary$: StaticStructureSchema = [3, n0, _SDS,
   0,
-  [_SN, _SARN, _SSt, _SMD, _RPH, _SCT, _EMn, _ET, _KI, _OSC, _CC, _WT, _MRSIKB],
-  [0, 0, 0, () => StreamModeDetails$, 1, 4, () => EnhancedMonitoringList, 0, 0, 1, 1, () => WarmThroughputObject$, 1]
+  [_SN, _SARN, _SSt, _RPH, _SCT, _EMn, _OSC, _SMD, _ET, _KI, _CC, _WT, _MRSIKB],
+  [0, 0, 0, 1, 4, () => EnhancedMonitoringList, 1, () => StreamModeDetails$, 0, 0, 1, () => WarmThroughputObject$, 1], 7
 ];
 export var StreamModeDetails$: StaticStructureSchema = [3, n0, _SMD,
   0,
   [_SM],
-  [0]
+  [0], 1
 ];
 export var StreamSummary$: StaticStructureSchema = [3, n0, _SStr,
   0,
   [_SN, _SARN, _SSt, _SMD, _SCT],
-  [0, 0, 0, () => StreamModeDetails$, 4]
+  [0, 0, 0, () => StreamModeDetails$, 4], 3
 ];
 export var SubscribeToShardEvent$: StaticStructureSchema = [3, n0, _STSE,
   0,
   [_R, _CSN, _MBL, _CSh],
-  [() => RecordList, 0, 1, () => ChildShardList]
+  [() => RecordList, 0, 1, () => ChildShardList], 3
 ];
 export var SubscribeToShardInput$: StaticStructureSchema = [3, n0, _STSI,
   0,
   [_CARN, _SI, _SP],
-  [0, 0, () => StartingPosition$]
+  [0, 0, () => StartingPosition$], 3
 ];
 export var SubscribeToShardOutput$: StaticStructureSchema = [3, n0, _STSO,
   0,
   [_ES],
-  [[() => SubscribeToShardEventStream$, 0]]
+  [[() => SubscribeToShardEventStream$, 0]], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_T, _RARN],
-  [128 | 0, 0]
+  [128 | 0, 0], 2
 ];
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_TK, _RARN],
-  [64 | 0, 0]
+  [64 | 0, 0], 2
 ];
 export var UpdateAccountSettingsInput$: StaticStructureSchema = [3, n0, _UASI,
   0,
   [_MTBC],
-  [() => MinimumThroughputBillingCommitmentInput$]
+  [() => MinimumThroughputBillingCommitmentInput$], 1
 ];
 export var UpdateAccountSettingsOutput$: StaticStructureSchema = [3, n0, _UASO,
   0,
@@ -732,13 +732,13 @@ export var UpdateAccountSettingsOutput$: StaticStructureSchema = [3, n0, _UASO,
 ];
 export var UpdateMaxRecordSizeInput$: StaticStructureSchema = [3, n0, _UMRSI,
   0,
-  [_SARN, _MRSIKB],
-  [0, 1]
+  [_MRSIKB, _SARN],
+  [1, 0], 1
 ];
 export var UpdateShardCountInput$: StaticStructureSchema = [3, n0, _USCI,
   0,
-  [_SN, _TSC, _ST, _SARN],
-  [0, 1, 0, 0]
+  [_TSC, _ST, _SN, _SARN],
+  [1, 0, 0, 0], 2
 ];
 export var UpdateShardCountOutput$: StaticStructureSchema = [3, n0, _USCO,
   0,
@@ -748,12 +748,12 @@ export var UpdateShardCountOutput$: StaticStructureSchema = [3, n0, _USCO,
 export var UpdateStreamModeInput$: StaticStructureSchema = [3, n0, _USMI,
   0,
   [_SARN, _SMD, _WTMB],
-  [0, () => StreamModeDetails$, 1]
+  [0, () => StreamModeDetails$, 1], 2
 ];
 export var UpdateStreamWarmThroughputInput$: StaticStructureSchema = [3, n0, _USWTI,
   0,
-  [_SARN, _SN, _WTMB],
-  [0, 0, 1]
+  [_WTMB, _SARN, _SN],
+  [1, 0, 0], 1
 ];
 export var UpdateStreamWarmThroughputOutput$: StaticStructureSchema = [3, n0, _USWTO,
   0,

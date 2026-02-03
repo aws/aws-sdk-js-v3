@@ -67,6 +67,18 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //         AcknowledgedBy: "STRING_VALUE", // required
  * //         AcknowledgerComment: "STRING_VALUE",
  * //       },
+ * //       Review: { // EvaluationReviewMetadata
+ * //         ReviewId: "STRING_VALUE",
+ * //         CreatedTime: new Date("TIMESTAMP"), // required
+ * //         CreatedBy: "STRING_VALUE", // required
+ * //         ReviewRequestComments: [ // EvaluationReviewRequestCommentList // required
+ * //           { // EvaluationReviewRequestComment
+ * //             Comment: "STRING_VALUE",
+ * //             CreatedTime: new Date("TIMESTAMP"),
+ * //             CreatedBy: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
  * //       ContactParticipant: { // EvaluationContactParticipant
  * //         ContactParticipantRole: "AGENT" || "SYSTEM" || "CUSTOM_BOT",
  * //         ContactParticipantId: "STRING_VALUE",
@@ -147,7 +159,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //         Value: "STRING_VALUE",
  * //       },
  * //     },
- * //     Status: "DRAFT" || "SUBMITTED", // required
+ * //     Status: "DRAFT" || "SUBMITTED" || "REVIEW_REQUESTED" || "UNDER_REVIEW", // required
  * //     Scores: { // EvaluationScoresMap
  * //       "<keys>": {
  * //         Percentage: Number("double"),
@@ -438,6 +450,17 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //     },
  * //     LanguageConfiguration: { // EvaluationFormLanguageConfiguration
  * //       FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR",
+ * //     },
+ * //     ReviewConfiguration: { // EvaluationReviewConfiguration
+ * //       ReviewNotificationRecipients: [ // EvaluationReviewNotificationRecipientList // required
+ * //         { // EvaluationReviewNotificationRecipient
+ * //           Type: "USER_ID", // required
+ * //           Value: { // EvaluationReviewNotificationRecipientValue
+ * //             UserId: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       EligibilityDays: Number("int"),
  * //     },
  * //   },
  * // };

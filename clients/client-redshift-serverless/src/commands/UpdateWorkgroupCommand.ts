@@ -65,6 +65,7 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  *     level: Number("int"),
  *   },
  *   trackName: "STRING_VALUE",
+ *   extraComputeForAutomaticOptimization: true || false,
  * };
  * const command = new UpdateWorkgroupCommand(input);
  * const response = await client.send(command);
@@ -127,6 +128,7 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  * //     },
  * //     trackName: "STRING_VALUE",
  * //     pendingTrackName: "STRING_VALUE",
+ * //     extraComputeForAutomaticOptimization: true || false,
  * //   },
  * // };
  *

@@ -47,6 +47,7 @@ export interface CreateMissionProfileCommandOutput extends MissionProfileIdRespo
  *     ],
  *   ],
  *   trackingConfigArn: "STRING_VALUE", // required
+ *   telemetrySinkConfigArn: "STRING_VALUE",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },

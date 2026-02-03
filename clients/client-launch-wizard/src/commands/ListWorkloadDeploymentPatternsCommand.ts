@@ -49,6 +49,7 @@ export interface ListWorkloadDeploymentPatternsCommandOutput extends ListWorkloa
  * //       workloadName: "STRING_VALUE",
  * //       deploymentPatternName: "STRING_VALUE",
  * //       workloadVersionName: "STRING_VALUE",
+ * //       deploymentPatternVersionName: "STRING_VALUE",
  * //       displayName: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       status: "ACTIVE" || "INACTIVE" || "DISABLED" || "DELETED",
@@ -67,8 +68,7 @@ export interface ListWorkloadDeploymentPatternsCommandOutput extends ListWorkloa
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact
- *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified workload or deployment resource can't be found.</p>
@@ -93,19 +93,19 @@ export interface ListWorkloadDeploymentPatternsCommandOutput extends ListWorkloa
  *   workloadDeploymentPatterns: [
  *     {
  *       deploymentPatternName: "SapHanaHA",
+ *       deploymentPatternVersionName: "2023-08-02-01-00-00",
  *       description: "Deployment Option Description",
  *       displayName: "Deployment Option Display Name",
  *       status: "ACTIVE",
- *       workloadName: "SAP",
- *       workloadVersionName: "2023-08-02-01-00-00"
+ *       workloadName: "SAP"
  *     },
  *     {
  *       deploymentPatternName: "SapHanaMulti",
+ *       deploymentPatternVersionName: "2023-08-02-01-00-00",
  *       description: "Deployment Option Description",
  *       displayName: "Deployment Option Display Name",
  *       status: "ACTIVE",
- *       workloadName: "SAP",
- *       workloadVersionName: "2023-08-02-01-00-00"
+ *       workloadName: "SAP"
  *     }
  *   ]
  * }

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ChimeSDKMediaPipelinesClient } from "./ChimeSDKMediaPipelinesClient";
 import {
@@ -154,6 +154,14 @@ import {
   UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
   UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput,
 } from "./commands/UpdateMediaPipelineKinesisVideoStreamPoolCommand";
+import { paginateListMediaCapturePipelines } from "./pagination/ListMediaCapturePipelinesPaginator";
+import {
+  paginateListMediaInsightsPipelineConfigurations,
+} from "./pagination/ListMediaInsightsPipelineConfigurationsPaginator";
+import {
+  paginateListMediaPipelineKinesisVideoStreamPools,
+} from "./pagination/ListMediaPipelineKinesisVideoStreamPoolsPaginator";
+import { paginateListMediaPipelines } from "./pagination/ListMediaPipelinesPaginator";
 
 const commands = {
   CreateMediaCapturePipelineCommand,
@@ -187,6 +195,12 @@ const commands = {
   UpdateMediaInsightsPipelineConfigurationCommand,
   UpdateMediaInsightsPipelineStatusCommand,
   UpdateMediaPipelineKinesisVideoStreamPoolCommand,
+};
+const paginators = {
+  paginateListMediaCapturePipelines,
+  paginateListMediaInsightsPipelineConfigurations,
+  paginateListMediaPipelineKinesisVideoStreamPools,
+  paginateListMediaPipelines,
 };
 
 export interface ChimeSDKMediaPipelines {
@@ -720,6 +734,50 @@ export interface ChimeSDKMediaPipelines {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListMediaCapturePipelinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMediaCapturePipelinesCommandOutput}.
+   */
+  paginateListMediaCapturePipelines(
+    args?: ListMediaCapturePipelinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMediaCapturePipelinesCommandOutput>;
+
+  /**
+   * @see {@link ListMediaInsightsPipelineConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMediaInsightsPipelineConfigurationsCommandOutput}.
+   */
+  paginateListMediaInsightsPipelineConfigurations(
+    args?: ListMediaInsightsPipelineConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMediaInsightsPipelineConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListMediaPipelineKinesisVideoStreamPoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMediaPipelineKinesisVideoStreamPoolsCommandOutput}.
+   */
+  paginateListMediaPipelineKinesisVideoStreamPools(
+    args?: ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMediaPipelineKinesisVideoStreamPoolsCommandOutput>;
+
+  /**
+   * @see {@link ListMediaPipelinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMediaPipelinesCommandOutput}.
+   */
+  paginateListMediaPipelines(
+    args?: ListMediaPipelinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMediaPipelinesCommandOutput>;
 }
 
 /**
@@ -728,4 +786,4 @@ export interface ChimeSDKMediaPipelines {
  * @public
  */
 export class ChimeSDKMediaPipelines extends ChimeSDKMediaPipelinesClient implements ChimeSDKMediaPipelines {}
-createAggregatedClient(commands, ChimeSDKMediaPipelines);
+createAggregatedClient(commands, ChimeSDKMediaPipelines, { paginators });

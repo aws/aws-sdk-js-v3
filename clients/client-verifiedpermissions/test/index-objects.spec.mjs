@@ -72,6 +72,8 @@ import {
   DeletePolicyTemplateOutput$,
   DeletionProtection,
   DeterminingPolicyItem$,
+  EncryptionSettings$,
+  EncryptionState$,
   EntitiesDefinition$,
   EntityIdentifier$,
   EntityItem$,
@@ -113,6 +115,8 @@ import {
   IsAuthorizedWithTokenCommand,
   IsAuthorizedWithTokenInput$,
   IsAuthorizedWithTokenOutput$,
+  KmsEncryptionSettings$,
+  KmsEncryptionState$,
   ListIdentitySources$,
   ListIdentitySourcesCommand,
   ListIdentitySourcesInput$,
@@ -335,6 +339,8 @@ assert(typeof DeletePolicyStoreOutput$ === "object");
 assert(typeof DeletePolicyTemplateInput$ === "object");
 assert(typeof DeletePolicyTemplateOutput$ === "object");
 assert(typeof DeterminingPolicyItem$ === "object");
+assert(typeof EncryptionSettings$ === "object");
+assert(typeof EncryptionState$ === "object");
 assert(typeof EntitiesDefinition$ === "object");
 assert(typeof EntityIdentifier$ === "object");
 assert(typeof EntityItem$ === "object");
@@ -358,6 +364,8 @@ assert(typeof IsAuthorizedInput$ === "object");
 assert(typeof IsAuthorizedOutput$ === "object");
 assert(typeof IsAuthorizedWithTokenInput$ === "object");
 assert(typeof IsAuthorizedWithTokenOutput$ === "object");
+assert(typeof KmsEncryptionSettings$ === "object");
+assert(typeof KmsEncryptionState$ === "object");
 assert(typeof ListIdentitySourcesInput$ === "object");
 assert(typeof ListIdentitySourcesOutput$ === "object");
 assert(typeof ListPoliciesInput$ === "object");

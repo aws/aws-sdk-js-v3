@@ -87,12 +87,12 @@ TypeRegistry.for(n0).registerError(InternalStreamFailure$, InternalStreamFailure
 export var InvokeEndpointWithBidirectionalStreamInput$: StaticStructureSchema = [3, n0, _IEWBSI,
   0,
   [_EN, _B, _TV, _MIP, _MQS],
-  [[0, 1], [() => RequestStreamEvent$, 16], [0, { [_hH]: _XASTV }], [0, { [_hH]: _XASMIP }], [0, { [_hH]: _XASMQS }]]
+  [[0, 1], [() => RequestStreamEvent$, 16], [0, { [_hH]: _XASTV }], [0, { [_hH]: _XASMIP }], [0, { [_hH]: _XASMQS }]], 2
 ];
 export var InvokeEndpointWithBidirectionalStreamOutput$: StaticStructureSchema = [3, n0, _IEWBSO,
   0,
   [_B, _IPV],
-  [[() => ResponseStreamEvent$, 16], [0, { [_hH]: _XAIPV }]]
+  [[() => ResponseStreamEvent$, 16], [0, { [_hH]: _XAIPV }]], 1
 ];
 export var ModelError$: StaticErrorSchema = [-3, n0, _ME,
   { [_e]: _c, [_hE]: 424 },

@@ -95,12 +95,12 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var UploadArchiveInput$: StaticStructureSchema = [3, n0, _UAI,
   0,
   [_vN, _aIc, _aD, _c, _b],
-  [[0, 1], [0, 1], [0, { [_hH]: _xaad }], [0, { [_hH]: _xasth }], [() => _Stream, 16]]
+  [[0, 1], [0, 1], [0, { [_hH]: _xaad }], [0, { [_hH]: _xasth }], [() => _Stream, 16]], 2
 ];
 export var UploadMultipartPartInput$: StaticStructureSchema = [3, n0, _UMPI,
   0,
   [_aIc, _vN, _uI, _c, _r, _b],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _xasth }], [0, { [_hH]: _CR }], [() => _Stream, 16]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _xasth }], [0, { [_hH]: _CR }], [() => _Stream, 16]], 3
 ];
 export var UploadMultipartPartOutput$: StaticStructureSchema = [3, n0, _UMPO,
   0,

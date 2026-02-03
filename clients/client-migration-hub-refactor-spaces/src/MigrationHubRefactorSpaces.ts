@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateApplicationCommand,
@@ -95,6 +95,11 @@ import {
 } from "./commands/UntagResourceCommand";
 import { UpdateRouteCommand, UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
 import { MigrationHubRefactorSpacesClient } from "./MigrationHubRefactorSpacesClient";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
+import { paginateListEnvironmentVpcs } from "./pagination/ListEnvironmentVpcsPaginator";
+import { paginateListRoutes } from "./pagination/ListRoutesPaginator";
+import { paginateListServices } from "./pagination/ListServicesPaginator";
 
 const commands = {
   CreateApplicationCommand,
@@ -121,6 +126,13 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateRouteCommand,
+};
+const paginators = {
+  paginateListApplications,
+  paginateListEnvironments,
+  paginateListEnvironmentVpcs,
+  paginateListRoutes,
+  paginateListServices,
 };
 
 export interface MigrationHubRefactorSpaces {
@@ -532,6 +544,61 @@ export interface MigrationHubRefactorSpaces {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRouteCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentsCommandOutput}.
+   */
+  paginateListEnvironments(
+    args?: ListEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentVpcsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentVpcsCommandOutput}.
+   */
+  paginateListEnvironmentVpcs(
+    args: ListEnvironmentVpcsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentVpcsCommandOutput>;
+
+  /**
+   * @see {@link ListRoutesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoutesCommandOutput}.
+   */
+  paginateListRoutes(
+    args: ListRoutesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoutesCommandOutput>;
+
+  /**
+   * @see {@link ListServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicesCommandOutput}.
+   */
+  paginateListServices(
+    args: ListServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicesCommandOutput>;
 }
 
 /**
@@ -546,4 +613,4 @@ export interface MigrationHubRefactorSpaces {
  * @public
  */
 export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient implements MigrationHubRefactorSpaces {}
-createAggregatedClient(commands, MigrationHubRefactorSpaces);
+createAggregatedClient(commands, MigrationHubRefactorSpaces, { paginators });

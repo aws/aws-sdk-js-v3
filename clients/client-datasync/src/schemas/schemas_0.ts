@@ -417,12 +417,12 @@ export var AgentListEntry$: StaticStructureSchema = [3, n0, _ALE,
 export var AzureBlobSasConfiguration$: StaticStructureSchema = [3, n0, _ABSC,
   0,
   [_T],
-  [[() => AzureBlobSasToken, 0]]
+  [[() => AzureBlobSasToken, 0]], 1
 ];
 export var CancelTaskExecutionRequest$: StaticStructureSchema = [3, n0, _CTER,
   0,
   [_TEA],
-  [0]
+  [0], 1
 ];
 export var CancelTaskExecutionResponse$: StaticStructureSchema = [3, n0, _CTERa,
   0,
@@ -437,7 +437,7 @@ export var CmkSecretConfig$: StaticStructureSchema = [3, n0, _CSC,
 export var CreateAgentRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_AK, _AN, _Ta, _VEI, _SAu, _SGA],
-  [0, 0, () => InputTagList, 0, 64 | 0, 64 | 0]
+  [0, 0, () => InputTagList, 0, 64 | 0, 64 | 0], 1
 ];
 export var CreateAgentResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -447,7 +447,7 @@ export var CreateAgentResponse$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateLocationAzureBlobRequest$: StaticStructureSchema = [3, n0, _CLABR,
   0,
   [_CU, _AT, _SC, _BT, _ATc, _Su, _AAg, _Ta, _CSC, _CSCu],
-  [0, 0, [() => AzureBlobSasConfiguration$, 0], 0, 0, 0, 64 | 0, () => InputTagList, () => CmkSecretConfig$, () => CustomSecretConfig$]
+  [0, 0, [() => AzureBlobSasConfiguration$, 0], 0, 0, 0, 64 | 0, () => InputTagList, () => CmkSecretConfig$, () => CustomSecretConfig$], 2
 ];
 export var CreateLocationAzureBlobResponse$: StaticStructureSchema = [3, n0, _CLABRr,
   0,
@@ -456,8 +456,8 @@ export var CreateLocationAzureBlobResponse$: StaticStructureSchema = [3, n0, _CL
 ];
 export var CreateLocationEfsRequest$: StaticStructureSchema = [3, n0, _CLER,
   0,
-  [_Su, _EFA, _EC, _Ta, _APA, _FSARA, _ITE],
-  [0, 0, () => Ec2Config$, () => InputTagList, 0, 0, 0]
+  [_EFA, _EC, _Su, _Ta, _APA, _FSARA, _ITE],
+  [0, () => Ec2Config$, 0, () => InputTagList, 0, 0, 0], 2
 ];
 export var CreateLocationEfsResponse$: StaticStructureSchema = [3, n0, _CLERr,
   0,
@@ -467,7 +467,7 @@ export var CreateLocationEfsResponse$: StaticStructureSchema = [3, n0, _CLERr,
 export var CreateLocationFsxLustreRequest$: StaticStructureSchema = [3, n0, _CLFLR,
   0,
   [_FFA, _SGA, _Su, _Ta],
-  [0, 64 | 0, 0, () => InputTagList]
+  [0, 64 | 0, 0, () => InputTagList], 2
 ];
 export var CreateLocationFsxLustreResponse$: StaticStructureSchema = [3, n0, _CLFLRr,
   0,
@@ -477,7 +477,7 @@ export var CreateLocationFsxLustreResponse$: StaticStructureSchema = [3, n0, _CL
 export var CreateLocationFsxOntapRequest$: StaticStructureSchema = [3, n0, _CLFOR,
   0,
   [_Pr, _SGA, _SVMA, _Su, _Ta],
-  [[() => FsxProtocol$, 0], 64 | 0, 0, 0, () => InputTagList]
+  [[() => FsxProtocol$, 0], 64 | 0, 0, 0, () => InputTagList], 3
 ];
 export var CreateLocationFsxOntapResponse$: StaticStructureSchema = [3, n0, _CLFORr,
   0,
@@ -487,7 +487,7 @@ export var CreateLocationFsxOntapResponse$: StaticStructureSchema = [3, n0, _CLF
 export var CreateLocationFsxOpenZfsRequest$: StaticStructureSchema = [3, n0, _CLFOZR,
   0,
   [_FFA, _Pr, _SGA, _Su, _Ta],
-  [0, [() => FsxProtocol$, 0], 64 | 0, 0, () => InputTagList]
+  [0, [() => FsxProtocol$, 0], 64 | 0, 0, () => InputTagList], 3
 ];
 export var CreateLocationFsxOpenZfsResponse$: StaticStructureSchema = [3, n0, _CLFOZRr,
   0,
@@ -496,8 +496,8 @@ export var CreateLocationFsxOpenZfsResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateLocationFsxWindowsRequest$: StaticStructureSchema = [3, n0, _CLFWR,
   0,
-  [_Su, _FFA, _SGA, _Ta, _U, _D, _Pa],
-  [0, 0, 64 | 0, () => InputTagList, 0, 0, [() => SmbPassword, 0]]
+  [_FFA, _SGA, _U, _Pa, _Su, _Ta, _D],
+  [0, 64 | 0, 0, [() => SmbPassword, 0], 0, () => InputTagList, 0], 4
 ];
 export var CreateLocationFsxWindowsResponse$: StaticStructureSchema = [3, n0, _CLFWRr,
   0,
@@ -506,8 +506,8 @@ export var CreateLocationFsxWindowsResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateLocationHdfsRequest$: StaticStructureSchema = [3, n0, _CLHR,
   0,
-  [_Su, _NN, _BS, _RF, _KKPU, _QC, _AT, _SU, _KP, _KK, _KKC, _AAg, _Ta],
-  [0, () => HdfsNameNodeList, 1, 1, 0, () => QopConfiguration$, 0, 0, 0, 21, 21, 64 | 0, () => InputTagList]
+  [_NN, _AT, _AAg, _Su, _BS, _RF, _KKPU, _QC, _SU, _KP, _KK, _KKC, _Ta],
+  [() => HdfsNameNodeList, 0, 64 | 0, 0, 1, 1, 0, () => QopConfiguration$, 0, 0, 21, 21, () => InputTagList], 3
 ];
 export var CreateLocationHdfsResponse$: StaticStructureSchema = [3, n0, _CLHRr,
   0,
@@ -517,7 +517,7 @@ export var CreateLocationHdfsResponse$: StaticStructureSchema = [3, n0, _CLHRr,
 export var CreateLocationNfsRequest$: StaticStructureSchema = [3, n0, _CLNR,
   0,
   [_Su, _SH, _OPC, _MO, _Ta],
-  [0, 0, () => OnPremConfig$, () => NfsMountOptions$, () => InputTagList]
+  [0, 0, () => OnPremConfig$, () => NfsMountOptions$, () => InputTagList], 3
 ];
 export var CreateLocationNfsResponse$: StaticStructureSchema = [3, n0, _CLNRr,
   0,
@@ -526,8 +526,8 @@ export var CreateLocationNfsResponse$: StaticStructureSchema = [3, n0, _CLNRr,
 ];
 export var CreateLocationObjectStorageRequest$: StaticStructureSchema = [3, n0, _CLOSR,
   0,
-  [_SH, _SPe, _SPer, _Su, _BN, _AKc, _SK, _AAg, _Ta, _SCe, _CSC, _CSCu],
-  [0, 1, 0, 0, 0, 0, [() => ObjectStorageSecretKey, 0], 64 | 0, () => InputTagList, 21, () => CmkSecretConfig$, () => CustomSecretConfig$]
+  [_SH, _BN, _SPe, _SPer, _Su, _AKc, _SK, _AAg, _Ta, _SCe, _CSC, _CSCu],
+  [0, 0, 1, 0, 0, 0, [() => ObjectStorageSecretKey, 0], 64 | 0, () => InputTagList, 21, () => CmkSecretConfig$, () => CustomSecretConfig$], 2
 ];
 export var CreateLocationObjectStorageResponse$: StaticStructureSchema = [3, n0, _CLOSRr,
   0,
@@ -536,8 +536,8 @@ export var CreateLocationObjectStorageResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateLocationS3Request$: StaticStructureSchema = [3, n0, _CLSR,
   0,
-  [_Su, _SBA, _SSC, _SCo, _AAg, _Ta],
-  [0, 0, 0, () => S3Config$, 64 | 0, () => InputTagList]
+  [_SBA, _SCo, _Su, _SSC, _AAg, _Ta],
+  [0, () => S3Config$, 0, 0, 64 | 0, () => InputTagList], 2
 ];
 export var CreateLocationS3Response$: StaticStructureSchema = [3, n0, _CLSRr,
   0,
@@ -546,8 +546,8 @@ export var CreateLocationS3Response$: StaticStructureSchema = [3, n0, _CLSRr,
 ];
 export var CreateLocationSmbRequest$: StaticStructureSchema = [3, n0, _CLSRre,
   0,
-  [_Su, _SH, _U, _D, _Pa, _CSC, _CSCu, _AAg, _MO, _Ta, _AT, _DIA, _KP, _KK, _KKC],
-  [0, 0, 0, 0, [() => SmbPassword, 0], () => CmkSecretConfig$, () => CustomSecretConfig$, 64 | 0, () => SmbMountOptions$, () => InputTagList, 0, 64 | 0, 0, 21, 21]
+  [_Su, _SH, _AAg, _U, _D, _Pa, _CSC, _CSCu, _MO, _Ta, _AT, _DIA, _KP, _KK, _KKC],
+  [0, 0, 64 | 0, 0, 0, [() => SmbPassword, 0], () => CmkSecretConfig$, () => CustomSecretConfig$, () => SmbMountOptions$, () => InputTagList, 0, 64 | 0, 0, 21, 21], 3
 ];
 export var CreateLocationSmbResponse$: StaticStructureSchema = [3, n0, _CLSRrea,
   0,
@@ -557,7 +557,7 @@ export var CreateLocationSmbResponse$: StaticStructureSchema = [3, n0, _CLSRrea,
 export var CreateTaskRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_SLA, _DLA, _CWLGA, _N, _O, _E, _Sc, _Ta, _I, _MC, _TRC, _TM],
-  [0, 0, 0, 0, () => Options$, () => FilterList, () => TaskSchedule$, () => InputTagList, () => FilterList, () => ManifestConfig$, () => TaskReportConfig$, 0]
+  [0, 0, 0, 0, () => Options$, () => FilterList, () => TaskSchedule$, () => InputTagList, () => FilterList, () => ManifestConfig$, () => TaskReportConfig$, 0], 2
 ];
 export var CreateTaskResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -572,7 +572,7 @@ export var CustomSecretConfig$: StaticStructureSchema = [3, n0, _CSCu,
 export var DeleteAgentRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AA],
-  [0]
+  [0], 1
 ];
 export var DeleteAgentResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -582,7 +582,7 @@ export var DeleteAgentResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteLocationRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DeleteLocationResponse$: StaticStructureSchema = [3, n0, _DLRe,
   0,
@@ -592,7 +592,7 @@ export var DeleteLocationResponse$: StaticStructureSchema = [3, n0, _DLRe,
 export var DeleteTaskRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_TA],
-  [0]
+  [0], 1
 ];
 export var DeleteTaskResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -602,7 +602,7 @@ export var DeleteTaskResponse$: StaticStructureSchema = [3, n0, _DTRe,
 export var DescribeAgentRequest$: StaticStructureSchema = [3, n0, _DARes,
   0,
   [_AA],
-  [0]
+  [0], 1
 ];
 export var DescribeAgentResponse$: StaticStructureSchema = [3, n0, _DAResc,
   0,
@@ -612,7 +612,7 @@ export var DescribeAgentResponse$: StaticStructureSchema = [3, n0, _DAResc,
 export var DescribeLocationAzureBlobRequest$: StaticStructureSchema = [3, n0, _DLABR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeLocationAzureBlobResponse$: StaticStructureSchema = [3, n0, _DLABRe,
   0,
@@ -622,7 +622,7 @@ export var DescribeLocationAzureBlobResponse$: StaticStructureSchema = [3, n0, _
 export var DescribeLocationEfsRequest$: StaticStructureSchema = [3, n0, _DLER,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeLocationEfsResponse$: StaticStructureSchema = [3, n0, _DLERe,
   0,
@@ -632,7 +632,7 @@ export var DescribeLocationEfsResponse$: StaticStructureSchema = [3, n0, _DLERe,
 export var DescribeLocationFsxLustreRequest$: StaticStructureSchema = [3, n0, _DLFLR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeLocationFsxLustreResponse$: StaticStructureSchema = [3, n0, _DLFLRe,
   0,
@@ -642,7 +642,7 @@ export var DescribeLocationFsxLustreResponse$: StaticStructureSchema = [3, n0, _
 export var DescribeLocationFsxOntapRequest$: StaticStructureSchema = [3, n0, _DLFOR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeLocationFsxOntapResponse$: StaticStructureSchema = [3, n0, _DLFORe,
   0,
@@ -652,7 +652,7 @@ export var DescribeLocationFsxOntapResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeLocationFsxOpenZfsRequest$: StaticStructureSchema = [3, n0, _DLFOZR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeLocationFsxOpenZfsResponse$: StaticStructureSchema = [3, n0, _DLFOZRe,
   0,
@@ -662,7 +662,7 @@ export var DescribeLocationFsxOpenZfsResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeLocationFsxWindowsRequest$: StaticStructureSchema = [3, n0, _DLFWR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeLocationFsxWindowsResponse$: StaticStructureSchema = [3, n0, _DLFWRe,
   0,
@@ -672,7 +672,7 @@ export var DescribeLocationFsxWindowsResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeLocationHdfsRequest$: StaticStructureSchema = [3, n0, _DLHR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeLocationHdfsResponse$: StaticStructureSchema = [3, n0, _DLHRe,
   0,
@@ -682,7 +682,7 @@ export var DescribeLocationHdfsResponse$: StaticStructureSchema = [3, n0, _DLHRe
 export var DescribeLocationNfsRequest$: StaticStructureSchema = [3, n0, _DLNR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeLocationNfsResponse$: StaticStructureSchema = [3, n0, _DLNRe,
   0,
@@ -692,7 +692,7 @@ export var DescribeLocationNfsResponse$: StaticStructureSchema = [3, n0, _DLNRe,
 export var DescribeLocationObjectStorageRequest$: StaticStructureSchema = [3, n0, _DLOSR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeLocationObjectStorageResponse$: StaticStructureSchema = [3, n0, _DLOSRe,
   0,
@@ -702,7 +702,7 @@ export var DescribeLocationObjectStorageResponse$: StaticStructureSchema = [3, n
 export var DescribeLocationS3Request$: StaticStructureSchema = [3, n0, _DLSR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeLocationS3Response$: StaticStructureSchema = [3, n0, _DLSRe,
   0,
@@ -712,7 +712,7 @@ export var DescribeLocationS3Response$: StaticStructureSchema = [3, n0, _DLSRe,
 export var DescribeLocationSmbRequest$: StaticStructureSchema = [3, n0, _DLSRes,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeLocationSmbResponse$: StaticStructureSchema = [3, n0, _DLSResc,
   0,
@@ -722,7 +722,7 @@ export var DescribeLocationSmbResponse$: StaticStructureSchema = [3, n0, _DLSRes
 export var DescribeTaskExecutionRequest$: StaticStructureSchema = [3, n0, _DTER,
   0,
   [_TEA],
-  [0]
+  [0], 1
 ];
 export var DescribeTaskExecutionResponse$: StaticStructureSchema = [3, n0, _DTERe,
   0,
@@ -732,7 +732,7 @@ export var DescribeTaskExecutionResponse$: StaticStructureSchema = [3, n0, _DTER
 export var DescribeTaskRequest$: StaticStructureSchema = [3, n0, _DTRes,
   0,
   [_TA],
-  [0]
+  [0], 1
 ];
 export var DescribeTaskResponse$: StaticStructureSchema = [3, n0, _DTResc,
   0,
@@ -742,7 +742,7 @@ export var DescribeTaskResponse$: StaticStructureSchema = [3, n0, _DTResc,
 export var Ec2Config$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_SAub, _SGA],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var FilterRule$: StaticStructureSchema = [3, n0, _FR,
   0,
@@ -761,8 +761,8 @@ export var FsxProtocolNfs$: StaticStructureSchema = [3, n0, _FPN,
 ];
 export var FsxProtocolSmb$: StaticStructureSchema = [3, n0, _FPS,
   0,
-  [_D, _MO, _Pa, _U],
-  [0, () => SmbMountOptions$, [() => SmbPassword, 0], 0]
+  [_Pa, _U, _D, _MO],
+  [[() => SmbPassword, 0], 0, 0, () => SmbMountOptions$], 2
 ];
 export var FsxUpdateProtocol$: StaticStructureSchema = [3, n0, _FUP,
   0,
@@ -777,7 +777,7 @@ export var FsxUpdateProtocolSmb$: StaticStructureSchema = [3, n0, _FUPS,
 export var HdfsNameNode$: StaticStructureSchema = [3, n0, _HNN,
   0,
   [_H, _Po],
-  [0, 1]
+  [0, 1], 2
 ];
 export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
   { [_e]: _s },
@@ -814,7 +814,7 @@ export var ListLocationsResponse$: StaticStructureSchema = [3, n0, _LLRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -844,7 +844,7 @@ export var ListTasksResponse$: StaticStructureSchema = [3, n0, _LTRi,
 export var LocationFilter$: StaticStructureSchema = [3, n0, _LF,
   0,
   [_N, _Va, _Op],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 3
 ];
 export var LocationListEntry$: StaticStructureSchema = [3, n0, _LLE,
   0,
@@ -869,7 +869,7 @@ export var NfsMountOptions$: StaticStructureSchema = [3, n0, _NMO,
 export var OnPremConfig$: StaticStructureSchema = [3, n0, _OPC,
   0,
   [_AAg],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var Options$: StaticStructureSchema = [3, n0, _O,
   0,
@@ -898,8 +898,8 @@ export var ReportDestination$: StaticStructureSchema = [3, n0, _RD,
 ];
 export var ReportDestinationS3$: StaticStructureSchema = [3, n0, _RDS,
   0,
-  [_Su, _SBA, _BARA],
-  [0, 0, 0]
+  [_SBA, _BARA, _Su],
+  [0, 0, 0], 2
 ];
 export var ReportOverride$: StaticStructureSchema = [3, n0, _RO,
   0,
@@ -919,12 +919,12 @@ export var ReportResult$: StaticStructureSchema = [3, n0, _RR,
 export var S3Config$: StaticStructureSchema = [3, n0, _SCo,
   0,
   [_BARA],
-  [0]
+  [0], 1
 ];
 export var S3ManifestConfig$: StaticStructureSchema = [3, n0, _SMC,
   0,
   [_MOP, _BARA, _SBA, _MOVI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var SmbMountOptions$: StaticStructureSchema = [3, n0, _SMO,
   0,
@@ -934,12 +934,12 @@ export var SmbMountOptions$: StaticStructureSchema = [3, n0, _SMO,
 export var SourceManifestConfig$: StaticStructureSchema = [3, n0, _SMCo,
   0,
   [_S_],
-  [() => S3ManifestConfig$]
+  [() => S3ManifestConfig$], 1
 ];
 export var StartTaskExecutionRequest$: StaticStructureSchema = [3, n0, _STER,
   0,
   [_TA, _OO, _I, _E, _MC, _TRC, _Ta],
-  [0, () => Options$, () => FilterList, () => FilterList, () => ManifestConfig$, () => TaskReportConfig$, () => InputTagList]
+  [0, () => Options$, () => FilterList, () => FilterList, () => ManifestConfig$, () => TaskReportConfig$, () => InputTagList], 1
 ];
 export var StartTaskExecutionResponse$: StaticStructureSchema = [3, n0, _STERt,
   0,
@@ -949,12 +949,12 @@ export var StartTaskExecutionResponse$: StaticStructureSchema = [3, n0, _STERt,
 export var TagListEntry$: StaticStructureSchema = [3, n0, _TLE,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, () => InputTagList]
+  [0, () => InputTagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -994,7 +994,7 @@ export var TaskExecutionResultDetail$: StaticStructureSchema = [3, n0, _TERD,
 export var TaskFilter$: StaticStructureSchema = [3, n0, _TF,
   0,
   [_N, _Va, _Op],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 3
 ];
 export var TaskListEntry$: StaticStructureSchema = [3, n0, _TLEa,
   0,
@@ -1009,7 +1009,7 @@ export var TaskReportConfig$: StaticStructureSchema = [3, n0, _TRC,
 export var TaskSchedule$: StaticStructureSchema = [3, n0, _TSa,
   0,
   [_SE, _S],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TaskScheduleDetails$: StaticStructureSchema = [3, n0, _TSD,
   0,
@@ -1019,7 +1019,7 @@ export var TaskScheduleDetails$: StaticStructureSchema = [3, n0, _TSD,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _Ke],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1029,7 +1029,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAgentRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_AA, _N],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UpdateAgentResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -1039,7 +1039,7 @@ export var UpdateAgentResponse$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateLocationAzureBlobRequest$: StaticStructureSchema = [3, n0, _ULABR,
   0,
   [_LA, _Su, _AT, _SC, _BT, _ATc, _AAg, _CSC, _CSCu],
-  [0, 0, 0, [() => AzureBlobSasConfiguration$, 0], 0, 0, 64 | 0, () => CmkSecretConfig$, () => CustomSecretConfig$]
+  [0, 0, 0, [() => AzureBlobSasConfiguration$, 0], 0, 0, 64 | 0, () => CmkSecretConfig$, () => CustomSecretConfig$], 1
 ];
 export var UpdateLocationAzureBlobResponse$: StaticStructureSchema = [3, n0, _ULABRp,
   0,
@@ -1049,7 +1049,7 @@ export var UpdateLocationAzureBlobResponse$: StaticStructureSchema = [3, n0, _UL
 export var UpdateLocationEfsRequest$: StaticStructureSchema = [3, n0, _ULER,
   0,
   [_LA, _Su, _APA, _FSARA, _ITE],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 1
 ];
 export var UpdateLocationEfsResponse$: StaticStructureSchema = [3, n0, _ULERp,
   0,
@@ -1059,7 +1059,7 @@ export var UpdateLocationEfsResponse$: StaticStructureSchema = [3, n0, _ULERp,
 export var UpdateLocationFsxLustreRequest$: StaticStructureSchema = [3, n0, _ULFLR,
   0,
   [_LA, _Su],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UpdateLocationFsxLustreResponse$: StaticStructureSchema = [3, n0, _ULFLRp,
   0,
@@ -1069,7 +1069,7 @@ export var UpdateLocationFsxLustreResponse$: StaticStructureSchema = [3, n0, _UL
 export var UpdateLocationFsxOntapRequest$: StaticStructureSchema = [3, n0, _ULFOR,
   0,
   [_LA, _Pr, _Su],
-  [0, [() => FsxUpdateProtocol$, 0], 0]
+  [0, [() => FsxUpdateProtocol$, 0], 0], 1
 ];
 export var UpdateLocationFsxOntapResponse$: StaticStructureSchema = [3, n0, _ULFORp,
   0,
@@ -1079,7 +1079,7 @@ export var UpdateLocationFsxOntapResponse$: StaticStructureSchema = [3, n0, _ULF
 export var UpdateLocationFsxOpenZfsRequest$: StaticStructureSchema = [3, n0, _ULFOZR,
   0,
   [_LA, _Pr, _Su],
-  [0, [() => FsxProtocol$, 0], 0]
+  [0, [() => FsxProtocol$, 0], 0], 1
 ];
 export var UpdateLocationFsxOpenZfsResponse$: StaticStructureSchema = [3, n0, _ULFOZRp,
   0,
@@ -1089,7 +1089,7 @@ export var UpdateLocationFsxOpenZfsResponse$: StaticStructureSchema = [3, n0, _U
 export var UpdateLocationFsxWindowsRequest$: StaticStructureSchema = [3, n0, _ULFWR,
   0,
   [_LA, _Su, _D, _U, _Pa],
-  [0, 0, 0, 0, [() => SmbPassword, 0]]
+  [0, 0, 0, 0, [() => SmbPassword, 0]], 1
 ];
 export var UpdateLocationFsxWindowsResponse$: StaticStructureSchema = [3, n0, _ULFWRp,
   0,
@@ -1099,7 +1099,7 @@ export var UpdateLocationFsxWindowsResponse$: StaticStructureSchema = [3, n0, _U
 export var UpdateLocationHdfsRequest$: StaticStructureSchema = [3, n0, _ULHR,
   0,
   [_LA, _Su, _NN, _BS, _RF, _KKPU, _QC, _AT, _SU, _KP, _KK, _KKC, _AAg],
-  [0, 0, () => HdfsNameNodeList, 1, 1, 0, () => QopConfiguration$, 0, 0, 0, 21, 21, 64 | 0]
+  [0, 0, () => HdfsNameNodeList, 1, 1, 0, () => QopConfiguration$, 0, 0, 0, 21, 21, 64 | 0], 1
 ];
 export var UpdateLocationHdfsResponse$: StaticStructureSchema = [3, n0, _ULHRp,
   0,
@@ -1109,7 +1109,7 @@ export var UpdateLocationHdfsResponse$: StaticStructureSchema = [3, n0, _ULHRp,
 export var UpdateLocationNfsRequest$: StaticStructureSchema = [3, n0, _ULNR,
   0,
   [_LA, _Su, _SH, _OPC, _MO],
-  [0, 0, 0, () => OnPremConfig$, () => NfsMountOptions$]
+  [0, 0, 0, () => OnPremConfig$, () => NfsMountOptions$], 1
 ];
 export var UpdateLocationNfsResponse$: StaticStructureSchema = [3, n0, _ULNRp,
   0,
@@ -1119,7 +1119,7 @@ export var UpdateLocationNfsResponse$: StaticStructureSchema = [3, n0, _ULNRp,
 export var UpdateLocationObjectStorageRequest$: StaticStructureSchema = [3, n0, _ULOSR,
   0,
   [_LA, _SPe, _SPer, _Su, _SH, _AKc, _SK, _AAg, _SCe, _CSC, _CSCu],
-  [0, 1, 0, 0, 0, 0, [() => ObjectStorageSecretKey, 0], 64 | 0, 21, () => CmkSecretConfig$, () => CustomSecretConfig$]
+  [0, 1, 0, 0, 0, 0, [() => ObjectStorageSecretKey, 0], 64 | 0, 21, () => CmkSecretConfig$, () => CustomSecretConfig$], 1
 ];
 export var UpdateLocationObjectStorageResponse$: StaticStructureSchema = [3, n0, _ULOSRp,
   0,
@@ -1129,7 +1129,7 @@ export var UpdateLocationObjectStorageResponse$: StaticStructureSchema = [3, n0,
 export var UpdateLocationS3Request$: StaticStructureSchema = [3, n0, _ULSR,
   0,
   [_LA, _Su, _SSC, _SCo],
-  [0, 0, 0, () => S3Config$]
+  [0, 0, 0, () => S3Config$], 1
 ];
 export var UpdateLocationS3Response$: StaticStructureSchema = [3, n0, _ULSRp,
   0,
@@ -1139,7 +1139,7 @@ export var UpdateLocationS3Response$: StaticStructureSchema = [3, n0, _ULSRp,
 export var UpdateLocationSmbRequest$: StaticStructureSchema = [3, n0, _ULSRpd,
   0,
   [_LA, _Su, _SH, _U, _D, _Pa, _CSC, _CSCu, _AAg, _MO, _AT, _DIA, _KP, _KK, _KKC],
-  [0, 0, 0, 0, 0, [() => SmbPassword, 0], () => CmkSecretConfig$, () => CustomSecretConfig$, 64 | 0, () => SmbMountOptions$, 0, 64 | 0, 0, 21, 21]
+  [0, 0, 0, 0, 0, [() => SmbPassword, 0], () => CmkSecretConfig$, () => CustomSecretConfig$, 64 | 0, () => SmbMountOptions$, 0, 64 | 0, 0, 21, 21], 1
 ];
 export var UpdateLocationSmbResponse$: StaticStructureSchema = [3, n0, _ULSRpda,
   0,
@@ -1149,7 +1149,7 @@ export var UpdateLocationSmbResponse$: StaticStructureSchema = [3, n0, _ULSRpda,
 export var UpdateTaskExecutionRequest$: StaticStructureSchema = [3, n0, _UTER,
   0,
   [_TEA, _O],
-  [0, () => Options$]
+  [0, () => Options$], 2
 ];
 export var UpdateTaskExecutionResponse$: StaticStructureSchema = [3, n0, _UTERp,
   0,
@@ -1159,7 +1159,7 @@ export var UpdateTaskExecutionResponse$: StaticStructureSchema = [3, n0, _UTERp,
 export var UpdateTaskRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
   [_TA, _O, _E, _Sc, _N, _CWLGA, _I, _MC, _TRC],
-  [0, () => Options$, () => FilterList, () => TaskSchedule$, 0, 0, () => FilterList, () => ManifestConfig$, () => TaskReportConfig$]
+  [0, () => Options$, () => FilterList, () => TaskSchedule$, 0, 0, () => FilterList, () => ManifestConfig$, () => TaskReportConfig$], 1
 ];
 export var UpdateTaskResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,

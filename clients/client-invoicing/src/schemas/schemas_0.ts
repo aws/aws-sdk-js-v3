@@ -255,7 +255,7 @@ export var AmountBreakdown$: StaticStructureSchema = [3, n0, _AB,
 export var BatchGetInvoiceProfileRequest$: StaticStructureSchema = [3, n0, _BGIPR,
   0,
   [_AI],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetInvoiceProfileResponse$: StaticStructureSchema = [3, n0, _BGIPRa,
   0,
@@ -265,7 +265,7 @@ export var BatchGetInvoiceProfileResponse$: StaticStructureSchema = [3, n0, _BGI
 export var BillingPeriod$: StaticStructureSchema = [3, n0, _BP,
   0,
   [_M, _Y],
-  [1, 1]
+  [1, 1], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_aQE]: [`InvoicingConflict`, 409], [_e]: _c, [_hE]: 409 },
@@ -280,8 +280,8 @@ export var Contact$: StaticStructureSchema = [3, n0, _C,
 ];
 export var CreateInvoiceUnitRequest$: StaticStructureSchema = [3, n0, _CIUR,
   0,
-  [_N, _IR, _De, _TID, _R, _RT],
-  [0, 0, 0, 2, () => InvoiceUnitRule$, () => ResourceTagList]
+  [_N, _IR, _R, _De, _TID, _RT],
+  [0, 0, () => InvoiceUnitRule$, 0, 2, () => ResourceTagList], 3
 ];
 export var CreateInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _CIURr,
   0,
@@ -290,13 +290,13 @@ export var CreateInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _CIURr,
 ];
 export var CreateProcurementPortalPreferenceRequest$: StaticStructureSchema = [3, n0, _CPPPR,
   0,
-  [_PPN, _BD, _BI, _SD, _SI, _S, _PPSS, _PPIE, _TEP, _EDE, _EDP, _PORE, _Co, _RT, _CT],
-  [0, 0, 0, 0, 0, () => ProcurementPortalPreferenceSelector$, [() => SensitiveBasicStringWithoutSpace, 0], 0, () => TestEnvPreferenceInput$, 2, () => EinvoiceDeliveryPreference$, 2, [() => Contacts, 0], () => ResourceTagList, [0, 4]]
+  [_PPN, _BD, _BI, _SD, _SI, _EDE, _PORE, _Co, _S, _PPSS, _PPIE, _TEP, _EDP, _RT, _CT],
+  [0, 0, 0, 0, 0, 2, 2, [() => Contacts, 0], () => ProcurementPortalPreferenceSelector$, [() => SensitiveBasicStringWithoutSpace, 0], 0, () => TestEnvPreferenceInput$, () => EinvoiceDeliveryPreference$, () => ResourceTagList, [0, 4]], 8
 ];
 export var CreateProcurementPortalPreferenceResponse$: StaticStructureSchema = [3, n0, _CPPPRr,
   0,
   [_PPPA],
-  [0]
+  [0], 1
 ];
 export var CurrencyExchangeDetails$: StaticStructureSchema = [3, n0, _CED,
   0,
@@ -306,12 +306,12 @@ export var CurrencyExchangeDetails$: StaticStructureSchema = [3, n0, _CED,
 export var DateInterval$: StaticStructureSchema = [3, n0, _DI,
   0,
   [_SDt, _ED],
-  [4, 4]
+  [4, 4], 2
 ];
 export var DeleteInvoiceUnitRequest$: StaticStructureSchema = [3, n0, _DIUR,
   0,
   [_IUA],
-  [0]
+  [0], 1
 ];
 export var DeleteInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _DIURe,
   0,
@@ -321,12 +321,12 @@ export var DeleteInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _DIURe,
 export var DeleteProcurementPortalPreferenceRequest$: StaticStructureSchema = [3, n0, _DPPPR,
   0,
   [_PPPA],
-  [0]
+  [0], 1
 ];
 export var DeleteProcurementPortalPreferenceResponse$: StaticStructureSchema = [3, n0, _DPPPRe,
   0,
   [_PPPA],
-  [0]
+  [0], 1
 ];
 export var DiscountsBreakdown$: StaticStructureSchema = [3, n0, _DB,
   0,
@@ -340,8 +340,8 @@ export var DiscountsBreakdownAmount$: StaticStructureSchema = [3, n0, _DBA,
 ];
 export var EinvoiceDeliveryPreference$: StaticStructureSchema = [3, n0, _EDP,
   0,
-  [_EDDT, _EDAT, _Pr, _PODS, _CTM, _EDAD],
-  [64 | 0, 64 | 0, 0, () => PurchaseOrderDataSources, 0, 4]
+  [_EDDT, _Pr, _PODS, _CTM, _EDAD, _EDAT],
+  [64 | 0, 0, () => PurchaseOrderDataSources, 0, 4, 64 | 0], 5
 ];
 export var Entity$: StaticStructureSchema = [3, n0, _En,
   0,
@@ -366,7 +366,7 @@ export var Filters$: StaticStructureSchema = [3, n0, _Fi,
 export var GetInvoicePDFRequest$: StaticStructureSchema = [3, n0, _GIPDFR,
   0,
   [_II],
-  [0]
+  [0], 1
 ];
 export var GetInvoicePDFResponse$: StaticStructureSchema = [3, n0, _GIPDFRe,
   0,
@@ -376,7 +376,7 @@ export var GetInvoicePDFResponse$: StaticStructureSchema = [3, n0, _GIPDFRe,
 export var GetInvoiceUnitRequest$: StaticStructureSchema = [3, n0, _GIUR,
   0,
   [_IUA, _AO],
-  [0, 4]
+  [0, 4], 1
 ];
 export var GetInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _GIURe,
   0,
@@ -386,12 +386,12 @@ export var GetInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _GIURe,
 export var GetProcurementPortalPreferenceRequest$: StaticStructureSchema = [3, n0, _GPPPR,
   0,
   [_PPPA],
-  [0]
+  [0], 1
 ];
 export var GetProcurementPortalPreferenceResponse$: StaticStructureSchema = [3, n0, _GPPPRe,
   0,
   [_PPP],
-  [[() => ProcurementPortalPreference$, 0]]
+  [[() => ProcurementPortalPreference$, 0]], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_aQE]: [`InvoicingInternalServer`, 500], [_e]: _s, [_hE]: 500 },
@@ -422,7 +422,7 @@ export var InvoiceSummariesFilter$: StaticStructureSchema = [3, n0, _ISF,
 export var InvoiceSummariesSelector$: StaticStructureSchema = [3, n0, _ISS,
   0,
   [_RTe, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InvoiceSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
@@ -442,12 +442,12 @@ export var InvoiceUnitRule$: StaticStructureSchema = [3, n0, _IUR,
 export var ListInvoiceSummariesRequest$: StaticStructureSchema = [3, n0, _LISR,
   0,
   [_S, _Fil, _NT, _MR],
-  [() => InvoiceSummariesSelector$, () => InvoiceSummariesFilter$, 0, 1]
+  [() => InvoiceSummariesSelector$, () => InvoiceSummariesFilter$, 0, 1], 1
 ];
 export var ListInvoiceSummariesResponse$: StaticStructureSchema = [3, n0, _LISRi,
   0,
   [_ISn, _NT],
-  [() => InvoiceSummaries, 0]
+  [() => InvoiceSummaries, 0], 1
 ];
 export var ListInvoiceUnitsRequest$: StaticStructureSchema = [3, n0, _LIUR,
   0,
@@ -472,7 +472,7 @@ export var ListProcurementPortalPreferencesResponse$: StaticStructureSchema = [3
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAes],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -481,8 +481,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ProcurementPortalPreference$: StaticStructureSchema = [3, n0, _PPP,
   0,
-  [_AAI, _PPPA, _PPN, _BD, _BI, _SD, _SI, _S, _PPSS, _PPIE, _POREu, _TEP, _EDE, _EDP, _PORE, _Co, _EDPS, _EDPSR, _PORPS, _PORPSR, _Ve, _CD, _LUD],
-  [0, 0, 0, 0, 0, 0, 0, () => ProcurementPortalPreferenceSelector$, 0, 0, 0, () => TestEnvPreference$, 2, () => EinvoiceDeliveryPreference$, 2, [() => Contacts, 0], 0, 0, 0, 0, 1, 4, 4]
+  [_AAI, _PPPA, _PPN, _BD, _BI, _SD, _SI, _EDE, _PORE, _Ve, _CD, _LUD, _S, _PPSS, _PPIE, _POREu, _TEP, _EDP, _Co, _EDPS, _EDPSR, _PORPS, _PORPSR],
+  [0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 4, 4, () => ProcurementPortalPreferenceSelector$, 0, 0, 0, () => TestEnvPreference$, () => EinvoiceDeliveryPreference$, [() => Contacts, 0], 0, 0, 0, 0], 12
 ];
 export var ProcurementPortalPreferenceSelector$: StaticStructureSchema = [3, n0, _PPPS,
   0,
@@ -491,8 +491,8 @@ export var ProcurementPortalPreferenceSelector$: StaticStructureSchema = [3, n0,
 ];
 export var ProcurementPortalPreferenceSummary$: StaticStructureSchema = [3, n0, _PPPSr,
   0,
-  [_AAI, _PPPA, _PPN, _BD, _BI, _SD, _SI, _S, _EDE, _PORE, _EDPS, _EDPSR, _PORPS, _PORPSR, _Ve, _CD, _LUD],
-  [0, 0, 0, 0, 0, 0, 0, () => ProcurementPortalPreferenceSelector$, 2, 2, 0, 0, 0, 0, 1, 4, 4]
+  [_AAI, _PPPA, _PPN, _BD, _BI, _SD, _SI, _EDE, _PORE, _Ve, _CD, _LUD, _S, _EDPS, _EDPSR, _PORPS, _PORPSR],
+  [0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 4, 4, () => ProcurementPortalPreferenceSelector$, 0, 0, 0, 0], 12
 ];
 export var PurchaseOrderDataSource$: StaticStructureSchema = [3, n0, _PODSu,
   0,
@@ -501,13 +501,13 @@ export var PurchaseOrderDataSource$: StaticStructureSchema = [3, n0, _PODSu,
 ];
 export var PutProcurementPortalPreferenceRequest$: StaticStructureSchema = [3, n0, _PPPPR,
   0,
-  [_PPPA, _S, _PPSS, _PPIE, _TEP, _EDE, _EDP, _PORE, _Co],
-  [0, () => ProcurementPortalPreferenceSelector$, [() => SensitiveBasicStringWithoutSpace, 0], 0, () => TestEnvPreferenceInput$, 2, () => EinvoiceDeliveryPreference$, 2, [() => Contacts, 0]]
+  [_PPPA, _EDE, _PORE, _Co, _S, _PPSS, _PPIE, _TEP, _EDP],
+  [0, 2, 2, [() => Contacts, 0], () => ProcurementPortalPreferenceSelector$, [() => SensitiveBasicStringWithoutSpace, 0], 0, () => TestEnvPreferenceInput$, () => EinvoiceDeliveryPreference$], 4
 ];
 export var PutProcurementPortalPreferenceResponse$: StaticStructureSchema = [3, n0, _PPPPRu,
   0,
   [_PPPA],
-  [0]
+  [0], 1
 ];
 export var ReceiverAddress$: StaticStructureSchema = [3, n0, _RAe,
   8,
@@ -523,12 +523,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTes,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_aQE]: [`InvoicingServiceQuotaExceeded`, 402], [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SupplementalDocument$: StaticStructureSchema = [3, n0, _SDup,
@@ -539,7 +539,7 @@ export var SupplementalDocument$: StaticStructureSchema = [3, n0, _SDup,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAes, _RT],
-  [0, () => ResourceTagList]
+  [0, () => ResourceTagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -559,12 +559,12 @@ export var TaxesBreakdownAmount$: StaticStructureSchema = [3, n0, _TBA,
 export var TestEnvPreference$: StaticStructureSchema = [3, n0, _TEP,
   0,
   [_BD, _BI, _SD, _SI, _PPSS, _PPIE, _POREu],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0], 4
 ];
 export var TestEnvPreferenceInput$: StaticStructureSchema = [3, n0, _TEPI,
   0,
   [_BD, _BI, _SD, _SI, _PPSS, _PPIE],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 4
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_aQE]: [`InvoicingThrottling`, 429], [_e]: _c, [_hE]: 429 },
@@ -575,7 +575,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAes, _RTK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -585,7 +585,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateInvoiceUnitRequest$: StaticStructureSchema = [3, n0, _UIUR,
   0,
   [_IUA, _De, _TID, _R],
-  [0, 0, 2, () => InvoiceUnitRule$]
+  [0, 0, 2, () => InvoiceUnitRule$], 1
 ];
 export var UpdateInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _UIURp,
   0,
@@ -595,12 +595,12 @@ export var UpdateInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _UIURp,
 export var UpdateProcurementPortalPreferenceStatusRequest$: StaticStructureSchema = [3, n0, _UPPPSR,
   0,
   [_PPPA, _EDPS, _EDPSR, _PORPS, _PORPSR],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 1
 ];
 export var UpdateProcurementPortalPreferenceStatusResponse$: StaticStructureSchema = [3, n0, _UPPPSRp,
   0,
   [_PPPA],
-  [0]
+  [0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_aQE]: [`InvoicingValidation`, 400], [_e]: _c, [_hE]: 400 },
@@ -611,7 +611,7 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InvoicingServiceException$: StaticErrorSchema = [-3, _sm, "InvoicingServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(InvoicingServiceException$, InvoicingServiceException);

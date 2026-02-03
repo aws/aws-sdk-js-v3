@@ -12,6 +12,11 @@ export const DeploymentStatus = {
   DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
+  UPDATE_COMPLETED: "UPDATE_COMPLETED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_ROLLBACK_COMPLETED: "UPDATE_ROLLBACK_COMPLETED",
+  UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
   VALIDATING: "VALIDATING",
 } as const;
 /**
@@ -50,6 +55,19 @@ export const DeploymentFilterKey = {
  * @public
  */
 export type DeploymentFilterKey = (typeof DeploymentFilterKey)[keyof typeof DeploymentFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentPatternVersionFilterKey = {
+  DEPLOYMENT_PATTERN_VERSION_NAME: "updateFromVersion",
+} as const;
+/**
+ * @public
+ */
+export type DeploymentPatternVersionFilterKey =
+  (typeof DeploymentPatternVersionFilterKey)[keyof typeof DeploymentPatternVersionFilterKey];
 
 /**
  * @public

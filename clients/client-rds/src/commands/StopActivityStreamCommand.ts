@@ -27,15 +27,7 @@ export interface StopActivityStreamCommandInput extends StopActivityStreamReques
 export interface StopActivityStreamCommandOutput extends StopActivityStreamResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a database activity stream that was started using the Amazon Web Services console,
- *             the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code> operation.</p>
- *          <p>For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">
- *                 Monitoring Amazon Aurora with Database Activity Streams</a>
- *             in the <i>Amazon Aurora User Guide</i>
- *             or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html">
- *                 Monitoring Amazon RDS with Database Activity Streams</a>
- *             in the <i>Amazon RDS User Guide</i>.</p>
+ * <p>Stops a database activity stream that was started using the Amazon Web Services console, the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code> operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html"> Monitoring Amazon Aurora with Database Activity Streams</a> in the <i>Amazon Aurora User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html"> Monitoring Amazon RDS with Database Activity Streams</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,12 +57,10 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>

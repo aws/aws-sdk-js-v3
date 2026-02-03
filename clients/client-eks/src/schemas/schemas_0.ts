@@ -731,7 +731,7 @@ export var AddonNamespaceConfigResponse$: StaticStructureSchema = [3, n0, _ANCRd
 export var AddonPodIdentityAssociations$: StaticStructureSchema = [3, n0, _APIA,
   0,
   [_sA, _rA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AddonPodIdentityConfiguration$: StaticStructureSchema = [3, n0, _APIC,
   0,
@@ -746,7 +746,7 @@ export var AddonVersionInfo$: StaticStructureSchema = [3, n0, _AVI,
 export var ArgoCdAwsIdcConfigRequest$: StaticStructureSchema = [3, n0, _ACAICR,
   0,
   [_iIA, _iR],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ArgoCdAwsIdcConfigResponse$: StaticStructureSchema = [3, n0, _ACAICRr,
   0,
@@ -755,8 +755,8 @@ export var ArgoCdAwsIdcConfigResponse$: StaticStructureSchema = [3, n0, _ACAICRr
 ];
 export var ArgoCdConfigRequest$: StaticStructureSchema = [3, n0, _ACCR,
   0,
-  [_nam, _aI, _rRM, _nA],
-  [0, () => ArgoCdAwsIdcConfigRequest$, () => ArgoCdRoleMappingList, () => ArgoCdNetworkAccessConfigRequest$]
+  [_aI, _nam, _rRM, _nA],
+  [() => ArgoCdAwsIdcConfigRequest$, 0, () => ArgoCdRoleMappingList, () => ArgoCdNetworkAccessConfigRequest$], 1
 ];
 export var ArgoCdConfigResponse$: StaticStructureSchema = [3, n0, _ACCRr,
   0,
@@ -776,12 +776,12 @@ export var ArgoCdNetworkAccessConfigResponse$: StaticStructureSchema = [3, n0, _
 export var ArgoCdRoleMapping$: StaticStructureSchema = [3, n0, _ACRM,
   0,
   [_r, _id],
-  [0, () => SsoIdentityList]
+  [0, () => SsoIdentityList], 2
 ];
 export var AssociateAccessPolicyRequest$: StaticStructureSchema = [3, n0, _AAPR,
   0,
   [_cN, _pA, _pAo, _aS],
-  [[0, 1], [0, 1], 0, () => AccessScope$]
+  [[0, 1], [0, 1], 0, () => AccessScope$], 4
 ];
 export var AssociateAccessPolicyResponse$: StaticStructureSchema = [3, n0, _AAPRs,
   0,
@@ -796,7 +796,7 @@ export var AssociatedAccessPolicy$: StaticStructureSchema = [3, n0, _AAP,
 export var AssociateEncryptionConfigRequest$: StaticStructureSchema = [3, n0, _AECR,
   0,
   [_cN, _eC, _cRT],
-  [[0, 1], () => EncryptionConfigList, [0, 4]]
+  [[0, 1], () => EncryptionConfigList, [0, 4]], 2
 ];
 export var AssociateEncryptionConfigResponse$: StaticStructureSchema = [3, n0, _AECRs,
   0,
@@ -806,7 +806,7 @@ export var AssociateEncryptionConfigResponse$: StaticStructureSchema = [3, n0, _
 export var AssociateIdentityProviderConfigRequest$: StaticStructureSchema = [3, n0, _AIPCR,
   0,
   [_cN, _oi, _t, _cRT],
-  [[0, 1], () => OidcIdentityProviderConfigRequest$, 128 | 0, [0, 4]]
+  [[0, 1], () => OidcIdentityProviderConfigRequest$, 128 | 0, [0, 4]], 2
 ];
 export var AssociateIdentityProviderConfigResponse$: StaticStructureSchema = [3, n0, _AIPCRs,
   0,
@@ -913,7 +913,7 @@ export var ComputeConfigResponse$: StaticStructureSchema = [3, n0, _CCRom,
 export var ConnectorConfigRequest$: StaticStructureSchema = [3, n0, _CCRon,
   0,
   [_rA, _pr],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ConnectorConfigResponse$: StaticStructureSchema = [3, n0, _CCRonn,
   0,
@@ -943,7 +943,7 @@ export var CreateAccessConfigRequest$: StaticStructureSchema = [3, n0, _CACR,
 export var CreateAccessEntryRequest$: StaticStructureSchema = [3, n0, _CAER,
   0,
   [_cN, _pA, _kG, _t, _cRT, _u, _ty],
-  [[0, 1], 0, 64 | 0, 128 | 0, [0, 4], 0, 0]
+  [[0, 1], 0, 64 | 0, 128 | 0, [0, 4], 0, 0], 2
 ];
 export var CreateAccessEntryResponse$: StaticStructureSchema = [3, n0, _CAERr,
   0,
@@ -953,7 +953,7 @@ export var CreateAccessEntryResponse$: StaticStructureSchema = [3, n0, _CAERr,
 export var CreateAddonRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_cN, _aN, _aV, _sARA, _rCe, _cRT, _t, _cV, _pIA, _nC],
-  [[0, 1], 0, 0, 0, 0, [0, 4], 128 | 0, 0, () => AddonPodIdentityAssociationsList, () => AddonNamespaceConfigRequest$]
+  [[0, 1], 0, 0, 0, 0, [0, 4], 128 | 0, 0, () => AddonPodIdentityAssociationsList, () => AddonNamespaceConfigRequest$], 2
 ];
 export var CreateAddonResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -962,8 +962,8 @@ export var CreateAddonResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateCapabilityRequest$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_cNa, _cN, _cRT, _ty, _rA, _con, _t, _dPP],
-  [0, [0, 1], [0, 4], 0, 0, () => CapabilityConfigurationRequest$, 128 | 0, 0]
+  [_cNa, _cN, _ty, _rA, _dPP, _cRT, _con, _t],
+  [0, [0, 1], 0, 0, 0, [0, 4], () => CapabilityConfigurationRequest$, 128 | 0], 5
 ];
 export var CreateCapabilityResponse$: StaticStructureSchema = [3, n0, _CCRre,
   0,
@@ -972,8 +972,8 @@ export var CreateCapabilityResponse$: StaticStructureSchema = [3, n0, _CCRre,
 ];
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCRrea,
   0,
-  [_n, _v, _rA, _rVC, _kNC, _l, _cRT, _t, _eC, _oC, _aCc, _bSMA, _uP, _zSC, _rNC, _cCo, _sC, _dP, _cPSC],
-  [0, 0, 0, () => VpcConfigRequest$, () => KubernetesNetworkConfigRequest$, () => Logging$, [0, 4], 128 | 0, () => EncryptionConfigList, () => OutpostConfigRequest$, () => CreateAccessConfigRequest$, 2, () => UpgradePolicyRequest$, () => ZonalShiftConfigRequest$, () => RemoteNetworkConfigRequest$, () => ComputeConfigRequest$, () => StorageConfigRequest$, 2, () => ControlPlaneScalingConfig$]
+  [_n, _rA, _rVC, _v, _kNC, _l, _cRT, _t, _eC, _oC, _aCc, _bSMA, _uP, _zSC, _rNC, _cCo, _sC, _dP, _cPSC],
+  [0, 0, () => VpcConfigRequest$, 0, () => KubernetesNetworkConfigRequest$, () => Logging$, [0, 4], 128 | 0, () => EncryptionConfigList, () => OutpostConfigRequest$, () => CreateAccessConfigRequest$, 2, () => UpgradePolicyRequest$, () => ZonalShiftConfigRequest$, () => RemoteNetworkConfigRequest$, () => ComputeConfigRequest$, () => StorageConfigRequest$, 2, () => ControlPlaneScalingConfig$], 3
 ];
 export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRreat,
   0,
@@ -983,7 +983,7 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRreat,
 export var CreateEksAnywhereSubscriptionRequest$: StaticStructureSchema = [3, n0, _CEASR,
   0,
   [_n, _te, _lQ, _lT, _aR, _cRT, _t],
-  [0, () => EksAnywhereSubscriptionTerm$, 1, 0, 2, [0, 4], 128 | 0]
+  [0, () => EksAnywhereSubscriptionTerm$, 1, 0, 2, [0, 4], 128 | 0], 2
 ];
 export var CreateEksAnywhereSubscriptionResponse$: StaticStructureSchema = [3, n0, _CEASRr,
   0,
@@ -993,7 +993,7 @@ export var CreateEksAnywhereSubscriptionResponse$: StaticStructureSchema = [3, n
 export var CreateFargateProfileRequest$: StaticStructureSchema = [3, n0, _CFPR,
   0,
   [_fPN, _cN, _pERA, _sub, _se, _cRT, _t],
-  [0, [0, 1], 0, 64 | 0, () => FargateProfileSelectors, [0, 4], 128 | 0]
+  [0, [0, 1], 0, 64 | 0, () => FargateProfileSelectors, [0, 4], 128 | 0], 3
 ];
 export var CreateFargateProfileResponse$: StaticStructureSchema = [3, n0, _CFPRr,
   0,
@@ -1002,8 +1002,8 @@ export var CreateFargateProfileResponse$: StaticStructureSchema = [3, n0, _CFPRr
 ];
 export var CreateNodegroupRequest$: StaticStructureSchema = [3, n0, _CNR,
   0,
-  [_cN, _nN, _sCc, _dS, _sub, _iT, _aT, _rAe, _nR, _la, _ta, _t, _cRT, _lTa, _uC, _nRC, _cTa, _v, _rV],
-  [[0, 1], 0, () => NodegroupScalingConfig$, 1, 64 | 0, 64 | 0, 0, () => RemoteAccessConfig$, 0, 128 | 0, () => taintsList, 128 | 0, [0, 4], () => LaunchTemplateSpecification$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, 0, 0, 0]
+  [_cN, _nN, _sub, _nR, _sCc, _dS, _iT, _aT, _rAe, _la, _ta, _t, _cRT, _lTa, _uC, _nRC, _cTa, _v, _rV],
+  [[0, 1], 0, 64 | 0, 0, () => NodegroupScalingConfig$, 1, 64 | 0, 0, () => RemoteAccessConfig$, 128 | 0, () => taintsList, 128 | 0, [0, 4], () => LaunchTemplateSpecification$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, 0, 0, 0], 4
 ];
 export var CreateNodegroupResponse$: StaticStructureSchema = [3, n0, _CNRr,
   0,
@@ -1013,7 +1013,7 @@ export var CreateNodegroupResponse$: StaticStructureSchema = [3, n0, _CNRr,
 export var CreatePodIdentityAssociationRequest$: StaticStructureSchema = [3, n0, _CPIAR,
   0,
   [_cN, _nam, _sA, _rA, _cRT, _t, _dST, _tRA],
-  [[0, 1], 0, 0, 0, [0, 4], 128 | 0, 2, 0]
+  [[0, 1], 0, 0, 0, [0, 4], 128 | 0, 2, 0], 4
 ];
 export var CreatePodIdentityAssociationResponse$: StaticStructureSchema = [3, n0, _CPIARr,
   0,
@@ -1023,7 +1023,7 @@ export var CreatePodIdentityAssociationResponse$: StaticStructureSchema = [3, n0
 export var DeleteAccessEntryRequest$: StaticStructureSchema = [3, n0, _DAER,
   0,
   [_cN, _pA],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteAccessEntryResponse$: StaticStructureSchema = [3, n0, _DAERe,
   0,
@@ -1033,7 +1033,7 @@ export var DeleteAccessEntryResponse$: StaticStructureSchema = [3, n0, _DAERe,
 export var DeleteAddonRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_cN, _aN, _pre],
-  [[0, 1], [0, 1], [2, { [_hQ]: _pre }]]
+  [[0, 1], [0, 1], [2, { [_hQ]: _pre }]], 2
 ];
 export var DeleteAddonResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -1043,7 +1043,7 @@ export var DeleteAddonResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteCapabilityRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cN, _cNa],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteCapabilityResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -1053,7 +1053,7 @@ export var DeleteCapabilityResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCRel,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRele,
   0,
@@ -1063,7 +1063,7 @@ export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRele,
 export var DeleteEksAnywhereSubscriptionRequest$: StaticStructureSchema = [3, n0, _DEASR,
   0,
   [_id_],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteEksAnywhereSubscriptionResponse$: StaticStructureSchema = [3, n0, _DEASRe,
   0,
@@ -1073,7 +1073,7 @@ export var DeleteEksAnywhereSubscriptionResponse$: StaticStructureSchema = [3, n
 export var DeleteFargateProfileRequest$: StaticStructureSchema = [3, n0, _DFPR,
   0,
   [_cN, _fPN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteFargateProfileResponse$: StaticStructureSchema = [3, n0, _DFPRe,
   0,
@@ -1083,7 +1083,7 @@ export var DeleteFargateProfileResponse$: StaticStructureSchema = [3, n0, _DFPRe
 export var DeleteNodegroupRequest$: StaticStructureSchema = [3, n0, _DNR,
   0,
   [_cN, _nN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteNodegroupResponse$: StaticStructureSchema = [3, n0, _DNRe,
   0,
@@ -1093,7 +1093,7 @@ export var DeleteNodegroupResponse$: StaticStructureSchema = [3, n0, _DNRe,
 export var DeletePodIdentityAssociationRequest$: StaticStructureSchema = [3, n0, _DPIAR,
   0,
   [_cN, _aIs],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeletePodIdentityAssociationResponse$: StaticStructureSchema = [3, n0, _DPIARe,
   0,
@@ -1108,7 +1108,7 @@ export var DeprecationDetail$: StaticStructureSchema = [3, n0, _DD,
 export var DeregisterClusterRequest$: StaticStructureSchema = [3, n0, _DCRer,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeregisterClusterResponse$: StaticStructureSchema = [3, n0, _DCRere,
   0,
@@ -1118,7 +1118,7 @@ export var DeregisterClusterResponse$: StaticStructureSchema = [3, n0, _DCRere,
 export var DescribeAccessEntryRequest$: StaticStructureSchema = [3, n0, _DAERes,
   0,
   [_cN, _pA],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeAccessEntryResponse$: StaticStructureSchema = [3, n0, _DAEResc,
   0,
@@ -1128,7 +1128,7 @@ export var DescribeAccessEntryResponse$: StaticStructureSchema = [3, n0, _DAERes
 export var DescribeAddonConfigurationRequest$: StaticStructureSchema = [3, n0, _DACR,
   0,
   [_aN, _aV],
-  [[0, { [_hQ]: _aN }], [0, { [_hQ]: _aV }]]
+  [[0, { [_hQ]: _aN }], [0, { [_hQ]: _aV }]], 2
 ];
 export var DescribeAddonConfigurationResponse$: StaticStructureSchema = [3, n0, _DACRe,
   0,
@@ -1138,7 +1138,7 @@ export var DescribeAddonConfigurationResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeAddonRequest$: StaticStructureSchema = [3, n0, _DARes,
   0,
   [_cN, _aN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeAddonResponse$: StaticStructureSchema = [3, n0, _DAResc,
   0,
@@ -1158,7 +1158,7 @@ export var DescribeAddonVersionsResponse$: StaticStructureSchema = [3, n0, _DAVR
 export var DescribeCapabilityRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_cN, _cNa],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeCapabilityResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
@@ -1168,7 +1168,7 @@ export var DescribeCapabilityResponse$: StaticStructureSchema = [3, n0, _DCResc,
 export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRescr,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeClusterResponse$: StaticStructureSchema = [3, n0, _DCRescri,
   0,
@@ -1188,7 +1188,7 @@ export var DescribeClusterVersionsResponse$: StaticStructureSchema = [3, n0, _DC
 export var DescribeEksAnywhereSubscriptionRequest$: StaticStructureSchema = [3, n0, _DEASRes,
   0,
   [_id_],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeEksAnywhereSubscriptionResponse$: StaticStructureSchema = [3, n0, _DEASResc,
   0,
@@ -1198,7 +1198,7 @@ export var DescribeEksAnywhereSubscriptionResponse$: StaticStructureSchema = [3,
 export var DescribeFargateProfileRequest$: StaticStructureSchema = [3, n0, _DFPRes,
   0,
   [_cN, _fPN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeFargateProfileResponse$: StaticStructureSchema = [3, n0, _DFPResc,
   0,
@@ -1208,7 +1208,7 @@ export var DescribeFargateProfileResponse$: StaticStructureSchema = [3, n0, _DFP
 export var DescribeIdentityProviderConfigRequest$: StaticStructureSchema = [3, n0, _DIPCR,
   0,
   [_cN, _iPC],
-  [[0, 1], () => IdentityProviderConfig$]
+  [[0, 1], () => IdentityProviderConfig$], 2
 ];
 export var DescribeIdentityProviderConfigResponse$: StaticStructureSchema = [3, n0, _DIPCRe,
   0,
@@ -1218,7 +1218,7 @@ export var DescribeIdentityProviderConfigResponse$: StaticStructureSchema = [3, 
 export var DescribeInsightRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_cN, _id_],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeInsightResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
@@ -1228,7 +1228,7 @@ export var DescribeInsightResponse$: StaticStructureSchema = [3, n0, _DIRe,
 export var DescribeInsightsRefreshRequest$: StaticStructureSchema = [3, n0, _DIRR,
   0,
   [_cN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeInsightsRefreshResponse$: StaticStructureSchema = [3, n0, _DIRRe,
   0,
@@ -1238,7 +1238,7 @@ export var DescribeInsightsRefreshResponse$: StaticStructureSchema = [3, n0, _DI
 export var DescribeNodegroupRequest$: StaticStructureSchema = [3, n0, _DNRes,
   0,
   [_cN, _nN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeNodegroupResponse$: StaticStructureSchema = [3, n0, _DNResc,
   0,
@@ -1248,7 +1248,7 @@ export var DescribeNodegroupResponse$: StaticStructureSchema = [3, n0, _DNResc,
 export var DescribePodIdentityAssociationRequest$: StaticStructureSchema = [3, n0, _DPIARes,
   0,
   [_cN, _aIs],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribePodIdentityAssociationResponse$: StaticStructureSchema = [3, n0, _DPIAResc,
   0,
@@ -1258,7 +1258,7 @@ export var DescribePodIdentityAssociationResponse$: StaticStructureSchema = [3, 
 export var DescribeUpdateRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_n, _uI, _nN, _aN, _cNa],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nN }], [0, { [_hQ]: _aN }], [0, { [_hQ]: _cNa }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nN }], [0, { [_hQ]: _aN }], [0, { [_hQ]: _cNa }]], 2
 ];
 export var DescribeUpdateResponse$: StaticStructureSchema = [3, n0, _DURe,
   0,
@@ -1268,7 +1268,7 @@ export var DescribeUpdateResponse$: StaticStructureSchema = [3, n0, _DURe,
 export var DisassociateAccessPolicyRequest$: StaticStructureSchema = [3, n0, _DAPR,
   0,
   [_cN, _pA, _pAo],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DisassociateAccessPolicyResponse$: StaticStructureSchema = [3, n0, _DAPRi,
   0,
@@ -1278,7 +1278,7 @@ export var DisassociateAccessPolicyResponse$: StaticStructureSchema = [3, n0, _D
 export var DisassociateIdentityProviderConfigRequest$: StaticStructureSchema = [3, n0, _DIPCRi,
   0,
   [_cN, _iPC, _cRT],
-  [[0, 1], () => IdentityProviderConfig$, [0, 4]]
+  [[0, 1], () => IdentityProviderConfig$, [0, 4]], 2
 ];
 export var DisassociateIdentityProviderConfigResponse$: StaticStructureSchema = [3, n0, _DIPCRis,
   0,
@@ -1338,7 +1338,7 @@ export var Identity$: StaticStructureSchema = [3, n0, _I,
 export var IdentityProviderConfig$: StaticStructureSchema = [3, n0, _IPC,
   0,
   [_ty, _n],
-  [0, 0]
+  [0, 0], 2
 ];
 export var IdentityProviderConfigResponse$: StaticStructureSchema = [3, n0, _IPCR,
   0,
@@ -1421,7 +1421,7 @@ export var License$: StaticStructureSchema = [3, n0, _L,
 export var ListAccessEntriesRequest$: StaticStructureSchema = [3, n0, _LAER,
   0,
   [_cN, _aPA, _mR, _nT],
-  [[0, 1], [0, { [_hQ]: _aPA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _aPA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListAccessEntriesResponse$: StaticStructureSchema = [3, n0, _LAERi,
   0,
@@ -1441,7 +1441,7 @@ export var ListAccessPoliciesResponse$: StaticStructureSchema = [3, n0, _LAPRi,
 export var ListAddonsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_cN, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListAddonsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -1451,7 +1451,7 @@ export var ListAddonsResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListAssociatedAccessPoliciesRequest$: StaticStructureSchema = [3, n0, _LAAPR,
   0,
   [_cN, _pA, _mR, _nT],
-  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListAssociatedAccessPoliciesResponse$: StaticStructureSchema = [3, n0, _LAAPRi,
   0,
@@ -1461,7 +1461,7 @@ export var ListAssociatedAccessPoliciesResponse$: StaticStructureSchema = [3, n0
 export var ListCapabilitiesRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_cN, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListCapabilitiesResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
@@ -1491,7 +1491,7 @@ export var ListEksAnywhereSubscriptionsResponse$: StaticStructureSchema = [3, n0
 export var ListFargateProfilesRequest$: StaticStructureSchema = [3, n0, _LFPR,
   0,
   [_cN, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListFargateProfilesResponse$: StaticStructureSchema = [3, n0, _LFPRi,
   0,
@@ -1501,7 +1501,7 @@ export var ListFargateProfilesResponse$: StaticStructureSchema = [3, n0, _LFPRi,
 export var ListIdentityProviderConfigsRequest$: StaticStructureSchema = [3, n0, _LIPCR,
   0,
   [_cN, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListIdentityProviderConfigsResponse$: StaticStructureSchema = [3, n0, _LIPCRi,
   0,
@@ -1511,7 +1511,7 @@ export var ListIdentityProviderConfigsResponse$: StaticStructureSchema = [3, n0,
 export var ListInsightsRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
   [_cN, _f, _mR, _nT],
-  [[0, 1], () => InsightsFilter$, 1, 0]
+  [[0, 1], () => InsightsFilter$, 1, 0], 1
 ];
 export var ListInsightsResponse$: StaticStructureSchema = [3, n0, _LIRi,
   0,
@@ -1521,7 +1521,7 @@ export var ListInsightsResponse$: StaticStructureSchema = [3, n0, _LIRi,
 export var ListNodegroupsRequest$: StaticStructureSchema = [3, n0, _LNR,
   0,
   [_cN, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListNodegroupsResponse$: StaticStructureSchema = [3, n0, _LNRi,
   0,
@@ -1531,7 +1531,7 @@ export var ListNodegroupsResponse$: StaticStructureSchema = [3, n0, _LNRi,
 export var ListPodIdentityAssociationsRequest$: StaticStructureSchema = [3, n0, _LPIAR,
   0,
   [_cN, _nam, _sA, _mR, _nT],
-  [[0, 1], [0, { [_hQ]: _nam }], [0, { [_hQ]: _sA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _nam }], [0, { [_hQ]: _sA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListPodIdentityAssociationsResponse$: StaticStructureSchema = [3, n0, _LPIARi,
   0,
@@ -1541,7 +1541,7 @@ export var ListPodIdentityAssociationsResponse$: StaticStructureSchema = [3, n0,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAes],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1551,7 +1551,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListUpdatesRequest$: StaticStructureSchema = [3, n0, _LUR,
   0,
   [_n, _nN, _aN, _cNa, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nN }], [0, { [_hQ]: _aN }], [0, { [_hQ]: _cNa }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nN }], [0, { [_hQ]: _aN }], [0, { [_hQ]: _cNa }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListUpdatesResponse$: StaticStructureSchema = [3, n0, _LURi,
   0,
@@ -1627,17 +1627,17 @@ export var OidcIdentityProviderConfig$: StaticStructureSchema = [3, n0, _OIPC,
 export var OidcIdentityProviderConfigRequest$: StaticStructureSchema = [3, n0, _OIPCR,
   0,
   [_iPCN, _iU, _cI, _uCs, _uPs, _gC, _gP, _rCeq],
-  [0, 0, 0, 0, 0, 0, 0, 128 | 0]
+  [0, 0, 0, 0, 0, 0, 0, 128 | 0], 3
 ];
 export var OutpostConfigRequest$: StaticStructureSchema = [3, n0, _OCR,
   0,
   [_oA, _cPIT, _cPP],
-  [64 | 0, 0, () => ControlPlanePlacementRequest$]
+  [64 | 0, 0, () => ControlPlanePlacementRequest$], 2
 ];
 export var OutpostConfigResponse$: StaticStructureSchema = [3, n0, _OCRu,
   0,
   [_oA, _cPIT, _cPP],
-  [64 | 0, 0, () => ControlPlanePlacementResponse$]
+  [64 | 0, 0, () => ControlPlanePlacementResponse$], 2
 ];
 export var PodIdentityAssociation$: StaticStructureSchema = [3, n0, _PIA,
   0,
@@ -1657,7 +1657,7 @@ export var Provider$: StaticStructureSchema = [3, n0, _P,
 export var RegisterClusterRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_n, _cC, _cRT, _t],
-  [0, () => ConnectorConfigRequest$, [0, 4], 128 | 0]
+  [0, () => ConnectorConfigRequest$, [0, 4], 128 | 0], 2
 ];
 export var RegisterClusterResponse$: StaticStructureSchema = [3, n0, _RCRe,
   0,
@@ -1728,12 +1728,12 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var SsoIdentity$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_id_, _ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartInsightsRefreshRequest$: StaticStructureSchema = [3, n0, _SIRR,
   0,
   [_cN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StartInsightsRefreshResponse$: StaticStructureSchema = [3, n0, _SIRRt,
   0,
@@ -1753,7 +1753,7 @@ export var StorageConfigResponse$: StaticStructureSchema = [3, n0, _SCRt,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAes, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1780,7 +1780,7 @@ TypeRegistry.for(n0).registerError(UnsupportedAvailabilityZoneException$, Unsupp
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAes, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1800,7 +1800,7 @@ export var UpdateAccessConfigRequest$: StaticStructureSchema = [3, n0, _UACR,
 export var UpdateAccessEntryRequest$: StaticStructureSchema = [3, n0, _UAER,
   0,
   [_cN, _pA, _kG, _cRT, _u],
-  [[0, 1], [0, 1], 64 | 0, [0, 4], 0]
+  [[0, 1], [0, 1], 64 | 0, [0, 4], 0], 2
 ];
 export var UpdateAccessEntryResponse$: StaticStructureSchema = [3, n0, _UAERp,
   0,
@@ -1810,7 +1810,7 @@ export var UpdateAccessEntryResponse$: StaticStructureSchema = [3, n0, _UAERp,
 export var UpdateAddonRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_cN, _aN, _aV, _sARA, _rCe, _cRT, _cV, _pIA],
-  [[0, 1], [0, 1], 0, 0, 0, [0, 4], 0, () => AddonPodIdentityAssociationsList]
+  [[0, 1], [0, 1], 0, 0, 0, [0, 4], 0, () => AddonPodIdentityAssociationsList], 2
 ];
 export var UpdateAddonResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -1830,7 +1830,7 @@ export var UpdateCapabilityConfiguration$: StaticStructureSchema = [3, n0, _UCC,
 export var UpdateCapabilityRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_cN, _cNa, _rA, _con, _cRT, _dPP],
-  [[0, 1], [0, 1], 0, () => UpdateCapabilityConfiguration$, [0, 4], 0]
+  [[0, 1], [0, 1], 0, () => UpdateCapabilityConfiguration$, [0, 4], 0], 2
 ];
 export var UpdateCapabilityResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -1840,7 +1840,7 @@ export var UpdateCapabilityResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateClusterConfigRequest$: StaticStructureSchema = [3, n0, _UCCR,
   0,
   [_n, _rVC, _l, _cRT, _aCc, _uP, _zSC, _cCo, _kNC, _sC, _rNC, _dP, _cPSC],
-  [[0, 1], () => VpcConfigRequest$, () => Logging$, [0, 4], () => UpdateAccessConfigRequest$, () => UpgradePolicyRequest$, () => ZonalShiftConfigRequest$, () => ComputeConfigRequest$, () => KubernetesNetworkConfigRequest$, () => StorageConfigRequest$, () => RemoteNetworkConfigRequest$, 2, () => ControlPlaneScalingConfig$]
+  [[0, 1], () => VpcConfigRequest$, () => Logging$, [0, 4], () => UpdateAccessConfigRequest$, () => UpgradePolicyRequest$, () => ZonalShiftConfigRequest$, () => ComputeConfigRequest$, () => KubernetesNetworkConfigRequest$, () => StorageConfigRequest$, () => RemoteNetworkConfigRequest$, 2, () => ControlPlaneScalingConfig$], 1
 ];
 export var UpdateClusterConfigResponse$: StaticStructureSchema = [3, n0, _UCCRp,
   0,
@@ -1850,7 +1850,7 @@ export var UpdateClusterConfigResponse$: StaticStructureSchema = [3, n0, _UCCRp,
 export var UpdateClusterVersionRequest$: StaticStructureSchema = [3, n0, _UCVR,
   0,
   [_n, _v, _cRT, _fo],
-  [[0, 1], 0, [0, 4], 2]
+  [[0, 1], 0, [0, 4], 2], 2
 ];
 export var UpdateClusterVersionResponse$: StaticStructureSchema = [3, n0, _UCVRp,
   0,
@@ -1860,7 +1860,7 @@ export var UpdateClusterVersionResponse$: StaticStructureSchema = [3, n0, _UCVRp
 export var UpdateEksAnywhereSubscriptionRequest$: StaticStructureSchema = [3, n0, _UEASR,
   0,
   [_id_, _aR, _cRT],
-  [[0, 1], 2, [0, 4]]
+  [[0, 1], 2, [0, 4]], 2
 ];
 export var UpdateEksAnywhereSubscriptionResponse$: StaticStructureSchema = [3, n0, _UEASRp,
   0,
@@ -1875,7 +1875,7 @@ export var UpdateLabelsPayload$: StaticStructureSchema = [3, n0, _ULP,
 export var UpdateNodegroupConfigRequest$: StaticStructureSchema = [3, n0, _UNCR,
   0,
   [_cN, _nN, _la, _ta, _sCc, _uC, _nRC, _cRT],
-  [[0, 1], [0, 1], () => UpdateLabelsPayload$, () => UpdateTaintsPayload$, () => NodegroupScalingConfig$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, [0, 4]]
+  [[0, 1], [0, 1], () => UpdateLabelsPayload$, () => UpdateTaintsPayload$, () => NodegroupScalingConfig$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, [0, 4]], 2
 ];
 export var UpdateNodegroupConfigResponse$: StaticStructureSchema = [3, n0, _UNCRp,
   0,
@@ -1885,7 +1885,7 @@ export var UpdateNodegroupConfigResponse$: StaticStructureSchema = [3, n0, _UNCR
 export var UpdateNodegroupVersionRequest$: StaticStructureSchema = [3, n0, _UNVR,
   0,
   [_cN, _nN, _v, _rV, _lTa, _fo, _cRT],
-  [[0, 1], [0, 1], 0, 0, () => LaunchTemplateSpecification$, 2, [0, 4]]
+  [[0, 1], [0, 1], 0, 0, () => LaunchTemplateSpecification$, 2, [0, 4]], 2
 ];
 export var UpdateNodegroupVersionResponse$: StaticStructureSchema = [3, n0, _UNVRp,
   0,
@@ -1900,7 +1900,7 @@ export var UpdateParam$: StaticStructureSchema = [3, n0, _UP,
 export var UpdatePodIdentityAssociationRequest$: StaticStructureSchema = [3, n0, _UPIAR,
   0,
   [_cN, _aIs, _rA, _cRT, _dST, _tRA],
-  [[0, 1], [0, 1], 0, [0, 4], 2, 0]
+  [[0, 1], [0, 1], 0, [0, 4], 2, 0], 2
 ];
 export var UpdatePodIdentityAssociationResponse$: StaticStructureSchema = [3, n0, _UPIARp,
   0,

@@ -168,9 +168,11 @@ import {
   DurationUnits,
   EgressGatewayBridge$,
   EncoderProfile,
+  EncodingConfig$,
   EncodingName,
   EncodingParameters$,
   EncodingParametersRequest$,
+  EncodingProfile,
   Encryption$,
   Entitlement$,
   EntitlementStatus,
@@ -327,6 +329,11 @@ import {
   MulticastSourceSettings$,
   NdiConfig$,
   NdiDiscoveryServerConfig$,
+  NdiMediaInfo$,
+  NdiMediaStreamInfo$,
+  NdiSourceInfo$,
+  NdiSourceMetadataInfo$,
+  NdiSourceSettings$,
   NdiState,
   NetworkInterfaceType,
   NotFoundException,
@@ -584,6 +591,7 @@ import {
   waitForOutputDeleted,
   waitForOutputRouted,
   waitForOutputStandby,
+  waitForOutputUnrouted,
   waitUntilFlowActive,
   waitUntilFlowDeleted,
   waitUntilFlowStandby,
@@ -594,6 +602,7 @@ import {
   waitUntilOutputDeleted,
   waitUntilOutputRouted,
   waitUntilOutputStandby,
+  waitUntilOutputUnrouted,
   WindowMaintenanceSchedule$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -853,6 +862,7 @@ assert(typeof DescribeReservationResponse$ === "object");
 assert(typeof DestinationConfiguration$ === "object");
 assert(typeof DestinationConfigurationRequest$ === "object");
 assert(typeof EgressGatewayBridge$ === "object");
+assert(typeof EncodingConfig$ === "object");
 assert(typeof EncodingParameters$ === "object");
 assert(typeof EncodingParametersRequest$ === "object");
 assert(typeof Encryption$ === "object");
@@ -951,6 +961,11 @@ assert(typeof MonitoringConfig$ === "object");
 assert(typeof MulticastSourceSettings$ === "object");
 assert(typeof NdiConfig$ === "object");
 assert(typeof NdiDiscoveryServerConfig$ === "object");
+assert(typeof NdiMediaInfo$ === "object");
+assert(typeof NdiMediaStreamInfo$ === "object");
+assert(typeof NdiSourceInfo$ === "object");
+assert(typeof NdiSourceMetadataInfo$ === "object");
+assert(typeof NdiSourceSettings$ === "object");
 assert(typeof Offering$ === "object");
 assert(typeof Output$ === "object");
 assert(typeof PreferredDayTimeMaintenanceConfiguration$ === "object");
@@ -1094,6 +1109,7 @@ assert(typeof DesiredState === "object");
 assert(typeof DurationUnits === "object");
 assert(typeof EncoderProfile === "object");
 assert(typeof EncodingName === "object");
+assert(typeof EncodingProfile === "object");
 assert(typeof EntitlementStatus === "object");
 assert(typeof FailoverInputSourcePriorityMode === "object");
 assert(typeof FailoverMode === "object");
@@ -1179,6 +1195,7 @@ assert(typeof waitForOutputActive === "function");
 assert(typeof waitForOutputDeleted === "function");
 assert(typeof waitForOutputRouted === "function");
 assert(typeof waitForOutputStandby === "function");
+assert(typeof waitForOutputUnrouted === "function");
 assert(typeof waitUntilFlowActive === "function");
 assert(typeof waitUntilFlowDeleted === "function");
 assert(typeof waitUntilFlowStandby === "function");
@@ -1189,6 +1206,7 @@ assert(typeof waitUntilOutputActive === "function");
 assert(typeof waitUntilOutputDeleted === "function");
 assert(typeof waitUntilOutputRouted === "function");
 assert(typeof waitUntilOutputStandby === "function");
+assert(typeof waitUntilOutputUnrouted === "function");
 // paginators
 assert(typeof paginateListBridges === "function");
 assert(typeof paginateListEntitlements === "function");

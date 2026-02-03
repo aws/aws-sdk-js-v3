@@ -135,6 +135,7 @@ export const ConfigCapabilityType = {
   ANTENNA_UPLINK: "antenna-uplink",
   DATAFLOW_ENDPOINT: "dataflow-endpoint",
   S3_RECORDING: "s3-recording",
+  TELEMETRY_SINK: "telemetry-sink",
   TRACKING: "tracking",
   UPLINK_ECHO: "uplink-echo",
 } as const;
@@ -142,6 +143,18 @@ export const ConfigCapabilityType = {
  * @public
  */
 export type ConfigCapabilityType = (typeof ConfigCapabilityType)[keyof typeof ConfigCapabilityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TelemetrySinkType = {
+  KINESIS_DATA_STREAM: "KINESIS_DATA_STREAM",
+} as const;
+/**
+ * @public
+ */
+export type TelemetrySinkType = (typeof TelemetrySinkType)[keyof typeof TelemetrySinkType];
 
 /**
  * @public

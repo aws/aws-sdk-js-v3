@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CopyImageSetCommand,
@@ -85,6 +85,10 @@ import {
   UpdateImageSetMetadataCommandOutput,
 } from "./commands/UpdateImageSetMetadataCommand";
 import { MedicalImagingClient } from "./MedicalImagingClient";
+import { paginateListDatastores } from "./pagination/ListDatastoresPaginator";
+import { paginateListDICOMImportJobs } from "./pagination/ListDICOMImportJobsPaginator";
+import { paginateListImageSetVersions } from "./pagination/ListImageSetVersionsPaginator";
+import { paginateSearchImageSets } from "./pagination/SearchImageSetsPaginator";
 
 const commands = {
   CopyImageSetCommand,
@@ -105,6 +109,12 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateImageSetMetadataCommand,
+};
+const paginators = {
+  paginateListDatastores,
+  paginateListDICOMImportJobs,
+  paginateListImageSetVersions,
+  paginateSearchImageSets,
 };
 
 export interface MedicalImaging {
@@ -414,6 +424,50 @@ export interface MedicalImaging {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateImageSetMetadataCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDatastoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatastoresCommandOutput}.
+   */
+  paginateListDatastores(
+    args?: ListDatastoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatastoresCommandOutput>;
+
+  /**
+   * @see {@link ListDICOMImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDICOMImportJobsCommandOutput}.
+   */
+  paginateListDICOMImportJobs(
+    args: ListDICOMImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDICOMImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListImageSetVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImageSetVersionsCommandOutput}.
+   */
+  paginateListImageSetVersions(
+    args: ListImageSetVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImageSetVersionsCommandOutput>;
+
+  /**
+   * @see {@link SearchImageSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchImageSetsCommandOutput}.
+   */
+  paginateSearchImageSets(
+    args: SearchImageSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchImageSetsCommandOutput>;
 }
 
 /**
@@ -421,4 +475,4 @@ export interface MedicalImaging {
  * @public
  */
 export class MedicalImaging extends MedicalImagingClient implements MedicalImaging {}
-createAggregatedClient(commands, MedicalImaging);
+createAggregatedClient(commands, MedicalImaging, { paginators });

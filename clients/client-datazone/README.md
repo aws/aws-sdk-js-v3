@@ -502,6 +502,13 @@ DeleteConnection
 </details>
 <details>
 <summary>
+DeleteDataExportConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/DeleteDataExportConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/DeleteDataExportConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/DeleteDataExportConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteDataProduct
 </summary>
 

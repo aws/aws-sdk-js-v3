@@ -1,5 +1,28 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.43.1 (2026-01-30)
+
+### Bug Fixes
+
+- Upgraded to smithy-typescript 0.43.1 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0431-2026-01-30))
+
+## 0.43.0 (2026-01-28)
+
+### Features
+
+- Generated clients now have carat `^` version dependencies on most other internal `@aws-sdk/*` packages ([issue #7686](https://github.com/aws/aws-sdk-js-v3/issues/7686))
+
+### Chores
+
+- Upgraded to smithy-typescript 0.43.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0430-2026-01-28))
+
+## 0.42.0 (2026-01-15)
+
+### Chores
+
+- Upgraded to smithy-typescript 0.42.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0420-2026-01-15))
+- This change includes generating clients with a minimum required Node.js version of 20.
+
 ## 0.41.1 (2026-01-08)
 
 ### Fixes

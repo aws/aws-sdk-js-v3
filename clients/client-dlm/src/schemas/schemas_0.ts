@@ -173,22 +173,22 @@ import {
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
   [_N, _CRC],
-  [0, () => CrossRegionCopyActionList]
+  [0, () => CrossRegionCopyActionList], 2
 ];
 export var ArchiveRetainRule$: StaticStructureSchema = [3, n0, _ARR,
   0,
   [_RAT],
-  [() => RetentionArchiveTier$]
+  [() => RetentionArchiveTier$], 1
 ];
 export var ArchiveRule$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_RR],
-  [() => ArchiveRetainRule$]
+  [() => ArchiveRetainRule$], 1
 ];
 export var CreateLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _CLPR,
   0,
   [_ERA, _D, _S, _PD, _T, _DP, _CI, _RI, _CT, _ED, _CRCT, _E],
-  [0, 0, 0, () => PolicyDetails$, 128 | 0, 0, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions$]
+  [0, 0, 0, () => PolicyDetails$, 128 | 0, 0, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions$], 3
 ];
 export var CreateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _CLPRr,
   0,
@@ -203,7 +203,7 @@ export var CreateRule$: StaticStructureSchema = [3, n0, _CR,
 export var CrossRegionCopyAction$: StaticStructureSchema = [3, n0, _CRCA,
   0,
   [_Ta, _EC, _RR],
-  [0, () => EncryptionConfiguration$, () => CrossRegionCopyRetainRule$]
+  [0, () => EncryptionConfiguration$, () => CrossRegionCopyRetainRule$], 2
 ];
 export var CrossRegionCopyDeprecateRule$: StaticStructureSchema = [3, n0, _CRCDR,
   0,
@@ -217,8 +217,8 @@ export var CrossRegionCopyRetainRule$: StaticStructureSchema = [3, n0, _CRCRR,
 ];
 export var CrossRegionCopyRule$: StaticStructureSchema = [3, n0, _CRCR,
   0,
-  [_TR, _Ta, _En, _CA, _CT, _RR, _DR],
-  [0, 0, 2, 0, 2, () => CrossRegionCopyRetainRule$, () => CrossRegionCopyDeprecateRule$]
+  [_En, _TR, _Ta, _CA, _CT, _RR, _DR],
+  [2, 0, 0, 0, 2, () => CrossRegionCopyRetainRule$, () => CrossRegionCopyDeprecateRule$], 1
 ];
 export var CrossRegionCopyTarget$: StaticStructureSchema = [3, n0, _CRCTr,
   0,
@@ -228,7 +228,7 @@ export var CrossRegionCopyTarget$: StaticStructureSchema = [3, n0, _CRCTr,
 export var DeleteLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _DLPR,
   0,
   [_PI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _DLPRe,
   0,
@@ -243,17 +243,17 @@ export var DeprecateRule$: StaticStructureSchema = [3, n0, _DR,
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_En, _CA],
-  [2, 0]
+  [2, 0], 1
 ];
 export var EventParameters$: StaticStructureSchema = [3, n0, _EP,
   0,
   [_ET, _SO, _DRe],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 3
 ];
 export var EventSource$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_Ty, _P],
-  [0, () => EventParameters$]
+  [0, () => EventParameters$], 1
 ];
 export var Exclusions$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -262,8 +262,8 @@ export var Exclusions$: StaticStructureSchema = [3, n0, _E,
 ];
 export var FastRestoreRule$: StaticStructureSchema = [3, n0, _FRR,
   0,
-  [_C, _I, _IU, _AZ],
-  [1, 1, 0, 64 | 0]
+  [_AZ, _C, _I, _IU],
+  [64 | 0, 1, 1, 0], 1
 ];
 export var GetLifecyclePoliciesRequest$: StaticStructureSchema = [3, n0, _GLPR,
   0,
@@ -278,7 +278,7 @@ export var GetLifecyclePoliciesResponse$: StaticStructureSchema = [3, n0, _GLPRe
 export var GetLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _GLPRet,
   0,
   [_PI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _GLPReti,
   0,
@@ -316,7 +316,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -356,23 +356,23 @@ export var Schedule$: StaticStructureSchema = [3, n0, _Sche,
 ];
 export var Script$: StaticStructureSchema = [3, n0, _Scr,
   0,
-  [_St, _EHS, _EH, _EOOSF, _ETxe, _MRC],
-  [64 | 0, 0, 0, 2, 1, 1]
+  [_EH, _St, _EHS, _EOOSF, _ETxe, _MRC],
+  [0, 64 | 0, 0, 2, 1, 1], 1
 ];
 export var ShareRule$: StaticStructureSchema = [3, n0, _SRh,
   0,
   [_TA, _UI, _UIU],
-  [64 | 0, 1, 0]
+  [64 | 0, 1, 0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -382,7 +382,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -392,7 +392,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _ULPR,
   0,
   [_PI, _ERA, _S, _D, _PD, _CI, _RI, _CT, _ED, _CRCT, _E],
-  [[0, 1], 0, 0, 0, () => PolicyDetails$, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions$]
+  [[0, 1], 0, 0, 0, () => PolicyDetails$, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions$], 1
 ];
 export var UpdateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _ULPRp,
   0,

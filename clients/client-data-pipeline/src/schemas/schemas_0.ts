@@ -175,7 +175,7 @@ import {
 export var ActivatePipelineInput$: StaticStructureSchema = [3, n0, _API,
   0,
   [_pI, _pV, _sT],
-  [0, () => ParameterValueList, 4]
+  [0, () => ParameterValueList, 4], 1
 ];
 export var ActivatePipelineOutput$: StaticStructureSchema = [3, n0, _APO,
   0,
@@ -185,7 +185,7 @@ export var ActivatePipelineOutput$: StaticStructureSchema = [3, n0, _APO,
 export var AddTagsInput$: StaticStructureSchema = [3, n0, _ATI,
   0,
   [_pI, _t],
-  [0, () => tagList]
+  [0, () => tagList], 2
 ];
 export var AddTagsOutput$: StaticStructureSchema = [3, n0, _ATO,
   0,
@@ -195,17 +195,17 @@ export var AddTagsOutput$: StaticStructureSchema = [3, n0, _ATO,
 export var CreatePipelineInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
   [_n, _uI, _d, _t],
-  [0, 0, 0, () => tagList]
+  [0, 0, 0, () => tagList], 2
 ];
 export var CreatePipelineOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
   [_pI],
-  [0]
+  [0], 1
 ];
 export var DeactivatePipelineInput$: StaticStructureSchema = [3, n0, _DPI,
   0,
   [_pI, _cA],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeactivatePipelineOutput$: StaticStructureSchema = [3, n0, _DPO,
   0,
@@ -215,47 +215,47 @@ export var DeactivatePipelineOutput$: StaticStructureSchema = [3, n0, _DPO,
 export var DeletePipelineInput$: StaticStructureSchema = [3, n0, _DPIe,
   0,
   [_pI],
-  [0]
+  [0], 1
 ];
 export var DescribeObjectsInput$: StaticStructureSchema = [3, n0, _DOI,
   0,
   [_pI, _oI, _eE, _m],
-  [0, 64 | 0, 2, 0]
+  [0, 64 | 0, 2, 0], 2
 ];
 export var DescribeObjectsOutput$: StaticStructureSchema = [3, n0, _DOO,
   0,
   [_pO, _m, _hMR],
-  [() => PipelineObjectList, 0, 2]
+  [() => PipelineObjectList, 0, 2], 1
 ];
 export var DescribePipelinesInput$: StaticStructureSchema = [3, n0, _DPIes,
   0,
   [_pIi],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribePipelinesOutput$: StaticStructureSchema = [3, n0, _DPOe,
   0,
   [_pDL],
-  [() => PipelineDescriptionList]
+  [() => PipelineDescriptionList], 1
 ];
 export var EvaluateExpressionInput$: StaticStructureSchema = [3, n0, _EEI,
   0,
   [_pI, _oIb, _e],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var EvaluateExpressionOutput$: StaticStructureSchema = [3, n0, _EEO,
   0,
   [_eEv],
-  [0]
+  [0], 1
 ];
 export var Field$: StaticStructureSchema = [3, n0, _F,
   0,
   [_k, _sV, _rV],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var GetPipelineDefinitionInput$: StaticStructureSchema = [3, n0, _GPDI,
   0,
   [_pI, _v],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetPipelineDefinitionOutput$: StaticStructureSchema = [3, n0, _GPDO,
   0,
@@ -287,7 +287,7 @@ export var ListPipelinesInput$: StaticStructureSchema = [3, n0, _LPI,
 export var ListPipelinesOutput$: StaticStructureSchema = [3, n0, _LPO,
   0,
   [_pIL, _m, _hMR],
-  [() => pipelineList, 0, 2]
+  [() => pipelineList, 0, 2], 1
 ];
 export var Operator$: StaticStructureSchema = [3, n0, _O,
   0,
@@ -297,17 +297,17 @@ export var Operator$: StaticStructureSchema = [3, n0, _O,
 export var ParameterAttribute$: StaticStructureSchema = [3, n0, _PA,
   0,
   [_k, _sV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ParameterObject$: StaticStructureSchema = [3, n0, _PO,
   0,
   [_i, _a],
-  [0, () => ParameterAttributeList]
+  [0, () => ParameterAttributeList], 2
 ];
 export var ParameterValue$: StaticStructureSchema = [3, n0, _PV,
   0,
   [_i, _sV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PipelineDeletedException$: StaticErrorSchema = [-3, n0, _PDE,
   { [_er]: _c },
@@ -318,7 +318,7 @@ TypeRegistry.for(n0).registerError(PipelineDeletedException$, PipelineDeletedExc
 export var PipelineDescription$: StaticStructureSchema = [3, n0, _PD,
   0,
   [_pI, _n, _f, _d, _t],
-  [0, 0, () => fieldList, 0, () => tagList]
+  [0, 0, () => fieldList, 0, () => tagList], 3
 ];
 export var PipelineIdName$: StaticStructureSchema = [3, n0, _PIN,
   0,
@@ -334,12 +334,12 @@ TypeRegistry.for(n0).registerError(PipelineNotFoundException$, PipelineNotFoundE
 export var PipelineObject$: StaticStructureSchema = [3, n0, _POi,
   0,
   [_i, _n, _f],
-  [0, 0, () => fieldList]
+  [0, 0, () => fieldList], 3
 ];
 export var PollForTaskInput$: StaticStructureSchema = [3, n0, _PFTI,
   0,
   [_wG, _h, _iI],
-  [0, 0, () => InstanceIdentity$]
+  [0, 0, () => InstanceIdentity$], 1
 ];
 export var PollForTaskOutput$: StaticStructureSchema = [3, n0, _PFTO,
   0,
@@ -349,12 +349,12 @@ export var PollForTaskOutput$: StaticStructureSchema = [3, n0, _PFTO,
 export var PutPipelineDefinitionInput$: StaticStructureSchema = [3, n0, _PPDI,
   0,
   [_pI, _pO, _pOa, _pV],
-  [0, () => PipelineObjectList, () => ParameterObjectList, () => ParameterValueList]
+  [0, () => PipelineObjectList, () => ParameterObjectList, () => ParameterValueList], 2
 ];
 export var PutPipelineDefinitionOutput$: StaticStructureSchema = [3, n0, _PPDO,
   0,
-  [_vE, _vW, _err],
-  [() => ValidationErrors, () => ValidationWarnings, 2]
+  [_err, _vE, _vW],
+  [2, () => ValidationErrors, () => ValidationWarnings], 1
 ];
 export var Query$: StaticStructureSchema = [3, n0, _Q,
   0,
@@ -363,8 +363,8 @@ export var Query$: StaticStructureSchema = [3, n0, _Q,
 ];
 export var QueryObjectsInput$: StaticStructureSchema = [3, n0, _QOI,
   0,
-  [_pI, _q, _sp, _m, _l],
-  [0, () => Query$, 0, 0, 1]
+  [_pI, _sp, _q, _m, _l],
+  [0, 0, () => Query$, 0, 1], 2
 ];
 export var QueryObjectsOutput$: StaticStructureSchema = [3, n0, _QOO,
   0,
@@ -374,7 +374,7 @@ export var QueryObjectsOutput$: StaticStructureSchema = [3, n0, _QOO,
 export var RemoveTagsInput$: StaticStructureSchema = [3, n0, _RTI,
   0,
   [_pI, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RemoveTagsOutput$: StaticStructureSchema = [3, n0, _RTO,
   0,
@@ -384,22 +384,22 @@ export var RemoveTagsOutput$: StaticStructureSchema = [3, n0, _RTO,
 export var ReportTaskProgressInput$: StaticStructureSchema = [3, n0, _RTPI,
   0,
   [_tI, _f],
-  [0, () => fieldList]
+  [0, () => fieldList], 1
 ];
 export var ReportTaskProgressOutput$: StaticStructureSchema = [3, n0, _RTPO,
   0,
   [_ca],
-  [2]
+  [2], 1
 ];
 export var ReportTaskRunnerHeartbeatInput$: StaticStructureSchema = [3, n0, _RTRHI,
   0,
   [_tIa, _wG, _h],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ReportTaskRunnerHeartbeatOutput$: StaticStructureSchema = [3, n0, _RTRHO,
   0,
   [_te],
-  [2]
+  [2], 1
 ];
 export var Selector$: StaticStructureSchema = [3, n0, _S,
   0,
@@ -409,12 +409,12 @@ export var Selector$: StaticStructureSchema = [3, n0, _S,
 export var SetStatusInput$: StaticStructureSchema = [3, n0, _SSI,
   0,
   [_pI, _oI, _st],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 3
 ];
 export var SetTaskStatusInput$: StaticStructureSchema = [3, n0, _STSI,
   0,
   [_tI, _tS, _eI, _eM, _eST],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 2
 ];
 export var SetTaskStatusOutput$: StaticStructureSchema = [3, n0, _STSO,
   0,
@@ -424,7 +424,7 @@ export var SetTaskStatusOutput$: StaticStructureSchema = [3, n0, _STSO,
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _val],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TaskNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
   { [_er]: _c },
@@ -440,12 +440,12 @@ export var TaskObject$: StaticStructureSchema = [3, n0, _TO,
 export var ValidatePipelineDefinitionInput$: StaticStructureSchema = [3, n0, _VPDI,
   0,
   [_pI, _pO, _pOa, _pV],
-  [0, () => PipelineObjectList, () => ParameterObjectList, () => ParameterValueList]
+  [0, () => PipelineObjectList, () => ParameterObjectList, () => ParameterValueList], 2
 ];
 export var ValidatePipelineDefinitionOutput$: StaticStructureSchema = [3, n0, _VPDO,
   0,
-  [_vE, _vW, _err],
-  [() => ValidationErrors, () => ValidationWarnings, 2]
+  [_err, _vE, _vW],
+  [2, () => ValidationErrors, () => ValidationWarnings], 1
 ];
 export var ValidationError$: StaticStructureSchema = [3, n0, _VE,
   0,

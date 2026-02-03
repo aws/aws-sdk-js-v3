@@ -43,6 +43,11 @@ export interface ListInstanceTypesCommandOutput extends ListInstanceTypesRespons
  * const input = { // ListInstanceTypesRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   InstanceConfigurationFilter: { // InstanceConfigurationFilter
+ *     BillingMode: "MONTHLY" || "HOURLY", // required
+ *     PlatformType: "Windows" || "Windows BYOL" || "Linux/UNIX" || "Ubuntu Pro Linux" || "Red Hat Enterprise Linux" || "Red Hat BYOL Linux" || "SUSE Linux", // required
+ *     Tenancy: "SHARED" || "DEDICATED", // required
+ *   },
  * };
  * const command = new ListInstanceTypesCommand(input);
  * const response = await client.send(command);
@@ -50,6 +55,13 @@ export interface ListInstanceTypesCommandOutput extends ListInstanceTypesRespons
  * //   InstanceTypes: [ // InstanceTypes // required
  * //     { // InstanceTypeInfo
  * //       InstanceType: "STRING_VALUE",
+ * //       SupportedInstanceConfigurations: [ // SupportedInstanceConfigurations
+ * //         { // SupportedInstanceConfiguration
+ * //           BillingMode: "MONTHLY" || "HOURLY",
+ * //           PlatformType: "Windows" || "Windows BYOL" || "Linux/UNIX" || "Ubuntu Pro Linux" || "Red Hat Enterprise Linux" || "Red Hat BYOL Linux" || "SUSE Linux",
+ * //           Tenancy: "SHARED" || "DEDICATED",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

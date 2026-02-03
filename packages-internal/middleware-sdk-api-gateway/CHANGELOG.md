@@ -1,0 +1,2713 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+
+
+
+# 3.972.3 (2026-01-30)
+### Chores
+* use yarn workspace versioning for monorepo packages ([#7693](https://github.com/aws/aws-sdk-js-v3/issues/7693)) ([b951130](https://github.com/aws/aws-sdk-js-v3/commit/b951130e92a694d06656632ec6ccc940cbd8fb3f))
+
+
+
+# 3.972.2 (2026-01-25)
+### Chores
+* **packages-internal:** update metadata url paths ([#7679](https://github.com/aws/aws-sdk-js-v3/issues/7679)) ([c3a351c](https://github.com/aws/aws-sdk-js-v3/commit/c3a351c1fdbb8e8124ddadfd07a2d29f88ec47f1))
+
+
+
+# 3.972.1 (2026-01-21)
+### Chores
+* **packages:** move package folders for internal pkgs ([#7670](https://github.com/aws/aws-sdk-js-v3/issues/7670)) ([ce66606](https://github.com/aws/aws-sdk-js-v3/commit/ce66606d7028a9a2841fc27acdd4bab3a0917546))
+
+
+
+# [3.972.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.971.0...v3.972.0) (2026-01-20)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.969.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.968.0...v3.969.0) (2026-01-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.968.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.967.0...v3.968.0) (2026-01-13)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.965.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.964.0...v3.965.0) (2026-01-07)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.957.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.956.0...v3.957.0) (2025-12-22)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.953.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.952.0...v3.953.0) (2025-12-16)
+
+
+### Features
+
+* **clients:** allow protocol selection by class constructor ([#7568](https://github.com/aws/aws-sdk-js-v3/issues/7568)) ([5c5fd2e](https://github.com/aws/aws-sdk-js-v3/commit/5c5fd2e627109cbcdb40ecf0947a5b638d517101))
+
+
+
+
+
+# [3.936.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.935.0...v3.936.0) (2025-11-19)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.930.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.929.0...v3.930.0) (2025-11-12)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.922.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.921.0...v3.922.0) (2025-10-31)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.921.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.920.0...v3.921.0) (2025-10-30)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.920.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.919.0...v3.920.0) (2025-10-29)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.914.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.913.0...v3.914.0) (2025-10-21)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.910.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.909.0...v3.910.0) (2025-10-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.901.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.900.0...v3.901.0) (2025-10-01)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.893.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.892.0...v3.893.0) (2025-09-19)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.891.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.890.0...v3.891.0) (2025-09-17)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.887.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.886.0...v3.887.0) (2025-09-11)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.873.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.872.0...v3.873.0) (2025-08-21)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.862.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.861.0...v3.862.0) (2025-08-06)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.840.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.839.0...v3.840.0) (2025-06-30)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.731.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.730.0...v3.731.0) (2025-01-17)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.667.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.666.0...v3.667.0) (2024-10-08)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.664.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.663.0...v3.664.0) (2024-10-03)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** enable overriding hoistable headers ([#6535](https://github.com/aws/aws-sdk-js-v3/issues/6535)) ([3c2e59c](https://github.com/aws/aws-sdk-js-v3/commit/3c2e59cfddd753d1c9739332b9195ae5eadde4df))
+
+
+
+
+
+# [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
+
+
+### Features
+
+* **endpoints:** codegen sync for request creation performance improvements ([#6449](https://github.com/aws/aws-sdk-js-v3/issues/6449)) ([c8e8f28](https://github.com/aws/aws-sdk-js-v3/commit/c8e8f28d0714c8165162e1411b5f740ba729a93a))
+
+
+
+
+
+# [3.620.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.619.0...v3.620.0) (2024-07-25)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.580.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.579.0...v3.580.0) (2024-05-20)
+
+
+### Bug Fixes
+
+* **middleware-sdk-api-gateway:** only set default accept header if none provided ([#6110](https://github.com/aws/aws-sdk-js-v3/issues/6110)) ([851e675](https://github.com/aws/aws-sdk-js-v3/commit/851e675b4c781d9707deefa169aab3d4425885d0))
+
+
+
+
+
+# [3.577.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.576.0...v3.577.0) (2024-05-15)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.575.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.574.0...v3.575.0) (2024-05-13)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.567.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.566.0...v3.567.0) (2024-05-01)
+
+
+### Features
+
+* end support for Node.js 14.x ([#6034](https://github.com/aws/aws-sdk-js-v3/issues/6034)) ([d196411](https://github.com/aws/aws-sdk-js-v3/commit/d19641119f07d62c29f12348f448cd834d841533))
+
+
+
+
+
+# [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.533.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.532.0...v3.533.0) (2024-03-13)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.521.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.520.0...v3.521.0) (2024-02-23)
+
+
+### Features
+
+* requestHandler ctor param pass-through ([#5820](https://github.com/aws/aws-sdk-js-v3/issues/5820)) ([9fec71d](https://github.com/aws/aws-sdk-js-v3/commit/9fec71d1933cd8e3db118c164bca16edc2305532))
+
+
+
+
+
+# [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.502.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.501.0...v3.502.0) (2024-01-29)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
+
+
+### Bug Fixes
+
+* get full list of exports for esm compat in dist-cjs ([#5694](https://github.com/aws/aws-sdk-js-v3/issues/5694)) ([5d26da6](https://github.com/aws/aws-sdk-js-v3/commit/5d26da6d07b593ae286ca674fb3cbff7c833cbb0))
+* revert "feat(credential-provider-node): use dynamic import for credential providers ([#5677](https://github.com/aws/aws-sdk-js-v3/issues/5677))" ([4cea583](https://github.com/aws/aws-sdk-js-v3/commit/4cea5837eea17e0b75dd272af60f3069f94d962e))
+
+
+### Features
+
+* **credential-provider-node:** use dynamic import for credential providers ([#5677](https://github.com/aws/aws-sdk-js-v3/issues/5677)) ([7841411](https://github.com/aws/aws-sdk-js-v3/commit/7841411ed9c941f3150b02d232e947c3984cfdd9))
+
+
+
+
+
+# [3.495.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.494.0...v3.495.0) (2024-01-18)
+
+
+### Features
+
+* use bundled dist-cjs build ([#5687](https://github.com/aws/aws-sdk-js-v3/issues/5687)) ([5f79e22](https://github.com/aws/aws-sdk-js-v3/commit/5f79e225e32f0b2ed5b432ae4e4108663eb0acfb))
+
+
+
+
+
+# [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
+
+
+### Features
+
+* **credential-providers:** add credentialScope field ([#5606](https://github.com/aws/aws-sdk-js-v3/issues/5606)) ([04c1459](https://github.com/aws/aws-sdk-js-v3/commit/04c14592898ac63ed87d47f2a53320ccaa991083))
+
+
+
+
+
+# [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.460.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.459.0...v3.460.0) (2023-11-28)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.449.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.448.0...v3.449.0) (2023-11-10)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
+
+
+### Bug Fixes
+
+* **codegen:** use partial record for enum keyed types ([#5391](https://github.com/aws/aws-sdk-js-v3/issues/5391)) ([70c2107](https://github.com/aws/aws-sdk-js-v3/commit/70c2107b970d035bfedb211278c88fdbfc2e5334))
+
+
+
+
+
+# [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.413.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.412.0...v3.413.0) (2023-09-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.387.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.386.0...v3.387.0) (2023-08-08)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.378.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.377.0...v3.378.0) (2023-07-26)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.369.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.368.0...v3.369.0) (2023-07-11)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.363.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.362.0...v3.363.0) (2023-06-29)
+
+
+### Features
+
+* **clients:** use migrated [@smithy](https://github.com/smithy) packages ([#4873](https://github.com/aws/aws-sdk-js-v3/issues/4873)) ([d036e2e](https://github.com/aws/aws-sdk-js-v3/commit/d036e2e43cd33cfd497871f97dde907c3078b2fd))
+
+
+
+
+
+# [3.357.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.356.0...v3.357.0) (2023-06-21)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.347.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.346.0...v3.347.0) (2023-06-06)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.342.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.341.0...v3.342.0) (2023-05-30)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.341.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.340.0...v3.341.0) (2023-05-26)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.338.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.337.0...v3.338.0) (2023-05-23)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.337.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.336.0...v3.337.0) (2023-05-22)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.329.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.328.0...v3.329.0) (2023-05-08)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.326.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.325.0...v3.326.0) (2023-05-03)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.325.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.324.0...v3.325.0) (2023-05-02)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
+
+
+### Bug Fixes
+
+* use updated dist glob pattern in package.json ([#4628](https://github.com/aws/aws-sdk-js-v3/issues/4628)) ([352393d](https://github.com/aws/aws-sdk-js-v3/commit/352393dcdba5ba16dca589c265c40e22913c7f2b))
+
+
+
+
+
+# [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.295.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.294.0...v3.295.0) (2023-03-20)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.292.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.291.0...v3.292.0) (2023-03-15)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.289.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.288.0...v3.289.0) (2023-03-10)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.282.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.281.0...v3.282.0) (2023-03-01)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.272.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.271.0...v3.272.0) (2023-02-15)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.271.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.270.0...v3.271.0) (2023-02-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.267.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.1...v3.267.0) (2023-02-08)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+## [3.266.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.266.0...v3.266.1) (2023-02-07)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.266.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.265.0...v3.266.0) (2023-02-06)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.257.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.256.0...v3.257.0) (2023-01-24)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.254.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.253.0...v3.254.0) (2023-01-19)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.224.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.223.0...v3.224.0) (2022-12-05)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.222.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.221.0...v3.222.0) (2022-12-01)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.215.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.214.0...v3.215.0) (2022-11-21)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.208.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.207.0...v3.208.0) (2022-11-10)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.201.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.200.0...v3.201.0) (2022-11-01)
+
+
+### Features
+
+* end support for Node.js 12.x ([#4123](https://github.com/aws/aws-sdk-js-v3/issues/4123)) ([83f913e](https://github.com/aws/aws-sdk-js-v3/commit/83f913ec2ac3878d8726c6964f585550dc5caf3e))
+
+
+
+
+
+# [3.200.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.199.0...v3.200.0) (2022-10-31)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.198.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.197.0...v3.198.0) (2022-10-27)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.197.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.196.0...v3.197.0) (2022-10-26)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.193.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.192.0...v3.193.0) (2022-10-20)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.190.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.189.0...v3.190.0) (2022-10-17)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.188.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.187.0...v3.188.0) (2022-10-13)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.186.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.185.0...v3.186.0) (2022-10-06)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.183.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.182.0...v3.183.0) (2022-10-03)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.177.0...v3.178.0) (2022-09-23)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.171.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.170.0...v3.171.0) (2022-09-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.170.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.169.0...v3.170.0) (2022-09-13)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.168.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.167.0...v3.168.0) (2022-09-09)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.162.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.161.0...v3.162.0) (2022-08-31)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.160.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.159.0...v3.160.0) (2022-08-29)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.159.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.158.0...v3.159.0) (2022-08-26)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.126.0...v3.127.0) (2022-07-11)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.109.0...v3.110.0) (2022-06-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.108.1...v3.109.0) (2022-06-13)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.55.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.1...v3.55.0) (2022-03-21)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+## [3.54.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.0...v3.54.1) (2022-03-15)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.54.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.53.1...v3.54.0) (2022-03-11)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.53.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.52.0...v3.53.0) (2022-02-24)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.52.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.51.0...v3.52.0) (2022-02-18)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.50.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.49.0...v3.50.0) (2022-02-08)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.49.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.48.0...v3.49.0) (2022-01-29)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+## [3.47.2](https://github.com/aws/aws-sdk-js-v3/compare/v3.47.1...v3.47.2) (2022-01-21)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+## [3.47.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.47.0-release-test-1...v3.47.1) (2022-01-20)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.47.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.46.0...v3.47.0) (2022-01-15)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.46.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.45.0...v3.46.0) (2022-01-07)
+
+
+### Features
+
+* **packages:** end support for Node.js 10.x ([#3141](https://github.com/aws/aws-sdk-js-v3/issues/3141)) ([1a62865](https://github.com/aws/aws-sdk-js-v3/commit/1a6286513f7cdb556708845c512861c5f92eb883))
+
+
+
+
+
+# [3.40.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.39.0...v3.40.0) (2021-11-05)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.38.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.37.0...v3.38.0) (2021-10-22)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.37.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.36.1...v3.37.0) (2021-10-15)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.36.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.35.0...v3.36.0) (2021-10-08)
+
+
+### Features
+
+* publish files in dist-* only ([#2873](https://github.com/aws/aws-sdk-js-v3/issues/2873)) ([53b4243](https://github.com/aws/aws-sdk-js-v3/commit/53b4243b066f25ff2412d5f0dea1036054b2df32))
+
+
+
+
+
+# [3.35.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.34.0...v3.35.0) (2021-10-04)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.34.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.33.0...v3.34.0) (2021-09-24)
+
+
+### Features
+
+* **non-clients:** remove comments from transpiled JS files ([#2813](https://github.com/aws/aws-sdk-js-v3/issues/2813)) ([e6fc7f3](https://github.com/aws/aws-sdk-js-v3/commit/e6fc7f3e0fa74785590ac19e7ed143c916bb9b6e))
+
+
+
+
+
+# [3.32.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.31.0...v3.32.0) (2021-09-17)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.29.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.28.0...v3.29.0) (2021-09-02)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.25.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.24.0...v3.25.0) (2021-08-05)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.23.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.22.0...v3.23.0) (2021-07-23)
+
+
+### Bug Fixes
+
+* bump up tslib to 2.3.0 ([#2601](https://github.com/aws/aws-sdk-js-v3/issues/2601)) ([7040faa](https://github.com/aws/aws-sdk-js-v3/commit/7040faac07976c1dcfd5240675b82a2f275b2a55))
+
+
+
+
+
+# [3.22.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.21.0...v3.22.0) (2021-07-16)
+
+
+### Bug Fixes
+
+* **clients:** prefix `dist/` for typesVersions TS<4 ([#2580](https://github.com/aws/aws-sdk-js-v3/issues/2580)) ([dff5cd4](https://github.com/aws/aws-sdk-js-v3/commit/dff5cd4b6fa00453e938ce8f238c1542ee7ba3d6))
+
+
+
+
+
+# [3.20.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.19.0...v3.20.0) (2021-07-02)
+
+
+### Bug Fixes
+
+* replace prepublishOnly script with downlevel-dts ([#2537](https://github.com/aws/aws-sdk-js-v3/issues/2537)) ([63818a1](https://github.com/aws/aws-sdk-js-v3/commit/63818a1e47b08af56f092031a01bbbff0a9af590))
+
+
+
+
+
+# [3.18.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.17.0...v3.18.0) (2021-06-04)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.15.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.14.0...v3.15.0) (2021-05-10)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+## [3.13.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.13.0...v3.13.1) (2021-04-22)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.12.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.11.0...v3.12.0) (2021-04-09)
+
+
+### Bug Fixes
+
+* run downlevel-dts in prepublishOnly ([#2218](https://github.com/aws/aws-sdk-js-v3/issues/2218)) ([0745502](https://github.com/aws/aws-sdk-js-v3/commit/0745502dcf819460ee1d81362470859674c757a7))
+
+
+
+
+
+# [3.10.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.9.0...v3.10.0) (2021-03-26)
+
+
+### Features
+
+* use ts-jest for running jest tests ([#2088](https://github.com/aws/aws-sdk-js-v3/issues/2088)) ([456002c](https://github.com/aws/aws-sdk-js-v3/commit/456002cf7fa16864b72c3c279b094886a42abddb))
+
+
+
+
+
+## [3.6.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.6.0...v3.6.1) (2021-02-22)
+
+
+### Bug Fixes
+
+* update references of default branch from master to main ([#2057](https://github.com/aws/aws-sdk-js-v3/issues/2057)) ([59b8b58](https://github.com/aws/aws-sdk-js-v3/commit/59b8b58c3a8c057b36abfaa59bae3a6ffb068cf1))
+
+
+
+
+
+# [3.5.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.4.1...v3.5.0) (2021-02-12)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+## [3.4.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.4.0...v3.4.1) (2021-01-29)
+
+
+### Bug Fixes
+
+* **clients:** use TS 3.4 compatible types for TS 3.9 ([#1978](https://github.com/aws/aws-sdk-js-v3/issues/1978)) ([8bced5c](https://github.com/aws/aws-sdk-js-v3/commit/8bced5c32b9dbc68f1065054d796cb0b8b87bcc4))
+
+
+
+
+
+# [3.4.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.3.0...v3.4.0) (2021-01-28)
+
+
+### Features
+
+* **middleware-stack:** allow adding middleware to override an existing one ([#1964](https://github.com/aws/aws-sdk-js-v3/issues/1964)) ([9c21f14](https://github.com/aws/aws-sdk-js-v3/commit/9c21f14412f2b1f591422f3c67dedbe886db723b)), closes [#1883](https://github.com/aws/aws-sdk-js-v3/issues/1883)
+* use downlevel-dts to generate TS 3.4 compatible types ([#1943](https://github.com/aws/aws-sdk-js-v3/issues/1943)) ([63ad215](https://github.com/aws/aws-sdk-js-v3/commit/63ad2151c8bb7be32ea8838a9b0974806ed3906b))
+
+
+
+
+
+# [3.3.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.2.0...v3.3.0) (2021-01-14)
+
+
+### Bug Fixes
+
+* **clients:** export explicit dependencies on @aws-sdk/types ([#1902](https://github.com/aws/aws-sdk-js-v3/issues/1902)) ([96f1087](https://github.com/aws/aws-sdk-js-v3/commit/96f1087333ba916593d557051297983912b27caa))
+
+
+
+
+
+# [3.2.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1.0...v3.2.0) (2021-01-09)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.1.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.0.0...v3.1.0) (2020-12-23)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [3.0.0](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.10...v3.0.0) (2020-12-15)
+
+
+### Features
+
+* bump version to 3.0.0 ([#1793](https://github.com/aws/aws-sdk-js-v3/issues/1793)) ([d8475f8](https://github.com/aws/aws-sdk-js-v3/commit/d8475f8d972d28fbc15cd7e23abfe18f9eab0644))
+
+
+
+
+
+# [1.0.0-rc.10](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.9...v1.0.0-rc.10) (2020-12-15)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [1.0.0-rc.8](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2020-12-05)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [1.0.0-rc.7](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2020-11-20)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [1.0.0-rc.5](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2020-11-09)
+
+
+### Bug Fixes
+
+* migrate dev types for packages and lib into package.json devDeps ([#1654](https://github.com/aws/aws-sdk-js-v3/issues/1654)) ([16d7030](https://github.com/aws/aws-sdk-js-v3/commit/16d7030a5976d6671c7346c7fb945fefb547ae0d))
+
+
+
+
+
+# [1.0.0-rc.3](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2020-10-27)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [1.0.0-rc.2](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2020-10-22)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [1.0.0-rc.1](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-gamma.11...v1.0.0-rc.1) (2020-10-19)
+
+
+### Features
+
+* ready for release candidate ([#1578](https://github.com/aws/aws-sdk-js-v3/issues/1578)) ([519f66c](https://github.com/aws/aws-sdk-js-v3/commit/519f66c6388b91d0bd750a511e6d1af56196835e))
+
+
+
+
+
+# [1.0.0-gamma.8](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.7...@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.8) (2020-10-07)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [1.0.0-gamma.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.6...@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.7) (2020-09-01)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.5...@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.6) (2020-08-25)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [1.0.0-gamma.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.4...@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.5) (2020-08-04)
+
+
+### Features
+
+* build command ([#1407](https://github.com/aws/aws-sdk-js-v3/issues/1407)) ([81b2e87](https://github.com/aws/aws-sdk-js-v3/commit/81b2e87067642a8cea8649cbdb2c342ca9fb6ac6))
+
+
+
+
+
+# [1.0.0-gamma.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.3...@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.4) (2020-07-21)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+
+
+
+
+# [1.0.0-gamma.3](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.3) (2020-07-13)
+
+
+### Features
+
+* add code linting and prettify ([#1350](https://github.com/aws/aws-sdk-js-v3/issues/1350)) ([47770fa](https://github.com/aws/aws-sdk-js-v3/commit/47770fa493c3405f193069cd18319882529ff484))
+
+
+
+
+
+# [1.0.0-gamma.2](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.2) (2020-07-08)
+
+
+### Features
+
+* use a common tsconfig for the monorepo ([#1297](https://github.com/aws/aws-sdk-js-v3/issues/1297)) ([16aea66](https://github.com/aws/aws-sdk-js-v3/commit/16aea66d1fc5386680d3e6da9b7dcde78e178bd3))
+
+
+
+# 1.0.0-gamma.1 (2020-05-21)
+
+
+### Features
+
+* bump up to gamma version ([#1192](https://github.com/aws/aws-sdk-js-v3/issues/1192)) ([a609075](https://github.com/aws/aws-sdk-js-v3/commit/a6090754f2a6c21e5b70bf0c8782cc0fbe59ee12))
+
+
+
+# 1.0.0-beta.4 (2020-04-25)
+
+
+
+# 1.0.0-beta.2 (2020-03-28)
+
+
+
+# 1.0.0-beta.1 (2020-03-25)
+
+
+### Features
+
+* bump packages to beta ([#1050](https://github.com/aws/aws-sdk-js-v3/issues/1050)) ([40501d4](https://github.com/aws/aws-sdk-js-v3/commit/40501d4394d04bc1bc91c10136fa48b1d3a67d8f))
+
+
+
+# 1.0.0-alpha.28 (2020-03-20)
+
+
+
+# 1.0.0-alpha.24 (2020-02-19)
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.2 (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84fcfd33148c80e6246bfe45b052302a646))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c3374620cf806d38d68352c62808f9b624579))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920263ce0dd81ab0e9889e2d3e0930507aba))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed45fd5580ef9633da78f13aaa6aa472805))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10cb6b0ebc32004b797556bfc171c96bbf16))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab4ac5343058eaf7d448a428d8c4b72c844))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-gamma.1](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-gamma.1) (2020-05-21)
+
+
+### Features
+
+* bump up to gamma version ([#1192](https://github.com/aws/aws-sdk-js-v3/issues/1192)) ([a609075](https://github.com/aws/aws-sdk-js-v3/commit/a6090754f2a6c21e5b70bf0c8782cc0fbe59ee12))
+
+
+
+# 1.0.0-beta.4 (2020-04-25)
+
+
+
+# 1.0.0-beta.2 (2020-03-28)
+
+
+
+# 1.0.0-beta.1 (2020-03-25)
+
+
+### Features
+
+* bump packages to beta ([#1050](https://github.com/aws/aws-sdk-js-v3/issues/1050)) ([40501d4](https://github.com/aws/aws-sdk-js-v3/commit/40501d4394d04bc1bc91c10136fa48b1d3a67d8f))
+
+
+
+# 1.0.0-alpha.28 (2020-03-20)
+
+
+
+# 1.0.0-alpha.24 (2020-02-19)
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.2 (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84fcfd33148c80e6246bfe45b052302a646))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c3374620cf806d38d68352c62808f9b624579))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920263ce0dd81ab0e9889e2d3e0930507aba))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed45fd5580ef9633da78f13aaa6aa472805))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10cb6b0ebc32004b797556bfc171c96bbf16))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab4ac5343058eaf7d448a428d8c4b72c844))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-beta.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-beta.4) (2020-04-27)
+
+
+### Features
+
+* use exact @aws-sdk/* dependencies ([#1110](https://github.com/aws/aws-sdk-js-v3/issues/1110)) ([bcfd7a2](https://github.com/aws/aws-sdk-js-v3/commit/bcfd7a2faeca3a2605057fd4736d710aa4902b62))
+
+
+
+# 1.0.0-beta.2 (2020-03-28)
+
+
+
+# 1.0.0-beta.1 (2020-03-25)
+
+
+### Features
+
+* bump packages to beta ([#1050](https://github.com/aws/aws-sdk-js-v3/issues/1050)) ([40501d4](https://github.com/aws/aws-sdk-js-v3/commit/40501d4394d04bc1bc91c10136fa48b1d3a67d8f))
+
+
+
+# 1.0.0-alpha.28 (2020-03-20)
+
+
+
+# 1.0.0-alpha.24 (2020-02-19)
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.2 (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84fcfd33148c80e6246bfe45b052302a646))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c3374620cf806d38d68352c62808f9b624579))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920263ce0dd81ab0e9889e2d3e0930507aba))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed45fd5580ef9633da78f13aaa6aa472805))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10cb6b0ebc32004b797556bfc171c96bbf16))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab4ac5343058eaf7d448a428d8c4b72c844))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-beta.3](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-beta.3) (2020-04-25)
+
+
+
+# 1.0.0-beta.2 (2020-03-28)
+
+
+
+# 1.0.0-beta.1 (2020-03-25)
+
+
+### Features
+
+* bump packages to beta ([#1050](https://github.com/aws/aws-sdk-js-v3/issues/1050)) ([40501d4](https://github.com/aws/aws-sdk-js-v3/commit/40501d4394d04bc1bc91c10136fa48b1d3a67d8f))
+
+
+
+# 1.0.0-alpha.28 (2020-03-20)
+
+
+
+# 1.0.0-alpha.24 (2020-02-19)
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.2 (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84fcfd33148c80e6246bfe45b052302a646))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c3374620cf806d38d68352c62808f9b624579))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920263ce0dd81ab0e9889e2d3e0930507aba))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed45fd5580ef9633da78f13aaa6aa472805))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10cb6b0ebc32004b797556bfc171c96bbf16))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab4ac5343058eaf7d448a428d8c4b72c844))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-beta.2](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-beta.2) (2020-03-28)
+
+
+
+# 1.0.0-beta.1 (2020-03-25)
+
+
+### Features
+
+* bump packages to beta ([#1050](https://github.com/aws/aws-sdk-js-v3/issues/1050)) ([40501d4](https://github.com/aws/aws-sdk-js-v3/commit/40501d4394d04bc1bc91c10136fa48b1d3a67d8f))
+
+
+
+# 1.0.0-alpha.28 (2020-03-20)
+
+
+
+# 1.0.0-alpha.24 (2020-02-19)
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.2 (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84fcfd33148c80e6246bfe45b052302a646))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c3374620cf806d38d68352c62808f9b624579))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920263ce0dd81ab0e9889e2d3e0930507aba))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed45fd5580ef9633da78f13aaa6aa472805))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10cb6b0ebc32004b797556bfc171c96bbf16))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab4ac5343058eaf7d448a428d8c4b72c844))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-beta.1](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-beta.1) (2020-03-25)
+
+
+### Features
+
+* bump packages to beta ([#1050](https://github.com/aws/aws-sdk-js-v3/issues/1050)) ([40501d4](https://github.com/aws/aws-sdk-js-v3/commit/40501d4394d04bc1bc91c10136fa48b1d3a67d8f))
+
+
+
+# 1.0.0-alpha.28 (2020-03-20)
+
+
+
+# 1.0.0-alpha.24 (2020-02-19)
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.2 (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84fcfd33148c80e6246bfe45b052302a646))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c3374620cf806d38d68352c62808f9b624579))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920263ce0dd81ab0e9889e2d3e0930507aba))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed45fd5580ef9633da78f13aaa6aa472805))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10cb6b0ebc32004b797556bfc171c96bbf16))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab4ac5343058eaf7d448a428d8c4b72c844))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-alpha.9](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-alpha.9) (2020-03-20)
+
+
+
+# 1.0.0-alpha.24 (2020-02-19)
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.2 (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84fcfd33148c80e6246bfe45b052302a646))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c3374620cf806d38d68352c62808f9b624579))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920263ce0dd81ab0e9889e2d3e0930507aba))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed45fd5580ef9633da78f13aaa6aa472805))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10cb6b0ebc32004b797556bfc171c96bbf16))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab4ac5343058eaf7d448a428d8c4b72c844))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-alpha.8](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-alpha.8) (2020-02-19)
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.2 (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c337))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-alpha.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-alpha.7) (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.2 (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c337))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-alpha.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-alpha.6) (2020-01-22)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.2 (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c337))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-alpha.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-alpha.5) (2020-01-16)
+
+
+
+# 1.0.0-alpha.2 (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c337))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-alpha.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-alpha.4) (2020-01-10)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c337))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-alpha.3](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-alpha.3) (2020-01-10)
+
+
+### Bug Fixes
+
+* accept header typo ([#703](https://github.com/aws/aws-sdk-js-v3/issues/703)) ([b8a8a84](https://github.com/aws/aws-sdk-js-v3/commit/b8a8a84))
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c337))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-alpha.2](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-alpha.2) (2020-01-09)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c337))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [1.0.0-alpha.1](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@1.0.0-alpha.1) (2020-01-08)
+
+
+### Bug Fixes
+
+* acceptsHeader plugin param ([#568](https://github.com/aws/aws-sdk-js-v3/issues/568)) ([8d7c337](https://github.com/aws/aws-sdk-js-v3/commit/8d7c337))
+* add protocol-http dependency to apig mw ([#659](https://github.com/aws/aws-sdk-js-v3/issues/659)) ([6be2920](https://github.com/aws/aws-sdk-js-v3/commit/6be2920))
+
+
+
+# 0.6.0 (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [0.1.0-preview.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.7) (2019-10-30)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [0.1.0-preview.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.6) (2019-10-29)
+
+
+
+# 0.3.0 (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [0.1.0-preview.5](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.5) (2019-09-09)
+
+
+### Features
+
+* commit all clients ([#324](https://github.com/aws/aws-sdk-js-v3/issues/324)) ([cb268ed](https://github.com/aws/aws-sdk-js-v3/commit/cb268ed))
+
+
+
+# 0.2.0 (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [0.1.0-preview.4](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.4) (2019-07-12)
+
+
+### Features
+
+* add npm badges for individual packages ([#251](https://github.com/aws/aws-sdk-js-v3/issues/251)) ([8adc10c](https://github.com/aws/aws-sdk-js-v3/commit/8adc10c))
+* update jest v20 to v24 ([#243](https://github.com/aws/aws-sdk-js-v3/issues/243)) ([1e156ab](https://github.com/aws/aws-sdk-js-v3/commit/1e156ab))
+
+
+
+# 0.1.0 (2019-04-19)
+
+
+
+
+
+# [0.1.0-preview.3](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2...@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.3) (2019-04-19)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway
+
+# [0.1.0-preview.2](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.1...@aws-sdk/middleware-sdk-api-gateway@0.1.0-preview.2) (2019-03-27)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-api-gateway

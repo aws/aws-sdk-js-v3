@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ChimeClient } from "./ChimeClient";
 import {
@@ -249,6 +249,14 @@ import {
   UpdateUserSettingsCommandInput,
   UpdateUserSettingsCommandOutput,
 } from "./commands/UpdateUserSettingsCommand";
+import { paginateListAccounts } from "./pagination/ListAccountsPaginator";
+import { paginateListBots } from "./pagination/ListBotsPaginator";
+import { paginateListPhoneNumberOrders } from "./pagination/ListPhoneNumberOrdersPaginator";
+import { paginateListPhoneNumbers } from "./pagination/ListPhoneNumbersPaginator";
+import { paginateListRoomMemberships } from "./pagination/ListRoomMembershipsPaginator";
+import { paginateListRooms } from "./pagination/ListRoomsPaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
+import { paginateSearchAvailablePhoneNumbers } from "./pagination/SearchAvailablePhoneNumbersPaginator";
 
 const commands = {
   AssociatePhoneNumberWithUserCommand,
@@ -313,6 +321,16 @@ const commands = {
   UpdateRoomMembershipCommand,
   UpdateUserCommand,
   UpdateUserSettingsCommand,
+};
+const paginators = {
+  paginateListAccounts,
+  paginateListBots,
+  paginateListPhoneNumberOrders,
+  paginateListPhoneNumbers,
+  paginateListRoomMemberships,
+  paginateListRooms,
+  paginateListUsers,
+  paginateSearchAvailablePhoneNumbers,
 };
 
 export interface Chime {
@@ -1376,6 +1394,94 @@ export interface Chime {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserSettingsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountsCommandOutput}.
+   */
+  paginateListAccounts(
+    args?: ListAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListBotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotsCommandOutput}.
+   */
+  paginateListBots(
+    args: ListBotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotsCommandOutput>;
+
+  /**
+   * @see {@link ListPhoneNumberOrdersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPhoneNumberOrdersCommandOutput}.
+   */
+  paginateListPhoneNumberOrders(
+    args?: ListPhoneNumberOrdersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPhoneNumberOrdersCommandOutput>;
+
+  /**
+   * @see {@link ListPhoneNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPhoneNumbersCommandOutput}.
+   */
+  paginateListPhoneNumbers(
+    args?: ListPhoneNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPhoneNumbersCommandOutput>;
+
+  /**
+   * @see {@link ListRoomMembershipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoomMembershipsCommandOutput}.
+   */
+  paginateListRoomMemberships(
+    args: ListRoomMembershipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoomMembershipsCommandOutput>;
+
+  /**
+   * @see {@link ListRoomsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoomsCommandOutput}.
+   */
+  paginateListRooms(
+    args: ListRoomsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoomsCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
+
+  /**
+   * @see {@link SearchAvailablePhoneNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchAvailablePhoneNumbersCommandOutput}.
+   */
+  paginateSearchAvailablePhoneNumbers(
+    args?: SearchAvailablePhoneNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchAvailablePhoneNumbersCommandOutput>;
 }
 
 /**
@@ -1427,4 +1533,4 @@ export interface Chime {
  * @public
  */
 export class Chime extends ChimeClient implements Chime {}
-createAggregatedClient(commands, Chime);
+createAggregatedClient(commands, Chime, { paginators });

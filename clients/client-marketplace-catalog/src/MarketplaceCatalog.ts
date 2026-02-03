@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchDescribeEntitiesCommand,
@@ -64,6 +64,8 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { MarketplaceCatalogClient } from "./MarketplaceCatalogClient";
+import { paginateListChangeSets } from "./pagination/ListChangeSetsPaginator";
+import { paginateListEntities } from "./pagination/ListEntitiesPaginator";
 
 const commands = {
   BatchDescribeEntitiesCommand,
@@ -79,6 +81,10 @@ const commands = {
   StartChangeSetCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListChangeSets,
+  paginateListEntities,
 };
 
 export interface MarketplaceCatalog {
@@ -302,6 +308,28 @@ export interface MarketplaceCatalog {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChangeSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChangeSetsCommandOutput}.
+   */
+  paginateListChangeSets(
+    args: ListChangeSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChangeSetsCommandOutput>;
+
+  /**
+   * @see {@link ListEntitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntitiesCommandOutput}.
+   */
+  paginateListEntities(
+    args: ListEntitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntitiesCommandOutput>;
 }
 
 /**
@@ -314,4 +342,4 @@ export interface MarketplaceCatalog {
  * @public
  */
 export class MarketplaceCatalog extends MarketplaceCatalogClient implements MarketplaceCatalog {}
-createAggregatedClient(commands, MarketplaceCatalog);
+createAggregatedClient(commands, MarketplaceCatalog, { paginators });

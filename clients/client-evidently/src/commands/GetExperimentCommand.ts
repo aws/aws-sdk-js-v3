@@ -27,8 +27,9 @@ export interface GetExperimentCommandInput extends GetExperimentRequest {}
 export interface GetExperimentCommandOutput extends GetExperimentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details about one experiment. You must already know the
- *       experiment name. To retrieve a list of experiments in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html">ListExperiments</a>.</p>
+ * <p>Returns the details about one experiment. You must already know the experiment name. To retrieve a list of experiments in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html">ListExperiments</a>.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

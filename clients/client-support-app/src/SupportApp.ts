@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateSlackChannelConfigurationCommand,
@@ -52,6 +52,8 @@ import {
   UpdateSlackChannelConfigurationCommandInput,
   UpdateSlackChannelConfigurationCommandOutput,
 } from "./commands/UpdateSlackChannelConfigurationCommand";
+import { paginateListSlackChannelConfigurations } from "./pagination/ListSlackChannelConfigurationsPaginator";
+import { paginateListSlackWorkspaceConfigurations } from "./pagination/ListSlackWorkspaceConfigurationsPaginator";
 import { SupportAppClient } from "./SupportAppClient";
 
 const commands = {
@@ -65,6 +67,10 @@ const commands = {
   PutAccountAliasCommand,
   RegisterSlackWorkspaceForOrganizationCommand,
   UpdateSlackChannelConfigurationCommand,
+};
+const paginators = {
+  paginateListSlackChannelConfigurations,
+  paginateListSlackWorkspaceConfigurations,
 };
 
 export interface SupportApp {
@@ -241,6 +247,28 @@ export interface SupportApp {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSlackChannelConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListSlackChannelConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSlackChannelConfigurationsCommandOutput}.
+   */
+  paginateListSlackChannelConfigurations(
+    args?: ListSlackChannelConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSlackChannelConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListSlackWorkspaceConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSlackWorkspaceConfigurationsCommandOutput}.
+   */
+  paginateListSlackWorkspaceConfigurations(
+    args?: ListSlackWorkspaceConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSlackWorkspaceConfigurationsCommandOutput>;
 }
 
 /**
@@ -301,4 +329,4 @@ export interface SupportApp {
  * @public
  */
 export class SupportApp extends SupportAppClient implements SupportApp {}
-createAggregatedClient(commands, SupportApp);
+createAggregatedClient(commands, SupportApp, { paginators });

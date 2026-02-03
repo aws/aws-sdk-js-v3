@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   GetAccountActivityCommand,
@@ -28,6 +28,8 @@ import {
   UpgradeAccountPlanCommandOutput,
 } from "./commands/UpgradeAccountPlanCommand";
 import { FreeTierClient } from "./FreeTierClient";
+import { paginateGetFreeTierUsage } from "./pagination/GetFreeTierUsagePaginator";
+import { paginateListAccountActivities } from "./pagination/ListAccountActivitiesPaginator";
 
 const commands = {
   GetAccountActivityCommand,
@@ -35,6 +37,10 @@ const commands = {
   GetFreeTierUsageCommand,
   ListAccountActivitiesCommand,
   UpgradeAccountPlanCommand,
+};
+const paginators = {
+  paginateGetFreeTierUsage,
+  paginateListAccountActivities,
 };
 
 export interface FreeTier {
@@ -125,6 +131,28 @@ export interface FreeTier {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpgradeAccountPlanCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetFreeTierUsageCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFreeTierUsageCommandOutput}.
+   */
+  paginateGetFreeTierUsage(
+    args?: GetFreeTierUsageCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFreeTierUsageCommandOutput>;
+
+  /**
+   * @see {@link ListAccountActivitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountActivitiesCommandOutput}.
+   */
+  paginateListAccountActivities(
+    args?: ListAccountActivitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountActivitiesCommandOutput>;
 }
 
 /**
@@ -132,4 +160,4 @@ export interface FreeTier {
  * @public
  */
 export class FreeTier extends FreeTierClient implements FreeTier {}
-createAggregatedClient(commands, FreeTier);
+createAggregatedClient(commands, FreeTier, { paginators });

@@ -47,6 +47,15 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  *   },
  *   description: "STRING_VALUE",
  *   deletionProtection: "ENABLED" || "DISABLED",
+ *   encryptionSettings: { // EncryptionSettings Union: only one key present
+ *     kmsEncryptionSettings: { // KmsEncryptionSettings
+ *       key: "STRING_VALUE", // required
+ *       encryptionContext: { // EncryptionContext
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *     default: {},
+ *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -95,6 +104,35 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  * // The following example creates a new policy store with strict validation turned on.
  * const input = {
  *   clientToken: "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
+ *   validationSettings: {
+ *     mode: "STRICT"
+ *   }
+ * };
+ * const command = new CreatePolicyStoreCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:verifiedpermissions::123456789012:policy-store/C7v5xMplfFH3i3e4Jrzb1a",
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create an encrypted policy store
+ * ```javascript
+ * // The following example creates a new policy store with encryption settings based on a provided KMS key.
+ * const input = {
+ *   clientToken: "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
+ *   encryptionSettings: {
+ *     kmsEncryptionSettings: {
+ *       encryptionContext: {
+ *         policy_store_owner: "Tim"
+ *       },
+ *       key: "arn:aws:kms:us-east-1:123456789012:key/abcdefgh-ijkl-mnop-qrst-uvwxyz123456"
+ *     }
+ *   },
  *   validationSettings: {
  *     mode: "STRICT"
  *   }

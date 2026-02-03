@@ -222,17 +222,17 @@ import {
 export var ApplicationDependencySummary$: StaticStructureSchema = [3, n0, _ADS,
   0,
   [_AI, _SV],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _sV }]]
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _sV }]], 2
 ];
 export var ApplicationPolicyStatement$: StaticStructureSchema = [3, n0, _APS,
   0,
-  [_A, _POID, _P, _SI],
-  [[64 | 0, { [_jN]: _a }], [64 | 0, { [_jN]: _pOID }], [64 | 0, { [_jN]: _p }], [0, { [_jN]: _sI }]]
+  [_A, _P, _POID, _SI],
+  [[64 | 0, { [_jN]: _a }], [64 | 0, { [_jN]: _p }], [64 | 0, { [_jN]: _pOID }], [0, { [_jN]: _sI }]], 2
 ];
 export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_AI, _Au, _CT, _D, _HPU, _L, _N, _SLI],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _au }], [0, { [_jN]: _cT }], [0, { [_jN]: _d }], [0, { [_jN]: _hPU }], [64 | 0, { [_jN]: _l }], [0, { [_jN]: _n }], [0, { [_jN]: _sLI }]]
+  [_AI, _Au, _D, _N, _CT, _HPU, _L, _SLI],
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _au }], [0, { [_jN]: _d }], [0, { [_jN]: _n }], [0, { [_jN]: _cT }], [0, { [_jN]: _hPU }], [64 | 0, { [_jN]: _l }], [0, { [_jN]: _sLI }]], 4
 ];
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
@@ -248,8 +248,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_Au, _D, _HPU, _L, _LB, _LU, _N, _RB, _RU, _SV, _SCAU, _SCU, _SLI, _TB, _TU],
-  [[0, { [_jN]: _au }], [0, { [_jN]: _d }], [0, { [_jN]: _hPU }], [64 | 0, { [_jN]: _l }], [0, { [_jN]: _lB }], [0, { [_jN]: _lU }], [0, { [_jN]: _n }], [0, { [_jN]: _rB }], [0, { [_jN]: _rU }], [0, { [_jN]: _sV }], [0, { [_jN]: _sCAU }], [0, { [_jN]: _sCU }], [0, { [_jN]: _sLI }], [0, { [_jN]: _tB }], [0, { [_jN]: _tU }]]
+  [_Au, _D, _N, _HPU, _L, _LB, _LU, _RB, _RU, _SV, _SCAU, _SCU, _SLI, _TB, _TU],
+  [[0, { [_jN]: _au }], [0, { [_jN]: _d }], [0, { [_jN]: _n }], [0, { [_jN]: _hPU }], [64 | 0, { [_jN]: _l }], [0, { [_jN]: _lB }], [0, { [_jN]: _lU }], [0, { [_jN]: _rB }], [0, { [_jN]: _rU }], [0, { [_jN]: _sV }], [0, { [_jN]: _sCAU }], [0, { [_jN]: _sCU }], [0, { [_jN]: _sLI }], [0, { [_jN]: _tB }], [0, { [_jN]: _tU }]], 3
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -259,7 +259,7 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateApplicationVersionRequest$: StaticStructureSchema = [3, n0, _CAVR,
   0,
   [_AI, _SV, _SCAU, _SCU, _TB, _TU],
-  [[0, 1], [0, 1], [0, { [_jN]: _sCAU }], [0, { [_jN]: _sCU }], [0, { [_jN]: _tB }], [0, { [_jN]: _tU }]]
+  [[0, 1], [0, 1], [0, { [_jN]: _sCAU }], [0, { [_jN]: _sCU }], [0, { [_jN]: _tB }], [0, { [_jN]: _tU }]], 2
 ];
 export var CreateApplicationVersionResponse$: StaticStructureSchema = [3, n0, _CAVRr,
   0,
@@ -268,8 +268,8 @@ export var CreateApplicationVersionResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateCloudFormationChangeSetRequest$: StaticStructureSchema = [3, n0, _CCFCSR,
   0,
-  [_AI, _C, _CSN, _CTl, _D, _NA, _PO, _RT, _RCo, _SV, _SN, _T, _TI],
-  [[0, 1], [64 | 0, { [_jN]: _ca }], [0, { [_jN]: _cSN }], [0, { [_jN]: _cTl }], [0, { [_jN]: _d }], [64 | 0, { [_jN]: _nA }], [() => __listOfParameterValue, { [_jN]: _pO }], [64 | 0, { [_jN]: _rT }], [() => RollbackConfiguration$, { [_jN]: _rCo }], [0, { [_jN]: _sV }], [0, { [_jN]: _sN }], [() => __listOfTag, { [_jN]: _t }], [0, { [_jN]: _tI }]]
+  [_AI, _SN, _C, _CSN, _CTl, _D, _NA, _PO, _RT, _RCo, _SV, _T, _TI],
+  [[0, 1], [0, { [_jN]: _sN }], [64 | 0, { [_jN]: _ca }], [0, { [_jN]: _cSN }], [0, { [_jN]: _cTl }], [0, { [_jN]: _d }], [64 | 0, { [_jN]: _nA }], [() => __listOfParameterValue, { [_jN]: _pO }], [64 | 0, { [_jN]: _rT }], [() => RollbackConfiguration$, { [_jN]: _rCo }], [0, { [_jN]: _sV }], [() => __listOfTag, { [_jN]: _t }], [0, { [_jN]: _tI }]], 2
 ];
 export var CreateCloudFormationChangeSetResponse$: StaticStructureSchema = [3, n0, _CCFCSRr,
   0,
@@ -279,7 +279,7 @@ export var CreateCloudFormationChangeSetResponse$: StaticStructureSchema = [3, n
 export var CreateCloudFormationTemplateRequest$: StaticStructureSchema = [3, n0, _CCFTR,
   0,
   [_AI, _SV],
-  [[0, 1], [0, { [_jN]: _sV }]]
+  [[0, 1], [0, { [_jN]: _sV }]], 1
 ];
 export var CreateCloudFormationTemplateResponse$: StaticStructureSchema = [3, n0, _CCFTRr,
   0,
@@ -289,7 +289,7 @@ export var CreateCloudFormationTemplateResponse$: StaticStructureSchema = [3, n0
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c, [_hE]: 403 },
@@ -300,7 +300,7 @@ TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetApplicationPolicyRequest$: StaticStructureSchema = [3, n0, _GAPR,
   0,
   [_AI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApplicationPolicyResponse$: StaticStructureSchema = [3, n0, _GAPRe,
   0,
@@ -310,7 +310,7 @@ export var GetApplicationPolicyResponse$: StaticStructureSchema = [3, n0, _GAPRe
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_AI, _SV],
-  [[0, 1], [0, { [_hQ]: _sV }]]
+  [[0, 1], [0, { [_hQ]: _sV }]], 1
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -320,7 +320,7 @@ export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetCloudFormationTemplateRequest$: StaticStructureSchema = [3, n0, _GCFTR,
   0,
   [_AI, _TI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetCloudFormationTemplateResponse$: StaticStructureSchema = [3, n0, _GCFTRe,
   0,
@@ -336,7 +336,7 @@ TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServer
 export var ListApplicationDependenciesRequest$: StaticStructureSchema = [3, n0, _LADR,
   0,
   [_AI, _MI, _NT, _SV],
-  [[0, 1], [1, { [_hQ]: _mI }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _sV }]]
+  [[0, 1], [1, { [_hQ]: _mI }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _sV }]], 1
 ];
 export var ListApplicationDependenciesResponse$: StaticStructureSchema = [3, n0, _LADRi,
   0,
@@ -356,7 +356,7 @@ export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListApplicationVersionsRequest$: StaticStructureSchema = [3, n0, _LAVR,
   0,
   [_AI, _MI, _NT],
-  [[0, 1], [1, { [_hQ]: _mI }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mI }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListApplicationVersionsResponse$: StaticStructureSchema = [3, n0, _LAVRi,
   0,
@@ -371,18 +371,18 @@ export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
 TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var ParameterDefinition$: StaticStructureSchema = [3, n0, _PDa,
   0,
-  [_AP, _AV, _CD, _DV, _D, _ML, _MV, _MLi, _MVi, _N, _NE, _RBR, _Ty],
-  [[0, { [_jN]: _aP }], [64 | 0, { [_jN]: _aV }], [0, { [_jN]: _cD }], [0, { [_jN]: _dV }], [0, { [_jN]: _d }], [1, { [_jN]: _mL }], [1, { [_jN]: _mV }], [1, { [_jN]: _mLi }], [1, { [_jN]: _mVi }], [0, { [_jN]: _n }], [2, { [_jN]: _nE }], [64 | 0, { [_jN]: _rBR }], [0, { [_jN]: _ty }]]
+  [_N, _RBR, _AP, _AV, _CD, _DV, _D, _ML, _MV, _MLi, _MVi, _NE, _Ty],
+  [[0, { [_jN]: _n }], [64 | 0, { [_jN]: _rBR }], [0, { [_jN]: _aP }], [64 | 0, { [_jN]: _aV }], [0, { [_jN]: _cD }], [0, { [_jN]: _dV }], [0, { [_jN]: _d }], [1, { [_jN]: _mL }], [1, { [_jN]: _mV }], [1, { [_jN]: _mLi }], [1, { [_jN]: _mVi }], [2, { [_jN]: _nE }], [0, { [_jN]: _ty }]], 2
 ];
 export var ParameterValue$: StaticStructureSchema = [3, n0, _PV,
   0,
   [_N, _Va],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _va }]]
+  [[0, { [_jN]: _n }], [0, { [_jN]: _va }]], 2
 ];
 export var PutApplicationPolicyRequest$: StaticStructureSchema = [3, n0, _PAPR,
   0,
   [_AI, _St],
-  [[0, 1], [() => __listOfApplicationPolicyStatement, { [_jN]: _st }]]
+  [[0, 1], [() => __listOfApplicationPolicyStatement, { [_jN]: _st }]], 2
 ];
 export var PutApplicationPolicyResponse$: StaticStructureSchema = [3, n0, _PAPRu,
   0,
@@ -397,12 +397,12 @@ export var RollbackConfiguration$: StaticStructureSchema = [3, n0, _RCo,
 export var RollbackTrigger$: StaticStructureSchema = [3, n0, _RTol,
   0,
   [_Ar, _Ty],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _ty }]]
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _ty }]], 2
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _Va],
-  [[0, { [_jN]: _k }], [0, { [_jN]: _va }]]
+  [[0, { [_jN]: _k }], [0, { [_jN]: _va }]], 2
 ];
 export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c, [_hE]: 429 },
@@ -413,12 +413,12 @@ TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsExc
 export var UnshareApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_AI, _OI],
-  [[0, 1], [0, { [_jN]: _oI }]]
+  [[0, 1], [0, { [_jN]: _oI }]], 2
 ];
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UARp,
   0,
   [_AI, _Au, _D, _HPU, _L, _RB, _RU],
-  [[0, 1], [0, { [_jN]: _au }], [0, { [_jN]: _d }], [0, { [_jN]: _hPU }], [64 | 0, { [_jN]: _l }], [0, { [_jN]: _rB }], [0, { [_jN]: _rU }]]
+  [[0, 1], [0, { [_jN]: _au }], [0, { [_jN]: _d }], [0, { [_jN]: _hPU }], [64 | 0, { [_jN]: _l }], [0, { [_jN]: _rB }], [0, { [_jN]: _rU }]], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARpd,
   0,
@@ -427,13 +427,13 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARpd,
 ];
 export var Version$: StaticStructureSchema = [3, n0, _V,
   0,
-  [_AI, _CT, _PD, _RC, _RS, _SV, _SCAU, _SCU, _TU],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _cT }], [() => __listOfParameterDefinition, { [_jN]: _pD }], [64 | 0, { [_jN]: _rC }], [2, { [_jN]: _rS }], [0, { [_jN]: _sV }], [0, { [_jN]: _sCAU }], [0, { [_jN]: _sCU }], [0, { [_jN]: _tU }]]
+  [_AI, _CT, _PD, _RC, _RS, _SV, _TU, _SCAU, _SCU],
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _cT }], [() => __listOfParameterDefinition, { [_jN]: _pD }], [64 | 0, { [_jN]: _rC }], [2, { [_jN]: _rS }], [0, { [_jN]: _sV }], [0, { [_jN]: _tU }], [0, { [_jN]: _sCAU }], [0, { [_jN]: _sCU }]], 7
 ];
 export var VersionSummary$: StaticStructureSchema = [3, n0, _VS,
   0,
   [_AI, _CT, _SV, _SCU],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _cT }], [0, { [_jN]: _sV }], [0, { [_jN]: _sCU }]]
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _cT }], [0, { [_jN]: _sV }], [0, { [_jN]: _sCU }]], 3
 ];
 var __Unit = "unit" as const;
 export var ServerlessApplicationRepositoryServiceException$: StaticErrorSchema = [-3, _sm, "ServerlessApplicationRepositoryServiceException", 0, [], []];

@@ -128,6 +128,12 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  *       ValueArn: "STRING_VALUE",
  *     },
  *   },
+ *   Attachments: [ // TaskAttachments
+ *     { // TaskAttachment
+ *       FileName: "STRING_VALUE", // required
+ *       S3Url: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new StartTaskContactCommand(input);
  * const response = await client.send(command);

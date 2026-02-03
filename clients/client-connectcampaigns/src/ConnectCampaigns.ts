@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateCampaignCommand,
@@ -109,6 +109,7 @@ import {
   UpdateCampaignOutboundCallConfigCommandOutput,
 } from "./commands/UpdateCampaignOutboundCallConfigCommand";
 import { ConnectCampaignsClient } from "./ConnectCampaignsClient";
+import { paginateListCampaigns } from "./pagination/ListCampaignsPaginator";
 
 const commands = {
   CreateCampaignCommand,
@@ -133,6 +134,9 @@ const commands = {
   UpdateCampaignDialerConfigCommand,
   UpdateCampaignNameCommand,
   UpdateCampaignOutboundCallConfigCommand,
+};
+const paginators = {
+  paginateListCampaigns,
 };
 
 export interface ConnectCampaigns {
@@ -510,6 +514,17 @@ export interface ConnectCampaigns {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCampaignOutboundCallConfigCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCampaignsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCampaignsCommandOutput}.
+   */
+  paginateListCampaigns(
+    args?: ListCampaignsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCampaignsCommandOutput>;
 }
 
 /**
@@ -517,4 +532,4 @@ export interface ConnectCampaigns {
  * @public
  */
 export class ConnectCampaigns extends ConnectCampaignsClient implements ConnectCampaigns {}
-createAggregatedClient(commands, ConnectCampaigns);
+createAggregatedClient(commands, ConnectCampaigns, { paginators });

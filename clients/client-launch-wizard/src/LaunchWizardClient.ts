@@ -66,6 +66,10 @@ import {
 import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
 import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
 import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
+import {
+  GetDeploymentPatternVersionCommandInput,
+  GetDeploymentPatternVersionCommandOutput,
+} from "./commands/GetDeploymentPatternVersionCommand";
 import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
 import {
   GetWorkloadDeploymentPatternCommandInput,
@@ -75,6 +79,10 @@ import {
   ListDeploymentEventsCommandInput,
   ListDeploymentEventsCommandOutput,
 } from "./commands/ListDeploymentEventsCommand";
+import {
+  ListDeploymentPatternVersionsCommandInput,
+  ListDeploymentPatternVersionsCommandOutput,
+} from "./commands/ListDeploymentPatternVersionsCommand";
 import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -87,6 +95,7 @@ import {
 import { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "./commands/ListWorkloadsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateDeploymentCommandInput, UpdateDeploymentCommandOutput } from "./commands/UpdateDeploymentCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -105,15 +114,18 @@ export type ServiceInputTypes =
   | CreateDeploymentCommandInput
   | DeleteDeploymentCommandInput
   | GetDeploymentCommandInput
+  | GetDeploymentPatternVersionCommandInput
   | GetWorkloadCommandInput
   | GetWorkloadDeploymentPatternCommandInput
   | ListDeploymentEventsCommandInput
+  | ListDeploymentPatternVersionsCommandInput
   | ListDeploymentsCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkloadDeploymentPatternsCommandInput
   | ListWorkloadsCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateDeploymentCommandInput;
 
 /**
  * @public
@@ -122,15 +134,18 @@ export type ServiceOutputTypes =
   | CreateDeploymentCommandOutput
   | DeleteDeploymentCommandOutput
   | GetDeploymentCommandOutput
+  | GetDeploymentPatternVersionCommandOutput
   | GetWorkloadCommandOutput
   | GetWorkloadDeploymentPatternCommandOutput
   | ListDeploymentEventsCommandOutput
+  | ListDeploymentPatternVersionsCommandOutput
   | ListDeploymentsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkloadDeploymentPatternsCommandOutput
   | ListWorkloadsCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateDeploymentCommandOutput;
 
 /**
  * @public
@@ -323,10 +338,7 @@ export type LaunchWizardClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface LaunchWizardClientResolvedConfig extends LaunchWizardClientResolvedConfigType {}
 
 /**
- * <p>Launch Wizard offers a guided way of sizing, configuring, and deploying Amazon Web Services resources for
- *          third party applications, such as Microsoft SQL Server Always On and HANA based SAP
- *          systems, without the need to manually identify and provision individual Amazon Web Services
- *          resources.</p>
+ * <p>Launch Wizard offers a guided way of sizing, configuring, and deploying Amazon Web Services resources for third party applications, such as Microsoft SQL Server Always On and HANA based SAP systems, without the need to manually identify and provision individual Amazon Web Services resources.</p>
  * @public
  */
 export class LaunchWizardClient extends __Client<

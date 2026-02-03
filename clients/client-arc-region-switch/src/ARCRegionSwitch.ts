@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { ARCRegionSwitchClient } from "./ARCRegionSwitchClient";
 import {
@@ -84,6 +90,16 @@ import {
   UpdatePlanExecutionStepCommandInput,
   UpdatePlanExecutionStepCommandOutput,
 } from "./commands/UpdatePlanExecutionStepCommand";
+import { paginateGetPlanEvaluationStatus } from "./pagination/GetPlanEvaluationStatusPaginator";
+import { paginateGetPlanExecution } from "./pagination/GetPlanExecutionPaginator";
+import { paginateListPlanExecutionEvents } from "./pagination/ListPlanExecutionEventsPaginator";
+import { paginateListPlanExecutions } from "./pagination/ListPlanExecutionsPaginator";
+import { paginateListPlansInRegion } from "./pagination/ListPlansInRegionPaginator";
+import { paginateListPlans } from "./pagination/ListPlansPaginator";
+import { paginateListRoute53HealthChecksInRegion } from "./pagination/ListRoute53HealthChecksInRegionPaginator";
+import { paginateListRoute53HealthChecks } from "./pagination/ListRoute53HealthChecksPaginator";
+import { waitUntilPlanEvaluationStatusPassed } from "./waiters/waitForPlanEvaluationStatusPassed";
+import { waitUntilPlanExecutionCompleted } from "./waiters/waitForPlanExecutionCompleted";
 
 const commands = {
   ApprovePlanExecutionStepCommand,
@@ -107,6 +123,20 @@ const commands = {
   UpdatePlanCommand,
   UpdatePlanExecutionCommand,
   UpdatePlanExecutionStepCommand,
+};
+const paginators = {
+  paginateGetPlanEvaluationStatus,
+  paginateGetPlanExecution,
+  paginateListPlanExecutionEvents,
+  paginateListPlanExecutions,
+  paginateListPlans,
+  paginateListPlansInRegion,
+  paginateListRoute53HealthChecks,
+  paginateListRoute53HealthChecksInRegion,
+};
+const waiters = {
+  waitUntilPlanEvaluationStatusPassed,
+  waitUntilPlanExecutionCompleted,
 };
 
 export interface ARCRegionSwitch {
@@ -468,6 +498,114 @@ export interface ARCRegionSwitch {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePlanExecutionStepCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetPlanEvaluationStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetPlanEvaluationStatusCommandOutput}.
+   */
+  paginateGetPlanEvaluationStatus(
+    args: GetPlanEvaluationStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetPlanEvaluationStatusCommandOutput>;
+
+  /**
+   * @see {@link GetPlanExecutionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetPlanExecutionCommandOutput}.
+   */
+  paginateGetPlanExecution(
+    args: GetPlanExecutionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetPlanExecutionCommandOutput>;
+
+  /**
+   * @see {@link ListPlanExecutionEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPlanExecutionEventsCommandOutput}.
+   */
+  paginateListPlanExecutionEvents(
+    args: ListPlanExecutionEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPlanExecutionEventsCommandOutput>;
+
+  /**
+   * @see {@link ListPlanExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPlanExecutionsCommandOutput}.
+   */
+  paginateListPlanExecutions(
+    args: ListPlanExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPlanExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListPlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPlansCommandOutput}.
+   */
+  paginateListPlans(
+    args?: ListPlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPlansCommandOutput>;
+
+  /**
+   * @see {@link ListPlansInRegionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPlansInRegionCommandOutput}.
+   */
+  paginateListPlansInRegion(
+    args?: ListPlansInRegionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPlansInRegionCommandOutput>;
+
+  /**
+   * @see {@link ListRoute53HealthChecksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoute53HealthChecksCommandOutput}.
+   */
+  paginateListRoute53HealthChecks(
+    args: ListRoute53HealthChecksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoute53HealthChecksCommandOutput>;
+
+  /**
+   * @see {@link ListRoute53HealthChecksInRegionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoute53HealthChecksInRegionCommandOutput}.
+   */
+  paginateListRoute53HealthChecksInRegion(
+    args: ListRoute53HealthChecksInRegionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoute53HealthChecksInRegionCommandOutput>;
+
+  /**
+   * @see {@link GetPlanEvaluationStatusCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPlanEvaluationStatusPassed(
+    args: GetPlanEvaluationStatusCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ARCRegionSwitch>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetPlanExecutionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPlanExecutionCompleted(
+    args: GetPlanExecutionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ARCRegionSwitch>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -475,4 +613,4 @@ export interface ARCRegionSwitch {
  * @public
  */
 export class ARCRegionSwitch extends ARCRegionSwitchClient implements ARCRegionSwitch {}
-createAggregatedClient(commands, ARCRegionSwitch);
+createAggregatedClient(commands, ARCRegionSwitch, { paginators, waiters });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ApplicationDiscoveryServiceClient } from "./ApplicationDiscoveryServiceClient";
 import {
@@ -135,6 +135,13 @@ import {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
+import { paginateDescribeAgents } from "./pagination/DescribeAgentsPaginator";
+import { paginateDescribeContinuousExports } from "./pagination/DescribeContinuousExportsPaginator";
+import { paginateDescribeExportConfigurations } from "./pagination/DescribeExportConfigurationsPaginator";
+import { paginateDescribeExportTasks } from "./pagination/DescribeExportTasksPaginator";
+import { paginateDescribeImportTasks } from "./pagination/DescribeImportTasksPaginator";
+import { paginateDescribeTags } from "./pagination/DescribeTagsPaginator";
+import { paginateListConfigurations } from "./pagination/ListConfigurationsPaginator";
 
 const commands = {
   AssociateConfigurationItemsToApplicationCommand,
@@ -165,6 +172,15 @@ const commands = {
   StopContinuousExportCommand,
   StopDataCollectionByAgentIdsCommand,
   UpdateApplicationCommand,
+};
+const paginators = {
+  paginateDescribeAgents,
+  paginateDescribeContinuousExports,
+  paginateDescribeExportConfigurations,
+  paginateDescribeExportTasks,
+  paginateDescribeImportTasks,
+  paginateDescribeTags,
+  paginateListConfigurations,
 };
 
 export interface ApplicationDiscoveryService {
@@ -653,6 +669,83 @@ export interface ApplicationDiscoveryService {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAgentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAgentsCommandOutput}.
+   */
+  paginateDescribeAgents(
+    args?: DescribeAgentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAgentsCommandOutput>;
+
+  /**
+   * @see {@link DescribeContinuousExportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeContinuousExportsCommandOutput}.
+   */
+  paginateDescribeContinuousExports(
+    args?: DescribeContinuousExportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeContinuousExportsCommandOutput>;
+
+  /**
+   * @see {@link DescribeExportConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeExportConfigurationsCommandOutput}.
+   */
+  paginateDescribeExportConfigurations(
+    args?: DescribeExportConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeExportConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeExportTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeExportTasksCommandOutput}.
+   */
+  paginateDescribeExportTasks(
+    args?: DescribeExportTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeExportTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeImportTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImportTasksCommandOutput}.
+   */
+  paginateDescribeImportTasks(
+    args?: DescribeImportTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImportTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTagsCommandOutput}.
+   */
+  paginateDescribeTags(
+    args?: DescribeTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTagsCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationsCommandOutput}.
+   */
+  paginateListConfigurations(
+    args: ListConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationsCommandOutput>;
 }
 
 /**
@@ -765,4 +858,4 @@ export interface ApplicationDiscoveryService {
  * @public
  */
 export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClient implements ApplicationDiscoveryService {}
-createAggregatedClient(commands, ApplicationDiscoveryService);
+createAggregatedClient(commands, ApplicationDiscoveryService, { paginators });

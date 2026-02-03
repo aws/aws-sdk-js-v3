@@ -292,7 +292,7 @@ export var Address$: StaticStructureSchema = [3, n0, _A,
 export var CancelClusterRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var CancelClusterResult$: StaticStructureSchema = [3, n0, _CCRa,
   0,
@@ -302,7 +302,7 @@ export var CancelClusterResult$: StaticStructureSchema = [3, n0, _CCRa,
 export var CancelJobRequest$: StaticStructureSchema = [3, n0, _CJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var CancelJobResult$: StaticStructureSchema = [3, n0, _CJRa,
   0,
@@ -339,7 +339,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAddressRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_A],
-  [() => Address$]
+  [() => Address$], 1
 ];
 export var CreateAddressResult$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -348,8 +348,8 @@ export var CreateAddressResult$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_JT, _R, _ODSC, _D, _AI, _KKARN, _RARN, _ST, _SO, _No, _FAI, _TD, _RM, _ICS, _FCJ, _LTPI, _SCP],
-  [0, () => JobResource$, () => OnDeviceServiceConfiguration$, 0, 0, 0, 0, 0, 0, () => Notification$, 0, () => TaxDocuments$, 0, 1, 2, 64 | 0, 0]
+  [_JT, _AI, _ST, _SO, _R, _ODSC, _D, _KKARN, _RARN, _No, _FAI, _TD, _RM, _ICS, _FCJ, _LTPI, _SCP],
+  [0, 0, 0, 0, () => JobResource$, () => OnDeviceServiceConfiguration$, 0, 0, 0, () => Notification$, 0, () => TaxDocuments$, 0, 1, 2, 64 | 0, 0], 4
 ];
 export var CreateClusterResult$: StaticStructureSchema = [3, n0, _CCRre,
   0,
@@ -368,8 +368,8 @@ export var CreateJobResult$: StaticStructureSchema = [3, n0, _CJRre,
 ];
 export var CreateLongTermPricingRequest$: StaticStructureSchema = [3, n0, _CLTPR,
   0,
-  [_LTPT, _ILTPAR, _ST],
-  [0, 2, 0]
+  [_LTPT, _ST, _ILTPAR],
+  [0, 0, 2], 2
 ];
 export var CreateLongTermPricingResult$: StaticStructureSchema = [3, n0, _CLTPRr,
   0,
@@ -379,7 +379,7 @@ export var CreateLongTermPricingResult$: StaticStructureSchema = [3, n0, _CLTPRr
 export var CreateReturnShippingLabelRequest$: StaticStructureSchema = [3, n0, _CRSLR,
   0,
   [_JI, _SO],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CreateReturnShippingLabelResult$: StaticStructureSchema = [3, n0, _CRSLRr,
   0,
@@ -409,7 +409,7 @@ export var DescribeAddressesResult$: StaticStructureSchema = [3, n0, _DARe,
 export var DescribeAddressRequest$: StaticStructureSchema = [3, n0, _DARes,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var DescribeAddressResult$: StaticStructureSchema = [3, n0, _DAResc,
   0,
@@ -419,7 +419,7 @@ export var DescribeAddressResult$: StaticStructureSchema = [3, n0, _DAResc,
 export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var DescribeClusterResult$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -429,7 +429,7 @@ export var DescribeClusterResult$: StaticStructureSchema = [3, n0, _DCRe,
 export var DescribeJobRequest$: StaticStructureSchema = [3, n0, _DJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeJobResult$: StaticStructureSchema = [3, n0, _DJRe,
   0,
@@ -439,7 +439,7 @@ export var DescribeJobResult$: StaticStructureSchema = [3, n0, _DJRe,
 export var DescribeReturnShippingLabelRequest$: StaticStructureSchema = [3, n0, _DRSLR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeReturnShippingLabelResult$: StaticStructureSchema = [3, n0, _DRSLRe,
   0,
@@ -454,7 +454,7 @@ export var DeviceConfiguration$: StaticStructureSchema = [3, n0, _DC,
 export var Ec2AmiResource$: StaticStructureSchema = [3, n0, _EAR,
   0,
   [_AIm, _SAI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Ec2RequestFailedException$: StaticErrorSchema = [-3, n0, _ERFE,
   { [_e]: _c },
@@ -475,7 +475,7 @@ export var EventTriggerDefinition$: StaticStructureSchema = [3, n0, _ETD,
 export var GetJobManifestRequest$: StaticStructureSchema = [3, n0, _GJMR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var GetJobManifestResult$: StaticStructureSchema = [3, n0, _GJMRe,
   0,
@@ -485,7 +485,7 @@ export var GetJobManifestResult$: StaticStructureSchema = [3, n0, _GJMRe,
 export var GetJobUnlockCodeRequest$: StaticStructureSchema = [3, n0, _GJUCR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var GetJobUnlockCodeResult$: StaticStructureSchema = [3, n0, _GJUCRe,
   0,
@@ -505,7 +505,7 @@ export var GetSnowballUsageResult$: StaticStructureSchema = [3, n0, _GSURe,
 export var GetSoftwareUpdatesRequest$: StaticStructureSchema = [3, n0, _GSURet,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var GetSoftwareUpdatesResult$: StaticStructureSchema = [3, n0, _GSUReto,
   0,
@@ -586,7 +586,7 @@ export var LambdaResource$: StaticStructureSchema = [3, n0, _LRa,
 export var ListClusterJobsRequest$: StaticStructureSchema = [3, n0, _LCJR,
   0,
   [_CI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListClusterJobsResult$: StaticStructureSchema = [3, n0, _LCJRi,
   0,
@@ -646,12 +646,12 @@ export var ListPickupLocationsResult$: StaticStructureSchema = [3, n0, _LPLRi,
 export var ListServiceVersionsRequest$: StaticStructureSchema = [3, n0, _LSVR,
   0,
   [_SN, _DSe, _MR, _NT],
-  [0, () => DependentServiceList, 1, 0]
+  [0, () => DependentServiceList, 1, 0], 1
 ];
 export var ListServiceVersionsResult$: StaticStructureSchema = [3, n0, _LSVRi,
   0,
   [_SVe, _SN, _DSe, _NT],
-  [() => ServiceVersionList, 0, () => DependentServiceList, 0]
+  [() => ServiceVersionList, 0, () => DependentServiceList, 0], 2
 ];
 export var LongTermPricingListEntry$: StaticStructureSchema = [3, n0, _LTPLE,
   0,
@@ -738,7 +738,7 @@ TypeRegistry.for(n0).registerError(UnsupportedAddressException$, UnsupportedAddr
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_CI, _RARN, _D, _R, _ODSC, _AI, _SO, _No, _FAI],
-  [0, 0, 0, () => JobResource$, () => OnDeviceServiceConfiguration$, 0, 0, () => Notification$, 0]
+  [0, 0, 0, () => JobResource$, () => OnDeviceServiceConfiguration$, 0, 0, () => Notification$, 0], 1
 ];
 export var UpdateClusterResult$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -748,7 +748,7 @@ export var UpdateClusterResult$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateJobRequest$: StaticStructureSchema = [3, n0, _UJR,
   0,
   [_JI, _RARN, _No, _R, _ODSC, _AI, _SO, _D, _SCP, _FAI, _PD],
-  [0, 0, () => Notification$, () => JobResource$, () => OnDeviceServiceConfiguration$, 0, 0, 0, 0, 0, [() => PickupDetails$, 0]]
+  [0, 0, () => Notification$, () => JobResource$, () => OnDeviceServiceConfiguration$, 0, 0, 0, 0, 0, [() => PickupDetails$, 0]], 1
 ];
 export var UpdateJobResult$: StaticStructureSchema = [3, n0, _UJRp,
   0,
@@ -758,7 +758,7 @@ export var UpdateJobResult$: StaticStructureSchema = [3, n0, _UJRp,
 export var UpdateJobShipmentStateRequest$: StaticStructureSchema = [3, n0, _UJSSR,
   0,
   [_JI, _SSh],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateJobShipmentStateResult$: StaticStructureSchema = [3, n0, _UJSSRp,
   0,
@@ -768,7 +768,7 @@ export var UpdateJobShipmentStateResult$: StaticStructureSchema = [3, n0, _UJSSR
 export var UpdateLongTermPricingRequest$: StaticStructureSchema = [3, n0, _ULTPR,
   0,
   [_LTPIo, _RJ, _ILTPAR],
-  [0, 0, 2]
+  [0, 0, 2], 1
 ];
 export var UpdateLongTermPricingResult$: StaticStructureSchema = [3, n0, _ULTPRp,
   0,

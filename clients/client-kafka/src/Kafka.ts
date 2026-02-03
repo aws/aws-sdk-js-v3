@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchAssociateScramSecretCommand,
@@ -271,6 +271,20 @@ import {
   UpdateStorageCommandOutput,
 } from "./commands/UpdateStorageCommand";
 import { KafkaClient } from "./KafkaClient";
+import { paginateDescribeTopicPartitions } from "./pagination/DescribeTopicPartitionsPaginator";
+import { paginateListClientVpcConnections } from "./pagination/ListClientVpcConnectionsPaginator";
+import { paginateListClusterOperations } from "./pagination/ListClusterOperationsPaginator";
+import { paginateListClusterOperationsV2 } from "./pagination/ListClusterOperationsV2Paginator";
+import { paginateListClusters } from "./pagination/ListClustersPaginator";
+import { paginateListClustersV2 } from "./pagination/ListClustersV2Paginator";
+import { paginateListConfigurationRevisions } from "./pagination/ListConfigurationRevisionsPaginator";
+import { paginateListConfigurations } from "./pagination/ListConfigurationsPaginator";
+import { paginateListKafkaVersions } from "./pagination/ListKafkaVersionsPaginator";
+import { paginateListNodes } from "./pagination/ListNodesPaginator";
+import { paginateListReplicators } from "./pagination/ListReplicatorsPaginator";
+import { paginateListScramSecrets } from "./pagination/ListScramSecretsPaginator";
+import { paginateListTopics } from "./pagination/ListTopicsPaginator";
+import { paginateListVpcConnections } from "./pagination/ListVpcConnectionsPaginator";
 
 const commands = {
   BatchAssociateScramSecretCommand,
@@ -329,6 +343,22 @@ const commands = {
   UpdateReplicationInfoCommand,
   UpdateSecurityCommand,
   UpdateStorageCommand,
+};
+const paginators = {
+  paginateDescribeTopicPartitions,
+  paginateListClientVpcConnections,
+  paginateListClusterOperations,
+  paginateListClusterOperationsV2,
+  paginateListClusters,
+  paginateListClustersV2,
+  paginateListConfigurationRevisions,
+  paginateListConfigurations,
+  paginateListKafkaVersions,
+  paginateListNodes,
+  paginateListReplicators,
+  paginateListScramSecrets,
+  paginateListTopics,
+  paginateListVpcConnections,
 };
 
 export interface Kafka {
@@ -1290,6 +1320,160 @@ export interface Kafka {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStorageCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeTopicPartitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTopicPartitionsCommandOutput}.
+   */
+  paginateDescribeTopicPartitions(
+    args: DescribeTopicPartitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTopicPartitionsCommandOutput>;
+
+  /**
+   * @see {@link ListClientVpcConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClientVpcConnectionsCommandOutput}.
+   */
+  paginateListClientVpcConnections(
+    args: ListClientVpcConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClientVpcConnectionsCommandOutput>;
+
+  /**
+   * @see {@link ListClusterOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClusterOperationsCommandOutput}.
+   */
+  paginateListClusterOperations(
+    args: ListClusterOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClusterOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListClusterOperationsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClusterOperationsV2CommandOutput}.
+   */
+  paginateListClusterOperationsV2(
+    args: ListClusterOperationsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClusterOperationsV2CommandOutput>;
+
+  /**
+   * @see {@link ListClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClustersCommandOutput}.
+   */
+  paginateListClusters(
+    args?: ListClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClustersCommandOutput>;
+
+  /**
+   * @see {@link ListClustersV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClustersV2CommandOutput}.
+   */
+  paginateListClustersV2(
+    args?: ListClustersV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClustersV2CommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationRevisionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationRevisionsCommandOutput}.
+   */
+  paginateListConfigurationRevisions(
+    args: ListConfigurationRevisionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationRevisionsCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationsCommandOutput}.
+   */
+  paginateListConfigurations(
+    args?: ListConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListKafkaVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKafkaVersionsCommandOutput}.
+   */
+  paginateListKafkaVersions(
+    args?: ListKafkaVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKafkaVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNodesCommandOutput}.
+   */
+  paginateListNodes(
+    args: ListNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNodesCommandOutput>;
+
+  /**
+   * @see {@link ListReplicatorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReplicatorsCommandOutput}.
+   */
+  paginateListReplicators(
+    args?: ListReplicatorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReplicatorsCommandOutput>;
+
+  /**
+   * @see {@link ListScramSecretsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScramSecretsCommandOutput}.
+   */
+  paginateListScramSecrets(
+    args: ListScramSecretsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScramSecretsCommandOutput>;
+
+  /**
+   * @see {@link ListTopicsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTopicsCommandOutput}.
+   */
+  paginateListTopics(
+    args: ListTopicsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTopicsCommandOutput>;
+
+  /**
+   * @see {@link ListVpcConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVpcConnectionsCommandOutput}.
+   */
+  paginateListVpcConnections(
+    args?: ListVpcConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVpcConnectionsCommandOutput>;
 }
 
 /**
@@ -1297,4 +1481,4 @@ export interface Kafka {
  * @public
  */
 export class Kafka extends KafkaClient implements Kafka {}
-createAggregatedClient(commands, Kafka);
+createAggregatedClient(commands, Kafka, { paginators });

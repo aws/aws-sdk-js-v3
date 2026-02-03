@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   BatchCheckLayerAvailabilityCommand,
@@ -281,6 +287,15 @@ import {
   ValidatePullThroughCacheRuleCommandOutput,
 } from "./commands/ValidatePullThroughCacheRuleCommand";
 import { ECRClient } from "./ECRClient";
+import { paginateDescribeImageScanFindings } from "./pagination/DescribeImageScanFindingsPaginator";
+import { paginateDescribeImages } from "./pagination/DescribeImagesPaginator";
+import { paginateDescribePullThroughCacheRules } from "./pagination/DescribePullThroughCacheRulesPaginator";
+import { paginateDescribeRepositories } from "./pagination/DescribeRepositoriesPaginator";
+import { paginateDescribeRepositoryCreationTemplates } from "./pagination/DescribeRepositoryCreationTemplatesPaginator";
+import { paginateGetLifecyclePolicyPreview } from "./pagination/GetLifecyclePolicyPreviewPaginator";
+import { paginateListImages } from "./pagination/ListImagesPaginator";
+import { waitUntilImageScanComplete } from "./waiters/waitForImageScanComplete";
+import { waitUntilLifecyclePolicyPreviewComplete } from "./waiters/waitForLifecyclePolicyPreviewComplete";
 
 const commands = {
   BatchCheckLayerAvailabilityCommand,
@@ -341,6 +356,19 @@ const commands = {
   UpdateRepositoryCreationTemplateCommand,
   UploadLayerPartCommand,
   ValidatePullThroughCacheRuleCommand,
+};
+const paginators = {
+  paginateDescribeImages,
+  paginateDescribeImageScanFindings,
+  paginateDescribePullThroughCacheRules,
+  paginateDescribeRepositories,
+  paginateDescribeRepositoryCreationTemplates,
+  paginateGetLifecyclePolicyPreview,
+  paginateListImages,
+};
+const waiters = {
+  waitUntilImageScanComplete,
+  waitUntilLifecyclePolicyPreviewComplete,
 };
 
 export interface ECR {
@@ -1341,6 +1369,103 @@ export interface ECR {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidatePullThroughCacheRuleCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeImagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImagesCommandOutput}.
+   */
+  paginateDescribeImages(
+    args: DescribeImagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImagesCommandOutput>;
+
+  /**
+   * @see {@link DescribeImageScanFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeImageScanFindingsCommandOutput}.
+   */
+  paginateDescribeImageScanFindings(
+    args: DescribeImageScanFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeImageScanFindingsCommandOutput>;
+
+  /**
+   * @see {@link DescribePullThroughCacheRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePullThroughCacheRulesCommandOutput}.
+   */
+  paginateDescribePullThroughCacheRules(
+    args?: DescribePullThroughCacheRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePullThroughCacheRulesCommandOutput>;
+
+  /**
+   * @see {@link DescribeRepositoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRepositoriesCommandOutput}.
+   */
+  paginateDescribeRepositories(
+    args?: DescribeRepositoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRepositoriesCommandOutput>;
+
+  /**
+   * @see {@link DescribeRepositoryCreationTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRepositoryCreationTemplatesCommandOutput}.
+   */
+  paginateDescribeRepositoryCreationTemplates(
+    args?: DescribeRepositoryCreationTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRepositoryCreationTemplatesCommandOutput>;
+
+  /**
+   * @see {@link GetLifecyclePolicyPreviewCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetLifecyclePolicyPreviewCommandOutput}.
+   */
+  paginateGetLifecyclePolicyPreview(
+    args: GetLifecyclePolicyPreviewCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetLifecyclePolicyPreviewCommandOutput>;
+
+  /**
+   * @see {@link ListImagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImagesCommandOutput}.
+   */
+  paginateListImages(
+    args: ListImagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImagesCommandOutput>;
+
+  /**
+   * @see {@link DescribeImageScanFindingsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilImageScanComplete(
+    args: DescribeImageScanFindingsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ECR>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetLifecyclePolicyPreviewCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilLifecyclePolicyPreviewComplete(
+    args: GetLifecyclePolicyPreviewCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ECR>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1356,4 +1481,4 @@ export interface ECR {
  * @public
  */
 export class ECR extends ECRClient implements ECR {}
-createAggregatedClient(commands, ECR);
+createAggregatedClient(commands, ECR, { paginators, waiters });

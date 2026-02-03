@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddGroupMemberCommand,
@@ -48,6 +48,12 @@ import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput }
 import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { DirectoryServiceDataClient } from "./DirectoryServiceDataClient";
+import { paginateListGroupMembers } from "./pagination/ListGroupMembersPaginator";
+import { paginateListGroupsForMember } from "./pagination/ListGroupsForMemberPaginator";
+import { paginateListGroups } from "./pagination/ListGroupsPaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
+import { paginateSearchGroups } from "./pagination/SearchGroupsPaginator";
+import { paginateSearchUsers } from "./pagination/SearchUsersPaginator";
 
 const commands = {
   AddGroupMemberCommand,
@@ -67,6 +73,14 @@ const commands = {
   SearchUsersCommand,
   UpdateGroupCommand,
   UpdateUserCommand,
+};
+const paginators = {
+  paginateListGroupMembers,
+  paginateListGroups,
+  paginateListGroupsForMember,
+  paginateListUsers,
+  paginateSearchGroups,
+  paginateSearchUsers,
 };
 
 export interface DirectoryServiceData {
@@ -358,6 +372,72 @@ export interface DirectoryServiceData {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListGroupMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupMembersCommandOutput}.
+   */
+  paginateListGroupMembers(
+    args: ListGroupMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupMembersCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsCommandOutput}.
+   */
+  paginateListGroups(
+    args: ListGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsForMemberCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsForMemberCommandOutput}.
+   */
+  paginateListGroupsForMember(
+    args: ListGroupsForMemberCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsForMemberCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
+
+  /**
+   * @see {@link SearchGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchGroupsCommandOutput}.
+   */
+  paginateSearchGroups(
+    args: SearchGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchGroupsCommandOutput>;
+
+  /**
+   * @see {@link SearchUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchUsersCommandOutput}.
+   */
+  paginateSearchUsers(
+    args: SearchUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchUsersCommandOutput>;
 }
 
 /**
@@ -415,4 +495,4 @@ export interface DirectoryServiceData {
  * @public
  */
 export class DirectoryServiceData extends DirectoryServiceDataClient implements DirectoryServiceData {}
-createAggregatedClient(commands, DirectoryServiceData);
+createAggregatedClient(commands, DirectoryServiceData, { paginators });

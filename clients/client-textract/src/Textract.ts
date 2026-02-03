@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AnalyzeDocumentCommand,
@@ -115,6 +115,8 @@ import {
   UpdateAdapterCommandInput,
   UpdateAdapterCommandOutput,
 } from "./commands/UpdateAdapterCommand";
+import { paginateListAdapters } from "./pagination/ListAdaptersPaginator";
+import { paginateListAdapterVersions } from "./pagination/ListAdapterVersionsPaginator";
 import { TextractClient } from "./TextractClient";
 
 const commands = {
@@ -143,6 +145,10 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAdapterCommand,
+};
+const paginators = {
+  paginateListAdapters,
+  paginateListAdapterVersions,
 };
 
 export interface Textract {
@@ -572,6 +578,28 @@ export interface Textract {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAdapterCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAdaptersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAdaptersCommandOutput}.
+   */
+  paginateListAdapters(
+    args?: ListAdaptersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAdaptersCommandOutput>;
+
+  /**
+   * @see {@link ListAdapterVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAdapterVersionsCommandOutput}.
+   */
+  paginateListAdapterVersions(
+    args?: ListAdapterVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAdapterVersionsCommandOutput>;
 }
 
 /**
@@ -581,4 +609,4 @@ export interface Textract {
  * @public
  */
 export class Textract extends TextractClient implements Textract {}
-createAggregatedClient(commands, Textract);
+createAggregatedClient(commands, Textract, { paginators });

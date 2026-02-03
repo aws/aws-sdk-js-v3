@@ -12,7 +12,7 @@ const checkState = async (client: EC2Client, input: DescribeImagesCommandInput):
     try {
       const returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Images);
-        return (flat_1.length > 0.0);
+        return (flat_1.length > 0);
       }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };

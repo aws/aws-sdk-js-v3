@@ -27,9 +27,9 @@ export interface WabaPhoneNumberSetupFinalization {
   /**
    * <p>The unique identifier of the originating phone number associated with the media. Phone
    *          number identifiers are formatted as
-   *          <code>phone-number-id-01234567890123456789012345678901</code>. Use
-   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccountPhoneNumber.html">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's
-   *          id.</p>
+   *          <code>phone-number-id-01234567890123456789012345678901</code>. Use the
+   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html">GetLinkedWhatsAppBusinessAccount</a>
+   *          API action to find a phone number's id.</p>
    * @public
    */
   id: string | undefined;
@@ -576,7 +576,11 @@ export interface S3File {
   bucketName: string | undefined;
 
   /**
-   * <p>The object key of the media file.</p>
+   * <p>The S3 key prefix that defines the storage location of your media files. The prefix works like a folder path in S3,
+   *          and is combined with the WhatsApp mediaId to create the final file path.</p>
+   *          <p>For example, if a media file's WhatsApp mediaId is <code>123.ogg</code>, and the key is <code>audio/example.ogg</code>,
+   *          the final file path is <code>audio/example.ogg123.ogg</code>.</p>
+   *          <p>For the same mediaId, a key of <code>audio/</code> results in the file path <code>audio/123.ogg</code>.</p>
    * @public
    */
   key: string | undefined;
@@ -624,7 +628,7 @@ export interface DeleteWhatsAppMessageMediaInput {
    * <p>The unique identifier of the originating phone number associated with the media. Phone
    *          number identifiers are formatted as
    *             <code>phone-number-id-01234567890123456789012345678901</code>. Use
-   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccountPhoneNumber.html">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's
+   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's
    *          id.</p>
    * @public
    */
@@ -683,7 +687,8 @@ export interface DisassociateWhatsAppBusinessAccountInput {
   /**
    * <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as
    *          <code>waba-01234567890123456789012345678901</code>. Use
-   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
+   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs
+   *          and their details.</p>
    * @public
    */
   id: string | undefined;
@@ -834,8 +839,8 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberInput {
   /**
    * <p>The unique identifier of the phone number. Phone number
    *          identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>.
-   *          Use <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccountPhoneNumber.html">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's
-   *          id.</p>
+   *          Use <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html">GetLinkedWhatsAppBusinessAccount</a>
+   *          to find a phone number's id.</p>
    * @public
    */
   id: string | undefined;
@@ -894,7 +899,7 @@ export interface GetWhatsAppMessageMediaInput {
    * <p>The unique identifier of the originating phone number for the WhatsApp message media.
    *          The phone number identifiers are formatted as
    *             <code>phone-number-id-01234567890123456789012345678901</code>. Use
-   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccountPhoneNumber.html">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's
+   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's
    *          id.</p>
    * @public
    */
@@ -930,7 +935,7 @@ export interface GetWhatsAppMessageMediaOutput {
   mimeType?: string | undefined;
 
   /**
-   * <p>The file size of the media, in KB.</p>
+   * <p>The size of the media file, in KB.</p>
    * @public
    */
   fileSize?: number | undefined;
@@ -1092,137 +1097,6 @@ export interface ListLinkedWhatsAppBusinessAccountsOutput {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutWhatsAppBusinessAccountEventDestinationsInput {
-  /**
-   * <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as
-   *          <code>waba-01234567890123456789012345678901</code>. Use
-   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>An array of <code>WhatsAppBusinessAccountEventDestination</code> event destinations.</p>
-   * @public
-   */
-  eventDestinations: WhatsAppBusinessAccountEventDestination[] | undefined;
-}
-
-/**
- * @public
- */
-export interface PutWhatsAppBusinessAccountEventDestinationsOutput {}
-
-/**
- * @public
- */
-export interface PostWhatsAppMessageMediaInput {
-  /**
-   * <p>The ID of the phone number to associate with the WhatsApp media file. The phone number
-   *          identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>.
-   *          Use <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccountPhoneNumber.html">GetLinkedWhatsAppBusinessAccount</a>  to find a phone number's
-   *          id.</p>
-   * @public
-   */
-  originationPhoneNumberId: string | undefined;
-
-  /**
-   * <p>The source presign url of the media file.</p>
-   * @public
-   */
-  sourceS3PresignedUrl?: S3PresignedUrl | undefined;
-
-  /**
-   * <p>The source S3 url for the media file.</p>
-   * @public
-   */
-  sourceS3File?: S3File | undefined;
-}
-
-/**
- * @public
- */
-export interface PostWhatsAppMessageMediaOutput {
-  /**
-   * <p>The unique identifier of the posted WhatsApp message.</p>
-   * @public
-   */
-  mediaId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SendWhatsAppMessageInput {
-  /**
-   * <p>The ID of the phone number used to send the WhatsApp message. If you are sending a media
-   *          file only the <code>originationPhoneNumberId</code> used to upload the file can be used.
-   *          Phone number identifiers are formatted as
-   *             <code>phone-number-id-01234567890123456789012345678901</code>. Use
-   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccountPhoneNumber.html">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's
-   *          id.</p>
-   * @public
-   */
-  originationPhoneNumberId: string | undefined;
-
-  /**
-   * <p>The message to send through WhatsApp. The length is in KB. The message field passes through a WhatsApp
-   *          Message object, see <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages">Messages</a> in the <i>WhatsApp Business Platform Cloud API
-   *                Reference</i>.</p>
-   * @public
-   */
-  message: Uint8Array | undefined;
-
-  /**
-   * <p>The API version for the request formatted as <code>v\{VersionNumber\}</code>. For a list of supported API versions and Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/end-user-messaging.html">
-   *                <i>Amazon Web Services End User Messaging Social API</i> Service Endpoints</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   * @public
-   */
-  metaApiVersion: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SendWhatsAppMessageOutput {
-  /**
-   * <p>The unique identifier of the message.</p>
-   * @public
-   */
-  messageId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to retrieve the tags from.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceOutput {
-  /**
-   * <p>The status code of the response.</p>
-   * @public
-   */
-  statusCode?: number | undefined;
-
-  /**
-   * <p>The tags for the resource.</p>
-   * @public
-   */
-  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1400,6 +1274,12 @@ export interface MetaLibraryTemplateDefinition {
    * @public
    */
   templateId?: string | undefined;
+
+  /**
+   * <p>Example parameter values for the template body, used to demonstrate how dynamic content appears in the template.</p>
+   * @public
+   */
+  templateBodyExampleParams?: string[] | undefined;
 }
 
 /**
@@ -1417,6 +1297,183 @@ export interface ListWhatsAppTemplateLibraryOutput {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutWhatsAppBusinessAccountEventDestinationsInput {
+  /**
+   * <p>The unique identifier of your WhatsApp Business Account. WABA identifiers are formatted as
+   *          <code>waba-01234567890123456789012345678901</code>. Use
+   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_ListLinkedWhatsAppBusinessAccounts.html">ListLinkedWhatsAppBusinessAccounts</a> to list all WABAs and their details.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>An array of <code>WhatsAppBusinessAccountEventDestination</code> event destinations.</p>
+   * @public
+   */
+  eventDestinations: WhatsAppBusinessAccountEventDestination[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutWhatsAppBusinessAccountEventDestinationsOutput {}
+
+/**
+ * @public
+ */
+export interface UpdateWhatsAppMessageTemplateInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with this template.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The numeric ID of the template assigned by Meta.</p>
+   * @public
+   */
+  metaTemplateId: string | undefined;
+
+  /**
+   * <p>The format specification for parameters in the template, this can be either 'named' or 'positional'.</p>
+   * @public
+   */
+  parameterFormat?: string | undefined;
+
+  /**
+   * <p>The new category for the template (for example, UTILITY or MARKETING).</p>
+   * @public
+   */
+  templateCategory?: string | undefined;
+
+  /**
+   * <p>The updated components of the template as a JSON blob (maximum 3000 characters).</p>
+   * @public
+   */
+  templateComponents?: Uint8Array | undefined;
+
+  /**
+   * <p>When true, disables click tracking for call-to-action URL buttons in the template.</p>
+   * @public
+   */
+  ctaUrlLinkTrackingOptedOut?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWhatsAppMessageTemplateOutput {}
+
+/**
+ * @public
+ */
+export interface PostWhatsAppMessageMediaInput {
+  /**
+   * <p>The ID of the phone number to associate with the WhatsApp media file. The phone number
+   *          identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>.
+   *          Use <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html">GetLinkedWhatsAppBusinessAccount</a>
+   *          to find a phone number's id.</p>
+   * @public
+   */
+  originationPhoneNumberId: string | undefined;
+
+  /**
+   * <p>The source presign url of the media file.</p>
+   * @public
+   */
+  sourceS3PresignedUrl?: S3PresignedUrl | undefined;
+
+  /**
+   * <p>The source S3 url for the media file.</p>
+   * @public
+   */
+  sourceS3File?: S3File | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PostWhatsAppMessageMediaOutput {
+  /**
+   * <p>The unique identifier of the posted WhatsApp message.</p>
+   * @public
+   */
+  mediaId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendWhatsAppMessageInput {
+  /**
+   * <p>The ID of the phone number used to send the WhatsApp message. If you are sending a media
+   *          file only the <code>originationPhoneNumberId</code> used to upload the file can be used.
+   *          Phone number identifiers are formatted as
+   *             <code>phone-number-id-01234567890123456789012345678901</code>. Use
+   *          <a href="https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html">GetLinkedWhatsAppBusinessAccount</a> to find a phone number's
+   *          id.</p>
+   * @public
+   */
+  originationPhoneNumberId: string | undefined;
+
+  /**
+   * <p>The message to send through WhatsApp. The length is in KB. The message field passes through a WhatsApp
+   *          Message object, see <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages">Messages</a> in the <i>WhatsApp Business Platform Cloud API
+   *                Reference</i>.</p>
+   * @public
+   */
+  message: Uint8Array | undefined;
+
+  /**
+   * <p>The API version for the request formatted as <code>v\{VersionNumber\}</code>. For a list of supported API versions and Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/end-user-messaging.html">
+   *                <i>Amazon Web Services End User Messaging Social API</i> Service Endpoints</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  metaApiVersion: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendWhatsAppMessageOutput {
+  /**
+   * <p>The unique identifier of the message.</p>
+   * @public
+   */
+  messageId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to retrieve the tags from.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceOutput {
+  /**
+   * <p>The status code of the response.</p>
+   * @public
+   */
+  statusCode?: number | undefined;
+
+  /**
+   * <p>The tags for the resource.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1474,37 +1531,3 @@ export interface UntagResourceOutput {
    */
   statusCode?: number | undefined;
 }
-
-/**
- * @public
- */
-export interface UpdateWhatsAppMessageTemplateInput {
-  /**
-   * <p>The ID of the WhatsApp Business Account associated with this template.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The numeric ID of the template assigned by Meta.</p>
-   * @public
-   */
-  metaTemplateId: string | undefined;
-
-  /**
-   * <p>The new category for the template (for example, UTILITY or MARKETING).</p>
-   * @public
-   */
-  templateCategory?: string | undefined;
-
-  /**
-   * <p>The updated components of the template as a JSON blob (maximum 3000 characters).</p>
-   * @public
-   */
-  templateComponents?: Uint8Array | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWhatsAppMessageTemplateOutput {}

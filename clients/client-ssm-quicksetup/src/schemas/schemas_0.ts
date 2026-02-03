@@ -135,12 +135,12 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var ConfigurationDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_T, _P, _TV, _LDERN, _LDARA, _I],
-  [0, 128 | 0, 0, 0, 0, 0]
+  [0, 128 | 0, 0, 0, 0, 0], 2
 ];
 export var ConfigurationDefinitionInput$: StaticStructureSchema = [3, n0, _CDI,
   0,
   [_T, _P, _TV, _LDERN, _LDARA],
-  [0, 128 | 0, 0, 0, 0]
+  [0, 128 | 0, 0, 0, 0], 2
 ];
 export var ConfigurationDefinitionSummary$: StaticStructureSchema = [3, n0, _CDS,
   0,
@@ -150,7 +150,7 @@ export var ConfigurationDefinitionSummary$: StaticStructureSchema = [3, n0, _CDS
 export var ConfigurationManagerSummary$: StaticStructureSchema = [3, n0, _CMS,
   0,
   [_MA, _D, _N, _SS, _CDSo],
-  [0, 0, 0, () => StatusSummariesList, () => ConfigurationDefinitionSummariesList]
+  [0, 0, 0, () => StatusSummariesList, () => ConfigurationDefinitionSummariesList], 1
 ];
 export var ConfigurationSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
@@ -165,38 +165,38 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateConfigurationManagerInput$: StaticStructureSchema = [3, n0, _CCMI,
   0,
-  [_N, _D, _CDo, _Ta],
-  [0, 0, () => ConfigurationDefinitionsInputList, [() => TagsMap, 0]]
+  [_CDo, _N, _D, _Ta],
+  [() => ConfigurationDefinitionsInputList, 0, 0, [() => TagsMap, 0]], 1
 ];
 export var CreateConfigurationManagerOutput$: StaticStructureSchema = [3, n0, _CCMO,
   0,
   [_MA],
-  [0]
+  [0], 1
 ];
 export var DeleteConfigurationManagerInput$: StaticStructureSchema = [3, n0, _DCMI,
   0,
   [_MA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_K, _V],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var GetConfigurationInput$: StaticStructureSchema = [3, n0, _GCI,
   0,
   [_CI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConfigurationManagerInput$: StaticStructureSchema = [3, n0, _GCMI,
   0,
   [_MA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConfigurationManagerOutput$: StaticStructureSchema = [3, n0, _GCMO,
   0,
   [_MA, _D, _N, _CA, _LMA, _SS, _CDo, _Ta],
-  [0, 0, 0, 5, 5, () => StatusSummariesList, () => ConfigurationDefinitionsList, [() => TagsMap, 0]]
+  [0, 0, 0, 5, 5, () => StatusSummariesList, () => ConfigurationDefinitionsList, [() => TagsMap, 0]], 1
 ];
 export var GetConfigurationOutput$: StaticStructureSchema = [3, n0, _GCO,
   0,
@@ -242,7 +242,7 @@ export var ListQuickSetupTypesOutput$: StaticStructureSchema = [3, n0, _LQSTO,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -267,8 +267,8 @@ export var ServiceSettings$: StaticStructureSchema = [3, n0, _SSe,
 ];
 export var StatusSummary$: StaticStructureSchema = [3, n0, _SSt,
   0,
-  [_STt, _S, _SM, _LUA, _SD],
-  [0, 0, 0, 5, 128 | 0]
+  [_STt, _LUA, _S, _SM, _SD],
+  [0, 5, 0, 0, 128 | 0], 2
 ];
 export var TagEntry$: StaticStructureSchema = [3, n0, _TE,
   8,
@@ -278,28 +278,28 @@ export var TagEntry$: StaticStructureSchema = [3, n0, _TE,
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RA, _Ta],
-  [[0, 1], [() => TagsMap, 0]]
+  [[0, 1], [() => TagsMap, 0]], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEh,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateConfigurationDefinitionInput$: StaticStructureSchema = [3, n0, _UCDI,
   0,
   [_MA, _I, _TV, _P, _LDERN, _LDARA],
-  [[0, 1], [0, 1], 0, 128 | 0, 0, 0]
+  [[0, 1], [0, 1], 0, 128 | 0, 0, 0], 2
 ];
 export var UpdateConfigurationManagerInput$: StaticStructureSchema = [3, n0, _UCMI,
   0,
   [_MA, _N, _D],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateServiceSettingsInput$: StaticStructureSchema = [3, n0, _USSI,
   0,

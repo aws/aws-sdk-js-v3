@@ -192,7 +192,7 @@ export var ConfigurableUpfrontPricingTerm$: StaticStructureSchema = [3, n0, _CUP
 export var ConfigurableUpfrontPricingTermConfiguration$: StaticStructureSchema = [3, n0, _CUPTC,
   0,
   [_sV, _d],
-  [0, () => DimensionList]
+  [0, () => DimensionList], 2
 ];
 export var ConfigurableUpfrontRateCardItem$: StaticStructureSchema = [3, n0, _CURCI,
   0,
@@ -207,7 +207,7 @@ export var Constraints$: StaticStructureSchema = [3, n0, _C,
 export var DescribeAgreementInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_aIg],
-  [0]
+  [0], 1
 ];
 export var DescribeAgreementOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
@@ -217,7 +217,7 @@ export var DescribeAgreementOutput$: StaticStructureSchema = [3, n0, _DAO,
 export var Dimension$: StaticStructureSchema = [3, n0, _D,
   0,
   [_dK, _dV],
-  [0, 1]
+  [0, 1], 2
 ];
 export var DocumentItem$: StaticStructureSchema = [3, n0, _DI,
   0,
@@ -247,7 +247,7 @@ export var FreeTrialPricingTerm$: StaticStructureSchema = [3, n0, _FTPT,
 export var GetAgreementTermsInput$: StaticStructureSchema = [3, n0, _GATI,
   0,
   [_aIg, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetAgreementTermsOutput$: StaticStructureSchema = [3, n0, _GATO,
   0,
@@ -303,7 +303,7 @@ export var RenewalTerm$: StaticStructureSchema = [3, n0, _RT,
 export var RenewalTermConfiguration$: StaticStructureSchema = [3, n0, _RTC,
   0,
   [_eAR],
-  [2]
+  [2], 1
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -371,7 +371,7 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ValidityTerm$: StaticStructureSchema = [3, n0, _VT,
   0,
@@ -386,7 +386,7 @@ export var VariablePaymentTerm$: StaticStructureSchema = [3, n0, _VPT,
 export var VariablePaymentTermConfiguration$: StaticStructureSchema = [3, n0, _VPTC,
   0,
   [_pRAS, _eD],
-  [0, 0]
+  [0, 0], 1
 ];
 export var MarketplaceAgreementServiceException$: StaticErrorSchema = [-3, _sm, "MarketplaceAgreementServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MarketplaceAgreementServiceException$, MarketplaceAgreementServiceException);

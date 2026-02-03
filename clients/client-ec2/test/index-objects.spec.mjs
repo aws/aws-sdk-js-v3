@@ -2201,6 +2201,7 @@ import {
   DynamicRoutingValue,
   EbsBlockDevice$,
   EbsBlockDeviceResponse$,
+  EbsCardInfo$,
   EbsEncryptionSupport,
   EbsInfo$,
   EbsInstanceBlockDevice$,
@@ -3645,6 +3646,7 @@ import {
   paginateListSnapshotsInRecycleBin,
   paginateSearchLocalGatewayRoutes,
   paginateSearchTransitGatewayMulticastGroups,
+  paginateSearchTransitGatewayRoutes,
   PartitionLoadFrequency,
   PathComponent$,
   PathFilter$,
@@ -7128,6 +7130,7 @@ assert(typeof DnsOptionsSpecification$ === "object");
 assert(typeof DnsServersOptionsModifyStructure$ === "object");
 assert(typeof EbsBlockDevice$ === "object");
 assert(typeof EbsBlockDeviceResponse$ === "object");
+assert(typeof EbsCardInfo$ === "object");
 assert(typeof EbsInfo$ === "object");
 assert(typeof EbsInstanceBlockDevice$ === "object");
 assert(typeof EbsInstanceBlockDeviceSpecification$ === "object");
@@ -8998,4 +9001,5 @@ assert(typeof paginateListImagesInRecycleBin === "function");
 assert(typeof paginateListSnapshotsInRecycleBin === "function");
 assert(typeof paginateSearchLocalGatewayRoutes === "function");
 assert(typeof paginateSearchTransitGatewayMulticastGroups === "function");
+assert(typeof paginateSearchTransitGatewayRoutes === "function");
 console.log(`EC2 index test passed.`);

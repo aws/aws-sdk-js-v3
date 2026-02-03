@@ -159,7 +159,7 @@ export var ApplicationState$: StaticStructureSchema = [3, n0, _AS,
 export var AssociateCreatedArtifactRequest$: StaticStructureSchema = [3, n0, _ACAR,
   0,
   [_PUS, _MTN, _CA, _DR],
-  [0, 0, () => CreatedArtifact$, 2]
+  [0, 0, () => CreatedArtifact$, 2], 3
 ];
 export var AssociateCreatedArtifactResult$: StaticStructureSchema = [3, n0, _ACARs,
   0,
@@ -169,7 +169,7 @@ export var AssociateCreatedArtifactResult$: StaticStructureSchema = [3, n0, _ACA
 export var AssociateDiscoveredResourceRequest$: StaticStructureSchema = [3, n0, _ADRR,
   0,
   [_PUS, _MTN, _DRi, _DR],
-  [0, 0, () => DiscoveredResource$, 2]
+  [0, 0, () => DiscoveredResource$, 2], 3
 ];
 export var AssociateDiscoveredResourceResult$: StaticStructureSchema = [3, n0, _ADRRs,
   0,
@@ -179,7 +179,7 @@ export var AssociateDiscoveredResourceResult$: StaticStructureSchema = [3, n0, _
 export var AssociateSourceResourceRequest$: StaticStructureSchema = [3, n0, _ASRR,
   0,
   [_PUS, _MTN, _SR, _DR],
-  [0, 0, () => SourceResource$, 2]
+  [0, 0, () => SourceResource$, 2], 3
 ];
 export var AssociateSourceResourceResult$: StaticStructureSchema = [3, n0, _ASRRs,
   0,
@@ -189,12 +189,12 @@ export var AssociateSourceResourceResult$: StaticStructureSchema = [3, n0, _ASRR
 export var CreatedArtifact$: StaticStructureSchema = [3, n0, _CA,
   0,
   [_N, _D],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CreateProgressUpdateStreamRequest$: StaticStructureSchema = [3, n0, _CPUSR,
   0,
   [_PUSN, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var CreateProgressUpdateStreamResult$: StaticStructureSchema = [3, n0, _CPUSRr,
   0,
@@ -204,7 +204,7 @@ export var CreateProgressUpdateStreamResult$: StaticStructureSchema = [3, n0, _C
 export var DeleteProgressUpdateStreamRequest$: StaticStructureSchema = [3, n0, _DPUSR,
   0,
   [_PUSN, _DR],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteProgressUpdateStreamResult$: StaticStructureSchema = [3, n0, _DPUSRe,
   0,
@@ -214,7 +214,7 @@ export var DeleteProgressUpdateStreamResult$: StaticStructureSchema = [3, n0, _D
 export var DescribeApplicationStateRequest$: StaticStructureSchema = [3, n0, _DASR,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var DescribeApplicationStateResult$: StaticStructureSchema = [3, n0, _DASRe,
   0,
@@ -224,7 +224,7 @@ export var DescribeApplicationStateResult$: StaticStructureSchema = [3, n0, _DAS
 export var DescribeMigrationTaskRequest$: StaticStructureSchema = [3, n0, _DMTR,
   0,
   [_PUS, _MTN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeMigrationTaskResult$: StaticStructureSchema = [3, n0, _DMTRe,
   0,
@@ -234,7 +234,7 @@ export var DescribeMigrationTaskResult$: StaticStructureSchema = [3, n0, _DMTRe,
 export var DisassociateCreatedArtifactRequest$: StaticStructureSchema = [3, n0, _DCAR,
   0,
   [_PUS, _MTN, _CAN, _DR],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 3
 ];
 export var DisassociateCreatedArtifactResult$: StaticStructureSchema = [3, n0, _DCARi,
   0,
@@ -244,7 +244,7 @@ export var DisassociateCreatedArtifactResult$: StaticStructureSchema = [3, n0, _
 export var DisassociateDiscoveredResourceRequest$: StaticStructureSchema = [3, n0, _DDRR,
   0,
   [_PUS, _MTN, _CI, _DR],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 3
 ];
 export var DisassociateDiscoveredResourceResult$: StaticStructureSchema = [3, n0, _DDRRi,
   0,
@@ -254,7 +254,7 @@ export var DisassociateDiscoveredResourceResult$: StaticStructureSchema = [3, n0
 export var DisassociateSourceResourceRequest$: StaticStructureSchema = [3, n0, _DSRR,
   0,
   [_PUS, _MTN, _SRN, _DR],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 3
 ];
 export var DisassociateSourceResourceResult$: StaticStructureSchema = [3, n0, _DSRRi,
   0,
@@ -264,7 +264,7 @@ export var DisassociateSourceResourceResult$: StaticStructureSchema = [3, n0, _D
 export var DiscoveredResource$: StaticStructureSchema = [3, n0, _DRi,
   0,
   [_CI, _D],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DryRunOperation$: StaticErrorSchema = [-3, n0, _DRO,
   { [_e]: _c },
@@ -281,7 +281,7 @@ TypeRegistry.for(n0).registerError(HomeRegionNotSetException$, HomeRegionNotSetE
 export var ImportMigrationTaskRequest$: StaticStructureSchema = [3, n0, _IMTR,
   0,
   [_PUS, _MTN, _DR],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var ImportMigrationTaskResult$: StaticStructureSchema = [3, n0, _IMTRm,
   0,
@@ -313,7 +313,7 @@ export var ListApplicationStatesResult$: StaticStructureSchema = [3, n0, _LASRi,
 export var ListCreatedArtifactsRequest$: StaticStructureSchema = [3, n0, _LCAR,
   0,
   [_PUS, _MTN, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListCreatedArtifactsResult$: StaticStructureSchema = [3, n0, _LCARi,
   0,
@@ -323,7 +323,7 @@ export var ListCreatedArtifactsResult$: StaticStructureSchema = [3, n0, _LCARi,
 export var ListDiscoveredResourcesRequest$: StaticStructureSchema = [3, n0, _LDRR,
   0,
   [_PUS, _MTN, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListDiscoveredResourcesResult$: StaticStructureSchema = [3, n0, _LDRRi,
   0,
@@ -343,7 +343,7 @@ export var ListMigrationTasksResult$: StaticStructureSchema = [3, n0, _LMTRi,
 export var ListMigrationTaskUpdatesRequest$: StaticStructureSchema = [3, n0, _LMTUR,
   0,
   [_PUS, _MTN, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListMigrationTaskUpdatesResult$: StaticStructureSchema = [3, n0, _LMTURi,
   0,
@@ -363,7 +363,7 @@ export var ListProgressUpdateStreamsResult$: StaticStructureSchema = [3, n0, _LP
 export var ListSourceResourcesRequest$: StaticStructureSchema = [3, n0, _LSRR,
   0,
   [_PUS, _MTN, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListSourceResourcesResult$: StaticStructureSchema = [3, n0, _LSRRi,
   0,
@@ -388,7 +388,7 @@ export var MigrationTaskUpdate$: StaticStructureSchema = [3, n0, _MTU,
 export var NotifyApplicationStateRequest$: StaticStructureSchema = [3, n0, _NASR,
   0,
   [_AI, _S, _UDT, _DR],
-  [0, 0, 4, 2]
+  [0, 0, 4, 2], 2
 ];
 export var NotifyApplicationStateResult$: StaticStructureSchema = [3, n0, _NASRo,
   0,
@@ -398,7 +398,7 @@ export var NotifyApplicationStateResult$: StaticStructureSchema = [3, n0, _NASRo
 export var NotifyMigrationTaskStateRequest$: StaticStructureSchema = [3, n0, _NMTSR,
   0,
   [_PUS, _MTN, _T, _UDT, _NUS, _DR],
-  [0, 0, () => Task$, 4, 1, 2]
+  [0, 0, () => Task$, 4, 1, 2], 5
 ];
 export var NotifyMigrationTaskStateResult$: StaticStructureSchema = [3, n0, _NMTSRo,
   0,
@@ -419,7 +419,7 @@ export var ProgressUpdateStreamSummary$: StaticStructureSchema = [3, n0, _PUSS,
 export var PutResourceAttributesRequest$: StaticStructureSchema = [3, n0, _PRAR,
   0,
   [_PUS, _MTN, _RAL, _DR],
-  [0, 0, () => ResourceAttributeList, 2]
+  [0, 0, () => ResourceAttributeList, 2], 3
 ];
 export var PutResourceAttributesResult$: StaticStructureSchema = [3, n0, _PRARu,
   0,
@@ -429,7 +429,7 @@ export var PutResourceAttributesResult$: StaticStructureSchema = [3, n0, _PRARu,
 export var ResourceAttribute$: StaticStructureSchema = [3, n0, _RA,
   0,
   [_Ty, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c },
@@ -446,17 +446,17 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var SourceResource$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_N, _D, _SD],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var Task$: StaticStructureSchema = [3, n0, _T,
   0,
   [_S, _SD, _PP],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M, _RAS],
-  [0, [1, { [_hH]: _RA_ }]]
+  [0, [1, { [_hH]: _RA_ }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UnauthorizedOperation$: StaticErrorSchema = [-3, n0, _UO,

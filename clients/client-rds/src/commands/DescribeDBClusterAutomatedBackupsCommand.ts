@@ -27,10 +27,7 @@ export interface DescribeDBClusterAutomatedBackupsCommandInput extends DescribeD
 export interface DescribeDBClusterAutomatedBackupsCommandOutput extends DBClusterAutomatedBackupMessage, __MetadataBearer {}
 
 /**
- * <p>Displays backups for both current and deleted DB clusters. For example, use this operation to find details
- *             about automated backups for previously deleted clusters. Current clusters are returned for both the
- *             <code>DescribeDBClusterAutomatedBackups</code> and <code>DescribeDBClusters</code> operations.</p>
- *          <p>All parameters are optional.</p>
+ * <p>Displays backups for both current and deleted DB clusters. For example, use this operation to find details about automated backups for previously deleted clusters. Current clusters are returned for both the <code>DescribeDBClusterAutomatedBackups</code> and <code>DescribeDBClusters</code> operations.</p> <p>All parameters are optional.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

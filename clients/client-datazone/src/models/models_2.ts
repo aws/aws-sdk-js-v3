@@ -10,6 +10,7 @@ import {
   ResolutionStrategy,
   SearchOutputAdditionalAttribute,
   Status,
+  SubscriptionGrantCreationMode,
   SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
   SubscriptionRequestStatus,
@@ -50,6 +51,50 @@ import {
   SubscriptionTargetForm,
 } from "./models_0";
 import { type SearchSort, Filter, SearchInItem } from "./models_1";
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource to be tagged in Amazon DataZone.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Specifies the tags for the <code>TagResource</code> action.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the resource to be untagged in Amazon DataZone.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Specifies the tag keys for the <code>UntagResource</code> action.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
 
 /**
  * @public
@@ -1442,6 +1487,12 @@ export interface UpdateSubscriptionTargetInput {
    * @public
    */
   provider?: string | undefined;
+
+  /**
+   * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
+   * @public
+   */
+  subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
 }
 
 /**
@@ -1537,6 +1588,12 @@ export interface UpdateSubscriptionTargetOutput {
    * @public
    */
   provider: string | undefined;
+
+  /**
+   * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
+   * @public
+   */
+  subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
 }
 
 /**

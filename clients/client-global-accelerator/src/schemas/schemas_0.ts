@@ -376,7 +376,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AddCustomRoutingEndpointsRequest$: StaticStructureSchema = [3, n0, _ACRER,
   0,
   [_EC, _EGA],
-  [() => CustomRoutingEndpointConfigurations, 0]
+  [() => CustomRoutingEndpointConfigurations, 0], 2
 ];
 export var AddCustomRoutingEndpointsResponse$: StaticStructureSchema = [3, n0, _ACRERd,
   0,
@@ -386,7 +386,7 @@ export var AddCustomRoutingEndpointsResponse$: StaticStructureSchema = [3, n0, _
 export var AddEndpointsRequest$: StaticStructureSchema = [3, n0, _AER,
   0,
   [_EC, _EGA],
-  [() => EndpointConfigurations, 0]
+  [() => EndpointConfigurations, 0], 2
 ];
 export var AddEndpointsResponse$: StaticStructureSchema = [3, n0, _AERd,
   0,
@@ -396,7 +396,7 @@ export var AddEndpointsResponse$: StaticStructureSchema = [3, n0, _AERd,
 export var AdvertiseByoipCidrRequest$: StaticStructureSchema = [3, n0, _ABCR,
   0,
   [_C],
-  [0]
+  [0], 1
 ];
 export var AdvertiseByoipCidrResponse$: StaticStructureSchema = [3, n0, _ABCRd,
   0,
@@ -406,7 +406,7 @@ export var AdvertiseByoipCidrResponse$: StaticStructureSchema = [3, n0, _ABCRd,
 export var AllowCustomRoutingTrafficRequest$: StaticStructureSchema = [3, n0, _ACRTR,
   0,
   [_EGA, _EI, _DA, _DP, _AATTE],
-  [0, 0, 64 | 0, 64 | 1, 2]
+  [0, 0, 64 | 0, 64 | 1, 2], 2
 ];
 export var AssociatedEndpointGroupFoundException$: StaticErrorSchema = [-3, n0, _AEGFE,
   { [_e]: _c, [_hE]: 400 },
@@ -450,7 +450,7 @@ TypeRegistry.for(n0).registerError(ByoipCidrNotFoundException$, ByoipCidrNotFoun
 export var CidrAuthorizationContext$: StaticStructureSchema = [3, n0, _CAC,
   0,
   [_M, _Si],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -461,7 +461,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAcceleratorRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_N, _IAT, _IA, _E, _IT, _Ta],
-  [0, 0, 64 | 0, 2, [0, 4], () => Tags]
+  [0, 0, 64 | 0, 2, [0, 4], () => Tags], 1
 ];
 export var CreateAcceleratorResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -471,7 +471,7 @@ export var CreateAcceleratorResponse$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateCrossAccountAttachmentRequest$: StaticStructureSchema = [3, n0, _CCAAR,
   0,
   [_N, _P, _R, _IT, _Ta],
-  [0, 64 | 0, () => Resources, [0, 4], () => Tags]
+  [0, 64 | 0, () => Resources, [0, 4], () => Tags], 1
 ];
 export var CreateCrossAccountAttachmentResponse$: StaticStructureSchema = [3, n0, _CCAARr,
   0,
@@ -481,7 +481,7 @@ export var CreateCrossAccountAttachmentResponse$: StaticStructureSchema = [3, n0
 export var CreateCustomRoutingAcceleratorRequest$: StaticStructureSchema = [3, n0, _CCRAR,
   0,
   [_N, _IAT, _IA, _E, _IT, _Ta],
-  [0, 0, 64 | 0, 2, [0, 4], () => Tags]
+  [0, 0, 64 | 0, 2, [0, 4], () => Tags], 1
 ];
 export var CreateCustomRoutingAcceleratorResponse$: StaticStructureSchema = [3, n0, _CCRARr,
   0,
@@ -491,7 +491,7 @@ export var CreateCustomRoutingAcceleratorResponse$: StaticStructureSchema = [3, 
 export var CreateCustomRoutingEndpointGroupRequest$: StaticStructureSchema = [3, n0, _CCREGR,
   0,
   [_LA, _EGR, _DC, _IT],
-  [0, 0, () => CustomRoutingDestinationConfigurations, [0, 4]]
+  [0, 0, () => CustomRoutingDestinationConfigurations, [0, 4]], 3
 ];
 export var CreateCustomRoutingEndpointGroupResponse$: StaticStructureSchema = [3, n0, _CCREGRr,
   0,
@@ -501,7 +501,7 @@ export var CreateCustomRoutingEndpointGroupResponse$: StaticStructureSchema = [3
 export var CreateCustomRoutingListenerRequest$: StaticStructureSchema = [3, n0, _CCRLR,
   0,
   [_AA, _PR, _IT],
-  [0, () => PortRanges, [0, 4]]
+  [0, () => PortRanges, [0, 4]], 2
 ];
 export var CreateCustomRoutingListenerResponse$: StaticStructureSchema = [3, n0, _CCRLRr,
   0,
@@ -511,7 +511,7 @@ export var CreateCustomRoutingListenerResponse$: StaticStructureSchema = [3, n0,
 export var CreateEndpointGroupRequest$: StaticStructureSchema = [3, n0, _CEGR,
   0,
   [_LA, _EGR, _EC, _TDP, _HCP, _HCPe, _HCPea, _HCIS, _TC, _IT, _PO],
-  [0, 0, () => EndpointConfigurations, 1, 1, 0, 0, 1, 1, [0, 4], () => PortOverrides]
+  [0, 0, () => EndpointConfigurations, 1, 1, 0, 0, 1, 1, [0, 4], () => PortOverrides], 2
 ];
 export var CreateEndpointGroupResponse$: StaticStructureSchema = [3, n0, _CEGRr,
   0,
@@ -521,7 +521,7 @@ export var CreateEndpointGroupResponse$: StaticStructureSchema = [3, n0, _CEGRr,
 export var CreateListenerRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
   [_AA, _PR, _Pr, _CA, _IT],
-  [0, () => PortRanges, 0, 0, [0, 4]]
+  [0, () => PortRanges, 0, 0, [0, 4]], 3
 ];
 export var CreateListenerResponse$: StaticStructureSchema = [3, n0, _CLRr,
   0,
@@ -546,7 +546,7 @@ export var CustomRoutingAcceleratorAttributes$: StaticStructureSchema = [3, n0, 
 export var CustomRoutingDestinationConfiguration$: StaticStructureSchema = [3, n0, _CRDC,
   0,
   [_FP, _TP, _Pro],
-  [1, 1, 64 | 0]
+  [1, 1, 64 | 0], 3
 ];
 export var CustomRoutingDestinationDescription$: StaticStructureSchema = [3, n0, _CRDD,
   0,
@@ -576,47 +576,47 @@ export var CustomRoutingListener$: StaticStructureSchema = [3, n0, _CRL,
 export var DeleteAcceleratorRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AA],
-  [0]
+  [0], 1
 ];
 export var DeleteCrossAccountAttachmentRequest$: StaticStructureSchema = [3, n0, _DCAAR,
   0,
   [_AAt],
-  [0]
+  [0], 1
 ];
 export var DeleteCustomRoutingAcceleratorRequest$: StaticStructureSchema = [3, n0, _DCRAR,
   0,
   [_AA],
-  [0]
+  [0], 1
 ];
 export var DeleteCustomRoutingEndpointGroupRequest$: StaticStructureSchema = [3, n0, _DCREGR,
   0,
   [_EGA],
-  [0]
+  [0], 1
 ];
 export var DeleteCustomRoutingListenerRequest$: StaticStructureSchema = [3, n0, _DCRLR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DeleteEndpointGroupRequest$: StaticStructureSchema = [3, n0, _DEGR,
   0,
   [_EGA],
-  [0]
+  [0], 1
 ];
 export var DeleteListenerRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DenyCustomRoutingTrafficRequest$: StaticStructureSchema = [3, n0, _DCRTR,
   0,
   [_EGA, _EI, _DA, _DP, _DATTE],
-  [0, 0, 64 | 0, 64 | 1, 2]
+  [0, 0, 64 | 0, 64 | 1, 2], 2
 ];
 export var DeprovisionByoipCidrRequest$: StaticStructureSchema = [3, n0, _DBCR,
   0,
   [_C],
-  [0]
+  [0], 1
 ];
 export var DeprovisionByoipCidrResponse$: StaticStructureSchema = [3, n0, _DBCRe,
   0,
@@ -626,7 +626,7 @@ export var DeprovisionByoipCidrResponse$: StaticStructureSchema = [3, n0, _DBCRe
 export var DescribeAcceleratorAttributesRequest$: StaticStructureSchema = [3, n0, _DAAR,
   0,
   [_AA],
-  [0]
+  [0], 1
 ];
 export var DescribeAcceleratorAttributesResponse$: StaticStructureSchema = [3, n0, _DAARe,
   0,
@@ -636,7 +636,7 @@ export var DescribeAcceleratorAttributesResponse$: StaticStructureSchema = [3, n
 export var DescribeAcceleratorRequest$: StaticStructureSchema = [3, n0, _DARe,
   0,
   [_AA],
-  [0]
+  [0], 1
 ];
 export var DescribeAcceleratorResponse$: StaticStructureSchema = [3, n0, _DARes,
   0,
@@ -646,7 +646,7 @@ export var DescribeAcceleratorResponse$: StaticStructureSchema = [3, n0, _DARes,
 export var DescribeCrossAccountAttachmentRequest$: StaticStructureSchema = [3, n0, _DCAARe,
   0,
   [_AAt],
-  [0]
+  [0], 1
 ];
 export var DescribeCrossAccountAttachmentResponse$: StaticStructureSchema = [3, n0, _DCAARes,
   0,
@@ -656,7 +656,7 @@ export var DescribeCrossAccountAttachmentResponse$: StaticStructureSchema = [3, 
 export var DescribeCustomRoutingAcceleratorAttributesRequest$: StaticStructureSchema = [3, n0, _DCRAAR,
   0,
   [_AA],
-  [0]
+  [0], 1
 ];
 export var DescribeCustomRoutingAcceleratorAttributesResponse$: StaticStructureSchema = [3, n0, _DCRAARe,
   0,
@@ -666,7 +666,7 @@ export var DescribeCustomRoutingAcceleratorAttributesResponse$: StaticStructureS
 export var DescribeCustomRoutingAcceleratorRequest$: StaticStructureSchema = [3, n0, _DCRARe,
   0,
   [_AA],
-  [0]
+  [0], 1
 ];
 export var DescribeCustomRoutingAcceleratorResponse$: StaticStructureSchema = [3, n0, _DCRARes,
   0,
@@ -676,7 +676,7 @@ export var DescribeCustomRoutingAcceleratorResponse$: StaticStructureSchema = [3
 export var DescribeCustomRoutingEndpointGroupRequest$: StaticStructureSchema = [3, n0, _DCREGRe,
   0,
   [_EGA],
-  [0]
+  [0], 1
 ];
 export var DescribeCustomRoutingEndpointGroupResponse$: StaticStructureSchema = [3, n0, _DCREGRes,
   0,
@@ -686,7 +686,7 @@ export var DescribeCustomRoutingEndpointGroupResponse$: StaticStructureSchema = 
 export var DescribeCustomRoutingListenerRequest$: StaticStructureSchema = [3, n0, _DCRLRe,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeCustomRoutingListenerResponse$: StaticStructureSchema = [3, n0, _DCRLRes,
   0,
@@ -696,7 +696,7 @@ export var DescribeCustomRoutingListenerResponse$: StaticStructureSchema = [3, n
 export var DescribeEndpointGroupRequest$: StaticStructureSchema = [3, n0, _DEGRe,
   0,
   [_EGA],
-  [0]
+  [0], 1
 ];
 export var DescribeEndpointGroupResponse$: StaticStructureSchema = [3, n0, _DEGRes,
   0,
@@ -706,7 +706,7 @@ export var DescribeEndpointGroupResponse$: StaticStructureSchema = [3, n0, _DEGR
 export var DescribeListenerRequest$: StaticStructureSchema = [3, n0, _DLRe,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeListenerResponse$: StaticStructureSchema = [3, n0, _DLRes,
   0,
@@ -754,7 +754,7 @@ TypeRegistry.for(n0).registerError(EndpointGroupNotFoundException$, EndpointGrou
 export var EndpointIdentifier$: StaticStructureSchema = [3, n0, _EIn,
   0,
   [_EI, _CIPPE],
-  [0, 2]
+  [0, 2], 1
 ];
 export var EndpointNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE,
   { [_e]: _c, [_hE]: 404 },
@@ -845,8 +845,8 @@ export var ListCrossAccountResourceAccountsResponse$: StaticStructureSchema = [3
 ];
 export var ListCrossAccountResourcesRequest$: StaticStructureSchema = [3, n0, _LCARR,
   0,
-  [_AA, _ROAAIe, _MR, _NT],
-  [0, 0, 1, 0]
+  [_ROAAIe, _AA, _MR, _NT],
+  [0, 0, 1, 0], 1
 ];
 export var ListCrossAccountResourcesResponse$: StaticStructureSchema = [3, n0, _LCARRi,
   0,
@@ -866,7 +866,7 @@ export var ListCustomRoutingAcceleratorsResponse$: StaticStructureSchema = [3, n
 export var ListCustomRoutingEndpointGroupsRequest$: StaticStructureSchema = [3, n0, _LCREGR,
   0,
   [_LA, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListCustomRoutingEndpointGroupsResponse$: StaticStructureSchema = [3, n0, _LCREGRi,
   0,
@@ -876,7 +876,7 @@ export var ListCustomRoutingEndpointGroupsResponse$: StaticStructureSchema = [3,
 export var ListCustomRoutingListenersRequest$: StaticStructureSchema = [3, n0, _LCRLR,
   0,
   [_AA, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListCustomRoutingListenersResponse$: StaticStructureSchema = [3, n0, _LCRLRi,
   0,
@@ -886,7 +886,7 @@ export var ListCustomRoutingListenersResponse$: StaticStructureSchema = [3, n0, 
 export var ListCustomRoutingPortMappingsByDestinationRequest$: StaticStructureSchema = [3, n0, _LCRPMBDR,
   0,
   [_EI, _DAe, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 2
 ];
 export var ListCustomRoutingPortMappingsByDestinationResponse$: StaticStructureSchema = [3, n0, _LCRPMBDRi,
   0,
@@ -896,7 +896,7 @@ export var ListCustomRoutingPortMappingsByDestinationResponse$: StaticStructureS
 export var ListCustomRoutingPortMappingsRequest$: StaticStructureSchema = [3, n0, _LCRPMR,
   0,
   [_AA, _EGA, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListCustomRoutingPortMappingsResponse$: StaticStructureSchema = [3, n0, _LCRPMRi,
   0,
@@ -906,7 +906,7 @@ export var ListCustomRoutingPortMappingsResponse$: StaticStructureSchema = [3, n
 export var ListEndpointGroupsRequest$: StaticStructureSchema = [3, n0, _LEGR,
   0,
   [_LA, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListEndpointGroupsResponse$: StaticStructureSchema = [3, n0, _LEGRi,
   0,
@@ -927,7 +927,7 @@ TypeRegistry.for(n0).registerError(ListenerNotFoundException$, ListenerNotFoundE
 export var ListListenersRequest$: StaticStructureSchema = [3, n0, _LLR,
   0,
   [_AA, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListListenersResponse$: StaticStructureSchema = [3, n0, _LLRi,
   0,
@@ -937,7 +937,7 @@ export var ListListenersResponse$: StaticStructureSchema = [3, n0, _LLRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -962,7 +962,7 @@ export var PortRange$: StaticStructureSchema = [3, n0, _PRo,
 export var ProvisionByoipCidrRequest$: StaticStructureSchema = [3, n0, _PBCR,
   0,
   [_C, _CAC],
-  [0, () => CidrAuthorizationContext$]
+  [0, () => CidrAuthorizationContext$], 2
 ];
 export var ProvisionByoipCidrResponse$: StaticStructureSchema = [3, n0, _PBCRr,
   0,
@@ -972,12 +972,12 @@ export var ProvisionByoipCidrResponse$: StaticStructureSchema = [3, n0, _PBCRr,
 export var RemoveCustomRoutingEndpointsRequest$: StaticStructureSchema = [3, n0, _RCRER,
   0,
   [_EInd, _EGA],
-  [64 | 0, 0]
+  [64 | 0, 0], 2
 ];
 export var RemoveEndpointsRequest$: StaticStructureSchema = [3, n0, _RER,
   0,
   [_EIndp, _EGA],
-  [() => EndpointIdentifiers, 0]
+  [() => EndpointIdentifiers, 0], 2
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _Re,
   0,
@@ -992,12 +992,12 @@ export var SocketAddress$: StaticStructureSchema = [3, n0, _SA,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, () => Tags]
+  [0, () => Tags], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1013,7 +1013,7 @@ TypeRegistry.for(n0).registerError(TransactionInProgressException$, TransactionI
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1023,7 +1023,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAcceleratorAttributesRequest$: StaticStructureSchema = [3, n0, _UAAR,
   0,
   [_AA, _FLE, _FLSB, _FLSP],
-  [0, 2, 0, 0]
+  [0, 2, 0, 0], 1
 ];
 export var UpdateAcceleratorAttributesResponse$: StaticStructureSchema = [3, n0, _UAARp,
   0,
@@ -1033,7 +1033,7 @@ export var UpdateAcceleratorAttributesResponse$: StaticStructureSchema = [3, n0,
 export var UpdateAcceleratorRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_AA, _N, _IAT, _IA, _E],
-  [0, 0, 0, 64 | 0, 2]
+  [0, 0, 0, 64 | 0, 2], 1
 ];
 export var UpdateAcceleratorResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -1043,7 +1043,7 @@ export var UpdateAcceleratorResponse$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateCrossAccountAttachmentRequest$: StaticStructureSchema = [3, n0, _UCAAR,
   0,
   [_AAt, _N, _APd, _RP, _AR, _RR],
-  [0, 0, 64 | 0, 64 | 0, () => Resources, () => Resources]
+  [0, 0, 64 | 0, 64 | 0, () => Resources, () => Resources], 1
 ];
 export var UpdateCrossAccountAttachmentResponse$: StaticStructureSchema = [3, n0, _UCAARp,
   0,
@@ -1053,7 +1053,7 @@ export var UpdateCrossAccountAttachmentResponse$: StaticStructureSchema = [3, n0
 export var UpdateCustomRoutingAcceleratorAttributesRequest$: StaticStructureSchema = [3, n0, _UCRAAR,
   0,
   [_AA, _FLE, _FLSB, _FLSP],
-  [0, 2, 0, 0]
+  [0, 2, 0, 0], 1
 ];
 export var UpdateCustomRoutingAcceleratorAttributesResponse$: StaticStructureSchema = [3, n0, _UCRAARp,
   0,
@@ -1063,7 +1063,7 @@ export var UpdateCustomRoutingAcceleratorAttributesResponse$: StaticStructureSch
 export var UpdateCustomRoutingAcceleratorRequest$: StaticStructureSchema = [3, n0, _UCRAR,
   0,
   [_AA, _N, _IAT, _IA, _E],
-  [0, 0, 0, 64 | 0, 2]
+  [0, 0, 0, 64 | 0, 2], 1
 ];
 export var UpdateCustomRoutingAcceleratorResponse$: StaticStructureSchema = [3, n0, _UCRARp,
   0,
@@ -1073,7 +1073,7 @@ export var UpdateCustomRoutingAcceleratorResponse$: StaticStructureSchema = [3, 
 export var UpdateCustomRoutingListenerRequest$: StaticStructureSchema = [3, n0, _UCRLR,
   0,
   [_LA, _PR],
-  [0, () => PortRanges]
+  [0, () => PortRanges], 2
 ];
 export var UpdateCustomRoutingListenerResponse$: StaticStructureSchema = [3, n0, _UCRLRp,
   0,
@@ -1083,7 +1083,7 @@ export var UpdateCustomRoutingListenerResponse$: StaticStructureSchema = [3, n0,
 export var UpdateEndpointGroupRequest$: StaticStructureSchema = [3, n0, _UEGR,
   0,
   [_EGA, _EC, _TDP, _HCP, _HCPe, _HCPea, _HCIS, _TC, _PO],
-  [0, () => EndpointConfigurations, 1, 1, 0, 0, 1, 1, () => PortOverrides]
+  [0, () => EndpointConfigurations, 1, 1, 0, 0, 1, 1, () => PortOverrides], 1
 ];
 export var UpdateEndpointGroupResponse$: StaticStructureSchema = [3, n0, _UEGRp,
   0,
@@ -1093,7 +1093,7 @@ export var UpdateEndpointGroupResponse$: StaticStructureSchema = [3, n0, _UEGRp,
 export var UpdateListenerRequest$: StaticStructureSchema = [3, n0, _ULR,
   0,
   [_LA, _PR, _Pr, _CA],
-  [0, () => PortRanges, 0, 0]
+  [0, () => PortRanges, 0, 0], 1
 ];
 export var UpdateListenerResponse$: StaticStructureSchema = [3, n0, _ULRp,
   0,
@@ -1103,7 +1103,7 @@ export var UpdateListenerResponse$: StaticStructureSchema = [3, n0, _ULRp,
 export var WithdrawByoipCidrRequest$: StaticStructureSchema = [3, n0, _WBCR,
   0,
   [_C],
-  [0]
+  [0], 1
 ];
 export var WithdrawByoipCidrResponse$: StaticStructureSchema = [3, n0, _WBCRi,
   0,

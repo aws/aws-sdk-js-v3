@@ -48,6 +48,7 @@ export interface GetServiceViewCommandOutput extends GetServiceViewOutput, __Met
  * // { // GetServiceViewOutput
  * //   View: { // ServiceView
  * //     ServiceViewArn: "STRING_VALUE", // required
+ * //     ServiceViewName: "STRING_VALUE",
  * //     Filters: { // SearchFilter
  * //       FilterString: "STRING_VALUE", // required
  * //     },

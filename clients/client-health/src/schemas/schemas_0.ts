@@ -189,7 +189,7 @@ export var DateTimeRange$: StaticStructureSchema = [3, n0, _DTR,
 export var DescribeAffectedAccountsForOrganizationRequest$: StaticStructureSchema = [3, n0, _DAAFOR,
   0,
   [_eAv, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var DescribeAffectedAccountsForOrganizationResponse$: StaticStructureSchema = [3, n0, _DAAFORe,
   0,
@@ -209,7 +209,7 @@ export var DescribeAffectedEntitiesForOrganizationResponse$: StaticStructureSche
 export var DescribeAffectedEntitiesRequest$: StaticStructureSchema = [3, n0, _DAER,
   0,
   [_fi, _l, _nT, _mR],
-  [() => EntityFilter$, 0, 0, 1]
+  [() => EntityFilter$, 0, 0, 1], 1
 ];
 export var DescribeAffectedEntitiesResponse$: StaticStructureSchema = [3, n0, _DAERe,
   0,
@@ -219,7 +219,7 @@ export var DescribeAffectedEntitiesResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeEntityAggregatesForOrganizationRequest$: StaticStructureSchema = [3, n0, _DEAFOR,
   0,
   [_eAve, _aAIw],
-  [64 | 0, 64 | 0]
+  [64 | 0, 64 | 0], 1
 ];
 export var DescribeEntityAggregatesForOrganizationResponse$: StaticStructureSchema = [3, n0, _DEAFORe,
   0,
@@ -238,8 +238,8 @@ export var DescribeEntityAggregatesResponse$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeEventAggregatesRequest$: StaticStructureSchema = [3, n0, _DEARes,
   0,
-  [_fi, _aF, _mR, _nT],
-  [() => EventFilter$, 0, 1, 0]
+  [_aF, _fi, _mR, _nT],
+  [0, () => EventFilter$, 1, 0], 1
 ];
 export var DescribeEventAggregatesResponse$: StaticStructureSchema = [3, n0, _DEAResc,
   0,
@@ -249,7 +249,7 @@ export var DescribeEventAggregatesResponse$: StaticStructureSchema = [3, n0, _DE
 export var DescribeEventDetailsForOrganizationRequest$: StaticStructureSchema = [3, n0, _DEDFOR,
   0,
   [_oEDF, _l],
-  [() => OrganizationEventDetailFiltersList, 0]
+  [() => OrganizationEventDetailFiltersList, 0], 1
 ];
 export var DescribeEventDetailsForOrganizationResponse$: StaticStructureSchema = [3, n0, _DEDFORe,
   0,
@@ -259,7 +259,7 @@ export var DescribeEventDetailsForOrganizationResponse$: StaticStructureSchema =
 export var DescribeEventDetailsRequest$: StaticStructureSchema = [3, n0, _DEDR,
   0,
   [_eAve, _l],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var DescribeEventDetailsResponse$: StaticStructureSchema = [3, n0, _DEDRe,
   0,
@@ -304,7 +304,7 @@ export var DescribeHealthServiceStatusForOrganizationResponse$: StaticStructureS
 export var EntityAccountFilter$: StaticStructureSchema = [3, n0, _EAF,
   0,
   [_eAv, _aAI, _sCt],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 1
 ];
 export var EntityAggregate$: StaticStructureSchema = [3, n0, _EA,
   0,
@@ -314,7 +314,7 @@ export var EntityAggregate$: StaticStructureSchema = [3, n0, _EA,
 export var EntityFilter$: StaticStructureSchema = [3, n0, _EF,
   0,
   [_eAve, _eAnt, _eVn, _lUTa, _t, _sCt],
-  [64 | 0, 64 | 0, 64 | 0, () => dateTimeRangeList, [1, n0, _tF, 0, 128 | 0], 64 | 0]
+  [64 | 0, 64 | 0, 64 | 0, () => dateTimeRangeList, [1, n0, _tF, 0, 128 | 0], 64 | 0], 1
 ];
 export var Event$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -324,7 +324,7 @@ export var Event$: StaticStructureSchema = [3, n0, _E,
 export var EventAccountFilter$: StaticStructureSchema = [3, n0, _EAFv,
   0,
   [_eAv, _aAI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EventAggregate$: StaticStructureSchema = [3, n0, _EAv,
   0,

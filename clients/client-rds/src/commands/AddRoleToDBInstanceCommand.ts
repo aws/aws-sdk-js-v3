@@ -27,11 +27,7 @@ export interface AddRoleToDBInstanceCommandInput extends AddRoleToDBInstanceMess
 export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.</p>
- *          <note>
- *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
- *          </note>
- *          <p>This command doesn't apply to RDS Custom.</p>
+ * <p>Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.</p> <note> <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p> </note> <p>This command doesn't apply to RDS Custom.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +54,7 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBInstanceRoleAlreadyExistsFault} (client fault)
  *  <p>The specified <code>RoleArn</code> or <code>FeatureName</code> value is already associated with the DB instance.</p>

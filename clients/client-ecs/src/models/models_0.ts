@@ -777,6 +777,13 @@ export interface InstanceLaunchTemplate {
    * @public
    */
   instanceRequirements?: InstanceRequirementsRequest | undefined;
+
+  /**
+   * <p>Determines whether to enable FIPS 140-2 validated cryptographic modules on EC2 instances launched by the capacity provider. If <code>true</code>, instances use FIPS-compliant cryptographic algorithms and modules for enhanced security compliance. If <code>false</code>, instances use standard cryptographic implementations.</p>
+   *          <p>If not specified, instances are launched with FIPS enabled in AWS GovCloud (US) regions and FIPS disabled in other regions.</p>
+   * @public
+   */
+  fipsEnabled?: boolean | undefined;
 }
 
 /**

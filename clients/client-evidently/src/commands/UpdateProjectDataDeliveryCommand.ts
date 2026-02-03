@@ -27,11 +27,9 @@ export interface UpdateProjectDataDeliveryCommandInput extends UpdateProjectData
 export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDataDeliveryResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the data storage options for this project. If you store evaluation events, you an
- *       keep them and analyze them on your own. If you choose not to store evaluation events,
- *       Evidently deletes them after using them to produce metrics and other experiment results that
- *       you can view.</p>
- *          <p>You can't specify both <code>cloudWatchLogs</code> and <code>s3Destination</code> in the same operation.</p>
+ * <p>Updates the data storage options for this project. If you store evaluation events, you an keep them and analyze them on your own. If you choose not to store evaluation events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.</p> <p>You can't specify both <code>cloudWatchLogs</code> and <code>s3Destination</code> in the same operation.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateConnectorCommand,
@@ -89,6 +89,10 @@ import {
   UpdateConnectorCommandOutput,
 } from "./commands/UpdateConnectorCommand";
 import { KafkaConnectClient } from "./KafkaConnectClient";
+import { paginateListConnectorOperations } from "./pagination/ListConnectorOperationsPaginator";
+import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";
+import { paginateListCustomPlugins } from "./pagination/ListCustomPluginsPaginator";
+import { paginateListWorkerConfigurations } from "./pagination/ListWorkerConfigurationsPaginator";
 
 const commands = {
   CreateConnectorCommand,
@@ -109,6 +113,12 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConnectorCommand,
+};
+const paginators = {
+  paginateListConnectorOperations,
+  paginateListConnectors,
+  paginateListCustomPlugins,
+  paginateListWorkerConfigurations,
 };
 
 export interface KafkaConnect {
@@ -420,6 +430,50 @@ export interface KafkaConnect {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateConnectorCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListConnectorOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorOperationsCommandOutput}.
+   */
+  paginateListConnectorOperations(
+    args: ListConnectorOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorsCommandOutput}.
+   */
+  paginateListConnectors(
+    args?: ListConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomPluginsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomPluginsCommandOutput}.
+   */
+  paginateListCustomPlugins(
+    args?: ListCustomPluginsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomPluginsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkerConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkerConfigurationsCommandOutput}.
+   */
+  paginateListWorkerConfigurations(
+    args?: ListWorkerConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkerConfigurationsCommandOutput>;
 }
 
 /**
@@ -427,4 +481,4 @@ export interface KafkaConnect {
  * @public
  */
 export class KafkaConnect extends KafkaConnectClient implements KafkaConnect {}
-createAggregatedClient(commands, KafkaConnect);
+createAggregatedClient(commands, KafkaConnect, { paginators });

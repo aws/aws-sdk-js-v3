@@ -9,7 +9,7 @@ import { DynamoDBDocumentPaginationConfiguration } from "./Interfaces";
 /**
  * @public
  */
-export { Paginator };
+export { Paginator }
 /**
  * @public
  */

@@ -92,7 +92,6 @@ import {
   ColumnLevelPermissionRule,
   DatasetParameter,
   FieldFolder,
-  LogicalTable,
   ResourcePermission,
   Tag,
 } from "./models_2";
@@ -122,6 +121,7 @@ import {
   Group,
   GroupMember,
   Ingestion,
+  LogicalTable,
   NamespaceInfoV2,
   PhysicalTable,
   RefreshSchedule,
@@ -130,6 +130,62 @@ import {
   TemplateError,
   ThemeAlias,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeTemplateAliasResponse {
+  /**
+   * <p>Information about the template alias.</p>
+   * @public
+   */
+  TemplateAlias?: TemplateAlias | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplateDefinitionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template. You must be using the
+   * 			 Amazon Web Services account that the template is in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the template that you're describing.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the template.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The alias of the template that you want to describe. If you name a specific alias, you
+   * 			 describe the version that the alias points to. You can specify the latest version of the
+   * 			 template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			 parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+}
 
 /**
  * @public
@@ -1468,14 +1524,14 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
   Namespace: string | undefined;
 
   /**
-   * <p>The session tags used for row-level security. Before you use this parameter, make sure
-   *             that you have configured the relevant datasets using the
-   *                 <code>DataSet$RowLevelPermissionTagConfiguration</code> parameter so that session
-   *             tags can be used to provide row-level security.</p>
-   *          <p>These are not the tags used for the Amazon Web Services resource tagging feature. For
-   *             more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security
-   *                 (RLS) with Tags</a>in the <i>Amazon Quick Sight User
-   *             Guide</i>.</p>
+   * <p>Session tags are user-specified strings that identify a session in your application. You can use these tags to implement row-level security (RLS) controls.
+   *             Before you use the <code>SessionTags</code> parameter, make sure that you have configured the relevant datasets using the <code>DataSet$RowLevelPermissionTagConfiguration</code> parameter
+   *             so that session tags can be used to provide row-level security.</p>
+   *          <p>When using session tags, you must call <code>GenerateEmbedUrlForAnonymousUser</code> from a secure, trusted environment.
+   *             The API call passes session tags that enable server-side data redaction by using the row-level security (RLS) rules configured in your datasets.
+   *             A secure, trusted environment has access controls that you implement. These controls ensure that only your server or authorized users can add or modify session tags.</p>
+   *          <p>Besides, these are not the tags used for the Amazon Web Services resource tagging feature.
+   *             For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
    */
   SessionTags?: SessionTag[] | undefined;
@@ -1602,16 +1658,16 @@ export interface RegisteredUserDashboardFeatureConfigurations {
   StatePersistence?: StatePersistenceConfigurations | undefined;
 
   /**
-   * <p>The shared view settings of an embedded dashboard.</p>
-   * @public
-   */
-  SharedView?: SharedViewConfigurations | undefined;
-
-  /**
    * <p>The bookmarks configuration for an embedded dashboard in Amazon Quick Sight.</p>
    * @public
    */
   Bookmarks?: BookmarksConfigurations | undefined;
+
+  /**
+   * <p>The shared view settings of an embedded dashboard.</p>
+   * @public
+   */
+  SharedView?: SharedViewConfigurations | undefined;
 
   /**
    * <p>The Amazon Q configurations of an embedded Amazon Quick Sight

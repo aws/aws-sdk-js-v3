@@ -56,6 +56,12 @@ export interface GetApprovalTeamCommandOutput extends GetApprovalTeamResponse, _
  * //       PrimaryIdentityId: "STRING_VALUE",
  * //       PrimaryIdentitySourceArn: "STRING_VALUE",
  * //       PrimaryIdentityStatus: "PENDING" || "ACCEPTED" || "REJECTED" || "INVALID",
+ * //       MfaMethods: [ // MfaMethods
+ * //         { // MfaMethod
+ * //           Type: "EMAIL_OTP", // required
+ * //           SyncStatus: "IN_SYNC" || "OUT_OF_SYNC", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   Arn: "STRING_VALUE",
@@ -91,6 +97,12 @@ export interface GetApprovalTeamCommandOutput extends GetApprovalTeamResponse, _
  * //         PrimaryIdentityId: "STRING_VALUE",
  * //         PrimaryIdentitySourceArn: "STRING_VALUE",
  * //         PrimaryIdentityStatus: "PENDING" || "ACCEPTED" || "REJECTED" || "INVALID",
+ * //         MfaMethods: [
+ * //           {
+ * //             Type: "EMAIL_OTP", // required
+ * //             SyncStatus: "IN_SYNC" || "OUT_OF_SYNC", // required
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     UpdateInitiationTime: new Date("TIMESTAMP"),

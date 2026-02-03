@@ -27,10 +27,7 @@ export interface DeleteDBSubnetGroupCommandInput extends DeleteDBSubnetGroupMess
 export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a DB subnet group.</p>
- *          <note>
- *             <p>The specified database subnet group must not be associated with any DB instances.</p>
- *          </note>
+ * <p>Deletes a DB subnet group.</p> <note> <p>The specified database subnet group must not be associated with any DB instances.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +52,7 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
  *
  * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
  *  <p>The DB subnet group cannot be deleted because it's in use.</p>

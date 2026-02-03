@@ -249,18 +249,18 @@ export var Connection$: StaticStructureSchema = [3, n0, _C,
 ];
 export var CreateConnectionInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
-  [_PT, _CN, _T, _HA],
-  [0, 0, () => TagList, 0]
+  [_CN, _PT, _T, _HA],
+  [0, 0, () => TagList, 0], 1
 ];
 export var CreateConnectionOutput$: StaticStructureSchema = [3, n0, _CCO,
   0,
   [_CA, _T],
-  [0, () => TagList]
+  [0, () => TagList], 1
 ];
 export var CreateHostInput$: StaticStructureSchema = [3, n0, _CHI,
   0,
   [_N, _PT, _PE, _VC, _T],
-  [0, 0, 0, () => VpcConfiguration$, () => TagList]
+  [0, 0, 0, () => VpcConfiguration$, () => TagList], 3
 ];
 export var CreateHostOutput$: StaticStructureSchema = [3, n0, _CHO,
   0,
@@ -270,27 +270,27 @@ export var CreateHostOutput$: StaticStructureSchema = [3, n0, _CHO,
 export var CreateRepositoryLinkInput$: StaticStructureSchema = [3, n0, _CRLI,
   0,
   [_CA, _OI, _RN, _EKA, _T],
-  [0, 0, 0, 0, () => TagList]
+  [0, 0, 0, 0, () => TagList], 3
 ];
 export var CreateRepositoryLinkOutput$: StaticStructureSchema = [3, n0, _CRLO,
   0,
   [_RLI],
-  [() => RepositoryLinkInfo$]
+  [() => RepositoryLinkInfo$], 1
 ];
 export var CreateSyncConfigurationInput$: StaticStructureSchema = [3, n0, _CSCI,
   0,
   [_B, _CF, _RLIe, _RNe, _RA, _ST, _PDS, _TRUO],
-  [0, 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0], 6
 ];
 export var CreateSyncConfigurationOutput$: StaticStructureSchema = [3, n0, _CSCO,
   0,
   [_SC],
-  [() => SyncConfiguration$]
+  [() => SyncConfiguration$], 1
 ];
 export var DeleteConnectionInput$: StaticStructureSchema = [3, n0, _DCI,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var DeleteConnectionOutput$: StaticStructureSchema = [3, n0, _DCO,
   0,
@@ -300,7 +300,7 @@ export var DeleteConnectionOutput$: StaticStructureSchema = [3, n0, _DCO,
 export var DeleteHostInput$: StaticStructureSchema = [3, n0, _DHI,
   0,
   [_HA],
-  [0]
+  [0], 1
 ];
 export var DeleteHostOutput$: StaticStructureSchema = [3, n0, _DHO,
   0,
@@ -310,7 +310,7 @@ export var DeleteHostOutput$: StaticStructureSchema = [3, n0, _DHO,
 export var DeleteRepositoryLinkInput$: StaticStructureSchema = [3, n0, _DRLI,
   0,
   [_RLIe],
-  [0]
+  [0], 1
 ];
 export var DeleteRepositoryLinkOutput$: StaticStructureSchema = [3, n0, _DRLO,
   0,
@@ -320,7 +320,7 @@ export var DeleteRepositoryLinkOutput$: StaticStructureSchema = [3, n0, _DRLO,
 export var DeleteSyncConfigurationInput$: StaticStructureSchema = [3, n0, _DSCI,
   0,
   [_ST, _RNe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteSyncConfigurationOutput$: StaticStructureSchema = [3, n0, _DSCO,
   0,
@@ -330,7 +330,7 @@ export var DeleteSyncConfigurationOutput$: StaticStructureSchema = [3, n0, _DSCO
 export var GetConnectionInput$: StaticStructureSchema = [3, n0, _GCI,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var GetConnectionOutput$: StaticStructureSchema = [3, n0, _GCO,
   0,
@@ -340,7 +340,7 @@ export var GetConnectionOutput$: StaticStructureSchema = [3, n0, _GCO,
 export var GetHostInput$: StaticStructureSchema = [3, n0, _GHI,
   0,
   [_HA],
-  [0]
+  [0], 1
 ];
 export var GetHostOutput$: StaticStructureSchema = [3, n0, _GHO,
   0,
@@ -350,52 +350,52 @@ export var GetHostOutput$: StaticStructureSchema = [3, n0, _GHO,
 export var GetRepositoryLinkInput$: StaticStructureSchema = [3, n0, _GRLI,
   0,
   [_RLIe],
-  [0]
+  [0], 1
 ];
 export var GetRepositoryLinkOutput$: StaticStructureSchema = [3, n0, _GRLO,
   0,
   [_RLI],
-  [() => RepositoryLinkInfo$]
+  [() => RepositoryLinkInfo$], 1
 ];
 export var GetRepositorySyncStatusInput$: StaticStructureSchema = [3, n0, _GRSSI,
   0,
   [_B, _RLIe, _ST],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetRepositorySyncStatusOutput$: StaticStructureSchema = [3, n0, _GRSSO,
   0,
   [_LS],
-  [() => RepositorySyncAttempt$]
+  [() => RepositorySyncAttempt$], 1
 ];
 export var GetResourceSyncStatusInput$: StaticStructureSchema = [3, n0, _GRSSIe,
   0,
   [_RNe, _ST],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetResourceSyncStatusOutput$: StaticStructureSchema = [3, n0, _GRSSOe,
   0,
-  [_DS, _LSS, _LS],
-  [() => Revision$, () => ResourceSyncAttempt$, () => ResourceSyncAttempt$]
+  [_LS, _DS, _LSS],
+  [() => ResourceSyncAttempt$, () => Revision$, () => ResourceSyncAttempt$], 1
 ];
 export var GetSyncBlockerSummaryInput$: StaticStructureSchema = [3, n0, _GSBSI,
   0,
   [_ST, _RNe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetSyncBlockerSummaryOutput$: StaticStructureSchema = [3, n0, _GSBSO,
   0,
   [_SBS],
-  [() => SyncBlockerSummary$]
+  [() => SyncBlockerSummary$], 1
 ];
 export var GetSyncConfigurationInput$: StaticStructureSchema = [3, n0, _GSCI,
   0,
   [_ST, _RNe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetSyncConfigurationOutput$: StaticStructureSchema = [3, n0, _GSCO,
   0,
   [_SC],
-  [() => SyncConfiguration$]
+  [() => SyncConfiguration$], 1
 ];
 export var Host$: StaticStructureSchema = [3, n0, _H,
   0,
@@ -448,32 +448,32 @@ export var ListRepositoryLinksInput$: StaticStructureSchema = [3, n0, _LRLI,
 export var ListRepositoryLinksOutput$: StaticStructureSchema = [3, n0, _LRLO,
   0,
   [_RL, _NT],
-  [() => RepositoryLinkList, 0]
+  [() => RepositoryLinkList, 0], 1
 ];
 export var ListRepositorySyncDefinitionsInput$: StaticStructureSchema = [3, n0, _LRSDI,
   0,
   [_RLIe, _ST],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ListRepositorySyncDefinitionsOutput$: StaticStructureSchema = [3, n0, _LRSDO,
   0,
   [_RSD, _NT],
-  [() => RepositorySyncDefinitionList, 0]
+  [() => RepositorySyncDefinitionList, 0], 1
 ];
 export var ListSyncConfigurationsInput$: StaticStructureSchema = [3, n0, _LSCI,
   0,
-  [_MR, _NT, _RLIe, _ST],
-  [1, 0, 0, 0]
+  [_RLIe, _ST, _MR, _NT],
+  [0, 0, 1, 0], 2
 ];
 export var ListSyncConfigurationsOutput$: StaticStructureSchema = [3, n0, _LSCO,
   0,
   [_SCy, _NT],
-  [() => SyncConfigurationList, 0]
+  [() => SyncConfigurationList, 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RAe],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -482,23 +482,23 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 ];
 export var RepositoryLinkInfo$: StaticStructureSchema = [3, n0, _RLI,
   0,
-  [_CA, _EKA, _OI, _PT, _RLA, _RLIe, _RN],
-  [0, 0, 0, 0, 0, 0, 0]
+  [_CA, _OI, _PT, _RLA, _RLIe, _RN, _EKA],
+  [0, 0, 0, 0, 0, 0, 0], 6
 ];
 export var RepositorySyncAttempt$: StaticStructureSchema = [3, n0, _RSA,
   0,
   [_SA, _S, _E],
-  [4, 0, () => RepositorySyncEventList]
+  [4, 0, () => RepositorySyncEventList], 3
 ];
 export var RepositorySyncDefinition$: StaticStructureSchema = [3, n0, _RSDe,
   0,
   [_B, _D, _P, _Ta],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var RepositorySyncEvent$: StaticStructureSchema = [3, n0, _RSE,
   0,
-  [_Ev, _EI, _Ti, _Ty],
-  [0, 0, 4, 0]
+  [_Ev, _Ti, _Ty, _EI],
+  [0, 4, 0, 0], 3
 ];
 export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
   { [_e]: _c, [_hE]: 409 },
@@ -515,12 +515,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResourceSyncAttempt$: StaticStructureSchema = [3, n0, _RSAe,
   0,
   [_E, _IR, _SA, _S, _TR, _Ta],
-  [() => ResourceSyncEventList, () => Revision$, 4, 0, () => Revision$, 0]
+  [() => ResourceSyncEventList, () => Revision$, 4, 0, () => Revision$, 0], 6
 ];
 export var ResourceSyncEvent$: StaticStructureSchema = [3, n0, _RSEe,
   0,
-  [_Ev, _EI, _Ti, _Ty],
-  [0, 0, 4, 0]
+  [_Ev, _Ti, _Ty, _EI],
+  [0, 4, 0, 0], 3
 ];
 export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
   { [_e]: _c, [_hE]: 400 },
@@ -537,17 +537,17 @@ TypeRegistry.for(n0).registerError(RetryLatestCommitFailedException$, RetryLates
 export var Revision$: StaticStructureSchema = [3, n0, _R,
   0,
   [_B, _D, _OI, _RN, _PT, _Sh],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 6
 ];
 export var SyncBlocker$: StaticStructureSchema = [3, n0, _SB,
   0,
   [_I, _Ty, _S, _CR, _CAr, _Con, _RR, _RAes],
-  [0, 0, 0, 0, 4, () => SyncBlockerContextList, 0, 4]
+  [0, 0, 0, 0, 4, () => SyncBlockerContextList, 0, 4], 5
 ];
 export var SyncBlockerContext$: StaticStructureSchema = [3, n0, _SBC,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SyncBlockerDoesNotExistException$: StaticErrorSchema = [-3, n0, _SBDNEE,
   { [_e]: _c, [_hE]: 404 },
@@ -558,12 +558,12 @@ TypeRegistry.for(n0).registerError(SyncBlockerDoesNotExistException$, SyncBlocke
 export var SyncBlockerSummary$: StaticStructureSchema = [3, n0, _SBS,
   0,
   [_RNe, _PRN, _LB],
-  [0, 0, () => LatestSyncBlockerList]
+  [0, 0, () => LatestSyncBlockerList], 1
 ];
 export var SyncConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_B, _CF, _OI, _PT, _RLIe, _RN, _RNe, _RA, _ST, _PDS, _TRUO],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_B, _OI, _PT, _RLIe, _RN, _RNe, _RA, _ST, _CF, _PDS, _TRUO],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 8
 ];
 export var SyncConfigurationStillExistsException$: StaticErrorSchema = [-3, n0, _SCSEE,
   { [_e]: _c, [_hE]: 409 },
@@ -574,12 +574,12 @@ TypeRegistry.for(n0).registerError(SyncConfigurationStillExistsException$, SyncC
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RAe, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -607,7 +607,7 @@ TypeRegistry.for(n0).registerError(UnsupportedProviderTypeException$, Unsupporte
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RAe, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -617,7 +617,7 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateHostInput$: StaticStructureSchema = [3, n0, _UHI,
   0,
   [_HA, _PE, _VC],
-  [0, 0, () => VpcConfiguration$]
+  [0, 0, () => VpcConfiguration$], 1
 ];
 export var UpdateHostOutput$: StaticStructureSchema = [3, n0, _UHO,
   0,
@@ -632,38 +632,38 @@ export var UpdateOutOfSyncException$: StaticErrorSchema = [-3, n0, _UOOSE,
 TypeRegistry.for(n0).registerError(UpdateOutOfSyncException$, UpdateOutOfSyncException);
 export var UpdateRepositoryLinkInput$: StaticStructureSchema = [3, n0, _URLI,
   0,
-  [_CA, _EKA, _RLIe],
-  [0, 0, 0]
+  [_RLIe, _CA, _EKA],
+  [0, 0, 0], 1
 ];
 export var UpdateRepositoryLinkOutput$: StaticStructureSchema = [3, n0, _URLO,
   0,
   [_RLI],
-  [() => RepositoryLinkInfo$]
+  [() => RepositoryLinkInfo$], 1
 ];
 export var UpdateSyncBlockerInput$: StaticStructureSchema = [3, n0, _USBI,
   0,
   [_I, _ST, _RNe, _RR],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var UpdateSyncBlockerOutput$: StaticStructureSchema = [3, n0, _USBO,
   0,
-  [_RNe, _PRN, _SB],
-  [0, 0, () => SyncBlocker$]
+  [_RNe, _SB, _PRN],
+  [0, () => SyncBlocker$, 0], 2
 ];
 export var UpdateSyncConfigurationInput$: StaticStructureSchema = [3, n0, _USCI,
   0,
-  [_B, _CF, _RLIe, _RNe, _RA, _ST, _PDS, _TRUO],
-  [0, 0, 0, 0, 0, 0, 0, 0]
+  [_RNe, _ST, _B, _CF, _RLIe, _RA, _PDS, _TRUO],
+  [0, 0, 0, 0, 0, 0, 0, 0], 2
 ];
 export var UpdateSyncConfigurationOutput$: StaticStructureSchema = [3, n0, _USCO,
   0,
   [_SC],
-  [() => SyncConfiguration$]
+  [() => SyncConfiguration$], 1
 ];
 export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_VI, _SI, _SGI, _TC],
-  [0, 64 | 0, 64 | 0, 0]
+  [0, 64 | 0, 64 | 0, 0], 3
 ];
 export var CodeStarConnectionsServiceException$: StaticErrorSchema = [-3, _sm, "CodeStarConnectionsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CodeStarConnectionsServiceException$, CodeStarConnectionsServiceException);

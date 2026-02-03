@@ -27,21 +27,9 @@ export interface BatchEvaluateFeatureCommandInput extends BatchEvaluateFeatureRe
 export interface BatchEvaluateFeatureCommandOutput extends BatchEvaluateFeatureResponse, __MetadataBearer {}
 
 /**
- * <p>This operation assigns feature variation to user sessions. For each user session, you pass
- *       in an <code>entityID</code> that represents the user. Evidently then checks the evaluation
- *       rules and assigns the variation.</p>
- *          <p>The first rules that are evaluated are the override rules. If the user's
- *         <code>entityID</code> matches an override rule, the user is served the variation specified
- *       by that rule.</p>
- *          <p>Next, if there is a launch of the feature, the user might be assigned to a variation in
- *       the launch. The chance of this depends on the percentage of users that are allocated to that
- *       launch. If the user is enrolled in the launch, the variation they are served depends on the
- *       allocation of the various feature variations used for the launch.</p>
- *          <p>If the user is not assigned to a launch, and there is an ongoing experiment for this feature,  the user might
- *       be assigned to a variation in the experiment. The chance of this
- *       depends on the percentage of users that are allocated to that experiment. If the user is enrolled in the experiment,
- *       the variation they are served depends on the allocation of the various feature variations used for the experiment. </p>
- *          <p>If the user is not assigned to a launch or experiment, they are served the default variation.</p>
+ * <p>This operation assigns feature variation to user sessions. For each user session, you pass in an <code>entityID</code> that represents the user. Evidently then checks the evaluation rules and assigns the variation.</p> <p>The first rules that are evaluated are the override rules. If the user's <code>entityID</code> matches an override rule, the user is served the variation specified by that rule.</p> <p>Next, if there is a launch of the feature, the user might be assigned to a variation in the launch. The chance of this depends on the percentage of users that are allocated to that launch. If the user is enrolled in the launch, the variation they are served depends on the allocation of the various feature variations used for the launch.</p> <p>If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might be assigned to a variation in the experiment. The chance of this depends on the percentage of users that are allocated to that experiment. If the user is enrolled in the experiment, the variation they are served depends on the allocation of the various feature variations used for the experiment. </p> <p>If the user is not assigned to a launch or experiment, they are served the default variation.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

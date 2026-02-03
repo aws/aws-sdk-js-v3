@@ -373,22 +373,22 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AddPolicyStatementInput$: StaticStructureSchema = [3, n0, _APSI,
   0,
   [_a, _sI, _ef, _ac, _p, _co],
-  [[0, 1], [0, 1], 0, 64 | 0, 64 | 0, 0]
+  [[0, 1], [0, 1], 0, 64 | 0, 64 | 0, 0], 5
 ];
 export var AddPolicyStatementOutput$: StaticStructureSchema = [3, n0, _APSO,
   0,
   [_a, _t, _po],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var BatchDeleteUniqueIdInput$: StaticStructureSchema = [3, n0, _BDUII,
   0,
-  [_wN, _iS, _uI],
-  [[0, 1], [0, { [_hH]: _iS }], [64 | 0, { [_hH]: _uI }]]
+  [_wN, _uI, _iS],
+  [[0, 1], [64 | 0, { [_hH]: _uI }], [0, { [_hH]: _iS }]], 2
 ];
 export var BatchDeleteUniqueIdOutput$: StaticStructureSchema = [3, n0, _BDUIO,
   0,
   [_s, _er, _d, _dUI],
-  [0, () => DeleteUniqueIdErrorsList, () => DeletedUniqueIdList, 64 | 0]
+  [0, () => DeleteUniqueIdErrorsList, () => DeletedUniqueIdList, 64 | 0], 4
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 400 },
@@ -398,108 +398,108 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateIdMappingWorkflowInput$: StaticStructureSchema = [3, n0, _CIMWI,
   0,
-  [_wN, _de, _iSC, _oSC, _iMT, _iRC, _rA, _ta],
-  [0, 0, () => IdMappingWorkflowInputSourceConfig, () => IdMappingWorkflowOutputSourceConfig, () => IdMappingTechniques$, () => IdMappingIncrementalRunConfig$, 0, 128 | 0]
+  [_wN, _iSC, _iMT, _de, _oSC, _iRC, _rA, _ta],
+  [0, () => IdMappingWorkflowInputSourceConfig, () => IdMappingTechniques$, 0, () => IdMappingWorkflowOutputSourceConfig, () => IdMappingIncrementalRunConfig$, 0, 128 | 0], 3
 ];
 export var CreateIdMappingWorkflowOutput$: StaticStructureSchema = [3, n0, _CIMWO,
   0,
-  [_wN, _wA, _de, _iSC, _oSC, _iMT, _iRC, _rA],
-  [0, 0, 0, () => IdMappingWorkflowInputSourceConfig, () => IdMappingWorkflowOutputSourceConfig, () => IdMappingTechniques$, () => IdMappingIncrementalRunConfig$, 0]
+  [_wN, _wA, _iSC, _iMT, _de, _oSC, _iRC, _rA],
+  [0, 0, () => IdMappingWorkflowInputSourceConfig, () => IdMappingTechniques$, 0, () => IdMappingWorkflowOutputSourceConfig, () => IdMappingIncrementalRunConfig$, 0], 4
 ];
 export var CreateIdNamespaceInput$: StaticStructureSchema = [3, n0, _CINI,
   0,
-  [_iNN, _de, _iSC, _iMWP, _ty, _rA, _ta],
-  [0, 0, () => IdNamespaceInputSourceConfig, () => IdNamespaceIdMappingWorkflowPropertiesList, 0, 0, 128 | 0]
+  [_iNN, _ty, _de, _iSC, _iMWP, _rA, _ta],
+  [0, 0, 0, () => IdNamespaceInputSourceConfig, () => IdNamespaceIdMappingWorkflowPropertiesList, 0, 128 | 0], 2
 ];
 export var CreateIdNamespaceOutput$: StaticStructureSchema = [3, n0, _CINO,
   0,
-  [_iNN, _iNA, _de, _iSC, _iMWP, _ty, _rA, _cA, _uA, _ta],
-  [0, 0, 0, () => IdNamespaceInputSourceConfig, () => IdNamespaceIdMappingWorkflowPropertiesList, 0, 0, 4, 4, 128 | 0]
+  [_iNN, _iNA, _ty, _cA, _uA, _de, _iSC, _iMWP, _rA, _ta],
+  [0, 0, 0, 4, 4, 0, () => IdNamespaceInputSourceConfig, () => IdNamespaceIdMappingWorkflowPropertiesList, 0, 128 | 0], 5
 ];
 export var CreateMatchingWorkflowInput$: StaticStructureSchema = [3, n0, _CMWI,
   0,
-  [_wN, _de, _iSC, _oSC, _rT, _iRC, _rA, _ta],
-  [0, 0, () => InputSourceConfig, () => OutputSourceConfig, () => ResolutionTechniques$, () => IncrementalRunConfig$, 0, 128 | 0]
+  [_wN, _iSC, _oSC, _rT, _rA, _de, _iRC, _ta],
+  [0, () => InputSourceConfig, () => OutputSourceConfig, () => ResolutionTechniques$, 0, 0, () => IncrementalRunConfig$, 128 | 0], 5
 ];
 export var CreateMatchingWorkflowOutput$: StaticStructureSchema = [3, n0, _CMWO,
   0,
-  [_wN, _wA, _de, _iSC, _oSC, _rT, _iRC, _rA],
-  [0, 0, 0, () => InputSourceConfig, () => OutputSourceConfig, () => ResolutionTechniques$, () => IncrementalRunConfig$, 0]
+  [_wN, _wA, _iSC, _oSC, _rT, _rA, _de, _iRC],
+  [0, 0, () => InputSourceConfig, () => OutputSourceConfig, () => ResolutionTechniques$, 0, 0, () => IncrementalRunConfig$], 6
 ];
 export var CreateSchemaMappingInput$: StaticStructureSchema = [3, n0, _CSMI,
   0,
-  [_sN, _de, _mIF, _ta],
-  [0, 0, () => SchemaInputAttributes, 128 | 0]
+  [_sN, _mIF, _de, _ta],
+  [0, () => SchemaInputAttributes, 0, 128 | 0], 2
 ];
 export var CreateSchemaMappingOutput$: StaticStructureSchema = [3, n0, _CSMO,
   0,
   [_sN, _sA, _de, _mIF],
-  [0, 0, 0, () => SchemaInputAttributes]
+  [0, 0, 0, () => SchemaInputAttributes], 4
 ];
 export var CustomerProfilesIntegrationConfig$: StaticStructureSchema = [3, n0, _CPIC,
   0,
   [_dA, _oTA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeletedUniqueId$: StaticStructureSchema = [3, n0, _DUI,
   0,
   [_uIn],
-  [0]
+  [0], 1
 ];
 export var DeleteIdMappingWorkflowInput$: StaticStructureSchema = [3, n0, _DIMWI,
   0,
   [_wN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteIdMappingWorkflowOutput$: StaticStructureSchema = [3, n0, _DIMWO,
   0,
   [_m],
-  [0]
+  [0], 1
 ];
 export var DeleteIdNamespaceInput$: StaticStructureSchema = [3, n0, _DINI,
   0,
   [_iNN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteIdNamespaceOutput$: StaticStructureSchema = [3, n0, _DINO,
   0,
   [_m],
-  [0]
+  [0], 1
 ];
 export var DeleteMatchingWorkflowInput$: StaticStructureSchema = [3, n0, _DMWI,
   0,
   [_wN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteMatchingWorkflowOutput$: StaticStructureSchema = [3, n0, _DMWO,
   0,
   [_m],
-  [0]
+  [0], 1
 ];
 export var DeletePolicyStatementInput$: StaticStructureSchema = [3, n0, _DPSI,
   0,
   [_a, _sI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeletePolicyStatementOutput$: StaticStructureSchema = [3, n0, _DPSO,
   0,
   [_a, _t, _po],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DeleteSchemaMappingInput$: StaticStructureSchema = [3, n0, _DSMI,
   0,
   [_sN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSchemaMappingOutput$: StaticStructureSchema = [3, n0, _DSMO,
   0,
   [_m],
-  [0]
+  [0], 1
 ];
 export var DeleteUniqueIdError$: StaticStructureSchema = [3, n0, _DUIE,
   0,
   [_uIn, _eT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
   0,
@@ -515,52 +515,52 @@ TypeRegistry.for(n0).registerError(ExceedsLimitException$, ExceedsLimitException
 export var FailedRecord$: StaticStructureSchema = [3, n0, _FR,
   0,
   [_iSARN, _uIn, _eM],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GenerateMatchIdInput$: StaticStructureSchema = [3, n0, _GMII,
   0,
   [_wN, _r, _pT],
-  [[0, 1], [() => RecordList, 0], 0]
+  [[0, 1], [() => RecordList, 0], 0], 2
 ];
 export var GenerateMatchIdOutput$: StaticStructureSchema = [3, n0, _GMIO,
   0,
   [_mG, _fR],
-  [() => MatchGroupsList, () => FailedRecordsList]
+  [() => MatchGroupsList, () => FailedRecordsList], 2
 ];
 export var GetIdMappingJobInput$: StaticStructureSchema = [3, n0, _GIMJI,
   0,
   [_wN, _jI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetIdMappingJobOutput$: StaticStructureSchema = [3, n0, _GIMJO,
   0,
   [_jI, _s, _sT, _eTn, _me, _eD, _oSC, _jT],
-  [0, 0, 4, 4, () => IdMappingJobMetrics$, () => ErrorDetails$, () => IdMappingJobOutputSourceConfig, 0]
+  [0, 0, 4, 4, () => IdMappingJobMetrics$, () => ErrorDetails$, () => IdMappingJobOutputSourceConfig, 0], 3
 ];
 export var GetIdMappingWorkflowInput$: StaticStructureSchema = [3, n0, _GIMWI,
   0,
   [_wN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetIdMappingWorkflowOutput$: StaticStructureSchema = [3, n0, _GIMWO,
   0,
-  [_wN, _wA, _de, _iSC, _oSC, _iMT, _cA, _uA, _iRC, _rA, _ta],
-  [0, 0, 0, () => IdMappingWorkflowInputSourceConfig, () => IdMappingWorkflowOutputSourceConfig, () => IdMappingTechniques$, 4, 4, () => IdMappingIncrementalRunConfig$, 0, 128 | 0]
+  [_wN, _wA, _iSC, _iMT, _cA, _uA, _de, _oSC, _iRC, _rA, _ta],
+  [0, 0, () => IdMappingWorkflowInputSourceConfig, () => IdMappingTechniques$, 4, 4, 0, () => IdMappingWorkflowOutputSourceConfig, () => IdMappingIncrementalRunConfig$, 0, 128 | 0], 6
 ];
 export var GetIdNamespaceInput$: StaticStructureSchema = [3, n0, _GINI,
   0,
   [_iNN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetIdNamespaceOutput$: StaticStructureSchema = [3, n0, _GINO,
   0,
-  [_iNN, _iNA, _de, _iSC, _iMWP, _ty, _rA, _cA, _uA, _ta],
-  [0, 0, 0, () => IdNamespaceInputSourceConfig, () => IdNamespaceIdMappingWorkflowPropertiesList, 0, 0, 4, 4, 128 | 0]
+  [_iNN, _iNA, _ty, _cA, _uA, _de, _iSC, _iMWP, _rA, _ta],
+  [0, 0, 0, 4, 4, 0, () => IdNamespaceInputSourceConfig, () => IdNamespaceIdMappingWorkflowPropertiesList, 0, 128 | 0], 5
 ];
 export var GetMatchIdInput$: StaticStructureSchema = [3, n0, _GMIIe,
   0,
   [_wN, _re, _aN],
-  [[0, 1], [() => RecordAttributeMap, 0], 2]
+  [[0, 1], [() => RecordAttributeMap, 0], 2], 2
 ];
 export var GetMatchIdOutput$: StaticStructureSchema = [3, n0, _GMIOe,
   0,
@@ -570,52 +570,52 @@ export var GetMatchIdOutput$: StaticStructureSchema = [3, n0, _GMIOe,
 export var GetMatchingJobInput$: StaticStructureSchema = [3, n0, _GMJI,
   0,
   [_wN, _jI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetMatchingJobOutput$: StaticStructureSchema = [3, n0, _GMJO,
   0,
   [_jI, _s, _sT, _eTn, _me, _eD, _oSC],
-  [0, 0, 4, 4, () => JobMetrics$, () => ErrorDetails$, () => JobOutputSourceConfig]
+  [0, 0, 4, 4, () => JobMetrics$, () => ErrorDetails$, () => JobOutputSourceConfig], 3
 ];
 export var GetMatchingWorkflowInput$: StaticStructureSchema = [3, n0, _GMWI,
   0,
   [_wN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMatchingWorkflowOutput$: StaticStructureSchema = [3, n0, _GMWO,
   0,
-  [_wN, _wA, _de, _iSC, _oSC, _rT, _cA, _uA, _iRC, _rA, _ta],
-  [0, 0, 0, () => InputSourceConfig, () => OutputSourceConfig, () => ResolutionTechniques$, 4, 4, () => IncrementalRunConfig$, 0, 128 | 0]
+  [_wN, _wA, _iSC, _oSC, _rT, _cA, _uA, _rA, _de, _iRC, _ta],
+  [0, 0, () => InputSourceConfig, () => OutputSourceConfig, () => ResolutionTechniques$, 4, 4, 0, 0, () => IncrementalRunConfig$, 128 | 0], 8
 ];
 export var GetPolicyInput$: StaticStructureSchema = [3, n0, _GPI,
   0,
   [_a],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPolicyOutput$: StaticStructureSchema = [3, n0, _GPO,
   0,
   [_a, _t, _po],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var GetProviderServiceInput$: StaticStructureSchema = [3, n0, _GPSI,
   0,
   [_pN, _pSN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetProviderServiceOutput$: StaticStructureSchema = [3, n0, _GPSO,
   0,
-  [_pN, _pSN, _pSDN, _pST, _pSA, _pCD, _pINSC, _pJC, _pEC, _aO, _pEOD, _pIDAC, _pCS],
-  [0, 0, 0, 0, 0, 15, () => ProviderIdNameSpaceConfiguration$, 15, () => ProviderEndpointConfiguration$, 2, 15, () => ProviderIntermediateDataAccessConfiguration$, () => ProviderComponentSchema$]
+  [_pN, _pSN, _pSDN, _pST, _pSA, _pEC, _aO, _pEOD, _pCD, _pINSC, _pJC, _pIDAC, _pCS],
+  [0, 0, 0, 0, 0, () => ProviderEndpointConfiguration$, 2, 15, 15, () => ProviderIdNameSpaceConfiguration$, 15, () => ProviderIntermediateDataAccessConfiguration$, () => ProviderComponentSchema$], 8
 ];
 export var GetSchemaMappingInput$: StaticStructureSchema = [3, n0, _GSMI,
   0,
   [_sN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSchemaMappingOutput$: StaticStructureSchema = [3, n0, _GSMO,
   0,
-  [_sN, _sA, _de, _mIF, _cA, _uA, _ta, _hW],
-  [0, 0, 0, () => SchemaInputAttributes, 4, 4, 128 | 0, 2]
+  [_sN, _sA, _mIF, _cA, _uA, _hW, _de, _ta],
+  [0, 0, () => SchemaInputAttributes, 4, 4, 2, 0, 128 | 0], 6
 ];
 export var IdMappingIncrementalRunConfig$: StaticStructureSchema = [3, n0, _IMIRC,
   0,
@@ -630,52 +630,52 @@ export var IdMappingJobMetrics$: StaticStructureSchema = [3, n0, _IMJM,
 export var IdMappingJobOutputSource$: StaticStructureSchema = [3, n0, _IMJOS,
   0,
   [_rA, _oSP, _KMSA],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var IdMappingRuleBasedProperties$: StaticStructureSchema = [3, n0, _IMRBP,
   0,
-  [_ru, _rDT, _aMM, _rMM],
-  [() => RuleList, 0, 0, 0]
+  [_rDT, _aMM, _rMM, _ru],
+  [0, 0, 0, () => RuleList], 3
 ];
 export var IdMappingTechniques$: StaticStructureSchema = [3, n0, _IMT,
   0,
   [_iMTd, _rBP, _pP],
-  [0, () => IdMappingRuleBasedProperties$, () => ProviderProperties$]
+  [0, () => IdMappingRuleBasedProperties$, () => ProviderProperties$], 1
 ];
 export var IdMappingWorkflowInputSource$: StaticStructureSchema = [3, n0, _IMWIS,
   0,
   [_iSARN, _sN, _ty],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var IdMappingWorkflowOutputSource$: StaticStructureSchema = [3, n0, _IMWOS,
   0,
-  [_KMSA, _oSP],
-  [0, 0]
+  [_oSP, _KMSA],
+  [0, 0], 1
 ];
 export var IdMappingWorkflowSummary$: StaticStructureSchema = [3, n0, _IMWS,
   0,
   [_wN, _wA, _cA, _uA],
-  [0, 0, 4, 4]
+  [0, 0, 4, 4], 4
 ];
 export var IdNamespaceIdMappingWorkflowMetadata$: StaticStructureSchema = [3, n0, _INIMWM,
   0,
   [_iMTd],
-  [0]
+  [0], 1
 ];
 export var IdNamespaceIdMappingWorkflowProperties$: StaticStructureSchema = [3, n0, _INIMWP,
   0,
   [_iMTd, _rBP, _pP],
-  [0, () => NamespaceRuleBasedProperties$, () => NamespaceProviderProperties$]
+  [0, () => NamespaceRuleBasedProperties$, () => NamespaceProviderProperties$], 1
 ];
 export var IdNamespaceInputSource$: StaticStructureSchema = [3, n0, _INIS,
   0,
   [_iSARN, _sN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var IdNamespaceSummary$: StaticStructureSchema = [3, n0, _INS,
   0,
-  [_iNN, _iNA, _de, _iMWP, _ty, _cA, _uA],
-  [0, 0, 0, () => IdNamespaceIdMappingWorkflowMetadataList, 0, 4, 4]
+  [_iNN, _iNA, _ty, _cA, _uA, _de, _iMWP],
+  [0, 0, 0, 4, 4, 0, () => IdNamespaceIdMappingWorkflowMetadataList], 5
 ];
 export var IncrementalRunConfig$: StaticStructureSchema = [3, n0, _IRC,
   0,
@@ -685,12 +685,12 @@ export var IncrementalRunConfig$: StaticStructureSchema = [3, n0, _IRC,
 export var InputSource$: StaticStructureSchema = [3, n0, _IS,
   0,
   [_iSARN, _sN, _aN],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var IntermediateSourceConfiguration$: StaticStructureSchema = [3, n0, _ISC,
   0,
   [_iSP],
-  [0]
+  [0], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
@@ -706,17 +706,17 @@ export var JobMetrics$: StaticStructureSchema = [3, n0, _JM,
 export var JobOutputSource$: StaticStructureSchema = [3, n0, _JOS,
   0,
   [_rA, _oSP, _KMSA],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var JobSummary$: StaticStructureSchema = [3, n0, _JS,
   0,
   [_jI, _s, _sT, _eTn],
-  [0, 0, 4, 4]
+  [0, 0, 4, 4], 3
 ];
 export var ListIdMappingJobsInput$: StaticStructureSchema = [3, n0, _LIMJI,
   0,
   [_wN, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListIdMappingJobsOutput$: StaticStructureSchema = [3, n0, _LIMJO,
   0,
@@ -746,7 +746,7 @@ export var ListIdNamespacesOutput$: StaticStructureSchema = [3, n0, _LINO,
 export var ListMatchingJobsInput$: StaticStructureSchema = [3, n0, _LMJI,
   0,
   [_wN, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListMatchingJobsOutput$: StaticStructureSchema = [3, n0, _LMJO,
   0,
@@ -786,32 +786,32 @@ export var ListSchemaMappingsOutput$: StaticStructureSchema = [3, n0, _LSMO,
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
   [_ta],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var MatchedRecord$: StaticStructureSchema = [3, n0, _MR,
   0,
   [_iSARN, _rI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var MatchGroup$: StaticStructureSchema = [3, n0, _MG,
   0,
   [_r, _mI, _mR],
-  [() => MatchedRecordsList, 0, 0]
+  [() => MatchedRecordsList, 0, 0], 3
 ];
 export var MatchingWorkflowSummary$: StaticStructureSchema = [3, n0, _MWS,
   0,
   [_wN, _wA, _cA, _uA, _rTe],
-  [0, 0, 4, 4, 0]
+  [0, 0, 4, 4, 0], 5
 ];
 export var NamespaceProviderProperties$: StaticStructureSchema = [3, n0, _NPP,
   0,
   [_pSA, _pC],
-  [0, 15]
+  [0, 15], 1
 ];
 export var NamespaceRuleBasedProperties$: StaticStructureSchema = [3, n0, _NRBP,
   0,
@@ -821,12 +821,12 @@ export var NamespaceRuleBasedProperties$: StaticStructureSchema = [3, n0, _NRBP,
 export var OutputAttribute$: StaticStructureSchema = [3, n0, _OA,
   0,
   [_n, _h],
-  [0, 2]
+  [0, 2], 1
 ];
 export var OutputSource$: StaticStructureSchema = [3, n0, _OS,
   0,
-  [_KMSA, _oSP, _o, _aN, _cPIC],
-  [0, 0, () => OutputAttributes, 2, () => CustomerProfilesIntegrationConfig$]
+  [_o, _KMSA, _oSP, _aN, _cPIC],
+  [() => OutputAttributes, 0, 0, 2, () => CustomerProfilesIntegrationConfig$], 1
 ];
 export var ProviderComponentSchema$: StaticStructureSchema = [3, n0, _PCS,
   0,
@@ -846,42 +846,42 @@ export var ProviderIntermediateDataAccessConfiguration$: StaticStructureSchema =
 export var ProviderMarketplaceConfiguration$: StaticStructureSchema = [3, n0, _PMC,
   0,
   [_dSI, _rIe, _aI, _lI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ProviderProperties$: StaticStructureSchema = [3, n0, _PP,
   0,
   [_pSA, _pC, _iSCn],
-  [0, 15, () => IntermediateSourceConfiguration$]
+  [0, 15, () => IntermediateSourceConfiguration$], 1
 ];
 export var ProviderSchemaAttribute$: StaticStructureSchema = [3, n0, _PSA,
   0,
   [_fN, _ty, _sTu, _ha],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 2
 ];
 export var ProviderServiceSummary$: StaticStructureSchema = [3, n0, _PSS,
   0,
   [_pSA, _pN, _pSDN, _pSN, _pST],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 export var PutPolicyInput$: StaticStructureSchema = [3, n0, _PPI,
   0,
-  [_a, _t, _po],
-  [[0, 1], 0, 0]
+  [_a, _po, _t],
+  [[0, 1], 0, 0], 2
 ];
 export var PutPolicyOutput$: StaticStructureSchema = [3, n0, _PPO,
   0,
   [_a, _t, _po],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var _Record$: StaticStructureSchema = [3, n0, _R,
   0,
   [_iSARN, _uIn, _rAM],
-  [0, 0, [() => RecordAttributeMapString255, 0]]
+  [0, 0, [() => RecordAttributeMapString255, 0]], 3
 ];
 export var ResolutionTechniques$: StaticStructureSchema = [3, n0, _RT,
   0,
   [_rTe, _rBP, _rCP, _pP],
-  [0, () => RuleBasedProperties$, () => RuleConditionProperties$, () => ProviderProperties$]
+  [0, () => RuleBasedProperties$, () => RuleConditionProperties$, () => ProviderProperties$], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -892,57 +892,57 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var Rule$: StaticStructureSchema = [3, n0, _Ru,
   0,
   [_rN, _mK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RuleBasedProperties$: StaticStructureSchema = [3, n0, _RBP,
   0,
   [_ru, _aMM, _mP],
-  [() => RuleList, 0, 0]
+  [() => RuleList, 0, 0], 2
 ];
 export var RuleCondition$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_rN, _co],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RuleConditionProperties$: StaticStructureSchema = [3, n0, _RCP,
   0,
   [_ru],
-  [() => RuleConditionList]
+  [() => RuleConditionList], 1
 ];
 export var SchemaInputAttribute$: StaticStructureSchema = [3, n0, _SIA,
   0,
   [_fN, _ty, _gN, _mKa, _sTu, _h],
-  [0, 0, 0, 0, 0, 2]
+  [0, 0, 0, 0, 0, 2], 2
 ];
 export var SchemaMappingSummary$: StaticStructureSchema = [3, n0, _SMS,
   0,
   [_sN, _sA, _cA, _uA, _hW],
-  [0, 0, 4, 4, 2]
+  [0, 0, 4, 4, 2], 5
 ];
 export var StartIdMappingJobInput$: StaticStructureSchema = [3, n0, _SIMJI,
   0,
   [_wN, _oSC, _jT],
-  [[0, 1], () => IdMappingJobOutputSourceConfig, 0]
+  [[0, 1], () => IdMappingJobOutputSourceConfig, 0], 1
 ];
 export var StartIdMappingJobOutput$: StaticStructureSchema = [3, n0, _SIMJO,
   0,
   [_jI, _oSC, _jT],
-  [0, () => IdMappingJobOutputSourceConfig, 0]
+  [0, () => IdMappingJobOutputSourceConfig, 0], 1
 ];
 export var StartMatchingJobInput$: StaticStructureSchema = [3, n0, _SMJI,
   0,
   [_wN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StartMatchingJobOutput$: StaticStructureSchema = [3, n0, _SMJO,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rAe, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -958,7 +958,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rAe, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -967,43 +967,43 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateIdMappingWorkflowInput$: StaticStructureSchema = [3, n0, _UIMWI,
   0,
-  [_wN, _de, _iSC, _oSC, _iMT, _iRC, _rA],
-  [[0, 1], 0, () => IdMappingWorkflowInputSourceConfig, () => IdMappingWorkflowOutputSourceConfig, () => IdMappingTechniques$, () => IdMappingIncrementalRunConfig$, 0]
+  [_wN, _iSC, _iMT, _de, _oSC, _iRC, _rA],
+  [[0, 1], () => IdMappingWorkflowInputSourceConfig, () => IdMappingTechniques$, 0, () => IdMappingWorkflowOutputSourceConfig, () => IdMappingIncrementalRunConfig$, 0], 3
 ];
 export var UpdateIdMappingWorkflowOutput$: StaticStructureSchema = [3, n0, _UIMWO,
   0,
-  [_wN, _wA, _de, _iSC, _oSC, _iMT, _iRC, _rA],
-  [0, 0, 0, () => IdMappingWorkflowInputSourceConfig, () => IdMappingWorkflowOutputSourceConfig, () => IdMappingTechniques$, () => IdMappingIncrementalRunConfig$, 0]
+  [_wN, _wA, _iSC, _iMT, _de, _oSC, _iRC, _rA],
+  [0, 0, () => IdMappingWorkflowInputSourceConfig, () => IdMappingTechniques$, 0, () => IdMappingWorkflowOutputSourceConfig, () => IdMappingIncrementalRunConfig$, 0], 4
 ];
 export var UpdateIdNamespaceInput$: StaticStructureSchema = [3, n0, _UINI,
   0,
   [_iNN, _de, _iSC, _iMWP, _rA],
-  [[0, 1], 0, () => IdNamespaceInputSourceConfig, () => IdNamespaceIdMappingWorkflowPropertiesList, 0]
+  [[0, 1], 0, () => IdNamespaceInputSourceConfig, () => IdNamespaceIdMappingWorkflowPropertiesList, 0], 1
 ];
 export var UpdateIdNamespaceOutput$: StaticStructureSchema = [3, n0, _UINO,
   0,
-  [_iNN, _iNA, _de, _iSC, _iMWP, _ty, _rA, _cA, _uA],
-  [0, 0, 0, () => IdNamespaceInputSourceConfig, () => IdNamespaceIdMappingWorkflowPropertiesList, 0, 0, 4, 4]
+  [_iNN, _iNA, _ty, _cA, _uA, _de, _iSC, _iMWP, _rA],
+  [0, 0, 0, 4, 4, 0, () => IdNamespaceInputSourceConfig, () => IdNamespaceIdMappingWorkflowPropertiesList, 0], 5
 ];
 export var UpdateMatchingWorkflowInput$: StaticStructureSchema = [3, n0, _UMWI,
   0,
-  [_wN, _de, _iSC, _oSC, _rT, _iRC, _rA],
-  [[0, 1], 0, () => InputSourceConfig, () => OutputSourceConfig, () => ResolutionTechniques$, () => IncrementalRunConfig$, 0]
+  [_wN, _iSC, _oSC, _rT, _rA, _de, _iRC],
+  [[0, 1], () => InputSourceConfig, () => OutputSourceConfig, () => ResolutionTechniques$, 0, 0, () => IncrementalRunConfig$], 5
 ];
 export var UpdateMatchingWorkflowOutput$: StaticStructureSchema = [3, n0, _UMWO,
   0,
-  [_wN, _de, _iSC, _oSC, _rT, _iRC, _rA],
-  [0, 0, () => InputSourceConfig, () => OutputSourceConfig, () => ResolutionTechniques$, () => IncrementalRunConfig$, 0]
+  [_wN, _iSC, _oSC, _rT, _rA, _de, _iRC],
+  [0, () => InputSourceConfig, () => OutputSourceConfig, () => ResolutionTechniques$, 0, 0, () => IncrementalRunConfig$], 5
 ];
 export var UpdateSchemaMappingInput$: StaticStructureSchema = [3, n0, _USMI,
   0,
-  [_sN, _de, _mIF],
-  [[0, 1], 0, () => SchemaInputAttributes]
+  [_sN, _mIF, _de],
+  [[0, 1], () => SchemaInputAttributes, 0], 2
 ];
 export var UpdateSchemaMappingOutput$: StaticStructureSchema = [3, n0, _USMO,
   0,
-  [_sN, _sA, _de, _mIF],
-  [0, 0, 0, () => SchemaInputAttributes]
+  [_sN, _sA, _mIF, _de],
+  [0, 0, () => SchemaInputAttributes, 0], 3
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   GetEntitlementsCommand,
@@ -8,9 +8,13 @@ import {
   GetEntitlementsCommandOutput,
 } from "./commands/GetEntitlementsCommand";
 import { MarketplaceEntitlementServiceClient } from "./MarketplaceEntitlementServiceClient";
+import { paginateGetEntitlements } from "./pagination/GetEntitlementsPaginator";
 
 const commands = {
   GetEntitlementsCommand,
+};
+const paginators = {
+  paginateGetEntitlements,
 };
 
 export interface MarketplaceEntitlementService {
@@ -30,6 +34,17 @@ export interface MarketplaceEntitlementService {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEntitlementsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetEntitlementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetEntitlementsCommandOutput}.
+   */
+  paginateGetEntitlements(
+    args: GetEntitlementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetEntitlementsCommandOutput>;
 }
 
 /**
@@ -53,4 +68,4 @@ export interface MarketplaceEntitlementService {
  * @public
  */
 export class MarketplaceEntitlementService extends MarketplaceEntitlementServiceClient implements MarketplaceEntitlementService {}
-createAggregatedClient(commands, MarketplaceEntitlementService);
+createAggregatedClient(commands, MarketplaceEntitlementService, { paginators });

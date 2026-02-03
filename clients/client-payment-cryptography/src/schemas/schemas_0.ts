@@ -262,22 +262,22 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AddKeyReplicationRegionsInput$: StaticStructureSchema = [3, n0, _AKRRI,
   0,
   [_KI, _RR],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AddKeyReplicationRegionsOutput$: StaticStructureSchema = [3, n0, _AKRRO,
   0,
   [_K],
-  [() => Key$]
+  [() => Key$], 1
 ];
 export var Alias$: StaticStructureSchema = [3, n0, _A,
   0,
   [_AN, _KA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CertificateSubjectType$: StaticStructureSchema = [3, n0, _CST,
   0,
   [_CN, _OU, _O, _C, _Co, _SOP, _EA],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -288,27 +288,27 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAliasInput$: StaticStructureSchema = [3, n0, _CAI,
   0,
   [_AN, _KA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CreateAliasOutput$: StaticStructureSchema = [3, n0, _CAO,
   0,
   [_A],
-  [() => Alias$]
+  [() => Alias$], 1
 ];
 export var CreateKeyInput$: StaticStructureSchema = [3, n0, _CKI,
   0,
-  [_KAe, _KCVA, _E, _En, _T, _DKU, _RR],
-  [() => KeyAttributes$, 0, 2, 2, () => Tags, 0, 64 | 0]
+  [_KAe, _E, _KCVA, _En, _T, _DKU, _RR],
+  [() => KeyAttributes$, 2, 0, 2, () => Tags, 0, 64 | 0], 2
 ];
 export var CreateKeyOutput$: StaticStructureSchema = [3, n0, _CKO,
   0,
   [_K],
-  [() => Key$]
+  [() => Key$], 1
 ];
 export var DeleteAliasInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_AN],
-  [0]
+  [0], 1
 ];
 export var DeleteAliasOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
@@ -318,37 +318,37 @@ export var DeleteAliasOutput$: StaticStructureSchema = [3, n0, _DAO,
 export var DeleteKeyInput$: StaticStructureSchema = [3, n0, _DKI,
   0,
   [_KI, _DKID],
-  [0, 1]
+  [0, 1], 1
 ];
 export var DeleteKeyOutput$: StaticStructureSchema = [3, n0, _DKO,
   0,
   [_K],
-  [() => Key$]
+  [() => Key$], 1
 ];
 export var DisableDefaultKeyReplicationRegionsInput$: StaticStructureSchema = [3, n0, _DDKRRI,
   0,
   [_RR],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DisableDefaultKeyReplicationRegionsOutput$: StaticStructureSchema = [3, n0, _DDKRRO,
   0,
   [_ERR],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var EnableDefaultKeyReplicationRegionsInput$: StaticStructureSchema = [3, n0, _EDKRRI,
   0,
   [_RR],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var EnableDefaultKeyReplicationRegionsOutput$: StaticStructureSchema = [3, n0, _EDKRRO,
   0,
   [_ERR],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var ExportAs2805KeyCryptogram$: StaticStructureSchema = [3, n0, _EAKC,
   0,
   [_WKI, _AKV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ExportAttributes$: StaticStructureSchema = [3, n0, _EAx,
   0,
@@ -358,22 +358,22 @@ export var ExportAttributes$: StaticStructureSchema = [3, n0, _EAx,
 export var ExportDiffieHellmanTr31KeyBlock$: StaticStructureSchema = [3, n0, _EDHTKB,
   0,
   [_PKI, _CAPKI, _PKC, _DKA, _KDF, _KDHA, _DD, _KBH],
-  [0, 0, 0, 0, 0, 0, () => DiffieHellmanDerivationData$, [() => KeyBlockHeaders$, 0]]
+  [0, 0, 0, 0, 0, 0, () => DiffieHellmanDerivationData$, [() => KeyBlockHeaders$, 0]], 7
 ];
 export var ExportDukptInitialKey$: StaticStructureSchema = [3, n0, _EDIK,
   0,
   [_KSN],
-  [0]
+  [0], 1
 ];
 export var ExportKeyCryptogram$: StaticStructureSchema = [3, n0, _EKC,
   0,
   [_CAPKI, _WKCr, _WS],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ExportKeyInput$: StaticStructureSchema = [3, n0, _EKI,
   0,
   [_KM, _EKIx, _EAx],
-  [[() => ExportKeyMaterial$, 0], 0, () => ExportAttributes$]
+  [[() => ExportKeyMaterial$, 0], 0, () => ExportAttributes$], 2
 ];
 export var ExportKeyOutput$: StaticStructureSchema = [3, n0, _EKO,
   0,
@@ -383,32 +383,32 @@ export var ExportKeyOutput$: StaticStructureSchema = [3, n0, _EKO,
 export var ExportTr31KeyBlock$: StaticStructureSchema = [3, n0, _ETKB,
   0,
   [_WKI, _KBH],
-  [0, [() => KeyBlockHeaders$, 0]]
+  [0, [() => KeyBlockHeaders$, 0]], 1
 ];
 export var ExportTr34KeyBlock$: StaticStructureSchema = [3, n0, _ETKBx,
   0,
-  [_CAPKI, _WKCr, _ET, _SKI, _SKC, _KBF, _RN, _KBH],
-  [0, 0, 0, 0, 0, 0, 0, [() => KeyBlockHeaders$, 0]]
+  [_CAPKI, _WKCr, _KBF, _ET, _SKI, _SKC, _RN, _KBH],
+  [0, 0, 0, 0, 0, 0, 0, [() => KeyBlockHeaders$, 0]], 3
 ];
 export var GetAliasInput$: StaticStructureSchema = [3, n0, _GAI,
   0,
   [_AN],
-  [0]
+  [0], 1
 ];
 export var GetAliasOutput$: StaticStructureSchema = [3, n0, _GAO,
   0,
   [_A],
-  [() => Alias$]
+  [() => Alias$], 1
 ];
 export var GetCertificateSigningRequestInput$: StaticStructureSchema = [3, n0, _GCSRI,
   0,
   [_KI, _SA, _CS],
-  [0, 0, () => CertificateSubjectType$]
+  [0, 0, () => CertificateSubjectType$], 3
 ];
 export var GetCertificateSigningRequestOutput$: StaticStructureSchema = [3, n0, _GCSRO,
   0,
   [_CSR],
-  [[() => CertificateSigningRequestType, 0]]
+  [[() => CertificateSigningRequestType, 0]], 1
 ];
 export var GetDefaultKeyReplicationRegionsInput$: StaticStructureSchema = [3, n0, _GDKRRI,
   0,
@@ -418,82 +418,82 @@ export var GetDefaultKeyReplicationRegionsInput$: StaticStructureSchema = [3, n0
 export var GetDefaultKeyReplicationRegionsOutput$: StaticStructureSchema = [3, n0, _GDKRRO,
   0,
   [_ERR],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var GetKeyInput$: StaticStructureSchema = [3, n0, _GKI,
   0,
   [_KI],
-  [0]
+  [0], 1
 ];
 export var GetKeyOutput$: StaticStructureSchema = [3, n0, _GKO,
   0,
   [_K],
-  [() => Key$]
+  [() => Key$], 1
 ];
 export var GetParametersForExportInput$: StaticStructureSchema = [3, n0, _GPFEI,
   0,
   [_KMT, _SKA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetParametersForExportOutput$: StaticStructureSchema = [3, n0, _GPFEO,
   0,
   [_SKC, _SKCC, _SKA, _ET, _PVUT],
-  [0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 4], 5
 ];
 export var GetParametersForImportInput$: StaticStructureSchema = [3, n0, _GPFII,
   0,
   [_KMT, _WKA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetParametersForImportOutput$: StaticStructureSchema = [3, n0, _GPFIO,
   0,
   [_WKCr, _WKCC, _WKA, _IT, _PVUT],
-  [0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 4], 5
 ];
 export var GetPublicKeyCertificateInput$: StaticStructureSchema = [3, n0, _GPKCI,
   0,
   [_KI],
-  [0]
+  [0], 1
 ];
 export var GetPublicKeyCertificateOutput$: StaticStructureSchema = [3, n0, _GPKCO,
   0,
   [_KC, _KCC],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ImportAs2805KeyCryptogram$: StaticStructureSchema = [3, n0, _IAKC,
   0,
   [_AKV, _KMOU, _KAey, _E, _WKI, _WKC],
-  [0, () => KeyModesOfUse$, 0, 2, 0, [() => WrappedKeyCryptogram, 0]]
+  [0, () => KeyModesOfUse$, 0, 2, 0, [() => WrappedKeyCryptogram, 0]], 6
 ];
 export var ImportDiffieHellmanTr31KeyBlock$: StaticStructureSchema = [3, n0, _IDHTKB,
   0,
   [_PKI, _CAPKI, _PKC, _DKA, _KDF, _KDHA, _DD, _WKB],
-  [0, 0, 0, 0, 0, 0, () => DiffieHellmanDerivationData$, [() => Tr31WrappedKeyBlock, 0]]
+  [0, 0, 0, 0, 0, 0, () => DiffieHellmanDerivationData$, [() => Tr31WrappedKeyBlock, 0]], 8
 ];
 export var ImportKeyCryptogram$: StaticStructureSchema = [3, n0, _IKC,
   0,
   [_KAe, _E, _WKC, _IT, _WS],
-  [() => KeyAttributes$, 2, [() => WrappedKeyCryptogram, 0], 0, 0]
+  [() => KeyAttributes$, 2, [() => WrappedKeyCryptogram, 0], 0, 0], 4
 ];
 export var ImportKeyInput$: StaticStructureSchema = [3, n0, _IKI,
   0,
   [_KM, _KCVA, _En, _T, _RR],
-  [[() => ImportKeyMaterial$, 0], 0, 2, () => Tags, 64 | 0]
+  [[() => ImportKeyMaterial$, 0], 0, 2, () => Tags, 64 | 0], 1
 ];
 export var ImportKeyOutput$: StaticStructureSchema = [3, n0, _IKO,
   0,
   [_K],
-  [() => Key$]
+  [() => Key$], 1
 ];
 export var ImportTr31KeyBlock$: StaticStructureSchema = [3, n0, _ITKB,
   0,
   [_WKI, _WKB],
-  [0, [() => Tr31WrappedKeyBlock, 0]]
+  [0, [() => Tr31WrappedKeyBlock, 0]], 2
 ];
 export var ImportTr34KeyBlock$: StaticStructureSchema = [3, n0, _ITKBm,
   0,
-  [_CAPKI, _SKC, _IT, _WKI, _WKCr, _WKB, _KBF, _RN],
-  [0, 0, 0, 0, 0, [() => Tr34WrappedKeyBlock, 0], 0, 0]
+  [_CAPKI, _SKC, _WKB, _KBF, _IT, _WKI, _WKCr, _RN],
+  [0, 0, [() => Tr34WrappedKeyBlock, 0], 0, 0, 0, 0, 0], 4
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -504,12 +504,12 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var Key$: StaticStructureSchema = [3, n0, _K,
   0,
   [_KA, _KAe, _KCV, _KCVA, _En, _E, _KS, _KO, _CT, _UST, _USTs, _DPT, _DT, _DKU, _MRKT, _PR, _RS, _UDRR],
-  [0, () => KeyAttributes$, 0, 0, 2, 2, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, () => ReplicationStatus, 2]
+  [0, () => KeyAttributes$, 0, 0, 2, 2, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, () => ReplicationStatus, 2], 9
 ];
 export var KeyAttributes$: StaticStructureSchema = [3, n0, _KAe,
   0,
   [_KU, _KCe, _KAey, _KMOU],
-  [0, 0, 0, () => KeyModesOfUse$]
+  [0, 0, 0, () => KeyModesOfUse$], 4
 ];
 export var KeyBlockHeaders$: StaticStructureSchema = [3, n0, _KBH,
   0,
@@ -524,7 +524,7 @@ export var KeyModesOfUse$: StaticStructureSchema = [3, n0, _KMOU,
 export var KeySummary$: StaticStructureSchema = [3, n0, _KSe,
   0,
   [_KA, _KS, _KAe, _KCV, _E, _En, _MRKT, _PR],
-  [0, 0, () => KeyAttributes$, 0, 2, 2, 0, 0]
+  [0, 0, () => KeyAttributes$, 0, 2, 2, 0, 0], 6
 ];
 export var ListAliasesInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
@@ -534,7 +534,7 @@ export var ListAliasesInput$: StaticStructureSchema = [3, n0, _LAI,
 export var ListAliasesOutput$: StaticStructureSchema = [3, n0, _LAO,
   0,
   [_Al, _NT],
-  [() => Aliases, 0]
+  [() => Aliases, 0], 1
 ];
 export var ListKeysInput$: StaticStructureSchema = [3, n0, _LKI,
   0,
@@ -544,32 +544,32 @@ export var ListKeysInput$: StaticStructureSchema = [3, n0, _LKI,
 export var ListKeysOutput$: StaticStructureSchema = [3, n0, _LKO,
   0,
   [_Ke, _NT],
-  [() => KeySummaryList, 0]
+  [() => KeySummaryList, 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RA, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
   [_T, _NT],
-  [() => Tags, 0]
+  [() => Tags, 0], 1
 ];
 export var RemoveKeyReplicationRegionsInput$: StaticStructureSchema = [3, n0, _RKRRI,
   0,
   [_KI, _RR],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RemoveKeyReplicationRegionsOutput$: StaticStructureSchema = [3, n0, _RKRRO,
   0,
   [_K],
-  [() => Key$]
+  [() => Key$], 1
 ];
 export var ReplicationStatusType$: StaticStructureSchema = [3, n0, _RST,
   0,
   [_St, _SM],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -580,17 +580,17 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var RestoreKeyInput$: StaticStructureSchema = [3, n0, _RKI,
   0,
   [_KI],
-  [0]
+  [0], 1
 ];
 export var RestoreKeyOutput$: StaticStructureSchema = [3, n0, _RKO,
   0,
   [_K],
-  [() => Key$]
+  [() => Key$], 1
 ];
 export var RootCertificatePublicKey$: StaticStructureSchema = [3, n0, _RCPK,
   0,
   [_KAe, _PKC],
-  [() => KeyAttributes$, 0]
+  [() => KeyAttributes$, 0], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -607,32 +607,32 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var StartKeyUsageInput$: StaticStructureSchema = [3, n0, _SKUI,
   0,
   [_KI],
-  [0]
+  [0], 1
 ];
 export var StartKeyUsageOutput$: StaticStructureSchema = [3, n0, _SKUO,
   0,
   [_K],
-  [() => Key$]
+  [() => Key$], 1
 ];
 export var StopKeyUsageInput$: StaticStructureSchema = [3, n0, _SKUIt,
   0,
   [_KI],
-  [0]
+  [0], 1
 ];
 export var StopKeyUsageOutput$: StaticStructureSchema = [3, n0, _SKUOt,
   0,
   [_K],
-  [() => Key$]
+  [() => Key$], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RA, _T],
-  [0, () => Tags]
+  [0, () => Tags], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -648,12 +648,12 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrustedCertificatePublicKey$: StaticStructureSchema = [3, n0, _TCPK,
   0,
   [_KAe, _PKC, _CAPKI],
-  [() => KeyAttributes$, 0, 0]
+  [() => KeyAttributes$, 0, 0], 3
 ];
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -663,12 +663,12 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateAliasInput$: StaticStructureSchema = [3, n0, _UAI,
   0,
   [_AN, _KA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UpdateAliasOutput$: StaticStructureSchema = [3, n0, _UAO,
   0,
   [_A],
-  [() => Alias$]
+  [() => Alias$], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
@@ -679,7 +679,7 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WrappedKey$: StaticStructureSchema = [3, n0, _WK,
   0,
   [_WKAr, _WKMF, _KM, _KCV, _KCVA],
-  [0, 0, [() => KeyMaterial, 0], 0, 0]
+  [0, 0, [() => KeyMaterial, 0], 0, 0], 3
 ];
 export var PaymentCryptographyServiceException$: StaticErrorSchema = [-3, _sm, "PaymentCryptographyServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(PaymentCryptographyServiceException$, PaymentCryptographyServiceException);

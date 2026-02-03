@@ -28,13 +28,7 @@ export interface CopyDBSnapshotCommandInput extends CopyDBSnapshotMessage {}
 export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code> state.</p>
- *          <p>You can copy a snapshot from one Amazon Web Services Region to another. In that case, the
- *             Amazon Web Services Region where you call the <code>CopyDBSnapshot</code> operation is the destination
- *             Amazon Web Services Region for the DB snapshot copy.</p>
- *          <p>This command doesn't apply to RDS Custom.</p>
- *          <p>For more information about copying snapshots, see
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying a DB Snapshot</a> in the <i>Amazon RDS User Guide</i>.</p>
+ * <p>Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code> state.</p> <p>You can copy a snapshot from one Amazon Web Services Region to another. In that case, the Amazon Web Services Region where you call the <code>CopyDBSnapshot</code> operation is the destination Amazon Web Services Region for the DB snapshot copy.</p> <p>This command doesn't apply to RDS Custom.</p> <p>For more information about copying snapshots, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying a DB Snapshot</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,7 +105,6 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * //     DBSystemId: "STRING_VALUE",
  * //     MultiTenant: true || false,
  * //     DedicatedLogVolume: true || false,
- * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //     AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
  * //       { // AdditionalStorageVolume
  * //         VolumeName: "STRING_VALUE", // required
@@ -122,6 +115,7 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * //         StorageType: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -134,17 +128,13 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link CustomAvailabilityZoneNotFoundFault} (client fault)
- *  <p>
- *             <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom
- *             Availability Zone identifier.</p>
+ *  <p> <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom Availability Zone identifier.</p>
  *
  * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ *  <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
  * @throws {@link InvalidDBSnapshotStateFault} (client fault)
  *  <p>The state of the DB snapshot doesn't allow deletion.</p>
@@ -153,8 +143,7 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB
- *             snapshots.</p>
+ *  <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

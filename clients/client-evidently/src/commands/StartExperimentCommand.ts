@@ -27,8 +27,9 @@ export interface StartExperimentCommandInput extends StartExperimentRequest {}
 export interface StartExperimentCommandOutput extends StartExperimentResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an existing experiment. To create an experiment,
- *         use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateExperiment.html">CreateExperiment</a>.</p>
+ * <p>Starts an existing experiment. To create an experiment, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateExperiment.html">CreateExperiment</a>.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

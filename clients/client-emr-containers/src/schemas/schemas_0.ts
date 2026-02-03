@@ -272,7 +272,7 @@ export var AuthorizationConfiguration$: StaticStructureSchema = [3, n0, _AC,
 export var CancelJobRunRequest$: StaticStructureSchema = [3, n0, _CJRR,
   0,
   [_i, _vCI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var CancelJobRunResponse$: StaticStructureSchema = [3, n0, _CJRRa,
   0,
@@ -287,12 +287,12 @@ export var Certificate$: StaticStructureSchema = [3, n0, _C,
 export var CloudWatchMonitoringConfiguration$: StaticStructureSchema = [3, n0, _CWMC,
   0,
   [_lGN, _lSNP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Configuration$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_c, _p, _co],
-  [0, [() => SensitivePropertiesMap, 0], [() => ConfigurationList, 0]]
+  [0, [() => SensitivePropertiesMap, 0], [() => ConfigurationList, 0]], 1
 ];
 export var ConfigurationOverrides$: StaticStructureSchema = [3, n0, _CO,
   0,
@@ -302,17 +302,17 @@ export var ConfigurationOverrides$: StaticStructureSchema = [3, n0, _CO,
 export var ContainerLogRotationConfiguration$: StaticStructureSchema = [3, n0, _CLRC,
   0,
   [_rS, _mFTK],
-  [0, 1]
+  [0, 1], 2
 ];
 export var ContainerProvider$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_t, _i, _in],
-  [0, 0, () => ContainerInfo$]
+  [0, 0, () => ContainerInfo$], 2
 ];
 export var CreateJobTemplateRequest$: StaticStructureSchema = [3, n0, _CJTR,
   0,
-  [_n, _cT, _jTD, _ta, _kKA],
-  [0, [0, 4], [() => JobTemplateData$, 0], 128 | 0, 0]
+  [_n, _jTD, _cT, _ta, _kKA],
+  [0, [() => JobTemplateData$, 0], [0, 4], 128 | 0, 0], 2
 ];
 export var CreateJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRr,
   0,
@@ -322,7 +322,7 @@ export var CreateJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRr,
 export var CreateManagedEndpointRequest$: StaticStructureSchema = [3, n0, _CMER,
   0,
   [_n, _vCI, _t, _rL, _eRA, _cA, _cO, _cT, _ta],
-  [0, [0, 1], 0, 0, 0, 0, [() => ConfigurationOverrides$, 0], [0, 4], 128 | 0]
+  [0, [0, 1], 0, 0, 0, 0, [() => ConfigurationOverrides$, 0], [0, 4], 128 | 0], 5
 ];
 export var CreateManagedEndpointResponse$: StaticStructureSchema = [3, n0, _CMERr,
   0,
@@ -331,8 +331,8 @@ export var CreateManagedEndpointResponse$: StaticStructureSchema = [3, n0, _CMER
 ];
 export var CreateSecurityConfigurationRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
-  [_cT, _n, _cP, _sCD, _ta],
-  [[0, 4], 0, () => ContainerProvider$, () => SecurityConfigurationData$, 128 | 0]
+  [_n, _sCD, _cT, _cP, _ta],
+  [0, () => SecurityConfigurationData$, [0, 4], () => ContainerProvider$, 128 | 0], 2
 ];
 export var CreateSecurityConfigurationResponse$: StaticStructureSchema = [3, n0, _CSCRr,
   0,
@@ -342,7 +342,7 @@ export var CreateSecurityConfigurationResponse$: StaticStructureSchema = [3, n0,
 export var CreateVirtualClusterRequest$: StaticStructureSchema = [3, n0, _CVCR,
   0,
   [_n, _cP, _cT, _ta, _sCI],
-  [0, () => ContainerProvider$, [0, 4], 128 | 0, 0]
+  [0, () => ContainerProvider$, [0, 4], 128 | 0, 0], 2
 ];
 export var CreateVirtualClusterResponse$: StaticStructureSchema = [3, n0, _CVCRr,
   0,
@@ -352,7 +352,7 @@ export var CreateVirtualClusterResponse$: StaticStructureSchema = [3, n0, _CVCRr
 export var DeleteJobTemplateRequest$: StaticStructureSchema = [3, n0, _DJTR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteJobTemplateResponse$: StaticStructureSchema = [3, n0, _DJTRe,
   0,
@@ -362,7 +362,7 @@ export var DeleteJobTemplateResponse$: StaticStructureSchema = [3, n0, _DJTRe,
 export var DeleteManagedEndpointRequest$: StaticStructureSchema = [3, n0, _DMER,
   0,
   [_i, _vCI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteManagedEndpointResponse$: StaticStructureSchema = [3, n0, _DMERe,
   0,
@@ -372,7 +372,7 @@ export var DeleteManagedEndpointResponse$: StaticStructureSchema = [3, n0, _DMER
 export var DeleteVirtualClusterRequest$: StaticStructureSchema = [3, n0, _DVCR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVirtualClusterResponse$: StaticStructureSchema = [3, n0, _DVCRe,
   0,
@@ -382,7 +382,7 @@ export var DeleteVirtualClusterResponse$: StaticStructureSchema = [3, n0, _DVCRe
 export var DescribeJobRunRequest$: StaticStructureSchema = [3, n0, _DJRR,
   0,
   [_i, _vCI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeJobRunResponse$: StaticStructureSchema = [3, n0, _DJRRe,
   0,
@@ -392,7 +392,7 @@ export var DescribeJobRunResponse$: StaticStructureSchema = [3, n0, _DJRRe,
 export var DescribeJobTemplateRequest$: StaticStructureSchema = [3, n0, _DJTRes,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeJobTemplateResponse$: StaticStructureSchema = [3, n0, _DJTResc,
   0,
@@ -402,7 +402,7 @@ export var DescribeJobTemplateResponse$: StaticStructureSchema = [3, n0, _DJTRes
 export var DescribeManagedEndpointRequest$: StaticStructureSchema = [3, n0, _DMERes,
   0,
   [_i, _vCI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeManagedEndpointResponse$: StaticStructureSchema = [3, n0, _DMEResc,
   0,
@@ -412,7 +412,7 @@ export var DescribeManagedEndpointResponse$: StaticStructureSchema = [3, n0, _DM
 export var DescribeSecurityConfigurationRequest$: StaticStructureSchema = [3, n0, _DSCR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeSecurityConfigurationResponse$: StaticStructureSchema = [3, n0, _DSCRe,
   0,
@@ -422,7 +422,7 @@ export var DescribeSecurityConfigurationResponse$: StaticStructureSchema = [3, n
 export var DescribeVirtualClusterRequest$: StaticStructureSchema = [3, n0, _DVCRes,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeVirtualClusterResponse$: StaticStructureSchema = [3, n0, _DVCResc,
   0,
@@ -453,7 +453,7 @@ export var Endpoint$: StaticStructureSchema = [3, n0, _E,
 export var GetManagedEndpointSessionCredentialsRequest$: StaticStructureSchema = [3, n0, _GMESCR,
   0,
   [_eI, _vCIi, _eRA, _cTr, _dIS, _lC, _cT],
-  [[0, 1], [0, 1], 0, 0, 1, 0, [0, 4]]
+  [[0, 1], [0, 1], 0, 0, 1, 0, [0, 4]], 4
 ];
 export var GetManagedEndpointSessionCredentialsResponse$: StaticStructureSchema = [3, n0, _GMESCRe,
   0,
@@ -483,13 +483,13 @@ export var JobRun$: StaticStructureSchema = [3, n0, _JR,
 ];
 export var JobTemplate$: StaticStructureSchema = [3, n0, _JT,
   0,
-  [_n, _i, _a, _cAr, _cB, _ta, _jTD, _kKA, _dE],
-  [0, 0, 0, 5, 0, 128 | 0, [() => JobTemplateData$, 0], 0, 0]
+  [_jTD, _n, _i, _a, _cAr, _cB, _ta, _kKA, _dE],
+  [[() => JobTemplateData$, 0], 0, 0, 0, 5, 0, 128 | 0, 0, 0], 1
 ];
 export var JobTemplateData$: StaticStructureSchema = [3, n0, _JTD,
   0,
-  [_eRA, _rL, _cO, _jD, _pC, _jTo],
-  [0, 0, [() => ParametricConfigurationOverrides$, 0], [() => JobDriver$, 0], () => TemplateParameterConfigurationMap, 128 | 0]
+  [_eRA, _rL, _jD, _cO, _pC, _jTo],
+  [0, 0, [() => JobDriver$, 0], [() => ParametricConfigurationOverrides$, 0], () => TemplateParameterConfigurationMap, 128 | 0], 3
 ];
 export var LakeFormationConfiguration$: StaticStructureSchema = [3, n0, _LFC,
   0,
@@ -499,7 +499,7 @@ export var LakeFormationConfiguration$: StaticStructureSchema = [3, n0, _LFC,
 export var ListJobRunsRequest$: StaticStructureSchema = [3, n0, _LJRR,
   0,
   [_vCI, _cBr, _cAre, _n, _st, _mR, _nT],
-  [[0, 1], [5, { [_hQ]: _cBr }], [5, { [_hQ]: _cAre }], [0, { [_hQ]: _n }], [64 | 0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [5, { [_hQ]: _cBr }], [5, { [_hQ]: _cAre }], [0, { [_hQ]: _n }], [64 | 0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListJobRunsResponse$: StaticStructureSchema = [3, n0, _LJRRi,
   0,
@@ -519,7 +519,7 @@ export var ListJobTemplatesResponse$: StaticStructureSchema = [3, n0, _LJTRi,
 export var ListManagedEndpointsRequest$: StaticStructureSchema = [3, n0, _LMER,
   0,
   [_vCI, _cBr, _cAre, _ty, _st, _mR, _nT],
-  [[0, 1], [5, { [_hQ]: _cBr }], [5, { [_hQ]: _cAre }], [64 | 0, { [_hQ]: _ty }], [64 | 0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [5, { [_hQ]: _cBr }], [5, { [_hQ]: _cAre }], [64 | 0, { [_hQ]: _ty }], [64 | 0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListManagedEndpointsResponse$: StaticStructureSchema = [3, n0, _LMERi,
   0,
@@ -539,7 +539,7 @@ export var ListSecurityConfigurationsResponse$: StaticStructureSchema = [3, n0, 
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -601,17 +601,17 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var RetryPolicyConfiguration$: StaticStructureSchema = [3, n0, _RPC,
   0,
   [_mA],
-  [1]
+  [1], 1
 ];
 export var RetryPolicyExecution$: StaticStructureSchema = [3, n0, _RPE,
   0,
   [_cAC],
-  [1]
+  [1], 1
 ];
 export var S3MonitoringConfiguration$: StaticStructureSchema = [3, n0, _SMC,
   0,
   [_lU],
-  [0]
+  [0], 1
 ];
 export var SecureNamespaceInfo$: StaticStructureSchema = [3, n0, _SNI,
   0,
@@ -636,12 +636,12 @@ export var SparkSqlJobDriver$: StaticStructureSchema = [3, n0, _SSJD,
 export var SparkSubmitJobDriver$: StaticStructureSchema = [3, n0, _SSJDp,
   0,
   [_eP, _ePA, _sSPp],
-  [[() => EntryPointPath, 0], [() => EntryPointArguments, 0], [() => SparkSubmitParameters, 0]]
+  [[() => EntryPointPath, 0], [() => EntryPointArguments, 0], [() => SparkSubmitParameters, 0]], 1
 ];
 export var StartJobRunRequest$: StaticStructureSchema = [3, n0, _SJRR,
   0,
-  [_n, _vCI, _cT, _eRA, _rL, _jD, _cO, _ta, _jTI, _jTP, _rPC],
-  [0, [0, 1], [0, 4], 0, 0, [() => JobDriver$, 0], [() => ConfigurationOverrides$, 0], 128 | 0, 0, 128 | 0, () => RetryPolicyConfiguration$]
+  [_vCI, _n, _cT, _eRA, _rL, _jD, _cO, _ta, _jTI, _jTP, _rPC],
+  [[0, 1], 0, [0, 4], 0, 0, [() => JobDriver$, 0], [() => ConfigurationOverrides$, 0], 128 | 0, 0, 128 | 0, () => RetryPolicyConfiguration$], 1
 ];
 export var StartJobRunResponse$: StaticStructureSchema = [3, n0, _SJRRt,
   0,
@@ -651,7 +651,7 @@ export var StartJobRunResponse$: StaticStructureSchema = [3, n0, _SJRRt,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -671,7 +671,7 @@ export var TLSCertificateConfiguration$: StaticStructureSchema = [3, n0, _TLSCC,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,

@@ -3,6 +3,7 @@ import {
   ArcThickness,
   ArcThicknessOptions,
   AxisBinding,
+  BarChartOrientation,
   BarsArrangement,
   BaseMapStyleType,
   BoxPlotFillStyle,
@@ -61,17 +62,13 @@ import {
   VerticalTextAlignment,
   Visibility,
   WidgetStatus,
-  WordCloudCloudLayout,
-  WordCloudWordCasing,
-  WordCloudWordOrientation,
-  WordCloudWordPadding,
-  WordCloudWordScaling,
 } from "./enums";
 import {
   type AxisDisplayOptions,
-  type BarChartConfiguration,
+  type BarChartDefaultSeriesSettings,
+  type BarChartFieldWells,
+  type BarChartSortConfiguration,
   type BorderSettings,
-  type CategoryDrillDownFilter,
   type ChartAxisLabelOptions,
   type ColumnSort,
   type CustomActionFilterOperation,
@@ -91,6 +88,7 @@ import {
   type TooltipOptions,
   type VisualInteractionOptions,
   type VisualPalette,
+  BarSeriesItem,
   ColumnIdentifier,
   ContributionAnalysisDefault,
   DataPathValue,
@@ -100,6 +98,154 @@ import {
   ReferenceLine,
   VisualCustomAction,
 } from "./models_0";
+
+/**
+ * <p>The configuration of a <code>BarChartVisual</code>.</p>
+ * @public
+ */
+export interface BarChartConfiguration {
+  /**
+   * <p>The field wells of the visual.</p>
+   * @public
+   */
+  FieldWells?: BarChartFieldWells | undefined;
+
+  /**
+   * <p>The sort configuration of a <code>BarChartVisual</code>.</p>
+   * @public
+   */
+  SortConfiguration?: BarChartSortConfiguration | undefined;
+
+  /**
+   * <p>The orientation of the bars in a bar chart visual. There are two valid values in this structure:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HORIZONTAL</code>: Used for charts that have horizontal bars. Visuals that use this value are horizontal bar charts, horizontal stacked bar charts, and horizontal stacked 100% bar charts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VERTICAL</code>: Used for charts that have vertical bars. Visuals that use this value are vertical bar charts, vertical stacked bar charts, and vertical stacked 100% bar charts.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Orientation?: BarChartOrientation | undefined;
+
+  /**
+   * <p>Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.</p>
+   * @public
+   */
+  BarsArrangement?: BarsArrangement | undefined;
+
+  /**
+   * <p>The palette (chart color) display setup of the visual.</p>
+   * @public
+   */
+  VisualPalette?: VisualPalette | undefined;
+
+  /**
+   * <p>The small multiples setup for the visual.</p>
+   * @public
+   */
+  SmallMultiplesOptions?: SmallMultiplesOptions | undefined;
+
+  /**
+   * <p>The label display options (grid line, range, scale, axis step) for bar chart category.</p>
+   * @public
+   */
+  CategoryAxis?: AxisDisplayOptions | undefined;
+
+  /**
+   * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart.</p>
+   * @public
+   */
+  CategoryLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The label display options (grid line, range, scale, axis step) for a bar chart value.</p>
+   * @public
+   */
+  ValueAxis?: AxisDisplayOptions | undefined;
+
+  /**
+   * <p>The label options (label text, label visibility and sort icon visibility) for a bar chart value.</p>
+   * @public
+   */
+  ValueLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.</p>
+   * @public
+   */
+  ColorLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The options that determine the default presentation of all bar series in <code>BarChartVisual</code>.</p>
+   * @public
+   */
+  DefaultSeriesSettings?: BarChartDefaultSeriesSettings | undefined;
+
+  /**
+   * <p>The series item configuration of a  <code>BarChartVisual</code>.</p>
+   * @public
+   */
+  Series?: BarSeriesItem[] | undefined;
+
+  /**
+   * <p>The legend display setup of the visual.</p>
+   * @public
+   */
+  Legend?: LegendOptions | undefined;
+
+  /**
+   * <p>The options that determine if visual data labels are displayed.</p>
+   * @public
+   */
+  DataLabels?: DataLabelOptions | undefined;
+
+  /**
+   * <p>The tooltip display setup of the visual.</p>
+   * @public
+   */
+  Tooltip?: TooltipOptions | undefined;
+
+  /**
+   * <p>The reference line setup of the visual.</p>
+   * @public
+   */
+  ReferenceLines?: ReferenceLine[] | undefined;
+
+  /**
+   * <p>The contribution analysis (anomaly configuration) setup of the visual.</p>
+   * @public
+   */
+  ContributionAnalysisDefaults?: ContributionAnalysisDefault[] | undefined;
+
+  /**
+   * <p>The general visual interactions setup for a visual.</p>
+   * @public
+   */
+  Interactions?: VisualInteractionOptions | undefined;
+}
+
+/**
+ * <p>The category drill down filter.</p>
+ * @public
+ */
+export interface CategoryDrillDownFilter {
+  /**
+   * <p>The column that the filter is applied to.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>A list of the string inputs that are the values of the category drill down filter.</p>
+   * @public
+   */
+  CategoryValues: string[] | undefined;
+}
 
 /**
  * <p>The numeric equality type drill down filter.</p>
@@ -8273,64 +8419,4 @@ export interface WordCloudFieldWells {
    * @public
    */
   WordCloudAggregatedFieldWells?: WordCloudAggregatedFieldWells | undefined;
-}
-
-/**
- * <p>The sort configuration of a word cloud visual.</p>
- * @public
- */
-export interface WordCloudSortConfiguration {
-  /**
-   * <p>The limit on the number of groups that are displayed in a word cloud.</p>
-   * @public
-   */
-  CategoryItemsLimit?: ItemsLimitConfiguration | undefined;
-
-  /**
-   * <p>The sort configuration of group by fields.</p>
-   * @public
-   */
-  CategorySort?: FieldSortOptions[] | undefined;
-}
-
-/**
- * <p>The word cloud options for a word cloud visual.</p>
- * @public
- */
-export interface WordCloudOptions {
-  /**
-   * <p>The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.</p>
-   * @public
-   */
-  WordOrientation?: WordCloudWordOrientation | undefined;
-
-  /**
-   * <p>The word scaling options (emphasize, normal) for the words in a word cloud.</p>
-   * @public
-   */
-  WordScaling?: WordCloudWordScaling | undefined;
-
-  /**
-   * <p>The cloud layout options (fluid, normal) of a word cloud.</p>
-   * @public
-   */
-  CloudLayout?: WordCloudCloudLayout | undefined;
-
-  /**
-   * <p>The word casing options (lower_case, existing_case) for the words in a word cloud.</p>
-   * @public
-   */
-  WordCasing?: WordCloudWordCasing | undefined;
-
-  /**
-   * <p>The word padding options (none, small, medium, large) for the words in a word cloud.</p>
-   * @public
-   */
-  WordPadding?: WordCloudWordPadding | undefined;
-
-  /**
-   * <p>The length limit of each word from 1-100.</p>
-   * @public
-   */
-  MaximumStringLength?: number | undefined;
 }

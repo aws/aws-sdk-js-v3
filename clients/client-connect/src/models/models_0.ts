@@ -34,6 +34,7 @@ import {
   EvaluationFormScoringMode,
   EvaluationFormScoringStatus,
   EvaluationFormSingleSelectQuestionDisplayMode,
+  EvaluationReviewNotificationRecipientType,
   EventSourceName,
   FailureReasonCode,
   FileStatusType,
@@ -50,11 +51,13 @@ import {
   NumericQuestionPropertyAutomationLabel,
   OutboundStrategyType,
   OverrideDays,
+  OverrideType,
   ParticipantRole,
   ParticipantState,
   PhoneType,
   PropertyValidationExceptionReason,
   QuickConnectType,
+  RecurrenceFrequency,
   ReferenceStatus,
   ReferenceType,
   RehydrationType,
@@ -68,6 +71,8 @@ import {
   StringComparisonType,
   TaskTemplateFieldType,
   TaskTemplateStatus,
+  TestCaseEntryPointType,
+  TestCaseStatus,
   UseCaseType,
   VideoCapability,
   ViewStatus,
@@ -1306,6 +1311,42 @@ export interface AssociateFlowRequest {
 export interface AssociateFlowResponse {}
 
 /**
+ * <p>Contains configuration for the parent hours of operation.</p>
+ * @public
+ */
+export interface ParentHoursOfOperationConfig {
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateHoursOfOperationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the child hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the parent hours of operation resources to associate with the child hours of operation resource.</p>
+   * @public
+   */
+  ParentHoursOfOperationConfigs: ParentHoursOfOperationConfig[] | undefined;
+}
+
+/**
  * <p>Configuration information of a Kinesis Data Firehose delivery stream.</p>
  * @public
  */
@@ -1684,6 +1725,7 @@ export interface AssociateRoutingProfileQueuesRequest {
 
   /**
    * <p>The manual assignment queues to associate with this routing profile.</p>
+   *          <p>Note: Use this config for chat, email, and task contacts. It does not support voice contacts.</p>
    * @public
    */
   ManualAssignmentQueueConfigs?: RoutingProfileManualAssignmentQueueConfig[] | undefined;
@@ -4623,6 +4665,54 @@ export interface EvaluationFormLanguageConfiguration {
 }
 
 /**
+ * <p>The value information for an evaluation review notification recipient.</p>
+ * @public
+ */
+export interface EvaluationReviewNotificationRecipientValue {
+  /**
+   * <p>The user identifier for the notification recipient.</p>
+   * @public
+   */
+  UserId?: string | undefined;
+}
+
+/**
+ * <p>Information about a recipient who should be notified when an evaluation review is requested.</p>
+ * @public
+ */
+export interface EvaluationReviewNotificationRecipient {
+  /**
+   * <p>The type of notification recipient.</p>
+   * @public
+   */
+  Type: EvaluationReviewNotificationRecipientType | undefined;
+
+  /**
+   * <p>The value associated with the notification recipient type.</p>
+   * @public
+   */
+  Value: EvaluationReviewNotificationRecipientValue | undefined;
+}
+
+/**
+ * <p>Configuration settings for evaluation reviews.</p>
+ * @public
+ */
+export interface EvaluationReviewConfiguration {
+  /**
+   * <p>List of recipients who should be notified when a review is requested.</p>
+   * @public
+   */
+  ReviewNotificationRecipients: EvaluationReviewNotificationRecipient[] | undefined;
+
+  /**
+   * <p>Number of days during which a request for review can be submitted for evaluations created from this form.</p>
+   * @public
+   */
+  EligibilityDays?: number | undefined;
+}
+
+/**
  * <p>Information about scoring strategy for an evaluation form.</p>
  * @public
  */
@@ -4746,6 +4836,14 @@ export interface CreateHoursOfOperationRequest {
   Config: HoursOfOperationConfig[] | undefined;
 
   /**
+   * <p>Configuration for parent hours of operations. Eg: ResourceArn. </p>
+   *          <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the
+   *      <i> Administrator Guide</i>.</p>
+   * @public
+   */
+  ParentHoursOfOperationConfigs?: ParentHoursOfOperationConfig[] | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
@@ -4812,6 +4910,62 @@ export interface HoursOfOperationOverrideConfig {
 }
 
 /**
+ * <p>Specifies the detailed pattern for event recurrence. Use this to define complex scheduling rules such as "every 2nd Tuesday of the month" or "every 3 months on the 15th".</p>
+ * @public
+ */
+export interface RecurrencePattern {
+  /**
+   * <p>Defines how often the pattern repeats. This is the base unit for the recurrence schedule and works in conjunction with the Interval field to determine the exact repetition sequence.</p>
+   * @public
+   */
+  Frequency: RecurrenceFrequency | undefined;
+
+  /**
+   * <p>Specifies the number of frequency units between each occurrence. Must be a positive integer. </p>
+   *          <p> Examples: To repeat every week, set Interval=1 with WEEKLY frequency. To repeat every two months, set Interval=2 with MONTHLY frequency.</p>
+   * @public
+   */
+  Interval: number | undefined;
+
+  /**
+   * <p>Specifies which month the event should occur in (1-12, where 1=January, 12=December). Used with YEARLY frequency to schedule events in specific month. </p>
+   *          <p>Note: It does not accept multiple values in the same list</p>
+   * @public
+   */
+  ByMonth?: number[] | undefined;
+
+  /**
+   * <p>Specifies which day of the month the event should occur on (1-31). Used with MONTHLY or YEARLY frequency to schedule events on specific date within a month.</p>
+   *          <p> Examples:
+   * [15] for events on the 15th of each month,
+   * [-1] for events on the last day of month. </p>
+   *          <p>Note: It does not accept multiple values in the same list. If a specified day doesn't exist in a particular month (e.g., day 31 in February), the event will be skipped for that month. This field cannot be used simultaneously with ByWeekdayOccurrence as they represent different scheduling approaches (specific dates vs. relative weekday positions).</p>
+   * @public
+   */
+  ByMonthDay?: number[] | undefined;
+
+  /**
+   * <p>Specifies which occurrence of a weekday within the month the event should occur on. Must be used with MONTHLY or YEARLY frequency. </p>
+   *          <p>Example: 2 corresponds to second occurrence of the weekday in the month. -1 corresponds to last occurrence of the weekday in the month </p>
+   *          <p>The weekday itself is specified separately in the HoursOfOperationConfig. Example: To schedule the recurring event for the 2nd Thursday of April every year, set ByWeekdayOccurrence=[2], Day=THURSDAY, ByMonth=[4], Frequency: YEARLY and INTERVAL=1.</p>
+   * @public
+   */
+  ByWeekdayOccurrence?: number[] | undefined;
+}
+
+/**
+ * <p>Defines the recurrence configuration for overrides. This configuration uses a recurrence pattern to specify when and how frequently an event should repeat.</p>
+ * @public
+ */
+export interface RecurrenceConfig {
+  /**
+   * <p>The recurrence pattern that defines how the event repeats. Example: Frequency, Interval, ByMonth, ByMonthDay, ByWeekdayOccurrence</p>
+   * @public
+   */
+  RecurrencePattern: RecurrencePattern | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateHoursOfOperationOverrideRequest {
@@ -4856,6 +5010,20 @@ export interface CreateHoursOfOperationOverrideRequest {
    * @public
    */
   EffectiveTill: string | undefined;
+
+  /**
+   * <p>Configuration for a recurring event.</p>
+   * @public
+   */
+  RecurrenceConfig?: RecurrenceConfig | undefined;
+
+  /**
+   * <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
+   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
+   *      <i> Administrator Guide</i>.</p>
+   * @public
+   */
+  OverrideType?: OverrideType | undefined;
 }
 
 /**
@@ -5823,6 +5991,7 @@ export interface CreateRoutingProfileRequest {
    *    can't pick or assign any contacts from this routing profile. The limit of 10 array members applies to the maximum
    *    number of RoutingProfileManualAssignmentQueueConfig objects that can be passed during a CreateRoutingProfile API
    *    request. It is different from the quota of 50 queues per routing profile per instance that is listed in Amazon Connect service quotas.</p>
+   *          <p>Note: Use this config for chat, email, and task contacts. It does not support voice contacts.</p>
    * @public
    */
   ManualAssignmentQueueConfigs?: RoutingProfileManualAssignmentQueueConfig[] | undefined;
@@ -6744,6 +6913,136 @@ export interface PropertyValidationExceptionProperty {
    * @public
    */
   Message: string | undefined;
+}
+
+/**
+ * <p>Parameters for initiating a voice call test.</p>
+ * @public
+ */
+export interface VoiceCallEntryPointParameters {
+  /**
+   * <p>The source phone number for the test.</p>
+   * @public
+   */
+  SourcePhoneNumber?: string | undefined;
+
+  /**
+   * <p>The destination phone number for the test.</p>
+   * @public
+   */
+  DestinationPhoneNumber?: string | undefined;
+
+  /**
+   * <p>The flow identifier for the test.</p>
+   * @public
+   */
+  FlowId?: string | undefined;
+}
+
+/**
+ * <p>Defines the starting point for a test case.</p>
+ * @public
+ */
+export interface TestCaseEntryPoint {
+  /**
+   * <p>The type of entry point.</p>
+   * @public
+   */
+  Type?: TestCaseEntryPointType | undefined;
+
+  /**
+   * <p>Parameters for voice call entry point.</p>
+   * @public
+   */
+  VoiceCallEntryPointParameters?: VoiceCallEntryPointParameters | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTestCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the test.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the test.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The JSON string that represents the content of the test.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>Defines the starting point for your test.</p>
+   * @public
+   */
+  EntryPoint?: TestCaseEntryPoint | undefined;
+
+  /**
+   * <p>Defines the initial custom attributes for your test.</p>
+   * @public
+   */
+  InitializationData?: string | undefined;
+
+  /**
+   * <p>Indicates the test status as either SAVED or PUBLISHED. The PUBLISHED status will initiate validation on the content. The SAVED status does not initiate validation of the content.</p>
+   * @public
+   */
+  Status?: TestCaseStatus | undefined;
+
+  /**
+   * <p>Id of the test case if you want to create it in a replica region using Amazon Connect Global Resiliency</p>
+   * @public
+   */
+  TestCaseId?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The time at which the resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The region in which the resource was last modified</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTestCaseResponse {
+  /**
+   * <p>The identifier of the test.</p>
+   * @public
+   */
+  TestCaseId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the test.</p>
+   * @public
+   */
+  TestCaseArn?: string | undefined;
 }
 
 /**
@@ -7713,193 +8012,3 @@ export interface CreateWorkspaceResponse {
    */
   WorkspaceArn: string | undefined;
 }
-
-/**
- * @public
- */
-export interface CreateWorkspacePageRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the workspace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the view to associate with the page.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The page identifier. Valid system pages include <code>HOME</code> and <code>AGENT_EXPERIENCE</code>. Custom
-   *    pages cannot use the <code>aws:</code> or <code>connect:</code> prefixes.</p>
-   * @public
-   */
-  Page: string | undefined;
-
-  /**
-   * <p>The URL-friendly identifier for the page.</p>
-   * @public
-   */
-  Slug?: string | undefined;
-
-  /**
-   * <p>A JSON string containing input parameters for the view, validated against the view's input schema.</p>
-   * @public
-   */
-  InputData?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateWorkspacePageResponse {}
-
-/**
- * @public
- */
-export interface DeactivateEvaluationFormRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>A version of the evaluation form. If the version property is not provided, the latest version of the evaluation form is
-   *    deactivated.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeactivateEvaluationFormResponse {
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
-   * @public
-   */
-  EvaluationFormArn: string | undefined;
-
-  /**
-   * <p>The version of the deactivated evaluation form resource.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-}
-
-/**
- * Request to DeleteAttachedFile API
- * @public
- */
-export interface DeleteAttachedFileRequest {
-  /**
-   * <p>The unique identifier of the Connect instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the attached file resource.</p>
-   * @public
-   */
-  FileId: string | undefined;
-
-  /**
-   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported
-   *    resource.</p>
-   *          <note>
-   *             <p>This value must be a valid ARN.</p>
-   *          </note>
-   * @public
-   */
-  AssociatedResourceArn: string | undefined;
-}
-
-/**
- * Response from DeleteAttachedFile API
- * @public
- */
-export interface DeleteAttachedFileResponse {}
-
-/**
- * @public
- */
-export interface DeleteContactEvaluationRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the contact evaluation.</p>
-   * @public
-   */
-  EvaluationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteContactFlowRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteContactFlowResponse {}
-
-/**
- * @public
- */
-export interface DeleteContactFlowModuleRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow module.</p>
-   * @public
-   */
-  ContactFlowModuleId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteContactFlowModuleResponse {}

@@ -33,7 +33,9 @@ describe(getNewSsoOidcToken.name, () => {
   beforeEach(() => {
     mockSend = vi.fn().mockResolvedValueOnce(mockNewToken);
     vi.mocked(getSsoOidcClient as any).mockReturnValue({ send: mockSend });
-    (CreateTokenCommand as unknown as any).mockImplementation((args: any) => args);
+    vi.mocked(CreateTokenCommand).mockImplementation(function (args: any) {
+      return args;
+    });
   });
 
   describe("re-throws", () => {
@@ -69,7 +71,7 @@ describe(getNewSsoOidcToken.name, () => {
     });
 
     it("if CreateTokenCommand throws", async () => {
-      (CreateTokenCommand as unknown as any).mockImplementation(() => {
+      vi.mocked(CreateTokenCommand).mockImplementation(function () {
         throw mockError;
       });
       try {

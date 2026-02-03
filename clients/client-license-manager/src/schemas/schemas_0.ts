@@ -514,7 +514,7 @@ import { LicenseManagerServiceException } from "../models/LicenseManagerServiceE
 export var AcceptGrantRequest$: StaticStructureSchema = [3, n0, _AGR,
   0,
   [_GA],
-  [0]
+  [0], 1
 ];
 export var AcceptGrantResponse$: StaticStructureSchema = [3, n0, _AGRc,
   0,
@@ -551,12 +551,12 @@ export var AutomatedDiscoveryInformation$: StaticStructureSchema = [3, n0, _ADI,
 export var BorrowConfiguration$: StaticStructureSchema = [3, n0, _BC,
   0,
   [_AECI, _MTTLIM],
-  [2, 1]
+  [2, 1], 2
 ];
 export var CheckInLicenseRequest$: StaticStructureSchema = [3, n0, _CILR,
   0,
   [_LCT, _B],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CheckInLicenseResponse$: StaticStructureSchema = [3, n0, _CILRh,
   0,
@@ -565,8 +565,8 @@ export var CheckInLicenseResponse$: StaticStructureSchema = [3, n0, _CILRh,
 ];
 export var CheckoutBorrowLicenseRequest$: StaticStructureSchema = [3, n0, _CBLR,
   0,
-  [_LA, _E, _DSM, _NI, _CM, _CT],
-  [0, () => EntitlementDataList, 0, 0, () => MetadataList, 0]
+  [_LA, _E, _DSM, _CT, _NI, _CM],
+  [0, () => EntitlementDataList, 0, 0, 0, () => MetadataList], 4
 ];
 export var CheckoutBorrowLicenseResponse$: StaticStructureSchema = [3, n0, _CBLRh,
   0,
@@ -576,7 +576,7 @@ export var CheckoutBorrowLicenseResponse$: StaticStructureSchema = [3, n0, _CBLR
 export var CheckoutLicenseRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
   [_PSKU, _CTh, _KF, _E, _CT, _B, _NI],
-  [0, 0, 0, () => EntitlementDataList, 0, 0, 0]
+  [0, 0, 0, () => EntitlementDataList, 0, 0, 0], 5
 ];
 export var CheckoutLicenseResponse$: StaticStructureSchema = [3, n0, _CLRh,
   0,
@@ -602,7 +602,7 @@ export var ConsumptionConfiguration$: StaticStructureSchema = [3, n0, _CC,
 export var CreateGrantRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
   [_CT, _GN, _LA, _P, _HR, _AO, _T],
-  [0, 0, 0, 64 | 0, 0, 64 | 0, () => TagList]
+  [0, 0, 0, 64 | 0, 0, 64 | 0, () => TagList], 6
 ];
 export var CreateGrantResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
@@ -612,7 +612,7 @@ export var CreateGrantResponse$: StaticStructureSchema = [3, n0, _CGRr,
 export var CreateGrantVersionRequest$: StaticStructureSchema = [3, n0, _CGVR,
   0,
   [_CT, _GA, _GN, _AO, _S, _SR, _SV, _O],
-  [0, 0, 0, 64 | 0, 0, 0, 0, () => Options$]
+  [0, 0, 0, 64 | 0, 0, 0, 0, () => Options$], 2
 ];
 export var CreateGrantVersionResponse$: StaticStructureSchema = [3, n0, _CGVRr,
   0,
@@ -621,28 +621,28 @@ export var CreateGrantVersionResponse$: StaticStructureSchema = [3, n0, _CGVRr,
 ];
 export var CreateLicenseAssetGroupRequest$: StaticStructureSchema = [3, n0, _CLAGR,
   0,
-  [_N, _D, _LAGC, _ALARARN, _Pr, _T, _CT],
-  [0, 0, () => LicenseAssetGroupConfigurationList, 64 | 0, () => LicenseAssetGroupPropertyList, () => TagList, 0]
+  [_N, _LAGC, _ALARARN, _CT, _D, _Pr, _T],
+  [0, () => LicenseAssetGroupConfigurationList, 64 | 0, 0, 0, () => LicenseAssetGroupPropertyList, () => TagList], 4
 ];
 export var CreateLicenseAssetGroupResponse$: StaticStructureSchema = [3, n0, _CLAGRr,
   0,
   [_LAGA, _S],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateLicenseAssetRulesetRequest$: StaticStructureSchema = [3, n0, _CLARR,
   0,
-  [_N, _D, _R, _T, _CT],
-  [0, 0, () => LicenseAssetRuleList, () => TagList, 0]
+  [_N, _R, _CT, _D, _T],
+  [0, () => LicenseAssetRuleList, 0, 0, () => TagList], 3
 ];
 export var CreateLicenseAssetRulesetResponse$: StaticStructureSchema = [3, n0, _CLARRr,
   0,
   [_LARA],
-  [0]
+  [0], 1
 ];
 export var CreateLicenseConfigurationRequest$: StaticStructureSchema = [3, n0, _CLCR,
   0,
-  [_N, _D, _LCTi, _LC, _LCHL, _LR, _T, _DWNF, _PIL, _LE],
-  [0, 0, 0, 1, 2, 64 | 0, () => TagList, 2, () => ProductInformationList, 1]
+  [_N, _LCTi, _D, _LC, _LCHL, _LR, _T, _DWNF, _PIL, _LE],
+  [0, 0, 0, 1, 2, 64 | 0, () => TagList, 2, () => ProductInformationList, 1], 2
 ];
 export var CreateLicenseConfigurationResponse$: StaticStructureSchema = [3, n0, _CLCRr,
   0,
@@ -652,7 +652,7 @@ export var CreateLicenseConfigurationResponse$: StaticStructureSchema = [3, n0, 
 export var CreateLicenseConversionTaskForResourceRequest$: StaticStructureSchema = [3, n0, _CLCTFRR,
   0,
   [_RA, _SLC, _DLC],
-  [0, () => LicenseConversionContext$, () => LicenseConversionContext$]
+  [0, () => LicenseConversionContext$, () => LicenseConversionContext$], 3
 ];
 export var CreateLicenseConversionTaskForResourceResponse$: StaticStructureSchema = [3, n0, _CLCTFRRr,
   0,
@@ -662,7 +662,7 @@ export var CreateLicenseConversionTaskForResourceResponse$: StaticStructureSchem
 export var CreateLicenseManagerReportGeneratorRequest$: StaticStructureSchema = [3, n0, _CLMRGR,
   0,
   [_RGN, _Ty, _RC, _RF, _CT, _D, _T],
-  [0, 64 | 0, () => ReportContext$, () => ReportFrequency$, 0, 0, () => TagList]
+  [0, 64 | 0, () => ReportContext$, () => ReportFrequency$, 0, 0, () => TagList], 5
 ];
 export var CreateLicenseManagerReportGeneratorResponse$: StaticStructureSchema = [3, n0, _CLMRGRr,
   0,
@@ -671,8 +671,8 @@ export var CreateLicenseManagerReportGeneratorResponse$: StaticStructureSchema =
 ];
 export var CreateLicenseRequest$: StaticStructureSchema = [3, n0, _CLRr,
   0,
-  [_LN, _PN, _PSKU, _I, _HR, _Va, _E, _B, _CC, _LM, _CT, _T],
-  [0, 0, 0, () => Issuer$, 0, () => DatetimeRange$, () => EntitlementList, 0, () => ConsumptionConfiguration$, () => MetadataList, 0, () => TagList]
+  [_LN, _PN, _PSKU, _I, _HR, _Va, _E, _B, _CC, _CT, _LM, _T],
+  [0, 0, 0, () => Issuer$, 0, () => DatetimeRange$, () => EntitlementList, 0, () => ConsumptionConfiguration$, 0, () => MetadataList, () => TagList], 10
 ];
 export var CreateLicenseResponse$: StaticStructureSchema = [3, n0, _CLRre,
   0,
@@ -681,8 +681,8 @@ export var CreateLicenseResponse$: StaticStructureSchema = [3, n0, _CLRre,
 ];
 export var CreateLicenseVersionRequest$: StaticStructureSchema = [3, n0, _CLVR,
   0,
-  [_LA, _LN, _PN, _I, _HR, _Va, _LM, _E, _CC, _S, _CT, _SV],
-  [0, 0, 0, () => Issuer$, 0, () => DatetimeRange$, () => MetadataList, () => EntitlementList, () => ConsumptionConfiguration$, 0, 0, 0]
+  [_LA, _LN, _PN, _I, _HR, _Va, _E, _CC, _S, _CT, _LM, _SV],
+  [0, 0, 0, () => Issuer$, 0, () => DatetimeRange$, () => EntitlementList, () => ConsumptionConfiguration$, 0, 0, () => MetadataList, 0], 10
 ];
 export var CreateLicenseVersionResponse$: StaticStructureSchema = [3, n0, _CLVRr,
   0,
@@ -691,8 +691,8 @@ export var CreateLicenseVersionResponse$: StaticStructureSchema = [3, n0, _CLVRr
 ];
 export var CreateTokenRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
-  [_LA, _RAo, _EID, _TP, _CT],
-  [0, 64 | 0, 1, 64 | 0, 0]
+  [_LA, _CT, _RAo, _EID, _TP],
+  [0, 0, 64 | 0, 1, 64 | 0], 2
 ];
 export var CreateTokenResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -712,12 +712,12 @@ export var CrossRegionDiscoveryStatus$: StaticStructureSchema = [3, n0, _CRDS,
 export var DatetimeRange$: StaticStructureSchema = [3, n0, _DR,
   0,
   [_Be, _En],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteGrantRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
-  [_GA, _SR, _V],
-  [0, 0, 0]
+  [_GA, _V, _SR],
+  [0, 0, 0], 2
 ];
 export var DeleteGrantResponse$: StaticStructureSchema = [3, n0, _DGRe,
   0,
@@ -727,17 +727,17 @@ export var DeleteGrantResponse$: StaticStructureSchema = [3, n0, _DGRe,
 export var DeleteLicenseAssetGroupRequest$: StaticStructureSchema = [3, n0, _DLAGR,
   0,
   [_LAGA],
-  [0]
+  [0], 1
 ];
 export var DeleteLicenseAssetGroupResponse$: StaticStructureSchema = [3, n0, _DLAGRe,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var DeleteLicenseAssetRulesetRequest$: StaticStructureSchema = [3, n0, _DLARR,
   0,
   [_LARA],
-  [0]
+  [0], 1
 ];
 export var DeleteLicenseAssetRulesetResponse$: StaticStructureSchema = [3, n0, _DLARRe,
   0,
@@ -747,7 +747,7 @@ export var DeleteLicenseAssetRulesetResponse$: StaticStructureSchema = [3, n0, _
 export var DeleteLicenseConfigurationRequest$: StaticStructureSchema = [3, n0, _DLCR,
   0,
   [_LCA],
-  [0]
+  [0], 1
 ];
 export var DeleteLicenseConfigurationResponse$: StaticStructureSchema = [3, n0, _DLCRe,
   0,
@@ -757,7 +757,7 @@ export var DeleteLicenseConfigurationResponse$: StaticStructureSchema = [3, n0, 
 export var DeleteLicenseManagerReportGeneratorRequest$: StaticStructureSchema = [3, n0, _DLMRGR,
   0,
   [_LMRGA],
-  [0]
+  [0], 1
 ];
 export var DeleteLicenseManagerReportGeneratorResponse$: StaticStructureSchema = [3, n0, _DLMRGRe,
   0,
@@ -767,7 +767,7 @@ export var DeleteLicenseManagerReportGeneratorResponse$: StaticStructureSchema =
 export var DeleteLicenseRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_LA, _SV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteLicenseResponse$: StaticStructureSchema = [3, n0, _DLRe,
   0,
@@ -777,7 +777,7 @@ export var DeleteLicenseResponse$: StaticStructureSchema = [3, n0, _DLRe,
 export var DeleteTokenRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var DeleteTokenResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -786,13 +786,13 @@ export var DeleteTokenResponse$: StaticStructureSchema = [3, n0, _DTRe,
 ];
 export var Entitlement$: StaticStructureSchema = [3, n0, _Ent,
   0,
-  [_N, _Val, _MC, _Ov, _U, _ACI],
-  [0, 0, 1, 2, 0, 2]
+  [_N, _U, _Val, _MC, _Ov, _ACI],
+  [0, 0, 0, 1, 2, 2], 2
 ];
 export var EntitlementData$: StaticStructureSchema = [3, n0, _ED,
   0,
-  [_N, _Val, _U],
-  [0, 0, 0]
+  [_N, _U, _Val],
+  [0, 0, 0], 2
 ];
 export var EntitlementNotAllowedException$: StaticErrorSchema = [-3, n0, _ENAE,
   { [_e]: _c, [_hE]: 400 },
@@ -802,13 +802,13 @@ export var EntitlementNotAllowedException$: StaticErrorSchema = [-3, n0, _ENAE,
 TypeRegistry.for(n0).registerError(EntitlementNotAllowedException$, EntitlementNotAllowedException);
 export var EntitlementUsage$: StaticStructureSchema = [3, n0, _EU,
   0,
-  [_N, _CV, _MC, _U],
-  [0, 0, 0, 0]
+  [_N, _CV, _U, _MC],
+  [0, 0, 0, 0], 3
 ];
 export var ExtendLicenseConsumptionRequest$: StaticStructureSchema = [3, n0, _ELCR,
   0,
   [_LCT, _DRr],
-  [0, 2]
+  [0, 2], 1
 ];
 export var ExtendLicenseConsumptionResponse$: StaticStructureSchema = [3, n0, _ELCRx,
   0,
@@ -835,7 +835,7 @@ TypeRegistry.for(n0).registerError(FilterLimitExceededException$, FilterLimitExc
 export var GetAccessTokenRequest$: StaticStructureSchema = [3, n0, _GATR,
   0,
   [_To, _TP],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var GetAccessTokenResponse$: StaticStructureSchema = [3, n0, _GATRe,
   0,
@@ -845,7 +845,7 @@ export var GetAccessTokenResponse$: StaticStructureSchema = [3, n0, _GATRe,
 export var GetGrantRequest$: StaticStructureSchema = [3, n0, _GGR,
   0,
   [_GA, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetGrantResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
@@ -855,27 +855,27 @@ export var GetGrantResponse$: StaticStructureSchema = [3, n0, _GGRe,
 export var GetLicenseAssetGroupRequest$: StaticStructureSchema = [3, n0, _GLAGR,
   0,
   [_LAGA],
-  [0]
+  [0], 1
 ];
 export var GetLicenseAssetGroupResponse$: StaticStructureSchema = [3, n0, _GLAGRe,
   0,
   [_LAG],
-  [() => LicenseAssetGroup$]
+  [() => LicenseAssetGroup$], 1
 ];
 export var GetLicenseAssetRulesetRequest$: StaticStructureSchema = [3, n0, _GLARR,
   0,
   [_LARA],
-  [0]
+  [0], 1
 ];
 export var GetLicenseAssetRulesetResponse$: StaticStructureSchema = [3, n0, _GLARRe,
   0,
   [_LAR],
-  [() => LicenseAssetRuleset$]
+  [() => LicenseAssetRuleset$], 1
 ];
 export var GetLicenseConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR,
   0,
   [_LCA],
-  [0]
+  [0], 1
 ];
 export var GetLicenseConfigurationResponse$: StaticStructureSchema = [3, n0, _GLCRe,
   0,
@@ -885,7 +885,7 @@ export var GetLicenseConfigurationResponse$: StaticStructureSchema = [3, n0, _GL
 export var GetLicenseConversionTaskRequest$: StaticStructureSchema = [3, n0, _GLCTR,
   0,
   [_LCTI],
-  [0]
+  [0], 1
 ];
 export var GetLicenseConversionTaskResponse$: StaticStructureSchema = [3, n0, _GLCTRe,
   0,
@@ -895,7 +895,7 @@ export var GetLicenseConversionTaskResponse$: StaticStructureSchema = [3, n0, _G
 export var GetLicenseManagerReportGeneratorRequest$: StaticStructureSchema = [3, n0, _GLMRGR,
   0,
   [_LMRGA],
-  [0]
+  [0], 1
 ];
 export var GetLicenseManagerReportGeneratorResponse$: StaticStructureSchema = [3, n0, _GLMRGRe,
   0,
@@ -905,7 +905,7 @@ export var GetLicenseManagerReportGeneratorResponse$: StaticStructureSchema = [3
 export var GetLicenseRequest$: StaticStructureSchema = [3, n0, _GLR,
   0,
   [_LA, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetLicenseResponse$: StaticStructureSchema = [3, n0, _GLRe,
   0,
@@ -915,7 +915,7 @@ export var GetLicenseResponse$: StaticStructureSchema = [3, n0, _GLRe,
 export var GetLicenseUsageRequest$: StaticStructureSchema = [3, n0, _GLUR,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var GetLicenseUsageResponse$: StaticStructureSchema = [3, n0, _GLURe,
   0,
@@ -934,8 +934,8 @@ export var GetServiceSettingsResponse$: StaticStructureSchema = [3, n0, _GSSRe,
 ];
 export var Grant$: StaticStructureSchema = [3, n0, _G,
   0,
-  [_GA, _GN, _PA, _LA, _GPA, _HR, _GS, _SR, _V, _GO, _O],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, () => Options$]
+  [_GA, _GN, _PA, _LA, _GPA, _HR, _GS, _V, _GO, _SR, _O],
+  [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, () => Options$], 9
 ];
 export var GrantedLicense$: StaticStructureSchema = [3, n0, _GL,
   0,
@@ -962,12 +962,12 @@ TypeRegistry.for(n0).registerError(InvalidResourceStateException$, InvalidResour
 export var InventoryFilter$: StaticStructureSchema = [3, n0, _IF,
   0,
   [_N, _C, _Val],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var Issuer$: StaticStructureSchema = [3, n0, _I,
   0,
   [_N, _SK],
-  [0, 0]
+  [0, 0], 1
 ];
 export var IssuerDetails$: StaticStructureSchema = [3, n0, _ID,
   0,
@@ -981,8 +981,8 @@ export var License$: StaticStructureSchema = [3, n0, _L,
 ];
 export var LicenseAssetGroup$: StaticStructureSchema = [3, n0, _LAG,
   0,
-  [_N, _D, _LAGC, _ALARARN, _Pr, _LAGA, _S, _SM, _LUAT, _LRDT],
-  [0, 0, () => LicenseAssetGroupConfigurationList, 64 | 0, () => LicenseAssetGroupPropertyList, 0, 0, 0, 4, 4]
+  [_N, _ALARARN, _LAGA, _S, _D, _LAGC, _Pr, _SM, _LUAT, _LRDT],
+  [0, 64 | 0, 0, 0, 0, () => LicenseAssetGroupConfigurationList, () => LicenseAssetGroupPropertyList, 0, 4, 4], 4
 ];
 export var LicenseAssetGroupConfiguration$: StaticStructureSchema = [3, n0, _LAGCi,
   0,
@@ -992,17 +992,17 @@ export var LicenseAssetGroupConfiguration$: StaticStructureSchema = [3, n0, _LAG
 export var LicenseAssetGroupProperty$: StaticStructureSchema = [3, n0, _LAGP,
   0,
   [_K, _Val],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LicenseAssetRule$: StaticStructureSchema = [3, n0, _LARi,
   0,
   [_RS],
-  [() => RuleStatement$]
+  [() => RuleStatement$], 1
 ];
 export var LicenseAssetRuleset$: StaticStructureSchema = [3, n0, _LAR,
   0,
-  [_N, _D, _R, _LARA],
-  [0, 0, () => LicenseAssetRuleList, 0]
+  [_N, _R, _LARA, _D],
+  [0, () => LicenseAssetRuleList, 0, 0], 3
 ];
 export var LicenseConfiguration$: StaticStructureSchema = [3, n0, _LCi,
   0,
@@ -1047,7 +1047,7 @@ export var LicenseRuleStatement$: StaticStructureSchema = [3, n0, _LRS,
 export var LicenseSpecification$: StaticStructureSchema = [3, n0, _LS,
   0,
   [_LCA, _AAS],
-  [0, 0]
+  [0, 0], 1
 ];
 export var LicenseUsage$: StaticStructureSchema = [3, n0, _LU,
   0,
@@ -1063,7 +1063,7 @@ TypeRegistry.for(n0).registerError(LicenseUsageException$, LicenseUsageException
 export var ListAssetsForLicenseAssetGroupRequest$: StaticStructureSchema = [3, n0, _LAFLAGR,
   0,
   [_LAGA, _ATss, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 2
 ];
 export var ListAssetsForLicenseAssetGroupResponse$: StaticStructureSchema = [3, n0, _LAFLAGRi,
   0,
@@ -1073,7 +1073,7 @@ export var ListAssetsForLicenseAssetGroupResponse$: StaticStructureSchema = [3, 
 export var ListAssociationsForLicenseConfigurationRequest$: StaticStructureSchema = [3, n0, _LAFLCR,
   0,
   [_LCA, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListAssociationsForLicenseConfigurationResponse$: StaticStructureSchema = [3, n0, _LAFLCRi,
   0,
@@ -1093,7 +1093,7 @@ export var ListDistributedGrantsResponse$: StaticStructureSchema = [3, n0, _LDGR
 export var ListFailuresForLicenseConfigurationOperationsRequest$: StaticStructureSchema = [3, n0, _LFFLCOR,
   0,
   [_LCA, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListFailuresForLicenseConfigurationOperationsResponse$: StaticStructureSchema = [3, n0, _LFFLCORi,
   0,
@@ -1163,7 +1163,7 @@ export var ListLicenseManagerReportGeneratorsResponse$: StaticStructureSchema = 
 export var ListLicenseSpecificationsForResourceRequest$: StaticStructureSchema = [3, n0, _LLSFRR,
   0,
   [_RA, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListLicenseSpecificationsForResourceResponse$: StaticStructureSchema = [3, n0, _LLSFRRi,
   0,
@@ -1183,7 +1183,7 @@ export var ListLicensesResponse$: StaticStructureSchema = [3, n0, _LLRi,
 export var ListLicenseVersionsRequest$: StaticStructureSchema = [3, n0, _LLVR,
   0,
   [_LA, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListLicenseVersionsResponse$: StaticStructureSchema = [3, n0, _LLVRi,
   0,
@@ -1193,7 +1193,7 @@ export var ListLicenseVersionsResponse$: StaticStructureSchema = [3, n0, _LLVRi,
 export var ListReceivedGrantsForOrganizationRequest$: StaticStructureSchema = [3, n0, _LRGFOR,
   0,
   [_LA, _Fi, _NT, _MR],
-  [0, [() => FilterList, 0], 0, 1]
+  [0, [() => FilterList, 0], 0, 1], 1
 ];
 export var ListReceivedGrantsForOrganizationResponse$: StaticStructureSchema = [3, n0, _LRGFORi,
   0,
@@ -1243,7 +1243,7 @@ export var ListResourceInventoryResponse$: StaticStructureSchema = [3, n0, _LRIR
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1263,7 +1263,7 @@ export var ListTokensResponse$: StaticStructureSchema = [3, n0, _LTRi,
 export var ListUsageForLicenseConfigurationRequest$: StaticStructureSchema = [3, n0, _LUFLCR,
   0,
   [_LCA, _MR, _NT, _Fi],
-  [0, 1, 0, [() => Filters, 0]]
+  [0, 1, 0, [() => Filters, 0]], 1
 ];
 export var ListUsageForLicenseConfigurationResponse$: StaticStructureSchema = [3, n0, _LUFLCRi,
   0,
@@ -1278,7 +1278,7 @@ export var ManagedResourceSummary$: StaticStructureSchema = [3, n0, _MRSan,
 export var MatchingRuleStatement$: StaticStructureSchema = [3, n0, _MRSa,
   0,
   [_KTM, _Co, _VTM],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var Metadata$: StaticStructureSchema = [3, n0, _Me,
   0,
@@ -1299,7 +1299,7 @@ export var Options$: StaticStructureSchema = [3, n0, _O,
 export var OrganizationConfiguration$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_EI],
-  [2]
+  [2], 1
 ];
 export var OrRuleStatement$: StaticStructureSchema = [3, n0, _ORS,
   0,
@@ -1309,22 +1309,22 @@ export var OrRuleStatement$: StaticStructureSchema = [3, n0, _ORS,
 export var ProductCodeListItem$: StaticStructureSchema = [3, n0, _PCLI,
   0,
   [_PCI, _PCT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ProductInformation$: StaticStructureSchema = [3, n0, _PI,
   0,
   [_RT, _PIFL],
-  [0, () => ProductInformationFilterList]
+  [0, () => ProductInformationFilterList], 2
 ];
 export var ProductInformationFilter$: StaticStructureSchema = [3, n0, _PIF,
   0,
-  [_PIFN, _PIFV, _PIFC],
-  [0, 64 | 0, 0]
+  [_PIFN, _PIFC, _PIFV],
+  [0, 0, 64 | 0], 2
 ];
 export var ProvisionalConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
   [_MTTLIM],
-  [1]
+  [1], 1
 ];
 export var RateLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
   { [_aQE]: [`RateLimitExceeded`, 429], [_e]: _c, [_hE]: 429 },
@@ -1351,7 +1351,7 @@ export var RegionStatus$: StaticStructureSchema = [3, n0, _RSeg,
 export var RejectGrantRequest$: StaticStructureSchema = [3, n0, _RGR,
   0,
   [_GA],
-  [0]
+  [0], 1
 ];
 export var RejectGrantResponse$: StaticStructureSchema = [3, n0, _RGRe,
   0,
@@ -1403,7 +1403,7 @@ export var S3Location$: StaticStructureSchema = [3, n0, _SL,
 export var ScriptRuleStatement$: StaticStructureSchema = [3, n0, _SRSc,
   0,
   [_KTM, _Sc],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ServerInternalException$: StaticErrorSchema = [-3, n0, _SIE,
   { [_aQE]: [`InternalError`, 500], [_e]: _s, [_hE]: 500 },
@@ -1424,7 +1424,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1445,7 +1445,7 @@ TypeRegistry.for(n0).registerError(UnsupportedDigitalSignatureMethodException$, 
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1454,28 +1454,28 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateLicenseAssetGroupRequest$: StaticStructureSchema = [3, n0, _ULAGR,
   0,
-  [_N, _D, _LAGC, _ALARARN, _Pr, _LAGA, _S, _CT],
-  [0, 0, () => LicenseAssetGroupConfigurationList, 64 | 0, () => LicenseAssetGroupPropertyList, 0, 0, 0]
+  [_ALARARN, _LAGA, _CT, _N, _D, _LAGC, _Pr, _S],
+  [64 | 0, 0, 0, 0, 0, () => LicenseAssetGroupConfigurationList, () => LicenseAssetGroupPropertyList, 0], 3
 ];
 export var UpdateLicenseAssetGroupResponse$: StaticStructureSchema = [3, n0, _ULAGRp,
   0,
   [_LAGA, _S],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateLicenseAssetRulesetRequest$: StaticStructureSchema = [3, n0, _ULARR,
   0,
-  [_N, _D, _R, _LARA, _CT],
-  [0, 0, () => LicenseAssetRuleList, 0, 0]
+  [_R, _LARA, _CT, _N, _D],
+  [() => LicenseAssetRuleList, 0, 0, 0, 0], 3
 ];
 export var UpdateLicenseAssetRulesetResponse$: StaticStructureSchema = [3, n0, _ULARRp,
   0,
   [_LARA],
-  [0]
+  [0], 1
 ];
 export var UpdateLicenseConfigurationRequest$: StaticStructureSchema = [3, n0, _ULCR,
   0,
   [_LCA, _LCS, _LR, _LC, _LCHL, _N, _D, _PIL, _DWNF, _LE],
-  [0, 0, 64 | 0, 1, 2, 0, 0, () => ProductInformationList, 2, 1]
+  [0, 0, 64 | 0, 1, 2, 0, 0, () => ProductInformationList, 2, 1], 1
 ];
 export var UpdateLicenseConfigurationResponse$: StaticStructureSchema = [3, n0, _ULCRp,
   0,
@@ -1485,7 +1485,7 @@ export var UpdateLicenseConfigurationResponse$: StaticStructureSchema = [3, n0, 
 export var UpdateLicenseManagerReportGeneratorRequest$: StaticStructureSchema = [3, n0, _ULMRGR,
   0,
   [_LMRGA, _RGN, _Ty, _RC, _RF, _CT, _D],
-  [0, 0, 64 | 0, () => ReportContext$, () => ReportFrequency$, 0, 0]
+  [0, 0, 64 | 0, () => ReportContext$, () => ReportFrequency$, 0, 0], 6
 ];
 export var UpdateLicenseManagerReportGeneratorResponse$: StaticStructureSchema = [3, n0, _ULMRGRp,
   0,
@@ -1495,7 +1495,7 @@ export var UpdateLicenseManagerReportGeneratorResponse$: StaticStructureSchema =
 export var UpdateLicenseSpecificationsForResourceRequest$: StaticStructureSchema = [3, n0, _ULSFRR,
   0,
   [_RA, _ALS, _RLS],
-  [0, () => LicenseSpecifications, () => LicenseSpecifications]
+  [0, () => LicenseSpecifications, () => LicenseSpecifications], 1
 ];
 export var UpdateLicenseSpecificationsForResourceResponse$: StaticStructureSchema = [3, n0, _ULSFRRp,
   0,

@@ -164,7 +164,7 @@ var MarkdownString: StaticSimpleSchema = [0, n0, _MS, 8, 0];
 export var AnalysisReport$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_ARI, _I, _ST, _CT, _STt, _ET, _S, _In],
-  [0, 0, 0, 4, 4, 4, 0, [() => InsightList, 0]]
+  [0, 0, 0, 4, 4, 4, 0, [() => InsightList, 0]], 1
 ];
 export var AnalysisReportSummary$: StaticStructureSchema = [3, n0, _ARS,
   0,
@@ -174,7 +174,7 @@ export var AnalysisReportSummary$: StaticStructureSchema = [3, n0, _ARS,
 export var CreatePerformanceAnalysisReportRequest$: StaticStructureSchema = [3, n0, _CPARR,
   0,
   [_ST, _I, _STt, _ET, _T],
-  [0, 0, 4, 4, () => TagList]
+  [0, 0, 4, 4, () => TagList], 4
 ];
 export var CreatePerformanceAnalysisReportResponse$: StaticStructureSchema = [3, n0, _CPARRr,
   0,
@@ -189,12 +189,12 @@ export var Data$: StaticStructureSchema = [3, n0, _D,
 export var DataPoint$: StaticStructureSchema = [3, n0, _DP,
   0,
   [_Ti, _V],
-  [4, 1]
+  [4, 1], 2
 ];
 export var DeletePerformanceAnalysisReportRequest$: StaticStructureSchema = [3, n0, _DPARR,
   0,
   [_ST, _I, _ARI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeletePerformanceAnalysisReportResponse$: StaticStructureSchema = [3, n0, _DPARRe,
   0,
@@ -203,8 +203,8 @@ export var DeletePerformanceAnalysisReportResponse$: StaticStructureSchema = [3,
 ];
 export var DescribeDimensionKeysRequest$: StaticStructureSchema = [3, n0, _DDKR,
   0,
-  [_ST, _I, _STt, _ET, _M, _PIS, _GB, _AM, _PB, _F, _MR, _NT],
-  [0, 0, 4, 4, 0, 1, () => DimensionGroup$, 64 | 0, () => DimensionGroup$, 128 | 0, 1, 0]
+  [_ST, _I, _STt, _ET, _M, _GB, _PIS, _AM, _PB, _F, _MR, _NT],
+  [0, 0, 4, 4, 0, () => DimensionGroup$, 1, 64 | 0, () => DimensionGroup$, 128 | 0, 1, 0], 6
 ];
 export var DescribeDimensionKeysResponse$: StaticStructureSchema = [3, n0, _DDKRe,
   0,
@@ -219,7 +219,7 @@ export var DimensionDetail$: StaticStructureSchema = [3, n0, _DD,
 export var DimensionGroup$: StaticStructureSchema = [3, n0, _DG,
   0,
   [_G, _Di, _L],
-  [0, 64 | 0, 1]
+  [0, 64 | 0, 1], 1
 ];
 export var DimensionGroupDetail$: StaticStructureSchema = [3, n0, _DGD,
   0,
@@ -244,7 +244,7 @@ export var FeatureMetadata$: StaticStructureSchema = [3, n0, _FM,
 export var GetDimensionKeyDetailsRequest$: StaticStructureSchema = [3, n0, _GDKDR,
   0,
   [_ST, _I, _G, _GI, _RD],
-  [0, 0, 0, 0, 64 | 0]
+  [0, 0, 0, 0, 64 | 0], 4
 ];
 export var GetDimensionKeyDetailsResponse$: StaticStructureSchema = [3, n0, _GDKDRe,
   0,
@@ -254,7 +254,7 @@ export var GetDimensionKeyDetailsResponse$: StaticStructureSchema = [3, n0, _GDK
 export var GetPerformanceAnalysisReportRequest$: StaticStructureSchema = [3, n0, _GPARR,
   0,
   [_ST, _I, _ARI, _TF, _AL],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 3
 ];
 export var GetPerformanceAnalysisReportResponse$: StaticStructureSchema = [3, n0, _GPARRe,
   0,
@@ -264,7 +264,7 @@ export var GetPerformanceAnalysisReportResponse$: StaticStructureSchema = [3, n0
 export var GetResourceMetadataRequest$: StaticStructureSchema = [3, n0, _GRMR,
   0,
   [_ST, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetResourceMetadataResponse$: StaticStructureSchema = [3, n0, _GRMRe,
   0,
@@ -274,7 +274,7 @@ export var GetResourceMetadataResponse$: StaticStructureSchema = [3, n0, _GRMRe,
 export var GetResourceMetricsRequest$: StaticStructureSchema = [3, n0, _GRMRet,
   0,
   [_ST, _I, _MQ, _STt, _ET, _PIS, _MR, _NT, _PA],
-  [0, 0, () => MetricQueryList, 4, 4, 1, 1, 0, 0]
+  [0, 0, () => MetricQueryList, 4, 4, 1, 1, 0, 0], 5
 ];
 export var GetResourceMetricsResponse$: StaticStructureSchema = [3, n0, _GRMRete,
   0,
@@ -284,7 +284,7 @@ export var GetResourceMetricsResponse$: StaticStructureSchema = [3, n0, _GRMRete
 export var Insight$: StaticStructureSchema = [3, n0, _Ins,
   0,
   [_II, _IT, _C, _STt, _ET, _Se, _SI, _De, _R, _ID, _BD],
-  [0, 0, 0, 4, 4, 0, [() => InsightList, 0], [() => MarkdownString, 0], [() => RecommendationList, 0], () => DataList, () => DataList]
+  [0, 0, 0, 4, 4, 0, [() => InsightList, 0], [() => MarkdownString, 0], [() => RecommendationList, 0], () => DataList, () => DataList], 1
 ];
 export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s },
@@ -301,7 +301,7 @@ TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentExc
 export var ListAvailableResourceDimensionsRequest$: StaticStructureSchema = [3, n0, _LARDR,
   0,
   [_ST, _I, _Met, _MR, _NT, _AA],
-  [0, 0, 64 | 0, 1, 0, 64 | 0]
+  [0, 0, 64 | 0, 1, 0, 64 | 0], 3
 ];
 export var ListAvailableResourceDimensionsResponse$: StaticStructureSchema = [3, n0, _LARDRi,
   0,
@@ -311,7 +311,7 @@ export var ListAvailableResourceDimensionsResponse$: StaticStructureSchema = [3,
 export var ListAvailableResourceMetricsRequest$: StaticStructureSchema = [3, n0, _LARMR,
   0,
   [_ST, _I, _MT, _NT, _MR],
-  [0, 0, 64 | 0, 0, 1]
+  [0, 0, 64 | 0, 0, 1], 3
 ];
 export var ListAvailableResourceMetricsResponse$: StaticStructureSchema = [3, n0, _LARMRi,
   0,
@@ -321,7 +321,7 @@ export var ListAvailableResourceMetricsResponse$: StaticStructureSchema = [3, n0
 export var ListPerformanceAnalysisReportsRequest$: StaticStructureSchema = [3, n0, _LPARR,
   0,
   [_ST, _I, _NT, _MR, _LT],
-  [0, 0, 0, 1, 2]
+  [0, 0, 0, 1, 2], 2
 ];
 export var ListPerformanceAnalysisReportsResponse$: StaticStructureSchema = [3, n0, _LPARRi,
   0,
@@ -331,7 +331,7 @@ export var ListPerformanceAnalysisReportsResponse$: StaticStructureSchema = [3, 
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_ST, _RARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -351,7 +351,7 @@ export var MetricKeyDataPoints$: StaticStructureSchema = [3, n0, _MKDP,
 export var MetricQuery$: StaticStructureSchema = [3, n0, _MQe,
   0,
   [_M, _GB, _F],
-  [0, () => DimensionGroup$, 128 | 0]
+  [0, () => DimensionGroup$, 128 | 0], 1
 ];
 export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
   { [_e]: _c },
@@ -372,7 +372,7 @@ export var Recommendation$: StaticStructureSchema = [3, n0, _Re,
 export var ResponsePartitionKey$: StaticStructureSchema = [3, n0, _RPK,
   0,
   [_Di],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var ResponseResourceMetric$: StaticStructureSchema = [3, n0, _RRM,
   0,
@@ -382,17 +382,17 @@ export var ResponseResourceMetric$: StaticStructureSchema = [3, n0, _RRM,
 export var ResponseResourceMetricKey$: StaticStructureSchema = [3, n0, _RRMK,
   0,
   [_M, _Di],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_Ke, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_ST, _RARN, _T],
-  [0, 0, () => TagList]
+  [0, 0, () => TagList], 3
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -402,7 +402,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_ST, _RARN, _TK],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,

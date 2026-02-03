@@ -368,12 +368,12 @@ export var Body$: StaticStructureSchema = [3, n0, _B,
 export var CloudWatchDestination$: StaticStructureSchema = [3, n0, _CWD,
   0,
   [_DC],
-  [() => CloudWatchDimensionConfigurations]
+  [() => CloudWatchDimensionConfigurations], 1
 ];
 export var CloudWatchDimensionConfiguration$: StaticStructureSchema = [3, n0, _CWDC,
   0,
   [_DN, _DVS, _DDV],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
   { [_e]: _s, [_hE]: 500 },
@@ -384,12 +384,12 @@ TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentM
 export var Content$: StaticStructureSchema = [3, n0, _C,
   0,
   [_Da, _Ch],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CreateConfigurationSetEventDestinationRequest$: StaticStructureSchema = [3, n0, _CCSEDR,
   0,
   [_CSN, _EDN, _ED],
-  [[0, 1], 0, () => EventDestinationDefinition$]
+  [[0, 1], 0, () => EventDestinationDefinition$], 3
 ];
 export var CreateConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _CCSEDRr,
   0,
@@ -399,7 +399,7 @@ export var CreateConfigurationSetEventDestinationResponse$: StaticStructureSchem
 export var CreateConfigurationSetRequest$: StaticStructureSchema = [3, n0, _CCSR,
   0,
   [_CSN, _TO, _DO, _RO, _SO, _Ta],
-  [0, () => TrackingOptions$, () => DeliveryOptions$, () => ReputationOptions$, () => SendingOptions$, () => TagList]
+  [0, () => TrackingOptions$, () => DeliveryOptions$, () => ReputationOptions$, () => SendingOptions$, () => TagList], 1
 ];
 export var CreateConfigurationSetResponse$: StaticStructureSchema = [3, n0, _CCSRr,
   0,
@@ -409,7 +409,7 @@ export var CreateConfigurationSetResponse$: StaticStructureSchema = [3, n0, _CCS
 export var CreateDedicatedIpPoolRequest$: StaticStructureSchema = [3, n0, _CDIPR,
   0,
   [_PN, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 1
 ];
 export var CreateDedicatedIpPoolResponse$: StaticStructureSchema = [3, n0, _CDIPRr,
   0,
@@ -418,18 +418,18 @@ export var CreateDedicatedIpPoolResponse$: StaticStructureSchema = [3, n0, _CDIP
 ];
 export var CreateDeliverabilityTestReportRequest$: StaticStructureSchema = [3, n0, _CDTRR,
   0,
-  [_RNe, _FEA, _C, _Ta],
-  [0, 0, () => EmailContent$, () => TagList]
+  [_FEA, _C, _RNe, _Ta],
+  [0, () => EmailContent$, 0, () => TagList], 2
 ];
 export var CreateDeliverabilityTestReportResponse$: StaticStructureSchema = [3, n0, _CDTRRr,
   0,
   [_RI, _DTS],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateEmailIdentityRequest$: StaticStructureSchema = [3, n0, _CEIR,
   0,
   [_EI, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 1
 ];
 export var CreateEmailIdentityResponse$: StaticStructureSchema = [3, n0, _CEIRr,
   0,
@@ -444,12 +444,12 @@ export var DailyVolume$: StaticStructureSchema = [3, n0, _DV,
 export var DedicatedIp$: StaticStructureSchema = [3, n0, _DI,
   0,
   [_I, _WS, _WP, _PN],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 3
 ];
 export var DeleteConfigurationSetEventDestinationRequest$: StaticStructureSchema = [3, n0, _DCSEDR,
   0,
   [_CSN, _EDN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _DCSEDRe,
   0,
@@ -459,7 +459,7 @@ export var DeleteConfigurationSetEventDestinationResponse$: StaticStructureSchem
 export var DeleteConfigurationSetRequest$: StaticStructureSchema = [3, n0, _DCSR,
   0,
   [_CSN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteConfigurationSetResponse$: StaticStructureSchema = [3, n0, _DCSRe,
   0,
@@ -469,7 +469,7 @@ export var DeleteConfigurationSetResponse$: StaticStructureSchema = [3, n0, _DCS
 export var DeleteDedicatedIpPoolRequest$: StaticStructureSchema = [3, n0, _DDIPR,
   0,
   [_PN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDedicatedIpPoolResponse$: StaticStructureSchema = [3, n0, _DDIPRe,
   0,
@@ -479,7 +479,7 @@ export var DeleteDedicatedIpPoolResponse$: StaticStructureSchema = [3, n0, _DDIP
 export var DeleteEmailIdentityRequest$: StaticStructureSchema = [3, n0, _DEIR,
   0,
   [_EI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteEmailIdentityResponse$: StaticStructureSchema = [3, n0, _DEIRe,
   0,
@@ -528,8 +528,8 @@ export var EmailContent$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var EventDestination$: StaticStructureSchema = [3, n0, _ED,
   0,
-  [_N, _En, _MET, _KFD, _CWD, _SDn, _PD],
-  [0, 2, 64 | 0, () => KinesisFirehoseDestination$, () => CloudWatchDestination$, () => SnsDestination$, () => PinpointDestination$]
+  [_N, _MET, _En, _KFD, _CWD, _SDn, _PD],
+  [0, 64 | 0, 2, () => KinesisFirehoseDestination$, () => CloudWatchDestination$, () => SnsDestination$, () => PinpointDestination$], 2
 ];
 export var EventDestinationDefinition$: StaticStructureSchema = [3, n0, _EDD,
   0,
@@ -549,17 +549,17 @@ export var GetAccountResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetBlacklistReportsRequest$: StaticStructureSchema = [3, n0, _GBRR,
   0,
   [_BIN],
-  [[64 | 0, { [_hQ]: _BIN }]]
+  [[64 | 0, { [_hQ]: _BIN }]], 1
 ];
 export var GetBlacklistReportsResponse$: StaticStructureSchema = [3, n0, _GBRRe,
   0,
   [_BR],
-  [() => BlacklistReport]
+  [() => BlacklistReport], 1
 ];
 export var GetConfigurationSetEventDestinationsRequest$: StaticStructureSchema = [3, n0, _GCSEDR,
   0,
   [_CSN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConfigurationSetEventDestinationsResponse$: StaticStructureSchema = [3, n0, _GCSEDRe,
   0,
@@ -569,7 +569,7 @@ export var GetConfigurationSetEventDestinationsResponse$: StaticStructureSchema 
 export var GetConfigurationSetRequest$: StaticStructureSchema = [3, n0, _GCSR,
   0,
   [_CSN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConfigurationSetResponse$: StaticStructureSchema = [3, n0, _GCSRe,
   0,
@@ -579,7 +579,7 @@ export var GetConfigurationSetResponse$: StaticStructureSchema = [3, n0, _GCSRe,
 export var GetDedicatedIpRequest$: StaticStructureSchema = [3, n0, _GDIR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDedicatedIpResponse$: StaticStructureSchema = [3, n0, _GDIRe,
   0,
@@ -604,42 +604,42 @@ export var GetDeliverabilityDashboardOptionsRequest$: StaticStructureSchema = [3
 export var GetDeliverabilityDashboardOptionsResponse$: StaticStructureSchema = [3, n0, _GDDORe,
   0,
   [_DE, _SED, _AS, _ASD, _PESD],
-  [2, 4, 0, () => DomainDeliverabilityTrackingOptions, () => DomainDeliverabilityTrackingOptions]
+  [2, 4, 0, () => DomainDeliverabilityTrackingOptions, () => DomainDeliverabilityTrackingOptions], 1
 ];
 export var GetDeliverabilityTestReportRequest$: StaticStructureSchema = [3, n0, _GDTRR,
   0,
   [_RI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDeliverabilityTestReportResponse$: StaticStructureSchema = [3, n0, _GDTRRe,
   0,
   [_DTR, _OP, _IPs, _M, _Ta],
-  [() => DeliverabilityTestReport$, () => PlacementStatistics$, () => IspPlacements, 0, () => TagList]
+  [() => DeliverabilityTestReport$, () => PlacementStatistics$, () => IspPlacements, 0, () => TagList], 3
 ];
 export var GetDomainDeliverabilityCampaignRequest$: StaticStructureSchema = [3, n0, _GDDCR,
   0,
   [_CI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDomainDeliverabilityCampaignResponse$: StaticStructureSchema = [3, n0, _GDDCRe,
   0,
   [_DDC],
-  [() => DomainDeliverabilityCampaign$]
+  [() => DomainDeliverabilityCampaign$], 1
 ];
 export var GetDomainStatisticsReportRequest$: StaticStructureSchema = [3, n0, _GDSRR,
   0,
   [_Do, _SD, _EDn],
-  [[0, 1], [4, { [_hQ]: _SD }], [4, { [_hQ]: _EDn }]]
+  [[0, 1], [4, { [_hQ]: _SD }], [4, { [_hQ]: _EDn }]], 3
 ];
 export var GetDomainStatisticsReportResponse$: StaticStructureSchema = [3, n0, _GDSRRe,
   0,
   [_OV, _DVa],
-  [() => OverallVolume$, () => DailyVolumes]
+  [() => OverallVolume$, () => DailyVolumes], 2
 ];
 export var GetEmailIdentityRequest$: StaticStructureSchema = [3, n0, _GEIR,
   0,
   [_EI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetEmailIdentityResponse$: StaticStructureSchema = [3, n0, _GEIRe,
   0,
@@ -664,7 +664,7 @@ export var IspPlacement$: StaticStructureSchema = [3, n0, _IPsp,
 export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD,
   0,
   [_IRA, _DSA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _c, [_hE]: 400 },
@@ -700,17 +700,17 @@ export var ListDeliverabilityTestReportsRequest$: StaticStructureSchema = [3, n0
 export var ListDeliverabilityTestReportsResponse$: StaticStructureSchema = [3, n0, _LDTRRi,
   0,
   [_DTRe, _NT],
-  [() => DeliverabilityTestReports, 0]
+  [() => DeliverabilityTestReports, 0], 1
 ];
 export var ListDomainDeliverabilityCampaignsRequest$: StaticStructureSchema = [3, n0, _LDDCR,
   0,
   [_SD, _EDn, _SDu, _NT, _PS],
-  [[4, { [_hQ]: _SD }], [4, { [_hQ]: _EDn }], [0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _PS }]]
+  [[4, { [_hQ]: _SD }], [4, { [_hQ]: _EDn }], [0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _PS }]], 3
 ];
 export var ListDomainDeliverabilityCampaignsResponse$: StaticStructureSchema = [3, n0, _LDDCRi,
   0,
   [_DDCo, _NT],
-  [() => DomainDeliverabilityCampaignList, 0]
+  [() => DomainDeliverabilityCampaignList, 0], 1
 ];
 export var ListEmailIdentitiesRequest$: StaticStructureSchema = [3, n0, _LEIR,
   0,
@@ -725,17 +725,17 @@ export var ListEmailIdentitiesResponse$: StaticStructureSchema = [3, n0, _LEIRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, { [_hQ]: _RA }]]
+  [[0, { [_hQ]: _RA }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_Ta],
-  [() => TagList]
+  [() => TagList], 1
 ];
 export var MailFromAttributes$: StaticStructureSchema = [3, n0, _MFA,
   0,
   [_MFD, _MFDS, _BOMF],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var MailFromDomainNotVerifiedException$: StaticErrorSchema = [-3, n0, _MFDNVE,
   { [_e]: _c, [_hE]: 400 },
@@ -746,7 +746,7 @@ TypeRegistry.for(n0).registerError(MailFromDomainNotVerifiedException$, MailFrom
 export var Message$: StaticStructureSchema = [3, n0, _M,
   0,
   [_S, _B],
-  [() => Content$, () => Body$]
+  [() => Content$, () => Body$], 2
 ];
 export var MessageRejected$: StaticErrorSchema = [-3, n0, _MR,
   { [_e]: _c, [_hE]: 400 },
@@ -757,7 +757,7 @@ TypeRegistry.for(n0).registerError(MessageRejected$, MessageRejected);
 export var MessageTag$: StaticStructureSchema = [3, n0, _MT,
   0,
   [_N, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_e]: _c, [_hE]: 404 },
@@ -803,7 +803,7 @@ export var PutAccountSendingAttributesResponse$: StaticStructureSchema = [3, n0,
 export var PutConfigurationSetDeliveryOptionsRequest$: StaticStructureSchema = [3, n0, _PCSDOR,
   0,
   [_CSN, _TP, _SPN],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var PutConfigurationSetDeliveryOptionsResponse$: StaticStructureSchema = [3, n0, _PCSDORu,
   0,
@@ -813,7 +813,7 @@ export var PutConfigurationSetDeliveryOptionsResponse$: StaticStructureSchema = 
 export var PutConfigurationSetReputationOptionsRequest$: StaticStructureSchema = [3, n0, _PCSROR,
   0,
   [_CSN, _RME],
-  [[0, 1], 2]
+  [[0, 1], 2], 1
 ];
 export var PutConfigurationSetReputationOptionsResponse$: StaticStructureSchema = [3, n0, _PCSRORu,
   0,
@@ -823,7 +823,7 @@ export var PutConfigurationSetReputationOptionsResponse$: StaticStructureSchema 
 export var PutConfigurationSetSendingOptionsRequest$: StaticStructureSchema = [3, n0, _PCSSOR,
   0,
   [_CSN, _SEe],
-  [[0, 1], 2]
+  [[0, 1], 2], 1
 ];
 export var PutConfigurationSetSendingOptionsResponse$: StaticStructureSchema = [3, n0, _PCSSORu,
   0,
@@ -833,7 +833,7 @@ export var PutConfigurationSetSendingOptionsResponse$: StaticStructureSchema = [
 export var PutConfigurationSetTrackingOptionsRequest$: StaticStructureSchema = [3, n0, _PCSTOR,
   0,
   [_CSN, _CRD],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var PutConfigurationSetTrackingOptionsResponse$: StaticStructureSchema = [3, n0, _PCSTORu,
   0,
@@ -843,7 +843,7 @@ export var PutConfigurationSetTrackingOptionsResponse$: StaticStructureSchema = 
 export var PutDedicatedIpInPoolRequest$: StaticStructureSchema = [3, n0, _PDIIPR,
   0,
   [_I, _DPN],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var PutDedicatedIpInPoolResponse$: StaticStructureSchema = [3, n0, _PDIIPRu,
   0,
@@ -853,7 +853,7 @@ export var PutDedicatedIpInPoolResponse$: StaticStructureSchema = [3, n0, _PDIIP
 export var PutDedicatedIpWarmupAttributesRequest$: StaticStructureSchema = [3, n0, _PDIWAR,
   0,
   [_I, _WP],
-  [[0, 1], 1]
+  [[0, 1], 1], 2
 ];
 export var PutDedicatedIpWarmupAttributesResponse$: StaticStructureSchema = [3, n0, _PDIWARu,
   0,
@@ -863,7 +863,7 @@ export var PutDedicatedIpWarmupAttributesResponse$: StaticStructureSchema = [3, 
 export var PutDeliverabilityDashboardOptionRequest$: StaticStructureSchema = [3, n0, _PDDOR,
   0,
   [_DE, _SDub],
-  [2, () => DomainDeliverabilityTrackingOptions]
+  [2, () => DomainDeliverabilityTrackingOptions], 1
 ];
 export var PutDeliverabilityDashboardOptionResponse$: StaticStructureSchema = [3, n0, _PDDORu,
   0,
@@ -873,7 +873,7 @@ export var PutDeliverabilityDashboardOptionResponse$: StaticStructureSchema = [3
 export var PutEmailIdentityDkimAttributesRequest$: StaticStructureSchema = [3, n0, _PEIDAR,
   0,
   [_EI, _SE],
-  [[0, 1], 2]
+  [[0, 1], 2], 1
 ];
 export var PutEmailIdentityDkimAttributesResponse$: StaticStructureSchema = [3, n0, _PEIDARu,
   0,
@@ -883,7 +883,7 @@ export var PutEmailIdentityDkimAttributesResponse$: StaticStructureSchema = [3, 
 export var PutEmailIdentityFeedbackAttributesRequest$: StaticStructureSchema = [3, n0, _PEIFAR,
   0,
   [_EI, _EFE],
-  [[0, 1], 2]
+  [[0, 1], 2], 1
 ];
 export var PutEmailIdentityFeedbackAttributesResponse$: StaticStructureSchema = [3, n0, _PEIFARu,
   0,
@@ -893,7 +893,7 @@ export var PutEmailIdentityFeedbackAttributesResponse$: StaticStructureSchema = 
 export var PutEmailIdentityMailFromAttributesRequest$: StaticStructureSchema = [3, n0, _PEIMFAR,
   0,
   [_EI, _MFD, _BOMF],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var PutEmailIdentityMailFromAttributesResponse$: StaticStructureSchema = [3, n0, _PEIMFARu,
   0,
@@ -903,7 +903,7 @@ export var PutEmailIdentityMailFromAttributesResponse$: StaticStructureSchema = 
 export var RawMessage$: StaticStructureSchema = [3, n0, _RM,
   0,
   [_Da],
-  [21]
+  [21], 1
 ];
 export var ReputationOptions$: StaticStructureSchema = [3, n0, _RO,
   0,
@@ -912,8 +912,8 @@ export var ReputationOptions$: StaticStructureSchema = [3, n0, _RO,
 ];
 export var SendEmailRequest$: StaticStructureSchema = [3, n0, _SER,
   0,
-  [_FEA, _De, _RTA, _FFEA, _C, _ET, _CSN],
-  [0, () => Destination$, 64 | 0, 0, () => EmailContent$, () => MessageTagList, 0]
+  [_De, _C, _FEA, _RTA, _FFEA, _ET, _CSN],
+  [() => Destination$, () => EmailContent$, 0, 64 | 0, 0, () => MessageTagList, 0], 2
 ];
 export var SendEmailResponse$: StaticStructureSchema = [3, n0, _SERe,
   0,
@@ -939,17 +939,17 @@ export var SendQuota$: StaticStructureSchema = [3, n0, _SQ,
 export var SnsDestination$: StaticStructureSchema = [3, n0, _SDn,
   0,
   [_TAo],
-  [0]
+  [0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -970,12 +970,12 @@ TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsExc
 export var TrackingOptions$: StaticStructureSchema = [3, n0, _TO,
   0,
   [_CRD],
-  [0]
+  [0], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, { [_hQ]: _RA }], [64 | 0, { [_hQ]: _TK }]]
+  [[0, { [_hQ]: _RA }], [64 | 0, { [_hQ]: _TK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -985,7 +985,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateConfigurationSetEventDestinationRequest$: StaticStructureSchema = [3, n0, _UCSEDR,
   0,
   [_CSN, _EDN, _ED],
-  [[0, 1], [0, 1], () => EventDestinationDefinition$]
+  [[0, 1], [0, 1], () => EventDestinationDefinition$], 3
 ];
 export var UpdateConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _UCSEDRp,
   0,

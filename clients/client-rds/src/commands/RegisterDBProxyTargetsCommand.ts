@@ -76,12 +76,10 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBProxyNotFoundFault} (client fault)
  *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
@@ -93,9 +91,7 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  *  <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  *
  * @throws {@link InsufficientAvailableIPsInSubnetFault} (client fault)
- *  <p>The requested operation can't be performed because there aren't enough available IP addresses
- *            in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address that aren't required
- *            from the subnets.</p>
+ *  <p>The requested operation can't be performed because there aren't enough available IP addresses in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address that aren't required from the subnets.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>

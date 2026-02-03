@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AssociateFacesCommand,
@@ -333,7 +339,27 @@ import {
   UpdateStreamProcessorCommandInput,
   UpdateStreamProcessorCommandOutput,
 } from "./commands/UpdateStreamProcessorCommand";
+import { paginateDescribeProjects } from "./pagination/DescribeProjectsPaginator";
+import { paginateDescribeProjectVersions } from "./pagination/DescribeProjectVersionsPaginator";
+import { paginateGetCelebrityRecognition } from "./pagination/GetCelebrityRecognitionPaginator";
+import { paginateGetContentModeration } from "./pagination/GetContentModerationPaginator";
+import { paginateGetFaceDetection } from "./pagination/GetFaceDetectionPaginator";
+import { paginateGetFaceSearch } from "./pagination/GetFaceSearchPaginator";
+import { paginateGetLabelDetection } from "./pagination/GetLabelDetectionPaginator";
+import { paginateGetPersonTracking } from "./pagination/GetPersonTrackingPaginator";
+import { paginateGetSegmentDetection } from "./pagination/GetSegmentDetectionPaginator";
+import { paginateGetTextDetection } from "./pagination/GetTextDetectionPaginator";
+import { paginateListCollections } from "./pagination/ListCollectionsPaginator";
+import { paginateListDatasetEntries } from "./pagination/ListDatasetEntriesPaginator";
+import { paginateListDatasetLabels } from "./pagination/ListDatasetLabelsPaginator";
+import { paginateListFaces } from "./pagination/ListFacesPaginator";
+import { paginateListMediaAnalysisJobs } from "./pagination/ListMediaAnalysisJobsPaginator";
+import { paginateListProjectPolicies } from "./pagination/ListProjectPoliciesPaginator";
+import { paginateListStreamProcessors } from "./pagination/ListStreamProcessorsPaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
 import { RekognitionClient } from "./RekognitionClient";
+import { waitUntilProjectVersionRunning } from "./waiters/waitForProjectVersionRunning";
+import { waitUntilProjectVersionTrainingCompleted } from "./waiters/waitForProjectVersionTrainingCompleted";
 
 const commands = {
   AssociateFacesCommand,
@@ -411,6 +437,30 @@ const commands = {
   UntagResourceCommand,
   UpdateDatasetEntriesCommand,
   UpdateStreamProcessorCommand,
+};
+const paginators = {
+  paginateDescribeProjects,
+  paginateDescribeProjectVersions,
+  paginateGetCelebrityRecognition,
+  paginateGetContentModeration,
+  paginateGetFaceDetection,
+  paginateGetFaceSearch,
+  paginateGetLabelDetection,
+  paginateGetPersonTracking,
+  paginateGetSegmentDetection,
+  paginateGetTextDetection,
+  paginateListCollections,
+  paginateListDatasetEntries,
+  paginateListDatasetLabels,
+  paginateListFaces,
+  paginateListMediaAnalysisJobs,
+  paginateListProjectPolicies,
+  paginateListStreamProcessors,
+  paginateListUsers,
+};
+const waiters = {
+  waitUntilProjectVersionRunning,
+  waitUntilProjectVersionTrainingCompleted,
 };
 
 export interface Rekognition {
@@ -1693,6 +1743,224 @@ export interface Rekognition {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStreamProcessorCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeProjectsCommandOutput}.
+   */
+  paginateDescribeProjects(
+    args?: DescribeProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeProjectsCommandOutput>;
+
+  /**
+   * @see {@link DescribeProjectVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeProjectVersionsCommandOutput}.
+   */
+  paginateDescribeProjectVersions(
+    args: DescribeProjectVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeProjectVersionsCommandOutput>;
+
+  /**
+   * @see {@link GetCelebrityRecognitionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCelebrityRecognitionCommandOutput}.
+   */
+  paginateGetCelebrityRecognition(
+    args: GetCelebrityRecognitionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCelebrityRecognitionCommandOutput>;
+
+  /**
+   * @see {@link GetContentModerationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetContentModerationCommandOutput}.
+   */
+  paginateGetContentModeration(
+    args: GetContentModerationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetContentModerationCommandOutput>;
+
+  /**
+   * @see {@link GetFaceDetectionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFaceDetectionCommandOutput}.
+   */
+  paginateGetFaceDetection(
+    args: GetFaceDetectionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFaceDetectionCommandOutput>;
+
+  /**
+   * @see {@link GetFaceSearchCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFaceSearchCommandOutput}.
+   */
+  paginateGetFaceSearch(
+    args: GetFaceSearchCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFaceSearchCommandOutput>;
+
+  /**
+   * @see {@link GetLabelDetectionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetLabelDetectionCommandOutput}.
+   */
+  paginateGetLabelDetection(
+    args: GetLabelDetectionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetLabelDetectionCommandOutput>;
+
+  /**
+   * @see {@link GetPersonTrackingCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetPersonTrackingCommandOutput}.
+   */
+  paginateGetPersonTracking(
+    args: GetPersonTrackingCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetPersonTrackingCommandOutput>;
+
+  /**
+   * @see {@link GetSegmentDetectionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSegmentDetectionCommandOutput}.
+   */
+  paginateGetSegmentDetection(
+    args: GetSegmentDetectionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSegmentDetectionCommandOutput>;
+
+  /**
+   * @see {@link GetTextDetectionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTextDetectionCommandOutput}.
+   */
+  paginateGetTextDetection(
+    args: GetTextDetectionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTextDetectionCommandOutput>;
+
+  /**
+   * @see {@link ListCollectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollectionsCommandOutput}.
+   */
+  paginateListCollections(
+    args?: ListCollectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollectionsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetEntriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetEntriesCommandOutput}.
+   */
+  paginateListDatasetEntries(
+    args: ListDatasetEntriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetEntriesCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetLabelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetLabelsCommandOutput}.
+   */
+  paginateListDatasetLabels(
+    args: ListDatasetLabelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetLabelsCommandOutput>;
+
+  /**
+   * @see {@link ListFacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFacesCommandOutput}.
+   */
+  paginateListFaces(
+    args: ListFacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFacesCommandOutput>;
+
+  /**
+   * @see {@link ListMediaAnalysisJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMediaAnalysisJobsCommandOutput}.
+   */
+  paginateListMediaAnalysisJobs(
+    args?: ListMediaAnalysisJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMediaAnalysisJobsCommandOutput>;
+
+  /**
+   * @see {@link ListProjectPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectPoliciesCommandOutput}.
+   */
+  paginateListProjectPolicies(
+    args: ListProjectPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListStreamProcessorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamProcessorsCommandOutput}.
+   */
+  paginateListStreamProcessors(
+    args?: ListStreamProcessorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamProcessorsCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
+
+  /**
+   * @see {@link DescribeProjectVersionsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilProjectVersionRunning(
+    args: DescribeProjectVersionsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Rekognition>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeProjectVersionsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilProjectVersionTrainingCompleted(
+    args: DescribeProjectVersionsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Rekognition>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -2073,4 +2341,4 @@ export interface Rekognition {
  * @public
  */
 export class Rekognition extends RekognitionClient implements Rekognition {}
-createAggregatedClient(commands, Rekognition);
+createAggregatedClient(commands, Rekognition, { paginators, waiters });

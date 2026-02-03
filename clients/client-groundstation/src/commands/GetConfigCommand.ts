@@ -38,7 +38,7 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * const client = new GroundStationClient(config);
  * const input = { // GetConfigRequest
  *   configId: "STRING_VALUE", // required
- *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording", // required
+ *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording" || "telemetry-sink", // required
  * };
  * const command = new GetConfigCommand(input);
  * const response = await client.send(command);
@@ -46,7 +46,7 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * //   configId: "STRING_VALUE", // required
  * //   configArn: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
- * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
+ * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording" || "telemetry-sink",
  * //   configData: { // ConfigTypeData Union: only one key present
  * //     antennaDownlinkConfig: { // AntennaDownlinkConfig
  * //       spectrumConfig: { // SpectrumConfig
@@ -109,6 +109,15 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * //       bucketArn: "STRING_VALUE", // required
  * //       roleArn: "STRING_VALUE", // required
  * //       prefix: "STRING_VALUE",
+ * //     },
+ * //     telemetrySinkConfig: { // TelemetrySinkConfig
+ * //       telemetrySinkType: "KINESIS_DATA_STREAM", // required
+ * //       telemetrySinkData: { // TelemetrySinkData Union: only one key present
+ * //         kinesisDataStreamData: { // KinesisDataStreamData
+ * //           kinesisRoleArn: "STRING_VALUE", // required
+ * //           kinesisDataStreamArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //     },
  * //   },
  * //   tags: { // TagsMap

@@ -957,6 +957,20 @@ export type SubscriptionGrantOverallStatus =
  * @public
  * @enum
  */
+export const SubscriptionGrantCreationMode = {
+  AUTOMATIC: "AUTOMATIC",
+  MANUAL: "MANUAL",
+} as const;
+/**
+ * @public
+ */
+export type SubscriptionGrantCreationMode =
+  (typeof SubscriptionGrantCreationMode)[keyof typeof SubscriptionGrantCreationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const UserType = {
   IAM_ROLE: "IAM_ROLE",
   IAM_USER: "IAM_USER",
@@ -1351,6 +1365,23 @@ export const SearchOutputAdditionalAttribute = {
  */
 export type SearchOutputAdditionalAttribute =
   (typeof SearchOutputAdditionalAttribute)[keyof typeof SearchOutputAdditionalAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterOperator = {
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  LE: "LE",
+  LT: "LT",
+  TEXT_SEARCH: "TEXT_SEARCH",
+} as const;
+/**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
  * @public

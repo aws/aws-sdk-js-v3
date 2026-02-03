@@ -128,22 +128,22 @@ TypeRegistry.for(n0).registerError(ConcurrentUpdateException$, ConcurrentUpdateE
 export var CreateScalingPlanRequest$: StaticStructureSchema = [3, n0, _CSPR,
   0,
   [_SPN, _AS, _SI],
-  [0, () => ApplicationSource$, () => ScalingInstructions]
+  [0, () => ApplicationSource$, () => ScalingInstructions], 3
 ];
 export var CreateScalingPlanResponse$: StaticStructureSchema = [3, n0, _CSPRr,
   0,
   [_SPV],
-  [1]
+  [1], 1
 ];
 export var CustomizedLoadMetricSpecification$: StaticStructureSchema = [3, n0, _CLMS,
   0,
-  [_MN, _N, _D, _S, _U],
-  [0, 0, () => MetricDimensions, 0, 0]
+  [_MN, _N, _S, _D, _U],
+  [0, 0, 0, () => MetricDimensions, 0], 3
 ];
 export var CustomizedScalingMetricSpecification$: StaticStructureSchema = [3, n0, _CSMS,
   0,
-  [_MN, _N, _D, _S, _U],
-  [0, 0, () => MetricDimensions, 0, 0]
+  [_MN, _N, _S, _D, _U],
+  [0, 0, 0, () => MetricDimensions, 0], 3
 ];
 export var Datapoint$: StaticStructureSchema = [3, n0, _Da,
   0,
@@ -153,7 +153,7 @@ export var Datapoint$: StaticStructureSchema = [3, n0, _Da,
 export var DeleteScalingPlanRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_SPN, _SPV],
-  [0, 1]
+  [0, 1], 2
 ];
 export var DeleteScalingPlanResponse$: StaticStructureSchema = [3, n0, _DSPRe,
   0,
@@ -163,7 +163,7 @@ export var DeleteScalingPlanResponse$: StaticStructureSchema = [3, n0, _DSPRe,
 export var DescribeScalingPlanResourcesRequest$: StaticStructureSchema = [3, n0, _DSPRR,
   0,
   [_SPN, _SPV, _MR, _NT],
-  [0, 1, 1, 0]
+  [0, 1, 1, 0], 2
 ];
 export var DescribeScalingPlanResourcesResponse$: StaticStructureSchema = [3, n0, _DSPRRe,
   0,
@@ -183,12 +183,12 @@ export var DescribeScalingPlansResponse$: StaticStructureSchema = [3, n0, _DSPRe
 export var GetScalingPlanResourceForecastDataRequest$: StaticStructureSchema = [3, n0, _GSPRFDR,
   0,
   [_SPN, _SPV, _SN, _RI, _SD, _FDT, _ST, _ET],
-  [0, 1, 0, 0, 0, 0, 4, 4]
+  [0, 1, 0, 0, 0, 0, 4, 4], 8
 ];
 export var GetScalingPlanResourceForecastDataResponse$: StaticStructureSchema = [3, n0, _GSPRFDRe,
   0,
   [_Dat],
-  [() => Datapoints]
+  [() => Datapoints], 1
 ];
 export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_aQE]: [`InternalServiceException`, 500], [_e]: _s, [_hE]: 500 },
@@ -211,7 +211,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var MetricDimension$: StaticStructureSchema = [3, n0, _MD,
   0,
   [_Na, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ObjectNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
   { [_aQE]: [`ObjectNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
@@ -222,32 +222,32 @@ TypeRegistry.for(n0).registerError(ObjectNotFoundException$, ObjectNotFoundExcep
 export var PredefinedLoadMetricSpecification$: StaticStructureSchema = [3, n0, _PLMS,
   0,
   [_PLMT, _RL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PredefinedScalingMetricSpecification$: StaticStructureSchema = [3, n0, _PSMS,
   0,
   [_PSMT, _RL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ScalingInstruction$: StaticStructureSchema = [3, n0, _SIc,
   0,
   [_SN, _RI, _SD, _MC, _MCa, _TTC, _PLMS, _CLMS, _SABT, _PSMCB, _PSMCBr, _PSM, _SPUB, _DDS],
-  [0, 0, 0, 1, 1, () => TargetTrackingConfigurations, () => PredefinedLoadMetricSpecification$, () => CustomizedLoadMetricSpecification$, 1, 0, 1, 0, 0, 2]
+  [0, 0, 0, 1, 1, () => TargetTrackingConfigurations, () => PredefinedLoadMetricSpecification$, () => CustomizedLoadMetricSpecification$, 1, 0, 1, 0, 0, 2], 6
 ];
 export var ScalingPlan$: StaticStructureSchema = [3, n0, _SPc,
   0,
   [_SPN, _SPV, _AS, _SI, _SC, _SM, _SST, _CT],
-  [0, 1, () => ApplicationSource$, () => ScalingInstructions, 0, 0, 4, 4]
+  [0, 1, () => ApplicationSource$, () => ScalingInstructions, 0, 0, 4, 4], 5
 ];
 export var ScalingPlanResource$: StaticStructureSchema = [3, n0, _SPRc,
   0,
-  [_SPN, _SPV, _SN, _RI, _SD, _SPca, _SSC, _SSM],
-  [0, 1, 0, 0, 0, () => ScalingPolicies, 0, 0]
+  [_SPN, _SPV, _SN, _RI, _SD, _SSC, _SPca, _SSM],
+  [0, 1, 0, 0, 0, 0, () => ScalingPolicies, 0], 6
 ];
 export var ScalingPolicy$: StaticStructureSchema = [3, n0, _SPcal,
   0,
   [_PN, _PT, _TTCa],
-  [0, 0, () => TargetTrackingConfiguration$]
+  [0, 0, () => TargetTrackingConfiguration$], 2
 ];
 export var TagFilter$: StaticStructureSchema = [3, n0, _TFa,
   0,
@@ -256,13 +256,13 @@ export var TagFilter$: StaticStructureSchema = [3, n0, _TFa,
 ];
 export var TargetTrackingConfiguration$: StaticStructureSchema = [3, n0, _TTCa,
   0,
-  [_PSMS, _CSMS, _TV, _DSI, _SOC, _SIC, _EIW],
-  [() => PredefinedScalingMetricSpecification$, () => CustomizedScalingMetricSpecification$, 1, 2, 1, 1, 1]
+  [_TV, _PSMS, _CSMS, _DSI, _SOC, _SIC, _EIW],
+  [1, () => PredefinedScalingMetricSpecification$, () => CustomizedScalingMetricSpecification$, 2, 1, 1, 1], 1
 ];
 export var UpdateScalingPlanRequest$: StaticStructureSchema = [3, n0, _USPR,
   0,
   [_SPN, _SPV, _AS, _SI],
-  [0, 1, () => ApplicationSource$, () => ScalingInstructions]
+  [0, 1, () => ApplicationSource$, () => ScalingInstructions], 2
 ];
 export var UpdateScalingPlanResponse$: StaticStructureSchema = [3, n0, _USPRp,
   0,

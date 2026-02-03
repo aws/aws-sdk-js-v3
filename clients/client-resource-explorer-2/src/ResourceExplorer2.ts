@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateDefaultViewCommand,
@@ -118,6 +118,17 @@ import {
   UpdateIndexTypeCommandOutput,
 } from "./commands/UpdateIndexTypeCommand";
 import { UpdateViewCommand, UpdateViewCommandInput, UpdateViewCommandOutput } from "./commands/UpdateViewCommand";
+import { paginateGetResourceExplorerSetup } from "./pagination/GetResourceExplorerSetupPaginator";
+import { paginateListIndexesForMembers } from "./pagination/ListIndexesForMembersPaginator";
+import { paginateListIndexes } from "./pagination/ListIndexesPaginator";
+import { paginateListManagedViews } from "./pagination/ListManagedViewsPaginator";
+import { paginateListResources } from "./pagination/ListResourcesPaginator";
+import { paginateListServiceIndexes } from "./pagination/ListServiceIndexesPaginator";
+import { paginateListServiceViews } from "./pagination/ListServiceViewsPaginator";
+import { paginateListStreamingAccessForServices } from "./pagination/ListStreamingAccessForServicesPaginator";
+import { paginateListSupportedResourceTypes } from "./pagination/ListSupportedResourceTypesPaginator";
+import { paginateListViews } from "./pagination/ListViewsPaginator";
+import { paginateSearch } from "./pagination/SearchPaginator";
 import { ResourceExplorer2Client } from "./ResourceExplorer2Client";
 
 const commands = {
@@ -153,6 +164,19 @@ const commands = {
   UntagResourceCommand,
   UpdateIndexTypeCommand,
   UpdateViewCommand,
+};
+const paginators = {
+  paginateGetResourceExplorerSetup,
+  paginateListIndexes,
+  paginateListIndexesForMembers,
+  paginateListManagedViews,
+  paginateListResources,
+  paginateListServiceIndexes,
+  paginateListServiceViews,
+  paginateListStreamingAccessForServices,
+  paginateListSupportedResourceTypes,
+  paginateListViews,
+  paginateSearch,
 };
 
 export interface ResourceExplorer2 {
@@ -715,6 +739,127 @@ export interface ResourceExplorer2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateViewCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetResourceExplorerSetupCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourceExplorerSetupCommandOutput}.
+   */
+  paginateGetResourceExplorerSetup(
+    args: GetResourceExplorerSetupCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourceExplorerSetupCommandOutput>;
+
+  /**
+   * @see {@link ListIndexesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIndexesCommandOutput}.
+   */
+  paginateListIndexes(
+    args?: ListIndexesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIndexesCommandOutput>;
+
+  /**
+   * @see {@link ListIndexesForMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIndexesForMembersCommandOutput}.
+   */
+  paginateListIndexesForMembers(
+    args: ListIndexesForMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIndexesForMembersCommandOutput>;
+
+  /**
+   * @see {@link ListManagedViewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedViewsCommandOutput}.
+   */
+  paginateListManagedViews(
+    args?: ListManagedViewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedViewsCommandOutput>;
+
+  /**
+   * @see {@link ListResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcesCommandOutput}.
+   */
+  paginateListResources(
+    args?: ListResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListServiceIndexesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceIndexesCommandOutput}.
+   */
+  paginateListServiceIndexes(
+    args?: ListServiceIndexesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceIndexesCommandOutput>;
+
+  /**
+   * @see {@link ListServiceViewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceViewsCommandOutput}.
+   */
+  paginateListServiceViews(
+    args?: ListServiceViewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceViewsCommandOutput>;
+
+  /**
+   * @see {@link ListStreamingAccessForServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamingAccessForServicesCommandOutput}.
+   */
+  paginateListStreamingAccessForServices(
+    args?: ListStreamingAccessForServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamingAccessForServicesCommandOutput>;
+
+  /**
+   * @see {@link ListSupportedResourceTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSupportedResourceTypesCommandOutput}.
+   */
+  paginateListSupportedResourceTypes(
+    args?: ListSupportedResourceTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSupportedResourceTypesCommandOutput>;
+
+  /**
+   * @see {@link ListViewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListViewsCommandOutput}.
+   */
+  paginateListViews(
+    args?: ListViewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListViewsCommandOutput>;
+
+  /**
+   * @see {@link SearchCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchCommandOutput}.
+   */
+  paginateSearch(
+    args: SearchCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchCommandOutput>;
 }
 
 /**
@@ -722,4 +867,4 @@ export interface ResourceExplorer2 {
  * @public
  */
 export class ResourceExplorer2 extends ResourceExplorer2Client implements ResourceExplorer2 {}
-createAggregatedClient(commands, ResourceExplorer2);
+createAggregatedClient(commands, ResourceExplorer2, { paginators });

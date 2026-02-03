@@ -28,7 +28,7 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
 
 /**
  * <note>
- *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html">https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html</a>, which
+ *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html">AttachTrafficSources</a>, which
  *                 can attach multiple traffic sources types. We recommend using
  *                 <code>AttachTrafficSources</code> to simplify how you manage traffic sources.
  *                 However, we continue to support <code>AttachLoadBalancers</code>. You can use both

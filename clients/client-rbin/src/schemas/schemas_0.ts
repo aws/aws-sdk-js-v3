@@ -98,8 +98,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateRuleRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_RP, _D, _T, _RT, _RTe, _LC, _ERT],
-  [() => RetentionPeriod$, 0, () => TagList, 0, () => ResourceTags, () => LockConfiguration$, () => ExcludeResourceTags]
+  [_RP, _RT, _D, _T, _RTe, _LC, _ERT],
+  [() => RetentionPeriod$, 0, 0, () => TagList, () => ResourceTags, () => LockConfiguration$, () => ExcludeResourceTags], 2
 ];
 export var CreateRuleResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -109,7 +109,7 @@ export var CreateRuleResponse$: StaticStructureSchema = [3, n0, _CRRr,
 export var DeleteRuleRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteRuleResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -119,7 +119,7 @@ export var DeleteRuleResponse$: StaticStructureSchema = [3, n0, _DRRe,
 export var GetRuleRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetRuleResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
@@ -134,8 +134,8 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListRulesRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
-  [_MR, _NT, _RT, _RTe, _LS, _ERT],
-  [1, 0, 0, () => ResourceTags, 0, () => ExcludeResourceTags]
+  [_RT, _MR, _NT, _RTe, _LS, _ERT],
+  [0, 1, 0, () => ResourceTags, 0, () => ExcludeResourceTags], 1
 ];
 export var ListRulesResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
@@ -145,7 +145,7 @@ export var ListRulesResponse$: StaticStructureSchema = [3, n0, _LRRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -155,12 +155,12 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var LockConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_UD],
-  [() => UnlockDelay$]
+  [() => UnlockDelay$], 1
 ];
 export var LockRuleRequest$: StaticStructureSchema = [3, n0, _LRRo,
   0,
   [_I, _LC],
-  [[0, 1], () => LockConfiguration$]
+  [[0, 1], () => LockConfiguration$], 2
 ];
 export var LockRuleResponse$: StaticStructureSchema = [3, n0, _LRRoc,
   0,
@@ -176,12 +176,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTes,
   0,
   [_RTK, _RTV],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RetentionPeriod$: StaticStructureSchema = [3, n0, _RP,
   0,
   [_RPV, _RPU],
-  [1, 0]
+  [1, 0], 2
 ];
 export var RuleSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -197,12 +197,12 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _T],
-  [[0, 1], () => TagList]
+  [[0, 1], () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -212,12 +212,12 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var UnlockDelay$: StaticStructureSchema = [3, n0, _UD,
   0,
   [_UDV, _UDU],
-  [1, 0]
+  [1, 0], 2
 ];
 export var UnlockRuleRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var UnlockRuleResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -227,7 +227,7 @@ export var UnlockRuleResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URRnt,
   0,
   [_RAe, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRnta,
   0,
@@ -237,7 +237,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRnta,
 export var UpdateRuleRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_I, _RP, _D, _RT, _RTe, _ERT],
-  [[0, 1], () => RetentionPeriod$, 0, 0, () => ResourceTags, () => ExcludeResourceTags]
+  [[0, 1], () => RetentionPeriod$, 0, 0, () => ResourceTags, () => ExcludeResourceTags], 1
 ];
 export var UpdateRuleResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,

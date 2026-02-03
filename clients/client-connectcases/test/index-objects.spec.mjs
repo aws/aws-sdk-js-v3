@@ -246,9 +246,13 @@ import {
   SlaStatus,
   SlaType,
   Sort$,
+  TagFilter$,
+  TagPropagationConfiguration$,
+  TagPropagationResourceType,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
+  TagValue$,
   TemplateRule$,
   TemplateStatus,
   TemplateSummary$,
@@ -512,7 +516,10 @@ assert(typeof SlaFilter$ === "object");
 assert(typeof SlaInputConfiguration$ === "object");
 assert(typeof SlaInputContent$ === "object");
 assert(typeof Sort$ === "object");
+assert(typeof TagFilter$ === "object");
+assert(typeof TagPropagationConfiguration$ === "object");
 assert(typeof TagResourceRequest$ === "object");
+assert(typeof TagValue$ === "object");
 assert(typeof TemplateRule$ === "object");
 assert(typeof TemplateSummary$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
@@ -539,6 +546,7 @@ assert(typeof RuleType === "object");
 assert(typeof SearchAllRelatedItemsSortProperty === "object");
 assert(typeof SlaStatus === "object");
 assert(typeof SlaType === "object");
+assert(typeof TagPropagationResourceType === "object");
 assert(typeof TemplateStatus === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof ConnectCasesServiceException);

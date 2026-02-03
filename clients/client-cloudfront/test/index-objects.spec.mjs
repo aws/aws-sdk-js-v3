@@ -839,6 +839,7 @@ import {
   OriginGroupMembers$,
   OriginGroups$,
   OriginGroupSelectionCriteria,
+  OriginMtlsConfig$,
   OriginProtocolPolicy,
   OriginRequestPolicy$,
   OriginRequestPolicyAlreadyExists,
@@ -1943,6 +1944,7 @@ assert(typeof OriginGroupFailoverCriteria$ === "object");
 assert(typeof OriginGroupMember$ === "object");
 assert(typeof OriginGroupMembers$ === "object");
 assert(typeof OriginGroups$ === "object");
+assert(typeof OriginMtlsConfig$ === "object");
 assert(typeof OriginRequestPolicy$ === "object");
 assert(typeof OriginRequestPolicyConfig$ === "object");
 assert(typeof OriginRequestPolicyCookiesConfig$ === "object");

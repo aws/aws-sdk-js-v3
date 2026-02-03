@@ -48,6 +48,7 @@ export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGa
  *   ],
  *   MaxResults: Number("int"),
  *   DryRun: true || false,
+ *   NextToken: "STRING_VALUE",
  * };
  * const command = new SearchTransitGatewayRoutesCommand(input);
  * const response = await client.send(command);
@@ -69,6 +70,7 @@ export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGa
  * //     },
  * //   ],
  * //   AdditionalRoutesAvailable: true || false,
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

@@ -171,6 +171,9 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * //         StreamId: "STRING_VALUE",
  * //         NdiSpeedHqQuality: Number("int"),
  * //         NdiProgramName: "STRING_VALUE",
+ * //         NdiSourceSettings: { // NdiSourceSettings
+ * //           SourceName: "STRING_VALUE",
+ * //         },
  * //       },
  * //       VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //         VpcInterfaceName: "STRING_VALUE",

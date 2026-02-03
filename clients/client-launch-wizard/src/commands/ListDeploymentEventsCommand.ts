@@ -65,8 +65,7 @@ export interface ListDeploymentEventsCommandOutput extends ListDeploymentEventsO
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact
- *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified workload or deployment resource can't be found.</p>

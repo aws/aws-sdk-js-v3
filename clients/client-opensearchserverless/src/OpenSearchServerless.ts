@@ -1,12 +1,17 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchGetCollectionCommand,
   BatchGetCollectionCommandInput,
   BatchGetCollectionCommandOutput,
 } from "./commands/BatchGetCollectionCommand";
+import {
+  BatchGetCollectionGroupCommand,
+  BatchGetCollectionGroupCommandInput,
+  BatchGetCollectionGroupCommandOutput,
+} from "./commands/BatchGetCollectionGroupCommand";
 import {
   BatchGetEffectiveLifecyclePolicyCommand,
   BatchGetEffectiveLifecyclePolicyCommandInput,
@@ -32,6 +37,11 @@ import {
   CreateCollectionCommandInput,
   CreateCollectionCommandOutput,
 } from "./commands/CreateCollectionCommand";
+import {
+  CreateCollectionGroupCommand,
+  CreateCollectionGroupCommandInput,
+  CreateCollectionGroupCommandOutput,
+} from "./commands/CreateCollectionGroupCommand";
 import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
   CreateLifecyclePolicyCommand,
@@ -63,6 +73,11 @@ import {
   DeleteCollectionCommandInput,
   DeleteCollectionCommandOutput,
 } from "./commands/DeleteCollectionCommand";
+import {
+  DeleteCollectionGroupCommand,
+  DeleteCollectionGroupCommandInput,
+  DeleteCollectionGroupCommandOutput,
+} from "./commands/DeleteCollectionGroupCommand";
 import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
 import {
   DeleteLifecyclePolicyCommand,
@@ -116,6 +131,11 @@ import {
   ListAccessPoliciesCommandOutput,
 } from "./commands/ListAccessPoliciesCommand";
 import {
+  ListCollectionGroupsCommand,
+  ListCollectionGroupsCommandInput,
+  ListCollectionGroupsCommandOutput,
+} from "./commands/ListCollectionGroupsCommand";
+import {
   ListCollectionsCommand,
   ListCollectionsCommandInput,
   ListCollectionsCommandOutput,
@@ -166,6 +186,11 @@ import {
   UpdateCollectionCommandInput,
   UpdateCollectionCommandOutput,
 } from "./commands/UpdateCollectionCommand";
+import {
+  UpdateCollectionGroupCommand,
+  UpdateCollectionGroupCommandInput,
+  UpdateCollectionGroupCommandOutput,
+} from "./commands/UpdateCollectionGroupCommand";
 import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
 import {
   UpdateLifecyclePolicyCommand,
@@ -188,14 +213,23 @@ import {
   UpdateVpcEndpointCommandOutput,
 } from "./commands/UpdateVpcEndpointCommand";
 import { OpenSearchServerlessClient } from "./OpenSearchServerlessClient";
+import { paginateListAccessPolicies } from "./pagination/ListAccessPoliciesPaginator";
+import { paginateListCollectionGroups } from "./pagination/ListCollectionGroupsPaginator";
+import { paginateListCollections } from "./pagination/ListCollectionsPaginator";
+import { paginateListLifecyclePolicies } from "./pagination/ListLifecyclePoliciesPaginator";
+import { paginateListSecurityConfigs } from "./pagination/ListSecurityConfigsPaginator";
+import { paginateListSecurityPolicies } from "./pagination/ListSecurityPoliciesPaginator";
+import { paginateListVpcEndpoints } from "./pagination/ListVpcEndpointsPaginator";
 
 const commands = {
   BatchGetCollectionCommand,
+  BatchGetCollectionGroupCommand,
   BatchGetEffectiveLifecyclePolicyCommand,
   BatchGetLifecyclePolicyCommand,
   BatchGetVpcEndpointCommand,
   CreateAccessPolicyCommand,
   CreateCollectionCommand,
+  CreateCollectionGroupCommand,
   CreateIndexCommand,
   CreateLifecyclePolicyCommand,
   CreateSecurityConfigCommand,
@@ -203,6 +237,7 @@ const commands = {
   CreateVpcEndpointCommand,
   DeleteAccessPolicyCommand,
   DeleteCollectionCommand,
+  DeleteCollectionGroupCommand,
   DeleteIndexCommand,
   DeleteLifecyclePolicyCommand,
   DeleteSecurityConfigCommand,
@@ -215,6 +250,7 @@ const commands = {
   GetSecurityConfigCommand,
   GetSecurityPolicyCommand,
   ListAccessPoliciesCommand,
+  ListCollectionGroupsCommand,
   ListCollectionsCommand,
   ListLifecyclePoliciesCommand,
   ListSecurityConfigsCommand,
@@ -226,11 +262,21 @@ const commands = {
   UpdateAccessPolicyCommand,
   UpdateAccountSettingsCommand,
   UpdateCollectionCommand,
+  UpdateCollectionGroupCommand,
   UpdateIndexCommand,
   UpdateLifecyclePolicyCommand,
   UpdateSecurityConfigCommand,
   UpdateSecurityPolicyCommand,
   UpdateVpcEndpointCommand,
+};
+const paginators = {
+  paginateListAccessPolicies,
+  paginateListCollectionGroups,
+  paginateListCollections,
+  paginateListLifecyclePolicies,
+  paginateListSecurityConfigs,
+  paginateListSecurityPolicies,
+  paginateListVpcEndpoints,
 };
 
 export interface OpenSearchServerless {
@@ -250,6 +296,24 @@ export interface OpenSearchServerless {
     args: BatchGetCollectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetCollectionGroupCommand}
+   */
+  batchGetCollectionGroup(): Promise<BatchGetCollectionGroupCommandOutput>;
+  batchGetCollectionGroup(
+    args: BatchGetCollectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCollectionGroupCommandOutput>;
+  batchGetCollectionGroup(
+    args: BatchGetCollectionGroupCommandInput,
+    cb: (err: any, data?: BatchGetCollectionGroupCommandOutput) => void
+  ): void;
+  batchGetCollectionGroup(
+    args: BatchGetCollectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCollectionGroupCommandOutput) => void
   ): void;
 
   /**
@@ -335,6 +399,23 @@ export interface OpenSearchServerless {
     args: CreateCollectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCollectionGroupCommand}
+   */
+  createCollectionGroup(
+    args: CreateCollectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCollectionGroupCommandOutput>;
+  createCollectionGroup(
+    args: CreateCollectionGroupCommandInput,
+    cb: (err: any, data?: CreateCollectionGroupCommandOutput) => void
+  ): void;
+  createCollectionGroup(
+    args: CreateCollectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCollectionGroupCommandOutput) => void
   ): void;
 
   /**
@@ -454,6 +535,23 @@ export interface OpenSearchServerless {
     args: DeleteCollectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCollectionGroupCommand}
+   */
+  deleteCollectionGroup(
+    args: DeleteCollectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCollectionGroupCommandOutput>;
+  deleteCollectionGroup(
+    args: DeleteCollectionGroupCommandInput,
+    cb: (err: any, data?: DeleteCollectionGroupCommandOutput) => void
+  ): void;
+  deleteCollectionGroup(
+    args: DeleteCollectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCollectionGroupCommandOutput) => void
   ): void;
 
   /**
@@ -663,6 +761,24 @@ export interface OpenSearchServerless {
   ): void;
 
   /**
+   * @see {@link ListCollectionGroupsCommand}
+   */
+  listCollectionGroups(): Promise<ListCollectionGroupsCommandOutput>;
+  listCollectionGroups(
+    args: ListCollectionGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCollectionGroupsCommandOutput>;
+  listCollectionGroups(
+    args: ListCollectionGroupsCommandInput,
+    cb: (err: any, data?: ListCollectionGroupsCommandOutput) => void
+  ): void;
+  listCollectionGroups(
+    args: ListCollectionGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCollectionGroupsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCollectionsCommand}
    */
   listCollections(): Promise<ListCollectionsCommandOutput>;
@@ -853,6 +969,23 @@ export interface OpenSearchServerless {
   ): void;
 
   /**
+   * @see {@link UpdateCollectionGroupCommand}
+   */
+  updateCollectionGroup(
+    args: UpdateCollectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCollectionGroupCommandOutput>;
+  updateCollectionGroup(
+    args: UpdateCollectionGroupCommandInput,
+    cb: (err: any, data?: UpdateCollectionGroupCommandOutput) => void
+  ): void;
+  updateCollectionGroup(
+    args: UpdateCollectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCollectionGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateIndexCommand}
    */
   updateIndex(
@@ -936,6 +1069,83 @@ export interface OpenSearchServerless {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccessPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessPoliciesCommandOutput}.
+   */
+  paginateListAccessPolicies(
+    args: ListAccessPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListCollectionGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollectionGroupsCommandOutput}.
+   */
+  paginateListCollectionGroups(
+    args?: ListCollectionGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollectionGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListCollectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollectionsCommandOutput}.
+   */
+  paginateListCollections(
+    args?: ListCollectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollectionsCommandOutput>;
+
+  /**
+   * @see {@link ListLifecyclePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLifecyclePoliciesCommandOutput}.
+   */
+  paginateListLifecyclePolicies(
+    args: ListLifecyclePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLifecyclePoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityConfigsCommandOutput}.
+   */
+  paginateListSecurityConfigs(
+    args: ListSecurityConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityPoliciesCommandOutput}.
+   */
+  paginateListSecurityPolicies(
+    args: ListSecurityPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListVpcEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVpcEndpointsCommandOutput}.
+   */
+  paginateListVpcEndpoints(
+    args?: ListVpcEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVpcEndpointsCommandOutput>;
 }
 
 /**
@@ -943,4 +1153,4 @@ export interface OpenSearchServerless {
  * @public
  */
 export class OpenSearchServerless extends OpenSearchServerlessClient implements OpenSearchServerless {}
-createAggregatedClient(commands, OpenSearchServerless);
+createAggregatedClient(commands, OpenSearchServerless, { paginators });

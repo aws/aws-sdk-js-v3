@@ -50,7 +50,7 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //     { // ProbeResult
  * //       Container: { // Container
  * //         Duration: Number("double"),
- * //         Format: "mp4" || "quicktime" || "matroska" || "webm" || "mxf",
+ * //         Format: "mp4" || "quicktime" || "matroska" || "webm" || "mxf" || "wave",
  * //         Tracks: [ // __listOfTrack
  * //           { // Track
  * //             AudioProperties: { // AudioProperties

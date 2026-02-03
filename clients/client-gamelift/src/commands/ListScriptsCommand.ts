@@ -72,6 +72,7 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  * //         RoleArn: "STRING_VALUE",
  * //         ObjectVersion: "STRING_VALUE",
  * //       },
+ * //       NodeJsVersion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

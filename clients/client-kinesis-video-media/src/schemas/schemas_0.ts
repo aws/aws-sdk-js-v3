@@ -62,8 +62,8 @@ export var ConnectionLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE
 TypeRegistry.for(n0).registerError(ConnectionLimitExceededException$, ConnectionLimitExceededException);
 export var GetMediaInput$: StaticStructureSchema = [3, n0, _GMI,
   0,
-  [_SN, _SARN, _SS],
-  [0, 0, () => StartSelector$]
+  [_SS, _SN, _SARN],
+  [() => StartSelector$, 0, 0], 1
 ];
 export var GetMediaOutput$: StaticStructureSchema = [3, n0, _GMO,
   0,
@@ -97,7 +97,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var StartSelector$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_SST, _AFN, _ST, _CTo],
-  [0, 0, 4, 0]
+  [0, 0, 4, 0], 1
 ];
 export var KinesisVideoMediaServiceException$: StaticErrorSchema = [-3, _sm, "KinesisVideoMediaServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(KinesisVideoMediaServiceException$, KinesisVideoMediaServiceException);

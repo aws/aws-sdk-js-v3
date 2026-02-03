@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/token-providers",
-  "version": "3.967.0",
+  "version": "3.981.0",
   "description": "A collection of token providers",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -11,7 +11,7 @@
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch",
@@ -29,25 +29,25 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "*",
-    "@aws-sdk/nested-clients": "*",
-    "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^4.2.7",
-    "@smithy/shared-ini-file-loader": "^4.4.2",
-    "@smithy/types": "^4.11.0",
+    "@aws-sdk/core": "workspace:^3.973.5",
+    "@aws-sdk/nested-clients": "workspace:3.981.0",
+    "@aws-sdk/types": "workspace:^3.973.1",
+    "@smithy/property-provider": "^4.2.8",
+    "@smithy/shared-ini-file-loader": "^4.4.3",
+    "@smithy/types": "^4.12.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^18.19.69",
+    "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "rimraf": "5.0.10",
+    "premove": "4.0.0",
     "typescript": "~5.8.3"
   },
   "types": "./dist-types/index.d.ts",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "typesVersions": {
     "<4.0": {

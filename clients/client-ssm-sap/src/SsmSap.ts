@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DeleteResourcePermissionCommand,
@@ -129,6 +129,15 @@ import {
   UpdateApplicationSettingsCommandInput,
   UpdateApplicationSettingsCommandOutput,
 } from "./commands/UpdateApplicationSettingsCommand";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListComponents } from "./pagination/ListComponentsPaginator";
+import { paginateListConfigurationCheckDefinitions } from "./pagination/ListConfigurationCheckDefinitionsPaginator";
+import { paginateListConfigurationCheckOperations } from "./pagination/ListConfigurationCheckOperationsPaginator";
+import { paginateListDatabases } from "./pagination/ListDatabasesPaginator";
+import { paginateListOperationEvents } from "./pagination/ListOperationEventsPaginator";
+import { paginateListOperations } from "./pagination/ListOperationsPaginator";
+import { paginateListSubCheckResults } from "./pagination/ListSubCheckResultsPaginator";
+import { paginateListSubCheckRuleResults } from "./pagination/ListSubCheckRuleResultsPaginator";
 import { SsmSapClient } from "./SsmSapClient";
 
 const commands = {
@@ -159,6 +168,17 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApplicationSettingsCommand,
+};
+const paginators = {
+  paginateListApplications,
+  paginateListComponents,
+  paginateListConfigurationCheckDefinitions,
+  paginateListConfigurationCheckOperations,
+  paginateListDatabases,
+  paginateListOperationEvents,
+  paginateListOperations,
+  paginateListSubCheckResults,
+  paginateListSubCheckRuleResults,
 };
 
 export interface SsmSap {
@@ -626,6 +646,105 @@ export interface SsmSap {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApplicationSettingsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentsCommandOutput}.
+   */
+  paginateListComponents(
+    args?: ListComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentsCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationCheckDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationCheckDefinitionsCommandOutput}.
+   */
+  paginateListConfigurationCheckDefinitions(
+    args?: ListConfigurationCheckDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationCheckDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationCheckOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationCheckOperationsCommandOutput}.
+   */
+  paginateListConfigurationCheckOperations(
+    args: ListConfigurationCheckOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationCheckOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListDatabasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatabasesCommandOutput}.
+   */
+  paginateListDatabases(
+    args?: ListDatabasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatabasesCommandOutput>;
+
+  /**
+   * @see {@link ListOperationEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOperationEventsCommandOutput}.
+   */
+  paginateListOperationEvents(
+    args: ListOperationEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOperationEventsCommandOutput>;
+
+  /**
+   * @see {@link ListOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOperationsCommandOutput}.
+   */
+  paginateListOperations(
+    args: ListOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListSubCheckResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubCheckResultsCommandOutput}.
+   */
+  paginateListSubCheckResults(
+    args: ListSubCheckResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubCheckResultsCommandOutput>;
+
+  /**
+   * @see {@link ListSubCheckRuleResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubCheckRuleResultsCommandOutput}.
+   */
+  paginateListSubCheckRuleResults(
+    args: ListSubCheckRuleResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubCheckRuleResultsCommandOutput>;
 }
 
 /**
@@ -633,4 +752,4 @@ export interface SsmSap {
  * @public
  */
 export class SsmSap extends SsmSapClient implements SsmSap {}
-createAggregatedClient(commands, SsmSap);
+createAggregatedClient(commands, SsmSap, { paginators });

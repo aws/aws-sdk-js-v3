@@ -518,8 +518,8 @@ export var Algorithm$: StaticStructureSchema = [3, n0, _A,
 ];
 export var AlgorithmImage$: StaticStructureSchema = [3, n0, _AI,
   0,
-  [_n, _dURI],
-  [0, 0]
+  [_dURI, _n],
+  [0, 0], 1
 ];
 export var AutoMLConfig$: StaticStructureSchema = [3, n0, _AMLC,
   0,
@@ -549,12 +549,12 @@ export var BatchInferenceJobConfig$: StaticStructureSchema = [3, n0, _BIJC,
 export var BatchInferenceJobInput$: StaticStructureSchema = [3, n0, _BIJI,
   0,
   [_sDS],
-  [() => S3DataConfig$]
+  [() => S3DataConfig$], 1
 ];
 export var BatchInferenceJobOutput$: StaticStructureSchema = [3, n0, _BIJO,
   0,
   [_sDD],
-  [() => S3DataConfig$]
+  [() => S3DataConfig$], 1
 ];
 export var BatchInferenceJobSummary$: StaticStructureSchema = [3, n0, _BIJS,
   0,
@@ -569,12 +569,12 @@ export var BatchSegmentJob$: StaticStructureSchema = [3, n0, _BSJ,
 export var BatchSegmentJobInput$: StaticStructureSchema = [3, n0, _BSJI,
   0,
   [_sDS],
-  [() => S3DataConfig$]
+  [() => S3DataConfig$], 1
 ];
 export var BatchSegmentJobOutput$: StaticStructureSchema = [3, n0, _BSJO,
   0,
   [_sDD],
-  [() => S3DataConfig$]
+  [() => S3DataConfig$], 1
 ];
 export var BatchSegmentJobSummary$: StaticStructureSchema = [3, n0, _BSJS,
   0,
@@ -613,8 +613,8 @@ export var ContinuousHyperParameterRange$: StaticStructureSchema = [3, n0, _CHPR
 ];
 export var CreateBatchInferenceJobRequest$: StaticStructureSchema = [3, n0, _CBIJR,
   0,
-  [_jN, _sVA, _fA, _nR, _jI, _jO, _rA, _bIJC, _t, _bIJM, _tGC],
-  [0, 0, 0, 1, () => BatchInferenceJobInput$, () => BatchInferenceJobOutput$, 0, () => BatchInferenceJobConfig$, [() => Tags, 0], 0, () => ThemeGenerationConfig$]
+  [_jN, _sVA, _jI, _jO, _rA, _fA, _nR, _bIJC, _t, _bIJM, _tGC],
+  [0, 0, () => BatchInferenceJobInput$, () => BatchInferenceJobOutput$, 0, 0, 1, () => BatchInferenceJobConfig$, [() => Tags, 0], 0, () => ThemeGenerationConfig$], 5
 ];
 export var CreateBatchInferenceJobResponse$: StaticStructureSchema = [3, n0, _CBIJRr,
   0,
@@ -623,8 +623,8 @@ export var CreateBatchInferenceJobResponse$: StaticStructureSchema = [3, n0, _CB
 ];
 export var CreateBatchSegmentJobRequest$: StaticStructureSchema = [3, n0, _CBSJR,
   0,
-  [_jN, _sVA, _fA, _nR, _jI, _jO, _rA, _t],
-  [0, 0, 0, 1, () => BatchSegmentJobInput$, () => BatchSegmentJobOutput$, 0, [() => Tags, 0]]
+  [_jN, _sVA, _jI, _jO, _rA, _fA, _nR, _t],
+  [0, 0, () => BatchSegmentJobInput$, () => BatchSegmentJobOutput$, 0, 0, 1, [() => Tags, 0]], 5
 ];
 export var CreateBatchSegmentJobResponse$: StaticStructureSchema = [3, n0, _CBSJRr,
   0,
@@ -634,7 +634,7 @@ export var CreateBatchSegmentJobResponse$: StaticStructureSchema = [3, n0, _CBSJ
 export var CreateCampaignRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_n, _sVA, _mPTPS, _cC, _t],
-  [0, 0, 1, () => CampaignConfig$, [() => Tags, 0]]
+  [0, 0, 1, () => CampaignConfig$, [() => Tags, 0]], 2
 ];
 export var CreateCampaignResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -644,7 +644,7 @@ export var CreateCampaignResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateDataDeletionJobRequest$: StaticStructureSchema = [3, n0, _CDDJR,
   0,
   [_jN, _dGA, _dS, _rA, _t],
-  [0, 0, () => DataSource$, 0, [() => Tags, 0]]
+  [0, 0, () => DataSource$, 0, [() => Tags, 0]], 4
 ];
 export var CreateDataDeletionJobResponse$: StaticStructureSchema = [3, n0, _CDDJRr,
   0,
@@ -653,8 +653,8 @@ export var CreateDataDeletionJobResponse$: StaticStructureSchema = [3, n0, _CDDJ
 ];
 export var CreateDatasetExportJobRequest$: StaticStructureSchema = [3, n0, _CDEJR,
   0,
-  [_jN, _dA, _iM, _rA, _jO, _t],
-  [0, 0, 0, 0, () => DatasetExportJobOutput$, [() => Tags, 0]]
+  [_jN, _dA, _rA, _jO, _iM, _t],
+  [0, 0, 0, () => DatasetExportJobOutput$, 0, [() => Tags, 0]], 4
 ];
 export var CreateDatasetExportJobResponse$: StaticStructureSchema = [3, n0, _CDEJRr,
   0,
@@ -664,7 +664,7 @@ export var CreateDatasetExportJobResponse$: StaticStructureSchema = [3, n0, _CDE
 export var CreateDatasetGroupRequest$: StaticStructureSchema = [3, n0, _CDGR,
   0,
   [_n, _rA, _kKA, _d, _t],
-  [0, 0, 0, 0, [() => Tags, 0]]
+  [0, 0, 0, 0, [() => Tags, 0]], 1
 ];
 export var CreateDatasetGroupResponse$: StaticStructureSchema = [3, n0, _CDGRr,
   0,
@@ -674,7 +674,7 @@ export var CreateDatasetGroupResponse$: StaticStructureSchema = [3, n0, _CDGRr,
 export var CreateDatasetImportJobRequest$: StaticStructureSchema = [3, n0, _CDIJR,
   0,
   [_jN, _dA, _dS, _rA, _t, _iMm, _pAMTS],
-  [0, 0, () => DataSource$, 0, [() => Tags, 0], 0, 2]
+  [0, 0, () => DataSource$, 0, [() => Tags, 0], 0, 2], 3
 ];
 export var CreateDatasetImportJobResponse$: StaticStructureSchema = [3, n0, _CDIJRr,
   0,
@@ -684,7 +684,7 @@ export var CreateDatasetImportJobResponse$: StaticStructureSchema = [3, n0, _CDI
 export var CreateDatasetRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_n, _sA, _dGA, _dT, _t],
-  [0, 0, 0, 0, [() => Tags, 0]]
+  [0, 0, 0, 0, [() => Tags, 0]], 4
 ];
 export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -694,7 +694,7 @@ export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
 export var CreateEventTrackerRequest$: StaticStructureSchema = [3, n0, _CETR,
   0,
   [_n, _dGA, _t],
-  [0, 0, [() => Tags, 0]]
+  [0, 0, [() => Tags, 0]], 2
 ];
 export var CreateEventTrackerResponse$: StaticStructureSchema = [3, n0, _CETRr,
   0,
@@ -704,7 +704,7 @@ export var CreateEventTrackerResponse$: StaticStructureSchema = [3, n0, _CETRr,
 export var CreateFilterRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
   [_n, _dGA, _fE, _t],
-  [0, 0, [() => FilterExpression, 0], [() => Tags, 0]]
+  [0, 0, [() => FilterExpression, 0], [() => Tags, 0]], 3
 ];
 export var CreateFilterResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -714,7 +714,7 @@ export var CreateFilterResponse$: StaticStructureSchema = [3, n0, _CFRr,
 export var CreateMetricAttributionRequest$: StaticStructureSchema = [3, n0, _CMAR,
   0,
   [_n, _dGA, _m, _mOC],
-  [0, 0, () => MetricAttributes, () => MetricAttributionOutput$]
+  [0, 0, () => MetricAttributes, () => MetricAttributionOutput$], 4
 ];
 export var CreateMetricAttributionResponse$: StaticStructureSchema = [3, n0, _CMARr,
   0,
@@ -724,7 +724,7 @@ export var CreateMetricAttributionResponse$: StaticStructureSchema = [3, n0, _CM
 export var CreateRecommenderRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
   [_n, _dGA, _rAe, _rC, _t],
-  [0, 0, 0, () => RecommenderConfig$, [() => Tags, 0]]
+  [0, 0, 0, () => RecommenderConfig$, [() => Tags, 0]], 3
 ];
 export var CreateRecommenderResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -734,7 +734,7 @@ export var CreateRecommenderResponse$: StaticStructureSchema = [3, n0, _CRRr,
 export var CreateSchemaRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_n, _sc, _d],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var CreateSchemaResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -743,8 +743,8 @@ export var CreateSchemaResponse$: StaticStructureSchema = [3, n0, _CSRr,
 ];
 export var CreateSolutionRequest$: StaticStructureSchema = [3, n0, _CSRre,
   0,
-  [_n, _pHPO, _pAML, _pAT, _pIU, _rAe, _dGA, _eT, _sC, _t],
-  [0, 2, 2, 2, 2, 0, 0, 0, () => SolutionConfig$, [() => Tags, 0]]
+  [_n, _dGA, _pHPO, _pAML, _pAT, _pIU, _rAe, _eT, _sC, _t],
+  [0, 0, 2, 2, 2, 2, 0, 0, () => SolutionConfig$, [() => Tags, 0]], 2
 ];
 export var CreateSolutionResponse$: StaticStructureSchema = [3, n0, _CSRrea,
   0,
@@ -753,8 +753,8 @@ export var CreateSolutionResponse$: StaticStructureSchema = [3, n0, _CSRrea,
 ];
 export var CreateSolutionVersionRequest$: StaticStructureSchema = [3, n0, _CSVR,
   0,
-  [_n, _sAo, _tM, _t],
-  [0, 0, 0, [() => Tags, 0]]
+  [_sAo, _n, _tM, _t],
+  [0, 0, 0, [() => Tags, 0]], 1
 ];
 export var CreateSolutionVersionResponse$: StaticStructureSchema = [3, n0, _CSVRr,
   0,
@@ -784,7 +784,7 @@ export var DatasetExportJob$: StaticStructureSchema = [3, n0, _DEJ,
 export var DatasetExportJobOutput$: StaticStructureSchema = [3, n0, _DEJO,
   0,
   [_sDD],
-  [() => S3DataConfig$]
+  [() => S3DataConfig$], 1
 ];
 export var DatasetExportJobSummary$: StaticStructureSchema = [3, n0, _DEJS,
   0,
@@ -859,52 +859,52 @@ export var DefaultIntegerHyperParameterRange$: StaticStructureSchema = [3, n0, _
 export var DeleteCampaignRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cA],
-  [0]
+  [0], 1
 ];
 export var DeleteDatasetGroupRequest$: StaticStructureSchema = [3, n0, _DDGR,
   0,
   [_dGA],
-  [0]
+  [0], 1
 ];
 export var DeleteDatasetRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_dA],
-  [0]
+  [0], 1
 ];
 export var DeleteEventTrackerRequest$: StaticStructureSchema = [3, n0, _DETR,
   0,
   [_eTA],
-  [0]
+  [0], 1
 ];
 export var DeleteFilterRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_fA],
-  [0]
+  [0], 1
 ];
 export var DeleteMetricAttributionRequest$: StaticStructureSchema = [3, n0, _DMAR,
   0,
   [_mAA],
-  [0]
+  [0], 1
 ];
 export var DeleteRecommenderRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_rAec],
-  [0]
+  [0], 1
 ];
 export var DeleteSchemaRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_sA],
-  [0]
+  [0], 1
 ];
 export var DeleteSolutionRequest$: StaticStructureSchema = [3, n0, _DSRe,
   0,
   [_sAo],
-  [0]
+  [0], 1
 ];
 export var DescribeAlgorithmRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_aA],
-  [0]
+  [0], 1
 ];
 export var DescribeAlgorithmResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -914,7 +914,7 @@ export var DescribeAlgorithmResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DescribeBatchInferenceJobRequest$: StaticStructureSchema = [3, n0, _DBIJR,
   0,
   [_bIJA],
-  [0]
+  [0], 1
 ];
 export var DescribeBatchInferenceJobResponse$: StaticStructureSchema = [3, n0, _DBIJRe,
   0,
@@ -924,7 +924,7 @@ export var DescribeBatchInferenceJobResponse$: StaticStructureSchema = [3, n0, _
 export var DescribeBatchSegmentJobRequest$: StaticStructureSchema = [3, n0, _DBSJR,
   0,
   [_bSJA],
-  [0]
+  [0], 1
 ];
 export var DescribeBatchSegmentJobResponse$: StaticStructureSchema = [3, n0, _DBSJRe,
   0,
@@ -934,7 +934,7 @@ export var DescribeBatchSegmentJobResponse$: StaticStructureSchema = [3, n0, _DB
 export var DescribeCampaignRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_cA],
-  [0]
+  [0], 1
 ];
 export var DescribeCampaignResponse$: StaticStructureSchema = [3, n0, _DCRes,
   0,
@@ -944,7 +944,7 @@ export var DescribeCampaignResponse$: StaticStructureSchema = [3, n0, _DCRes,
 export var DescribeDataDeletionJobRequest$: StaticStructureSchema = [3, n0, _DDDJR,
   0,
   [_dDJA],
-  [0]
+  [0], 1
 ];
 export var DescribeDataDeletionJobResponse$: StaticStructureSchema = [3, n0, _DDDJRe,
   0,
@@ -954,7 +954,7 @@ export var DescribeDataDeletionJobResponse$: StaticStructureSchema = [3, n0, _DD
 export var DescribeDatasetExportJobRequest$: StaticStructureSchema = [3, n0, _DDEJR,
   0,
   [_dEJA],
-  [0]
+  [0], 1
 ];
 export var DescribeDatasetExportJobResponse$: StaticStructureSchema = [3, n0, _DDEJRe,
   0,
@@ -964,7 +964,7 @@ export var DescribeDatasetExportJobResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeDatasetGroupRequest$: StaticStructureSchema = [3, n0, _DDGRe,
   0,
   [_dGA],
-  [0]
+  [0], 1
 ];
 export var DescribeDatasetGroupResponse$: StaticStructureSchema = [3, n0, _DDGRes,
   0,
@@ -974,7 +974,7 @@ export var DescribeDatasetGroupResponse$: StaticStructureSchema = [3, n0, _DDGRe
 export var DescribeDatasetImportJobRequest$: StaticStructureSchema = [3, n0, _DDIJR,
   0,
   [_dIJA],
-  [0]
+  [0], 1
 ];
 export var DescribeDatasetImportJobResponse$: StaticStructureSchema = [3, n0, _DDIJRe,
   0,
@@ -984,7 +984,7 @@ export var DescribeDatasetImportJobResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeDatasetRequest$: StaticStructureSchema = [3, n0, _DDRe,
   0,
   [_dA],
-  [0]
+  [0], 1
 ];
 export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDRes,
   0,
@@ -994,7 +994,7 @@ export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDRes,
 export var DescribeEventTrackerRequest$: StaticStructureSchema = [3, n0, _DETRe,
   0,
   [_eTA],
-  [0]
+  [0], 1
 ];
 export var DescribeEventTrackerResponse$: StaticStructureSchema = [3, n0, _DETRes,
   0,
@@ -1004,7 +1004,7 @@ export var DescribeEventTrackerResponse$: StaticStructureSchema = [3, n0, _DETRe
 export var DescribeFeatureTransformationRequest$: StaticStructureSchema = [3, n0, _DFTR,
   0,
   [_fTA],
-  [0]
+  [0], 1
 ];
 export var DescribeFeatureTransformationResponse$: StaticStructureSchema = [3, n0, _DFTRe,
   0,
@@ -1014,7 +1014,7 @@ export var DescribeFeatureTransformationResponse$: StaticStructureSchema = [3, n
 export var DescribeFilterRequest$: StaticStructureSchema = [3, n0, _DFRe,
   0,
   [_fA],
-  [0]
+  [0], 1
 ];
 export var DescribeFilterResponse$: StaticStructureSchema = [3, n0, _DFRes,
   0,
@@ -1024,7 +1024,7 @@ export var DescribeFilterResponse$: StaticStructureSchema = [3, n0, _DFRes,
 export var DescribeMetricAttributionRequest$: StaticStructureSchema = [3, n0, _DMARe,
   0,
   [_mAA],
-  [0]
+  [0], 1
 ];
 export var DescribeMetricAttributionResponse$: StaticStructureSchema = [3, n0, _DMARes,
   0,
@@ -1034,7 +1034,7 @@ export var DescribeMetricAttributionResponse$: StaticStructureSchema = [3, n0, _
 export var DescribeRecipeRequest$: StaticStructureSchema = [3, n0, _DRRe,
   0,
   [_rAe],
-  [0]
+  [0], 1
 ];
 export var DescribeRecipeResponse$: StaticStructureSchema = [3, n0, _DRRes,
   0,
@@ -1044,7 +1044,7 @@ export var DescribeRecipeResponse$: StaticStructureSchema = [3, n0, _DRRes,
 export var DescribeRecommenderRequest$: StaticStructureSchema = [3, n0, _DRResc,
   0,
   [_rAec],
-  [0]
+  [0], 1
 ];
 export var DescribeRecommenderResponse$: StaticStructureSchema = [3, n0, _DRRescr,
   0,
@@ -1054,7 +1054,7 @@ export var DescribeRecommenderResponse$: StaticStructureSchema = [3, n0, _DRResc
 export var DescribeSchemaRequest$: StaticStructureSchema = [3, n0, _DSRes,
   0,
   [_sA],
-  [0]
+  [0], 1
 ];
 export var DescribeSchemaResponse$: StaticStructureSchema = [3, n0, _DSResc,
   0,
@@ -1064,7 +1064,7 @@ export var DescribeSchemaResponse$: StaticStructureSchema = [3, n0, _DSResc,
 export var DescribeSolutionRequest$: StaticStructureSchema = [3, n0, _DSRescr,
   0,
   [_sAo],
-  [0]
+  [0], 1
 ];
 export var DescribeSolutionResponse$: StaticStructureSchema = [3, n0, _DSRescri,
   0,
@@ -1074,7 +1074,7 @@ export var DescribeSolutionResponse$: StaticStructureSchema = [3, n0, _DSRescri,
 export var DescribeSolutionVersionRequest$: StaticStructureSchema = [3, n0, _DSVR,
   0,
   [_sVA],
-  [0]
+  [0], 1
 ];
 export var DescribeSolutionVersionResponse$: StaticStructureSchema = [3, n0, _DSVRe,
   0,
@@ -1109,7 +1109,7 @@ export var FeatureTransformation$: StaticStructureSchema = [3, n0, _FT,
 export var FieldsForThemeGeneration$: StaticStructureSchema = [3, n0, _FFTG,
   0,
   [_iN],
-  [0]
+  [0], 1
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
@@ -1124,7 +1124,7 @@ export var FilterSummary$: StaticStructureSchema = [3, n0, _FS,
 export var GetSolutionMetricsRequest$: StaticStructureSchema = [3, n0, _GSMR,
   0,
   [_sVA],
-  [0]
+  [0], 1
 ];
 export var GetSolutionMetricsResponse$: StaticStructureSchema = [3, n0, _GSMRe,
   0,
@@ -1347,7 +1347,7 @@ export var ListSolutionVersionsResponse$: StaticStructureSchema = [3, n0, _LSVRi
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAes],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1357,7 +1357,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var MetricAttribute$: StaticStructureSchema = [3, n0, _MA,
   0,
   [_eT, _mN, _ex],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var MetricAttribution$: StaticStructureSchema = [3, n0, _MAe,
   0,
@@ -1366,8 +1366,8 @@ export var MetricAttribution$: StaticStructureSchema = [3, n0, _MAe,
 ];
 export var MetricAttributionOutput$: StaticStructureSchema = [3, n0, _MAO,
   0,
-  [_sDD, _rA],
-  [() => S3DataConfig$, 0]
+  [_rA, _sDD],
+  [0, () => S3DataConfig$], 1
 ];
 export var MetricAttributionSummary$: StaticStructureSchema = [3, n0, _MAS,
   0,
@@ -1430,7 +1430,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var S3DataConfig$: StaticStructureSchema = [3, n0, _SDC,
   0,
   [_p, _kKA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Solution$: StaticStructureSchema = [3, n0, _S,
   0,
@@ -1470,7 +1470,7 @@ export var SolutionVersionSummary$: StaticStructureSchema = [3, n0, _SVS,
 export var StartRecommenderRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
   [_rAec],
-  [0]
+  [0], 1
 ];
 export var StartRecommenderResponse$: StaticStructureSchema = [3, n0, _SRRt,
   0,
@@ -1480,7 +1480,7 @@ export var StartRecommenderResponse$: StaticStructureSchema = [3, n0, _SRRt,
 export var StopRecommenderRequest$: StaticStructureSchema = [3, n0, _SRRto,
   0,
   [_rAec],
-  [0]
+  [0], 1
 ];
 export var StopRecommenderResponse$: StaticStructureSchema = [3, n0, _SRRtop,
   0,
@@ -1490,17 +1490,17 @@ export var StopRecommenderResponse$: StaticStructureSchema = [3, n0, _SRRtop,
 export var StopSolutionVersionCreationRequest$: StaticStructureSchema = [3, n0, _SSVCR,
   0,
   [_sVA],
-  [0]
+  [0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_tK, _tV],
-  [[() => TagKey, 0], [() => TagValue, 0]]
+  [[() => TagKey, 0], [() => TagValue, 0]], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAes, _t],
-  [0, [() => Tags, 0]]
+  [0, [() => Tags, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1510,7 +1510,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThemeGenerationConfig$: StaticStructureSchema = [3, n0, _TGC,
   0,
   [_fFTG],
-  [() => FieldsForThemeGeneration$]
+  [() => FieldsForThemeGeneration$], 1
 ];
 export var TooManyTagKeysException$: StaticErrorSchema = [-3, n0, _TMTKE,
   { [_e]: _cl, [_hE]: 400 },
@@ -1537,7 +1537,7 @@ export var TunedHPOParams$: StaticStructureSchema = [3, n0, _THPOP,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAes, _tKa],
-  [0, [() => TagKeys, 0]]
+  [0, [() => TagKeys, 0]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1547,7 +1547,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateCampaignRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_cA, _sVA, _mPTPS, _cC],
-  [0, 0, 1, () => CampaignConfig$]
+  [0, 0, 1, () => CampaignConfig$], 1
 ];
 export var UpdateCampaignResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -1557,7 +1557,7 @@ export var UpdateCampaignResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateDatasetRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_dA, _sA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateDatasetResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -1577,7 +1577,7 @@ export var UpdateMetricAttributionResponse$: StaticStructureSchema = [3, n0, _UM
 export var UpdateRecommenderRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_rAec, _rC],
-  [0, () => RecommenderConfig$]
+  [0, () => RecommenderConfig$], 2
 ];
 export var UpdateRecommenderResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -1587,7 +1587,7 @@ export var UpdateRecommenderResponse$: StaticStructureSchema = [3, n0, _URRpd,
 export var UpdateSolutionRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_sAo, _pAT, _pIU, _sUC],
-  [0, 2, 2, () => SolutionUpdateConfig$]
+  [0, 2, 2, () => SolutionUpdateConfig$], 1
 ];
 export var UpdateSolutionResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,

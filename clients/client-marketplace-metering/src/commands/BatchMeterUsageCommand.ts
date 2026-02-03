@@ -33,8 +33,8 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
 /**
  * <important>
  *             <p>
- *                 The <code>CustomerIdentifier</code> parameter is scheduled for deprecation on March 31, 2026. Use <code>CustomerAWSAccountID</code> instead.</p>
- *             <p>These parameters are mutually exclusive. You can't specify both <code>CustomerIdentifier</code> and <code>CustomerAWSAccountID</code> in the same request.
+ *                 The <code>CustomerIdentifier</code> and <code>CustomerAWSAccountID</code> are mutually exclusive parameters. You must use one or the other, but not both in the same API request.
+ * For new implementations, we recommend using the <code>CustomerAWSAccountID</code>. Your current integration will continue to work. When updating your implementation, consider migrating to <code>CustomerAWSAccountID</code> for improved integration.
  *             </p>
  *          </important>
  *          <p>To post metering records for customers, SaaS applications call

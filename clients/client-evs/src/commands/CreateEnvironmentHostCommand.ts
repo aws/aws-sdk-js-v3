@@ -27,7 +27,7 @@ export interface CreateEnvironmentHostCommandInput extends CreateEnvironmentHost
 export interface CreateEnvironmentHostCommandOutput extends CreateEnvironmentHostResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an ESXi host and adds it to an Amazon EVS environment. Amazon EVS supports 4-16 hosts per environment.</p> <p>This action can only be used after the Amazon EVS environment is deployed.</p> <p>You can use the <code>dedicatedHostId</code> parameter to specify an Amazon EC2 Dedicated Host for ESXi host creation.</p> <p> You can use the <code>placementGroupId</code> parameter to specify a cluster or partition placement group to launch EC2 instances into.</p> <note> <p>You cannot use the <code>dedicatedHostId</code> and <code>placementGroupId</code> parameters together in the same <code>CreateEnvironmentHost</code> action. This results in a <code>ValidationException</code> response.</p> </note>
+ * <p>Creates an ESX host and adds it to an Amazon EVS environment. Amazon EVS supports 4-16 hosts per environment.</p> <p>This action can only be used after the Amazon EVS environment is deployed.</p> <p>You can use the <code>dedicatedHostId</code> parameter to specify an Amazon EC2 Dedicated Host for ESX host creation.</p> <p> You can use the <code>placementGroupId</code> parameter to specify a cluster or partition placement group to launch EC2 instances into.</p> <note> <p>If you don't specify an ESX version when adding hosts using <code>CreateEnvironmentHost</code> action, Amazon EVS automatically uses the default ESX version associated with your environment's VCF version. To find the default ESX version for a particular VCF version, use the <code>GetVersions</code> action.</p> </note> <note> <p>You cannot use the <code>dedicatedHostId</code> and <code>placementGroupId</code> parameters together in the same <code>CreateEnvironmentHost</code> action. This results in a <code>ValidationException</code> response.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,6 +46,7 @@ export interface CreateEnvironmentHostCommandOutput extends CreateEnvironmentHos
  *     placementGroupId: "STRING_VALUE",
  *     dedicatedHostId: "STRING_VALUE",
  *   },
+ *   esxVersion: "STRING_VALUE",
  * };
  * const command = new CreateEnvironmentHostCommand(input);
  * const response = await client.send(command);
@@ -53,7 +54,7 @@ export interface CreateEnvironmentHostCommandOutput extends CreateEnvironmentHos
  * //   environmentSummary: { // EnvironmentSummary
  * //     environmentId: "STRING_VALUE",
  * //     environmentName: "STRING_VALUE",
- * //     vcfVersion: "VCF-5.2.1",
+ * //     vcfVersion: "VCF-5.2.1" || "VCF-5.2.2",
  * //     environmentStatus: "PASSED" || "FAILED" || "UNKNOWN",
  * //     environmentState: "CREATING" || "CREATED" || "DELETING" || "DELETED" || "CREATE_FAILED",
  * //     createdAt: new Date("TIMESTAMP"),
@@ -89,7 +90,7 @@ export interface CreateEnvironmentHostCommandOutput extends CreateEnvironmentHos
  * @see {@link EvsClientResolvedConfig | config} for EvsClient's `config` shape.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The operation couldn't be performed because the service is throttling requests. This exception is thrown when there are too many requests accepted concurrently from the service endpoint.</p>
+ *  <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>

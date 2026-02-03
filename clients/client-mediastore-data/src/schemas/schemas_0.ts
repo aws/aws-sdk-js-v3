@@ -86,7 +86,7 @@ TypeRegistry.for(n0).registerError(ContainerNotFoundException$, ContainerNotFoun
 export var DeleteObjectRequest$: StaticStructureSchema = [3, n0, _DOR,
   0,
   [_P],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteObjectResponse$: StaticStructureSchema = [3, n0, _DORe,
   0,
@@ -96,7 +96,7 @@ export var DeleteObjectResponse$: StaticStructureSchema = [3, n0, _DORe,
 export var DescribeObjectRequest$: StaticStructureSchema = [3, n0, _DORes,
   0,
   [_P],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeObjectResponse$: StaticStructureSchema = [3, n0, _DOResc,
   0,
@@ -106,12 +106,12 @@ export var DescribeObjectResponse$: StaticStructureSchema = [3, n0, _DOResc,
 export var GetObjectRequest$: StaticStructureSchema = [3, n0, _GOR,
   0,
   [_P, _R],
-  [[0, 1], [0, { [_hH]: _R }]]
+  [[0, 1], [0, { [_hH]: _R }]], 1
 ];
 export var GetObjectResponse$: StaticStructureSchema = [3, n0, _GORe,
   0,
-  [_B, _CC, _CR, _CL, _CT, _ET, _LM, _SC],
-  [[() => PayloadBlob, 16], [0, { [_hH]: _CC_ }], [0, { [_hH]: _CR_ }], [1, { [_hH]: _CL_ }], [0, { [_hH]: _CT_ }], [0, { [_hH]: _ET }], [4, { [_hH]: _LM_ }], [1, 32]]
+  [_SC, _B, _CC, _CR, _CL, _CT, _ET, _LM],
+  [[1, 32], [() => PayloadBlob, 16], [0, { [_hH]: _CC_ }], [0, { [_hH]: _CR_ }], [1, { [_hH]: _CL_ }], [0, { [_hH]: _CT_ }], [0, { [_hH]: _ET }], [4, { [_hH]: _LM_ }]], 1
 ];
 export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se },
@@ -143,7 +143,7 @@ TypeRegistry.for(n0).registerError(ObjectNotFoundException$, ObjectNotFoundExcep
 export var PutObjectRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
   [_B, _P, _CT, _CC, _SCt, _UA],
-  [[() => PayloadBlob, 16], [0, 1], [0, { [_hH]: _CT_ }], [0, { [_hH]: _CC_ }], [0, { [_hH]: _xasc }], [0, { [_hH]: _xaua }]]
+  [[() => PayloadBlob, 16], [0, 1], [0, { [_hH]: _CT_ }], [0, { [_hH]: _CC_ }], [0, { [_hH]: _xasc }], [0, { [_hH]: _xaua }]], 2
 ];
 export var PutObjectResponse$: StaticStructureSchema = [3, n0, _PORu,
   0,

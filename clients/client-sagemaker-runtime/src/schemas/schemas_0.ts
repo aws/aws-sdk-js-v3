@@ -123,8 +123,8 @@ export var InternalStreamFailure$: StaticErrorSchema = [-3, n0, _ISF,
 TypeRegistry.for(n0).registerError(InternalStreamFailure$, InternalStreamFailure);
 export var InvokeEndpointAsyncInput$: StaticStructureSchema = [3, n0, _IEAI,
   0,
-  [_EN, _CT, _A, _CA, _II, _IL, _RTTLS, _ITS],
-  [[0, 1], [0, { [_hH]: _XASCT }], [0, { [_hH]: _XASA }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASII }], [0, { [_hH]: _XASI }], [1, { [_hH]: _XASR }], [1, { [_hH]: _XASI_ }]]
+  [_EN, _IL, _CT, _A, _CA, _II, _RTTLS, _ITS],
+  [[0, 1], [0, { [_hH]: _XASI }], [0, { [_hH]: _XASCT }], [0, { [_hH]: _XASA }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASII }], [1, { [_hH]: _XASR }], [1, { [_hH]: _XASI_ }]], 2
 ];
 export var InvokeEndpointAsyncOutput$: StaticStructureSchema = [3, n0, _IEAO,
   0,
@@ -134,22 +134,22 @@ export var InvokeEndpointAsyncOutput$: StaticStructureSchema = [3, n0, _IEAO,
 export var InvokeEndpointInput$: StaticStructureSchema = [3, n0, _IEI,
   0,
   [_EN, _B, _CT, _A, _CA, _TM, _TV, _TCH, _II, _EE, _ICN, _SI],
-  [[0, 1], [() => BodyBlob, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _A }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASTM }], [0, { [_hH]: _XASTV }], [0, { [_hH]: _XASTCH }], [0, { [_hH]: _XASII }], [0, { [_hH]: _XASEE }], [0, { [_hH]: _XASIC }], [0, { [_hH]: _XASSI }]]
+  [[0, 1], [() => BodyBlob, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _A }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASTM }], [0, { [_hH]: _XASTV }], [0, { [_hH]: _XASTCH }], [0, { [_hH]: _XASII }], [0, { [_hH]: _XASEE }], [0, { [_hH]: _XASIC }], [0, { [_hH]: _XASSI }]], 2
 ];
 export var InvokeEndpointOutput$: StaticStructureSchema = [3, n0, _IEO,
   0,
   [_B, _CT, _IPV, _CA, _NSI, _CSI],
-  [[() => BodyBlob, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _xAIPV }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASNSI }], [0, { [_hH]: _XASCSI }]]
+  [[() => BodyBlob, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _xAIPV }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASNSI }], [0, { [_hH]: _XASCSI }]], 1
 ];
 export var InvokeEndpointWithResponseStreamInput$: StaticStructureSchema = [3, n0, _IEWRSI,
   0,
   [_EN, _B, _CT, _A, _CA, _TV, _TCH, _II, _ICN, _SI],
-  [[0, 1], [() => BodyBlob, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XASA }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASTV }], [0, { [_hH]: _XASTCH }], [0, { [_hH]: _XASII }], [0, { [_hH]: _XASIC }], [0, { [_hH]: _XASSI }]]
+  [[0, 1], [() => BodyBlob, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XASA }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASTV }], [0, { [_hH]: _XASTCH }], [0, { [_hH]: _XASII }], [0, { [_hH]: _XASIC }], [0, { [_hH]: _XASSI }]], 2
 ];
 export var InvokeEndpointWithResponseStreamOutput$: StaticStructureSchema = [3, n0, _IEWRSO,
   0,
   [_B, _CT, _IPV, _CA],
-  [[() => ResponseStream$, 16], [0, { [_hH]: _XASCT }], [0, { [_hH]: _xAIPV }], [() => CustomAttributesHeader, { [_hH]: _XASCA }]]
+  [[() => ResponseStream$, 16], [0, { [_hH]: _XASCT }], [0, { [_hH]: _xAIPV }], [() => CustomAttributesHeader, { [_hH]: _XASCA }]], 1
 ];
 export var ModelError$: StaticErrorSchema = [-3, n0, _ME,
   { [_e]: _c, [_hE]: 424 },

@@ -56,6 +56,7 @@ export interface CreateSubscriptionTargetCommandOutput extends CreateSubscriptio
  *   ],
  *   provider: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
+ *   subscriptionGrantCreationMode: "AUTOMATIC" || "MANUAL",
  * };
  * const command = new CreateSubscriptionTargetCommand(input);
  * const response = await client.send(command);
@@ -84,6 +85,7 @@ export interface CreateSubscriptionTargetCommandOutput extends CreateSubscriptio
  * //     },
  * //   ],
  * //   provider: "STRING_VALUE", // required
+ * //   subscriptionGrantCreationMode: "AUTOMATIC" || "MANUAL",
  * // };
  *
  * ```

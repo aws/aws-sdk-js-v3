@@ -152,24 +152,24 @@ var UserID: StaticSimpleSchema = [0, n0, _UID, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var CloudWatchLogsDestinationConfiguration$: StaticStructureSchema = [3, n0, _CWLDC,
   0,
   [_lGN],
-  [0]
+  [0], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateChatTokenRequest$: StaticStructureSchema = [3, n0, _CCTR,
   0,
   [_rIo, _uI, _ca, _sDIM, _a],
-  [0, [() => UserID, 0], 64 | 0, 1, [() => ChatTokenAttributes, 0]]
+  [0, [() => UserID, 0], 64 | 0, 1, [() => ChatTokenAttributes, 0]], 2
 ];
 export var CreateChatTokenResponse$: StaticStructureSchema = [3, n0, _CCTRr,
   0,
@@ -178,8 +178,8 @@ export var CreateChatTokenResponse$: StaticStructureSchema = [3, n0, _CCTRr,
 ];
 export var CreateLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _CLCR,
   0,
-  [_n, _dC, _ta],
-  [0, () => DestinationConfiguration$, 128 | 0]
+  [_dC, _n, _ta],
+  [() => DestinationConfiguration$, 0, 128 | 0], 1
 ];
 export var CreateLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _CLCRr,
   0,
@@ -199,12 +199,12 @@ export var CreateRoomResponse$: StaticStructureSchema = [3, n0, _CRRr,
 export var DeleteLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _DLCR,
   0,
   [_id],
-  [0]
+  [0], 1
 ];
 export var DeleteMessageRequest$: StaticStructureSchema = [3, n0, _DMR,
   0,
   [_rIo, _i, _r],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DeleteMessageResponse$: StaticStructureSchema = [3, n0, _DMRe,
   0,
@@ -214,12 +214,12 @@ export var DeleteMessageResponse$: StaticStructureSchema = [3, n0, _DMRe,
 export var DeleteRoomRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_id],
-  [0]
+  [0], 1
 ];
 export var DisconnectUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_rIo, _uI, _r],
-  [0, [() => UserID, 0], 0]
+  [0, [() => UserID, 0], 0], 2
 ];
 export var DisconnectUserResponse$: StaticStructureSchema = [3, n0, _DURi,
   0,
@@ -229,12 +229,12 @@ export var DisconnectUserResponse$: StaticStructureSchema = [3, n0, _DURi,
 export var FirehoseDestinationConfiguration$: StaticStructureSchema = [3, n0, _FDC,
   0,
   [_dSN],
-  [0]
+  [0], 1
 ];
 export var GetLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR,
   0,
   [_id],
-  [0]
+  [0], 1
 ];
 export var GetLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _GLCRe,
   0,
@@ -244,7 +244,7 @@ export var GetLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _GL
 export var GetRoomRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_id],
-  [0]
+  [0], 1
 ];
 export var GetRoomResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
@@ -254,7 +254,7 @@ export var GetRoomResponse$: StaticStructureSchema = [3, n0, _GRRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListLoggingConfigurationsRequest$: StaticStructureSchema = [3, n0, _LLCR,
@@ -265,7 +265,7 @@ export var ListLoggingConfigurationsRequest$: StaticStructureSchema = [3, n0, _L
 export var ListLoggingConfigurationsResponse$: StaticStructureSchema = [3, n0, _LLCRi,
   0,
   [_lC, _nT],
-  [() => LoggingConfigurationList, 0]
+  [() => LoggingConfigurationList, 0], 1
 ];
 export var ListRoomsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
@@ -275,17 +275,17 @@ export var ListRoomsRequest$: StaticStructureSchema = [3, n0, _LRR,
 export var ListRoomsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
   [_ro, _nT],
-  [() => RoomList, 0]
+  [() => RoomList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_ta],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var LoggingConfigurationSummary$: StaticStructureSchema = [3, n0, _LCS,
   0,
@@ -300,13 +300,13 @@ export var MessageReviewHandler$: StaticStructureSchema = [3, n0, _MRH,
 export var PendingVerification$: StaticErrorSchema = [-3, n0, _PV,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(PendingVerification$, PendingVerification);
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RoomSummary$: StaticStructureSchema = [3, n0, _RS,
@@ -317,12 +317,12 @@ export var RoomSummary$: StaticStructureSchema = [3, n0, _RS,
 export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
   [_bN],
-  [0]
+  [0], 1
 ];
 export var SendEventRequest$: StaticStructureSchema = [3, n0, _SER,
   0,
   [_rIo, _eN, _a],
-  [0, 0, 128 | 0]
+  [0, 0, 128 | 0], 2
 ];
 export var SendEventResponse$: StaticStructureSchema = [3, n0, _SERe,
   0,
@@ -332,13 +332,13 @@ export var SendEventResponse$: StaticStructureSchema = [3, n0, _SERe,
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _l],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 4
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -348,13 +348,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _rI, _rT, _l],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 4
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -364,7 +364,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _ULCR,
   0,
   [_id, _n, _dC],
-  [0, 0, () => DestinationConfiguration$]
+  [0, 0, () => DestinationConfiguration$], 1
 ];
 export var UpdateLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _ULCRp,
   0,
@@ -374,7 +374,7 @@ export var UpdateLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, 
 export var UpdateRoomRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_id, _n, _mMRPS, _mML, _mRH, _lCI],
-  [0, 0, 1, 1, () => MessageReviewHandler$, 64 | 0]
+  [0, 0, 1, 1, () => MessageReviewHandler$, 64 | 0], 1
 ];
 export var UpdateRoomResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -384,13 +384,13 @@ export var UpdateRoomResponse$: StaticStructureSchema = [3, n0, _URRpd,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 var __Unit = "unit" as const;
 export var IvschatServiceException$: StaticErrorSchema = [-3, _sm, "IvschatServiceException", 0, [], []];

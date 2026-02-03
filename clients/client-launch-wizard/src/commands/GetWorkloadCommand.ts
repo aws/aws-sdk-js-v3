@@ -45,10 +45,10 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * //   workload: { // WorkloadData
  * //     workloadName: "STRING_VALUE",
  * //     displayName: "STRING_VALUE",
+ * //     status: "ACTIVE" || "INACTIVE" || "DISABLED" || "DELETED",
  * //     description: "STRING_VALUE",
  * //     documentationUrl: "STRING_VALUE",
  * //     iconUrl: "STRING_VALUE",
- * //     status: "ACTIVE" || "INACTIVE" || "DISABLED" || "DELETED",
  * //     statusMessage: "STRING_VALUE",
  * //   },
  * // };
@@ -62,8 +62,7 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact
- *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified workload or deployment resource can't be found.</p>

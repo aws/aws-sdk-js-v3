@@ -370,17 +370,17 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AutoParticipantRecordingConfiguration$: StaticStructureSchema = [3, n0, _APRC,
   0,
   [_sCA, _mT, _tC, _rRWS, _hC, _rPR],
-  [0, 64 | 0, () => ParticipantThumbnailConfiguration$, 1, () => ParticipantRecordingHlsConfiguration$, 2]
+  [0, 64 | 0, () => ParticipantThumbnailConfiguration$, 1, () => ParticipantRecordingHlsConfiguration$, 2], 1
 ];
 export var ChannelDestinationConfiguration$: StaticStructureSchema = [3, n0, _CDC,
   0,
   [_cA, _eCA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Composition$: StaticStructureSchema = [3, n0, _C,
   0,
   [_a, _sA, _s, _l, _d, _t, _sT, _eT],
-  [0, 0, 0, () => LayoutConfiguration$, () => DestinationList, 128 | 0, 5, 5]
+  [0, 0, 0, () => LayoutConfiguration$, () => DestinationList, 128 | 0, 5, 5], 5
 ];
 export var CompositionRecordingHlsConfiguration$: StaticStructureSchema = [3, n0, _CRHC,
   0,
@@ -390,7 +390,7 @@ export var CompositionRecordingHlsConfiguration$: StaticStructureSchema = [3, n0
 export var CompositionSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_a, _sA, _d, _s, _t, _sT, _eT],
-  [0, 0, () => DestinationSummaryList, 0, 128 | 0, 5, 5]
+  [0, 0, () => DestinationSummaryList, 0, 128 | 0, 5, 5], 4
 ];
 export var CompositionThumbnailConfiguration$: StaticStructureSchema = [3, n0, _CTC,
   0,
@@ -415,8 +415,8 @@ export var CreateEncoderConfigurationResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateIngestConfigurationRequest$: StaticStructureSchema = [3, n0, _CICR,
   0,
-  [_n, _sA, _uI, _at, _iP, _iI, _t],
-  [0, 0, 0, 128 | 0, 0, 2, 128 | 0]
+  [_iP, _n, _sA, _uI, _at, _iI, _t],
+  [0, 0, 0, 0, 128 | 0, 2, 128 | 0], 1
 ];
 export var CreateIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _CICRr,
   0,
@@ -426,7 +426,7 @@ export var CreateIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _
 export var CreateParticipantTokenRequest$: StaticStructureSchema = [3, n0, _CPTR,
   0,
   [_sA, _du, _uI, _at, _ca],
-  [0, 1, 0, 128 | 0, 64 | 0]
+  [0, 1, 0, 128 | 0, 64 | 0], 1
 ];
 export var CreateParticipantTokenResponse$: StaticStructureSchema = [3, n0, _CPTRr,
   0,
@@ -445,8 +445,8 @@ export var CreateStageResponse$: StaticStructureSchema = [3, n0, _CSRr,
 ];
 export var CreateStorageConfigurationRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
-  [_n, _s_, _t],
-  [0, () => S3StorageConfiguration$, 128 | 0]
+  [_s_, _n, _t],
+  [() => S3StorageConfiguration$, 0, 128 | 0], 1
 ];
 export var CreateStorageConfigurationResponse$: StaticStructureSchema = [3, n0, _CSCRr,
   0,
@@ -456,7 +456,7 @@ export var CreateStorageConfigurationResponse$: StaticStructureSchema = [3, n0, 
 export var DeleteEncoderConfigurationRequest$: StaticStructureSchema = [3, n0, _DECR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteEncoderConfigurationResponse$: StaticStructureSchema = [3, n0, _DECRe,
   0,
@@ -466,7 +466,7 @@ export var DeleteEncoderConfigurationResponse$: StaticStructureSchema = [3, n0, 
 export var DeleteIngestConfigurationRequest$: StaticStructureSchema = [3, n0, _DICR,
   0,
   [_a, _f],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _DICRe,
   0,
@@ -476,7 +476,7 @@ export var DeleteIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _
 export var DeletePublicKeyRequest$: StaticStructureSchema = [3, n0, _DPKR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeletePublicKeyResponse$: StaticStructureSchema = [3, n0, _DPKRe,
   0,
@@ -486,7 +486,7 @@ export var DeletePublicKeyResponse$: StaticStructureSchema = [3, n0, _DPKRe,
 export var DeleteStageRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteStageResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -496,7 +496,7 @@ export var DeleteStageResponse$: StaticStructureSchema = [3, n0, _DSRe,
 export var DeleteStorageConfigurationRequest$: StaticStructureSchema = [3, n0, _DSCR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteStorageConfigurationResponse$: StaticStructureSchema = [3, n0, _DSCRe,
   0,
@@ -505,8 +505,8 @@ export var DeleteStorageConfigurationResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var Destination$: StaticStructureSchema = [3, n0, _D,
   0,
-  [_i, _s, _sT, _eT, _co, _de],
-  [0, 0, 5, 5, () => DestinationConfiguration$, () => DestinationDetail$]
+  [_i, _s, _co, _sT, _eT, _de],
+  [0, 0, () => DestinationConfiguration$, 5, 5, () => DestinationDetail$], 3
 ];
 export var DestinationConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
@@ -521,12 +521,12 @@ export var DestinationDetail$: StaticStructureSchema = [3, n0, _DD,
 export var DestinationSummary$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_i, _s, _sT, _eT],
-  [0, 0, 5, 5]
+  [0, 0, 5, 5], 2
 ];
 export var DisconnectParticipantRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_sA, _pI, _r],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DisconnectParticipantResponse$: StaticStructureSchema = [3, n0, _DPRi,
   0,
@@ -536,12 +536,12 @@ export var DisconnectParticipantResponse$: StaticStructureSchema = [3, n0, _DPRi
 export var EncoderConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_a, _n, _v, _t],
-  [0, 0, () => Video$, 128 | 0]
+  [0, 0, () => Video$, 128 | 0], 1
 ];
 export var EncoderConfigurationSummary$: StaticStructureSchema = [3, n0, _ECS,
   0,
   [_a, _n, _t],
-  [0, 0, 128 | 0]
+  [0, 0, 128 | 0], 1
 ];
 export var Event$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -556,7 +556,7 @@ export var ExchangedParticipantToken$: StaticStructureSchema = [3, n0, _EPT,
 export var GetCompositionRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetCompositionResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -566,7 +566,7 @@ export var GetCompositionResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var GetEncoderConfigurationRequest$: StaticStructureSchema = [3, n0, _GECR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetEncoderConfigurationResponse$: StaticStructureSchema = [3, n0, _GECRe,
   0,
@@ -576,7 +576,7 @@ export var GetEncoderConfigurationResponse$: StaticStructureSchema = [3, n0, _GE
 export var GetIngestConfigurationRequest$: StaticStructureSchema = [3, n0, _GICR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _GICRe,
   0,
@@ -586,7 +586,7 @@ export var GetIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _GIC
 export var GetParticipantRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_sA, _sI, _pI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetParticipantResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -596,7 +596,7 @@ export var GetParticipantResponse$: StaticStructureSchema = [3, n0, _GPRe,
 export var GetPublicKeyRequest$: StaticStructureSchema = [3, n0, _GPKR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetPublicKeyResponse$: StaticStructureSchema = [3, n0, _GPKRe,
   0,
@@ -606,7 +606,7 @@ export var GetPublicKeyResponse$: StaticStructureSchema = [3, n0, _GPKRe,
 export var GetStageRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetStageResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -616,7 +616,7 @@ export var GetStageResponse$: StaticStructureSchema = [3, n0, _GSRe,
 export var GetStageSessionRequest$: StaticStructureSchema = [3, n0, _GSSR,
   0,
   [_sA, _sI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetStageSessionResponse$: StaticStructureSchema = [3, n0, _GSSRe,
   0,
@@ -626,7 +626,7 @@ export var GetStageSessionResponse$: StaticStructureSchema = [3, n0, _GSSRe,
 export var GetStorageConfigurationRequest$: StaticStructureSchema = [3, n0, _GSCR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetStorageConfigurationResponse$: StaticStructureSchema = [3, n0, _GSCRe,
   0,
@@ -641,7 +641,7 @@ export var GridConfiguration$: StaticStructureSchema = [3, n0, _GC,
 export var ImportPublicKeyRequest$: StaticStructureSchema = [3, n0, _IPKR,
   0,
   [_pKM, _n, _t],
-  [0, 0, 128 | 0]
+  [0, 0, 128 | 0], 1
 ];
 export var ImportPublicKeyResponse$: StaticStructureSchema = [3, n0, _IPKRm,
   0,
@@ -650,13 +650,13 @@ export var ImportPublicKeyResponse$: StaticStructureSchema = [3, n0, _IPKRm,
 ];
 export var IngestConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
-  [_n, _a, _iP, _sK, _sA, _pI, _s, _uI, _at, _t],
-  [0, 0, 0, [() => StreamKey, 0], 0, 0, 0, 0, 128 | 0, 128 | 0]
+  [_a, _iP, _sK, _sA, _pI, _s, _n, _uI, _at, _t],
+  [0, 0, [() => StreamKey, 0], 0, 0, 0, 0, 0, 128 | 0, 128 | 0], 6
 ];
 export var IngestConfigurationSummary$: StaticStructureSchema = [3, n0, _ICS,
   0,
-  [_n, _a, _iP, _sA, _pI, _s, _uI],
-  [0, 0, 0, 0, 0, 0, 0]
+  [_a, _iP, _sA, _pI, _s, _n, _uI],
+  [0, 0, 0, 0, 0, 0, 0], 5
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
@@ -677,7 +677,7 @@ export var ListCompositionsRequest$: StaticStructureSchema = [3, n0, _LCR,
 export var ListCompositionsResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
   [_comp, _nTe],
-  [() => CompositionSummaryList, 0]
+  [() => CompositionSummaryList, 0], 1
 ];
 export var ListEncoderConfigurationsRequest$: StaticStructureSchema = [3, n0, _LECR,
   0,
@@ -687,7 +687,7 @@ export var ListEncoderConfigurationsRequest$: StaticStructureSchema = [3, n0, _L
 export var ListEncoderConfigurationsResponse$: StaticStructureSchema = [3, n0, _LECRi,
   0,
   [_eCn, _nTe],
-  [() => EncoderConfigurationSummaryList, 0]
+  [() => EncoderConfigurationSummaryList, 0], 1
 ];
 export var ListIngestConfigurationsRequest$: StaticStructureSchema = [3, n0, _LICR,
   0,
@@ -697,37 +697,37 @@ export var ListIngestConfigurationsRequest$: StaticStructureSchema = [3, n0, _LI
 export var ListIngestConfigurationsResponse$: StaticStructureSchema = [3, n0, _LICRi,
   0,
   [_iCn, _nTe],
-  [() => IngestConfigurationList, 0]
+  [() => IngestConfigurationList, 0], 1
 ];
 export var ListParticipantEventsRequest$: StaticStructureSchema = [3, n0, _LPER,
   0,
   [_sA, _sI, _pI, _nTe, _mR],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 3
 ];
 export var ListParticipantEventsResponse$: StaticStructureSchema = [3, n0, _LPERi,
   0,
   [_ev, _nTe],
-  [() => EventList, 0]
+  [() => EventList, 0], 1
 ];
 export var ListParticipantReplicasRequest$: StaticStructureSchema = [3, n0, _LPRR,
   0,
   [_sSA, _pI, _nTe, _mR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListParticipantReplicasResponse$: StaticStructureSchema = [3, n0, _LPRRi,
   0,
   [_rep, _nTe],
-  [() => ParticipantReplicaList, 0]
+  [() => ParticipantReplicaList, 0], 1
 ];
 export var ListParticipantsRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
   [_sA, _sI, _fBUI, _fBP, _fBS, _nTe, _mR, _fBRS],
-  [0, 0, 0, 2, 0, 0, 1, 0]
+  [0, 0, 0, 2, 0, 0, 1, 0], 2
 ];
 export var ListParticipantsResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
   [_pa, _nTe],
-  [() => ParticipantList, 0]
+  [() => ParticipantList, 0], 1
 ];
 export var ListPublicKeysRequest$: StaticStructureSchema = [3, n0, _LPKR,
   0,
@@ -737,17 +737,17 @@ export var ListPublicKeysRequest$: StaticStructureSchema = [3, n0, _LPKR,
 export var ListPublicKeysResponse$: StaticStructureSchema = [3, n0, _LPKRi,
   0,
   [_pKu, _nTe],
-  [() => PublicKeyList, 0]
+  [() => PublicKeyList, 0], 1
 ];
 export var ListStageSessionsRequest$: StaticStructureSchema = [3, n0, _LSSR,
   0,
   [_sA, _nTe, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListStageSessionsResponse$: StaticStructureSchema = [3, n0, _LSSRi,
   0,
   [_sSt, _nTe],
-  [() => StageSessionList, 0]
+  [() => StageSessionList, 0], 1
 ];
 export var ListStagesRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
@@ -757,7 +757,7 @@ export var ListStagesRequest$: StaticStructureSchema = [3, n0, _LSR,
 export var ListStagesResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
   [_stag, _nTe],
-  [() => StageSummaryList, 0]
+  [() => StageSummaryList, 0], 1
 ];
 export var ListStorageConfigurationsRequest$: StaticStructureSchema = [3, n0, _LSCR,
   0,
@@ -767,17 +767,17 @@ export var ListStorageConfigurationsRequest$: StaticStructureSchema = [3, n0, _L
 export var ListStorageConfigurationsResponse$: StaticStructureSchema = [3, n0, _LSCRi,
   0,
   [_sCt, _nTe],
-  [() => StorageConfigurationSummaryList, 0]
+  [() => StorageConfigurationSummaryList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_t],
-  [128 | 0]
+  [128 | 0], 1
 ];
 export var Participant$: StaticStructureSchema = [3, n0, _P,
   0,
@@ -792,7 +792,7 @@ export var ParticipantRecordingHlsConfiguration$: StaticStructureSchema = [3, n0
 export var ParticipantReplica$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_sSA, _pI, _sSI, _dSA, _dSI, _rSe],
-  [0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0], 6
 ];
 export var ParticipantSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
@@ -849,17 +849,17 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
   [_sCA, _eCAn, _rC, _tCh],
-  [0, 64 | 0, () => RecordingConfiguration$, () => CompositionThumbnailConfigurationList]
+  [0, 64 | 0, () => RecordingConfiguration$, () => CompositionThumbnailConfigurationList], 2
 ];
 export var S3Detail$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_rP],
-  [0]
+  [0], 1
 ];
 export var S3StorageConfiguration$: StaticStructureSchema = [3, n0, _SSC,
   0,
   [_bNu],
-  [0]
+  [0], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -870,7 +870,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var Stage$: StaticStructureSchema = [3, n0, _S,
   0,
   [_a, _n, _aSI, _t, _aPRC, _en],
-  [0, 0, 0, 128 | 0, () => AutoParticipantRecordingConfiguration$, () => StageEndpoints$]
+  [0, 0, 0, 128 | 0, () => AutoParticipantRecordingConfiguration$, () => StageEndpoints$], 1
 ];
 export var StageEndpoints$: StaticStructureSchema = [3, n0, _SE,
   0,
@@ -890,12 +890,12 @@ export var StageSessionSummary$: StaticStructureSchema = [3, n0, _SSS,
 export var StageSummary$: StaticStructureSchema = [3, n0, _SSt,
   0,
   [_a, _n, _aSI, _t],
-  [0, 0, 0, 128 | 0]
+  [0, 0, 0, 128 | 0], 1
 ];
 export var StartCompositionRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
-  [_sA, _iT, _l, _d, _t],
-  [0, [0, 4], () => LayoutConfiguration$, () => DestinationConfigurationList, 128 | 0]
+  [_sA, _d, _iT, _l, _t],
+  [0, () => DestinationConfigurationList, [0, 4], () => LayoutConfiguration$, 128 | 0], 2
 ];
 export var StartCompositionResponse$: StaticStructureSchema = [3, n0, _SCRt,
   0,
@@ -905,7 +905,7 @@ export var StartCompositionResponse$: StaticStructureSchema = [3, n0, _SCRt,
 export var StartParticipantReplicationRequest$: StaticStructureSchema = [3, n0, _SPRR,
   0,
   [_sSA, _dSA, _pI, _rWS, _at],
-  [0, 0, 0, 1, 128 | 0]
+  [0, 0, 0, 1, 128 | 0], 3
 ];
 export var StartParticipantReplicationResponse$: StaticStructureSchema = [3, n0, _SPRRt,
   0,
@@ -915,7 +915,7 @@ export var StartParticipantReplicationResponse$: StaticStructureSchema = [3, n0,
 export var StopCompositionRequest$: StaticStructureSchema = [3, n0, _SCRto,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var StopCompositionResponse$: StaticStructureSchema = [3, n0, _SCRtop,
   0,
@@ -925,7 +925,7 @@ export var StopCompositionResponse$: StaticStructureSchema = [3, n0, _SCRtop,
 export var StopParticipantReplicationRequest$: StaticStructureSchema = [3, n0, _SPRRto,
   0,
   [_sSA, _dSA, _pI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var StopParticipantReplicationResponse$: StaticStructureSchema = [3, n0, _SPRRtop,
   0,
@@ -935,17 +935,17 @@ export var StopParticipantReplicationResponse$: StaticStructureSchema = [3, n0, 
 export var StorageConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_a, _n, _s_, _t],
-  [0, 0, () => S3StorageConfiguration$, 128 | 0]
+  [0, 0, () => S3StorageConfiguration$, 128 | 0], 1
 ];
 export var StorageConfigurationSummary$: StaticStructureSchema = [3, n0, _SCS,
   0,
   [_a, _n, _s_, _t],
-  [0, 0, () => S3StorageConfiguration$, 128 | 0]
+  [0, 0, () => S3StorageConfiguration$, 128 | 0], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -955,7 +955,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -965,7 +965,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateIngestConfigurationRequest$: StaticStructureSchema = [3, n0, _UICR,
   0,
   [_a, _sA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UpdateIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _UICRp,
   0,
@@ -975,7 +975,7 @@ export var UpdateIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _
 export var UpdateStageRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_a, _n, _aPRC],
-  [0, 0, () => AutoParticipantRecordingConfiguration$]
+  [0, 0, () => AutoParticipantRecordingConfiguration$], 1
 ];
 export var UpdateStageResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,

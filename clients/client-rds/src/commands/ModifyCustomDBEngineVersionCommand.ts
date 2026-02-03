@@ -28,17 +28,7 @@ export interface ModifyCustomDBEngineVersionCommandInput extends ModifyCustomDBE
 export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**
- * <p>Modifies the status of a custom engine version (CEV). You can find CEVs to modify by calling
- *             <code>DescribeDBEngineVersions</code>.</p>
- *          <note>
- *             <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with
- *                 Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the
- *                 <code>ModifyCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the
- *                 API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
- *                 the <code>ModifyCustomDbEngineVersion</code> event.</p>
- *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.modify">Modifying CEV status</a>
- *             in the <i>Amazon RDS User Guide</i>.</p>
+ * <p>Modifies the status of a custom engine version (CEV). You can find CEVs to modify by calling <code>DescribeDBEngineVersions</code>.</p> <note> <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the <code>ModifyCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for the <code>ModifyCustomDbEngineVersion</code> event.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.modify">Modifying CEV status</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +51,9 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //   EngineVersion: "STRING_VALUE",
  * //   DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
  * //   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
+ * //   DatabaseInstallationFiles: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
  * //   CustomDBEngineVersionManifest: "STRING_VALUE",
  * //   DBParameterGroupFamily: "STRING_VALUE",
  * //   DBEngineDescription: "STRING_VALUE",
@@ -70,6 +63,7 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     CharacterSetName: "STRING_VALUE",
  * //     CharacterSetDescription: "STRING_VALUE",
  * //   },
+ * //   FailureReason: "STRING_VALUE",
  * //   Image: { // CustomDBEngineVersionAMI
  * //     ImageId: "STRING_VALUE",
  * //     Status: "STRING_VALUE",
@@ -144,10 +138,6 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     MinCapacity: Number("double"),
  * //     MaxCapacity: Number("double"),
  * //   },
- * //   DatabaseInstallationFiles: [ // StringList
- * //     "STRING_VALUE",
- * //   ],
- * //   FailureReason: "STRING_VALUE",
  * // };
  *
  * ```

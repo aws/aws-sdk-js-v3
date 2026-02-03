@@ -125,6 +125,10 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *       LambdaArn: "STRING_VALUE", // required
  *     },
  *     KMSKeyID: "STRING_VALUE",
+ *     InboundFederation: { // InboundFederationLambdaType
+ *       LambdaVersion: "V1_0", // required
+ *       LambdaArn: "STRING_VALUE", // required
+ *     },
  *   },
  *   AutoVerifiedAttributes: [ // VerifiedAttributesListType
  *     "phone_number" || "email",

@@ -4,8 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeTemplateDefinitionRequest } from "../models/models_3";
-import type { DescribeTemplateDefinitionResponse } from "../models/models_4";
+import type { DescribeTemplateDefinitionRequest, DescribeTemplateDefinitionResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeTemplateDefinition$ } from "../schemas/schemas_0";
 
@@ -4849,6 +4848,17 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                     OptimizedViewPortWidth: "STRING_VALUE", // required
  * //                   },
  * //                 },
+ * //                 Groups: [ // SheetLayoutGroupList
+ * //                   { // SheetLayoutGroup
+ * //                     Id: "STRING_VALUE", // required
+ * //                     Members: [ // SheetLayoutGroupMemberList // required
+ * //                       { // SheetLayoutGroupMember
+ * //                         Id: "STRING_VALUE", // required
+ * //                         Type: "ELEMENT" || "GROUP", // required
+ * //                       },
+ * //                     ],
+ * //                   },
+ * //                 ],
  * //               },
  * //               SectionBasedLayout: { // SectionBasedLayoutConfiguration
  * //                 HeaderSections: [ // HeaderFooterSectionConfigurationList // required

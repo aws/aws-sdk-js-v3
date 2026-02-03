@@ -193,12 +193,12 @@ export var ActiveDirectorySettings$: StaticStructureSchema = [3, n0, _ADS,
 export var AssociateUserRequest$: StaticStructureSchema = [3, n0, _AUR,
   0,
   [_U, _II, _IP, _D, _T],
-  [0, 0, () => IdentityProvider$, 0, [() => Tags, 0]]
+  [0, 0, () => IdentityProvider$, 0, [() => Tags, 0]], 3
 ];
 export var AssociateUserResponse$: StaticStructureSchema = [3, n0, _AURs,
   0,
   [_IUS],
-  [() => InstanceUserSummary$]
+  [() => InstanceUserSummary$], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _s },
@@ -209,7 +209,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateLicenseServerEndpointRequest$: StaticStructureSchema = [3, n0, _CLSER,
   0,
   [_IPA, _LSS, _T],
-  [0, () => LicenseServerSettings$, [() => Tags, 0]]
+  [0, () => LicenseServerSettings$, [() => Tags, 0]], 2
 ];
 export var CreateLicenseServerEndpointResponse$: StaticStructureSchema = [3, n0, _CLSERr,
   0,
@@ -219,7 +219,7 @@ export var CreateLicenseServerEndpointResponse$: StaticStructureSchema = [3, n0,
 export var DeleteLicenseServerEndpointRequest$: StaticStructureSchema = [3, n0, _DLSER,
   0,
   [_LSEA, _ST],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteLicenseServerEndpointResponse$: StaticStructureSchema = [3, n0, _DLSERe,
   0,
@@ -234,7 +234,7 @@ export var DeregisterIdentityProviderRequest$: StaticStructureSchema = [3, n0, _
 export var DeregisterIdentityProviderResponse$: StaticStructureSchema = [3, n0, _DIPRe,
   0,
   [_IPS],
-  [() => IdentityProviderSummary$]
+  [() => IdentityProviderSummary$], 1
 ];
 export var DisassociateUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
@@ -244,12 +244,12 @@ export var DisassociateUserRequest$: StaticStructureSchema = [3, n0, _DUR,
 export var DisassociateUserResponse$: StaticStructureSchema = [3, n0, _DURi,
   0,
   [_IUS],
-  [() => InstanceUserSummary$]
+  [() => InstanceUserSummary$], 1
 ];
 export var DomainNetworkSettings$: StaticStructureSchema = [3, n0, _DNS,
   0,
   [_S],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
@@ -259,17 +259,17 @@ export var Filter$: StaticStructureSchema = [3, n0, _F,
 export var IdentityProviderSummary$: StaticStructureSchema = [3, n0, _IPS,
   0,
   [_IP, _Se, _P, _St, _IPA, _FM, _OAI],
-  [() => IdentityProvider$, () => Settings$, 0, 0, 0, 0, 0]
+  [() => IdentityProvider$, () => Settings$, 0, 0, 0, 0, 0], 4
 ];
 export var InstanceSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
   [_II, _St, _Pr, _LSCD, _SM, _OAI, _IP],
-  [0, 0, 64 | 0, 0, 0, 0, () => IdentityProvider$]
+  [0, 0, 64 | 0, 0, 0, 0, () => IdentityProvider$], 3
 ];
 export var InstanceUserSummary$: StaticStructureSchema = [3, n0, _IUS,
   0,
   [_U, _II, _IP, _St, _IUA, _SM, _D, _AD, _DD],
-  [0, 0, () => IdentityProvider$, 0, 0, 0, 0, 0, 0]
+  [0, 0, () => IdentityProvider$, 0, 0, 0, 0, 0, 0], 4
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -290,7 +290,7 @@ export var LicenseServerEndpoint$: StaticStructureSchema = [3, n0, _LSE,
 export var LicenseServerSettings$: StaticStructureSchema = [3, n0, _LSS,
   0,
   [_ST, _SS],
-  [0, () => ServerSettings$]
+  [0, () => ServerSettings$], 2
 ];
 export var ListIdentityProvidersRequest$: StaticStructureSchema = [3, n0, _LIPR,
   0,
@@ -300,7 +300,7 @@ export var ListIdentityProvidersRequest$: StaticStructureSchema = [3, n0, _LIPR,
 export var ListIdentityProvidersResponse$: StaticStructureSchema = [3, n0, _LIPRi,
   0,
   [_IPSd, _NT],
-  [() => IdentityProviderSummaryList, 0]
+  [() => IdentityProviderSummaryList, 0], 1
 ];
 export var ListInstancesRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
@@ -324,8 +324,8 @@ export var ListLicenseServerEndpointsResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListProductSubscriptionsRequest$: StaticStructureSchema = [3, n0, _LPSR,
   0,
-  [_P, _IP, _MR, _Fi, _NT],
-  [0, () => IdentityProvider$, 1, () => FilterList, 0]
+  [_IP, _P, _MR, _Fi, _NT],
+  [() => IdentityProvider$, 0, 1, () => FilterList, 0], 1
 ];
 export var ListProductSubscriptionsResponse$: StaticStructureSchema = [3, n0, _LPSRi,
   0,
@@ -335,7 +335,7 @@ export var ListProductSubscriptionsResponse$: StaticStructureSchema = [3, n0, _L
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -345,7 +345,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListUserAssociationsRequest$: StaticStructureSchema = [3, n0, _LUAR,
   0,
   [_II, _IP, _MR, _Fi, _NT],
-  [0, () => IdentityProvider$, 1, () => FilterList, 0]
+  [0, () => IdentityProvider$, 1, () => FilterList, 0], 2
 ];
 export var ListUserAssociationsResponse$: StaticStructureSchema = [3, n0, _LUARi,
   0,
@@ -355,22 +355,22 @@ export var ListUserAssociationsResponse$: StaticStructureSchema = [3, n0, _LUARi
 export var ProductUserSummary$: StaticStructureSchema = [3, n0, _PUSr,
   0,
   [_U, _P, _IP, _St, _PUA, _SM, _D, _SSD, _SED],
-  [0, 0, () => IdentityProvider$, 0, 0, 0, 0, 0, 0]
+  [0, 0, () => IdentityProvider$, 0, 0, 0, 0, 0, 0], 4
 ];
 export var RdsSalSettings$: StaticStructureSchema = [3, n0, _RSS,
   0,
   [_RSCP],
-  [() => CredentialsProvider$]
+  [() => CredentialsProvider$], 1
 ];
 export var RegisterIdentityProviderRequest$: StaticStructureSchema = [3, n0, _RIPR,
   0,
   [_IP, _P, _Se, _T],
-  [() => IdentityProvider$, 0, () => Settings$, [() => Tags, 0]]
+  [() => IdentityProvider$, 0, () => Settings$, [() => Tags, 0]], 2
 ];
 export var RegisterIdentityProviderResponse$: StaticStructureSchema = [3, n0, _RIPRe,
   0,
   [_IPS],
-  [() => IdentityProviderSummary$]
+  [() => IdentityProviderSummary$], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -397,17 +397,17 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var Settings$: StaticStructureSchema = [3, n0, _Se,
   0,
   [_S, _SGI],
-  [64 | 0, 0]
+  [64 | 0, 0], 2
 ];
 export var StartProductSubscriptionRequest$: StaticStructureSchema = [3, n0, _SPSR,
   0,
   [_U, _IP, _P, _D, _T],
-  [0, () => IdentityProvider$, 0, 0, [() => Tags, 0]]
+  [0, () => IdentityProvider$, 0, 0, [() => Tags, 0]], 3
 ];
 export var StartProductSubscriptionResponse$: StaticStructureSchema = [3, n0, _SPSRt,
   0,
   [_PUSr],
-  [() => ProductUserSummary$]
+  [() => ProductUserSummary$], 1
 ];
 export var StopProductSubscriptionRequest$: StaticStructureSchema = [3, n0, _SPSRto,
   0,
@@ -417,12 +417,12 @@ export var StopProductSubscriptionRequest$: StaticStructureSchema = [3, n0, _SPS
 export var StopProductSubscriptionResponse$: StaticStructureSchema = [3, n0, _SPSRtop,
   0,
   [_PUSr],
-  [() => ProductUserSummary$]
+  [() => ProductUserSummary$], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], [() => Tags, 0]]
+  [[0, 1], [() => Tags, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -438,7 +438,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [() => TagKeyList, { [_hQ]: _tK }]]
+  [[0, 1], [() => TagKeyList, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -447,18 +447,18 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateIdentityProviderSettingsRequest$: StaticStructureSchema = [3, n0, _UIPSR,
   0,
-  [_IP, _P, _IPA, _US],
-  [() => IdentityProvider$, 0, 0, () => UpdateSettings$]
+  [_US, _IP, _P, _IPA],
+  [() => UpdateSettings$, () => IdentityProvider$, 0, 0], 1
 ];
 export var UpdateIdentityProviderSettingsResponse$: StaticStructureSchema = [3, n0, _UIPSRp,
   0,
   [_IPS],
-  [() => IdentityProviderSummary$]
+  [() => IdentityProviderSummary$], 1
 ];
 export var UpdateSettings$: StaticStructureSchema = [3, n0, _US,
   0,
   [_AS, _RS, _SGI],
-  [64 | 0, 64 | 0, 0]
+  [64 | 0, 64 | 0, 0], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c },

@@ -502,7 +502,7 @@ import { GreengrassServiceException } from "../models/GreengrassServiceException
 export var AssociateRoleToGroupRequest$: StaticStructureSchema = [3, n0, _ARTGR,
   0,
   [_GI, _RA],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var AssociateRoleToGroupResponse$: StaticStructureSchema = [3, n0, _ARTGRs,
   0,
@@ -512,7 +512,7 @@ export var AssociateRoleToGroupResponse$: StaticStructureSchema = [3, n0, _ARTGR
 export var AssociateServiceRoleToAccountRequest$: StaticStructureSchema = [3, n0, _ASRTAR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var AssociateServiceRoleToAccountResponse$: StaticStructureSchema = [3, n0, _ASRTARs,
   0,
@@ -548,7 +548,7 @@ export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI,
 export var Connector$: StaticStructureSchema = [3, n0, _C,
   0,
   [_CAo, _I, _P],
-  [0, 0, 128 | 0]
+  [0, 0, 128 | 0], 2
 ];
 export var ConnectorDefinitionVersion$: StaticStructureSchema = [3, n0, _CDV,
   0,
@@ -557,8 +557,8 @@ export var ConnectorDefinitionVersion$: StaticStructureSchema = [3, n0, _CDV,
 ];
 export var Core$: StaticStructureSchema = [3, n0, _Cor,
   0,
-  [_CAe, _I, _SS, _TA],
-  [0, 0, 2, 0]
+  [_CAe, _I, _TA, _SS],
+  [0, 0, 0, 2], 3
 ];
 export var CoreDefinitionVersion$: StaticStructureSchema = [3, n0, _CDVo,
   0,
@@ -577,8 +577,8 @@ export var CreateConnectorDefinitionResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateConnectorDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _CCDVR,
   0,
-  [_ACT, _CDI, _Co],
-  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfConnector]
+  [_CDI, _ACT, _Co],
+  [[0, 1], [0, { [_hH]: _XACT }], () => __listOfConnector], 1
 ];
 export var CreateConnectorDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _CCDVRr,
   0,
@@ -597,8 +597,8 @@ export var CreateCoreDefinitionResponse$: StaticStructureSchema = [3, n0, _CCDRr
 ];
 export var CreateCoreDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _CCDVRre,
   0,
-  [_ACT, _CDIo, _Core],
-  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfCore]
+  [_CDIo, _ACT, _Core],
+  [[0, 1], [0, { [_hH]: _XACT }], () => __listOfCore], 1
 ];
 export var CreateCoreDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _CCDVRrea,
   0,
@@ -607,8 +607,8 @@ export var CreateCoreDefinitionVersionResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateDeploymentRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_ACT, _DI, _DT, _GI, _GVI],
-  [[0, { [_hH]: _XACT }], 0, 0, [0, 1], 0]
+  [_DT, _GI, _ACT, _DI, _GVI],
+  [0, [0, 1], [0, { [_hH]: _XACT }], 0, 0], 2
 ];
 export var CreateDeploymentResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -627,8 +627,8 @@ export var CreateDeviceDefinitionResponse$: StaticStructureSchema = [3, n0, _CDD
 ];
 export var CreateDeviceDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _CDDVR,
   0,
-  [_ACT, _DDI, _D],
-  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfDevice]
+  [_DDI, _ACT, _D],
+  [[0, 1], [0, { [_hH]: _XACT }], () => __listOfDevice], 1
 ];
 export var CreateDeviceDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _CDDVRr,
   0,
@@ -647,8 +647,8 @@ export var CreateFunctionDefinitionResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateFunctionDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _CFDVR,
   0,
-  [_ACT, _DC, _FDI, _F],
-  [[0, { [_hH]: _XACT }], () => FunctionDefaultConfig$, [0, 1], () => __listOfFunction]
+  [_FDI, _ACT, _DC, _F],
+  [[0, 1], [0, { [_hH]: _XACT }], () => FunctionDefaultConfig$, () => __listOfFunction], 1
 ];
 export var CreateFunctionDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _CFDVRr,
   0,
@@ -657,8 +657,8 @@ export var CreateFunctionDefinitionVersionResponse$: StaticStructureSchema = [3,
 ];
 export var CreateGroupCertificateAuthorityRequest$: StaticStructureSchema = [3, n0, _CGCAR,
   0,
-  [_ACT, _GI],
-  [[0, { [_hH]: _XACT }], [0, 1]]
+  [_GI, _ACT],
+  [[0, 1], [0, { [_hH]: _XACT }]], 1
 ];
 export var CreateGroupCertificateAuthorityResponse$: StaticStructureSchema = [3, n0, _CGCARr,
   0,
@@ -667,8 +667,8 @@ export var CreateGroupCertificateAuthorityResponse$: StaticStructureSchema = [3,
 ];
 export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
-  [_ACT, _IV, _N, _t],
-  [[0, { [_hH]: _XACT }], () => GroupVersion$, 0, 128 | 0]
+  [_N, _ACT, _IV, _t],
+  [0, [0, { [_hH]: _XACT }], () => GroupVersion$, 128 | 0], 1
 ];
 export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
@@ -677,8 +677,8 @@ export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr,
 ];
 export var CreateGroupVersionRequest$: StaticStructureSchema = [3, n0, _CGVR,
   0,
-  [_ACT, _CDVA, _CDVAo, _DDVA, _FDVA, _GI, _LDVA, _RDVA, _SDVA],
-  [[0, { [_hH]: _XACT }], 0, 0, 0, 0, [0, 1], 0, 0, 0]
+  [_GI, _ACT, _CDVA, _CDVAo, _DDVA, _FDVA, _LDVA, _RDVA, _SDVA],
+  [[0, 1], [0, { [_hH]: _XACT }], 0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var CreateGroupVersionResponse$: StaticStructureSchema = [3, n0, _CGVRr,
   0,
@@ -697,8 +697,8 @@ export var CreateLoggerDefinitionResponse$: StaticStructureSchema = [3, n0, _CLD
 ];
 export var CreateLoggerDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _CLDVR,
   0,
-  [_ACT, _LDI, _L],
-  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfLogger]
+  [_LDI, _ACT, _L],
+  [[0, 1], [0, { [_hH]: _XACT }], () => __listOfLogger], 1
 ];
 export var CreateLoggerDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _CLDVRr,
   0,
@@ -717,8 +717,8 @@ export var CreateResourceDefinitionResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateResourceDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _CRDVR,
   0,
-  [_ACT, _RDI, _R],
-  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfResource]
+  [_RDI, _ACT, _R],
+  [[0, 1], [0, { [_hH]: _XACT }], () => __listOfResource], 1
 ];
 export var CreateResourceDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _CRDVRr,
   0,
@@ -727,8 +727,8 @@ export var CreateResourceDefinitionVersionResponse$: StaticStructureSchema = [3,
 ];
 export var CreateSoftwareUpdateJobRequest$: StaticStructureSchema = [3, n0, _CSUJR,
   0,
-  [_ACT, _SUSR, _STU, _UALL, _UT, _UTA, _UTOS],
-  [[0, { [_hH]: _XACT }], 0, 0, 0, 64 | 0, 0, 0]
+  [_SUSR, _STU, _UT, _UTA, _UTOS, _ACT, _UALL],
+  [0, 0, 64 | 0, 0, 0, [0, { [_hH]: _XACT }], 0], 5
 ];
 export var CreateSoftwareUpdateJobResponse$: StaticStructureSchema = [3, n0, _CSUJRr,
   0,
@@ -747,8 +747,8 @@ export var CreateSubscriptionDefinitionResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreateSubscriptionDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _CSDVR,
   0,
-  [_ACT, _SDI, _S],
-  [[0, { [_hH]: _XACT }], [0, 1], () => __listOfSubscription]
+  [_SDI, _ACT, _S],
+  [[0, 1], [0, { [_hH]: _XACT }], () => __listOfSubscription], 1
 ];
 export var CreateSubscriptionDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _CSDVRr,
   0,
@@ -763,7 +763,7 @@ export var DefinitionInformation$: StaticStructureSchema = [3, n0, _DIe,
 export var DeleteConnectorDefinitionRequest$: StaticStructureSchema = [3, n0, _DCDR,
   0,
   [_CDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteConnectorDefinitionResponse$: StaticStructureSchema = [3, n0, _DCDRe,
   0,
@@ -773,7 +773,7 @@ export var DeleteConnectorDefinitionResponse$: StaticStructureSchema = [3, n0, _
 export var DeleteCoreDefinitionRequest$: StaticStructureSchema = [3, n0, _DCDRel,
   0,
   [_CDIo],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteCoreDefinitionResponse$: StaticStructureSchema = [3, n0, _DCDRele,
   0,
@@ -783,7 +783,7 @@ export var DeleteCoreDefinitionResponse$: StaticStructureSchema = [3, n0, _DCDRe
 export var DeleteDeviceDefinitionRequest$: StaticStructureSchema = [3, n0, _DDDR,
   0,
   [_DDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDeviceDefinitionResponse$: StaticStructureSchema = [3, n0, _DDDRe,
   0,
@@ -793,7 +793,7 @@ export var DeleteDeviceDefinitionResponse$: StaticStructureSchema = [3, n0, _DDD
 export var DeleteFunctionDefinitionRequest$: StaticStructureSchema = [3, n0, _DFDR,
   0,
   [_FDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteFunctionDefinitionResponse$: StaticStructureSchema = [3, n0, _DFDRe,
   0,
@@ -803,7 +803,7 @@ export var DeleteFunctionDefinitionResponse$: StaticStructureSchema = [3, n0, _D
 export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
   [_GI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe,
   0,
@@ -813,7 +813,7 @@ export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe,
 export var DeleteLoggerDefinitionRequest$: StaticStructureSchema = [3, n0, _DLDR,
   0,
   [_LDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteLoggerDefinitionResponse$: StaticStructureSchema = [3, n0, _DLDRe,
   0,
@@ -823,7 +823,7 @@ export var DeleteLoggerDefinitionResponse$: StaticStructureSchema = [3, n0, _DLD
 export var DeleteResourceDefinitionRequest$: StaticStructureSchema = [3, n0, _DRDR,
   0,
   [_RDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteResourceDefinitionResponse$: StaticStructureSchema = [3, n0, _DRDRe,
   0,
@@ -833,7 +833,7 @@ export var DeleteResourceDefinitionResponse$: StaticStructureSchema = [3, n0, _D
 export var DeleteSubscriptionDefinitionRequest$: StaticStructureSchema = [3, n0, _DSDR,
   0,
   [_SDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSubscriptionDefinitionResponse$: StaticStructureSchema = [3, n0, _DSDRe,
   0,
@@ -847,8 +847,8 @@ export var Deployment$: StaticStructureSchema = [3, n0, _De,
 ];
 export var Device$: StaticStructureSchema = [3, n0, _Dev,
   0,
-  [_CAe, _I, _SS, _TA],
-  [0, 0, 2, 0]
+  [_CAe, _I, _TA, _SS],
+  [0, 0, 0, 2], 3
 ];
 export var DeviceDefinitionVersion$: StaticStructureSchema = [3, n0, _DDV,
   0,
@@ -858,7 +858,7 @@ export var DeviceDefinitionVersion$: StaticStructureSchema = [3, n0, _DDV,
 export var DisassociateRoleFromGroupRequest$: StaticStructureSchema = [3, n0, _DRFGR,
   0,
   [_GI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateRoleFromGroupResponse$: StaticStructureSchema = [3, n0, _DRFGRi,
   0,
@@ -882,8 +882,8 @@ export var ErrorDetail$: StaticStructureSchema = [3, n0, _EDr,
 ];
 export var Function$: StaticStructureSchema = [3, n0, _Fu,
   0,
-  [_FA, _FC, _I],
-  [0, () => FunctionConfiguration$, 0]
+  [_I, _FA, _FC],
+  [0, 0, () => FunctionConfiguration$], 1
 ];
 export var FunctionConfiguration$: StaticStructureSchema = [3, n0, _FC,
   0,
@@ -923,7 +923,7 @@ export var FunctionRunAsConfig$: StaticStructureSchema = [3, n0, _FRAC,
 export var GetAssociatedRoleRequest$: StaticStructureSchema = [3, n0, _GARR,
   0,
   [_GI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAssociatedRoleResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
@@ -933,7 +933,7 @@ export var GetAssociatedRoleResponse$: StaticStructureSchema = [3, n0, _GARRe,
 export var GetBulkDeploymentStatusRequest$: StaticStructureSchema = [3, n0, _GBDSR,
   0,
   [_BDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetBulkDeploymentStatusResponse$: StaticStructureSchema = [3, n0, _GBDSRe,
   0,
@@ -943,7 +943,7 @@ export var GetBulkDeploymentStatusResponse$: StaticStructureSchema = [3, n0, _GB
 export var GetConnectivityInfoRequest$: StaticStructureSchema = [3, n0, _GCIR,
   0,
   [_TN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConnectivityInfoResponse$: StaticStructureSchema = [3, n0, _GCIRe,
   0,
@@ -953,7 +953,7 @@ export var GetConnectivityInfoResponse$: StaticStructureSchema = [3, n0, _GCIRe,
 export var GetConnectorDefinitionRequest$: StaticStructureSchema = [3, n0, _GCDR,
   0,
   [_CDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConnectorDefinitionResponse$: StaticStructureSchema = [3, n0, _GCDRe,
   0,
@@ -963,7 +963,7 @@ export var GetConnectorDefinitionResponse$: StaticStructureSchema = [3, n0, _GCD
 export var GetConnectorDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _GCDVR,
   0,
   [_CDI, _CDVI, _NT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _NT }]], 2
 ];
 export var GetConnectorDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _GCDVRe,
   0,
@@ -973,7 +973,7 @@ export var GetConnectorDefinitionVersionResponse$: StaticStructureSchema = [3, n
 export var GetCoreDefinitionRequest$: StaticStructureSchema = [3, n0, _GCDRet,
   0,
   [_CDIo],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCoreDefinitionResponse$: StaticStructureSchema = [3, n0, _GCDReto,
   0,
@@ -983,7 +983,7 @@ export var GetCoreDefinitionResponse$: StaticStructureSchema = [3, n0, _GCDReto,
 export var GetCoreDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _GCDVRet,
   0,
   [_CDIo, _CDVIo],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetCoreDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _GCDVReto,
   0,
@@ -993,7 +993,7 @@ export var GetCoreDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _G
 export var GetDeploymentStatusRequest$: StaticStructureSchema = [3, n0, _GDSR,
   0,
   [_DI, _GI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetDeploymentStatusResponse$: StaticStructureSchema = [3, n0, _GDSRe,
   0,
@@ -1003,7 +1003,7 @@ export var GetDeploymentStatusResponse$: StaticStructureSchema = [3, n0, _GDSRe,
 export var GetDeviceDefinitionRequest$: StaticStructureSchema = [3, n0, _GDDR,
   0,
   [_DDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDeviceDefinitionResponse$: StaticStructureSchema = [3, n0, _GDDRe,
   0,
@@ -1013,7 +1013,7 @@ export var GetDeviceDefinitionResponse$: StaticStructureSchema = [3, n0, _GDDRe,
 export var GetDeviceDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _GDDVR,
   0,
   [_DDI, _DDVI, _NT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _NT }]], 2
 ];
 export var GetDeviceDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _GDDVRe,
   0,
@@ -1023,7 +1023,7 @@ export var GetDeviceDefinitionVersionResponse$: StaticStructureSchema = [3, n0, 
 export var GetFunctionDefinitionRequest$: StaticStructureSchema = [3, n0, _GFDR,
   0,
   [_FDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetFunctionDefinitionResponse$: StaticStructureSchema = [3, n0, _GFDRe,
   0,
@@ -1033,7 +1033,7 @@ export var GetFunctionDefinitionResponse$: StaticStructureSchema = [3, n0, _GFDR
 export var GetFunctionDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _GFDVR,
   0,
   [_FDI, _FDVI, _NT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _NT }]], 2
 ];
 export var GetFunctionDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _GFDVRe,
   0,
@@ -1043,7 +1043,7 @@ export var GetFunctionDefinitionVersionResponse$: StaticStructureSchema = [3, n0
 export var GetGroupCertificateAuthorityRequest$: StaticStructureSchema = [3, n0, _GGCAR,
   0,
   [_CAI, _GI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetGroupCertificateAuthorityResponse$: StaticStructureSchema = [3, n0, _GGCARe,
   0,
@@ -1053,7 +1053,7 @@ export var GetGroupCertificateAuthorityResponse$: StaticStructureSchema = [3, n0
 export var GetGroupCertificateConfigurationRequest$: StaticStructureSchema = [3, n0, _GGCCR,
   0,
   [_GI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetGroupCertificateConfigurationResponse$: StaticStructureSchema = [3, n0, _GGCCRe,
   0,
@@ -1063,7 +1063,7 @@ export var GetGroupCertificateConfigurationResponse$: StaticStructureSchema = [3
 export var GetGroupRequest$: StaticStructureSchema = [3, n0, _GGR,
   0,
   [_GI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetGroupResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
@@ -1073,7 +1073,7 @@ export var GetGroupResponse$: StaticStructureSchema = [3, n0, _GGRe,
 export var GetGroupVersionRequest$: StaticStructureSchema = [3, n0, _GGVR,
   0,
   [_GI, _GVI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetGroupVersionResponse$: StaticStructureSchema = [3, n0, _GGVRe,
   0,
@@ -1083,7 +1083,7 @@ export var GetGroupVersionResponse$: StaticStructureSchema = [3, n0, _GGVRe,
 export var GetLoggerDefinitionRequest$: StaticStructureSchema = [3, n0, _GLDR,
   0,
   [_LDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetLoggerDefinitionResponse$: StaticStructureSchema = [3, n0, _GLDRe,
   0,
@@ -1093,7 +1093,7 @@ export var GetLoggerDefinitionResponse$: StaticStructureSchema = [3, n0, _GLDRe,
 export var GetLoggerDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _GLDVR,
   0,
   [_LDI, _LDVI, _NT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _NT }]], 2
 ];
 export var GetLoggerDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _GLDVRe,
   0,
@@ -1103,7 +1103,7 @@ export var GetLoggerDefinitionVersionResponse$: StaticStructureSchema = [3, n0, 
 export var GetResourceDefinitionRequest$: StaticStructureSchema = [3, n0, _GRDR,
   0,
   [_RDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetResourceDefinitionResponse$: StaticStructureSchema = [3, n0, _GRDRe,
   0,
@@ -1113,7 +1113,7 @@ export var GetResourceDefinitionResponse$: StaticStructureSchema = [3, n0, _GRDR
 export var GetResourceDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _GRDVR,
   0,
   [_RDI, _RDVI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetResourceDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _GRDVRe,
   0,
@@ -1133,7 +1133,7 @@ export var GetServiceRoleForAccountResponse$: StaticStructureSchema = [3, n0, _G
 export var GetSubscriptionDefinitionRequest$: StaticStructureSchema = [3, n0, _GSDR,
   0,
   [_SDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSubscriptionDefinitionResponse$: StaticStructureSchema = [3, n0, _GSDRe,
   0,
@@ -1142,8 +1142,8 @@ export var GetSubscriptionDefinitionResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var GetSubscriptionDefinitionVersionRequest$: StaticStructureSchema = [3, n0, _GSDVR,
   0,
-  [_NT, _SDI, _SDVI],
-  [[0, { [_hQ]: _NT }], [0, 1], [0, 1]]
+  [_SDI, _SDVI, _NT],
+  [[0, 1], [0, 1], [0, { [_hQ]: _NT }]], 2
 ];
 export var GetSubscriptionDefinitionVersionResponse$: StaticStructureSchema = [3, n0, _GSDVRe,
   0,
@@ -1153,7 +1153,7 @@ export var GetSubscriptionDefinitionVersionResponse$: StaticStructureSchema = [3
 export var GetThingRuntimeConfigurationRequest$: StaticStructureSchema = [3, n0, _GTRCR,
   0,
   [_TN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetThingRuntimeConfigurationResponse$: StaticStructureSchema = [3, n0, _GTRCRe,
   0,
@@ -1189,7 +1189,7 @@ TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServer
 export var ListBulkDeploymentDetailedReportsRequest$: StaticStructureSchema = [3, n0, _LBDDRR,
   0,
   [_BDI, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListBulkDeploymentDetailedReportsResponse$: StaticStructureSchema = [3, n0, _LBDDRRi,
   0,
@@ -1219,7 +1219,7 @@ export var ListConnectorDefinitionsResponse$: StaticStructureSchema = [3, n0, _L
 export var ListConnectorDefinitionVersionsRequest$: StaticStructureSchema = [3, n0, _LCDVR,
   0,
   [_CDI, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListConnectorDefinitionVersionsResponse$: StaticStructureSchema = [3, n0, _LCDVRi,
   0,
@@ -1239,7 +1239,7 @@ export var ListCoreDefinitionsResponse$: StaticStructureSchema = [3, n0, _LCDRis
 export var ListCoreDefinitionVersionsRequest$: StaticStructureSchema = [3, n0, _LCDVRis,
   0,
   [_CDIo, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListCoreDefinitionVersionsResponse$: StaticStructureSchema = [3, n0, _LCDVRist,
   0,
@@ -1249,7 +1249,7 @@ export var ListCoreDefinitionVersionsResponse$: StaticStructureSchema = [3, n0, 
 export var ListDeploymentsRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_GI, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListDeploymentsResponse$: StaticStructureSchema = [3, n0, _LDRi,
   0,
@@ -1269,7 +1269,7 @@ export var ListDeviceDefinitionsResponse$: StaticStructureSchema = [3, n0, _LDDR
 export var ListDeviceDefinitionVersionsRequest$: StaticStructureSchema = [3, n0, _LDDVR,
   0,
   [_DDI, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListDeviceDefinitionVersionsResponse$: StaticStructureSchema = [3, n0, _LDDVRi,
   0,
@@ -1289,7 +1289,7 @@ export var ListFunctionDefinitionsResponse$: StaticStructureSchema = [3, n0, _LF
 export var ListFunctionDefinitionVersionsRequest$: StaticStructureSchema = [3, n0, _LFDVR,
   0,
   [_FDI, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListFunctionDefinitionVersionsResponse$: StaticStructureSchema = [3, n0, _LFDVRi,
   0,
@@ -1299,7 +1299,7 @@ export var ListFunctionDefinitionVersionsResponse$: StaticStructureSchema = [3, 
 export var ListGroupCertificateAuthoritiesRequest$: StaticStructureSchema = [3, n0, _LGCAR,
   0,
   [_GI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListGroupCertificateAuthoritiesResponse$: StaticStructureSchema = [3, n0, _LGCARi,
   0,
@@ -1319,7 +1319,7 @@ export var ListGroupsResponse$: StaticStructureSchema = [3, n0, _LGRi,
 export var ListGroupVersionsRequest$: StaticStructureSchema = [3, n0, _LGVR,
   0,
   [_GI, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListGroupVersionsResponse$: StaticStructureSchema = [3, n0, _LGVRi,
   0,
@@ -1339,7 +1339,7 @@ export var ListLoggerDefinitionsResponse$: StaticStructureSchema = [3, n0, _LLDR
 export var ListLoggerDefinitionVersionsRequest$: StaticStructureSchema = [3, n0, _LLDVR,
   0,
   [_LDI, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListLoggerDefinitionVersionsResponse$: StaticStructureSchema = [3, n0, _LLDVRi,
   0,
@@ -1358,8 +1358,8 @@ export var ListResourceDefinitionsResponse$: StaticStructureSchema = [3, n0, _LR
 ];
 export var ListResourceDefinitionVersionsRequest$: StaticStructureSchema = [3, n0, _LRDVR,
   0,
-  [_MR, _NT, _RDI],
-  [[0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [0, 1]]
+  [_RDI, _MR, _NT],
+  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListResourceDefinitionVersionsResponse$: StaticStructureSchema = [3, n0, _LRDVRi,
   0,
@@ -1378,8 +1378,8 @@ export var ListSubscriptionDefinitionsResponse$: StaticStructureSchema = [3, n0,
 ];
 export var ListSubscriptionDefinitionVersionsRequest$: StaticStructureSchema = [3, n0, _LSDVR,
   0,
-  [_MR, _NT, _SDI],
-  [[0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [0, 1]]
+  [_SDI, _MR, _NT],
+  [[0, 1], [0, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListSubscriptionDefinitionVersionsResponse$: StaticStructureSchema = [3, n0, _LSDVRi,
   0,
@@ -1389,7 +1389,7 @@ export var ListSubscriptionDefinitionVersionsResponse$: StaticStructureSchema = 
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAes],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1408,8 +1408,8 @@ export var LocalVolumeResourceData$: StaticStructureSchema = [3, n0, _LVRD,
 ];
 export var Logger$: StaticStructureSchema = [3, n0, _Lo,
   0,
-  [_Com, _I, _Le, _Sp, _Ty],
-  [0, 0, 0, 1, 0]
+  [_Com, _I, _Le, _Ty, _Sp],
+  [0, 0, 0, 0, 1], 4
 ];
 export var LoggerDefinitionVersion$: StaticStructureSchema = [3, n0, _LDV,
   0,
@@ -1418,8 +1418,8 @@ export var LoggerDefinitionVersion$: StaticStructureSchema = [3, n0, _LDV,
 ];
 export var ResetDeploymentsRequest$: StaticStructureSchema = [3, n0, _RDR,
   0,
-  [_ACT, _Fo, _GI],
-  [[0, { [_hH]: _XACT }], 2, [0, 1]]
+  [_GI, _ACT, _Fo],
+  [[0, 1], [0, { [_hH]: _XACT }], 2], 1
 ];
 export var ResetDeploymentsResponse$: StaticStructureSchema = [3, n0, _RDRe,
   0,
@@ -1429,12 +1429,12 @@ export var ResetDeploymentsResponse$: StaticStructureSchema = [3, n0, _RDRe,
 export var Resource$: StaticStructureSchema = [3, n0, _Re,
   0,
   [_I, _N, _RDC],
-  [0, 0, () => ResourceDataContainer$]
+  [0, 0, () => ResourceDataContainer$], 3
 ];
 export var ResourceAccessPolicy$: StaticStructureSchema = [3, n0, _RAPe,
   0,
-  [_Pe, _RI],
-  [0, 0]
+  [_RI, _Pe],
+  [0, 0], 1
 ];
 export var ResourceDataContainer$: StaticStructureSchema = [3, n0, _RDC,
   0,
@@ -1449,7 +1449,7 @@ export var ResourceDefinitionVersion$: StaticStructureSchema = [3, n0, _RDV,
 export var ResourceDownloadOwnerSetting$: StaticStructureSchema = [3, n0, _RDOS,
   0,
   [_GO, _GP],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RuntimeConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
@@ -1473,8 +1473,8 @@ export var SecretsManagerSecretResourceData$: StaticStructureSchema = [3, n0, _S
 ];
 export var StartBulkDeploymentRequest$: StaticStructureSchema = [3, n0, _SBDR,
   0,
-  [_ACT, _ERA, _IFU, _t],
-  [[0, { [_hH]: _XACT }], 0, 0, 128 | 0]
+  [_ERA, _IFU, _ACT, _t],
+  [0, 0, [0, { [_hH]: _XACT }], 128 | 0], 2
 ];
 export var StartBulkDeploymentResponse$: StaticStructureSchema = [3, n0, _SBDRt,
   0,
@@ -1484,7 +1484,7 @@ export var StartBulkDeploymentResponse$: StaticStructureSchema = [3, n0, _SBDRt,
 export var StopBulkDeploymentRequest$: StaticStructureSchema = [3, n0, _SBDRto,
   0,
   [_BDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StopBulkDeploymentResponse$: StaticStructureSchema = [3, n0, _SBDRtop,
   0,
@@ -1494,7 +1494,7 @@ export var StopBulkDeploymentResponse$: StaticStructureSchema = [3, n0, _SBDRtop
 export var Subscription$: StaticStructureSchema = [3, n0, _Su,
   0,
   [_I, _So, _Sub, _Ta],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var SubscriptionDefinitionVersion$: StaticStructureSchema = [3, n0, _SDV,
   0,
@@ -1504,27 +1504,27 @@ export var SubscriptionDefinitionVersion$: StaticStructureSchema = [3, n0, _SDV,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAes, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 1
 ];
 export var TelemetryConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
-  [_CSS, _Te],
-  [0, 0]
+  [_Te, _CSS],
+  [0, 0], 1
 ];
 export var TelemetryConfigurationUpdate$: StaticStructureSchema = [3, n0, _TCU,
   0,
   [_Te],
-  [0]
+  [0], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAes, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateConnectivityInfoRequest$: StaticStructureSchema = [3, n0, _UCIR,
   0,
-  [_CI, _TN],
-  [() => __listOfConnectivityInfo, [0, 1]]
+  [_TN, _CI],
+  [[0, 1], () => __listOfConnectivityInfo], 1
 ];
 export var UpdateConnectivityInfoResponse$: StaticStructureSchema = [3, n0, _UCIRp,
   0,
@@ -1534,7 +1534,7 @@ export var UpdateConnectivityInfoResponse$: StaticStructureSchema = [3, n0, _UCI
 export var UpdateConnectorDefinitionRequest$: StaticStructureSchema = [3, n0, _UCDR,
   0,
   [_CDI, _N],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var UpdateConnectorDefinitionResponse$: StaticStructureSchema = [3, n0, _UCDRp,
   0,
@@ -1544,7 +1544,7 @@ export var UpdateConnectorDefinitionResponse$: StaticStructureSchema = [3, n0, _
 export var UpdateCoreDefinitionRequest$: StaticStructureSchema = [3, n0, _UCDRpd,
   0,
   [_CDIo, _N],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var UpdateCoreDefinitionResponse$: StaticStructureSchema = [3, n0, _UCDRpda,
   0,
@@ -1554,7 +1554,7 @@ export var UpdateCoreDefinitionResponse$: StaticStructureSchema = [3, n0, _UCDRp
 export var UpdateDeviceDefinitionRequest$: StaticStructureSchema = [3, n0, _UDDR,
   0,
   [_DDI, _N],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var UpdateDeviceDefinitionResponse$: StaticStructureSchema = [3, n0, _UDDRp,
   0,
@@ -1564,7 +1564,7 @@ export var UpdateDeviceDefinitionResponse$: StaticStructureSchema = [3, n0, _UDD
 export var UpdateFunctionDefinitionRequest$: StaticStructureSchema = [3, n0, _UFDR,
   0,
   [_FDI, _N],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var UpdateFunctionDefinitionResponse$: StaticStructureSchema = [3, n0, _UFDRp,
   0,
@@ -1573,8 +1573,8 @@ export var UpdateFunctionDefinitionResponse$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateGroupCertificateConfigurationRequest$: StaticStructureSchema = [3, n0, _UGCCR,
   0,
-  [_CEIM, _GI],
-  [0, [0, 1]]
+  [_GI, _CEIM],
+  [[0, 1], 0], 1
 ];
 export var UpdateGroupCertificateConfigurationResponse$: StaticStructureSchema = [3, n0, _UGCCRp,
   0,
@@ -1584,7 +1584,7 @@ export var UpdateGroupCertificateConfigurationResponse$: StaticStructureSchema =
 export var UpdateGroupRequest$: StaticStructureSchema = [3, n0, _UGR,
   0,
   [_GI, _N],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var UpdateGroupResponse$: StaticStructureSchema = [3, n0, _UGRp,
   0,
@@ -1594,7 +1594,7 @@ export var UpdateGroupResponse$: StaticStructureSchema = [3, n0, _UGRp,
 export var UpdateLoggerDefinitionRequest$: StaticStructureSchema = [3, n0, _ULDR,
   0,
   [_LDI, _N],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var UpdateLoggerDefinitionResponse$: StaticStructureSchema = [3, n0, _ULDRp,
   0,
@@ -1603,8 +1603,8 @@ export var UpdateLoggerDefinitionResponse$: StaticStructureSchema = [3, n0, _ULD
 ];
 export var UpdateResourceDefinitionRequest$: StaticStructureSchema = [3, n0, _URDR,
   0,
-  [_N, _RDI],
-  [0, [0, 1]]
+  [_RDI, _N],
+  [[0, 1], 0], 1
 ];
 export var UpdateResourceDefinitionResponse$: StaticStructureSchema = [3, n0, _URDRp,
   0,
@@ -1613,8 +1613,8 @@ export var UpdateResourceDefinitionResponse$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateSubscriptionDefinitionRequest$: StaticStructureSchema = [3, n0, _USDR,
   0,
-  [_N, _SDI],
-  [0, [0, 1]]
+  [_SDI, _N],
+  [[0, 1], 0], 1
 ];
 export var UpdateSubscriptionDefinitionResponse$: StaticStructureSchema = [3, n0, _USDRp,
   0,
@@ -1623,8 +1623,8 @@ export var UpdateSubscriptionDefinitionResponse$: StaticStructureSchema = [3, n0
 ];
 export var UpdateThingRuntimeConfigurationRequest$: StaticStructureSchema = [3, n0, _UTRCR,
   0,
-  [_TC, _TN],
-  [() => TelemetryConfigurationUpdate$, [0, 1]]
+  [_TN, _TC],
+  [[0, 1], () => TelemetryConfigurationUpdate$], 1
 ];
 export var UpdateThingRuntimeConfigurationResponse$: StaticStructureSchema = [3, n0, _UTRCRp,
   0,

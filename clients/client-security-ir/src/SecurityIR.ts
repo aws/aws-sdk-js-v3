@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchGetMemberAccountDetailsCommand,
@@ -98,6 +98,11 @@ import {
   UpdateResolverTypeCommandInput,
   UpdateResolverTypeCommandOutput,
 } from "./commands/UpdateResolverTypeCommand";
+import { paginateListCaseEdits } from "./pagination/ListCaseEditsPaginator";
+import { paginateListCases } from "./pagination/ListCasesPaginator";
+import { paginateListComments } from "./pagination/ListCommentsPaginator";
+import { paginateListInvestigations } from "./pagination/ListInvestigationsPaginator";
+import { paginateListMemberships } from "./pagination/ListMembershipsPaginator";
 import { SecurityIRClient } from "./SecurityIRClient";
 
 const commands = {
@@ -125,6 +130,13 @@ const commands = {
   UpdateCaseStatusCommand,
   UpdateMembershipCommand,
   UpdateResolverTypeCommand,
+};
+const paginators = {
+  paginateListCaseEdits,
+  paginateListCases,
+  paginateListComments,
+  paginateListInvestigations,
+  paginateListMemberships,
 };
 
 export interface SecurityIR {
@@ -537,6 +549,61 @@ export interface SecurityIR {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateResolverTypeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCaseEditsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCaseEditsCommandOutput}.
+   */
+  paginateListCaseEdits(
+    args: ListCaseEditsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCaseEditsCommandOutput>;
+
+  /**
+   * @see {@link ListCasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCasesCommandOutput}.
+   */
+  paginateListCases(
+    args?: ListCasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCasesCommandOutput>;
+
+  /**
+   * @see {@link ListCommentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCommentsCommandOutput}.
+   */
+  paginateListComments(
+    args: ListCommentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCommentsCommandOutput>;
+
+  /**
+   * @see {@link ListInvestigationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvestigationsCommandOutput}.
+   */
+  paginateListInvestigations(
+    args: ListInvestigationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvestigationsCommandOutput>;
+
+  /**
+   * @see {@link ListMembershipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMembershipsCommandOutput}.
+   */
+  paginateListMemberships(
+    args?: ListMembershipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMembershipsCommandOutput>;
 }
 
 /**
@@ -544,4 +611,4 @@ export interface SecurityIR {
  * @public
  */
 export class SecurityIR extends SecurityIRClient implements SecurityIR {}
-createAggregatedClient(commands, SecurityIR);
+createAggregatedClient(commands, SecurityIR, { paginators });

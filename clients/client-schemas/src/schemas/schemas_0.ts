@@ -204,19 +204,19 @@ var SynthesizedJson__string: StaticSimpleSchema = [0, n0, _Ss, { [_mT]: _a }, 0]
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_C, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_C, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateDiscovererRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_D, _SA, _CA, _T],
-  [0, 0, 2, [128 | 0, { [_jN]: _t }]]
+  [_SA, _D, _CA, _T],
+  [0, 0, 2, [128 | 0, { [_jN]: _t }]], 1
 ];
 export var CreateDiscovererResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -225,8 +225,8 @@ export var CreateDiscovererResponse$: StaticStructureSchema = [3, n0, _CDRr,
 ];
 export var CreateRegistryRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_D, _RN, _T],
-  [0, [0, 1], [128 | 0, { [_jN]: _t }]]
+  [_RN, _D, _T],
+  [[0, 1], 0, [128 | 0, { [_jN]: _t }]], 1
 ];
 export var CreateRegistryResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -235,8 +235,8 @@ export var CreateRegistryResponse$: StaticStructureSchema = [3, n0, _CRRr,
 ];
 export var CreateSchemaRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_Co, _D, _RN, _SN, _T, _Ty],
-  [0, 0, [0, 1], [0, 1], [128 | 0, { [_jN]: _t }], 0]
+  [_Co, _RN, _SN, _Ty, _D, _T],
+  [0, [0, 1], [0, 1], 0, 0, [128 | 0, { [_jN]: _t }]], 4
 ];
 export var CreateSchemaResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -246,12 +246,12 @@ export var CreateSchemaResponse$: StaticStructureSchema = [3, n0, _CSRr,
 export var DeleteDiscovererRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteRegistryRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_RN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
@@ -261,17 +261,17 @@ export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
 export var DeleteSchemaRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_RN, _SN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteSchemaVersionRequest$: StaticStructureSchema = [3, n0, _DSVR,
   0,
   [_RN, _SN, _SV],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DescribeCodeBindingRequest$: StaticStructureSchema = [3, n0, _DCBR,
   0,
   [_L, _RN, _SN, _SV],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _sV }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _sV }]], 3
 ];
 export var DescribeCodeBindingResponse$: StaticStructureSchema = [3, n0, _DCBRe,
   0,
@@ -281,7 +281,7 @@ export var DescribeCodeBindingResponse$: StaticStructureSchema = [3, n0, _DCBRe,
 export var DescribeDiscovererRequest$: StaticStructureSchema = [3, n0, _DDRe,
   0,
   [_DI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeDiscovererResponse$: StaticStructureSchema = [3, n0, _DDRes,
   0,
@@ -291,7 +291,7 @@ export var DescribeDiscovererResponse$: StaticStructureSchema = [3, n0, _DDRes,
 export var DescribeRegistryRequest$: StaticStructureSchema = [3, n0, _DRRe,
   0,
   [_RN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeRegistryResponse$: StaticStructureSchema = [3, n0, _DRRes,
   0,
@@ -301,7 +301,7 @@ export var DescribeRegistryResponse$: StaticStructureSchema = [3, n0, _DRRes,
 export var DescribeSchemaRequest$: StaticStructureSchema = [3, n0, _DSRe,
   0,
   [_RN, _SN, _SV],
-  [[0, 1], [0, 1], [0, { [_hQ]: _sV }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _sV }]], 2
 ];
 export var DescribeSchemaResponse$: StaticStructureSchema = [3, n0, _DSRes,
   0,
@@ -315,8 +315,8 @@ export var DiscovererSummary$: StaticStructureSchema = [3, n0, _DS,
 ];
 export var ExportSchemaRequest$: StaticStructureSchema = [3, n0, _ESR,
   0,
-  [_RN, _SN, _SV, _Ty],
-  [[0, 1], [0, 1], [0, { [_hQ]: _sV }], [0, { [_hQ]: _ty }]]
+  [_RN, _SN, _Ty, _SV],
+  [[0, 1], [0, 1], [0, { [_hQ]: _ty }], [0, { [_hQ]: _sV }]], 3
 ];
 export var ExportSchemaResponse$: StaticStructureSchema = [3, n0, _ESRx,
   0,
@@ -326,13 +326,13 @@ export var ExportSchemaResponse$: StaticStructureSchema = [3, n0, _ESRx,
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c, [_hE]: 403 },
   [_C, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetCodeBindingSourceRequest$: StaticStructureSchema = [3, n0, _GCBSR,
   0,
   [_L, _RN, _SN, _SV],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _sV }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _sV }]], 3
 ];
 export var GetCodeBindingSourceResponse$: StaticStructureSchema = [3, n0, _GCBSRe,
   0,
@@ -342,7 +342,7 @@ export var GetCodeBindingSourceResponse$: StaticStructureSchema = [3, n0, _GCBSR
 export var GetDiscoveredSchemaRequest$: StaticStructureSchema = [3, n0, _GDSR,
   0,
   [_E, _Ty],
-  [64 | 0, 0]
+  [64 | 0, 0], 2
 ];
 export var GetDiscoveredSchemaResponse$: StaticStructureSchema = [3, n0, _GDSRe,
   0,
@@ -362,13 +362,13 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
 export var GoneException$: StaticErrorSchema = [-3, n0, _GE,
   { [_e]: _c, [_hE]: 410 },
   [_C, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(GoneException$, GoneException);
 export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
   { [_e]: _s, [_hE]: 500 },
   [_C, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var ListDiscoverersRequest$: StaticStructureSchema = [3, n0, _LDR,
@@ -393,8 +393,8 @@ export var ListRegistriesResponse$: StaticStructureSchema = [3, n0, _LRRi,
 ];
 export var ListSchemasRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
-  [_Li, _NT, _RN, _SNP],
-  [[1, { [_hQ]: _l }], [0, { [_hQ]: _nT }], [0, 1], [0, { [_hQ]: _sNP }]]
+  [_RN, _Li, _NT, _SNP],
+  [[0, 1], [1, { [_hQ]: _l }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _sNP }]], 1
 ];
 export var ListSchemasResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
@@ -403,8 +403,8 @@ export var ListSchemasResponse$: StaticStructureSchema = [3, n0, _LSRi,
 ];
 export var ListSchemaVersionsRequest$: StaticStructureSchema = [3, n0, _LSVR,
   0,
-  [_Li, _NT, _RN, _SN],
-  [[1, { [_hQ]: _l }], [0, { [_hQ]: _nT }], [0, 1], [0, 1]]
+  [_RN, _SN, _Li, _NT],
+  [[0, 1], [0, 1], [1, { [_hQ]: _l }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListSchemaVersionsResponse$: StaticStructureSchema = [3, n0, _LSVRi,
   0,
@@ -414,7 +414,7 @@ export var ListSchemaVersionsResponse$: StaticStructureSchema = [3, n0, _LSVRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -424,19 +424,19 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_e]: _c, [_hE]: 404 },
   [_C, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PreconditionFailedException$: StaticErrorSchema = [-3, n0, _PFE,
   { [_e]: _c, [_hE]: 412 },
   [_C, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(PreconditionFailedException$, PreconditionFailedException);
 export var PutCodeBindingRequest$: StaticStructureSchema = [3, n0, _PCBR,
   0,
   [_L, _RN, _SN, _SV],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _sV }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _sV }]], 3
 ];
 export var PutCodeBindingResponse$: StaticStructureSchema = [3, n0, _PCBRu,
   0,
@@ -446,7 +446,7 @@ export var PutCodeBindingResponse$: StaticStructureSchema = [3, n0, _PCBRu,
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_P, _RN, _RI],
-  [[() => SynthesizedJson__string, 0], [0, { [_hQ]: _rN }], 0]
+  [[() => SynthesizedJson__string, 0], [0, { [_hQ]: _rN }], 0], 1
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -470,8 +470,8 @@ export var SchemaVersionSummary$: StaticStructureSchema = [3, n0, _SVS,
 ];
 export var SearchSchemasRequest$: StaticStructureSchema = [3, n0, _SSR,
   0,
-  [_K, _Li, _NT, _RN],
-  [[0, { [_hQ]: _k }], [1, { [_hQ]: _l }], [0, { [_hQ]: _nT }], [0, 1]]
+  [_K, _RN, _Li, _NT],
+  [[0, { [_hQ]: _k }], [0, 1], [1, { [_hQ]: _l }], [0, { [_hQ]: _nT }]], 2
 ];
 export var SearchSchemasResponse$: StaticStructureSchema = [3, n0, _SSRe,
   0,
@@ -491,13 +491,13 @@ export var SearchSchemaVersionSummary$: StaticStructureSchema = [3, n0, _SSVS,
 export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
   { [_e]: _s, [_hE]: 503 },
   [_C, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var StartDiscovererRequest$: StaticStructureSchema = [3, n0, _SDR,
   0,
   [_DI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StartDiscovererResponse$: StaticStructureSchema = [3, n0, _SDRt,
   0,
@@ -507,7 +507,7 @@ export var StartDiscovererResponse$: StaticStructureSchema = [3, n0, _SDRt,
 export var StopDiscovererRequest$: StaticStructureSchema = [3, n0, _SDRto,
   0,
   [_DI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StopDiscovererResponse$: StaticStructureSchema = [3, n0, _SDRtop,
   0,
@@ -517,29 +517,29 @@ export var StopDiscovererResponse$: StaticStructureSchema = [3, n0, _SDRtop,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _T],
-  [[0, 1], [128 | 0, { [_jN]: _t }]]
+  [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
 export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c, [_hE]: 429 },
   [_C, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
   { [_e]: _c, [_hE]: 401 },
   [_C, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateDiscovererRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_D, _DI, _CA],
-  [0, [0, 1], 2]
+  [_DI, _D, _CA],
+  [[0, 1], 0, 2], 1
 ];
 export var UpdateDiscovererResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -548,8 +548,8 @@ export var UpdateDiscovererResponse$: StaticStructureSchema = [3, n0, _UDRp,
 ];
 export var UpdateRegistryRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
-  [_D, _RN],
-  [0, [0, 1]]
+  [_RN, _D],
+  [[0, 1], 0], 1
 ];
 export var UpdateRegistryResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -558,8 +558,8 @@ export var UpdateRegistryResponse$: StaticStructureSchema = [3, n0, _URRpd,
 ];
 export var UpdateSchemaRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_CTI, _Co, _D, _RN, _SN, _Ty],
-  [[0, 4], 0, 0, [0, 1], [0, 1], 0]
+  [_RN, _SN, _CTI, _Co, _D, _Ty],
+  [[0, 1], [0, 1], [0, 4], 0, 0, 0], 2
 ];
 export var UpdateSchemaResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,

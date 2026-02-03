@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BCMDashboardsClient } from "./BCMDashboardsClient";
 import {
@@ -44,6 +44,7 @@ import {
   UpdateDashboardCommandInput,
   UpdateDashboardCommandOutput,
 } from "./commands/UpdateDashboardCommand";
+import { paginateListDashboards } from "./pagination/ListDashboardsPaginator";
 
 const commands = {
   CreateDashboardCommand,
@@ -55,6 +56,9 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDashboardCommand,
+};
+const paginators = {
+  paginateListDashboards,
 };
 
 export interface BCMDashboards {
@@ -211,6 +215,17 @@ export interface BCMDashboards {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDashboardCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDashboardsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDashboardsCommandOutput}.
+   */
+  paginateListDashboards(
+    args?: ListDashboardsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDashboardsCommandOutput>;
 }
 
 /**
@@ -218,4 +233,4 @@ export interface BCMDashboards {
  * @public
  */
 export class BCMDashboards extends BCMDashboardsClient implements BCMDashboards {}
-createAggregatedClient(commands, BCMDashboards);
+createAggregatedClient(commands, BCMDashboards, { paginators });

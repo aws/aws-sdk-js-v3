@@ -51,13 +51,17 @@ export interface SearchTypesCommandOutput extends SearchTypesOutput, __MetadataB
  *   filters: { // FilterClause Union: only one key present
  *     filter: { // Filter
  *       attribute: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *       intValue: Number("long"),
+ *       operator: "EQ" || "LE" || "LT" || "GE" || "GT" || "TEXT_SEARCH",
  *     },
  *     and: [ // FilterList
  *       {//  Union: only one key present
  *         filter: {
  *           attribute: "STRING_VALUE", // required
- *           value: "STRING_VALUE", // required
+ *           value: "STRING_VALUE",
+ *           intValue: Number("long"),
+ *           operator: "EQ" || "LE" || "LT" || "GE" || "GT" || "TEXT_SEARCH",
  *         },
  *         and: [
  *           "<FilterClause>",

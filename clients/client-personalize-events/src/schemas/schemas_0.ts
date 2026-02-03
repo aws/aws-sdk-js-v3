@@ -89,17 +89,17 @@ var UserId: StaticSimpleSchema = [0, n0, _UI, 8, 0];
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
   [_aI, _p],
-  [0, [() => SynthesizedJsonActionProperties, 0]]
+  [0, [() => SynthesizedJsonActionProperties, 0]], 1
 ];
 export var ActionInteraction$: StaticStructureSchema = [3, n0, _AIc,
   0,
-  [_aI, _uI, _sI, _t, _eT, _eI, _rI, _i, _p],
-  [[() => ActionId, 0], [() => UserId, 0], 0, 4, 0, 0, 0, [() => ActionImpression, 0], [() => SynthesizedJsonActionInteractionProperties, 0]]
+  [_aI, _sI, _t, _eT, _uI, _eI, _rI, _i, _p],
+  [[() => ActionId, 0], 0, 4, 0, [() => UserId, 0], 0, 0, [() => ActionImpression, 0], [() => SynthesizedJsonActionInteractionProperties, 0]], 4
 ];
 export var Event$: StaticStructureSchema = [3, n0, _E,
   8,
-  [_eI, _eT, _eV, _iI, _p, _sA, _rI, _i, _mA],
-  [0, 0, 1, [() => ItemId, 0], [() => SynthesizedJsonEventPropertiesJSON, 0], 4, 0, [() => Impression, 0], () => MetricAttribution$]
+  [_eT, _sA, _eI, _eV, _iI, _p, _rI, _i, _mA],
+  [0, 4, 0, 1, [() => ItemId, 0], [() => SynthesizedJsonEventPropertiesJSON, 0], 0, [() => Impression, 0], () => MetricAttribution$], 2
 ];
 export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
   { [_e]: _c, [_hE]: 400 },
@@ -110,37 +110,37 @@ TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException
 export var Item$: StaticStructureSchema = [3, n0, _I,
   0,
   [_iI, _p],
-  [0, [() => SynthesizedJsonItemProperties, 0]]
+  [0, [() => SynthesizedJsonItemProperties, 0]], 1
 ];
 export var MetricAttribution$: StaticStructureSchema = [3, n0, _MA,
   0,
   [_eAS],
-  [0]
+  [0], 1
 ];
 export var PutActionInteractionsRequest$: StaticStructureSchema = [3, n0, _PAIR,
   0,
   [_tI, _aIc],
-  [0, [() => ActionInteractionsList, 0]]
+  [0, [() => ActionInteractionsList, 0]], 2
 ];
 export var PutActionsRequest$: StaticStructureSchema = [3, n0, _PAR,
   0,
   [_dA, _ac],
-  [0, [() => ActionList, 0]]
+  [0, [() => ActionList, 0]], 2
 ];
 export var PutEventsRequest$: StaticStructureSchema = [3, n0, _PER,
   0,
-  [_tI, _uI, _sI, _eL],
-  [0, [() => UserId, 0], 0, [() => EventList, 0]]
+  [_tI, _sI, _eL, _uI],
+  [0, 0, [() => EventList, 0], [() => UserId, 0]], 3
 ];
 export var PutItemsRequest$: StaticStructureSchema = [3, n0, _PIR,
   0,
   [_dA, _it],
-  [0, [() => ItemList, 0]]
+  [0, [() => ItemList, 0]], 2
 ];
 export var PutUsersRequest$: StaticStructureSchema = [3, n0, _PUR,
   0,
   [_dA, _u],
-  [0, [() => UserList, 0]]
+  [0, [() => UserList, 0]], 2
 ];
 export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
   { [_e]: _c, [_hE]: 409 },
@@ -157,7 +157,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var User$: StaticStructureSchema = [3, n0, _U,
   0,
   [_uI, _p],
-  [0, [() => SynthesizedJsonUserProperties, 0]]
+  [0, [() => SynthesizedJsonUserProperties, 0]], 1
 ];
 var __Unit = "unit" as const;
 export var PersonalizeEventsServiceException$: StaticErrorSchema = [-3, _sm, "PersonalizeEventsServiceException", 0, [], []];

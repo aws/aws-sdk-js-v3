@@ -552,18 +552,18 @@ var StorageLocation: StaticSimpleSchema = [0, n0, _SL, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Actuator$: StaticStructureSchema = [3, n0, _A,
   0,
   [_fQN, _dT, _d, _u, _aV, _mi, _ma, _aVs, _dM, _co, _sFQN],
-  [0, 0, 0, 0, 64 | 0, 1, 1, 0, 0, 0, 0]
+  [0, 0, 0, 0, 64 | 0, 1, 1, 0, 0, 0, 0], 2
 ];
 export var AssociateVehicleFleetRequest$: StaticStructureSchema = [3, n0, _AVFR,
   0,
   [_vN, _fI],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var AssociateVehicleFleetResponse$: StaticStructureSchema = [3, n0, _AVFRs,
   0,
@@ -573,12 +573,12 @@ export var AssociateVehicleFleetResponse$: StaticStructureSchema = [3, n0, _AVFR
 export var Attribute$: StaticStructureSchema = [3, n0, _At,
   0,
   [_fQN, _dT, _d, _u, _aV, _mi, _ma, _aVs, _dV, _dM, _co],
-  [0, 0, 0, 0, 64 | 0, 1, 1, 0, 0, 0, 0]
+  [0, 0, 0, 0, 64 | 0, 1, 1, 0, 0, 0, 0], 2
 ];
 export var BatchCreateVehicleRequest$: StaticStructureSchema = [3, n0, _BCVR,
   0,
   [_v],
-  [() => createVehicleRequestItems]
+  [() => createVehicleRequestItems], 1
 ];
 export var BatchCreateVehicleResponse$: StaticStructureSchema = [3, n0, _BCVRa,
   0,
@@ -588,7 +588,7 @@ export var BatchCreateVehicleResponse$: StaticStructureSchema = [3, n0, _BCVRa,
 export var BatchUpdateVehicleRequest$: StaticStructureSchema = [3, n0, _BUVR,
   0,
   [_v],
-  [() => updateVehicleRequestItems]
+  [() => updateVehicleRequestItems], 1
 ];
 export var BatchUpdateVehicleResponse$: StaticStructureSchema = [3, n0, _BUVRa,
   0,
@@ -598,53 +598,53 @@ export var BatchUpdateVehicleResponse$: StaticStructureSchema = [3, n0, _BUVRa,
 export var Branch$: StaticStructureSchema = [3, n0, _B,
   0,
   [_fQN, _d, _dM, _co],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var CampaignSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_a, _n, _d, _sCA, _tA, _s, _cT, _lMT],
-  [0, 0, 0, 0, 0, 0, 4, 4]
+  [_cT, _lMT, _a, _n, _d, _sCA, _tA, _s],
+  [4, 4, 0, 0, 0, 0, 0, 0], 2
 ];
 export var CanDbcDefinition$: StaticStructureSchema = [3, n0, _CDD,
   0,
   [_nI, _cDF, _sM],
-  [0, 64 | 21, 128 | 0]
+  [0, 64 | 21, 128 | 0], 2
 ];
 export var CanInterface$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_n, _pN, _pV],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var CanSignal$: StaticStructureSchema = [3, n0, _CSa,
   0,
   [_mI, _iBE, _iS, _sB, _o, _f, _l, _n, _sVT],
-  [1, 2, 2, 1, 1, 1, 1, 0, 0]
+  [1, 2, 2, 1, 1, 1, 1, 0, 0], 7
 ];
 export var CloudWatchLogDeliveryOptions$: StaticStructureSchema = [3, n0, _CWLDO,
   0,
   [_lT, _lGN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ConditionBasedCollectionScheme$: StaticStructureSchema = [3, n0, _CBCS,
   0,
   [_ex, _mTIM, _tM, _cLV],
-  [[() => eventExpression, 0], 1, 0, 1]
+  [[() => eventExpression, 0], 1, 0, 1], 1
 ];
 export var ConditionBasedSignalFetchConfig$: StaticStructureSchema = [3, n0, _CBSFC,
   0,
   [_cE, _tM],
-  [[() => fetchConfigEventExpression, 0], 0]
+  [[() => fetchConfigEventExpression, 0], 0], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _r, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCampaignRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_n, _d, _sCA, _tA, _sT, _eT, _pTCD, _dMi, _sMp, _com, _p, _sTC, _cS, _dED, _t, _dDC, _dP, _sTF],
-  [[0, 1], 0, 0, 0, 4, 4, 1, 0, 0, 0, 1, [() => SignalInformationList, 0], [() => CollectionScheme$, 0], [() => DataExtraDimensionNodePathList, 0], () => TagList, () => DataDestinationConfigs, [() => DataPartitions, 0], [() => SignalFetchInformationList, 0]]
+  [_n, _sCA, _tA, _cS, _d, _sT, _eT, _pTCD, _dMi, _sMp, _com, _p, _sTC, _dED, _t, _dDC, _dP, _sTF],
+  [[0, 1], 0, 0, [() => CollectionScheme$, 0], 0, 4, 4, 1, 0, 0, 0, 1, [() => SignalInformationList, 0], [() => DataExtraDimensionNodePathList, 0], () => TagList, () => DataDestinationConfigs, [() => DataPartitions, 0], [() => SignalFetchInformationList, 0]], 4
 ];
 export var CreateCampaignResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -653,48 +653,48 @@ export var CreateCampaignResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateDecoderManifestRequest$: StaticStructureSchema = [3, n0, _CDMR,
   0,
-  [_n, _d, _mMA, _sD, _nIe, _dFUS, _t],
-  [[0, 1], 0, 0, () => SignalDecoders, () => NetworkInterfaces, 0, () => TagList]
+  [_n, _mMA, _d, _sD, _nIe, _dFUS, _t],
+  [[0, 1], 0, 0, () => SignalDecoders, () => NetworkInterfaces, 0, () => TagList], 2
 ];
 export var CreateDecoderManifestResponse$: StaticStructureSchema = [3, n0, _CDMRr,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateFleetRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_fI, _d, _sCA, _t],
-  [[0, 1], 0, 0, () => TagList]
+  [_fI, _sCA, _d, _t],
+  [[0, 1], 0, 0, () => TagList], 2
 ];
 export var CreateFleetResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
   [_i, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateModelManifestRequest$: StaticStructureSchema = [3, n0, _CMMR,
   0,
-  [_n, _d, _no, _sCA, _t],
-  [[0, 1], 0, 64 | 0, 0, () => TagList]
+  [_n, _no, _sCA, _d, _t],
+  [[0, 1], 64 | 0, 0, 0, () => TagList], 3
 ];
 export var CreateModelManifestResponse$: StaticStructureSchema = [3, n0, _CMMRr,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateSignalCatalogRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
   [_n, _d, _no, _t],
-  [[0, 1], 0, () => Nodes, () => TagList]
+  [[0, 1], 0, () => Nodes, () => TagList], 1
 ];
 export var CreateSignalCatalogResponse$: StaticStructureSchema = [3, n0, _CSCRr,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateStateTemplateRequest$: StaticStructureSchema = [3, n0, _CSTR,
   0,
-  [_n, _d, _sCA, _sTP, _dED, _mED, _t],
-  [[0, 1], 0, 0, 64 | 0, 64 | 0, 64 | 0, () => TagList]
+  [_n, _sCA, _sTP, _d, _dED, _mED, _t],
+  [[0, 1], 0, 64 | 0, 0, 64 | 0, 64 | 0, () => TagList], 3
 ];
 export var CreateStateTemplateResponse$: StaticStructureSchema = [3, n0, _CSTRr,
   0,
@@ -709,12 +709,12 @@ export var CreateVehicleError$: StaticStructureSchema = [3, n0, _CVE,
 export var CreateVehicleRequest$: StaticStructureSchema = [3, n0, _CVR,
   0,
   [_vN, _mMA, _dMA, _at, _aB, _t, _sTt],
-  [[0, 1], 0, 0, 128 | 0, 0, () => TagList, () => StateTemplateAssociations]
+  [[0, 1], 0, 0, 128 | 0, 0, () => TagList, () => StateTemplateAssociations], 3
 ];
 export var CreateVehicleRequestItem$: StaticStructureSchema = [3, n0, _CVRI,
   0,
   [_vN, _mMA, _dMA, _at, _aB, _t, _sTt],
-  [0, 0, 0, 128 | 0, 0, () => TagList, () => StateTemplateAssociations]
+  [0, 0, 0, 128 | 0, 0, () => TagList, () => StateTemplateAssociations], 3
 ];
 export var CreateVehicleResponse$: StaticStructureSchema = [3, n0, _CVRr,
   0,
@@ -729,42 +729,42 @@ export var CreateVehicleResponseItem$: StaticStructureSchema = [3, n0, _CVRIr,
 export var CustomDecodingInterface$: StaticStructureSchema = [3, n0, _CDI,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var CustomDecodingSignal$: StaticStructureSchema = [3, n0, _CDS,
   0,
   [_i],
-  [0]
+  [0], 1
 ];
 export var CustomProperty$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_fQN, _dT, _dE, _d, _dM, _co, _sFQN],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0], 2
 ];
 export var CustomStruct$: StaticStructureSchema = [3, n0, _CSu,
   0,
   [_fQN, _d, _dM, _co],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var DataPartition$: StaticStructureSchema = [3, n0, _DP,
   0,
   [_i, _sO, _uO],
-  [0, [() => DataPartitionStorageOptions$, 0], [() => DataPartitionUploadOptions$, 0]]
+  [0, [() => DataPartitionStorageOptions$, 0], [() => DataPartitionUploadOptions$, 0]], 2
 ];
 export var DataPartitionStorageOptions$: StaticStructureSchema = [3, n0, _DPSO,
   0,
   [_mS, _sL, _mTTL],
-  [() => StorageMaximumSize$, [() => StorageLocation, 0], () => StorageMinimumTimeToLive$]
+  [() => StorageMaximumSize$, [() => StorageLocation, 0], () => StorageMinimumTimeToLive$], 3
 ];
 export var DataPartitionUploadOptions$: StaticStructureSchema = [3, n0, _DPUO,
   0,
   [_ex, _cLV],
-  [[() => eventExpression, 0], 1]
+  [[() => eventExpression, 0], 1], 1
 ];
 export var DecoderManifestSummary$: StaticStructureSchema = [3, n0, _DMS,
   0,
-  [_n, _a, _mMA, _d, _s, _cT, _lMT, _m],
-  [0, 0, 0, 0, 0, 4, 4, 0]
+  [_cT, _lMT, _n, _a, _mMA, _d, _s, _m],
+  [4, 4, 0, 0, 0, 0, 0, 0], 2
 ];
 export var DecoderManifestValidationException$: StaticErrorSchema = [-3, n0, _DMVE,
   { [_e]: _c, [_hE]: 400 },
@@ -775,7 +775,7 @@ TypeRegistry.for(n0).registerError(DecoderManifestValidationException$, DecoderM
 export var DeleteCampaignRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteCampaignResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -785,17 +785,17 @@ export var DeleteCampaignResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteDecoderManifestRequest$: StaticStructureSchema = [3, n0, _DDMR,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDecoderManifestResponse$: StaticStructureSchema = [3, n0, _DDMRe,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteFleetRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_fI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteFleetResponse$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -805,27 +805,27 @@ export var DeleteFleetResponse$: StaticStructureSchema = [3, n0, _DFRe,
 export var DeleteModelManifestRequest$: StaticStructureSchema = [3, n0, _DMMR,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteModelManifestResponse$: StaticStructureSchema = [3, n0, _DMMRe,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteSignalCatalogRequest$: StaticStructureSchema = [3, n0, _DSCR,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSignalCatalogResponse$: StaticStructureSchema = [3, n0, _DSCRe,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteStateTemplateRequest$: StaticStructureSchema = [3, n0, _DSTR,
   0,
   [_id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteStateTemplateResponse$: StaticStructureSchema = [3, n0, _DSTRe,
   0,
@@ -835,17 +835,17 @@ export var DeleteStateTemplateResponse$: StaticStructureSchema = [3, n0, _DSTRe,
 export var DeleteVehicleRequest$: StaticStructureSchema = [3, n0, _DVR,
   0,
   [_vN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteVehicleResponse$: StaticStructureSchema = [3, n0, _DVRe,
   0,
   [_vN, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateVehicleFleetRequest$: StaticStructureSchema = [3, n0, _DVFR,
   0,
   [_vN, _fI],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var DisassociateVehicleFleetResponse$: StaticStructureSchema = [3, n0, _DVFRi,
   0,
@@ -854,13 +854,13 @@ export var DisassociateVehicleFleetResponse$: StaticStructureSchema = [3, n0, _D
 ];
 export var FleetSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
-  [_i, _a, _d, _sCA, _cT, _lMT],
-  [0, 0, 0, 0, 4, 4]
+  [_i, _a, _sCA, _cT, _d, _lMT],
+  [0, 0, 0, 4, 0, 4], 4
 ];
 export var GetCampaignRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCampaignResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -870,12 +870,12 @@ export var GetCampaignResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var GetDecoderManifestRequest$: StaticStructureSchema = [3, n0, _GDMR,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDecoderManifestResponse$: StaticStructureSchema = [3, n0, _GDMRe,
   0,
-  [_n, _a, _d, _mMA, _s, _cT, _lMT, _m],
-  [0, 0, 0, 0, 0, 4, 4, 0]
+  [_n, _a, _cT, _lMT, _d, _mMA, _s, _m],
+  [0, 0, 4, 4, 0, 0, 0, 0], 4
 ];
 export var GetEncryptionConfigurationRequest$: StaticStructureSchema = [3, n0, _GECR,
   0,
@@ -884,18 +884,18 @@ export var GetEncryptionConfigurationRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var GetEncryptionConfigurationResponse$: StaticStructureSchema = [3, n0, _GECRe,
   0,
-  [_kKI, _eS, _eTn, _eM, _cT, _lMT],
-  [0, 0, 0, 0, 4, 4]
+  [_eS, _eTn, _kKI, _eM, _cT, _lMT],
+  [0, 0, 0, 0, 4, 4], 2
 ];
 export var GetFleetRequest$: StaticStructureSchema = [3, n0, _GFR,
   0,
   [_fI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetFleetResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
-  [_i, _a, _d, _sCA, _cT, _lMT],
-  [0, 0, 0, 0, 4, 4]
+  [_i, _a, _sCA, _cT, _lMT, _d],
+  [0, 0, 0, 4, 4, 0], 5
 ];
 export var GetLoggingOptionsRequest$: StaticStructureSchema = [3, n0, _GLOR,
   0,
@@ -905,17 +905,17 @@ export var GetLoggingOptionsRequest$: StaticStructureSchema = [3, n0, _GLOR,
 export var GetLoggingOptionsResponse$: StaticStructureSchema = [3, n0, _GLORe,
   0,
   [_cWLD],
-  [() => CloudWatchLogDeliveryOptions$]
+  [() => CloudWatchLogDeliveryOptions$], 1
 ];
 export var GetModelManifestRequest$: StaticStructureSchema = [3, n0, _GMMR,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetModelManifestResponse$: StaticStructureSchema = [3, n0, _GMMRe,
   0,
-  [_n, _a, _d, _sCA, _s, _cT, _lMT],
-  [0, 0, 0, 0, 0, 4, 4]
+  [_n, _a, _cT, _lMT, _d, _sCA, _s],
+  [0, 0, 4, 4, 0, 0, 0], 4
 ];
 export var GetRegisterAccountStatusRequest$: StaticStructureSchema = [3, n0, _GRASR,
   0,
@@ -924,23 +924,23 @@ export var GetRegisterAccountStatusRequest$: StaticStructureSchema = [3, n0, _GR
 ];
 export var GetRegisterAccountStatusResponse$: StaticStructureSchema = [3, n0, _GRASRe,
   0,
-  [_cAI, _aS, _tRR, _iRR, _cT, _lMT],
-  [0, 0, () => TimestreamRegistrationResponse$, () => IamRegistrationResponse$, 4, 4]
+  [_cAI, _aS, _iRR, _cT, _lMT, _tRR],
+  [0, 0, () => IamRegistrationResponse$, 4, 4, () => TimestreamRegistrationResponse$], 5
 ];
 export var GetSignalCatalogRequest$: StaticStructureSchema = [3, n0, _GSCR,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSignalCatalogResponse$: StaticStructureSchema = [3, n0, _GSCRe,
   0,
-  [_n, _a, _d, _nC, _cT, _lMT],
-  [0, 0, 0, () => NodeCounts$, 4, 4]
+  [_n, _a, _cT, _lMT, _d, _nC],
+  [0, 0, 4, 4, 0, () => NodeCounts$], 4
 ];
 export var GetStateTemplateRequest$: StaticStructureSchema = [3, n0, _GSTR,
   0,
   [_id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetStateTemplateResponse$: StaticStructureSchema = [3, n0, _GSTRe,
   0,
@@ -950,7 +950,7 @@ export var GetStateTemplateResponse$: StaticStructureSchema = [3, n0, _GSTRe,
 export var GetVehicleRequest$: StaticStructureSchema = [3, n0, _GVR,
   0,
   [_vN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetVehicleResponse$: StaticStructureSchema = [3, n0, _GVRe,
   0,
@@ -959,8 +959,8 @@ export var GetVehicleResponse$: StaticStructureSchema = [3, n0, _GVRe,
 ];
 export var GetVehicleStatusRequest$: StaticStructureSchema = [3, n0, _GVSR,
   0,
-  [_nT, _mR, _vN],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1]]
+  [_vN, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var GetVehicleStatusResponse$: StaticStructureSchema = [3, n0, _GVSRe,
   0,
@@ -970,37 +970,37 @@ export var GetVehicleStatusResponse$: StaticStructureSchema = [3, n0, _GVSRe,
 export var IamRegistrationResponse$: StaticStructureSchema = [3, n0, _IRR,
   0,
   [_rA, _rS, _eM],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var IamResources$: StaticStructureSchema = [3, n0, _IR,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var ImportDecoderManifestRequest$: StaticStructureSchema = [3, n0, _IDMR,
   0,
   [_n, _nFD],
-  [[0, 1], () => NetworkFileDefinitions]
+  [[0, 1], () => NetworkFileDefinitions], 2
 ];
 export var ImportDecoderManifestResponse$: StaticStructureSchema = [3, n0, _IDMRm,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ImportSignalCatalogRequest$: StaticStructureSchema = [3, n0, _ISCR,
   0,
   [_n, _d, _vs, _t],
-  [[0, 1], 0, () => FormattedVss$, () => TagList]
+  [[0, 1], 0, () => FormattedVss$, () => TagList], 1
 ];
 export var ImportSignalCatalogResponse$: StaticStructureSchema = [3, n0, _ISCRm,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidNetworkInterface$: StaticStructureSchema = [3, n0, _INI,
@@ -1033,7 +1033,7 @@ TypeRegistry.for(n0).registerError(InvalidSignalsException$, InvalidSignalsExcep
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListCampaignsRequest$: StaticStructureSchema = [3, n0, _LCR,
@@ -1049,7 +1049,7 @@ export var ListCampaignsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListDecoderManifestNetworkInterfacesRequest$: StaticStructureSchema = [3, n0, _LDMNIR,
   0,
   [_n, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListDecoderManifestNetworkInterfacesResponse$: StaticStructureSchema = [3, n0, _LDMNIRi,
   0,
@@ -1059,7 +1059,7 @@ export var ListDecoderManifestNetworkInterfacesResponse$: StaticStructureSchema 
 export var ListDecoderManifestSignalsRequest$: StaticStructureSchema = [3, n0, _LDMSR,
   0,
   [_n, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListDecoderManifestSignalsResponse$: StaticStructureSchema = [3, n0, _LDMSRi,
   0,
@@ -1079,7 +1079,7 @@ export var ListDecoderManifestsResponse$: StaticStructureSchema = [3, n0, _LDMRi
 export var ListFleetsForVehicleRequest$: StaticStructureSchema = [3, n0, _LFFVR,
   0,
   [_vN, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListFleetsForVehicleResponse$: StaticStructureSchema = [3, n0, _LFFVRi,
   0,
@@ -1099,7 +1099,7 @@ export var ListFleetsResponse$: StaticStructureSchema = [3, n0, _LFRi,
 export var ListModelManifestNodesRequest$: StaticStructureSchema = [3, n0, _LMMNR,
   0,
   [_n, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListModelManifestNodesResponse$: StaticStructureSchema = [3, n0, _LMMNRi,
   0,
@@ -1119,7 +1119,7 @@ export var ListModelManifestsResponse$: StaticStructureSchema = [3, n0, _LMMRi,
 export var ListSignalCatalogNodesRequest$: StaticStructureSchema = [3, n0, _LSCNR,
   0,
   [_n, _nT, _mR, _sNT],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sNT }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sNT }]], 1
 ];
 export var ListSignalCatalogNodesResponse$: StaticStructureSchema = [3, n0, _LSCNRi,
   0,
@@ -1149,7 +1149,7 @@ export var ListStateTemplatesResponse$: StaticStructureSchema = [3, n0, _LSTRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [[0, { [_hQ]: _rAe }]]
+  [[0, { [_hQ]: _rAe }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1159,7 +1159,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListVehiclesInFleetRequest$: StaticStructureSchema = [3, n0, _LVIFR,
   0,
   [_fI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListVehiclesInFleetResponse$: StaticStructureSchema = [3, n0, _LVIFRi,
   0,
@@ -1179,22 +1179,22 @@ export var ListVehiclesResponse$: StaticStructureSchema = [3, n0, _LVRi,
 export var MessageSignal$: StaticStructureSchema = [3, n0, _MS,
   0,
   [_tN, _sMt],
-  [0, () => StructuredMessage$]
+  [0, () => StructuredMessage$], 2
 ];
 export var ModelManifestSummary$: StaticStructureSchema = [3, n0, _MMS,
   0,
-  [_n, _a, _sCA, _d, _s, _cT, _lMT],
-  [0, 0, 0, 0, 0, 4, 4]
+  [_cT, _lMT, _n, _a, _sCA, _d, _s],
+  [4, 4, 0, 0, 0, 0, 0], 2
 ];
 export var MqttTopicConfig$: StaticStructureSchema = [3, n0, _MTC,
   0,
   [_mTA, _eRA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
   0,
   [_iI, _ty, _cI, _oI, _vM, _cDI],
-  [0, 0, () => CanInterface$, () => ObdInterface$, () => VehicleMiddleware$, () => CustomDecodingInterface$]
+  [0, 0, () => CanInterface$, () => ObdInterface$, () => VehicleMiddleware$, () => CustomDecodingInterface$], 2
 ];
 export var NodeCounts$: StaticStructureSchema = [3, n0, _NC,
   0,
@@ -1204,12 +1204,12 @@ export var NodeCounts$: StaticStructureSchema = [3, n0, _NC,
 export var ObdInterface$: StaticStructureSchema = [3, n0, _OI,
   0,
   [_n, _rMI, _oS, _pRIS, _dRIS, _uEI, _hTE],
-  [0, 1, 0, 1, 1, 2, 2]
+  [0, 1, 0, 1, 1, 2, 2], 2
 ];
 export var ObdSignal$: StaticStructureSchema = [3, n0, _OS,
   0,
   [_pRL, _sMe, _pi, _sc, _o, _sBt, _bL, _bRS, _bML, _iS, _sVT],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0]
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0], 7
 ];
 export var OnChangeStateTemplateUpdateStrategy$: StaticStructureSchema = [3, n0, _OCSTUS,
   0,
@@ -1219,22 +1219,22 @@ export var OnChangeStateTemplateUpdateStrategy$: StaticStructureSchema = [3, n0,
 export var PeriodicStateTemplateUpdateStrategy$: StaticStructureSchema = [3, n0, _PSTUS,
   0,
   [_sTUR],
-  [() => TimePeriod$]
+  [() => TimePeriod$], 1
 ];
 export var PutEncryptionConfigurationRequest$: StaticStructureSchema = [3, n0, _PECR,
   0,
-  [_kKI, _eTn],
-  [0, 0]
+  [_eTn, _kKI],
+  [0, 0], 1
 ];
 export var PutEncryptionConfigurationResponse$: StaticStructureSchema = [3, n0, _PECRu,
   0,
-  [_kKI, _eS, _eTn],
-  [0, 0, 0]
+  [_eS, _eTn, _kKI],
+  [0, 0, 0], 2
 ];
 export var PutLoggingOptionsRequest$: StaticStructureSchema = [3, n0, _PLOR,
   0,
   [_cWLD],
-  [() => CloudWatchLogDeliveryOptions$]
+  [() => CloudWatchLogDeliveryOptions$], 1
 ];
 export var PutLoggingOptionsResponse$: StaticStructureSchema = [3, n0, _PLORu,
   0,
@@ -1248,29 +1248,29 @@ export var RegisterAccountRequest$: StaticStructureSchema = [3, n0, _RAR,
 ];
 export var RegisterAccountResponse$: StaticStructureSchema = [3, n0, _RARe,
   0,
-  [_rASe, _tR, _iR, _cT, _lMT],
-  [0, () => TimestreamResources$, () => IamResources$, 4, 4]
+  [_rASe, _iR, _cT, _lMT, _tR],
+  [0, () => IamResources$, 4, 4, () => TimestreamResources$], 4
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ROS2PrimitiveMessageDefinition$: StaticStructureSchema = [3, n0, _ROSPMD,
   0,
   [_pT, _o, _sc, _uB],
-  [0, 1, 1, 1]
+  [0, 1, 1, 1], 1
 ];
 export var S3Config$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_bA, _dF, _sCF, _pr],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var Sensor$: StaticStructureSchema = [3, n0, _S,
   0,
   [_fQN, _dT, _d, _u, _aV, _mi, _ma, _dM, _co, _sFQN],
-  [0, 0, 0, 0, 64 | 0, 1, 1, 0, 0, 0]
+  [0, 0, 0, 0, 64 | 0, 1, 1, 0, 0, 0], 2
 ];
 export var SignalCatalogSummary$: StaticStructureSchema = [3, n0, _SCS,
   0,
@@ -1280,22 +1280,22 @@ export var SignalCatalogSummary$: StaticStructureSchema = [3, n0, _SCS,
 export var SignalDecoder$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_fQN, _ty, _iI, _cSan, _oSb, _mSe, _cDS],
-  [0, 0, 0, () => CanSignal$, () => ObdSignal$, () => MessageSignal$, () => CustomDecodingSignal$]
+  [0, 0, 0, () => CanSignal$, () => ObdSignal$, () => MessageSignal$, () => CustomDecodingSignal$], 3
 ];
 export var SignalFetchInformation$: StaticStructureSchema = [3, n0, _SFI,
   0,
-  [_fQN, _sFC, _cLV, _ac],
-  [0, [() => SignalFetchConfig$, 0], 1, [() => EventExpressionList, 0]]
+  [_fQN, _sFC, _ac, _cLV],
+  [0, [() => SignalFetchConfig$, 0], [() => EventExpressionList, 0], 1], 3
 ];
 export var SignalInformation$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_n, _mSC, _mSIM, _dPI],
-  [0, 1, 1, 0]
+  [0, 1, 1, 0], 1
 ];
 export var StateTemplateAssociation$: StaticStructureSchema = [3, n0, _STA,
   0,
   [_id, _sTUS],
-  [0, () => StateTemplateUpdateStrategy$]
+  [0, () => StateTemplateUpdateStrategy$], 2
 ];
 export var StateTemplateSummary$: StaticStructureSchema = [3, n0, _STS,
   0,
@@ -1305,32 +1305,32 @@ export var StateTemplateSummary$: StaticStructureSchema = [3, n0, _STS,
 export var StorageMaximumSize$: StaticStructureSchema = [3, n0, _SMS,
   0,
   [_u, _va],
-  [0, 1]
+  [0, 1], 2
 ];
 export var StorageMinimumTimeToLive$: StaticStructureSchema = [3, n0, _SMTTL,
   0,
   [_u, _va],
-  [0, 1]
+  [0, 1], 2
 ];
 export var StructuredMessageFieldNameAndDataTypePair$: StaticStructureSchema = [3, n0, _SMFNADTP,
   0,
   [_fN, _dT],
-  [0, () => StructuredMessage$]
+  [0, () => StructuredMessage$], 2
 ];
 export var StructuredMessageListDefinition$: StaticStructureSchema = [3, n0, _SMLD,
   0,
   [_n, _mT, _lTi, _cap],
-  [0, () => StructuredMessage$, 0, 1]
+  [0, () => StructuredMessage$, 0, 1], 3
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [[0, { [_hQ]: _rAe }], () => TagList]
+  [[0, { [_hQ]: _rAe }], () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1340,43 +1340,43 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _qC, _sC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeBasedCollectionScheme$: StaticStructureSchema = [3, n0, _TBCS,
   0,
   [_pM],
-  [1]
+  [1], 1
 ];
 export var TimeBasedSignalFetchConfig$: StaticStructureSchema = [3, n0, _TBSFC,
   0,
   [_eFM],
-  [1]
+  [1], 1
 ];
 export var TimePeriod$: StaticStructureSchema = [3, n0, _TP,
   0,
   [_u, _va],
-  [0, 1]
+  [0, 1], 2
 ];
 export var TimestreamConfig$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_tTA, _eRA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TimestreamRegistrationResponse$: StaticStructureSchema = [3, n0, _TRRi,
   0,
-  [_tDN, _tTN, _tDA, _tTA, _rS, _eM],
-  [0, 0, 0, 0, 0, 0]
+  [_tDN, _tTN, _rS, _tDA, _tTA, _eM],
+  [0, 0, 0, 0, 0, 0], 3
 ];
 export var TimestreamResources$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_tDN, _tTN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [[0, { [_hQ]: _rAe }], [64 | 0, { [_hQ]: _tK }]]
+  [[0, { [_hQ]: _rAe }], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1385,8 +1385,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateCampaignRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_n, _d, _dED, _act],
-  [[0, 1], 0, [() => DataExtraDimensionNodePathList, 0], 0]
+  [_n, _act, _d, _dED],
+  [[0, 1], 0, 0, [() => DataExtraDimensionNodePathList, 0]], 2
 ];
 export var UpdateCampaignResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -1396,17 +1396,17 @@ export var UpdateCampaignResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateDecoderManifestRequest$: StaticStructureSchema = [3, n0, _UDMR,
   0,
   [_n, _d, _sDTA, _sDTU, _sDTR, _nITA, _nITU, _nITR, _s, _dFUS],
-  [[0, 1], 0, () => SignalDecoders, () => SignalDecoders, 64 | 0, () => NetworkInterfaces, () => NetworkInterfaces, 64 | 0, 0, 0]
+  [[0, 1], 0, () => SignalDecoders, () => SignalDecoders, 64 | 0, () => NetworkInterfaces, () => NetworkInterfaces, 64 | 0, 0, 0], 1
 ];
 export var UpdateDecoderManifestResponse$: StaticStructureSchema = [3, n0, _UDMRp,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateFleetRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
   [_fI, _d],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var UpdateFleetResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
@@ -1416,27 +1416,27 @@ export var UpdateFleetResponse$: StaticStructureSchema = [3, n0, _UFRp,
 export var UpdateModelManifestRequest$: StaticStructureSchema = [3, n0, _UMMR,
   0,
   [_n, _d, _nTA, _nTR, _s],
-  [[0, 1], 0, 64 | 0, 64 | 0, 0]
+  [[0, 1], 0, 64 | 0, 64 | 0, 0], 1
 ];
 export var UpdateModelManifestResponse$: StaticStructureSchema = [3, n0, _UMMRp,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateSignalCatalogRequest$: StaticStructureSchema = [3, n0, _USCR,
   0,
   [_n, _d, _nTA, _nTU, _nTR],
-  [[0, 1], 0, () => Nodes, () => Nodes, 64 | 0]
+  [[0, 1], 0, () => Nodes, () => Nodes, 64 | 0], 1
 ];
 export var UpdateSignalCatalogResponse$: StaticStructureSchema = [3, n0, _USCRp,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateStateTemplateRequest$: StaticStructureSchema = [3, n0, _USTR,
   0,
   [_id, _d, _sTPTA, _sTPTR, _dED, _mED],
-  [[0, 1], 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [[0, 1], 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var UpdateStateTemplateResponse$: StaticStructureSchema = [3, n0, _USTRp,
   0,
@@ -1451,12 +1451,12 @@ export var UpdateVehicleError$: StaticStructureSchema = [3, n0, _UVE,
 export var UpdateVehicleRequest$: StaticStructureSchema = [3, n0, _UVR,
   0,
   [_vN, _mMA, _dMA, _at, _aUM, _sTTA, _sTTR, _sTTU],
-  [[0, 1], 0, 0, 128 | 0, 0, () => StateTemplateAssociations, 64 | 0, () => StateTemplateAssociations]
+  [[0, 1], 0, 0, 128 | 0, 0, () => StateTemplateAssociations, 64 | 0, () => StateTemplateAssociations], 1
 ];
 export var UpdateVehicleRequestItem$: StaticStructureSchema = [3, n0, _UVRI,
   0,
   [_vN, _mMA, _dMA, _at, _aUM, _sTTA, _sTTR, _sTTU],
-  [0, 0, 0, 128 | 0, 0, () => StateTemplateAssociations, 64 | 0, () => StateTemplateAssociations]
+  [0, 0, 0, 128 | 0, 0, () => StateTemplateAssociations, 64 | 0, () => StateTemplateAssociations], 1
 ];
 export var UpdateVehicleResponse$: StaticStructureSchema = [3, n0, _UVRp,
   0,
@@ -1471,18 +1471,18 @@ export var UpdateVehicleResponseItem$: StaticStructureSchema = [3, n0, _UVRIp,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VehicleMiddleware$: StaticStructureSchema = [3, n0, _VM,
   0,
   [_n, _pN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VehicleStatus$: StaticStructureSchema = [3, n0, _VS,
   0,
@@ -1492,7 +1492,7 @@ export var VehicleStatus$: StaticStructureSchema = [3, n0, _VS,
 export var VehicleSummary$: StaticStructureSchema = [3, n0, _VSe,
   0,
   [_vN, _a, _mMA, _dMA, _cT, _lMT, _at],
-  [0, 0, 0, 0, 4, 4, 128 | 0]
+  [0, 0, 0, 0, 4, 4, 128 | 0], 6
 ];
 export var IoTFleetWiseServiceException$: StaticErrorSchema = [-3, _sm, "IoTFleetWiseServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTFleetWiseServiceException$, IoTFleetWiseServiceException);

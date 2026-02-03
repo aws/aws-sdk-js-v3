@@ -42,7 +42,7 @@ export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, _
  * const command = new DeleteDeploymentCommand(input);
  * const response = await client.send(command);
  * // { // DeleteDeploymentOutput
- * //   status: "COMPLETED" || "CREATING" || "DELETE_IN_PROGRESS" || "DELETE_INITIATING" || "DELETE_FAILED" || "DELETED" || "FAILED" || "IN_PROGRESS" || "VALIDATING",
+ * //   status: "COMPLETED" || "CREATING" || "DELETE_IN_PROGRESS" || "DELETE_INITIATING" || "DELETE_FAILED" || "DELETED" || "FAILED" || "IN_PROGRESS" || "VALIDATING" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETED" || "UPDATE_FAILED" || "UPDATE_ROLLBACK_COMPLETED" || "UPDATE_ROLLBACK_FAILED",
  * //   statusReason: "STRING_VALUE",
  * // };
  *
@@ -55,12 +55,10 @@ export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, _
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact
- *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
  *
  * @throws {@link ResourceLimitException} (client fault)
- *  <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many
- *          deployments in progress.</p>
+ *  <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified workload or deployment resource can't be found.</p>

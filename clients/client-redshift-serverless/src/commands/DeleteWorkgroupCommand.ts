@@ -104,6 +104,7 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * //     },
  * //     trackName: "STRING_VALUE",
  * //     pendingTrackName: "STRING_VALUE",
+ * //     extraComputeForAutomaticOptimization: true || false,
  * //   },
  * // };
  *

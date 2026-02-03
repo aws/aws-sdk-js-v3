@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   BatchGetIncidentFindingsCommand,
@@ -153,7 +159,16 @@ import {
   UpdateTimelineEventCommandInput,
   UpdateTimelineEventCommandOutput,
 } from "./commands/UpdateTimelineEventCommand";
+import { paginateGetResourcePolicies } from "./pagination/GetResourcePoliciesPaginator";
+import { paginateListIncidentFindings } from "./pagination/ListIncidentFindingsPaginator";
+import { paginateListIncidentRecords } from "./pagination/ListIncidentRecordsPaginator";
+import { paginateListRelatedItems } from "./pagination/ListRelatedItemsPaginator";
+import { paginateListReplicationSets } from "./pagination/ListReplicationSetsPaginator";
+import { paginateListResponsePlans } from "./pagination/ListResponsePlansPaginator";
+import { paginateListTimelineEvents } from "./pagination/ListTimelineEventsPaginator";
 import { SSMIncidentsClient } from "./SSMIncidentsClient";
+import { waitUntilWaitForReplicationSetActive } from "./waiters/waitForWaitForReplicationSetActive";
+import { waitUntilWaitForReplicationSetDeleted } from "./waiters/waitForWaitForReplicationSetDeleted";
 
 const commands = {
   BatchGetIncidentFindingsCommand,
@@ -187,6 +202,19 @@ const commands = {
   UpdateReplicationSetCommand,
   UpdateResponsePlanCommand,
   UpdateTimelineEventCommand,
+};
+const paginators = {
+  paginateGetResourcePolicies,
+  paginateListIncidentFindings,
+  paginateListIncidentRecords,
+  paginateListRelatedItems,
+  paginateListReplicationSets,
+  paginateListResponsePlans,
+  paginateListTimelineEvents,
+};
+const waiters = {
+  waitUntilWaitForReplicationSetActive,
+  waitUntilWaitForReplicationSetDeleted,
 };
 
 export interface SSMIncidents {
@@ -719,6 +747,103 @@ export interface SSMIncidents {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTimelineEventCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetResourcePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourcePoliciesCommandOutput}.
+   */
+  paginateGetResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourcePoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListIncidentFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIncidentFindingsCommandOutput}.
+   */
+  paginateListIncidentFindings(
+    args: ListIncidentFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIncidentFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListIncidentRecordsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIncidentRecordsCommandOutput}.
+   */
+  paginateListIncidentRecords(
+    args?: ListIncidentRecordsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIncidentRecordsCommandOutput>;
+
+  /**
+   * @see {@link ListRelatedItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRelatedItemsCommandOutput}.
+   */
+  paginateListRelatedItems(
+    args: ListRelatedItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRelatedItemsCommandOutput>;
+
+  /**
+   * @see {@link ListReplicationSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReplicationSetsCommandOutput}.
+   */
+  paginateListReplicationSets(
+    args?: ListReplicationSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReplicationSetsCommandOutput>;
+
+  /**
+   * @see {@link ListResponsePlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResponsePlansCommandOutput}.
+   */
+  paginateListResponsePlans(
+    args?: ListResponsePlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResponsePlansCommandOutput>;
+
+  /**
+   * @see {@link ListTimelineEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTimelineEventsCommandOutput}.
+   */
+  paginateListTimelineEvents(
+    args: ListTimelineEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTimelineEventsCommandOutput>;
+
+  /**
+   * @see {@link GetReplicationSetCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilWaitForReplicationSetActive(
+    args: GetReplicationSetCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<SSMIncidents>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetReplicationSetCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilWaitForReplicationSetDeleted(
+    args: GetReplicationSetCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<SSMIncidents>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -733,4 +858,4 @@ export interface SSMIncidents {
  * @public
  */
 export class SSMIncidents extends SSMIncidentsClient implements SSMIncidents {}
-createAggregatedClient(commands, SSMIncidents);
+createAggregatedClient(commands, SSMIncidents, { paginators, waiters });

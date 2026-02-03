@@ -27,11 +27,7 @@ export interface CopyDBParameterGroupCommandInput extends CopyDBParameterGroupMe
 export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupResult, __MetadataBearer {}
 
 /**
- * <p>Copies the specified DB parameter group.</p>
- *          <note>
- *             <p>You can't copy a default DB parameter group. Instead, create a new custom DB parameter group, which copies the default
- *                 parameters and values for the specified DB parameter group family.</p>
- *          </note>
+ * <p>Copies the specified DB parameter group.</p> <note> <p>You can't copy a default DB parameter group. Instead, create a new custom DB parameter group, which copies the default parameters and values for the specified DB parameter group family.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,13 +70,10 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  *  <p>A DB parameter group with the same name exists.</p>
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an
- *         existing DB parameter group.</p>
+ *  <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
  *
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB parameter
- *             groups.</p>
+ *  <p>The request would result in the user exceeding the allowed number of DB parameter groups.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

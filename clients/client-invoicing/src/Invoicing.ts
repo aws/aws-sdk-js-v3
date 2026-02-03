@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchGetInvoiceProfileCommand,
@@ -84,6 +84,9 @@ import {
   UpdateProcurementPortalPreferenceStatusCommandOutput,
 } from "./commands/UpdateProcurementPortalPreferenceStatusCommand";
 import { InvoicingClient } from "./InvoicingClient";
+import { paginateListInvoiceSummaries } from "./pagination/ListInvoiceSummariesPaginator";
+import { paginateListInvoiceUnits } from "./pagination/ListInvoiceUnitsPaginator";
+import { paginateListProcurementPortalPreferences } from "./pagination/ListProcurementPortalPreferencesPaginator";
 
 const commands = {
   BatchGetInvoiceProfileCommand,
@@ -103,6 +106,11 @@ const commands = {
   UntagResourceCommand,
   UpdateInvoiceUnitCommand,
   UpdateProcurementPortalPreferenceStatusCommand,
+};
+const paginators = {
+  paginateListInvoiceSummaries,
+  paginateListInvoiceUnits,
+  paginateListProcurementPortalPreferences,
 };
 
 export interface Invoicing {
@@ -396,6 +404,39 @@ export interface Invoicing {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProcurementPortalPreferenceStatusCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListInvoiceSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvoiceSummariesCommandOutput}.
+   */
+  paginateListInvoiceSummaries(
+    args: ListInvoiceSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvoiceSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListInvoiceUnitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvoiceUnitsCommandOutput}.
+   */
+  paginateListInvoiceUnits(
+    args?: ListInvoiceUnitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvoiceUnitsCommandOutput>;
+
+  /**
+   * @see {@link ListProcurementPortalPreferencesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProcurementPortalPreferencesCommandOutput}.
+   */
+  paginateListProcurementPortalPreferences(
+    args?: ListProcurementPortalPreferencesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProcurementPortalPreferencesCommandOutput>;
 }
 
 /**
@@ -403,4 +444,4 @@ export interface Invoicing {
  * @public
  */
 export class Invoicing extends InvoicingClient implements Invoicing {}
-createAggregatedClient(commands, Invoicing);
+createAggregatedClient(commands, Invoicing, { paginators });

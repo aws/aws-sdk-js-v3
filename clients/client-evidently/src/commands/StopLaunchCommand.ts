@@ -27,11 +27,9 @@ export interface StopLaunchCommandInput extends StopLaunchRequest {}
 export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a launch that is currently running. After you stop a launch, you will not be able to resume it or restart it.
- *        Also, it
- *        will not be evaluated as a rule for traffic allocation, and the traffic that was allocated to the launch
- *        will instead be available to the feature's experiment, if there is one. Otherwise, all traffic
- *        will be served the default variation after the launch is stopped.</p>
+ * <p>Stops a launch that is currently running. After you stop a launch, you will not be able to resume it or restart it. Also, it will not be evaluated as a rule for traffic allocation, and the traffic that was allocated to the launch will instead be available to the feature's experiment, if there is one. Otherwise, all traffic will be served the default variation after the launch is stopped.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

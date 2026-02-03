@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { Cloud9Client } from "./Cloud9Client";
 import {
@@ -64,6 +64,8 @@ import {
   UpdateEnvironmentMembershipCommandInput,
   UpdateEnvironmentMembershipCommandOutput,
 } from "./commands/UpdateEnvironmentMembershipCommand";
+import { paginateDescribeEnvironmentMemberships } from "./pagination/DescribeEnvironmentMembershipsPaginator";
+import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
 
 const commands = {
   CreateEnvironmentEC2Command,
@@ -79,6 +81,10 @@ const commands = {
   UntagResourceCommand,
   UpdateEnvironmentCommand,
   UpdateEnvironmentMembershipCommand,
+};
+const paginators = {
+  paginateDescribeEnvironmentMemberships,
+  paginateListEnvironments,
 };
 
 export interface Cloud9 {
@@ -304,6 +310,28 @@ export interface Cloud9 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnvironmentMembershipCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeEnvironmentMembershipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEnvironmentMembershipsCommandOutput}.
+   */
+  paginateDescribeEnvironmentMemberships(
+    args?: DescribeEnvironmentMembershipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEnvironmentMembershipsCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentsCommandOutput}.
+   */
+  paginateListEnvironments(
+    args?: ListEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentsCommandOutput>;
 }
 
 /**
@@ -383,4 +411,4 @@ export interface Cloud9 {
  * @public
  */
 export class Cloud9 extends Cloud9Client implements Cloud9 {}
-createAggregatedClient(commands, Cloud9);
+createAggregatedClient(commands, Cloud9, { paginators });

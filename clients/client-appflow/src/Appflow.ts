@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AppflowClient } from "./AppflowClient";
 import {
@@ -100,6 +100,11 @@ import {
   UpdateConnectorRegistrationCommandOutput,
 } from "./commands/UpdateConnectorRegistrationCommand";
 import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
+import { paginateDescribeConnectorProfiles } from "./pagination/DescribeConnectorProfilesPaginator";
+import { paginateDescribeConnectors } from "./pagination/DescribeConnectorsPaginator";
+import { paginateDescribeFlowExecutionRecords } from "./pagination/DescribeFlowExecutionRecordsPaginator";
+import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";
+import { paginateListFlows } from "./pagination/ListFlowsPaginator";
 
 const commands = {
   CancelFlowExecutionsCommand,
@@ -127,6 +132,13 @@ const commands = {
   UpdateConnectorProfileCommand,
   UpdateConnectorRegistrationCommand,
   UpdateFlowCommand,
+};
+const paginators = {
+  paginateDescribeConnectorProfiles,
+  paginateDescribeConnectors,
+  paginateDescribeFlowExecutionRecords,
+  paginateListConnectors,
+  paginateListFlows,
 };
 
 export interface Appflow {
@@ -561,6 +573,61 @@ export interface Appflow {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateFlowCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeConnectorProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConnectorProfilesCommandOutput}.
+   */
+  paginateDescribeConnectorProfiles(
+    args?: DescribeConnectorProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConnectorProfilesCommandOutput>;
+
+  /**
+   * @see {@link DescribeConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConnectorsCommandOutput}.
+   */
+  paginateDescribeConnectors(
+    args?: DescribeConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConnectorsCommandOutput>;
+
+  /**
+   * @see {@link DescribeFlowExecutionRecordsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeFlowExecutionRecordsCommandOutput}.
+   */
+  paginateDescribeFlowExecutionRecords(
+    args: DescribeFlowExecutionRecordsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeFlowExecutionRecordsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorsCommandOutput}.
+   */
+  paginateListConnectors(
+    args?: ListConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorsCommandOutput>;
+
+  /**
+   * @see {@link ListFlowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowsCommandOutput}.
+   */
+  paginateListFlows(
+    args?: ListFlowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowsCommandOutput>;
 }
 
 /**
@@ -602,4 +669,4 @@ export interface Appflow {
  * @public
  */
 export class Appflow extends AppflowClient implements Appflow {}
-createAggregatedClient(commands, Appflow);
+createAggregatedClient(commands, Appflow, { paginators });

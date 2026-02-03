@@ -566,7 +566,7 @@ export var AccessControlRule$: StaticStructureSchema = [3, n0, _ACR,
 export var AssociateDelegateToResourceRequest$: StaticStructureSchema = [3, n0, _ADTRR,
   0,
   [_OI, _RI, _EI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var AssociateDelegateToResourceResponse$: StaticStructureSchema = [3, n0, _ADTRRs,
   0,
@@ -576,7 +576,7 @@ export var AssociateDelegateToResourceResponse$: StaticStructureSchema = [3, n0,
 export var AssociateMemberToGroupRequest$: StaticStructureSchema = [3, n0, _AMTGR,
   0,
   [_OI, _GI, _MI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var AssociateMemberToGroupResponse$: StaticStructureSchema = [3, n0, _AMTGRs,
   0,
@@ -586,7 +586,7 @@ export var AssociateMemberToGroupResponse$: StaticStructureSchema = [3, n0, _AMT
 export var AssumeImpersonationRoleRequest$: StaticStructureSchema = [3, n0, _AIRR,
   0,
   [_OI, _IRIm],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssumeImpersonationRoleResponse$: StaticStructureSchema = [3, n0, _AIRRs,
   0,
@@ -605,8 +605,8 @@ export var BookingOptions$: StaticStructureSchema = [3, n0, _BO,
 ];
 export var CancelMailboxExportJobRequest$: StaticStructureSchema = [3, n0, _CMEJR,
   0,
-  [_CT, _JI, _OI],
-  [[0, 4], 0, 0]
+  [_JI, _OI, _CT],
+  [0, 0, [0, 4]], 2
 ];
 export var CancelMailboxExportJobResponse$: StaticStructureSchema = [3, n0, _CMEJRa,
   0,
@@ -616,7 +616,7 @@ export var CancelMailboxExportJobResponse$: StaticStructureSchema = [3, n0, _CME
 export var CreateAliasRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_OI, _EI, _Al],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreateAliasResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -625,8 +625,8 @@ export var CreateAliasResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateAvailabilityConfigurationRequest$: StaticStructureSchema = [3, n0, _CACR,
   0,
-  [_CT, _OI, _DN, _EP, _LP],
-  [[0, 4], 0, 0, [() => EwsAvailabilityProvider$, 0], () => LambdaAvailabilityProvider$]
+  [_OI, _DN, _CT, _EP, _LP],
+  [0, 0, [0, 4], [() => EwsAvailabilityProvider$, 0], () => LambdaAvailabilityProvider$], 2
 ];
 export var CreateAvailabilityConfigurationResponse$: StaticStructureSchema = [3, n0, _CACRr,
   0,
@@ -636,7 +636,7 @@ export var CreateAvailabilityConfigurationResponse$: StaticStructureSchema = [3,
 export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
   [_OI, _N, _HFGAL],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
@@ -646,7 +646,7 @@ export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr,
 export var CreateIdentityCenterApplicationRequest$: StaticStructureSchema = [3, n0, _CICAR,
   0,
   [_N, _IA, _CT],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 2
 ];
 export var CreateIdentityCenterApplicationResponse$: StaticStructureSchema = [3, n0, _CICARr,
   0,
@@ -655,8 +655,8 @@ export var CreateIdentityCenterApplicationResponse$: StaticStructureSchema = [3,
 ];
 export var CreateImpersonationRoleRequest$: StaticStructureSchema = [3, n0, _CIRR,
   0,
-  [_CT, _OI, _N, _Ty, _D, _R],
-  [[0, 4], 0, 0, 0, 0, () => ImpersonationRuleList]
+  [_OI, _N, _Ty, _R, _CT, _D],
+  [0, 0, 0, () => ImpersonationRuleList, [0, 4], 0], 4
 ];
 export var CreateImpersonationRoleResponse$: StaticStructureSchema = [3, n0, _CIRRr,
   0,
@@ -665,8 +665,8 @@ export var CreateImpersonationRoleResponse$: StaticStructureSchema = [3, n0, _CI
 ];
 export var CreateMobileDeviceAccessRuleRequest$: StaticStructureSchema = [3, n0, _CMDARR,
   0,
-  [_OI, _CT, _N, _D, _E, _DT, _NDT, _DMe, _NDM, _DOS, _NDOS, _DUA, _NDUA],
-  [0, [0, 4], 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [_OI, _N, _E, _CT, _D, _DT, _NDT, _DMe, _NDM, _DOS, _NDOS, _DUA, _NDUA],
+  [0, 0, 0, [0, 4], 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 3
 ];
 export var CreateMobileDeviceAccessRuleResponse$: StaticStructureSchema = [3, n0, _CMDARRr,
   0,
@@ -675,8 +675,8 @@ export var CreateMobileDeviceAccessRuleResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreateOrganizationRequest$: StaticStructureSchema = [3, n0, _COR,
   0,
-  [_DI, _Al, _CT, _Do, _KKA, _EIn],
-  [0, 0, [0, 4], () => Domains, 0, 2]
+  [_Al, _DI, _CT, _Do, _KKA, _EIn],
+  [0, 0, [0, 4], () => Domains, 0, 2], 1
 ];
 export var CreateOrganizationResponse$: StaticStructureSchema = [3, n0, _CORr,
   0,
@@ -686,7 +686,7 @@ export var CreateOrganizationResponse$: StaticStructureSchema = [3, n0, _CORr,
 export var CreateResourceRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
   [_OI, _N, _Ty, _D, _HFGAL],
-  [0, 0, 0, [() => ResourceDescription, 0], 2]
+  [0, 0, 0, [() => ResourceDescription, 0], 2], 3
 ];
 export var CreateResourceResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -696,7 +696,7 @@ export var CreateResourceResponse$: StaticStructureSchema = [3, n0, _CRRr,
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
   [_OI, _N, _DNi, _P, _Ro, _FN, _LN, _HFGAL, _IPUI],
-  [0, 0, [() => UserAttribute, 0], [() => Password, 0], 0, [() => UserAttribute, 0], [() => UserAttribute, 0], 2, 0]
+  [0, 0, [() => UserAttribute, 0], [() => Password, 0], 0, [() => UserAttribute, 0], [() => UserAttribute, 0], 2, 0], 3
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
@@ -706,12 +706,12 @@ export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
 export var Delegate$: StaticStructureSchema = [3, n0, _De,
   0,
   [_I, _Ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteAccessControlRuleRequest$: StaticStructureSchema = [3, n0, _DACRR,
   0,
   [_OI, _N],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteAccessControlRuleResponse$: StaticStructureSchema = [3, n0, _DACRRe,
   0,
@@ -721,7 +721,7 @@ export var DeleteAccessControlRuleResponse$: StaticStructureSchema = [3, n0, _DA
 export var DeleteAliasRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_OI, _EI, _Al],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteAliasResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -731,7 +731,7 @@ export var DeleteAliasResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteAvailabilityConfigurationRequest$: StaticStructureSchema = [3, n0, _DACR,
   0,
   [_OI, _DN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteAvailabilityConfigurationResponse$: StaticStructureSchema = [3, n0, _DACRe,
   0,
@@ -741,7 +741,7 @@ export var DeleteAvailabilityConfigurationResponse$: StaticStructureSchema = [3,
 export var DeleteEmailMonitoringConfigurationRequest$: StaticStructureSchema = [3, n0, _DEMCR,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var DeleteEmailMonitoringConfigurationResponse$: StaticStructureSchema = [3, n0, _DEMCRe,
   0,
@@ -751,7 +751,7 @@ export var DeleteEmailMonitoringConfigurationResponse$: StaticStructureSchema = 
 export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR,
   0,
   [_OI, _GI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe,
   0,
@@ -761,7 +761,7 @@ export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe,
 export var DeleteIdentityCenterApplicationRequest$: StaticStructureSchema = [3, n0, _DICAR,
   0,
   [_AA],
-  [0]
+  [0], 1
 ];
 export var DeleteIdentityCenterApplicationResponse$: StaticStructureSchema = [3, n0, _DICARe,
   0,
@@ -771,7 +771,7 @@ export var DeleteIdentityCenterApplicationResponse$: StaticStructureSchema = [3,
 export var DeleteIdentityProviderConfigurationRequest$: StaticStructureSchema = [3, n0, _DIPCR,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var DeleteIdentityProviderConfigurationResponse$: StaticStructureSchema = [3, n0, _DIPCRe,
   0,
@@ -781,7 +781,7 @@ export var DeleteIdentityProviderConfigurationResponse$: StaticStructureSchema =
 export var DeleteImpersonationRoleRequest$: StaticStructureSchema = [3, n0, _DIRR,
   0,
   [_OI, _IRIm],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteImpersonationRoleResponse$: StaticStructureSchema = [3, n0, _DIRRe,
   0,
@@ -791,7 +791,7 @@ export var DeleteImpersonationRoleResponse$: StaticStructureSchema = [3, n0, _DI
 export var DeleteMailboxPermissionsRequest$: StaticStructureSchema = [3, n0, _DMPR,
   0,
   [_OI, _EI, _GIr],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteMailboxPermissionsResponse$: StaticStructureSchema = [3, n0, _DMPRe,
   0,
@@ -801,7 +801,7 @@ export var DeleteMailboxPermissionsResponse$: StaticStructureSchema = [3, n0, _D
 export var DeleteMobileDeviceAccessOverrideRequest$: StaticStructureSchema = [3, n0, _DMDAOR,
   0,
   [_OI, _UIs, _DIe],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteMobileDeviceAccessOverrideResponse$: StaticStructureSchema = [3, n0, _DMDAORe,
   0,
@@ -811,7 +811,7 @@ export var DeleteMobileDeviceAccessOverrideResponse$: StaticStructureSchema = [3
 export var DeleteMobileDeviceAccessRuleRequest$: StaticStructureSchema = [3, n0, _DMDARR,
   0,
   [_OI, _MDARI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteMobileDeviceAccessRuleResponse$: StaticStructureSchema = [3, n0, _DMDARRe,
   0,
@@ -820,8 +820,8 @@ export var DeleteMobileDeviceAccessRuleResponse$: StaticStructureSchema = [3, n0
 ];
 export var DeleteOrganizationRequest$: StaticStructureSchema = [3, n0, _DOR,
   0,
-  [_CT, _OI, _DD, _FD, _DICA],
-  [[0, 4], 0, 2, 2, 2]
+  [_OI, _DD, _CT, _FD, _DICA],
+  [0, 2, [0, 4], 2, 2], 2
 ];
 export var DeleteOrganizationResponse$: StaticStructureSchema = [3, n0, _DORe,
   0,
@@ -831,7 +831,7 @@ export var DeleteOrganizationResponse$: StaticStructureSchema = [3, n0, _DORe,
 export var DeletePersonalAccessTokenRequest$: StaticStructureSchema = [3, n0, _DPATR,
   0,
   [_OI, _PATI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeletePersonalAccessTokenResponse$: StaticStructureSchema = [3, n0, _DPATRe,
   0,
@@ -841,7 +841,7 @@ export var DeletePersonalAccessTokenResponse$: StaticStructureSchema = [3, n0, _
 export var DeleteResourceRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_OI, _RI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteResourceResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -851,7 +851,7 @@ export var DeleteResourceResponse$: StaticStructureSchema = [3, n0, _DRRe,
 export var DeleteRetentionPolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_OI, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteRetentionPolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -861,7 +861,7 @@ export var DeleteRetentionPolicyResponse$: StaticStructureSchema = [3, n0, _DRPR
 export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_OI, _UIs],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe,
   0,
@@ -871,7 +871,7 @@ export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe,
 export var DeregisterFromWorkMailRequest$: StaticStructureSchema = [3, n0, _DFWMR,
   0,
   [_OI, _EI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeregisterFromWorkMailResponse$: StaticStructureSchema = [3, n0, _DFWMRe,
   0,
@@ -881,7 +881,7 @@ export var DeregisterFromWorkMailResponse$: StaticStructureSchema = [3, n0, _DFW
 export var DeregisterMailDomainRequest$: StaticStructureSchema = [3, n0, _DMDR,
   0,
   [_OI, _DN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeregisterMailDomainResponse$: StaticStructureSchema = [3, n0, _DMDRe,
   0,
@@ -891,7 +891,7 @@ export var DeregisterMailDomainResponse$: StaticStructureSchema = [3, n0, _DMDRe
 export var DescribeEmailMonitoringConfigurationRequest$: StaticStructureSchema = [3, n0, _DEMCRes,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var DescribeEmailMonitoringConfigurationResponse$: StaticStructureSchema = [3, n0, _DEMCResc,
   0,
@@ -901,7 +901,7 @@ export var DescribeEmailMonitoringConfigurationResponse$: StaticStructureSchema 
 export var DescribeEntityRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_OI, _Em],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeEntityResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -911,7 +911,7 @@ export var DescribeEntityResponse$: StaticStructureSchema = [3, n0, _DERe,
 export var DescribeGroupRequest$: StaticStructureSchema = [3, n0, _DGRes,
   0,
   [_OI, _GI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeGroupResponse$: StaticStructureSchema = [3, n0, _DGResc,
   0,
@@ -921,7 +921,7 @@ export var DescribeGroupResponse$: StaticStructureSchema = [3, n0, _DGResc,
 export var DescribeIdentityProviderConfigurationRequest$: StaticStructureSchema = [3, n0, _DIPCRes,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var DescribeIdentityProviderConfigurationResponse$: StaticStructureSchema = [3, n0, _DIPCResc,
   0,
@@ -931,7 +931,7 @@ export var DescribeIdentityProviderConfigurationResponse$: StaticStructureSchema
 export var DescribeInboundDmarcSettingsRequest$: StaticStructureSchema = [3, n0, _DIDSR,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var DescribeInboundDmarcSettingsResponse$: StaticStructureSchema = [3, n0, _DIDSRe,
   0,
@@ -941,7 +941,7 @@ export var DescribeInboundDmarcSettingsResponse$: StaticStructureSchema = [3, n0
 export var DescribeMailboxExportJobRequest$: StaticStructureSchema = [3, n0, _DMEJR,
   0,
   [_JI, _OI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeMailboxExportJobResponse$: StaticStructureSchema = [3, n0, _DMEJRe,
   0,
@@ -951,7 +951,7 @@ export var DescribeMailboxExportJobResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeOrganizationRequest$: StaticStructureSchema = [3, n0, _DORes,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var DescribeOrganizationResponse$: StaticStructureSchema = [3, n0, _DOResc,
   0,
@@ -961,7 +961,7 @@ export var DescribeOrganizationResponse$: StaticStructureSchema = [3, n0, _DORes
 export var DescribeResourceRequest$: StaticStructureSchema = [3, n0, _DRRes,
   0,
   [_OI, _RI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeResourceResponse$: StaticStructureSchema = [3, n0, _DRResc,
   0,
@@ -971,7 +971,7 @@ export var DescribeResourceResponse$: StaticStructureSchema = [3, n0, _DRResc,
 export var DescribeUserRequest$: StaticStructureSchema = [3, n0, _DURes,
   0,
   [_OI, _UIs],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeUserResponse$: StaticStructureSchema = [3, n0, _DUResc,
   0,
@@ -999,7 +999,7 @@ TypeRegistry.for(n0).registerError(DirectoryUnavailableException$, DirectoryUnav
 export var DisassociateDelegateFromResourceRequest$: StaticStructureSchema = [3, n0, _DDFRR,
   0,
   [_OI, _RI, _EI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DisassociateDelegateFromResourceResponse$: StaticStructureSchema = [3, n0, _DDFRRi,
   0,
@@ -1009,7 +1009,7 @@ export var DisassociateDelegateFromResourceResponse$: StaticStructureSchema = [3
 export var DisassociateMemberFromGroupRequest$: StaticStructureSchema = [3, n0, _DMFGR,
   0,
   [_OI, _GI, _MI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DisassociateMemberFromGroupResponse$: StaticStructureSchema = [3, n0, _DMFGRi,
   0,
@@ -1024,7 +1024,7 @@ export var DnsRecord$: StaticStructureSchema = [3, n0, _DR,
 export var Domain$: StaticStructureSchema = [3, n0, _Dom,
   0,
   [_DN, _HZI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EmailAddressInUseException$: StaticErrorSchema = [-3, n0, _EAIUE,
   { [_e]: _c },
@@ -1053,17 +1053,17 @@ TypeRegistry.for(n0).registerError(EntityStateException$, EntityStateException);
 export var EwsAvailabilityProvider$: StaticStructureSchema = [3, n0, _EAP,
   0,
   [_EE, _EU, _EPw],
-  [0, 0, [() => Password, 0]]
+  [0, 0, [() => Password, 0]], 3
 ];
 export var FolderConfiguration$: StaticStructureSchema = [3, n0, _FC,
   0,
   [_N, _Ac, _Pe],
-  [0, 0, 1]
+  [0, 0, 1], 2
 ];
 export var GetAccessControlEffectRequest$: StaticStructureSchema = [3, n0, _GACER,
   0,
   [_OI, _IAp, _Ac, _UIs, _IRIm],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 3
 ];
 export var GetAccessControlEffectResponse$: StaticStructureSchema = [3, n0, _GACERe,
   0,
@@ -1073,7 +1073,7 @@ export var GetAccessControlEffectResponse$: StaticStructureSchema = [3, n0, _GAC
 export var GetDefaultRetentionPolicyRequest$: StaticStructureSchema = [3, n0, _GDRPR,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var GetDefaultRetentionPolicyResponse$: StaticStructureSchema = [3, n0, _GDRPRe,
   0,
@@ -1083,7 +1083,7 @@ export var GetDefaultRetentionPolicyResponse$: StaticStructureSchema = [3, n0, _
 export var GetImpersonationRoleEffectRequest$: StaticStructureSchema = [3, n0, _GIRER,
   0,
   [_OI, _IRIm, _TU],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetImpersonationRoleEffectResponse$: StaticStructureSchema = [3, n0, _GIRERe,
   0,
@@ -1093,7 +1093,7 @@ export var GetImpersonationRoleEffectResponse$: StaticStructureSchema = [3, n0, 
 export var GetImpersonationRoleRequest$: StaticStructureSchema = [3, n0, _GIRR,
   0,
   [_OI, _IRIm],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetImpersonationRoleResponse$: StaticStructureSchema = [3, n0, _GIRRe,
   0,
@@ -1103,7 +1103,7 @@ export var GetImpersonationRoleResponse$: StaticStructureSchema = [3, n0, _GIRRe
 export var GetMailboxDetailsRequest$: StaticStructureSchema = [3, n0, _GMDR,
   0,
   [_OI, _UIs],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetMailboxDetailsResponse$: StaticStructureSchema = [3, n0, _GMDRe,
   0,
@@ -1113,7 +1113,7 @@ export var GetMailboxDetailsResponse$: StaticStructureSchema = [3, n0, _GMDRe,
 export var GetMailDomainRequest$: StaticStructureSchema = [3, n0, _GMDRet,
   0,
   [_OI, _DN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetMailDomainResponse$: StaticStructureSchema = [3, n0, _GMDReta,
   0,
@@ -1123,7 +1123,7 @@ export var GetMailDomainResponse$: StaticStructureSchema = [3, n0, _GMDReta,
 export var GetMobileDeviceAccessEffectRequest$: StaticStructureSchema = [3, n0, _GMDAER,
   0,
   [_OI, _DTe, _DMev, _DOSe, _DUAe],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 1
 ];
 export var GetMobileDeviceAccessEffectResponse$: StaticStructureSchema = [3, n0, _GMDAERe,
   0,
@@ -1133,7 +1133,7 @@ export var GetMobileDeviceAccessEffectResponse$: StaticStructureSchema = [3, n0,
 export var GetMobileDeviceAccessOverrideRequest$: StaticStructureSchema = [3, n0, _GMDAOR,
   0,
   [_OI, _UIs, _DIe],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetMobileDeviceAccessOverrideResponse$: StaticStructureSchema = [3, n0, _GMDAORe,
   0,
@@ -1143,7 +1143,7 @@ export var GetMobileDeviceAccessOverrideResponse$: StaticStructureSchema = [3, n
 export var GetPersonalAccessTokenMetadataRequest$: StaticStructureSchema = [3, n0, _GPATMR,
   0,
   [_OI, _PATI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPersonalAccessTokenMetadataResponse$: StaticStructureSchema = [3, n0, _GPATMRe,
   0,
@@ -1163,7 +1163,7 @@ export var GroupIdentifier$: StaticStructureSchema = [3, n0, _GIro,
 export var IdentityCenterConfiguration$: StaticStructureSchema = [3, n0, _ICC,
   0,
   [_IA, _AA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ImpersonationMatchedRule$: StaticStructureSchema = [3, n0, _IMR,
   0,
@@ -1177,8 +1177,8 @@ export var ImpersonationRole$: StaticStructureSchema = [3, n0, _IRm,
 ];
 export var ImpersonationRule$: StaticStructureSchema = [3, n0, _IRmp,
   0,
-  [_IRImp, _N, _D, _E, _TUa, _NTU],
-  [0, 0, 0, 0, 64 | 0, 64 | 0]
+  [_IRImp, _E, _N, _D, _TUa, _NTU],
+  [0, 0, 0, 0, 64 | 0, 64 | 0], 2
 ];
 export var InvalidConfigurationException$: StaticErrorSchema = [-3, n0, _ICE,
   { [_e]: _c },
@@ -1207,7 +1207,7 @@ TypeRegistry.for(n0).registerError(InvalidPasswordException$, InvalidPasswordExc
 export var LambdaAvailabilityProvider$: StaticStructureSchema = [3, n0, _LAP,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _c },
@@ -1218,7 +1218,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListAccessControlRulesRequest$: StaticStructureSchema = [3, n0, _LACRR,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var ListAccessControlRulesResponse$: StaticStructureSchema = [3, n0, _LACRRi,
   0,
@@ -1228,7 +1228,7 @@ export var ListAccessControlRulesResponse$: StaticStructureSchema = [3, n0, _LAC
 export var ListAliasesRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_OI, _EI, _NT, _MRa],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListAliasesResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -1238,7 +1238,7 @@ export var ListAliasesResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListAvailabilityConfigurationsRequest$: StaticStructureSchema = [3, n0, _LACR,
   0,
   [_OI, _MRa, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListAvailabilityConfigurationsResponse$: StaticStructureSchema = [3, n0, _LACRi,
   0,
@@ -1248,7 +1248,7 @@ export var ListAvailabilityConfigurationsResponse$: StaticStructureSchema = [3, 
 export var ListGroupMembersRequest$: StaticStructureSchema = [3, n0, _LGMR,
   0,
   [_OI, _GI, _NT, _MRa],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListGroupMembersResponse$: StaticStructureSchema = [3, n0, _LGMRi,
   0,
@@ -1268,7 +1268,7 @@ export var ListGroupsForEntityFilters$: StaticStructureSchema = [3, n0, _LGFEF,
 export var ListGroupsForEntityRequest$: StaticStructureSchema = [3, n0, _LGFER,
   0,
   [_OI, _EI, _F, _NT, _MRa],
-  [0, 0, () => ListGroupsForEntityFilters$, 0, 1]
+  [0, 0, () => ListGroupsForEntityFilters$, 0, 1], 2
 ];
 export var ListGroupsForEntityResponse$: StaticStructureSchema = [3, n0, _LGFERi,
   0,
@@ -1278,7 +1278,7 @@ export var ListGroupsForEntityResponse$: StaticStructureSchema = [3, n0, _LGFERi
 export var ListGroupsRequest$: StaticStructureSchema = [3, n0, _LGR,
   0,
   [_OI, _NT, _MRa, _F],
-  [0, 0, 1, () => ListGroupsFilters$]
+  [0, 0, 1, () => ListGroupsFilters$], 1
 ];
 export var ListGroupsResponse$: StaticStructureSchema = [3, n0, _LGRi,
   0,
@@ -1288,7 +1288,7 @@ export var ListGroupsResponse$: StaticStructureSchema = [3, n0, _LGRi,
 export var ListImpersonationRolesRequest$: StaticStructureSchema = [3, n0, _LIRR,
   0,
   [_OI, _NT, _MRa],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListImpersonationRolesResponse$: StaticStructureSchema = [3, n0, _LIRRi,
   0,
@@ -1298,7 +1298,7 @@ export var ListImpersonationRolesResponse$: StaticStructureSchema = [3, n0, _LIR
 export var ListMailboxExportJobsRequest$: StaticStructureSchema = [3, n0, _LMEJR,
   0,
   [_OI, _NT, _MRa],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListMailboxExportJobsResponse$: StaticStructureSchema = [3, n0, _LMEJRi,
   0,
@@ -1308,7 +1308,7 @@ export var ListMailboxExportJobsResponse$: StaticStructureSchema = [3, n0, _LMEJ
 export var ListMailboxPermissionsRequest$: StaticStructureSchema = [3, n0, _LMPR,
   0,
   [_OI, _EI, _NT, _MRa],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListMailboxPermissionsResponse$: StaticStructureSchema = [3, n0, _LMPRi,
   0,
@@ -1318,7 +1318,7 @@ export var ListMailboxPermissionsResponse$: StaticStructureSchema = [3, n0, _LMP
 export var ListMailDomainsRequest$: StaticStructureSchema = [3, n0, _LMDR,
   0,
   [_OI, _MRa, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListMailDomainsResponse$: StaticStructureSchema = [3, n0, _LMDRi,
   0,
@@ -1328,7 +1328,7 @@ export var ListMailDomainsResponse$: StaticStructureSchema = [3, n0, _LMDRi,
 export var ListMobileDeviceAccessOverridesRequest$: StaticStructureSchema = [3, n0, _LMDAOR,
   0,
   [_OI, _UIs, _DIe, _NT, _MRa],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 1
 ];
 export var ListMobileDeviceAccessOverridesResponse$: StaticStructureSchema = [3, n0, _LMDAORi,
   0,
@@ -1338,7 +1338,7 @@ export var ListMobileDeviceAccessOverridesResponse$: StaticStructureSchema = [3,
 export var ListMobileDeviceAccessRulesRequest$: StaticStructureSchema = [3, n0, _LMDARR,
   0,
   [_OI],
-  [0]
+  [0], 1
 ];
 export var ListMobileDeviceAccessRulesResponse$: StaticStructureSchema = [3, n0, _LMDARRi,
   0,
@@ -1358,7 +1358,7 @@ export var ListOrganizationsResponse$: StaticStructureSchema = [3, n0, _LORi,
 export var ListPersonalAccessTokensRequest$: StaticStructureSchema = [3, n0, _LPATR,
   0,
   [_OI, _UIs, _NT, _MRa],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 1
 ];
 export var ListPersonalAccessTokensResponse$: StaticStructureSchema = [3, n0, _LPATRi,
   0,
@@ -1368,7 +1368,7 @@ export var ListPersonalAccessTokensResponse$: StaticStructureSchema = [3, n0, _L
 export var ListResourceDelegatesRequest$: StaticStructureSchema = [3, n0, _LRDR,
   0,
   [_OI, _RI, _NT, _MRa],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListResourceDelegatesResponse$: StaticStructureSchema = [3, n0, _LRDRi,
   0,
@@ -1383,7 +1383,7 @@ export var ListResourcesFilters$: StaticStructureSchema = [3, n0, _LRF,
 export var ListResourcesRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_OI, _NT, _MRa, _F],
-  [0, 0, 1, () => ListResourcesFilters$]
+  [0, 0, 1, () => ListResourcesFilters$], 1
 ];
 export var ListResourcesResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
@@ -1393,7 +1393,7 @@ export var ListResourcesResponse$: StaticStructureSchema = [3, n0, _LRRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1408,7 +1408,7 @@ export var ListUsersFilters$: StaticStructureSchema = [3, n0, _LUF,
 export var ListUsersRequest$: StaticStructureSchema = [3, n0, _LUR,
   0,
   [_OI, _NT, _MRa, _F],
-  [0, 0, 1, [() => ListUsersFilters$, 0]]
+  [0, 0, 1, [() => ListUsersFilters$, 0]], 1
 ];
 export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
   0,
@@ -1489,12 +1489,12 @@ export var OrganizationSummary$: StaticStructureSchema = [3, n0, _OSr,
 export var Permission$: StaticStructureSchema = [3, n0, _Perm,
   0,
   [_GIr, _GT, _PV],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var PersonalAccessTokenConfiguration$: StaticStructureSchema = [3, n0, _PATC,
   0,
   [_Sta, _LID],
-  [0, 1]
+  [0, 1], 1
 ];
 export var PersonalAccessTokenSummary$: StaticStructureSchema = [3, n0, _PATSe,
   0,
@@ -1503,8 +1503,8 @@ export var PersonalAccessTokenSummary$: StaticStructureSchema = [3, n0, _PATSe,
 ];
 export var PutAccessControlRuleRequest$: StaticStructureSchema = [3, n0, _PACRR,
   0,
-  [_N, _E, _D, _IR, _NIR, _A, _NA, _UI, _NUI, _OI, _IRI, _NIRI],
-  [0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0]
+  [_N, _E, _D, _OI, _IR, _NIR, _A, _NA, _UI, _NUI, _IRI, _NIRI],
+  [0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 4
 ];
 export var PutAccessControlRuleResponse$: StaticStructureSchema = [3, n0, _PACRRu,
   0,
@@ -1513,8 +1513,8 @@ export var PutAccessControlRuleResponse$: StaticStructureSchema = [3, n0, _PACRR
 ];
 export var PutEmailMonitoringConfigurationRequest$: StaticStructureSchema = [3, n0, _PEMCR,
   0,
-  [_OI, _RA, _LGA],
-  [0, 0, 0]
+  [_OI, _LGA, _RA],
+  [0, 0, 0], 2
 ];
 export var PutEmailMonitoringConfigurationResponse$: StaticStructureSchema = [3, n0, _PEMCRu,
   0,
@@ -1524,7 +1524,7 @@ export var PutEmailMonitoringConfigurationResponse$: StaticStructureSchema = [3,
 export var PutIdentityProviderConfigurationRequest$: StaticStructureSchema = [3, n0, _PIPCR,
   0,
   [_OI, _AM, _ICC, _PATC],
-  [0, 0, () => IdentityCenterConfiguration$, () => PersonalAccessTokenConfiguration$]
+  [0, 0, () => IdentityCenterConfiguration$, () => PersonalAccessTokenConfiguration$], 4
 ];
 export var PutIdentityProviderConfigurationResponse$: StaticStructureSchema = [3, n0, _PIPCRu,
   0,
@@ -1534,7 +1534,7 @@ export var PutIdentityProviderConfigurationResponse$: StaticStructureSchema = [3
 export var PutInboundDmarcSettingsRequest$: StaticStructureSchema = [3, n0, _PIDSR,
   0,
   [_OI, _En],
-  [0, 2]
+  [0, 2], 2
 ];
 export var PutInboundDmarcSettingsResponse$: StaticStructureSchema = [3, n0, _PIDSRu,
   0,
@@ -1544,7 +1544,7 @@ export var PutInboundDmarcSettingsResponse$: StaticStructureSchema = [3, n0, _PI
 export var PutMailboxPermissionsRequest$: StaticStructureSchema = [3, n0, _PMPR,
   0,
   [_OI, _EI, _GIr, _PV],
-  [0, 0, 0, 64 | 0]
+  [0, 0, 0, 64 | 0], 4
 ];
 export var PutMailboxPermissionsResponse$: StaticStructureSchema = [3, n0, _PMPRu,
   0,
@@ -1554,7 +1554,7 @@ export var PutMailboxPermissionsResponse$: StaticStructureSchema = [3, n0, _PMPR
 export var PutMobileDeviceAccessOverrideRequest$: StaticStructureSchema = [3, n0, _PMDAOR,
   0,
   [_OI, _UIs, _DIe, _E, _D],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var PutMobileDeviceAccessOverrideResponse$: StaticStructureSchema = [3, n0, _PMDAORu,
   0,
@@ -1563,8 +1563,8 @@ export var PutMobileDeviceAccessOverrideResponse$: StaticStructureSchema = [3, n
 ];
 export var PutRetentionPolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
-  [_OI, _I, _N, _D, _FCo],
-  [0, 0, 0, [() => PolicyDescription, 0], () => FolderConfigurations]
+  [_OI, _N, _FCo, _I, _D],
+  [0, 0, () => FolderConfigurations, 0, [() => PolicyDescription, 0]], 3
 ];
 export var PutRetentionPolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -1578,8 +1578,8 @@ export var RedactedEwsAvailabilityProvider$: StaticStructureSchema = [3, n0, _RE
 ];
 export var RegisterMailDomainRequest$: StaticStructureSchema = [3, n0, _RMDR,
   0,
-  [_CT, _OI, _DN],
-  [[0, 4], 0, 0]
+  [_OI, _DN, _CT],
+  [0, 0, [0, 4]], 2
 ];
 export var RegisterMailDomainResponse$: StaticStructureSchema = [3, n0, _RMDRe,
   0,
@@ -1589,7 +1589,7 @@ export var RegisterMailDomainResponse$: StaticStructureSchema = [3, n0, _RMDRe,
 export var RegisterToWorkMailRequest$: StaticStructureSchema = [3, n0, _RTWMR,
   0,
   [_OI, _EI, _Em],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var RegisterToWorkMailResponse$: StaticStructureSchema = [3, n0, _RTWMRe,
   0,
@@ -1605,7 +1605,7 @@ TypeRegistry.for(n0).registerError(ReservedNameException$, ReservedNameException
 export var ResetPasswordRequest$: StaticStructureSchema = [3, n0, _RPR,
   0,
   [_OI, _UIs, _P],
-  [0, 0, [() => Password, 0]]
+  [0, 0, [() => Password, 0]], 3
 ];
 export var ResetPasswordResponse$: StaticStructureSchema = [3, n0, _RPRe,
   0,
@@ -1625,8 +1625,8 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var StartMailboxExportJobRequest$: StaticStructureSchema = [3, n0, _SMEJR,
   0,
-  [_CT, _OI, _EI, _D, _RA, _KKA, _SBN, _SP],
-  [[0, 4], 0, 0, 0, 0, 0, 0, 0]
+  [_OI, _EI, _RA, _KKA, _SBN, _SP, _CT, _D],
+  [0, 0, 0, 0, 0, 0, [0, 4], 0], 6
 ];
 export var StartMailboxExportJobResponse$: StaticStructureSchema = [3, n0, _SMEJRt,
   0,
@@ -1636,12 +1636,12 @@ export var StartMailboxExportJobResponse$: StaticStructureSchema = [3, n0, _SMEJ
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1651,7 +1651,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TestAvailabilityConfigurationRequest$: StaticStructureSchema = [3, n0, _TACR,
   0,
   [_OI, _DN, _EP, _LP],
-  [0, 0, [() => EwsAvailabilityProvider$, 0], () => LambdaAvailabilityProvider$]
+  [0, 0, [() => EwsAvailabilityProvider$, 0], () => LambdaAvailabilityProvider$], 1
 ];
 export var TestAvailabilityConfigurationResponse$: StaticStructureSchema = [3, n0, _TACRe,
   0,
@@ -1673,7 +1673,7 @@ TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOp
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1683,7 +1683,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAvailabilityConfigurationRequest$: StaticStructureSchema = [3, n0, _UACR,
   0,
   [_OI, _DN, _EP, _LP],
-  [0, 0, [() => EwsAvailabilityProvider$, 0], () => LambdaAvailabilityProvider$]
+  [0, 0, [() => EwsAvailabilityProvider$, 0], () => LambdaAvailabilityProvider$], 2
 ];
 export var UpdateAvailabilityConfigurationResponse$: StaticStructureSchema = [3, n0, _UACRp,
   0,
@@ -1693,7 +1693,7 @@ export var UpdateAvailabilityConfigurationResponse$: StaticStructureSchema = [3,
 export var UpdateDefaultMailDomainRequest$: StaticStructureSchema = [3, n0, _UDMDR,
   0,
   [_OI, _DN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateDefaultMailDomainResponse$: StaticStructureSchema = [3, n0, _UDMDRp,
   0,
@@ -1703,7 +1703,7 @@ export var UpdateDefaultMailDomainResponse$: StaticStructureSchema = [3, n0, _UD
 export var UpdateGroupRequest$: StaticStructureSchema = [3, n0, _UGR,
   0,
   [_OI, _GI, _HFGAL],
-  [0, 0, 2]
+  [0, 0, 2], 2
 ];
 export var UpdateGroupResponse$: StaticStructureSchema = [3, n0, _UGRp,
   0,
@@ -1712,8 +1712,8 @@ export var UpdateGroupResponse$: StaticStructureSchema = [3, n0, _UGRp,
 ];
 export var UpdateImpersonationRoleRequest$: StaticStructureSchema = [3, n0, _UIRR,
   0,
-  [_OI, _IRIm, _N, _Ty, _D, _R],
-  [0, 0, 0, 0, 0, () => ImpersonationRuleList]
+  [_OI, _IRIm, _N, _Ty, _R, _D],
+  [0, 0, 0, 0, () => ImpersonationRuleList, 0], 5
 ];
 export var UpdateImpersonationRoleResponse$: StaticStructureSchema = [3, n0, _UIRRp,
   0,
@@ -1723,7 +1723,7 @@ export var UpdateImpersonationRoleResponse$: StaticStructureSchema = [3, n0, _UI
 export var UpdateMailboxQuotaRequest$: StaticStructureSchema = [3, n0, _UMQR,
   0,
   [_OI, _UIs, _MQ],
-  [0, 0, 1]
+  [0, 0, 1], 3
 ];
 export var UpdateMailboxQuotaResponse$: StaticStructureSchema = [3, n0, _UMQRp,
   0,
@@ -1732,8 +1732,8 @@ export var UpdateMailboxQuotaResponse$: StaticStructureSchema = [3, n0, _UMQRp,
 ];
 export var UpdateMobileDeviceAccessRuleRequest$: StaticStructureSchema = [3, n0, _UMDARR,
   0,
-  [_OI, _MDARI, _N, _D, _E, _DT, _NDT, _DMe, _NDM, _DOS, _NDOS, _DUA, _NDUA],
-  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [_OI, _MDARI, _N, _E, _D, _DT, _NDT, _DMe, _NDM, _DOS, _NDOS, _DUA, _NDUA],
+  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 4
 ];
 export var UpdateMobileDeviceAccessRuleResponse$: StaticStructureSchema = [3, n0, _UMDARRp,
   0,
@@ -1743,7 +1743,7 @@ export var UpdateMobileDeviceAccessRuleResponse$: StaticStructureSchema = [3, n0
 export var UpdatePrimaryEmailAddressRequest$: StaticStructureSchema = [3, n0, _UPEAR,
   0,
   [_OI, _EI, _Em],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var UpdatePrimaryEmailAddressResponse$: StaticStructureSchema = [3, n0, _UPEARp,
   0,
@@ -1753,7 +1753,7 @@ export var UpdatePrimaryEmailAddressResponse$: StaticStructureSchema = [3, n0, _
 export var UpdateResourceRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_OI, _RI, _N, _BO, _D, _Ty, _HFGAL],
-  [0, 0, 0, () => BookingOptions$, [() => NewResourceDescription, 0], 0, 2]
+  [0, 0, 0, () => BookingOptions$, [() => NewResourceDescription, 0], 0, 2], 2
 ];
 export var UpdateResourceResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -1763,7 +1763,7 @@ export var UpdateResourceResponse$: StaticStructureSchema = [3, n0, _URRpd,
 export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
   [_OI, _UIs, _Ro, _DNi, _FN, _LN, _HFGAL, _In, _Te, _St, _JT, _C, _Co, _ZC, _Dep, _Cou, _O, _IPUI],
-  [0, 0, 0, [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], 2, [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], 0]
+  [0, 0, 0, [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], 2, [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], [() => UserAttribute, 0], 0], 2
 ];
 export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
   0,

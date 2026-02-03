@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   ArchiveApplicationCommand,
@@ -305,6 +305,26 @@ import {
 } from "./commands/UpdateSourceServerReplicationTypeCommand";
 import { UpdateWaveCommand, UpdateWaveCommandInput, UpdateWaveCommandOutput } from "./commands/UpdateWaveCommand";
 import { MgnClient } from "./MgnClient";
+import { paginateDescribeJobLogItems } from "./pagination/DescribeJobLogItemsPaginator";
+import { paginateDescribeJobs } from "./pagination/DescribeJobsPaginator";
+import {
+  paginateDescribeLaunchConfigurationTemplates,
+} from "./pagination/DescribeLaunchConfigurationTemplatesPaginator";
+import {
+  paginateDescribeReplicationConfigurationTemplates,
+} from "./pagination/DescribeReplicationConfigurationTemplatesPaginator";
+import { paginateDescribeSourceServers } from "./pagination/DescribeSourceServersPaginator";
+import { paginateDescribeVcenterClients } from "./pagination/DescribeVcenterClientsPaginator";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";
+import { paginateListExportErrors } from "./pagination/ListExportErrorsPaginator";
+import { paginateListExports } from "./pagination/ListExportsPaginator";
+import { paginateListImportErrors } from "./pagination/ListImportErrorsPaginator";
+import { paginateListImports } from "./pagination/ListImportsPaginator";
+import { paginateListManagedAccounts } from "./pagination/ListManagedAccountsPaginator";
+import { paginateListSourceServerActions } from "./pagination/ListSourceServerActionsPaginator";
+import { paginateListTemplateActions } from "./pagination/ListTemplateActionsPaginator";
+import { paginateListWaves } from "./pagination/ListWavesPaginator";
 
 const commands = {
   ArchiveApplicationCommand,
@@ -377,6 +397,24 @@ const commands = {
   UpdateSourceServerCommand,
   UpdateSourceServerReplicationTypeCommand,
   UpdateWaveCommand,
+};
+const paginators = {
+  paginateDescribeJobLogItems,
+  paginateDescribeJobs,
+  paginateDescribeLaunchConfigurationTemplates,
+  paginateDescribeReplicationConfigurationTemplates,
+  paginateDescribeSourceServers,
+  paginateDescribeVcenterClients,
+  paginateListApplications,
+  paginateListConnectors,
+  paginateListExportErrors,
+  paginateListExports,
+  paginateListImportErrors,
+  paginateListImports,
+  paginateListManagedAccounts,
+  paginateListSourceServerActions,
+  paginateListTemplateActions,
+  paginateListWaves,
 };
 
 export interface Mgn {
@@ -1582,6 +1620,182 @@ export interface Mgn {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWaveCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeJobLogItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeJobLogItemsCommandOutput}.
+   */
+  paginateDescribeJobLogItems(
+    args: DescribeJobLogItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeJobLogItemsCommandOutput>;
+
+  /**
+   * @see {@link DescribeJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeJobsCommandOutput}.
+   */
+  paginateDescribeJobs(
+    args?: DescribeJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeJobsCommandOutput>;
+
+  /**
+   * @see {@link DescribeLaunchConfigurationTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLaunchConfigurationTemplatesCommandOutput}.
+   */
+  paginateDescribeLaunchConfigurationTemplates(
+    args?: DescribeLaunchConfigurationTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLaunchConfigurationTemplatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationConfigurationTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationConfigurationTemplatesCommandOutput}.
+   */
+  paginateDescribeReplicationConfigurationTemplates(
+    args?: DescribeReplicationConfigurationTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationConfigurationTemplatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeSourceServersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSourceServersCommandOutput}.
+   */
+  paginateDescribeSourceServers(
+    args?: DescribeSourceServersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSourceServersCommandOutput>;
+
+  /**
+   * @see {@link DescribeVcenterClientsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeVcenterClientsCommandOutput}.
+   */
+  paginateDescribeVcenterClients(
+    args?: DescribeVcenterClientsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeVcenterClientsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorsCommandOutput}.
+   */
+  paginateListConnectors(
+    args?: ListConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorsCommandOutput>;
+
+  /**
+   * @see {@link ListExportErrorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExportErrorsCommandOutput}.
+   */
+  paginateListExportErrors(
+    args: ListExportErrorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExportErrorsCommandOutput>;
+
+  /**
+   * @see {@link ListExportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExportsCommandOutput}.
+   */
+  paginateListExports(
+    args?: ListExportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExportsCommandOutput>;
+
+  /**
+   * @see {@link ListImportErrorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportErrorsCommandOutput}.
+   */
+  paginateListImportErrors(
+    args: ListImportErrorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportErrorsCommandOutput>;
+
+  /**
+   * @see {@link ListImportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportsCommandOutput}.
+   */
+  paginateListImports(
+    args?: ListImportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportsCommandOutput>;
+
+  /**
+   * @see {@link ListManagedAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedAccountsCommandOutput}.
+   */
+  paginateListManagedAccounts(
+    args?: ListManagedAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListSourceServerActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSourceServerActionsCommandOutput}.
+   */
+  paginateListSourceServerActions(
+    args: ListSourceServerActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSourceServerActionsCommandOutput>;
+
+  /**
+   * @see {@link ListTemplateActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTemplateActionsCommandOutput}.
+   */
+  paginateListTemplateActions(
+    args: ListTemplateActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTemplateActionsCommandOutput>;
+
+  /**
+   * @see {@link ListWavesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWavesCommandOutput}.
+   */
+  paginateListWaves(
+    args?: ListWavesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWavesCommandOutput>;
 }
 
 /**
@@ -1589,4 +1803,4 @@ export interface Mgn {
  * @public
  */
 export class Mgn extends MgnClient implements Mgn {}
-createAggregatedClient(commands, Mgn);
+createAggregatedClient(commands, Mgn, { paginators });

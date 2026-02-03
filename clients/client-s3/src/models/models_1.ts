@@ -282,7 +282,7 @@ export interface RestoreObjectRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -833,6 +833,206 @@ export interface UpdateBucketMetadataJournalTableConfigurationRequest {
 }
 
 /**
+ * <p>
+ *       If <code>SSEKMS</code> is specified for <code>ObjectEncryption</code>, this data type specifies
+ *       the Amazon Web Services KMS key Amazon Resource Name (ARN) to use and whether to use an S3 Bucket Key for
+ *       server-side encryption using Key Management Service (KMS) keys (SSE-KMS).
+ *     </p>
+ * @public
+ */
+export interface SSEKMSEncryption {
+  /**
+   * <p>
+   *       Specifies the Amazon Web Services KMS key Amazon Resource Name (ARN) to use for the updated server-side encryption
+   *       type. Required if <code>ObjectEncryption</code> specifies <code>SSEKMS</code>.
+   *     </p>
+   *          <note>
+   *             <p>You must specify the full Amazon Web Services KMS key ARN. The KMS key ID and KMS key alias aren't
+   *         supported.</p>
+   *          </note>
+   *          <p>Pattern: (<code>arn:aws[-a-z0-9]*:kms:[-a-z0-9]*:[0-9]\{12\}:key/.+</code>)</p>
+   * @public
+   */
+  KMSKeyArn: string | undefined;
+
+  /**
+   * <p>
+   *       Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption
+   *       using Key Management Service (KMS) keys (SSE-KMS). If this value isn't specified, it defaults to <code>false</code>.
+   *       Setting this value to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with
+   *       SSE-KMS. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html">
+   *         Using Amazon S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>.
+   *     </p>
+   *          <p>Valid Values: <code>true</code> | <code>false</code>
+   *          </p>
+   * @public
+   */
+  BucketKeyEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>
+ *       The updated server-side encryption type for this object. The <code>UpdateObjectEncryption</code>
+ *       operation supports the SSE-S3 and SSE-KMS encryption types.
+ *     </p>
+ *          <p>Valid Values: <code>SSES3</code> | <code>SSEKMS</code>
+ *          </p>
+ * @public
+ */
+export type ObjectEncryption =
+  | ObjectEncryption.SSEKMSMember
+  | ObjectEncryption.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ObjectEncryption {
+  /**
+   * <p>
+   *       Specifies to update the object encryption type to server-side encryption with Key Management Service (KMS) keys
+   *       (SSE-KMS).
+   *     </p>
+   * @public
+   */
+  export interface SSEKMSMember {
+    SSEKMS: SSEKMSEncryption;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    SSEKMS?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    SSEKMS: (value: SSEKMSEncryption) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface UpdateObjectEncryptionRequest {
+  /**
+   * <p>
+   *       The name of the general purpose bucket that contains the specified object key name.
+   *     </p>
+   *          <p>When you use this operation with an access point attached to a general purpose bucket, you
+   *       must either provide the alias of the access point in place of the bucket name or you must specify
+   *       the access point Amazon Resource Name (ARN). When using the access point ARN, you must direct
+   *       requests to the access point hostname. The access point hostname takes the form
+   *       <code>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com</code>.
+   *       When using this operation with an access point through the Amazon Web Services SDKs, you provide the access point
+   *       ARN in place of the bucket name. For more information about access point ARNs, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-naming.html">
+   *         Referencing access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>
+   *       The key name of the object that you want to update the server-side encryption type for.
+   *     </p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>
+   *       The version ID of the object that you want to update the server-side encryption type for.
+   *     </p>
+   * @public
+   */
+  VersionId?: string | undefined;
+
+  /**
+   * <p>
+   *       The updated server-side encryption type for this object. The <code>UpdateObjectEncryption</code>
+   *       operation supports the SSE-S3 and SSE-KMS encryption types.
+   *     </p>
+   *          <p>Valid Values: <code>SSES3</code> | <code>SSEKMS</code>
+   *          </p>
+   * @public
+   */
+  ObjectEncryption: ObjectEncryption | undefined;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
+   *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
+   *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
+   *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestPayer?: RequestPayer | undefined;
+
+  /**
+   * <p>
+   *       The account ID of the expected bucket owner. If the account ID that you provide doesn't match the
+   *       actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code>
+   *       (access denied).
+   *     </p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+
+  /**
+   * <p>
+   *       The MD5 hash for the request body. For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.
+   *    </p>
+   * @public
+   */
+  ContentMD5?: string | undefined;
+
+  /**
+   * <p>
+   *       Indicates the algorithm used to create the checksum for the object when you use an Amazon Web Services SDK. This header
+   *       doesn't provide any additional functionality if you don't use the SDK. When you send this header,
+   *       there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent.
+   *       Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
+   *         Checking object integrity </a> in the <i>Amazon S3 User Guide</i>.
+   *     </p>
+   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code>
+   *       parameter.</p>
+   * @public
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateObjectEncryptionResponse {
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the request. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple
+   *         Storage Service user guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  RequestCharged?: RequestCharged | undefined;
+}
+
+/**
  * @public
  */
 export interface UploadPartOutput {
@@ -1106,7 +1306,7 @@ export interface UploadPartRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -1490,7 +1690,7 @@ export interface UploadPartCopyRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket owners need not
    *       specify this parameter in their requests. If either the source or destination S3 bucket has Requester
-   *       Pays enabled, the requester will pay for corresponding charges to copy the object. For information about
+   *       Pays enabled, the requester will pay for the corresponding charges. For information about
    *       downloading objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requester Pays
    *         Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>

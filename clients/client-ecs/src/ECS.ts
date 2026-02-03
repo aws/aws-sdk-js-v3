@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   CreateCapacityProviderCommand,
@@ -303,6 +309,19 @@ import {
   UpdateTaskSetCommandOutput,
 } from "./commands/UpdateTaskSetCommand";
 import { ECSClient } from "./ECSClient";
+import { paginateListAccountSettings } from "./pagination/ListAccountSettingsPaginator";
+import { paginateListAttributes } from "./pagination/ListAttributesPaginator";
+import { paginateListClusters } from "./pagination/ListClustersPaginator";
+import { paginateListContainerInstances } from "./pagination/ListContainerInstancesPaginator";
+import { paginateListServicesByNamespace } from "./pagination/ListServicesByNamespacePaginator";
+import { paginateListServices } from "./pagination/ListServicesPaginator";
+import { paginateListTaskDefinitionFamilies } from "./pagination/ListTaskDefinitionFamiliesPaginator";
+import { paginateListTaskDefinitions } from "./pagination/ListTaskDefinitionsPaginator";
+import { paginateListTasks } from "./pagination/ListTasksPaginator";
+import { waitUntilServicesInactive } from "./waiters/waitForServicesInactive";
+import { waitUntilServicesStable } from "./waiters/waitForServicesStable";
+import { waitUntilTasksRunning } from "./waiters/waitForTasksRunning";
+import { waitUntilTasksStopped } from "./waiters/waitForTasksStopped";
 
 const commands = {
   CreateCapacityProviderCommand,
@@ -369,6 +388,23 @@ const commands = {
   UpdateServicePrimaryTaskSetCommand,
   UpdateTaskProtectionCommand,
   UpdateTaskSetCommand,
+};
+const paginators = {
+  paginateListAccountSettings,
+  paginateListAttributes,
+  paginateListClusters,
+  paginateListContainerInstances,
+  paginateListServices,
+  paginateListServicesByNamespace,
+  paginateListTaskDefinitionFamilies,
+  paginateListTaskDefinitions,
+  paginateListTasks,
+};
+const waiters = {
+  waitUntilServicesInactive,
+  waitUntilServicesStable,
+  waitUntilTasksRunning,
+  waitUntilTasksStopped,
 };
 
 export interface ECS {
@@ -1473,6 +1509,145 @@ export interface ECS {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTaskSetCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccountSettingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountSettingsCommandOutput}.
+   */
+  paginateListAccountSettings(
+    args?: ListAccountSettingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountSettingsCommandOutput>;
+
+  /**
+   * @see {@link ListAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttributesCommandOutput}.
+   */
+  paginateListAttributes(
+    args: ListAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttributesCommandOutput>;
+
+  /**
+   * @see {@link ListClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClustersCommandOutput}.
+   */
+  paginateListClusters(
+    args?: ListClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClustersCommandOutput>;
+
+  /**
+   * @see {@link ListContainerInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContainerInstancesCommandOutput}.
+   */
+  paginateListContainerInstances(
+    args?: ListContainerInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContainerInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicesCommandOutput}.
+   */
+  paginateListServices(
+    args?: ListServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicesCommandOutput>;
+
+  /**
+   * @see {@link ListServicesByNamespaceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicesByNamespaceCommandOutput}.
+   */
+  paginateListServicesByNamespace(
+    args: ListServicesByNamespaceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicesByNamespaceCommandOutput>;
+
+  /**
+   * @see {@link ListTaskDefinitionFamiliesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTaskDefinitionFamiliesCommandOutput}.
+   */
+  paginateListTaskDefinitionFamilies(
+    args?: ListTaskDefinitionFamiliesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTaskDefinitionFamiliesCommandOutput>;
+
+  /**
+   * @see {@link ListTaskDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTaskDefinitionsCommandOutput}.
+   */
+  paginateListTaskDefinitions(
+    args?: ListTaskDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTaskDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTasksCommandOutput}.
+   */
+  paginateListTasks(
+    args?: ListTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTasksCommandOutput>;
+
+  /**
+   * @see {@link DescribeServicesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilServicesInactive(
+    args: DescribeServicesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeServicesCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilServicesStable(
+    args: DescribeServicesCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTasksRunning(
+    args: DescribeTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeTasksCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTasksStopped(
+    args: DescribeTasksCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ECS>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1494,4 +1669,4 @@ export interface ECS {
  * @public
  */
 export class ECS extends ECSClient implements ECS {}
-createAggregatedClient(commands, ECS);
+createAggregatedClient(commands, ECS, { paginators, waiters });

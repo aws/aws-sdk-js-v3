@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateParallelDataCommand,
@@ -93,6 +93,10 @@ import {
   UpdateParallelDataCommandInput,
   UpdateParallelDataCommandOutput,
 } from "./commands/UpdateParallelDataCommand";
+import { paginateListLanguages } from "./pagination/ListLanguagesPaginator";
+import { paginateListParallelData } from "./pagination/ListParallelDataPaginator";
+import { paginateListTerminologies } from "./pagination/ListTerminologiesPaginator";
+import { paginateListTextTranslationJobs } from "./pagination/ListTextTranslationJobsPaginator";
 import { TranslateClient } from "./TranslateClient";
 
 const commands = {
@@ -115,6 +119,12 @@ const commands = {
   TranslateTextCommand,
   UntagResourceCommand,
   UpdateParallelDataCommand,
+};
+const paginators = {
+  paginateListLanguages,
+  paginateListParallelData,
+  paginateListTerminologies,
+  paginateListTextTranslationJobs,
 };
 
 export interface Translate {
@@ -444,6 +454,50 @@ export interface Translate {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateParallelDataCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListLanguagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLanguagesCommandOutput}.
+   */
+  paginateListLanguages(
+    args?: ListLanguagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLanguagesCommandOutput>;
+
+  /**
+   * @see {@link ListParallelDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListParallelDataCommandOutput}.
+   */
+  paginateListParallelData(
+    args?: ListParallelDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListParallelDataCommandOutput>;
+
+  /**
+   * @see {@link ListTerminologiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTerminologiesCommandOutput}.
+   */
+  paginateListTerminologies(
+    args?: ListTerminologiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTerminologiesCommandOutput>;
+
+  /**
+   * @see {@link ListTextTranslationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTextTranslationJobsCommandOutput}.
+   */
+  paginateListTextTranslationJobs(
+    args?: ListTextTranslationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTextTranslationJobsCommandOutput>;
 }
 
 /**
@@ -451,4 +505,4 @@ export interface Translate {
  * @public
  */
 export class Translate extends TranslateClient implements Translate {}
-createAggregatedClient(commands, Translate);
+createAggregatedClient(commands, Translate, { paginators });

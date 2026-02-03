@@ -168,6 +168,11 @@ const _UP = "UnionPayload";
 const _V = "V";
 const _XA = "X-A";
 const _XAAI = "X-Amz-Account-Id";
+const _XAIM = "XmlAttributesInMiddle";
+const _XAIMPR = "XmlAttributesInMiddlePayloadRequest";
+const _XAIMPRm = "XmlAttributesInMiddlePayloadResponse";
+const _XAIMR = "XmlAttributesInMiddleRequest";
+const _XAIMRm = "XmlAttributesInMiddleResponse";
 const _XAOP = "XmlAttributesOnPayload";
 const _XAOPR = "XmlAttributesOnPayloadRequest";
 const _XAOPRm = "XmlAttributesOnPayloadResponse";
@@ -469,7 +474,7 @@ export var ConstantAndVariableQueryStringInput$: StaticStructureSchema = [3, n1,
 export var ConstantQueryStringInput$: StaticStructureSchema = [3, n1, _CQSI,
   0,
   [_h],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ContentTypeParametersInput$: StaticStructureSchema = [3, n1, _CTPI,
   0,
@@ -499,7 +504,7 @@ export var EmptyInputAndEmptyOutputOutput$: StaticStructureSchema = [3, n1, _EIA
 export var EndpointWithHostLabelOperationRequest$: StaticStructureSchema = [3, n1, _EWHLOR,
   0,
   [_l],
-  [[0, { [_hL]: 1 }]]
+  [[0, { [_hL]: 1 }]], 1
 ];
 export var EnumPayloadInput$: StaticStructureSchema = [3, n1, _EPI,
   0,
@@ -544,7 +549,7 @@ export var GreetingWithErrorsOutput$: StaticStructureSchema = [3, n1, _GWEO,
 export var HostLabelHeaderInput$: StaticStructureSchema = [3, n1, _HLHI,
   0,
   [_aI],
-  [[0, { [_hL]: 1, [_hH]: _XAAI }]]
+  [[0, { [_hL]: 1, [_hH]: _XAAI }]], 1
 ];
 export var HttpEmptyPrefixHeadersInput$: StaticStructureSchema = [3, n1, _HEPHI,
   0,
@@ -604,22 +609,22 @@ export var HttpPrefixHeadersInputOutput$: StaticStructureSchema = [3, n1, _HPHIO
 export var HttpRequestWithFloatLabelsInput$: StaticStructureSchema = [3, n1, _HRWFLI,
   0,
   [_fl, _do],
-  [[1, 1], [1, 1]]
+  [[1, 1], [1, 1]], 2
 ];
 export var HttpRequestWithGreedyLabelInPathInput$: StaticStructureSchema = [3, n1, _HRWGLIPI,
   0,
   [_f, _b],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var HttpRequestWithLabelsAndTimestampFormatInput$: StaticStructureSchema = [3, n1, _HRWLATFI,
   0,
   [_mES, _mHD, _mDT, _dF, _tES, _tHD, _tDT],
-  [[7, 1], [6, 1], [5, 1], [4, 1], [7, 1], [6, 1], [5, 1]]
+  [[7, 1], [6, 1], [5, 1], [4, 1], [7, 1], [6, 1], [5, 1]], 7
 ];
 export var HttpRequestWithLabelsInput$: StaticStructureSchema = [3, n1, _HRWLI,
   0,
   [_s, _sh, _i, _lo, _fl, _do, _bo, _ti],
-  [[0, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [2, 1], [4, 1]]
+  [[0, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [2, 1], [4, 1]], 8
 ];
 export var HttpResponseCodeOutput$: StaticStructureSchema = [3, n1, _HRCO,
   0,
@@ -761,6 +766,26 @@ export var TimestampFormatHeadersIO$: StaticStructureSchema = [3, n1, _TFHIO,
   0,
   [_mES, _mHD, _mDT, _dF, _tES, _tHD, _tDT],
   [[7, { [_hH]: _Xm }], [6, { [_hH]: _Xm_ }], [5, { [_hH]: _Xm__ }], [4, { [_hH]: _Xd }], [7, { [_hH]: _Xt }], [6, { [_hH]: _Xt_ }], [5, { [_hH]: _Xt__ }]]
+];
+export var XmlAttributesInMiddlePayloadRequest$: StaticStructureSchema = [3, n1, _XAIMPR,
+  0,
+  [_f, _at, _b],
+  [0, [0, { [_xA]: 1, [_xN]: _te }], 0]
+];
+export var XmlAttributesInMiddlePayloadResponse$: StaticStructureSchema = [3, n1, _XAIMPRm,
+  0,
+  [_f, _at, _b],
+  [0, [0, { [_xA]: 1, [_xN]: _te }], 0]
+];
+export var XmlAttributesInMiddleRequest$: StaticStructureSchema = [3, n1, _XAIMR,
+  0,
+  [_p],
+  [[() => XmlAttributesInMiddlePayloadRequest$, 16]]
+];
+export var XmlAttributesInMiddleResponse$: StaticStructureSchema = [3, n1, _XAIMRm,
+  0,
+  [_p],
+  [[() => XmlAttributesInMiddlePayloadResponse$, 16]]
 ];
 export var XmlAttributesOnPayloadRequest$: StaticStructureSchema = [3, n1, _XAOPR,
   0,
@@ -1188,6 +1213,9 @@ export var TimestampFormatHeaders$: StaticOperationSchema = [9, n1, _TFH,
 ];
 export var XmlAttributes$: StaticOperationSchema = [9, n1, _XAm,
   { [_http_]: ["PUT", "/XmlAttributes", 200] }, () => XmlAttributesRequest$, () => XmlAttributesResponse$
+];
+export var XmlAttributesInMiddle$: StaticOperationSchema = [9, n1, _XAIM,
+  { [_http_]: ["PUT", "/XmlAttributesInMiddle", 200] }, () => XmlAttributesInMiddleRequest$, () => XmlAttributesInMiddleResponse$
 ];
 export var XmlAttributesOnPayload$: StaticOperationSchema = [9, n1, _XAOP,
   { [_http_]: ["PUT", "/XmlAttributesOnPayload", 200] }, () => XmlAttributesOnPayloadRequest$, () => XmlAttributesOnPayloadResponse$

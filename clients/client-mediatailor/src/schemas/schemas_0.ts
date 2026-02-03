@@ -282,7 +282,7 @@ const _STt = "StartTime";
 const _SU = "StartUrl";
 const _SUT = "SegmentationUpidType";
 const _SUe = "SegmentationUpid";
-const _T = "Tags";
+const _T = "Tier";
 const _TK = "TagKeys";
 const _TPN = "TranscodeProfileName";
 const _TR = "TagResource";
@@ -292,7 +292,7 @@ const _TSM = "TimeSignalMessage";
 const _TSRW = "TrafficShapingRetrievalWindow";
 const _TST = "TrafficShapingType";
 const _TSTC = "TrafficShapingTpsConfiguration";
-const _Ti = "Tier";
+const _Ta = "Tags";
 const _Tr = "Transition";
 const _Ty = "Type";
 const _UC = "UpdateChannel";
@@ -370,18 +370,18 @@ export var AccessConfiguration$: StaticStructureSchema = [3, n0, _AC,
 ];
 export var AdBreak$: StaticStructureSchema = [3, n0, _AB,
   0,
-  [_MT, _OM, _S, _SIM, _TSM, _ABM],
-  [0, 1, () => SlateSource$, () => SpliceInsertMessage$, () => TimeSignalMessage$, () => AdBreakMetadataList]
+  [_OM, _MT, _S, _SIM, _TSM, _ABM],
+  [1, 0, () => SlateSource$, () => SpliceInsertMessage$, () => TimeSignalMessage$, () => AdBreakMetadataList], 1
 ];
 export var AdBreakOpportunity$: StaticStructureSchema = [3, n0, _ABO,
   0,
   [_OM],
-  [1]
+  [1], 1
 ];
 export var AdConditioningConfiguration$: StaticStructureSchema = [3, n0, _ACC,
   0,
   [_SMFC],
-  [0]
+  [0], 1
 ];
 export var AdDecisionServerConfiguration$: StaticStructureSchema = [3, n0, _ADSC,
   0,
@@ -401,7 +401,7 @@ export var AdsInteractionLog$: StaticStructureSchema = [3, n0, _AIL,
 export var Alert$: StaticStructureSchema = [3, n0, _A,
   0,
   [_ACl, _AM, _LMT, _RRA, _RA, _C],
-  [0, 0, 7, 64 | 0, 0, 0]
+  [0, 0, 7, 64 | 0, 0, 0], 5
 ];
 export var AlternateMedia$: StaticStructureSchema = [3, n0, _AMl,
   0,
@@ -416,7 +416,7 @@ export var AudienceMedia$: StaticStructureSchema = [3, n0, _AMu,
 export var AvailMatchingCriteria$: StaticStructureSchema = [3, n0, _AMC,
   0,
   [_DV, _O],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AvailSuppression$: StaticStructureSchema = [3, n0, _AS,
   0,
@@ -441,8 +441,8 @@ export var CdnConfiguration$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var Channel$: StaticStructureSchema = [3, n0, _Ch,
   0,
-  [_Ar, _CN, _CS, _CT, _FS, _LMT, _Ou, _PM, _T, _Ti, _LC, _Aud],
-  [0, 0, 0, 7, () => SlateSource$, 7, () => ResponseOutputs, 0, [128 | 0, { [_jN]: _t }], 0, () => LogConfigurationForChannel$, 64 | 0]
+  [_Ar, _CN, _CS, _Ou, _PM, _T, _LC, _CT, _FS, _LMT, _Ta, _Aud],
+  [0, 0, 0, () => ResponseOutputs, 0, 0, () => LogConfigurationForChannel$, 7, () => SlateSource$, 7, [128 | 0, { [_jN]: _t }], 64 | 0], 7
 ];
 export var ClipRange$: StaticStructureSchema = [3, n0, _CR,
   0,
@@ -452,7 +452,7 @@ export var ClipRange$: StaticStructureSchema = [3, n0, _CR,
 export var ConfigureLogsForChannelRequest$: StaticStructureSchema = [3, n0, _CLFCR,
   0,
   [_CN, _LT],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var ConfigureLogsForChannelResponse$: StaticStructureSchema = [3, n0, _CLFCRo,
   0,
@@ -462,37 +462,37 @@ export var ConfigureLogsForChannelResponse$: StaticStructureSchema = [3, n0, _CL
 export var ConfigureLogsForPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _CLFPCR,
   0,
   [_PE, _PCN, _ELS, _AIL, _MSIL],
-  [1, 0, 64 | 0, () => AdsInteractionLog$, () => ManifestServiceInteractionLog$]
+  [1, 0, 64 | 0, () => AdsInteractionLog$, () => ManifestServiceInteractionLog$], 2
 ];
 export var ConfigureLogsForPlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _CLFPCRo,
   0,
   [_PE, _PCN, _ELS, _AIL, _MSIL],
-  [1, 0, 64 | 0, () => AdsInteractionLog$, () => ManifestServiceInteractionLog$]
+  [1, 0, 64 | 0, () => AdsInteractionLog$, () => ManifestServiceInteractionLog$], 1
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_CN, _FS, _Ou, _PM, _T, _Ti, _TSC, _Aud],
-  [[0, 1], () => SlateSource$, () => RequestOutputs, 0, [128 | 0, { [_jN]: _t }], 0, () => TimeShiftConfiguration$, 64 | 0]
+  [_CN, _Ou, _PM, _FS, _Ta, _T, _TSC, _Aud],
+  [[0, 1], () => RequestOutputs, 0, () => SlateSource$, [128 | 0, { [_jN]: _t }], 0, () => TimeShiftConfiguration$, 64 | 0], 3
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_Ar, _CN, _CS, _CT, _FS, _LMT, _Ou, _PM, _T, _Ti, _TSC, _Aud],
+  [_Ar, _CN, _CS, _CT, _FS, _LMT, _Ou, _PM, _Ta, _T, _TSC, _Aud],
   [0, 0, 0, 7, () => SlateSource$, 7, () => ResponseOutputs, 0, [128 | 0, { [_jN]: _t }], 0, () => TimeShiftConfiguration$, 64 | 0]
 ];
 export var CreateLiveSourceRequest$: StaticStructureSchema = [3, n0, _CLSR,
   0,
-  [_HPC, _LSN, _SLN, _T],
-  [() => HttpPackageConfigurations, [0, 1], [0, 1], [128 | 0, { [_jN]: _t }]]
+  [_HPC, _LSN, _SLN, _Ta],
+  [() => HttpPackageConfigurations, [0, 1], [0, 1], [128 | 0, { [_jN]: _t }]], 3
 ];
 export var CreateLiveSourceResponse$: StaticStructureSchema = [3, n0, _CLSRr,
   0,
-  [_Ar, _CT, _HPC, _LMT, _LSN, _SLN, _T],
+  [_Ar, _CT, _HPC, _LMT, _LSN, _SLN, _Ta],
   [0, 7, () => HttpPackageConfigurations, 7, 0, 0, [128 | 0, { [_jN]: _t }]]
 ];
 export var CreatePrefetchScheduleRequest$: StaticStructureSchema = [3, n0, _CPSR,
   0,
-  [_Co, _N, _PCN, _R, _RPC, _ST, _SI],
-  [() => PrefetchConsumption$, [0, 1], [0, 1], () => PrefetchRetrieval$, () => RecurringPrefetchConfiguration$, 0, 0]
+  [_N, _PCN, _Co, _R, _RPC, _ST, _SI],
+  [[0, 1], [0, 1], () => PrefetchConsumption$, () => PrefetchRetrieval$, () => RecurringPrefetchConfiguration$, 0, 0], 2
 ];
 export var CreatePrefetchScheduleResponse$: StaticStructureSchema = [3, n0, _CPSRr,
   0,
@@ -501,8 +501,8 @@ export var CreatePrefetchScheduleResponse$: StaticStructureSchema = [3, n0, _CPS
 ];
 export var CreateProgramRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_ABd, _CN, _LSN, _PN, _SC, _SLN, _VSN, _AMu],
-  [() => __listOfAdBreak, [0, 1], 0, [0, 1], () => ScheduleConfiguration$, 0, 0, () => __listOfAudienceMedia]
+  [_CN, _PN, _SC, _SLN, _ABd, _LSN, _VSN, _AMu],
+  [[0, 1], [0, 1], () => ScheduleConfiguration$, 0, () => __listOfAdBreak, 0, 0, () => __listOfAudienceMedia], 4
 ];
 export var CreateProgramResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -511,22 +511,22 @@ export var CreateProgramResponse$: StaticStructureSchema = [3, n0, _CPRr,
 ];
 export var CreateSourceLocationRequest$: StaticStructureSchema = [3, n0, _CSLR,
   0,
-  [_AC, _DSDC, _HC, _SDC, _SLN, _T],
-  [() => AccessConfiguration$, () => DefaultSegmentDeliveryConfiguration$, () => HttpConfiguration$, () => __listOfSegmentDeliveryConfiguration, [0, 1], [128 | 0, { [_jN]: _t }]]
+  [_HC, _SLN, _AC, _DSDC, _SDC, _Ta],
+  [() => HttpConfiguration$, [0, 1], () => AccessConfiguration$, () => DefaultSegmentDeliveryConfiguration$, () => __listOfSegmentDeliveryConfiguration, [128 | 0, { [_jN]: _t }]], 2
 ];
 export var CreateSourceLocationResponse$: StaticStructureSchema = [3, n0, _CSLRr,
   0,
-  [_AC, _Ar, _CT, _DSDC, _HC, _LMT, _SDC, _SLN, _T],
+  [_AC, _Ar, _CT, _DSDC, _HC, _LMT, _SDC, _SLN, _Ta],
   [() => AccessConfiguration$, 0, 7, () => DefaultSegmentDeliveryConfiguration$, () => HttpConfiguration$, 7, () => __listOfSegmentDeliveryConfiguration, 0, [128 | 0, { [_jN]: _t }]]
 ];
 export var CreateVodSourceRequest$: StaticStructureSchema = [3, n0, _CVSR,
   0,
-  [_HPC, _SLN, _T, _VSN],
-  [() => HttpPackageConfigurations, [0, 1], [128 | 0, { [_jN]: _t }], [0, 1]]
+  [_HPC, _SLN, _VSN, _Ta],
+  [() => HttpPackageConfigurations, [0, 1], [0, 1], [128 | 0, { [_jN]: _t }]], 3
 ];
 export var CreateVodSourceResponse$: StaticStructureSchema = [3, n0, _CVSRr,
   0,
-  [_Ar, _CT, _HPC, _LMT, _SLN, _T, _VSN],
+  [_Ar, _CT, _HPC, _LMT, _SLN, _Ta, _VSN],
   [0, 7, () => HttpPackageConfigurations, 7, 0, [128 | 0, { [_jN]: _t }], 0]
 ];
 export var DashConfiguration$: StaticStructureSchema = [3, n0, _DC,
@@ -552,7 +552,7 @@ export var DefaultSegmentDeliveryConfiguration$: StaticStructureSchema = [3, n0,
 export var DeleteChannelPolicyRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
   [_CN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteChannelPolicyResponse$: StaticStructureSchema = [3, n0, _DCPRe,
   0,
@@ -562,7 +562,7 @@ export var DeleteChannelPolicyResponse$: StaticStructureSchema = [3, n0, _DCPRe,
 export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -572,7 +572,7 @@ export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteLiveSourceRequest$: StaticStructureSchema = [3, n0, _DLSR,
   0,
   [_LSN, _SLN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteLiveSourceResponse$: StaticStructureSchema = [3, n0, _DLSRe,
   0,
@@ -582,7 +582,7 @@ export var DeleteLiveSourceResponse$: StaticStructureSchema = [3, n0, _DLSRe,
 export var DeletePlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _DPCR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeletePlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _DPCRe,
   0,
@@ -592,7 +592,7 @@ export var DeletePlaybackConfigurationResponse$: StaticStructureSchema = [3, n0,
 export var DeletePrefetchScheduleRequest$: StaticStructureSchema = [3, n0, _DPSR,
   0,
   [_N, _PCN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeletePrefetchScheduleResponse$: StaticStructureSchema = [3, n0, _DPSRe,
   0,
@@ -602,7 +602,7 @@ export var DeletePrefetchScheduleResponse$: StaticStructureSchema = [3, n0, _DPS
 export var DeleteProgramRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_CN, _PN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteProgramResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -612,7 +612,7 @@ export var DeleteProgramResponse$: StaticStructureSchema = [3, n0, _DPRe,
 export var DeleteSourceLocationRequest$: StaticStructureSchema = [3, n0, _DSLR,
   0,
   [_SLN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSourceLocationResponse$: StaticStructureSchema = [3, n0, _DSLRe,
   0,
@@ -622,7 +622,7 @@ export var DeleteSourceLocationResponse$: StaticStructureSchema = [3, n0, _DSLRe
 export var DeleteVodSourceRequest$: StaticStructureSchema = [3, n0, _DVSR,
   0,
   [_SLN, _VSN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteVodSourceResponse$: StaticStructureSchema = [3, n0, _DVSRe,
   0,
@@ -632,27 +632,27 @@ export var DeleteVodSourceResponse$: StaticStructureSchema = [3, n0, _DVSRe,
 export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_CN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeChannelResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
-  [_Ar, _CN, _CS, _CT, _FS, _LMT, _Ou, _PM, _T, _Ti, _LC, _TSC, _Aud],
-  [0, 0, 0, 7, () => SlateSource$, 7, () => ResponseOutputs, 0, [128 | 0, { [_jN]: _t }], 0, () => LogConfigurationForChannel$, () => TimeShiftConfiguration$, 64 | 0]
+  [_LC, _Ar, _CN, _CS, _CT, _FS, _LMT, _Ou, _PM, _Ta, _T, _TSC, _Aud],
+  [() => LogConfigurationForChannel$, 0, 0, 0, 7, () => SlateSource$, 7, () => ResponseOutputs, 0, [128 | 0, { [_jN]: _t }], 0, () => TimeShiftConfiguration$, 64 | 0], 1
 ];
 export var DescribeLiveSourceRequest$: StaticStructureSchema = [3, n0, _DLSRes,
   0,
   [_LSN, _SLN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeLiveSourceResponse$: StaticStructureSchema = [3, n0, _DLSResc,
   0,
-  [_Ar, _CT, _HPC, _LMT, _LSN, _SLN, _T],
+  [_Ar, _CT, _HPC, _LMT, _LSN, _SLN, _Ta],
   [0, 7, () => HttpPackageConfigurations, 7, 0, 0, [128 | 0, { [_jN]: _t }]]
 ];
 export var DescribeProgramRequest$: StaticStructureSchema = [3, n0, _DPRes,
   0,
   [_CN, _PN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeProgramResponse$: StaticStructureSchema = [3, n0, _DPResc,
   0,
@@ -662,27 +662,27 @@ export var DescribeProgramResponse$: StaticStructureSchema = [3, n0, _DPResc,
 export var DescribeSourceLocationRequest$: StaticStructureSchema = [3, n0, _DSLRes,
   0,
   [_SLN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeSourceLocationResponse$: StaticStructureSchema = [3, n0, _DSLResc,
   0,
-  [_AC, _Ar, _CT, _DSDC, _HC, _LMT, _SDC, _SLN, _T],
+  [_AC, _Ar, _CT, _DSDC, _HC, _LMT, _SDC, _SLN, _Ta],
   [() => AccessConfiguration$, 0, 7, () => DefaultSegmentDeliveryConfiguration$, () => HttpConfiguration$, 7, () => __listOfSegmentDeliveryConfiguration, 0, [128 | 0, { [_jN]: _t }]]
 ];
 export var DescribeVodSourceRequest$: StaticStructureSchema = [3, n0, _DVSRes,
   0,
   [_SLN, _VSN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeVodSourceResponse$: StaticStructureSchema = [3, n0, _DVSResc,
   0,
-  [_ABOd, _Ar, _CT, _HPC, _LMT, _SLN, _T, _VSN],
+  [_ABOd, _Ar, _CT, _HPC, _LMT, _SLN, _Ta, _VSN],
   [() => AdBreakOpportunities, 0, 7, () => HttpPackageConfigurations, 7, 0, [128 | 0, { [_jN]: _t }], 0]
 ];
 export var GetChannelPolicyRequest$: StaticStructureSchema = [3, n0, _GCPR,
   0,
   [_CN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetChannelPolicyResponse$: StaticStructureSchema = [3, n0, _GCPRe,
   0,
@@ -692,7 +692,7 @@ export var GetChannelPolicyResponse$: StaticStructureSchema = [3, n0, _GCPRe,
 export var GetChannelScheduleRequest$: StaticStructureSchema = [3, n0, _GCSR,
   0,
   [_CN, _DMu, _MR, _NT, _Au],
-  [[0, 1], [0, { [_hQ]: _dM }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _a }]]
+  [[0, 1], [0, { [_hQ]: _dM }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _a }]], 1
 ];
 export var GetChannelScheduleResponse$: StaticStructureSchema = [3, n0, _GCSRe,
   0,
@@ -702,17 +702,17 @@ export var GetChannelScheduleResponse$: StaticStructureSchema = [3, n0, _GCSRe,
 export var GetPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _GPCR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _GPCRe,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _SIEP, _SAU, _T, _TPN, _VCSU, _ACC, _ADSC],
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _SIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC],
   [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$]
 ];
 export var GetPrefetchScheduleRequest$: StaticStructureSchema = [3, n0, _GPSR,
   0,
   [_N, _PCN],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetPrefetchScheduleResponse$: StaticStructureSchema = [3, n0, _GPSRe,
   0,
@@ -732,12 +732,12 @@ export var HlsPlaylistSettings$: StaticStructureSchema = [3, n0, _HPS,
 export var HttpConfiguration$: StaticStructureSchema = [3, n0, _HC,
   0,
   [_BU],
-  [0]
+  [0], 1
 ];
 export var HttpPackageConfiguration$: StaticStructureSchema = [3, n0, _HPCt,
   0,
   [_Pa, _SG, _Ty],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var HttpRequest$: StaticStructureSchema = [3, n0, _HR,
   0,
@@ -747,12 +747,12 @@ export var HttpRequest$: StaticStructureSchema = [3, n0, _HR,
 export var KeyValuePair$: StaticStructureSchema = [3, n0, _KVP,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ListAlertsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
-  [_MR, _NT, _RA],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _rA }]]
+  [_RA, _MR, _NT],
+  [[0, { [_hQ]: _rA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListAlertsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -771,8 +771,8 @@ export var ListChannelsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 ];
 export var ListLiveSourcesRequest$: StaticStructureSchema = [3, n0, _LLSR,
   0,
-  [_MR, _NT, _SLN],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, 1]]
+  [_SLN, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListLiveSourcesResponse$: StaticStructureSchema = [3, n0, _LLSRi,
   0,
@@ -791,8 +791,8 @@ export var ListPlaybackConfigurationsResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListPrefetchSchedulesRequest$: StaticStructureSchema = [3, n0, _LPSR,
   0,
-  [_MR, _NT, _PCN, _ST, _SI],
-  [1, 0, [0, 1], 0, 0]
+  [_PCN, _MR, _NT, _ST, _SI],
+  [[0, 1], 1, 0, 0, 0], 1
 ];
 export var ListPrefetchSchedulesResponse$: StaticStructureSchema = [3, n0, _LPSRi,
   0,
@@ -812,17 +812,17 @@ export var ListSourceLocationsResponse$: StaticStructureSchema = [3, n0, _LSLRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
-  [_T],
+  [_Ta],
   [[128 | 0, { [_jN]: _t }]]
 ];
 export var ListVodSourcesRequest$: StaticStructureSchema = [3, n0, _LVSR,
   0,
-  [_MR, _NT, _SLN],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, 1]]
+  [_SLN, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListVodSourcesResponse$: StaticStructureSchema = [3, n0, _LVSRi,
   0,
@@ -836,13 +836,13 @@ export var LivePreRollConfiguration$: StaticStructureSchema = [3, n0, _LPRC,
 ];
 export var LiveSource$: StaticStructureSchema = [3, n0, _LS,
   0,
-  [_Ar, _CT, _HPC, _LMT, _LSN, _SLN, _T],
-  [0, 7, () => HttpPackageConfigurations, 7, 0, 0, [128 | 0, { [_jN]: _t }]]
+  [_Ar, _HPC, _LSN, _SLN, _CT, _LMT, _Ta],
+  [0, () => HttpPackageConfigurations, 0, 0, 7, 7, [128 | 0, { [_jN]: _t }]], 4
 ];
 export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_PE, _ELS, _AIL, _MSIL],
-  [1, 64 | 0, () => AdsInteractionLog$, () => ManifestServiceInteractionLog$]
+  [1, 64 | 0, () => AdsInteractionLog$, () => ManifestServiceInteractionLog$], 2
 ];
 export var LogConfigurationForChannel$: StaticStructureSchema = [3, n0, _LCFC,
   0,
@@ -861,28 +861,28 @@ export var ManifestServiceInteractionLog$: StaticStructureSchema = [3, n0, _MSIL
 ];
 export var PlaybackConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _SIEP, _SAU, _T, _TPN, _VCSU, _ACC, _ADSC],
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _SIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC],
   [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$]
 ];
 export var PrefetchConsumption$: StaticStructureSchema = [3, n0, _PCr,
   0,
-  [_AMC, _ET, _STt],
-  [() => __listOfAvailMatchingCriteria, 7, 7]
+  [_ET, _AMC, _STt],
+  [7, () => __listOfAvailMatchingCriteria, 7], 1
 ];
 export var PrefetchRetrieval$: StaticStructureSchema = [3, n0, _PR,
   0,
-  [_DVy, _ET, _STt, _TST, _TSRW, _TSTC],
-  [128 | 0, 7, 7, 0, () => TrafficShapingRetrievalWindow$, () => TrafficShapingTpsConfiguration$]
+  [_ET, _DVy, _STt, _TST, _TSRW, _TSTC],
+  [7, 128 | 0, 7, 0, () => TrafficShapingRetrievalWindow$, () => TrafficShapingTpsConfiguration$], 1
 ];
 export var PrefetchSchedule$: StaticStructureSchema = [3, n0, _PS,
   0,
-  [_Ar, _Co, _N, _PCN, _R, _ST, _RPC, _SI],
-  [0, () => PrefetchConsumption$, 0, 0, () => PrefetchRetrieval$, 0, () => RecurringPrefetchConfiguration$, 0]
+  [_Ar, _N, _PCN, _Co, _R, _ST, _RPC, _SI],
+  [0, 0, 0, () => PrefetchConsumption$, () => PrefetchRetrieval$, 0, () => RecurringPrefetchConfiguration$, 0], 3
 ];
 export var PutChannelPolicyRequest$: StaticStructureSchema = [3, n0, _PCPR,
   0,
   [_CN, _P],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var PutChannelPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
   0,
@@ -891,12 +891,12 @@ export var PutChannelPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
 ];
 export var PutPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _PPCR,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _IM, _LPRC, _MPR, _N, _PTS, _SAU, _T, _TPN, _VCSU, _ACC, _ADSC],
-  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CARo, 0, 0, 128 | 0], () => DashConfigurationForPut$, 0, () => LivePreRollConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$]
+  [_N, _ADSU, _AS, _B, _CC, _CA, _DC, _IM, _LPRC, _MPR, _PTS, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC],
+  [0, 0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CARo, 0, 0, 128 | 0], () => DashConfigurationForPut$, 0, () => LivePreRollConfiguration$, () => ManifestProcessingRules$, 1, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$], 1
 ];
 export var PutPlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _PPCRu,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _SIEP, _SAU, _T, _TPN, _VCSU, _ACC, _ADSC],
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _SIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC],
   [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$]
 ];
 export var RecurringConsumption$: StaticStructureSchema = [3, n0, _RC,
@@ -906,8 +906,8 @@ export var RecurringConsumption$: StaticStructureSchema = [3, n0, _RC,
 ];
 export var RecurringPrefetchConfiguration$: StaticStructureSchema = [3, n0, _RPC,
   0,
-  [_STt, _ET, _RC, _RR],
-  [7, 7, () => RecurringConsumption$, () => RecurringRetrieval$]
+  [_ET, _RC, _RR, _STt],
+  [7, () => RecurringConsumption$, () => RecurringRetrieval$, 7], 3
 ];
 export var RecurringRetrieval$: StaticStructureSchema = [3, n0, _RR,
   0,
@@ -916,13 +916,13 @@ export var RecurringRetrieval$: StaticStructureSchema = [3, n0, _RR,
 ];
 export var RequestOutputItem$: StaticStructureSchema = [3, n0, _ROI,
   0,
-  [_DPS, _HPS, _MN, _SG],
-  [() => DashPlaylistSettings$, () => HlsPlaylistSettings$, 0, 0]
+  [_MN, _SG, _DPS, _HPS],
+  [0, 0, () => DashPlaylistSettings$, () => HlsPlaylistSettings$], 2
 ];
 export var ResponseOutputItem$: StaticStructureSchema = [3, n0, _ROIe,
   0,
-  [_DPS, _HPS, _MN, _PU, _SG],
-  [() => DashPlaylistSettings$, () => HlsPlaylistSettings$, 0, 0, 0]
+  [_MN, _PU, _SG, _DPS, _HPS],
+  [0, 0, 0, () => DashPlaylistSettings$, () => HlsPlaylistSettings$], 3
 ];
 export var ScheduleAdBreak$: StaticStructureSchema = [3, n0, _SAB,
   0,
@@ -932,12 +932,12 @@ export var ScheduleAdBreak$: StaticStructureSchema = [3, n0, _SAB,
 export var ScheduleConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_Tr, _CR],
-  [() => Transition$, () => ClipRange$]
+  [() => Transition$, () => ClipRange$], 1
 ];
 export var ScheduleEntry$: StaticStructureSchema = [3, n0, _SE,
   0,
-  [_ADS, _AST, _Ar, _CN, _LSN, _PN, _SABc, _SET, _SLN, _VSN, _Aud],
-  [1, 7, 0, 0, 0, 0, () => __listOfScheduleAdBreak, 0, 0, 0, 64 | 0]
+  [_Ar, _CN, _PN, _SLN, _ADS, _AST, _LSN, _SABc, _SET, _VSN, _Aud],
+  [0, 0, 0, 0, 1, 7, 0, () => __listOfScheduleAdBreak, 0, 0, 64 | 0], 4
 ];
 export var SecretsManagerAccessTokenConfiguration$: StaticStructureSchema = [3, n0, _SMATC,
   0,
@@ -961,8 +961,8 @@ export var SlateSource$: StaticStructureSchema = [3, n0, _SS,
 ];
 export var SourceLocation$: StaticStructureSchema = [3, n0, _SL,
   0,
-  [_AC, _Ar, _CT, _DSDC, _HC, _LMT, _SDC, _SLN, _T],
-  [() => AccessConfiguration$, 0, 7, () => DefaultSegmentDeliveryConfiguration$, () => HttpConfiguration$, 7, () => __listOfSegmentDeliveryConfiguration, 0, [128 | 0, { [_jN]: _t }]]
+  [_Ar, _HC, _SLN, _AC, _CT, _DSDC, _LMT, _SDC, _Ta],
+  [0, () => HttpConfiguration$, 0, () => AccessConfiguration$, 7, () => DefaultSegmentDeliveryConfiguration$, 7, () => __listOfSegmentDeliveryConfiguration, [128 | 0, { [_jN]: _t }]], 3
 ];
 export var SpliceInsertMessage$: StaticStructureSchema = [3, n0, _SIM,
   0,
@@ -972,7 +972,7 @@ export var SpliceInsertMessage$: StaticStructureSchema = [3, n0, _SIM,
 export var StartChannelRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
   [_CN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StartChannelResponse$: StaticStructureSchema = [3, n0, _SCRt,
   0,
@@ -982,7 +982,7 @@ export var StartChannelResponse$: StaticStructureSchema = [3, n0, _SCRt,
 export var StopChannelRequest$: StaticStructureSchema = [3, n0, _SCRto,
   0,
   [_CN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StopChannelResponse$: StaticStructureSchema = [3, n0, _SCRtop,
   0,
@@ -991,13 +991,13 @@ export var StopChannelResponse$: StaticStructureSchema = [3, n0, _SCRtop,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_RA, _T],
-  [[0, 1], [128 | 0, { [_jN]: _t }]]
+  [_RA, _Ta],
+  [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
 export var TimeShiftConfiguration$: StaticStructureSchema = [3, n0, _TSC,
   0,
   [_MTDS],
-  [1]
+  [1], 1
 ];
 export var TimeSignalMessage$: StaticStructureSchema = [3, n0, _TSM,
   0,
@@ -1016,38 +1016,38 @@ export var TrafficShapingTpsConfiguration$: StaticStructureSchema = [3, n0, _TST
 ];
 export var Transition$: StaticStructureSchema = [3, n0, _Tr,
   0,
-  [_DM, _RP, _RPe, _SSTM, _Ty],
-  [1, 0, 0, 1, 0]
+  [_RP, _Ty, _DM, _RPe, _SSTM],
+  [0, 0, 1, 0, 1], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_CN, _FS, _Ou, _TSC, _Aud],
-  [[0, 1], () => SlateSource$, () => RequestOutputs, () => TimeShiftConfiguration$, 64 | 0]
+  [_CN, _Ou, _FS, _TSC, _Aud],
+  [[0, 1], () => RequestOutputs, () => SlateSource$, () => TimeShiftConfiguration$, 64 | 0], 2
 ];
 export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
-  [_Ar, _CN, _CS, _CT, _FS, _LMT, _Ou, _PM, _T, _Ti, _TSC, _Aud],
+  [_Ar, _CN, _CS, _CT, _FS, _LMT, _Ou, _PM, _Ta, _T, _TSC, _Aud],
   [0, 0, 0, 7, () => SlateSource$, 7, () => ResponseOutputs, 0, [128 | 0, { [_jN]: _t }], 0, () => TimeShiftConfiguration$, 64 | 0]
 ];
 export var UpdateLiveSourceRequest$: StaticStructureSchema = [3, n0, _ULSR,
   0,
   [_HPC, _LSN, _SLN],
-  [() => HttpPackageConfigurations, [0, 1], [0, 1]]
+  [() => HttpPackageConfigurations, [0, 1], [0, 1]], 3
 ];
 export var UpdateLiveSourceResponse$: StaticStructureSchema = [3, n0, _ULSRp,
   0,
-  [_Ar, _CT, _HPC, _LMT, _LSN, _SLN, _T],
+  [_Ar, _CT, _HPC, _LMT, _LSN, _SLN, _Ta],
   [0, 7, () => HttpPackageConfigurations, 7, 0, 0, [128 | 0, { [_jN]: _t }]]
 ];
 export var UpdateProgramRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_ABd, _CN, _PN, _SC, _AMu],
-  [() => __listOfAdBreak, [0, 1], [0, 1], () => UpdateProgramScheduleConfiguration$, () => __listOfAudienceMedia]
+  [_CN, _PN, _SC, _ABd, _AMu],
+  [[0, 1], [0, 1], () => UpdateProgramScheduleConfiguration$, () => __listOfAdBreak, () => __listOfAudienceMedia], 3
 ];
 export var UpdateProgramResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -1066,28 +1066,28 @@ export var UpdateProgramTransition$: StaticStructureSchema = [3, n0, _UPT,
 ];
 export var UpdateSourceLocationRequest$: StaticStructureSchema = [3, n0, _USLR,
   0,
-  [_AC, _DSDC, _HC, _SDC, _SLN],
-  [() => AccessConfiguration$, () => DefaultSegmentDeliveryConfiguration$, () => HttpConfiguration$, () => __listOfSegmentDeliveryConfiguration, [0, 1]]
+  [_HC, _SLN, _AC, _DSDC, _SDC],
+  [() => HttpConfiguration$, [0, 1], () => AccessConfiguration$, () => DefaultSegmentDeliveryConfiguration$, () => __listOfSegmentDeliveryConfiguration], 2
 ];
 export var UpdateSourceLocationResponse$: StaticStructureSchema = [3, n0, _USLRp,
   0,
-  [_AC, _Ar, _CT, _DSDC, _HC, _LMT, _SDC, _SLN, _T],
+  [_AC, _Ar, _CT, _DSDC, _HC, _LMT, _SDC, _SLN, _Ta],
   [() => AccessConfiguration$, 0, 7, () => DefaultSegmentDeliveryConfiguration$, () => HttpConfiguration$, 7, () => __listOfSegmentDeliveryConfiguration, 0, [128 | 0, { [_jN]: _t }]]
 ];
 export var UpdateVodSourceRequest$: StaticStructureSchema = [3, n0, _UVSR,
   0,
   [_HPC, _SLN, _VSN],
-  [() => HttpPackageConfigurations, [0, 1], [0, 1]]
+  [() => HttpPackageConfigurations, [0, 1], [0, 1]], 3
 ];
 export var UpdateVodSourceResponse$: StaticStructureSchema = [3, n0, _UVSRp,
   0,
-  [_Ar, _CT, _HPC, _LMT, _SLN, _T, _VSN],
+  [_Ar, _CT, _HPC, _LMT, _SLN, _Ta, _VSN],
   [0, 7, () => HttpPackageConfigurations, 7, 0, [128 | 0, { [_jN]: _t }], 0]
 ];
 export var VodSource$: StaticStructureSchema = [3, n0, _VS,
   0,
-  [_Ar, _CT, _HPC, _LMT, _SLN, _T, _VSN],
-  [0, 7, () => HttpPackageConfigurations, 7, 0, [128 | 0, { [_jN]: _t }], 0]
+  [_Ar, _HPC, _SLN, _VSN, _CT, _LMT, _Ta],
+  [0, () => HttpPackageConfigurations, 0, 0, 7, 7, [128 | 0, { [_jN]: _t }]], 4
 ];
 var __Unit = "unit" as const;
 export var MediaTailorServiceException$: StaticErrorSchema = [-3, _s, "MediaTailorServiceException", 0, [], []];

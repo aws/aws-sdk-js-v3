@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddPermissionCommand,
@@ -184,6 +184,14 @@ import {
   VerifySMSSandboxPhoneNumberCommandInput,
   VerifySMSSandboxPhoneNumberCommandOutput,
 } from "./commands/VerifySMSSandboxPhoneNumberCommand";
+import { paginateListEndpointsByPlatformApplication } from "./pagination/ListEndpointsByPlatformApplicationPaginator";
+import { paginateListOriginationNumbers } from "./pagination/ListOriginationNumbersPaginator";
+import { paginateListPhoneNumbersOptedOut } from "./pagination/ListPhoneNumbersOptedOutPaginator";
+import { paginateListPlatformApplications } from "./pagination/ListPlatformApplicationsPaginator";
+import { paginateListSMSSandboxPhoneNumbers } from "./pagination/ListSMSSandboxPhoneNumbersPaginator";
+import { paginateListSubscriptionsByTopic } from "./pagination/ListSubscriptionsByTopicPaginator";
+import { paginateListSubscriptions } from "./pagination/ListSubscriptionsPaginator";
+import { paginateListTopics } from "./pagination/ListTopicsPaginator";
 import { SNSClient } from "./SNSClient";
 
 const commands = {
@@ -229,6 +237,16 @@ const commands = {
   UnsubscribeCommand,
   UntagResourceCommand,
   VerifySMSSandboxPhoneNumberCommand,
+};
+const paginators = {
+  paginateListEndpointsByPlatformApplication,
+  paginateListOriginationNumbers,
+  paginateListPhoneNumbersOptedOut,
+  paginateListPlatformApplications,
+  paginateListSMSSandboxPhoneNumbers,
+  paginateListSubscriptions,
+  paginateListSubscriptionsByTopic,
+  paginateListTopics,
 };
 
 export interface SNS {
@@ -953,6 +971,94 @@ export interface SNS {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: VerifySMSSandboxPhoneNumberCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListEndpointsByPlatformApplicationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEndpointsByPlatformApplicationCommandOutput}.
+   */
+  paginateListEndpointsByPlatformApplication(
+    args: ListEndpointsByPlatformApplicationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEndpointsByPlatformApplicationCommandOutput>;
+
+  /**
+   * @see {@link ListOriginationNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOriginationNumbersCommandOutput}.
+   */
+  paginateListOriginationNumbers(
+    args?: ListOriginationNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOriginationNumbersCommandOutput>;
+
+  /**
+   * @see {@link ListPhoneNumbersOptedOutCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPhoneNumbersOptedOutCommandOutput}.
+   */
+  paginateListPhoneNumbersOptedOut(
+    args?: ListPhoneNumbersOptedOutCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPhoneNumbersOptedOutCommandOutput>;
+
+  /**
+   * @see {@link ListPlatformApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPlatformApplicationsCommandOutput}.
+   */
+  paginateListPlatformApplications(
+    args?: ListPlatformApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPlatformApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListSMSSandboxPhoneNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSMSSandboxPhoneNumbersCommandOutput}.
+   */
+  paginateListSMSSandboxPhoneNumbers(
+    args?: ListSMSSandboxPhoneNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSMSSandboxPhoneNumbersCommandOutput>;
+
+  /**
+   * @see {@link ListSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubscriptionsCommandOutput}.
+   */
+  paginateListSubscriptions(
+    args?: ListSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link ListSubscriptionsByTopicCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubscriptionsByTopicCommandOutput}.
+   */
+  paginateListSubscriptionsByTopic(
+    args: ListSubscriptionsByTopicCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubscriptionsByTopicCommandOutput>;
+
+  /**
+   * @see {@link ListTopicsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTopicsCommandOutput}.
+   */
+  paginateListTopics(
+    args?: ListTopicsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTopicsCommandOutput>;
 }
 
 /**
@@ -972,4 +1078,4 @@ export interface SNS {
  * @public
  */
 export class SNS extends SNSClient implements SNS {}
-createAggregatedClient(commands, SNS);
+createAggregatedClient(commands, SNS, { paginators });

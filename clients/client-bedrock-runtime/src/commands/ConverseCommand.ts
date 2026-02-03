@@ -188,6 +188,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *           },
  *           cachePoint: { // CachePointBlock
  *             type: "default", // required
+ *             ttl: "5m" || "1h",
  *           },
  *           reasoningContent: { // ReasoningContentBlock Union: only one key present
  *             reasoningText: { // ReasoningTextBlock
@@ -275,6 +276,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *       },
  *       cachePoint: {
  *         type: "default", // required
+ *         ttl: "5m" || "1h",
  *       },
  *     },
  *   ],
@@ -483,6 +485,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //           },
  * //           cachePoint: { // CachePointBlock
  * //             type: "default", // required
+ * //             ttl: "5m" || "1h",
  * //           },
  * //           reasoningContent: { // ReasoningContentBlock Union: only one key present
  * //             reasoningText: { // ReasoningTextBlock
@@ -558,6 +561,12 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //     totalTokens: Number("int"), // required
  * //     cacheReadInputTokens: Number("int"),
  * //     cacheWriteInputTokens: Number("int"),
+ * //     cacheDetails: [ // CacheDetailsList
+ * //       { // CacheDetail
+ * //         ttl: "5m" || "1h", // required
+ * //         inputTokens: Number("int"), // required
+ * //       },
+ * //     ],
  * //   },
  * //   metrics: { // ConverseMetrics
  * //     latencyMs: Number("long"), // required

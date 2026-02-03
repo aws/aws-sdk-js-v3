@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchDeleteRecipeVersionCommand,
@@ -191,6 +191,14 @@ import {
   UpdateScheduleCommandOutput,
 } from "./commands/UpdateScheduleCommand";
 import { DataBrewClient } from "./DataBrewClient";
+import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
+import { paginateListJobRuns } from "./pagination/ListJobRunsPaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
+import { paginateListProjects } from "./pagination/ListProjectsPaginator";
+import { paginateListRecipes } from "./pagination/ListRecipesPaginator";
+import { paginateListRecipeVersions } from "./pagination/ListRecipeVersionsPaginator";
+import { paginateListRulesets } from "./pagination/ListRulesetsPaginator";
+import { paginateListSchedules } from "./pagination/ListSchedulesPaginator";
 
 const commands = {
   BatchDeleteRecipeVersionCommand,
@@ -237,6 +245,16 @@ const commands = {
   UpdateRecipeJobCommand,
   UpdateRulesetCommand,
   UpdateScheduleCommand,
+};
+const paginators = {
+  paginateListDatasets,
+  paginateListJobRuns,
+  paginateListJobs,
+  paginateListProjects,
+  paginateListRecipes,
+  paginateListRecipeVersions,
+  paginateListRulesets,
+  paginateListSchedules,
 };
 
 export interface DataBrew {
@@ -993,6 +1011,94 @@ export interface DataBrew {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateScheduleCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetsCommandOutput}.
+   */
+  paginateListDatasets(
+    args?: ListDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetsCommandOutput>;
+
+  /**
+   * @see {@link ListJobRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobRunsCommandOutput}.
+   */
+  paginateListJobRuns(
+    args: ListJobRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobRunsCommandOutput>;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args?: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
+   * @see {@link ListProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectsCommandOutput}.
+   */
+  paginateListProjects(
+    args?: ListProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectsCommandOutput>;
+
+  /**
+   * @see {@link ListRecipesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecipesCommandOutput}.
+   */
+  paginateListRecipes(
+    args?: ListRecipesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecipesCommandOutput>;
+
+  /**
+   * @see {@link ListRecipeVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecipeVersionsCommandOutput}.
+   */
+  paginateListRecipeVersions(
+    args: ListRecipeVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecipeVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListRulesetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRulesetsCommandOutput}.
+   */
+  paginateListRulesets(
+    args?: ListRulesetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRulesetsCommandOutput>;
+
+  /**
+   * @see {@link ListSchedulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchedulesCommandOutput}.
+   */
+  paginateListSchedules(
+    args?: ListSchedulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchedulesCommandOutput>;
 }
 
 /**
@@ -1003,4 +1109,4 @@ export interface DataBrew {
  * @public
  */
 export class DataBrew extends DataBrewClient implements DataBrew {}
-createAggregatedClient(commands, DataBrew);
+createAggregatedClient(commands, DataBrew, { paginators });

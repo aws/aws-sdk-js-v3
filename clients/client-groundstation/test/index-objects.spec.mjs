@@ -143,6 +143,7 @@ import {
   InvalidParameterException,
   InvalidParameterException$,
   ISO8601TimeRange$,
+  KinesisDataStreamData$,
   KmsKey$,
   ListConfigs$,
   ListConfigsCommand,
@@ -217,6 +218,9 @@ import {
   TagResourceCommand,
   TagResourceRequest$,
   TagResourceResponse$,
+  TelemetrySinkConfig$,
+  TelemetrySinkData$,
+  TelemetrySinkType,
   TimeAzEl$,
   TimeRange$,
   TLEData$,
@@ -407,6 +411,7 @@ assert(typeof GetSatelliteResponse$ === "object");
 assert(typeof GroundStationData$ === "object");
 assert(typeof IntegerRange$ === "object");
 assert(typeof ISO8601TimeRange$ === "object");
+assert(typeof KinesisDataStreamData$ === "object");
 assert(typeof KmsKey$ === "object");
 assert(typeof ListConfigsRequest$ === "object");
 assert(typeof ListConfigsResponse$ === "object");
@@ -443,6 +448,8 @@ assert(typeof Source$ === "object");
 assert(typeof SpectrumConfig$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
+assert(typeof TelemetrySinkConfig$ === "object");
+assert(typeof TelemetrySinkData$ === "object");
 assert(typeof TimeAzEl$ === "object");
 assert(typeof TimeRange$ === "object");
 assert(typeof TLEData$ === "object");
@@ -481,6 +488,7 @@ assert(typeof EphemerisStatus === "object");
 assert(typeof EphemerisType === "object");
 assert(typeof FrequencyUnits === "object");
 assert(typeof Polarization === "object");
+assert(typeof TelemetrySinkType === "object");
 // errors
 assert(DependencyException.prototype instanceof GroundStationServiceException);
 assert(typeof DependencyException$ === "object");

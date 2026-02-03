@@ -570,7 +570,7 @@ import {
 export var Attribute$: StaticStructureSchema = [3, n0, _A,
   0,
   [_k, _v],
-  [0, 0]
+  [0, 0], 1
 ];
 export var AuthorizationData$: StaticStructureSchema = [3, n0, _AD,
   0,
@@ -584,8 +584,8 @@ export var AwsEcrContainerImageDetails$: StaticStructureSchema = [3, n0, _AECID,
 ];
 export var BatchCheckLayerAvailabilityRequest$: StaticStructureSchema = [3, n0, _BCLAR,
   0,
-  [_rI, _rN, _lD],
-  [0, 0, 64 | 0]
+  [_rN, _lD, _rI],
+  [0, 64 | 0, 0], 2
 ];
 export var BatchCheckLayerAvailabilityResponse$: StaticStructureSchema = [3, n0, _BCLARa,
   0,
@@ -594,8 +594,8 @@ export var BatchCheckLayerAvailabilityResponse$: StaticStructureSchema = [3, n0,
 ];
 export var BatchDeleteImageRequest$: StaticStructureSchema = [3, n0, _BDIR,
   0,
-  [_rI, _rN, _iI],
-  [0, 0, () => ImageIdentifierList]
+  [_rN, _iI, _rI],
+  [0, () => ImageIdentifierList, 0], 2
 ];
 export var BatchDeleteImageResponse$: StaticStructureSchema = [3, n0, _BDIRa,
   0,
@@ -604,8 +604,8 @@ export var BatchDeleteImageResponse$: StaticStructureSchema = [3, n0, _BDIRa,
 ];
 export var BatchGetImageRequest$: StaticStructureSchema = [3, n0, _BGIR,
   0,
-  [_rI, _rN, _iI, _aMT],
-  [0, 0, () => ImageIdentifierList, 64 | 0]
+  [_rN, _iI, _rI, _aMT],
+  [0, () => ImageIdentifierList, 0, 64 | 0], 2
 ];
 export var BatchGetImageResponse$: StaticStructureSchema = [3, n0, _BGIRa,
   0,
@@ -615,7 +615,7 @@ export var BatchGetImageResponse$: StaticStructureSchema = [3, n0, _BGIRa,
 export var BatchGetRepositoryScanningConfigurationRequest$: StaticStructureSchema = [3, n0, _BGRSCR,
   0,
   [_rNe],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetRepositoryScanningConfigurationResponse$: StaticStructureSchema = [3, n0, _BGRSCRa,
   0,
@@ -630,8 +630,8 @@ export var BlockedByOrganizationPolicyException$: StaticErrorSchema = [-3, n0, _
 TypeRegistry.for(n0).registerError(BlockedByOrganizationPolicyException$, BlockedByOrganizationPolicyException);
 export var CompleteLayerUploadRequest$: StaticStructureSchema = [3, n0, _CLUR,
   0,
-  [_rI, _rN, _uI, _lD],
-  [0, 0, 0, 64 | 0]
+  [_rN, _uI, _lD, _rI],
+  [0, 0, 64 | 0, 0], 3
 ];
 export var CompleteLayerUploadResponse$: StaticStructureSchema = [3, n0, _CLURo,
   0,
@@ -641,7 +641,7 @@ export var CompleteLayerUploadResponse$: StaticStructureSchema = [3, n0, _CLURo,
 export var CreatePullThroughCacheRuleRequest$: StaticStructureSchema = [3, n0, _CPTCRR,
   0,
   [_eRP, _uRU, _rI, _uR, _cA, _cRA, _uRP],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0], 2
 ];
 export var CreatePullThroughCacheRuleResponse$: StaticStructureSchema = [3, n0, _CPTCRRr,
   0,
@@ -650,8 +650,8 @@ export var CreatePullThroughCacheRuleResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateRepositoryCreationTemplateRequest$: StaticStructureSchema = [3, n0, _CRCTR,
   0,
-  [_pr, _d, _eC, _rT, _iTM, _iTMEF, _rP, _lP, _aF, _cRA],
-  [0, 0, () => EncryptionConfigurationForRepositoryCreationTemplate$, () => TagList, 0, () => ImageTagMutabilityExclusionFilters, 0, 0, 64 | 0, 0]
+  [_pr, _aF, _d, _eC, _rT, _iTM, _iTMEF, _rP, _lP, _cRA],
+  [0, 64 | 0, 0, () => EncryptionConfigurationForRepositoryCreationTemplate$, () => TagList, 0, () => ImageTagMutabilityExclusionFilters, 0, 0, 0], 2
 ];
 export var CreateRepositoryCreationTemplateResponse$: StaticStructureSchema = [3, n0, _CRCTRr,
   0,
@@ -660,8 +660,8 @@ export var CreateRepositoryCreationTemplateResponse$: StaticStructureSchema = [3
 ];
 export var CreateRepositoryRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_rI, _rN, _t, _iTM, _iTMEF, _iSC, _eC],
-  [0, 0, () => TagList, 0, () => ImageTagMutabilityExclusionFilters, () => ImageScanningConfiguration$, () => EncryptionConfiguration$]
+  [_rN, _rI, _t, _iTM, _iTMEF, _iSC, _eC],
+  [0, 0, () => TagList, 0, () => ImageTagMutabilityExclusionFilters, () => ImageScanningConfiguration$, () => EncryptionConfiguration$], 1
 ];
 export var CreateRepositoryResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -685,8 +685,8 @@ export var CvssScoreDetails$: StaticStructureSchema = [3, n0, _CSD,
 ];
 export var DeleteLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _DLPR,
   0,
-  [_rI, _rN],
-  [0, 0]
+  [_rN, _rI],
+  [0, 0], 1
 ];
 export var DeleteLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _DLPRe,
   0,
@@ -696,7 +696,7 @@ export var DeleteLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _DLPR
 export var DeletePullThroughCacheRuleRequest$: StaticStructureSchema = [3, n0, _DPTCRR,
   0,
   [_eRP, _rI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeletePullThroughCacheRuleResponse$: StaticStructureSchema = [3, n0, _DPTCRRe,
   0,
@@ -716,7 +716,7 @@ export var DeleteRegistryPolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
 export var DeleteRepositoryCreationTemplateRequest$: StaticStructureSchema = [3, n0, _DRCTR,
   0,
   [_pr],
-  [0]
+  [0], 1
 ];
 export var DeleteRepositoryCreationTemplateResponse$: StaticStructureSchema = [3, n0, _DRCTRe,
   0,
@@ -725,8 +725,8 @@ export var DeleteRepositoryCreationTemplateResponse$: StaticStructureSchema = [3
 ];
 export var DeleteRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _DRPRel,
   0,
-  [_rI, _rN],
-  [0, 0]
+  [_rN, _rI],
+  [0, 0], 1
 ];
 export var DeleteRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _DRPRele,
   0,
@@ -735,8 +735,8 @@ export var DeleteRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _DRP
 ];
 export var DeleteRepositoryRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
-  [_rI, _rN, _fo],
-  [0, 0, 2]
+  [_rN, _rI, _fo],
+  [0, 0, 2], 1
 ];
 export var DeleteRepositoryResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -756,7 +756,7 @@ export var DeleteSigningConfigurationResponse$: StaticStructureSchema = [3, n0, 
 export var DeregisterPullTimeUpdateExclusionRequest$: StaticStructureSchema = [3, n0, _DPTUER,
   0,
   [_pAr],
-  [0]
+  [0], 1
 ];
 export var DeregisterPullTimeUpdateExclusionResponse$: StaticStructureSchema = [3, n0, _DPTUERe,
   0,
@@ -766,7 +766,7 @@ export var DeregisterPullTimeUpdateExclusionResponse$: StaticStructureSchema = [
 export var DescribeImageReplicationStatusRequest$: StaticStructureSchema = [3, n0, _DIRSR,
   0,
   [_rN, _iIm, _rI],
-  [0, () => ImageIdentifier$, 0]
+  [0, () => ImageIdentifier$, 0], 2
 ];
 export var DescribeImageReplicationStatusResponse$: StaticStructureSchema = [3, n0, _DIRSRe,
   0,
@@ -775,8 +775,8 @@ export var DescribeImageReplicationStatusResponse$: StaticStructureSchema = [3, 
 ];
 export var DescribeImageScanFindingsRequest$: StaticStructureSchema = [3, n0, _DISFR,
   0,
-  [_rI, _rN, _iIm, _nT, _mR],
-  [0, 0, () => ImageIdentifier$, 0, 1]
+  [_rN, _iIm, _rI, _nT, _mR],
+  [0, () => ImageIdentifier$, 0, 0, 1], 2
 ];
 export var DescribeImageScanFindingsResponse$: StaticStructureSchema = [3, n0, _DISFRe,
   0,
@@ -791,7 +791,7 @@ export var DescribeImagesFilter$: StaticStructureSchema = [3, n0, _DIF,
 export var DescribeImageSigningStatusRequest$: StaticStructureSchema = [3, n0, _DISSR,
   0,
   [_rN, _iIm, _rI],
-  [0, () => ImageIdentifier$, 0]
+  [0, () => ImageIdentifier$, 0], 2
 ];
 export var DescribeImageSigningStatusResponse$: StaticStructureSchema = [3, n0, _DISSRe,
   0,
@@ -800,8 +800,8 @@ export var DescribeImageSigningStatusResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeImagesRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
-  [_rI, _rN, _iI, _nT, _mR, _fi],
-  [0, 0, () => ImageIdentifierList, 0, 1, () => DescribeImagesFilter$]
+  [_rN, _rI, _iI, _nT, _mR, _fi],
+  [0, 0, () => ImageIdentifierList, 0, 1, () => DescribeImagesFilter$], 1
 ];
 export var DescribeImagesResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
@@ -857,12 +857,12 @@ TypeRegistry.for(n0).registerError(EmptyUploadException$, EmptyUploadException);
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_eT, _kK],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EncryptionConfigurationForRepositoryCreationTemplate$: StaticStructureSchema = [3, n0, _ECFRCT,
   0,
   [_eT, _kK],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EnhancedImageScanFinding$: StaticStructureSchema = [3, n0, _EISF,
   0,
@@ -884,7 +884,7 @@ TypeRegistry.for(n0).registerError(ExclusionNotFoundException$, ExclusionNotFoun
 export var GetAccountSettingRequest$: StaticStructureSchema = [3, n0, _GASR,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var GetAccountSettingResponse$: StaticStructureSchema = [3, n0, _GASRe,
   0,
@@ -903,8 +903,8 @@ export var GetAuthorizationTokenResponse$: StaticStructureSchema = [3, n0, _GATR
 ];
 export var GetDownloadUrlForLayerRequest$: StaticStructureSchema = [3, n0, _GDUFLR,
   0,
-  [_rI, _rN, _lDa],
-  [0, 0, 0]
+  [_rN, _lDa, _rI],
+  [0, 0, 0], 2
 ];
 export var GetDownloadUrlForLayerResponse$: StaticStructureSchema = [3, n0, _GDUFLRe,
   0,
@@ -913,8 +913,8 @@ export var GetDownloadUrlForLayerResponse$: StaticStructureSchema = [3, n0, _GDU
 ];
 export var GetLifecyclePolicyPreviewRequest$: StaticStructureSchema = [3, n0, _GLPPR,
   0,
-  [_rI, _rN, _iI, _nT, _mR, _fi],
-  [0, 0, () => ImageIdentifierList, 0, 1, () => LifecyclePolicyPreviewFilter$]
+  [_rN, _rI, _iI, _nT, _mR, _fi],
+  [0, 0, () => ImageIdentifierList, 0, 1, () => LifecyclePolicyPreviewFilter$], 1
 ];
 export var GetLifecyclePolicyPreviewResponse$: StaticStructureSchema = [3, n0, _GLPPRe,
   0,
@@ -923,8 +923,8 @@ export var GetLifecyclePolicyPreviewResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var GetLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _GLPR,
   0,
-  [_rI, _rN],
-  [0, 0]
+  [_rN, _rI],
+  [0, 0], 1
 ];
 export var GetLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _GLPRe,
   0,
@@ -953,8 +953,8 @@ export var GetRegistryScanningConfigurationResponse$: StaticStructureSchema = [3
 ];
 export var GetRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _GRPRet,
   0,
-  [_rI, _rN],
-  [0, 0]
+  [_rN, _rI],
+  [0, 0], 1
 ];
 export var GetRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _GRPRete,
   0,
@@ -1017,8 +1017,8 @@ export var ImageNotFoundException$: StaticErrorSchema = [-3, n0, _INFE,
 TypeRegistry.for(n0).registerError(ImageNotFoundException$, ImageNotFoundException);
 export var ImageReferrer$: StaticStructureSchema = [3, n0, _IR,
   0,
-  [_di, _mT, _aTr, _si, _an, _aS],
-  [0, 0, 0, 1, 128 | 0, 0]
+  [_di, _mT, _si, _aTr, _an, _aS],
+  [0, 0, 1, 0, 128 | 0, 0], 3
 ];
 export var ImageReplicationStatus$: StaticStructureSchema = [3, n0, _IRS,
   0,
@@ -1070,12 +1070,12 @@ TypeRegistry.for(n0).registerError(ImageTagAlreadyExistsException$, ImageTagAlre
 export var ImageTagMutabilityExclusionFilter$: StaticStructureSchema = [3, n0, _ITMEF,
   0,
   [_fT, _fi],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InitiateLayerUploadRequest$: StaticStructureSchema = [3, n0, _ILUR,
   0,
-  [_rI, _rN],
-  [0, 0]
+  [_rN, _rI],
+  [0, 0], 1
 ];
 export var InitiateLayerUploadResponse$: StaticStructureSchema = [3, n0, _ILURn,
   0,
@@ -1197,8 +1197,8 @@ export var ListImageReferrersFilter$: StaticStructureSchema = [3, n0, _LIRF,
 ];
 export var ListImageReferrersRequest$: StaticStructureSchema = [3, n0, _LIRR,
   0,
-  [_rI, _rN, _sI, _fi, _nT, _mR],
-  [0, 0, () => SubjectIdentifier$, () => ListImageReferrersFilter$, 0, 1]
+  [_rN, _sI, _rI, _fi, _nT, _mR],
+  [0, () => SubjectIdentifier$, 0, () => ListImageReferrersFilter$, 0, 1], 2
 ];
 export var ListImageReferrersResponse$: StaticStructureSchema = [3, n0, _LIRRi,
   0,
@@ -1212,8 +1212,8 @@ export var ListImagesFilter$: StaticStructureSchema = [3, n0, _LIF,
 ];
 export var ListImagesRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
-  [_rI, _rN, _nT, _mR, _fi],
-  [0, 0, 0, 1, () => ListImagesFilter$]
+  [_rN, _rI, _nT, _mR, _fi],
+  [0, 0, 0, 1, () => ListImagesFilter$], 1
 ];
 export var ListImagesResponse$: StaticStructureSchema = [3, n0, _LIRi,
   0,
@@ -1233,7 +1233,7 @@ export var ListPullTimeUpdateExclusionsResponse$: StaticStructureSchema = [3, n0
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1265,7 +1265,7 @@ TypeRegistry.for(n0).registerError(PullThroughCacheRuleNotFoundException$, PullT
 export var PutAccountSettingRequest$: StaticStructureSchema = [3, n0, _PASR,
   0,
   [_n, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutAccountSettingResponse$: StaticStructureSchema = [3, n0, _PASRu,
   0,
@@ -1274,8 +1274,8 @@ export var PutAccountSettingResponse$: StaticStructureSchema = [3, n0, _PASRu,
 ];
 export var PutImageRequest$: StaticStructureSchema = [3, n0, _PIR,
   0,
-  [_rI, _rN, _iM, _iMMT, _iTm, _iDm],
-  [0, 0, 0, 0, 0, 0]
+  [_rN, _iM, _rI, _iMMT, _iTm, _iDm],
+  [0, 0, 0, 0, 0, 0], 2
 ];
 export var PutImageResponse$: StaticStructureSchema = [3, n0, _PIRu,
   0,
@@ -1284,8 +1284,8 @@ export var PutImageResponse$: StaticStructureSchema = [3, n0, _PIRu,
 ];
 export var PutImageScanningConfigurationRequest$: StaticStructureSchema = [3, n0, _PISCR,
   0,
-  [_rI, _rN, _iSC],
-  [0, 0, () => ImageScanningConfiguration$]
+  [_rN, _iSC, _rI],
+  [0, () => ImageScanningConfiguration$, 0], 2
 ];
 export var PutImageScanningConfigurationResponse$: StaticStructureSchema = [3, n0, _PISCRu,
   0,
@@ -1294,8 +1294,8 @@ export var PutImageScanningConfigurationResponse$: StaticStructureSchema = [3, n
 ];
 export var PutImageTagMutabilityRequest$: StaticStructureSchema = [3, n0, _PITMR,
   0,
-  [_rI, _rN, _iTM, _iTMEF],
-  [0, 0, 0, () => ImageTagMutabilityExclusionFilters]
+  [_rN, _iTM, _rI, _iTMEF],
+  [0, 0, 0, () => ImageTagMutabilityExclusionFilters], 2
 ];
 export var PutImageTagMutabilityResponse$: StaticStructureSchema = [3, n0, _PITMRu,
   0,
@@ -1304,8 +1304,8 @@ export var PutImageTagMutabilityResponse$: StaticStructureSchema = [3, n0, _PITM
 ];
 export var PutLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _PLPR,
   0,
-  [_rI, _rN, _lPT],
-  [0, 0, 0]
+  [_rN, _lPT, _rI],
+  [0, 0, 0], 2
 ];
 export var PutLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _PLPRu,
   0,
@@ -1315,7 +1315,7 @@ export var PutLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _PLPRu,
 export var PutRegistryPolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_pT],
-  [0]
+  [0], 1
 ];
 export var PutRegistryPolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -1335,7 +1335,7 @@ export var PutRegistryScanningConfigurationResponse$: StaticStructureSchema = [3
 export var PutReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _PRCR,
   0,
   [_rC],
-  [() => ReplicationConfiguration$]
+  [() => ReplicationConfiguration$], 1
 ];
 export var PutReplicationConfigurationResponse$: StaticStructureSchema = [3, n0, _PRCRu,
   0,
@@ -1345,7 +1345,7 @@ export var PutReplicationConfigurationResponse$: StaticStructureSchema = [3, n0,
 export var PutSigningConfigurationRequest$: StaticStructureSchema = [3, n0, _PSCR,
   0,
   [_sCi],
-  [() => SigningConfiguration$]
+  [() => SigningConfiguration$], 1
 ];
 export var PutSigningConfigurationResponse$: StaticStructureSchema = [3, n0, _PSCRu,
   0,
@@ -1366,7 +1366,7 @@ TypeRegistry.for(n0).registerError(ReferencedImagesNotFoundException$, Reference
 export var RegisterPullTimeUpdateExclusionRequest$: StaticStructureSchema = [3, n0, _RPTUER,
   0,
   [_pAr],
-  [0]
+  [0], 1
 ];
 export var RegisterPullTimeUpdateExclusionResponse$: StaticStructureSchema = [3, n0, _RPTUERe,
   0,
@@ -1387,7 +1387,7 @@ export var RegistryScanningConfiguration$: StaticStructureSchema = [3, n0, _RSC,
 export var RegistryScanningRule$: StaticStructureSchema = [3, n0, _RSR,
   0,
   [_sF, _rF],
-  [0, () => ScanningRepositoryFilterList]
+  [0, () => ScanningRepositoryFilterList], 2
 ];
 export var Remediation$: StaticStructureSchema = [3, n0, _Re,
   0,
@@ -1397,17 +1397,17 @@ export var Remediation$: StaticStructureSchema = [3, n0, _Re,
 export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_ru],
-  [() => ReplicationRuleList]
+  [() => ReplicationRuleList], 1
 ];
 export var ReplicationDestination$: StaticStructureSchema = [3, n0, _RD,
   0,
   [_reg, _rI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ReplicationRule$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_de, _rF],
-  [() => ReplicationDestinationList, () => RepositoryFilterList]
+  [() => ReplicationDestinationList, () => RepositoryFilterList], 1
 ];
 export var Repository$: StaticStructureSchema = [3, n0, _Rep,
   0,
@@ -1428,7 +1428,7 @@ export var RepositoryCreationTemplate$: StaticStructureSchema = [3, n0, _RCT,
 export var RepositoryFilter$: StaticStructureSchema = [3, n0, _RF,
   0,
   [_fi, _fT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RepositoryNotEmptyException$: StaticErrorSchema = [-3, n0, _RNEE,
   { [_e]: _c },
@@ -1471,7 +1471,7 @@ export var ResourceDetails$: StaticStructureSchema = [3, n0, _RDe,
 export var ScanningRepositoryFilter$: StaticStructureSchema = [3, n0, _SRF,
   0,
   [_fi, _fT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ScanNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
   { [_e]: _c },
@@ -1498,8 +1498,8 @@ export var ServerException$: StaticErrorSchema = [-3, n0, _SE,
 TypeRegistry.for(n0).registerError(ServerException$, ServerException);
 export var SetRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _SRPR,
   0,
-  [_rI, _rN, _pT, _fo],
-  [0, 0, 0, 2]
+  [_rN, _pT, _rI, _fo],
+  [0, 0, 0, 2], 2
 ];
 export var SetRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _SRPRe,
   0,
@@ -1509,7 +1509,7 @@ export var SetRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _SRPRe,
 export var SigningConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_ru],
-  [() => SigningRuleList]
+  [() => SigningRuleList], 1
 ];
 export var SigningConfigurationNotFoundException$: StaticErrorSchema = [-3, n0, _SCNFE,
   { [_e]: _c },
@@ -1520,17 +1520,17 @@ TypeRegistry.for(n0).registerError(SigningConfigurationNotFoundException$, Signi
 export var SigningRepositoryFilter$: StaticStructureSchema = [3, n0, _SRFi,
   0,
   [_fi, _fT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SigningRule$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_sPA, _rF],
-  [0, () => SigningRepositoryFilterList]
+  [0, () => SigningRepositoryFilterList], 1
 ];
 export var StartImageScanRequest$: StaticStructureSchema = [3, n0, _SISR,
   0,
-  [_rI, _rN, _iIm],
-  [0, 0, () => ImageIdentifier$]
+  [_rN, _iIm, _rI],
+  [0, () => ImageIdentifier$, 0], 2
 ];
 export var StartImageScanResponse$: StaticStructureSchema = [3, n0, _SISRt,
   0,
@@ -1539,8 +1539,8 @@ export var StartImageScanResponse$: StaticStructureSchema = [3, n0, _SISRt,
 ];
 export var StartLifecyclePolicyPreviewRequest$: StaticStructureSchema = [3, n0, _SLPPR,
   0,
-  [_rI, _rN, _lPT],
-  [0, 0, 0]
+  [_rN, _rI, _lPT],
+  [0, 0, 0], 1
 ];
 export var StartLifecyclePolicyPreviewResponse$: StaticStructureSchema = [3, n0, _SLPPRt,
   0,
@@ -1550,17 +1550,17 @@ export var StartLifecyclePolicyPreviewResponse$: StaticStructureSchema = [3, n0,
 export var SubjectIdentifier$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_iDm],
-  [0]
+  [0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1629,7 +1629,7 @@ TypeRegistry.for(n0).registerError(UnsupportedUpstreamRegistryException$, Unsupp
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1638,8 +1638,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateImageStorageClassRequest$: StaticStructureSchema = [3, n0, _UISCR,
   0,
-  [_rI, _rN, _iIm, _tSC],
-  [0, 0, () => ImageIdentifier$, 0]
+  [_rN, _iIm, _tSC, _rI],
+  [0, () => ImageIdentifier$, 0, 0], 3
 ];
 export var UpdateImageStorageClassResponse$: StaticStructureSchema = [3, n0, _UISCRp,
   0,
@@ -1648,8 +1648,8 @@ export var UpdateImageStorageClassResponse$: StaticStructureSchema = [3, n0, _UI
 ];
 export var UpdatePullThroughCacheRuleRequest$: StaticStructureSchema = [3, n0, _UPTCRR,
   0,
-  [_rI, _eRP, _cA, _cRA],
-  [0, 0, 0, 0]
+  [_eRP, _rI, _cA, _cRA],
+  [0, 0, 0, 0], 1
 ];
 export var UpdatePullThroughCacheRuleResponse$: StaticStructureSchema = [3, n0, _UPTCRRp,
   0,
@@ -1659,7 +1659,7 @@ export var UpdatePullThroughCacheRuleResponse$: StaticStructureSchema = [3, n0, 
 export var UpdateRepositoryCreationTemplateRequest$: StaticStructureSchema = [3, n0, _URCTR,
   0,
   [_pr, _d, _eC, _rT, _iTM, _iTMEF, _rP, _lP, _aF, _cRA],
-  [0, 0, () => EncryptionConfigurationForRepositoryCreationTemplate$, () => TagList, 0, () => ImageTagMutabilityExclusionFilters, 0, 0, 64 | 0, 0]
+  [0, 0, () => EncryptionConfigurationForRepositoryCreationTemplate$, () => TagList, 0, () => ImageTagMutabilityExclusionFilters, 0, 0, 64 | 0, 0], 1
 ];
 export var UpdateRepositoryCreationTemplateResponse$: StaticStructureSchema = [3, n0, _URCTRp,
   0,
@@ -1668,8 +1668,8 @@ export var UpdateRepositoryCreationTemplateResponse$: StaticStructureSchema = [3
 ];
 export var UploadLayerPartRequest$: StaticStructureSchema = [3, n0, _ULPR,
   0,
-  [_rI, _rN, _uI, _pFB, _pLB, _lPB],
-  [0, 0, 0, 1, 1, 21]
+  [_rN, _uI, _pFB, _pLB, _lPB, _rI],
+  [0, 0, 1, 1, 21, 0], 5
 ];
 export var UploadLayerPartResponse$: StaticStructureSchema = [3, n0, _ULPRp,
   0,
@@ -1685,7 +1685,7 @@ TypeRegistry.for(n0).registerError(UploadNotFoundException$, UploadNotFoundExcep
 export var ValidatePullThroughCacheRuleRequest$: StaticStructureSchema = [3, n0, _VPTCRR,
   0,
   [_eRP, _rI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ValidatePullThroughCacheRuleResponse$: StaticStructureSchema = [3, n0, _VPTCRRa,
   0,

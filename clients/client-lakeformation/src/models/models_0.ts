@@ -4,6 +4,7 @@ import { StreamingBlobTypes } from "@smithy/types";
 import {
   ApplicationStatus,
   ComparisonOperator,
+  CredentialsScope,
   DataLakeResourceType,
   EnableStatus,
   FieldNameString,
@@ -17,6 +18,7 @@ import {
   TransactionStatus,
   TransactionStatusFilter,
   TransactionType,
+  VerificationStatus,
 } from "./enums";
 
 /**
@@ -1377,6 +1379,29 @@ export interface ResourceInfo {
    * @public
    */
   WithPrivilegedAccess?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the registered role has sufficient permissions to access registered Amazon S3 location. Verification Status can be one of the following: </p>
+   *          <ul>
+   *             <li>
+   *                <p>VERIFIED - Registered role has sufficient permissions to access registered Amazon S3 location.</p>
+   *             </li>
+   *             <li>
+   *                <p>NOT_VERIFIED - Registered role does not have sufficient permissions to access registered Amazon S3 location.</p>
+   *             </li>
+   *             <li>
+   *                <p>VERIFICATION_FAILED - Unable to verify if the registered role can access the registered Amazon S3 location.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  VerificationStatus?: VerificationStatus | undefined;
+
+  /**
+   * <p>The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations. </p>
+   * @public
+   */
+  ExpectedResourceOwnerAccount?: string | undefined;
 }
 
 /**
@@ -2145,6 +2170,107 @@ export interface GetTableObjectsResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTemporaryDataLocationCredentialsRequest {
+  /**
+   * <p>The time period, between 900 and 43,200 seconds, for the timeout of the temporary credentials.</p>
+   * @public
+   */
+  DurationSeconds?: number | undefined;
+
+  /**
+   * <p>A structure used to include auditing information on the privileged API. </p>
+   * @public
+   */
+  AuditContext?: AuditContext | undefined;
+
+  /**
+   * <p>The Amazon S3 data location that you want to access.</p>
+   * @public
+   */
+  DataLocations?: string[] | undefined;
+
+  /**
+   * <p>The credential scope is determined by the caller's Lake Formation permission on the associated table. Credential scope can be either:</p>
+   *          <ul>
+   *             <li>
+   *                <p>READ - Provides read-only access to the data location.</p>
+   *             </li>
+   *             <li>
+   *                <p>READ_WRITE - Provides both read and write access to the data location.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CredentialsScope?: CredentialsScope | undefined;
+}
+
+/**
+ * <p>A temporary set of credentials for an Lake Formation user. These credentials are scoped down to only access the raw data sources that the user has access to. </p>
+ *          <p>The temporary security credentials consist of an access key and a session token. The access key consists of an access key ID and a secret key. When the credentials are created, they are associated with an IAM access control policy that limits what the user can do when using the credentials.</p>
+ * @public
+ */
+export interface TemporaryCredentials {
+  /**
+   * <p>The access key ID for the temporary credentials.</p>
+   * @public
+   */
+  AccessKeyId?: string | undefined;
+
+  /**
+   * <p>The secret key for the temporary credentials.</p>
+   * @public
+   */
+  SecretAccessKey?: string | undefined;
+
+  /**
+   * <p>The session token for the temporary credentials.</p>
+   * @public
+   */
+  SessionToken?: string | undefined;
+
+  /**
+   * <p>The date and time when the temporary credentials expire.</p>
+   * @public
+   */
+  Expiration?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTemporaryDataLocationCredentialsResponse {
+  /**
+   * <p>A temporary set of credentials for an Lake Formation user. These credentials are scoped down to only access the raw data sources that the user has access to. </p>
+   *          <p>The temporary security credentials consist of an access key and a session token. The access key consists of an access key ID and a secret key. When the credentials are created, they are associated with an IAM access control policy that limits what the user can do when using the credentials.</p>
+   * @public
+   */
+  Credentials?: TemporaryCredentials | undefined;
+
+  /**
+   * <p>Refers to the Amazon S3 locations that can be
+   *       accessed through the <code>GetTemporaryCredentialsForLocation</code> API operation.</p>
+   * @public
+   */
+  AccessibleDataLocations?: string[] | undefined;
+
+  /**
+   * <p>The credential scope is determined by the caller's Lake Formation permission on the associated table. Credential scope can be either:</p>
+   *          <ul>
+   *             <li>
+   *                <p>READ - Provides read-only access to the data location.</p>
+   *             </li>
+   *             <li>
+   *                <p>READ_WRITE - Provides both read and write access to the data location.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CredentialsScope?: CredentialsScope | undefined;
 }
 
 /**
@@ -3078,6 +3204,13 @@ export interface RegisterResourceRequest {
    * @public
    */
   WithPrivilegedAccess?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations.
+   *     </p>
+   * @public
+   */
+  ExpectedResourceOwnerAccount?: string | undefined;
 }
 
 /**
@@ -3556,6 +3689,13 @@ export interface UpdateResourceRequest {
    * @public
    */
   HybridAccessEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations.
+   *     </p>
+   * @public
+   */
+  ExpectedResourceOwnerAccount?: string | undefined;
 }
 
 /**

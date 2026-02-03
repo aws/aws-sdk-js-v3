@@ -27,8 +27,9 @@ export interface StopExperimentCommandInput extends StopExperimentRequest {}
 export interface StopExperimentCommandOutput extends StopExperimentResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an experiment that is currently running. If you stop an experiment, you can't
- *       resume it or restart it.</p>
+ * <p>Stops an experiment that is currently running. If you stop an experiment, you can't resume it or restart it.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

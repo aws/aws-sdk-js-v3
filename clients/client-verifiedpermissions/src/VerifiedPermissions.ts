@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchGetPolicyCommand,
@@ -136,6 +136,10 @@ import {
   UpdatePolicyTemplateCommandInput,
   UpdatePolicyTemplateCommandOutput,
 } from "./commands/UpdatePolicyTemplateCommand";
+import { paginateListIdentitySources } from "./pagination/ListIdentitySourcesPaginator";
+import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
+import { paginateListPolicyStores } from "./pagination/ListPolicyStoresPaginator";
+import { paginateListPolicyTemplates } from "./pagination/ListPolicyTemplatesPaginator";
 import { VerifiedPermissionsClient } from "./VerifiedPermissionsClient";
 
 const commands = {
@@ -169,6 +173,12 @@ const commands = {
   UpdatePolicyCommand,
   UpdatePolicyStoreCommand,
   UpdatePolicyTemplateCommand,
+};
+const paginators = {
+  paginateListIdentitySources,
+  paginateListPolicies,
+  paginateListPolicyStores,
+  paginateListPolicyTemplates,
 };
 
 export interface VerifiedPermissions {
@@ -682,6 +692,50 @@ export interface VerifiedPermissions {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePolicyTemplateCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListIdentitySourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdentitySourcesCommandOutput}.
+   */
+  paginateListIdentitySources(
+    args: ListIdentitySourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdentitySourcesCommandOutput>;
+
+  /**
+   * @see {@link ListPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPoliciesCommandOutput}.
+   */
+  paginateListPolicies(
+    args: ListPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyStoresCommandOutput}.
+   */
+  paginateListPolicyStores(
+    args?: ListPolicyStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyStoresCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyTemplatesCommandOutput}.
+   */
+  paginateListPolicyTemplates(
+    args: ListPolicyTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyTemplatesCommandOutput>;
 }
 
 /**
@@ -689,4 +743,4 @@ export interface VerifiedPermissions {
  * @public
  */
 export class VerifiedPermissions extends VerifiedPermissionsClient implements VerifiedPermissions {}
-createAggregatedClient(commands, VerifiedPermissions);
+createAggregatedClient(commands, VerifiedPermissions, { paginators });

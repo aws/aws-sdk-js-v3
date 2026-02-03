@@ -117,12 +117,12 @@ TypeRegistry.for(n0).registerError(ClientLimitExceededException$, ClientLimitExc
 export var ClipFragmentSelector$: StaticStructureSchema = [3, n0, _CFS,
   0,
   [_FST, _TR],
-  [0, () => ClipTimestampRange$]
+  [0, () => ClipTimestampRange$], 2
 ];
 export var ClipTimestampRange$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_ST, _ET],
-  [4, 4]
+  [4, 4], 2
 ];
 export var DASHFragmentSelector$: StaticStructureSchema = [3, n0, _DASHFS,
   0,
@@ -142,12 +142,12 @@ export var Fragment$: StaticStructureSchema = [3, n0, _F,
 export var FragmentSelector$: StaticStructureSchema = [3, n0, _FS,
   0,
   [_FST, _TR],
-  [0, () => TimestampRange$]
+  [0, () => TimestampRange$], 2
 ];
 export var GetClipInput$: StaticStructureSchema = [3, n0, _GCI,
   0,
-  [_SN, _SARN, _CFS],
-  [0, 0, () => ClipFragmentSelector$]
+  [_CFS, _SN, _SARN],
+  [() => ClipFragmentSelector$, 0, 0], 1
 ];
 export var GetClipOutput$: StaticStructureSchema = [3, n0, _GCO,
   0,
@@ -176,8 +176,8 @@ export var GetHLSStreamingSessionURLOutput$: StaticStructureSchema = [3, n0, _GH
 ];
 export var GetImagesInput$: StaticStructureSchema = [3, n0, _GII,
   0,
-  [_SN, _SARN, _IST, _ST, _ET, _SI, _Fo, _FC, _WP, _HP, _MR, _NT],
-  [0, 0, 0, 4, 4, 1, 0, 128 | 0, 1, 1, 1, 0]
+  [_IST, _ST, _ET, _Fo, _SN, _SARN, _SI, _FC, _WP, _HP, _MR, _NT],
+  [0, 4, 4, 0, 0, 0, 1, 128 | 0, 1, 1, 1, 0], 4
 ];
 export var GetImagesOutput$: StaticStructureSchema = [3, n0, _GIO,
   0,
@@ -186,8 +186,8 @@ export var GetImagesOutput$: StaticStructureSchema = [3, n0, _GIO,
 ];
 export var GetMediaForFragmentListInput$: StaticStructureSchema = [3, n0, _GMFFLI,
   0,
-  [_SN, _SARN, _Fr],
-  [0, 0, 64 | 0]
+  [_Fr, _SN, _SARN],
+  [64 | 0, 0, 0], 1
 ];
 export var GetMediaForFragmentListOutput$: StaticStructureSchema = [3, n0, _GMFFLO,
   0,
@@ -264,7 +264,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var TimestampRange$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_ST, _ET],
-  [4, 4]
+  [4, 4], 2
 ];
 export var UnsupportedStreamMediaTypeException$: StaticErrorSchema = [-3, n0, _USMTE,
   { [_e]: _c, [_hE]: 400 },

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CognitoIdentityClient } from "./CognitoIdentityClient";
 import {
@@ -110,6 +110,7 @@ import {
   UpdateIdentityPoolCommandInput,
   UpdateIdentityPoolCommandOutput,
 } from "./commands/UpdateIdentityPoolCommand";
+import { paginateListIdentityPools } from "./pagination/ListIdentityPoolsPaginator";
 
 const commands = {
   CreateIdentityPoolCommand,
@@ -135,6 +136,9 @@ const commands = {
   UnlinkIdentityCommand,
   UntagResourceCommand,
   UpdateIdentityPoolCommand,
+};
+const paginators = {
+  paginateListIdentityPools,
 };
 
 export interface CognitoIdentity {
@@ -528,6 +532,17 @@ export interface CognitoIdentity {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIdentityPoolCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListIdentityPoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdentityPoolsCommandOutput}.
+   */
+  paginateListIdentityPools(
+    args: ListIdentityPoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdentityPoolsCommandOutput>;
 }
 
 /**
@@ -549,4 +564,4 @@ export interface CognitoIdentity {
  * @public
  */
 export class CognitoIdentity extends CognitoIdentityClient implements CognitoIdentity {}
-createAggregatedClient(commands, CognitoIdentity);
+createAggregatedClient(commands, CognitoIdentity, { paginators });

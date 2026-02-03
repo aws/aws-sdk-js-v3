@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateSourceNetworkStackCommand,
@@ -245,6 +245,21 @@ import {
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
 import { DrsClient } from "./DrsClient";
+import { paginateDescribeJobLogItems } from "./pagination/DescribeJobLogItemsPaginator";
+import { paginateDescribeJobs } from "./pagination/DescribeJobsPaginator";
+import {
+  paginateDescribeLaunchConfigurationTemplates,
+} from "./pagination/DescribeLaunchConfigurationTemplatesPaginator";
+import { paginateDescribeRecoveryInstances } from "./pagination/DescribeRecoveryInstancesPaginator";
+import { paginateDescribeRecoverySnapshots } from "./pagination/DescribeRecoverySnapshotsPaginator";
+import {
+  paginateDescribeReplicationConfigurationTemplates,
+} from "./pagination/DescribeReplicationConfigurationTemplatesPaginator";
+import { paginateDescribeSourceNetworks } from "./pagination/DescribeSourceNetworksPaginator";
+import { paginateDescribeSourceServers } from "./pagination/DescribeSourceServersPaginator";
+import { paginateListExtensibleSourceServers } from "./pagination/ListExtensibleSourceServersPaginator";
+import { paginateListLaunchActions } from "./pagination/ListLaunchActionsPaginator";
+import { paginateListStagingAccounts } from "./pagination/ListStagingAccountsPaginator";
 
 const commands = {
   AssociateSourceNetworkStackCommand,
@@ -297,6 +312,19 @@ const commands = {
   UpdateLaunchConfigurationTemplateCommand,
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationTemplateCommand,
+};
+const paginators = {
+  paginateDescribeJobLogItems,
+  paginateDescribeJobs,
+  paginateDescribeLaunchConfigurationTemplates,
+  paginateDescribeRecoveryInstances,
+  paginateDescribeRecoverySnapshots,
+  paginateDescribeReplicationConfigurationTemplates,
+  paginateDescribeSourceNetworks,
+  paginateDescribeSourceServers,
+  paginateListExtensibleSourceServers,
+  paginateListLaunchActions,
+  paginateListStagingAccounts,
 };
 
 export interface Drs {
@@ -1158,6 +1186,127 @@ export interface Drs {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeJobLogItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeJobLogItemsCommandOutput}.
+   */
+  paginateDescribeJobLogItems(
+    args: DescribeJobLogItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeJobLogItemsCommandOutput>;
+
+  /**
+   * @see {@link DescribeJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeJobsCommandOutput}.
+   */
+  paginateDescribeJobs(
+    args?: DescribeJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeJobsCommandOutput>;
+
+  /**
+   * @see {@link DescribeLaunchConfigurationTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLaunchConfigurationTemplatesCommandOutput}.
+   */
+  paginateDescribeLaunchConfigurationTemplates(
+    args?: DescribeLaunchConfigurationTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLaunchConfigurationTemplatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeRecoveryInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRecoveryInstancesCommandOutput}.
+   */
+  paginateDescribeRecoveryInstances(
+    args?: DescribeRecoveryInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRecoveryInstancesCommandOutput>;
+
+  /**
+   * @see {@link DescribeRecoverySnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRecoverySnapshotsCommandOutput}.
+   */
+  paginateDescribeRecoverySnapshots(
+    args: DescribeRecoverySnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRecoverySnapshotsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReplicationConfigurationTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReplicationConfigurationTemplatesCommandOutput}.
+   */
+  paginateDescribeReplicationConfigurationTemplates(
+    args?: DescribeReplicationConfigurationTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReplicationConfigurationTemplatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeSourceNetworksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSourceNetworksCommandOutput}.
+   */
+  paginateDescribeSourceNetworks(
+    args?: DescribeSourceNetworksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSourceNetworksCommandOutput>;
+
+  /**
+   * @see {@link DescribeSourceServersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSourceServersCommandOutput}.
+   */
+  paginateDescribeSourceServers(
+    args?: DescribeSourceServersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSourceServersCommandOutput>;
+
+  /**
+   * @see {@link ListExtensibleSourceServersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExtensibleSourceServersCommandOutput}.
+   */
+  paginateListExtensibleSourceServers(
+    args: ListExtensibleSourceServersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExtensibleSourceServersCommandOutput>;
+
+  /**
+   * @see {@link ListLaunchActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLaunchActionsCommandOutput}.
+   */
+  paginateListLaunchActions(
+    args: ListLaunchActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLaunchActionsCommandOutput>;
+
+  /**
+   * @see {@link ListStagingAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStagingAccountsCommandOutput}.
+   */
+  paginateListStagingAccounts(
+    args?: ListStagingAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStagingAccountsCommandOutput>;
 }
 
 /**
@@ -1165,4 +1314,4 @@ export interface Drs {
  * @public
  */
 export class Drs extends DrsClient implements Drs {}
-createAggregatedClient(commands, Drs);
+createAggregatedClient(commands, Drs, { paginators });

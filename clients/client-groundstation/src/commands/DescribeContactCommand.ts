@@ -63,7 +63,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //   dataflowList: [ // DataflowList
  * //     { // DataflowDetail
  * //       source: { // Source
- * //         configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
+ * //         configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording" || "telemetry-sink",
  * //         configId: "STRING_VALUE",
  * //         configDetails: { // ConfigDetails Union: only one key present
  * //           endpointDetails: { // EndpointDetails
@@ -169,7 +169,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //         dataflowSourceRegion: "STRING_VALUE",
  * //       },
  * //       destination: { // Destination
- * //         configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
+ * //         configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording" || "telemetry-sink",
  * //         configId: "STRING_VALUE",
  * //         configDetails: {//  Union: only one key present
  * //           endpointDetails: {

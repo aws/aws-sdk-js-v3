@@ -550,6 +550,38 @@ export interface XmlAttributesResponse {
 /**
  * @public
  */
+export interface XmlAttributesInMiddlePayloadRequest {
+  foo?: string | undefined;
+  attr?: string | undefined;
+  baz?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface XmlAttributesInMiddleRequest {
+  payload?: XmlAttributesInMiddlePayloadRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface XmlAttributesInMiddlePayloadResponse {
+  foo?: string | undefined;
+  attr?: string | undefined;
+  baz?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface XmlAttributesInMiddleResponse {
+  payload?: XmlAttributesInMiddlePayloadResponse | undefined;
+}
+
+/**
+ * @public
+ */
 export interface XmlAttributesPayloadRequest {
   foo?: string | undefined;
   attr?: string | undefined;

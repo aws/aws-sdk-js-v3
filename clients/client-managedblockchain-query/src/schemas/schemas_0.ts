@@ -167,23 +167,23 @@ import { ManagedBlockchainQueryServiceException } from "../models/ManagedBlockch
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AddressIdentifierFilter$: StaticStructureSchema = [3, n0, _AIF,
   0,
   [_tETA],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var AssetContract$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_cI, _tS, _dA],
-  [() => ContractIdentifier$, 0, 0]
+  [() => ContractIdentifier$, 0, 0], 3
 ];
 export var BatchGetTokenBalanceErrorItem$: StaticStructureSchema = [3, n0, _BGTBEI,
   0,
-  [_tI, _oI, _aBI, _eC, _eM, _eT],
-  [() => TokenIdentifier$, () => OwnerIdentifier$, () => BlockchainInstant$, 0, 0, 0]
+  [_eC, _eM, _eT, _tI, _oI, _aBI],
+  [0, 0, 0, () => TokenIdentifier$, () => OwnerIdentifier$, () => BlockchainInstant$], 3
 ];
 export var BatchGetTokenBalanceInput$: StaticStructureSchema = [3, n0, _BGTBI,
   0,
@@ -193,17 +193,17 @@ export var BatchGetTokenBalanceInput$: StaticStructureSchema = [3, n0, _BGTBI,
 export var BatchGetTokenBalanceInputItem$: StaticStructureSchema = [3, n0, _BGTBII,
   0,
   [_tI, _oI, _aBI],
-  [() => TokenIdentifier$, () => OwnerIdentifier$, () => BlockchainInstant$]
+  [() => TokenIdentifier$, () => OwnerIdentifier$, () => BlockchainInstant$], 2
 ];
 export var BatchGetTokenBalanceOutput$: StaticStructureSchema = [3, n0, _BGTBO,
   0,
   [_tB, _er],
-  [() => BatchGetTokenBalanceOutputList, () => BatchGetTokenBalanceErrors]
+  [() => BatchGetTokenBalanceOutputList, () => BatchGetTokenBalanceErrors], 2
 ];
 export var BatchGetTokenBalanceOutputItem$: StaticStructureSchema = [3, n0, _BGTBOI,
   0,
-  [_oI, _tI, _b, _aBI, _lUT],
-  [() => OwnerIdentifier$, () => TokenIdentifier$, 0, () => BlockchainInstant$, () => BlockchainInstant$]
+  [_b, _aBI, _oI, _tI, _lUT],
+  [0, () => BlockchainInstant$, () => OwnerIdentifier$, () => TokenIdentifier$, () => BlockchainInstant$], 2
 ];
 export var BlockchainInstant$: StaticStructureSchema = [3, n0, _BI,
   0,
@@ -213,17 +213,17 @@ export var BlockchainInstant$: StaticStructureSchema = [3, n0, _BI,
 export var ConfirmationStatusFilter$: StaticStructureSchema = [3, n0, _CSF,
   0,
   [_i],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var ContractFilter$: StaticStructureSchema = [3, n0, _CF,
   0,
   [_n, _tS, _dA],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ContractIdentifier$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_n, _cA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ContractMetadata$: StaticStructureSchema = [3, n0, _CM,
   0,
@@ -233,58 +233,58 @@ export var ContractMetadata$: StaticStructureSchema = [3, n0, _CM,
 export var GetAssetContractInput$: StaticStructureSchema = [3, n0, _GACI,
   0,
   [_cI],
-  [() => ContractIdentifier$]
+  [() => ContractIdentifier$], 1
 ];
 export var GetAssetContractOutput$: StaticStructureSchema = [3, n0, _GACO,
   0,
   [_cI, _tS, _dA, _me],
-  [() => ContractIdentifier$, 0, 0, () => ContractMetadata$]
+  [() => ContractIdentifier$, 0, 0, () => ContractMetadata$], 3
 ];
 export var GetTokenBalanceInput$: StaticStructureSchema = [3, n0, _GTBI,
   0,
   [_tI, _oI, _aBI],
-  [() => TokenIdentifier$, () => OwnerIdentifier$, () => BlockchainInstant$]
+  [() => TokenIdentifier$, () => OwnerIdentifier$, () => BlockchainInstant$], 2
 ];
 export var GetTokenBalanceOutput$: StaticStructureSchema = [3, n0, _GTBO,
   0,
-  [_oI, _tI, _b, _aBI, _lUT],
-  [() => OwnerIdentifier$, () => TokenIdentifier$, 0, () => BlockchainInstant$, () => BlockchainInstant$]
+  [_b, _aBI, _oI, _tI, _lUT],
+  [0, () => BlockchainInstant$, () => OwnerIdentifier$, () => TokenIdentifier$, () => BlockchainInstant$], 2
 ];
 export var GetTransactionInput$: StaticStructureSchema = [3, n0, _GTI,
   0,
-  [_tH, _tIr, _n],
-  [0, 0, 0]
+  [_n, _tH, _tIr],
+  [0, 0, 0], 1
 ];
 export var GetTransactionOutput$: StaticStructureSchema = [3, n0, _GTO,
   0,
   [_tr],
-  [() => Transaction$]
+  [() => Transaction$], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListAssetContractsInput$: StaticStructureSchema = [3, n0, _LACI,
   0,
   [_cF, _nT, _mR],
-  [() => ContractFilter$, 0, 1]
+  [() => ContractFilter$, 0, 1], 1
 ];
 export var ListAssetContractsOutput$: StaticStructureSchema = [3, n0, _LACO,
   0,
   [_co, _nT],
-  [() => AssetContractList, 0]
+  [() => AssetContractList, 0], 1
 ];
 export var ListFilteredTransactionEventsInput$: StaticStructureSchema = [3, n0, _LFTEI,
   0,
   [_n, _aIF, _tF, _vF, _cSF, _so, _nT, _mR],
-  [0, () => AddressIdentifierFilter$, () => TimeFilter$, () => VoutFilter$, () => ConfirmationStatusFilter$, () => ListFilteredTransactionEventsSort$, 0, 1]
+  [0, () => AddressIdentifierFilter$, () => TimeFilter$, () => VoutFilter$, () => ConfirmationStatusFilter$, () => ListFilteredTransactionEventsSort$, 0, 1], 2
 ];
 export var ListFilteredTransactionEventsOutput$: StaticStructureSchema = [3, n0, _LFTEO,
   0,
   [_ev, _nT],
-  [() => TransactionEventList, 0]
+  [() => TransactionEventList, 0], 1
 ];
 export var ListFilteredTransactionEventsSort$: StaticStructureSchema = [3, n0, _LFTES,
   0,
@@ -293,33 +293,33 @@ export var ListFilteredTransactionEventsSort$: StaticStructureSchema = [3, n0, _
 ];
 export var ListTokenBalancesInput$: StaticStructureSchema = [3, n0, _LTBI,
   0,
-  [_oF, _tFo, _nT, _mR],
-  [() => OwnerFilter$, () => TokenFilter$, 0, 1]
+  [_tFo, _oF, _nT, _mR],
+  [() => TokenFilter$, () => OwnerFilter$, 0, 1], 1
 ];
 export var ListTokenBalancesOutput$: StaticStructureSchema = [3, n0, _LTBO,
   0,
   [_tB, _nT],
-  [() => TokenBalanceList, 0]
+  [() => TokenBalanceList, 0], 1
 ];
 export var ListTransactionEventsInput$: StaticStructureSchema = [3, n0, _LTEI,
   0,
-  [_tH, _tIr, _n, _nT, _mR],
-  [0, 0, 0, 0, 1]
+  [_n, _tH, _tIr, _nT, _mR],
+  [0, 0, 0, 0, 1], 1
 ];
 export var ListTransactionEventsOutput$: StaticStructureSchema = [3, n0, _LTEO,
   0,
   [_ev, _nT],
-  [() => TransactionEventList, 0]
+  [() => TransactionEventList, 0], 1
 ];
 export var ListTransactionsInput$: StaticStructureSchema = [3, n0, _LTI,
   0,
   [_a, _n, _fBI, _tBI, _so, _nT, _mR, _cSF],
-  [0, 0, () => BlockchainInstant$, () => BlockchainInstant$, () => ListTransactionsSort$, 0, 1, () => ConfirmationStatusFilter$]
+  [0, 0, () => BlockchainInstant$, () => BlockchainInstant$, () => ListTransactionsSort$, 0, 1, () => ConfirmationStatusFilter$], 2
 ];
 export var ListTransactionsOutput$: StaticStructureSchema = [3, n0, _LTO,
   0,
   [_tra, _nT],
-  [() => TransactionOutputList, 0]
+  [() => TransactionOutputList, 0], 1
 ];
 export var ListTransactionsSort$: StaticStructureSchema = [3, n0, _LTS,
   0,
@@ -329,29 +329,29 @@ export var ListTransactionsSort$: StaticStructureSchema = [3, n0, _LTS,
 export var OwnerFilter$: StaticStructureSchema = [3, n0, _OF,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var OwnerIdentifier$: StaticStructureSchema = [3, n0, _OI,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
+  [0, 0, 0, [1, { [_hH]: _RA }]], 3
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeFilter$: StaticStructureSchema = [3, n0, _TF,
@@ -361,49 +361,49 @@ export var TimeFilter$: StaticStructureSchema = [3, n0, _TF,
 ];
 export var TokenBalance$: StaticStructureSchema = [3, n0, _TB,
   0,
-  [_oI, _tI, _b, _aBI, _lUT],
-  [() => OwnerIdentifier$, () => TokenIdentifier$, 0, () => BlockchainInstant$, () => BlockchainInstant$]
+  [_b, _aBI, _oI, _tI, _lUT],
+  [0, () => BlockchainInstant$, () => OwnerIdentifier$, () => TokenIdentifier$, () => BlockchainInstant$], 2
 ];
 export var TokenFilter$: StaticStructureSchema = [3, n0, _TFo,
   0,
   [_n, _cA, _tIo],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var TokenIdentifier$: StaticStructureSchema = [3, n0, _TI,
   0,
   [_n, _cA, _tIo],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var Transaction$: StaticStructureSchema = [3, n0, _T,
   0,
-  [_n, _bH, _tH, _bN, _tT, _tIra, _nOT, _to, _f, _cA, _gU, _cGU, _eGP, _sV, _sR, _sS, _tFr, _tIr, _cS, _eS],
-  [0, 0, 0, 0, 4, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+  [_n, _tH, _tT, _tIra, _nOT, _to, _bH, _bN, _f, _cA, _gU, _cGU, _eGP, _sV, _sR, _sS, _tFr, _tIr, _cS, _eS],
+  [0, 0, 4, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0], 6
 ];
 export var TransactionEvent$: StaticStructureSchema = [3, n0, _TEr,
   0,
   [_n, _tH, _eTv, _f, _to, _v, _cA, _tIo, _tIr, _vI, _vS, _sVTI, _sVTH, _sVI, _bI, _cS],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 1, () => BlockchainInstant$, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 1, () => BlockchainInstant$, 0], 3
 ];
 export var TransactionOutputItem$: StaticStructureSchema = [3, n0, _TOI,
   0,
-  [_tH, _tIr, _n, _tT, _cS],
-  [0, 0, 0, 4, 0]
+  [_tH, _n, _tT, _tIr, _cS],
+  [0, 0, 4, 0, 0], 3
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_na, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VoutFilter$: StaticStructureSchema = [3, n0, _VF,
   0,
   [_vS],
-  [2]
+  [2], 1
 ];
 export var ManagedBlockchainQueryServiceException$: StaticErrorSchema = [-3, _sm, "ManagedBlockchainQueryServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ManagedBlockchainQueryServiceException$, ManagedBlockchainQueryServiceException);

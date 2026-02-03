@@ -140,7 +140,7 @@ export var Column$: StaticStructureSchema = [3, n0, _C,
 export var CreateExportRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
   [_E, _RT],
-  [() => Export$, () => ResourceTagList]
+  [() => Export$, () => ResourceTagList], 1
 ];
 export var CreateExportResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
@@ -150,12 +150,12 @@ export var CreateExportResponse$: StaticStructureSchema = [3, n0, _CERr,
 export var DataQuery$: StaticStructureSchema = [3, n0, _DQ,
   0,
   [_QS, _TC],
-  [0, [2, n0, _TC, 0, 0, 128 | 0]]
+  [0, [2, n0, _TC, 0, 0, 128 | 0]], 1
 ];
 export var DeleteExportRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_EA],
-  [0]
+  [0], 1
 ];
 export var DeleteExportResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -165,12 +165,12 @@ export var DeleteExportResponse$: StaticStructureSchema = [3, n0, _DERe,
 export var DestinationConfigurations$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_SD],
-  [() => S3Destination$]
+  [() => S3Destination$], 1
 ];
 export var ExecutionReference$: StaticStructureSchema = [3, n0, _ER,
   0,
   [_EI, _ES],
-  [0, () => ExecutionStatus$]
+  [0, () => ExecutionStatus$], 2
 ];
 export var ExecutionStatus$: StaticStructureSchema = [3, n0, _ES,
   0,
@@ -179,13 +179,13 @@ export var ExecutionStatus$: StaticStructureSchema = [3, n0, _ES,
 ];
 export var Export$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_EA, _N, _D, _DQ, _DC, _RC],
-  [0, 0, 0, () => DataQuery$, () => DestinationConfigurations$, () => RefreshCadence$]
+  [_N, _DQ, _DC, _RC, _EA, _D],
+  [0, () => DataQuery$, () => DestinationConfigurations$, () => RefreshCadence$, 0, 0], 4
 ];
 export var ExportReference$: StaticStructureSchema = [3, n0, _ERx,
   0,
   [_EA, _EN, _ESx],
-  [0, 0, () => ExportStatus$]
+  [0, 0, () => ExportStatus$], 3
 ];
 export var ExportStatus$: StaticStructureSchema = [3, n0, _ESx,
   0,
@@ -195,7 +195,7 @@ export var ExportStatus$: StaticStructureSchema = [3, n0, _ESx,
 export var GetExecutionRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_EA, _EI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetExecutionResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
@@ -205,7 +205,7 @@ export var GetExecutionResponse$: StaticStructureSchema = [3, n0, _GERe,
 export var GetExportRequest$: StaticStructureSchema = [3, n0, _GERet,
   0,
   [_EA],
-  [0]
+  [0], 1
 ];
 export var GetExportResponse$: StaticStructureSchema = [3, n0, _GERetx,
   0,
@@ -215,7 +215,7 @@ export var GetExportResponse$: StaticStructureSchema = [3, n0, _GERetx,
 export var GetTableRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_TN, _TP],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var GetTableResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
@@ -225,13 +225,13 @@ export var GetTableResponse$: StaticStructureSchema = [3, n0, _GTRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListExecutionsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
   [_EA, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListExecutionsResponse$: StaticStructureSchema = [3, n0, _LERi,
   0,
@@ -261,7 +261,7 @@ export var ListTablesResponse$: StaticStructureSchema = [3, n0, _LTRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -271,33 +271,33 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var RefreshCadence$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_F],
-  [0]
+  [0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RTe],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTes,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var S3Destination$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_SB, _SP, _SRe, _SOC],
-  [0, 0, 0, () => S3OutputConfigurations$]
+  [0, 0, 0, () => S3OutputConfigurations$], 4
 ];
 export var S3OutputConfigurations$: StaticStructureSchema = [3, n0, _SOC,
   0,
   [_OT, _Fo, _Co, _O],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
-  [_M, _RI, _RTe, _QC, _SCe],
-  [0, 0, 0, 0, 0]
+  [_M, _QC, _SCe, _RI, _RTe],
+  [0, 0, 0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Table$: StaticStructureSchema = [3, n0, _Tab,
@@ -313,7 +313,7 @@ export var TablePropertyDescription$: StaticStructureSchema = [3, n0, _TPD,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _RT],
-  [0, () => ResourceTagList]
+  [0, () => ResourceTagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -323,13 +323,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M, _QC, _SCe],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _RTK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -339,7 +339,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateExportRequest$: StaticStructureSchema = [3, n0, _UER,
   0,
   [_EA, _E],
-  [0, () => Export$]
+  [0, () => Export$], 2
 ];
 export var UpdateExportResponse$: StaticStructureSchema = [3, n0, _UERp,
   0,
@@ -349,13 +349,13 @@ export var UpdateExportResponse$: StaticStructureSchema = [3, n0, _UERp,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _R, _Fi],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BCMDataExportsServiceException$: StaticErrorSchema = [-3, _sm, "BCMDataExportsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BCMDataExportsServiceException$, BCMDataExportsServiceException);

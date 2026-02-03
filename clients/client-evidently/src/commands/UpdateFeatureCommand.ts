@@ -27,9 +27,9 @@ export interface UpdateFeatureCommandInput extends UpdateFeatureRequest {}
 export interface UpdateFeatureCommandOutput extends UpdateFeatureResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing feature.</p>
- *          <p>You can't use this operation to update the tags of an existing feature. Instead, use
- *       <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
+ * <p>Updates an existing feature.</p> <p>You can't use this operation to update the tags of an existing feature. Instead, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

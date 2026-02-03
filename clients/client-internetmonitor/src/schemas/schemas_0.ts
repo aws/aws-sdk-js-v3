@@ -217,8 +217,8 @@ export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
 TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var ClientLocation$: StaticStructureSchema = [3, n0, _CL,
   0,
-  [_ASN, _ASNu, _C, _S, _M, _Ci, _L, _Lo],
-  [0, 1, 0, 0, 0, 0, 1, 1]
+  [_ASN, _ASNu, _C, _Ci, _L, _Lo, _S, _M],
+  [0, 1, 0, 0, 1, 1, 0, 0], 6
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -229,17 +229,17 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateMonitorInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
   [_MN, _R, _CT, _T, _MCNTM, _IMLD, _TPTM, _HEC],
-  [0, 64 | 0, [0, 4], 128 | 0, 1, () => InternetMeasurementsLogDelivery$, 1, () => HealthEventsConfig$]
+  [0, 64 | 0, [0, 4], 128 | 0, 1, () => InternetMeasurementsLogDelivery$, 1, () => HealthEventsConfig$], 1
 ];
 export var CreateMonitorOutput$: StaticStructureSchema = [3, n0, _CMO,
   0,
   [_A, _St],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteMonitorInput$: StaticStructureSchema = [3, n0, _DMI,
   0,
   [_MN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteMonitorOutput$: StaticStructureSchema = [3, n0, _DMO,
   0,
@@ -254,57 +254,57 @@ export var FilterParameter$: StaticStructureSchema = [3, n0, _FP,
 export var GetHealthEventInput$: StaticStructureSchema = [3, n0, _GHEI,
   0,
   [_MN, _EI, _LAI],
-  [[0, 1], [0, 1], [0, { [_hQ]: _LAI }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _LAI }]], 2
 ];
 export var GetHealthEventOutput$: StaticStructureSchema = [3, n0, _GHEO,
   0,
-  [_EA, _EI, _SA, _EAn, _CA, _LUA, _IL, _St, _POTTI, _IT, _HST],
-  [0, 0, 5, 5, 5, 5, () => ImpactedLocationsList, 0, 1, 0, 1]
+  [_EA, _EI, _SA, _LUA, _IL, _St, _IT, _EAn, _CA, _POTTI, _HST],
+  [0, 0, 5, 5, () => ImpactedLocationsList, 0, 0, 5, 5, 1, 1], 7
 ];
 export var GetInternetEventInput$: StaticStructureSchema = [3, n0, _GIEI,
   0,
   [_EI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetInternetEventOutput$: StaticStructureSchema = [3, n0, _GIEO,
   0,
-  [_EI, _EA, _SA, _EAn, _CL, _ET, _ESv],
-  [0, 0, 5, 5, () => ClientLocation$, 0, 0]
+  [_EI, _EA, _SA, _CL, _ET, _ESv, _EAn],
+  [0, 0, 5, () => ClientLocation$, 0, 0, 5], 6
 ];
 export var GetMonitorInput$: StaticStructureSchema = [3, n0, _GMI,
   0,
   [_MN, _LAI],
-  [[0, 1], [0, { [_hQ]: _LAI }]]
+  [[0, 1], [0, { [_hQ]: _LAI }]], 1
 ];
 export var GetMonitorOutput$: StaticStructureSchema = [3, n0, _GMO,
   0,
   [_MN, _MA, _R, _St, _CA, _MAo, _PS, _PSI, _T, _MCNTM, _IMLD, _TPTM, _HEC],
-  [0, 0, 64 | 0, 0, 5, 5, 0, 0, 128 | 0, 1, () => InternetMeasurementsLogDelivery$, 1, () => HealthEventsConfig$]
+  [0, 0, 64 | 0, 0, 5, 5, 0, 0, 128 | 0, 1, () => InternetMeasurementsLogDelivery$, 1, () => HealthEventsConfig$], 6
 ];
 export var GetQueryResultsInput$: StaticStructureSchema = [3, n0, _GQRI,
   0,
   [_MN, _QI, _NT, _MR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 2
 ];
 export var GetQueryResultsOutput$: StaticStructureSchema = [3, n0, _GQRO,
   0,
   [_Fi, _D, _NT],
-  [() => QueryFields, [1, n0, _QD, 0, 64 | 0], 0]
+  [() => QueryFields, [1, n0, _QD, 0, 64 | 0], 0], 2
 ];
 export var GetQueryStatusInput$: StaticStructureSchema = [3, n0, _GQSI,
   0,
   [_MN, _QI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetQueryStatusOutput$: StaticStructureSchema = [3, n0, _GQSO,
   0,
   [_St],
-  [0]
+  [0], 1
 ];
 export var HealthEvent$: StaticStructureSchema = [3, n0, _HE,
   0,
-  [_EA, _EI, _SA, _EAn, _CA, _LUA, _IL, _St, _POTTI, _IT, _HST],
-  [0, 0, 5, 5, 5, 5, () => ImpactedLocationsList, 0, 1, 0, 1]
+  [_EA, _EI, _SA, _LUA, _IL, _St, _IT, _EAn, _CA, _POTTI, _HST],
+  [0, 0, 5, 5, () => ImpactedLocationsList, 0, 0, 5, 5, 1, 1], 7
 ];
 export var HealthEventsConfig$: StaticStructureSchema = [3, n0, _HEC,
   0,
@@ -313,8 +313,8 @@ export var HealthEventsConfig$: StaticStructureSchema = [3, n0, _HEC,
 ];
 export var ImpactedLocation$: StaticStructureSchema = [3, n0, _ILm,
   0,
-  [_ASN, _ASNu, _C, _S, _M, _Ci, _L, _Lo, _CC, _SC, _SL, _St, _CB, _IH, _IP],
-  [0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, () => NetworkImpairment$, () => InternetHealth$, 64 | 0]
+  [_ASN, _ASNu, _C, _St, _S, _M, _Ci, _L, _Lo, _CC, _SC, _SL, _CB, _IH, _IP],
+  [0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, () => NetworkImpairment$, () => InternetHealth$, 64 | 0], 4
 ];
 export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
   { [_e]: _s, [_hE]: 500 },
@@ -330,8 +330,8 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InternetEventSummary$: StaticStructureSchema = [3, n0, _IES,
   0,
-  [_EI, _EA, _SA, _EAn, _CL, _ET, _ESv],
-  [0, 0, 5, 5, () => ClientLocation$, 0, 0]
+  [_EI, _EA, _SA, _CL, _ET, _ESv, _EAn],
+  [0, 0, 5, () => ClientLocation$, 0, 0, 5], 6
 ];
 export var InternetHealth$: StaticStructureSchema = [3, n0, _IH,
   0,
@@ -352,12 +352,12 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListHealthEventsInput$: StaticStructureSchema = [3, n0, _LHEI,
   0,
   [_MN, _ST, _ETn, _NT, _MR, _ESv, _LAI],
-  [[0, 1], [5, { [_hQ]: _ST }], [5, { [_hQ]: _ETn }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _ESv }], [0, { [_hQ]: _LAI }]]
+  [[0, 1], [5, { [_hQ]: _ST }], [5, { [_hQ]: _ETn }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _ESv }], [0, { [_hQ]: _LAI }]], 1
 ];
 export var ListHealthEventsOutput$: StaticStructureSchema = [3, n0, _LHEO,
   0,
   [_HEe, _NT],
-  [() => HealthEventList, 0]
+  [() => HealthEventList, 0], 1
 ];
 export var ListInternetEventsInput$: StaticStructureSchema = [3, n0, _LIEI,
   0,
@@ -367,7 +367,7 @@ export var ListInternetEventsInput$: StaticStructureSchema = [3, n0, _LIEI,
 export var ListInternetEventsOutput$: StaticStructureSchema = [3, n0, _LIEO,
   0,
   [_IE, _NT],
-  [() => InternetEventsList, 0]
+  [() => InternetEventsList, 0], 1
 ];
 export var ListMonitorsInput$: StaticStructureSchema = [3, n0, _LMI,
   0,
@@ -377,12 +377,12 @@ export var ListMonitorsInput$: StaticStructureSchema = [3, n0, _LMI,
 export var ListMonitorsOutput$: StaticStructureSchema = [3, n0, _LMO,
   0,
   [_Mo, _NT],
-  [() => MonitorList, 0]
+  [() => MonitorList, 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -397,17 +397,17 @@ export var LocalHealthEventsConfig$: StaticStructureSchema = [3, n0, _LHEC,
 export var Monitor$: StaticStructureSchema = [3, n0, _Mon,
   0,
   [_MN, _MA, _St, _PS],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var Network$: StaticStructureSchema = [3, n0, _N,
   0,
   [_ASN, _ASNu],
-  [0, 1]
+  [0, 1], 2
 ];
 export var NetworkImpairment$: StaticStructureSchema = [3, n0, _NI,
   0,
   [_Ne, _AP, _NET],
-  [() => NetworkList, () => NetworkList, 0]
+  [() => NetworkList, () => NetworkList, 0], 3
 ];
 export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_e]: _c, [_hE]: 404 },
@@ -444,17 +444,17 @@ export var S3Config$: StaticStructureSchema = [3, n0, _SCo,
 export var StartQueryInput$: StaticStructureSchema = [3, n0, _SQI,
   0,
   [_MN, _ST, _ETn, _QT, _FPi, _LAI],
-  [[0, 1], 5, 5, 0, () => FilterParameters, 0]
+  [[0, 1], 5, 5, 0, () => FilterParameters, 0], 4
 ];
 export var StartQueryOutput$: StaticStructureSchema = [3, n0, _SQO,
   0,
   [_QI],
-  [0]
+  [0], 1
 ];
 export var StopQueryInput$: StaticStructureSchema = [3, n0, _SQIt,
   0,
   [_MN, _QI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var StopQueryOutput$: StaticStructureSchema = [3, n0, _SQOt,
   0,
@@ -464,7 +464,7 @@ export var StopQueryOutput$: StaticStructureSchema = [3, n0, _SQOt,
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RA, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -486,7 +486,7 @@ TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsExc
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -496,12 +496,12 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateMonitorInput$: StaticStructureSchema = [3, n0, _UMI,
   0,
   [_MN, _RTA, _RTR, _St, _CT, _MCNTM, _IMLD, _TPTM, _HEC],
-  [[0, 1], 64 | 0, 64 | 0, 0, [0, 4], 1, () => InternetMeasurementsLogDelivery$, 1, () => HealthEventsConfig$]
+  [[0, 1], 64 | 0, 64 | 0, 0, [0, 4], 1, () => InternetMeasurementsLogDelivery$, 1, () => HealthEventsConfig$], 1
 ];
 export var UpdateMonitorOutput$: StaticStructureSchema = [3, n0, _UMO,
   0,
   [_MA, _St],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

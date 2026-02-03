@@ -293,54 +293,54 @@ var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccessTokenSummary$: StaticStructureSchema = [3, n0, _ATSc,
   0,
   [_i, _n, _eT],
-  [0, 0, 5]
+  [0, 0, 5], 2
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAccessTokenRequest$: StaticStructureSchema = [3, n0, _CATR,
   0,
   [_n, _eT],
-  [0, 5]
+  [0, 5], 1
 ];
 export var CreateAccessTokenResponse$: StaticStructureSchema = [3, n0, _CATRr,
   0,
   [_s, _n, _eT, _aTI],
-  [[() => AccessTokenSecret, 0], 0, 5, 0]
+  [[() => AccessTokenSecret, 0], 0, 5, 0], 4
 ];
 export var CreateDevEnvironmentRequest$: StaticStructureSchema = [3, n0, _CDER,
   0,
-  [_sN, _pN, _r, _cT, _a, _id, _iT, _iTM, _pS, _vCN],
-  [[0, 1], [0, 1], () => RepositoriesInput, 0, 0, () => IdeConfigurationList, 0, 1, () => PersistentStorageConfiguration$, 0]
+  [_sN, _pN, _iT, _pS, _r, _cT, _a, _id, _iTM, _vCN],
+  [[0, 1], [0, 1], 0, () => PersistentStorageConfiguration$, () => RepositoriesInput, 0, 0, () => IdeConfigurationList, 1, 0], 4
 ];
 export var CreateDevEnvironmentResponse$: StaticStructureSchema = [3, n0, _CDERr,
   0,
   [_sN, _pN, _i, _vCN],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var CreateProjectRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_sN, _dN, _d],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 2
 ];
 export var CreateProjectResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_sN, _n, _dN, _d],
-  [0, 0, 0, 0]
+  [_n, _sN, _dN, _d],
+  [0, 0, 0, 0], 1
 ];
 export var CreateSourceRepositoryBranchRequest$: StaticStructureSchema = [3, n0, _CSRBR,
   0,
   [_sN, _pN, _sRN, _n, _hCI],
-  [[0, 1], [0, 1], [0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], [0, 1], [0, 1], 0], 4
 ];
 export var CreateSourceRepositoryBranchResponse$: StaticStructureSchema = [3, n0, _CSRBRr,
   0,
@@ -350,17 +350,17 @@ export var CreateSourceRepositoryBranchResponse$: StaticStructureSchema = [3, n0
 export var CreateSourceRepositoryRequest$: StaticStructureSchema = [3, n0, _CSRR,
   0,
   [_sN, _pN, _n, _d],
-  [[0, 1], [0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], [0, 1], 0], 3
 ];
 export var CreateSourceRepositoryResponse$: StaticStructureSchema = [3, n0, _CSRRr,
   0,
   [_sN, _pN, _n, _d],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var DeleteAccessTokenRequest$: StaticStructureSchema = [3, n0, _DATR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAccessTokenResponse$: StaticStructureSchema = [3, n0, _DATRe,
   0,
@@ -370,67 +370,67 @@ export var DeleteAccessTokenResponse$: StaticStructureSchema = [3, n0, _DATRe,
 export var DeleteDevEnvironmentRequest$: StaticStructureSchema = [3, n0, _DDER,
   0,
   [_sN, _pN, _i],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteDevEnvironmentResponse$: StaticStructureSchema = [3, n0, _DDERe,
   0,
   [_sN, _pN, _i],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteProjectRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_sN, _n],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteProjectResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
   [_sN, _n, _dN],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DeleteSourceRepositoryRequest$: StaticStructureSchema = [3, n0, _DSRR,
   0,
   [_sN, _pN, _n],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteSourceRepositoryResponse$: StaticStructureSchema = [3, n0, _DSRRe,
   0,
   [_sN, _pN, _n],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeleteSpaceRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSpaceResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
   [_n, _dN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DevEnvironmentAccessDetails$: StaticStructureSchema = [3, n0, _DEAD,
   8,
   [_sU, _tV],
-  [[() => SensitiveString, 0], [() => SensitiveString, 0]]
+  [[() => SensitiveString, 0], [() => SensitiveString, 0]], 2
 ];
 export var DevEnvironmentRepositorySummary$: StaticStructureSchema = [3, n0, _DERS,
   0,
   [_rN, _bN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DevEnvironmentSessionConfiguration$: StaticStructureSchema = [3, n0, _DESC,
   0,
   [_sT, _eCSC],
-  [0, () => ExecuteCommandSessionConfiguration$]
+  [0, () => ExecuteCommandSessionConfiguration$], 1
 ];
 export var DevEnvironmentSessionSummary$: StaticStructureSchema = [3, n0, _DESS,
   0,
   [_sN, _pN, _dEI, _sTt, _i],
-  [0, 0, 0, 5, 0]
+  [0, 0, 0, 5, 0], 5
 ];
 export var DevEnvironmentSummary$: StaticStructureSchema = [3, n0, _DES,
   0,
-  [_sN, _pN, _i, _lUT, _cI, _st, _sR, _r, _a, _id, _iT, _iTM, _pS, _vCN],
-  [0, 0, 0, 5, 0, 0, 0, () => DevEnvironmentRepositorySummaries, 0, () => Ides, 0, 1, () => PersistentStorage$, 0]
+  [_i, _lUT, _cI, _st, _r, _iT, _iTM, _pS, _sN, _pN, _sR, _a, _id, _vCN],
+  [0, 5, 0, 0, () => DevEnvironmentRepositorySummaries, 0, 1, () => PersistentStorage$, 0, 0, 0, 0, () => Ides, 0], 8
 ];
 export var EmailAddress$: StaticStructureSchema = [3, n0, _EA,
   0,
@@ -440,7 +440,7 @@ export var EmailAddress$: StaticStructureSchema = [3, n0, _EA,
 export var EventLogEntry$: StaticStructureSchema = [3, n0, _ELE,
   0,
   [_i, _eN, _eTv, _eC, _eS, _eTve, _oT, _uI, _pI, _rI, _rP, _rPe, _eCr, _sIA, _uA],
-  [0, 0, 0, 0, 0, 5, 0, () => UserIdentity$, () => ProjectInformation$, 0, () => EventPayload$, () => EventPayload$, 0, 0, 0]
+  [0, 0, 0, 0, 0, 5, 0, () => UserIdentity$, () => ProjectInformation$, 0, () => EventPayload$, () => EventPayload$, 0, 0, 0], 8
 ];
 export var EventPayload$: StaticStructureSchema = [3, n0, _EP,
   0,
@@ -450,67 +450,67 @@ export var EventPayload$: StaticStructureSchema = [3, n0, _EP,
 export var ExecuteCommandSessionConfiguration$: StaticStructureSchema = [3, n0, _ECSC,
   0,
   [_co, _ar],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_k, _va, _cO],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 2
 ];
 export var GetDevEnvironmentRequest$: StaticStructureSchema = [3, n0, _GDER,
   0,
   [_sN, _pN, _i],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetDevEnvironmentResponse$: StaticStructureSchema = [3, n0, _GDERe,
   0,
-  [_sN, _pN, _i, _lUT, _cI, _st, _sR, _r, _a, _id, _iT, _iTM, _pS, _vCN],
-  [0, 0, 0, 5, 0, 0, 0, () => DevEnvironmentRepositorySummaries, 0, () => Ides, 0, 1, () => PersistentStorage$, 0]
+  [_sN, _pN, _i, _lUT, _cI, _st, _r, _iT, _iTM, _pS, _sR, _a, _id, _vCN],
+  [0, 0, 0, 5, 0, 0, () => DevEnvironmentRepositorySummaries, 0, 1, () => PersistentStorage$, 0, 0, () => Ides, 0], 10
 ];
 export var GetProjectRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_sN, _n],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetProjectResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
-  [_sN, _n, _dN, _d],
-  [0, 0, 0, 0]
+  [_n, _sN, _dN, _d],
+  [0, 0, 0, 0], 1
 ];
 export var GetSourceRepositoryCloneUrlsRequest$: StaticStructureSchema = [3, n0, _GSRCUR,
   0,
   [_sN, _pN, _sRN],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetSourceRepositoryCloneUrlsResponse$: StaticStructureSchema = [3, n0, _GSRCURe,
   0,
   [_h],
-  [0]
+  [0], 1
 ];
 export var GetSourceRepositoryRequest$: StaticStructureSchema = [3, n0, _GSRR,
   0,
   [_sN, _pN, _n],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetSourceRepositoryResponse$: StaticStructureSchema = [3, n0, _GSRRe,
   0,
-  [_sN, _pN, _n, _d, _lUT, _cTr],
-  [0, 0, 0, 0, 5, 5]
+  [_sN, _pN, _n, _lUT, _cTr, _d],
+  [0, 0, 0, 5, 5, 0], 5
 ];
 export var GetSpaceRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_n],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSpaceResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
   [_n, _rNe, _dN, _d],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var GetSubscriptionRequest$: StaticStructureSchema = [3, n0, _GSRet,
   0,
   [_sN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSubscriptionResponse$: StaticStructureSchema = [3, n0, _GSRetu,
   0,
@@ -530,22 +530,22 @@ export var GetUserDetailsResponse$: StaticStructureSchema = [3, n0, _GUDRe,
 export var GetWorkflowRequest$: StaticStructureSchema = [3, n0, _GWR,
   0,
   [_sN, _i, _pN],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetWorkflowResponse$: StaticStructureSchema = [3, n0, _GWRe,
   0,
-  [_sN, _pN, _i, _n, _sRN, _sBN, _de, _cTr, _lUT, _rM, _st],
-  [0, 0, 0, 0, 0, 0, () => WorkflowDefinition$, 5, 5, 0, 0]
+  [_sN, _pN, _i, _n, _de, _cTr, _lUT, _rM, _st, _sRN, _sBN],
+  [0, 0, 0, 0, () => WorkflowDefinition$, 5, 5, 0, 0, 0, 0], 9
 ];
 export var GetWorkflowRunRequest$: StaticStructureSchema = [3, n0, _GWRR,
   0,
   [_sN, _i, _pN],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetWorkflowRunResponse$: StaticStructureSchema = [3, n0, _GWRRe,
   0,
-  [_sN, _pN, _i, _wI, _st, _sRt, _sTta, _eTn, _lUT],
-  [0, 0, 0, 0, 0, () => WorkflowRunStatusReasons, 5, 5, 5]
+  [_sN, _pN, _i, _wI, _st, _sTta, _lUT, _sRt, _eTn],
+  [0, 0, 0, 0, 0, 5, 5, () => WorkflowRunStatusReasons, 5], 7
 ];
 export var Ide$: StaticStructureSchema = [3, n0, _I,
   0,
@@ -565,42 +565,42 @@ export var ListAccessTokensRequest$: StaticStructureSchema = [3, n0, _LATR,
 export var ListAccessTokensResponse$: StaticStructureSchema = [3, n0, _LATRi,
   0,
   [_it, _nT],
-  [() => AccessTokenSummaries, 0]
+  [() => AccessTokenSummaries, 0], 1
 ];
 export var ListDevEnvironmentSessionsRequest$: StaticStructureSchema = [3, n0, _LDESR,
   0,
   [_sN, _pN, _dEI, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], 0, 1]
+  [[0, 1], [0, 1], [0, 1], 0, 1], 3
 ];
 export var ListDevEnvironmentSessionsResponse$: StaticStructureSchema = [3, n0, _LDESRi,
   0,
   [_it, _nT],
-  [() => DevEnvironmentSessionsSummaryList, 0]
+  [() => DevEnvironmentSessionsSummaryList, 0], 1
 ];
 export var ListDevEnvironmentsRequest$: StaticStructureSchema = [3, n0, _LDER,
   0,
   [_sN, _pN, _f, _nT, _mR],
-  [[0, 1], 0, () => Filters, 0, 1]
+  [[0, 1], 0, () => Filters, 0, 1], 1
 ];
 export var ListDevEnvironmentsResponse$: StaticStructureSchema = [3, n0, _LDERi,
   0,
   [_it, _nT],
-  [() => DevEnvironmentSummaryList, 0]
+  [() => DevEnvironmentSummaryList, 0], 1
 ];
 export var ListEventLogsRequest$: StaticStructureSchema = [3, n0, _LELR,
   0,
   [_sN, _sTta, _eTn, _eN, _nT, _mR],
-  [[0, 1], 5, 5, 0, 0, 1]
+  [[0, 1], 5, 5, 0, 0, 1], 3
 ];
 export var ListEventLogsResponse$: StaticStructureSchema = [3, n0, _LELRi,
   0,
-  [_nT, _it],
-  [0, () => EventLogEntries]
+  [_it, _nT],
+  [() => EventLogEntries, 0], 1
 ];
 export var ListProjectsRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
   [_sN, _nT, _mR, _f],
-  [[0, 1], 0, 1, () => ProjectListFilters]
+  [[0, 1], 0, 1, () => ProjectListFilters], 1
 ];
 export var ListProjectsResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
@@ -609,13 +609,13 @@ export var ListProjectsResponse$: StaticStructureSchema = [3, n0, _LPRi,
 ];
 export var ListSourceRepositoriesItem$: StaticStructureSchema = [3, n0, _LSRI,
   0,
-  [_i, _n, _d, _lUT, _cTr],
-  [0, 0, 0, 5, 5]
+  [_i, _n, _lUT, _cTr, _d],
+  [0, 0, 5, 5, 0], 4
 ];
 export var ListSourceRepositoriesRequest$: StaticStructureSchema = [3, n0, _LSRR,
   0,
   [_sN, _pN, _nT, _mR],
-  [[0, 1], [0, 1], 0, 1]
+  [[0, 1], [0, 1], 0, 1], 2
 ];
 export var ListSourceRepositoriesResponse$: StaticStructureSchema = [3, n0, _LSRRi,
   0,
@@ -630,12 +630,12 @@ export var ListSourceRepositoryBranchesItem$: StaticStructureSchema = [3, n0, _L
 export var ListSourceRepositoryBranchesRequest$: StaticStructureSchema = [3, n0, _LSRBR,
   0,
   [_sN, _pN, _sRN, _nT, _mR],
-  [[0, 1], [0, 1], [0, 1], 0, 1]
+  [[0, 1], [0, 1], [0, 1], 0, 1], 3
 ];
 export var ListSourceRepositoryBranchesResponse$: StaticStructureSchema = [3, n0, _LSRBRi,
   0,
-  [_nT, _it],
-  [0, () => ListSourceRepositoryBranchesItems]
+  [_it, _nT],
+  [() => ListSourceRepositoryBranchesItems, 0], 1
 ];
 export var ListSpacesRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
@@ -649,8 +649,8 @@ export var ListSpacesResponse$: StaticStructureSchema = [3, n0, _LSRi,
 ];
 export var ListWorkflowRunsRequest$: StaticStructureSchema = [3, n0, _LWRR,
   0,
-  [_sN, _wI, _pN, _nT, _mR, _sB],
-  [[0, 1], [0, { [_hQ]: _wI }], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], () => WorkflowRunSortCriteriaList]
+  [_sN, _pN, _wI, _nT, _mR, _sB],
+  [[0, 1], [0, 1], [0, { [_hQ]: _wI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], () => WorkflowRunSortCriteriaList], 2
 ];
 export var ListWorkflowRunsResponse$: StaticStructureSchema = [3, n0, _LWRRi,
   0,
@@ -660,7 +660,7 @@ export var ListWorkflowRunsResponse$: StaticStructureSchema = [3, n0, _LWRRi,
 export var ListWorkflowsRequest$: StaticStructureSchema = [3, n0, _LWR,
   0,
   [_sN, _pN, _nT, _mR, _sB],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], () => WorkflowSortCriteriaList]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], () => WorkflowSortCriteriaList], 2
 ];
 export var ListWorkflowsResponse$: StaticStructureSchema = [3, n0, _LWRi,
   0,
@@ -670,12 +670,12 @@ export var ListWorkflowsResponse$: StaticStructureSchema = [3, n0, _LWRi,
 export var PersistentStorage$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_sIGB],
-  [1]
+  [1], 1
 ];
 export var PersistentStorageConfiguration$: StaticStructureSchema = [3, n0, _PSC,
   0,
   [_sIGB],
-  [1]
+  [1], 1
 ];
 export var ProjectInformation$: StaticStructureSchema = [3, n0, _PI,
   0,
@@ -685,105 +685,105 @@ export var ProjectInformation$: StaticStructureSchema = [3, n0, _PI,
 export var ProjectListFilter$: StaticStructureSchema = [3, n0, _PLF,
   0,
   [_k, _va, _cO],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 2
 ];
 export var ProjectSummary$: StaticStructureSchema = [3, n0, _PSr,
   0,
   [_n, _dN, _d],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var RepositoryInput$: StaticStructureSchema = [3, n0, _RI,
   0,
   [_rN, _bN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SpaceSummary$: StaticStructureSchema = [3, n0, _SSp,
   0,
   [_n, _rNe, _dN, _d],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var StartDevEnvironmentRequest$: StaticStructureSchema = [3, n0, _SDER,
   0,
   [_sN, _pN, _i, _id, _iT, _iTM],
-  [[0, 1], [0, 1], [0, 1], () => IdeConfigurationList, 0, 1]
+  [[0, 1], [0, 1], [0, 1], () => IdeConfigurationList, 0, 1], 3
 ];
 export var StartDevEnvironmentResponse$: StaticStructureSchema = [3, n0, _SDERt,
   0,
   [_sN, _pN, _i, _st],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var StartDevEnvironmentSessionRequest$: StaticStructureSchema = [3, n0, _SDESR,
   0,
   [_sN, _pN, _i, _sC],
-  [[0, 1], [0, 1], [0, 1], () => DevEnvironmentSessionConfiguration$]
+  [[0, 1], [0, 1], [0, 1], () => DevEnvironmentSessionConfiguration$], 4
 ];
 export var StartDevEnvironmentSessionResponse$: StaticStructureSchema = [3, n0, _SDESRt,
   0,
-  [_aD, _sI, _sN, _pN, _i],
-  [[() => DevEnvironmentAccessDetails$, 0], 0, 0, 0, 0]
+  [_aD, _sN, _pN, _i, _sI],
+  [[() => DevEnvironmentAccessDetails$, 0], 0, 0, 0, 0], 4
 ];
 export var StartWorkflowRunRequest$: StaticStructureSchema = [3, n0, _SWRR,
   0,
   [_sN, _pN, _wI, _cT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _wI }], [0, 4]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _wI }], [0, 4]], 3
 ];
 export var StartWorkflowRunResponse$: StaticStructureSchema = [3, n0, _SWRRt,
   0,
   [_sN, _pN, _i, _wI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var StopDevEnvironmentRequest$: StaticStructureSchema = [3, n0, _SDERto,
   0,
   [_sN, _pN, _i],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var StopDevEnvironmentResponse$: StaticStructureSchema = [3, n0, _SDERtop,
   0,
   [_sN, _pN, _i, _st],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var StopDevEnvironmentSessionRequest$: StaticStructureSchema = [3, n0, _SDESRto,
   0,
   [_sN, _pN, _i, _sI],
-  [[0, 1], [0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1], [0, 1]], 4
 ];
 export var StopDevEnvironmentSessionResponse$: StaticStructureSchema = [3, n0, _SDESRtop,
   0,
   [_sN, _pN, _i, _sI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateDevEnvironmentRequest$: StaticStructureSchema = [3, n0, _UDER,
   0,
   [_sN, _pN, _i, _a, _id, _iT, _iTM, _cT],
-  [[0, 1], [0, 1], [0, 1], 0, () => IdeConfigurationList, 0, 1, 0]
+  [[0, 1], [0, 1], [0, 1], 0, () => IdeConfigurationList, 0, 1, 0], 3
 ];
 export var UpdateDevEnvironmentResponse$: StaticStructureSchema = [3, n0, _UDERp,
   0,
   [_i, _sN, _pN, _a, _id, _iT, _iTM, _cT],
-  [0, 0, 0, 0, () => IdeConfigurationList, 0, 1, 0]
+  [0, 0, 0, 0, () => IdeConfigurationList, 0, 1, 0], 3
 ];
 export var UpdateProjectRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_sN, _n, _d],
-  [[0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], 0], 2
 ];
 export var UpdateProjectResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -793,7 +793,7 @@ export var UpdateProjectResponse$: StaticStructureSchema = [3, n0, _UPRp,
 export var UpdateSpaceRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_n, _d],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var UpdateSpaceResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -803,12 +803,12 @@ export var UpdateSpaceResponse$: StaticStructureSchema = [3, n0, _USRp,
 export var UserIdentity$: StaticStructureSchema = [3, n0, _UI,
   0,
   [_uT, _pIri, _uN, _aAI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VerifySessionResponse$: StaticStructureSchema = [3, n0, _VSR,
@@ -819,12 +819,12 @@ export var VerifySessionResponse$: StaticStructureSchema = [3, n0, _VSR,
 export var WorkflowDefinition$: StaticStructureSchema = [3, n0, _WD,
   0,
   [_p],
-  [0]
+  [0], 1
 ];
 export var WorkflowDefinitionSummary$: StaticStructureSchema = [3, n0, _WDS,
   0,
   [_p],
-  [0]
+  [0], 1
 ];
 export var WorkflowRunSortCriteria$: StaticStructureSchema = [3, n0, _WRSC,
   0,
@@ -838,8 +838,8 @@ export var WorkflowRunStatusReason$: StaticStructureSchema = [3, n0, _WRSR,
 ];
 export var WorkflowRunSummary$: StaticStructureSchema = [3, n0, _WRS,
   0,
-  [_i, _wI, _wN, _st, _sRt, _sTta, _eTn, _lUT],
-  [0, 0, 0, 0, () => WorkflowRunStatusReasons, 5, 5, 5]
+  [_i, _wI, _wN, _st, _sTta, _lUT, _sRt, _eTn],
+  [0, 0, 0, 0, 5, 5, () => WorkflowRunStatusReasons, 5], 6
 ];
 export var WorkflowSortCriteria$: StaticStructureSchema = [3, n0, _WSC,
   0,
@@ -849,7 +849,7 @@ export var WorkflowSortCriteria$: StaticStructureSchema = [3, n0, _WSC,
 export var WorkflowSummary$: StaticStructureSchema = [3, n0, _WS,
   0,
   [_i, _n, _sRN, _sBN, _de, _cTr, _lUT, _rM, _st],
-  [0, 0, 0, 0, () => WorkflowDefinitionSummary$, 5, 5, 0, 0]
+  [0, 0, 0, 0, () => WorkflowDefinitionSummary$, 5, 5, 0, 0], 9
 ];
 var __Unit = "unit" as const;
 export var CodeCatalystServiceException$: StaticErrorSchema = [-3, _sm, "CodeCatalystServiceException", 0, [], []];

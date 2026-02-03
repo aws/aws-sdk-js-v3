@@ -10,17 +10,19 @@ const mockSend = vi.fn();
 const mockUsePlugin = vi.fn();
 
 vi.mock("@aws-sdk/nested-clients/sts", () => ({
-  STSClient: vi.fn().mockImplementation((config) => ({
-    config,
-    send: vi.fn().mockImplementation(async function (command) {
-      // Mock resolving client credentials provider at send()
-      if (typeof config.credentials === "function") {
-        config.credentials = await config.credentials();
-      }
-      return mockSend(command);
-    }),
-    middlewareStack: { use: mockUsePlugin },
-  })),
+  STSClient: vi.fn().mockImplementation(function (config) {
+    return {
+      config,
+      send: vi.fn().mockImplementation(async function (command) {
+        // Mock resolving client credentials provider at send()
+        if (typeof config.credentials === "function") {
+          config.credentials = await config.credentials();
+        }
+        return mockSend(command);
+      }),
+      middlewareStack: { use: mockUsePlugin },
+    };
+  }),
   AssumeRoleCommand: vi.fn().mockImplementation(function (params) {
     // Return the input so we can assert the input parameters in client's send()
     return {

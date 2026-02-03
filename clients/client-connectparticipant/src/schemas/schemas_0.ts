@@ -165,7 +165,7 @@ var ViewTemplate: StaticSimpleSchema = [0, n0, _VT, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AttachmentItem$: StaticStructureSchema = [3, n0, _AI,
@@ -186,7 +186,7 @@ export var AudioFeatures$: StaticStructureSchema = [3, n0, _AF,
 export var CancelParticipantAuthenticationRequest$: StaticStructureSchema = [3, n0, _CPAR,
   0,
   [_SI, _CTo],
-  [0, [0, { [_hH]: _XAB }]]
+  [0, [0, { [_hH]: _XAB }]], 2
 ];
 export var CancelParticipantAuthenticationResponse$: StaticStructureSchema = [3, n0, _CPARa,
   0,
@@ -195,8 +195,8 @@ export var CancelParticipantAuthenticationResponse$: StaticStructureSchema = [3,
 ];
 export var CompleteAttachmentUploadRequest$: StaticStructureSchema = [3, n0, _CAUR,
   0,
-  [_AItta, _CTl, _CTo],
-  [64 | 0, [0, 4], [0, { [_hH]: _XAB }]]
+  [_AItta, _CTo, _CTl],
+  [64 | 0, [0, { [_hH]: _XAB }], [0, 4]], 2
 ];
 export var CompleteAttachmentUploadResponse$: StaticStructureSchema = [3, n0, _CAURo,
   0,
@@ -206,7 +206,7 @@ export var CompleteAttachmentUploadResponse$: StaticStructureSchema = [3, n0, _C
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectionCredentials$: StaticStructureSchema = [3, n0, _CC,
@@ -216,8 +216,8 @@ export var ConnectionCredentials$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var CreateParticipantConnectionRequest$: StaticStructureSchema = [3, n0, _CPCR,
   0,
-  [_T, _PT, _CP],
-  [64 | 0, [0, { [_hH]: _XAB }], 2]
+  [_PT, _T, _CP],
+  [[0, { [_hH]: _XAB }], 64 | 0, 2], 1
 ];
 export var CreateParticipantConnectionResponse$: StaticStructureSchema = [3, n0, _CPCRr,
   0,
@@ -227,7 +227,7 @@ export var CreateParticipantConnectionResponse$: StaticStructureSchema = [3, n0,
 export var DescribeViewRequest$: StaticStructureSchema = [3, n0, _DVR,
   0,
   [_VTi, _CTo],
-  [[0, 1], [0, { [_hH]: _XAB }]]
+  [[0, 1], [0, { [_hH]: _XAB }]], 2
 ];
 export var DescribeViewResponse$: StaticStructureSchema = [3, n0, _DVRe,
   0,
@@ -236,8 +236,8 @@ export var DescribeViewResponse$: StaticStructureSchema = [3, n0, _DVRe,
 ];
 export var DisconnectParticipantRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
-  [_CTl, _CTo],
-  [[0, 4], [0, { [_hH]: _XAB }]]
+  [_CTo, _CTl],
+  [[0, { [_hH]: _XAB }], [0, 4]], 1
 ];
 export var DisconnectParticipantResponse$: StaticStructureSchema = [3, n0, _DPRi,
   0,
@@ -247,17 +247,17 @@ export var DisconnectParticipantResponse$: StaticStructureSchema = [3, n0, _DPRi
 export var GetAttachmentRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_AIt, _CTo, _UEIS],
-  [0, [0, { [_hH]: _XAB }], 1]
+  [0, [0, { [_hH]: _XAB }], 1], 2
 ];
 export var GetAttachmentResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_U, _UE, _ASIB],
-  [0, 0, 1]
+  [_ASIB, _U, _UE],
+  [1, 0, 0], 1
 ];
 export var GetAuthenticationUrlRequest$: StaticStructureSchema = [3, n0, _GAUR,
   0,
   [_SI, _RU, _CTo],
-  [0, 0, [0, { [_hH]: _XAB }]]
+  [0, 0, [0, { [_hH]: _XAB }]], 3
 ];
 export var GetAuthenticationUrlResponse$: StaticStructureSchema = [3, n0, _GAURe,
   0,
@@ -266,8 +266,8 @@ export var GetAuthenticationUrlResponse$: StaticStructureSchema = [3, n0, _GAURe
 ];
 export var GetTranscriptRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
-  [_CI, _MR, _NT, _SD, _SO, _SP, _CTo],
-  [0, 1, 0, 0, 0, () => StartPosition$, [0, { [_hH]: _XAB }]]
+  [_CTo, _CI, _MR, _NT, _SD, _SO, _SP],
+  [[0, { [_hH]: _XAB }], 0, 1, 0, 0, 0, () => StartPosition$], 1
 ];
 export var GetTranscriptResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
@@ -277,7 +277,7 @@ export var GetTranscriptResponse$: StaticStructureSchema = [3, n0, _GTRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Item$: StaticStructureSchema = [3, n0, _I,
@@ -313,8 +313,8 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SendEventRequest$: StaticStructureSchema = [3, n0, _SER,
   0,
-  [_CT, _C, _CTl, _CTo],
-  [0, 0, [0, 4], [0, { [_hH]: _XAB }]]
+  [_CT, _CTo, _C, _CTl],
+  [0, [0, { [_hH]: _XAB }], 0, [0, 4]], 2
 ];
 export var SendEventResponse$: StaticStructureSchema = [3, n0, _SERe,
   0,
@@ -323,8 +323,8 @@ export var SendEventResponse$: StaticStructureSchema = [3, n0, _SERe,
 ];
 export var SendMessageRequest$: StaticStructureSchema = [3, n0, _SMR,
   0,
-  [_CT, _C, _CTl, _CTo],
-  [0, 0, [0, 4], [0, { [_hH]: _XAB }]]
+  [_CT, _C, _CTo, _CTl],
+  [0, 0, [0, { [_hH]: _XAB }], [0, 4]], 3
 ];
 export var SendMessageResponse$: StaticStructureSchema = [3, n0, _SMRe,
   0,
@@ -334,13 +334,13 @@ export var SendMessageResponse$: StaticStructureSchema = [3, n0, _SMRe,
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartAttachmentUploadRequest$: StaticStructureSchema = [3, n0, _SAUR,
   0,
-  [_CT, _ASIB, _AN, _CTl, _CTo],
-  [0, 1, 0, [0, 4], [0, { [_hH]: _XAB }]]
+  [_CT, _ASIB, _AN, _CTo, _CTl],
+  [0, 1, 0, [0, { [_hH]: _XAB }], [0, 4]], 4
 ];
 export var StartAttachmentUploadResponse$: StaticStructureSchema = [3, n0, _SAURt,
   0,
@@ -355,7 +355,7 @@ export var StartPosition$: StaticStructureSchema = [3, n0, _SP,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UploadMetadata$: StaticStructureSchema = [3, n0, _UM,
@@ -366,7 +366,7 @@ export var UploadMetadata$: StaticStructureSchema = [3, n0, _UM,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var View$: StaticStructureSchema = [3, n0, _V,

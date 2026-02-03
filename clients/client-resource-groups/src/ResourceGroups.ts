@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelTagSyncTaskCommand,
@@ -85,6 +85,11 @@ import {
   UpdateGroupQueryCommandInput,
   UpdateGroupQueryCommandOutput,
 } from "./commands/UpdateGroupQueryCommand";
+import { paginateListGroupingStatuses } from "./pagination/ListGroupingStatusesPaginator";
+import { paginateListGroupResources } from "./pagination/ListGroupResourcesPaginator";
+import { paginateListGroups } from "./pagination/ListGroupsPaginator";
+import { paginateListTagSyncTasks } from "./pagination/ListTagSyncTasksPaginator";
+import { paginateSearchResources } from "./pagination/SearchResourcesPaginator";
 import { ResourceGroupsClient } from "./ResourceGroupsClient";
 
 const commands = {
@@ -111,6 +116,13 @@ const commands = {
   UpdateAccountSettingsCommand,
   UpdateGroupCommand,
   UpdateGroupQueryCommand,
+};
+const paginators = {
+  paginateListGroupingStatuses,
+  paginateListGroupResources,
+  paginateListGroups,
+  paginateListTagSyncTasks,
+  paginateSearchResources,
 };
 
 export interface ResourceGroups {
@@ -515,6 +527,61 @@ export interface ResourceGroups {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateGroupQueryCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListGroupingStatusesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupingStatusesCommandOutput}.
+   */
+  paginateListGroupingStatuses(
+    args: ListGroupingStatusesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupingStatusesCommandOutput>;
+
+  /**
+   * @see {@link ListGroupResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupResourcesCommandOutput}.
+   */
+  paginateListGroupResources(
+    args?: ListGroupResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsCommandOutput}.
+   */
+  paginateListGroups(
+    args?: ListGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListTagSyncTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagSyncTasksCommandOutput}.
+   */
+  paginateListTagSyncTasks(
+    args?: ListTagSyncTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagSyncTasksCommandOutput>;
+
+  /**
+   * @see {@link SearchResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchResourcesCommandOutput}.
+   */
+  paginateSearchResources(
+    args: SearchResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchResourcesCommandOutput>;
 }
 
 /**
@@ -555,4 +622,4 @@ export interface ResourceGroups {
  * @public
  */
 export class ResourceGroups extends ResourceGroupsClient implements ResourceGroups {}
-createAggregatedClient(commands, ResourceGroups);
+createAggregatedClient(commands, ResourceGroups, { paginators });

@@ -27,8 +27,9 @@ export interface DeleteLaunchCommandInput extends DeleteLaunchRequest {}
 export interface DeleteLaunchCommandOutput extends DeleteLaunchResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Evidently launch. The feature used for the launch is not deleted.</p>
- *          <p>To stop a launch without deleting it, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopLaunch.html">StopLaunch</a>. </p>
+ * <p>Deletes an Evidently launch. The feature used for the launch is not deleted.</p> <p>To stop a launch without deleting it, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopLaunch.html">StopLaunch</a>. </p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

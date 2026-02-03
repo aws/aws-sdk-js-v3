@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
@@ -140,6 +146,10 @@ import {
   SetLoadBalancerPoliciesOfListenerCommandOutput,
 } from "./commands/SetLoadBalancerPoliciesOfListenerCommand";
 import { ElasticLoadBalancingClient } from "./ElasticLoadBalancingClient";
+import { paginateDescribeLoadBalancers } from "./pagination/DescribeLoadBalancersPaginator";
+import { waitUntilAnyInstanceInService } from "./waiters/waitForAnyInstanceInService";
+import { waitUntilInstanceDeregistered } from "./waiters/waitForInstanceDeregistered";
+import { waitUntilInstanceInService } from "./waiters/waitForInstanceInService";
 
 const commands = {
   AddTagsCommand,
@@ -171,6 +181,14 @@ const commands = {
   SetLoadBalancerListenerSSLCertificateCommand,
   SetLoadBalancerPoliciesForBackendServerCommand,
   SetLoadBalancerPoliciesOfListenerCommand,
+};
+const paginators = {
+  paginateDescribeLoadBalancers,
+};
+const waiters = {
+  waitUntilAnyInstanceInService,
+  waitUntilInstanceDeregistered,
+  waitUntilInstanceInService,
 };
 
 export interface ElasticLoadBalancing {
@@ -670,6 +688,47 @@ export interface ElasticLoadBalancing {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SetLoadBalancerPoliciesOfListenerCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeLoadBalancersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLoadBalancersCommandOutput}.
+   */
+  paginateDescribeLoadBalancers(
+    args?: DescribeLoadBalancersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLoadBalancersCommandOutput>;
+
+  /**
+   * @see {@link DescribeInstanceHealthCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAnyInstanceInService(
+    args: DescribeInstanceHealthCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancing>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInstanceHealthCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInstanceDeregistered(
+    args: DescribeInstanceHealthCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancing>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeInstanceHealthCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInstanceInService(
+    args: DescribeInstanceHealthCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElasticLoadBalancing>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -697,4 +756,4 @@ export interface ElasticLoadBalancing {
  * @public
  */
 export class ElasticLoadBalancing extends ElasticLoadBalancingClient implements ElasticLoadBalancing {}
-createAggregatedClient(commands, ElasticLoadBalancing);
+createAggregatedClient(commands, ElasticLoadBalancing, { paginators, waiters });

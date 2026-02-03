@@ -11,6 +11,7 @@ import {
   SearchAllRelatedItemsSortProperty,
   SlaStatus,
   SlaType,
+  TagPropagationResourceType,
   TemplateStatus,
 } from "./enums";
 
@@ -231,6 +232,12 @@ export interface CreateCaseRequest {
    * @public
    */
   performedBy?: UserUnion | undefined;
+
+  /**
+   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1482,6 +1489,63 @@ export interface SearchRelatedItemsResponse {
    * @public
    */
   relatedItems: SearchRelatedItemsResponseItem[] | undefined;
+}
+
+/**
+ * <p>Object for case tag filter values.</p>
+ * @public
+ */
+export interface TagValue {
+  /**
+   * <p>The tag key in the tag filter value.</p>
+   * @public
+   */
+  key?: string | undefined;
+
+  /**
+   * <p>The tag value in the tag filter value.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * <p>A filter for tags. Only one value can be provided.</p>
+ * @public
+ */
+export type TagFilter =
+  | TagFilter.EqualToMember
+  | TagFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TagFilter {
+  /**
+   * <p>Object containing tag key and value information.</p>
+   * @public
+   */
+  export interface EqualToMember {
+    equalTo: TagValue;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    equalTo?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    equalTo: (value: TagValue) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -3492,6 +3556,24 @@ export interface TemplateRule {
 }
 
 /**
+ * <p>Defines tag propagation configuration for resources created within a domain. Tags specified here will be automatically applied to resources being created for the specified resource type.</p>
+ * @public
+ */
+export interface TagPropagationConfiguration {
+  /**
+   * <p>Supported resource types for tag propagation. Determines which resources will receive automatically propagated tags.</p>
+   * @public
+   */
+  resourceType: TagPropagationResourceType | undefined;
+
+  /**
+   * <p>The tags that will be applied to the created resource.</p>
+   * @public
+   */
+  tagMap: Record<string, string> | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateTemplateRequest {
@@ -3536,6 +3618,12 @@ export interface CreateTemplateRequest {
    * @public
    */
   rules?: TemplateRule[] | undefined;
+
+  /**
+   * <p>Defines tag propagation configuration for resources created within a domain. Tags specified here will be automatically applied to resources being created for the specified resource type.</p>
+   * @public
+   */
+  tagPropagationConfigurations?: TagPropagationConfiguration[] | undefined;
 }
 
 /**
@@ -3669,6 +3757,12 @@ export interface GetTemplateResponse {
    * @public
    */
   rules?: TemplateRule[] | undefined;
+
+  /**
+   * <p>Defines tag propagation configuration for resources created within a domain. Tags specified here will be automatically applied to resources being created for the specified resource type.</p>
+   * @public
+   */
+  tagPropagationConfigurations?: TagPropagationConfiguration[] | undefined;
 }
 
 /**
@@ -3728,6 +3822,12 @@ export interface TemplateSummary {
    * @public
    */
   status: TemplateStatus | undefined;
+
+  /**
+   * <p>Defines tag propagation configuration for resources created within a domain. Tags specified here will be automatically applied to resources being created for the specified resource type.</p>
+   * @public
+   */
+  tagPropagationConfigurations?: TagPropagationConfiguration[] | undefined;
 }
 
 /**
@@ -3798,6 +3898,12 @@ export interface UpdateTemplateRequest {
    * @public
    */
   rules?: TemplateRule[] | undefined;
+
+  /**
+   * <p>Defines tag propagation configuration for resources created within a domain. Tags specified here will be automatically applied to resources being created for the specified resource type.</p>
+   * @public
+   */
+  tagPropagationConfigurations?: TagPropagationConfiguration[] | undefined;
 }
 
 /**
@@ -3831,6 +3937,7 @@ export type CaseFilter =
   | CaseFilter.FieldMember
   | CaseFilter.NotMember
   | CaseFilter.OrAllMember
+  | CaseFilter.TagMember
   | CaseFilter.$UnknownMember;
 
 /**
@@ -3844,6 +3951,7 @@ export namespace CaseFilter {
   export interface FieldMember {
     field: FieldFilter;
     not?: never;
+    tag?: never;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
@@ -3856,6 +3964,20 @@ export namespace CaseFilter {
   export interface NotMember {
     field?: never;
     not: CaseFilter;
+    tag?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of tags to filter on.</p>
+   * @public
+   */
+  export interface TagMember {
+    field?: never;
+    not?: never;
+    tag: TagFilter;
     andAll?: never;
     orAll?: never;
     $unknown?: never;
@@ -3868,6 +3990,7 @@ export namespace CaseFilter {
   export interface AndAllMember {
     field?: never;
     not?: never;
+    tag?: never;
     andAll: CaseFilter[];
     orAll?: never;
     $unknown?: never;
@@ -3880,6 +4003,7 @@ export namespace CaseFilter {
   export interface OrAllMember {
     field?: never;
     not?: never;
+    tag?: never;
     andAll?: never;
     orAll: CaseFilter[];
     $unknown?: never;
@@ -3891,6 +4015,7 @@ export namespace CaseFilter {
   export interface $UnknownMember {
     field?: never;
     not?: never;
+    tag?: never;
     andAll?: never;
     orAll?: never;
     $unknown: [string, any];
@@ -3903,6 +4028,7 @@ export namespace CaseFilter {
   export interface Visitor<T> {
     field: (value: FieldFilter) => T;
     not: (value: CaseFilter) => T;
+    tag: (value: TagFilter) => T;
     andAll: (value: CaseFilter[]) => T;
     orAll: (value: CaseFilter[]) => T;
     _: (name: string, value: any) => T;

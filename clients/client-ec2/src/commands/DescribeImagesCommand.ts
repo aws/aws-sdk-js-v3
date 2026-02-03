@@ -109,6 +109,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //             Encrypted: true || false,
  * //             VolumeInitializationRate: Number("int"),
  * //             AvailabilityZoneId: "STRING_VALUE",
+ * //             EbsCardIndex: Number("int"),
  * //           },
  * //           NoDevice: "STRING_VALUE",
  * //           DeviceName: "STRING_VALUE",

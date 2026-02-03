@@ -91,6 +91,76 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput extends DescribeB
  * //         },
  * //       },
  * //     ],
+ * //     FilterExpression: { // Expression
+ * //       Or: [ // Expressions
+ * //         {
+ * //           Or: [
+ * //             "<Expression>",
+ * //           ],
+ * //           And: [
+ * //             "<Expression>",
+ * //           ],
+ * //           Not: "<Expression>",
+ * //           Dimensions: { // ExpressionDimensionValues
+ * //             Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "INVOICING_ENTITY" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "RESERVATION_MODIFIED" || "TAG_KEY" || "COST_CATEGORY_NAME", // required
+ * //             Values: [ // Values // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             MatchOptions: [ // MatchOptions
+ * //               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //             ],
+ * //           },
+ * //           Tags: { // TagValues
+ * //             Key: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             MatchOptions: [
+ * //               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //             ],
+ * //           },
+ * //           CostCategories: { // CostCategoryValues
+ * //             Key: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             MatchOptions: [
+ * //               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
+ * //       And: [
+ * //         "<Expression>",
+ * //       ],
+ * //       Not: "<Expression>",
+ * //       Dimensions: {
+ * //         Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "INVOICING_ENTITY" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "RESERVATION_MODIFIED" || "TAG_KEY" || "COST_CATEGORY_NAME", // required
+ * //         Values: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         MatchOptions: [
+ * //           "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //         ],
+ * //       },
+ * //       Tags: {
+ * //         Key: "STRING_VALUE",
+ * //         Values: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         MatchOptions: [
+ * //           "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //         ],
+ * //       },
+ * //       CostCategories: {
+ * //         Key: "STRING_VALUE",
+ * //         Values: "<Values>",
+ * //         MatchOptions: "<MatchOptions>",
+ * //       },
+ * //     },
+ * //     Metrics: [ // Metrics
+ * //       "BlendedCost" || "UnblendedCost" || "AmortizedCost" || "NetUnblendedCost" || "NetAmortizedCost" || "UsageQuantity" || "NormalizedUsageAmount" || "Hours",
+ * //     ],
  * //   },
  * //   NextToken: "STRING_VALUE",
  * // };

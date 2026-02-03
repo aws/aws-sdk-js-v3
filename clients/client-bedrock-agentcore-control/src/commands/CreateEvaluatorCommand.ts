@@ -79,6 +79,9 @@ export interface CreateEvaluatorCommandOutput extends CreateEvaluatorResponse, _
  *     },
  *   },
  *   level: "TOOL_CALL" || "TRACE" || "SESSION", // required
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateEvaluatorCommand(input);
  * const response = await client.send(command);

@@ -195,7 +195,7 @@ var S3Url: StaticSimpleSchema = [0, n0, _SU, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_eC, _m, _rI, _rT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountFindingsMetric$: StaticStructureSchema = [3, n0, _AFM,
@@ -206,17 +206,17 @@ export var AccountFindingsMetric$: StaticStructureSchema = [3, n0, _AFM,
 export var BatchGetFindingsError$: StaticStructureSchema = [3, n0, _BGFE,
   0,
   [_sN, _fI, _eC, _m],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var BatchGetFindingsRequest$: StaticStructureSchema = [3, n0, _BGFR,
   0,
   [_fIi],
-  [() => FindingIdentifiers]
+  [() => FindingIdentifiers], 1
 ];
 export var BatchGetFindingsResponse$: StaticStructureSchema = [3, n0, _BGFRa,
   0,
   [_f, _fF],
-  [() => Findings, () => BatchGetFindingsErrors]
+  [() => Findings, () => BatchGetFindingsErrors], 2
 ];
 export var CategoryWithFindingNum$: StaticStructureSchema = [3, n0, _CWFN,
   0,
@@ -231,28 +231,28 @@ export var CodeLine$: StaticStructureSchema = [3, n0, _CL,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_eC, _m, _rI, _rT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateScanRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_cT, _rI, _sN, _sT, _aT, _t],
-  [[0, 4], () => ResourceId$, 0, 0, 0, 128 | 0]
+  [_rI, _sN, _cT, _sT, _aT, _t],
+  [() => ResourceId$, 0, [0, 4], 0, 0, 128 | 0], 2
 ];
 export var CreateScanResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
   [_sN, _rIu, _rI, _sS, _sNA],
-  [0, 0, () => ResourceId$, 0, 0]
+  [0, 0, () => ResourceId$, 0, 0], 4
 ];
 export var CreateUploadUrlRequest$: StaticStructureSchema = [3, n0, _CUUR,
   0,
   [_sN],
-  [0]
+  [0], 1
 ];
 export var CreateUploadUrlResponse$: StaticStructureSchema = [3, n0, _CUURr,
   0,
   [_sU, _rH, _cAI],
-  [[() => S3Url, 0], [() => RequestHeaderMap, 0], 0]
+  [[() => S3Url, 0], [() => RequestHeaderMap, 0], 0], 3
 ];
 export var EncryptionConfig$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -272,7 +272,7 @@ export var Finding$: StaticStructureSchema = [3, n0, _F,
 export var FindingIdentifier$: StaticStructureSchema = [3, n0, _FI,
   0,
   [_sN, _fI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var FindingMetricsValuePerSeverity$: StaticStructureSchema = [3, n0, _FMVPS,
   0,
@@ -287,12 +287,12 @@ export var GetAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _GAC
 export var GetAccountConfigurationResponse$: StaticStructureSchema = [3, n0, _GACRe,
   0,
   [_eCn],
-  [() => EncryptionConfig$]
+  [() => EncryptionConfig$], 1
 ];
 export var GetFindingsRequest$: StaticStructureSchema = [3, n0, _GFR,
   0,
   [_sN, _nT, _mR, _s],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _s }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _s }]], 1
 ];
 export var GetFindingsResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
@@ -302,7 +302,7 @@ export var GetFindingsResponse$: StaticStructureSchema = [3, n0, _GFRe,
 export var GetMetricsSummaryRequest$: StaticStructureSchema = [3, n0, _GMSR,
   0,
   [_d],
-  [[4, { [_hQ]: _d }]]
+  [[4, { [_hQ]: _d }]], 1
 ];
 export var GetMetricsSummaryResponse$: StaticStructureSchema = [3, n0, _GMSRe,
   0,
@@ -312,12 +312,12 @@ export var GetMetricsSummaryResponse$: StaticStructureSchema = [3, n0, _GMSRe,
 export var GetScanRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_sN, _rIu],
-  [[0, 1], [0, { [_hQ]: _rIu }]]
+  [[0, 1], [0, { [_hQ]: _rIu }]], 1
 ];
 export var GetScanResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
   [_sN, _rIu, _sS, _cA, _aT, _uA, _nOR, _sNA, _eM],
-  [0, 0, 0, 4, 0, 4, 1, 0, 0]
+  [0, 0, 0, 4, 0, 4, 1, 0, 0], 5
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _ser, [_hE]: 500 },
@@ -327,8 +327,8 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListFindingsMetricsRequest$: StaticStructureSchema = [3, n0, _LFMR,
   0,
-  [_nT, _mR, _sD, _eD],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [4, { [_hQ]: _sD }], [4, { [_hQ]: _eD }]]
+  [_sD, _eD, _nT, _mR],
+  [[4, { [_hQ]: _sD }], [4, { [_hQ]: _eD }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListFindingsMetricsResponse$: StaticStructureSchema = [3, n0, _LFMRi,
   0,
@@ -348,7 +348,7 @@ export var ListScansResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -378,7 +378,7 @@ export var Resource$: StaticStructureSchema = [3, n0, _Res,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_eC, _m, _rI, _rT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ScanNameWithFindingNum$: StaticStructureSchema = [3, n0, _SNWFN,
@@ -388,8 +388,8 @@ export var ScanNameWithFindingNum$: StaticStructureSchema = [3, n0, _SNWFN,
 ];
 export var ScanSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_sS, _cA, _uA, _sN, _rIu, _sNA],
-  [0, 4, 4, 0, 0, 0]
+  [_sS, _cA, _sN, _rIu, _uA, _sNA],
+  [0, 4, 0, 0, 4, 0], 4
 ];
 export var SuggestedFix$: StaticStructureSchema = [3, n0, _SF,
   0,
@@ -399,7 +399,7 @@ export var SuggestedFix$: StaticStructureSchema = [3, n0, _SF,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -409,13 +409,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_eC, _m, _sC, _qC],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -425,23 +425,23 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _UACR,
   0,
   [_eCn],
-  [() => EncryptionConfig$]
+  [() => EncryptionConfig$], 1
 ];
 export var UpdateAccountConfigurationResponse$: StaticStructureSchema = [3, n0, _UACRp,
   0,
   [_eCn],
-  [() => EncryptionConfig$]
+  [() => EncryptionConfig$], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_eC, _m, _rea, _fL],
-  [0, 0, 0, () => ValidationExceptionFieldList]
+  [0, 0, 0, () => ValidationExceptionFieldList], 3
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_na, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Vulnerability$: StaticStructureSchema = [3, n0, _V,
   0,

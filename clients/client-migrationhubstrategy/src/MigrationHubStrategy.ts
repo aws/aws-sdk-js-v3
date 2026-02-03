@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   GetApplicationComponentDetailsCommand,
@@ -109,6 +109,12 @@ import {
   UpdateServerConfigCommandOutput,
 } from "./commands/UpdateServerConfigCommand";
 import { MigrationHubStrategyClient } from "./MigrationHubStrategyClient";
+import { paginateGetServerDetails } from "./pagination/GetServerDetailsPaginator";
+import { paginateListAnalyzableServers } from "./pagination/ListAnalyzableServersPaginator";
+import { paginateListApplicationComponents } from "./pagination/ListApplicationComponentsPaginator";
+import { paginateListCollectors } from "./pagination/ListCollectorsPaginator";
+import { paginateListImportFileTask } from "./pagination/ListImportFileTaskPaginator";
+import { paginateListServers } from "./pagination/ListServersPaginator";
 
 const commands = {
   GetApplicationComponentDetailsCommand,
@@ -133,6 +139,14 @@ const commands = {
   StopAssessmentCommand,
   UpdateApplicationComponentConfigCommand,
   UpdateServerConfigCommand,
+};
+const paginators = {
+  paginateGetServerDetails,
+  paginateListAnalyzableServers,
+  paginateListApplicationComponents,
+  paginateListCollectors,
+  paginateListImportFileTask,
+  paginateListServers,
 };
 
 export interface MigrationHubStrategy {
@@ -520,6 +534,72 @@ export interface MigrationHubStrategy {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServerConfigCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetServerDetailsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetServerDetailsCommandOutput}.
+   */
+  paginateGetServerDetails(
+    args: GetServerDetailsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetServerDetailsCommandOutput>;
+
+  /**
+   * @see {@link ListAnalyzableServersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnalyzableServersCommandOutput}.
+   */
+  paginateListAnalyzableServers(
+    args?: ListAnalyzableServersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnalyzableServersCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationComponentsCommandOutput}.
+   */
+  paginateListApplicationComponents(
+    args?: ListApplicationComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationComponentsCommandOutput>;
+
+  /**
+   * @see {@link ListCollectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCollectorsCommandOutput}.
+   */
+  paginateListCollectors(
+    args?: ListCollectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCollectorsCommandOutput>;
+
+  /**
+   * @see {@link ListImportFileTaskCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportFileTaskCommandOutput}.
+   */
+  paginateListImportFileTask(
+    args?: ListImportFileTaskCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportFileTaskCommandOutput>;
+
+  /**
+   * @see {@link ListServersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServersCommandOutput}.
+   */
+  paginateListServers(
+    args?: ListServersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServersCommandOutput>;
 }
 
 /**
@@ -532,4 +612,4 @@ export interface MigrationHubStrategy {
  * @public
  */
 export class MigrationHubStrategy extends MigrationHubStrategyClient implements MigrationHubStrategy {}
-createAggregatedClient(commands, MigrationHubStrategy);
+createAggregatedClient(commands, MigrationHubStrategy, { paginators });

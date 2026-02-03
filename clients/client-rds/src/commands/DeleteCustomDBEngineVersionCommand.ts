@@ -27,27 +27,7 @@ export interface DeleteCustomDBEngineVersionCommandInput extends DeleteCustomDBE
 export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**
- * <p>Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:</p>
- *          <ul>
- *             <li>
- *                <p>The CEV must not be the default for RDS Custom. If it is, change the default
- *                 before running this command.</p>
- *             </li>
- *             <li>
- *                <p>The CEV must not be associated with an RDS Custom DB instance, RDS Custom instance snapshot,
- *                 or automated backup of your RDS Custom instance.</p>
- *             </li>
- *          </ul>
- *          <p>Typically, deletion takes a few minutes.</p>
- *          <note>
- *             <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with
- *             Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the
- *             <code>DeleteCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the
- *             API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
- *             the <code>DeleteCustomDbEngineVersion</code> event.</p>
- *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">Deleting a
- *                 CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
+ * <p>Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:</p> <ul> <li> <p>The CEV must not be the default for RDS Custom. If it is, change the default before running this command.</p> </li> <li> <p>The CEV must not be associated with an RDS Custom DB instance, RDS Custom instance snapshot, or automated backup of your RDS Custom instance.</p> </li> </ul> <p>Typically, deletion takes a few minutes.</p> <note> <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the <code>DeleteCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for the <code>DeleteCustomDbEngineVersion</code> event.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">Deleting a CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +48,9 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //   EngineVersion: "STRING_VALUE",
  * //   DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
  * //   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
+ * //   DatabaseInstallationFiles: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
  * //   CustomDBEngineVersionManifest: "STRING_VALUE",
  * //   DBParameterGroupFamily: "STRING_VALUE",
  * //   DBEngineDescription: "STRING_VALUE",
@@ -77,6 +60,7 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     CharacterSetName: "STRING_VALUE",
  * //     CharacterSetDescription: "STRING_VALUE",
  * //   },
+ * //   FailureReason: "STRING_VALUE",
  * //   Image: { // CustomDBEngineVersionAMI
  * //     ImageId: "STRING_VALUE",
  * //     Status: "STRING_VALUE",
@@ -151,10 +135,6 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //     MinCapacity: Number("double"),
  * //     MaxCapacity: Number("double"),
  * //   },
- * //   DatabaseInstallationFiles: [ // StringList
- * //     "STRING_VALUE",
- * //   ],
- * //   FailureReason: "STRING_VALUE",
  * // };
  *
  * ```

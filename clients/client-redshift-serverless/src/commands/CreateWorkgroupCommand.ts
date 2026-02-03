@@ -72,6 +72,7 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  *   },
  *   ipAddressType: "STRING_VALUE",
  *   trackName: "STRING_VALUE",
+ *   extraComputeForAutomaticOptimization: true || false,
  * };
  * const command = new CreateWorkgroupCommand(input);
  * const response = await client.send(command);
@@ -134,6 +135,7 @@ export interface CreateWorkgroupCommandOutput extends CreateWorkgroupResponse, _
  * //     },
  * //     trackName: "STRING_VALUE",
  * //     pendingTrackName: "STRING_VALUE",
+ * //     extraComputeForAutomaticOptimization: true || false,
  * //   },
  * // };
  *

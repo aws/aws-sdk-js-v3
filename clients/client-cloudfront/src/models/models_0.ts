@@ -1636,6 +1636,18 @@ export interface CustomHeaders {
 }
 
 /**
+ * <p>Configures mutual TLS authentication between CloudFront and your origin server.</p>
+ * @public
+ */
+export interface OriginMtlsConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the client certificate stored in Amazon Web Services Certificate Manager (ACM) that CloudFront uses to authenticate with your origin using Mutual TLS.</p>
+   * @public
+   */
+  ClientCertificateArn: string | undefined;
+}
+
+/**
  * <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.</p>
  * @public
  */
@@ -1699,6 +1711,12 @@ export interface CustomOriginConfig {
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>Configures mutual TLS authentication between CloudFront and your origin server.</p>
+   * @public
+   */
+  OriginMtlsConfig?: OriginMtlsConfig | undefined;
 }
 
 /**
@@ -6790,15 +6808,4 @@ export interface GetKeyGroupConfigResult {
    * @public
    */
   ETag?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetManagedCertificateDetailsRequest {
-  /**
-   * <p>The identifier of the distribution tenant. You can specify the ARN, ID, or name of the distribution tenant.</p>
-   * @public
-   */
-  Identifier: string | undefined;
 }

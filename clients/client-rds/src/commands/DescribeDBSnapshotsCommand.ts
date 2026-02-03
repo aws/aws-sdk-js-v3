@@ -106,7 +106,6 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * //       DBSystemId: "STRING_VALUE",
  * //       MultiTenant: true || false,
  * //       DedicatedLogVolume: true || false,
- * //       SnapshotAvailabilityZone: "STRING_VALUE",
  * //       AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
  * //         { // AdditionalStorageVolume
  * //           VolumeName: "STRING_VALUE", // required
@@ -117,6 +116,7 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * //           StorageType: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SnapshotAvailabilityZone: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -130,8 +130,7 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

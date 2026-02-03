@@ -525,12 +525,12 @@ TypeRegistry.for(n0).registerError(ActivityLimitExceeded$, ActivityLimitExceeded
 export var ActivityListItem$: StaticStructureSchema = [3, n0, _ALI,
   0,
   [_aA, _n, _cD],
-  [0, 0, 4]
+  [0, 0, 4], 3
 ];
 export var ActivityScheduledEventDetails$: StaticStructureSchema = [3, n0, _ASED,
   0,
   [_r, _i, _iD, _tIS, _hIS],
-  [0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$, 1, 1]
+  [0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$, 1, 1], 1
 ];
 export var ActivityScheduleFailedEventDetails$: StaticStructureSchema = [3, n0, _ASFED,
   0,
@@ -587,37 +587,37 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateActivityInput$: StaticStructureSchema = [3, n0, _CAI,
   0,
   [_n, _ta, _eC],
-  [0, () => TagList, () => EncryptionConfiguration$]
+  [0, () => TagList, () => EncryptionConfiguration$], 1
 ];
 export var CreateActivityOutput$: StaticStructureSchema = [3, n0, _CAO,
   0,
   [_aA, _cD],
-  [0, 4]
+  [0, 4], 2
 ];
 export var CreateStateMachineAliasInput$: StaticStructureSchema = [3, n0, _CSMAI,
   0,
-  [_d, _n, _rC],
-  [[() => AliasDescription, 0], 0, () => RoutingConfigurationList]
+  [_n, _rC, _d],
+  [0, () => RoutingConfigurationList, [() => AliasDescription, 0]], 2
 ];
 export var CreateStateMachineAliasOutput$: StaticStructureSchema = [3, n0, _CSMAO,
   0,
   [_sMAA, _cD],
-  [0, 4]
+  [0, 4], 2
 ];
 export var CreateStateMachineInput$: StaticStructureSchema = [3, n0, _CSMI,
   0,
   [_n, _de, _rA, _ty, _lC, _ta, _tC, _p, _vD, _eC],
-  [0, [() => Definition, 0], 0, 0, () => LoggingConfiguration$, () => TagList, () => TracingConfiguration$, 2, [() => VersionDescription, 0], () => EncryptionConfiguration$]
+  [0, [() => Definition, 0], 0, 0, () => LoggingConfiguration$, () => TagList, () => TracingConfiguration$, 2, [() => VersionDescription, 0], () => EncryptionConfiguration$], 3
 ];
 export var CreateStateMachineOutput$: StaticStructureSchema = [3, n0, _CSMO,
   0,
   [_sMA, _cD, _sMVA],
-  [0, 4, 0]
+  [0, 4, 0], 2
 ];
 export var DeleteActivityInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_aA],
-  [0]
+  [0], 1
 ];
 export var DeleteActivityOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
@@ -627,7 +627,7 @@ export var DeleteActivityOutput$: StaticStructureSchema = [3, n0, _DAO,
 export var DeleteStateMachineAliasInput$: StaticStructureSchema = [3, n0, _DSMAI,
   0,
   [_sMAA],
-  [0]
+  [0], 1
 ];
 export var DeleteStateMachineAliasOutput$: StaticStructureSchema = [3, n0, _DSMAO,
   0,
@@ -637,7 +637,7 @@ export var DeleteStateMachineAliasOutput$: StaticStructureSchema = [3, n0, _DSMA
 export var DeleteStateMachineInput$: StaticStructureSchema = [3, n0, _DSMI,
   0,
   [_sMA],
-  [0]
+  [0], 1
 ];
 export var DeleteStateMachineOutput$: StaticStructureSchema = [3, n0, _DSMO,
   0,
@@ -647,7 +647,7 @@ export var DeleteStateMachineOutput$: StaticStructureSchema = [3, n0, _DSMO,
 export var DeleteStateMachineVersionInput$: StaticStructureSchema = [3, n0, _DSMVI,
   0,
   [_sMVA],
-  [0]
+  [0], 1
 ];
 export var DeleteStateMachineVersionOutput$: StaticStructureSchema = [3, n0, _DSMVO,
   0,
@@ -657,37 +657,37 @@ export var DeleteStateMachineVersionOutput$: StaticStructureSchema = [3, n0, _DS
 export var DescribeActivityInput$: StaticStructureSchema = [3, n0, _DAIe,
   0,
   [_aA],
-  [0]
+  [0], 1
 ];
 export var DescribeActivityOutput$: StaticStructureSchema = [3, n0, _DAOe,
   0,
   [_aA, _n, _cD, _eC],
-  [0, 0, 4, () => EncryptionConfiguration$]
+  [0, 0, 4, () => EncryptionConfiguration$], 3
 ];
 export var DescribeExecutionInput$: StaticStructureSchema = [3, n0, _DEI,
   0,
   [_eA, _iDn],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeExecutionOutput$: StaticStructureSchema = [3, n0, _DEO,
   0,
-  [_eA, _sMA, _n, _s, _sD, _sDt, _i, _iD, _o, _oD, _tH, _mRA, _e, _ca, _sMVA, _sMAA, _rCe, _rD, _rS, _rSR],
-  [0, 0, 0, 0, 4, 4, [() => SensitiveData, 0], () => CloudWatchEventsExecutionDataDetails$, [() => SensitiveData, 0], () => CloudWatchEventsExecutionDataDetails$, 0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0], 0, 0, 1, 4, 0, [() => SensitiveData, 0]]
+  [_eA, _sMA, _s, _sD, _n, _sDt, _i, _iD, _o, _oD, _tH, _mRA, _e, _ca, _sMVA, _sMAA, _rCe, _rD, _rS, _rSR],
+  [0, 0, 0, 4, 0, 4, [() => SensitiveData, 0], () => CloudWatchEventsExecutionDataDetails$, [() => SensitiveData, 0], () => CloudWatchEventsExecutionDataDetails$, 0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0], 0, 0, 1, 4, 0, [() => SensitiveData, 0]], 4
 ];
 export var DescribeMapRunInput$: StaticStructureSchema = [3, n0, _DMRI,
   0,
   [_mRA],
-  [0]
+  [0], 1
 ];
 export var DescribeMapRunOutput$: StaticStructureSchema = [3, n0, _DMRO,
   0,
-  [_mRA, _eA, _s, _sD, _sDt, _mC, _tFP, _tFC, _iC, _eCx, _rCe, _rD],
-  [0, 0, 0, 4, 4, 1, 1, 1, () => MapRunItemCounts$, () => MapRunExecutionCounts$, 1, 4]
+  [_mRA, _eA, _s, _sD, _mC, _tFP, _tFC, _iC, _eCx, _sDt, _rCe, _rD],
+  [0, 0, 0, 4, 1, 1, 1, () => MapRunItemCounts$, () => MapRunExecutionCounts$, 4, 1, 4], 9
 ];
 export var DescribeStateMachineAliasInput$: StaticStructureSchema = [3, n0, _DSMAIe,
   0,
   [_sMAA],
-  [0]
+  [0], 1
 ];
 export var DescribeStateMachineAliasOutput$: StaticStructureSchema = [3, n0, _DSMAOe,
   0,
@@ -697,32 +697,32 @@ export var DescribeStateMachineAliasOutput$: StaticStructureSchema = [3, n0, _DS
 export var DescribeStateMachineForExecutionInput$: StaticStructureSchema = [3, n0, _DSMFEI,
   0,
   [_eA, _iDn],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeStateMachineForExecutionOutput$: StaticStructureSchema = [3, n0, _DSMFEO,
   0,
   [_sMA, _n, _de, _rA, _uD, _lC, _tC, _mRA, _l, _rI, _eC, _vR],
-  [0, 0, [() => Definition, 0], 0, 4, () => LoggingConfiguration$, () => TracingConfiguration$, 0, 0, 0, () => EncryptionConfiguration$, [() => VariableReferences, 0]]
+  [0, 0, [() => Definition, 0], 0, 4, () => LoggingConfiguration$, () => TracingConfiguration$, 0, 0, 0, () => EncryptionConfiguration$, [() => VariableReferences, 0]], 5
 ];
 export var DescribeStateMachineInput$: StaticStructureSchema = [3, n0, _DSMIe,
   0,
   [_sMA, _iDn],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeStateMachineOutput$: StaticStructureSchema = [3, n0, _DSMOe,
   0,
-  [_sMA, _n, _s, _de, _rA, _ty, _cD, _lC, _tC, _l, _rI, _d, _eC, _vR],
-  [0, 0, 0, [() => Definition, 0], 0, 0, 4, () => LoggingConfiguration$, () => TracingConfiguration$, 0, 0, [() => VersionDescription, 0], () => EncryptionConfiguration$, [() => VariableReferences, 0]]
+  [_sMA, _n, _de, _rA, _ty, _cD, _s, _lC, _tC, _l, _rI, _d, _eC, _vR],
+  [0, 0, [() => Definition, 0], 0, 0, 4, 0, () => LoggingConfiguration$, () => TracingConfiguration$, 0, 0, [() => VersionDescription, 0], () => EncryptionConfiguration$, [() => VariableReferences, 0]], 6
 ];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
-  [_kKI, _kDKRPS, _ty],
-  [0, 1, 0]
+  [_ty, _kKI, _kDKRPS],
+  [0, 0, 1], 1
 ];
 export var EvaluationFailedEventDetails$: StaticStructureSchema = [3, n0, _EFED,
   0,
-  [_e, _ca, _lo, _st],
-  [[() => SensitiveError, 0], [() => SensitiveCause, 0], [() => EvaluationFailureLocation, 0], 0]
+  [_st, _e, _ca, _lo],
+  [0, [() => SensitiveError, 0], [() => SensitiveCause, 0], [() => EvaluationFailureLocation, 0]], 1
 ];
 export var ExecutionAbortedEventDetails$: StaticStructureSchema = [3, n0, _EAED,
   0,
@@ -755,7 +755,7 @@ TypeRegistry.for(n0).registerError(ExecutionLimitExceeded$, ExecutionLimitExceed
 export var ExecutionListItem$: StaticStructureSchema = [3, n0, _ELI,
   0,
   [_eA, _sMA, _n, _s, _sD, _sDt, _mRA, _iCt, _sMVA, _sMAA, _rCe, _rD],
-  [0, 0, 0, 0, 4, 4, 0, 1, 0, 0, 1, 4]
+  [0, 0, 0, 0, 4, 4, 0, 1, 0, 0, 1, 4], 5
 ];
 export var ExecutionNotRedrivable$: StaticErrorSchema = [-3, n0, _ENR,
   { [_e]: _c },
@@ -786,7 +786,7 @@ export var ExecutionTimedOutEventDetails$: StaticStructureSchema = [3, n0, _ETOE
 export var GetActivityTaskInput$: StaticStructureSchema = [3, n0, _GATI,
   0,
   [_aA, _wN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetActivityTaskOutput$: StaticStructureSchema = [3, n0, _GATO,
   0,
@@ -796,17 +796,17 @@ export var GetActivityTaskOutput$: StaticStructureSchema = [3, n0, _GATO,
 export var GetExecutionHistoryInput$: StaticStructureSchema = [3, n0, _GEHI,
   0,
   [_eA, _mR, _rO, _nT, _iED],
-  [0, 1, 2, 0, 2]
+  [0, 1, 2, 0, 2], 1
 ];
 export var GetExecutionHistoryOutput$: StaticStructureSchema = [3, n0, _GEHO,
   0,
   [_ev, _nT],
-  [[() => HistoryEventList, 0], 0]
+  [[() => HistoryEventList, 0], 0], 1
 ];
 export var HistoryEvent$: StaticStructureSchema = [3, n0, _HE,
   0,
   [_ti, _ty, _id, _pEI, _aFED, _aSFED, _aSED, _aSEDc, _aSEDct, _aTOED, _tFED, _tSED, _tSFED, _tSEDa, _tSFEDa, _tSEDas, _tSEDask, _tTOED, _eFED, _eSED, _eSEDx, _eAED, _eTOED, _eRED, _mSSED, _mISED, _mISEDa, _mIFED, _mIAED, _lFFED, _lFSFED, _lFSED, _lFSFEDa, _lFSEDa, _lFTOED, _sEED, _sEEDt, _mRSED, _mRFED, _mRRED, _eFEDv],
-  [4, 0, 1, 1, [() => ActivityFailedEventDetails$, 0], [() => ActivityScheduleFailedEventDetails$, 0], [() => ActivityScheduledEventDetails$, 0], () => ActivityStartedEventDetails$, [() => ActivitySucceededEventDetails$, 0], [() => ActivityTimedOutEventDetails$, 0], [() => TaskFailedEventDetails$, 0], [() => TaskScheduledEventDetails$, 0], [() => TaskStartFailedEventDetails$, 0], () => TaskStartedEventDetails$, [() => TaskSubmitFailedEventDetails$, 0], [() => TaskSubmittedEventDetails$, 0], [() => TaskSucceededEventDetails$, 0], [() => TaskTimedOutEventDetails$, 0], [() => ExecutionFailedEventDetails$, 0], [() => ExecutionStartedEventDetails$, 0], [() => ExecutionSucceededEventDetails$, 0], [() => ExecutionAbortedEventDetails$, 0], [() => ExecutionTimedOutEventDetails$, 0], () => ExecutionRedrivenEventDetails$, () => MapStateStartedEventDetails$, () => MapIterationEventDetails$, () => MapIterationEventDetails$, () => MapIterationEventDetails$, () => MapIterationEventDetails$, [() => LambdaFunctionFailedEventDetails$, 0], [() => LambdaFunctionScheduleFailedEventDetails$, 0], [() => LambdaFunctionScheduledEventDetails$, 0], [() => LambdaFunctionStartFailedEventDetails$, 0], [() => LambdaFunctionSucceededEventDetails$, 0], [() => LambdaFunctionTimedOutEventDetails$, 0], [() => StateEnteredEventDetails$, 0], [() => StateExitedEventDetails$, 0], () => MapRunStartedEventDetails$, [() => MapRunFailedEventDetails$, 0], () => MapRunRedrivenEventDetails$, [() => EvaluationFailedEventDetails$, 0]]
+  [4, 0, 1, 1, [() => ActivityFailedEventDetails$, 0], [() => ActivityScheduleFailedEventDetails$, 0], [() => ActivityScheduledEventDetails$, 0], () => ActivityStartedEventDetails$, [() => ActivitySucceededEventDetails$, 0], [() => ActivityTimedOutEventDetails$, 0], [() => TaskFailedEventDetails$, 0], [() => TaskScheduledEventDetails$, 0], [() => TaskStartFailedEventDetails$, 0], () => TaskStartedEventDetails$, [() => TaskSubmitFailedEventDetails$, 0], [() => TaskSubmittedEventDetails$, 0], [() => TaskSucceededEventDetails$, 0], [() => TaskTimedOutEventDetails$, 0], [() => ExecutionFailedEventDetails$, 0], [() => ExecutionStartedEventDetails$, 0], [() => ExecutionSucceededEventDetails$, 0], [() => ExecutionAbortedEventDetails$, 0], [() => ExecutionTimedOutEventDetails$, 0], () => ExecutionRedrivenEventDetails$, () => MapStateStartedEventDetails$, () => MapIterationEventDetails$, () => MapIterationEventDetails$, () => MapIterationEventDetails$, () => MapIterationEventDetails$, [() => LambdaFunctionFailedEventDetails$, 0], [() => LambdaFunctionScheduleFailedEventDetails$, 0], [() => LambdaFunctionScheduledEventDetails$, 0], [() => LambdaFunctionStartFailedEventDetails$, 0], [() => LambdaFunctionSucceededEventDetails$, 0], [() => LambdaFunctionTimedOutEventDetails$, 0], [() => StateEnteredEventDetails$, 0], [() => StateExitedEventDetails$, 0], () => MapRunStartedEventDetails$, [() => MapRunFailedEventDetails$, 0], () => MapRunRedrivenEventDetails$, [() => EvaluationFailedEventDetails$, 0]], 3
 ];
 export var HistoryEventExecutionDataDetails$: StaticStructureSchema = [3, n0, _HEEDD,
   0,
@@ -913,7 +913,7 @@ export var LambdaFunctionFailedEventDetails$: StaticStructureSchema = [3, n0, _L
 export var LambdaFunctionScheduledEventDetails$: StaticStructureSchema = [3, n0, _LFSED,
   0,
   [_r, _i, _iD, _tIS, _tCa],
-  [0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$, 1, () => TaskCredentials$]
+  [0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$, 1, () => TaskCredentials$], 1
 ];
 export var LambdaFunctionScheduleFailedEventDetails$: StaticStructureSchema = [3, n0, _LFSFED,
   0,
@@ -943,7 +943,7 @@ export var ListActivitiesInput$: StaticStructureSchema = [3, n0, _LAI,
 export var ListActivitiesOutput$: StaticStructureSchema = [3, n0, _LAO,
   0,
   [_a, _nT],
-  [() => ActivityList, 0]
+  [() => ActivityList, 0], 1
 ];
 export var ListExecutionsInput$: StaticStructureSchema = [3, n0, _LEI,
   0,
@@ -953,27 +953,27 @@ export var ListExecutionsInput$: StaticStructureSchema = [3, n0, _LEI,
 export var ListExecutionsOutput$: StaticStructureSchema = [3, n0, _LEO,
   0,
   [_ex, _nT],
-  [() => ExecutionList, 0]
+  [() => ExecutionList, 0], 1
 ];
 export var ListMapRunsInput$: StaticStructureSchema = [3, n0, _LMRI,
   0,
   [_eA, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListMapRunsOutput$: StaticStructureSchema = [3, n0, _LMRO,
   0,
   [_mRa, _nT],
-  [() => MapRunList, 0]
+  [() => MapRunList, 0], 1
 ];
 export var ListStateMachineAliasesInput$: StaticStructureSchema = [3, n0, _LSMAI,
   0,
   [_sMA, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListStateMachineAliasesOutput$: StaticStructureSchema = [3, n0, _LSMAO,
   0,
   [_sMAt, _nT],
-  [() => StateMachineAliasList, 0]
+  [() => StateMachineAliasList, 0], 1
 ];
 export var ListStateMachinesInput$: StaticStructureSchema = [3, n0, _LSMI,
   0,
@@ -983,22 +983,22 @@ export var ListStateMachinesInput$: StaticStructureSchema = [3, n0, _LSMI,
 export var ListStateMachinesOutput$: StaticStructureSchema = [3, n0, _LSMO,
   0,
   [_sMt, _nT],
-  [() => StateMachineList, 0]
+  [() => StateMachineList, 0], 1
 ];
 export var ListStateMachineVersionsInput$: StaticStructureSchema = [3, n0, _LSMVI,
   0,
   [_sMA, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListStateMachineVersionsOutput$: StaticStructureSchema = [3, n0, _LSMVO,
   0,
   [_sMV, _nT],
-  [() => StateMachineVersionList, 0]
+  [() => StateMachineVersionList, 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rAe],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -1023,7 +1023,7 @@ export var MapIterationEventDetails$: StaticStructureSchema = [3, n0, _MIED,
 export var MapRunExecutionCounts$: StaticStructureSchema = [3, n0, _MREC,
   0,
   [_pe, _ru, _su, _f, _tO, _ab, _to, _rW, _fNR, _pR],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 8
 ];
 export var MapRunFailedEventDetails$: StaticStructureSchema = [3, n0, _MRFED,
   0,
@@ -1033,12 +1033,12 @@ export var MapRunFailedEventDetails$: StaticStructureSchema = [3, n0, _MRFED,
 export var MapRunItemCounts$: StaticStructureSchema = [3, n0, _MRIC,
   0,
   [_pe, _ru, _su, _f, _tO, _ab, _to, _rW, _fNR, _pR],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 8
 ];
 export var MapRunListItem$: StaticStructureSchema = [3, n0, _MRLI,
   0,
   [_eA, _mRA, _sMA, _sD, _sDt],
-  [0, 0, 0, 4, 4]
+  [0, 0, 0, 4, 4], 4
 ];
 export var MapRunRedrivenEventDetails$: StaticStructureSchema = [3, n0, _MRRED,
   0,
@@ -1074,22 +1074,22 @@ export var MockInput$: StaticStructureSchema = [3, n0, _MI,
 export var PublishStateMachineVersionInput$: StaticStructureSchema = [3, n0, _PSMVI,
   0,
   [_sMA, _rI, _d],
-  [0, 0, [() => VersionDescription, 0]]
+  [0, 0, [() => VersionDescription, 0]], 1
 ];
 export var PublishStateMachineVersionOutput$: StaticStructureSchema = [3, n0, _PSMVO,
   0,
   [_cD, _sMVA],
-  [4, 0]
+  [4, 0], 2
 ];
 export var RedriveExecutionInput$: StaticStructureSchema = [3, n0, _REI,
   0,
   [_eA, _cT],
-  [0, [0, 4]]
+  [0, [0, 4]], 1
 ];
 export var RedriveExecutionOutput$: StaticStructureSchema = [3, n0, _REO,
   0,
   [_rD],
-  [4]
+  [4], 1
 ];
 export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
   { [_e]: _c, [_hE]: 404 },
@@ -1100,12 +1100,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFound$, ResourceNotFound);
 export var RoutingConfigurationListItem$: StaticStructureSchema = [3, n0, _RCLI,
   0,
   [_sMVA, _w],
-  [0, 1]
+  [0, 1], 2
 ];
 export var SendTaskFailureInput$: StaticStructureSchema = [3, n0, _STFI,
   0,
   [_tT, _e, _ca],
-  [0, [() => SensitiveError, 0], [() => SensitiveCause, 0]]
+  [0, [() => SensitiveError, 0], [() => SensitiveCause, 0]], 1
 ];
 export var SendTaskFailureOutput$: StaticStructureSchema = [3, n0, _STFO,
   0,
@@ -1115,7 +1115,7 @@ export var SendTaskFailureOutput$: StaticStructureSchema = [3, n0, _STFO,
 export var SendTaskHeartbeatInput$: StaticStructureSchema = [3, n0, _STHI,
   0,
   [_tT],
-  [0]
+  [0], 1
 ];
 export var SendTaskHeartbeatOutput$: StaticStructureSchema = [3, n0, _STHO,
   0,
@@ -1125,7 +1125,7 @@ export var SendTaskHeartbeatOutput$: StaticStructureSchema = [3, n0, _STHO,
 export var SendTaskSuccessInput$: StaticStructureSchema = [3, n0, _STSI,
   0,
   [_tT, _o],
-  [0, [() => SensitiveData, 0]]
+  [0, [() => SensitiveData, 0]], 2
 ];
 export var SendTaskSuccessOutput$: StaticStructureSchema = [3, n0, _STSO,
   0,
@@ -1141,37 +1141,37 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var StartExecutionInput$: StaticStructureSchema = [3, n0, _SEI,
   0,
   [_sMA, _n, _i, _tH],
-  [0, 0, [() => SensitiveData, 0], 0]
+  [0, 0, [() => SensitiveData, 0], 0], 1
 ];
 export var StartExecutionOutput$: StaticStructureSchema = [3, n0, _SEO,
   0,
   [_eA, _sD],
-  [0, 4]
+  [0, 4], 2
 ];
 export var StartSyncExecutionInput$: StaticStructureSchema = [3, n0, _SSEI,
   0,
   [_sMA, _n, _i, _tH, _iDn],
-  [0, 0, [() => SensitiveData, 0], 0, 0]
+  [0, 0, [() => SensitiveData, 0], 0, 0], 1
 ];
 export var StartSyncExecutionOutput$: StaticStructureSchema = [3, n0, _SSEO,
   0,
-  [_eA, _sMA, _n, _sD, _sDt, _s, _e, _ca, _i, _iD, _o, _oD, _tH, _bD],
-  [0, 0, 0, 4, 4, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0], [() => SensitiveData, 0], () => CloudWatchEventsExecutionDataDetails$, [() => SensitiveData, 0], () => CloudWatchEventsExecutionDataDetails$, 0, () => BillingDetails$]
+  [_eA, _sD, _sDt, _s, _sMA, _n, _e, _ca, _i, _iD, _o, _oD, _tH, _bD],
+  [0, 4, 4, 0, 0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0], [() => SensitiveData, 0], () => CloudWatchEventsExecutionDataDetails$, [() => SensitiveData, 0], () => CloudWatchEventsExecutionDataDetails$, 0, () => BillingDetails$], 4
 ];
 export var StateEnteredEventDetails$: StaticStructureSchema = [3, n0, _SEED,
   0,
   [_n, _i, _iD],
-  [0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$]
+  [0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$], 1
 ];
 export var StateExitedEventDetails$: StaticStructureSchema = [3, n0, _SEEDt,
   0,
   [_n, _o, _oD, _aV, _aVD],
-  [0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$, [() => AssignedVariables, 0], () => AssignedVariablesDetails$]
+  [0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$, [() => AssignedVariables, 0], () => AssignedVariablesDetails$], 1
 ];
 export var StateMachineAliasListItem$: StaticStructureSchema = [3, n0, _SMALI,
   0,
   [_sMAA, _cD],
-  [0, 4]
+  [0, 4], 2
 ];
 export var StateMachineAlreadyExists$: StaticErrorSchema = [-3, n0, _SMAE,
   { [_e]: _c },
@@ -1200,7 +1200,7 @@ TypeRegistry.for(n0).registerError(StateMachineLimitExceeded$, StateMachineLimit
 export var StateMachineListItem$: StaticStructureSchema = [3, n0, _SMLI,
   0,
   [_sMA, _n, _ty, _cD],
-  [0, 0, 0, 4]
+  [0, 0, 0, 4], 4
 ];
 export var StateMachineTypeNotSupported$: StaticErrorSchema = [-3, n0, _SMTNS,
   { [_e]: _c },
@@ -1211,17 +1211,17 @@ TypeRegistry.for(n0).registerError(StateMachineTypeNotSupported$, StateMachineTy
 export var StateMachineVersionListItem$: StaticStructureSchema = [3, n0, _SMVLI,
   0,
   [_sMVA, _cD],
-  [0, 4]
+  [0, 4], 2
 ];
 export var StopExecutionInput$: StaticStructureSchema = [3, n0, _SEIt,
   0,
   [_eA, _e, _ca],
-  [0, [() => SensitiveError, 0], [() => SensitiveCause, 0]]
+  [0, [() => SensitiveError, 0], [() => SensitiveCause, 0]], 1
 ];
 export var StopExecutionOutput$: StaticStructureSchema = [3, n0, _SEOt,
   0,
   [_sDt],
-  [4]
+  [4], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
@@ -1231,7 +1231,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rAe, _ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -1252,37 +1252,37 @@ TypeRegistry.for(n0).registerError(TaskDoesNotExist$, TaskDoesNotExist);
 export var TaskFailedEventDetails$: StaticStructureSchema = [3, n0, _TFED,
   0,
   [_rT, _r, _e, _ca],
-  [0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0]]
+  [0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0]], 2
 ];
 export var TaskScheduledEventDetails$: StaticStructureSchema = [3, n0, _TSED,
   0,
   [_rT, _r, _reg, _pa, _tIS, _hIS, _tCa],
-  [0, 0, 0, [() => ConnectorParameters, 0], 1, 1, () => TaskCredentials$]
+  [0, 0, 0, [() => ConnectorParameters, 0], 1, 1, () => TaskCredentials$], 4
 ];
 export var TaskStartedEventDetails$: StaticStructureSchema = [3, n0, _TSEDa,
   0,
   [_rT, _r],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TaskStartFailedEventDetails$: StaticStructureSchema = [3, n0, _TSFED,
   0,
   [_rT, _r, _e, _ca],
-  [0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0]]
+  [0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0]], 2
 ];
 export var TaskSubmitFailedEventDetails$: StaticStructureSchema = [3, n0, _TSFEDa,
   0,
   [_rT, _r, _e, _ca],
-  [0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0]]
+  [0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0]], 2
 ];
 export var TaskSubmittedEventDetails$: StaticStructureSchema = [3, n0, _TSEDas,
   0,
   [_rT, _r, _o, _oD],
-  [0, 0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$]
+  [0, 0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$], 2
 ];
 export var TaskSucceededEventDetails$: StaticStructureSchema = [3, n0, _TSEDask,
   0,
   [_rT, _r, _o, _oD],
-  [0, 0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$]
+  [0, 0, [() => SensitiveData, 0], () => HistoryEventExecutionDataDetails$], 2
 ];
 export var TaskTimedOut$: StaticErrorSchema = [-3, n0, _TTO,
   { [_e]: _c },
@@ -1293,7 +1293,7 @@ TypeRegistry.for(n0).registerError(TaskTimedOut$, TaskTimedOut);
 export var TaskTimedOutEventDetails$: StaticStructureSchema = [3, n0, _TTOED,
   0,
   [_rT, _r, _e, _ca],
-  [0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0]]
+  [0, 0, [() => SensitiveError, 0], [() => SensitiveCause, 0]], 2
 ];
 export var TestStateConfiguration$: StaticStructureSchema = [3, n0, _TSC,
   0,
@@ -1303,7 +1303,7 @@ export var TestStateConfiguration$: StaticStructureSchema = [3, n0, _TSC,
 export var TestStateInput$: StaticStructureSchema = [3, n0, _TSI,
   0,
   [_de, _rA, _i, _iL, _rSe, _v, _sN, _mo, _co, _sCt],
-  [[() => Definition, 0], 0, [() => SensitiveData, 0], 0, 2, [() => SensitiveData, 0], [() => TestStateStateName, 0], [() => MockInput$, 0], [() => SensitiveData, 0], [() => TestStateConfiguration$, 0]]
+  [[() => Definition, 0], 0, [() => SensitiveData, 0], 0, 2, [() => SensitiveData, 0], [() => TestStateStateName, 0], [() => MockInput$, 0], [() => SensitiveData, 0], [() => TestStateConfiguration$, 0]], 1
 ];
 export var TestStateOutput$: StaticStructureSchema = [3, n0, _TSO,
   0,
@@ -1324,7 +1324,7 @@ export var TracingConfiguration$: StaticStructureSchema = [3, n0, _TCr,
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rAe, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -1334,7 +1334,7 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateMapRunInput$: StaticStructureSchema = [3, n0, _UMRI,
   0,
   [_mRA, _mC, _tFP, _tFC],
-  [0, 1, 1, 1]
+  [0, 1, 1, 1], 1
 ];
 export var UpdateMapRunOutput$: StaticStructureSchema = [3, n0, _UMRO,
   0,
@@ -1344,37 +1344,37 @@ export var UpdateMapRunOutput$: StaticStructureSchema = [3, n0, _UMRO,
 export var UpdateStateMachineAliasInput$: StaticStructureSchema = [3, n0, _USMAI,
   0,
   [_sMAA, _d, _rC],
-  [0, [() => AliasDescription, 0], () => RoutingConfigurationList]
+  [0, [() => AliasDescription, 0], () => RoutingConfigurationList], 1
 ];
 export var UpdateStateMachineAliasOutput$: StaticStructureSchema = [3, n0, _USMAO,
   0,
   [_uD],
-  [4]
+  [4], 1
 ];
 export var UpdateStateMachineInput$: StaticStructureSchema = [3, n0, _USMI,
   0,
   [_sMA, _de, _rA, _lC, _tC, _p, _vD, _eC],
-  [0, [() => Definition, 0], 0, () => LoggingConfiguration$, () => TracingConfiguration$, 2, [() => VersionDescription, 0], () => EncryptionConfiguration$]
+  [0, [() => Definition, 0], 0, () => LoggingConfiguration$, () => TracingConfiguration$, 2, [() => VersionDescription, 0], () => EncryptionConfiguration$], 1
 ];
 export var UpdateStateMachineOutput$: StaticStructureSchema = [3, n0, _USMO,
   0,
   [_uD, _rI, _sMVA],
-  [4, 0, 0]
+  [4, 0, 0], 1
 ];
 export var ValidateStateMachineDefinitionDiagnostic$: StaticStructureSchema = [3, n0, _VSMDD,
   0,
   [_se, _cod, _m, _lo],
-  [0, [() => ValidateStateMachineDefinitionCode, 0], [() => ValidateStateMachineDefinitionMessage, 0], [() => ValidateStateMachineDefinitionLocation, 0]]
+  [0, [() => ValidateStateMachineDefinitionCode, 0], [() => ValidateStateMachineDefinitionMessage, 0], [() => ValidateStateMachineDefinitionLocation, 0]], 3
 ];
 export var ValidateStateMachineDefinitionInput$: StaticStructureSchema = [3, n0, _VSMDI,
   0,
   [_de, _ty, _se, _mR],
-  [[() => Definition, 0], 0, 0, 1]
+  [[() => Definition, 0], 0, 0, 1], 1
 ];
 export var ValidateStateMachineDefinitionOutput$: StaticStructureSchema = [3, n0, _VSMDO,
   0,
   [_re, _di, _t],
-  [0, [() => ValidateStateMachineDefinitionDiagnosticList, 0], 2]
+  [0, [() => ValidateStateMachineDefinitionDiagnosticList, 0], 2], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

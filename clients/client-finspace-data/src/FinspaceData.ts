@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateUserToPermissionGroupCommand,
@@ -126,6 +126,11 @@ import {
 } from "./commands/UpdatePermissionGroupCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { FinspaceDataClient } from "./FinspaceDataClient";
+import { paginateListChangesets } from "./pagination/ListChangesetsPaginator";
+import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
+import { paginateListDataViews } from "./pagination/ListDataViewsPaginator";
+import { paginateListPermissionGroups } from "./pagination/ListPermissionGroupsPaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
 
 const commands = {
   AssociateUserToPermissionGroupCommand,
@@ -159,6 +164,13 @@ const commands = {
   UpdateDatasetCommand,
   UpdatePermissionGroupCommand,
   UpdateUserCommand,
+};
+const paginators = {
+  paginateListChangesets,
+  paginateListDatasets,
+  paginateListDataViews,
+  paginateListPermissionGroups,
+  paginateListUsers,
 };
 
 export interface FinspaceData {
@@ -690,6 +702,61 @@ export interface FinspaceData {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChangesetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChangesetsCommandOutput}.
+   */
+  paginateListChangesets(
+    args: ListChangesetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChangesetsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetsCommandOutput}.
+   */
+  paginateListDatasets(
+    args?: ListDatasetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetsCommandOutput>;
+
+  /**
+   * @see {@link ListDataViewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataViewsCommandOutput}.
+   */
+  paginateListDataViews(
+    args: ListDataViewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataViewsCommandOutput>;
+
+  /**
+   * @see {@link ListPermissionGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPermissionGroupsCommandOutput}.
+   */
+  paginateListPermissionGroups(
+    args: ListPermissionGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPermissionGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
 }
 
 /**
@@ -697,4 +764,4 @@ export interface FinspaceData {
  * @public
  */
 export class FinspaceData extends FinspaceDataClient implements FinspaceData {}
-createAggregatedClient(commands, FinspaceData);
+createAggregatedClient(commands, FinspaceData, { paginators });

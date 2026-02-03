@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { AppMeshClient } from "./AppMeshClient";
 import {
@@ -157,6 +157,14 @@ import {
   UpdateVirtualServiceCommandInput,
   UpdateVirtualServiceCommandOutput,
 } from "./commands/UpdateVirtualServiceCommand";
+import { paginateListGatewayRoutes } from "./pagination/ListGatewayRoutesPaginator";
+import { paginateListMeshes } from "./pagination/ListMeshesPaginator";
+import { paginateListRoutes } from "./pagination/ListRoutesPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListVirtualGateways } from "./pagination/ListVirtualGatewaysPaginator";
+import { paginateListVirtualNodes } from "./pagination/ListVirtualNodesPaginator";
+import { paginateListVirtualRouters } from "./pagination/ListVirtualRoutersPaginator";
+import { paginateListVirtualServices } from "./pagination/ListVirtualServicesPaginator";
 
 const commands = {
   CreateGatewayRouteCommand,
@@ -197,6 +205,16 @@ const commands = {
   UpdateVirtualNodeCommand,
   UpdateVirtualRouterCommand,
   UpdateVirtualServiceCommand,
+};
+const paginators = {
+  paginateListGatewayRoutes,
+  paginateListMeshes,
+  paginateListRoutes,
+  paginateListTagsForResource,
+  paginateListVirtualGateways,
+  paginateListVirtualNodes,
+  paginateListVirtualRouters,
+  paginateListVirtualServices,
 };
 
 export interface AppMesh {
@@ -846,6 +864,94 @@ export interface AppMesh {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVirtualServiceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListGatewayRoutesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewayRoutesCommandOutput}.
+   */
+  paginateListGatewayRoutes(
+    args: ListGatewayRoutesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewayRoutesCommandOutput>;
+
+  /**
+   * @see {@link ListMeshesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMeshesCommandOutput}.
+   */
+  paginateListMeshes(
+    args?: ListMeshesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMeshesCommandOutput>;
+
+  /**
+   * @see {@link ListRoutesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoutesCommandOutput}.
+   */
+  paginateListRoutes(
+    args: ListRoutesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoutesCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListVirtualGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVirtualGatewaysCommandOutput}.
+   */
+  paginateListVirtualGateways(
+    args: ListVirtualGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVirtualGatewaysCommandOutput>;
+
+  /**
+   * @see {@link ListVirtualNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVirtualNodesCommandOutput}.
+   */
+  paginateListVirtualNodes(
+    args: ListVirtualNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVirtualNodesCommandOutput>;
+
+  /**
+   * @see {@link ListVirtualRoutersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVirtualRoutersCommandOutput}.
+   */
+  paginateListVirtualRouters(
+    args: ListVirtualRoutersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVirtualRoutersCommandOutput>;
+
+  /**
+   * @see {@link ListVirtualServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVirtualServicesCommandOutput}.
+   */
+  paginateListVirtualServices(
+    args: ListVirtualServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVirtualServicesCommandOutput>;
 }
 
 /**
@@ -867,4 +973,4 @@ export interface AppMesh {
  * @public
  */
 export class AppMesh extends AppMeshClient implements AppMesh {}
-createAggregatedClient(commands, AppMesh);
+createAggregatedClient(commands, AppMesh, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   ConfigureLogsCommand,
@@ -94,6 +94,9 @@ import {
   UpdateOriginEndpointCommandOutput,
 } from "./commands/UpdateOriginEndpointCommand";
 import { MediaPackageClient } from "./MediaPackageClient";
+import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListHarvestJobs } from "./pagination/ListHarvestJobsPaginator";
+import { paginateListOriginEndpoints } from "./pagination/ListOriginEndpointsPaginator";
 
 const commands = {
   ConfigureLogsCommand,
@@ -115,6 +118,11 @@ const commands = {
   UntagResourceCommand,
   UpdateChannelCommand,
   UpdateOriginEndpointCommand,
+};
+const paginators = {
+  paginateListChannels,
+  paginateListHarvestJobs,
+  paginateListOriginEndpoints,
 };
 
 export interface MediaPackage {
@@ -443,6 +451,39 @@ export interface MediaPackage {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOriginEndpointCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsCommandOutput}.
+   */
+  paginateListChannels(
+    args?: ListChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListHarvestJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHarvestJobsCommandOutput}.
+   */
+  paginateListHarvestJobs(
+    args?: ListHarvestJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHarvestJobsCommandOutput>;
+
+  /**
+   * @see {@link ListOriginEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOriginEndpointsCommandOutput}.
+   */
+  paginateListOriginEndpoints(
+    args?: ListOriginEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOriginEndpointsCommandOutput>;
 }
 
 /**
@@ -450,4 +491,4 @@ export interface MediaPackage {
  * @public
  */
 export class MediaPackage extends MediaPackageClient implements MediaPackage {}
-createAggregatedClient(commands, MediaPackage);
+createAggregatedClient(commands, MediaPackage, { paginators });

@@ -269,12 +269,12 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AwsIdentity$: StaticStructureSchema = [3, n0, _AI,
   0,
   [_p, _eI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AwsLogSourceConfiguration$: StaticStructureSchema = [3, n0, _ALSC,
   0,
-  [_a, _r, _sN, _sV],
-  [64 | 0, 64 | 0, 0, 0]
+  [_r, _sN, _a, _sV],
+  [64 | 0, 0, 64 | 0, 0], 2
 ];
 export var AwsLogSourceResource$: StaticStructureSchema = [3, n0, _ALSR,
   0,
@@ -296,7 +296,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAwsLogSourceRequest$: StaticStructureSchema = [3, n0, _CALSR,
   0,
   [_s],
-  [() => AwsLogSourceConfigurationList]
+  [() => AwsLogSourceConfigurationList], 1
 ];
 export var CreateAwsLogSourceResponse$: StaticStructureSchema = [3, n0, _CALSRr,
   0,
@@ -305,8 +305,8 @@ export var CreateAwsLogSourceResponse$: StaticStructureSchema = [3, n0, _CALSRr,
 ];
 export var CreateCustomLogSourceRequest$: StaticStructureSchema = [3, n0, _CCLSR,
   0,
-  [_sN, _sV, _eCv, _co],
-  [0, 0, 64 | 0, () => CustomLogSourceConfiguration$]
+  [_sN, _co, _sV, _eCv],
+  [0, () => CustomLogSourceConfiguration$, 0, 64 | 0], 2
 ];
 export var CreateCustomLogSourceResponse$: StaticStructureSchema = [3, n0, _CCLSRr,
   0,
@@ -316,7 +316,7 @@ export var CreateCustomLogSourceResponse$: StaticStructureSchema = [3, n0, _CCLS
 export var CreateDataLakeExceptionSubscriptionRequest$: StaticStructureSchema = [3, n0, _CDLESR,
   0,
   [_sP, _nE, _eTTL],
-  [0, 0, 1]
+  [0, 0, 1], 2
 ];
 export var CreateDataLakeExceptionSubscriptionResponse$: StaticStructureSchema = [3, n0, _CDLESRr,
   0,
@@ -336,7 +336,7 @@ export var CreateDataLakeOrganizationConfigurationResponse$: StaticStructureSche
 export var CreateDataLakeRequest$: StaticStructureSchema = [3, n0, _CDLR,
   0,
   [_con, _mSMRA, _t],
-  [() => DataLakeConfigurationList, 0, () => TagList]
+  [() => DataLakeConfigurationList, 0, () => TagList], 2
 ];
 export var CreateDataLakeResponse$: StaticStructureSchema = [3, n0, _CDLRr,
   0,
@@ -346,7 +346,7 @@ export var CreateDataLakeResponse$: StaticStructureSchema = [3, n0, _CDLRr,
 export var CreateSubscriberNotificationRequest$: StaticStructureSchema = [3, n0, _CSNR,
   0,
   [_sI, _co],
-  [[0, 1], () => NotificationConfiguration$]
+  [[0, 1], () => NotificationConfiguration$], 2
 ];
 export var CreateSubscriberNotificationResponse$: StaticStructureSchema = [3, n0, _CSNRr,
   0,
@@ -355,8 +355,8 @@ export var CreateSubscriberNotificationResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreateSubscriberRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_sIu, _sNu, _sD, _s, _aT, _t],
-  [() => AwsIdentity$, 0, 0, () => LogSourceResourceList, 64 | 0, () => TagList]
+  [_sIu, _sNu, _s, _sD, _aT, _t],
+  [() => AwsIdentity$, 0, () => LogSourceResourceList, 0, 64 | 0, () => TagList], 3
 ];
 export var CreateSubscriberResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -371,12 +371,12 @@ export var CustomLogSourceAttributes$: StaticStructureSchema = [3, n0, _CLSA,
 export var CustomLogSourceConfiguration$: StaticStructureSchema = [3, n0, _CLSC,
   0,
   [_cC, _pI],
-  [() => CustomLogSourceCrawlerConfiguration$, () => AwsIdentity$]
+  [() => CustomLogSourceCrawlerConfiguration$, () => AwsIdentity$], 2
 ];
 export var CustomLogSourceCrawlerConfiguration$: StaticStructureSchema = [3, n0, _CLSCC,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var CustomLogSourceProvider$: StaticStructureSchema = [3, n0, _CLSP,
   0,
@@ -391,12 +391,12 @@ export var CustomLogSourceResource$: StaticStructureSchema = [3, n0, _CLSR,
 export var DataLakeAutoEnableNewAccountConfiguration$: StaticStructureSchema = [3, n0, _DLAENAC,
   0,
   [_re, _s],
-  [0, () => AwsLogSourceResourceList]
+  [0, () => AwsLogSourceResourceList], 2
 ];
 export var DataLakeConfiguration$: StaticStructureSchema = [3, n0, _DLC,
   0,
   [_re, _eCn, _lC, _rC],
-  [0, () => DataLakeEncryptionConfiguration$, () => DataLakeLifecycleConfiguration$, () => DataLakeReplicationConfiguration$]
+  [0, () => DataLakeEncryptionConfiguration$, () => DataLakeLifecycleConfiguration$, () => DataLakeReplicationConfiguration$], 1
 ];
 export var DataLakeEncryptionConfiguration$: StaticStructureSchema = [3, n0, _DLEC,
   0,
@@ -431,7 +431,7 @@ export var DataLakeReplicationConfiguration$: StaticStructureSchema = [3, n0, _D
 export var DataLakeResource$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_dLA, _re, _sBA, _eCn, _lC, _rC, _cS, _uS],
-  [0, 0, 0, () => DataLakeEncryptionConfiguration$, () => DataLakeLifecycleConfiguration$, () => DataLakeReplicationConfiguration$, 0, () => DataLakeUpdateStatus$]
+  [0, 0, 0, () => DataLakeEncryptionConfiguration$, () => DataLakeLifecycleConfiguration$, () => DataLakeReplicationConfiguration$, 0, () => DataLakeUpdateStatus$], 2
 ];
 export var DataLakeSource$: StaticStructureSchema = [3, n0, _DLS,
   0,
@@ -456,7 +456,7 @@ export var DataLakeUpdateStatus$: StaticStructureSchema = [3, n0, _DLUS,
 export var DeleteAwsLogSourceRequest$: StaticStructureSchema = [3, n0, _DALSR,
   0,
   [_s],
-  [() => AwsLogSourceConfigurationList]
+  [() => AwsLogSourceConfigurationList], 1
 ];
 export var DeleteAwsLogSourceResponse$: StaticStructureSchema = [3, n0, _DALSRe,
   0,
@@ -466,7 +466,7 @@ export var DeleteAwsLogSourceResponse$: StaticStructureSchema = [3, n0, _DALSRe,
 export var DeleteCustomLogSourceRequest$: StaticStructureSchema = [3, n0, _DCLSR,
   0,
   [_sN, _sV],
-  [[0, 1], [0, { [_hQ]: _sV }]]
+  [[0, 1], [0, { [_hQ]: _sV }]], 1
 ];
 export var DeleteCustomLogSourceResponse$: StaticStructureSchema = [3, n0, _DCLSRe,
   0,
@@ -496,7 +496,7 @@ export var DeleteDataLakeOrganizationConfigurationResponse$: StaticStructureSche
 export var DeleteDataLakeRequest$: StaticStructureSchema = [3, n0, _DDLR,
   0,
   [_r],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DeleteDataLakeResponse$: StaticStructureSchema = [3, n0, _DDLRe,
   0,
@@ -506,7 +506,7 @@ export var DeleteDataLakeResponse$: StaticStructureSchema = [3, n0, _DDLRe,
 export var DeleteSubscriberNotificationRequest$: StaticStructureSchema = [3, n0, _DSNR,
   0,
   [_sI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSubscriberNotificationResponse$: StaticStructureSchema = [3, n0, _DSNRe,
   0,
@@ -516,7 +516,7 @@ export var DeleteSubscriberNotificationResponse$: StaticStructureSchema = [3, n0
 export var DeleteSubscriberRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_sI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSubscriberResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -566,7 +566,7 @@ export var GetDataLakeSourcesResponse$: StaticStructureSchema = [3, n0, _GDLSRe,
 export var GetSubscriberRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_sI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSubscriberResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -575,8 +575,8 @@ export var GetSubscriberResponse$: StaticStructureSchema = [3, n0, _GSRe,
 ];
 export var HttpsNotificationConfiguration$: StaticStructureSchema = [3, n0, _HNC,
   0,
-  [_en, _aAKN, _aAKV, _hM, _tRA],
-  [0, 0, 0, 0, 0]
+  [_en, _tRA, _aAKN, _aAKV, _hM],
+  [0, 0, 0, 0, 0], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
@@ -627,7 +627,7 @@ export var ListSubscribersResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -642,7 +642,7 @@ export var LogSource$: StaticStructureSchema = [3, n0, _LS,
 export var RegisterDataLakeDelegatedAdministratorRequest$: StaticStructureSchema = [3, n0, _RDLDAR,
   0,
   [_aI],
-  [0]
+  [0], 1
 ];
 export var RegisterDataLakeDelegatedAdministratorResponse$: StaticStructureSchema = [3, n0, _RDLDARe,
   0,
@@ -662,18 +662,18 @@ export var SqsNotificationConfiguration$: StaticStructureSchema = [3, n0, _SNC,
 ];
 export var SubscriberResource$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_sI, _sA, _sIu, _sNu, _sD, _s, _aT, _rA, _sBA, _sE, _sSu, _rSA, _rSN, _cAr, _uA],
-  [0, 0, () => AwsIdentity$, 0, 0, () => LogSourceResourceList, 64 | 0, 0, 0, 0, 0, 0, 0, 5, 5]
+  [_sI, _sA, _sIu, _sNu, _s, _sD, _aT, _rA, _sBA, _sE, _sSu, _rSA, _rSN, _cAr, _uA],
+  [0, 0, () => AwsIdentity$, 0, () => LogSourceResourceList, 0, 64 | 0, 0, 0, 0, 0, 0, 0, 5, 5], 5
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAe, _t],
-  [[0, 1], () => TagList]
+  [[0, 1], () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -689,7 +689,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -699,7 +699,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDataLakeExceptionSubscriptionRequest$: StaticStructureSchema = [3, n0, _UDLESR,
   0,
   [_sP, _nE, _eTTL],
-  [0, 0, 1]
+  [0, 0, 1], 2
 ];
 export var UpdateDataLakeExceptionSubscriptionResponse$: StaticStructureSchema = [3, n0, _UDLESRp,
   0,
@@ -709,7 +709,7 @@ export var UpdateDataLakeExceptionSubscriptionResponse$: StaticStructureSchema =
 export var UpdateDataLakeRequest$: StaticStructureSchema = [3, n0, _UDLR,
   0,
   [_con, _mSMRA],
-  [() => DataLakeConfigurationList, 0]
+  [() => DataLakeConfigurationList, 0], 1
 ];
 export var UpdateDataLakeResponse$: StaticStructureSchema = [3, n0, _UDLRp,
   0,
@@ -719,7 +719,7 @@ export var UpdateDataLakeResponse$: StaticStructureSchema = [3, n0, _UDLRp,
 export var UpdateSubscriberNotificationRequest$: StaticStructureSchema = [3, n0, _USNR,
   0,
   [_sI, _co],
-  [[0, 1], () => NotificationConfiguration$]
+  [[0, 1], () => NotificationConfiguration$], 2
 ];
 export var UpdateSubscriberNotificationResponse$: StaticStructureSchema = [3, n0, _USNRp,
   0,
@@ -729,7 +729,7 @@ export var UpdateSubscriberNotificationResponse$: StaticStructureSchema = [3, n0
 export var UpdateSubscriberRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
   [_sI, _sIu, _sNu, _sD, _s],
-  [[0, 1], () => AwsIdentity$, 0, 0, () => LogSourceResourceList]
+  [[0, 1], () => AwsIdentity$, 0, 0, () => LogSourceResourceList], 1
 ];
 export var UpdateSubscriberResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,

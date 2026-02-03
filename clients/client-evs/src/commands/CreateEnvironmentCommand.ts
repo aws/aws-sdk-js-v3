@@ -27,7 +27,7 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest 
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager, NSX Manager, and vCenter Server.</p> <p>During environment creation, Amazon EVS performs validations on DNS settings, provisions VLAN subnets and hosts, and deploys the supplied version of VCF.</p> <p>It can take several hours to create an environment. After the deployment completes, you can configure VCF in the vSphere user interface according to your needs.</p> <note> <p>You cannot use the <code>dedicatedHostId</code> and <code>placementGroupId</code> parameters together in the same <code>CreateEnvironment</code> action. This results in a <code>ValidationException</code> response.</p> </note>
+ * <p>Creates an Amazon EVS environment that runs VCF software, such as SDDC Manager, NSX Manager, and vCenter Server.</p> <p>During environment creation, Amazon EVS performs validations on DNS settings, provisions VLAN subnets and hosts, and deploys the supplied version of VCF.</p> <p>It can take several hours to create an environment. After the deployment completes, you can configure VCF in the vSphere user interface according to your needs.</p> <important> <p>When creating a new environment, the default ESX version for the selected VCF version will be used, you cannot choose a specific ESX version in <code>CreateEnvironment</code> action. When a host has been added with a specific ESX version, it can only be upgraded using vCenter Lifecycle Manager.</p> </important> <note> <p>You cannot use the <code>dedicatedHostId</code> and <code>placementGroupId</code> parameters together in the same <code>CreateEnvironment</code> action. This results in a <code>ValidationException</code> response.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,7 +50,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *   },
  *   vpcId: "STRING_VALUE", // required
  *   serviceAccessSubnetId: "STRING_VALUE", // required
- *   vcfVersion: "VCF-5.2.1", // required
+ *   vcfVersion: "VCF-5.2.1" || "VCF-5.2.2", // required
  *   termsAccepted: true || false, // required
  *   licenseInfo: [ // LicenseInfoList // required
  *     { // LicenseInfo
@@ -122,7 +122,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * //     environmentName: "STRING_VALUE",
  * //     vpcId: "STRING_VALUE",
  * //     serviceAccessSubnetId: "STRING_VALUE",
- * //     vcfVersion: "VCF-5.2.1",
+ * //     vcfVersion: "VCF-5.2.1" || "VCF-5.2.2",
  * //     termsAccepted: true || false,
  * //     licenseInfo: [ // LicenseInfoList
  * //       { // LicenseInfo

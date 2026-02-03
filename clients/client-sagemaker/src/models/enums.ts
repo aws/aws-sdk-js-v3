@@ -42,6 +42,133 @@ export type MIGProfileType = (typeof MIGProfileType)[keyof typeof MIGProfileType
  * @public
  * @enum
  */
+export const ClusterInstanceType = {
+  ML_C5N_18XLARGE: "ml.c5n.18xlarge",
+  ML_C5N_2XLARGE: "ml.c5n.2xlarge",
+  ML_C5N_4XLARGE: "ml.c5n.4xlarge",
+  ML_C5N_9XLARGE: "ml.c5n.9xlarge",
+  ML_C5N_LARGE: "ml.c5n.large",
+  ML_C5_12XLARGE: "ml.c5.12xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_24XLARGE: "ml.c5.24xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_LARGE: "ml.c5.large",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_C6I_12XLARGE: "ml.c6i.12xlarge",
+  ML_C6I_16XLARGE: "ml.c6i.16xlarge",
+  ML_C6I_24XLARGE: "ml.c6i.24xlarge",
+  ML_C6I_2XLARGE: "ml.c6i.2xlarge",
+  ML_C6I_32XLARGE: "ml.c6i.32xlarge",
+  ML_C6I_4XLARGE: "ml.c6i.4xlarge",
+  ML_C6I_8XLARGE: "ml.c6i.8xlarge",
+  ML_C6I_LARGE: "ml.c6i.large",
+  ML_C6I_XLARGE: "ml.c6i.xlarge",
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
+  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
+  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
+  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
+  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
+  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
+  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
+  ML_G6E_XLARGE: "ml.g6e.xlarge",
+  ML_G6_12XLARGE: "ml.g6.12xlarge",
+  ML_G6_16XLARGE: "ml.g6.16xlarge",
+  ML_G6_24XLARGE: "ml.g6.24xlarge",
+  ML_G6_2XLARGE: "ml.g6.2xlarge",
+  ML_G6_48XLARGE: "ml.g6.48xlarge",
+  ML_G6_4XLARGE: "ml.g6.4xlarge",
+  ML_G6_8XLARGE: "ml.g6.8xlarge",
+  ML_G6_XLARGE: "ml.g6.xlarge",
+  ML_GR6_4XLARGE: "ml.gr6.4xlarge",
+  ML_GR6_8XLARGE: "ml.gr6.8xlarge",
+  ML_I3EN_12XLARGE: "ml.i3en.12xlarge",
+  ML_I3EN_24XLARGE: "ml.i3en.24xlarge",
+  ML_I3EN_2XLARGE: "ml.i3en.2xlarge",
+  ML_I3EN_3XLARGE: "ml.i3en.3xlarge",
+  ML_I3EN_6XLARGE: "ml.i3en.6xlarge",
+  ML_I3EN_LARGE: "ml.i3en.large",
+  ML_I3EN_XLARGE: "ml.i3en.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_16XLARGE: "ml.m5.16xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_8XLARGE: "ml.m5.8xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_M6I_12XLARGE: "ml.m6i.12xlarge",
+  ML_M6I_16XLARGE: "ml.m6i.16xlarge",
+  ML_M6I_24XLARGE: "ml.m6i.24xlarge",
+  ML_M6I_2XLARGE: "ml.m6i.2xlarge",
+  ML_M6I_32XLARGE: "ml.m6i.32xlarge",
+  ML_M6I_4XLARGE: "ml.m6i.4xlarge",
+  ML_M6I_8XLARGE: "ml.m6i.8xlarge",
+  ML_M6I_LARGE: "ml.m6i.large",
+  ML_M6I_XLARGE: "ml.m6i.xlarge",
+  ML_M7I_12XLARGE: "ml.m7i.12xlarge",
+  ML_M7I_16XLARGE: "ml.m7i.16xlarge",
+  ML_M7I_24XLARGE: "ml.m7i.24xlarge",
+  ML_M7I_2XLARGE: "ml.m7i.2xlarge",
+  ML_M7I_48XLARGE: "ml.m7i.48xlarge",
+  ML_M7I_4XLARGE: "ml.m7i.4xlarge",
+  ML_M7I_8XLARGE: "ml.m7i.8xlarge",
+  ML_M7I_LARGE: "ml.m7i.large",
+  ML_M7I_XLARGE: "ml.m7i.xlarge",
+  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
+  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
+  ML_P5_48XLARGE: "ml.p5.48xlarge",
+  ML_P5_4XLARGE: "ml.p5.4xlarge",
+  ML_P6E_GB200_36XLARGE: "ml.p6e-gb200.36xlarge",
+  ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
+  ML_P6_B300_48XLARGE: "ml.p6-b300.48xlarge",
+  ML_R6I_12XLARGE: "ml.r6i.12xlarge",
+  ML_R6I_16XLARGE: "ml.r6i.16xlarge",
+  ML_R6I_24XLARGE: "ml.r6i.24xlarge",
+  ML_R6I_2XLARGE: "ml.r6i.2xlarge",
+  ML_R6I_32XLARGE: "ml.r6i.32xlarge",
+  ML_R6I_4XLARGE: "ml.r6i.4xlarge",
+  ML_R6I_8XLARGE: "ml.r6i.8xlarge",
+  ML_R6I_LARGE: "ml.r6i.large",
+  ML_R6I_XLARGE: "ml.r6i.xlarge",
+  ML_R7I_12XLARGE: "ml.r7i.12xlarge",
+  ML_R7I_16XLARGE: "ml.r7i.16xlarge",
+  ML_R7I_24XLARGE: "ml.r7i.24xlarge",
+  ML_R7I_2XLARGE: "ml.r7i.2xlarge",
+  ML_R7I_48XLARGE: "ml.r7i.48xlarge",
+  ML_R7I_4XLARGE: "ml.r7i.4xlarge",
+  ML_R7I_8XLARGE: "ml.r7i.8xlarge",
+  ML_R7I_LARGE: "ml.r7i.large",
+  ML_R7I_XLARGE: "ml.r7i.xlarge",
+  ML_T3_2XLARGE: "ml.t3.2xlarge",
+  ML_T3_LARGE: "ml.t3.large",
+  ML_T3_MEDIUM: "ml.t3.medium",
+  ML_T3_XLARGE: "ml.t3.xlarge",
+  ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
+  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+  ML_TRN2_3XLARGE: "ml.trn2.3xlarge",
+  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
+} as const;
+/**
+ * @public
+ */
+export type ClusterInstanceType = (typeof ClusterInstanceType)[keyof typeof ClusterInstanceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AccountDefaultStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -2139,133 +2266,6 @@ export type ClusterEventResourceType = (typeof ClusterEventResourceType)[keyof t
  * @public
  * @enum
  */
-export const ClusterInstanceType = {
-  ML_C5N_18XLARGE: "ml.c5n.18xlarge",
-  ML_C5N_2XLARGE: "ml.c5n.2xlarge",
-  ML_C5N_4XLARGE: "ml.c5n.4xlarge",
-  ML_C5N_9XLARGE: "ml.c5n.9xlarge",
-  ML_C5N_LARGE: "ml.c5n.large",
-  ML_C5_12XLARGE: "ml.c5.12xlarge",
-  ML_C5_18XLARGE: "ml.c5.18xlarge",
-  ML_C5_24XLARGE: "ml.c5.24xlarge",
-  ML_C5_2XLARGE: "ml.c5.2xlarge",
-  ML_C5_4XLARGE: "ml.c5.4xlarge",
-  ML_C5_9XLARGE: "ml.c5.9xlarge",
-  ML_C5_LARGE: "ml.c5.large",
-  ML_C5_XLARGE: "ml.c5.xlarge",
-  ML_C6I_12XLARGE: "ml.c6i.12xlarge",
-  ML_C6I_16XLARGE: "ml.c6i.16xlarge",
-  ML_C6I_24XLARGE: "ml.c6i.24xlarge",
-  ML_C6I_2XLARGE: "ml.c6i.2xlarge",
-  ML_C6I_32XLARGE: "ml.c6i.32xlarge",
-  ML_C6I_4XLARGE: "ml.c6i.4xlarge",
-  ML_C6I_8XLARGE: "ml.c6i.8xlarge",
-  ML_C6I_LARGE: "ml.c6i.large",
-  ML_C6I_XLARGE: "ml.c6i.xlarge",
-  ML_G5_12XLARGE: "ml.g5.12xlarge",
-  ML_G5_16XLARGE: "ml.g5.16xlarge",
-  ML_G5_24XLARGE: "ml.g5.24xlarge",
-  ML_G5_2XLARGE: "ml.g5.2xlarge",
-  ML_G5_48XLARGE: "ml.g5.48xlarge",
-  ML_G5_4XLARGE: "ml.g5.4xlarge",
-  ML_G5_8XLARGE: "ml.g5.8xlarge",
-  ML_G5_XLARGE: "ml.g5.xlarge",
-  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
-  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
-  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
-  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
-  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
-  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
-  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
-  ML_G6E_XLARGE: "ml.g6e.xlarge",
-  ML_G6_12XLARGE: "ml.g6.12xlarge",
-  ML_G6_16XLARGE: "ml.g6.16xlarge",
-  ML_G6_24XLARGE: "ml.g6.24xlarge",
-  ML_G6_2XLARGE: "ml.g6.2xlarge",
-  ML_G6_48XLARGE: "ml.g6.48xlarge",
-  ML_G6_4XLARGE: "ml.g6.4xlarge",
-  ML_G6_8XLARGE: "ml.g6.8xlarge",
-  ML_G6_XLARGE: "ml.g6.xlarge",
-  ML_GR6_4XLARGE: "ml.gr6.4xlarge",
-  ML_GR6_8XLARGE: "ml.gr6.8xlarge",
-  ML_I3EN_12XLARGE: "ml.i3en.12xlarge",
-  ML_I3EN_24XLARGE: "ml.i3en.24xlarge",
-  ML_I3EN_2XLARGE: "ml.i3en.2xlarge",
-  ML_I3EN_3XLARGE: "ml.i3en.3xlarge",
-  ML_I3EN_6XLARGE: "ml.i3en.6xlarge",
-  ML_I3EN_LARGE: "ml.i3en.large",
-  ML_I3EN_XLARGE: "ml.i3en.xlarge",
-  ML_M5_12XLARGE: "ml.m5.12xlarge",
-  ML_M5_16XLARGE: "ml.m5.16xlarge",
-  ML_M5_24XLARGE: "ml.m5.24xlarge",
-  ML_M5_2XLARGE: "ml.m5.2xlarge",
-  ML_M5_4XLARGE: "ml.m5.4xlarge",
-  ML_M5_8XLARGE: "ml.m5.8xlarge",
-  ML_M5_LARGE: "ml.m5.large",
-  ML_M5_XLARGE: "ml.m5.xlarge",
-  ML_M6I_12XLARGE: "ml.m6i.12xlarge",
-  ML_M6I_16XLARGE: "ml.m6i.16xlarge",
-  ML_M6I_24XLARGE: "ml.m6i.24xlarge",
-  ML_M6I_2XLARGE: "ml.m6i.2xlarge",
-  ML_M6I_32XLARGE: "ml.m6i.32xlarge",
-  ML_M6I_4XLARGE: "ml.m6i.4xlarge",
-  ML_M6I_8XLARGE: "ml.m6i.8xlarge",
-  ML_M6I_LARGE: "ml.m6i.large",
-  ML_M6I_XLARGE: "ml.m6i.xlarge",
-  ML_M7I_12XLARGE: "ml.m7i.12xlarge",
-  ML_M7I_16XLARGE: "ml.m7i.16xlarge",
-  ML_M7I_24XLARGE: "ml.m7i.24xlarge",
-  ML_M7I_2XLARGE: "ml.m7i.2xlarge",
-  ML_M7I_48XLARGE: "ml.m7i.48xlarge",
-  ML_M7I_4XLARGE: "ml.m7i.4xlarge",
-  ML_M7I_8XLARGE: "ml.m7i.8xlarge",
-  ML_M7I_LARGE: "ml.m7i.large",
-  ML_M7I_XLARGE: "ml.m7i.xlarge",
-  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
-  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
-  ML_P5EN_48XLARGE: "ml.p5en.48xlarge",
-  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
-  ML_P5_48XLARGE: "ml.p5.48xlarge",
-  ML_P5_4XLARGE: "ml.p5.4xlarge",
-  ML_P6E_GB200_36XLARGE: "ml.p6e-gb200.36xlarge",
-  ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
-  ML_P6_B300_48XLARGE: "ml.p6-b300.48xlarge",
-  ML_R6I_12XLARGE: "ml.r6i.12xlarge",
-  ML_R6I_16XLARGE: "ml.r6i.16xlarge",
-  ML_R6I_24XLARGE: "ml.r6i.24xlarge",
-  ML_R6I_2XLARGE: "ml.r6i.2xlarge",
-  ML_R6I_32XLARGE: "ml.r6i.32xlarge",
-  ML_R6I_4XLARGE: "ml.r6i.4xlarge",
-  ML_R6I_8XLARGE: "ml.r6i.8xlarge",
-  ML_R6I_LARGE: "ml.r6i.large",
-  ML_R6I_XLARGE: "ml.r6i.xlarge",
-  ML_R7I_12XLARGE: "ml.r7i.12xlarge",
-  ML_R7I_16XLARGE: "ml.r7i.16xlarge",
-  ML_R7I_24XLARGE: "ml.r7i.24xlarge",
-  ML_R7I_2XLARGE: "ml.r7i.2xlarge",
-  ML_R7I_48XLARGE: "ml.r7i.48xlarge",
-  ML_R7I_4XLARGE: "ml.r7i.4xlarge",
-  ML_R7I_8XLARGE: "ml.r7i.8xlarge",
-  ML_R7I_LARGE: "ml.r7i.large",
-  ML_R7I_XLARGE: "ml.r7i.xlarge",
-  ML_T3_2XLARGE: "ml.t3.2xlarge",
-  ML_T3_LARGE: "ml.t3.large",
-  ML_T3_MEDIUM: "ml.t3.medium",
-  ML_T3_XLARGE: "ml.t3.xlarge",
-  ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
-  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
-  ML_TRN2_3XLARGE: "ml.trn2.3xlarge",
-  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
-} as const;
-/**
- * @public
- */
-export type ClusterInstanceType = (typeof ClusterInstanceType)[keyof typeof ClusterInstanceType];
-
-/**
- * @public
- * @enum
- */
 export const ClusterKubernetesTaintEffect = {
   NO_EXECUTE: "NoExecute",
   NO_SCHEDULE: "NoSchedule",
@@ -2716,6 +2716,19 @@ export const FairShare = {
  * @public
  */
 export type FairShare = (typeof FairShare)[keyof typeof FairShare];
+
+/**
+ * @public
+ * @enum
+ */
+export const IdleResourceSharing = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+/**
+ * @public
+ */
+export type IdleResourceSharing = (typeof IdleResourceSharing)[keyof typeof IdleResourceSharing];
 
 /**
  * @public
@@ -4134,6 +4147,20 @@ export const StageStatus = {
  * @public
  */
 export type StageStatus = (typeof StageStatus)[keyof typeof StageStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SchedulerConfigComponent = {
+  FAIR_SHARE: "FairShare",
+  IDLE_RESOURCE_SHARING: "IdleResourceSharing",
+  PRIORITY_CLASSES: "PriorityClasses",
+} as const;
+/**
+ * @public
+ */
+export type SchedulerConfigComponent = (typeof SchedulerConfigComponent)[keyof typeof SchedulerConfigComponent];
 
 /**
  * @public

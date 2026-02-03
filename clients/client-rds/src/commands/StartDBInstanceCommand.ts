@@ -27,16 +27,7 @@ export interface StartDBInstanceCommandInput extends StartDBInstanceMessage {}
 export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the <code>StopDBInstance</code> operation.</p>
- *          <p>For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
- *                 Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the
- *             <i>Amazon RDS User Guide.</i>
- *          </p>
- *          <note>
- *             <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
- *             For Aurora DB clusters, use <code>StartDBCluster</code> instead.</p>
- *          </note>
+ * <p>Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the <code>StopDBInstance</code> operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html"> Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the <i>Amazon RDS User Guide.</i> </p> <note> <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For Aurora DB clusters, use <code>StartDBCluster</code> instead.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -310,29 +301,22 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized
- *             for the specified DB security group.</p>
- *          <p>Or, RDS might not be authorized to perform necessary actions using IAM on your
- *             behalf.</p>
+ *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
  *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified DB instance class isn't available in the specified Availability
- *             Zone.</p>
+ *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
@@ -344,16 +328,13 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The DB subnet group doesn't cover all Availability Zones after it's
- *             created because of users' change.</p>
+ *  <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB
- *             instance type supports the Nitro encryption-in-transit capability,
- *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

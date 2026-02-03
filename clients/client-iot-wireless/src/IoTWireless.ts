@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateAwsAccountWithPartnerAccountCommand,
@@ -551,6 +551,17 @@ import {
   UpdateWirelessGatewayCommandOutput,
 } from "./commands/UpdateWirelessGatewayCommand";
 import { IoTWirelessClient } from "./IoTWirelessClient";
+import { paginateListDestinations } from "./pagination/ListDestinationsPaginator";
+import { paginateListDeviceProfiles } from "./pagination/ListDeviceProfilesPaginator";
+import { paginateListFuotaTasks } from "./pagination/ListFuotaTasksPaginator";
+import { paginateListMulticastGroupsByFuotaTask } from "./pagination/ListMulticastGroupsByFuotaTaskPaginator";
+import { paginateListMulticastGroups } from "./pagination/ListMulticastGroupsPaginator";
+import { paginateListNetworkAnalyzerConfigurations } from "./pagination/ListNetworkAnalyzerConfigurationsPaginator";
+import { paginateListPositionConfigurations } from "./pagination/ListPositionConfigurationsPaginator";
+import { paginateListQueuedMessages } from "./pagination/ListQueuedMessagesPaginator";
+import { paginateListServiceProfiles } from "./pagination/ListServiceProfilesPaginator";
+import { paginateListWirelessDevices } from "./pagination/ListWirelessDevicesPaginator";
+import { paginateListWirelessGateways } from "./pagination/ListWirelessGatewaysPaginator";
 
 const commands = {
   AssociateAwsAccountWithPartnerAccountCommand,
@@ -665,6 +676,19 @@ const commands = {
   UpdateWirelessDeviceCommand,
   UpdateWirelessDeviceImportTaskCommand,
   UpdateWirelessGatewayCommand,
+};
+const paginators = {
+  paginateListDestinations,
+  paginateListDeviceProfiles,
+  paginateListFuotaTasks,
+  paginateListMulticastGroups,
+  paginateListMulticastGroupsByFuotaTask,
+  paginateListNetworkAnalyzerConfigurations,
+  paginateListPositionConfigurations,
+  paginateListQueuedMessages,
+  paginateListServiceProfiles,
+  paginateListWirelessDevices,
+  paginateListWirelessGateways,
 };
 
 export interface IoTWireless {
@@ -2595,6 +2619,127 @@ export interface IoTWireless {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWirelessGatewayCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDestinationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDestinationsCommandOutput}.
+   */
+  paginateListDestinations(
+    args?: ListDestinationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDestinationsCommandOutput>;
+
+  /**
+   * @see {@link ListDeviceProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeviceProfilesCommandOutput}.
+   */
+  paginateListDeviceProfiles(
+    args?: ListDeviceProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeviceProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListFuotaTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFuotaTasksCommandOutput}.
+   */
+  paginateListFuotaTasks(
+    args?: ListFuotaTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFuotaTasksCommandOutput>;
+
+  /**
+   * @see {@link ListMulticastGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMulticastGroupsCommandOutput}.
+   */
+  paginateListMulticastGroups(
+    args?: ListMulticastGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMulticastGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListMulticastGroupsByFuotaTaskCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMulticastGroupsByFuotaTaskCommandOutput}.
+   */
+  paginateListMulticastGroupsByFuotaTask(
+    args: ListMulticastGroupsByFuotaTaskCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMulticastGroupsByFuotaTaskCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkAnalyzerConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkAnalyzerConfigurationsCommandOutput}.
+   */
+  paginateListNetworkAnalyzerConfigurations(
+    args?: ListNetworkAnalyzerConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkAnalyzerConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListPositionConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPositionConfigurationsCommandOutput}.
+   */
+  paginateListPositionConfigurations(
+    args?: ListPositionConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPositionConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListQueuedMessagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQueuedMessagesCommandOutput}.
+   */
+  paginateListQueuedMessages(
+    args: ListQueuedMessagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQueuedMessagesCommandOutput>;
+
+  /**
+   * @see {@link ListServiceProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceProfilesCommandOutput}.
+   */
+  paginateListServiceProfiles(
+    args?: ListServiceProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListWirelessDevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWirelessDevicesCommandOutput}.
+   */
+  paginateListWirelessDevices(
+    args?: ListWirelessDevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWirelessDevicesCommandOutput>;
+
+  /**
+   * @see {@link ListWirelessGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWirelessGatewaysCommandOutput}.
+   */
+  paginateListWirelessGateways(
+    args?: ListWirelessGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWirelessGatewaysCommandOutput>;
 }
 
 /**
@@ -2620,4 +2765,4 @@ export interface IoTWireless {
  * @public
  */
 export class IoTWireless extends IoTWirelessClient implements IoTWireless {}
-createAggregatedClient(commands, IoTWireless);
+createAggregatedClient(commands, IoTWireless, { paginators });

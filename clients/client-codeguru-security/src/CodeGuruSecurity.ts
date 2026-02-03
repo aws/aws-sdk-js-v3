@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CodeGuruSecurityClient } from "./CodeGuruSecurityClient";
 import {
@@ -48,6 +48,9 @@ import {
   UpdateAccountConfigurationCommandInput,
   UpdateAccountConfigurationCommandOutput,
 } from "./commands/UpdateAccountConfigurationCommand";
+import { paginateGetFindings } from "./pagination/GetFindingsPaginator";
+import { paginateListFindingsMetrics } from "./pagination/ListFindingsMetricsPaginator";
+import { paginateListScans } from "./pagination/ListScansPaginator";
 
 const commands = {
   BatchGetFindingsCommand,
@@ -63,6 +66,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAccountConfigurationCommand,
+};
+const paginators = {
+  paginateGetFindings,
+  paginateListFindingsMetrics,
+  paginateListScans,
 };
 
 export interface CodeGuruSecurity {
@@ -288,6 +296,39 @@ export interface CodeGuruSecurity {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAccountConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFindingsCommandOutput}.
+   */
+  paginateGetFindings(
+    args: GetFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListFindingsMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFindingsMetricsCommandOutput}.
+   */
+  paginateListFindingsMetrics(
+    args: ListFindingsMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFindingsMetricsCommandOutput>;
+
+  /**
+   * @see {@link ListScansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScansCommandOutput}.
+   */
+  paginateListScans(
+    args?: ListScansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScansCommandOutput>;
 }
 
 /**
@@ -295,4 +336,4 @@ export interface CodeGuruSecurity {
  * @public
  */
 export class CodeGuruSecurity extends CodeGuruSecurityClient implements CodeGuruSecurity {}
-createAggregatedClient(commands, CodeGuruSecurity);
+createAggregatedClient(commands, CodeGuruSecurity, { paginators });

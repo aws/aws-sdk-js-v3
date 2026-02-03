@@ -242,19 +242,19 @@ import { MigrationHubOrchestratorServiceException } from "../models/MigrationHub
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateMigrationWorkflowRequest$: StaticStructureSchema = [3, n0, _CMWR,
   0,
-  [_n, _d, _tI, _aCI, _iP, _sT, _t],
-  [0, 0, 0, 0, [() => StepInputParameters, 0], 64 | 0, 128 | 0]
+  [_n, _tI, _iP, _d, _aCI, _sT, _t],
+  [0, 0, [() => StepInputParameters, 0], 0, 0, 64 | 0, 128 | 0], 3
 ];
 export var CreateMigrationWorkflowResponse$: StaticStructureSchema = [3, n0, _CMWRr,
   0,
@@ -263,8 +263,8 @@ export var CreateMigrationWorkflowResponse$: StaticStructureSchema = [3, n0, _CM
 ];
 export var CreateTemplateRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
-  [_tN, _tD, _tS, _cTl, _t],
-  [0, 0, () => TemplateSource$, [0, 4], 128 | 0]
+  [_tN, _tS, _tD, _cTl, _t],
+  [0, () => TemplateSource$, 0, [0, 4], 128 | 0], 2
 ];
 export var CreateTemplateResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -274,7 +274,7 @@ export var CreateTemplateResponse$: StaticStructureSchema = [3, n0, _CTRr,
 export var CreateWorkflowStepGroupRequest$: StaticStructureSchema = [3, n0, _CWSGR,
   0,
   [_wIo, _n, _d, _ne, _p],
-  [0, 0, 0, 64 | 0, 64 | 0]
+  [0, 0, 0, 64 | 0, 64 | 0], 2
 ];
 export var CreateWorkflowStepGroupResponse$: StaticStructureSchema = [3, n0, _CWSGRr,
   0,
@@ -284,7 +284,7 @@ export var CreateWorkflowStepGroupResponse$: StaticStructureSchema = [3, n0, _CW
 export var CreateWorkflowStepRequest$: StaticStructureSchema = [3, n0, _CWSR,
   0,
   [_n, _sGI, _wIo, _sAT, _d, _wSAC, _sTt, _o, _p, _ne],
-  [0, 0, 0, 0, 0, () => WorkflowStepAutomationConfiguration$, 64 | 0, () => WorkflowStepOutputList, 64 | 0, 64 | 0]
+  [0, 0, 0, 0, 0, () => WorkflowStepAutomationConfiguration$, 64 | 0, () => WorkflowStepOutputList, 64 | 0, 64 | 0], 4
 ];
 export var CreateWorkflowStepResponse$: StaticStructureSchema = [3, n0, _CWSRr,
   0,
@@ -294,7 +294,7 @@ export var CreateWorkflowStepResponse$: StaticStructureSchema = [3, n0, _CWSRr,
 export var DeleteMigrationWorkflowRequest$: StaticStructureSchema = [3, n0, _DMWR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteMigrationWorkflowResponse$: StaticStructureSchema = [3, n0, _DMWRe,
   0,
@@ -304,7 +304,7 @@ export var DeleteMigrationWorkflowResponse$: StaticStructureSchema = [3, n0, _DM
 export var DeleteTemplateRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteTemplateResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -314,7 +314,7 @@ export var DeleteTemplateResponse$: StaticStructureSchema = [3, n0, _DTRe,
 export var DeleteWorkflowStepGroupRequest$: StaticStructureSchema = [3, n0, _DWSGR,
   0,
   [_wIo, _i],
-  [[0, { [_hQ]: _wIo }], [0, 1]]
+  [[0, { [_hQ]: _wIo }], [0, 1]], 2
 ];
 export var DeleteWorkflowStepGroupResponse$: StaticStructureSchema = [3, n0, _DWSGRe,
   0,
@@ -324,7 +324,7 @@ export var DeleteWorkflowStepGroupResponse$: StaticStructureSchema = [3, n0, _DW
 export var DeleteWorkflowStepRequest$: StaticStructureSchema = [3, n0, _DWSR,
   0,
   [_i, _sGI, _wIo],
-  [[0, 1], [0, { [_hQ]: _sGI }], [0, { [_hQ]: _wIo }]]
+  [[0, 1], [0, { [_hQ]: _sGI }], [0, { [_hQ]: _wIo }]], 3
 ];
 export var DeleteWorkflowStepResponse$: StaticStructureSchema = [3, n0, _DWSRe,
   0,
@@ -334,7 +334,7 @@ export var DeleteWorkflowStepResponse$: StaticStructureSchema = [3, n0, _DWSRe,
 export var GetMigrationWorkflowRequest$: StaticStructureSchema = [3, n0, _GMWR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMigrationWorkflowResponse$: StaticStructureSchema = [3, n0, _GMWRe,
   0,
@@ -344,7 +344,7 @@ export var GetMigrationWorkflowResponse$: StaticStructureSchema = [3, n0, _GMWRe
 export var GetMigrationWorkflowTemplateRequest$: StaticStructureSchema = [3, n0, _GMWTR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetMigrationWorkflowTemplateResponse$: StaticStructureSchema = [3, n0, _GMWTRe,
   0,
@@ -354,7 +354,7 @@ export var GetMigrationWorkflowTemplateResponse$: StaticStructureSchema = [3, n0
 export var GetTemplateStepGroupRequest$: StaticStructureSchema = [3, n0, _GTSGR,
   0,
   [_tI, _i],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetTemplateStepGroupResponse$: StaticStructureSchema = [3, n0, _GTSGRe,
   0,
@@ -364,7 +364,7 @@ export var GetTemplateStepGroupResponse$: StaticStructureSchema = [3, n0, _GTSGR
 export var GetTemplateStepRequest$: StaticStructureSchema = [3, n0, _GTSR,
   0,
   [_i, _tI, _sGI],
-  [[0, 1], [0, { [_hQ]: _tI }], [0, { [_hQ]: _sGI }]]
+  [[0, 1], [0, { [_hQ]: _tI }], [0, { [_hQ]: _sGI }]], 3
 ];
 export var GetTemplateStepResponse$: StaticStructureSchema = [3, n0, _GTSRe,
   0,
@@ -374,7 +374,7 @@ export var GetTemplateStepResponse$: StaticStructureSchema = [3, n0, _GTSRe,
 export var GetWorkflowStepGroupRequest$: StaticStructureSchema = [3, n0, _GWSGR,
   0,
   [_i, _wIo],
-  [[0, 1], [0, { [_hQ]: _wIo }]]
+  [[0, 1], [0, { [_hQ]: _wIo }]], 2
 ];
 export var GetWorkflowStepGroupResponse$: StaticStructureSchema = [3, n0, _GWSGRe,
   0,
@@ -384,7 +384,7 @@ export var GetWorkflowStepGroupResponse$: StaticStructureSchema = [3, n0, _GWSGR
 export var GetWorkflowStepRequest$: StaticStructureSchema = [3, n0, _GWSR,
   0,
   [_wIo, _sGI, _i],
-  [[0, { [_hQ]: _wIo }], [0, { [_hQ]: _sGI }], [0, 1]]
+  [[0, { [_hQ]: _wIo }], [0, { [_hQ]: _sGI }], [0, 1]], 3
 ];
 export var GetWorkflowStepResponse$: StaticStructureSchema = [3, n0, _GWSRe,
   0,
@@ -394,7 +394,7 @@ export var GetWorkflowStepResponse$: StaticStructureSchema = [3, n0, _GWSRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListMigrationWorkflowsRequest$: StaticStructureSchema = [3, n0, _LMWR,
@@ -404,8 +404,8 @@ export var ListMigrationWorkflowsRequest$: StaticStructureSchema = [3, n0, _LMWR
 ];
 export var ListMigrationWorkflowsResponse$: StaticStructureSchema = [3, n0, _LMWRi,
   0,
-  [_nT, _mWS],
-  [0, () => MigrationWorkflowSummaryList]
+  [_mWS, _nT],
+  [() => MigrationWorkflowSummaryList, 0], 1
 ];
 export var ListMigrationWorkflowTemplatesRequest$: StaticStructureSchema = [3, n0, _LMWTR,
   0,
@@ -414,8 +414,8 @@ export var ListMigrationWorkflowTemplatesRequest$: StaticStructureSchema = [3, n
 ];
 export var ListMigrationWorkflowTemplatesResponse$: StaticStructureSchema = [3, n0, _LMWTRi,
   0,
-  [_nT, _tSe],
-  [0, () => TemplateSummaryList]
+  [_tSe, _nT],
+  [() => TemplateSummaryList, 0], 1
 ];
 export var ListPluginsRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
@@ -430,7 +430,7 @@ export var ListPluginsResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -439,18 +439,18 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListTemplateStepGroupsRequest$: StaticStructureSchema = [3, n0, _LTSGR,
   0,
-  [_mR, _nT, _tI],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, 1]]
+  [_tI, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListTemplateStepGroupsResponse$: StaticStructureSchema = [3, n0, _LTSGRi,
   0,
-  [_nT, _tSGS],
-  [0, () => TemplateStepGroupSummaryList]
+  [_tSGS, _nT],
+  [() => TemplateStepGroupSummaryList, 0], 1
 ];
 export var ListTemplateStepsRequest$: StaticStructureSchema = [3, n0, _LTSR,
   0,
-  [_mR, _nT, _tI, _sGI],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _tI }], [0, { [_hQ]: _sGI }]]
+  [_tI, _sGI, _mR, _nT],
+  [[0, { [_hQ]: _tI }], [0, { [_hQ]: _sGI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListTemplateStepsResponse$: StaticStructureSchema = [3, n0, _LTSRi,
   0,
@@ -459,23 +459,23 @@ export var ListTemplateStepsResponse$: StaticStructureSchema = [3, n0, _LTSRi,
 ];
 export var ListWorkflowStepGroupsRequest$: StaticStructureSchema = [3, n0, _LWSGR,
   0,
-  [_nT, _mR, _wIo],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _wIo }]]
+  [_wIo, _nT, _mR],
+  [[0, { [_hQ]: _wIo }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListWorkflowStepGroupsResponse$: StaticStructureSchema = [3, n0, _LWSGRi,
   0,
-  [_nT, _wSGS],
-  [0, () => WorkflowStepGroupsSummaryList]
+  [_wSGS, _nT],
+  [() => WorkflowStepGroupsSummaryList, 0], 1
 ];
 export var ListWorkflowStepsRequest$: StaticStructureSchema = [3, n0, _LWSR,
   0,
-  [_nT, _mR, _wIo, _sGI],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, 1], [0, 1]]
+  [_wIo, _sGI, _nT, _mR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListWorkflowStepsResponse$: StaticStructureSchema = [3, n0, _LWSRi,
   0,
-  [_nT, _wSS],
-  [0, () => WorkflowStepsSummaryList]
+  [_wSS, _nT],
+  [() => WorkflowStepsSummaryList, 0], 1
 ];
 export var MigrationWorkflowSummary$: StaticStructureSchema = [3, n0, _MWS,
   0,
@@ -500,13 +500,13 @@ export var PluginSummary$: StaticStructureSchema = [3, n0, _PS,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetryWorkflowStepRequest$: StaticStructureSchema = [3, n0, _RWSR,
   0,
   [_wIo, _sGI, _i],
-  [[0, { [_hQ]: _wIo }], [0, { [_hQ]: _sGI }], [0, 1]]
+  [[0, { [_hQ]: _wIo }], [0, { [_hQ]: _sGI }], [0, 1]], 3
 ];
 export var RetryWorkflowStepResponse$: StaticStructureSchema = [3, n0, _RWSRe,
   0,
@@ -516,7 +516,7 @@ export var RetryWorkflowStepResponse$: StaticStructureSchema = [3, n0, _RWSRe,
 export var StartMigrationWorkflowRequest$: StaticStructureSchema = [3, n0, _SMWR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StartMigrationWorkflowResponse$: StaticStructureSchema = [3, n0, _SMWRt,
   0,
@@ -536,7 +536,7 @@ export var StepOutput$: StaticStructureSchema = [3, n0, _SO,
 export var StopMigrationWorkflowRequest$: StaticStructureSchema = [3, n0, _SMWRto,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StopMigrationWorkflowResponse$: StaticStructureSchema = [3, n0, _SMWRtop,
   0,
@@ -546,7 +546,7 @@ export var StopMigrationWorkflowResponse$: StaticStructureSchema = [3, n0, _SMWR
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -576,7 +576,7 @@ export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Tool$: StaticStructureSchema = [3, n0, _T,
@@ -587,7 +587,7 @@ export var Tool$: StaticStructureSchema = [3, n0, _T,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -597,7 +597,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateMigrationWorkflowRequest$: StaticStructureSchema = [3, n0, _UMWR,
   0,
   [_i, _n, _d, _iP, _sT],
-  [[0, 1], 0, 0, [() => StepInputParameters, 0], 64 | 0]
+  [[0, 1], 0, 0, [() => StepInputParameters, 0], 64 | 0], 1
 ];
 export var UpdateMigrationWorkflowResponse$: StaticStructureSchema = [3, n0, _UMWRp,
   0,
@@ -607,7 +607,7 @@ export var UpdateMigrationWorkflowResponse$: StaticStructureSchema = [3, n0, _UM
 export var UpdateTemplateRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
   [_i, _tN, _tD, _cTl],
-  [[0, 1], 0, 0, [0, 4]]
+  [[0, 1], 0, 0, [0, 4]], 1
 ];
 export var UpdateTemplateResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
@@ -617,7 +617,7 @@ export var UpdateTemplateResponse$: StaticStructureSchema = [3, n0, _UTRp,
 export var UpdateWorkflowStepGroupRequest$: StaticStructureSchema = [3, n0, _UWSGR,
   0,
   [_wIo, _i, _n, _d, _ne, _p],
-  [[0, { [_hQ]: _wIo }], [0, 1], 0, 0, 64 | 0, 64 | 0]
+  [[0, { [_hQ]: _wIo }], [0, 1], 0, 0, 64 | 0, 64 | 0], 2
 ];
 export var UpdateWorkflowStepGroupResponse$: StaticStructureSchema = [3, n0, _UWSGRp,
   0,
@@ -627,7 +627,7 @@ export var UpdateWorkflowStepGroupResponse$: StaticStructureSchema = [3, n0, _UW
 export var UpdateWorkflowStepRequest$: StaticStructureSchema = [3, n0, _UWSR,
   0,
   [_i, _sGI, _wIo, _n, _d, _sAT, _wSAC, _sTt, _o, _p, _ne, _s],
-  [[0, 1], 0, 0, 0, 0, 0, () => WorkflowStepAutomationConfiguration$, 64 | 0, () => WorkflowStepOutputList, 64 | 0, 64 | 0, 0]
+  [[0, 1], 0, 0, 0, 0, 0, () => WorkflowStepAutomationConfiguration$, 64 | 0, () => WorkflowStepOutputList, 64 | 0, 64 | 0, 0], 3
 ];
 export var UpdateWorkflowStepResponse$: StaticStructureSchema = [3, n0, _UWSRp,
   0,
@@ -637,7 +637,7 @@ export var UpdateWorkflowStepResponse$: StaticStructureSchema = [3, n0, _UWSRp,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WorkflowStepAutomationConfiguration$: StaticStructureSchema = [3, n0, _WSAC,

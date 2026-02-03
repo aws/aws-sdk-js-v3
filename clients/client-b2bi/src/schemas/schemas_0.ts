@@ -316,7 +316,7 @@ var Phone: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AdvancedOptions$: StaticStructureSchema = [3, n0, _AO,
@@ -332,158 +332,158 @@ export var CapabilityOptions$: StaticStructureSchema = [3, n0, _CO,
 export var CapabilitySummary$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_cI, _n, _t, _cA, _mA],
-  [0, 0, 0, 5, 5]
+  [0, 0, 0, 5, 5], 4
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConversionSource$: StaticStructureSchema = [3, n0, _CSo,
   0,
   [_fF, _iF],
-  [0, () => InputFileSource$]
+  [0, () => InputFileSource$], 2
 ];
 export var ConversionTarget$: StaticStructureSchema = [3, n0, _CT,
   0,
   [_fF, _fD, _oSF, _aO],
-  [0, () => ConversionTargetFormatDetails$, () => OutputSampleFileSource$, () => AdvancedOptions$]
+  [0, () => ConversionTargetFormatDetails$, () => OutputSampleFileSource$, () => AdvancedOptions$], 1
 ];
 export var CreateCapabilityRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_n, _t, _co, _iD, _cT, _ta],
-  [0, 0, () => CapabilityConfiguration$, () => InstructionsDocuments, [0, 4], () => TagList]
+  [0, 0, () => CapabilityConfiguration$, () => InstructionsDocuments, [0, 4], () => TagList], 3
 ];
 export var CreateCapabilityResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_cI, _cAa, _n, _t, _co, _iD, _cA],
-  [0, 0, 0, 0, () => CapabilityConfiguration$, () => InstructionsDocuments, 5]
+  [_cI, _cAa, _n, _t, _co, _cA, _iD],
+  [0, 0, 0, 0, () => CapabilityConfiguration$, 5, () => InstructionsDocuments], 6
 ];
 export var CreatePartnershipRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_pI, _n, _em, _p, _ca, _cO, _cT, _ta],
-  [0, 0, [() => Email, 0], [() => Phone, 0], 64 | 0, () => CapabilityOptions$, [0, 4], () => TagList]
+  [_pI, _n, _em, _ca, _p, _cO, _cT, _ta],
+  [0, 0, [() => Email, 0], 64 | 0, [() => Phone, 0], () => CapabilityOptions$, [0, 4], () => TagList], 4
 ];
 export var CreatePartnershipResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_pI, _pIa, _pA, _n, _em, _p, _ca, _cO, _tPI, _cA],
-  [0, 0, 0, 0, [() => Email, 0], [() => Phone, 0], 64 | 0, () => CapabilityOptions$, 0, 5]
+  [_pI, _pIa, _pA, _cA, _n, _em, _p, _ca, _cO, _tPI],
+  [0, 0, 0, 5, 0, [() => Email, 0], [() => Phone, 0], 64 | 0, () => CapabilityOptions$, 0], 4
 ];
 export var CreateProfileRequest$: StaticStructureSchema = [3, n0, _CPRre,
   0,
-  [_n, _em, _p, _bN, _l, _cT, _ta],
-  [0, [() => Email, 0], [() => Phone, 0], 0, 0, [0, 4], () => TagList]
+  [_n, _p, _bN, _l, _em, _cT, _ta],
+  [0, [() => Phone, 0], 0, 0, [() => Email, 0], [0, 4], () => TagList], 4
 ];
 export var CreateProfileResponse$: StaticStructureSchema = [3, n0, _CPRrea,
   0,
-  [_pI, _pAr, _n, _bN, _p, _em, _l, _lGN, _cA],
-  [0, 0, 0, 0, [() => Phone, 0], [() => Email, 0], 0, 0, 5]
+  [_pI, _pAr, _n, _bN, _p, _cA, _em, _l, _lGN],
+  [0, 0, 0, 0, [() => Phone, 0], 5, [() => Email, 0], 0, 0], 6
 ];
 export var CreateStarterMappingTemplateRequest$: StaticStructureSchema = [3, n0, _CSMTR,
   0,
-  [_oSL, _mT, _tD],
-  [() => S3Location$, 0, () => TemplateDetails$]
+  [_mT, _tD, _oSL],
+  [0, () => TemplateDetails$, () => S3Location$], 2
 ];
 export var CreateStarterMappingTemplateResponse$: StaticStructureSchema = [3, n0, _CSMTRr,
   0,
   [_mTa],
-  [0]
+  [0], 1
 ];
 export var CreateTransformerRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_n, _cT, _ta, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
-  [0, [0, 4], () => TagList, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$]
+  [0, [0, 4], () => TagList, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$], 1
 ];
 export var CreateTransformerResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
   [_tI, _tA, _n, _s, _cA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
-  [0, 0, 0, 0, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$]
+  [0, 0, 0, 0, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$], 5
 ];
 export var DeleteCapabilityRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeletePartnershipRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_pIa],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteProfileRequest$: StaticStructureSchema = [3, n0, _DPRe,
   0,
   [_pI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteTransformerRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_tI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var EdiConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
-  [_cD, _t, _iL, _oL, _tI],
-  [0, () => EdiType$, () => S3Location$, () => S3Location$, 0]
+  [_t, _iL, _oL, _tI, _cD],
+  [() => EdiType$, () => S3Location$, () => S3Location$, 0, 0], 4
 ];
 export var GenerateMappingRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
   [_iFC, _oFC, _mT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GenerateMappingResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
   [_mTa, _mAa],
-  [0, 1]
+  [0, 1], 1
 ];
 export var GetCapabilityRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_cI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCapabilityResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
-  [_cI, _cAa, _n, _t, _co, _iD, _cA, _mA],
-  [0, 0, 0, 0, () => CapabilityConfiguration$, () => InstructionsDocuments, 5, 5]
+  [_cI, _cAa, _n, _t, _co, _cA, _iD, _mA],
+  [0, 0, 0, 0, () => CapabilityConfiguration$, 5, () => InstructionsDocuments, 5], 6
 ];
 export var GetPartnershipRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_pIa],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPartnershipResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
-  [_pI, _pIa, _pA, _n, _em, _p, _ca, _cO, _tPI, _cA, _mA],
-  [0, 0, 0, 0, [() => Email, 0], [() => Phone, 0], 64 | 0, () => CapabilityOptions$, 0, 5, 5]
+  [_pI, _pIa, _pA, _cA, _n, _em, _p, _ca, _cO, _tPI, _mA],
+  [0, 0, 0, 5, 0, [() => Email, 0], [() => Phone, 0], 64 | 0, () => CapabilityOptions$, 0, 5], 4
 ];
 export var GetProfileRequest$: StaticStructureSchema = [3, n0, _GPRet,
   0,
   [_pI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetProfileResponse$: StaticStructureSchema = [3, n0, _GPRetr,
   0,
-  [_pI, _pAr, _n, _em, _p, _bN, _l, _lGN, _cA, _mA],
-  [0, 0, 0, [() => Email, 0], [() => Phone, 0], 0, 0, 0, 5, 5]
+  [_pI, _pAr, _n, _p, _bN, _cA, _em, _l, _lGN, _mA],
+  [0, 0, 0, [() => Phone, 0], 0, 5, [() => Email, 0], 0, 0, 5], 6
 ];
 export var GetTransformerJobRequest$: StaticStructureSchema = [3, n0, _GTJR,
   0,
   [_tJI, _tI],
-  [[0, 1], [0, { [_hQ]: _tI }]]
+  [[0, 1], [0, { [_hQ]: _tI }]], 2
 ];
 export var GetTransformerJobResponse$: StaticStructureSchema = [3, n0, _GTJRe,
   0,
   [_s, _oF, _m],
-  [0, () => S3LocationList, 0]
+  [0, () => S3LocationList, 0], 1
 ];
 export var GetTransformerRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_tI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetTransformerResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
   [_tI, _tA, _n, _s, _cA, _mA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
-  [0, 0, 0, 0, 5, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$]
+  [0, 0, 0, 0, 5, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$], 5
 ];
 export var InboundEdiOptions$: StaticStructureSchema = [3, n0, _IEO,
   0,
@@ -493,12 +493,12 @@ export var InboundEdiOptions$: StaticStructureSchema = [3, n0, _IEO,
 export var InputConversion$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_fFr, _fO, _aO],
-  [0, () => FormatOptions$, () => AdvancedOptions$]
+  [0, () => FormatOptions$, () => AdvancedOptions$], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListCapabilitiesRequest$: StaticStructureSchema = [3, n0, _LCR,
@@ -509,7 +509,7 @@ export var ListCapabilitiesRequest$: StaticStructureSchema = [3, n0, _LCR,
 export var ListCapabilitiesResponse$: StaticStructureSchema = [3, n0, _LCRi,
   0,
   [_ca, _nT],
-  [() => CapabilityList, 0]
+  [() => CapabilityList, 0], 1
 ];
 export var ListPartnershipsRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
@@ -519,7 +519,7 @@ export var ListPartnershipsRequest$: StaticStructureSchema = [3, n0, _LPR,
 export var ListPartnershipsResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
   [_pa, _nT],
-  [() => PartnershipList, 0]
+  [() => PartnershipList, 0], 1
 ];
 export var ListProfilesRequest$: StaticStructureSchema = [3, n0, _LPRis,
   0,
@@ -529,12 +529,12 @@ export var ListProfilesRequest$: StaticStructureSchema = [3, n0, _LPRis,
 export var ListProfilesResponse$: StaticStructureSchema = [3, n0, _LPRist,
   0,
   [_pr, _nT],
-  [() => ProfileList, 0]
+  [() => ProfileList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -549,32 +549,32 @@ export var ListTransformersRequest$: StaticStructureSchema = [3, n0, _LTR,
 export var ListTransformersResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
   [_tr, _nT],
-  [() => TransformerList, 0]
+  [() => TransformerList, 0], 1
 ];
 export var Mapping$: StaticStructureSchema = [3, n0, _M,
   0,
   [_tL, _te],
-  [0, 0]
+  [0, 0], 1
 ];
 export var OutputConversion$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_tF, _fO, _aO],
-  [0, () => FormatOptions$, () => AdvancedOptions$]
+  [0, () => FormatOptions$, () => AdvancedOptions$], 1
 ];
 export var PartnershipSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
-  [_pI, _pIa, _n, _ca, _cO, _tPI, _cA, _mA],
-  [0, 0, 0, 64 | 0, () => CapabilityOptions$, 0, 5, 5]
+  [_pI, _pIa, _cA, _n, _ca, _cO, _tPI, _mA],
+  [0, 0, 5, 0, 64 | 0, () => CapabilityOptions$, 0, 5], 3
 ];
 export var ProfileSummary$: StaticStructureSchema = [3, n0, _PSr,
   0,
-  [_pI, _n, _bN, _l, _lGN, _cA, _mA],
-  [0, 0, 0, 0, 0, 5, 5]
+  [_pI, _n, _bN, _cA, _l, _lGN, _mA],
+  [0, 0, 0, 5, 0, 0, 5], 4
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
@@ -590,135 +590,135 @@ export var SampleDocumentKeys$: StaticStructureSchema = [3, n0, _SDK,
 export var SampleDocuments$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_bNu, _ke],
-  [0, () => KeyList]
+  [0, () => KeyList], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartTransformerJobRequest$: StaticStructureSchema = [3, n0, _STJR,
   0,
   [_iF, _oL, _tI, _cT],
-  [() => S3Location$, () => S3Location$, 0, [0, 4]]
+  [() => S3Location$, () => S3Location$, 0, [0, 4]], 3
 ];
 export var StartTransformerJobResponse$: StaticStructureSchema = [3, n0, _STJRt,
   0,
   [_tJI],
-  [0]
+  [0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [[0, 1], () => TagList]
+  [[0, 1], () => TagList], 2
 ];
 export var TestConversionRequest$: StaticStructureSchema = [3, n0, _TCR,
   0,
   [_so, _tar],
-  [() => ConversionSource$, () => ConversionTarget$]
+  [() => ConversionSource$, () => ConversionTarget$], 2
 ];
 export var TestConversionResponse$: StaticStructureSchema = [3, n0, _TCRe,
   0,
   [_cFC, _vM],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var TestMappingRequest$: StaticStructureSchema = [3, n0, _TMR,
   0,
   [_iFC, _mTa, _fF],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var TestMappingResponse$: StaticStructureSchema = [3, n0, _TMRe,
   0,
   [_mFC],
-  [0]
+  [0], 1
 ];
 export var TestParsingRequest$: StaticStructureSchema = [3, n0, _TPR,
   0,
   [_iF, _fF, _eT, _aO],
-  [() => S3Location$, 0, () => EdiType$, () => AdvancedOptions$]
+  [() => S3Location$, 0, () => EdiType$, () => AdvancedOptions$], 3
 ];
 export var TestParsingResponse$: StaticStructureSchema = [3, n0, _TPRe,
   0,
   [_pFC, _pSFC, _vM],
-  [0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TransformerSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_tI, _n, _s, _cA, _mA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
-  [0, 0, 0, 5, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$]
+  [0, 0, 0, 5, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$], 4
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _TK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _TK }]], 2
 ];
 export var UpdateCapabilityRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_cI, _n, _co, _iD],
-  [[0, 1], 0, () => CapabilityConfiguration$, () => InstructionsDocuments]
+  [[0, 1], 0, () => CapabilityConfiguration$, () => InstructionsDocuments], 1
 ];
 export var UpdateCapabilityResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
-  [_cI, _cAa, _n, _t, _co, _iD, _cA, _mA],
-  [0, 0, 0, 0, () => CapabilityConfiguration$, () => InstructionsDocuments, 5, 5]
+  [_cI, _cAa, _n, _t, _co, _cA, _iD, _mA],
+  [0, 0, 0, 0, () => CapabilityConfiguration$, 5, () => InstructionsDocuments, 5], 6
 ];
 export var UpdatePartnershipRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_pIa, _n, _ca, _cO],
-  [[0, 1], 0, 64 | 0, () => CapabilityOptions$]
+  [[0, 1], 0, 64 | 0, () => CapabilityOptions$], 1
 ];
 export var UpdatePartnershipResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
-  [_pI, _pIa, _pA, _n, _em, _p, _ca, _cO, _tPI, _cA, _mA],
-  [0, 0, 0, 0, [() => Email, 0], [() => Phone, 0], 64 | 0, () => CapabilityOptions$, 0, 5, 5]
+  [_pI, _pIa, _pA, _cA, _n, _em, _p, _ca, _cO, _tPI, _mA],
+  [0, 0, 0, 5, 0, [() => Email, 0], [() => Phone, 0], 64 | 0, () => CapabilityOptions$, 0, 5], 4
 ];
 export var UpdateProfileRequest$: StaticStructureSchema = [3, n0, _UPRpd,
   0,
   [_pI, _n, _em, _p, _bN],
-  [[0, 1], 0, [() => Email, 0], [() => Phone, 0], 0]
+  [[0, 1], 0, [() => Email, 0], [() => Phone, 0], 0], 1
 ];
 export var UpdateProfileResponse$: StaticStructureSchema = [3, n0, _UPRpda,
   0,
-  [_pI, _pAr, _n, _em, _p, _bN, _l, _lGN, _cA, _mA],
-  [0, 0, 0, [() => Email, 0], [() => Phone, 0], 0, 0, 0, 5, 5]
+  [_pI, _pAr, _n, _p, _bN, _cA, _em, _l, _lGN, _mA],
+  [0, 0, 0, [() => Phone, 0], 0, 5, [() => Email, 0], 0, 0, 5], 6
 ];
 export var UpdateTransformerRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
   [_tI, _n, _s, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
-  [[0, 1], 0, 0, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$]
+  [[0, 1], 0, 0, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$], 1
 ];
 export var UpdateTransformerResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
   [_tI, _tA, _n, _s, _cA, _mA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
-  [0, 0, 0, 0, 5, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$]
+  [0, 0, 0, 0, 5, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$], 6
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_Me],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WrapOptions$: StaticStructureSchema = [3, n0, _WO,
   0,
   [_wB, _lT, _lL],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var X12AcknowledgmentOptions$: StaticStructureSchema = [3, n0, _XAO,
   0,
   [_fA, _tAe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var X12AdvancedOptions$: StaticStructureSchema = [3, n0, _XAOd,
   0,
@@ -728,7 +728,7 @@ export var X12AdvancedOptions$: StaticStructureSchema = [3, n0, _XAOd,
 export var X12CodeListValidationRule$: StaticStructureSchema = [3, n0, _XCLVR,
   0,
   [_eI, _cTA, _cTR],
-  [0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0], 1
 ];
 export var X12ControlNumbers$: StaticStructureSchema = [3, n0, _XCN,
   0,
@@ -748,12 +748,12 @@ export var X12Details$: StaticStructureSchema = [3, n0, _XDe,
 export var X12ElementLengthValidationRule$: StaticStructureSchema = [3, n0, _XELVR,
   0,
   [_eI, _mL, _mLi],
-  [0, 1, 1]
+  [0, 1, 1], 3
 ];
 export var X12ElementRequirementValidationRule$: StaticStructureSchema = [3, n0, _XERVR,
   0,
   [_eP, _r],
-  [0, 0]
+  [0, 0], 2
 ];
 export var X12Envelope$: StaticStructureSchema = [3, n0, _XE,
   0,
@@ -783,7 +783,7 @@ export var X12OutboundEdiHeaders$: StaticStructureSchema = [3, n0, _XOEH,
 export var X12SplitOptions$: StaticStructureSchema = [3, n0, _XSO,
   0,
   [_sB],
-  [0]
+  [0], 1
 ];
 export var X12ValidationOptions$: StaticStructureSchema = [3, n0, _XVO,
   0,

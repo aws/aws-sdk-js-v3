@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BillingClient } from "./BillingClient";
 import {
@@ -59,6 +59,8 @@ import {
   UpdateBillingViewCommandInput,
   UpdateBillingViewCommandOutput,
 } from "./commands/UpdateBillingViewCommand";
+import { paginateListBillingViews } from "./pagination/ListBillingViewsPaginator";
+import { paginateListSourceViewsForBillingView } from "./pagination/ListSourceViewsForBillingViewPaginator";
 
 const commands = {
   AssociateSourceViewsCommand,
@@ -73,6 +75,10 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateBillingViewCommand,
+};
+const paginators = {
+  paginateListBillingViews,
+  paginateListSourceViewsForBillingView,
 };
 
 export interface Billing {
@@ -280,6 +286,28 @@ export interface Billing {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateBillingViewCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBillingViewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBillingViewsCommandOutput}.
+   */
+  paginateListBillingViews(
+    args?: ListBillingViewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBillingViewsCommandOutput>;
+
+  /**
+   * @see {@link ListSourceViewsForBillingViewCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSourceViewsForBillingViewCommandOutput}.
+   */
+  paginateListSourceViewsForBillingView(
+    args: ListSourceViewsForBillingViewCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSourceViewsForBillingViewCommandOutput>;
 }
 
 /**
@@ -287,4 +315,4 @@ export interface Billing {
  * @public
  */
 export class Billing extends BillingClient implements Billing {}
-createAggregatedClient(commands, Billing);
+createAggregatedClient(commands, Billing, { paginators });

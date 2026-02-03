@@ -751,8 +751,22 @@ export type ContentQualityAnalysisState =
  * @public
  * @enum
  */
+export const EncodingProfile = {
+  CONTRIBUTION_H264_DEFAULT: "CONTRIBUTION_H264_DEFAULT",
+  DISTRIBUTION_H264_DEFAULT: "DISTRIBUTION_H264_DEFAULT",
+} as const;
+/**
+ * @public
+ */
+export type EncodingProfile = (typeof EncodingProfile)[keyof typeof EncodingProfile];
+
+/**
+ * @public
+ * @enum
+ */
 export const FlowSize = {
   LARGE: "LARGE",
+  LARGE_4X: "LARGE_4X",
   MEDIUM: "MEDIUM",
 } as const;
 /**

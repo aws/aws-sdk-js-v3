@@ -383,7 +383,7 @@ import {
 export var AcceptDirectConnectGatewayAssociationProposalRequest$: StaticStructureSchema = [3, n0, _ADCGAPR,
   0,
   [_dCGI, _pI, _aGOA, _oAPTDCG],
-  [0, 0, 0, () => RouteFilterPrefixList]
+  [0, 0, 0, () => RouteFilterPrefixList], 3
 ];
 export var AcceptDirectConnectGatewayAssociationProposalResult$: StaticStructureSchema = [3, n0, _ADCGAPRc,
   0,
@@ -393,27 +393,27 @@ export var AcceptDirectConnectGatewayAssociationProposalResult$: StaticStructure
 export var AllocateConnectionOnInterconnectRequest$: StaticStructureSchema = [3, n0, _ACOIR,
   0,
   [_b, _cN, _oA, _iI, _v],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 5
 ];
 export var AllocateHostedConnectionRequest$: StaticStructureSchema = [3, n0, _AHCR,
   0,
   [_cI, _oA, _b, _cN, _v, _t],
-  [0, 0, 0, 0, 1, () => TagList]
+  [0, 0, 0, 0, 1, () => TagList], 5
 ];
 export var AllocatePrivateVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _APVIR,
   0,
   [_cI, _oA, _nPVIA],
-  [0, 0, () => NewPrivateVirtualInterfaceAllocation$]
+  [0, 0, () => NewPrivateVirtualInterfaceAllocation$], 3
 ];
 export var AllocatePublicVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _APVIRl,
   0,
   [_cI, _oA, _nPVIAe],
-  [0, 0, () => NewPublicVirtualInterfaceAllocation$]
+  [0, 0, () => NewPublicVirtualInterfaceAllocation$], 3
 ];
 export var AllocateTransitVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _ATVIR,
   0,
   [_cI, _oA, _nTVIA],
-  [0, 0, () => NewTransitVirtualInterfaceAllocation$]
+  [0, 0, () => NewTransitVirtualInterfaceAllocation$], 3
 ];
 export var AllocateTransitVirtualInterfaceResult$: StaticStructureSchema = [3, n0, _ATVIRl,
   0,
@@ -423,7 +423,7 @@ export var AllocateTransitVirtualInterfaceResult$: StaticStructureSchema = [3, n
 export var AssociateConnectionWithLagRequest$: StaticStructureSchema = [3, n0, _ACWLR,
   0,
   [_cI, _lI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociatedCoreNetwork$: StaticStructureSchema = [3, n0, _ACN,
   0,
@@ -438,12 +438,12 @@ export var AssociatedGateway$: StaticStructureSchema = [3, n0, _AG,
 export var AssociateHostedConnectionRequest$: StaticStructureSchema = [3, n0, _AHCRs,
   0,
   [_cI, _pCI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateMacSecKeyRequest$: StaticStructureSchema = [3, n0, _AMSKR,
   0,
   [_cI, _sARN, _c, _ca],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var AssociateMacSecKeyResponse$: StaticStructureSchema = [3, n0, _AMSKRs,
   0,
@@ -453,7 +453,7 @@ export var AssociateMacSecKeyResponse$: StaticStructureSchema = [3, n0, _AMSKRs,
 export var AssociateVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _AVIR,
   0,
   [_vII, _cI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BGPPeer$: StaticStructureSchema = [3, n0, _BGPP,
   0,
@@ -463,7 +463,7 @@ export var BGPPeer$: StaticStructureSchema = [3, n0, _BGPP,
 export var ConfirmConnectionRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_cI],
-  [0]
+  [0], 1
 ];
 export var ConfirmConnectionResponse$: StaticStructureSchema = [3, n0, _CCRo,
   0,
@@ -483,7 +483,7 @@ export var ConfirmCustomerAgreementResponse$: StaticStructureSchema = [3, n0, _C
 export var ConfirmPrivateVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _CPVIR,
   0,
   [_vII, _vGI, _dCGI],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ConfirmPrivateVirtualInterfaceResponse$: StaticStructureSchema = [3, n0, _CPVIRo,
   0,
@@ -493,7 +493,7 @@ export var ConfirmPrivateVirtualInterfaceResponse$: StaticStructureSchema = [3, 
 export var ConfirmPublicVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _CPVIRon,
   0,
   [_vII],
-  [0]
+  [0], 1
 ];
 export var ConfirmPublicVirtualInterfaceResponse$: StaticStructureSchema = [3, n0, _CPVIRonf,
   0,
@@ -503,7 +503,7 @@ export var ConfirmPublicVirtualInterfaceResponse$: StaticStructureSchema = [3, n
 export var ConfirmTransitVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _CTVIR,
   0,
   [_vII, _dCGI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ConfirmTransitVirtualInterfaceResponse$: StaticStructureSchema = [3, n0, _CTVIRo,
   0,
@@ -533,12 +533,12 @@ export var CreateBGPPeerResponse$: StaticStructureSchema = [3, n0, _CBGPPRr,
 export var CreateConnectionRequest$: StaticStructureSchema = [3, n0, _CCRr,
   0,
   [_l, _b, _cN, _lI, _t, _pNr, _rMACS],
-  [0, 0, 0, 0, () => TagList, 0, 2]
+  [0, 0, 0, 0, () => TagList, 0, 2], 3
 ];
 export var CreateDirectConnectGatewayAssociationProposalRequest$: StaticStructureSchema = [3, n0, _CDCGAPR,
   0,
   [_dCGI, _dCGOA, _gI, _aAPTDCG, _rAPTDCG],
-  [0, 0, 0, () => RouteFilterPrefixList, () => RouteFilterPrefixList]
+  [0, 0, 0, () => RouteFilterPrefixList, () => RouteFilterPrefixList], 3
 ];
 export var CreateDirectConnectGatewayAssociationProposalResult$: StaticStructureSchema = [3, n0, _CDCGAPRr,
   0,
@@ -548,7 +548,7 @@ export var CreateDirectConnectGatewayAssociationProposalResult$: StaticStructure
 export var CreateDirectConnectGatewayAssociationRequest$: StaticStructureSchema = [3, n0, _CDCGAR,
   0,
   [_dCGI, _gI, _aAPTDCG, _vGI],
-  [0, 0, () => RouteFilterPrefixList, 0]
+  [0, 0, () => RouteFilterPrefixList, 0], 1
 ];
 export var CreateDirectConnectGatewayAssociationResult$: StaticStructureSchema = [3, n0, _CDCGARr,
   0,
@@ -558,7 +558,7 @@ export var CreateDirectConnectGatewayAssociationResult$: StaticStructureSchema =
 export var CreateDirectConnectGatewayRequest$: StaticStructureSchema = [3, n0, _CDCGR,
   0,
   [_dCGN, _t, _aSA],
-  [0, () => TagList, 1]
+  [0, () => TagList, 1], 1
 ];
 export var CreateDirectConnectGatewayResult$: StaticStructureSchema = [3, n0, _CDCGRr,
   0,
@@ -568,27 +568,27 @@ export var CreateDirectConnectGatewayResult$: StaticStructureSchema = [3, n0, _C
 export var CreateInterconnectRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_iN, _b, _l, _lI, _t, _pNr, _rMACS],
-  [0, 0, 0, 0, () => TagList, 0, 2]
+  [0, 0, 0, 0, () => TagList, 0, 2], 3
 ];
 export var CreateLagRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
   [_nOC, _l, _cB, _lN, _cI, _t, _cCT, _pNr, _rMACS],
-  [1, 0, 0, 0, 0, () => TagList, () => TagList, 0, 2]
+  [1, 0, 0, 0, 0, () => TagList, () => TagList, 0, 2], 4
 ];
 export var CreatePrivateVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _CPVIRr,
   0,
   [_cI, _nPVI],
-  [0, () => NewPrivateVirtualInterface$]
+  [0, () => NewPrivateVirtualInterface$], 2
 ];
 export var CreatePublicVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _CPVIRre,
   0,
   [_cI, _nPVIe],
-  [0, () => NewPublicVirtualInterface$]
+  [0, () => NewPublicVirtualInterface$], 2
 ];
 export var CreateTransitVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _CTVIRr,
   0,
   [_cI, _nTVI],
-  [0, () => NewTransitVirtualInterface$]
+  [0, () => NewTransitVirtualInterface$], 2
 ];
 export var CreateTransitVirtualInterfaceResult$: StaticStructureSchema = [3, n0, _CTVIRre,
   0,
@@ -613,12 +613,12 @@ export var DeleteBGPPeerResponse$: StaticStructureSchema = [3, n0, _DBGPPRe,
 export var DeleteConnectionRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cI],
-  [0]
+  [0], 1
 ];
 export var DeleteDirectConnectGatewayAssociationProposalRequest$: StaticStructureSchema = [3, n0, _DDCGAPR,
   0,
   [_pI],
-  [0]
+  [0], 1
 ];
 export var DeleteDirectConnectGatewayAssociationProposalResult$: StaticStructureSchema = [3, n0, _DDCGAPRe,
   0,
@@ -638,7 +638,7 @@ export var DeleteDirectConnectGatewayAssociationResult$: StaticStructureSchema =
 export var DeleteDirectConnectGatewayRequest$: StaticStructureSchema = [3, n0, _DDCGR,
   0,
   [_dCGI],
-  [0]
+  [0], 1
 ];
 export var DeleteDirectConnectGatewayResult$: StaticStructureSchema = [3, n0, _DDCGRe,
   0,
@@ -648,7 +648,7 @@ export var DeleteDirectConnectGatewayResult$: StaticStructureSchema = [3, n0, _D
 export var DeleteInterconnectRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_iI],
-  [0]
+  [0], 1
 ];
 export var DeleteInterconnectResponse$: StaticStructureSchema = [3, n0, _DIRe,
   0,
@@ -658,12 +658,12 @@ export var DeleteInterconnectResponse$: StaticStructureSchema = [3, n0, _DIRe,
 export var DeleteLagRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_lI],
-  [0]
+  [0], 1
 ];
 export var DeleteVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _DVIR,
   0,
   [_vII],
-  [0]
+  [0], 1
 ];
 export var DeleteVirtualInterfaceResponse$: StaticStructureSchema = [3, n0, _DVIRe,
   0,
@@ -673,7 +673,7 @@ export var DeleteVirtualInterfaceResponse$: StaticStructureSchema = [3, n0, _DVI
 export var DescribeConnectionLoaRequest$: StaticStructureSchema = [3, n0, _DCLR,
   0,
   [_cI, _pNr, _lCT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DescribeConnectionLoaResponse$: StaticStructureSchema = [3, n0, _DCLRe,
   0,
@@ -683,7 +683,7 @@ export var DescribeConnectionLoaResponse$: StaticStructureSchema = [3, n0, _DCLR
 export var DescribeConnectionsOnInterconnectRequest$: StaticStructureSchema = [3, n0, _DCOIR,
   0,
   [_iI],
-  [0]
+  [0], 1
 ];
 export var DescribeConnectionsRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -738,12 +738,12 @@ export var DescribeDirectConnectGatewaysResult$: StaticStructureSchema = [3, n0,
 export var DescribeHostedConnectionsRequest$: StaticStructureSchema = [3, n0, _DHCR,
   0,
   [_cI, _mR, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeInterconnectLoaRequest$: StaticStructureSchema = [3, n0, _DILR,
   0,
   [_iI, _pNr, _lCT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DescribeInterconnectLoaResponse$: StaticStructureSchema = [3, n0, _DILRe,
   0,
@@ -763,12 +763,12 @@ export var DescribeLagsRequest$: StaticStructureSchema = [3, n0, _DLRe,
 export var DescribeLoaRequest$: StaticStructureSchema = [3, n0, _DLRes,
   0,
   [_cI, _pNr, _lCT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DescribeRouterConfigurationRequest$: StaticStructureSchema = [3, n0, _DRCR,
   0,
   [_vII, _rTI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DescribeRouterConfigurationResponse$: StaticStructureSchema = [3, n0, _DRCRe,
   0,
@@ -778,7 +778,7 @@ export var DescribeRouterConfigurationResponse$: StaticStructureSchema = [3, n0,
 export var DescribeTagsRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_rA],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeTagsResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -825,12 +825,12 @@ TypeRegistry.for(n0).registerError(DirectConnectServerException$, DirectConnectS
 export var DisassociateConnectionFromLagRequest$: StaticStructureSchema = [3, n0, _DCFLR,
   0,
   [_cI, _lI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateMacSecKeyRequest$: StaticStructureSchema = [3, n0, _DMSKR,
   0,
   [_cI, _sARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateMacSecKeyResponse$: StaticStructureSchema = [3, n0, _DMSKRi,
   0,
@@ -901,22 +901,22 @@ export var NewBGPPeer$: StaticStructureSchema = [3, n0, _NBGPP,
 export var NewPrivateVirtualInterface$: StaticStructureSchema = [3, n0, _NPVI,
   0,
   [_vIN, _v, _a, _aL, _mt, _aK, _aA, _cA, _aF, _vGI, _dCGI, _t, _eSL],
-  [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, () => TagList, 2]
+  [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, () => TagList, 2], 2
 ];
 export var NewPrivateVirtualInterfaceAllocation$: StaticStructureSchema = [3, n0, _NPVIA,
   0,
   [_vIN, _v, _a, _aL, _mt, _aK, _aA, _aF, _cA, _t],
-  [0, 1, 1, 1, 1, 0, 0, 0, 0, () => TagList]
+  [0, 1, 1, 1, 1, 0, 0, 0, 0, () => TagList], 2
 ];
 export var NewPublicVirtualInterface$: StaticStructureSchema = [3, n0, _NPVIe,
   0,
   [_vIN, _v, _a, _aL, _aK, _aA, _cA, _aF, _rFP, _t],
-  [0, 1, 1, 1, 0, 0, 0, 0, () => RouteFilterPrefixList, () => TagList]
+  [0, 1, 1, 1, 0, 0, 0, 0, () => RouteFilterPrefixList, () => TagList], 2
 ];
 export var NewPublicVirtualInterfaceAllocation$: StaticStructureSchema = [3, n0, _NPVIAe,
   0,
   [_vIN, _v, _a, _aL, _aK, _aA, _cA, _aF, _rFP, _t],
-  [0, 1, 1, 1, 0, 0, 0, 0, () => RouteFilterPrefixList, () => TagList]
+  [0, 1, 1, 1, 0, 0, 0, 0, () => RouteFilterPrefixList, () => TagList], 2
 ];
 export var NewTransitVirtualInterface$: StaticStructureSchema = [3, n0, _NTVI,
   0,
@@ -946,7 +946,7 @@ export var RouterType$: StaticStructureSchema = [3, n0, _RTo,
 export var StartBgpFailoverTestRequest$: StaticStructureSchema = [3, n0, _SBFTR,
   0,
   [_vII, _bP, _tDIM],
-  [0, 64 | 0, 1]
+  [0, 64 | 0, 1], 1
 ];
 export var StartBgpFailoverTestResponse$: StaticStructureSchema = [3, n0, _SBFTRt,
   0,
@@ -956,7 +956,7 @@ export var StartBgpFailoverTestResponse$: StaticStructureSchema = [3, n0, _SBFTR
 export var StopBgpFailoverTestRequest$: StaticStructureSchema = [3, n0, _SBFTRto,
   0,
   [_vII],
-  [0]
+  [0], 1
 ];
 export var StopBgpFailoverTestResponse$: StaticStructureSchema = [3, n0, _SBFTRtop,
   0,
@@ -966,12 +966,12 @@ export var StopBgpFailoverTestResponse$: StaticStructureSchema = [3, n0, _SBFTRt
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _va],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAe, _t],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -987,7 +987,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -997,7 +997,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateConnectionRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_cI, _cN, _eM],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var UpdateDirectConnectGatewayAssociationRequest$: StaticStructureSchema = [3, n0, _UDCGAR,
   0,
@@ -1012,7 +1012,7 @@ export var UpdateDirectConnectGatewayAssociationResult$: StaticStructureSchema =
 export var UpdateDirectConnectGatewayRequest$: StaticStructureSchema = [3, n0, _UDCGR,
   0,
   [_dCGI, _nDCGN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateDirectConnectGatewayResponse$: StaticStructureSchema = [3, n0, _UDCGRp,
   0,
@@ -1022,12 +1022,12 @@ export var UpdateDirectConnectGatewayResponse$: StaticStructureSchema = [3, n0, 
 export var UpdateLagRequest$: StaticStructureSchema = [3, n0, _ULR,
   0,
   [_lI, _lN, _mL, _eM],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var UpdateVirtualInterfaceAttributesRequest$: StaticStructureSchema = [3, n0, _UVIAR,
   0,
   [_vII, _mt, _eSL, _vIN],
-  [0, 1, 2, 0]
+  [0, 1, 2, 0], 1
 ];
 export var VirtualGateway$: StaticStructureSchema = [3, n0, _VG,
   0,

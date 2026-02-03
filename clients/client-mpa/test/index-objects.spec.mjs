@@ -2,6 +2,7 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   ActionCompletionStrategy,
+  AdditionalSecurityRequirement,
   ApprovalStrategy$,
   ApprovalStrategyResponse$,
   ApprovalTeamRequestApprover$,
@@ -98,6 +99,9 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  MfaMethod$,
+  MfaSyncStatus,
+  MfaType,
   MofNApprovalStrategy$,
   MPA,
   MPAClient,
@@ -140,6 +144,7 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateAction,
   UpdateApprovalTeam$,
   UpdateApprovalTeamCommand,
   UpdateApprovalTeamRequest$,
@@ -244,6 +249,7 @@ assert(typeof ListSessionsResponse$ === "object");
 assert(typeof ListSessionsResponseSession$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof MfaMethod$ === "object");
 assert(typeof MofNApprovalStrategy$ === "object");
 assert(typeof PendingUpdate$ === "object");
 assert(typeof Policy$ === "object");
@@ -260,6 +266,7 @@ assert(typeof UpdateApprovalTeamRequest$ === "object");
 assert(typeof UpdateApprovalTeamResponse$ === "object");
 // enums
 assert(typeof ActionCompletionStrategy === "object");
+assert(typeof AdditionalSecurityRequirement === "object");
 assert(typeof ApprovalTeamStatus === "object");
 assert(typeof ApprovalTeamStatusCode === "object");
 assert(typeof FilterField === "object");
@@ -267,6 +274,8 @@ assert(typeof IdentitySourceStatus === "object");
 assert(typeof IdentitySourceStatusCode === "object");
 assert(typeof IdentitySourceType === "object");
 assert(typeof IdentityStatus === "object");
+assert(typeof MfaSyncStatus === "object");
+assert(typeof MfaType === "object");
 assert(typeof Operator === "object");
 assert(typeof PolicyStatus === "object");
 assert(typeof PolicyType === "object");
@@ -274,6 +283,7 @@ assert(typeof SessionExecutionStatus === "object");
 assert(typeof SessionResponse === "object");
 assert(typeof SessionStatus === "object");
 assert(typeof SessionStatusCode === "object");
+assert(typeof UpdateAction === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof MPAServiceException);
 assert(typeof AccessDeniedException$ === "object");

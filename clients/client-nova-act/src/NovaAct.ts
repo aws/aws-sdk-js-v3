@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CreateActCommand, CreateActCommandInput, CreateActCommandOutput } from "./commands/CreateActCommand";
 import {
@@ -67,6 +67,10 @@ import {
   UpdateWorkflowRunCommandOutput,
 } from "./commands/UpdateWorkflowRunCommand";
 import { NovaActClient } from "./NovaActClient";
+import { paginateListActs } from "./pagination/ListActsPaginator";
+import { paginateListSessions } from "./pagination/ListSessionsPaginator";
+import { paginateListWorkflowDefinitions } from "./pagination/ListWorkflowDefinitionsPaginator";
+import { paginateListWorkflowRuns } from "./pagination/ListWorkflowRunsPaginator";
 
 const commands = {
   CreateActCommand,
@@ -85,6 +89,12 @@ const commands = {
   ListWorkflowRunsCommand,
   UpdateActCommand,
   UpdateWorkflowRunCommand,
+};
+const paginators = {
+  paginateListActs,
+  paginateListSessions,
+  paginateListWorkflowDefinitions,
+  paginateListWorkflowRuns,
 };
 
 export interface NovaAct {
@@ -360,6 +370,50 @@ export interface NovaAct {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkflowRunCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListActsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActsCommandOutput}.
+   */
+  paginateListActs(
+    args: ListActsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActsCommandOutput>;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionsCommandOutput}.
+   */
+  paginateListSessions(
+    args: ListSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowDefinitionsCommandOutput}.
+   */
+  paginateListWorkflowDefinitions(
+    args?: ListWorkflowDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowRunsCommandOutput}.
+   */
+  paginateListWorkflowRuns(
+    args: ListWorkflowRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowRunsCommandOutput>;
 }
 
 /**
@@ -367,4 +421,4 @@ export interface NovaAct {
  * @public
  */
 export class NovaAct extends NovaActClient implements NovaAct {}
-createAggregatedClient(commands, NovaAct);
+createAggregatedClient(commands, NovaAct, { paginators });

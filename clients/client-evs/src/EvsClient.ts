@@ -79,6 +79,7 @@ import {
   DisassociateEipFromVlanCommandOutput,
 } from "./commands/DisassociateEipFromVlanCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
+import { GetVersionsCommandInput, GetVersionsCommandOutput } from "./commands/GetVersionsCommand";
 import {
   ListEnvironmentHostsCommandInput,
   ListEnvironmentHostsCommandOutput,
@@ -116,6 +117,7 @@ export type ServiceInputTypes =
   | DeleteEnvironmentHostCommandInput
   | DisassociateEipFromVlanCommandInput
   | GetEnvironmentCommandInput
+  | GetVersionsCommandInput
   | ListEnvironmentHostsCommandInput
   | ListEnvironmentVlansCommandInput
   | ListEnvironmentsCommandInput
@@ -134,6 +136,7 @@ export type ServiceOutputTypes =
   | DeleteEnvironmentHostCommandOutput
   | DisassociateEipFromVlanCommandOutput
   | GetEnvironmentCommandOutput
+  | GetVersionsCommandOutput
   | ListEnvironmentHostsCommandOutput
   | ListEnvironmentVlansCommandOutput
   | ListEnvironmentsCommandOutput

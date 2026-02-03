@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateProfileCommand,
@@ -112,6 +112,10 @@ import {
   UpdateTrustAnchorCommandInput,
   UpdateTrustAnchorCommandOutput,
 } from "./commands/UpdateTrustAnchorCommand";
+import { paginateListCrls } from "./pagination/ListCrlsPaginator";
+import { paginateListProfiles } from "./pagination/ListProfilesPaginator";
+import { paginateListSubjects } from "./pagination/ListSubjectsPaginator";
+import { paginateListTrustAnchors } from "./pagination/ListTrustAnchorsPaginator";
 import { RolesAnywhereClient } from "./RolesAnywhereClient";
 
 const commands = {
@@ -145,6 +149,12 @@ const commands = {
   UpdateCrlCommand,
   UpdateProfileCommand,
   UpdateTrustAnchorCommand,
+};
+const paginators = {
+  paginateListCrls,
+  paginateListProfiles,
+  paginateListSubjects,
+  paginateListTrustAnchors,
 };
 
 export interface RolesAnywhere {
@@ -661,6 +671,50 @@ export interface RolesAnywhere {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTrustAnchorCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListCrlsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCrlsCommandOutput}.
+   */
+  paginateListCrls(
+    args?: ListCrlsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCrlsCommandOutput>;
+
+  /**
+   * @see {@link ListProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProfilesCommandOutput}.
+   */
+  paginateListProfiles(
+    args?: ListProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListSubjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSubjectsCommandOutput}.
+   */
+  paginateListSubjects(
+    args?: ListSubjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSubjectsCommandOutput>;
+
+  /**
+   * @see {@link ListTrustAnchorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrustAnchorsCommandOutput}.
+   */
+  paginateListTrustAnchors(
+    args?: ListTrustAnchorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrustAnchorsCommandOutput>;
 }
 
 /**
@@ -668,4 +722,4 @@ export interface RolesAnywhere {
  * @public
  */
 export class RolesAnywhere extends RolesAnywhereClient implements RolesAnywhere {}
-createAggregatedClient(commands, RolesAnywhere);
+createAggregatedClient(commands, RolesAnywhere, { paginators });

@@ -27,19 +27,7 @@ export interface StopDBInstanceCommandInput extends StopDBInstanceMessage {}
 export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Stops an Amazon RDS DB instance temporarily. When you stop a DB instance, Amazon RDS retains the DB instance's metadata,
- *          including its endpoint, DB parameter group, and option group membership. Amazon RDS also retains
- *             the transaction logs so you can do a point-in-time restore if necessary. The instance restarts automatically
- *             after 7 days.</p>
- *          <p>For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html">
- *                 Stopping an Amazon RDS DB Instance Temporarily</a> in the
- *             <i>Amazon RDS User Guide.</i>
- *          </p>
- *          <note>
- *             <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
- *             For Aurora clusters, use <code>StopDBCluster</code> instead.</p>
- *          </note>
+ * <p>Stops an Amazon RDS DB instance temporarily. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint, DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if necessary. The instance restarts automatically after 7 days.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html"> Stopping an Amazon RDS DB Instance Temporarily</a> in the <i>Amazon RDS User Guide.</i> </p> <note> <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL. For Aurora clusters, use <code>StopDBCluster</code> instead.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -314,12 +302,10 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ *  <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
@@ -328,8 +314,7 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  *  <p>The DB instance isn't in a valid state.</p>
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB
- *             snapshots.</p>
+ *  <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

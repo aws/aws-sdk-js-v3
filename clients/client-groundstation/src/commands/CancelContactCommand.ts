@@ -27,7 +27,7 @@ export interface CancelContactCommandInput extends CancelContactRequest {}
 export interface CancelContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels a contact with a specified contact ID.</p>
+ * <p>Cancels or stops a contact with a specified contact ID based on its position in the <a href="https://docs.aws.amazon.com/ground-station/latest/ug/contacts.lifecycle.html">contact lifecycle</a>.</p> <p>For contacts that:</p> <ul> <li> <p>Have yet to start, the contact will be cancelled.</p> </li> <li> <p>Have started but have yet to finish, the contact will be stopped.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

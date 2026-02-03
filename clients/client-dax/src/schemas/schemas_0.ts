@@ -261,8 +261,8 @@ export var ClusterQuotaForCustomerExceededFault$: StaticErrorSchema = [-3, n0, _
 TypeRegistry.for(n0).registerError(ClusterQuotaForCustomerExceededFault$, ClusterQuotaForCustomerExceededFault);
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_CN, _NT, _D, _RF, _AZ, _SGN, _SGI, _PMW, _NTA, _IRA, _PGN, _T, _SSES, _CEET, _NTe],
-  [0, 0, 0, 1, 64 | 0, 0, 64 | 0, 0, 0, 0, 0, () => TagList, () => SSESpecification$, 0, 0]
+  [_CN, _NT, _RF, _IRA, _D, _AZ, _SGN, _SGI, _PMW, _NTA, _PGN, _T, _SSES, _CEET, _NTe],
+  [0, 0, 1, 0, 0, 64 | 0, 0, 64 | 0, 0, 0, 0, () => TagList, () => SSESpecification$, 0, 0], 4
 ];
 export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -272,7 +272,7 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateParameterGroupRequest$: StaticStructureSchema = [3, n0, _CPGR,
   0,
   [_PGN, _D],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CreateParameterGroupResponse$: StaticStructureSchema = [3, n0, _CPGRr,
   0,
@@ -281,8 +281,8 @@ export var CreateParameterGroupResponse$: StaticStructureSchema = [3, n0, _CPGRr
 ];
 export var CreateSubnetGroupRequest$: StaticStructureSchema = [3, n0, _CSGR,
   0,
-  [_SGN, _D, _SI],
-  [0, 0, 64 | 0]
+  [_SGN, _SI, _D],
+  [0, 64 | 0, 0], 2
 ];
 export var CreateSubnetGroupResponse$: StaticStructureSchema = [3, n0, _CSGRr,
   0,
@@ -292,7 +292,7 @@ export var CreateSubnetGroupResponse$: StaticStructureSchema = [3, n0, _CSGRr,
 export var DecreaseReplicationFactorRequest$: StaticStructureSchema = [3, n0, _DRFR,
   0,
   [_CN, _NRF, _AZ, _NITR],
-  [0, 1, 64 | 0, 64 | 0]
+  [0, 1, 64 | 0, 64 | 0], 2
 ];
 export var DecreaseReplicationFactorResponse$: StaticStructureSchema = [3, n0, _DRFRe,
   0,
@@ -302,7 +302,7 @@ export var DecreaseReplicationFactorResponse$: StaticStructureSchema = [3, n0, _
 export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -312,7 +312,7 @@ export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteParameterGroupRequest$: StaticStructureSchema = [3, n0, _DPGR,
   0,
   [_PGN],
-  [0]
+  [0], 1
 ];
 export var DeleteParameterGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe,
   0,
@@ -322,7 +322,7 @@ export var DeleteParameterGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe
 export var DeleteSubnetGroupRequest$: StaticStructureSchema = [3, n0, _DSGR,
   0,
   [_SGN],
-  [0]
+  [0], 1
 ];
 export var DeleteSubnetGroupResponse$: StaticStructureSchema = [3, n0, _DSGRe,
   0,
@@ -372,7 +372,7 @@ export var DescribeParameterGroupsResponse$: StaticStructureSchema = [3, n0, _DP
 export var DescribeParametersRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PGN, _So, _MR, _NTex],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var DescribeParametersResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -402,7 +402,7 @@ export var Event$: StaticStructureSchema = [3, n0, _Ev,
 export var IncreaseReplicationFactorRequest$: StaticStructureSchema = [3, n0, _IRFR,
   0,
   [_CN, _NRF, _AZ],
-  [0, 1, 64 | 0]
+  [0, 1, 64 | 0], 2
 ];
 export var IncreaseReplicationFactorResponse$: StaticStructureSchema = [3, n0, _IRFRn,
   0,
@@ -460,7 +460,7 @@ TypeRegistry.for(n0).registerError(InvalidVPCNetworkStateFault$, InvalidVPCNetwo
 export var ListTagsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_RN, _NTex],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListTagsResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -541,7 +541,7 @@ export var ParameterNameValue$: StaticStructureSchema = [3, n0, _PNV,
 export var RebootNodeRequest$: StaticStructureSchema = [3, n0, _RNR,
   0,
   [_CN, _NI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RebootNodeResponse$: StaticStructureSchema = [3, n0, _RNRe,
   0,
@@ -573,7 +573,7 @@ export var SSEDescription$: StaticStructureSchema = [3, n0, _SSED,
 export var SSESpecification$: StaticStructureSchema = [3, n0, _SSES,
   0,
   [_Ena],
-  [2]
+  [2], 1
 ];
 export var Subnet$: StaticStructureSchema = [3, n0, _Su,
   0,
@@ -647,7 +647,7 @@ TypeRegistry.for(n0).registerError(TagQuotaPerResourceExceeded$, TagQuotaPerReso
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RN, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -657,7 +657,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -667,7 +667,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_CN, _D, _PMW, _NTA, _NTS, _PGN, _SGI],
-  [0, 0, 0, 0, 0, 0, 64 | 0]
+  [0, 0, 0, 0, 0, 0, 64 | 0], 1
 ];
 export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -677,7 +677,7 @@ export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateParameterGroupRequest$: StaticStructureSchema = [3, n0, _UPGR,
   0,
   [_PGN, _PNVa],
-  [0, () => ParameterNameValueList]
+  [0, () => ParameterNameValueList], 2
 ];
 export var UpdateParameterGroupResponse$: StaticStructureSchema = [3, n0, _UPGRp,
   0,
@@ -687,7 +687,7 @@ export var UpdateParameterGroupResponse$: StaticStructureSchema = [3, n0, _UPGRp
 export var UpdateSubnetGroupRequest$: StaticStructureSchema = [3, n0, _USGR,
   0,
   [_SGN, _D, _SI],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 1
 ];
 export var UpdateSubnetGroupResponse$: StaticStructureSchema = [3, n0, _USGRp,
   0,

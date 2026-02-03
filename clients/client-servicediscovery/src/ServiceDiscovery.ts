@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateHttpNamespaceCommand,
@@ -140,6 +140,11 @@ import {
   UpdateServiceCommandInput,
   UpdateServiceCommandOutput,
 } from "./commands/UpdateServiceCommand";
+import { paginateGetInstancesHealthStatus } from "./pagination/GetInstancesHealthStatusPaginator";
+import { paginateListInstances } from "./pagination/ListInstancesPaginator";
+import { paginateListNamespaces } from "./pagination/ListNamespacesPaginator";
+import { paginateListOperations } from "./pagination/ListOperationsPaginator";
+import { paginateListServices } from "./pagination/ListServicesPaginator";
 import { ServiceDiscoveryClient } from "./ServiceDiscoveryClient";
 
 const commands = {
@@ -173,6 +178,13 @@ const commands = {
   UpdatePublicDnsNamespaceCommand,
   UpdateServiceCommand,
   UpdateServiceAttributesCommand,
+};
+const paginators = {
+  paginateGetInstancesHealthStatus,
+  paginateListInstances,
+  paginateListNamespaces,
+  paginateListOperations,
+  paginateListServices,
 };
 
 export interface ServiceDiscovery {
@@ -688,6 +700,61 @@ export interface ServiceDiscovery {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceAttributesCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetInstancesHealthStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetInstancesHealthStatusCommandOutput}.
+   */
+  paginateGetInstancesHealthStatus(
+    args: GetInstancesHealthStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetInstancesHealthStatusCommandOutput>;
+
+  /**
+   * @see {@link ListInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstancesCommandOutput}.
+   */
+  paginateListInstances(
+    args: ListInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListNamespacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNamespacesCommandOutput}.
+   */
+  paginateListNamespaces(
+    args?: ListNamespacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNamespacesCommandOutput>;
+
+  /**
+   * @see {@link ListOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOperationsCommandOutput}.
+   */
+  paginateListOperations(
+    args?: ListOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicesCommandOutput}.
+   */
+  paginateListServices(
+    args?: ListServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicesCommandOutput>;
 }
 
 /**
@@ -701,4 +768,4 @@ export interface ServiceDiscovery {
  * @public
  */
 export class ServiceDiscovery extends ServiceDiscoveryClient implements ServiceDiscovery {}
-createAggregatedClient(commands, ServiceDiscovery);
+createAggregatedClient(commands, ServiceDiscovery, { paginators });

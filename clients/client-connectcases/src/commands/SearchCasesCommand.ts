@@ -105,12 +105,24 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *         lessThanOrEqualTo: "<FieldValue>",
  *       },
  *       not: "<CaseFilter>",
+ *       tag: { // TagFilter Union: only one key present
+ *         equalTo: { // TagValue
+ *           key: "STRING_VALUE",
+ *           value: "STRING_VALUE",
+ *         },
+ *       },
  *       andAll: [ // CaseFilterList
  *         "<CaseFilter>",
  *       ],
  *       orAll: [
  *         "<CaseFilter>",
  *       ],
+ *     },
+ *     tag: {//  Union: only one key present
+ *       equalTo: {
+ *         key: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *       },
  *     },
  *     andAll: [
  *       "<CaseFilter>",

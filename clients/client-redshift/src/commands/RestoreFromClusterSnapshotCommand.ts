@@ -309,6 +309,7 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * //     },
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
+ * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
  * //   },
  * // };
  *

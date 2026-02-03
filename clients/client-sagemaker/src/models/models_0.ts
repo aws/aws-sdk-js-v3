@@ -67,6 +67,7 @@ import {
   Framework,
   HyperParameterScalingType,
   HyperParameterTuningJobObjectiveType,
+  IdleResourceSharing,
   InstanceGroupStatus,
   LifecycleManagement,
   MetricSetSource,
@@ -122,6 +123,48 @@ export interface AcceleratorPartitionConfig {
    * @public
    */
   Count: number | undefined;
+}
+
+/**
+ * <p>Configuration of the resources used for the compute allocation definition.</p>
+ * @public
+ */
+export interface ComputeQuotaResourceConfig {
+  /**
+   * <p>The instance type of the instance group for the cluster.</p>
+   * @public
+   */
+  InstanceType: ClusterInstanceType | undefined;
+
+  /**
+   * <p>The number of instances to add to the instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The number of accelerators to allocate. If you don't specify a value for vCPU and MemoryInGiB, SageMaker AI automatically allocates ratio-based values for those parameters based on the number of accelerators you provide. For example, if you allocate 16 out of 32 total accelerators, SageMaker AI uses the ratio of 0.5 and allocates values to vCPU and MemoryInGiB.</p>
+   * @public
+   */
+  Accelerators?: number | undefined;
+
+  /**
+   * <p>The number of vCPU to allocate. If you specify a value only for vCPU, SageMaker AI automatically allocates ratio-based values for MemoryInGiB based on this vCPU parameter. For example, if you allocate 20 out of 40 total vCPU, SageMaker AI uses the ratio of 0.5 and allocates values to MemoryInGiB. Accelerators are set to 0.</p>
+   * @public
+   */
+  VCpu?: number | undefined;
+
+  /**
+   * <p>The amount of memory in GiB to allocate. If you specify a value only for this parameter, SageMaker AI automatically allocates a ratio-based value for vCPU based on this memory that you provide. For example, if you allocate 200 out of 400 total memory in GiB, SageMaker AI uses the ratio of 0.5 and allocates values to vCPU. Accelerators are set to 0.</p>
+   * @public
+   */
+  MemoryInGiB?: number | undefined;
+
+  /**
+   * <p>The accelerator partition configuration for fractional GPU allocation.</p>
+   * @public
+   */
+  AcceleratorPartition?: AcceleratorPartitionConfig | undefined;
 }
 
 /**
@@ -6912,48 +6955,6 @@ export interface CompilationJobSummary {
 }
 
 /**
- * <p>Configuration of the resources used for the compute allocation definition.</p>
- * @public
- */
-export interface ComputeQuotaResourceConfig {
-  /**
-   * <p>The instance type of the instance group for the cluster.</p>
-   * @public
-   */
-  InstanceType: ClusterInstanceType | undefined;
-
-  /**
-   * <p>The number of instances to add to the instance group of a SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The number of accelerators to allocate. If you don't specify a value for vCPU and MemoryInGiB, SageMaker AI automatically allocates ratio-based values for those parameters based on the number of accelerators you provide. For example, if you allocate 16 out of 32 total accelerators, SageMaker AI uses the ratio of 0.5 and allocates values to vCPU and MemoryInGiB.</p>
-   * @public
-   */
-  Accelerators?: number | undefined;
-
-  /**
-   * <p>The number of vCPU to allocate. If you specify a value only for vCPU, SageMaker AI automatically allocates ratio-based values for MemoryInGiB based on this vCPU parameter. For example, if you allocate 20 out of 40 total vCPU, SageMaker AI uses the ratio of 0.5 and allocates values to MemoryInGiB. Accelerators are set to 0.</p>
-   * @public
-   */
-  VCpu?: number | undefined;
-
-  /**
-   * <p>The amount of memory in GiB to allocate. If you specify a value only for this parameter, SageMaker AI automatically allocates a ratio-based value for vCPU based on this memory that you provide. For example, if you allocate 200 out of 400 total memory in GiB, SageMaker AI uses the ratio of 0.5 and allocates values to vCPU. Accelerators are set to 0.</p>
-   * @public
-   */
-  MemoryInGiB?: number | undefined;
-
-  /**
-   * <p>The accelerator partition configuration for fractional GPU allocation.</p>
-   * @public
-   */
-  AcceleratorPartition?: AcceleratorPartitionConfig | undefined;
-}
-
-/**
  * <p>Resource sharing configuration.</p>
  * @public
  */
@@ -6969,6 +6970,12 @@ export interface ResourceSharingConfig {
    * @public
    */
   BorrowLimit?: number | undefined;
+
+  /**
+   * <p>The absolute limits on compute resources that can be borrowed from idle compute. When specified, these limits define the maximum amount of specific resource types (such as accelerators, vCPU, or memory) that an entity can borrow, regardless of the percentage-based <code>BorrowLimit</code>.</p>
+   * @public
+   */
+  AbsoluteBorrowLimits?: ComputeQuotaResourceConfig[] | undefined;
 }
 
 /**
@@ -8111,6 +8118,12 @@ export interface SchedulerConfig {
    * @public
    */
   FairShare?: FairShare | undefined;
+
+  /**
+   * <p>Configuration for sharing idle compute resources across entities in the cluster. When enabled, unallocated resources are automatically calculated and made available for entities to borrow. </p>
+   * @public
+   */
+  IdleResourceSharing?: IdleResourceSharing | undefined;
 }
 
 /**

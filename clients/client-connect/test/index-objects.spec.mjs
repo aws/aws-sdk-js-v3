@@ -67,6 +67,9 @@ import {
   AssociateFlowCommand,
   AssociateFlowRequest$,
   AssociateFlowResponse$,
+  AssociateHoursOfOperations$,
+  AssociateHoursOfOperationsCommand,
+  AssociateHoursOfOperationsRequest$,
   AssociateInstanceStorageConfig$,
   AssociateInstanceStorageConfigCommand,
   AssociateInstanceStorageConfigRequest$,
@@ -352,6 +355,10 @@ import {
   CreateTaskTemplateCommand,
   CreateTaskTemplateRequest$,
   CreateTaskTemplateResponse$,
+  CreateTestCase$,
+  CreateTestCaseCommand,
+  CreateTestCaseRequest$,
+  CreateTestCaseResponse$,
   CreateTrafficDistributionGroup$,
   CreateTrafficDistributionGroupCommand,
   CreateTrafficDistributionGroupRequest$,
@@ -509,6 +516,10 @@ import {
   DeleteTaskTemplateCommand,
   DeleteTaskTemplateRequest$,
   DeleteTaskTemplateResponse$,
+  DeleteTestCase$,
+  DeleteTestCaseCommand,
+  DeleteTestCaseRequest$,
+  DeleteTestCaseResponse$,
   DeleteTrafficDistributionGroup$,
   DeleteTrafficDistributionGroupCommand,
   DeleteTrafficDistributionGroupRequest$,
@@ -642,6 +653,10 @@ import {
   DescribeSecurityProfileCommand,
   DescribeSecurityProfileRequest$,
   DescribeSecurityProfileResponse$,
+  DescribeTestCase$,
+  DescribeTestCaseCommand,
+  DescribeTestCaseRequest$,
+  DescribeTestCaseResponse$,
   DescribeTrafficDistributionGroup$,
   DescribeTrafficDistributionGroupCommand,
   DescribeTrafficDistributionGroupRequest$,
@@ -693,6 +708,9 @@ import {
   DisassociateFlowCommand,
   DisassociateFlowRequest$,
   DisassociateFlowResponse$,
+  DisassociateHoursOfOperations$,
+  DisassociateHoursOfOperationsCommand,
+  DisassociateHoursOfOperationsRequest$,
   DisassociateInstanceStorageConfig$,
   DisassociateInstanceStorageConfigCommand,
   DisassociateInstanceStorageConfigRequest$,
@@ -740,6 +758,7 @@ import {
   DuplicateResourceException,
   DuplicateResourceException$,
   EffectiveHoursOfOperations$,
+  EffectiveOverrideHours$,
   EmailAddressInfo$,
   EmailAddressMetadata$,
   EmailAddressSearchCriteria$,
@@ -825,6 +844,12 @@ import {
   EvaluationQuestionAnswerAnalysisDetails$,
   EvaluationQuestionAnswerAnalysisType,
   EvaluationQuestionInputDetails$,
+  EvaluationReviewConfiguration$,
+  EvaluationReviewMetadata$,
+  EvaluationReviewNotificationRecipient$,
+  EvaluationReviewNotificationRecipientType,
+  EvaluationReviewNotificationRecipientValue$,
+  EvaluationReviewRequestComment$,
   EvaluationScore$,
   EvaluationSearchCriteria$,
   EvaluationSearchFilter$,
@@ -841,6 +866,8 @@ import {
   EvaluatorUserUnion$,
   EventBridgeActionDefinition$,
   EventSourceName,
+  ExecutionRecord$,
+  ExecutionRecordStatus,
   Expiry$,
   Expression$,
   ExternalInvocationConfiguration$,
@@ -909,6 +936,10 @@ import {
   GetTaskTemplateCommand,
   GetTaskTemplateRequest$,
   GetTaskTemplateResponse$,
+  GetTestCaseExecutionSummary$,
+  GetTestCaseExecutionSummaryCommand,
+  GetTestCaseExecutionSummaryRequest$,
+  GetTestCaseExecutionSummaryResponse$,
   GetTrafficDistribution$,
   GetTrafficDistributionCommand,
   GetTrafficDistributionRequest$,
@@ -940,6 +971,7 @@ import {
   HoursOfOperationOverrideSearchCriteria$,
   HoursOfOperationSearchCriteria$,
   HoursOfOperationSearchFilter$,
+  HoursOfOperationsIdentifier$,
   HoursOfOperationSummary$,
   HoursOfOperationTimeSlice$,
   IdempotencyException,
@@ -984,6 +1016,8 @@ import {
   InvalidRequestException,
   InvalidRequestException$,
   InvalidRequestExceptionReason$,
+  InvalidTestCaseException,
+  InvalidTestCaseException$,
   InvisibleFieldInfo$,
   IvrRecordingTrack,
   KinesisFirehoseConfig$,
@@ -1023,6 +1057,10 @@ import {
   ListBotsCommand,
   ListBotsRequest$,
   ListBotsResponse$,
+  ListChildHoursOfOperations$,
+  ListChildHoursOfOperationsCommand,
+  ListChildHoursOfOperationsRequest$,
+  ListChildHoursOfOperationsResponse$,
   ListCondition$,
   ListContactEvaluations$,
   ListContactEvaluationsCommand,
@@ -1198,6 +1236,18 @@ import {
   ListTaskTemplatesCommand,
   ListTaskTemplatesRequest$,
   ListTaskTemplatesResponse$,
+  ListTestCaseExecutionRecords$,
+  ListTestCaseExecutionRecordsCommand,
+  ListTestCaseExecutionRecordsRequest$,
+  ListTestCaseExecutionRecordsResponse$,
+  ListTestCaseExecutions$,
+  ListTestCaseExecutionsCommand,
+  ListTestCaseExecutionsRequest$,
+  ListTestCaseExecutionsResponse$,
+  ListTestCases$,
+  ListTestCasesCommand,
+  ListTestCasesRequest$,
+  ListTestCasesResponse$,
   ListTrafficDistributionGroups$,
   ListTrafficDistributionGroupsCommand,
   ListTrafficDistributionGroupsRequest$,
@@ -1278,7 +1328,9 @@ import {
   NumberReference$,
   NumericQuestionPropertyAutomationLabel,
   NumericQuestionPropertyValueAutomation$,
+  ObservationSummary$,
   OperationalHour$,
+  OperationalStatus,
   OutboundAdditionalRecipients$,
   OutboundCallerConfig$,
   OutboundContactNotPermittedException,
@@ -1293,7 +1345,9 @@ import {
   OutputTypeNotFoundException,
   OutputTypeNotFoundException$,
   OverrideDays,
+  OverrideHour$,
   OverrideTimeSlice$,
+  OverrideType,
   paginateEvaluateDataTableValues,
   paginateGetCurrentMetricData,
   paginateGetCurrentUserData,
@@ -1303,6 +1357,7 @@ import {
   paginateListApprovedOrigins,
   paginateListAuthenticationProfiles,
   paginateListBots,
+  paginateListChildHoursOfOperations,
   paginateListContactEvaluations,
   paginateListContactFlowModuleAliases,
   paginateListContactFlowModules,
@@ -1345,6 +1400,7 @@ import {
   paginateListSecurityProfilePermissions,
   paginateListSecurityProfiles,
   paginateListTaskTemplates,
+  paginateListTestCases,
   paginateListTrafficDistributionGroups,
   paginateListTrafficDistributionGroupUsers,
   paginateListUseCases,
@@ -1370,6 +1426,7 @@ import {
   paginateSearchResourceTags,
   paginateSearchRoutingProfiles,
   paginateSearchSecurityProfiles,
+  paginateSearchTestCases,
   paginateSearchUserHierarchyGroups,
   paginateSearchUsers,
   paginateSearchViews,
@@ -1380,6 +1437,7 @@ import {
   PaletteHeader$,
   PaletteNavigation$,
   PalettePrimary$,
+  ParentHoursOfOperationConfig$,
   ParticipantCapabilities$,
   ParticipantConfiguration$,
   ParticipantDetails$,
@@ -1477,6 +1535,9 @@ import {
   RecordingInfo$,
   RecordingStatus,
   RecordPrimaryValue$,
+  RecurrenceConfig$,
+  RecurrenceFrequency,
+  RecurrencePattern$,
   Reference$,
   ReferenceStatus,
   ReferenceSummary$,
@@ -1621,6 +1682,10 @@ import {
   SearchSecurityProfilesCommand,
   SearchSecurityProfilesRequest$,
   SearchSecurityProfilesResponse$,
+  SearchTestCases$,
+  SearchTestCasesCommand,
+  SearchTestCasesRequest$,
+  SearchTestCasesResponse$,
   SearchUserHierarchyGroups$,
   SearchUserHierarchyGroupsCommand,
   SearchUserHierarchyGroupsRequest$,
@@ -1724,6 +1789,10 @@ import {
   StartTaskContactCommand,
   StartTaskContactRequest$,
   StartTaskContactResponse$,
+  StartTestCaseExecution$,
+  StartTestCaseExecutionCommand,
+  StartTestCaseExecutionRequest$,
+  StartTestCaseExecutionResponse$,
   StartWebRTCContact$,
   StartWebRTCContactCommand,
   StartWebRTCContactRequest$,
@@ -1748,6 +1817,10 @@ import {
   StopContactStreamingCommand,
   StopContactStreamingRequest$,
   StopContactStreamingResponse$,
+  StopTestCaseExecution$,
+  StopTestCaseExecutionCommand,
+  StopTestCaseExecutionRequest$,
+  StopTestCaseExecutionResponse$,
   StorageType,
   StringComparisonType,
   StringCondition$,
@@ -1775,6 +1848,7 @@ import {
   TagSet$,
   TargetListType,
   TaskActionDefinition$,
+  TaskAttachment$,
   TaskTemplateConstraints$,
   TaskTemplateDefaultFieldValue$,
   TaskTemplateDefaults$,
@@ -1787,6 +1861,15 @@ import {
   TelephonyConfig$,
   TemplateAttributes$,
   TemplatedMessageConfig$,
+  TestCase$,
+  TestCaseEntryPoint$,
+  TestCaseEntryPointType,
+  TestCaseExecution$,
+  TestCaseExecutionStatus,
+  TestCaseSearchCriteria$,
+  TestCaseSearchFilter$,
+  TestCaseStatus,
+  TestCaseSummary$,
   Threshold$,
   ThresholdV2$,
   ThrottlingException,
@@ -1968,6 +2051,10 @@ import {
   UpdateTaskTemplateCommand,
   UpdateTaskTemplateRequest$,
   UpdateTaskTemplateResponse$,
+  UpdateTestCase$,
+  UpdateTestCaseCommand,
+  UpdateTestCaseRequest$,
+  UpdateTestCaseResponse$,
   UpdateTrafficDistribution$,
   UpdateTrafficDistributionCommand,
   UpdateTrafficDistributionRequest$,
@@ -2060,6 +2147,7 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
   VocabularySummary$,
+  VoiceCallEntryPointParameters$,
   VoiceRecordingConfiguration$,
   VoiceRecordingTrack,
   WisdomInfo$,
@@ -2100,6 +2188,8 @@ assert(typeof AssociateEmailAddressAliasCommand === "function");
 assert(typeof AssociateEmailAddressAlias$ === "object");
 assert(typeof AssociateFlowCommand === "function");
 assert(typeof AssociateFlow$ === "object");
+assert(typeof AssociateHoursOfOperationsCommand === "function");
+assert(typeof AssociateHoursOfOperations$ === "object");
 assert(typeof AssociateInstanceStorageConfigCommand === "function");
 assert(typeof AssociateInstanceStorageConfig$ === "object");
 assert(typeof AssociateLambdaFunctionCommand === "function");
@@ -2196,6 +2286,8 @@ assert(typeof CreateSecurityProfileCommand === "function");
 assert(typeof CreateSecurityProfile$ === "object");
 assert(typeof CreateTaskTemplateCommand === "function");
 assert(typeof CreateTaskTemplate$ === "object");
+assert(typeof CreateTestCaseCommand === "function");
+assert(typeof CreateTestCase$ === "object");
 assert(typeof CreateTrafficDistributionGroupCommand === "function");
 assert(typeof CreateTrafficDistributionGroup$ === "object");
 assert(typeof CreateUseCaseCommand === "function");
@@ -2264,6 +2356,8 @@ assert(typeof DeleteSecurityProfileCommand === "function");
 assert(typeof DeleteSecurityProfile$ === "object");
 assert(typeof DeleteTaskTemplateCommand === "function");
 assert(typeof DeleteTaskTemplate$ === "object");
+assert(typeof DeleteTestCaseCommand === "function");
+assert(typeof DeleteTestCase$ === "object");
 assert(typeof DeleteTrafficDistributionGroupCommand === "function");
 assert(typeof DeleteTrafficDistributionGroup$ === "object");
 assert(typeof DeleteUseCaseCommand === "function");
@@ -2332,6 +2426,8 @@ assert(typeof DescribeRuleCommand === "function");
 assert(typeof DescribeRule$ === "object");
 assert(typeof DescribeSecurityProfileCommand === "function");
 assert(typeof DescribeSecurityProfile$ === "object");
+assert(typeof DescribeTestCaseCommand === "function");
+assert(typeof DescribeTestCase$ === "object");
 assert(typeof DescribeTrafficDistributionGroupCommand === "function");
 assert(typeof DescribeTrafficDistributionGroup$ === "object");
 assert(typeof DescribeUserCommand === "function");
@@ -2356,6 +2452,8 @@ assert(typeof DisassociateEmailAddressAliasCommand === "function");
 assert(typeof DisassociateEmailAddressAlias$ === "object");
 assert(typeof DisassociateFlowCommand === "function");
 assert(typeof DisassociateFlow$ === "object");
+assert(typeof DisassociateHoursOfOperationsCommand === "function");
+assert(typeof DisassociateHoursOfOperations$ === "object");
 assert(typeof DisassociateInstanceStorageConfigCommand === "function");
 assert(typeof DisassociateInstanceStorageConfig$ === "object");
 assert(typeof DisassociateLambdaFunctionCommand === "function");
@@ -2406,6 +2504,8 @@ assert(typeof GetPromptFileCommand === "function");
 assert(typeof GetPromptFile$ === "object");
 assert(typeof GetTaskTemplateCommand === "function");
 assert(typeof GetTaskTemplate$ === "object");
+assert(typeof GetTestCaseExecutionSummaryCommand === "function");
+assert(typeof GetTestCaseExecutionSummary$ === "object");
 assert(typeof GetTrafficDistributionCommand === "function");
 assert(typeof GetTrafficDistribution$ === "object");
 assert(typeof ImportPhoneNumberCommand === "function");
@@ -2426,6 +2526,8 @@ assert(typeof ListAuthenticationProfilesCommand === "function");
 assert(typeof ListAuthenticationProfiles$ === "object");
 assert(typeof ListBotsCommand === "function");
 assert(typeof ListBots$ === "object");
+assert(typeof ListChildHoursOfOperationsCommand === "function");
+assert(typeof ListChildHoursOfOperations$ === "object");
 assert(typeof ListContactEvaluationsCommand === "function");
 assert(typeof ListContactEvaluations$ === "object");
 assert(typeof ListContactFlowModuleAliasesCommand === "function");
@@ -2512,6 +2614,12 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListTaskTemplatesCommand === "function");
 assert(typeof ListTaskTemplates$ === "object");
+assert(typeof ListTestCaseExecutionRecordsCommand === "function");
+assert(typeof ListTestCaseExecutionRecords$ === "object");
+assert(typeof ListTestCaseExecutionsCommand === "function");
+assert(typeof ListTestCaseExecutions$ === "object");
+assert(typeof ListTestCasesCommand === "function");
+assert(typeof ListTestCases$ === "object");
 assert(typeof ListTrafficDistributionGroupsCommand === "function");
 assert(typeof ListTrafficDistributionGroups$ === "object");
 assert(typeof ListTrafficDistributionGroupUsersCommand === "function");
@@ -2584,6 +2692,8 @@ assert(typeof SearchRoutingProfilesCommand === "function");
 assert(typeof SearchRoutingProfiles$ === "object");
 assert(typeof SearchSecurityProfilesCommand === "function");
 assert(typeof SearchSecurityProfiles$ === "object");
+assert(typeof SearchTestCasesCommand === "function");
+assert(typeof SearchTestCases$ === "object");
 assert(typeof SearchUserHierarchyGroupsCommand === "function");
 assert(typeof SearchUserHierarchyGroups$ === "object");
 assert(typeof SearchUsersCommand === "function");
@@ -2624,6 +2734,8 @@ assert(typeof StartScreenSharingCommand === "function");
 assert(typeof StartScreenSharing$ === "object");
 assert(typeof StartTaskContactCommand === "function");
 assert(typeof StartTaskContact$ === "object");
+assert(typeof StartTestCaseExecutionCommand === "function");
+assert(typeof StartTestCaseExecution$ === "object");
 assert(typeof StartWebRTCContactCommand === "function");
 assert(typeof StartWebRTCContact$ === "object");
 assert(typeof StopContactCommand === "function");
@@ -2634,6 +2746,8 @@ assert(typeof StopContactRecordingCommand === "function");
 assert(typeof StopContactRecording$ === "object");
 assert(typeof StopContactStreamingCommand === "function");
 assert(typeof StopContactStreaming$ === "object");
+assert(typeof StopTestCaseExecutionCommand === "function");
+assert(typeof StopTestCaseExecution$ === "object");
 assert(typeof SubmitContactEvaluationCommand === "function");
 assert(typeof SubmitContactEvaluation$ === "object");
 assert(typeof SuspendContactRecordingCommand === "function");
@@ -2736,6 +2850,8 @@ assert(typeof UpdateSecurityProfileCommand === "function");
 assert(typeof UpdateSecurityProfile$ === "object");
 assert(typeof UpdateTaskTemplateCommand === "function");
 assert(typeof UpdateTaskTemplate$ === "object");
+assert(typeof UpdateTestCaseCommand === "function");
+assert(typeof UpdateTestCase$ === "object");
 assert(typeof UpdateTrafficDistributionCommand === "function");
 assert(typeof UpdateTrafficDistribution$ === "object");
 assert(typeof UpdateUserHierarchyCommand === "function");
@@ -2807,6 +2923,7 @@ assert(typeof AssociateEmailAddressAliasRequest$ === "object");
 assert(typeof AssociateEmailAddressAliasResponse$ === "object");
 assert(typeof AssociateFlowRequest$ === "object");
 assert(typeof AssociateFlowResponse$ === "object");
+assert(typeof AssociateHoursOfOperationsRequest$ === "object");
 assert(typeof AssociateInstanceStorageConfigRequest$ === "object");
 assert(typeof AssociateInstanceStorageConfigResponse$ === "object");
 assert(typeof AssociateLambdaFunctionRequest$ === "object");
@@ -2965,6 +3082,8 @@ assert(typeof CreateSecurityProfileRequest$ === "object");
 assert(typeof CreateSecurityProfileResponse$ === "object");
 assert(typeof CreateTaskTemplateRequest$ === "object");
 assert(typeof CreateTaskTemplateResponse$ === "object");
+assert(typeof CreateTestCaseRequest$ === "object");
+assert(typeof CreateTestCaseResponse$ === "object");
 assert(typeof CreateTrafficDistributionGroupRequest$ === "object");
 assert(typeof CreateTrafficDistributionGroupResponse$ === "object");
 assert(typeof CreateUseCaseRequest$ === "object");
@@ -3047,6 +3166,8 @@ assert(typeof DeleteRuleRequest$ === "object");
 assert(typeof DeleteSecurityProfileRequest$ === "object");
 assert(typeof DeleteTaskTemplateRequest$ === "object");
 assert(typeof DeleteTaskTemplateResponse$ === "object");
+assert(typeof DeleteTestCaseRequest$ === "object");
+assert(typeof DeleteTestCaseResponse$ === "object");
 assert(typeof DeleteTrafficDistributionGroupRequest$ === "object");
 assert(typeof DeleteTrafficDistributionGroupResponse$ === "object");
 assert(typeof DeleteUseCaseRequest$ === "object");
@@ -3112,6 +3233,8 @@ assert(typeof DescribeRuleRequest$ === "object");
 assert(typeof DescribeRuleResponse$ === "object");
 assert(typeof DescribeSecurityProfileRequest$ === "object");
 assert(typeof DescribeSecurityProfileResponse$ === "object");
+assert(typeof DescribeTestCaseRequest$ === "object");
+assert(typeof DescribeTestCaseResponse$ === "object");
 assert(typeof DescribeTrafficDistributionGroupRequest$ === "object");
 assert(typeof DescribeTrafficDistributionGroupResponse$ === "object");
 assert(typeof DescribeUserHierarchyGroupRequest$ === "object");
@@ -3135,6 +3258,7 @@ assert(typeof DisassociateEmailAddressAliasRequest$ === "object");
 assert(typeof DisassociateEmailAddressAliasResponse$ === "object");
 assert(typeof DisassociateFlowRequest$ === "object");
 assert(typeof DisassociateFlowResponse$ === "object");
+assert(typeof DisassociateHoursOfOperationsRequest$ === "object");
 assert(typeof DisassociateInstanceStorageConfigRequest$ === "object");
 assert(typeof DisassociateLambdaFunctionRequest$ === "object");
 assert(typeof DisassociateLexBotRequest$ === "object");
@@ -3155,6 +3279,7 @@ assert(typeof DismissUserContactResponse$ === "object");
 assert(typeof Distribution$ === "object");
 assert(typeof DownloadUrlMetadata$ === "object");
 assert(typeof EffectiveHoursOfOperations$ === "object");
+assert(typeof EffectiveOverrideHours$ === "object");
 assert(typeof EmailAddressInfo$ === "object");
 assert(typeof EmailAddressMetadata$ === "object");
 assert(typeof EmailAddressSearchCriteria$ === "object");
@@ -3220,6 +3345,11 @@ assert(typeof EvaluationMetadata$ === "object");
 assert(typeof EvaluationNote$ === "object");
 assert(typeof EvaluationQuestionAnswerAnalysisDetails$ === "object");
 assert(typeof EvaluationQuestionInputDetails$ === "object");
+assert(typeof EvaluationReviewConfiguration$ === "object");
+assert(typeof EvaluationReviewMetadata$ === "object");
+assert(typeof EvaluationReviewNotificationRecipient$ === "object");
+assert(typeof EvaluationReviewNotificationRecipientValue$ === "object");
+assert(typeof EvaluationReviewRequestComment$ === "object");
 assert(typeof EvaluationScore$ === "object");
 assert(typeof EvaluationSearchCriteria$ === "object");
 assert(typeof EvaluationSearchFilter$ === "object");
@@ -3231,6 +3361,7 @@ assert(typeof EvaluationSummary$ === "object");
 assert(typeof EvaluationTranscriptPointOfInterest$ === "object");
 assert(typeof EvaluatorUserUnion$ === "object");
 assert(typeof EventBridgeActionDefinition$ === "object");
+assert(typeof ExecutionRecord$ === "object");
 assert(typeof Expiry$ === "object");
 assert(typeof Expression$ === "object");
 assert(typeof ExternalInvocationConfiguration$ === "object");
@@ -3269,6 +3400,8 @@ assert(typeof GetPromptFileRequest$ === "object");
 assert(typeof GetPromptFileResponse$ === "object");
 assert(typeof GetTaskTemplateRequest$ === "object");
 assert(typeof GetTaskTemplateResponse$ === "object");
+assert(typeof GetTestCaseExecutionSummaryRequest$ === "object");
+assert(typeof GetTestCaseExecutionSummaryResponse$ === "object");
 assert(typeof GetTrafficDistributionRequest$ === "object");
 assert(typeof GetTrafficDistributionResponse$ === "object");
 assert(typeof GlobalResiliencyMetadata$ === "object");
@@ -3294,6 +3427,7 @@ assert(typeof HoursOfOperationOverrideConfig$ === "object");
 assert(typeof HoursOfOperationOverrideSearchCriteria$ === "object");
 assert(typeof HoursOfOperationSearchCriteria$ === "object");
 assert(typeof HoursOfOperationSearchFilter$ === "object");
+assert(typeof HoursOfOperationsIdentifier$ === "object");
 assert(typeof HoursOfOperationSummary$ === "object");
 assert(typeof HoursOfOperationTimeSlice$ === "object");
 assert(typeof ImagesLogo$ === "object");
@@ -3333,6 +3467,8 @@ assert(typeof ListAuthenticationProfilesRequest$ === "object");
 assert(typeof ListAuthenticationProfilesResponse$ === "object");
 assert(typeof ListBotsRequest$ === "object");
 assert(typeof ListBotsResponse$ === "object");
+assert(typeof ListChildHoursOfOperationsRequest$ === "object");
+assert(typeof ListChildHoursOfOperationsResponse$ === "object");
 assert(typeof ListCondition$ === "object");
 assert(typeof ListContactEvaluationsRequest$ === "object");
 assert(typeof ListContactEvaluationsResponse$ === "object");
@@ -3421,6 +3557,12 @@ assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListTaskTemplatesRequest$ === "object");
 assert(typeof ListTaskTemplatesResponse$ === "object");
+assert(typeof ListTestCaseExecutionRecordsRequest$ === "object");
+assert(typeof ListTestCaseExecutionRecordsResponse$ === "object");
+assert(typeof ListTestCaseExecutionsRequest$ === "object");
+assert(typeof ListTestCaseExecutionsResponse$ === "object");
+assert(typeof ListTestCasesRequest$ === "object");
+assert(typeof ListTestCasesResponse$ === "object");
 assert(typeof ListTrafficDistributionGroupsRequest$ === "object");
 assert(typeof ListTrafficDistributionGroupsResponse$ === "object");
 assert(typeof ListTrafficDistributionGroupUsersRequest$ === "object");
@@ -3465,6 +3607,7 @@ assert(typeof NotificationRecipientType$ === "object");
 assert(typeof NumberCondition$ === "object");
 assert(typeof NumberReference$ === "object");
 assert(typeof NumericQuestionPropertyValueAutomation$ === "object");
+assert(typeof ObservationSummary$ === "object");
 assert(typeof OperationalHour$ === "object");
 assert(typeof OutboundAdditionalRecipients$ === "object");
 assert(typeof OutboundCallerConfig$ === "object");
@@ -3473,11 +3616,13 @@ assert(typeof OutboundEmailContent$ === "object");
 assert(typeof OutboundRawMessage$ === "object");
 assert(typeof OutboundStrategy$ === "object");
 assert(typeof OutboundStrategyConfig$ === "object");
+assert(typeof OverrideHour$ === "object");
 assert(typeof OverrideTimeSlice$ === "object");
 assert(typeof PaletteCanvas$ === "object");
 assert(typeof PaletteHeader$ === "object");
 assert(typeof PaletteNavigation$ === "object");
 assert(typeof PalettePrimary$ === "object");
+assert(typeof ParentHoursOfOperationConfig$ === "object");
 assert(typeof ParticipantCapabilities$ === "object");
 assert(typeof ParticipantConfiguration$ === "object");
 assert(typeof ParticipantDetails$ === "object");
@@ -3547,6 +3692,8 @@ assert(typeof RealTimeContactAnalysisTranscriptItemWithCharacterOffsets$ === "ob
 assert(typeof RealTimeContactAnalysisTranscriptItemWithContent$ === "object");
 assert(typeof RecordingInfo$ === "object");
 assert(typeof RecordPrimaryValue$ === "object");
+assert(typeof RecurrenceConfig$ === "object");
+assert(typeof RecurrencePattern$ === "object");
 assert(typeof Reference$ === "object");
 assert(typeof ReferenceSummary$ === "object");
 assert(typeof ReleasePhoneNumberRequest$ === "object");
@@ -3627,6 +3774,8 @@ assert(typeof SearchRoutingProfilesRequest$ === "object");
 assert(typeof SearchRoutingProfilesResponse$ === "object");
 assert(typeof SearchSecurityProfilesRequest$ === "object");
 assert(typeof SearchSecurityProfilesResponse$ === "object");
+assert(typeof SearchTestCasesRequest$ === "object");
+assert(typeof SearchTestCasesResponse$ === "object");
 assert(typeof SearchUserHierarchyGroupsRequest$ === "object");
 assert(typeof SearchUserHierarchyGroupsResponse$ === "object");
 assert(typeof SearchUsersRequest$ === "object");
@@ -3682,6 +3831,8 @@ assert(typeof StartScreenSharingRequest$ === "object");
 assert(typeof StartScreenSharingResponse$ === "object");
 assert(typeof StartTaskContactRequest$ === "object");
 assert(typeof StartTaskContactResponse$ === "object");
+assert(typeof StartTestCaseExecutionRequest$ === "object");
+assert(typeof StartTestCaseExecutionResponse$ === "object");
 assert(typeof StartWebRTCContactRequest$ === "object");
 assert(typeof StartWebRTCContactResponse$ === "object");
 assert(typeof StateTransition$ === "object");
@@ -3694,6 +3845,8 @@ assert(typeof StopContactRequest$ === "object");
 assert(typeof StopContactResponse$ === "object");
 assert(typeof StopContactStreamingRequest$ === "object");
 assert(typeof StopContactStreamingResponse$ === "object");
+assert(typeof StopTestCaseExecutionRequest$ === "object");
+assert(typeof StopTestCaseExecutionResponse$ === "object");
 assert(typeof StringCondition$ === "object");
 assert(typeof StringReference$ === "object");
 assert(typeof SubmitAutoEvaluationActionDefinition$ === "object");
@@ -3710,6 +3863,7 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagSearchCondition$ === "object");
 assert(typeof TagSet$ === "object");
 assert(typeof TaskActionDefinition$ === "object");
+assert(typeof TaskAttachment$ === "object");
 assert(typeof TaskTemplateConstraints$ === "object");
 assert(typeof TaskTemplateDefaultFieldValue$ === "object");
 assert(typeof TaskTemplateDefaults$ === "object");
@@ -3720,6 +3874,12 @@ assert(typeof TaskTemplateMetadata$ === "object");
 assert(typeof TelephonyConfig$ === "object");
 assert(typeof TemplateAttributes$ === "object");
 assert(typeof TemplatedMessageConfig$ === "object");
+assert(typeof TestCase$ === "object");
+assert(typeof TestCaseEntryPoint$ === "object");
+assert(typeof TestCaseExecution$ === "object");
+assert(typeof TestCaseSearchCriteria$ === "object");
+assert(typeof TestCaseSearchFilter$ === "object");
+assert(typeof TestCaseSummary$ === "object");
 assert(typeof Threshold$ === "object");
 assert(typeof ThresholdV2$ === "object");
 assert(typeof TrafficDistributionGroup$ === "object");
@@ -3799,6 +3959,8 @@ assert(typeof UpdateRuleRequest$ === "object");
 assert(typeof UpdateSecurityProfileRequest$ === "object");
 assert(typeof UpdateTaskTemplateRequest$ === "object");
 assert(typeof UpdateTaskTemplateResponse$ === "object");
+assert(typeof UpdateTestCaseRequest$ === "object");
+assert(typeof UpdateTestCaseResponse$ === "object");
 assert(typeof UpdateTrafficDistributionRequest$ === "object");
 assert(typeof UpdateTrafficDistributionResponse$ === "object");
 assert(typeof UpdateUserHierarchyGroupNameRequest$ === "object");
@@ -3852,6 +4014,7 @@ assert(typeof ViewSummary$ === "object");
 assert(typeof ViewVersionSummary$ === "object");
 assert(typeof Vocabulary$ === "object");
 assert(typeof VocabularySummary$ === "object");
+assert(typeof VoiceCallEntryPointParameters$ === "object");
 assert(typeof VoiceRecordingConfiguration$ === "object");
 assert(typeof WisdomInfo$ === "object");
 assert(typeof Workspace$ === "object");
@@ -3927,11 +4090,13 @@ assert(typeof EvaluationFormScoringStatus === "object");
 assert(typeof EvaluationFormSingleSelectQuestionDisplayMode === "object");
 assert(typeof EvaluationFormVersionStatus === "object");
 assert(typeof EvaluationQuestionAnswerAnalysisType === "object");
+assert(typeof EvaluationReviewNotificationRecipientType === "object");
 assert(typeof EvaluationStatus === "object");
 assert(typeof EvaluationSuggestedAnswerStatus === "object");
 assert(typeof EvaluationTranscriptType === "object");
 assert(typeof EvaluationType === "object");
 assert(typeof EventSourceName === "object");
+assert(typeof ExecutionRecordStatus === "object");
 assert(typeof FailureReasonCode === "object");
 assert(typeof FileStatusType === "object");
 assert(typeof FileUseCaseType === "object");
@@ -3963,9 +4128,11 @@ assert(typeof NotificationContentType === "object");
 assert(typeof NotificationDeliveryType === "object");
 assert(typeof NumberComparisonType === "object");
 assert(typeof NumericQuestionPropertyAutomationLabel === "object");
+assert(typeof OperationalStatus === "object");
 assert(typeof OutboundMessageSourceType === "object");
 assert(typeof OutboundStrategyType === "object");
 assert(typeof OverrideDays === "object");
+assert(typeof OverrideType === "object");
 assert(typeof ParticipantRole === "object");
 assert(typeof ParticipantState === "object");
 assert(typeof ParticipantTimerAction === "object");
@@ -3988,6 +4155,7 @@ assert(typeof RealTimeContactAnalysisSentimentLabel === "object");
 assert(typeof RealTimeContactAnalysisStatus === "object");
 assert(typeof RealTimeContactAnalysisSupportedChannel === "object");
 assert(typeof RecordingStatus === "object");
+assert(typeof RecurrenceFrequency === "object");
 assert(typeof ReferenceStatus === "object");
 assert(typeof ReferenceType === "object");
 assert(typeof RehydrationType === "object");
@@ -4013,6 +4181,9 @@ assert(typeof StringComparisonType === "object");
 assert(typeof TargetListType === "object");
 assert(typeof TaskTemplateFieldType === "object");
 assert(typeof TaskTemplateStatus === "object");
+assert(typeof TestCaseEntryPointType === "object");
+assert(typeof TestCaseExecutionStatus === "object");
+assert(typeof TestCaseStatus === "object");
 assert(typeof TimerEligibleParticipantRoles === "object");
 assert(typeof TrafficDistributionGroupStatus === "object");
 assert(typeof TrafficType === "object");
@@ -4055,6 +4226,8 @@ assert(InvalidParameterException.prototype instanceof ConnectServiceException);
 assert(typeof InvalidParameterException$ === "object");
 assert(InvalidRequestException.prototype instanceof ConnectServiceException);
 assert(typeof InvalidRequestException$ === "object");
+assert(InvalidTestCaseException.prototype instanceof ConnectServiceException);
+assert(typeof InvalidTestCaseException$ === "object");
 assert(LimitExceededException.prototype instanceof ConnectServiceException);
 assert(typeof LimitExceededException$ === "object");
 assert(MaximumResultReturnedException.prototype instanceof ConnectServiceException);
@@ -4092,6 +4265,7 @@ assert(typeof paginateListAgentStatuses === "function");
 assert(typeof paginateListApprovedOrigins === "function");
 assert(typeof paginateListAuthenticationProfiles === "function");
 assert(typeof paginateListBots === "function");
+assert(typeof paginateListChildHoursOfOperations === "function");
 assert(typeof paginateListContactEvaluations === "function");
 assert(typeof paginateListContactFlowModuleAliases === "function");
 assert(typeof paginateListContactFlowModuleVersions === "function");
@@ -4134,6 +4308,7 @@ assert(typeof paginateListSecurityProfileFlowModules === "function");
 assert(typeof paginateListSecurityProfilePermissions === "function");
 assert(typeof paginateListSecurityProfiles === "function");
 assert(typeof paginateListTaskTemplates === "function");
+assert(typeof paginateListTestCases === "function");
 assert(typeof paginateListTrafficDistributionGroupUsers === "function");
 assert(typeof paginateListTrafficDistributionGroups === "function");
 assert(typeof paginateListUseCases === "function");
@@ -4159,6 +4334,7 @@ assert(typeof paginateSearchQuickConnects === "function");
 assert(typeof paginateSearchResourceTags === "function");
 assert(typeof paginateSearchRoutingProfiles === "function");
 assert(typeof paginateSearchSecurityProfiles === "function");
+assert(typeof paginateSearchTestCases === "function");
 assert(typeof paginateSearchUserHierarchyGroups === "function");
 assert(typeof paginateSearchUsers === "function");
 assert(typeof paginateSearchViews === "function");

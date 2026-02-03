@@ -2106,6 +2106,54 @@ export interface DescribeInstanceTypesRequest {
 }
 
 /**
+ * <p>Describes the performance characteristics of an EBS card on the instance type.</p>
+ * @public
+ */
+export interface EbsCardInfo {
+  /**
+   * <p>The index of the EBS card.</p>
+   * @public
+   */
+  EbsCardIndex?: number | undefined;
+
+  /**
+   * <p>The baseline bandwidth performance for the EBS card, in Mbps.</p>
+   * @public
+   */
+  BaselineBandwidthInMbps?: number | undefined;
+
+  /**
+   * <p>The baseline throughput performance for the EBS card, in MBps.</p>
+   * @public
+   */
+  BaselineThroughputInMBps?: number | undefined;
+
+  /**
+   * <p>The baseline IOPS performance for the EBS card.</p>
+   * @public
+   */
+  BaselineIops?: number | undefined;
+
+  /**
+   * <p>The maximum bandwidth performance for the EBS card, in Mbps.</p>
+   * @public
+   */
+  MaximumBandwidthInMbps?: number | undefined;
+
+  /**
+   * <p>The maximum throughput performance for the EBS card, in MBps.</p>
+   * @public
+   */
+  MaximumThroughputInMBps?: number | undefined;
+
+  /**
+   * <p>The maximum IOPS performance for the EBS card.</p>
+   * @public
+   */
+  MaximumIops?: number | undefined;
+}
+
+/**
  * <p>Describes the optimized EBS performance for supported instance types.</p>
  * @public
  */
@@ -2194,6 +2242,18 @@ export interface EbsInfo {
    * @public
    */
   AttachmentLimitType?: AttachmentLimitType | undefined;
+
+  /**
+   * <p>Indicates the number of EBS cards supported by the instance type.</p>
+   * @public
+   */
+  MaximumEbsCards?: number | undefined;
+
+  /**
+   * <p>Describes the EBS cards available for the instance type.</p>
+   * @public
+   */
+  EbsCards?: EbsCardInfo[] | undefined;
 }
 
 /**
@@ -2290,6 +2350,24 @@ export interface GpuDeviceInfo {
    * @public
    */
   Count?: number | undefined;
+
+  /**
+   * <p>Total number of GPU devices of this type.</p>
+   * @public
+   */
+  LogicalGpuCount?: number | undefined;
+
+  /**
+   * <p>The size of each GPU as a fraction of a full GPU, between 0 (excluded) and 1 (included).</p>
+   * @public
+   */
+  GpuPartitionSize?: number | undefined;
+
+  /**
+   * <p>A list of workload types this GPU supports.</p>
+   * @public
+   */
+  Workloads?: string[] | undefined;
 
   /**
    * <p>Describes the memory available to the GPU accelerator.</p>
@@ -2547,6 +2625,14 @@ export interface NetworkCardInfo {
    * @public
    */
   MaximumNetworkInterfaces?: number | undefined;
+
+  /**
+   * <p>The number of additional network interfaces that can be attached to an instance when using
+   *    flexible Elastic Network Adapter (ENA) queues. This number is in addition to the base number
+   *    specified by <code>maximumNetworkInterfaces</code>.</p>
+   * @public
+   */
+  AdditionalFlexibleNetworkInterfaces?: number | undefined;
 
   /**
    * <p>The baseline network performance of the network card, in Gbps.</p>
@@ -13874,28 +13960,4 @@ export interface VerifiedAccessLogDeliveryStatus {
    * @public
    */
   Message?: string | undefined;
-}
-
-/**
- * <p>Options for CloudWatch Logs as a logging destination.</p>
- * @public
- */
-export interface VerifiedAccessLogCloudWatchLogsDestination {
-  /**
-   * <p>Indicates whether logging is enabled.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>The delivery status for access logs.</p>
-   * @public
-   */
-  DeliveryStatus?: VerifiedAccessLogDeliveryStatus | undefined;
-
-  /**
-   * <p>The ID of the CloudWatch Logs log group.</p>
-   * @public
-   */
-  LogGroup?: string | undefined;
 }

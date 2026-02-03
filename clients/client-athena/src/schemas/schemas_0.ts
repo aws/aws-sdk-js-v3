@@ -534,7 +534,7 @@ import {
 export var AclConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_SAO],
-  [0]
+  [0], 1
 ];
 export var ApplicationDPUSizes$: StaticStructureSchema = [3, n0, _ADPUS,
   0,
@@ -549,7 +549,7 @@ export var AthenaError$: StaticStructureSchema = [3, n0, _AE,
 export var BatchGetNamedQueryInput$: StaticStructureSchema = [3, n0, _BGNQI,
   0,
   [_NQI],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetNamedQueryOutput$: StaticStructureSchema = [3, n0, _BGNQO,
   0,
@@ -559,7 +559,7 @@ export var BatchGetNamedQueryOutput$: StaticStructureSchema = [3, n0, _BGNQO,
 export var BatchGetPreparedStatementInput$: StaticStructureSchema = [3, n0, _BGPSI,
   0,
   [_PSN, _WG],
-  [64 | 0, 0]
+  [64 | 0, 0], 2
 ];
 export var BatchGetPreparedStatementOutput$: StaticStructureSchema = [3, n0, _BGPSO,
   0,
@@ -569,7 +569,7 @@ export var BatchGetPreparedStatementOutput$: StaticStructureSchema = [3, n0, _BG
 export var BatchGetQueryExecutionInput$: StaticStructureSchema = [3, n0, _BGQEI,
   0,
   [_QEI],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetQueryExecutionOutput$: StaticStructureSchema = [3, n0, _BGQEO,
   0,
@@ -604,7 +604,7 @@ export var CalculationSummary$: StaticStructureSchema = [3, n0, _CSal,
 export var CancelCapacityReservationInput$: StaticStructureSchema = [3, n0, _CCRI,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var CancelCapacityReservationOutput$: StaticStructureSchema = [3, n0, _CCRO,
   0,
@@ -613,8 +613,8 @@ export var CancelCapacityReservationOutput$: StaticStructureSchema = [3, n0, _CC
 ];
 export var CapacityAllocation$: StaticStructureSchema = [3, n0, _CA,
   0,
-  [_St, _SM, _RTe, _RCT],
-  [0, 0, 4, 4]
+  [_St, _RTe, _SM, _RCT],
+  [0, 4, 0, 4], 2
 ];
 export var CapacityAssignment$: StaticStructureSchema = [3, n0, _CAa,
   0,
@@ -628,8 +628,8 @@ export var CapacityAssignmentConfiguration$: StaticStructureSchema = [3, n0, _CA
 ];
 export var CapacityReservation$: StaticStructureSchema = [3, n0, _CRa,
   0,
-  [_N, _St, _TD, _AD, _LA, _LSAT, _CT],
-  [0, 0, 1, 1, () => CapacityAllocation$, 4, 4]
+  [_N, _St, _TD, _AD, _CT, _LA, _LSAT],
+  [0, 0, 1, 1, 4, () => CapacityAllocation$, 4], 5
 ];
 export var Classification$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -639,22 +639,22 @@ export var Classification$: StaticStructureSchema = [3, n0, _C,
 export var CloudWatchLoggingConfiguration$: StaticStructureSchema = [3, n0, _CWLC,
   0,
   [_E, _LG, _LSNP, _LT],
-  [2, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]]
+  [2, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]], 1
 ];
 export var Column$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_N, _T, _Com],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ColumnInfo$: StaticStructureSchema = [3, n0, _CI,
   0,
-  [_CN, _SN, _TN, _N, _L, _T, _Pre, _Sc, _Nu, _CSas],
-  [0, 0, 0, 0, 0, 0, 1, 1, 0, 2]
+  [_N, _T, _CN, _SN, _TN, _L, _Pre, _Sc, _Nu, _CSas],
+  [0, 0, 0, 0, 0, 0, 1, 1, 0, 2], 2
 ];
 export var CreateCapacityReservationInput$: StaticStructureSchema = [3, n0, _CCRIr,
   0,
   [_TD, _N, _Ta],
-  [1, 0, () => TagList]
+  [1, 0, () => TagList], 2
 ];
 export var CreateCapacityReservationOutput$: StaticStructureSchema = [3, n0, _CCROr,
   0,
@@ -664,7 +664,7 @@ export var CreateCapacityReservationOutput$: StaticStructureSchema = [3, n0, _CC
 export var CreateDataCatalogInput$: StaticStructureSchema = [3, n0, _CDCI,
   0,
   [_N, _T, _D, _Pa, _Ta],
-  [0, 0, 0, 128 | 0, () => TagList]
+  [0, 0, 0, 128 | 0, () => TagList], 2
 ];
 export var CreateDataCatalogOutput$: StaticStructureSchema = [3, n0, _CDCO,
   0,
@@ -673,8 +673,8 @@ export var CreateDataCatalogOutput$: StaticStructureSchema = [3, n0, _CDCO,
 ];
 export var CreateNamedQueryInput$: StaticStructureSchema = [3, n0, _CNQI,
   0,
-  [_N, _D, _Da, _QS, _CRT, _WG],
-  [0, 0, 0, 0, [0, 4], 0]
+  [_N, _Da, _QS, _D, _CRT, _WG],
+  [0, 0, 0, 0, [0, 4], 0], 3
 ];
 export var CreateNamedQueryOutput$: StaticStructureSchema = [3, n0, _CNQO,
   0,
@@ -684,7 +684,7 @@ export var CreateNamedQueryOutput$: StaticStructureSchema = [3, n0, _CNQO,
 export var CreateNotebookInput$: StaticStructureSchema = [3, n0, _CNI,
   0,
   [_WG, _N, _CRT],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var CreateNotebookOutput$: StaticStructureSchema = [3, n0, _CNO,
   0,
@@ -694,7 +694,7 @@ export var CreateNotebookOutput$: StaticStructureSchema = [3, n0, _CNO,
 export var CreatePreparedStatementInput$: StaticStructureSchema = [3, n0, _CPSI,
   0,
   [_SNt, _WG, _QSu, _D],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var CreatePreparedStatementOutput$: StaticStructureSchema = [3, n0, _CPSO,
   0,
@@ -704,17 +704,17 @@ export var CreatePreparedStatementOutput$: StaticStructureSchema = [3, n0, _CPSO
 export var CreatePresignedNotebookUrlRequest$: StaticStructureSchema = [3, n0, _CPNUR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var CreatePresignedNotebookUrlResponse$: StaticStructureSchema = [3, n0, _CPNURr,
   0,
   [_NU, _AT, _ATET],
-  [0, 0, 1]
+  [0, 0, 1], 3
 ];
 export var CreateWorkGroupInput$: StaticStructureSchema = [3, n0, _CWGI,
   0,
   [_N, _Con, _D, _Ta],
-  [0, () => WorkGroupConfiguration$, 0, () => TagList]
+  [0, () => WorkGroupConfiguration$, 0, () => TagList], 1
 ];
 export var CreateWorkGroupOutput$: StaticStructureSchema = [3, n0, _CWGO,
   0,
@@ -724,17 +724,17 @@ export var CreateWorkGroupOutput$: StaticStructureSchema = [3, n0, _CWGO,
 export var CustomerContentEncryptionConfiguration$: StaticStructureSchema = [3, n0, _CCEC,
   0,
   [_KK],
-  [0]
+  [0], 1
 ];
 export var Database$: StaticStructureSchema = [3, n0, _Da,
   0,
   [_N, _D, _Pa],
-  [0, 0, 128 | 0]
+  [0, 0, 128 | 0], 1
 ];
 export var DataCatalog$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_N, _D, _T, _Pa, _St, _CTo, _Er],
-  [0, 0, 0, 128 | 0, 0, 0, 0]
+  [_N, _T, _D, _Pa, _St, _CTo, _Er],
+  [0, 0, 0, 128 | 0, 0, 0, 0], 2
 ];
 export var DataCatalogSummary$: StaticStructureSchema = [3, n0, _DCS,
   0,
@@ -749,7 +749,7 @@ export var Datum$: StaticStructureSchema = [3, n0, _Dat,
 export var DeleteCapacityReservationInput$: StaticStructureSchema = [3, n0, _DCRI,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteCapacityReservationOutput$: StaticStructureSchema = [3, n0, _DCRO,
   0,
@@ -759,7 +759,7 @@ export var DeleteCapacityReservationOutput$: StaticStructureSchema = [3, n0, _DC
 export var DeleteDataCatalogInput$: StaticStructureSchema = [3, n0, _DDCI,
   0,
   [_N, _DCO],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteDataCatalogOutput$: StaticStructureSchema = [3, n0, _DDCO,
   0,
@@ -779,7 +779,7 @@ export var DeleteNamedQueryOutput$: StaticStructureSchema = [3, n0, _DNQO,
 export var DeleteNotebookInput$: StaticStructureSchema = [3, n0, _DNI,
   0,
   [_NI],
-  [0]
+  [0], 1
 ];
 export var DeleteNotebookOutput$: StaticStructureSchema = [3, n0, _DNO,
   0,
@@ -789,7 +789,7 @@ export var DeleteNotebookOutput$: StaticStructureSchema = [3, n0, _DNO,
 export var DeletePreparedStatementInput$: StaticStructureSchema = [3, n0, _DPSI,
   0,
   [_SNt, _WG],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeletePreparedStatementOutput$: StaticStructureSchema = [3, n0, _DPSO,
   0,
@@ -799,7 +799,7 @@ export var DeletePreparedStatementOutput$: StaticStructureSchema = [3, n0, _DPSO
 export var DeleteWorkGroupInput$: StaticStructureSchema = [3, n0, _DWGI,
   0,
   [_WG, _RDO],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeleteWorkGroupOutput$: StaticStructureSchema = [3, n0, _DWGO,
   0,
@@ -809,7 +809,7 @@ export var DeleteWorkGroupOutput$: StaticStructureSchema = [3, n0, _DWGO,
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _ECn,
   0,
   [_EO, _KK],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EngineConfiguration$: StaticStructureSchema = [3, n0, _ECng,
   0,
@@ -824,12 +824,12 @@ export var EngineVersion$: StaticStructureSchema = [3, n0, _EV,
 export var ExecutorsSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_EI, _ETx, _SDTt, _TDT, _ESx, _ESxe],
-  [0, 0, 1, 1, 0, 1]
+  [0, 0, 1, 1, 0, 1], 1
 ];
 export var ExportNotebookInput$: StaticStructureSchema = [3, n0, _ENI,
   0,
   [_NI],
-  [0]
+  [0], 1
 ];
 export var ExportNotebookOutput$: StaticStructureSchema = [3, n0, _ENO,
   0,
@@ -844,7 +844,7 @@ export var FilterDefinition$: StaticStructureSchema = [3, n0, _FD,
 export var GetCalculationExecutionCodeRequest$: StaticStructureSchema = [3, n0, _GCECR,
   0,
   [_CEI],
-  [0]
+  [0], 1
 ];
 export var GetCalculationExecutionCodeResponse$: StaticStructureSchema = [3, n0, _GCECRe,
   0,
@@ -854,7 +854,7 @@ export var GetCalculationExecutionCodeResponse$: StaticStructureSchema = [3, n0,
 export var GetCalculationExecutionRequest$: StaticStructureSchema = [3, n0, _GCER,
   0,
   [_CEI],
-  [0]
+  [0], 1
 ];
 export var GetCalculationExecutionResponse$: StaticStructureSchema = [3, n0, _GCERe,
   0,
@@ -864,7 +864,7 @@ export var GetCalculationExecutionResponse$: StaticStructureSchema = [3, n0, _GC
 export var GetCalculationExecutionStatusRequest$: StaticStructureSchema = [3, n0, _GCESR,
   0,
   [_CEI],
-  [0]
+  [0], 1
 ];
 export var GetCalculationExecutionStatusResponse$: StaticStructureSchema = [3, n0, _GCESRe,
   0,
@@ -874,27 +874,27 @@ export var GetCalculationExecutionStatusResponse$: StaticStructureSchema = [3, n
 export var GetCapacityAssignmentConfigurationInput$: StaticStructureSchema = [3, n0, _GCACI,
   0,
   [_CRN],
-  [0]
+  [0], 1
 ];
 export var GetCapacityAssignmentConfigurationOutput$: StaticStructureSchema = [3, n0, _GCACO,
   0,
   [_CAC],
-  [() => CapacityAssignmentConfiguration$]
+  [() => CapacityAssignmentConfiguration$], 1
 ];
 export var GetCapacityReservationInput$: StaticStructureSchema = [3, n0, _GCRI,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var GetCapacityReservationOutput$: StaticStructureSchema = [3, n0, _GCRO,
   0,
   [_CRa],
-  [() => CapacityReservation$]
+  [() => CapacityReservation$], 1
 ];
 export var GetDatabaseInput$: StaticStructureSchema = [3, n0, _GDI,
   0,
   [_CN, _DN, _WG],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var GetDatabaseOutput$: StaticStructureSchema = [3, n0, _GDO,
   0,
@@ -904,7 +904,7 @@ export var GetDatabaseOutput$: StaticStructureSchema = [3, n0, _GDO,
 export var GetDataCatalogInput$: StaticStructureSchema = [3, n0, _GDCI,
   0,
   [_N, _WG],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GetDataCatalogOutput$: StaticStructureSchema = [3, n0, _GDCO,
   0,
@@ -914,7 +914,7 @@ export var GetDataCatalogOutput$: StaticStructureSchema = [3, n0, _GDCO,
 export var GetNamedQueryInput$: StaticStructureSchema = [3, n0, _GNQI,
   0,
   [_NQIa],
-  [0]
+  [0], 1
 ];
 export var GetNamedQueryOutput$: StaticStructureSchema = [3, n0, _GNQO,
   0,
@@ -924,7 +924,7 @@ export var GetNamedQueryOutput$: StaticStructureSchema = [3, n0, _GNQO,
 export var GetNotebookMetadataInput$: StaticStructureSchema = [3, n0, _GNMI,
   0,
   [_NI],
-  [0]
+  [0], 1
 ];
 export var GetNotebookMetadataOutput$: StaticStructureSchema = [3, n0, _GNMO,
   0,
@@ -934,7 +934,7 @@ export var GetNotebookMetadataOutput$: StaticStructureSchema = [3, n0, _GNMO,
 export var GetPreparedStatementInput$: StaticStructureSchema = [3, n0, _GPSI,
   0,
   [_SNt, _WG],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPreparedStatementOutput$: StaticStructureSchema = [3, n0, _GPSO,
   0,
@@ -944,7 +944,7 @@ export var GetPreparedStatementOutput$: StaticStructureSchema = [3, n0, _GPSO,
 export var GetQueryExecutionInput$: StaticStructureSchema = [3, n0, _GQEI,
   0,
   [_QEIu],
-  [0]
+  [0], 1
 ];
 export var GetQueryExecutionOutput$: StaticStructureSchema = [3, n0, _GQEO,
   0,
@@ -954,7 +954,7 @@ export var GetQueryExecutionOutput$: StaticStructureSchema = [3, n0, _GQEO,
 export var GetQueryResultsInput$: StaticStructureSchema = [3, n0, _GQRI,
   0,
   [_QEIu, _NT, _MR, _QRT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var GetQueryResultsOutput$: StaticStructureSchema = [3, n0, _GQRO,
   0,
@@ -964,7 +964,7 @@ export var GetQueryResultsOutput$: StaticStructureSchema = [3, n0, _GQRO,
 export var GetQueryRuntimeStatisticsInput$: StaticStructureSchema = [3, n0, _GQRSI,
   0,
   [_QEIu],
-  [0]
+  [0], 1
 ];
 export var GetQueryRuntimeStatisticsOutput$: StaticStructureSchema = [3, n0, _GQRSO,
   0,
@@ -974,27 +974,27 @@ export var GetQueryRuntimeStatisticsOutput$: StaticStructureSchema = [3, n0, _GQ
 export var GetResourceDashboardRequest$: StaticStructureSchema = [3, n0, _GRDR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var GetResourceDashboardResponse$: StaticStructureSchema = [3, n0, _GRDRe,
   0,
   [_U],
-  [0]
+  [0], 1
 ];
 export var GetSessionEndpointRequest$: StaticStructureSchema = [3, n0, _GSER,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var GetSessionEndpointResponse$: StaticStructureSchema = [3, n0, _GSERe,
   0,
   [_EU, _AT, _ATET],
-  [0, 0, 4]
+  [0, 0, 4], 3
 ];
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -1004,7 +1004,7 @@ export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
 export var GetSessionStatusRequest$: StaticStructureSchema = [3, n0, _GSSR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var GetSessionStatusResponse$: StaticStructureSchema = [3, n0, _GSSRe,
   0,
@@ -1014,7 +1014,7 @@ export var GetSessionStatusResponse$: StaticStructureSchema = [3, n0, _GSSRe,
 export var GetTableMetadataInput$: StaticStructureSchema = [3, n0, _GTMI,
   0,
   [_CN, _DN, _TN, _WG],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var GetTableMetadataOutput$: StaticStructureSchema = [3, n0, _GTMO,
   0,
@@ -1024,7 +1024,7 @@ export var GetTableMetadataOutput$: StaticStructureSchema = [3, n0, _GTMO,
 export var GetWorkGroupInput$: StaticStructureSchema = [3, n0, _GWGI,
   0,
   [_WG],
-  [0]
+  [0], 1
 ];
 export var GetWorkGroupOutput$: StaticStructureSchema = [3, n0, _GWGO,
   0,
@@ -1038,8 +1038,8 @@ export var IdentityCenterConfiguration$: StaticStructureSchema = [3, n0, _ICC,
 ];
 export var ImportNotebookInput$: StaticStructureSchema = [3, n0, _INI,
   0,
-  [_WG, _N, _Pay, _T, _NSLU, _CRT],
-  [0, 0, 0, 0, 0, 0]
+  [_WG, _N, _T, _Pay, _NSLU, _CRT],
+  [0, 0, 0, 0, 0, 0], 3
 ];
 export var ImportNotebookOutput$: StaticStructureSchema = [3, n0, _INO,
   0,
@@ -1071,7 +1071,7 @@ export var ListApplicationDPUSizesOutput$: StaticStructureSchema = [3, n0, _LADP
 export var ListCalculationExecutionsRequest$: StaticStructureSchema = [3, n0, _LCER,
   0,
   [_SI, _SF, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListCalculationExecutionsResponse$: StaticStructureSchema = [3, n0, _LCERi,
   0,
@@ -1085,13 +1085,13 @@ export var ListCapacityReservationsInput$: StaticStructureSchema = [3, n0, _LCRI
 ];
 export var ListCapacityReservationsOutput$: StaticStructureSchema = [3, n0, _LCRO,
   0,
-  [_NT, _CRap],
-  [0, () => CapacityReservationsList]
+  [_CRap, _NT],
+  [() => CapacityReservationsList, 0], 1
 ];
 export var ListDatabasesInput$: StaticStructureSchema = [3, n0, _LDI,
   0,
   [_CN, _NT, _MR, _WG],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListDatabasesOutput$: StaticStructureSchema = [3, n0, _LDO,
   0,
@@ -1121,12 +1121,12 @@ export var ListEngineVersionsOutput$: StaticStructureSchema = [3, n0, _LEVO,
 export var ListExecutorsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
   [_SI, _ESF, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListExecutorsResponse$: StaticStructureSchema = [3, n0, _LERi,
   0,
   [_SI, _NT, _ES],
-  [0, 0, () => ExecutorsSummaryList]
+  [0, 0, () => ExecutorsSummaryList], 1
 ];
 export var ListNamedQueriesInput$: StaticStructureSchema = [3, n0, _LNQI,
   0,
@@ -1140,8 +1140,8 @@ export var ListNamedQueriesOutput$: StaticStructureSchema = [3, n0, _LNQO,
 ];
 export var ListNotebookMetadataInput$: StaticStructureSchema = [3, n0, _LNMI,
   0,
-  [_F, _NT, _MR, _WG],
-  [() => FilterDefinition$, 0, 1, 0]
+  [_WG, _F, _NT, _MR],
+  [0, () => FilterDefinition$, 0, 1], 1
 ];
 export var ListNotebookMetadataOutput$: StaticStructureSchema = [3, n0, _LNMO,
   0,
@@ -1151,17 +1151,17 @@ export var ListNotebookMetadataOutput$: StaticStructureSchema = [3, n0, _LNMO,
 export var ListNotebookSessionsRequest$: StaticStructureSchema = [3, n0, _LNSR,
   0,
   [_NI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListNotebookSessionsResponse$: StaticStructureSchema = [3, n0, _LNSRi,
   0,
   [_NSL, _NT],
-  [() => NotebookSessionsList, 0]
+  [() => NotebookSessionsList, 0], 1
 ];
 export var ListPreparedStatementsInput$: StaticStructureSchema = [3, n0, _LPSI,
   0,
   [_WG, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListPreparedStatementsOutput$: StaticStructureSchema = [3, n0, _LPSO,
   0,
@@ -1181,7 +1181,7 @@ export var ListQueryExecutionsOutput$: StaticStructureSchema = [3, n0, _LQEO,
 export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_WG, _SF, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
@@ -1191,7 +1191,7 @@ export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListTableMetadataInput$: StaticStructureSchema = [3, n0, _LTMI,
   0,
   [_CN, _DN, _Ex, _NT, _MR, _WG],
-  [0, 0, 0, 0, 1, 0]
+  [0, 0, 0, 0, 1, 0], 2
 ];
 export var ListTableMetadataOutput$: StaticStructureSchema = [3, n0, _LTMO,
   0,
@@ -1201,7 +1201,7 @@ export var ListTableMetadataOutput$: StaticStructureSchema = [3, n0, _LTMO,
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RARN, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -1221,12 +1221,12 @@ export var ListWorkGroupsOutput$: StaticStructureSchema = [3, n0, _LWGO,
 export var ManagedLoggingConfiguration$: StaticStructureSchema = [3, n0, _MLC,
   0,
   [_E, _KK],
-  [2, 0]
+  [2, 0], 1
 ];
 export var ManagedQueryResultsConfiguration$: StaticStructureSchema = [3, n0, _MQRC,
   0,
   [_E, _ECn],
-  [2, () => ManagedQueryResultsEncryptionConfiguration$]
+  [2, () => ManagedQueryResultsEncryptionConfiguration$], 1
 ];
 export var ManagedQueryResultsConfigurationUpdates$: StaticStructureSchema = [3, n0, _MQRCU,
   0,
@@ -1236,7 +1236,7 @@ export var ManagedQueryResultsConfigurationUpdates$: StaticStructureSchema = [3,
 export var ManagedQueryResultsEncryptionConfiguration$: StaticStructureSchema = [3, n0, _MQREC,
   0,
   [_KK],
-  [0]
+  [0], 1
 ];
 export var MetadataException$: StaticErrorSchema = [-3, n0, _ME,
   { [_e]: _c },
@@ -1251,8 +1251,8 @@ export var MonitoringConfiguration$: StaticStructureSchema = [3, n0, _MC,
 ];
 export var NamedQuery$: StaticStructureSchema = [3, n0, _NQa,
   0,
-  [_N, _D, _Da, _QS, _NQIa, _WG],
-  [0, 0, 0, 0, 0, 0]
+  [_N, _Da, _QS, _D, _NQIa, _WG],
+  [0, 0, 0, 0, 0, 0], 3
 ];
 export var NotebookMetadata$: StaticStructureSchema = [3, n0, _NM,
   0,
@@ -1277,7 +1277,7 @@ export var PreparedStatementSummary$: StaticStructureSchema = [3, n0, _PSS,
 export var PutCapacityAssignmentConfigurationInput$: StaticStructureSchema = [3, n0, _PCACI,
   0,
   [_CRN, _CAap],
-  [0, () => CapacityAssignmentsList]
+  [0, () => CapacityAssignmentsList], 2
 ];
 export var PutCapacityAssignmentConfigurationOutput$: StaticStructureSchema = [3, n0, _PCACO,
   0,
@@ -1306,8 +1306,8 @@ export var QueryExecutionStatus$: StaticStructureSchema = [3, n0, _QESu,
 ];
 export var QueryResultsS3AccessGrantsConfiguration$: StaticStructureSchema = [3, n0, _QRSAGC,
   0,
-  [_ESAG, _CULP, _ATu],
-  [2, 2, 0]
+  [_ESAG, _ATu, _CULP],
+  [2, 0, 2], 2
 ];
 export var QueryRuntimeStatistics$: StaticStructureSchema = [3, n0, _QRS,
   0,
@@ -1353,7 +1353,7 @@ export var ResultConfigurationUpdates$: StaticStructureSchema = [3, n0, _RCU,
 export var ResultReuseByAgeConfiguration$: StaticStructureSchema = [3, n0, _RRBAC,
   0,
   [_E, _MAIM],
-  [2, 1]
+  [2, 1], 1
 ];
 export var ResultReuseConfiguration$: StaticStructureSchema = [3, n0, _RRC,
   0,
@@ -1363,7 +1363,7 @@ export var ResultReuseConfiguration$: StaticStructureSchema = [3, n0, _RRC,
 export var ResultReuseInformation$: StaticStructureSchema = [3, n0, _RRI,
   0,
   [_RPR],
-  [2]
+  [2], 1
 ];
 export var ResultSet$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -1383,7 +1383,7 @@ export var Row$: StaticStructureSchema = [3, n0, _Row,
 export var S3LoggingConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
   [_E, _KK, _LL],
-  [2, 0, 0]
+  [2, 0, 0], 1
 ];
 export var SessionAlreadyExistsException$: StaticErrorSchema = [-3, n0, _SAEE,
   { [_e]: _c },
@@ -1414,7 +1414,7 @@ export var SessionSummary$: StaticStructureSchema = [3, n0, _SSess,
 export var StartCalculationExecutionRequest$: StaticStructureSchema = [3, n0, _SCER,
   0,
   [_SI, _D, _CC, _CB, _CRT],
-  [0, 0, () => CalculationConfiguration$, 0, 0]
+  [0, 0, () => CalculationConfiguration$, 0, 0], 1
 ];
 export var StartCalculationExecutionResponse$: StaticStructureSchema = [3, n0, _SCERt,
   0,
@@ -1424,7 +1424,7 @@ export var StartCalculationExecutionResponse$: StaticStructureSchema = [3, n0, _
 export var StartQueryExecutionInput$: StaticStructureSchema = [3, n0, _SQEI,
   0,
   [_QS, _CRT, _QEC, _RC, _WG, _EP, _RRC, _ECng],
-  [0, [0, 4], () => QueryExecutionContext$, () => ResultConfiguration$, 0, 64 | 0, () => ResultReuseConfiguration$, () => EngineConfiguration$]
+  [0, [0, 4], () => QueryExecutionContext$, () => ResultConfiguration$, 0, 64 | 0, () => ResultReuseConfiguration$, () => EngineConfiguration$], 1
 ];
 export var StartQueryExecutionOutput$: StaticStructureSchema = [3, n0, _SQEO,
   0,
@@ -1433,8 +1433,8 @@ export var StartQueryExecutionOutput$: StaticStructureSchema = [3, n0, _SQEO,
 ];
 export var StartSessionRequest$: StaticStructureSchema = [3, n0, _SSR,
   0,
-  [_D, _WG, _ECng, _ER, _MC, _NV, _SITIM, _CRT, _Ta, _CWGT],
-  [0, 0, () => EngineConfiguration$, 0, () => MonitoringConfiguration$, 0, 1, 0, () => TagList, 2]
+  [_WG, _ECng, _D, _ER, _MC, _NV, _SITIM, _CRT, _Ta, _CWGT],
+  [0, () => EngineConfiguration$, 0, 0, () => MonitoringConfiguration$, 0, 1, 0, () => TagList, 2], 2
 ];
 export var StartSessionResponse$: StaticStructureSchema = [3, n0, _SSRt,
   0,
@@ -1444,7 +1444,7 @@ export var StartSessionResponse$: StaticStructureSchema = [3, n0, _SSRt,
 export var StopCalculationExecutionRequest$: StaticStructureSchema = [3, n0, _SCERto,
   0,
   [_CEI],
-  [0]
+  [0], 1
 ];
 export var StopCalculationExecutionResponse$: StaticStructureSchema = [3, n0, _SCERtop,
   0,
@@ -1464,7 +1464,7 @@ export var StopQueryExecutionOutput$: StaticStructureSchema = [3, n0, _SQEOt,
 export var TableMetadata$: StaticStructureSchema = [3, n0, _TM,
   0,
   [_N, _CTr, _LAT, _TT, _Col, _PK, _Pa],
-  [0, 4, 4, 0, () => ColumnList, () => ColumnList, 128 | 0]
+  [0, 4, 4, 0, () => ColumnList, () => ColumnList, 128 | 0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
@@ -1474,7 +1474,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RARN, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -1484,7 +1484,7 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 export var TerminateSessionRequest$: StaticStructureSchema = [3, n0, _TSR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var TerminateSessionResponse$: StaticStructureSchema = [3, n0, _TSRe,
   0,
@@ -1515,7 +1515,7 @@ export var UnprocessedQueryExecutionId$: StaticStructureSchema = [3, n0, _UQEIn,
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -1525,7 +1525,7 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateCapacityReservationInput$: StaticStructureSchema = [3, n0, _UCRI,
   0,
   [_TD, _N],
-  [1, 0]
+  [1, 0], 2
 ];
 export var UpdateCapacityReservationOutput$: StaticStructureSchema = [3, n0, _UCRO,
   0,
@@ -1535,7 +1535,7 @@ export var UpdateCapacityReservationOutput$: StaticStructureSchema = [3, n0, _UC
 export var UpdateDataCatalogInput$: StaticStructureSchema = [3, n0, _UDCI,
   0,
   [_N, _T, _D, _Pa],
-  [0, 0, 0, 128 | 0]
+  [0, 0, 0, 128 | 0], 2
 ];
 export var UpdateDataCatalogOutput$: StaticStructureSchema = [3, n0, _UDCO,
   0,
@@ -1544,8 +1544,8 @@ export var UpdateDataCatalogOutput$: StaticStructureSchema = [3, n0, _UDCO,
 ];
 export var UpdateNamedQueryInput$: StaticStructureSchema = [3, n0, _UNQIp,
   0,
-  [_NQIa, _N, _D, _QS],
-  [0, 0, 0, 0]
+  [_NQIa, _N, _QS, _D],
+  [0, 0, 0, 0], 3
 ];
 export var UpdateNamedQueryOutput$: StaticStructureSchema = [3, n0, _UNQO,
   0,
@@ -1555,12 +1555,12 @@ export var UpdateNamedQueryOutput$: StaticStructureSchema = [3, n0, _UNQO,
 export var UpdateNotebookInput$: StaticStructureSchema = [3, n0, _UNI,
   0,
   [_NI, _Pay, _T, _SI, _CRT],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 3
 ];
 export var UpdateNotebookMetadataInput$: StaticStructureSchema = [3, n0, _UNMI,
   0,
-  [_NI, _CRT, _N],
-  [0, 0, 0]
+  [_NI, _N, _CRT],
+  [0, 0, 0], 2
 ];
 export var UpdateNotebookMetadataOutput$: StaticStructureSchema = [3, n0, _UNMO,
   0,
@@ -1575,7 +1575,7 @@ export var UpdateNotebookOutput$: StaticStructureSchema = [3, n0, _UNO,
 export var UpdatePreparedStatementInput$: StaticStructureSchema = [3, n0, _UPSI,
   0,
   [_SNt, _WG, _QSu, _D],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var UpdatePreparedStatementOutput$: StaticStructureSchema = [3, n0, _UPSO,
   0,
@@ -1585,7 +1585,7 @@ export var UpdatePreparedStatementOutput$: StaticStructureSchema = [3, n0, _UPSO
 export var UpdateWorkGroupInput$: StaticStructureSchema = [3, n0, _UWGI,
   0,
   [_WG, _D, _CU, _S],
-  [0, 0, () => WorkGroupConfigurationUpdates$, 0]
+  [0, 0, () => WorkGroupConfigurationUpdates$, 0], 1
 ];
 export var UpdateWorkGroupOutput$: StaticStructureSchema = [3, n0, _UWGO,
   0,
@@ -1595,7 +1595,7 @@ export var UpdateWorkGroupOutput$: StaticStructureSchema = [3, n0, _UWGO,
 export var WorkGroup$: StaticStructureSchema = [3, n0, _WG,
   0,
   [_N, _S, _Con, _D, _CT, _ICAA],
-  [0, 0, () => WorkGroupConfiguration$, 0, 4, 0]
+  [0, 0, () => WorkGroupConfiguration$, 0, 4, 0], 1
 ];
 export var WorkGroupConfiguration$: StaticStructureSchema = [3, n0, _WGC,
   0,

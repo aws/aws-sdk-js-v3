@@ -70,6 +70,7 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *   Device: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
  *   VolumeId: "STRING_VALUE", // required
+ *   EbsCardIndex: Number("int"),
  *   DryRun: true || false,
  * };
  * const command = new AttachVolumeCommand(input);
@@ -78,6 +79,7 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * //   DeleteOnTermination: true || false,
  * //   AssociatedResource: "STRING_VALUE",
  * //   InstanceOwningService: "STRING_VALUE",
+ * //   EbsCardIndex: Number("int"),
  * //   VolumeId: "STRING_VALUE",
  * //   InstanceId: "STRING_VALUE",
  * //   Device: "STRING_VALUE",

@@ -81,9 +81,7 @@ export interface ModifyIntegrationCommandOutput extends Integration, __MetadataB
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link IntegrationConflictOperationFault} (client fault)
- *  <p>A conflicting conditional operation is currently in progress against this resource.
- *             Typically occurs when there are multiple requests being made to the same resource at the same time,
- *             and these requests conflict with each other.</p>
+ *  <p>A conflicting conditional operation is currently in progress against this resource. Typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.</p>
  *
  * @throws {@link IntegrationNotFoundFault} (client fault)
  *  <p>The specified integration could not be found.</p>

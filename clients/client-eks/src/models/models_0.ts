@@ -1137,12 +1137,12 @@ export interface AssociateIdentityProviderConfigResponse {
 }
 
 /**
- * <p>An Amazon EC2 Auto Scaling group that is associated with an Amazon EKS managed node group.</p>
+ * <p>An Auto Scaling group that is associated with an Amazon EKS managed node group.</p>
  * @public
  */
 export interface AutoScalingGroup {
   /**
-   * <p>The name of the Amazon EC2 Auto Scaling group associated with an Amazon EKS managed node group.</p>
+   * <p>The name of the Auto Scaling group associated with an Amazon EKS managed node group.</p>
    * @public
    */
   name?: string | undefined;
@@ -3605,7 +3605,7 @@ export interface RemoteAccessConfig {
 }
 
 /**
- * <p>An object representing the scaling configuration details for the Amazon EC2 Auto Scaling group that is
+ * <p>An object representing the scaling configuration details for the Auto Scaling group that is
  *             associated with your node group. When creating a node group, you must specify all or
  *             none of the properties. When updating a node group, you can specify any or none of the
  *             properties.</p>
@@ -3919,14 +3919,14 @@ export interface Issue {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>AsgInstanceLaunchFailures</b>: Your Amazon EC2 Auto Scaling group is
+   *                   <b>AsgInstanceLaunchFailures</b>: Your Auto Scaling group is
    *                     experiencing failures while attempting to launch instances.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>AutoScalingGroupNotFound</b>: We couldn't find
-   *                     the Amazon EC2 Auto Scaling group associated with the managed node group. You may be able to
-   *                     recreate an Amazon EC2 Auto Scaling group with the same settings to recover.</p>
+   *                     the Auto Scaling group associated with the managed node group. You may be able to
+   *                     recreate an Auto Scaling group with the same settings to recover.</p>
    *             </li>
    *             <li>
    *                <p>

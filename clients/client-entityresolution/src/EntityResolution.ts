@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddPolicyStatementCommand,
@@ -177,6 +177,13 @@ import {
   UpdateSchemaMappingCommandOutput,
 } from "./commands/UpdateSchemaMappingCommand";
 import { EntityResolutionClient } from "./EntityResolutionClient";
+import { paginateListIdMappingJobs } from "./pagination/ListIdMappingJobsPaginator";
+import { paginateListIdMappingWorkflows } from "./pagination/ListIdMappingWorkflowsPaginator";
+import { paginateListIdNamespaces } from "./pagination/ListIdNamespacesPaginator";
+import { paginateListMatchingJobs } from "./pagination/ListMatchingJobsPaginator";
+import { paginateListMatchingWorkflows } from "./pagination/ListMatchingWorkflowsPaginator";
+import { paginateListProviderServices } from "./pagination/ListProviderServicesPaginator";
+import { paginateListSchemaMappings } from "./pagination/ListSchemaMappingsPaginator";
 
 const commands = {
   AddPolicyStatementCommand,
@@ -217,6 +224,15 @@ const commands = {
   UpdateIdNamespaceCommand,
   UpdateMatchingWorkflowCommand,
   UpdateSchemaMappingCommand,
+};
+const paginators = {
+  paginateListIdMappingJobs,
+  paginateListIdMappingWorkflows,
+  paginateListIdNamespaces,
+  paginateListMatchingJobs,
+  paginateListMatchingWorkflows,
+  paginateListProviderServices,
+  paginateListSchemaMappings,
 };
 
 export interface EntityResolution {
@@ -870,6 +886,83 @@ export interface EntityResolution {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSchemaMappingCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListIdMappingJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdMappingJobsCommandOutput}.
+   */
+  paginateListIdMappingJobs(
+    args: ListIdMappingJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdMappingJobsCommandOutput>;
+
+  /**
+   * @see {@link ListIdMappingWorkflowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdMappingWorkflowsCommandOutput}.
+   */
+  paginateListIdMappingWorkflows(
+    args?: ListIdMappingWorkflowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdMappingWorkflowsCommandOutput>;
+
+  /**
+   * @see {@link ListIdNamespacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdNamespacesCommandOutput}.
+   */
+  paginateListIdNamespaces(
+    args?: ListIdNamespacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdNamespacesCommandOutput>;
+
+  /**
+   * @see {@link ListMatchingJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMatchingJobsCommandOutput}.
+   */
+  paginateListMatchingJobs(
+    args: ListMatchingJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMatchingJobsCommandOutput>;
+
+  /**
+   * @see {@link ListMatchingWorkflowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMatchingWorkflowsCommandOutput}.
+   */
+  paginateListMatchingWorkflows(
+    args?: ListMatchingWorkflowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMatchingWorkflowsCommandOutput>;
+
+  /**
+   * @see {@link ListProviderServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProviderServicesCommandOutput}.
+   */
+  paginateListProviderServices(
+    args?: ListProviderServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProviderServicesCommandOutput>;
+
+  /**
+   * @see {@link ListSchemaMappingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchemaMappingsCommandOutput}.
+   */
+  paginateListSchemaMappings(
+    args?: ListSchemaMappingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchemaMappingsCommandOutput>;
 }
 
 /**
@@ -877,4 +970,4 @@ export interface EntityResolution {
  * @public
  */
 export class EntityResolution extends EntityResolutionClient implements EntityResolution {}
-createAggregatedClient(commands, EntityResolution);
+createAggregatedClient(commands, EntityResolution, { paginators });

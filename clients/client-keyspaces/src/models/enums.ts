@@ -168,6 +168,19 @@ export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
  * @public
  * @enum
  */
+export const WarmThroughputStatus = {
+  AVAILABLE: "AVAILABLE",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type WarmThroughputStatus = (typeof WarmThroughputStatus)[keyof typeof WarmThroughputStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const TypeStatus = {
   ACTIVE: "ACTIVE",
   CREATING: "CREATING",

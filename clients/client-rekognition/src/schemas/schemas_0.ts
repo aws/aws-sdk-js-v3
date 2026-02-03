@@ -793,7 +793,7 @@ export var AssociatedFace$: StaticStructureSchema = [3, n0, _AF,
 export var AssociateFacesRequest$: StaticStructureSchema = [3, n0, _AFR,
   0,
   [_CI, _UI, _FIa, _UMT, _CRT],
-  [0, 0, 64 | 0, 1, [0, 4]]
+  [0, 0, 64 | 0, 1, [0, 4]], 3
 ];
 export var AssociateFacesResponse$: StaticStructureSchema = [3, n0, _AFRs,
   0,
@@ -843,12 +843,12 @@ export var CelebrityRecognition$: StaticStructureSchema = [3, n0, _CR,
 export var Challenge$: StaticStructureSchema = [3, n0, _Ch,
   0,
   [_Ty, _Ve],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ChallengePreference$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_Ty, _Ver],
-  [0, () => Versions$]
+  [0, () => Versions$], 1
 ];
 export var ComparedFace$: StaticStructureSchema = [3, n0, _CF,
   0,
@@ -868,7 +868,7 @@ export var CompareFacesMatch$: StaticStructureSchema = [3, n0, _CFM,
 export var CompareFacesRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
   [_SI, _TI, _ST, _QF],
-  [() => Image$, () => Image$, 1, 0]
+  [() => Image$, () => Image$, 1, 0], 2
 ];
 export var CompareFacesResponse$: StaticStructureSchema = [3, n0, _CFRo,
   0,
@@ -884,7 +884,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectedHomeSettings$: StaticStructureSchema = [3, n0, _CHS,
   0,
   [_Lab, _MCi],
-  [64 | 0, 1]
+  [64 | 0, 1], 1
 ];
 export var ConnectedHomeSettingsForUpdate$: StaticStructureSchema = [3, n0, _CHSFU,
   0,
@@ -904,7 +904,7 @@ export var ContentType$: StaticStructureSchema = [3, n0, _CTo,
 export var CopyProjectVersionRequest$: StaticStructureSchema = [3, n0, _CPVR,
   0,
   [_SPA, _SPVA, _DPA, _VN, _OC, _Ta, _KKI],
-  [0, 0, 0, 0, () => OutputConfig$, 128 | 0, 0]
+  [0, 0, 0, 0, () => OutputConfig$, 128 | 0, 0], 5
 ];
 export var CopyProjectVersionResponse$: StaticStructureSchema = [3, n0, _CPVRo,
   0,
@@ -919,7 +919,7 @@ export var CoversBodyPart$: StaticStructureSchema = [3, n0, _CBP,
 export var CreateCollectionRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_CI, _Ta],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var CreateCollectionResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -928,8 +928,8 @@ export var CreateCollectionResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateDatasetRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_DS, _DT, _PA, _Ta],
-  [() => DatasetSource$, 0, 0, 128 | 0]
+  [_DT, _PA, _DS, _Ta],
+  [0, 0, () => DatasetSource$, 128 | 0], 2
 ];
 export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -949,12 +949,12 @@ export var CreateFaceLivenessSessionRequestSettings$: StaticStructureSchema = [3
 export var CreateFaceLivenessSessionResponse$: StaticStructureSchema = [3, n0, _CFLSRr,
   0,
   [_SIe],
-  [0]
+  [0], 1
 ];
 export var CreateProjectRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_PN, _Fe, _AU, _Ta],
-  [0, 0, 0, 128 | 0]
+  [0, 0, 0, 128 | 0], 1
 ];
 export var CreateProjectResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -964,7 +964,7 @@ export var CreateProjectResponse$: StaticStructureSchema = [3, n0, _CPRr,
 export var CreateProjectVersionRequest$: StaticStructureSchema = [3, n0, _CPVRr,
   0,
   [_PA, _VN, _OC, _TD, _TDe, _Ta, _KKI, _VD, _FC],
-  [0, 0, () => OutputConfig$, () => TrainingData$, () => TestingData$, 128 | 0, 0, 0, () => CustomizationFeatureConfig$]
+  [0, 0, () => OutputConfig$, () => TrainingData$, () => TestingData$, 128 | 0, 0, 0, () => CustomizationFeatureConfig$], 3
 ];
 export var CreateProjectVersionResponse$: StaticStructureSchema = [3, n0, _CPVRre,
   0,
@@ -974,7 +974,7 @@ export var CreateProjectVersionResponse$: StaticStructureSchema = [3, n0, _CPVRr
 export var CreateStreamProcessorRequest$: StaticStructureSchema = [3, n0, _CSPR,
   0,
   [_In, _O, _N, _Se, _RA, _Ta, _NC, _KKI, _ROI, _DSP],
-  [() => StreamProcessorInput$, () => StreamProcessorOutput$, 0, () => StreamProcessorSettings$, 0, 128 | 0, () => StreamProcessorNotificationChannel$, 0, () => RegionsOfInterest, () => StreamProcessorDataSharingPreference$]
+  [() => StreamProcessorInput$, () => StreamProcessorOutput$, 0, () => StreamProcessorSettings$, 0, 128 | 0, () => StreamProcessorNotificationChannel$, 0, () => RegionsOfInterest, () => StreamProcessorDataSharingPreference$], 5
 ];
 export var CreateStreamProcessorResponse$: StaticStructureSchema = [3, n0, _CSPRr,
   0,
@@ -984,7 +984,7 @@ export var CreateStreamProcessorResponse$: StaticStructureSchema = [3, n0, _CSPR
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
   [_CI, _UI, _CRT],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 2
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
@@ -1009,7 +1009,7 @@ export var CustomLabel$: StaticStructureSchema = [3, n0, _CL,
 export var DatasetChanges$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_GT],
-  [21]
+  [21], 1
 ];
 export var DatasetDescription$: StaticStructureSchema = [3, n0, _DD,
   0,
@@ -1044,7 +1044,7 @@ export var DatasetStats$: StaticStructureSchema = [3, n0, _DSa,
 export var DeleteCollectionRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var DeleteCollectionResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -1054,7 +1054,7 @@ export var DeleteCollectionResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteDatasetRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DA],
-  [0]
+  [0], 1
 ];
 export var DeleteDatasetResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -1064,7 +1064,7 @@ export var DeleteDatasetResponse$: StaticStructureSchema = [3, n0, _DDRe,
 export var DeleteFacesRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_CI, _FIa],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DeleteFacesResponse$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -1074,7 +1074,7 @@ export var DeleteFacesResponse$: StaticStructureSchema = [3, n0, _DFRe,
 export var DeleteProjectPolicyRequest$: StaticStructureSchema = [3, n0, _DPPR,
   0,
   [_PA, _PNo, _PRI],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DeleteProjectPolicyResponse$: StaticStructureSchema = [3, n0, _DPPRe,
   0,
@@ -1084,7 +1084,7 @@ export var DeleteProjectPolicyResponse$: StaticStructureSchema = [3, n0, _DPPRe,
 export var DeleteProjectRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_PA],
-  [0]
+  [0], 1
 ];
 export var DeleteProjectResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -1094,7 +1094,7 @@ export var DeleteProjectResponse$: StaticStructureSchema = [3, n0, _DPRe,
 export var DeleteProjectVersionRequest$: StaticStructureSchema = [3, n0, _DPVR,
   0,
   [_PVA],
-  [0]
+  [0], 1
 ];
 export var DeleteProjectVersionResponse$: StaticStructureSchema = [3, n0, _DPVRe,
   0,
@@ -1104,7 +1104,7 @@ export var DeleteProjectVersionResponse$: StaticStructureSchema = [3, n0, _DPVRe
 export var DeleteStreamProcessorRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteStreamProcessorResponse$: StaticStructureSchema = [3, n0, _DSPRe,
   0,
@@ -1114,7 +1114,7 @@ export var DeleteStreamProcessorResponse$: StaticStructureSchema = [3, n0, _DSPR
 export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_CI, _UI, _CRT],
-  [0, 0, [0, 4]]
+  [0, 0, [0, 4]], 2
 ];
 export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe,
   0,
@@ -1124,7 +1124,7 @@ export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe,
 export var DescribeCollectionRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var DescribeCollectionResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
@@ -1134,7 +1134,7 @@ export var DescribeCollectionResponse$: StaticStructureSchema = [3, n0, _DCResc,
 export var DescribeDatasetRequest$: StaticStructureSchema = [3, n0, _DDRes,
   0,
   [_DA],
-  [0]
+  [0], 1
 ];
 export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDResc,
   0,
@@ -1154,7 +1154,7 @@ export var DescribeProjectsResponse$: StaticStructureSchema = [3, n0, _DPResc,
 export var DescribeProjectVersionsRequest$: StaticStructureSchema = [3, n0, _DPVRes,
   0,
   [_PA, _VNe, _NT, _MR],
-  [0, 64 | 0, 0, 1]
+  [0, 64 | 0, 0, 1], 1
 ];
 export var DescribeProjectVersionsResponse$: StaticStructureSchema = [3, n0, _DPVResc,
   0,
@@ -1164,7 +1164,7 @@ export var DescribeProjectVersionsResponse$: StaticStructureSchema = [3, n0, _DP
 export var DescribeStreamProcessorRequest$: StaticStructureSchema = [3, n0, _DSPRes,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DescribeStreamProcessorResponse$: StaticStructureSchema = [3, n0, _DSPResc,
   0,
@@ -1174,7 +1174,7 @@ export var DescribeStreamProcessorResponse$: StaticStructureSchema = [3, n0, _DS
 export var DetectCustomLabelsRequest$: StaticStructureSchema = [3, n0, _DCLR,
   0,
   [_PVA, _Im, _MR, _MCi],
-  [0, () => Image$, 1, 1]
+  [0, () => Image$, 1, 1], 2
 ];
 export var DetectCustomLabelsResponse$: StaticStructureSchema = [3, n0, _DCLRe,
   0,
@@ -1184,7 +1184,7 @@ export var DetectCustomLabelsResponse$: StaticStructureSchema = [3, n0, _DCLRe,
 export var DetectFacesRequest$: StaticStructureSchema = [3, n0, _DFRet,
   0,
   [_Im, _At],
-  [() => Image$, 64 | 0]
+  [() => Image$, 64 | 0], 1
 ];
 export var DetectFacesResponse$: StaticStructureSchema = [3, n0, _DFRete,
   0,
@@ -1224,7 +1224,7 @@ export var DetectLabelsImageQuality$: StaticStructureSchema = [3, n0, _DLIQ,
 export var DetectLabelsRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_Im, _MLa, _MCi, _Fea, _Se],
-  [() => Image$, 1, 1, 64 | 0, () => DetectLabelsSettings$]
+  [() => Image$, 1, 1, 64 | 0, () => DetectLabelsSettings$], 1
 ];
 export var DetectLabelsResponse$: StaticStructureSchema = [3, n0, _DLRe,
   0,
@@ -1239,7 +1239,7 @@ export var DetectLabelsSettings$: StaticStructureSchema = [3, n0, _DLSe,
 export var DetectModerationLabelsRequest$: StaticStructureSchema = [3, n0, _DMLR,
   0,
   [_Im, _MCi, _HLC, _PV],
-  [() => Image$, 1, () => HumanLoopConfig$, 0]
+  [() => Image$, 1, () => HumanLoopConfig$, 0], 1
 ];
 export var DetectModerationLabelsResponse$: StaticStructureSchema = [3, n0, _DMLRe,
   0,
@@ -1249,7 +1249,7 @@ export var DetectModerationLabelsResponse$: StaticStructureSchema = [3, n0, _DML
 export var DetectProtectiveEquipmentRequest$: StaticStructureSchema = [3, n0, _DPER,
   0,
   [_Im, _SA],
-  [() => Image$, () => ProtectiveEquipmentSummarizationAttributes$]
+  [() => Image$, () => ProtectiveEquipmentSummarizationAttributes$], 1
 ];
 export var DetectProtectiveEquipmentResponse$: StaticStructureSchema = [3, n0, _DPERe,
   0,
@@ -1264,7 +1264,7 @@ export var DetectTextFilters$: StaticStructureSchema = [3, n0, _DTF,
 export var DetectTextRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_Im, _Fi],
-  [() => Image$, () => DetectTextFilters$]
+  [() => Image$, () => DetectTextFilters$], 1
 ];
 export var DetectTextResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -1278,8 +1278,8 @@ export var DisassociatedFace$: StaticStructureSchema = [3, n0, _DFi,
 ];
 export var DisassociateFacesRequest$: StaticStructureSchema = [3, n0, _DFRi,
   0,
-  [_CI, _UI, _CRT, _FIa],
-  [0, 0, [0, 4], 64 | 0]
+  [_CI, _UI, _FIa, _CRT],
+  [0, 0, 64 | 0, [0, 4]], 3
 ];
 export var DisassociateFacesResponse$: StaticStructureSchema = [3, n0, _DFRis,
   0,
@@ -1289,12 +1289,12 @@ export var DisassociateFacesResponse$: StaticStructureSchema = [3, n0, _DFRis,
 export var DistributeDataset$: StaticStructureSchema = [3, n0, _DDi,
   0,
   [_Ar],
-  [0]
+  [0], 1
 ];
 export var DistributeDatasetEntriesRequest$: StaticStructureSchema = [3, n0, _DDER,
   0,
   [_D],
-  [() => DistributeDatasetMetadataList]
+  [() => DistributeDatasetMetadataList], 1
 ];
 export var DistributeDatasetEntriesResponse$: StaticStructureSchema = [3, n0, _DDERi,
   0,
@@ -1389,7 +1389,7 @@ export var Geometry$: StaticStructureSchema = [3, n0, _G,
 export var GetCelebrityInfoRequest$: StaticStructureSchema = [3, n0, _GCIR,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var GetCelebrityInfoResponse$: StaticStructureSchema = [3, n0, _GCIRe,
   0,
@@ -1399,7 +1399,7 @@ export var GetCelebrityInfoResponse$: StaticStructureSchema = [3, n0, _GCIRe,
 export var GetCelebrityRecognitionRequest$: StaticStructureSchema = [3, n0, _GCRR,
   0,
   [_JI, _MR, _NT, _SB],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0], 1
 ];
 export var GetCelebrityRecognitionResponse$: StaticStructureSchema = [3, n0, _GCRRe,
   0,
@@ -1409,7 +1409,7 @@ export var GetCelebrityRecognitionResponse$: StaticStructureSchema = [3, n0, _GC
 export var GetContentModerationRequest$: StaticStructureSchema = [3, n0, _GCMR,
   0,
   [_JI, _MR, _NT, _SB, _AB],
-  [0, 1, 0, 0, 0]
+  [0, 1, 0, 0, 0], 1
 ];
 export var GetContentModerationRequestMetadata$: StaticStructureSchema = [3, n0, _GCMRM,
   0,
@@ -1424,7 +1424,7 @@ export var GetContentModerationResponse$: StaticStructureSchema = [3, n0, _GCMRe
 export var GetFaceDetectionRequest$: StaticStructureSchema = [3, n0, _GFDR,
   0,
   [_JI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetFaceDetectionResponse$: StaticStructureSchema = [3, n0, _GFDRe,
   0,
@@ -1434,17 +1434,17 @@ export var GetFaceDetectionResponse$: StaticStructureSchema = [3, n0, _GFDRe,
 export var GetFaceLivenessSessionResultsRequest$: StaticStructureSchema = [3, n0, _GFLSRR,
   0,
   [_SIe],
-  [0]
+  [0], 1
 ];
 export var GetFaceLivenessSessionResultsResponse$: StaticStructureSchema = [3, n0, _GFLSRRe,
   0,
   [_SIe, _St, _Con, _RI, _AIu, _Ch],
-  [0, 0, 1, [() => AuditImage$, 0], [() => AuditImages, 0], () => Challenge$]
+  [0, 0, 1, [() => AuditImage$, 0], [() => AuditImages, 0], () => Challenge$], 2
 ];
 export var GetFaceSearchRequest$: StaticStructureSchema = [3, n0, _GFSR,
   0,
   [_JI, _MR, _NT, _SB],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0], 1
 ];
 export var GetFaceSearchResponse$: StaticStructureSchema = [3, n0, _GFSRe,
   0,
@@ -1454,7 +1454,7 @@ export var GetFaceSearchResponse$: StaticStructureSchema = [3, n0, _GFSRe,
 export var GetLabelDetectionRequest$: StaticStructureSchema = [3, n0, _GLDR,
   0,
   [_JI, _MR, _NT, _SB, _AB],
-  [0, 1, 0, 0, 0]
+  [0, 1, 0, 0, 0], 1
 ];
 export var GetLabelDetectionRequestMetadata$: StaticStructureSchema = [3, n0, _GLDRM,
   0,
@@ -1469,17 +1469,17 @@ export var GetLabelDetectionResponse$: StaticStructureSchema = [3, n0, _GLDRe,
 export var GetMediaAnalysisJobRequest$: StaticStructureSchema = [3, n0, _GMAJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var GetMediaAnalysisJobResponse$: StaticStructureSchema = [3, n0, _GMAJRe,
   0,
-  [_JI, _JN, _OCp, _St, _FDai, _CTr, _CTom, _In, _OC, _KKI, _Re, _MS],
-  [0, 0, () => MediaAnalysisOperationsConfig$, 0, () => MediaAnalysisJobFailureDetails$, 4, 4, () => MediaAnalysisInput$, () => MediaAnalysisOutputConfig$, 0, () => MediaAnalysisResults$, () => MediaAnalysisManifestSummary$]
+  [_JI, _OCp, _St, _CTr, _In, _OC, _JN, _FDai, _CTom, _KKI, _Re, _MS],
+  [0, () => MediaAnalysisOperationsConfig$, 0, 4, () => MediaAnalysisInput$, () => MediaAnalysisOutputConfig$, 0, () => MediaAnalysisJobFailureDetails$, 4, 0, () => MediaAnalysisResults$, () => MediaAnalysisManifestSummary$], 6
 ];
 export var GetPersonTrackingRequest$: StaticStructureSchema = [3, n0, _GPTR,
   0,
   [_JI, _MR, _NT, _SB],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0], 1
 ];
 export var GetPersonTrackingResponse$: StaticStructureSchema = [3, n0, _GPTRe,
   0,
@@ -1489,7 +1489,7 @@ export var GetPersonTrackingResponse$: StaticStructureSchema = [3, n0, _GPTRe,
 export var GetSegmentDetectionRequest$: StaticStructureSchema = [3, n0, _GSDR,
   0,
   [_JI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetSegmentDetectionResponse$: StaticStructureSchema = [3, n0, _GSDRe,
   0,
@@ -1499,7 +1499,7 @@ export var GetSegmentDetectionResponse$: StaticStructureSchema = [3, n0, _GSDRe,
 export var GetTextDetectionRequest$: StaticStructureSchema = [3, n0, _GTDR,
   0,
   [_JI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetTextDetectionResponse$: StaticStructureSchema = [3, n0, _GTDRe,
   0,
@@ -1519,7 +1519,7 @@ export var HumanLoopActivationOutput$: StaticStructureSchema = [3, n0, _HLAO,
 export var HumanLoopConfig$: StaticStructureSchema = [3, n0, _HLC,
   0,
   [_HLN, _FDA, _DAa],
-  [0, 0, () => HumanLoopDataAttributes$]
+  [0, 0, () => HumanLoopDataAttributes$], 2
 ];
 export var HumanLoopDataAttributes$: StaticStructureSchema = [3, n0, _HLDA,
   0,
@@ -1557,7 +1557,7 @@ TypeRegistry.for(n0).registerError(ImageTooLargeException$, ImageTooLargeExcepti
 export var IndexFacesRequest$: StaticStructureSchema = [3, n0, _IFR,
   0,
   [_CI, _Im, _EII, _DAe, _MF, _QF],
-  [0, () => Image$, 0, 64 | 0, 1, 0]
+  [0, () => Image$, 0, 64 | 0, 1, 0], 2
 ];
 export var IndexFacesResponse$: StaticStructureSchema = [3, n0, _IFRn,
   0,
@@ -1680,7 +1680,7 @@ export var ListCollectionsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListDatasetEntriesRequest$: StaticStructureSchema = [3, n0, _LDER,
   0,
   [_DA, _CLo, _Label, _SRC, _HE, _NT, _MR],
-  [0, 64 | 0, 2, 0, 2, 0, 1]
+  [0, 64 | 0, 2, 0, 2, 0, 1], 1
 ];
 export var ListDatasetEntriesResponse$: StaticStructureSchema = [3, n0, _LDERi,
   0,
@@ -1690,7 +1690,7 @@ export var ListDatasetEntriesResponse$: StaticStructureSchema = [3, n0, _LDERi,
 export var ListDatasetLabelsRequest$: StaticStructureSchema = [3, n0, _LDLR,
   0,
   [_DA, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListDatasetLabelsResponse$: StaticStructureSchema = [3, n0, _LDLRi,
   0,
@@ -1700,7 +1700,7 @@ export var ListDatasetLabelsResponse$: StaticStructureSchema = [3, n0, _LDLRi,
 export var ListFacesRequest$: StaticStructureSchema = [3, n0, _LFR,
   0,
   [_CI, _NT, _MR, _UI, _FIa],
-  [0, 0, 1, 0, 64 | 0]
+  [0, 0, 1, 0, 64 | 0], 1
 ];
 export var ListFacesResponse$: StaticStructureSchema = [3, n0, _LFRi,
   0,
@@ -1714,13 +1714,13 @@ export var ListMediaAnalysisJobsRequest$: StaticStructureSchema = [3, n0, _LMAJR
 ];
 export var ListMediaAnalysisJobsResponse$: StaticStructureSchema = [3, n0, _LMAJRi,
   0,
-  [_NT, _MAJ],
-  [0, () => MediaAnalysisJobDescriptions]
+  [_MAJ, _NT],
+  [() => MediaAnalysisJobDescriptions, 0], 1
 ];
 export var ListProjectPoliciesRequest$: StaticStructureSchema = [3, n0, _LPPR,
   0,
   [_PA, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListProjectPoliciesResponse$: StaticStructureSchema = [3, n0, _LPPRi,
   0,
@@ -1740,7 +1740,7 @@ export var ListStreamProcessorsResponse$: StaticStructureSchema = [3, n0, _LSPRi
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1750,7 +1750,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListUsersRequest$: StaticStructureSchema = [3, n0, _LUR,
   0,
   [_CI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
   0,
@@ -1760,7 +1760,7 @@ export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
 export var LivenessOutputConfig$: StaticStructureSchema = [3, n0, _LOC,
   0,
   [_SBu, _SKP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
   { [_e]: _c },
@@ -1781,12 +1781,12 @@ export var MediaAnalysisDetectModerationLabelsConfig$: StaticStructureSchema = [
 export var MediaAnalysisInput$: StaticStructureSchema = [3, n0, _MAI,
   0,
   [_SO],
-  [() => S3Object$]
+  [() => S3Object$], 1
 ];
 export var MediaAnalysisJobDescription$: StaticStructureSchema = [3, n0, _MAJD,
   0,
-  [_JI, _JN, _OCp, _St, _FDai, _CTr, _CTom, _In, _OC, _KKI, _Re, _MS],
-  [0, 0, () => MediaAnalysisOperationsConfig$, 0, () => MediaAnalysisJobFailureDetails$, 4, 4, () => MediaAnalysisInput$, () => MediaAnalysisOutputConfig$, 0, () => MediaAnalysisResults$, () => MediaAnalysisManifestSummary$]
+  [_JI, _OCp, _St, _CTr, _In, _OC, _JN, _FDai, _CTom, _KKI, _Re, _MS],
+  [0, () => MediaAnalysisOperationsConfig$, 0, 4, () => MediaAnalysisInput$, () => MediaAnalysisOutputConfig$, 0, () => MediaAnalysisJobFailureDetails$, 4, 0, () => MediaAnalysisResults$, () => MediaAnalysisManifestSummary$], 6
 ];
 export var MediaAnalysisJobFailureDetails$: StaticStructureSchema = [3, n0, _MAJFD,
   0,
@@ -1811,7 +1811,7 @@ export var MediaAnalysisOperationsConfig$: StaticStructureSchema = [3, n0, _MAOC
 export var MediaAnalysisOutputConfig$: StaticStructureSchema = [3, n0, _MAOCe,
   0,
   [_SBu, _SKP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var MediaAnalysisResults$: StaticStructureSchema = [3, n0, _MAR,
   0,
@@ -1836,7 +1836,7 @@ export var Mustache$: StaticStructureSchema = [3, n0, _Mu,
 export var NotificationChannel$: StaticStructureSchema = [3, n0, _NC,
   0,
   [_SNSTA, _RA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
   0,
@@ -1901,7 +1901,7 @@ export var ProtectiveEquipmentPerson$: StaticStructureSchema = [3, n0, _PEP,
 export var ProtectiveEquipmentSummarizationAttributes$: StaticStructureSchema = [3, n0, _PESA,
   0,
   [_MCi, _RET],
-  [1, 64 | 0]
+  [1, 64 | 0], 2
 ];
 export var ProtectiveEquipmentSummary$: StaticStructureSchema = [3, n0, _PES,
   0,
@@ -1916,8 +1916,8 @@ export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0,
 TypeRegistry.for(n0).registerError(ProvisionedThroughputExceededException$, ProvisionedThroughputExceededException);
 export var PutProjectPolicyRequest$: StaticStructureSchema = [3, n0, _PPPR,
   0,
-  [_PA, _PNo, _PRI, _PDo],
-  [0, 0, 0, 0]
+  [_PA, _PNo, _PDo, _PRI],
+  [0, 0, 0, 0], 3
 ];
 export var PutProjectPolicyResponse$: StaticStructureSchema = [3, n0, _PPPRu,
   0,
@@ -1927,7 +1927,7 @@ export var PutProjectPolicyResponse$: StaticStructureSchema = [3, n0, _PPPRu,
 export var RecognizeCelebritiesRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_Im],
-  [() => Image$]
+  [() => Image$], 1
 ];
 export var RecognizeCelebritiesResponse$: StaticStructureSchema = [3, n0, _RCRe,
   0,
@@ -1991,7 +1991,7 @@ export var SearchedUser$: StaticStructureSchema = [3, n0, _SU,
 export var SearchFacesByImageRequest$: StaticStructureSchema = [3, n0, _SFBIR,
   0,
   [_CI, _Im, _MF, _FMT, _QF],
-  [0, () => Image$, 1, 1, 0]
+  [0, () => Image$, 1, 1, 0], 2
 ];
 export var SearchFacesByImageResponse$: StaticStructureSchema = [3, n0, _SFBIRe,
   0,
@@ -2001,7 +2001,7 @@ export var SearchFacesByImageResponse$: StaticStructureSchema = [3, n0, _SFBIRe,
 export var SearchFacesRequest$: StaticStructureSchema = [3, n0, _SFR,
   0,
   [_CI, _FI, _MF, _FMT],
-  [0, 0, 1, 1]
+  [0, 0, 1, 1], 2
 ];
 export var SearchFacesResponse$: StaticStructureSchema = [3, n0, _SFRe,
   0,
@@ -2011,7 +2011,7 @@ export var SearchFacesResponse$: StaticStructureSchema = [3, n0, _SFRe,
 export var SearchUsersByImageRequest$: StaticStructureSchema = [3, n0, _SUBIR,
   0,
   [_CI, _Im, _UMT, _MUa, _QF],
-  [0, () => Image$, 1, 1, 0]
+  [0, () => Image$, 1, 1, 0], 2
 ];
 export var SearchUsersByImageResponse$: StaticStructureSchema = [3, n0, _SUBIRe,
   0,
@@ -2021,7 +2021,7 @@ export var SearchUsersByImageResponse$: StaticStructureSchema = [3, n0, _SUBIRe,
 export var SearchUsersRequest$: StaticStructureSchema = [3, n0, _SUR,
   0,
   [_CI, _UI, _FI, _UMT, _MUa],
-  [0, 0, 0, 1, 1]
+  [0, 0, 0, 1, 1], 1
 ];
 export var SearchUsersResponse$: StaticStructureSchema = [3, n0, _SURe,
   0,
@@ -2063,7 +2063,7 @@ export var Smile$: StaticStructureSchema = [3, n0, _S,
 export var StartCelebrityRecognitionRequest$: StaticStructureSchema = [3, n0, _SCRR,
   0,
   [_Vi, _CRT, _NC, _JT],
-  [() => Video$, 0, () => NotificationChannel$, 0]
+  [() => Video$, 0, () => NotificationChannel$, 0], 1
 ];
 export var StartCelebrityRecognitionResponse$: StaticStructureSchema = [3, n0, _SCRRt,
   0,
@@ -2073,7 +2073,7 @@ export var StartCelebrityRecognitionResponse$: StaticStructureSchema = [3, n0, _
 export var StartContentModerationRequest$: StaticStructureSchema = [3, n0, _SCMR,
   0,
   [_Vi, _MCi, _CRT, _NC, _JT],
-  [() => Video$, 1, 0, () => NotificationChannel$, 0]
+  [() => Video$, 1, 0, () => NotificationChannel$, 0], 1
 ];
 export var StartContentModerationResponse$: StaticStructureSchema = [3, n0, _SCMRt,
   0,
@@ -2083,7 +2083,7 @@ export var StartContentModerationResponse$: StaticStructureSchema = [3, n0, _SCM
 export var StartFaceDetectionRequest$: StaticStructureSchema = [3, n0, _SFDR,
   0,
   [_Vi, _CRT, _NC, _FA, _JT],
-  [() => Video$, 0, () => NotificationChannel$, 0, 0]
+  [() => Video$, 0, () => NotificationChannel$, 0, 0], 1
 ];
 export var StartFaceDetectionResponse$: StaticStructureSchema = [3, n0, _SFDRt,
   0,
@@ -2092,8 +2092,8 @@ export var StartFaceDetectionResponse$: StaticStructureSchema = [3, n0, _SFDRt,
 ];
 export var StartFaceSearchRequest$: StaticStructureSchema = [3, n0, _SFSR,
   0,
-  [_Vi, _CRT, _FMT, _CI, _NC, _JT],
-  [() => Video$, 0, 1, 0, () => NotificationChannel$, 0]
+  [_Vi, _CI, _CRT, _FMT, _NC, _JT],
+  [() => Video$, 0, 0, 1, () => NotificationChannel$, 0], 2
 ];
 export var StartFaceSearchResponse$: StaticStructureSchema = [3, n0, _SFSRt,
   0,
@@ -2103,7 +2103,7 @@ export var StartFaceSearchResponse$: StaticStructureSchema = [3, n0, _SFSRt,
 export var StartLabelDetectionRequest$: StaticStructureSchema = [3, n0, _SLDR,
   0,
   [_Vi, _CRT, _MCi, _NC, _JT, _Fea, _Se],
-  [() => Video$, 0, 1, () => NotificationChannel$, 0, 64 | 0, () => LabelDetectionSettings$]
+  [() => Video$, 0, 1, () => NotificationChannel$, 0, 64 | 0, () => LabelDetectionSettings$], 1
 ];
 export var StartLabelDetectionResponse$: StaticStructureSchema = [3, n0, _SLDRt,
   0,
@@ -2112,18 +2112,18 @@ export var StartLabelDetectionResponse$: StaticStructureSchema = [3, n0, _SLDRt,
 ];
 export var StartMediaAnalysisJobRequest$: StaticStructureSchema = [3, n0, _SMAJR,
   0,
-  [_CRT, _JN, _OCp, _In, _OC, _KKI],
-  [[0, 4], 0, () => MediaAnalysisOperationsConfig$, () => MediaAnalysisInput$, () => MediaAnalysisOutputConfig$, 0]
+  [_OCp, _In, _OC, _CRT, _JN, _KKI],
+  [() => MediaAnalysisOperationsConfig$, () => MediaAnalysisInput$, () => MediaAnalysisOutputConfig$, [0, 4], 0, 0], 3
 ];
 export var StartMediaAnalysisJobResponse$: StaticStructureSchema = [3, n0, _SMAJRt,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StartPersonTrackingRequest$: StaticStructureSchema = [3, n0, _SPTR,
   0,
   [_Vi, _CRT, _NC, _JT],
-  [() => Video$, 0, () => NotificationChannel$, 0]
+  [() => Video$, 0, () => NotificationChannel$, 0], 1
 ];
 export var StartPersonTrackingResponse$: StaticStructureSchema = [3, n0, _SPTRt,
   0,
@@ -2133,7 +2133,7 @@ export var StartPersonTrackingResponse$: StaticStructureSchema = [3, n0, _SPTRt,
 export var StartProjectVersionRequest$: StaticStructureSchema = [3, n0, _SPVR,
   0,
   [_PVA, _MIU, _MIUa],
-  [0, 1, 1]
+  [0, 1, 1], 2
 ];
 export var StartProjectVersionResponse$: StaticStructureSchema = [3, n0, _SPVRt,
   0,
@@ -2147,8 +2147,8 @@ export var StartSegmentDetectionFilters$: StaticStructureSchema = [3, n0, _SSDF,
 ];
 export var StartSegmentDetectionRequest$: StaticStructureSchema = [3, n0, _SSDR,
   0,
-  [_Vi, _CRT, _NC, _JT, _Fi, _STe],
-  [() => Video$, 0, () => NotificationChannel$, 0, () => StartSegmentDetectionFilters$, 64 | 0]
+  [_Vi, _STe, _CRT, _NC, _JT, _Fi],
+  [() => Video$, 64 | 0, 0, () => NotificationChannel$, 0, () => StartSegmentDetectionFilters$], 2
 ];
 export var StartSegmentDetectionResponse$: StaticStructureSchema = [3, n0, _SSDRt,
   0,
@@ -2163,7 +2163,7 @@ export var StartShotDetectionFilter$: StaticStructureSchema = [3, n0, _SSDFt,
 export var StartStreamProcessorRequest$: StaticStructureSchema = [3, n0, _SSPR,
   0,
   [_N, _SSt, _SSto],
-  [0, () => StreamProcessingStartSelector$, () => StreamProcessingStopSelector$]
+  [0, () => StreamProcessingStartSelector$, () => StreamProcessingStopSelector$], 1
 ];
 export var StartStreamProcessorResponse$: StaticStructureSchema = [3, n0, _SSPRt,
   0,
@@ -2183,7 +2183,7 @@ export var StartTextDetectionFilters$: StaticStructureSchema = [3, n0, _STDF,
 export var StartTextDetectionRequest$: StaticStructureSchema = [3, n0, _STDR,
   0,
   [_Vi, _CRT, _NC, _JT, _Fi],
-  [() => Video$, 0, () => NotificationChannel$, 0, () => StartTextDetectionFilters$]
+  [() => Video$, 0, () => NotificationChannel$, 0, () => StartTextDetectionFilters$], 1
 ];
 export var StartTextDetectionResponse$: StaticStructureSchema = [3, n0, _STDRt,
   0,
@@ -2193,7 +2193,7 @@ export var StartTextDetectionResponse$: StaticStructureSchema = [3, n0, _STDRt,
 export var StopProjectVersionRequest$: StaticStructureSchema = [3, n0, _SPVRto,
   0,
   [_PVA],
-  [0]
+  [0], 1
 ];
 export var StopProjectVersionResponse$: StaticStructureSchema = [3, n0, _SPVRtop,
   0,
@@ -2203,7 +2203,7 @@ export var StopProjectVersionResponse$: StaticStructureSchema = [3, n0, _SPVRtop
 export var StopStreamProcessorRequest$: StaticStructureSchema = [3, n0, _SSPRto,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var StopStreamProcessorResponse$: StaticStructureSchema = [3, n0, _SSPRtop,
   0,
@@ -2228,7 +2228,7 @@ export var StreamProcessor$: StaticStructureSchema = [3, n0, _SPt,
 export var StreamProcessorDataSharingPreference$: StaticStructureSchema = [3, n0, _SPDSP,
   0,
   [_OI],
-  [2]
+  [2], 1
 ];
 export var StreamProcessorInput$: StaticStructureSchema = [3, n0, _SPI,
   0,
@@ -2238,7 +2238,7 @@ export var StreamProcessorInput$: StaticStructureSchema = [3, n0, _SPI,
 export var StreamProcessorNotificationChannel$: StaticStructureSchema = [3, n0, _SPNC,
   0,
   [_SNSTA],
-  [0]
+  [0], 1
 ];
 export var StreamProcessorOutput$: StaticStructureSchema = [3, n0, _SPO,
   0,
@@ -2268,7 +2268,7 @@ export var Sunglasses$: StaticStructureSchema = [3, n0, _Sun,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _Ta],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -2344,7 +2344,7 @@ export var UnsuccessfulFaceDisassociation$: StaticStructureSchema = [3, n0, _UFD
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2354,7 +2354,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDatasetEntriesRequest$: StaticStructureSchema = [3, n0, _UDER,
   0,
   [_DA, _Cha],
-  [0, () => DatasetChanges$]
+  [0, () => DatasetChanges$], 2
 ];
 export var UpdateDatasetEntriesResponse$: StaticStructureSchema = [3, n0, _UDERp,
   0,
@@ -2364,7 +2364,7 @@ export var UpdateDatasetEntriesResponse$: StaticStructureSchema = [3, n0, _UDERp
 export var UpdateStreamProcessorRequest$: StaticStructureSchema = [3, n0, _USPR,
   0,
   [_N, _SFU, _ROIFU, _DSPFU, _PTD],
-  [0, () => StreamProcessorSettingsForUpdate$, () => RegionsOfInterest, () => StreamProcessorDataSharingPreference$, 64 | 0]
+  [0, () => StreamProcessorSettingsForUpdate$, () => RegionsOfInterest, () => StreamProcessorDataSharingPreference$, 64 | 0], 1
 ];
 export var UpdateStreamProcessorResponse$: StaticStructureSchema = [3, n0, _USPRp,
   0,

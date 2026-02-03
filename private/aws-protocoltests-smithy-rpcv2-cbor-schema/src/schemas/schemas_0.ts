@@ -148,13 +148,13 @@ var __Unit = "unit" as const;
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c },
   [_m, _fL],
-  [0, () => ValidationExceptionFieldList]
+  [0, () => ValidationExceptionFieldList], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_p, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ClientOptionalDefaults$: StaticStructureSchema = [3, n1, _COD,
   0,

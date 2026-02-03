@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchExecuteStatementCommand,
@@ -49,6 +49,13 @@ import {
   ListStatementsCommandOutput,
 } from "./commands/ListStatementsCommand";
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
+import { paginateDescribeTable } from "./pagination/DescribeTablePaginator";
+import { paginateGetStatementResult } from "./pagination/GetStatementResultPaginator";
+import { paginateGetStatementResultV2 } from "./pagination/GetStatementResultV2Paginator";
+import { paginateListDatabases } from "./pagination/ListDatabasesPaginator";
+import { paginateListSchemas } from "./pagination/ListSchemasPaginator";
+import { paginateListStatements } from "./pagination/ListStatementsPaginator";
+import { paginateListTables } from "./pagination/ListTablesPaginator";
 import { RedshiftDataClient } from "./RedshiftDataClient";
 
 const commands = {
@@ -63,6 +70,15 @@ const commands = {
   ListSchemasCommand,
   ListStatementsCommand,
   ListTablesCommand,
+};
+const paginators = {
+  paginateDescribeTable,
+  paginateGetStatementResult,
+  paginateGetStatementResultV2,
+  paginateListDatabases,
+  paginateListSchemas,
+  paginateListStatements,
+  paginateListTables,
 };
 
 export interface RedshiftData {
@@ -253,6 +269,83 @@ export interface RedshiftData {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTablesCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeTableCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTableCommandOutput}.
+   */
+  paginateDescribeTable(
+    args: DescribeTableCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTableCommandOutput>;
+
+  /**
+   * @see {@link GetStatementResultCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetStatementResultCommandOutput}.
+   */
+  paginateGetStatementResult(
+    args: GetStatementResultCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetStatementResultCommandOutput>;
+
+  /**
+   * @see {@link GetStatementResultV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetStatementResultV2CommandOutput}.
+   */
+  paginateGetStatementResultV2(
+    args: GetStatementResultV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetStatementResultV2CommandOutput>;
+
+  /**
+   * @see {@link ListDatabasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatabasesCommandOutput}.
+   */
+  paginateListDatabases(
+    args: ListDatabasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatabasesCommandOutput>;
+
+  /**
+   * @see {@link ListSchemasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchemasCommandOutput}.
+   */
+  paginateListSchemas(
+    args: ListSchemasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchemasCommandOutput>;
+
+  /**
+   * @see {@link ListStatementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStatementsCommandOutput}.
+   */
+  paginateListStatements(
+    args?: ListStatementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStatementsCommandOutput>;
+
+  /**
+   * @see {@link ListTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTablesCommandOutput}.
+   */
+  paginateListTables(
+    args: ListTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTablesCommandOutput>;
 }
 
 /**
@@ -260,4 +353,4 @@ export interface RedshiftData {
  * @public
  */
 export class RedshiftData extends RedshiftDataClient implements RedshiftData {}
-createAggregatedClient(commands, RedshiftData);
+createAggregatedClient(commands, RedshiftData, { paginators });

@@ -27,8 +27,7 @@ export interface DescribeExportTasksCommandInput extends DescribeExportTasksMess
 export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about a snapshot or cluster export to Amazon S3. This API operation supports
- *             pagination.</p>
+ * <p>Returns information about a snapshot or cluster export to Amazon S3. This API operation supports pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

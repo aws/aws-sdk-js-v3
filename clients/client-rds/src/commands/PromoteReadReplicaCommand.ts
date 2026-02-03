@@ -27,24 +27,7 @@ export interface PromoteReadReplicaCommandInput extends PromoteReadReplicaMessag
 export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResult, __MetadataBearer {}
 
 /**
- * <p>Promotes a read replica DB instance to a standalone DB instance.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>Backup duration is a function of the amount of changes to the database since the previous
- *                         backup. If you plan to promote a read replica to a standalone instance, we
- *                         recommend that you enable backups and complete at least one backup prior to
- *                         promotion. In addition, a read replica cannot be promoted to a standalone
- *                         instance when it is in the <code>backing-up</code> status. If you have
- *                         enabled backups on your read replica, configure the automated backup window
- *                         so that daily backups do not interfere with read replica
- *                         promotion.</p>
- *                </li>
- *                <li>
- *                   <p>This command doesn't apply to Aurora MySQL, Aurora PostgreSQL, or RDS Custom.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * <p>Promotes a read replica DB instance to a standalone DB instance.</p> <note> <ul> <li> <p>Backup duration is a function of the amount of changes to the database since the previous backup. If you plan to promote a read replica to a standalone instance, we recommend that you enable backups and complete at least one backup prior to promotion. In addition, a read replica cannot be promoted to a standalone instance when it is in the <code>backing-up</code> status. If you have enabled backups on your read replica, configure the automated backup window so that daily backups do not interfere with read replica promotion.</p> </li> <li> <p>This command doesn't apply to Aurora MySQL, Aurora PostgreSQL, or RDS Custom.</p> </li> </ul> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -331,8 +314,7 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>

@@ -108,6 +108,7 @@ import {
   type DataSetRefreshProperties,
   type DataSetUsageConfiguration,
   type DisplayFormatOptions,
+  type JoinInstruction,
   type LinkSharingConfiguration,
   type SslProperties,
   type ValidationStrategy,
@@ -127,7 +128,6 @@ import {
   DataSourceParameters,
   FieldFolder,
   InputColumn,
-  LogicalTable,
   ResourcePermission,
   SheetDefinition,
   SnapshotFile,
@@ -135,7 +135,60 @@ import {
   SnapshotS3DestinationConfiguration,
   StaticFile,
   Tag,
+  TransformOperation,
 } from "./models_2";
+
+/**
+ * <p>Information about the source of a logical table. This is a variant type structure. For
+ *             this structure to be valid, only one of the attributes can be non-null.</p>
+ * @public
+ */
+export interface LogicalTableSource {
+  /**
+   * <p>Specifies the result of a join of two logical tables.</p>
+   * @public
+   */
+  JoinInstruction?: JoinInstruction | undefined;
+
+  /**
+   * <p>Physical table ID.</p>
+   * @public
+   */
+  PhysicalTableId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
+   * @public
+   */
+  DataSetArn?: string | undefined;
+}
+
+/**
+ * <p>A <i>logical table</i> is a unit that joins and that data
+ *             transformations operate on. A logical table has a source, which can be either a physical
+ *             table or result of a join. When a logical table points to a physical table, the logical
+ *             table acts as a mutable copy of that physical table through transform operations.</p>
+ * @public
+ */
+export interface LogicalTable {
+  /**
+   * <p>A display name for the logical table.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
+   * @public
+   */
+  DataTransforms?: TransformOperation[] | undefined;
+
+  /**
+   * <p>Source of this logical table.</p>
+   * @public
+   */
+  Source: LogicalTableSource | undefined;
+}
 
 /**
  * <p>A <code>UniqueKey</code> configuration that references a dataset column.</p>
@@ -9524,60 +9577,4 @@ export interface DescribeTemplateAliasRequest {
    * @public
    */
   AliasName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateAliasResponse {
-  /**
-   * <p>Information about the template alias.</p>
-   * @public
-   */
-  TemplateAlias?: TemplateAlias | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateDefinitionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template. You must be using the
-   * 			 Amazon Web Services account that the template is in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the template that you're describing.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The version number of the template.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The alias of the template that you want to describe. If you name a specific alias, you
-   * 			 describe the version that the alias points to. You can specify the latest version of the
-   * 			 template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			 parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
 }

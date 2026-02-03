@@ -3,6 +3,7 @@ import {
   AmdSevSnpEnum,
   AutoRecoveryEnum,
   BandwidthWeightingEnum,
+  BillingMode,
   CapacityReservationPreferenceEnum,
   CpuCreditsEnum,
   DisassociateModeEnum,
@@ -10,10 +11,12 @@ import {
   HttpEndpointEnum,
   HttpProtocolIpv6Enum,
   HttpTokensEnum,
+  InstanceConfigurationTenancyEnum,
   InstanceInterruptionBehaviorEnum,
   InstanceMetadataTagsEnum,
   InterfaceTypeEnum,
   MarketTypeEnum,
+  PlatformTypeEnum,
   ProvisionStateEnum,
   ResourceTypeEnum,
   SpotInstanceTypeEnum,
@@ -73,6 +76,18 @@ export interface ValidationExceptionField {
    * @public
    */
   Message: string | undefined;
+}
+
+/**
+ * <p>Defines billing configuration settings for WorkSpace Instances, containing the billing mode selection.</p>
+ * @public
+ */
+export interface BillingConfiguration {
+  /**
+   * <p>Specifies the billing mode for WorkSpace Instances. MONTHLY provides fixed monthly rates for predictable budgeting, while HOURLY enables pay-per-second billing for actual usage.</p>
+   * @public
+   */
+  BillingMode: BillingMode | undefined;
 }
 
 /**
@@ -1057,6 +1072,12 @@ export interface CreateWorkspaceInstanceRequest {
    * @public
    */
   ManagedInstance: ManagedInstanceRequest | undefined;
+
+  /**
+   * <p>Optional billing configuration for the WorkSpace Instance. Allows customers to specify their preferred billing mode when creating a new instance. Defaults to hourly billing if not specified.</p>
+   * @public
+   */
+  BillingConfiguration?: BillingConfiguration | undefined;
 }
 
 /**
@@ -1243,6 +1264,36 @@ export interface GetWorkspaceInstanceResponse {
    * @public
    */
   EC2ManagedInstance?: EC2ManagedInstance | undefined;
+
+  /**
+   * <p>Returns the current billing configuration for the WorkSpace Instance, indicating the active billing mode.</p>
+   * @public
+   */
+  BillingConfiguration?: BillingConfiguration | undefined;
+}
+
+/**
+ * <p>Defines filtering criteria for WorkSpace Instance type searches. Combines multiple filter conditions including billing mode, platform type, and tenancy to help customers find instance types that meet their specific requirements.</p>
+ * @public
+ */
+export interface InstanceConfigurationFilter {
+  /**
+   * <p>Filters WorkSpace Instance types based on supported billing modes. Allows customers to search for instance types that support their preferred billing model, such as HOURLY or MONTHLY billing.</p>
+   * @public
+   */
+  BillingMode: BillingMode | undefined;
+
+  /**
+   * <p>Filters WorkSpace Instance types by operating system platform. Allows customers to find instances that support their desired OS, such as Windows, Linux/UNIX, Ubuntu Pro, RHEL, or SUSE.</p>
+   * @public
+   */
+  PlatformType: PlatformTypeEnum | undefined;
+
+  /**
+   * <p>Filters WorkSpace Instance types by tenancy model. Allows customers to find instances that match their tenancy requirements, such as SHARED or DEDICATED.</p>
+   * @public
+   */
+  Tenancy: InstanceConfigurationTenancyEnum | undefined;
 }
 
 /**
@@ -1261,6 +1312,36 @@ export interface ListInstanceTypesRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>Optional filter to narrow instance type results based on configuration requirements. Only returns instance types that support the specified combination of tenancy, platform type, and billing mode.</p>
+   * @public
+   */
+  InstanceConfigurationFilter?: InstanceConfigurationFilter | undefined;
+}
+
+/**
+ * <p>Represents a single valid configuration combination that an instance type supports, combining tenancy, platform type, and billing mode into one complete configuration specification.</p>
+ * @public
+ */
+export interface SupportedInstanceConfiguration {
+  /**
+   * <p>Specifies the billing mode supported in this configuration combination.</p>
+   * @public
+   */
+  BillingMode?: BillingMode | undefined;
+
+  /**
+   * <p>Specifies the operating system platform supported in this configuration combination.</p>
+   * @public
+   */
+  PlatformType?: PlatformTypeEnum | undefined;
+
+  /**
+   * <p>Specifies the tenancy model supported in this configuration combination.</p>
+   * @public
+   */
+  Tenancy?: InstanceConfigurationTenancyEnum | undefined;
 }
 
 /**
@@ -1273,6 +1354,12 @@ export interface InstanceTypeInfo {
    * @public
    */
   InstanceType?: string | undefined;
+
+  /**
+   * <p>Lists all valid combinations of tenancy, platform type, and billing mode supported for the specific WorkSpace Instance type. Contains the complete set of configuration options available for this instance type.</p>
+   * @public
+   */
+  SupportedInstanceConfigurations?: SupportedInstanceConfiguration[] | undefined;
 }
 
 /**

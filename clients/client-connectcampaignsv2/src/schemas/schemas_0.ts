@@ -326,7 +326,7 @@ var EmailDisplayName: StaticSimpleSchema = [0, n0, _EDN, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AgentlessConfig$: StaticStructureSchema = [3, n0, _AC,
@@ -337,12 +337,12 @@ export var AgentlessConfig$: StaticStructureSchema = [3, n0, _AC,
 export var AnswerMachineDetectionConfig$: StaticStructureSchema = [3, n0, _AMDC,
   0,
   [_eAMD, _aAMP],
-  [2, 2]
+  [2, 2], 1
 ];
 export var Campaign$: StaticStructureSchema = [3, n0, _C,
   0,
   [_i, _a, _n, _cII, _cSC, _t, _s, _cCFA, _sc, _cTC, _cLO, _ta],
-  [0, 0, 0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 128 | 0]
+  [0, 0, 0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 128 | 0], 4
 ];
 export var CampaignFilters$: StaticStructureSchema = [3, n0, _CF,
   0,
@@ -352,7 +352,7 @@ export var CampaignFilters$: StaticStructureSchema = [3, n0, _CF,
 export var CampaignSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_i, _a, _n, _cII, _cS, _t, _sc, _cCFA],
-  [0, 0, 0, 0, 64 | 0, 0, () => Schedule$, 0]
+  [0, 0, 0, 0, 64 | 0, 0, () => Schedule$, 0], 5
 ];
 export var ChannelSubtypeConfig$: StaticStructureSchema = [3, n0, _CSC,
   0,
@@ -362,7 +362,7 @@ export var ChannelSubtypeConfig$: StaticStructureSchema = [3, n0, _CSC,
 export var CommunicationLimit$: StaticStructureSchema = [3, n0, _CL,
   0,
   [_mCPR, _f, _u],
-  [1, 1, 0]
+  [1, 1, 0], 3
 ];
 export var CommunicationLimitsConfig$: StaticStructureSchema = [3, n0, _CLC,
   0,
@@ -372,18 +372,18 @@ export var CommunicationLimitsConfig$: StaticStructureSchema = [3, n0, _CLC,
 export var CommunicationTimeConfig$: StaticStructureSchema = [3, n0, _CTC,
   0,
   [_lTZC, _te, _sm, _em, _wA],
-  [() => LocalTimeZoneConfig$, () => TimeWindow$, () => TimeWindow$, () => TimeWindow$, () => TimeWindow$]
+  [() => LocalTimeZoneConfig$, () => TimeWindow$, () => TimeWindow$, () => TimeWindow$, () => TimeWindow$], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCampaignRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_n, _cII, _cSC, _t, _s, _cCFA, _sc, _cTC, _cLO, _ta],
-  [0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 128 | 0]
+  [0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 128 | 0], 2
 ];
 export var CreateCampaignResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -393,57 +393,57 @@ export var CreateCampaignResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CustomerProfilesIntegrationConfig$: StaticStructureSchema = [3, n0, _CPIC,
   0,
   [_dA, _oTN],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var CustomerProfilesIntegrationIdentifier$: StaticStructureSchema = [3, n0, _CPII,
   0,
   [_dA],
-  [0]
+  [0], 1
 ];
 export var CustomerProfilesIntegrationSummary$: StaticStructureSchema = [3, n0, _CPIS,
   0,
   [_dA, _oTN],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var DeleteCampaignChannelSubtypeConfigRequest$: StaticStructureSchema = [3, n0, _DCCSCR,
   0,
   [_i, _cSh],
-  [[0, 1], [0, { [_hQ]: _cSh }]]
+  [[0, 1], [0, { [_hQ]: _cSh }]], 2
 ];
 export var DeleteCampaignCommunicationLimitsRequest$: StaticStructureSchema = [3, n0, _DCCLR,
   0,
   [_i, _co],
-  [[0, 1], [0, { [_hQ]: _co }]]
+  [[0, 1], [0, { [_hQ]: _co }]], 2
 ];
 export var DeleteCampaignCommunicationTimeRequest$: StaticStructureSchema = [3, n0, _DCCTR,
   0,
   [_i, _co],
-  [[0, 1], [0, { [_hQ]: _co }]]
+  [[0, 1], [0, { [_hQ]: _co }]], 2
 ];
 export var DeleteCampaignRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteConnectInstanceConfigRequest$: StaticStructureSchema = [3, n0, _DCICR,
   0,
   [_cII, _cDP],
-  [[0, 1], [0, { [_hQ]: _cDP }]]
+  [[0, 1], [0, { [_hQ]: _cDP }]], 1
 ];
 export var DeleteConnectInstanceIntegrationRequest$: StaticStructureSchema = [3, n0, _DCIIR,
   0,
   [_cII, _iI],
-  [[0, 1], () => IntegrationIdentifier$]
+  [[0, 1], () => IntegrationIdentifier$], 2
 ];
 export var DeleteInstanceOnboardingJobRequest$: StaticStructureSchema = [3, n0, _DIOJR,
   0,
   [_cII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeCampaignRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeCampaignResponse$: StaticStructureSchema = [3, n0, _DCRes,
   0,
@@ -452,23 +452,23 @@ export var DescribeCampaignResponse$: StaticStructureSchema = [3, n0, _DCRes,
 ];
 export var EmailChannelSubtypeConfig$: StaticStructureSchema = [3, n0, _ECSC,
   0,
-  [_cap, _oM, _dOC],
-  [1, () => EmailOutboundMode$, [() => EmailOutboundConfig$, 0]]
+  [_oM, _dOC, _cap],
+  [() => EmailOutboundMode$, [() => EmailOutboundConfig$, 0], 1], 2
 ];
 export var EmailChannelSubtypeParameters$: StaticStructureSchema = [3, n0, _ECSP,
   0,
-  [_dEA, _cSEA, _tA, _tP],
-  [[() => EmailAddress, 0], [() => EmailAddress, 0], 0, [() => Attributes, 0]]
+  [_dEA, _tP, _cSEA, _tA],
+  [[() => EmailAddress, 0], [() => Attributes, 0], [() => EmailAddress, 0], 0], 2
 ];
 export var EmailOutboundConfig$: StaticStructureSchema = [3, n0, _EOC,
   0,
-  [_cSEA, _sEADN, _wTA],
-  [[() => EmailAddress, 0], [() => EmailDisplayName, 0], 0]
+  [_cSEA, _wTA, _sEADN],
+  [[() => EmailAddress, 0], 0, [() => EmailDisplayName, 0]], 2
 ];
 export var EncryptionConfig$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_en, _eT, _kA],
-  [2, 0, 0]
+  [2, 0, 0], 1
 ];
 export var EventTrigger$: StaticStructureSchema = [3, n0, _ET,
   0,
@@ -493,7 +493,7 @@ export var FailedRequest$: StaticStructureSchema = [3, n0, _FR,
 export var GetCampaignStateBatchRequest$: StaticStructureSchema = [3, n0, _GCSBR,
   0,
   [_cIa],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var GetCampaignStateBatchResponse$: StaticStructureSchema = [3, n0, _GCSBRe,
   0,
@@ -503,7 +503,7 @@ export var GetCampaignStateBatchResponse$: StaticStructureSchema = [3, n0, _GCSB
 export var GetCampaignStateRequest$: StaticStructureSchema = [3, n0, _GCSR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCampaignStateResponse$: StaticStructureSchema = [3, n0, _GCSRe,
   0,
@@ -513,7 +513,7 @@ export var GetCampaignStateResponse$: StaticStructureSchema = [3, n0, _GCSRe,
 export var GetConnectInstanceConfigRequest$: StaticStructureSchema = [3, n0, _GCICR,
   0,
   [_cII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConnectInstanceConfigResponse$: StaticStructureSchema = [3, n0, _GCICRe,
   0,
@@ -523,7 +523,7 @@ export var GetConnectInstanceConfigResponse$: StaticStructureSchema = [3, n0, _G
 export var GetInstanceCommunicationLimitsRequest$: StaticStructureSchema = [3, n0, _GICLR,
   0,
   [_cII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetInstanceCommunicationLimitsResponse$: StaticStructureSchema = [3, n0, _GICLRe,
   0,
@@ -533,7 +533,7 @@ export var GetInstanceCommunicationLimitsResponse$: StaticStructureSchema = [3, 
 export var GetInstanceOnboardingJobStatusRequest$: StaticStructureSchema = [3, n0, _GIOJSR,
   0,
   [_cII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetInstanceOnboardingJobStatusResponse$: StaticStructureSchema = [3, n0, _GIOJSRe,
   0,
@@ -548,50 +548,50 @@ export var InstanceCommunicationLimitsConfig$: StaticStructureSchema = [3, n0, _
 export var InstanceConfig$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_cII, _sLRA, _eC],
-  [0, 0, () => EncryptionConfig$]
+  [0, 0, () => EncryptionConfig$], 3
 ];
 export var InstanceIdFilter$: StaticStructureSchema = [3, n0, _IIF,
   0,
   [_v, _o],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InstanceOnboardingJobStatus$: StaticStructureSchema = [3, n0, _IOJS,
   0,
   [_cII, _sta, _fC],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidCampaignStateException$: StaticErrorSchema = [-3, n0, _ICSE,
   { [_e]: _c, [_hE]: 409 },
   [_st, _m, _xAET],
-  [0, 0, [0, { [_hH]: _xaE }]]
+  [0, 0, [0, { [_hH]: _xaE }]], 2
 ];
 TypeRegistry.for(n0).registerError(InvalidCampaignStateException$, InvalidCampaignStateException);
 export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn,
   { [_e]: _c, [_hE]: 409 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
 export var LambdaIntegrationConfig$: StaticStructureSchema = [3, n0, _LIC,
   0,
   [_fA],
-  [0]
+  [0], 1
 ];
 export var LambdaIntegrationIdentifier$: StaticStructureSchema = [3, n0, _LII,
   0,
   [_fA],
-  [0]
+  [0], 1
 ];
 export var LambdaIntegrationSummary$: StaticStructureSchema = [3, n0, _LIS,
   0,
   [_fA],
-  [0]
+  [0], 1
 ];
 export var ListCampaignsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
@@ -606,7 +606,7 @@ export var ListCampaignsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListConnectInstanceIntegrationsRequest$: StaticStructureSchema = [3, n0, _LCIIR,
   0,
   [_cII, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListConnectInstanceIntegrationsResponse$: StaticStructureSchema = [3, n0, _LCIIRi,
   0,
@@ -616,7 +616,7 @@ export var ListConnectInstanceIntegrationsResponse$: StaticStructureSchema = [3,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_a],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -631,47 +631,47 @@ export var LocalTimeZoneConfig$: StaticStructureSchema = [3, n0, _LTZC,
 export var OutboundRequest$: StaticStructureSchema = [3, n0, _OR,
   0,
   [_cT, _eTx, _cSP],
-  [0, 5, [() => ChannelSubtypeParameters$, 0]]
+  [0, 5, [() => ChannelSubtypeParameters$, 0]], 3
 ];
 export var PauseCampaignRequest$: StaticStructureSchema = [3, n0, _PCR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var PredictiveConfig$: StaticStructureSchema = [3, n0, _PC,
   0,
   [_bA],
-  [1]
+  [1], 1
 ];
 export var PreviewConfig$: StaticStructureSchema = [3, n0, _PCr,
   0,
   [_bA, _tC, _aA],
-  [1, () => TimeoutConfig$, 64 | 0]
+  [1, () => TimeoutConfig$, 64 | 0], 2
 ];
 export var ProfileOutboundRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
   [_cT, _pI, _eTx],
-  [0, 0, 5]
+  [0, 0, 5], 2
 ];
 export var ProgressiveConfig$: StaticStructureSchema = [3, n0, _PCro,
   0,
   [_bA],
-  [1]
+  [1], 1
 ];
 export var PutConnectInstanceIntegrationRequest$: StaticStructureSchema = [3, n0, _PCIIR,
   0,
   [_cII, _iC],
-  [[0, 1], () => IntegrationConfig$]
+  [[0, 1], () => IntegrationConfig$], 2
 ];
 export var PutInstanceCommunicationLimitsRequest$: StaticStructureSchema = [3, n0, _PICLR,
   0,
   [_cII, _cLC],
-  [[0, 1], () => InstanceCommunicationLimitsConfig$]
+  [[0, 1], () => InstanceCommunicationLimitsConfig$], 2
 ];
 export var PutOutboundRequestBatchRequest$: StaticStructureSchema = [3, n0, _PORBR,
   0,
   [_i, _oR],
-  [[0, 1], [() => OutboundRequestList, 0]]
+  [[0, 1], [() => OutboundRequestList, 0]], 2
 ];
 export var PutOutboundRequestBatchResponse$: StaticStructureSchema = [3, n0, _PORBRu,
   0,
@@ -681,7 +681,7 @@ export var PutOutboundRequestBatchResponse$: StaticStructureSchema = [3, n0, _PO
 export var PutProfileOutboundRequestBatchRequest$: StaticStructureSchema = [3, n0, _PPORBR,
   0,
   [_i, _pOR],
-  [[0, 1], () => ProfileOutboundRequestList]
+  [[0, 1], () => ProfileOutboundRequestList], 2
 ];
 export var PutProfileOutboundRequestBatchResponse$: StaticStructureSchema = [3, n0, _PPORBRu,
   0,
@@ -691,69 +691,69 @@ export var PutProfileOutboundRequestBatchResponse$: StaticStructureSchema = [3, 
 export var QConnectIntegrationConfig$: StaticStructureSchema = [3, n0, _QCIC,
   0,
   [_kBA],
-  [0]
+  [0], 1
 ];
 export var QConnectIntegrationIdentifier$: StaticStructureSchema = [3, n0, _QCII,
   0,
   [_kBA],
-  [0]
+  [0], 1
 ];
 export var QConnectIntegrationSummary$: StaticStructureSchema = [3, n0, _QCIS,
   0,
   [_kBA],
-  [0]
+  [0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RestrictedPeriod$: StaticStructureSchema = [3, n0, _RP,
   0,
-  [_n, _sD, _eD],
-  [0, 0, 0]
+  [_sD, _eD, _n],
+  [0, 0, 0], 2
 ];
 export var ResumeCampaignRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var Schedule$: StaticStructureSchema = [3, n0, _S,
   0,
   [_sT, _eTn, _rF],
-  [5, 5, 0]
+  [5, 5, 0], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SmsChannelSubtypeConfig$: StaticStructureSchema = [3, n0, _SCSC,
   0,
-  [_cap, _oM, _dOC],
-  [1, () => SmsOutboundMode$, () => SmsOutboundConfig$]
+  [_oM, _dOC, _cap],
+  [() => SmsOutboundMode$, () => SmsOutboundConfig$, 1], 2
 ];
 export var SmsChannelSubtypeParameters$: StaticStructureSchema = [3, n0, _SCSP,
   0,
-  [_dPN, _cSPNA, _tA, _tP],
-  [[() => DestinationPhoneNumber, 0], 0, 0, [() => Attributes, 0]]
+  [_dPN, _tP, _cSPNA, _tA],
+  [[() => DestinationPhoneNumber, 0], [() => Attributes, 0], 0, 0], 2
 ];
 export var SmsOutboundConfig$: StaticStructureSchema = [3, n0, _SOC,
   0,
   [_cSPNA, _wTA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StartCampaignRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StartInstanceOnboardingJobRequest$: StaticStructureSchema = [3, n0, _SIOJR,
   0,
   [_cII, _eC],
-  [[0, 1], () => EncryptionConfig$]
+  [[0, 1], () => EncryptionConfig$], 2
 ];
 export var StartInstanceOnboardingJobResponse$: StaticStructureSchema = [3, n0, _SIOJRt,
   0,
@@ -763,7 +763,7 @@ export var StartInstanceOnboardingJobResponse$: StaticStructureSchema = [3, n0, 
 export var StopCampaignRequest$: StaticStructureSchema = [3, n0, _SCRt,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var SuccessfulCampaignStateResponse$: StaticStructureSchema = [3, n0, _SCSR,
   0,
@@ -783,104 +783,104 @@ export var SuccessfulRequest$: StaticStructureSchema = [3, n0, _SR,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_a, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TelephonyChannelSubtypeConfig$: StaticStructureSchema = [3, n0, _TCSC,
   0,
-  [_cap, _cQI, _oM, _dOC],
-  [1, 0, () => TelephonyOutboundMode$, () => TelephonyOutboundConfig$]
+  [_oM, _dOC, _cap, _cQI],
+  [() => TelephonyOutboundMode$, () => TelephonyOutboundConfig$, 1, 0], 2
 ];
 export var TelephonyChannelSubtypeParameters$: StaticStructureSchema = [3, n0, _TCSP,
   0,
   [_dPN, _at, _cSPN, _aMDC, _rT],
-  [[() => DestinationPhoneNumber, 0], [() => Attributes, 0], 0, () => AnswerMachineDetectionConfig$, 1]
+  [[() => DestinationPhoneNumber, 0], [() => Attributes, 0], 0, () => AnswerMachineDetectionConfig$, 1], 2
 ];
 export var TelephonyOutboundConfig$: StaticStructureSchema = [3, n0, _TOC,
   0,
   [_cCFI, _cSPN, _aMDC, _rT],
-  [0, 0, () => AnswerMachineDetectionConfig$, 1]
+  [0, 0, () => AnswerMachineDetectionConfig$, 1], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeoutConfig$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_dIS],
-  [1]
+  [1], 1
 ];
 export var TimeRange$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_sT, _eTn],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TimeWindow$: StaticStructureSchema = [3, n0, _TW,
   0,
   [_oH, _rP],
-  [() => OpenHours$, () => RestrictedPeriods$]
+  [() => OpenHours$, () => RestrictedPeriods$], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_a, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateCampaignChannelSubtypeConfigRequest$: StaticStructureSchema = [3, n0, _UCCSCR,
   0,
   [_i, _cSC],
-  [[0, 1], [() => ChannelSubtypeConfig$, 0]]
+  [[0, 1], [() => ChannelSubtypeConfig$, 0]], 2
 ];
 export var UpdateCampaignCommunicationLimitsRequest$: StaticStructureSchema = [3, n0, _UCCLR,
   0,
   [_i, _cLO],
-  [[0, 1], () => CommunicationLimitsConfig$]
+  [[0, 1], () => CommunicationLimitsConfig$], 2
 ];
 export var UpdateCampaignCommunicationTimeRequest$: StaticStructureSchema = [3, n0, _UCCTR,
   0,
   [_i, _cTC],
-  [[0, 1], () => CommunicationTimeConfig$]
+  [[0, 1], () => CommunicationTimeConfig$], 2
 ];
 export var UpdateCampaignFlowAssociationRequest$: StaticStructureSchema = [3, n0, _UCFAR,
   0,
   [_i, _cCFA],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateCampaignNameRequest$: StaticStructureSchema = [3, n0, _UCNR,
   0,
   [_i, _n],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateCampaignScheduleRequest$: StaticStructureSchema = [3, n0, _UCSR,
   0,
   [_i, _sc],
-  [[0, 1], () => Schedule$]
+  [[0, 1], () => Schedule$], 2
 ];
 export var UpdateCampaignSourceRequest$: StaticStructureSchema = [3, n0, _UCSRp,
   0,
   [_i, _s],
-  [[0, 1], () => Source$]
+  [[0, 1], () => Source$], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]]
+  [0, [0, { [_hH]: _xaE }]], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WhatsAppChannelSubtypeConfig$: StaticStructureSchema = [3, n0, _WACSC,
   0,
-  [_cap, _oM, _dOC],
-  [1, () => WhatsAppOutboundMode$, () => WhatsAppOutboundConfig$]
+  [_oM, _dOC, _cap],
+  [() => WhatsAppOutboundMode$, () => WhatsAppOutboundConfig$, 1], 2
 ];
 export var WhatsAppChannelSubtypeParameters$: StaticStructureSchema = [3, n0, _WACSP,
   0,
-  [_dPN, _cSPNA, _tA, _tP],
-  [[() => DestinationPhoneNumber, 0], 0, 0, [() => Attributes, 0]]
+  [_dPN, _tP, _cSPNA, _tA],
+  [[() => DestinationPhoneNumber, 0], [() => Attributes, 0], 0, 0], 2
 ];
 export var WhatsAppOutboundConfig$: StaticStructureSchema = [3, n0, _WAOC,
   0,
   [_cSPNA, _wTA],
-  [0, 0]
+  [0, 0], 2
 ];
 var __Unit = "unit" as const;
 export var ConnectCampaignsV2ServiceException$: StaticErrorSchema = [-3, _smi, "ConnectCampaignsV2ServiceException", 0, [], []];

@@ -1,13 +1,19 @@
 // @ts-check
-import { basename } from "path";
+import { readFileSync } from "fs";
+import { basename, join } from "path";
 
 import { getWorkspacePaths } from "../utils/getWorkspacePaths.mjs";
 
 export const getDepToDefaultVersionHash = () =>
-  getWorkspacePaths().reduce(
-    (acc, workspacePath) => ({
-      ...acc,
-      [`@aws-sdk/${basename(workspacePath)}`]: "*",
-    }),
-    {}
-  );
+  getWorkspacePaths().reduce((acc, workspacePath) => {
+    const packageJsonPath = join(workspacePath, "package.json");
+    const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
+
+    let targetVersion = packageJson.version;
+    if (packageJsonPath.includes("packages-internal")) {
+      targetVersion = "^" + targetVersion;
+    }
+
+    acc[`@aws-sdk/${basename(workspacePath)}`] = `workspace:${targetVersion}`;
+    return acc;
+  }, {});

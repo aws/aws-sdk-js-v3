@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelImageCreationCommand,
@@ -360,6 +360,27 @@ import {
   UpdateLifecyclePolicyCommandOutput,
 } from "./commands/UpdateLifecyclePolicyCommand";
 import { ImagebuilderClient } from "./ImagebuilderClient";
+import { paginateListComponentBuildVersions } from "./pagination/ListComponentBuildVersionsPaginator";
+import { paginateListComponents } from "./pagination/ListComponentsPaginator";
+import { paginateListContainerRecipes } from "./pagination/ListContainerRecipesPaginator";
+import { paginateListDistributionConfigurations } from "./pagination/ListDistributionConfigurationsPaginator";
+import { paginateListImageBuildVersions } from "./pagination/ListImageBuildVersionsPaginator";
+import { paginateListImagePackages } from "./pagination/ListImagePackagesPaginator";
+import { paginateListImagePipelineImages } from "./pagination/ListImagePipelineImagesPaginator";
+import { paginateListImagePipelines } from "./pagination/ListImagePipelinesPaginator";
+import { paginateListImageRecipes } from "./pagination/ListImageRecipesPaginator";
+import { paginateListImageScanFindingAggregations } from "./pagination/ListImageScanFindingAggregationsPaginator";
+import { paginateListImageScanFindings } from "./pagination/ListImageScanFindingsPaginator";
+import { paginateListImages } from "./pagination/ListImagesPaginator";
+import { paginateListInfrastructureConfigurations } from "./pagination/ListInfrastructureConfigurationsPaginator";
+import { paginateListLifecycleExecutionResources } from "./pagination/ListLifecycleExecutionResourcesPaginator";
+import { paginateListLifecycleExecutions } from "./pagination/ListLifecycleExecutionsPaginator";
+import { paginateListLifecyclePolicies } from "./pagination/ListLifecyclePoliciesPaginator";
+import { paginateListWaitingWorkflowSteps } from "./pagination/ListWaitingWorkflowStepsPaginator";
+import { paginateListWorkflowBuildVersions } from "./pagination/ListWorkflowBuildVersionsPaginator";
+import { paginateListWorkflowExecutions } from "./pagination/ListWorkflowExecutionsPaginator";
+import { paginateListWorkflows } from "./pagination/ListWorkflowsPaginator";
+import { paginateListWorkflowStepExecutions } from "./pagination/ListWorkflowStepExecutionsPaginator";
 
 const commands = {
   CancelImageCreationCommand,
@@ -439,6 +460,29 @@ const commands = {
   UpdateImagePipelineCommand,
   UpdateInfrastructureConfigurationCommand,
   UpdateLifecyclePolicyCommand,
+};
+const paginators = {
+  paginateListComponentBuildVersions,
+  paginateListComponents,
+  paginateListContainerRecipes,
+  paginateListDistributionConfigurations,
+  paginateListImageBuildVersions,
+  paginateListImagePackages,
+  paginateListImagePipelineImages,
+  paginateListImagePipelines,
+  paginateListImageRecipes,
+  paginateListImages,
+  paginateListImageScanFindingAggregations,
+  paginateListImageScanFindings,
+  paginateListInfrastructureConfigurations,
+  paginateListLifecycleExecutionResources,
+  paginateListLifecycleExecutions,
+  paginateListLifecyclePolicies,
+  paginateListWaitingWorkflowSteps,
+  paginateListWorkflowBuildVersions,
+  paginateListWorkflowExecutions,
+  paginateListWorkflows,
+  paginateListWorkflowStepExecutions,
 };
 
 export interface Imagebuilder {
@@ -1765,6 +1809,237 @@ export interface Imagebuilder {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLifecyclePolicyCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListComponentBuildVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentBuildVersionsCommandOutput}.
+   */
+  paginateListComponentBuildVersions(
+    args?: ListComponentBuildVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentBuildVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentsCommandOutput}.
+   */
+  paginateListComponents(
+    args?: ListComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentsCommandOutput>;
+
+  /**
+   * @see {@link ListContainerRecipesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContainerRecipesCommandOutput}.
+   */
+  paginateListContainerRecipes(
+    args?: ListContainerRecipesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContainerRecipesCommandOutput>;
+
+  /**
+   * @see {@link ListDistributionConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDistributionConfigurationsCommandOutput}.
+   */
+  paginateListDistributionConfigurations(
+    args?: ListDistributionConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDistributionConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListImageBuildVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImageBuildVersionsCommandOutput}.
+   */
+  paginateListImageBuildVersions(
+    args?: ListImageBuildVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImageBuildVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListImagePackagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImagePackagesCommandOutput}.
+   */
+  paginateListImagePackages(
+    args: ListImagePackagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImagePackagesCommandOutput>;
+
+  /**
+   * @see {@link ListImagePipelineImagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImagePipelineImagesCommandOutput}.
+   */
+  paginateListImagePipelineImages(
+    args: ListImagePipelineImagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImagePipelineImagesCommandOutput>;
+
+  /**
+   * @see {@link ListImagePipelinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImagePipelinesCommandOutput}.
+   */
+  paginateListImagePipelines(
+    args?: ListImagePipelinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImagePipelinesCommandOutput>;
+
+  /**
+   * @see {@link ListImageRecipesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImageRecipesCommandOutput}.
+   */
+  paginateListImageRecipes(
+    args?: ListImageRecipesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImageRecipesCommandOutput>;
+
+  /**
+   * @see {@link ListImagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImagesCommandOutput}.
+   */
+  paginateListImages(
+    args?: ListImagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImagesCommandOutput>;
+
+  /**
+   * @see {@link ListImageScanFindingAggregationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImageScanFindingAggregationsCommandOutput}.
+   */
+  paginateListImageScanFindingAggregations(
+    args?: ListImageScanFindingAggregationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImageScanFindingAggregationsCommandOutput>;
+
+  /**
+   * @see {@link ListImageScanFindingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImageScanFindingsCommandOutput}.
+   */
+  paginateListImageScanFindings(
+    args?: ListImageScanFindingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImageScanFindingsCommandOutput>;
+
+  /**
+   * @see {@link ListInfrastructureConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInfrastructureConfigurationsCommandOutput}.
+   */
+  paginateListInfrastructureConfigurations(
+    args?: ListInfrastructureConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInfrastructureConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListLifecycleExecutionResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLifecycleExecutionResourcesCommandOutput}.
+   */
+  paginateListLifecycleExecutionResources(
+    args: ListLifecycleExecutionResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLifecycleExecutionResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListLifecycleExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLifecycleExecutionsCommandOutput}.
+   */
+  paginateListLifecycleExecutions(
+    args: ListLifecycleExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLifecycleExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListLifecyclePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLifecyclePoliciesCommandOutput}.
+   */
+  paginateListLifecyclePolicies(
+    args?: ListLifecyclePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLifecyclePoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListWaitingWorkflowStepsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWaitingWorkflowStepsCommandOutput}.
+   */
+  paginateListWaitingWorkflowSteps(
+    args?: ListWaitingWorkflowStepsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWaitingWorkflowStepsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowBuildVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowBuildVersionsCommandOutput}.
+   */
+  paginateListWorkflowBuildVersions(
+    args?: ListWorkflowBuildVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowBuildVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowExecutionsCommandOutput}.
+   */
+  paginateListWorkflowExecutions(
+    args: ListWorkflowExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowsCommandOutput}.
+   */
+  paginateListWorkflows(
+    args?: ListWorkflowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowStepExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowStepExecutionsCommandOutput}.
+   */
+  paginateListWorkflowStepExecutions(
+    args: ListWorkflowStepExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowStepExecutionsCommandOutput>;
 }
 
 /**
@@ -1775,4 +2050,4 @@ export interface Imagebuilder {
  * @public
  */
 export class Imagebuilder extends ImagebuilderClient implements Imagebuilder {}
-createAggregatedClient(commands, Imagebuilder);
+createAggregatedClient(commands, Imagebuilder, { paginators });

@@ -13,6 +13,7 @@ import {
   TimeToLiveStatus,
   TypeStatus,
   ViewType,
+  WarmThroughputStatus,
 } from "./enums";
 
 /**
@@ -458,6 +459,24 @@ export interface TimeToLive {
 }
 
 /**
+ * <p>Specifies the warm throughput settings for a table. Pre-warming a table by specifying warm throughput pre-provisions read and write capacity units to help avoid capacity exceeded exceptions and reduce latency when your table starts receiving traffic.</p> <p>For more information about pre-warming in Amazon Keyspaces, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/warm-throughput.html">Pre-warm a table in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * @public
+ */
+export interface WarmThroughputSpecification {
+  /**
+   * <p>The number of read capacity units per second to pre-warm the table for read capacity throughput. The minimum value is 1.</p>
+   * @public
+   */
+  readUnitsPerSecond?: number | undefined;
+
+  /**
+   * <p>The number of write capacity units per second to pre-warm the table for write capacity throughput. The minimum value is 1.</p>
+   * @public
+   */
+  writeUnitsPerSecond?: number | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateTableRequest {
@@ -544,6 +563,12 @@ export interface CreateTableRequest {
    * @public
    */
   cdcSpecification?: CdcSpecification | undefined;
+
+  /**
+   * <p>Specifies the warm throughput settings for the table. Pre-warming a table helps you avoid capacity exceeded exceptions by pre-provisioning read and write capacity units to reduce cold start latency when your table receives traffic.</p> <p>For more information about pre-warming in Amazon Keyspaces, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/warm-throughput.html">Pre-warm a table in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+   * @public
+   */
+  warmThroughputSpecification?: WarmThroughputSpecification | undefined;
 }
 
 /**
@@ -793,6 +818,30 @@ export interface PointInTimeRecoverySummary {
 }
 
 /**
+ * <p>Contains the current warm throughput settings for a table, including the configured capacity units and the current status of the warm throughput configuration.</p>
+ * @public
+ */
+export interface WarmThroughputSpecificationSummary {
+  /**
+   * <p>The number of read capacity units per second currently configured for warm throughput.</p>
+   * @public
+   */
+  readUnitsPerSecond: number | undefined;
+
+  /**
+   * <p>The number of write capacity units per second currently configured for warm throughput.</p>
+   * @public
+   */
+  writeUnitsPerSecond: number | undefined;
+
+  /**
+   * <p>The current status of the warm throughput configuration. Valid values are <code>AVAILABLE</code> when the configuration is active, and <code>UPDATING</code> when changes are being applied.</p>
+   * @public
+   */
+  status: WarmThroughputStatus | undefined;
+}
+
+/**
  * <p>The Region-specific settings of a multi-Region table in the specified Amazon Web Services Region.</p> <p>If the multi-Region table is using provisioned capacity and has optional auto scaling policies configured, note that the Region specific summary returns both read and write capacity settings. But only Region specific read capacity settings can be configured for a multi-Region table. In a multi-Region table, your write capacity units will be synced across all Amazon Web Services Regions to ensure that there is enough capacity to replicate write events across Regions.</p>
  * @public
  */
@@ -814,6 +863,12 @@ export interface ReplicaSpecificationSummary {
    * @public
    */
   capacitySpecification?: CapacitySpecificationSummary | undefined;
+
+  /**
+   * <p>The warm throughput settings for this replica, including the current status and configured read and write capacity units.</p>
+   * @public
+   */
+  warmThroughputSpecification?: WarmThroughputSpecificationSummary | undefined;
 }
 
 /**
@@ -915,6 +970,12 @@ export interface GetTableResponse {
    * @public
    */
   cdcSpecification?: CdcSpecificationSummary | undefined;
+
+  /**
+   * <p>The warm throughput settings for the table, including the current status and configured read and write capacity units.</p>
+   * @public
+   */
+  warmThroughputSpecification?: WarmThroughputSpecificationSummary | undefined;
 }
 
 /**
@@ -1506,6 +1567,12 @@ export interface UpdateTableRequest {
    * @public
    */
   cdcSpecification?: CdcSpecification | undefined;
+
+  /**
+   * <p>Modifies the warm throughput settings for the table. You can update the read and write capacity units to adjust the pre-provisioned throughput.</p>
+   * @public
+   */
+  warmThroughputSpecification?: WarmThroughputSpecification | undefined;
 }
 
 /**

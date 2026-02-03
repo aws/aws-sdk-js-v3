@@ -153,7 +153,7 @@ import {
 export var Backup$: StaticStructureSchema = [3, n0, _B,
   0,
   [_BI, _BA, _BS, _CI, _CT, _CTo, _NE, _SR, _SB, _SC, _DT, _TL, _HT, _M],
-  [0, 0, 0, 0, 4, 4, 2, 0, 0, 0, 4, () => TagList, 0, 0]
+  [0, 0, 0, 0, 4, 4, 2, 0, 0, 0, 4, () => TagList, 0, 0], 1
 ];
 export var BackupRetentionPolicy$: StaticStructureSchema = [3, n0, _BRP,
   0,
@@ -215,7 +215,7 @@ export var Cluster$: StaticStructureSchema = [3, n0, _Cl,
 export var CopyBackupToRegionRequest$: StaticStructureSchema = [3, n0, _CBTRR,
   0,
   [_DR, _BI, _TL],
-  [0, 0, () => TagList]
+  [0, 0, () => TagList], 2
 ];
 export var CopyBackupToRegionResponse$: StaticStructureSchema = [3, n0, _CBTRRo,
   0,
@@ -224,8 +224,8 @@ export var CopyBackupToRegionResponse$: StaticStructureSchema = [3, n0, _CBTRRo,
 ];
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_BRP, _HT, _SBI, _SI, _NT, _TL, _M],
-  [() => BackupRetentionPolicy$, 0, 0, 64 | 0, 0, () => TagList, 0]
+  [_HT, _SI, _BRP, _SBI, _NT, _TL, _M],
+  [0, 64 | 0, () => BackupRetentionPolicy$, 0, 0, () => TagList, 0], 2
 ];
 export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -235,7 +235,7 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateHsmRequest$: StaticStructureSchema = [3, n0, _CHR,
   0,
   [_CI, _AZ, _IA],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var CreateHsmResponse$: StaticStructureSchema = [3, n0, _CHRr,
   0,
@@ -245,7 +245,7 @@ export var CreateHsmResponse$: StaticStructureSchema = [3, n0, _CHRr,
 export var DeleteBackupRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
   [_BI],
-  [0]
+  [0], 1
 ];
 export var DeleteBackupResponse$: StaticStructureSchema = [3, n0, _DBRe,
   0,
@@ -255,7 +255,7 @@ export var DeleteBackupResponse$: StaticStructureSchema = [3, n0, _DBRe,
 export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CI],
-  [0]
+  [0], 1
 ];
 export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -265,7 +265,7 @@ export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteHsmRequest$: StaticStructureSchema = [3, n0, _DHR,
   0,
   [_CI, _HI, _EI, _EIn],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var DeleteHsmResponse$: StaticStructureSchema = [3, n0, _DHRe,
   0,
@@ -319,13 +319,13 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
 ];
 export var Hsm$: StaticStructureSchema = [3, n0, _Hs,
   0,
-  [_AZ, _CI, _SIu, _EI, _EIn, _EIV, _HI, _HT, _S, _SM],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_HI, _AZ, _CI, _SIu, _EI, _EIn, _EIV, _HT, _S, _SM],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var InitializeClusterRequest$: StaticStructureSchema = [3, n0, _ICR,
   0,
   [_CI, _SCi, _TA],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var InitializeClusterResponse$: StaticStructureSchema = [3, n0, _ICRn,
   0,
@@ -335,17 +335,17 @@ export var InitializeClusterResponse$: StaticStructureSchema = [3, n0, _ICRn,
 export var ListTagsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_RI, _NTe, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListTagsResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
   [_TL, _NTe],
-  [() => TagList, 0]
+  [() => TagList, 0], 1
 ];
 export var ModifyBackupAttributesRequest$: StaticStructureSchema = [3, n0, _MBAR,
   0,
   [_BI, _NE],
-  [0, 2]
+  [0, 2], 2
 ];
 export var ModifyBackupAttributesResponse$: StaticStructureSchema = [3, n0, _MBARo,
   0,
@@ -354,8 +354,8 @@ export var ModifyBackupAttributesResponse$: StaticStructureSchema = [3, n0, _MBA
 ];
 export var ModifyClusterRequest$: StaticStructureSchema = [3, n0, _MCR,
   0,
-  [_HT, _BRP, _CI],
-  [0, () => BackupRetentionPolicy$, 0]
+  [_CI, _HT, _BRP],
+  [0, 0, () => BackupRetentionPolicy$], 1
 ];
 export var ModifyClusterResponse$: StaticStructureSchema = [3, n0, _MCRo,
   0,
@@ -375,7 +375,7 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
 export var RestoreBackupRequest$: StaticStructureSchema = [3, n0, _RBR,
   0,
   [_BI],
-  [0]
+  [0], 1
 ];
 export var RestoreBackupResponse$: StaticStructureSchema = [3, n0, _RBRe,
   0,
@@ -385,12 +385,12 @@ export var RestoreBackupResponse$: StaticStructureSchema = [3, n0, _RBRe,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RI, _TL],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -400,7 +400,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RI, _TKL],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,

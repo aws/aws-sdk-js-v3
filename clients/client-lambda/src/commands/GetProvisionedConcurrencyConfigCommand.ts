@@ -81,9 +81,9 @@ export interface GetProvisionedConcurrencyConfigCommandOutput extends GetProvisi
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  *
- * @example To get a provisioned concurrency configuration
+ * @example To view a provisioned concurrency configuration
  * ```javascript
- * // The following example returns details for the provisioned concurrency configuration for the BLUE alias of the specified function.
+ * // The following example displays details for the provisioned concurrency configuration for the BLUE alias of the specified function.
  * const input = {
  *   FunctionName: "my-function",
  *   Qualifier: "BLUE"
@@ -101,9 +101,9 @@ export interface GetProvisionedConcurrencyConfigCommandOutput extends GetProvisi
  * *\/
  * ```
  *
- * @example To view a provisioned concurrency configuration
+ * @example To get a provisioned concurrency configuration
  * ```javascript
- * // The following example displays details for the provisioned concurrency configuration for the BLUE alias of the specified function.
+ * // The following example returns details for the provisioned concurrency configuration for the BLUE alias of the specified function.
  * const input = {
  *   FunctionName: "my-function",
  *   Qualifier: "BLUE"

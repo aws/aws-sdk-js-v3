@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateAccountAssociationCommand,
@@ -410,6 +410,23 @@ import {
   UpdateOtaTaskCommandOutput,
 } from "./commands/UpdateOtaTaskCommand";
 import { IoTManagedIntegrationsClient } from "./IoTManagedIntegrationsClient";
+import { paginateListAccountAssociations } from "./pagination/ListAccountAssociationsPaginator";
+import { paginateListCloudConnectors } from "./pagination/ListCloudConnectorsPaginator";
+import { paginateListConnectorDestinations } from "./pagination/ListConnectorDestinationsPaginator";
+import { paginateListCredentialLockers } from "./pagination/ListCredentialLockersPaginator";
+import { paginateListDestinations } from "./pagination/ListDestinationsPaginator";
+import { paginateListDeviceDiscoveries } from "./pagination/ListDeviceDiscoveriesPaginator";
+import { paginateListDiscoveredDevices } from "./pagination/ListDiscoveredDevicesPaginator";
+import { paginateListEventLogConfigurations } from "./pagination/ListEventLogConfigurationsPaginator";
+import { paginateListManagedThingAccountAssociations } from "./pagination/ListManagedThingAccountAssociationsPaginator";
+import { paginateListManagedThingSchemas } from "./pagination/ListManagedThingSchemasPaginator";
+import { paginateListManagedThings } from "./pagination/ListManagedThingsPaginator";
+import { paginateListNotificationConfigurations } from "./pagination/ListNotificationConfigurationsPaginator";
+import { paginateListOtaTaskConfigurations } from "./pagination/ListOtaTaskConfigurationsPaginator";
+import { paginateListOtaTaskExecutions } from "./pagination/ListOtaTaskExecutionsPaginator";
+import { paginateListOtaTasks } from "./pagination/ListOtaTasksPaginator";
+import { paginateListProvisioningProfiles } from "./pagination/ListProvisioningProfilesPaginator";
+import { paginateListSchemaVersions } from "./pagination/ListSchemaVersionsPaginator";
 
 const commands = {
   CreateAccountAssociationCommand,
@@ -495,6 +512,25 @@ const commands = {
   UpdateManagedThingCommand,
   UpdateNotificationConfigurationCommand,
   UpdateOtaTaskCommand,
+};
+const paginators = {
+  paginateListAccountAssociations,
+  paginateListCloudConnectors,
+  paginateListConnectorDestinations,
+  paginateListCredentialLockers,
+  paginateListDestinations,
+  paginateListDeviceDiscoveries,
+  paginateListDiscoveredDevices,
+  paginateListEventLogConfigurations,
+  paginateListManagedThingAccountAssociations,
+  paginateListManagedThings,
+  paginateListManagedThingSchemas,
+  paginateListNotificationConfigurations,
+  paginateListOtaTaskConfigurations,
+  paginateListOtaTaskExecutions,
+  paginateListOtaTasks,
+  paginateListProvisioningProfiles,
+  paginateListSchemaVersions,
 };
 
 export interface IoTManagedIntegrations {
@@ -1927,6 +1963,193 @@ export interface IoTManagedIntegrations {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOtaTaskCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccountAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountAssociationsCommandOutput}.
+   */
+  paginateListAccountAssociations(
+    args?: ListAccountAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListCloudConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCloudConnectorsCommandOutput}.
+   */
+  paginateListCloudConnectors(
+    args?: ListCloudConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCloudConnectorsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectorDestinationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorDestinationsCommandOutput}.
+   */
+  paginateListConnectorDestinations(
+    args?: ListConnectorDestinationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorDestinationsCommandOutput>;
+
+  /**
+   * @see {@link ListCredentialLockersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCredentialLockersCommandOutput}.
+   */
+  paginateListCredentialLockers(
+    args?: ListCredentialLockersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCredentialLockersCommandOutput>;
+
+  /**
+   * @see {@link ListDestinationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDestinationsCommandOutput}.
+   */
+  paginateListDestinations(
+    args?: ListDestinationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDestinationsCommandOutput>;
+
+  /**
+   * @see {@link ListDeviceDiscoveriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeviceDiscoveriesCommandOutput}.
+   */
+  paginateListDeviceDiscoveries(
+    args?: ListDeviceDiscoveriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeviceDiscoveriesCommandOutput>;
+
+  /**
+   * @see {@link ListDiscoveredDevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDiscoveredDevicesCommandOutput}.
+   */
+  paginateListDiscoveredDevices(
+    args: ListDiscoveredDevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDiscoveredDevicesCommandOutput>;
+
+  /**
+   * @see {@link ListEventLogConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventLogConfigurationsCommandOutput}.
+   */
+  paginateListEventLogConfigurations(
+    args?: ListEventLogConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventLogConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListManagedThingAccountAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedThingAccountAssociationsCommandOutput}.
+   */
+  paginateListManagedThingAccountAssociations(
+    args?: ListManagedThingAccountAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedThingAccountAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListManagedThingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedThingsCommandOutput}.
+   */
+  paginateListManagedThings(
+    args?: ListManagedThingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedThingsCommandOutput>;
+
+  /**
+   * @see {@link ListManagedThingSchemasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedThingSchemasCommandOutput}.
+   */
+  paginateListManagedThingSchemas(
+    args: ListManagedThingSchemasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedThingSchemasCommandOutput>;
+
+  /**
+   * @see {@link ListNotificationConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotificationConfigurationsCommandOutput}.
+   */
+  paginateListNotificationConfigurations(
+    args?: ListNotificationConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotificationConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListOtaTaskConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOtaTaskConfigurationsCommandOutput}.
+   */
+  paginateListOtaTaskConfigurations(
+    args?: ListOtaTaskConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOtaTaskConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListOtaTaskExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOtaTaskExecutionsCommandOutput}.
+   */
+  paginateListOtaTaskExecutions(
+    args: ListOtaTaskExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOtaTaskExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListOtaTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOtaTasksCommandOutput}.
+   */
+  paginateListOtaTasks(
+    args?: ListOtaTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOtaTasksCommandOutput>;
+
+  /**
+   * @see {@link ListProvisioningProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProvisioningProfilesCommandOutput}.
+   */
+  paginateListProvisioningProfiles(
+    args?: ListProvisioningProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProvisioningProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListSchemaVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchemaVersionsCommandOutput}.
+   */
+  paginateListSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchemaVersionsCommandOutput>;
 }
 
 /**
@@ -1934,4 +2157,4 @@ export interface IoTManagedIntegrations {
  * @public
  */
 export class IoTManagedIntegrations extends IoTManagedIntegrationsClient implements IoTManagedIntegrations {}
-createAggregatedClient(commands, IoTManagedIntegrations);
+createAggregatedClient(commands, IoTManagedIntegrations, { paginators });

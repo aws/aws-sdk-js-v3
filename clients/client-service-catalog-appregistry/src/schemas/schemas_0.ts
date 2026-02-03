@@ -192,7 +192,7 @@ export var AppRegistryConfiguration$: StaticStructureSchema = [3, n0, _ARC,
 export var AssociateAttributeGroupRequest$: StaticStructureSchema = [3, n0, _AAGR,
   0,
   [_ap, _aG],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var AssociateAttributeGroupResponse$: StaticStructureSchema = [3, n0, _AAGRs,
   0,
@@ -202,7 +202,7 @@ export var AssociateAttributeGroupResponse$: StaticStructureSchema = [3, n0, _AA
 export var AssociateResourceRequest$: StaticStructureSchema = [3, n0, _ARR,
   0,
   [_ap, _rT, _re, _o],
-  [[0, 1], [0, 1], [0, 1], 64 | 0]
+  [[0, 1], [0, 1], [0, 1], 64 | 0], 3
 ];
 export var AssociateResourceResponse$: StaticStructureSchema = [3, n0, _ARRs,
   0,
@@ -233,7 +233,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_n, _d, _t, _cTl],
-  [0, 0, 128 | 0, [0, 4]]
+  [0, 0, 128 | 0, [0, 4]], 1
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -242,8 +242,8 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateAttributeGroupRequest$: StaticStructureSchema = [3, n0, _CAGR,
   0,
-  [_n, _d, _at, _t, _cTl],
-  [0, 0, 0, 128 | 0, [0, 4]]
+  [_n, _at, _d, _t, _cTl],
+  [0, 0, 0, 128 | 0, [0, 4]], 2
 ];
 export var CreateAttributeGroupResponse$: StaticStructureSchema = [3, n0, _CAGRr,
   0,
@@ -253,7 +253,7 @@ export var CreateAttributeGroupResponse$: StaticStructureSchema = [3, n0, _CAGRr
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_ap],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -263,7 +263,7 @@ export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteAttributeGroupRequest$: StaticStructureSchema = [3, n0, _DAGR,
   0,
   [_aG],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAttributeGroupResponse$: StaticStructureSchema = [3, n0, _DAGRe,
   0,
@@ -273,7 +273,7 @@ export var DeleteAttributeGroupResponse$: StaticStructureSchema = [3, n0, _DAGRe
 export var DisassociateAttributeGroupRequest$: StaticStructureSchema = [3, n0, _DAGRi,
   0,
   [_ap, _aG],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DisassociateAttributeGroupResponse$: StaticStructureSchema = [3, n0, _DAGRis,
   0,
@@ -283,7 +283,7 @@ export var DisassociateAttributeGroupResponse$: StaticStructureSchema = [3, n0, 
 export var DisassociateResourceRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_ap, _rT, _re],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DisassociateResourceResponse$: StaticStructureSchema = [3, n0, _DRRi,
   0,
@@ -293,7 +293,7 @@ export var DisassociateResourceResponse$: StaticStructureSchema = [3, n0, _DRRi,
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_ap],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -303,7 +303,7 @@ export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetAssociatedResourceRequest$: StaticStructureSchema = [3, n0, _GARR,
   0,
   [_ap, _rT, _re, _nT, _rTS, _mR],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _rTS }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _rTS }], [1, { [_hQ]: _mR }]], 3
 ];
 export var GetAssociatedResourceResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
@@ -313,7 +313,7 @@ export var GetAssociatedResourceResponse$: StaticStructureSchema = [3, n0, _GARR
 export var GetAttributeGroupRequest$: StaticStructureSchema = [3, n0, _GAGR,
   0,
   [_aG],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAttributeGroupResponse$: StaticStructureSchema = [3, n0, _GAGRe,
   0,
@@ -349,7 +349,7 @@ export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListAssociatedAttributeGroupsRequest$: StaticStructureSchema = [3, n0, _LAAGR,
   0,
   [_ap, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListAssociatedAttributeGroupsResponse$: StaticStructureSchema = [3, n0, _LAAGRi,
   0,
@@ -359,7 +359,7 @@ export var ListAssociatedAttributeGroupsResponse$: StaticStructureSchema = [3, n
 export var ListAssociatedResourcesRequest$: StaticStructureSchema = [3, n0, _LARR,
   0,
   [_ap, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListAssociatedResourcesResponse$: StaticStructureSchema = [3, n0, _LARRi,
   0,
@@ -369,7 +369,7 @@ export var ListAssociatedResourcesResponse$: StaticStructureSchema = [3, n0, _LA
 export var ListAttributeGroupsForApplicationRequest$: StaticStructureSchema = [3, n0, _LAGFAR,
   0,
   [_ap, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListAttributeGroupsForApplicationResponse$: StaticStructureSchema = [3, n0, _LAGFARi,
   0,
@@ -389,7 +389,7 @@ export var ListAttributeGroupsResponse$: StaticStructureSchema = [3, n0, _LAGRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -399,7 +399,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var PutConfigurationRequest$: StaticStructureSchema = [3, n0, _PCR,
   0,
   [_co],
-  [() => AppRegistryConfiguration$]
+  [() => AppRegistryConfiguration$], 1
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -446,7 +446,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var SyncResourceRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
   [_rT, _re],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var SyncResourceResponse$: StaticStructureSchema = [3, n0, _SRRy,
   0,
@@ -461,7 +461,7 @@ export var TagQueryConfiguration$: StaticStructureSchema = [3, n0, _TQC,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -471,13 +471,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tKa],
-  [[0, 1], [64 | 0, { [_hQ]: _tKa }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tKa }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -487,7 +487,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_ap, _n, _d],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -497,7 +497,7 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateAttributeGroupRequest$: StaticStructureSchema = [3, n0, _UAGR,
   0,
   [_aG, _n, _d, _at],
-  [[0, 1], 0, 0, 0]
+  [[0, 1], 0, 0, 0], 1
 ];
 export var UpdateAttributeGroupResponse$: StaticStructureSchema = [3, n0, _UAGRp,
   0,

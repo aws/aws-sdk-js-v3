@@ -56,6 +56,22 @@ export interface CreateHoursOfOperationOverrideCommandOutput extends CreateHours
  *   ],
  *   EffectiveFrom: "STRING_VALUE", // required
  *   EffectiveTill: "STRING_VALUE", // required
+ *   RecurrenceConfig: { // RecurrenceConfig
+ *     RecurrencePattern: { // RecurrencePattern
+ *       Frequency: "WEEKLY" || "MONTHLY" || "YEARLY", // required
+ *       Interval: Number("int"), // required
+ *       ByMonth: [ // MonthList
+ *         Number("int"),
+ *       ],
+ *       ByMonthDay: [ // MonthDayList
+ *         Number("int"),
+ *       ],
+ *       ByWeekdayOccurrence: [ // WeekdayOccurrenceList
+ *         Number("int"),
+ *       ],
+ *     },
+ *   },
+ *   OverrideType: "STANDARD" || "OPEN" || "CLOSED",
  * };
  * const command = new CreateHoursOfOperationOverrideCommand(input);
  * const response = await client.send(command);

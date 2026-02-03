@@ -2075,6 +2075,13 @@ XmlAttributes
 </details>
 <details>
 <summary>
+XmlAttributesInMiddle
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/machine-learning/command/XmlAttributesInMiddleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-machine-learning/Interface/XmlAttributesInMiddleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-machine-learning/Interface/XmlAttributesInMiddleCommandOutput/)
+</details>
+<details>
+<summary>
 XmlAttributesOnPayload
 </summary>
 

@@ -71,6 +71,9 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * //       StatusCode: "REJECTED" || "EXPIRED" || "CONFIGURATION_CHANGED",
  * //       StatusMessage: "STRING_VALUE",
  * //       ActionCompletionStrategy: "AUTO_COMPLETION_UPON_APPROVAL",
+ * //       AdditionalSecurityRequirements: [ // AdditionalSecurityRequirements
+ * //         "APPROVER_VERIFICATION_REQUIRED",
+ * //       ],
  * //     },
  * //   ],
  * // };

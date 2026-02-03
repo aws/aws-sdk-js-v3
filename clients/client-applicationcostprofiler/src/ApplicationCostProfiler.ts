@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ApplicationCostProfilerClient } from "./ApplicationCostProfilerClient";
 import {
@@ -33,6 +33,7 @@ import {
   UpdateReportDefinitionCommandInput,
   UpdateReportDefinitionCommandOutput,
 } from "./commands/UpdateReportDefinitionCommand";
+import { paginateListReportDefinitions } from "./pagination/ListReportDefinitionsPaginator";
 
 const commands = {
   DeleteReportDefinitionCommand,
@@ -41,6 +42,9 @@ const commands = {
   ListReportDefinitionsCommand,
   PutReportDefinitionCommand,
   UpdateReportDefinitionCommand,
+};
+const paginators = {
+  paginateListReportDefinitions,
 };
 
 export interface ApplicationCostProfiler {
@@ -146,6 +150,17 @@ export interface ApplicationCostProfiler {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateReportDefinitionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListReportDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReportDefinitionsCommandOutput}.
+   */
+  paginateListReportDefinitions(
+    args?: ListReportDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReportDefinitionsCommandOutput>;
 }
 
 /**
@@ -158,4 +173,4 @@ export interface ApplicationCostProfiler {
  * @public
  */
 export class ApplicationCostProfiler extends ApplicationCostProfilerClient implements ApplicationCostProfiler {}
-createAggregatedClient(commands, ApplicationCostProfiler);
+createAggregatedClient(commands, ApplicationCostProfiler, { paginators });

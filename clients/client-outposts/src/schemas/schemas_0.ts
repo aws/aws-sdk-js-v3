@@ -339,8 +339,8 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Address$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_CN, _CPN, _AL, _ALd, _ALdd, _C, _SOR, _DOC, _PC, _CC, _Mu],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_CN, _CPN, _AL, _C, _SOR, _PC, _CC, _ALd, _ALdd, _DOC, _Mu],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 7
 ];
 export var AssetInfo$: StaticStructureSchema = [3, n0, _AI,
   0,
@@ -355,7 +355,7 @@ export var AssetInstance$: StaticStructureSchema = [3, n0, _AIss,
 export var AssetInstanceTypeCapacity$: StaticStructureSchema = [3, n0, _AITC,
   0,
   [_IT, _Co],
-  [0, 1]
+  [0, 1], 2
 ];
 export var AssetLocation$: StaticStructureSchema = [3, n0, _ALs,
   0,
@@ -370,7 +370,7 @@ export var BlockingInstance$: StaticStructureSchema = [3, n0, _BI,
 export var CancelCapacityTaskInput$: StaticStructureSchema = [3, n0, _CCTI,
   0,
   [_CTI, _OI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var CancelCapacityTaskOutput$: StaticStructureSchema = [3, n0, _CCTO,
   0,
@@ -380,7 +380,7 @@ export var CancelCapacityTaskOutput$: StaticStructureSchema = [3, n0, _CCTO,
 export var CancelOrderInput$: StaticStructureSchema = [3, n0, _COI,
   0,
   [_OIr],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CancelOrderOutput$: StaticStructureSchema = [3, n0, _COO,
   0,
@@ -390,7 +390,7 @@ export var CancelOrderOutput$: StaticStructureSchema = [3, n0, _COO,
 export var CapacityTaskFailure$: StaticStructureSchema = [3, n0, _CTF,
   0,
   [_R, _T],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CapacityTaskSummary$: StaticStructureSchema = [3, n0, _CTS,
   0,
@@ -420,8 +420,8 @@ export var ConnectionDetails$: StaticStructureSchema = [3, n0, _CDon,
 ];
 export var CreateOrderInput$: StaticStructureSchema = [3, n0, _COIr,
   0,
-  [_OI, _LI, _PO, _PT],
-  [0, () => LineItemRequestListDefinition, 0, 0]
+  [_OI, _PO, _LI, _PT],
+  [0, 0, () => LineItemRequestListDefinition, 0], 2
 ];
 export var CreateOrderOutput$: StaticStructureSchema = [3, n0, _COOr,
   0,
@@ -430,8 +430,8 @@ export var CreateOrderOutput$: StaticStructureSchema = [3, n0, _COOr,
 ];
 export var CreateOutpostInput$: StaticStructureSchema = [3, n0, _COIre,
   0,
-  [_N, _D, _SI, _AZ, _AZI, _Ta, _SHT],
-  [0, 0, 0, 0, 0, 128 | 0, 0]
+  [_N, _SI, _D, _AZ, _AZI, _Ta, _SHT],
+  [0, 0, 0, 0, 0, 128 | 0, 0], 2
 ];
 export var CreateOutpostOutput$: StaticStructureSchema = [3, n0, _COOre,
   0,
@@ -441,7 +441,7 @@ export var CreateOutpostOutput$: StaticStructureSchema = [3, n0, _COOre,
 export var CreateSiteInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_N, _D, _No, _Ta, _OA, _SA, _RPP],
-  [0, 0, 0, 128 | 0, () => Address$, () => Address$, () => RackPhysicalProperties$]
+  [0, 0, 0, 128 | 0, () => Address$, () => Address$, () => RackPhysicalProperties$], 1
 ];
 export var CreateSiteOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
@@ -451,7 +451,7 @@ export var CreateSiteOutput$: StaticStructureSchema = [3, n0, _CSO,
 export var DeleteOutpostInput$: StaticStructureSchema = [3, n0, _DOI,
   0,
   [_OIu],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteOutpostOutput$: StaticStructureSchema = [3, n0, _DOO,
   0,
@@ -461,7 +461,7 @@ export var DeleteOutpostOutput$: StaticStructureSchema = [3, n0, _DOO,
 export var DeleteSiteInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_SI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteSiteOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
@@ -476,7 +476,7 @@ export var EC2Capacity$: StaticStructureSchema = [3, n0, _ECCa,
 export var GetCapacityTaskInput$: StaticStructureSchema = [3, n0, _GCTI,
   0,
   [_CTI, _OI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetCapacityTaskOutput$: StaticStructureSchema = [3, n0, _GCTO,
   0,
@@ -486,7 +486,7 @@ export var GetCapacityTaskOutput$: StaticStructureSchema = [3, n0, _GCTO,
 export var GetCatalogItemInput$: StaticStructureSchema = [3, n0, _GCII,
   0,
   [_CII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCatalogItemOutput$: StaticStructureSchema = [3, n0, _GCIO,
   0,
@@ -496,7 +496,7 @@ export var GetCatalogItemOutput$: StaticStructureSchema = [3, n0, _GCIO,
 export var GetConnectionRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_CIo],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetConnectionResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -506,7 +506,7 @@ export var GetConnectionResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var GetOrderInput$: StaticStructureSchema = [3, n0, _GOI,
   0,
   [_OIr],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetOrderOutput$: StaticStructureSchema = [3, n0, _GOO,
   0,
@@ -515,8 +515,8 @@ export var GetOrderOutput$: StaticStructureSchema = [3, n0, _GOO,
 ];
 export var GetOutpostBillingInformationInput$: StaticStructureSchema = [3, n0, _GOBII,
   0,
-  [_NT, _MR, _OI],
-  [[0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, 1]]
+  [_OI, _NT, _MR],
+  [[0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var GetOutpostBillingInformationOutput$: StaticStructureSchema = [3, n0, _GOBIO,
   0,
@@ -526,12 +526,12 @@ export var GetOutpostBillingInformationOutput$: StaticStructureSchema = [3, n0, 
 export var GetOutpostInput$: StaticStructureSchema = [3, n0, _GOIe,
   0,
   [_OIu],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetOutpostInstanceTypesInput$: StaticStructureSchema = [3, n0, _GOITI,
   0,
   [_OIu, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+  [[0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var GetOutpostInstanceTypesOutput$: StaticStructureSchema = [3, n0, _GOITO,
   0,
@@ -546,7 +546,7 @@ export var GetOutpostOutput$: StaticStructureSchema = [3, n0, _GOOe,
 export var GetOutpostSupportedInstanceTypesInput$: StaticStructureSchema = [3, n0, _GOSITI,
   0,
   [_OI, _OIr, _AIs, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _OIr }], [0, { [_hQ]: _AIs }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, { [_hQ]: _OIr }], [0, { [_hQ]: _AIs }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var GetOutpostSupportedInstanceTypesOutput$: StaticStructureSchema = [3, n0, _GOSITO,
   0,
@@ -556,7 +556,7 @@ export var GetOutpostSupportedInstanceTypesOutput$: StaticStructureSchema = [3, 
 export var GetSiteAddressInput$: StaticStructureSchema = [3, n0, _GSAI,
   0,
   [_SI, _ATd],
-  [[0, 1], [0, { [_hQ]: _ATd }]]
+  [[0, 1], [0, { [_hQ]: _ATd }]], 2
 ];
 export var GetSiteAddressOutput$: StaticStructureSchema = [3, n0, _GSAO,
   0,
@@ -566,7 +566,7 @@ export var GetSiteAddressOutput$: StaticStructureSchema = [3, n0, _GSAO,
 export var GetSiteInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
   [_SI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSiteOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
@@ -581,7 +581,7 @@ export var InstancesToExclude$: StaticStructureSchema = [3, n0, _ITE,
 export var InstanceTypeCapacity$: StaticStructureSchema = [3, n0, _ITCn,
   0,
   [_IT, _Co],
-  [0, 1]
+  [0, 1], 2
 ];
 export var InstanceTypeItem$: StaticStructureSchema = [3, n0, _ITI,
   0,
@@ -612,7 +612,7 @@ export var LineItemRequest$: StaticStructureSchema = [3, n0, _LIR,
 export var ListAssetInstancesInput$: StaticStructureSchema = [3, n0, _LAII,
   0,
   [_OI, _AIF, _ITF, _AIFc, _ASF, _MR, _NT],
-  [[0, 1], [64 | 0, { [_hQ]: _AIF }], [64 | 0, { [_hQ]: _ITF }], [64 | 0, { [_hQ]: _AIFc }], [64 | 0, { [_hQ]: _ASF }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [64 | 0, { [_hQ]: _AIF }], [64 | 0, { [_hQ]: _ITF }], [64 | 0, { [_hQ]: _AIFc }], [64 | 0, { [_hQ]: _ASF }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListAssetInstancesOutput$: StaticStructureSchema = [3, n0, _LAIO,
   0,
@@ -622,7 +622,7 @@ export var ListAssetInstancesOutput$: StaticStructureSchema = [3, n0, _LAIO,
 export var ListAssetsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
   [_OI, _HIF, _MR, _NT, _SF],
-  [[0, 1], [64 | 0, { [_hQ]: _HIF }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [64 | 0, { [_hQ]: _SF }]]
+  [[0, 1], [64 | 0, { [_hQ]: _HIF }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [64 | 0, { [_hQ]: _SF }]], 1
 ];
 export var ListAssetsOutput$: StaticStructureSchema = [3, n0, _LAO,
   0,
@@ -632,7 +632,7 @@ export var ListAssetsOutput$: StaticStructureSchema = [3, n0, _LAO,
 export var ListBlockingInstancesForCapacityTaskInput$: StaticStructureSchema = [3, n0, _LBIFCTI,
   0,
   [_OI, _CTI, _MR, _NT],
-  [[0, 1], [0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 2
 ];
 export var ListBlockingInstancesForCapacityTaskOutput$: StaticStructureSchema = [3, n0, _LBIFCTO,
   0,
@@ -692,7 +692,7 @@ export var ListSitesOutput$: StaticStructureSchema = [3, n0, _LSO,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -743,8 +743,8 @@ export var Site$: StaticStructureSchema = [3, n0, _Si,
 ];
 export var StartCapacityTaskInput$: StaticStructureSchema = [3, n0, _SCTI,
   0,
-  [_OI, _OIr, _AIs, _IP, _ITE, _DR, _TAOBI],
-  [[0, 1], 0, 0, () => RequestedInstancePools, () => InstancesToExclude$, 2, 0]
+  [_OI, _IP, _OIr, _AIs, _ITE, _DR, _TAOBI],
+  [[0, 1], () => RequestedInstancePools, 0, 0, () => InstancesToExclude$, 2, 0], 2
 ];
 export var StartCapacityTaskOutput$: StaticStructureSchema = [3, n0, _SCTO,
   0,
@@ -753,8 +753,8 @@ export var StartCapacityTaskOutput$: StaticStructureSchema = [3, n0, _SCTO,
 ];
 export var StartConnectionRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
-  [_DSN, _AIs, _CPK, _NIDI],
-  [0, 0, 0, 1]
+  [_AIs, _CPK, _NIDI, _DSN],
+  [0, 0, 1, 0], 3
 ];
 export var StartConnectionResponse$: StaticStructureSchema = [3, n0, _SCRt,
   0,
@@ -764,7 +764,7 @@ export var StartConnectionResponse$: StaticStructureSchema = [3, n0, _SCRt,
 export var StartOutpostDecommissionInput$: StaticStructureSchema = [3, n0, _SODI,
   0,
   [_OI, _VO],
-  [[0, 1], 2]
+  [[0, 1], 2], 1
 ];
 export var StartOutpostDecommissionOutput$: StaticStructureSchema = [3, n0, _SODO,
   0,
@@ -779,7 +779,7 @@ export var Subscription$: StaticStructureSchema = [3, n0, _Sub,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -789,7 +789,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -799,7 +799,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateOutpostInput$: StaticStructureSchema = [3, n0, _UOI,
   0,
   [_OIu, _N, _D, _SHT],
-  [[0, 1], 0, 0, 0]
+  [[0, 1], 0, 0, 0], 1
 ];
 export var UpdateOutpostOutput$: StaticStructureSchema = [3, n0, _UOO,
   0,
@@ -809,7 +809,7 @@ export var UpdateOutpostOutput$: StaticStructureSchema = [3, n0, _UOO,
 export var UpdateSiteAddressInput$: StaticStructureSchema = [3, n0, _USAI,
   0,
   [_SI, _ATd, _A],
-  [[0, 1], 0, () => Address$]
+  [[0, 1], 0, () => Address$], 3
 ];
 export var UpdateSiteAddressOutput$: StaticStructureSchema = [3, n0, _USAO,
   0,
@@ -819,7 +819,7 @@ export var UpdateSiteAddressOutput$: StaticStructureSchema = [3, n0, _USAO,
 export var UpdateSiteInput$: StaticStructureSchema = [3, n0, _USI,
   0,
   [_SI, _N, _D, _No],
-  [[0, 1], 0, 0, 0]
+  [[0, 1], 0, 0, 0], 1
 ];
 export var UpdateSiteOutput$: StaticStructureSchema = [3, n0, _USO,
   0,
@@ -829,7 +829,7 @@ export var UpdateSiteOutput$: StaticStructureSchema = [3, n0, _USO,
 export var UpdateSiteRackPhysicalPropertiesInput$: StaticStructureSchema = [3, n0, _USRPPI,
   0,
   [_SI, _PDK, _PP, _PCo, _PFD, _UG, _UC, _FOCT, _OSp, _MSWL],
-  [[0, 1], 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [[0, 1], 0, 0, 0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var UpdateSiteRackPhysicalPropertiesOutput$: StaticStructureSchema = [3, n0, _USRPPO,
   0,

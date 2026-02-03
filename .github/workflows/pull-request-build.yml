@@ -8,7 +8,6 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  IAM_ROLE_ARN: 'arn:aws:iam::088667348242:role/AwsSdkJsV3GitHubRole'
   DOWNLOAD_FOLDER: '.build-scripts/'
   SCRIPT_LOCATION: 'workflows/start-pull-request-build/pull-request-build-v1.sh'
 
@@ -25,7 +24,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ env.IAM_ROLE_ARN }}
+          role-to-assume: ${{secrets.PR_WORKFLOW_IAM_ROLE_ARN}}
           role-session-name: PullRequestBuildGitHubAction
           aws-region: us-west-2
           role-duration-seconds: 7200

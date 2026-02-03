@@ -483,7 +483,7 @@ var WebsiteUrl: StaticSimpleSchema = [0, n0, _WU, 8, 0];
 export var AcceptEngagementInvitationRequest$: StaticStructureSchema = [3, n0, _AEIR,
   0,
   [_C, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
@@ -493,18 +493,18 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Account$: StaticStructureSchema = [3, n0, _Ac,
   0,
-  [_In, _OI, _CN, _WU, _AAI, _Ad, _D],
-  [0, 0, [() => Name, 0], [() => WebsiteUrl, 0], [() => AwsAccount, 0], [() => Address$, 0], [() => DunsNumber, 0]]
+  [_CN, _In, _OI, _WU, _AAI, _Ad, _D],
+  [[() => Name, 0], 0, 0, [() => WebsiteUrl, 0], [() => AwsAccount, 0], [() => Address$, 0], [() => DunsNumber, 0]], 1
 ];
 export var AccountReceiver$: StaticStructureSchema = [3, n0, _AR,
   0,
-  [_A, _AAI],
-  [[() => Alias, 0], [() => AwsAccount, 0]]
+  [_AAI, _A],
+  [[() => AwsAccount, 0], [() => Alias, 0]], 1
 ];
 export var AccountSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_In, _OI, _CN, _WU, _Ad],
-  [0, 0, [() => Name, 0], [() => WebsiteUrl, 0], [() => AddressSummary$, 0]]
+  [_CN, _In, _OI, _WU, _Ad],
+  [[() => Name, 0], 0, 0, [() => WebsiteUrl, 0], [() => AddressSummary$, 0]], 1
 ];
 export var Address$: StaticStructureSchema = [3, n0, _Ad,
   0,
@@ -518,18 +518,18 @@ export var AddressSummary$: StaticStructureSchema = [3, n0, _ASd,
 ];
 export var AssigneeContact$: StaticStructureSchema = [3, n0, _AC,
   0,
-  [_E, _FN, _LN, _P, _BT],
-  [[() => Email, 0], [() => Name, 0], [() => Name, 0], [() => PhoneNumber, 0], [() => JobTitle, 0]]
+  [_E, _FN, _LN, _BT, _P],
+  [[() => Email, 0], [() => Name, 0], [() => Name, 0], [() => JobTitle, 0], [() => PhoneNumber, 0]], 4
 ];
 export var AssignOpportunityRequest$: StaticStructureSchema = [3, n0, _AOR,
   0,
   [_C, _I, _As],
-  [0, 0, [() => AssigneeContact$, 0]]
+  [0, 0, [() => AssigneeContact$, 0]], 3
 ];
 export var AssociateOpportunityRequest$: StaticStructureSchema = [3, n0, _AORs,
   0,
   [_C, _OIp, _RET, _REI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var AwsOpportunityCustomer$: StaticStructureSchema = [3, n0, _AOC,
   0,
@@ -558,18 +558,18 @@ export var AwsOpportunityRelatedEntities$: StaticStructureSchema = [3, n0, _AORE
 ];
 export var AwsProductDetails$: StaticStructureSchema = [3, n0, _APD,
   0,
-  [_PCr, _SC, _Ca, _Am, _OA, _PSA, _O],
-  [0, 0, 64 | 0, [() => MonetaryAmount, 0], [() => MonetaryAmount, 0], [() => MonetaryAmount, 0], [() => AwsProductOptimizationsList, 0]]
+  [_PCr, _Ca, _O, _SC, _Am, _OA, _PSA],
+  [0, 64 | 0, [() => AwsProductOptimizationsList, 0], 0, [() => MonetaryAmount, 0], [() => MonetaryAmount, 0], [() => MonetaryAmount, 0]], 3
 ];
 export var AwsProductInsights$: StaticStructureSchema = [3, n0, _API,
   0,
-  [_CCu, _F, _TA, _TOA, _TPSA, _TABC, _APws],
-  [[() => CurrencyCode, 0], 0, [() => MonetaryAmount, 0], [() => MonetaryAmount, 0], [() => MonetaryAmount, 0], [() => AmountMap, 0], [() => AwsProductsList, 0]]
+  [_CCu, _F, _TABC, _APws, _TA, _TOA, _TPSA],
+  [[() => CurrencyCode, 0], 0, [() => AmountMap, 0], [() => AwsProductsList, 0], [() => MonetaryAmount, 0], [() => MonetaryAmount, 0], [() => MonetaryAmount, 0]], 4
 ];
 export var AwsProductOptimization$: StaticStructureSchema = [3, n0, _APO,
   0,
   [_De, _SAa],
-  [0, [() => MonetaryAmount, 0]]
+  [0, [() => MonetaryAmount, 0]], 2
 ];
 export var AwsProductsSpendInsightsBySource$: StaticStructureSchema = [3, n0, _APSIBS,
   0,
@@ -579,7 +579,7 @@ export var AwsProductsSpendInsightsBySource$: StaticStructureSchema = [3, n0, _A
 export var AwsSubmission$: StaticStructureSchema = [3, n0, _ASw,
   0,
   [_IT, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var AwsTeamMember$: StaticStructureSchema = [3, n0, _ATM,
   0,
@@ -599,8 +599,8 @@ export var Contact$: StaticStructureSchema = [3, n0, _Con,
 ];
 export var CreateEngagementContextRequest$: StaticStructureSchema = [3, n0, _CECR,
   0,
-  [_C, _EI, _CT, _T, _Pay],
-  [0, 0, [0, 4], 0, [() => EngagementContextPayload$, 0]]
+  [_C, _EI, _T, _Pay, _CT],
+  [0, 0, 0, [() => EngagementContextPayload$, 0], [0, 4]], 4
 ];
 export var CreateEngagementContextResponse$: StaticStructureSchema = [3, n0, _CECRr,
   0,
@@ -609,18 +609,18 @@ export var CreateEngagementContextResponse$: StaticStructureSchema = [3, n0, _CE
 ];
 export var CreateEngagementInvitationRequest$: StaticStructureSchema = [3, n0, _CEIR,
   0,
-  [_C, _CT, _EI, _Inv],
-  [0, [0, 4], 0, [() => Invitation$, 0]]
+  [_C, _EI, _Inv, _CT],
+  [0, 0, [() => Invitation$, 0], [0, 4]], 3
 ];
 export var CreateEngagementInvitationResponse$: StaticStructureSchema = [3, n0, _CEIRr,
   0,
   [_Id, _Ar],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateEngagementRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
-  [_C, _CT, _Ti, _De, _Cont],
-  [0, [0, 4], 0, 0, [() => EngagementContexts, 0]]
+  [_C, _Ti, _De, _CT, _Cont],
+  [0, 0, 0, [0, 4], [() => EngagementContexts, 0]], 3
 ];
 export var CreateEngagementResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
@@ -630,17 +630,17 @@ export var CreateEngagementResponse$: StaticStructureSchema = [3, n0, _CERr,
 export var CreateOpportunityRequest$: StaticStructureSchema = [3, n0, _COR,
   0,
   [_C, _PNFA, _NSa, _POI, _Cu, _Pr, _OT, _Ma, _SR, _CT, _LC, _Or, _OTp, _Ta],
-  [0, 64 | 0, 0, 0, [() => Customer$, 0], [() => Project$, 0], 0, () => Marketing$, [() => SoftwareRevenue$, 0], [0, 4], [() => LifeCycle$, 0], 0, [() => PartnerOpportunityTeamMembersList, 0], () => TagList]
+  [0, 64 | 0, 0, 0, [() => Customer$, 0], [() => Project$, 0], 0, () => Marketing$, [() => SoftwareRevenue$, 0], [0, 4], [() => LifeCycle$, 0], 0, [() => PartnerOpportunityTeamMembersList, 0], () => TagList], 1
 ];
 export var CreateOpportunityResponse$: StaticStructureSchema = [3, n0, _CORr,
   0,
   [_Id, _POI, _LMD],
-  [0, 0, 5]
+  [0, 0, 5], 1
 ];
 export var CreateResourceSnapshotJobRequest$: StaticStructureSchema = [3, n0, _CRSJR,
   0,
-  [_C, _CT, _EI, _RT, _RI, _RSTI, _Ta],
-  [0, [0, 4], 0, 0, 0, 0, () => TagList]
+  [_C, _EI, _RT, _RI, _RSTI, _CT, _Ta],
+  [0, 0, 0, 0, 0, [0, 4], () => TagList], 5
 ];
 export var CreateResourceSnapshotJobResponse$: StaticStructureSchema = [3, n0, _CRSJRr,
   0,
@@ -650,7 +650,7 @@ export var CreateResourceSnapshotJobResponse$: StaticStructureSchema = [3, n0, _
 export var CreateResourceSnapshotRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
   [_C, _EI, _RT, _RI, _RSTI, _CT],
-  [0, 0, 0, 0, 0, [0, 4]]
+  [0, 0, 0, 0, 0, [0, 4]], 5
 ];
 export var CreateResourceSnapshotResponse$: StaticStructureSchema = [3, n0, _CRSRr,
   0,
@@ -675,32 +675,32 @@ export var CustomerSummary$: StaticStructureSchema = [3, n0, _CS,
 export var DeleteResourceSnapshotJobRequest$: StaticStructureSchema = [3, n0, _DRSJR,
   0,
   [_C, _RSJI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateOpportunityRequest$: StaticStructureSchema = [3, n0, _DOR,
   0,
   [_C, _OIp, _RET, _REI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var EngagementContextDetails$: StaticStructureSchema = [3, n0, _ECD,
   0,
-  [_Id, _T, _Pay],
-  [0, 0, [() => EngagementContextPayload$, 0]]
+  [_T, _Id, _Pay],
+  [0, 0, [() => EngagementContextPayload$, 0]], 1
 ];
 export var EngagementCustomer$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_In, _CN, _WU, _CC],
-  [0, [() => CompanyName, 0], [() => CompanyWebsiteUrl, 0], [() => CountryCode, 0]]
+  [0, [() => CompanyName, 0], [() => CompanyWebsiteUrl, 0], [() => CountryCode, 0]], 4
 ];
 export var EngagementCustomerProjectDetails$: StaticStructureSchema = [3, n0, _ECPD,
   0,
   [_Ti, _BP, _TCDa],
-  [0, [() => EngagementCustomerBusinessProblem, 0], 0]
+  [0, [() => EngagementCustomerBusinessProblem, 0], 0], 3
 ];
 export var EngagementInvitationSummary$: StaticStructureSchema = [3, n0, _EIS,
   0,
-  [_Ar, _PT, _Id, _EIn, _ET, _St, _ID, _ED, _SAAI, _SCN, _Rec, _C, _PTa],
-  [0, 0, 0, 0, 0, 0, 5, 5, [() => AwsAccount, 0], 0, [() => Receiver$, 0], 0, 0]
+  [_Id, _C, _Ar, _PT, _EIn, _ET, _St, _ID, _ED, _SAAI, _SCN, _Rec, _PTa],
+  [0, 0, 0, 0, 0, 0, 0, 5, 5, [() => AwsAccount, 0], 0, [() => Receiver$, 0], 0], 2
 ];
 export var EngagementMember$: StaticStructureSchema = [3, n0, _EM,
   0,
@@ -715,12 +715,12 @@ export var EngagementMemberSummary$: StaticStructureSchema = [3, n0, _EMS,
 export var EngagementResourceAssociationSummary$: StaticStructureSchema = [3, n0, _ERAS,
   0,
   [_C, _EIn, _RT, _RIe, _CB],
-  [0, 0, 0, 0, [() => AwsAccount, 0]]
+  [0, 0, 0, 0, [() => AwsAccount, 0]], 1
 ];
 export var EngagementSort$: StaticStructureSchema = [3, n0, _ESn,
   0,
   [_SO, _SB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EngagementSummary$: StaticStructureSchema = [3, n0, _ESng,
   0,
@@ -729,33 +729,33 @@ export var EngagementSummary$: StaticStructureSchema = [3, n0, _ESng,
 ];
 export var ExpectedCustomerSpend$: StaticStructureSchema = [3, n0, _ECS,
   0,
-  [_Am, _CCu, _F, _TC, _EU],
-  [[() => Amount, 0], [() => CurrencyCode, 0], 0, 0, 0]
+  [_CCu, _F, _TC, _Am, _EU],
+  [[() => CurrencyCode, 0], 0, 0, [() => Amount, 0], 0], 3
 ];
 export var GetAwsOpportunitySummaryRequest$: StaticStructureSchema = [3, n0, _GAOSR,
   0,
   [_C, _ROI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetAwsOpportunitySummaryResponse$: StaticStructureSchema = [3, n0, _GAOSRe,
   0,
-  [_ROIe, _Or, _IT, _V, _LC, _OTp, _Ins, _ITCR, _REIe, _Cu, _Pr, _C],
-  [0, 0, 0, 0, [() => AwsOpportunityLifeCycle$, 0], [() => AwsOpportunityTeamMembersList, 0], [() => AwsOpportunityInsights$, 0], 0, () => AwsOpportunityRelatedEntities$, [() => AwsOpportunityCustomer$, 0], [() => AwsOpportunityProject$, 0], 0]
+  [_C, _ROIe, _Or, _IT, _V, _LC, _OTp, _Ins, _ITCR, _REIe, _Cu, _Pr],
+  [0, 0, 0, 0, 0, [() => AwsOpportunityLifeCycle$, 0], [() => AwsOpportunityTeamMembersList, 0], [() => AwsOpportunityInsights$, 0], 0, () => AwsOpportunityRelatedEntities$, [() => AwsOpportunityCustomer$, 0], [() => AwsOpportunityProject$, 0]], 1
 ];
 export var GetEngagementInvitationRequest$: StaticStructureSchema = [3, n0, _GEIR,
   0,
   [_C, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetEngagementInvitationResponse$: StaticStructureSchema = [3, n0, _GEIRe,
   0,
-  [_Ar, _PT, _Id, _EIn, _ET, _St, _ID, _ED, _SAAI, _SCN, _Rec, _C, _RR, _Pay, _IM, _EDn, _EMx],
-  [0, 0, 0, 0, 0, 0, 5, 5, [() => AwsAccount, 0], 0, [() => Receiver$, 0], 0, 0, [() => Payload$, 0], [() => InvitationMessage, 0], 0, [() => EngagementMemberSummaries, 0]]
+  [_Id, _C, _Ar, _PT, _EIn, _ET, _St, _ID, _ED, _SAAI, _SCN, _Rec, _RR, _Pay, _IM, _EDn, _EMx],
+  [0, 0, 0, 0, 0, 0, 0, 5, 5, [() => AwsAccount, 0], 0, [() => Receiver$, 0], 0, [() => Payload$, 0], [() => InvitationMessage, 0], 0, [() => EngagementMemberSummaries, 0]], 2
 ];
 export var GetEngagementRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_C, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetEngagementResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
@@ -765,42 +765,42 @@ export var GetEngagementResponse$: StaticStructureSchema = [3, n0, _GERe,
 export var GetOpportunityRequest$: StaticStructureSchema = [3, n0, _GOR,
   0,
   [_C, _I],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetOpportunityResponse$: StaticStructureSchema = [3, n0, _GORe,
   0,
-  [_C, _PNFA, _NSa, _POI, _Cu, _Pr, _OT, _Ma, _SR, _Id, _Ar, _LMD, _CD, _REIel, _LC, _OTp],
-  [0, 64 | 0, 0, 0, [() => Customer$, 0], [() => Project$, 0], 0, () => Marketing$, [() => SoftwareRevenue$, 0], 0, 0, 5, 5, () => RelatedEntityIdentifiers$, [() => LifeCycle$, 0], [() => PartnerOpportunityTeamMembersList, 0]]
+  [_C, _Id, _LMD, _CD, _REIel, _PNFA, _NSa, _POI, _Cu, _Pr, _OT, _Ma, _SR, _Ar, _LC, _OTp],
+  [0, 0, 5, 5, () => RelatedEntityIdentifiers$, 64 | 0, 0, 0, [() => Customer$, 0], [() => Project$, 0], 0, () => Marketing$, [() => SoftwareRevenue$, 0], 0, [() => LifeCycle$, 0], [() => PartnerOpportunityTeamMembersList, 0]], 5
 ];
 export var GetResourceSnapshotJobRequest$: StaticStructureSchema = [3, n0, _GRSJR,
   0,
   [_C, _RSJI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetResourceSnapshotJobResponse$: StaticStructureSchema = [3, n0, _GRSJRe,
   0,
   [_C, _Id, _Ar, _EIn, _RT, _RIe, _RA, _RSTN, _CA, _St, _LSED, _LF],
-  [0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0], 1
 ];
 export var GetResourceSnapshotRequest$: StaticStructureSchema = [3, n0, _GRSR,
   0,
   [_C, _EI, _RT, _RI, _RSTI, _Re],
-  [0, 0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 0, 1], 5
 ];
 export var GetResourceSnapshotResponse$: StaticStructureSchema = [3, n0, _GRSRe,
   0,
   [_C, _Ar, _CB, _CA, _EIn, _RT, _RIe, _RSTN, _Re, _Pay],
-  [0, 0, [() => AwsAccount, 0], 5, 0, 0, 0, 0, 1, [() => ResourceSnapshotPayload$, 0]]
+  [0, 0, [() => AwsAccount, 0], 5, 0, 0, 0, 0, 1, [() => ResourceSnapshotPayload$, 0]], 1
 ];
 export var GetSellingSystemSettingsRequest$: StaticStructureSchema = [3, n0, _GSSSR,
   0,
   [_C],
-  [0]
+  [0], 1
 ];
 export var GetSellingSystemSettingsResponse$: StaticStructureSchema = [3, n0, _GSSSRe,
   0,
   [_C, _RSJRA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -811,7 +811,7 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var Invitation$: StaticStructureSchema = [3, n0, _Inv,
   0,
   [_M, _Rec, _Pay],
-  [[() => InvitationMessage, 0], [() => Receiver$, 0], [() => Payload$, 0]]
+  [[() => InvitationMessage, 0], [() => Receiver$, 0], [() => Payload$, 0]], 3
 ];
 export var LastModifiedDate$: StaticStructureSchema = [3, n0, _LMD,
   0,
@@ -821,37 +821,37 @@ export var LastModifiedDate$: StaticStructureSchema = [3, n0, _LMD,
 export var LeadContact$: StaticStructureSchema = [3, n0, _LCe,
   0,
   [_BT, _E, _FN, _LN, _P],
-  [[() => JobTitle, 0], [() => Email, 0], [() => Name, 0], [() => Name, 0], [() => PhoneNumber, 0]]
+  [[() => JobTitle, 0], [() => Email, 0], [() => Name, 0], [() => Name, 0], [() => PhoneNumber, 0]], 4
 ];
 export var LeadContext$: StaticStructureSchema = [3, n0, _LCea,
   0,
-  [_QS, _Cu, _Int],
-  [0, [() => LeadCustomer$, 0], [() => LeadInteractionList, 0]]
+  [_Cu, _Int, _QS],
+  [[() => LeadCustomer$, 0], [() => LeadInteractionList, 0], 0], 2
 ];
 export var LeadCustomer$: StaticStructureSchema = [3, n0, _LCead,
   0,
-  [_In, _CN, _WU, _Ad, _AM, _MS],
-  [0, [() => CompanyName, 0], [() => CompanyWebsiteUrl, 0], [() => AddressSummary$, 0], 0, 0]
+  [_CN, _Ad, _In, _WU, _AM, _MS],
+  [[() => CompanyName, 0], [() => AddressSummary$, 0], 0, [() => CompanyWebsiteUrl, 0], 0, 0], 2
 ];
 export var LeadInteraction$: StaticStructureSchema = [3, n0, _LI,
   0,
-  [_ST, _SI, _SN, _U, _IDn, _CAu, _BP, _Con],
-  [0, 0, 0, 0, 5, 0, [() => EngagementCustomerBusinessProblem, 0], [() => LeadContact$, 0]]
+  [_ST, _SI, _SN, _CAu, _Con, _U, _IDn, _BP],
+  [0, 0, 0, 0, [() => LeadContact$, 0], 0, 5, [() => EngagementCustomerBusinessProblem, 0]], 5
 ];
 export var LeadInvitationCustomer$: StaticStructureSchema = [3, n0, _LIC,
   0,
-  [_In, _CN, _WU, _CC, _AM, _MS],
-  [0, [() => CompanyName, 0], [() => CompanyWebsiteUrl, 0], [() => CountryCode, 0], 0, 0]
+  [_CN, _CC, _In, _WU, _AM, _MS],
+  [[() => CompanyName, 0], [() => CountryCode, 0], 0, [() => CompanyWebsiteUrl, 0], 0, 0], 2
 ];
 export var LeadInvitationInteraction$: StaticStructureSchema = [3, n0, _LII,
   0,
-  [_ST, _SI, _SN, _U, _CBT],
-  [0, 0, 0, 0, [() => JobTitle, 0]]
+  [_ST, _SI, _SN, _CBT, _U],
+  [0, 0, 0, [() => JobTitle, 0], 0], 4
 ];
 export var LeadInvitationPayload$: StaticStructureSchema = [3, n0, _LIP,
   0,
   [_Cu, _Inte],
-  [[() => LeadInvitationCustomer$, 0], [() => LeadInvitationInteraction$, 0]]
+  [[() => LeadInvitationCustomer$, 0], [() => LeadInvitationInteraction$, 0]], 2
 ];
 export var LifeCycle$: StaticStructureSchema = [3, n0, _LC,
   0,
@@ -870,8 +870,8 @@ export var LifeCycleSummary$: StaticStructureSchema = [3, n0, _LCS,
 ];
 export var ListEngagementByAcceptingInvitationTasksRequest$: StaticStructureSchema = [3, n0, _LEBAITR,
   0,
-  [_MR, _NT, _Sor, _C, _TS, _OIp, _EII, _TI],
-  [1, 0, () => ListTasksSortBase$, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [_C, _MR, _NT, _Sor, _TS, _OIp, _EII, _TI],
+  [0, 1, 0, () => ListTasksSortBase$, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var ListEngagementByAcceptingInvitationTasksResponse$: StaticStructureSchema = [3, n0, _LEBAITRi,
   0,
@@ -885,8 +885,8 @@ export var ListEngagementByAcceptingInvitationTaskSummary$: StaticStructureSchem
 ];
 export var ListEngagementFromOpportunityTasksRequest$: StaticStructureSchema = [3, n0, _LEFOTR,
   0,
-  [_MR, _NT, _Sor, _C, _TS, _TI, _OIp, _EI],
-  [1, 0, () => ListTasksSortBase$, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [_C, _MR, _NT, _Sor, _TS, _TI, _OIp, _EI],
+  [0, 1, 0, () => ListTasksSortBase$, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var ListEngagementFromOpportunityTasksResponse$: StaticStructureSchema = [3, n0, _LEFOTRi,
   0,
@@ -900,8 +900,8 @@ export var ListEngagementFromOpportunityTaskSummary$: StaticStructureSchema = [3
 ];
 export var ListEngagementInvitationsRequest$: StaticStructureSchema = [3, n0, _LEIR,
   0,
-  [_C, _MR, _NT, _Sor, _PT, _PTa, _St, _EI, _SAAI],
-  [0, 1, 0, () => OpportunityEngagementInvitationSort$, 64 | 0, 0, 64 | 0, 64 | 0, [() => AwsAccountIdOrAliasList, 0]]
+  [_C, _PTa, _MR, _NT, _Sor, _PT, _St, _EI, _SAAI],
+  [0, 0, 1, 0, () => OpportunityEngagementInvitationSort$, 64 | 0, 64 | 0, 64 | 0, [() => AwsAccountIdOrAliasList, 0]], 2
 ];
 export var ListEngagementInvitationsResponse$: StaticStructureSchema = [3, n0, _LEIRi,
   0,
@@ -911,47 +911,47 @@ export var ListEngagementInvitationsResponse$: StaticStructureSchema = [3, n0, _
 export var ListEngagementMembersRequest$: StaticStructureSchema = [3, n0, _LEMR,
   0,
   [_C, _I, _MR, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 2
 ];
 export var ListEngagementMembersResponse$: StaticStructureSchema = [3, n0, _LEMRi,
   0,
   [_EML, _NT],
-  [[() => EngagementMembers, 0], 0]
+  [[() => EngagementMembers, 0], 0], 1
 ];
 export var ListEngagementResourceAssociationsRequest$: StaticStructureSchema = [3, n0, _LERAR,
   0,
   [_C, _MR, _NT, _EI, _RT, _RI, _CB],
-  [0, 1, 0, 0, 0, 0, [() => AwsAccount, 0]]
+  [0, 1, 0, 0, 0, 0, [() => AwsAccount, 0]], 1
 ];
 export var ListEngagementResourceAssociationsResponse$: StaticStructureSchema = [3, n0, _LERARi,
   0,
   [_ERASn, _NT],
-  [[() => EngagementResourceAssociationSummaryList, 0], 0]
+  [[() => EngagementResourceAssociationSummaryList, 0], 0], 1
 ];
 export var ListEngagementsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
   [_C, _CB, _ECB, _CTo, _ECT, _Sor, _MR, _NT, _EI],
-  [0, [() => AwsAccountList, 0], [() => AwsAccountList, 0], 64 | 0, 64 | 0, () => EngagementSort$, 1, 0, 64 | 0]
+  [0, [() => AwsAccountList, 0], [() => AwsAccountList, 0], 64 | 0, 64 | 0, () => EngagementSort$, 1, 0, 64 | 0], 1
 ];
 export var ListEngagementsResponse$: StaticStructureSchema = [3, n0, _LERi,
   0,
   [_ESL, _NT],
-  [[() => EngagementSummaryList, 0], 0]
+  [[() => EngagementSummaryList, 0], 0], 1
 ];
 export var ListOpportunitiesRequest$: StaticStructureSchema = [3, n0, _LOR,
   0,
   [_C, _MR, _NT, _Sor, _LMD, _I, _LCSi, _LCRS, _CCN],
-  [0, 1, 0, () => OpportunitySort$, () => LastModifiedDate$, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [0, 1, 0, () => OpportunitySort$, () => LastModifiedDate$, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var ListOpportunitiesResponse$: StaticStructureSchema = [3, n0, _LORi,
   0,
   [_OS, _NT],
-  [[() => OpportunitySummaries, 0], 0]
+  [[() => OpportunitySummaries, 0], 0], 1
 ];
 export var ListOpportunityFromEngagementTasksRequest$: StaticStructureSchema = [3, n0, _LOFETR,
   0,
-  [_MR, _NT, _Sor, _C, _TS, _TI, _OIp, _EI, _CIo],
-  [1, 0, () => ListTasksSortBase$, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+  [_C, _MR, _NT, _Sor, _TS, _TI, _OIp, _EI, _CIo],
+  [0, 1, 0, () => ListTasksSortBase$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var ListOpportunityFromEngagementTasksResponse$: StaticStructureSchema = [3, n0, _LOFETRi,
   0,
@@ -966,47 +966,47 @@ export var ListOpportunityFromEngagementTaskSummary$: StaticStructureSchema = [3
 export var ListResourceSnapshotJobsRequest$: StaticStructureSchema = [3, n0, _LRSJR,
   0,
   [_C, _MR, _NT, _EI, _St, _Sor],
-  [0, 1, 0, 0, 0, () => SortObject$]
+  [0, 1, 0, 0, 0, () => SortObject$], 1
 ];
 export var ListResourceSnapshotJobsResponse$: StaticStructureSchema = [3, n0, _LRSJRi,
   0,
   [_RSJS, _NT],
-  [() => ResourceSnapshotJobSummaryList, 0]
+  [() => ResourceSnapshotJobSummaryList, 0], 1
 ];
 export var ListResourceSnapshotsRequest$: StaticStructureSchema = [3, n0, _LRSR,
   0,
-  [_C, _MR, _NT, _EI, _RT, _RI, _RSTI, _CB],
-  [0, 1, 0, 0, 0, 0, 0, [() => AwsAccount, 0]]
+  [_C, _EI, _MR, _NT, _RT, _RI, _RSTI, _CB],
+  [0, 0, 1, 0, 0, 0, 0, [() => AwsAccount, 0]], 2
 ];
 export var ListResourceSnapshotsResponse$: StaticStructureSchema = [3, n0, _LRSRi,
   0,
   [_RSS, _NT],
-  [[() => ResourceSnapshotSummaryList, 0], 0]
+  [[() => ResourceSnapshotSummaryList, 0], 0], 1
 ];
 export var ListSolutionsRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_C, _MR, _NT, _Sor, _St, _I, _Cat],
-  [0, 1, 0, () => SolutionSort$, 64 | 0, 64 | 0, 64 | 0]
+  [0, 1, 0, () => SolutionSort$, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var ListSolutionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
   [_SS, _NT],
-  [() => SolutionList, 0]
+  [() => SolutionList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_Ta],
-  [() => TagList]
+  [() => TagList], 1
 ];
 export var ListTasksSortBase$: StaticStructureSchema = [3, n0, _LTSB,
   0,
   [_SO, _SB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Marketing$: StaticStructureSchema = [3, n0, _Ma,
   0,
@@ -1016,32 +1016,32 @@ export var Marketing$: StaticStructureSchema = [3, n0, _Ma,
 export var MonetaryValue$: StaticStructureSchema = [3, n0, _MV,
   0,
   [_Am, _CCu],
-  [0, [() => CurrencyCode, 0]]
+  [0, [() => CurrencyCode, 0]], 2
 ];
 export var NextStepsHistory$: StaticStructureSchema = [3, n0, _NSH,
   0,
   [_Va, _Tim],
-  [0, 5]
+  [0, 5], 2
 ];
 export var OpportunityEngagementInvitationSort$: StaticStructureSchema = [3, n0, _OEIS,
   0,
   [_SO, _SB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var OpportunityInvitationPayload$: StaticStructureSchema = [3, n0, _OIP,
   0,
-  [_SCe, _RRe, _Cu, _Pr],
-  [[() => SenderContactList, 0], 64 | 0, [() => EngagementCustomer$, 0], [() => ProjectDetails$, 0]]
+  [_RRe, _Cu, _Pr, _SCe],
+  [64 | 0, [() => EngagementCustomer$, 0], [() => ProjectDetails$, 0], [() => SenderContactList, 0]], 3
 ];
 export var OpportunitySort$: StaticStructureSchema = [3, n0, _OSp,
   0,
   [_SO, _SB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var OpportunitySummary$: StaticStructureSchema = [3, n0, _OSpp,
   0,
   [_C, _Id, _Ar, _POI, _OT, _LMD, _CD, _LC, _Cu, _Pr],
-  [0, 0, 0, 0, 0, 5, 5, [() => LifeCycleSummary$, 0], [() => CustomerSummary$, 0], [() => ProjectSummary$, 0]]
+  [0, 0, 0, 0, 0, 5, 5, [() => LifeCycleSummary$, 0], [() => CustomerSummary$, 0], [() => ProjectSummary$, 0]], 1
 ];
 export var OpportunitySummaryView$: StaticStructureSchema = [3, n0, _OSV,
   0,
@@ -1051,7 +1051,7 @@ export var OpportunitySummaryView$: StaticStructureSchema = [3, n0, _OSV,
 export var ProfileNextStepsHistory$: StaticStructureSchema = [3, n0, _PNSH,
   0,
   [_Va, _Tim],
-  [0, 5]
+  [0, 5], 2
 ];
 export var Project$: StaticStructureSchema = [3, n0, _Pr,
   0,
@@ -1061,7 +1061,7 @@ export var Project$: StaticStructureSchema = [3, n0, _Pr,
 export var ProjectDetails$: StaticStructureSchema = [3, n0, _PD,
   0,
   [_BP, _Ti, _TCDa, _ECS],
-  [[() => EngagementCustomerBusinessProblem, 0], 0, 0, [() => ExpectedCustomerSpendList, 0]]
+  [[() => EngagementCustomerBusinessProblem, 0], 0, 0, [() => ExpectedCustomerSpendList, 0]], 4
 ];
 export var ProjectSummary$: StaticStructureSchema = [3, n0, _PSr,
   0,
@@ -1076,17 +1076,17 @@ export var ProjectView$: StaticStructureSchema = [3, n0, _PV,
 export var PutSellingSystemSettingsRequest$: StaticStructureSchema = [3, n0, _PSSSR,
   0,
   [_C, _RSJRI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PutSellingSystemSettingsResponse$: StaticStructureSchema = [3, n0, _PSSSRu,
   0,
   [_C, _RSJRA],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RejectEngagementInvitationRequest$: StaticStructureSchema = [3, n0, _REIR,
   0,
   [_C, _I, _RR],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var RelatedEntityIdentifiers$: StaticStructureSchema = [3, n0, _REIel,
   0,
@@ -1112,7 +1112,7 @@ export var ResourceSnapshotSummary$: StaticStructureSchema = [3, n0, _RSSe,
 export var SenderContact$: StaticStructureSchema = [3, n0, _SCen,
   0,
   [_E, _FN, _LN, _BT, _P],
-  [[() => SenderContactEmail, 0], [() => Name, 0], [() => Name, 0], [() => JobTitle, 0], [() => PhoneNumber, 0]]
+  [[() => SenderContactEmail, 0], [() => Name, 0], [() => Name, 0], [() => JobTitle, 0], [() => PhoneNumber, 0]], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -1127,13 +1127,13 @@ export var SoftwareRevenue$: StaticStructureSchema = [3, n0, _SR,
 ];
 export var SolutionBase$: StaticStructureSchema = [3, n0, _SBo,
   0,
-  [_C, _Id, _Ar, _N, _St, _Cat, _CD],
-  [0, 0, 0, 0, 0, 0, 5]
+  [_C, _Id, _N, _St, _Cat, _CD, _Ar],
+  [0, 0, 0, 0, 0, 5, 0], 6
 ];
 export var SolutionSort$: StaticStructureSchema = [3, n0, _SSo,
   0,
   [_SO, _SB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SortObject$: StaticStructureSchema = [3, n0, _SOo,
   0,
@@ -1142,8 +1142,8 @@ export var SortObject$: StaticStructureSchema = [3, n0, _SOo,
 ];
 export var StartEngagementByAcceptingInvitationTaskRequest$: StaticStructureSchema = [3, n0, _SEBAITR,
   0,
-  [_C, _CT, _I, _Ta],
-  [0, [0, 4], 0, () => TagList]
+  [_C, _I, _CT, _Ta],
+  [0, 0, [0, 4], () => TagList], 2
 ];
 export var StartEngagementByAcceptingInvitationTaskResponse$: StaticStructureSchema = [3, n0, _SEBAITRt,
   0,
@@ -1152,8 +1152,8 @@ export var StartEngagementByAcceptingInvitationTaskResponse$: StaticStructureSch
 ];
 export var StartEngagementFromOpportunityTaskRequest$: StaticStructureSchema = [3, n0, _SEFOTR,
   0,
-  [_C, _CT, _I, _ASw, _Ta],
-  [0, [0, 4], 0, () => AwsSubmission$, () => TagList]
+  [_C, _I, _ASw, _CT, _Ta],
+  [0, 0, () => AwsSubmission$, [0, 4], () => TagList], 3
 ];
 export var StartEngagementFromOpportunityTaskResponse$: StaticStructureSchema = [3, n0, _SEFOTRt,
   0,
@@ -1162,8 +1162,8 @@ export var StartEngagementFromOpportunityTaskResponse$: StaticStructureSchema = 
 ];
 export var StartOpportunityFromEngagementTaskRequest$: StaticStructureSchema = [3, n0, _SOFETR,
   0,
-  [_C, _CT, _I, _CIo, _Ta],
-  [0, [0, 4], 0, 0, () => TagList]
+  [_C, _I, _CIo, _CT, _Ta],
+  [0, 0, 0, [0, 4], () => TagList], 3
 ];
 export var StartOpportunityFromEngagementTaskResponse$: StaticStructureSchema = [3, n0, _SOFETRt,
   0,
@@ -1173,27 +1173,27 @@ export var StartOpportunityFromEngagementTaskResponse$: StaticStructureSchema = 
 export var StartResourceSnapshotJobRequest$: StaticStructureSchema = [3, n0, _SRSJR,
   0,
   [_C, _RSJI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StopResourceSnapshotJobRequest$: StaticStructureSchema = [3, n0, _SRSJRt,
   0,
   [_C, _RSJI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SubmitOpportunityRequest$: StaticStructureSchema = [3, n0, _SORu,
   0,
   [_C, _I, _IT, _V],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1209,7 +1209,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1219,38 +1219,38 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateEngagementContextRequest$: StaticStructureSchema = [3, n0, _UECR,
   0,
   [_C, _EI, _CIo, _ELMA, _T, _Pay],
-  [0, 0, 0, 5, 0, [() => UpdateEngagementContextPayload$, 0]]
+  [0, 0, 0, 5, 0, [() => UpdateEngagementContextPayload$, 0]], 6
 ];
 export var UpdateEngagementContextResponse$: StaticStructureSchema = [3, n0, _UECRp,
   0,
   [_EIn, _EA, _ELMA, _CI],
-  [0, 0, 5, 0]
+  [0, 0, 5, 0], 4
 ];
 export var UpdateLeadContext$: StaticStructureSchema = [3, n0, _ULC,
   0,
-  [_QS, _Cu, _Inte],
-  [0, [() => LeadCustomer$, 0], [() => LeadInteraction$, 0]]
+  [_Cu, _QS, _Inte],
+  [[() => LeadCustomer$, 0], 0, [() => LeadInteraction$, 0]], 1
 ];
 export var UpdateOpportunityRequest$: StaticStructureSchema = [3, n0, _UOR,
   0,
-  [_C, _PNFA, _NSa, _POI, _Cu, _Pr, _OT, _Ma, _SR, _LMD, _I, _LC],
-  [0, 64 | 0, 0, 0, [() => Customer$, 0], [() => Project$, 0], 0, () => Marketing$, [() => SoftwareRevenue$, 0], 5, 0, [() => LifeCycle$, 0]]
+  [_C, _LMD, _I, _PNFA, _NSa, _POI, _Cu, _Pr, _OT, _Ma, _SR, _LC],
+  [0, 5, 0, 64 | 0, 0, 0, [() => Customer$, 0], [() => Project$, 0], 0, () => Marketing$, [() => SoftwareRevenue$, 0], [() => LifeCycle$, 0]], 3
 ];
 export var UpdateOpportunityResponse$: StaticStructureSchema = [3, n0, _UORp,
   0,
   [_Id, _LMD],
-  [0, 5]
+  [0, 5], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _R, _EL],
-  [0, 0, () => ValidationExceptionErrorList]
+  [0, 0, () => ValidationExceptionErrorList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionError$: StaticStructureSchema = [3, n0, _VEE,
   0,
-  [_FNi, _M, _Cod],
-  [0, 0, 0]
+  [_M, _Cod, _FNi],
+  [0, 0, 0], 2
 ];
 var __Unit = "unit" as const;
 export var PartnerCentralSellingServiceException$: StaticErrorSchema = [-3, _sm, "PartnerCentralSellingServiceException", 0, [], []];

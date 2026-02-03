@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CodeCatalystClient } from "./CodeCatalystClient";
 import {
@@ -169,6 +169,16 @@ import {
   VerifySessionCommandInput,
   VerifySessionCommandOutput,
 } from "./commands/VerifySessionCommand";
+import { paginateListAccessTokens } from "./pagination/ListAccessTokensPaginator";
+import { paginateListDevEnvironmentSessions } from "./pagination/ListDevEnvironmentSessionsPaginator";
+import { paginateListDevEnvironments } from "./pagination/ListDevEnvironmentsPaginator";
+import { paginateListEventLogs } from "./pagination/ListEventLogsPaginator";
+import { paginateListProjects } from "./pagination/ListProjectsPaginator";
+import { paginateListSourceRepositories } from "./pagination/ListSourceRepositoriesPaginator";
+import { paginateListSourceRepositoryBranches } from "./pagination/ListSourceRepositoryBranchesPaginator";
+import { paginateListSpaces } from "./pagination/ListSpacesPaginator";
+import { paginateListWorkflowRuns } from "./pagination/ListWorkflowRunsPaginator";
+import { paginateListWorkflows } from "./pagination/ListWorkflowsPaginator";
 
 const commands = {
   CreateAccessTokenCommand,
@@ -209,6 +219,18 @@ const commands = {
   UpdateProjectCommand,
   UpdateSpaceCommand,
   VerifySessionCommand,
+};
+const paginators = {
+  paginateListAccessTokens,
+  paginateListDevEnvironments,
+  paginateListDevEnvironmentSessions,
+  paginateListEventLogs,
+  paginateListProjects,
+  paginateListSourceRepositories,
+  paginateListSourceRepositoryBranches,
+  paginateListSpaces,
+  paginateListWorkflowRuns,
+  paginateListWorkflows,
 };
 
 export interface CodeCatalyst {
@@ -861,6 +883,116 @@ export interface CodeCatalyst {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: VerifySessionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccessTokensCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessTokensCommandOutput}.
+   */
+  paginateListAccessTokens(
+    args?: ListAccessTokensCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessTokensCommandOutput>;
+
+  /**
+   * @see {@link ListDevEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevEnvironmentsCommandOutput}.
+   */
+  paginateListDevEnvironments(
+    args: ListDevEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevEnvironmentsCommandOutput>;
+
+  /**
+   * @see {@link ListDevEnvironmentSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevEnvironmentSessionsCommandOutput}.
+   */
+  paginateListDevEnvironmentSessions(
+    args: ListDevEnvironmentSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevEnvironmentSessionsCommandOutput>;
+
+  /**
+   * @see {@link ListEventLogsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventLogsCommandOutput}.
+   */
+  paginateListEventLogs(
+    args: ListEventLogsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventLogsCommandOutput>;
+
+  /**
+   * @see {@link ListProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectsCommandOutput}.
+   */
+  paginateListProjects(
+    args: ListProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectsCommandOutput>;
+
+  /**
+   * @see {@link ListSourceRepositoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSourceRepositoriesCommandOutput}.
+   */
+  paginateListSourceRepositories(
+    args: ListSourceRepositoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSourceRepositoriesCommandOutput>;
+
+  /**
+   * @see {@link ListSourceRepositoryBranchesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSourceRepositoryBranchesCommandOutput}.
+   */
+  paginateListSourceRepositoryBranches(
+    args: ListSourceRepositoryBranchesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSourceRepositoryBranchesCommandOutput>;
+
+  /**
+   * @see {@link ListSpacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSpacesCommandOutput}.
+   */
+  paginateListSpaces(
+    args?: ListSpacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSpacesCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowRunsCommandOutput}.
+   */
+  paginateListWorkflowRuns(
+    args: ListWorkflowRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowRunsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowsCommandOutput}.
+   */
+  paginateListWorkflows(
+    args: ListWorkflowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowsCommandOutput>;
 }
 
 /**
@@ -1042,4 +1174,4 @@ export interface CodeCatalyst {
  * @public
  */
 export class CodeCatalyst extends CodeCatalystClient implements CodeCatalyst {}
-createAggregatedClient(commands, CodeCatalyst);
+createAggregatedClient(commands, CodeCatalyst, { paginators });

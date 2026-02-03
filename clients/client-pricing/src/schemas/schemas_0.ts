@@ -113,12 +113,12 @@ TypeRegistry.for(n0).registerError(ExpiredNextTokenException$, ExpiredNextTokenE
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_T, _Fi, _V],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetAttributeValuesRequest$: StaticStructureSchema = [3, n0, _GAVR,
   0,
   [_SC, _AN, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var GetAttributeValuesResponse$: StaticStructureSchema = [3, n0, _GAVRe,
   0,
@@ -128,7 +128,7 @@ export var GetAttributeValuesResponse$: StaticStructureSchema = [3, n0, _GAVRe,
 export var GetPriceListFileUrlRequest$: StaticStructureSchema = [3, n0, _GPLFUR,
   0,
   [_PLA, _FF],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetPriceListFileUrlResponse$: StaticStructureSchema = [3, n0, _GPLFURe,
   0,
@@ -138,7 +138,7 @@ export var GetPriceListFileUrlResponse$: StaticStructureSchema = [3, n0, _GPLFUR
 export var GetProductsRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_SC, _Fil, _FV, _NT, _MR],
-  [0, () => Filters, 0, 0, 1]
+  [0, () => Filters, 0, 0, 1], 1
 ];
 export var GetProductsResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -165,8 +165,8 @@ export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
 TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var ListPriceListsRequest$: StaticStructureSchema = [3, n0, _LPLR,
   0,
-  [_SC, _ED, _RC, _CC, _NT, _MR],
-  [0, 4, 0, 0, 0, 1]
+  [_SC, _ED, _CC, _RC, _NT, _MR],
+  [0, 4, 0, 0, 0, 1], 3
 ];
 export var ListPriceListsResponse$: StaticStructureSchema = [3, n0, _LPLRi,
   0,
@@ -193,7 +193,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var Service$: StaticStructureSchema = [3, n0, _Se,
   0,
   [_SC, _ANt],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },

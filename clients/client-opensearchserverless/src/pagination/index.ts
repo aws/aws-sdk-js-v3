@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAccessPoliciesPaginator";
+export * from "./ListCollectionGroupsPaginator";
 export * from "./ListCollectionsPaginator";
 export * from "./ListLifecyclePoliciesPaginator";
 export * from "./ListSecurityConfigsPaginator";

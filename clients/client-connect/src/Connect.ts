@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   ActivateEvaluationFormCommand,
@@ -42,6 +42,11 @@ import {
   AssociateFlowCommandInput,
   AssociateFlowCommandOutput,
 } from "./commands/AssociateFlowCommand";
+import {
+  AssociateHoursOfOperationsCommand,
+  AssociateHoursOfOperationsCommandInput,
+  AssociateHoursOfOperationsCommandOutput,
+} from "./commands/AssociateHoursOfOperationsCommand";
 import {
   AssociateInstanceStorageConfigCommand,
   AssociateInstanceStorageConfigCommandInput,
@@ -275,6 +280,11 @@ import {
   CreateTaskTemplateCommandOutput,
 } from "./commands/CreateTaskTemplateCommand";
 import {
+  CreateTestCaseCommand,
+  CreateTestCaseCommandInput,
+  CreateTestCaseCommandOutput,
+} from "./commands/CreateTestCaseCommand";
+import {
   CreateTrafficDistributionGroupCommand,
   CreateTrafficDistributionGroupCommandInput,
   CreateTrafficDistributionGroupCommandOutput,
@@ -428,6 +438,11 @@ import {
   DeleteTaskTemplateCommandInput,
   DeleteTaskTemplateCommandOutput,
 } from "./commands/DeleteTaskTemplateCommand";
+import {
+  DeleteTestCaseCommand,
+  DeleteTestCaseCommandInput,
+  DeleteTestCaseCommandOutput,
+} from "./commands/DeleteTestCaseCommand";
 import {
   DeleteTrafficDistributionGroupCommand,
   DeleteTrafficDistributionGroupCommandInput,
@@ -591,6 +606,11 @@ import {
   DescribeSecurityProfileCommandOutput,
 } from "./commands/DescribeSecurityProfileCommand";
 import {
+  DescribeTestCaseCommand,
+  DescribeTestCaseCommandInput,
+  DescribeTestCaseCommandOutput,
+} from "./commands/DescribeTestCaseCommand";
+import {
   DescribeTrafficDistributionGroupCommand,
   DescribeTrafficDistributionGroupCommandInput,
   DescribeTrafficDistributionGroupCommandOutput,
@@ -650,6 +670,11 @@ import {
   DisassociateFlowCommandInput,
   DisassociateFlowCommandOutput,
 } from "./commands/DisassociateFlowCommand";
+import {
+  DisassociateHoursOfOperationsCommand,
+  DisassociateHoursOfOperationsCommandInput,
+  DisassociateHoursOfOperationsCommandOutput,
+} from "./commands/DisassociateHoursOfOperationsCommand";
 import {
   DisassociateInstanceStorageConfigCommand,
   DisassociateInstanceStorageConfigCommandInput,
@@ -776,6 +801,11 @@ import {
   GetTaskTemplateCommandOutput,
 } from "./commands/GetTaskTemplateCommand";
 import {
+  GetTestCaseExecutionSummaryCommand,
+  GetTestCaseExecutionSummaryCommandInput,
+  GetTestCaseExecutionSummaryCommandOutput,
+} from "./commands/GetTestCaseExecutionSummaryCommand";
+import {
   GetTrafficDistributionCommand,
   GetTrafficDistributionCommandInput,
   GetTrafficDistributionCommandOutput,
@@ -821,6 +851,11 @@ import {
   ListAuthenticationProfilesCommandOutput,
 } from "./commands/ListAuthenticationProfilesCommand";
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import {
+  ListChildHoursOfOperationsCommand,
+  ListChildHoursOfOperationsCommandInput,
+  ListChildHoursOfOperationsCommandOutput,
+} from "./commands/ListChildHoursOfOperationsCommand";
 import {
   ListContactEvaluationsCommand,
   ListContactEvaluationsCommandInput,
@@ -1021,6 +1056,21 @@ import {
   ListTaskTemplatesCommandOutput,
 } from "./commands/ListTaskTemplatesCommand";
 import {
+  ListTestCaseExecutionRecordsCommand,
+  ListTestCaseExecutionRecordsCommandInput,
+  ListTestCaseExecutionRecordsCommandOutput,
+} from "./commands/ListTestCaseExecutionRecordsCommand";
+import {
+  ListTestCaseExecutionsCommand,
+  ListTestCaseExecutionsCommandInput,
+  ListTestCaseExecutionsCommandOutput,
+} from "./commands/ListTestCaseExecutionsCommand";
+import {
+  ListTestCasesCommand,
+  ListTestCasesCommandInput,
+  ListTestCasesCommandOutput,
+} from "./commands/ListTestCasesCommand";
+import {
   ListTrafficDistributionGroupsCommand,
   ListTrafficDistributionGroupsCommandInput,
   ListTrafficDistributionGroupsCommandOutput,
@@ -1193,6 +1243,11 @@ import {
   SearchSecurityProfilesCommandOutput,
 } from "./commands/SearchSecurityProfilesCommand";
 import {
+  SearchTestCasesCommand,
+  SearchTestCasesCommandInput,
+  SearchTestCasesCommandOutput,
+} from "./commands/SearchTestCasesCommand";
+import {
   SearchUserHierarchyGroupsCommand,
   SearchUserHierarchyGroupsCommandInput,
   SearchUserHierarchyGroupsCommandOutput,
@@ -1285,6 +1340,11 @@ import {
   StartTaskContactCommandOutput,
 } from "./commands/StartTaskContactCommand";
 import {
+  StartTestCaseExecutionCommand,
+  StartTestCaseExecutionCommandInput,
+  StartTestCaseExecutionCommandOutput,
+} from "./commands/StartTestCaseExecutionCommand";
+import {
   StartWebRTCContactCommand,
   StartWebRTCContactCommandInput,
   StartWebRTCContactCommandOutput,
@@ -1305,6 +1365,11 @@ import {
   StopContactStreamingCommandInput,
   StopContactStreamingCommandOutput,
 } from "./commands/StopContactStreamingCommand";
+import {
+  StopTestCaseExecutionCommand,
+  StopTestCaseExecutionCommandInput,
+  StopTestCaseExecutionCommandOutput,
+} from "./commands/StopTestCaseExecutionCommand";
 import {
   SubmitContactEvaluationCommand,
   SubmitContactEvaluationCommandInput,
@@ -1549,6 +1614,11 @@ import {
   UpdateTaskTemplateCommandOutput,
 } from "./commands/UpdateTaskTemplateCommand";
 import {
+  UpdateTestCaseCommand,
+  UpdateTestCaseCommandInput,
+  UpdateTestCaseCommandOutput,
+} from "./commands/UpdateTestCaseCommand";
+import {
   UpdateTrafficDistributionCommand,
   UpdateTrafficDistributionCommandInput,
   UpdateTrafficDistributionCommandOutput,
@@ -1624,6 +1694,95 @@ import {
   UpdateWorkspaceVisibilityCommandOutput,
 } from "./commands/UpdateWorkspaceVisibilityCommand";
 import { ConnectClient } from "./ConnectClient";
+import { paginateEvaluateDataTableValues } from "./pagination/EvaluateDataTableValuesPaginator";
+import { paginateGetCurrentMetricData } from "./pagination/GetCurrentMetricDataPaginator";
+import { paginateGetCurrentUserData } from "./pagination/GetCurrentUserDataPaginator";
+import { paginateGetMetricData } from "./pagination/GetMetricDataPaginator";
+import { paginateGetMetricDataV2 } from "./pagination/GetMetricDataV2Paginator";
+import { paginateListAgentStatuses } from "./pagination/ListAgentStatusesPaginator";
+import { paginateListApprovedOrigins } from "./pagination/ListApprovedOriginsPaginator";
+import { paginateListAuthenticationProfiles } from "./pagination/ListAuthenticationProfilesPaginator";
+import { paginateListBots } from "./pagination/ListBotsPaginator";
+import { paginateListChildHoursOfOperations } from "./pagination/ListChildHoursOfOperationsPaginator";
+import { paginateListContactEvaluations } from "./pagination/ListContactEvaluationsPaginator";
+import { paginateListContactFlowModuleAliases } from "./pagination/ListContactFlowModuleAliasesPaginator";
+import { paginateListContactFlowModules } from "./pagination/ListContactFlowModulesPaginator";
+import { paginateListContactFlowModuleVersions } from "./pagination/ListContactFlowModuleVersionsPaginator";
+import { paginateListContactFlows } from "./pagination/ListContactFlowsPaginator";
+import { paginateListContactFlowVersions } from "./pagination/ListContactFlowVersionsPaginator";
+import { paginateListContactReferences } from "./pagination/ListContactReferencesPaginator";
+import { paginateListDataTableAttributes } from "./pagination/ListDataTableAttributesPaginator";
+import { paginateListDataTablePrimaryValues } from "./pagination/ListDataTablePrimaryValuesPaginator";
+import { paginateListDataTables } from "./pagination/ListDataTablesPaginator";
+import { paginateListDataTableValues } from "./pagination/ListDataTableValuesPaginator";
+import { paginateListDefaultVocabularies } from "./pagination/ListDefaultVocabulariesPaginator";
+import { paginateListEntitySecurityProfiles } from "./pagination/ListEntitySecurityProfilesPaginator";
+import { paginateListEvaluationForms } from "./pagination/ListEvaluationFormsPaginator";
+import { paginateListEvaluationFormVersions } from "./pagination/ListEvaluationFormVersionsPaginator";
+import { paginateListFlowAssociations } from "./pagination/ListFlowAssociationsPaginator";
+import { paginateListHoursOfOperationOverrides } from "./pagination/ListHoursOfOperationOverridesPaginator";
+import { paginateListHoursOfOperations } from "./pagination/ListHoursOfOperationsPaginator";
+import { paginateListInstanceAttributes } from "./pagination/ListInstanceAttributesPaginator";
+import { paginateListInstances } from "./pagination/ListInstancesPaginator";
+import { paginateListInstanceStorageConfigs } from "./pagination/ListInstanceStorageConfigsPaginator";
+import { paginateListIntegrationAssociations } from "./pagination/ListIntegrationAssociationsPaginator";
+import { paginateListLambdaFunctions } from "./pagination/ListLambdaFunctionsPaginator";
+import { paginateListLexBots } from "./pagination/ListLexBotsPaginator";
+import { paginateListPhoneNumbers } from "./pagination/ListPhoneNumbersPaginator";
+import { paginateListPhoneNumbersV2 } from "./pagination/ListPhoneNumbersV2Paginator";
+import { paginateListPredefinedAttributes } from "./pagination/ListPredefinedAttributesPaginator";
+import { paginateListPrompts } from "./pagination/ListPromptsPaginator";
+import { paginateListQueueQuickConnects } from "./pagination/ListQueueQuickConnectsPaginator";
+import { paginateListQueues } from "./pagination/ListQueuesPaginator";
+import { paginateListQuickConnects } from "./pagination/ListQuickConnectsPaginator";
+import {
+  paginateListRealtimeContactAnalysisSegmentsV2,
+} from "./pagination/ListRealtimeContactAnalysisSegmentsV2Paginator";
+import {
+  paginateListRoutingProfileManualAssignmentQueues,
+} from "./pagination/ListRoutingProfileManualAssignmentQueuesPaginator";
+import { paginateListRoutingProfileQueues } from "./pagination/ListRoutingProfileQueuesPaginator";
+import { paginateListRoutingProfiles } from "./pagination/ListRoutingProfilesPaginator";
+import { paginateListRules } from "./pagination/ListRulesPaginator";
+import { paginateListSecurityKeys } from "./pagination/ListSecurityKeysPaginator";
+import { paginateListSecurityProfileApplications } from "./pagination/ListSecurityProfileApplicationsPaginator";
+import { paginateListSecurityProfileFlowModules } from "./pagination/ListSecurityProfileFlowModulesPaginator";
+import { paginateListSecurityProfilePermissions } from "./pagination/ListSecurityProfilePermissionsPaginator";
+import { paginateListSecurityProfiles } from "./pagination/ListSecurityProfilesPaginator";
+import { paginateListTaskTemplates } from "./pagination/ListTaskTemplatesPaginator";
+import { paginateListTestCases } from "./pagination/ListTestCasesPaginator";
+import { paginateListTrafficDistributionGroups } from "./pagination/ListTrafficDistributionGroupsPaginator";
+import { paginateListTrafficDistributionGroupUsers } from "./pagination/ListTrafficDistributionGroupUsersPaginator";
+import { paginateListUseCases } from "./pagination/ListUseCasesPaginator";
+import { paginateListUserHierarchyGroups } from "./pagination/ListUserHierarchyGroupsPaginator";
+import { paginateListUserProficiencies } from "./pagination/ListUserProficienciesPaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
+import { paginateListViews } from "./pagination/ListViewsPaginator";
+import { paginateListViewVersions } from "./pagination/ListViewVersionsPaginator";
+import { paginateListWorkspacePages } from "./pagination/ListWorkspacePagesPaginator";
+import { paginateListWorkspaces } from "./pagination/ListWorkspacesPaginator";
+import { paginateSearchAgentStatuses } from "./pagination/SearchAgentStatusesPaginator";
+import { paginateSearchAvailablePhoneNumbers } from "./pagination/SearchAvailablePhoneNumbersPaginator";
+import { paginateSearchContactFlowModules } from "./pagination/SearchContactFlowModulesPaginator";
+import { paginateSearchContactFlows } from "./pagination/SearchContactFlowsPaginator";
+import { paginateSearchContacts } from "./pagination/SearchContactsPaginator";
+import { paginateSearchDataTables } from "./pagination/SearchDataTablesPaginator";
+import { paginateSearchHoursOfOperationOverrides } from "./pagination/SearchHoursOfOperationOverridesPaginator";
+import { paginateSearchHoursOfOperations } from "./pagination/SearchHoursOfOperationsPaginator";
+import { paginateSearchPredefinedAttributes } from "./pagination/SearchPredefinedAttributesPaginator";
+import { paginateSearchPrompts } from "./pagination/SearchPromptsPaginator";
+import { paginateSearchQueues } from "./pagination/SearchQueuesPaginator";
+import { paginateSearchQuickConnects } from "./pagination/SearchQuickConnectsPaginator";
+import { paginateSearchResourceTags } from "./pagination/SearchResourceTagsPaginator";
+import { paginateSearchRoutingProfiles } from "./pagination/SearchRoutingProfilesPaginator";
+import { paginateSearchSecurityProfiles } from "./pagination/SearchSecurityProfilesPaginator";
+import { paginateSearchTestCases } from "./pagination/SearchTestCasesPaginator";
+import { paginateSearchUserHierarchyGroups } from "./pagination/SearchUserHierarchyGroupsPaginator";
+import { paginateSearchUsers } from "./pagination/SearchUsersPaginator";
+import { paginateSearchViews } from "./pagination/SearchViewsPaginator";
+import { paginateSearchVocabularies } from "./pagination/SearchVocabulariesPaginator";
+import { paginateSearchWorkspaceAssociations } from "./pagination/SearchWorkspaceAssociationsPaginator";
+import { paginateSearchWorkspaces } from "./pagination/SearchWorkspacesPaginator";
 
 const commands = {
   ActivateEvaluationFormCommand,
@@ -1634,6 +1793,7 @@ const commands = {
   AssociateDefaultVocabularyCommand,
   AssociateEmailAddressAliasCommand,
   AssociateFlowCommand,
+  AssociateHoursOfOperationsCommand,
   AssociateInstanceStorageConfigCommand,
   AssociateLambdaFunctionCommand,
   AssociateLexBotCommand,
@@ -1682,6 +1842,7 @@ const commands = {
   CreateRuleCommand,
   CreateSecurityProfileCommand,
   CreateTaskTemplateCommand,
+  CreateTestCaseCommand,
   CreateTrafficDistributionGroupCommand,
   CreateUseCaseCommand,
   CreateUserCommand,
@@ -1716,6 +1877,7 @@ const commands = {
   DeleteRuleCommand,
   DeleteSecurityProfileCommand,
   DeleteTaskTemplateCommand,
+  DeleteTestCaseCommand,
   DeleteTrafficDistributionGroupCommand,
   DeleteUseCaseCommand,
   DeleteUserCommand,
@@ -1750,6 +1912,7 @@ const commands = {
   DescribeRoutingProfileCommand,
   DescribeRuleCommand,
   DescribeSecurityProfileCommand,
+  DescribeTestCaseCommand,
   DescribeTrafficDistributionGroupCommand,
   DescribeUserCommand,
   DescribeUserHierarchyGroupCommand,
@@ -1762,6 +1925,7 @@ const commands = {
   DisassociateBotCommand,
   DisassociateEmailAddressAliasCommand,
   DisassociateFlowCommand,
+  DisassociateHoursOfOperationsCommand,
   DisassociateInstanceStorageConfigCommand,
   DisassociateLambdaFunctionCommand,
   DisassociateLexBotCommand,
@@ -1787,6 +1951,7 @@ const commands = {
   GetMetricDataV2Command,
   GetPromptFileCommand,
   GetTaskTemplateCommand,
+  GetTestCaseExecutionSummaryCommand,
   GetTrafficDistributionCommand,
   ImportPhoneNumberCommand,
   ImportWorkspaceMediaCommand,
@@ -1797,6 +1962,7 @@ const commands = {
   ListAssociatedContactsCommand,
   ListAuthenticationProfilesCommand,
   ListBotsCommand,
+  ListChildHoursOfOperationsCommand,
   ListContactEvaluationsCommand,
   ListContactFlowModuleAliasesCommand,
   ListContactFlowModulesCommand,
@@ -1840,6 +2006,9 @@ const commands = {
   ListSecurityProfilesCommand,
   ListTagsForResourceCommand,
   ListTaskTemplatesCommand,
+  ListTestCaseExecutionRecordsCommand,
+  ListTestCaseExecutionsCommand,
+  ListTestCasesCommand,
   ListTrafficDistributionGroupsCommand,
   ListTrafficDistributionGroupUsersCommand,
   ListUseCasesCommand,
@@ -1876,6 +2045,7 @@ const commands = {
   SearchResourceTagsCommand,
   SearchRoutingProfilesCommand,
   SearchSecurityProfilesCommand,
+  SearchTestCasesCommand,
   SearchUserHierarchyGroupsCommand,
   SearchUsersCommand,
   SearchViewsCommand,
@@ -1896,11 +2066,13 @@ const commands = {
   StartOutboundVoiceContactCommand,
   StartScreenSharingCommand,
   StartTaskContactCommand,
+  StartTestCaseExecutionCommand,
   StartWebRTCContactCommand,
   StopContactCommand,
   StopContactMediaProcessingCommand,
   StopContactRecordingCommand,
   StopContactStreamingCommand,
+  StopTestCaseExecutionCommand,
   SubmitContactEvaluationCommand,
   SuspendContactRecordingCommand,
   TagContactCommand,
@@ -1952,6 +2124,7 @@ const commands = {
   UpdateRuleCommand,
   UpdateSecurityProfileCommand,
   UpdateTaskTemplateCommand,
+  UpdateTestCaseCommand,
   UpdateTrafficDistributionCommand,
   UpdateUserHierarchyCommand,
   UpdateUserHierarchyGroupNameCommand,
@@ -1967,6 +2140,93 @@ const commands = {
   UpdateWorkspacePageCommand,
   UpdateWorkspaceThemeCommand,
   UpdateWorkspaceVisibilityCommand,
+};
+const paginators = {
+  paginateEvaluateDataTableValues,
+  paginateGetCurrentMetricData,
+  paginateGetCurrentUserData,
+  paginateGetMetricData,
+  paginateGetMetricDataV2,
+  paginateListAgentStatuses,
+  paginateListApprovedOrigins,
+  paginateListAuthenticationProfiles,
+  paginateListBots,
+  paginateListChildHoursOfOperations,
+  paginateListContactEvaluations,
+  paginateListContactFlowModuleAliases,
+  paginateListContactFlowModules,
+  paginateListContactFlowModuleVersions,
+  paginateListContactFlows,
+  paginateListContactFlowVersions,
+  paginateListContactReferences,
+  paginateListDataTableAttributes,
+  paginateListDataTablePrimaryValues,
+  paginateListDataTables,
+  paginateListDataTableValues,
+  paginateListDefaultVocabularies,
+  paginateListEntitySecurityProfiles,
+  paginateListEvaluationForms,
+  paginateListEvaluationFormVersions,
+  paginateListFlowAssociations,
+  paginateListHoursOfOperationOverrides,
+  paginateListHoursOfOperations,
+  paginateListInstanceAttributes,
+  paginateListInstances,
+  paginateListInstanceStorageConfigs,
+  paginateListIntegrationAssociations,
+  paginateListLambdaFunctions,
+  paginateListLexBots,
+  paginateListPhoneNumbers,
+  paginateListPhoneNumbersV2,
+  paginateListPredefinedAttributes,
+  paginateListPrompts,
+  paginateListQueueQuickConnects,
+  paginateListQueues,
+  paginateListQuickConnects,
+  paginateListRealtimeContactAnalysisSegmentsV2,
+  paginateListRoutingProfileManualAssignmentQueues,
+  paginateListRoutingProfileQueues,
+  paginateListRoutingProfiles,
+  paginateListRules,
+  paginateListSecurityKeys,
+  paginateListSecurityProfileApplications,
+  paginateListSecurityProfileFlowModules,
+  paginateListSecurityProfilePermissions,
+  paginateListSecurityProfiles,
+  paginateListTaskTemplates,
+  paginateListTestCases,
+  paginateListTrafficDistributionGroups,
+  paginateListTrafficDistributionGroupUsers,
+  paginateListUseCases,
+  paginateListUserHierarchyGroups,
+  paginateListUserProficiencies,
+  paginateListUsers,
+  paginateListViews,
+  paginateListViewVersions,
+  paginateListWorkspacePages,
+  paginateListWorkspaces,
+  paginateSearchAgentStatuses,
+  paginateSearchAvailablePhoneNumbers,
+  paginateSearchContactFlowModules,
+  paginateSearchContactFlows,
+  paginateSearchContacts,
+  paginateSearchDataTables,
+  paginateSearchHoursOfOperationOverrides,
+  paginateSearchHoursOfOperations,
+  paginateSearchPredefinedAttributes,
+  paginateSearchPrompts,
+  paginateSearchQueues,
+  paginateSearchQuickConnects,
+  paginateSearchResourceTags,
+  paginateSearchRoutingProfiles,
+  paginateSearchSecurityProfiles,
+  paginateSearchTestCases,
+  paginateSearchUserHierarchyGroups,
+  paginateSearchUsers,
+  paginateSearchViews,
+  paginateSearchVocabularies,
+  paginateSearchWorkspaceAssociations,
+  paginateSearchWorkspaces,
 };
 
 export interface Connect {
@@ -2104,6 +2364,23 @@ export interface Connect {
     args: AssociateFlowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateHoursOfOperationsCommand}
+   */
+  associateHoursOfOperations(
+    args: AssociateHoursOfOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateHoursOfOperationsCommandOutput>;
+  associateHoursOfOperations(
+    args: AssociateHoursOfOperationsCommandInput,
+    cb: (err: any, data?: AssociateHoursOfOperationsCommandOutput) => void
+  ): void;
+  associateHoursOfOperations(
+    args: AssociateHoursOfOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateHoursOfOperationsCommandOutput) => void
   ): void;
 
   /**
@@ -2923,6 +3200,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateTestCaseCommand}
+   */
+  createTestCase(
+    args: CreateTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTestCaseCommandOutput>;
+  createTestCase(
+    args: CreateTestCaseCommandInput,
+    cb: (err: any, data?: CreateTestCaseCommandOutput) => void
+  ): void;
+  createTestCase(
+    args: CreateTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTestCaseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateTrafficDistributionGroupCommand}
    */
   createTrafficDistributionGroup(
@@ -3498,6 +3792,23 @@ export interface Connect {
     args: DeleteTaskTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTaskTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTestCaseCommand}
+   */
+  deleteTestCase(
+    args: DeleteTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTestCaseCommandOutput>;
+  deleteTestCase(
+    args: DeleteTestCaseCommandInput,
+    cb: (err: any, data?: DeleteTestCaseCommandOutput) => void
+  ): void;
+  deleteTestCase(
+    args: DeleteTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTestCaseCommandOutput) => void
   ): void;
 
   /**
@@ -4079,6 +4390,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DescribeTestCaseCommand}
+   */
+  describeTestCase(
+    args: DescribeTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTestCaseCommandOutput>;
+  describeTestCase(
+    args: DescribeTestCaseCommandInput,
+    cb: (err: any, data?: DescribeTestCaseCommandOutput) => void
+  ): void;
+  describeTestCase(
+    args: DescribeTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTestCaseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeTrafficDistributionGroupCommand}
    */
   describeTrafficDistributionGroup(
@@ -4280,6 +4608,23 @@ export interface Connect {
     args: DisassociateFlowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateHoursOfOperationsCommand}
+   */
+  disassociateHoursOfOperations(
+    args: DisassociateHoursOfOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateHoursOfOperationsCommandOutput>;
+  disassociateHoursOfOperations(
+    args: DisassociateHoursOfOperationsCommandInput,
+    cb: (err: any, data?: DisassociateHoursOfOperationsCommandOutput) => void
+  ): void;
+  disassociateHoursOfOperations(
+    args: DisassociateHoursOfOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateHoursOfOperationsCommandOutput) => void
   ): void;
 
   /**
@@ -4708,6 +5053,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link GetTestCaseExecutionSummaryCommand}
+   */
+  getTestCaseExecutionSummary(
+    args: GetTestCaseExecutionSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTestCaseExecutionSummaryCommandOutput>;
+  getTestCaseExecutionSummary(
+    args: GetTestCaseExecutionSummaryCommandInput,
+    cb: (err: any, data?: GetTestCaseExecutionSummaryCommandOutput) => void
+  ): void;
+  getTestCaseExecutionSummary(
+    args: GetTestCaseExecutionSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTestCaseExecutionSummaryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTrafficDistributionCommand}
    */
   getTrafficDistribution(
@@ -4875,6 +5237,23 @@ export interface Connect {
     args: ListBotsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBotsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChildHoursOfOperationsCommand}
+   */
+  listChildHoursOfOperations(
+    args: ListChildHoursOfOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChildHoursOfOperationsCommandOutput>;
+  listChildHoursOfOperations(
+    args: ListChildHoursOfOperationsCommandInput,
+    cb: (err: any, data?: ListChildHoursOfOperationsCommandOutput) => void
+  ): void;
+  listChildHoursOfOperations(
+    args: ListChildHoursOfOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChildHoursOfOperationsCommandOutput) => void
   ): void;
 
   /**
@@ -5611,6 +5990,57 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link ListTestCaseExecutionRecordsCommand}
+   */
+  listTestCaseExecutionRecords(
+    args: ListTestCaseExecutionRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestCaseExecutionRecordsCommandOutput>;
+  listTestCaseExecutionRecords(
+    args: ListTestCaseExecutionRecordsCommandInput,
+    cb: (err: any, data?: ListTestCaseExecutionRecordsCommandOutput) => void
+  ): void;
+  listTestCaseExecutionRecords(
+    args: ListTestCaseExecutionRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestCaseExecutionRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestCaseExecutionsCommand}
+   */
+  listTestCaseExecutions(
+    args: ListTestCaseExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestCaseExecutionsCommandOutput>;
+  listTestCaseExecutions(
+    args: ListTestCaseExecutionsCommandInput,
+    cb: (err: any, data?: ListTestCaseExecutionsCommandOutput) => void
+  ): void;
+  listTestCaseExecutions(
+    args: ListTestCaseExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestCaseExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestCasesCommand}
+   */
+  listTestCases(
+    args: ListTestCasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestCasesCommandOutput>;
+  listTestCases(
+    args: ListTestCasesCommandInput,
+    cb: (err: any, data?: ListTestCasesCommandOutput) => void
+  ): void;
+  listTestCases(
+    args: ListTestCasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestCasesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTrafficDistributionGroupsCommand}
    */
   listTrafficDistributionGroups(): Promise<ListTrafficDistributionGroupsCommandOutput>;
@@ -6224,6 +6654,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SearchTestCasesCommand}
+   */
+  searchTestCases(
+    args: SearchTestCasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchTestCasesCommandOutput>;
+  searchTestCases(
+    args: SearchTestCasesCommandInput,
+    cb: (err: any, data?: SearchTestCasesCommandOutput) => void
+  ): void;
+  searchTestCases(
+    args: SearchTestCasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchTestCasesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchUserHierarchyGroupsCommand}
    */
   searchUserHierarchyGroups(
@@ -6565,6 +7012,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link StartTestCaseExecutionCommand}
+   */
+  startTestCaseExecution(
+    args: StartTestCaseExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTestCaseExecutionCommandOutput>;
+  startTestCaseExecution(
+    args: StartTestCaseExecutionCommandInput,
+    cb: (err: any, data?: StartTestCaseExecutionCommandOutput) => void
+  ): void;
+  startTestCaseExecution(
+    args: StartTestCaseExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTestCaseExecutionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartWebRTCContactCommand}
    */
   startWebRTCContact(
@@ -6648,6 +7112,23 @@ export interface Connect {
     args: StopContactStreamingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopContactStreamingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopTestCaseExecutionCommand}
+   */
+  stopTestCaseExecution(
+    args: StopTestCaseExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopTestCaseExecutionCommandOutput>;
+  stopTestCaseExecution(
+    args: StopTestCaseExecutionCommandInput,
+    cb: (err: any, data?: StopTestCaseExecutionCommandOutput) => void
+  ): void;
+  stopTestCaseExecution(
+    args: StopTestCaseExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopTestCaseExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -7518,6 +7999,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link UpdateTestCaseCommand}
+   */
+  updateTestCase(
+    args: UpdateTestCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTestCaseCommandOutput>;
+  updateTestCase(
+    args: UpdateTestCaseCommandInput,
+    cb: (err: any, data?: UpdateTestCaseCommandOutput) => void
+  ): void;
+  updateTestCase(
+    args: UpdateTestCaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTestCaseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateTrafficDistributionCommand}
    */
   updateTrafficDistribution(
@@ -7771,6 +8269,941 @@ export interface Connect {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkspaceVisibilityCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link EvaluateDataTableValuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link EvaluateDataTableValuesCommandOutput}.
+   */
+  paginateEvaluateDataTableValues(
+    args: EvaluateDataTableValuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<EvaluateDataTableValuesCommandOutput>;
+
+  /**
+   * @see {@link GetCurrentMetricDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCurrentMetricDataCommandOutput}.
+   */
+  paginateGetCurrentMetricData(
+    args: GetCurrentMetricDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCurrentMetricDataCommandOutput>;
+
+  /**
+   * @see {@link GetCurrentUserDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCurrentUserDataCommandOutput}.
+   */
+  paginateGetCurrentUserData(
+    args: GetCurrentUserDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCurrentUserDataCommandOutput>;
+
+  /**
+   * @see {@link GetMetricDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetMetricDataCommandOutput}.
+   */
+  paginateGetMetricData(
+    args: GetMetricDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetMetricDataCommandOutput>;
+
+  /**
+   * @see {@link GetMetricDataV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetMetricDataV2CommandOutput}.
+   */
+  paginateGetMetricDataV2(
+    args: GetMetricDataV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetMetricDataV2CommandOutput>;
+
+  /**
+   * @see {@link ListAgentStatusesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentStatusesCommandOutput}.
+   */
+  paginateListAgentStatuses(
+    args: ListAgentStatusesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentStatusesCommandOutput>;
+
+  /**
+   * @see {@link ListApprovedOriginsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApprovedOriginsCommandOutput}.
+   */
+  paginateListApprovedOrigins(
+    args: ListApprovedOriginsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApprovedOriginsCommandOutput>;
+
+  /**
+   * @see {@link ListAuthenticationProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAuthenticationProfilesCommandOutput}.
+   */
+  paginateListAuthenticationProfiles(
+    args: ListAuthenticationProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAuthenticationProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListBotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotsCommandOutput}.
+   */
+  paginateListBots(
+    args: ListBotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotsCommandOutput>;
+
+  /**
+   * @see {@link ListChildHoursOfOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChildHoursOfOperationsCommandOutput}.
+   */
+  paginateListChildHoursOfOperations(
+    args: ListChildHoursOfOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChildHoursOfOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListContactEvaluationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactEvaluationsCommandOutput}.
+   */
+  paginateListContactEvaluations(
+    args: ListContactEvaluationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactEvaluationsCommandOutput>;
+
+  /**
+   * @see {@link ListContactFlowModuleAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactFlowModuleAliasesCommandOutput}.
+   */
+  paginateListContactFlowModuleAliases(
+    args: ListContactFlowModuleAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactFlowModuleAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListContactFlowModulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactFlowModulesCommandOutput}.
+   */
+  paginateListContactFlowModules(
+    args: ListContactFlowModulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactFlowModulesCommandOutput>;
+
+  /**
+   * @see {@link ListContactFlowModuleVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactFlowModuleVersionsCommandOutput}.
+   */
+  paginateListContactFlowModuleVersions(
+    args: ListContactFlowModuleVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactFlowModuleVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListContactFlowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactFlowsCommandOutput}.
+   */
+  paginateListContactFlows(
+    args: ListContactFlowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactFlowsCommandOutput>;
+
+  /**
+   * @see {@link ListContactFlowVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactFlowVersionsCommandOutput}.
+   */
+  paginateListContactFlowVersions(
+    args: ListContactFlowVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactFlowVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListContactReferencesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactReferencesCommandOutput}.
+   */
+  paginateListContactReferences(
+    args: ListContactReferencesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactReferencesCommandOutput>;
+
+  /**
+   * @see {@link ListDataTableAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataTableAttributesCommandOutput}.
+   */
+  paginateListDataTableAttributes(
+    args: ListDataTableAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataTableAttributesCommandOutput>;
+
+  /**
+   * @see {@link ListDataTablePrimaryValuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataTablePrimaryValuesCommandOutput}.
+   */
+  paginateListDataTablePrimaryValues(
+    args: ListDataTablePrimaryValuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataTablePrimaryValuesCommandOutput>;
+
+  /**
+   * @see {@link ListDataTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataTablesCommandOutput}.
+   */
+  paginateListDataTables(
+    args: ListDataTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataTablesCommandOutput>;
+
+  /**
+   * @see {@link ListDataTableValuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataTableValuesCommandOutput}.
+   */
+  paginateListDataTableValues(
+    args: ListDataTableValuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataTableValuesCommandOutput>;
+
+  /**
+   * @see {@link ListDefaultVocabulariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDefaultVocabulariesCommandOutput}.
+   */
+  paginateListDefaultVocabularies(
+    args: ListDefaultVocabulariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDefaultVocabulariesCommandOutput>;
+
+  /**
+   * @see {@link ListEntitySecurityProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntitySecurityProfilesCommandOutput}.
+   */
+  paginateListEntitySecurityProfiles(
+    args: ListEntitySecurityProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntitySecurityProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListEvaluationFormsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEvaluationFormsCommandOutput}.
+   */
+  paginateListEvaluationForms(
+    args: ListEvaluationFormsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEvaluationFormsCommandOutput>;
+
+  /**
+   * @see {@link ListEvaluationFormVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEvaluationFormVersionsCommandOutput}.
+   */
+  paginateListEvaluationFormVersions(
+    args: ListEvaluationFormVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEvaluationFormVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListFlowAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowAssociationsCommandOutput}.
+   */
+  paginateListFlowAssociations(
+    args: ListFlowAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListHoursOfOperationOverridesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHoursOfOperationOverridesCommandOutput}.
+   */
+  paginateListHoursOfOperationOverrides(
+    args: ListHoursOfOperationOverridesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHoursOfOperationOverridesCommandOutput>;
+
+  /**
+   * @see {@link ListHoursOfOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHoursOfOperationsCommandOutput}.
+   */
+  paginateListHoursOfOperations(
+    args: ListHoursOfOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHoursOfOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListInstanceAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstanceAttributesCommandOutput}.
+   */
+  paginateListInstanceAttributes(
+    args: ListInstanceAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstanceAttributesCommandOutput>;
+
+  /**
+   * @see {@link ListInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstancesCommandOutput}.
+   */
+  paginateListInstances(
+    args?: ListInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListInstanceStorageConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstanceStorageConfigsCommandOutput}.
+   */
+  paginateListInstanceStorageConfigs(
+    args: ListInstanceStorageConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstanceStorageConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListIntegrationAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIntegrationAssociationsCommandOutput}.
+   */
+  paginateListIntegrationAssociations(
+    args: ListIntegrationAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIntegrationAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListLambdaFunctionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLambdaFunctionsCommandOutput}.
+   */
+  paginateListLambdaFunctions(
+    args: ListLambdaFunctionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLambdaFunctionsCommandOutput>;
+
+  /**
+   * @see {@link ListLexBotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLexBotsCommandOutput}.
+   */
+  paginateListLexBots(
+    args: ListLexBotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLexBotsCommandOutput>;
+
+  /**
+   * @see {@link ListPhoneNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPhoneNumbersCommandOutput}.
+   */
+  paginateListPhoneNumbers(
+    args: ListPhoneNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPhoneNumbersCommandOutput>;
+
+  /**
+   * @see {@link ListPhoneNumbersV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPhoneNumbersV2CommandOutput}.
+   */
+  paginateListPhoneNumbersV2(
+    args?: ListPhoneNumbersV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPhoneNumbersV2CommandOutput>;
+
+  /**
+   * @see {@link ListPredefinedAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPredefinedAttributesCommandOutput}.
+   */
+  paginateListPredefinedAttributes(
+    args: ListPredefinedAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPredefinedAttributesCommandOutput>;
+
+  /**
+   * @see {@link ListPromptsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPromptsCommandOutput}.
+   */
+  paginateListPrompts(
+    args: ListPromptsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPromptsCommandOutput>;
+
+  /**
+   * @see {@link ListQueueQuickConnectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQueueQuickConnectsCommandOutput}.
+   */
+  paginateListQueueQuickConnects(
+    args: ListQueueQuickConnectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQueueQuickConnectsCommandOutput>;
+
+  /**
+   * @see {@link ListQueuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQueuesCommandOutput}.
+   */
+  paginateListQueues(
+    args: ListQueuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQueuesCommandOutput>;
+
+  /**
+   * @see {@link ListQuickConnectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQuickConnectsCommandOutput}.
+   */
+  paginateListQuickConnects(
+    args: ListQuickConnectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQuickConnectsCommandOutput>;
+
+  /**
+   * @see {@link ListRealtimeContactAnalysisSegmentsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRealtimeContactAnalysisSegmentsV2CommandOutput}.
+   */
+  paginateListRealtimeContactAnalysisSegmentsV2(
+    args: ListRealtimeContactAnalysisSegmentsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRealtimeContactAnalysisSegmentsV2CommandOutput>;
+
+  /**
+   * @see {@link ListRoutingProfileManualAssignmentQueuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoutingProfileManualAssignmentQueuesCommandOutput}.
+   */
+  paginateListRoutingProfileManualAssignmentQueues(
+    args: ListRoutingProfileManualAssignmentQueuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoutingProfileManualAssignmentQueuesCommandOutput>;
+
+  /**
+   * @see {@link ListRoutingProfileQueuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoutingProfileQueuesCommandOutput}.
+   */
+  paginateListRoutingProfileQueues(
+    args: ListRoutingProfileQueuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoutingProfileQueuesCommandOutput>;
+
+  /**
+   * @see {@link ListRoutingProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoutingProfilesCommandOutput}.
+   */
+  paginateListRoutingProfiles(
+    args: ListRoutingProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoutingProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRulesCommandOutput}.
+   */
+  paginateListRules(
+    args: ListRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRulesCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityKeysCommandOutput}.
+   */
+  paginateListSecurityKeys(
+    args: ListSecurityKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityKeysCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityProfileApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityProfileApplicationsCommandOutput}.
+   */
+  paginateListSecurityProfileApplications(
+    args: ListSecurityProfileApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityProfileApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityProfileFlowModulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityProfileFlowModulesCommandOutput}.
+   */
+  paginateListSecurityProfileFlowModules(
+    args: ListSecurityProfileFlowModulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityProfileFlowModulesCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityProfilePermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityProfilePermissionsCommandOutput}.
+   */
+  paginateListSecurityProfilePermissions(
+    args: ListSecurityProfilePermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityProfilePermissionsCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityProfilesCommandOutput}.
+   */
+  paginateListSecurityProfiles(
+    args: ListSecurityProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListTaskTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTaskTemplatesCommandOutput}.
+   */
+  paginateListTaskTemplates(
+    args: ListTaskTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTaskTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListTestCasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestCasesCommandOutput}.
+   */
+  paginateListTestCases(
+    args: ListTestCasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestCasesCommandOutput>;
+
+  /**
+   * @see {@link ListTrafficDistributionGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrafficDistributionGroupsCommandOutput}.
+   */
+  paginateListTrafficDistributionGroups(
+    args?: ListTrafficDistributionGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrafficDistributionGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListTrafficDistributionGroupUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrafficDistributionGroupUsersCommandOutput}.
+   */
+  paginateListTrafficDistributionGroupUsers(
+    args: ListTrafficDistributionGroupUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrafficDistributionGroupUsersCommandOutput>;
+
+  /**
+   * @see {@link ListUseCasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUseCasesCommandOutput}.
+   */
+  paginateListUseCases(
+    args: ListUseCasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUseCasesCommandOutput>;
+
+  /**
+   * @see {@link ListUserHierarchyGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUserHierarchyGroupsCommandOutput}.
+   */
+  paginateListUserHierarchyGroups(
+    args: ListUserHierarchyGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUserHierarchyGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListUserProficienciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUserProficienciesCommandOutput}.
+   */
+  paginateListUserProficiencies(
+    args: ListUserProficienciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUserProficienciesCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
+
+  /**
+   * @see {@link ListViewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListViewsCommandOutput}.
+   */
+  paginateListViews(
+    args: ListViewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListViewsCommandOutput>;
+
+  /**
+   * @see {@link ListViewVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListViewVersionsCommandOutput}.
+   */
+  paginateListViewVersions(
+    args: ListViewVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListViewVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkspacePagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkspacePagesCommandOutput}.
+   */
+  paginateListWorkspacePages(
+    args: ListWorkspacePagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkspacePagesCommandOutput>;
+
+  /**
+   * @see {@link ListWorkspacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkspacesCommandOutput}.
+   */
+  paginateListWorkspaces(
+    args: ListWorkspacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkspacesCommandOutput>;
+
+  /**
+   * @see {@link SearchAgentStatusesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchAgentStatusesCommandOutput}.
+   */
+  paginateSearchAgentStatuses(
+    args: SearchAgentStatusesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchAgentStatusesCommandOutput>;
+
+  /**
+   * @see {@link SearchAvailablePhoneNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchAvailablePhoneNumbersCommandOutput}.
+   */
+  paginateSearchAvailablePhoneNumbers(
+    args: SearchAvailablePhoneNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchAvailablePhoneNumbersCommandOutput>;
+
+  /**
+   * @see {@link SearchContactFlowModulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchContactFlowModulesCommandOutput}.
+   */
+  paginateSearchContactFlowModules(
+    args: SearchContactFlowModulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchContactFlowModulesCommandOutput>;
+
+  /**
+   * @see {@link SearchContactFlowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchContactFlowsCommandOutput}.
+   */
+  paginateSearchContactFlows(
+    args: SearchContactFlowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchContactFlowsCommandOutput>;
+
+  /**
+   * @see {@link SearchContactsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchContactsCommandOutput}.
+   */
+  paginateSearchContacts(
+    args: SearchContactsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchContactsCommandOutput>;
+
+  /**
+   * @see {@link SearchDataTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchDataTablesCommandOutput}.
+   */
+  paginateSearchDataTables(
+    args: SearchDataTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchDataTablesCommandOutput>;
+
+  /**
+   * @see {@link SearchHoursOfOperationOverridesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchHoursOfOperationOverridesCommandOutput}.
+   */
+  paginateSearchHoursOfOperationOverrides(
+    args: SearchHoursOfOperationOverridesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchHoursOfOperationOverridesCommandOutput>;
+
+  /**
+   * @see {@link SearchHoursOfOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchHoursOfOperationsCommandOutput}.
+   */
+  paginateSearchHoursOfOperations(
+    args: SearchHoursOfOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchHoursOfOperationsCommandOutput>;
+
+  /**
+   * @see {@link SearchPredefinedAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchPredefinedAttributesCommandOutput}.
+   */
+  paginateSearchPredefinedAttributes(
+    args: SearchPredefinedAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchPredefinedAttributesCommandOutput>;
+
+  /**
+   * @see {@link SearchPromptsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchPromptsCommandOutput}.
+   */
+  paginateSearchPrompts(
+    args: SearchPromptsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchPromptsCommandOutput>;
+
+  /**
+   * @see {@link SearchQueuesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchQueuesCommandOutput}.
+   */
+  paginateSearchQueues(
+    args: SearchQueuesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchQueuesCommandOutput>;
+
+  /**
+   * @see {@link SearchQuickConnectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchQuickConnectsCommandOutput}.
+   */
+  paginateSearchQuickConnects(
+    args: SearchQuickConnectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchQuickConnectsCommandOutput>;
+
+  /**
+   * @see {@link SearchResourceTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchResourceTagsCommandOutput}.
+   */
+  paginateSearchResourceTags(
+    args: SearchResourceTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchResourceTagsCommandOutput>;
+
+  /**
+   * @see {@link SearchRoutingProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchRoutingProfilesCommandOutput}.
+   */
+  paginateSearchRoutingProfiles(
+    args: SearchRoutingProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchRoutingProfilesCommandOutput>;
+
+  /**
+   * @see {@link SearchSecurityProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchSecurityProfilesCommandOutput}.
+   */
+  paginateSearchSecurityProfiles(
+    args: SearchSecurityProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchSecurityProfilesCommandOutput>;
+
+  /**
+   * @see {@link SearchTestCasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchTestCasesCommandOutput}.
+   */
+  paginateSearchTestCases(
+    args: SearchTestCasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchTestCasesCommandOutput>;
+
+  /**
+   * @see {@link SearchUserHierarchyGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchUserHierarchyGroupsCommandOutput}.
+   */
+  paginateSearchUserHierarchyGroups(
+    args: SearchUserHierarchyGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchUserHierarchyGroupsCommandOutput>;
+
+  /**
+   * @see {@link SearchUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchUsersCommandOutput}.
+   */
+  paginateSearchUsers(
+    args: SearchUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchUsersCommandOutput>;
+
+  /**
+   * @see {@link SearchViewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchViewsCommandOutput}.
+   */
+  paginateSearchViews(
+    args: SearchViewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchViewsCommandOutput>;
+
+  /**
+   * @see {@link SearchVocabulariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchVocabulariesCommandOutput}.
+   */
+  paginateSearchVocabularies(
+    args: SearchVocabulariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchVocabulariesCommandOutput>;
+
+  /**
+   * @see {@link SearchWorkspaceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchWorkspaceAssociationsCommandOutput}.
+   */
+  paginateSearchWorkspaceAssociations(
+    args: SearchWorkspaceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchWorkspaceAssociationsCommandOutput>;
+
+  /**
+   * @see {@link SearchWorkspacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchWorkspacesCommandOutput}.
+   */
+  paginateSearchWorkspaces(
+    args: SearchWorkspacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchWorkspacesCommandOutput>;
 }
 
 /**
@@ -7798,4 +9231,4 @@ export interface Connect {
  * @public
  */
 export class Connect extends ConnectClient implements Connect {}
-createAggregatedClient(commands, Connect);
+createAggregatedClient(commands, Connect, { paginators });

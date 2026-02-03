@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateLandingZoneCommand,
@@ -135,6 +135,12 @@ import {
   UpdateLandingZoneCommandOutput,
 } from "./commands/UpdateLandingZoneCommand";
 import { ControlTowerClient } from "./ControlTowerClient";
+import { paginateListBaselines } from "./pagination/ListBaselinesPaginator";
+import { paginateListControlOperations } from "./pagination/ListControlOperationsPaginator";
+import { paginateListEnabledBaselines } from "./pagination/ListEnabledBaselinesPaginator";
+import { paginateListEnabledControls } from "./pagination/ListEnabledControlsPaginator";
+import { paginateListLandingZoneOperations } from "./pagination/ListLandingZoneOperationsPaginator";
+import { paginateListLandingZones } from "./pagination/ListLandingZonesPaginator";
 
 const commands = {
   CreateLandingZoneCommand,
@@ -165,6 +171,14 @@ const commands = {
   UpdateEnabledBaselineCommand,
   UpdateEnabledControlCommand,
   UpdateLandingZoneCommand,
+};
+const paginators = {
+  paginateListBaselines,
+  paginateListControlOperations,
+  paginateListEnabledBaselines,
+  paginateListEnabledControls,
+  paginateListLandingZoneOperations,
+  paginateListLandingZones,
 };
 
 export interface ControlTower {
@@ -650,6 +664,72 @@ export interface ControlTower {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLandingZoneCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBaselinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBaselinesCommandOutput}.
+   */
+  paginateListBaselines(
+    args?: ListBaselinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBaselinesCommandOutput>;
+
+  /**
+   * @see {@link ListControlOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListControlOperationsCommandOutput}.
+   */
+  paginateListControlOperations(
+    args?: ListControlOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListControlOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListEnabledBaselinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnabledBaselinesCommandOutput}.
+   */
+  paginateListEnabledBaselines(
+    args?: ListEnabledBaselinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnabledBaselinesCommandOutput>;
+
+  /**
+   * @see {@link ListEnabledControlsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnabledControlsCommandOutput}.
+   */
+  paginateListEnabledControls(
+    args?: ListEnabledControlsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnabledControlsCommandOutput>;
+
+  /**
+   * @see {@link ListLandingZoneOperationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLandingZoneOperationsCommandOutput}.
+   */
+  paginateListLandingZoneOperations(
+    args?: ListLandingZoneOperationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLandingZoneOperationsCommandOutput>;
+
+  /**
+   * @see {@link ListLandingZonesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLandingZonesCommandOutput}.
+   */
+  paginateListLandingZones(
+    args?: ListLandingZonesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLandingZonesCommandOutput>;
 }
 
 /**
@@ -657,4 +737,4 @@ export interface ControlTower {
  * @public
  */
 export class ControlTower extends ControlTowerClient implements ControlTower {}
-createAggregatedClient(commands, ControlTower);
+createAggregatedClient(commands, ControlTower, { paginators });

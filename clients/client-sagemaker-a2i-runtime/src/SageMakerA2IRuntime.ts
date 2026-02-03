@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DeleteHumanLoopCommand,
@@ -27,6 +27,7 @@ import {
   StopHumanLoopCommandInput,
   StopHumanLoopCommandOutput,
 } from "./commands/StopHumanLoopCommand";
+import { paginateListHumanLoops } from "./pagination/ListHumanLoopsPaginator";
 import { SageMakerA2IRuntimeClient } from "./SageMakerA2IRuntimeClient";
 
 const commands = {
@@ -35,6 +36,9 @@ const commands = {
   ListHumanLoopsCommand,
   StartHumanLoopCommand,
   StopHumanLoopCommand,
+};
+const paginators = {
+  paginateListHumanLoops,
 };
 
 export interface SageMakerA2IRuntime {
@@ -122,6 +126,17 @@ export interface SageMakerA2IRuntime {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopHumanLoopCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListHumanLoopsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHumanLoopsCommandOutput}.
+   */
+  paginateListHumanLoops(
+    args: ListHumanLoopsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHumanLoopsCommandOutput>;
 }
 
 /**
@@ -154,4 +169,4 @@ export interface SageMakerA2IRuntime {
  * @public
  */
 export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient implements SageMakerA2IRuntime {}
-createAggregatedClient(commands, SageMakerA2IRuntime);
+createAggregatedClient(commands, SageMakerA2IRuntime, { paginators });

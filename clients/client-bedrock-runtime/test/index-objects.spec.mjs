@@ -20,8 +20,10 @@ import {
   BedrockRuntimeServiceException,
   BidirectionalInputPayloadPart$,
   BidirectionalOutputPayloadPart$,
+  CacheDetail$,
   CachePointBlock$,
   CachePointType,
+  CacheTTL,
   Citation$,
   CitationGeneratedContent$,
   CitationLocation$,
@@ -276,6 +278,7 @@ assert(typeof AudioSource$ === "object");
 assert(typeof AutoToolChoice$ === "object");
 assert(typeof BidirectionalInputPayloadPart$ === "object");
 assert(typeof BidirectionalOutputPayloadPart$ === "object");
+assert(typeof CacheDetail$ === "object");
 assert(typeof CachePointBlock$ === "object");
 assert(typeof Citation$ === "object");
 assert(typeof CitationGeneratedContent$ === "object");
@@ -419,6 +422,7 @@ assert(typeof WebLocation$ === "object");
 assert(typeof AsyncInvokeStatus === "object");
 assert(typeof AudioFormat === "object");
 assert(typeof CachePointType === "object");
+assert(typeof CacheTTL === "object");
 assert(typeof ConversationRole === "object");
 assert(typeof DocumentFormat === "object");
 assert(typeof GuardrailAction === "object");

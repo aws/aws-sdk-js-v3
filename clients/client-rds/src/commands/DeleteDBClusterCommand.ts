@@ -27,17 +27,7 @@ export interface DeleteDBClusterCommandInput extends DeleteDBClusterMessage {}
 export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster.
- *           When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
- *           Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
- *          <p>If you're deleting a Multi-AZ DB cluster with read replicas, all cluster members are
- *             terminated and read replicas are promoted to standalone instances.</p>
- *          <p>For more information on Amazon Aurora, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
- *                 cluster deployments</a> in the <i>Amazon RDS User
- *             Guide</i>.</p>
+ * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.</p> <p>If you're deleting a Multi-AZ DB cluster with read replicas, all cluster members are terminated and read replicas are promoted to standalone instances.</p> <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -259,12 +249,10 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterAutomatedBackupQuotaExceededFault} (client fault)
- *  <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated
- *             backups. The retained automated backups quota is the same as your DB cluster quota.</p>
+ *  <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated backups. The retained automated backups quota is the same as your DB cluster quota.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBClusterSnapshotAlreadyExistsFault} (client fault)
  *  <p>The user already has a DB cluster snapshot with the given identifier.</p>
@@ -282,8 +270,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB
- *             snapshots.</p>
+ *  <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

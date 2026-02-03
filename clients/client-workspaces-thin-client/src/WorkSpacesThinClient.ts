@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateEnvironmentCommand,
@@ -70,6 +70,9 @@ import {
   UpdateSoftwareSetCommandInput,
   UpdateSoftwareSetCommandOutput,
 } from "./commands/UpdateSoftwareSetCommand";
+import { paginateListDevices } from "./pagination/ListDevicesPaginator";
+import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
+import { paginateListSoftwareSets } from "./pagination/ListSoftwareSetsPaginator";
 import { WorkSpacesThinClientClient } from "./WorkSpacesThinClientClient";
 
 const commands = {
@@ -89,6 +92,11 @@ const commands = {
   UpdateDeviceCommand,
   UpdateEnvironmentCommand,
   UpdateSoftwareSetCommand,
+};
+const paginators = {
+  paginateListDevices,
+  paginateListEnvironments,
+  paginateListSoftwareSets,
 };
 
 export interface WorkSpacesThinClient {
@@ -366,6 +374,39 @@ export interface WorkSpacesThinClient {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSoftwareSetCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevicesCommandOutput}.
+   */
+  paginateListDevices(
+    args?: ListDevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevicesCommandOutput>;
+
+  /**
+   * @see {@link ListEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentsCommandOutput}.
+   */
+  paginateListEnvironments(
+    args?: ListEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentsCommandOutput>;
+
+  /**
+   * @see {@link ListSoftwareSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSoftwareSetsCommandOutput}.
+   */
+  paginateListSoftwareSets(
+    args?: ListSoftwareSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSoftwareSetsCommandOutput>;
 }
 
 /**
@@ -373,4 +414,4 @@ export interface WorkSpacesThinClient {
  * @public
  */
 export class WorkSpacesThinClient extends WorkSpacesThinClientClient implements WorkSpacesThinClient {}
-createAggregatedClient(commands, WorkSpacesThinClient);
+createAggregatedClient(commands, WorkSpacesThinClient, { paginators });

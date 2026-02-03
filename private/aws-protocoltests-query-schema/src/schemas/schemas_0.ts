@@ -288,7 +288,7 @@ export var GreetingWithErrorsOutput$: StaticStructureSchema = [3, n0, _GWEO,
 export var HostLabelInput$: StaticStructureSchema = [3, n0, _HLI,
   0,
   [_l],
-  [[0, { [_hL]: 1 }]]
+  [[0, { [_hL]: 1 }]], 1
 ];
 export var IgnoresWrappingXmlNameOutput$: StaticStructureSchema = [3, n0, _IWXNO,
   { [_xN]: _IM },

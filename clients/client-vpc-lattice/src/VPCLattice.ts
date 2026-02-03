@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchUpdateRuleCommand,
@@ -331,6 +331,27 @@ import {
   UpdateTargetGroupCommandInput,
   UpdateTargetGroupCommandOutput,
 } from "./commands/UpdateTargetGroupCommand";
+import { paginateListAccessLogSubscriptions } from "./pagination/ListAccessLogSubscriptionsPaginator";
+import { paginateListDomainVerifications } from "./pagination/ListDomainVerificationsPaginator";
+import { paginateListListeners } from "./pagination/ListListenersPaginator";
+import { paginateListResourceConfigurations } from "./pagination/ListResourceConfigurationsPaginator";
+import { paginateListResourceEndpointAssociations } from "./pagination/ListResourceEndpointAssociationsPaginator";
+import { paginateListResourceGateways } from "./pagination/ListResourceGatewaysPaginator";
+import { paginateListRules } from "./pagination/ListRulesPaginator";
+import {
+  paginateListServiceNetworkResourceAssociations,
+} from "./pagination/ListServiceNetworkResourceAssociationsPaginator";
+import {
+  paginateListServiceNetworkServiceAssociations,
+} from "./pagination/ListServiceNetworkServiceAssociationsPaginator";
+import { paginateListServiceNetworks } from "./pagination/ListServiceNetworksPaginator";
+import { paginateListServiceNetworkVpcAssociations } from "./pagination/ListServiceNetworkVpcAssociationsPaginator";
+import {
+  paginateListServiceNetworkVpcEndpointAssociations,
+} from "./pagination/ListServiceNetworkVpcEndpointAssociationsPaginator";
+import { paginateListServices } from "./pagination/ListServicesPaginator";
+import { paginateListTargetGroups } from "./pagination/ListTargetGroupsPaginator";
+import { paginateListTargets } from "./pagination/ListTargetsPaginator";
 import { VPCLatticeClient } from "./VPCLatticeClient";
 
 const commands = {
@@ -407,6 +428,23 @@ const commands = {
   UpdateServiceNetworkCommand,
   UpdateServiceNetworkVpcAssociationCommand,
   UpdateTargetGroupCommand,
+};
+const paginators = {
+  paginateListAccessLogSubscriptions,
+  paginateListDomainVerifications,
+  paginateListListeners,
+  paginateListResourceConfigurations,
+  paginateListResourceEndpointAssociations,
+  paginateListResourceGateways,
+  paginateListRules,
+  paginateListServiceNetworkResourceAssociations,
+  paginateListServiceNetworks,
+  paginateListServiceNetworkServiceAssociations,
+  paginateListServiceNetworkVpcAssociations,
+  paginateListServiceNetworkVpcEndpointAssociations,
+  paginateListServices,
+  paginateListTargetGroups,
+  paginateListTargets,
 };
 
 export interface VPCLattice {
@@ -1659,6 +1697,171 @@ export interface VPCLattice {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTargetGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccessLogSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessLogSubscriptionsCommandOutput}.
+   */
+  paginateListAccessLogSubscriptions(
+    args: ListAccessLogSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessLogSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link ListDomainVerificationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainVerificationsCommandOutput}.
+   */
+  paginateListDomainVerifications(
+    args?: ListDomainVerificationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainVerificationsCommandOutput>;
+
+  /**
+   * @see {@link ListListenersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListListenersCommandOutput}.
+   */
+  paginateListListeners(
+    args: ListListenersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListListenersCommandOutput>;
+
+  /**
+   * @see {@link ListResourceConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceConfigurationsCommandOutput}.
+   */
+  paginateListResourceConfigurations(
+    args?: ListResourceConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListResourceEndpointAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceEndpointAssociationsCommandOutput}.
+   */
+  paginateListResourceEndpointAssociations(
+    args: ListResourceEndpointAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceEndpointAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListResourceGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceGatewaysCommandOutput}.
+   */
+  paginateListResourceGateways(
+    args?: ListResourceGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceGatewaysCommandOutput>;
+
+  /**
+   * @see {@link ListRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRulesCommandOutput}.
+   */
+  paginateListRules(
+    args: ListRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRulesCommandOutput>;
+
+  /**
+   * @see {@link ListServiceNetworkResourceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceNetworkResourceAssociationsCommandOutput}.
+   */
+  paginateListServiceNetworkResourceAssociations(
+    args?: ListServiceNetworkResourceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceNetworkResourceAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListServiceNetworksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceNetworksCommandOutput}.
+   */
+  paginateListServiceNetworks(
+    args?: ListServiceNetworksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceNetworksCommandOutput>;
+
+  /**
+   * @see {@link ListServiceNetworkServiceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceNetworkServiceAssociationsCommandOutput}.
+   */
+  paginateListServiceNetworkServiceAssociations(
+    args?: ListServiceNetworkServiceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceNetworkServiceAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListServiceNetworkVpcAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceNetworkVpcAssociationsCommandOutput}.
+   */
+  paginateListServiceNetworkVpcAssociations(
+    args?: ListServiceNetworkVpcAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceNetworkVpcAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListServiceNetworkVpcEndpointAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceNetworkVpcEndpointAssociationsCommandOutput}.
+   */
+  paginateListServiceNetworkVpcEndpointAssociations(
+    args: ListServiceNetworkVpcEndpointAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceNetworkVpcEndpointAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListServicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServicesCommandOutput}.
+   */
+  paginateListServices(
+    args?: ListServicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServicesCommandOutput>;
+
+  /**
+   * @see {@link ListTargetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTargetGroupsCommandOutput}.
+   */
+  paginateListTargetGroups(
+    args?: ListTargetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTargetGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListTargetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTargetsCommandOutput}.
+   */
+  paginateListTargets(
+    args: ListTargetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTargetsCommandOutput>;
 }
 
 /**
@@ -1666,4 +1869,4 @@ export interface VPCLattice {
  * @public
  */
 export class VPCLattice extends VPCLatticeClient implements VPCLattice {}
-createAggregatedClient(commands, VPCLattice);
+createAggregatedClient(commands, VPCLattice, { paginators });

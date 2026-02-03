@@ -27,23 +27,27 @@ export interface GetContactMetricsCommandInput extends GetContactMetricsRequest 
 export interface GetContactMetricsCommandOutput extends GetContactMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the position of the contact in the queue.</p>
+ * <p>Retrieves contact metric data for a specified contact.</p>
  *          <p>
  *             <b>Use cases</b>
  *          </p>
- *          <p>Following are common uses cases for position in queue:</p>
+ *          <p>Following are common use cases for position in queue and estimated wait time:</p>
  *          <ul>
  *             <li>
- *                <p>Understand the expected wait experience of a contact.</p>
+ *                <p>Customer-Facing Wait Time Announcements - Display or announce the estimated wait time and position in queue to customers before or during their queue experience.
+ *     </p>
  *             </li>
  *             <li>
- *                <p>Inform customers of their position in queue and potentially offer a callback.</p>
+ *                <p>Callback Offerings - Offer customers a callback option when the estimated wait time or position in queue exceeds a defined threshold.
+ *     </p>
  *             </li>
  *             <li>
- *                <p>Make data-driven routing decisions between primary and alternative queues.</p>
+ *                <p>Queue Routing Decisions - Route incoming contacts to less congested queues by comparing estimated wait time and position in queue across multiple queues.
+ *     </p>
  *             </li>
  *             <li>
- *                <p>Enhance queue visibility and leverage agent proficiencies to streamline contact routing.</p>
+ *                <p>Self-Service Deflection - Redirect customers to self-service options like chatbots or FAQs when estimated wait time is high or position in queue is unfavorable.
+ *     </p>
  *             </li>
  *          </ul>
  *          <p>
@@ -51,8 +55,7 @@ export interface GetContactMetricsCommandOutput extends GetContactMetricsRespons
  *          </p>
  *          <ul>
  *             <li>
- *                <p>The only way to retrieve the position of the contact in queue is by using this API. You can't retrieve the
- *      position by using flows and attributes.</p>
+ *                <p>Metrics are only available while the contact is actively in queue.</p>
  *             </li>
  *             <li>
  *                <p>For more information, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Position in queue</a> metric in the <i>Amazon Connect Administrator Guide</i>. </p>
@@ -73,7 +76,7 @@ export interface GetContactMetricsCommandOutput extends GetContactMetricsRespons
  *   ContactId: "STRING_VALUE", // required
  *   Metrics: [ // ContactMetrics // required
  *     { // ContactMetricInfo
- *       Name: "POSITION_IN_QUEUE", // required
+ *       Name: "ESTIMATED_WAIT_TIME" || "POSITION_IN_QUEUE", // required
  *     },
  *   ],
  * };
@@ -82,7 +85,7 @@ export interface GetContactMetricsCommandOutput extends GetContactMetricsRespons
  * // { // GetContactMetricsResponse
  * //   MetricResults: [ // ContactMetricResults
  * //     { // ContactMetricResult
- * //       Name: "POSITION_IN_QUEUE", // required
+ * //       Name: "ESTIMATED_WAIT_TIME" || "POSITION_IN_QUEUE", // required
  * //       Value: { // ContactMetricValue Union: only one key present
  * //         Number: Number("double"),
  * //       },

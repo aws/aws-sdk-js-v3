@@ -30,10 +30,7 @@ export interface GetSessionsStatisticsAggregationCommandInput extends GetSession
 export interface GetSessionsStatisticsAggregationCommandOutput extends GetSessionsStatisticsAggregationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a set of statistics for queues or farms. Before you can call the
- *             <code>GetSessionStatisticsAggregation</code> operation, you must first call the
- *             <code>StartSessionsStatisticsAggregation</code> operation. Statistics are available for
- *          1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.</p>
+ * <p>Gets a set of statistics for queues or farms. Before you can call the <code>GetSessionStatisticsAggregation</code> operation, you must first call the <code>StartSessionsStatisticsAggregation</code> operation. Statistics are available for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,8 +101,7 @@ export interface GetSessionsStatisticsAggregationCommandOutput extends GetSessio
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

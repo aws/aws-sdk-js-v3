@@ -690,7 +690,7 @@ export var ConstantAndVariableQueryStringInput$: StaticStructureSchema = [3, n0,
 export var ConstantQueryStringInput$: StaticStructureSchema = [3, n0, _CQSI,
   0,
   [_h],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ContentTypeParametersInput$: StaticStructureSchema = [3, n0, _CTPI,
   0,
@@ -755,12 +755,12 @@ export var DuplexStreamWithDistinctStreamsOutput$: StaticStructureSchema = [3, n
 export var DuplexStreamWithInitialMessagesInput$: StaticStructureSchema = [3, n0, _DSWIMI,
   0,
   [_iRM, _st],
-  [[0, { [_hH]: _irm }], [() => EventStream$, 16]]
+  [[0, { [_hH]: _irm }], [() => EventStream$, 16]], 1
 ];
 export var DuplexStreamWithInitialMessagesOutput$: StaticStructureSchema = [3, n0, _DSWIMO,
   0,
   [_iRMn, _st],
-  [[0, { [_hH]: _irm_ }], [() => EventStream$, 16]]
+  [[0, { [_hH]: _irm_ }], [() => EventStream$, 16]], 1
 ];
 export var EmptyInputAndEmptyOutputInput$: StaticStructureSchema = [3, n0, _EIAEOI,
   0,
@@ -822,7 +822,7 @@ export var HeadersEvent$: StaticStructureSchema = [3, n0, _HE,
 export var HostLabelInput$: StaticStructureSchema = [3, n0, _HLI,
   0,
   [_la],
-  [[0, { [_hL]: 1 }]]
+  [[0, { [_hL]: 1 }]], 1
 ];
 export var HttpChecksumRequiredInputOutput$: StaticStructureSchema = [3, n0, _HCRIO,
   0,
@@ -887,27 +887,27 @@ export var HttpQueryParamsOnlyInput$: StaticStructureSchema = [3, n0, _HQPOI,
 export var HttpRequestWithFloatLabelsInput$: StaticStructureSchema = [3, n0, _HRWFLI,
   0,
   [_fl, _do],
-  [[1, 1], [1, 1]]
+  [[1, 1], [1, 1]], 2
 ];
 export var HttpRequestWithGreedyLabelInPathInput$: StaticStructureSchema = [3, n0, _HRWGLIPI,
   0,
   [_fo, _b],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var HttpRequestWithLabelsAndTimestampFormatInput$: StaticStructureSchema = [3, n0, _HRWLATFI,
   0,
   [_mES, _mHD, _mDT, _dFe, _tES, _tHD, _tDT],
-  [[7, 1], [6, 1], [5, 1], [4, 1], [7, 1], [6, 1], [5, 1]]
+  [[7, 1], [6, 1], [5, 1], [4, 1], [7, 1], [6, 1], [5, 1]], 7
 ];
 export var HttpRequestWithLabelsInput$: StaticStructureSchema = [3, n0, _HRWLI,
   0,
   [_str, _sh, _in, _lo, _fl, _do, _bo, _ti],
-  [[0, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [2, 1], [4, 1]]
+  [[0, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [2, 1], [4, 1]], 8
 ];
 export var HttpRequestWithRegexLiteralInput$: StaticStructureSchema = [3, n0, _HRWRLI,
   0,
   [_str_],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var HttpResponseCodeOutput$: StaticStructureSchema = [3, n0, _HRCO,
   0,
@@ -932,7 +932,7 @@ export var InputStreamInput$: StaticStructureSchema = [3, n0, _ISI,
 export var InputStreamWithInitialRequestInput$: StaticStructureSchema = [3, n0, _ISWIRI,
   0,
   [_iRM, _st],
-  [[0, { [_hH]: _irm }], [() => EventStream$, 16]]
+  [[0, { [_hH]: _irm }], [() => EventStream$, 16]], 1
 ];
 export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
   { [_e]: _c, [_hE]: 400 },
@@ -987,13 +987,13 @@ export var MalformedBlobInput$: StaticStructureSchema = [3, n0, _MBI,
 ];
 export var MalformedBooleanInput$: StaticStructureSchema = [3, n0, _MBIa,
   0,
-  [_bIB, _bIP, _bIQ, _bIH],
-  [2, [2, 1], [2, { [_hQ]: _bIQ }], [2, { [_hH]: _bIH }]]
+  [_bIP, _bIB, _bIQ, _bIH],
+  [[2, 1], 2, [2, { [_hQ]: _bIQ }], [2, { [_hH]: _bIH }]], 1
 ];
 export var MalformedByteInput$: StaticStructureSchema = [3, n0, _MBIal,
   0,
-  [_bIBy, _bIPy, _bIQy, _bIHy],
-  [1, [1, 1], [1, { [_hQ]: _bIQy }], [1, { [_hH]: _bIHy }]]
+  [_bIPy, _bIBy, _bIQy, _bIHy],
+  [[1, 1], 1, [1, { [_hQ]: _bIQy }], [1, { [_hH]: _bIHy }]], 1
 ];
 export var MalformedContentTypeWithGenericStringInput$: StaticStructureSchema = [3, n0, _MCTWGSI,
   0,
@@ -1012,18 +1012,18 @@ export var MalformedContentTypeWithPayloadInput$: StaticStructureSchema = [3, n0
 ];
 export var MalformedDoubleInput$: StaticStructureSchema = [3, n0, _MDI,
   0,
-  [_dIB, _dIP, _dIQ, _dIH],
-  [1, [1, 1], [1, { [_hQ]: _dIQ }], [1, { [_hH]: _dIH }]]
+  [_dIP, _dIB, _dIQ, _dIH],
+  [[1, 1], 1, [1, { [_hQ]: _dIQ }], [1, { [_hH]: _dIH }]], 1
 ];
 export var MalformedFloatInput$: StaticStructureSchema = [3, n0, _MFI,
   0,
-  [_fIB, _fIP, _fIQ, _fIH],
-  [1, [1, 1], [1, { [_hQ]: _fIQ }], [1, { [_hH]: _fIH }]]
+  [_fIP, _fIB, _fIQ, _fIH],
+  [[1, 1], 1, [1, { [_hQ]: _fIQ }], [1, { [_hH]: _fIH }]], 1
 ];
 export var MalformedIntegerInput$: StaticStructureSchema = [3, n0, _MII,
   0,
-  [_iIB, _iIP, _iIQ, _iIH],
-  [1, [1, 1], [1, { [_hQ]: _iIQ }], [1, { [_hH]: _iIH }]]
+  [_iIP, _iIB, _iIQ, _iIH],
+  [[1, 1], 1, [1, { [_hQ]: _iIQ }], [1, { [_hH]: _iIH }]], 1
 ];
 export var MalformedListInput$: StaticStructureSchema = [3, n0, _MLI,
   0,
@@ -1032,8 +1032,8 @@ export var MalformedListInput$: StaticStructureSchema = [3, n0, _MLI,
 ];
 export var MalformedLongInput$: StaticStructureSchema = [3, n0, _MLIa,
   0,
-  [_lIB, _lIP, _lIQ, _lIH],
-  [1, [1, 1], [1, { [_hQ]: _lIQ }], [1, { [_hH]: _lIH }]]
+  [_lIP, _lIB, _lIQ, _lIH],
+  [[1, 1], 1, [1, { [_hQ]: _lIQ }], [1, { [_hH]: _lIH }]], 1
 ];
 export var MalformedMapInput$: StaticStructureSchema = [3, n0, _MMI,
   0,
@@ -1047,8 +1047,8 @@ export var MalformedRequestBodyInput$: StaticStructureSchema = [3, n0, _MRBI,
 ];
 export var MalformedShortInput$: StaticStructureSchema = [3, n0, _MSI,
   0,
-  [_sIB, _sIP, _sIQ, _sIH],
-  [1, [1, 1], [1, { [_hQ]: _sIQ }], [1, { [_hH]: _sIH }]]
+  [_sIP, _sIB, _sIQ, _sIH],
+  [[1, 1], 1, [1, { [_hQ]: _sIQ }], [1, { [_hH]: _sIH }]], 1
 ];
 export var MalformedStringInput$: StaticStructureSchema = [3, n0, _MSIa,
   0,
@@ -1058,62 +1058,62 @@ export var MalformedStringInput$: StaticStructureSchema = [3, n0, _MSIa,
 export var MalformedTimestampBodyDateTimeInput$: StaticStructureSchema = [3, n0, _MTBDTI,
   0,
   [_ti],
-  [5]
+  [5], 1
 ];
 export var MalformedTimestampBodyDefaultInput$: StaticStructureSchema = [3, n0, _MTBDI,
   0,
   [_ti],
-  [4]
+  [4], 1
 ];
 export var MalformedTimestampBodyHttpDateInput$: StaticStructureSchema = [3, n0, _MTBHDI,
   0,
   [_ti],
-  [6]
+  [6], 1
 ];
 export var MalformedTimestampHeaderDateTimeInput$: StaticStructureSchema = [3, n0, _MTHDTI,
   0,
   [_ti],
-  [[5, { [_hH]: _ti }]]
+  [[5, { [_hH]: _ti }]], 1
 ];
 export var MalformedTimestampHeaderDefaultInput$: StaticStructureSchema = [3, n0, _MTHDI,
   0,
   [_ti],
-  [[4, { [_hH]: _ti }]]
+  [[4, { [_hH]: _ti }]], 1
 ];
 export var MalformedTimestampHeaderEpochInput$: StaticStructureSchema = [3, n0, _MTHEI,
   0,
   [_ti],
-  [[7, { [_hH]: _ti }]]
+  [[7, { [_hH]: _ti }]], 1
 ];
 export var MalformedTimestampPathDefaultInput$: StaticStructureSchema = [3, n0, _MTPDI,
   0,
   [_ti],
-  [[4, 1]]
+  [[4, 1]], 1
 ];
 export var MalformedTimestampPathEpochInput$: StaticStructureSchema = [3, n0, _MTPEI,
   0,
   [_ti],
-  [[7, 1]]
+  [[7, 1]], 1
 ];
 export var MalformedTimestampPathHttpDateInput$: StaticStructureSchema = [3, n0, _MTPHDI,
   0,
   [_ti],
-  [[6, 1]]
+  [[6, 1]], 1
 ];
 export var MalformedTimestampQueryDefaultInput$: StaticStructureSchema = [3, n0, _MTQDI,
   0,
   [_ti],
-  [[4, { [_hQ]: _ti }]]
+  [[4, { [_hQ]: _ti }]], 1
 ];
 export var MalformedTimestampQueryEpochInput$: StaticStructureSchema = [3, n0, _MTQEI,
   0,
   [_ti],
-  [[7, { [_hQ]: _ti }]]
+  [[7, { [_hQ]: _ti }]], 1
 ];
 export var MalformedTimestampQueryHttpDateInput$: StaticStructureSchema = [3, n0, _MTQHDI,
   0,
   [_ti],
-  [[6, { [_hQ]: _ti }]]
+  [[6, { [_hQ]: _ti }]], 1
 ];
 export var MalformedUnionInput$: StaticStructureSchema = [3, n0, _MUI,
   0,
@@ -1168,12 +1168,12 @@ export var OperationWithDefaultsOutput$: StaticStructureSchema = [3, n0, _OWDO,
 export var OperationWithNestedStructureInput$: StaticStructureSchema = [3, n0, _OWNSI,
   0,
   [_tLo],
-  [() => TopLevel$]
+  [() => TopLevel$], 1
 ];
 export var OperationWithNestedStructureOutput$: StaticStructureSchema = [3, n0, _OWNSO,
   0,
   [_di, _dLi, _dMi],
-  [() => Dialog$, () => DialogList, () => DialogMap]
+  [() => Dialog$, () => DialogList, () => DialogMap], 1
 ];
 export var OutputStreamOutput$: StaticStructureSchema = [3, n0, _OSO,
   0,
@@ -1183,7 +1183,7 @@ export var OutputStreamOutput$: StaticStructureSchema = [3, n0, _OSO,
 export var OutputStreamWithInitialResponseOutput$: StaticStructureSchema = [3, n0, _OSWIRO,
   0,
   [_iRMn, _st],
-  [[0, { [_hH]: _irm_ }], [() => EventStream$, 16]]
+  [[0, { [_hH]: _irm_ }], [() => EventStream$, 16]], 1
 ];
 export var PayloadConfig$: StaticStructureSchema = [3, n0, _PC,
   0,
@@ -1203,7 +1203,7 @@ export var PostPlayerActionInput$: StaticStructureSchema = [3, n0, _PPAI,
 export var PostPlayerActionOutput$: StaticStructureSchema = [3, n0, _PPAO,
   0,
   [_ac],
-  [() => PlayerAction$]
+  [() => PlayerAction$], 1
 ];
 export var PostUnionWithJsonNameInput$: StaticStructureSchema = [3, n0, _PUWJNI,
   0,
@@ -1213,7 +1213,7 @@ export var PostUnionWithJsonNameInput$: StaticStructureSchema = [3, n0, _PUWJNI,
 export var PostUnionWithJsonNameOutput$: StaticStructureSchema = [3, n0, _PUWJNO,
   0,
   [_v],
-  [[() => UnionWithJsonName$, 0]]
+  [[() => UnionWithJsonName$, 0]], 1
 ];
 export var PutWithContentEncodingInput$: StaticStructureSchema = [3, n0, _PWCEI,
   0,
@@ -1258,7 +1258,7 @@ export var ResponseCodeHttpFallbackInputOutput$: StaticStructureSchema = [3, n0,
 export var ResponseCodeRequiredOutput$: StaticStructureSchema = [3, n0, _RCRO,
   0,
   [_rC],
-  [[1, 32]]
+  [[1, 32]], 1
 ];
 export var ServiceUnavailableError$: StaticErrorSchema = [-3, n0, _SUE,
   { [_e]: _se, [_hE]: 500 },
@@ -1354,7 +1354,7 @@ export var TimestampFormatHeadersIO$: StaticStructureSchema = [3, n0, _TFHIO,
 export var TopLevel$: StaticStructureSchema = [3, n0, _TLo,
   0,
   [_di, _dLi, _dMi],
-  [() => Dialog$, () => DialogList, () => DialogMap]
+  [() => Dialog$, () => DialogList, () => DialogMap], 1
 ];
 export var UnionInputOutput$: StaticStructureSchema = [3, n0, _UIO,
   0,

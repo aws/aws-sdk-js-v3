@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AddInstanceFleetCommand,
@@ -279,6 +285,21 @@ import {
   UpdateStudioSessionMappingCommandOutput,
 } from "./commands/UpdateStudioSessionMappingCommand";
 import { EMRClient } from "./EMRClient";
+import { paginateListBootstrapActions } from "./pagination/ListBootstrapActionsPaginator";
+import { paginateListClusters } from "./pagination/ListClustersPaginator";
+import { paginateListInstanceFleets } from "./pagination/ListInstanceFleetsPaginator";
+import { paginateListInstanceGroups } from "./pagination/ListInstanceGroupsPaginator";
+import { paginateListInstances } from "./pagination/ListInstancesPaginator";
+import { paginateListNotebookExecutions } from "./pagination/ListNotebookExecutionsPaginator";
+import { paginateListReleaseLabels } from "./pagination/ListReleaseLabelsPaginator";
+import { paginateListSecurityConfigurations } from "./pagination/ListSecurityConfigurationsPaginator";
+import { paginateListSteps } from "./pagination/ListStepsPaginator";
+import { paginateListStudioSessionMappings } from "./pagination/ListStudioSessionMappingsPaginator";
+import { paginateListStudios } from "./pagination/ListStudiosPaginator";
+import { paginateListSupportedInstanceTypes } from "./pagination/ListSupportedInstanceTypesPaginator";
+import { waitUntilClusterRunning } from "./waiters/waitForClusterRunning";
+import { waitUntilClusterTerminated } from "./waiters/waitForClusterTerminated";
+import { waitUntilStepComplete } from "./waiters/waitForStepComplete";
 
 const commands = {
   AddInstanceFleetCommand,
@@ -341,6 +362,25 @@ const commands = {
   TerminateJobFlowsCommand,
   UpdateStudioCommand,
   UpdateStudioSessionMappingCommand,
+};
+const paginators = {
+  paginateListBootstrapActions,
+  paginateListClusters,
+  paginateListInstanceFleets,
+  paginateListInstanceGroups,
+  paginateListInstances,
+  paginateListNotebookExecutions,
+  paginateListReleaseLabels,
+  paginateListSecurityConfigurations,
+  paginateListSteps,
+  paginateListStudios,
+  paginateListStudioSessionMappings,
+  paginateListSupportedInstanceTypes,
+};
+const waiters = {
+  waitUntilClusterRunning,
+  waitUntilClusterTerminated,
+  waitUntilStepComplete,
 };
 
 export interface EMR {
@@ -1373,6 +1413,168 @@ export interface EMR {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStudioSessionMappingCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBootstrapActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBootstrapActionsCommandOutput}.
+   */
+  paginateListBootstrapActions(
+    args: ListBootstrapActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBootstrapActionsCommandOutput>;
+
+  /**
+   * @see {@link ListClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClustersCommandOutput}.
+   */
+  paginateListClusters(
+    args?: ListClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClustersCommandOutput>;
+
+  /**
+   * @see {@link ListInstanceFleetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstanceFleetsCommandOutput}.
+   */
+  paginateListInstanceFleets(
+    args: ListInstanceFleetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstanceFleetsCommandOutput>;
+
+  /**
+   * @see {@link ListInstanceGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstanceGroupsCommandOutput}.
+   */
+  paginateListInstanceGroups(
+    args: ListInstanceGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstanceGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstancesCommandOutput}.
+   */
+  paginateListInstances(
+    args: ListInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListNotebookExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNotebookExecutionsCommandOutput}.
+   */
+  paginateListNotebookExecutions(
+    args?: ListNotebookExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNotebookExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListReleaseLabelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReleaseLabelsCommandOutput}.
+   */
+  paginateListReleaseLabels(
+    args?: ListReleaseLabelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReleaseLabelsCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityConfigurationsCommandOutput}.
+   */
+  paginateListSecurityConfigurations(
+    args?: ListSecurityConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListStepsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStepsCommandOutput}.
+   */
+  paginateListSteps(
+    args: ListStepsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStepsCommandOutput>;
+
+  /**
+   * @see {@link ListStudiosCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStudiosCommandOutput}.
+   */
+  paginateListStudios(
+    args?: ListStudiosCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStudiosCommandOutput>;
+
+  /**
+   * @see {@link ListStudioSessionMappingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStudioSessionMappingsCommandOutput}.
+   */
+  paginateListStudioSessionMappings(
+    args?: ListStudioSessionMappingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStudioSessionMappingsCommandOutput>;
+
+  /**
+   * @see {@link ListSupportedInstanceTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSupportedInstanceTypesCommandOutput}.
+   */
+  paginateListSupportedInstanceTypes(
+    args: ListSupportedInstanceTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSupportedInstanceTypesCommandOutput>;
+
+  /**
+   * @see {@link DescribeClusterCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterRunning(
+    args: DescribeClusterCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EMR>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeClusterCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterTerminated(
+    args: DescribeClusterCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EMR>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeStepCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilStepComplete(
+    args: DescribeStepCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EMR>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1382,4 +1584,4 @@ export interface EMR {
  * @public
  */
 export class EMR extends EMRClient implements EMR {}
-createAggregatedClient(commands, EMR);
+createAggregatedClient(commands, EMR, { paginators, waiters });

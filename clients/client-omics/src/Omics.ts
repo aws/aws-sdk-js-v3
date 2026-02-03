@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AbortMultipartReadSetUploadCommand,
@@ -419,6 +425,46 @@ import {
   UploadReadSetPartCommandOutput,
 } from "./commands/UploadReadSetPartCommand";
 import { OmicsClient } from "./OmicsClient";
+import { paginateListAnnotationImportJobs } from "./pagination/ListAnnotationImportJobsPaginator";
+import { paginateListAnnotationStores } from "./pagination/ListAnnotationStoresPaginator";
+import { paginateListAnnotationStoreVersions } from "./pagination/ListAnnotationStoreVersionsPaginator";
+import { paginateListMultipartReadSetUploads } from "./pagination/ListMultipartReadSetUploadsPaginator";
+import { paginateListReadSetActivationJobs } from "./pagination/ListReadSetActivationJobsPaginator";
+import { paginateListReadSetExportJobs } from "./pagination/ListReadSetExportJobsPaginator";
+import { paginateListReadSetImportJobs } from "./pagination/ListReadSetImportJobsPaginator";
+import { paginateListReadSets } from "./pagination/ListReadSetsPaginator";
+import { paginateListReadSetUploadParts } from "./pagination/ListReadSetUploadPartsPaginator";
+import { paginateListReferenceImportJobs } from "./pagination/ListReferenceImportJobsPaginator";
+import { paginateListReferences } from "./pagination/ListReferencesPaginator";
+import { paginateListReferenceStores } from "./pagination/ListReferenceStoresPaginator";
+import { paginateListRunCaches } from "./pagination/ListRunCachesPaginator";
+import { paginateListRunGroups } from "./pagination/ListRunGroupsPaginator";
+import { paginateListRuns } from "./pagination/ListRunsPaginator";
+import { paginateListRunTasks } from "./pagination/ListRunTasksPaginator";
+import { paginateListSequenceStores } from "./pagination/ListSequenceStoresPaginator";
+import { paginateListShares } from "./pagination/ListSharesPaginator";
+import { paginateListVariantImportJobs } from "./pagination/ListVariantImportJobsPaginator";
+import { paginateListVariantStores } from "./pagination/ListVariantStoresPaginator";
+import { paginateListWorkflows } from "./pagination/ListWorkflowsPaginator";
+import { paginateListWorkflowVersions } from "./pagination/ListWorkflowVersionsPaginator";
+import { waitUntilAnnotationImportJobCreated } from "./waiters/waitForAnnotationImportJobCreated";
+import { waitUntilAnnotationStoreCreated } from "./waiters/waitForAnnotationStoreCreated";
+import { waitUntilAnnotationStoreDeleted } from "./waiters/waitForAnnotationStoreDeleted";
+import { waitUntilAnnotationStoreVersionCreated } from "./waiters/waitForAnnotationStoreVersionCreated";
+import { waitUntilAnnotationStoreVersionDeleted } from "./waiters/waitForAnnotationStoreVersionDeleted";
+import { waitUntilReadSetActivationJobCompleted } from "./waiters/waitForReadSetActivationJobCompleted";
+import { waitUntilReadSetExportJobCompleted } from "./waiters/waitForReadSetExportJobCompleted";
+import { waitUntilReadSetImportJobCompleted } from "./waiters/waitForReadSetImportJobCompleted";
+import { waitUntilReferenceImportJobCompleted } from "./waiters/waitForReferenceImportJobCompleted";
+import { waitUntilRunCompleted } from "./waiters/waitForRunCompleted";
+import { waitUntilRunRunning } from "./waiters/waitForRunRunning";
+import { waitUntilTaskCompleted } from "./waiters/waitForTaskCompleted";
+import { waitUntilTaskRunning } from "./waiters/waitForTaskRunning";
+import { waitUntilVariantImportJobCreated } from "./waiters/waitForVariantImportJobCreated";
+import { waitUntilVariantStoreCreated } from "./waiters/waitForVariantStoreCreated";
+import { waitUntilVariantStoreDeleted } from "./waiters/waitForVariantStoreDeleted";
+import { waitUntilWorkflowActive } from "./waiters/waitForWorkflowActive";
+import { waitUntilWorkflowVersionActive } from "./waiters/waitForWorkflowVersionActive";
 
 const commands = {
   AbortMultipartReadSetUploadCommand,
@@ -517,6 +563,50 @@ const commands = {
   UpdateWorkflowCommand,
   UpdateWorkflowVersionCommand,
   UploadReadSetPartCommand,
+};
+const paginators = {
+  paginateListAnnotationImportJobs,
+  paginateListAnnotationStores,
+  paginateListAnnotationStoreVersions,
+  paginateListMultipartReadSetUploads,
+  paginateListReadSetActivationJobs,
+  paginateListReadSetExportJobs,
+  paginateListReadSetImportJobs,
+  paginateListReadSets,
+  paginateListReadSetUploadParts,
+  paginateListReferenceImportJobs,
+  paginateListReferences,
+  paginateListReferenceStores,
+  paginateListRunCaches,
+  paginateListRunGroups,
+  paginateListRuns,
+  paginateListRunTasks,
+  paginateListSequenceStores,
+  paginateListShares,
+  paginateListVariantImportJobs,
+  paginateListVariantStores,
+  paginateListWorkflows,
+  paginateListWorkflowVersions,
+};
+const waiters = {
+  waitUntilAnnotationImportJobCreated,
+  waitUntilAnnotationStoreCreated,
+  waitUntilAnnotationStoreDeleted,
+  waitUntilAnnotationStoreVersionCreated,
+  waitUntilAnnotationStoreVersionDeleted,
+  waitUntilReadSetActivationJobCompleted,
+  waitUntilReadSetExportJobCompleted,
+  waitUntilReadSetImportJobCompleted,
+  waitUntilReferenceImportJobCompleted,
+  waitUntilRunRunning,
+  waitUntilRunCompleted,
+  waitUntilTaskRunning,
+  waitUntilTaskCompleted,
+  waitUntilVariantImportJobCreated,
+  waitUntilVariantStoreCreated,
+  waitUntilVariantStoreDeleted,
+  waitUntilWorkflowActive,
+  waitUntilWorkflowVersionActive,
 };
 
 export interface Omics {
@@ -2161,6 +2251,428 @@ export interface Omics {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UploadReadSetPartCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAnnotationImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnnotationImportJobsCommandOutput}.
+   */
+  paginateListAnnotationImportJobs(
+    args?: ListAnnotationImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnnotationImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListAnnotationStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnnotationStoresCommandOutput}.
+   */
+  paginateListAnnotationStores(
+    args?: ListAnnotationStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnnotationStoresCommandOutput>;
+
+  /**
+   * @see {@link ListAnnotationStoreVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnnotationStoreVersionsCommandOutput}.
+   */
+  paginateListAnnotationStoreVersions(
+    args: ListAnnotationStoreVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnnotationStoreVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListMultipartReadSetUploadsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMultipartReadSetUploadsCommandOutput}.
+   */
+  paginateListMultipartReadSetUploads(
+    args: ListMultipartReadSetUploadsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMultipartReadSetUploadsCommandOutput>;
+
+  /**
+   * @see {@link ListReadSetActivationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReadSetActivationJobsCommandOutput}.
+   */
+  paginateListReadSetActivationJobs(
+    args: ListReadSetActivationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReadSetActivationJobsCommandOutput>;
+
+  /**
+   * @see {@link ListReadSetExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReadSetExportJobsCommandOutput}.
+   */
+  paginateListReadSetExportJobs(
+    args: ListReadSetExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReadSetExportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListReadSetImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReadSetImportJobsCommandOutput}.
+   */
+  paginateListReadSetImportJobs(
+    args: ListReadSetImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReadSetImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListReadSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReadSetsCommandOutput}.
+   */
+  paginateListReadSets(
+    args: ListReadSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReadSetsCommandOutput>;
+
+  /**
+   * @see {@link ListReadSetUploadPartsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReadSetUploadPartsCommandOutput}.
+   */
+  paginateListReadSetUploadParts(
+    args: ListReadSetUploadPartsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReadSetUploadPartsCommandOutput>;
+
+  /**
+   * @see {@link ListReferenceImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReferenceImportJobsCommandOutput}.
+   */
+  paginateListReferenceImportJobs(
+    args: ListReferenceImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReferenceImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListReferencesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReferencesCommandOutput}.
+   */
+  paginateListReferences(
+    args: ListReferencesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReferencesCommandOutput>;
+
+  /**
+   * @see {@link ListReferenceStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReferenceStoresCommandOutput}.
+   */
+  paginateListReferenceStores(
+    args?: ListReferenceStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReferenceStoresCommandOutput>;
+
+  /**
+   * @see {@link ListRunCachesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRunCachesCommandOutput}.
+   */
+  paginateListRunCaches(
+    args?: ListRunCachesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRunCachesCommandOutput>;
+
+  /**
+   * @see {@link ListRunGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRunGroupsCommandOutput}.
+   */
+  paginateListRunGroups(
+    args?: ListRunGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRunGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRunsCommandOutput}.
+   */
+  paginateListRuns(
+    args?: ListRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRunsCommandOutput>;
+
+  /**
+   * @see {@link ListRunTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRunTasksCommandOutput}.
+   */
+  paginateListRunTasks(
+    args: ListRunTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRunTasksCommandOutput>;
+
+  /**
+   * @see {@link ListSequenceStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSequenceStoresCommandOutput}.
+   */
+  paginateListSequenceStores(
+    args?: ListSequenceStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSequenceStoresCommandOutput>;
+
+  /**
+   * @see {@link ListSharesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSharesCommandOutput}.
+   */
+  paginateListShares(
+    args: ListSharesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSharesCommandOutput>;
+
+  /**
+   * @see {@link ListVariantImportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVariantImportJobsCommandOutput}.
+   */
+  paginateListVariantImportJobs(
+    args?: ListVariantImportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVariantImportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListVariantStoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVariantStoresCommandOutput}.
+   */
+  paginateListVariantStores(
+    args?: ListVariantStoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVariantStoresCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowsCommandOutput}.
+   */
+  paginateListWorkflows(
+    args?: ListWorkflowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowVersionsCommandOutput}.
+   */
+  paginateListWorkflowVersions(
+    args: ListWorkflowVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowVersionsCommandOutput>;
+
+  /**
+   * @see {@link GetAnnotationImportJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAnnotationImportJobCreated(
+    args: GetAnnotationImportJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetAnnotationStoreCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAnnotationStoreCreated(
+    args: GetAnnotationStoreCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetAnnotationStoreCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAnnotationStoreDeleted(
+    args: GetAnnotationStoreCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetAnnotationStoreVersionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAnnotationStoreVersionCreated(
+    args: GetAnnotationStoreVersionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetAnnotationStoreVersionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAnnotationStoreVersionDeleted(
+    args: GetAnnotationStoreVersionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetReadSetActivationJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReadSetActivationJobCompleted(
+    args: GetReadSetActivationJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetReadSetExportJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReadSetExportJobCompleted(
+    args: GetReadSetExportJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetReadSetImportJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReadSetImportJobCompleted(
+    args: GetReadSetImportJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetReferenceImportJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilReferenceImportJobCompleted(
+    args: GetReferenceImportJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRunCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilRunRunning(
+    args: GetRunCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRunCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilRunCompleted(
+    args: GetRunCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRunTaskCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTaskRunning(
+    args: GetRunTaskCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRunTaskCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilTaskCompleted(
+    args: GetRunTaskCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetVariantImportJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVariantImportJobCreated(
+    args: GetVariantImportJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetVariantStoreCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVariantStoreCreated(
+    args: GetVariantStoreCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetVariantStoreCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilVariantStoreDeleted(
+    args: GetVariantStoreCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetWorkflowCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilWorkflowActive(
+    args: GetWorkflowCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetWorkflowVersionCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilWorkflowVersionActive(
+    args: GetWorkflowVersionCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Omics>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -2168,4 +2680,4 @@ export interface Omics {
  * @public
  */
 export class Omics extends OmicsClient implements Omics {}
-createAggregatedClient(commands, Omics);
+createAggregatedClient(commands, Omics, { paginators, waiters });

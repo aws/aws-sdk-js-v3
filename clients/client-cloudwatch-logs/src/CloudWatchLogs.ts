@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CloudWatchLogsClient } from "./CloudWatchLogsClient";
 import {
@@ -518,6 +518,24 @@ import {
   UpdateScheduledQueryCommandInput,
   UpdateScheduledQueryCommandOutput,
 } from "./commands/UpdateScheduledQueryCommand";
+import { paginateDescribeConfigurationTemplates } from "./pagination/DescribeConfigurationTemplatesPaginator";
+import { paginateDescribeDeliveries } from "./pagination/DescribeDeliveriesPaginator";
+import { paginateDescribeDeliveryDestinations } from "./pagination/DescribeDeliveryDestinationsPaginator";
+import { paginateDescribeDeliverySources } from "./pagination/DescribeDeliverySourcesPaginator";
+import { paginateDescribeDestinations } from "./pagination/DescribeDestinationsPaginator";
+import { paginateDescribeLogGroups } from "./pagination/DescribeLogGroupsPaginator";
+import { paginateDescribeLogStreams } from "./pagination/DescribeLogStreamsPaginator";
+import { paginateDescribeMetricFilters } from "./pagination/DescribeMetricFiltersPaginator";
+import { paginateDescribeSubscriptionFilters } from "./pagination/DescribeSubscriptionFiltersPaginator";
+import { paginateFilterLogEvents } from "./pagination/FilterLogEventsPaginator";
+import { paginateGetLogEvents } from "./pagination/GetLogEventsPaginator";
+import { paginateGetScheduledQueryHistory } from "./pagination/GetScheduledQueryHistoryPaginator";
+import { paginateListAggregateLogGroupSummaries } from "./pagination/ListAggregateLogGroupSummariesPaginator";
+import { paginateListAnomalies } from "./pagination/ListAnomaliesPaginator";
+import { paginateListLogAnomalyDetectors } from "./pagination/ListLogAnomalyDetectorsPaginator";
+import { paginateListLogGroupsForQuery } from "./pagination/ListLogGroupsForQueryPaginator";
+import { paginateListScheduledQueries } from "./pagination/ListScheduledQueriesPaginator";
+import { paginateListSourcesForS3TableIntegration } from "./pagination/ListSourcesForS3TableIntegrationPaginator";
 
 const commands = {
   AssociateKmsKeyCommand,
@@ -627,6 +645,26 @@ const commands = {
   UpdateDeliveryConfigurationCommand,
   UpdateLogAnomalyDetectorCommand,
   UpdateScheduledQueryCommand,
+};
+const paginators = {
+  paginateDescribeConfigurationTemplates,
+  paginateDescribeDeliveries,
+  paginateDescribeDeliveryDestinations,
+  paginateDescribeDeliverySources,
+  paginateDescribeDestinations,
+  paginateDescribeLogGroups,
+  paginateDescribeLogStreams,
+  paginateDescribeMetricFilters,
+  paginateDescribeSubscriptionFilters,
+  paginateFilterLogEvents,
+  paginateGetLogEvents,
+  paginateGetScheduledQueryHistory,
+  paginateListAggregateLogGroupSummaries,
+  paginateListAnomalies,
+  paginateListLogAnomalyDetectors,
+  paginateListLogGroupsForQuery,
+  paginateListScheduledQueries,
+  paginateListSourcesForS3TableIntegration,
 };
 
 export interface CloudWatchLogs {
@@ -2471,6 +2509,204 @@ export interface CloudWatchLogs {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateScheduledQueryCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeConfigurationTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConfigurationTemplatesCommandOutput}.
+   */
+  paginateDescribeConfigurationTemplates(
+    args?: DescribeConfigurationTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConfigurationTemplatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeDeliveriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDeliveriesCommandOutput}.
+   */
+  paginateDescribeDeliveries(
+    args?: DescribeDeliveriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDeliveriesCommandOutput>;
+
+  /**
+   * @see {@link DescribeDeliveryDestinationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDeliveryDestinationsCommandOutput}.
+   */
+  paginateDescribeDeliveryDestinations(
+    args?: DescribeDeliveryDestinationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDeliveryDestinationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDeliverySourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDeliverySourcesCommandOutput}.
+   */
+  paginateDescribeDeliverySources(
+    args?: DescribeDeliverySourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDeliverySourcesCommandOutput>;
+
+  /**
+   * @see {@link DescribeDestinationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDestinationsCommandOutput}.
+   */
+  paginateDescribeDestinations(
+    args?: DescribeDestinationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDestinationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeLogGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLogGroupsCommandOutput}.
+   */
+  paginateDescribeLogGroups(
+    args?: DescribeLogGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLogGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeLogStreamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeLogStreamsCommandOutput}.
+   */
+  paginateDescribeLogStreams(
+    args?: DescribeLogStreamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeLogStreamsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMetricFiltersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMetricFiltersCommandOutput}.
+   */
+  paginateDescribeMetricFilters(
+    args?: DescribeMetricFiltersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMetricFiltersCommandOutput>;
+
+  /**
+   * @see {@link DescribeSubscriptionFiltersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSubscriptionFiltersCommandOutput}.
+   */
+  paginateDescribeSubscriptionFilters(
+    args: DescribeSubscriptionFiltersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSubscriptionFiltersCommandOutput>;
+
+  /**
+   * @see {@link FilterLogEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link FilterLogEventsCommandOutput}.
+   */
+  paginateFilterLogEvents(
+    args?: FilterLogEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<FilterLogEventsCommandOutput>;
+
+  /**
+   * @see {@link GetLogEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetLogEventsCommandOutput}.
+   */
+  paginateGetLogEvents(
+    args: GetLogEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetLogEventsCommandOutput>;
+
+  /**
+   * @see {@link GetScheduledQueryHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetScheduledQueryHistoryCommandOutput}.
+   */
+  paginateGetScheduledQueryHistory(
+    args: GetScheduledQueryHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetScheduledQueryHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListAggregateLogGroupSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAggregateLogGroupSummariesCommandOutput}.
+   */
+  paginateListAggregateLogGroupSummaries(
+    args: ListAggregateLogGroupSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAggregateLogGroupSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListAnomaliesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnomaliesCommandOutput}.
+   */
+  paginateListAnomalies(
+    args?: ListAnomaliesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnomaliesCommandOutput>;
+
+  /**
+   * @see {@link ListLogAnomalyDetectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLogAnomalyDetectorsCommandOutput}.
+   */
+  paginateListLogAnomalyDetectors(
+    args?: ListLogAnomalyDetectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLogAnomalyDetectorsCommandOutput>;
+
+  /**
+   * @see {@link ListLogGroupsForQueryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLogGroupsForQueryCommandOutput}.
+   */
+  paginateListLogGroupsForQuery(
+    args: ListLogGroupsForQueryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLogGroupsForQueryCommandOutput>;
+
+  /**
+   * @see {@link ListScheduledQueriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScheduledQueriesCommandOutput}.
+   */
+  paginateListScheduledQueries(
+    args?: ListScheduledQueriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScheduledQueriesCommandOutput>;
+
+  /**
+   * @see {@link ListSourcesForS3TableIntegrationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSourcesForS3TableIntegrationCommandOutput}.
+   */
+  paginateListSourcesForS3TableIntegration(
+    args: ListSourcesForS3TableIntegrationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSourcesForS3TableIntegrationCommandOutput>;
 }
 
 /**
@@ -2512,4 +2748,4 @@ export interface CloudWatchLogs {
  * @public
  */
 export class CloudWatchLogs extends CloudWatchLogsClient implements CloudWatchLogs {}
-createAggregatedClient(commands, CloudWatchLogs);
+createAggregatedClient(commands, CloudWatchLogs, { paginators });

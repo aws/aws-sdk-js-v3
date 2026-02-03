@@ -27,7 +27,7 @@ export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
 export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of policies. Policies define the permissions for team resources.</p> <p>The protected operation for a service integration might require specific permissions. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How other services work with Multi-party approval</a> in the <i>Multi-party approval User Guide</i>.</p>
+ * <p>Returns a list of policies. Policies define the permissions for team resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

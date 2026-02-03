@@ -154,6 +154,9 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //           StreamId: "STRING_VALUE",
  * //           NdiSpeedHqQuality: Number("int"),
  * //           NdiProgramName: "STRING_VALUE",
+ * //           NdiSourceSettings: { // NdiSourceSettings
+ * //             SourceName: "STRING_VALUE",
+ * //           },
  * //         },
  * //         VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //           VpcInterfaceName: "STRING_VALUE",
@@ -232,6 +235,9 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //         StreamId: "STRING_VALUE",
  * //         NdiSpeedHqQuality: Number("int"),
  * //         NdiProgramName: "STRING_VALUE",
+ * //         NdiSourceSettings: {
+ * //           SourceName: "STRING_VALUE",
+ * //         },
  * //       },
  * //       VpcInterfaceName: "STRING_VALUE",
  * //       WhitelistCidr: "STRING_VALUE",
@@ -318,6 +324,9 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //           StreamId: "STRING_VALUE",
  * //           NdiSpeedHqQuality: Number("int"),
  * //           NdiProgramName: "STRING_VALUE",
+ * //           NdiSourceSettings: {
+ * //             SourceName: "STRING_VALUE",
+ * //           },
  * //         },
  * //         VpcInterfaceName: "STRING_VALUE",
  * //         WhitelistCidr: "STRING_VALUE",
@@ -385,7 +394,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //         },
  * //       ],
  * //     },
- * //     FlowSize: "MEDIUM" || "LARGE",
+ * //     FlowSize: "MEDIUM" || "LARGE" || "LARGE_4X",
  * //     NdiConfig: { // NdiConfig
  * //       NdiState: "ENABLED" || "DISABLED",
  * //       MachineName: "STRING_VALUE",
@@ -396,6 +405,10 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * //           VpcInterfaceAdapter: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //     },
+ * //     EncodingConfig: { // EncodingConfig
+ * //       EncodingProfile: "DISTRIBUTION_H264_DEFAULT" || "CONTRIBUTION_H264_DEFAULT",
+ * //       VideoMaxBitrate: Number("int"),
  * //     },
  * //   },
  * //   Messages: { // Messages

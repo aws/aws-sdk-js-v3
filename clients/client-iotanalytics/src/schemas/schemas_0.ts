@@ -381,7 +381,7 @@ import { IoTAnalyticsServiceException } from "../models/IoTAnalyticsServiceExcep
 export var AddAttributesActivity$: StaticStructureSchema = [3, n0, _AAA,
   0,
   [_n, _a, _ne],
-  [0, 128 | 0, 0]
+  [0, 128 | 0, 0], 2
 ];
 export var BatchPutMessageErrorEntry$: StaticStructureSchema = [3, n0, _BPMEE,
   0,
@@ -391,7 +391,7 @@ export var BatchPutMessageErrorEntry$: StaticStructureSchema = [3, n0, _BPMEE,
 export var BatchPutMessageRequest$: StaticStructureSchema = [3, n0, _BPMR,
   0,
   [_cN, _m],
-  [0, () => Messages]
+  [0, () => Messages], 2
 ];
 export var BatchPutMessageResponse$: StaticStructureSchema = [3, n0, _BPMRa,
   0,
@@ -401,7 +401,7 @@ export var BatchPutMessageResponse$: StaticStructureSchema = [3, n0, _BPMRa,
 export var CancelPipelineReprocessingRequest$: StaticStructureSchema = [3, n0, _CPRR,
   0,
   [_pN, _rI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var CancelPipelineReprocessingResponse$: StaticStructureSchema = [3, n0, _CPRRa,
   0,
@@ -416,7 +416,7 @@ export var Channel$: StaticStructureSchema = [3, n0, _C,
 export var ChannelActivity$: StaticStructureSchema = [3, n0, _CA,
   0,
   [_n, _cN, _ne],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ChannelMessages$: StaticStructureSchema = [3, n0, _CM,
   0,
@@ -446,17 +446,17 @@ export var ChannelSummary$: StaticStructureSchema = [3, n0, _CSha,
 export var Column$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_n, _t],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ContainerDatasetAction$: StaticStructureSchema = [3, n0, _CDA,
   0,
   [_i, _eRA, _rC, _v],
-  [0, 0, () => ResourceConfiguration$, () => Variables]
+  [0, 0, () => ResourceConfiguration$, () => Variables], 3
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_cN, _cS, _rP, _ta],
-  [0, () => ChannelStorage$, () => RetentionPeriod$, () => TagList]
+  [0, () => ChannelStorage$, () => RetentionPeriod$, () => TagList], 1
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -466,7 +466,7 @@ export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateDatasetContentRequest$: StaticStructureSchema = [3, n0, _CDCR,
   0,
   [_dN, _vI],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var CreateDatasetContentResponse$: StaticStructureSchema = [3, n0, _CDCRr,
   0,
@@ -476,7 +476,7 @@ export var CreateDatasetContentResponse$: StaticStructureSchema = [3, n0, _CDCRr
 export var CreateDatasetRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_dN, _ac, _tr, _cDR, _rP, _vC, _ta, _lDR],
-  [0, () => DatasetActions, () => DatasetTriggers, () => DatasetContentDeliveryRules, () => RetentionPeriod$, () => VersioningConfiguration$, () => TagList, () => LateDataRules]
+  [0, () => DatasetActions, () => DatasetTriggers, () => DatasetContentDeliveryRules, () => RetentionPeriod$, () => VersioningConfiguration$, () => TagList, () => LateDataRules], 2
 ];
 export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -486,7 +486,7 @@ export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRr,
 export var CreateDatastoreRequest$: StaticStructureSchema = [3, n0, _CDRre,
   0,
   [_dNa, _dS, _rP, _ta, _fFC, _dP],
-  [0, () => DatastoreStorage$, () => RetentionPeriod$, () => TagList, () => FileFormatConfiguration$, () => DatastorePartitions$]
+  [0, () => DatastoreStorage$, () => RetentionPeriod$, () => TagList, () => FileFormatConfiguration$, () => DatastorePartitions$], 1
 ];
 export var CreateDatastoreResponse$: StaticStructureSchema = [3, n0, _CDRrea,
   0,
@@ -496,7 +496,7 @@ export var CreateDatastoreResponse$: StaticStructureSchema = [3, n0, _CDRrea,
 export var CreatePipelineRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_pN, _pA, _ta],
-  [0, () => PipelineActivities, () => TagList]
+  [0, () => PipelineActivities, () => TagList], 2
 ];
 export var CreatePipelineResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -505,8 +505,8 @@ export var CreatePipelineResponse$: StaticStructureSchema = [3, n0, _CPRr,
 ];
 export var CustomerManagedChannelS3Storage$: StaticStructureSchema = [3, n0, _CMCSS,
   0,
-  [_b, _kP, _rA],
-  [0, 0, 0]
+  [_b, _rA, _kP],
+  [0, 0, 0], 2
 ];
 export var CustomerManagedChannelS3StorageSummary$: StaticStructureSchema = [3, n0, _CMCSSS,
   0,
@@ -515,8 +515,8 @@ export var CustomerManagedChannelS3StorageSummary$: StaticStructureSchema = [3, 
 ];
 export var CustomerManagedDatastoreS3Storage$: StaticStructureSchema = [3, n0, _CMDSS,
   0,
-  [_b, _kP, _rA],
-  [0, 0, 0]
+  [_b, _rA, _kP],
+  [0, 0, 0], 2
 ];
 export var CustomerManagedDatastoreS3StorageSummary$: StaticStructureSchema = [3, n0, _CMDSSS,
   0,
@@ -545,8 +545,8 @@ export var DatasetContentDeliveryDestination$: StaticStructureSchema = [3, n0, _
 ];
 export var DatasetContentDeliveryRule$: StaticStructureSchema = [3, n0, _DCDR,
   0,
-  [_eN, _d],
-  [0, () => DatasetContentDeliveryDestination$]
+  [_d, _eN],
+  [() => DatasetContentDeliveryDestination$, 0], 1
 ];
 export var DatasetContentStatus$: StaticStructureSchema = [3, n0, _DCS,
   0,
@@ -561,7 +561,7 @@ export var DatasetContentSummary$: StaticStructureSchema = [3, n0, _DCSa,
 export var DatasetContentVersionValue$: StaticStructureSchema = [3, n0, _DCVV,
   0,
   [_dN],
-  [0]
+  [0], 1
 ];
 export var DatasetEntry$: StaticStructureSchema = [3, n0, _DE,
   0,
@@ -586,12 +586,12 @@ export var Datastore$: StaticStructureSchema = [3, n0, _Da,
 export var DatastoreActivity$: StaticStructureSchema = [3, n0, _DAa,
   0,
   [_n, _dNa],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DatastoreIotSiteWiseMultiLayerStorage$: StaticStructureSchema = [3, n0, _DISWMLS,
   0,
   [_cMSS],
-  [() => IotSiteWiseCustomerManagedDatastoreS3Storage$]
+  [() => IotSiteWiseCustomerManagedDatastoreS3Storage$], 1
 ];
 export var DatastoreIotSiteWiseMultiLayerStorageSummary$: StaticStructureSchema = [3, n0, _DISWMLSS,
   0,
@@ -626,42 +626,42 @@ export var DatastoreSummary$: StaticStructureSchema = [3, n0, _DSat,
 export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDatasetContentRequest$: StaticStructureSchema = [3, n0, _DDCR,
   0,
   [_dN, _vI],
-  [[0, 1], [0, { [_hQ]: _vI }]]
+  [[0, 1], [0, { [_hQ]: _vI }]], 1
 ];
 export var DeleteDatasetRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_dN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDatastoreRequest$: StaticStructureSchema = [3, n0, _DDRe,
   0,
   [_dNa],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeletePipelineRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_pN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeltaTime$: StaticStructureSchema = [3, n0, _DTe,
   0,
   [_oS, _tE],
-  [1, 0]
+  [1, 0], 2
 ];
 export var DeltaTimeSessionWindowConfiguration$: StaticStructureSchema = [3, n0, _DTSWC,
   0,
   [_tIM],
-  [1]
+  [1], 1
 ];
 export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_cN, _iS],
-  [[0, 1], [2, { [_hQ]: _iS }]]
+  [[0, 1], [2, { [_hQ]: _iS }]], 1
 ];
 export var DescribeChannelResponse$: StaticStructureSchema = [3, n0, _DCRes,
   0,
@@ -671,7 +671,7 @@ export var DescribeChannelResponse$: StaticStructureSchema = [3, n0, _DCRes,
 export var DescribeDatasetRequest$: StaticStructureSchema = [3, n0, _DDRes,
   0,
   [_dN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDResc,
   0,
@@ -681,7 +681,7 @@ export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDResc,
 export var DescribeDatastoreRequest$: StaticStructureSchema = [3, n0, _DDRescr,
   0,
   [_dNa, _iS],
-  [[0, 1], [2, { [_hQ]: _iS }]]
+  [[0, 1], [2, { [_hQ]: _iS }]], 1
 ];
 export var DescribeDatastoreResponse$: StaticStructureSchema = [3, n0, _DDRescri,
   0,
@@ -701,7 +701,7 @@ export var DescribeLoggingOptionsResponse$: StaticStructureSchema = [3, n0, _DLO
 export var DescribePipelineRequest$: StaticStructureSchema = [3, n0, _DPRe,
   0,
   [_pN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribePipelineResponse$: StaticStructureSchema = [3, n0, _DPRes,
   0,
@@ -711,12 +711,12 @@ export var DescribePipelineResponse$: StaticStructureSchema = [3, n0, _DPRes,
 export var DeviceRegistryEnrichActivity$: StaticStructureSchema = [3, n0, _DREA,
   0,
   [_n, _at, _tN, _rA, _ne],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var DeviceShadowEnrichActivity$: StaticStructureSchema = [3, n0, _DSEA,
   0,
   [_n, _at, _tN, _rA, _ne],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 4
 ];
 export var EstimatedResourceSize$: StaticStructureSchema = [3, n0, _ERS,
   0,
@@ -731,12 +731,12 @@ export var FileFormatConfiguration$: StaticStructureSchema = [3, n0, _FFC,
 export var FilterActivity$: StaticStructureSchema = [3, n0, _FA,
   0,
   [_n, _f, _ne],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var GetDatasetContentRequest$: StaticStructureSchema = [3, n0, _GDCR,
   0,
   [_dN, _vI],
-  [[0, 1], [0, { [_hQ]: _vI }]]
+  [[0, 1], [0, { [_hQ]: _vI }]], 1
 ];
 export var GetDatasetContentResponse$: StaticStructureSchema = [3, n0, _GDCRe,
   0,
@@ -746,7 +746,7 @@ export var GetDatasetContentResponse$: StaticStructureSchema = [3, n0, _GDCRe,
 export var GlueConfiguration$: StaticStructureSchema = [3, n0, _GC,
   0,
   [_tNa, _dNat],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
   { [_er]: _se, [_hE]: 500 },
@@ -763,12 +763,12 @@ TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestExcep
 export var IotEventsDestinationConfiguration$: StaticStructureSchema = [3, n0, _IEDC,
   0,
   [_iN, _rA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var IotSiteWiseCustomerManagedDatastoreS3Storage$: StaticStructureSchema = [3, n0, _ISWCMDSS,
   0,
   [_b, _kP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var IotSiteWiseCustomerManagedDatastoreS3StorageSummary$: StaticStructureSchema = [3, n0, _ISWCMDSSS,
   0,
@@ -783,12 +783,12 @@ export var JsonConfiguration$: StaticStructureSchema = [3, n0, _JC,
 export var LambdaActivity$: StaticStructureSchema = [3, n0, _LA,
   0,
   [_n, _lN, _bS, _ne],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 3
 ];
 export var LateDataRule$: StaticStructureSchema = [3, n0, _LDR,
   0,
-  [_rN, _rCu],
-  [0, () => LateDataRuleConfiguration$]
+  [_rCu, _rN],
+  [() => LateDataRuleConfiguration$, 0], 1
 ];
 export var LateDataRuleConfiguration$: StaticStructureSchema = [3, n0, _LDRC,
   0,
@@ -814,7 +814,7 @@ export var ListChannelsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListDatasetContentsRequest$: StaticStructureSchema = [3, n0, _LDCR,
   0,
   [_dN, _nT, _mR, _sOOA, _sB],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [4, { [_hQ]: _sOOA }], [4, { [_hQ]: _sB }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [4, { [_hQ]: _sOOA }], [4, { [_hQ]: _sB }]], 1
 ];
 export var ListDatasetContentsResponse$: StaticStructureSchema = [3, n0, _LDCRi,
   0,
@@ -854,7 +854,7 @@ export var ListPipelinesResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAe],
-  [[0, { [_hQ]: _rAe }]]
+  [[0, { [_hQ]: _rAe }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -864,22 +864,22 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var LoggingOptions$: StaticStructureSchema = [3, n0, _LO,
   0,
   [_rA, _l, _en],
-  [0, 0, 2]
+  [0, 0, 2], 3
 ];
 export var MathActivity$: StaticStructureSchema = [3, n0, _MA,
   0,
   [_n, _at, _ma, _ne],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var Message$: StaticStructureSchema = [3, n0, _M,
   0,
   [_mI, _pa],
-  [0, 21]
+  [0, 21], 2
 ];
 export var OutputFileUriValue$: StaticStructureSchema = [3, n0, _OFUV,
   0,
   [_fN],
-  [0]
+  [0], 1
 ];
 export var ParquetConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
@@ -889,7 +889,7 @@ export var ParquetConfiguration$: StaticStructureSchema = [3, n0, _PC,
 export var Partition$: StaticStructureSchema = [3, n0, _P,
   0,
   [_aNt],
-  [0]
+  [0], 1
 ];
 export var Pipeline$: StaticStructureSchema = [3, n0, _Pi,
   0,
@@ -909,7 +909,7 @@ export var PipelineSummary$: StaticStructureSchema = [3, n0, _PS,
 export var PutLoggingOptionsRequest$: StaticStructureSchema = [3, n0, _PLOR,
   0,
   [_lO],
-  [() => LoggingOptions$]
+  [() => LoggingOptions$], 1
 ];
 export var QueryFilter$: StaticStructureSchema = [3, n0, _QF,
   0,
@@ -919,7 +919,7 @@ export var QueryFilter$: StaticStructureSchema = [3, n0, _QF,
 export var RemoveAttributesActivity$: StaticStructureSchema = [3, n0, _RAA,
   0,
   [_n, _a, _ne],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 2
 ];
 export var ReprocessingSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -935,7 +935,7 @@ TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlre
 export var ResourceConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_cTom, _vSIGB],
-  [0, 1]
+  [0, 1], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_er]: _cl, [_hE]: 404 },
@@ -951,7 +951,7 @@ export var RetentionPeriod$: StaticStructureSchema = [3, n0, _RP,
 export var RunPipelineActivityRequest$: StaticStructureSchema = [3, n0, _RPAR,
   0,
   [_pAip, _pay],
-  [() => PipelineActivity$, 64 | 21]
+  [() => PipelineActivity$, 64 | 21], 2
 ];
 export var RunPipelineActivityResponse$: StaticStructureSchema = [3, n0, _RPARu,
   0,
@@ -960,13 +960,13 @@ export var RunPipelineActivityResponse$: StaticStructureSchema = [3, n0, _RPARu,
 ];
 export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
-  [_b, _k, _gC, _rA],
-  [0, 0, () => GlueConfiguration$, 0]
+  [_b, _k, _rA, _gC],
+  [0, 0, 0, () => GlueConfiguration$], 3
 ];
 export var SampleChannelDataRequest$: StaticStructureSchema = [3, n0, _SCDR,
   0,
   [_cN, _mM, _sTt, _eT],
-  [[0, 1], [1, { [_hQ]: _mM }], [4, { [_hQ]: _sTt }], [4, { [_hQ]: _eT }]]
+  [[0, 1], [1, { [_hQ]: _mM }], [4, { [_hQ]: _sTt }], [4, { [_hQ]: _eT }]], 1
 ];
 export var SampleChannelDataResponse$: StaticStructureSchema = [3, n0, _SCDRa,
   0,
@@ -986,7 +986,7 @@ export var SchemaDefinition$: StaticStructureSchema = [3, n0, _SD,
 export var SelectAttributesActivity$: StaticStructureSchema = [3, n0, _SAA,
   0,
   [_n, _a, _ne],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 2
 ];
 export var ServiceManagedChannelS3Storage$: StaticStructureSchema = [3, n0, _SMCSS,
   0,
@@ -1017,12 +1017,12 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var SqlQueryDatasetAction$: StaticStructureSchema = [3, n0, _SQDA,
   0,
   [_sQ, _fi],
-  [0, () => QueryFilters]
+  [0, () => QueryFilters], 1
 ];
 export var StartPipelineReprocessingRequest$: StaticStructureSchema = [3, n0, _SPRR,
   0,
   [_pN, _sTt, _eT, _cM],
-  [[0, 1], 4, 4, () => ChannelMessages$]
+  [[0, 1], 4, 4, () => ChannelMessages$], 1
 ];
 export var StartPipelineReprocessingResponse$: StaticStructureSchema = [3, n0, _SPRRt,
   0,
@@ -1032,12 +1032,12 @@ export var StartPipelineReprocessingResponse$: StaticStructureSchema = [3, n0, _
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAe, _ta],
-  [[0, { [_hQ]: _rAe }], () => TagList]
+  [[0, { [_hQ]: _rAe }], () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1053,17 +1053,17 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimestampPartition$: StaticStructureSchema = [3, n0, _TP,
   0,
   [_aNt, _tF],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TriggeringDataset$: StaticStructureSchema = [3, n0, _TD,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
-  [[0, { [_hQ]: _rAe }], [64 | 0, { [_hQ]: _tK }]]
+  [[0, { [_hQ]: _rAe }], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1073,27 +1073,27 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_cN, _cS, _rP],
-  [[0, 1], () => ChannelStorage$, () => RetentionPeriod$]
+  [[0, 1], () => ChannelStorage$, () => RetentionPeriod$], 1
 ];
 export var UpdateDatasetRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_dN, _ac, _tr, _cDR, _rP, _vC, _lDR],
-  [[0, 1], () => DatasetActions, () => DatasetTriggers, () => DatasetContentDeliveryRules, () => RetentionPeriod$, () => VersioningConfiguration$, () => LateDataRules]
+  [[0, 1], () => DatasetActions, () => DatasetTriggers, () => DatasetContentDeliveryRules, () => RetentionPeriod$, () => VersioningConfiguration$, () => LateDataRules], 2
 ];
 export var UpdateDatastoreRequest$: StaticStructureSchema = [3, n0, _UDRp,
   0,
   [_dNa, _rP, _dS, _fFC],
-  [[0, 1], () => RetentionPeriod$, () => DatastoreStorage$, () => FileFormatConfiguration$]
+  [[0, 1], () => RetentionPeriod$, () => DatastoreStorage$, () => FileFormatConfiguration$], 1
 ];
 export var UpdatePipelineRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_pN, _pA],
-  [[0, 1], () => PipelineActivities]
+  [[0, 1], () => PipelineActivities], 2
 ];
 export var Variable$: StaticStructureSchema = [3, n0, _V,
   0,
   [_n, _sV, _dV, _dCVV, _oFUV],
-  [0, 0, 1, () => DatasetContentVersionValue$, () => OutputFileUriValue$]
+  [0, 0, 1, () => DatasetContentVersionValue$, () => OutputFileUriValue$], 1
 ];
 export var VersioningConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,

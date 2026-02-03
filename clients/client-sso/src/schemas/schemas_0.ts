@@ -80,7 +80,7 @@ export var AccountInfo$: StaticStructureSchema = [3, n0, _AI,
 export var GetRoleCredentialsRequest$: StaticStructureSchema = [3, n0, _GRCR,
   0,
   [_rN, _aI, _aT],
-  [[0, { [_hQ]: _rn }], [0, { [_hQ]: _ai }], [() => AccessTokenType, { [_hH]: _xasbt }]]
+  [[0, { [_hQ]: _rn }], [0, { [_hQ]: _ai }], [() => AccessTokenType, { [_hH]: _xasbt }]], 3
 ];
 export var GetRoleCredentialsResponse$: StaticStructureSchema = [3, n0, _GRCRe,
   0,
@@ -95,8 +95,8 @@ export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
 TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListAccountRolesRequest$: StaticStructureSchema = [3, n0, _LARR,
   0,
-  [_nT, _mR, _aT, _aI],
-  [[0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }], [() => AccessTokenType, { [_hH]: _xasbt }], [0, { [_hQ]: _ai }]]
+  [_aT, _aI, _nT, _mR],
+  [[() => AccessTokenType, { [_hH]: _xasbt }], [0, { [_hQ]: _ai }], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]], 2
 ];
 export var ListAccountRolesResponse$: StaticStructureSchema = [3, n0, _LARRi,
   0,
@@ -105,8 +105,8 @@ export var ListAccountRolesResponse$: StaticStructureSchema = [3, n0, _LARRi,
 ];
 export var ListAccountsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
-  [_nT, _mR, _aT],
-  [[0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }], [() => AccessTokenType, { [_hH]: _xasbt }]]
+  [_aT, _nT, _mR],
+  [[() => AccessTokenType, { [_hH]: _xasbt }], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]], 1
 ];
 export var ListAccountsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -116,7 +116,7 @@ export var ListAccountsResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var LogoutRequest$: StaticStructureSchema = [3, n0, _LR,
   0,
   [_aT],
-  [[() => AccessTokenType, { [_hH]: _xasbt }]]
+  [[() => AccessTokenType, { [_hH]: _xasbt }]], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },

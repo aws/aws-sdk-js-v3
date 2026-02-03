@@ -631,8 +631,8 @@ export var CPU$: StaticStructureSchema = [3, n0, _CPU,
 ];
 export var CreateDevicePoolRequest$: StaticStructureSchema = [3, n0, _CDPR,
   0,
-  [_pA, _n, _d, _r, _mD],
-  [0, 0, 0, () => Rules, 1]
+  [_pA, _n, _r, _d, _mD],
+  [0, 0, () => Rules, 0, 1], 3
 ];
 export var CreateDevicePoolResult$: StaticStructureSchema = [3, n0, _CDPRr,
   0,
@@ -642,7 +642,7 @@ export var CreateDevicePoolResult$: StaticStructureSchema = [3, n0, _CDPRr,
 export var CreateInstanceProfileRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
   [_n, _d, _pC, _eAPFC, _rAU],
-  [0, 0, 2, 64 | 0, 2]
+  [0, 0, 2, 64 | 0, 2], 1
 ];
 export var CreateInstanceProfileResult$: StaticStructureSchema = [3, n0, _CIPRr,
   0,
@@ -652,7 +652,7 @@ export var CreateInstanceProfileResult$: StaticStructureSchema = [3, n0, _CIPRr,
 export var CreateNetworkProfileRequest$: StaticStructureSchema = [3, n0, _CNPR,
   0,
   [_pA, _n, _d, _t, _uBB, _dBB, _uDM, _dDM, _uJM, _dJM, _uLP, _dLP],
-  [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+  [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1], 2
 ];
 export var CreateNetworkProfileResult$: StaticStructureSchema = [3, n0, _CNPRr,
   0,
@@ -662,7 +662,7 @@ export var CreateNetworkProfileResult$: StaticStructureSchema = [3, n0, _CNPRr,
 export var CreateProjectRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_n, _dJTM, _vC, _eV, _eRA],
-  [0, 1, () => VpcConfig$, () => EnvironmentVariables, 0]
+  [0, 1, () => VpcConfig$, () => EnvironmentVariables, 0], 1
 ];
 export var CreateProjectResult$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -677,7 +677,7 @@ export var CreateRemoteAccessSessionConfiguration$: StaticStructureSchema = [3, 
 export var CreateRemoteAccessSessionRequest$: StaticStructureSchema = [3, n0, _CRASR,
   0,
   [_pA, _dA, _aAp, _iA, _n, _co, _iM, _sAR],
-  [0, 0, 0, 0, 0, () => CreateRemoteAccessSessionConfiguration$, 0, 2]
+  [0, 0, 0, 0, 0, () => CreateRemoteAccessSessionConfiguration$, 0, 2], 2
 ];
 export var CreateRemoteAccessSessionResult$: StaticStructureSchema = [3, n0, _CRASRr,
   0,
@@ -687,7 +687,7 @@ export var CreateRemoteAccessSessionResult$: StaticStructureSchema = [3, n0, _CR
 export var CreateTestGridProjectRequest$: StaticStructureSchema = [3, n0, _CTGPR,
   0,
   [_n, _d, _vC],
-  [0, 0, () => TestGridVpcConfig$]
+  [0, 0, () => TestGridVpcConfig$], 1
 ];
 export var CreateTestGridProjectResult$: StaticStructureSchema = [3, n0, _CTGPRr,
   0,
@@ -697,7 +697,7 @@ export var CreateTestGridProjectResult$: StaticStructureSchema = [3, n0, _CTGPRr
 export var CreateTestGridUrlRequest$: StaticStructureSchema = [3, n0, _CTGUR,
   0,
   [_pA, _eIS],
-  [0, 1]
+  [0, 1], 2
 ];
 export var CreateTestGridUrlResult$: StaticStructureSchema = [3, n0, _CTGURr,
   0,
@@ -707,7 +707,7 @@ export var CreateTestGridUrlResult$: StaticStructureSchema = [3, n0, _CTGURr,
 export var CreateUploadRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
   [_pA, _n, _t, _cT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var CreateUploadResult$: StaticStructureSchema = [3, n0, _CURr,
   0,
@@ -717,7 +717,7 @@ export var CreateUploadResult$: StaticStructureSchema = [3, n0, _CURr,
 export var CreateVPCEConfigurationRequest$: StaticStructureSchema = [3, n0, _CVPCECR,
   0,
   [_vCN, _vSN, _sDN, _vCD],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var CreateVPCEConfigurationResult$: StaticStructureSchema = [3, n0, _CVPCECRr,
   0,
@@ -732,7 +732,7 @@ export var CustomerArtifactPaths$: StaticStructureSchema = [3, n0, _CAP,
 export var DeleteDevicePoolRequest$: StaticStructureSchema = [3, n0, _DDPR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteDevicePoolResult$: StaticStructureSchema = [3, n0, _DDPRe,
   0,
@@ -742,7 +742,7 @@ export var DeleteDevicePoolResult$: StaticStructureSchema = [3, n0, _DDPRe,
 export var DeleteInstanceProfileRequest$: StaticStructureSchema = [3, n0, _DIPR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteInstanceProfileResult$: StaticStructureSchema = [3, n0, _DIPRe,
   0,
@@ -752,7 +752,7 @@ export var DeleteInstanceProfileResult$: StaticStructureSchema = [3, n0, _DIPRe,
 export var DeleteNetworkProfileRequest$: StaticStructureSchema = [3, n0, _DNPR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteNetworkProfileResult$: StaticStructureSchema = [3, n0, _DNPRe,
   0,
@@ -762,7 +762,7 @@ export var DeleteNetworkProfileResult$: StaticStructureSchema = [3, n0, _DNPRe,
 export var DeleteProjectRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteProjectResult$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -772,7 +772,7 @@ export var DeleteProjectResult$: StaticStructureSchema = [3, n0, _DPRe,
 export var DeleteRemoteAccessSessionRequest$: StaticStructureSchema = [3, n0, _DRASR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteRemoteAccessSessionResult$: StaticStructureSchema = [3, n0, _DRASRe,
   0,
@@ -782,7 +782,7 @@ export var DeleteRemoteAccessSessionResult$: StaticStructureSchema = [3, n0, _DR
 export var DeleteRunRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteRunResult$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -792,7 +792,7 @@ export var DeleteRunResult$: StaticStructureSchema = [3, n0, _DRRe,
 export var DeleteTestGridProjectRequest$: StaticStructureSchema = [3, n0, _DTGPR,
   0,
   [_pA],
-  [0]
+  [0], 1
 ];
 export var DeleteTestGridProjectResult$: StaticStructureSchema = [3, n0, _DTGPRe,
   0,
@@ -802,7 +802,7 @@ export var DeleteTestGridProjectResult$: StaticStructureSchema = [3, n0, _DTGPRe
 export var DeleteUploadRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteUploadResult$: StaticStructureSchema = [3, n0, _DURe,
   0,
@@ -812,7 +812,7 @@ export var DeleteUploadResult$: StaticStructureSchema = [3, n0, _DURe,
 export var DeleteVPCEConfigurationRequest$: StaticStructureSchema = [3, n0, _DVPCECR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteVPCEConfigurationResult$: StaticStructureSchema = [3, n0, _DVPCECRe,
   0,
@@ -827,7 +827,7 @@ export var Device$: StaticStructureSchema = [3, n0, _D,
 export var DeviceFilter$: StaticStructureSchema = [3, n0, _DF,
   0,
   [_at, _op, _v],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var DeviceInstance$: StaticStructureSchema = [3, n0, _DI,
   0,
@@ -852,12 +852,12 @@ export var DevicePoolCompatibilityResult$: StaticStructureSchema = [3, n0, _DPCR
 export var DeviceProxy$: StaticStructureSchema = [3, n0, _DPe,
   0,
   [_h, _po],
-  [0, 1]
+  [0, 1], 2
 ];
 export var DeviceSelectionConfiguration$: StaticStructureSchema = [3, n0, _DSC,
   0,
   [_fi, _mD],
-  [() => DeviceFilters, 1]
+  [() => DeviceFilters, 1], 2
 ];
 export var DeviceSelectionResult$: StaticStructureSchema = [3, n0, _DSR,
   0,
@@ -867,7 +867,7 @@ export var DeviceSelectionResult$: StaticStructureSchema = [3, n0, _DSR,
 export var EnvironmentVariable$: StaticStructureSchema = [3, n0, _EV,
   0,
   [_n, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ExecutionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -887,7 +887,7 @@ export var GetAccountSettingsResult$: StaticStructureSchema = [3, n0, _GASRe,
 export var GetDeviceInstanceRequest$: StaticStructureSchema = [3, n0, _GDIR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetDeviceInstanceResult$: StaticStructureSchema = [3, n0, _GDIRe,
   0,
@@ -897,7 +897,7 @@ export var GetDeviceInstanceResult$: StaticStructureSchema = [3, n0, _GDIRe,
 export var GetDevicePoolCompatibilityRequest$: StaticStructureSchema = [3, n0, _GDPCR,
   0,
   [_dPA, _aAp, _tT, _te, _co, _pA],
-  [0, 0, 0, () => ScheduleRunTest$, () => ScheduleRunConfiguration$, 0]
+  [0, 0, 0, () => ScheduleRunTest$, () => ScheduleRunConfiguration$, 0], 1
 ];
 export var GetDevicePoolCompatibilityResult$: StaticStructureSchema = [3, n0, _GDPCRe,
   0,
@@ -907,7 +907,7 @@ export var GetDevicePoolCompatibilityResult$: StaticStructureSchema = [3, n0, _G
 export var GetDevicePoolRequest$: StaticStructureSchema = [3, n0, _GDPR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetDevicePoolResult$: StaticStructureSchema = [3, n0, _GDPRe,
   0,
@@ -917,7 +917,7 @@ export var GetDevicePoolResult$: StaticStructureSchema = [3, n0, _GDPRe,
 export var GetDeviceRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetDeviceResult$: StaticStructureSchema = [3, n0, _GDRe,
   0,
@@ -927,7 +927,7 @@ export var GetDeviceResult$: StaticStructureSchema = [3, n0, _GDRe,
 export var GetInstanceProfileRequest$: StaticStructureSchema = [3, n0, _GIPR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetInstanceProfileResult$: StaticStructureSchema = [3, n0, _GIPRe,
   0,
@@ -937,7 +937,7 @@ export var GetInstanceProfileResult$: StaticStructureSchema = [3, n0, _GIPRe,
 export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetJobResult$: StaticStructureSchema = [3, n0, _GJRe,
   0,
@@ -947,7 +947,7 @@ export var GetJobResult$: StaticStructureSchema = [3, n0, _GJRe,
 export var GetNetworkProfileRequest$: StaticStructureSchema = [3, n0, _GNPR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetNetworkProfileResult$: StaticStructureSchema = [3, n0, _GNPRe,
   0,
@@ -967,7 +967,7 @@ export var GetOfferingStatusResult$: StaticStructureSchema = [3, n0, _GOSRe,
 export var GetProjectRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetProjectResult$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -977,7 +977,7 @@ export var GetProjectResult$: StaticStructureSchema = [3, n0, _GPRe,
 export var GetRemoteAccessSessionRequest$: StaticStructureSchema = [3, n0, _GRASR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetRemoteAccessSessionResult$: StaticStructureSchema = [3, n0, _GRASRe,
   0,
@@ -987,7 +987,7 @@ export var GetRemoteAccessSessionResult$: StaticStructureSchema = [3, n0, _GRASR
 export var GetRunRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetRunResult$: StaticStructureSchema = [3, n0, _GRRe,
   0,
@@ -997,7 +997,7 @@ export var GetRunResult$: StaticStructureSchema = [3, n0, _GRRe,
 export var GetSuiteRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetSuiteResult$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -1007,7 +1007,7 @@ export var GetSuiteResult$: StaticStructureSchema = [3, n0, _GSRe,
 export var GetTestGridProjectRequest$: StaticStructureSchema = [3, n0, _GTGPR,
   0,
   [_pA],
-  [0]
+  [0], 1
 ];
 export var GetTestGridProjectResult$: StaticStructureSchema = [3, n0, _GTGPRe,
   0,
@@ -1027,7 +1027,7 @@ export var GetTestGridSessionResult$: StaticStructureSchema = [3, n0, _GTGSRe,
 export var GetTestRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetTestResult$: StaticStructureSchema = [3, n0, _GTRe,
   0,
@@ -1037,7 +1037,7 @@ export var GetTestResult$: StaticStructureSchema = [3, n0, _GTRe,
 export var GetUploadRequest$: StaticStructureSchema = [3, n0, _GUR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetUploadResult$: StaticStructureSchema = [3, n0, _GURe,
   0,
@@ -1047,7 +1047,7 @@ export var GetUploadResult$: StaticStructureSchema = [3, n0, _GURe,
 export var GetVPCEConfigurationRequest$: StaticStructureSchema = [3, n0, _GVPCECR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetVPCEConfigurationResult$: StaticStructureSchema = [3, n0, _GVPCECRe,
   0,
@@ -1068,7 +1068,7 @@ export var IncompatibilityMessage$: StaticStructureSchema = [3, n0, _IM,
 export var InstallToRemoteAccessSessionRequest$: StaticStructureSchema = [3, n0, _ITRASR,
   0,
   [_rASA, _aAp],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InstallToRemoteAccessSessionResult$: StaticStructureSchema = [3, n0, _ITRASRn,
   0,
@@ -1106,7 +1106,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListArtifactsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_a, _t, _nT],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ListArtifactsResult$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -1126,7 +1126,7 @@ export var ListDeviceInstancesResult$: StaticStructureSchema = [3, n0, _LDIRi,
 export var ListDevicePoolsRequest$: StaticStructureSchema = [3, n0, _LDPR,
   0,
   [_a, _t, _nT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ListDevicePoolsResult$: StaticStructureSchema = [3, n0, _LDPRi,
   0,
@@ -1156,7 +1156,7 @@ export var ListInstanceProfilesResult$: StaticStructureSchema = [3, n0, _LIPRi,
 export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
   0,
   [_a, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListJobsResult$: StaticStructureSchema = [3, n0, _LJRi,
   0,
@@ -1166,7 +1166,7 @@ export var ListJobsResult$: StaticStructureSchema = [3, n0, _LJRi,
 export var ListNetworkProfilesRequest$: StaticStructureSchema = [3, n0, _LNPR,
   0,
   [_a, _t, _nT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ListNetworkProfilesResult$: StaticStructureSchema = [3, n0, _LNPRi,
   0,
@@ -1216,7 +1216,7 @@ export var ListProjectsResult$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListRemoteAccessSessionsRequest$: StaticStructureSchema = [3, n0, _LRASR,
   0,
   [_a, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListRemoteAccessSessionsResult$: StaticStructureSchema = [3, n0, _LRASRi,
   0,
@@ -1226,7 +1226,7 @@ export var ListRemoteAccessSessionsResult$: StaticStructureSchema = [3, n0, _LRA
 export var ListRunsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_a, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListRunsResult$: StaticStructureSchema = [3, n0, _LRRi,
   0,
@@ -1236,7 +1236,7 @@ export var ListRunsResult$: StaticStructureSchema = [3, n0, _LRRi,
 export var ListSamplesRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_a, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListSamplesResult$: StaticStructureSchema = [3, n0, _LSRi,
   0,
@@ -1246,7 +1246,7 @@ export var ListSamplesResult$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListSuitesRequest$: StaticStructureSchema = [3, n0, _LSRis,
   0,
   [_a, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListSuitesResult$: StaticStructureSchema = [3, n0, _LSRist,
   0,
@@ -1256,7 +1256,7 @@ export var ListSuitesResult$: StaticStructureSchema = [3, n0, _LSRist,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1276,7 +1276,7 @@ export var ListTestGridProjectsResult$: StaticStructureSchema = [3, n0, _LTGPRi,
 export var ListTestGridSessionActionsRequest$: StaticStructureSchema = [3, n0, _LTGSAR,
   0,
   [_sA, _mRa, _nT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListTestGridSessionActionsResult$: StaticStructureSchema = [3, n0, _LTGSARi,
   0,
@@ -1286,7 +1286,7 @@ export var ListTestGridSessionActionsResult$: StaticStructureSchema = [3, n0, _L
 export var ListTestGridSessionArtifactsRequest$: StaticStructureSchema = [3, n0, _LTGSARis,
   0,
   [_sA, _t, _mRa, _nT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListTestGridSessionArtifactsResult$: StaticStructureSchema = [3, n0, _LTGSARist,
   0,
@@ -1296,7 +1296,7 @@ export var ListTestGridSessionArtifactsResult$: StaticStructureSchema = [3, n0, 
 export var ListTestGridSessionsRequest$: StaticStructureSchema = [3, n0, _LTGSR,
   0,
   [_pA, _st, _cTA, _cTB, _eTA, _eTB, _mRa, _nT],
-  [0, 0, 4, 4, 4, 4, 1, 0]
+  [0, 0, 4, 4, 4, 4, 1, 0], 1
 ];
 export var ListTestGridSessionsResult$: StaticStructureSchema = [3, n0, _LTGSRi,
   0,
@@ -1306,7 +1306,7 @@ export var ListTestGridSessionsResult$: StaticStructureSchema = [3, n0, _LTGSRi,
 export var ListTestsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_a, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListTestsResult$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -1316,7 +1316,7 @@ export var ListTestsResult$: StaticStructureSchema = [3, n0, _LTRi,
 export var ListUniqueProblemsRequest$: StaticStructureSchema = [3, n0, _LUPR,
   0,
   [_a, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListUniqueProblemsResult$: StaticStructureSchema = [3, n0, _LUPRi,
   0,
@@ -1326,7 +1326,7 @@ export var ListUniqueProblemsResult$: StaticStructureSchema = [3, n0, _LUPRi,
 export var ListUploadsRequest$: StaticStructureSchema = [3, n0, _LUR,
   0,
   [_a, _t, _nT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ListUploadsResult$: StaticStructureSchema = [3, n0, _LURi,
   0,
@@ -1346,7 +1346,7 @@ export var ListVPCEConfigurationsResult$: StaticStructureSchema = [3, n0, _LVPCE
 export var Location$: StaticStructureSchema = [3, n0, _L,
   0,
   [_la, _lo],
-  [1, 1]
+  [1, 1], 2
 ];
 export var MonetaryAmount$: StaticStructureSchema = [3, n0, _MA,
   0,
@@ -1408,7 +1408,7 @@ export var Project$: StaticStructureSchema = [3, n0, _Pr,
 export var PurchaseOfferingRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
   [_oI, _q, _oPI],
-  [0, 1, 0]
+  [0, 1, 0], 2
 ];
 export var PurchaseOfferingResult$: StaticStructureSchema = [3, n0, _PORu,
   0,
@@ -1438,7 +1438,7 @@ export var RemoteAccessSession$: StaticStructureSchema = [3, n0, _RAS,
 export var RenewOfferingRequest$: StaticStructureSchema = [3, n0, _ROR,
   0,
   [_oI, _q],
-  [0, 1]
+  [0, 1], 2
 ];
 export var RenewOfferingResult$: StaticStructureSchema = [3, n0, _RORe,
   0,
@@ -1472,8 +1472,8 @@ export var ScheduleRunConfiguration$: StaticStructureSchema = [3, n0, _SRC,
 ];
 export var ScheduleRunRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
-  [_pA, _aAp, _dPA, _dSC, _n, _te, _co, _eCx],
-  [0, 0, 0, () => DeviceSelectionConfiguration$, 0, () => ScheduleRunTest$, () => ScheduleRunConfiguration$, () => ExecutionConfiguration$]
+  [_pA, _te, _aAp, _dPA, _dSC, _n, _co, _eCx],
+  [0, () => ScheduleRunTest$, 0, 0, () => DeviceSelectionConfiguration$, 0, () => ScheduleRunConfiguration$, () => ExecutionConfiguration$], 2
 ];
 export var ScheduleRunResult$: StaticStructureSchema = [3, n0, _SRRc,
   0,
@@ -1483,7 +1483,7 @@ export var ScheduleRunResult$: StaticStructureSchema = [3, n0, _SRRc,
 export var ScheduleRunTest$: StaticStructureSchema = [3, n0, _SRT,
   0,
   [_t, _tPA, _tSA, _fil, _pa],
-  [0, 0, 0, 0, 128 | 0]
+  [0, 0, 0, 0, 128 | 0], 1
 ];
 export var ServiceAccountException$: StaticErrorSchema = [-3, n0, _SAE,
   { [_e]: _c },
@@ -1494,7 +1494,7 @@ TypeRegistry.for(n0).registerError(ServiceAccountException$, ServiceAccountExcep
 export var StopJobRequest$: StaticStructureSchema = [3, n0, _SJR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var StopJobResult$: StaticStructureSchema = [3, n0, _SJRt,
   0,
@@ -1504,7 +1504,7 @@ export var StopJobResult$: StaticStructureSchema = [3, n0, _SJRt,
 export var StopRemoteAccessSessionRequest$: StaticStructureSchema = [3, n0, _SRASR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var StopRemoteAccessSessionResult$: StaticStructureSchema = [3, n0, _SRASRt,
   0,
@@ -1514,7 +1514,7 @@ export var StopRemoteAccessSessionResult$: StaticStructureSchema = [3, n0, _SRAS
 export var StopRunRequest$: StaticStructureSchema = [3, n0, _SRRt,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var StopRunResult$: StaticStructureSchema = [3, n0, _SRRto,
   0,
@@ -1529,7 +1529,7 @@ export var Suite$: StaticStructureSchema = [3, n0, _Su,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagOperationException$: StaticErrorSchema = [-3, n0, _TOE,
   { [_e]: _c, [_hE]: 400 },
@@ -1546,7 +1546,7 @@ TypeRegistry.for(n0).registerError(TagPolicyException$, TagPolicyException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1581,7 +1581,7 @@ export var TestGridSessionArtifact$: StaticStructureSchema = [3, n0, _TGSAe,
 export var TestGridVpcConfig$: StaticStructureSchema = [3, n0, _TGVC,
   0,
   [_sGI, _sIu, _vI],
-  [64 | 0, 64 | 0, 0]
+  [64 | 0, 64 | 0, 0], 3
 ];
 export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
   { [_e]: _c, [_hE]: 400 },
@@ -1602,7 +1602,7 @@ export var UniqueProblem$: StaticStructureSchema = [3, n0, _UP,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1612,7 +1612,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDeviceInstanceRequest$: StaticStructureSchema = [3, n0, _UDIR,
   0,
   [_a, _pAr, _l],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 1
 ];
 export var UpdateDeviceInstanceResult$: StaticStructureSchema = [3, n0, _UDIRp,
   0,
@@ -1622,7 +1622,7 @@ export var UpdateDeviceInstanceResult$: StaticStructureSchema = [3, n0, _UDIRp,
 export var UpdateDevicePoolRequest$: StaticStructureSchema = [3, n0, _UDPR,
   0,
   [_a, _n, _d, _r, _mD, _cMD],
-  [0, 0, 0, () => Rules, 1, 2]
+  [0, 0, 0, () => Rules, 1, 2], 1
 ];
 export var UpdateDevicePoolResult$: StaticStructureSchema = [3, n0, _UDPRp,
   0,
@@ -1632,7 +1632,7 @@ export var UpdateDevicePoolResult$: StaticStructureSchema = [3, n0, _UDPRp,
 export var UpdateInstanceProfileRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
   [_a, _n, _d, _pC, _eAPFC, _rAU],
-  [0, 0, 0, 2, 64 | 0, 2]
+  [0, 0, 0, 2, 64 | 0, 2], 1
 ];
 export var UpdateInstanceProfileResult$: StaticStructureSchema = [3, n0, _UIPRp,
   0,
@@ -1642,7 +1642,7 @@ export var UpdateInstanceProfileResult$: StaticStructureSchema = [3, n0, _UIPRp,
 export var UpdateNetworkProfileRequest$: StaticStructureSchema = [3, n0, _UNPR,
   0,
   [_a, _n, _d, _t, _uBB, _dBB, _uDM, _dDM, _uJM, _dJM, _uLP, _dLP],
-  [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+  [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1], 1
 ];
 export var UpdateNetworkProfileResult$: StaticStructureSchema = [3, n0, _UNPRp,
   0,
@@ -1652,7 +1652,7 @@ export var UpdateNetworkProfileResult$: StaticStructureSchema = [3, n0, _UNPRp,
 export var UpdateProjectRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_a, _n, _dJTM, _vC, _eV, _eRA],
-  [0, 0, 1, () => VpcConfig$, () => EnvironmentVariables, 0]
+  [0, 0, 1, () => VpcConfig$, () => EnvironmentVariables, 0], 1
 ];
 export var UpdateProjectResult$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -1662,7 +1662,7 @@ export var UpdateProjectResult$: StaticStructureSchema = [3, n0, _UPRp,
 export var UpdateTestGridProjectRequest$: StaticStructureSchema = [3, n0, _UTGPR,
   0,
   [_pA, _n, _d, _vC],
-  [0, 0, 0, () => TestGridVpcConfig$]
+  [0, 0, 0, () => TestGridVpcConfig$], 1
 ];
 export var UpdateTestGridProjectResult$: StaticStructureSchema = [3, n0, _UTGPRp,
   0,
@@ -1672,7 +1672,7 @@ export var UpdateTestGridProjectResult$: StaticStructureSchema = [3, n0, _UTGPRp
 export var UpdateUploadRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
   [_a, _n, _cT, _eCd],
-  [0, 0, 0, 2]
+  [0, 0, 0, 2], 1
 ];
 export var UpdateUploadResult$: StaticStructureSchema = [3, n0, _UURp,
   0,
@@ -1682,7 +1682,7 @@ export var UpdateUploadResult$: StaticStructureSchema = [3, n0, _UURp,
 export var UpdateVPCEConfigurationRequest$: StaticStructureSchema = [3, n0, _UVPCECR,
   0,
   [_a, _vCN, _vSN, _sDN, _vCD],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 1
 ];
 export var UpdateVPCEConfigurationResult$: StaticStructureSchema = [3, n0, _UVPCECRp,
   0,
@@ -1697,7 +1697,7 @@ export var Upload$: StaticStructureSchema = [3, n0, _U,
 export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_sGI, _sIu, _vI],
-  [64 | 0, 64 | 0, 0]
+  [64 | 0, 64 | 0, 0], 3
 ];
 export var VPCEConfiguration$: StaticStructureSchema = [3, n0, _VPCEC,
   0,

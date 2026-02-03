@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchCreatePartitionCommand,
@@ -1182,6 +1182,56 @@ import {
   UpdateWorkflowCommandOutput,
 } from "./commands/UpdateWorkflowCommand";
 import { GlueClient } from "./GlueClient";
+import { paginateDescribeEntity } from "./pagination/DescribeEntityPaginator";
+import { paginateGetBlueprintRuns } from "./pagination/GetBlueprintRunsPaginator";
+import { paginateGetClassifiers } from "./pagination/GetClassifiersPaginator";
+import { paginateGetColumnStatisticsTaskRuns } from "./pagination/GetColumnStatisticsTaskRunsPaginator";
+import { paginateGetConnections } from "./pagination/GetConnectionsPaginator";
+import { paginateGetCrawlerMetrics } from "./pagination/GetCrawlerMetricsPaginator";
+import { paginateGetCrawlers } from "./pagination/GetCrawlersPaginator";
+import { paginateGetDatabases } from "./pagination/GetDatabasesPaginator";
+import { paginateGetDevEndpoints } from "./pagination/GetDevEndpointsPaginator";
+import { paginateGetJobRuns } from "./pagination/GetJobRunsPaginator";
+import { paginateGetJobs } from "./pagination/GetJobsPaginator";
+import { paginateGetMLTaskRuns } from "./pagination/GetMLTaskRunsPaginator";
+import { paginateGetMLTransforms } from "./pagination/GetMLTransformsPaginator";
+import { paginateGetPartitionIndexes } from "./pagination/GetPartitionIndexesPaginator";
+import { paginateGetPartitions } from "./pagination/GetPartitionsPaginator";
+import { paginateGetResourcePolicies } from "./pagination/GetResourcePoliciesPaginator";
+import { paginateGetSecurityConfigurations } from "./pagination/GetSecurityConfigurationsPaginator";
+import { paginateGetTables } from "./pagination/GetTablesPaginator";
+import { paginateGetTableVersions } from "./pagination/GetTableVersionsPaginator";
+import { paginateGetTriggers } from "./pagination/GetTriggersPaginator";
+import { paginateGetUnfilteredPartitionsMetadata } from "./pagination/GetUnfilteredPartitionsMetadataPaginator";
+import { paginateGetUserDefinedFunctions } from "./pagination/GetUserDefinedFunctionsPaginator";
+import { paginateGetWorkflowRuns } from "./pagination/GetWorkflowRunsPaginator";
+import { paginateListBlueprints } from "./pagination/ListBlueprintsPaginator";
+import { paginateListColumnStatisticsTaskRuns } from "./pagination/ListColumnStatisticsTaskRunsPaginator";
+import { paginateListConnectionTypes } from "./pagination/ListConnectionTypesPaginator";
+import { paginateListCrawlers } from "./pagination/ListCrawlersPaginator";
+import { paginateListCustomEntityTypes } from "./pagination/ListCustomEntityTypesPaginator";
+import { paginateListDataQualityResults } from "./pagination/ListDataQualityResultsPaginator";
+import {
+  paginateListDataQualityRuleRecommendationRuns,
+} from "./pagination/ListDataQualityRuleRecommendationRunsPaginator";
+import {
+  paginateListDataQualityRulesetEvaluationRuns,
+} from "./pagination/ListDataQualityRulesetEvaluationRunsPaginator";
+import { paginateListDataQualityRulesets } from "./pagination/ListDataQualityRulesetsPaginator";
+import { paginateListDevEndpoints } from "./pagination/ListDevEndpointsPaginator";
+import { paginateListEntities } from "./pagination/ListEntitiesPaginator";
+import { paginateListJobs } from "./pagination/ListJobsPaginator";
+import { paginateListMaterializedViewRefreshTaskRuns } from "./pagination/ListMaterializedViewRefreshTaskRunsPaginator";
+import { paginateListMLTransforms } from "./pagination/ListMLTransformsPaginator";
+import { paginateListRegistries } from "./pagination/ListRegistriesPaginator";
+import { paginateListSchemas } from "./pagination/ListSchemasPaginator";
+import { paginateListSchemaVersions } from "./pagination/ListSchemaVersionsPaginator";
+import { paginateListSessions } from "./pagination/ListSessionsPaginator";
+import { paginateListTableOptimizerRuns } from "./pagination/ListTableOptimizerRunsPaginator";
+import { paginateListTriggers } from "./pagination/ListTriggersPaginator";
+import { paginateListUsageProfiles } from "./pagination/ListUsageProfilesPaginator";
+import { paginateListWorkflows } from "./pagination/ListWorkflowsPaginator";
+import { paginateSearchTables } from "./pagination/SearchTablesPaginator";
 
 const commands = {
   BatchCreatePartitionCommand,
@@ -1447,6 +1497,54 @@ const commands = {
   UpdateUsageProfileCommand,
   UpdateUserDefinedFunctionCommand,
   UpdateWorkflowCommand,
+};
+const paginators = {
+  paginateDescribeEntity,
+  paginateGetBlueprintRuns,
+  paginateGetClassifiers,
+  paginateGetColumnStatisticsTaskRuns,
+  paginateGetConnections,
+  paginateGetCrawlerMetrics,
+  paginateGetCrawlers,
+  paginateGetDatabases,
+  paginateGetDevEndpoints,
+  paginateGetJobRuns,
+  paginateGetJobs,
+  paginateGetMLTaskRuns,
+  paginateGetMLTransforms,
+  paginateGetPartitionIndexes,
+  paginateGetPartitions,
+  paginateGetResourcePolicies,
+  paginateGetSecurityConfigurations,
+  paginateGetTables,
+  paginateGetTableVersions,
+  paginateGetTriggers,
+  paginateGetUnfilteredPartitionsMetadata,
+  paginateGetUserDefinedFunctions,
+  paginateGetWorkflowRuns,
+  paginateListBlueprints,
+  paginateListColumnStatisticsTaskRuns,
+  paginateListConnectionTypes,
+  paginateListCrawlers,
+  paginateListCustomEntityTypes,
+  paginateListDataQualityResults,
+  paginateListDataQualityRuleRecommendationRuns,
+  paginateListDataQualityRulesetEvaluationRuns,
+  paginateListDataQualityRulesets,
+  paginateListDevEndpoints,
+  paginateListEntities,
+  paginateListJobs,
+  paginateListMaterializedViewRefreshTaskRuns,
+  paginateListMLTransforms,
+  paginateListRegistries,
+  paginateListSchemas,
+  paginateListSchemaVersions,
+  paginateListSessions,
+  paginateListTableOptimizerRuns,
+  paginateListTriggers,
+  paginateListUsageProfiles,
+  paginateListWorkflows,
+  paginateSearchTables,
 };
 
 export interface Glue {
@@ -5974,6 +6072,512 @@ export interface Glue {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkflowCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeEntityCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEntityCommandOutput}.
+   */
+  paginateDescribeEntity(
+    args: DescribeEntityCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEntityCommandOutput>;
+
+  /**
+   * @see {@link GetBlueprintRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBlueprintRunsCommandOutput}.
+   */
+  paginateGetBlueprintRuns(
+    args: GetBlueprintRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBlueprintRunsCommandOutput>;
+
+  /**
+   * @see {@link GetClassifiersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetClassifiersCommandOutput}.
+   */
+  paginateGetClassifiers(
+    args?: GetClassifiersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetClassifiersCommandOutput>;
+
+  /**
+   * @see {@link GetColumnStatisticsTaskRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetColumnStatisticsTaskRunsCommandOutput}.
+   */
+  paginateGetColumnStatisticsTaskRuns(
+    args: GetColumnStatisticsTaskRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetColumnStatisticsTaskRunsCommandOutput>;
+
+  /**
+   * @see {@link GetConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetConnectionsCommandOutput}.
+   */
+  paginateGetConnections(
+    args?: GetConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetConnectionsCommandOutput>;
+
+  /**
+   * @see {@link GetCrawlerMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCrawlerMetricsCommandOutput}.
+   */
+  paginateGetCrawlerMetrics(
+    args?: GetCrawlerMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCrawlerMetricsCommandOutput>;
+
+  /**
+   * @see {@link GetCrawlersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCrawlersCommandOutput}.
+   */
+  paginateGetCrawlers(
+    args?: GetCrawlersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCrawlersCommandOutput>;
+
+  /**
+   * @see {@link GetDatabasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDatabasesCommandOutput}.
+   */
+  paginateGetDatabases(
+    args?: GetDatabasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDatabasesCommandOutput>;
+
+  /**
+   * @see {@link GetDevEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDevEndpointsCommandOutput}.
+   */
+  paginateGetDevEndpoints(
+    args?: GetDevEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDevEndpointsCommandOutput>;
+
+  /**
+   * @see {@link GetJobRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetJobRunsCommandOutput}.
+   */
+  paginateGetJobRuns(
+    args: GetJobRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetJobRunsCommandOutput>;
+
+  /**
+   * @see {@link GetJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetJobsCommandOutput}.
+   */
+  paginateGetJobs(
+    args?: GetJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetJobsCommandOutput>;
+
+  /**
+   * @see {@link GetMLTaskRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetMLTaskRunsCommandOutput}.
+   */
+  paginateGetMLTaskRuns(
+    args: GetMLTaskRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetMLTaskRunsCommandOutput>;
+
+  /**
+   * @see {@link GetMLTransformsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetMLTransformsCommandOutput}.
+   */
+  paginateGetMLTransforms(
+    args?: GetMLTransformsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetMLTransformsCommandOutput>;
+
+  /**
+   * @see {@link GetPartitionIndexesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetPartitionIndexesCommandOutput}.
+   */
+  paginateGetPartitionIndexes(
+    args: GetPartitionIndexesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetPartitionIndexesCommandOutput>;
+
+  /**
+   * @see {@link GetPartitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetPartitionsCommandOutput}.
+   */
+  paginateGetPartitions(
+    args: GetPartitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetPartitionsCommandOutput>;
+
+  /**
+   * @see {@link GetResourcePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourcePoliciesCommandOutput}.
+   */
+  paginateGetResourcePolicies(
+    args?: GetResourcePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourcePoliciesCommandOutput>;
+
+  /**
+   * @see {@link GetSecurityConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSecurityConfigurationsCommandOutput}.
+   */
+  paginateGetSecurityConfigurations(
+    args?: GetSecurityConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSecurityConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link GetTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTablesCommandOutput}.
+   */
+  paginateGetTables(
+    args: GetTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTablesCommandOutput>;
+
+  /**
+   * @see {@link GetTableVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTableVersionsCommandOutput}.
+   */
+  paginateGetTableVersions(
+    args: GetTableVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTableVersionsCommandOutput>;
+
+  /**
+   * @see {@link GetTriggersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTriggersCommandOutput}.
+   */
+  paginateGetTriggers(
+    args?: GetTriggersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTriggersCommandOutput>;
+
+  /**
+   * @see {@link GetUnfilteredPartitionsMetadataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetUnfilteredPartitionsMetadataCommandOutput}.
+   */
+  paginateGetUnfilteredPartitionsMetadata(
+    args: GetUnfilteredPartitionsMetadataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetUnfilteredPartitionsMetadataCommandOutput>;
+
+  /**
+   * @see {@link GetUserDefinedFunctionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetUserDefinedFunctionsCommandOutput}.
+   */
+  paginateGetUserDefinedFunctions(
+    args: GetUserDefinedFunctionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetUserDefinedFunctionsCommandOutput>;
+
+  /**
+   * @see {@link GetWorkflowRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetWorkflowRunsCommandOutput}.
+   */
+  paginateGetWorkflowRuns(
+    args: GetWorkflowRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetWorkflowRunsCommandOutput>;
+
+  /**
+   * @see {@link ListBlueprintsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBlueprintsCommandOutput}.
+   */
+  paginateListBlueprints(
+    args?: ListBlueprintsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBlueprintsCommandOutput>;
+
+  /**
+   * @see {@link ListColumnStatisticsTaskRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListColumnStatisticsTaskRunsCommandOutput}.
+   */
+  paginateListColumnStatisticsTaskRuns(
+    args?: ListColumnStatisticsTaskRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListColumnStatisticsTaskRunsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectionTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectionTypesCommandOutput}.
+   */
+  paginateListConnectionTypes(
+    args?: ListConnectionTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectionTypesCommandOutput>;
+
+  /**
+   * @see {@link ListCrawlersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCrawlersCommandOutput}.
+   */
+  paginateListCrawlers(
+    args?: ListCrawlersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCrawlersCommandOutput>;
+
+  /**
+   * @see {@link ListCustomEntityTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomEntityTypesCommandOutput}.
+   */
+  paginateListCustomEntityTypes(
+    args?: ListCustomEntityTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomEntityTypesCommandOutput>;
+
+  /**
+   * @see {@link ListDataQualityResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataQualityResultsCommandOutput}.
+   */
+  paginateListDataQualityResults(
+    args?: ListDataQualityResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataQualityResultsCommandOutput>;
+
+  /**
+   * @see {@link ListDataQualityRuleRecommendationRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataQualityRuleRecommendationRunsCommandOutput}.
+   */
+  paginateListDataQualityRuleRecommendationRuns(
+    args?: ListDataQualityRuleRecommendationRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataQualityRuleRecommendationRunsCommandOutput>;
+
+  /**
+   * @see {@link ListDataQualityRulesetEvaluationRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataQualityRulesetEvaluationRunsCommandOutput}.
+   */
+  paginateListDataQualityRulesetEvaluationRuns(
+    args?: ListDataQualityRulesetEvaluationRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataQualityRulesetEvaluationRunsCommandOutput>;
+
+  /**
+   * @see {@link ListDataQualityRulesetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataQualityRulesetsCommandOutput}.
+   */
+  paginateListDataQualityRulesets(
+    args?: ListDataQualityRulesetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataQualityRulesetsCommandOutput>;
+
+  /**
+   * @see {@link ListDevEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDevEndpointsCommandOutput}.
+   */
+  paginateListDevEndpoints(
+    args?: ListDevEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDevEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListEntitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntitiesCommandOutput}.
+   */
+  paginateListEntities(
+    args?: ListEntitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntitiesCommandOutput>;
+
+  /**
+   * @see {@link ListJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobsCommandOutput}.
+   */
+  paginateListJobs(
+    args?: ListJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobsCommandOutput>;
+
+  /**
+   * @see {@link ListMaterializedViewRefreshTaskRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMaterializedViewRefreshTaskRunsCommandOutput}.
+   */
+  paginateListMaterializedViewRefreshTaskRuns(
+    args: ListMaterializedViewRefreshTaskRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMaterializedViewRefreshTaskRunsCommandOutput>;
+
+  /**
+   * @see {@link ListMLTransformsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMLTransformsCommandOutput}.
+   */
+  paginateListMLTransforms(
+    args?: ListMLTransformsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMLTransformsCommandOutput>;
+
+  /**
+   * @see {@link ListRegistriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRegistriesCommandOutput}.
+   */
+  paginateListRegistries(
+    args?: ListRegistriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRegistriesCommandOutput>;
+
+  /**
+   * @see {@link ListSchemasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchemasCommandOutput}.
+   */
+  paginateListSchemas(
+    args?: ListSchemasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchemasCommandOutput>;
+
+  /**
+   * @see {@link ListSchemaVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchemaVersionsCommandOutput}.
+   */
+  paginateListSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchemaVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionsCommandOutput}.
+   */
+  paginateListSessions(
+    args?: ListSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionsCommandOutput>;
+
+  /**
+   * @see {@link ListTableOptimizerRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTableOptimizerRunsCommandOutput}.
+   */
+  paginateListTableOptimizerRuns(
+    args: ListTableOptimizerRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTableOptimizerRunsCommandOutput>;
+
+  /**
+   * @see {@link ListTriggersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTriggersCommandOutput}.
+   */
+  paginateListTriggers(
+    args?: ListTriggersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTriggersCommandOutput>;
+
+  /**
+   * @see {@link ListUsageProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsageProfilesCommandOutput}.
+   */
+  paginateListUsageProfiles(
+    args?: ListUsageProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsageProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowsCommandOutput}.
+   */
+  paginateListWorkflows(
+    args?: ListWorkflowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowsCommandOutput>;
+
+  /**
+   * @see {@link SearchTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchTablesCommandOutput}.
+   */
+  paginateSearchTables(
+    args?: SearchTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchTablesCommandOutput>;
 }
 
 /**
@@ -5982,4 +6586,4 @@ export interface Glue {
  * @public
  */
 export class Glue extends GlueClient implements Glue {}
-createAggregatedClient(commands, Glue);
+createAggregatedClient(commands, Glue, { paginators });

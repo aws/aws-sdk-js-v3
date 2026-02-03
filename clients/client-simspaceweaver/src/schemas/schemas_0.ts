@@ -170,7 +170,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateSnapshotInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_S, _D],
-  [0, () => S3Destination$]
+  [0, () => S3Destination$], 2
 ];
 export var CreateSnapshotOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
@@ -180,7 +180,7 @@ export var CreateSnapshotOutput$: StaticStructureSchema = [3, n0, _CSO,
 export var DeleteAppInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_S, _Do, _A],
-  [[0, { [_hQ]: _s }], [0, { [_hQ]: _d }], [0, { [_hQ]: _a }]]
+  [[0, { [_hQ]: _s }], [0, { [_hQ]: _d }], [0, { [_hQ]: _a }]], 3
 ];
 export var DeleteAppOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
@@ -190,7 +190,7 @@ export var DeleteAppOutput$: StaticStructureSchema = [3, n0, _DAO,
 export var DeleteSimulationInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_S],
-  [[0, { [_hQ]: _s }]]
+  [[0, { [_hQ]: _s }]], 1
 ];
 export var DeleteSimulationOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
@@ -200,7 +200,7 @@ export var DeleteSimulationOutput$: StaticStructureSchema = [3, n0, _DSO,
 export var DescribeAppInput$: StaticStructureSchema = [3, n0, _DAIe,
   0,
   [_S, _Do, _A],
-  [[0, { [_hQ]: _s }], [0, { [_hQ]: _d }], [0, { [_hQ]: _a }]]
+  [[0, { [_hQ]: _s }], [0, { [_hQ]: _d }], [0, { [_hQ]: _a }]], 3
 ];
 export var DescribeAppOutput$: StaticStructureSchema = [3, n0, _DAOe,
   0,
@@ -210,7 +210,7 @@ export var DescribeAppOutput$: StaticStructureSchema = [3, n0, _DAOe,
 export var DescribeSimulationInput$: StaticStructureSchema = [3, n0, _DSIe,
   0,
   [_S],
-  [[0, { [_hQ]: _s }]]
+  [[0, { [_hQ]: _s }]], 1
 ];
 export var DescribeSimulationOutput$: StaticStructureSchema = [3, n0, _DSOe,
   0,
@@ -236,7 +236,7 @@ export var LaunchOverrides$: StaticStructureSchema = [3, n0, _LO,
 export var ListAppsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
   [_S, _Do, _MR, _NT],
-  [[0, { [_hQ]: _s }], [0, { [_hQ]: _d }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, { [_hQ]: _s }], [0, { [_hQ]: _d }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListAppsOutput$: StaticStructureSchema = [3, n0, _LAO,
   0,
@@ -256,7 +256,7 @@ export var ListSimulationsOutput$: StaticStructureSchema = [3, n0, _LSO,
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -287,12 +287,12 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var S3Destination$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_BN, _OKP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_BN, _OK],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
@@ -327,8 +327,8 @@ export var SimulationMetadata$: StaticStructureSchema = [3, n0, _SM,
 ];
 export var StartAppInput$: StaticStructureSchema = [3, n0, _SAI,
   0,
-  [_CT, _S, _Do, _N, _De, _LO],
-  [[() => ClientToken, 4], 0, 0, 0, 0, () => LaunchOverrides$]
+  [_S, _Do, _N, _CT, _De, _LO],
+  [0, 0, 0, [() => ClientToken, 4], 0, () => LaunchOverrides$], 3
 ];
 export var StartAppOutput$: StaticStructureSchema = [3, n0, _SAO,
   0,
@@ -338,7 +338,7 @@ export var StartAppOutput$: StaticStructureSchema = [3, n0, _SAO,
 export var StartClockInput$: StaticStructureSchema = [3, n0, _SCI,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var StartClockOutput$: StaticStructureSchema = [3, n0, _SCO,
   0,
@@ -347,8 +347,8 @@ export var StartClockOutput$: StaticStructureSchema = [3, n0, _SCO,
 ];
 export var StartSimulationInput$: StaticStructureSchema = [3, n0, _SSI,
   0,
-  [_CT, _N, _De, _RA, _SSL, _MD, _T, _SSLn],
-  [[() => ClientToken, 4], 0, 0, 0, () => S3Location$, 0, 128 | 0, () => S3Location$]
+  [_N, _RA, _CT, _De, _SSL, _MD, _T, _SSLn],
+  [0, 0, [() => ClientToken, 4], 0, () => S3Location$, 0, 128 | 0, () => S3Location$], 2
 ];
 export var StartSimulationOutput$: StaticStructureSchema = [3, n0, _SSO,
   0,
@@ -358,7 +358,7 @@ export var StartSimulationOutput$: StaticStructureSchema = [3, n0, _SSO,
 export var StopAppInput$: StaticStructureSchema = [3, n0, _SAIt,
   0,
   [_S, _Do, _A],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var StopAppOutput$: StaticStructureSchema = [3, n0, _SAOt,
   0,
@@ -368,7 +368,7 @@ export var StopAppOutput$: StaticStructureSchema = [3, n0, _SAOt,
 export var StopClockInput$: StaticStructureSchema = [3, n0, _SCIt,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var StopClockOutput$: StaticStructureSchema = [3, n0, _SCOt,
   0,
@@ -378,7 +378,7 @@ export var StopClockOutput$: StaticStructureSchema = [3, n0, _SCOt,
 export var StopSimulationInput$: StaticStructureSchema = [3, n0, _SSIt,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var StopSimulationOutput$: StaticStructureSchema = [3, n0, _SSOt,
   0,
@@ -388,7 +388,7 @@ export var StopSimulationOutput$: StaticStructureSchema = [3, n0, _SSOt,
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RAe, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -404,7 +404,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RAe, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,

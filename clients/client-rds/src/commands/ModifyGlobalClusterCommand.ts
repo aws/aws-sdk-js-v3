@@ -27,13 +27,7 @@ export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMess
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Modifies a setting for an Amazon Aurora global database cluster. You can change one or more database configuration
- *         parameters by specifying these parameters and the new values in the request. For more information on
- *         Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
- *         <i>Amazon Aurora User Guide</i>.</p>
- *          <note>
- *             <p>This operation only applies to Aurora global database clusters.</p>
- *          </note>
+ * <p>Modifies a setting for an Amazon Aurora global database cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation only applies to Aurora global database clusters.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,8 +93,7 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link GlobalClusterAlreadyExistsFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier
- *         (unique name) to create a new global database cluster or to rename an existing one.</p>
+ *  <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier (unique name) to create a new global database cluster or to rename an existing one.</p>
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>

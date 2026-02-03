@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   CancelContactCommand,
@@ -166,6 +172,14 @@ import {
   UpdateMissionProfileCommandOutput,
 } from "./commands/UpdateMissionProfileCommand";
 import { GroundStationClient } from "./GroundStationClient";
+import { paginateListConfigs } from "./pagination/ListConfigsPaginator";
+import { paginateListContacts } from "./pagination/ListContactsPaginator";
+import { paginateListDataflowEndpointGroups } from "./pagination/ListDataflowEndpointGroupsPaginator";
+import { paginateListEphemerides } from "./pagination/ListEphemeridesPaginator";
+import { paginateListGroundStations } from "./pagination/ListGroundStationsPaginator";
+import { paginateListMissionProfiles } from "./pagination/ListMissionProfilesPaginator";
+import { paginateListSatellites } from "./pagination/ListSatellitesPaginator";
+import { waitUntilContactScheduled } from "./waiters/waitForContactScheduled";
 
 const commands = {
   CancelContactCommand,
@@ -203,6 +217,18 @@ const commands = {
   UpdateConfigCommand,
   UpdateEphemerisCommand,
   UpdateMissionProfileCommand,
+};
+const paginators = {
+  paginateListConfigs,
+  paginateListContacts,
+  paginateListDataflowEndpointGroups,
+  paginateListEphemerides,
+  paginateListGroundStations,
+  paginateListMissionProfiles,
+  paginateListSatellites,
+};
+const waiters = {
+  waitUntilContactScheduled,
 };
 
 export interface GroundStation {
@@ -805,6 +831,93 @@ export interface GroundStation {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMissionProfileCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListConfigsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigsCommandOutput}.
+   */
+  paginateListConfigs(
+    args?: ListConfigsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigsCommandOutput>;
+
+  /**
+   * @see {@link ListContactsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListContactsCommandOutput}.
+   */
+  paginateListContacts(
+    args: ListContactsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListContactsCommandOutput>;
+
+  /**
+   * @see {@link ListDataflowEndpointGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataflowEndpointGroupsCommandOutput}.
+   */
+  paginateListDataflowEndpointGroups(
+    args?: ListDataflowEndpointGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataflowEndpointGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListEphemeridesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEphemeridesCommandOutput}.
+   */
+  paginateListEphemerides(
+    args: ListEphemeridesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEphemeridesCommandOutput>;
+
+  /**
+   * @see {@link ListGroundStationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroundStationsCommandOutput}.
+   */
+  paginateListGroundStations(
+    args?: ListGroundStationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroundStationsCommandOutput>;
+
+  /**
+   * @see {@link ListMissionProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMissionProfilesCommandOutput}.
+   */
+  paginateListMissionProfiles(
+    args?: ListMissionProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMissionProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListSatellitesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSatellitesCommandOutput}.
+   */
+  paginateListSatellites(
+    args?: ListSatellitesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSatellitesCommandOutput>;
+
+  /**
+   * @see {@link DescribeContactCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilContactScheduled(
+    args: DescribeContactCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<GroundStation>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -812,4 +925,4 @@ export interface GroundStation {
  * @public
  */
 export class GroundStation extends GroundStationClient implements GroundStation {}
-createAggregatedClient(commands, GroundStation);
+createAggregatedClient(commands, GroundStation, { paginators, waiters });

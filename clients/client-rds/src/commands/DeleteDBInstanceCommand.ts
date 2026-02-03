@@ -27,29 +27,7 @@ export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a previously provisioned DB instance.
- *           When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
- *           However, manual DB snapshots of the DB instance aren't deleted.</p>
- *          <p>If you request a final DB snapshot, the status of the Amazon RDS DB instance is <code>deleting</code> until the DB snapshot is created.
- *         This operation can't be canceled or reverted after it begins. To monitor the status of this operation, use <code>DescribeDBInstance</code>.</p>
- *          <p>When a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>,
- *           or <code>incompatible-network</code>, you can only delete it when you skip creation of the final snapshot with the <code>SkipFinalSnapshot</code> parameter.</p>
- *          <p>If the specified DB instance is part of an Amazon Aurora DB cluster, you can't delete the DB instance if both of the following
- *       conditions are true:</p>
- *          <ul>
- *             <li>
- *                <p>The DB cluster is a read replica of another Amazon Aurora DB cluster.</p>
- *             </li>
- *             <li>
- *                <p>The DB instance is the only instance in the DB cluster.</p>
- *             </li>
- *          </ul>
- *          <p>To delete a DB instance in this case, first use the <code>PromoteReadReplicaDBCluster</code> operation to promote the DB cluster so that it's no longer a read replica.
- *         After the promotion completes, use the <code>DeleteDBInstance</code> operation to delete the final instance in the DB cluster.</p>
- *          <important>
- *             <p>For RDS Custom DB instances, deleting the DB instance permanently deletes the EC2 instance and the associated EBS volumes. Make sure that you don't terminate or delete
- *         these resources before you delete the DB instance. Otherwise, deleting the DB instance and creation of the final snapshot might fail.</p>
- *          </important>
+ * <p>Deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered. However, manual DB snapshots of the DB instance aren't deleted.</p> <p>If you request a final DB snapshot, the status of the Amazon RDS DB instance is <code>deleting</code> until the DB snapshot is created. This operation can't be canceled or reverted after it begins. To monitor the status of this operation, use <code>DescribeDBInstance</code>.</p> <p>When a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can only delete it when you skip creation of the final snapshot with the <code>SkipFinalSnapshot</code> parameter.</p> <p>If the specified DB instance is part of an Amazon Aurora DB cluster, you can't delete the DB instance if both of the following conditions are true:</p> <ul> <li> <p>The DB cluster is a read replica of another Amazon Aurora DB cluster.</p> </li> <li> <p>The DB instance is the only instance in the DB cluster.</p> </li> </ul> <p>To delete a DB instance in this case, first use the <code>PromoteReadReplicaDBCluster</code> operation to promote the DB cluster so that it's no longer a read replica. After the promotion completes, use the <code>DeleteDBInstance</code> operation to delete the final instance in the DB cluster.</p> <important> <p>For RDS Custom DB instances, deleting the DB instance permanently deletes the EC2 instance and the associated EBS volumes. Make sure that you don't terminate or delete these resources before you delete the DB instance. Otherwise, deleting the DB instance and creation of the final snapshot might fail.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -326,17 +304,13 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceAutomatedBackupQuotaExceededFault} (client fault)
- *  <p>The quota for retained automated backups was exceeded. This prevents you
- *             from retaining any additional automated backups. The retained automated backups
- *             quota is the same as your DB instance quota.</p>
+ *  <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated backups. The retained automated backups quota is the same as your DB instance quota.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
- *  <p>
- *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ *  <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
@@ -348,8 +322,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB
- *             snapshots.</p>
+ *  <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

@@ -100,6 +100,7 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  *  <p>Returned if a required header or parameter is missing from the request.</p>
  *
  * @throws {@link NoLongerSupportedException} (client fault)
+ *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
  *
  * @throws {@link RequestTimeoutException} (client fault)
  *  <p>Returned if, when uploading an archive, Amazon Glacier times out while receiving the

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CodeGuruProfilerClient } from "./CodeGuruProfilerClient";
 import {
@@ -106,6 +106,10 @@ import {
   UpdateProfilingGroupCommandInput,
   UpdateProfilingGroupCommandOutput,
 } from "./commands/UpdateProfilingGroupCommand";
+import { paginateGetFindingsReportAccountSummary } from "./pagination/GetFindingsReportAccountSummaryPaginator";
+import { paginateListFindingsReports } from "./pagination/ListFindingsReportsPaginator";
+import { paginateListProfileTimes } from "./pagination/ListProfileTimesPaginator";
+import { paginateListProfilingGroups } from "./pagination/ListProfilingGroupsPaginator";
 
 const commands = {
   AddNotificationChannelsCommand,
@@ -131,6 +135,12 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateProfilingGroupCommand,
+};
+const paginators = {
+  paginateGetFindingsReportAccountSummary,
+  paginateListFindingsReports,
+  paginateListProfileTimes,
+  paginateListProfilingGroups,
 };
 
 export interface CodeGuruProfiler {
@@ -526,6 +536,50 @@ export interface CodeGuruProfiler {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProfilingGroupCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetFindingsReportAccountSummaryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetFindingsReportAccountSummaryCommandOutput}.
+   */
+  paginateGetFindingsReportAccountSummary(
+    args?: GetFindingsReportAccountSummaryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetFindingsReportAccountSummaryCommandOutput>;
+
+  /**
+   * @see {@link ListFindingsReportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFindingsReportsCommandOutput}.
+   */
+  paginateListFindingsReports(
+    args: ListFindingsReportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFindingsReportsCommandOutput>;
+
+  /**
+   * @see {@link ListProfileTimesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProfileTimesCommandOutput}.
+   */
+  paginateListProfileTimes(
+    args: ListProfileTimesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProfileTimesCommandOutput>;
+
+  /**
+   * @see {@link ListProfilingGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProfilingGroupsCommandOutput}.
+   */
+  paginateListProfilingGroups(
+    args?: ListProfilingGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProfilingGroupsCommandOutput>;
 }
 
 /**
@@ -555,4 +609,4 @@ export interface CodeGuruProfiler {
  * @public
  */
 export class CodeGuruProfiler extends CodeGuruProfilerClient implements CodeGuruProfiler {}
-createAggregatedClient(commands, CodeGuruProfiler);
+createAggregatedClient(commands, CodeGuruProfiler, { paginators });

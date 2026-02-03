@@ -114,8 +114,8 @@ var BlockData: StaticSimpleSchema = [0, n0, _BD, { [_s]: 1, [_st]: 1 }, 42];
 var KmsKeyArn: StaticSimpleSchema = [0, n0, _KKA, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
-  [_M, _R],
-  [0, 0]
+  [_R, _M],
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Block$: StaticStructureSchema = [3, n0, _B,
@@ -131,7 +131,7 @@ export var ChangedBlock$: StaticStructureSchema = [3, n0, _CB,
 export var CompleteSnapshotRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_SI, _CBC, _C, _CA, _CAM],
-  [[0, 1], [1, { [_hH]: _xaC }], [0, { [_hH]: _xaC_ }], [0, { [_hH]: _xaCA }], [0, { [_hH]: _xaCAM }]]
+  [[0, 1], [1, { [_hH]: _xaC }], [0, { [_hH]: _xaC_ }], [0, { [_hH]: _xaCA }], [0, { [_hH]: _xaCAM }]], 2
 ];
 export var CompleteSnapshotResponse$: StaticStructureSchema = [3, n0, _CSRo,
   0,
@@ -153,7 +153,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var GetSnapshotBlockRequest$: StaticStructureSchema = [3, n0, _GSBR,
   0,
   [_SI, _BI, _BT],
-  [[0, 1], [1, 1], [0, { [_hQ]: _bT }]]
+  [[0, 1], [1, 1], [0, { [_hQ]: _bT }]], 3
 ];
 export var GetSnapshotBlockResponse$: StaticStructureSchema = [3, n0, _GSBRe,
   0,
@@ -168,8 +168,8 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListChangedBlocksRequest$: StaticStructureSchema = [3, n0, _LCBR,
   0,
-  [_FSI, _SSI, _NT, _MR, _SBI],
-  [[0, { [_hQ]: _fSI }], [0, 1], [0, { [_hQ]: _pT }], [1, { [_hQ]: _mR }], [1, { [_hQ]: _sBI }]]
+  [_SSI, _FSI, _NT, _MR, _SBI],
+  [[0, 1], [0, { [_hQ]: _fSI }], [0, { [_hQ]: _pT }], [1, { [_hQ]: _mR }], [1, { [_hQ]: _sBI }]], 1
 ];
 export var ListChangedBlocksResponse$: StaticStructureSchema = [3, n0, _LCBRi,
   0,
@@ -179,7 +179,7 @@ export var ListChangedBlocksResponse$: StaticStructureSchema = [3, n0, _LCBRi,
 export var ListSnapshotBlocksRequest$: StaticStructureSchema = [3, n0, _LSBR,
   0,
   [_SI, _NT, _MR, _SBI],
-  [[0, 1], [0, { [_hQ]: _pT }], [1, { [_hQ]: _mR }], [1, { [_hQ]: _sBI }]]
+  [[0, 1], [0, { [_hQ]: _pT }], [1, { [_hQ]: _mR }], [1, { [_hQ]: _sBI }]], 1
 ];
 export var ListSnapshotBlocksResponse$: StaticStructureSchema = [3, n0, _LSBRi,
   0,
@@ -188,8 +188,8 @@ export var ListSnapshotBlocksResponse$: StaticStructureSchema = [3, n0, _LSBRi,
 ];
 export var PutSnapshotBlockRequest$: StaticStructureSchema = [3, n0, _PSBR,
   0,
-  [_SI, _BI, _BD, _DL, _P, _C, _CA],
-  [[0, 1], [1, 1], [() => BlockData, 16], [1, { [_hH]: _xaDL }], [1, { [_hH]: _xaP }], [0, { [_hH]: _xaC_ }], [0, { [_hH]: _xaCA }]]
+  [_SI, _BI, _BD, _DL, _C, _CA, _P],
+  [[0, 1], [1, 1], [() => BlockData, 16], [1, { [_hH]: _xaDL }], [0, { [_hH]: _xaC_ }], [0, { [_hH]: _xaCA }], [1, { [_hH]: _xaP }]], 6
 ];
 export var PutSnapshotBlockResponse$: StaticStructureSchema = [3, n0, _PSBRu,
   0,
@@ -217,7 +217,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var StartSnapshotRequest$: StaticStructureSchema = [3, n0, _SSR,
   0,
   [_VS, _PSI, _T, _D, _CT, _E, _KKA, _Ti],
-  [1, 0, () => Tags, 0, [0, 4], 2, [() => KmsKeyArn, 0], 1]
+  [1, 0, () => Tags, 0, [0, 4], 2, [() => KmsKeyArn, 0], 1], 1
 ];
 export var StartSnapshotResponse$: StaticStructureSchema = [3, n0, _SSRt,
   0,

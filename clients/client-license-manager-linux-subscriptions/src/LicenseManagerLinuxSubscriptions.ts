@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DeregisterSubscriptionProviderCommand,
@@ -54,6 +54,9 @@ import {
   UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
 import { LicenseManagerLinuxSubscriptionsClient } from "./LicenseManagerLinuxSubscriptionsClient";
+import { paginateListLinuxSubscriptionInstances } from "./pagination/ListLinuxSubscriptionInstancesPaginator";
+import { paginateListLinuxSubscriptions } from "./pagination/ListLinuxSubscriptionsPaginator";
+import { paginateListRegisteredSubscriptionProviders } from "./pagination/ListRegisteredSubscriptionProvidersPaginator";
 
 const commands = {
   DeregisterSubscriptionProviderCommand,
@@ -67,6 +70,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateServiceSettingsCommand,
+};
+const paginators = {
+  paginateListLinuxSubscriptionInstances,
+  paginateListLinuxSubscriptions,
+  paginateListRegisteredSubscriptionProviders,
 };
 
 export interface LicenseManagerLinuxSubscriptions {
@@ -260,6 +268,39 @@ export interface LicenseManagerLinuxSubscriptions {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceSettingsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListLinuxSubscriptionInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLinuxSubscriptionInstancesCommandOutput}.
+   */
+  paginateListLinuxSubscriptionInstances(
+    args?: ListLinuxSubscriptionInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLinuxSubscriptionInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListLinuxSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLinuxSubscriptionsCommandOutput}.
+   */
+  paginateListLinuxSubscriptions(
+    args?: ListLinuxSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLinuxSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link ListRegisteredSubscriptionProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRegisteredSubscriptionProvidersCommandOutput}.
+   */
+  paginateListRegisteredSubscriptionProviders(
+    args?: ListRegisteredSubscriptionProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRegisteredSubscriptionProvidersCommandOutput>;
 }
 
 /**
@@ -268,4 +309,4 @@ export interface LicenseManagerLinuxSubscriptions {
  * @public
  */
 export class LicenseManagerLinuxSubscriptions extends LicenseManagerLinuxSubscriptionsClient implements LicenseManagerLinuxSubscriptions {}
-createAggregatedClient(commands, LicenseManagerLinuxSubscriptions);
+createAggregatedClient(commands, LicenseManagerLinuxSubscriptions, { paginators });

@@ -555,8 +555,8 @@ export var DBStorageConfiguration$: StaticStructureSchema = [3, n0, _DBSC,
 ];
 export var DeleteRecommendationPreferencesRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
-  [_rT, _sc, _rPN],
-  [0, () => Scope$, 64 | 0]
+  [_rT, _rPN, _sc],
+  [0, 64 | 0, () => Scope$], 2
 ];
 export var DeleteRecommendationPreferencesResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -680,8 +680,8 @@ export var EstimatedMonthlySavings$: StaticStructureSchema = [3, n0, _EMS,
 ];
 export var ExportAutoScalingGroupRecommendationsRequest$: StaticStructureSchema = [3, n0, _EASGRR,
   0,
-  [_aIc, _fi, _fTE, _sDC, _fF, _iMA, _rP],
-  [64 | 0, () => Filters, 64 | 0, () => S3DestinationConfig$, 0, 2, () => RecommendationPreferences$]
+  [_sDC, _aIc, _fi, _fTE, _fF, _iMA, _rP],
+  [() => S3DestinationConfig$, 64 | 0, () => Filters, 64 | 0, 0, 2, () => RecommendationPreferences$], 1
 ];
 export var ExportAutoScalingGroupRecommendationsResponse$: StaticStructureSchema = [3, n0, _EASGRRx,
   0,
@@ -695,8 +695,8 @@ export var ExportDestination$: StaticStructureSchema = [3, n0, _ED,
 ];
 export var ExportEBSVolumeRecommendationsRequest$: StaticStructureSchema = [3, n0, _EEBSVRR,
   0,
-  [_aIc, _fi, _fTE, _sDC, _fF, _iMA],
-  [64 | 0, () => EBSFilters, 64 | 0, () => S3DestinationConfig$, 0, 2]
+  [_sDC, _aIc, _fi, _fTE, _fF, _iMA],
+  [() => S3DestinationConfig$, 64 | 0, () => EBSFilters, 64 | 0, 0, 2], 1
 ];
 export var ExportEBSVolumeRecommendationsResponse$: StaticStructureSchema = [3, n0, _EEBSVRRx,
   0,
@@ -705,8 +705,8 @@ export var ExportEBSVolumeRecommendationsResponse$: StaticStructureSchema = [3, 
 ];
 export var ExportEC2InstanceRecommendationsRequest$: StaticStructureSchema = [3, n0, _EECIRR,
   0,
-  [_aIc, _fi, _fTE, _sDC, _fF, _iMA, _rP],
-  [64 | 0, () => Filters, 64 | 0, () => S3DestinationConfig$, 0, 2, () => RecommendationPreferences$]
+  [_sDC, _aIc, _fi, _fTE, _fF, _iMA, _rP],
+  [() => S3DestinationConfig$, 64 | 0, () => Filters, 64 | 0, 0, 2, () => RecommendationPreferences$], 1
 ];
 export var ExportEC2InstanceRecommendationsResponse$: StaticStructureSchema = [3, n0, _EECIRRx,
   0,
@@ -715,8 +715,8 @@ export var ExportEC2InstanceRecommendationsResponse$: StaticStructureSchema = [3
 ];
 export var ExportECSServiceRecommendationsRequest$: StaticStructureSchema = [3, n0, _EECSSRR,
   0,
-  [_aIc, _fi, _fTE, _sDC, _fF, _iMA],
-  [64 | 0, () => ECSServiceRecommendationFilters, 64 | 0, () => S3DestinationConfig$, 0, 2]
+  [_sDC, _aIc, _fi, _fTE, _fF, _iMA],
+  [() => S3DestinationConfig$, 64 | 0, () => ECSServiceRecommendationFilters, 64 | 0, 0, 2], 1
 ];
 export var ExportECSServiceRecommendationsResponse$: StaticStructureSchema = [3, n0, _EECSSRRx,
   0,
@@ -725,8 +725,8 @@ export var ExportECSServiceRecommendationsResponse$: StaticStructureSchema = [3,
 ];
 export var ExportIdleRecommendationsRequest$: StaticStructureSchema = [3, n0, _EIRR,
   0,
-  [_aIc, _fi, _fTE, _sDC, _fF, _iMA],
-  [64 | 0, () => IdleRecommendationFilters, 64 | 0, () => S3DestinationConfig$, 0, 2]
+  [_sDC, _aIc, _fi, _fTE, _fF, _iMA],
+  [() => S3DestinationConfig$, 64 | 0, () => IdleRecommendationFilters, 64 | 0, 0, 2], 1
 ];
 export var ExportIdleRecommendationsResponse$: StaticStructureSchema = [3, n0, _EIRRx,
   0,
@@ -735,8 +735,8 @@ export var ExportIdleRecommendationsResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var ExportLambdaFunctionRecommendationsRequest$: StaticStructureSchema = [3, n0, _ELFRR,
   0,
-  [_aIc, _fi, _fTE, _sDC, _fF, _iMA],
-  [64 | 0, () => LambdaFunctionRecommendationFilters, 64 | 0, () => S3DestinationConfig$, 0, 2]
+  [_sDC, _aIc, _fi, _fTE, _fF, _iMA],
+  [() => S3DestinationConfig$, 64 | 0, () => LambdaFunctionRecommendationFilters, 64 | 0, 0, 2], 1
 ];
 export var ExportLambdaFunctionRecommendationsResponse$: StaticStructureSchema = [3, n0, _ELFRRx,
   0,
@@ -745,8 +745,8 @@ export var ExportLambdaFunctionRecommendationsResponse$: StaticStructureSchema =
 ];
 export var ExportLicenseRecommendationsRequest$: StaticStructureSchema = [3, n0, _ELRR,
   0,
-  [_aIc, _fi, _fTE, _sDC, _fF, _iMA],
-  [64 | 0, () => LicenseRecommendationFilters, 64 | 0, () => S3DestinationConfig$, 0, 2]
+  [_sDC, _aIc, _fi, _fTE, _fF, _iMA],
+  [() => S3DestinationConfig$, 64 | 0, () => LicenseRecommendationFilters, 64 | 0, 0, 2], 1
 ];
 export var ExportLicenseRecommendationsResponse$: StaticStructureSchema = [3, n0, _ELRRx,
   0,
@@ -755,8 +755,8 @@ export var ExportLicenseRecommendationsResponse$: StaticStructureSchema = [3, n0
 ];
 export var ExportRDSDatabaseRecommendationsRequest$: StaticStructureSchema = [3, n0, _ERDSDRR,
   0,
-  [_aIc, _fi, _fTE, _sDC, _fF, _iMA, _rP],
-  [64 | 0, () => RDSDBRecommendationFilters, 64 | 0, () => S3DestinationConfig$, 0, 2, () => RecommendationPreferences$]
+  [_sDC, _aIc, _fi, _fTE, _fF, _iMA, _rP],
+  [() => S3DestinationConfig$, 64 | 0, () => RDSDBRecommendationFilters, 64 | 0, 0, 2, () => RecommendationPreferences$], 1
 ];
 export var ExportRDSDatabaseRecommendationsResponse$: StaticStructureSchema = [3, n0, _ERDSDRRx,
   0,
@@ -811,7 +811,7 @@ export var GetEC2InstanceRecommendationsResponse$: StaticStructureSchema = [3, n
 export var GetEC2RecommendationProjectedMetricsRequest$: StaticStructureSchema = [3, n0, _GECRPMR,
   0,
   [_iAn, _sta, _p, _sTta, _eT, _rP],
-  [0, 0, 1, 4, 4, () => RecommendationPreferences$]
+  [0, 0, 1, 4, 4, () => RecommendationPreferences$], 5
 ];
 export var GetEC2RecommendationProjectedMetricsResponse$: StaticStructureSchema = [3, n0, _GECRPMRe,
   0,
@@ -821,7 +821,7 @@ export var GetEC2RecommendationProjectedMetricsResponse$: StaticStructureSchema 
 export var GetECSServiceRecommendationProjectedMetricsRequest$: StaticStructureSchema = [3, n0, _GECSSRPMR,
   0,
   [_sA, _sta, _p, _sTta, _eT],
-  [0, 0, 1, 4, 4]
+  [0, 0, 1, 4, 4], 5
 ];
 export var GetECSServiceRecommendationProjectedMetricsResponse$: StaticStructureSchema = [3, n0, _GECSSRPMRe,
   0,
@@ -841,7 +841,7 @@ export var GetECSServiceRecommendationsResponse$: StaticStructureSchema = [3, n0
 export var GetEffectiveRecommendationPreferencesRequest$: StaticStructureSchema = [3, n0, _GERPR,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var GetEffectiveRecommendationPreferencesResponse$: StaticStructureSchema = [3, n0, _GERPRe,
   0,
@@ -901,7 +901,7 @@ export var GetLicenseRecommendationsResponse$: StaticStructureSchema = [3, n0, _
 export var GetRDSDatabaseRecommendationProjectedMetricsRequest$: StaticStructureSchema = [3, n0, _GRDSDRPMR,
   0,
   [_rA, _sta, _p, _sTta, _eT, _rP],
-  [0, 0, 1, 4, 4, () => RecommendationPreferences$]
+  [0, 0, 1, 4, 4, () => RecommendationPreferences$], 5
 ];
 export var GetRDSDatabaseRecommendationProjectedMetricsResponse$: StaticStructureSchema = [3, n0, _GRDSDRPMRe,
   0,
@@ -926,7 +926,7 @@ export var GetRecommendationError$: StaticStructureSchema = [3, n0, _GRE,
 export var GetRecommendationPreferencesRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_rT, _sc, _nT, _mR],
-  [0, () => Scope$, 0, 1]
+  [0, () => Scope$, 0, 1], 1
 ];
 export var GetRecommendationPreferencesResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
@@ -1151,7 +1151,7 @@ export var ProjectedMetric$: StaticStructureSchema = [3, n0, _PM,
 export var PutRecommendationPreferencesRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_rT, _sc, _eIM, _iWT, _eMP, _lBP, _uP, _pRr, _sEM],
-  [0, () => Scope$, 0, 0, () => ExternalMetricsPreference$, 0, () => UtilizationPreferences, () => PreferredResources, 0]
+  [0, () => Scope$, 0, 0, () => ExternalMetricsPreference$, 0, () => UtilizationPreferences, () => PreferredResources, 0], 1
 ];
 export var PutRecommendationPreferencesResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -1308,13 +1308,13 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateEnrollmentStatusRequest$: StaticStructureSchema = [3, n0, _UESR,
   0,
   [_s, _iMA],
-  [0, 2]
+  [0, 2], 1
 ];
 export var UpdateEnrollmentStatusResponse$: StaticStructureSchema = [3, n0, _UESRp,
   0,

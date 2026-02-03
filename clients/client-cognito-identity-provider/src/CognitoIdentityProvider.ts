@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CognitoIdentityProviderClient } from "./CognitoIdentityProviderClient";
 import {
@@ -530,6 +530,15 @@ import {
   VerifyUserAttributeCommandInput,
   VerifyUserAttributeCommandOutput,
 } from "./commands/VerifyUserAttributeCommand";
+import { paginateAdminListGroupsForUser } from "./pagination/AdminListGroupsForUserPaginator";
+import { paginateAdminListUserAuthEvents } from "./pagination/AdminListUserAuthEventsPaginator";
+import { paginateListGroups } from "./pagination/ListGroupsPaginator";
+import { paginateListIdentityProviders } from "./pagination/ListIdentityProvidersPaginator";
+import { paginateListResourceServers } from "./pagination/ListResourceServersPaginator";
+import { paginateListUserPoolClients } from "./pagination/ListUserPoolClientsPaginator";
+import { paginateListUserPools } from "./pagination/ListUserPoolsPaginator";
+import { paginateListUsersInGroup } from "./pagination/ListUsersInGroupPaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
 
 const commands = {
   AddCustomAttributesCommand,
@@ -651,6 +660,17 @@ const commands = {
   UpdateUserPoolDomainCommand,
   VerifySoftwareTokenCommand,
   VerifyUserAttributeCommand,
+};
+const paginators = {
+  paginateAdminListGroupsForUser,
+  paginateAdminListUserAuthEvents,
+  paginateListGroups,
+  paginateListIdentityProviders,
+  paginateListResourceServers,
+  paginateListUserPoolClients,
+  paginateListUserPools,
+  paginateListUsers,
+  paginateListUsersInGroup,
 };
 
 export interface CognitoIdentityProvider {
@@ -2678,6 +2698,105 @@ export interface CognitoIdentityProvider {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: VerifyUserAttributeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link AdminListGroupsForUserCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link AdminListGroupsForUserCommandOutput}.
+   */
+  paginateAdminListGroupsForUser(
+    args: AdminListGroupsForUserCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<AdminListGroupsForUserCommandOutput>;
+
+  /**
+   * @see {@link AdminListUserAuthEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link AdminListUserAuthEventsCommandOutput}.
+   */
+  paginateAdminListUserAuthEvents(
+    args: AdminListUserAuthEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<AdminListUserAuthEventsCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsCommandOutput}.
+   */
+  paginateListGroups(
+    args: ListGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListIdentityProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdentityProvidersCommandOutput}.
+   */
+  paginateListIdentityProviders(
+    args: ListIdentityProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdentityProvidersCommandOutput>;
+
+  /**
+   * @see {@link ListResourceServersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceServersCommandOutput}.
+   */
+  paginateListResourceServers(
+    args: ListResourceServersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceServersCommandOutput>;
+
+  /**
+   * @see {@link ListUserPoolClientsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUserPoolClientsCommandOutput}.
+   */
+  paginateListUserPoolClients(
+    args: ListUserPoolClientsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUserPoolClientsCommandOutput>;
+
+  /**
+   * @see {@link ListUserPoolsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUserPoolsCommandOutput}.
+   */
+  paginateListUserPools(
+    args: ListUserPoolsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUserPoolsCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
+
+  /**
+   * @see {@link ListUsersInGroupCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersInGroupCommandOutput}.
+   */
+  paginateListUsersInGroup(
+    args: ListUsersInGroupCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersInGroupCommandOutput>;
 }
 
 /**
@@ -2715,4 +2834,4 @@ export interface CognitoIdentityProvider {
  * @public
  */
 export class CognitoIdentityProvider extends CognitoIdentityProviderClient implements CognitoIdentityProvider {}
-createAggregatedClient(commands, CognitoIdentityProvider);
+createAggregatedClient(commands, CognitoIdentityProvider, { paginators });

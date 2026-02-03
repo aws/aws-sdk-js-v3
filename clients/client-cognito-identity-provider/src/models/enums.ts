@@ -487,6 +487,19 @@ export type CustomSMSSenderLambdaVersionType =
  * @public
  * @enum
  */
+export const InboundFederationLambdaVersionType = {
+  V1_0: "V1_0",
+} as const;
+/**
+ * @public
+ */
+export type InboundFederationLambdaVersionType =
+  (typeof InboundFederationLambdaVersionType)[keyof typeof InboundFederationLambdaVersionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PreTokenGenerationLambdaVersionType = {
   V1_0: "V1_0",
   V2_0: "V2_0",

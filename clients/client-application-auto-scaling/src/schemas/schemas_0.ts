@@ -214,12 +214,12 @@ import {
 export var Alarm$: StaticStructureSchema = [3, n0, _A,
   0,
   [_AN, _AARN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CapacityForecast$: StaticStructureSchema = [3, n0, _CF,
   0,
   [_T, _V],
-  [64 | 4, 64 | 1]
+  [64 | 4, 64 | 1], 2
 ];
 export var ConcurrentUpdateException$: StaticErrorSchema = [-3, n0, _CUE,
   { [_aQE]: [`ConcurrentUpdateException`, 500], [_e]: _s, [_hE]: 500 },
@@ -235,7 +235,7 @@ export var CustomizedMetricSpecification$: StaticStructureSchema = [3, n0, _CMS,
 export var DeleteScalingPolicyRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_PN, _SN, _RI, _SD],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var DeleteScalingPolicyResponse$: StaticStructureSchema = [3, n0, _DSPRe,
   0,
@@ -245,7 +245,7 @@ export var DeleteScalingPolicyResponse$: StaticStructureSchema = [3, n0, _DSPRe,
 export var DeleteScheduledActionRequest$: StaticStructureSchema = [3, n0, _DSAR,
   0,
   [_SN, _SAN, _RI, _SD],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var DeleteScheduledActionResponse$: StaticStructureSchema = [3, n0, _DSARe,
   0,
@@ -255,7 +255,7 @@ export var DeleteScheduledActionResponse$: StaticStructureSchema = [3, n0, _DSAR
 export var DeregisterScalableTargetRequest$: StaticStructureSchema = [3, n0, _DSTR,
   0,
   [_SN, _RI, _SD],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DeregisterScalableTargetResponse$: StaticStructureSchema = [3, n0, _DSTRe,
   0,
@@ -265,7 +265,7 @@ export var DeregisterScalableTargetResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeScalableTargetsRequest$: StaticStructureSchema = [3, n0, _DSTRes,
   0,
   [_SN, _RIe, _SD, _MR, _NT],
-  [0, 64 | 0, 0, 1, 0]
+  [0, 64 | 0, 0, 1, 0], 1
 ];
 export var DescribeScalableTargetsResponse$: StaticStructureSchema = [3, n0, _DSTResc,
   0,
@@ -275,7 +275,7 @@ export var DescribeScalableTargetsResponse$: StaticStructureSchema = [3, n0, _DS
 export var DescribeScalingActivitiesRequest$: StaticStructureSchema = [3, n0, _DSARes,
   0,
   [_SN, _RI, _SD, _MR, _NT, _INSA],
-  [0, 0, 0, 1, 0, 2]
+  [0, 0, 0, 1, 0, 2], 1
 ];
 export var DescribeScalingActivitiesResponse$: StaticStructureSchema = [3, n0, _DSAResc,
   0,
@@ -284,8 +284,8 @@ export var DescribeScalingActivitiesResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var DescribeScalingPoliciesRequest$: StaticStructureSchema = [3, n0, _DSPRes,
   0,
-  [_PNo, _SN, _RI, _SD, _MR, _NT],
-  [64 | 0, 0, 0, 0, 1, 0]
+  [_SN, _PNo, _RI, _SD, _MR, _NT],
+  [0, 64 | 0, 0, 0, 1, 0], 1
 ];
 export var DescribeScalingPoliciesResponse$: StaticStructureSchema = [3, n0, _DSPResc,
   0,
@@ -294,8 +294,8 @@ export var DescribeScalingPoliciesResponse$: StaticStructureSchema = [3, n0, _DS
 ];
 export var DescribeScheduledActionsRequest$: StaticStructureSchema = [3, n0, _DSARescr,
   0,
-  [_SANc, _SN, _RI, _SD, _MR, _NT],
-  [64 | 0, 0, 0, 0, 1, 0]
+  [_SN, _SANc, _RI, _SD, _MR, _NT],
+  [0, 64 | 0, 0, 0, 1, 0], 1
 ];
 export var DescribeScheduledActionsResponse$: StaticStructureSchema = [3, n0, _DSARescri,
   0,
@@ -311,7 +311,7 @@ TypeRegistry.for(n0).registerError(FailedResourceAccessException$, FailedResourc
 export var GetPredictiveScalingForecastRequest$: StaticStructureSchema = [3, n0, _GPSFR,
   0,
   [_SN, _RI, _SD, _PN, _STt, _ET],
-  [0, 0, 0, 0, 4, 4]
+  [0, 0, 0, 0, 4, 4], 6
 ];
 export var GetPredictiveScalingForecastResponse$: StaticStructureSchema = [3, n0, _GPSFRe,
   0,
@@ -339,7 +339,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -349,17 +349,17 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var LoadForecast$: StaticStructureSchema = [3, n0, _LF,
   0,
   [_T, _V, _MS],
-  [64 | 4, 64 | 1, () => PredictiveScalingMetricSpecification$]
+  [64 | 4, 64 | 1, () => PredictiveScalingMetricSpecification$], 3
 ];
 export var MetricDimension$: StaticStructureSchema = [3, n0, _MD,
   0,
   [_Na, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var NotScaledReason$: StaticStructureSchema = [3, n0, _NSR,
   0,
   [_C, _MC, _MCi, _CC],
-  [0, 1, 1, 1]
+  [0, 1, 1, 1], 1
 ];
 export var ObjectNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
   { [_aQE]: [`ObjectNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
@@ -370,12 +370,12 @@ TypeRegistry.for(n0).registerError(ObjectNotFoundException$, ObjectNotFoundExcep
 export var PredefinedMetricSpecification$: StaticStructureSchema = [3, n0, _PMS,
   0,
   [_PMT, _RL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PredictiveScalingCustomizedMetricSpecification$: StaticStructureSchema = [3, n0, _PSCMS,
   0,
   [_MDQ],
-  [() => PredictiveScalingMetricDataQueries]
+  [() => PredictiveScalingMetricDataQueries], 1
 ];
 export var PredictiveScalingMetric$: StaticStructureSchema = [3, n0, _PSM,
   0,
@@ -385,57 +385,57 @@ export var PredictiveScalingMetric$: StaticStructureSchema = [3, n0, _PSM,
 export var PredictiveScalingMetricDataQuery$: StaticStructureSchema = [3, n0, _PSMDQ,
   0,
   [_I, _E, _MSe, _L, _RD],
-  [0, 0, () => PredictiveScalingMetricStat$, 0, 2]
+  [0, 0, () => PredictiveScalingMetricStat$, 0, 2], 1
 ];
 export var PredictiveScalingMetricDimension$: StaticStructureSchema = [3, n0, _PSMD,
   0,
   [_Na, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PredictiveScalingMetricSpecification$: StaticStructureSchema = [3, n0, _PSMS,
   0,
   [_TV, _PMPS, _PSMSr, _PLMS, _CSMS, _CLMS, _CCMS],
-  [1, () => PredictiveScalingPredefinedMetricPairSpecification$, () => PredictiveScalingPredefinedScalingMetricSpecification$, () => PredictiveScalingPredefinedLoadMetricSpecification$, () => PredictiveScalingCustomizedMetricSpecification$, () => PredictiveScalingCustomizedMetricSpecification$, () => PredictiveScalingCustomizedMetricSpecification$]
+  [1, () => PredictiveScalingPredefinedMetricPairSpecification$, () => PredictiveScalingPredefinedScalingMetricSpecification$, () => PredictiveScalingPredefinedLoadMetricSpecification$, () => PredictiveScalingCustomizedMetricSpecification$, () => PredictiveScalingCustomizedMetricSpecification$, () => PredictiveScalingCustomizedMetricSpecification$], 1
 ];
 export var PredictiveScalingMetricStat$: StaticStructureSchema = [3, n0, _PSMSre,
   0,
   [_Met, _St, _U],
-  [() => PredictiveScalingMetric$, 0, 0]
+  [() => PredictiveScalingMetric$, 0, 0], 2
 ];
 export var PredictiveScalingPolicyConfiguration$: StaticStructureSchema = [3, n0, _PSPC,
   0,
   [_MSet, _Mo, _SBT, _MCBB, _MCB],
-  [() => PredictiveScalingMetricSpecifications, 0, 1, 0, 1]
+  [() => PredictiveScalingMetricSpecifications, 0, 1, 0, 1], 1
 ];
 export var PredictiveScalingPredefinedLoadMetricSpecification$: StaticStructureSchema = [3, n0, _PSPLMS,
   0,
   [_PMT, _RL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PredictiveScalingPredefinedMetricPairSpecification$: StaticStructureSchema = [3, n0, _PSPMPS,
   0,
   [_PMT, _RL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PredictiveScalingPredefinedScalingMetricSpecification$: StaticStructureSchema = [3, n0, _PSPSMS,
   0,
   [_PMT, _RL],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PutScalingPolicyRequest$: StaticStructureSchema = [3, n0, _PSPR,
   0,
   [_PN, _SN, _RI, _SD, _PT, _SSPC, _TTSPC, _PSPC],
-  [0, 0, 0, 0, 0, () => StepScalingPolicyConfiguration$, () => TargetTrackingScalingPolicyConfiguration$, () => PredictiveScalingPolicyConfiguration$]
+  [0, 0, 0, 0, 0, () => StepScalingPolicyConfiguration$, () => TargetTrackingScalingPolicyConfiguration$, () => PredictiveScalingPolicyConfiguration$], 4
 ];
 export var PutScalingPolicyResponse$: StaticStructureSchema = [3, n0, _PSPRu,
   0,
   [_PARN, _Al],
-  [0, () => Alarms]
+  [0, () => Alarms], 1
 ];
 export var PutScheduledActionRequest$: StaticStructureSchema = [3, n0, _PSAR,
   0,
-  [_SN, _Sc, _Ti, _SAN, _RI, _SD, _STt, _ET, _STA],
-  [0, 0, 0, 0, 0, 0, 4, 4, () => ScalableTargetAction$]
+  [_SN, _SAN, _RI, _SD, _Sc, _Ti, _STt, _ET, _STA],
+  [0, 0, 0, 0, 0, 0, 4, 4, () => ScalableTargetAction$], 4
 ];
 export var PutScheduledActionResponse$: StaticStructureSchema = [3, n0, _PSARu,
   0,
@@ -445,7 +445,7 @@ export var PutScheduledActionResponse$: StaticStructureSchema = [3, n0, _PSARu,
 export var RegisterScalableTargetRequest$: StaticStructureSchema = [3, n0, _RSTR,
   0,
   [_SN, _RI, _SD, _MCi, _MC, _RARNo, _SS, _Ta],
-  [0, 0, 0, 1, 1, 0, () => SuspendedState$, 128 | 0]
+  [0, 0, 0, 1, 1, 0, () => SuspendedState$, 128 | 0], 3
 ];
 export var RegisterScalableTargetResponse$: StaticStructureSchema = [3, n0, _RSTRe,
   0,
@@ -460,8 +460,8 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ScalableTarget$: StaticStructureSchema = [3, n0, _STc,
   0,
-  [_SN, _RI, _SD, _MCi, _MC, _PC, _RARNo, _CT, _SS, _STARN],
-  [0, 0, 0, 1, 1, 1, 0, 4, () => SuspendedState$, 0]
+  [_SN, _RI, _SD, _MCi, _MC, _RARNo, _CT, _PC, _SS, _STARN],
+  [0, 0, 0, 1, 1, 0, 4, 1, () => SuspendedState$, 0], 7
 ];
 export var ScalableTargetAction$: StaticStructureSchema = [3, n0, _STA,
   0,
@@ -470,23 +470,23 @@ export var ScalableTargetAction$: StaticStructureSchema = [3, n0, _STA,
 ];
 export var ScalingActivity$: StaticStructureSchema = [3, n0, _SAca,
   0,
-  [_AI, _SN, _RI, _SD, _De, _Ca, _STt, _ET, _SC, _SM, _Det, _NSRo],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, () => NotScaledReasons]
+  [_AI, _SN, _RI, _SD, _De, _Ca, _STt, _SC, _ET, _SM, _Det, _NSRo],
+  [0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, () => NotScaledReasons], 8
 ];
 export var ScalingPolicy$: StaticStructureSchema = [3, n0, _SPc,
   0,
-  [_PARN, _PN, _SN, _RI, _SD, _PT, _SSPC, _TTSPC, _PSPC, _Al, _CT],
-  [0, 0, 0, 0, 0, 0, () => StepScalingPolicyConfiguration$, () => TargetTrackingScalingPolicyConfiguration$, () => PredictiveScalingPolicyConfiguration$, () => Alarms, 4]
+  [_PARN, _PN, _SN, _RI, _SD, _PT, _CT, _SSPC, _TTSPC, _PSPC, _Al],
+  [0, 0, 0, 0, 0, 0, 4, () => StepScalingPolicyConfiguration$, () => TargetTrackingScalingPolicyConfiguration$, () => PredictiveScalingPolicyConfiguration$, () => Alarms], 7
 ];
 export var ScheduledAction$: StaticStructureSchema = [3, n0, _SAch,
   0,
-  [_SAN, _SAARN, _SN, _Sc, _Ti, _RI, _SD, _STt, _ET, _STA, _CT],
-  [0, 0, 0, 0, 0, 0, 0, 4, 4, () => ScalableTargetAction$, 4]
+  [_SAN, _SAARN, _SN, _Sc, _RI, _CT, _Ti, _SD, _STt, _ET, _STA],
+  [0, 0, 0, 0, 0, 4, 0, 0, 4, 4, () => ScalableTargetAction$], 6
 ];
 export var StepAdjustment$: StaticStructureSchema = [3, n0, _SAt,
   0,
-  [_MILB, _MIUB, _SAcal],
-  [1, 1, 1]
+  [_SAcal, _MILB, _MIUB],
+  [1, 1, 1], 1
 ];
 export var StepScalingPolicyConfiguration$: StaticStructureSchema = [3, n0, _SSPC,
   0,
@@ -501,7 +501,7 @@ export var SuspendedState$: StaticStructureSchema = [3, n0, _SS,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -515,23 +515,23 @@ export var TargetTrackingMetric$: StaticStructureSchema = [3, n0, _TTM,
 ];
 export var TargetTrackingMetricDataQuery$: StaticStructureSchema = [3, n0, _TTMDQ,
   0,
-  [_E, _I, _L, _MSe, _RD],
-  [0, 0, 0, () => TargetTrackingMetricStat$, 2]
+  [_I, _E, _L, _MSe, _RD],
+  [0, 0, 0, () => TargetTrackingMetricStat$, 2], 1
 ];
 export var TargetTrackingMetricDimension$: StaticStructureSchema = [3, n0, _TTMD,
   0,
   [_Na, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TargetTrackingMetricStat$: StaticStructureSchema = [3, n0, _TTMS,
   0,
   [_Met, _St, _U],
-  [() => TargetTrackingMetric$, 0, 0]
+  [() => TargetTrackingMetric$, 0, 0], 2
 ];
 export var TargetTrackingScalingPolicyConfiguration$: StaticStructureSchema = [3, n0, _TTSPC,
   0,
   [_TV, _PMS, _CMS, _SOC, _SIC, _DSI],
-  [1, () => PredefinedMetricSpecification$, () => CustomizedMetricSpecification$, 1, 1, 2]
+  [1, () => PredefinedMetricSpecification$, () => CustomizedMetricSpecification$, 1, 1, 2], 1
 ];
 export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
   { [_e]: _c, [_hE]: 400 },
@@ -542,7 +542,7 @@ TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,

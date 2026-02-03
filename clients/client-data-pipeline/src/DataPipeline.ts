@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   ActivatePipelineCommand,
@@ -82,6 +82,9 @@ import {
   ValidatePipelineDefinitionCommandOutput,
 } from "./commands/ValidatePipelineDefinitionCommand";
 import { DataPipelineClient } from "./DataPipelineClient";
+import { paginateDescribeObjects } from "./pagination/DescribeObjectsPaginator";
+import { paginateListPipelines } from "./pagination/ListPipelinesPaginator";
+import { paginateQueryObjects } from "./pagination/QueryObjectsPaginator";
 
 const commands = {
   ActivatePipelineCommand,
@@ -103,6 +106,11 @@ const commands = {
   SetStatusCommand,
   SetTaskStatusCommand,
   ValidatePipelineDefinitionCommand,
+};
+const paginators = {
+  paginateDescribeObjects,
+  paginateListPipelines,
+  paginateQueryObjects,
 };
 
 export interface DataPipeline {
@@ -429,6 +437,39 @@ export interface DataPipeline {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidatePipelineDefinitionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeObjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeObjectsCommandOutput}.
+   */
+  paginateDescribeObjects(
+    args: DescribeObjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeObjectsCommandOutput>;
+
+  /**
+   * @see {@link ListPipelinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPipelinesCommandOutput}.
+   */
+  paginateListPipelines(
+    args?: ListPipelinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPipelinesCommandOutput>;
+
+  /**
+   * @see {@link QueryObjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link QueryObjectsCommandOutput}.
+   */
+  paginateQueryObjects(
+    args: QueryObjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<QueryObjectsCommandOutput>;
 }
 
 /**
@@ -452,4 +493,4 @@ export interface DataPipeline {
  * @public
  */
 export class DataPipeline extends DataPipelineClient implements DataPipeline {}
-createAggregatedClient(commands, DataPipeline);
+createAggregatedClient(commands, DataPipeline, { paginators });

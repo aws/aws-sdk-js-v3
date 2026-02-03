@@ -1928,7 +1928,7 @@
       "type": "string",
       "traits": {
         "smithy.api#length": {
-          "max": 2000
+          "max": 4000
         },
         "smithy.api#sensitive": {}
       }
@@ -3494,7 +3494,7 @@
       "type": "string",
       "traits": {
         "smithy.api#length": {
-          "max": 1024
+          "max": 2048
         },
         "smithy.api#sensitive": {}
       }

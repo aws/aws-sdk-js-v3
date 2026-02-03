@@ -147,8 +147,8 @@ export var SearchException$: StaticErrorSchema = [-3, n0, _SE,
 TypeRegistry.for(n0).registerError(SearchException$, SearchException);
 export var SearchRequest$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_cu, _exp, _fa, _fQ, _hig, _p, _q, _qO, _qP, _r, _si, _so, _sta, _stat],
-  [[0, { [_hQ]: _cu }], [0, { [_hQ]: _exp }], [0, { [_hQ]: _fa }], [0, { [_hQ]: _fq }], [0, { [_hQ]: _hig }], [2, { [_hQ]: _p }], [0, { [_hQ]: _q_ }], [0, { [_hQ]: _qo }], [0, { [_hQ]: _qp }], [0, { [_hQ]: _r }], [1, { [_hQ]: _si }], [0, { [_hQ]: _so }], [1, { [_hQ]: _sta }], [0, { [_hQ]: _stat }]]
+  [_q, _cu, _exp, _fa, _fQ, _hig, _p, _qO, _qP, _r, _si, _so, _sta, _stat],
+  [[0, { [_hQ]: _q_ }], [0, { [_hQ]: _cu }], [0, { [_hQ]: _exp }], [0, { [_hQ]: _fa }], [0, { [_hQ]: _fq }], [0, { [_hQ]: _hig }], [2, { [_hQ]: _p }], [0, { [_hQ]: _qo }], [0, { [_hQ]: _qp }], [0, { [_hQ]: _r }], [1, { [_hQ]: _si }], [0, { [_hQ]: _so }], [1, { [_hQ]: _sta }], [0, { [_hQ]: _stat }]], 1
 ];
 export var SearchResponse$: StaticStructureSchema = [3, n0, _SRe,
   0,
@@ -173,7 +173,7 @@ export var SuggestModel$: StaticStructureSchema = [3, n0, _SMu,
 export var SuggestRequest$: StaticStructureSchema = [3, n0, _SRu,
   0,
   [_q, _sugge, _si],
-  [[0, { [_hQ]: _q_ }], [0, { [_hQ]: _sugge }], [1, { [_hQ]: _si }]]
+  [[0, { [_hQ]: _q_ }], [0, { [_hQ]: _sugge }], [1, { [_hQ]: _si }]], 2
 ];
 export var SuggestResponse$: StaticStructureSchema = [3, n0, _SRug,
   0,
@@ -188,7 +188,7 @@ export var SuggestStatus$: StaticStructureSchema = [3, n0, _SSu,
 export var UploadDocumentsRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_d, _cT],
-  [[() => _Blob, 16], [0, { [_hH]: _CT }]]
+  [[() => _Blob, 16], [0, { [_hH]: _CT }]], 2
 ];
 export var UploadDocumentsResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,

@@ -272,6 +272,7 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  * //     },
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
+ * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
  * //   },
  * // };
  *

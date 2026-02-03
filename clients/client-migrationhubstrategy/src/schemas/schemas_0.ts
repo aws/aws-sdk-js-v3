@@ -364,7 +364,7 @@ var SecretsManagerKey: StaticSimpleSchema = [0, n0, _SMK, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AnalyzableServerSummary$: StaticStructureSchema = [3, n0, _ASS,
@@ -420,7 +420,7 @@ export var AssessmentSummary$: StaticStructureSchema = [3, n0, _AS,
 export var AssessmentTarget$: StaticStructureSchema = [3, n0, _AT,
   0,
   [_con, _n, _v],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var AssociatedApplication$: StaticStructureSchema = [3, n0, _AA,
   0,
@@ -430,7 +430,7 @@ export var AssociatedApplication$: StaticStructureSchema = [3, n0, _AA,
 export var AwsManagedResources$: StaticStructureSchema = [3, n0, _AMR,
   0,
   [_tD],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BusinessGoals$: StaticStructureSchema = [3, n0, _BG,
   0,
@@ -450,7 +450,7 @@ export var ConfigurationSummary$: StaticStructureSchema = [3, n0, _CS,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DatabaseConfigDetail$: StaticStructureSchema = [3, n0, _DCD,
@@ -477,7 +477,7 @@ TypeRegistry.for(n0).registerError(DependencyException$, DependencyException);
 export var GetApplicationComponentDetailsRequest$: StaticStructureSchema = [3, n0, _GACDR,
   0,
   [_aCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApplicationComponentDetailsResponse$: StaticStructureSchema = [3, n0, _GACDRe,
   0,
@@ -487,7 +487,7 @@ export var GetApplicationComponentDetailsResponse$: StaticStructureSchema = [3, 
 export var GetApplicationComponentStrategiesRequest$: StaticStructureSchema = [3, n0, _GACSR,
   0,
   [_aCI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApplicationComponentStrategiesResponse$: StaticStructureSchema = [3, n0, _GACSRe,
   0,
@@ -497,7 +497,7 @@ export var GetApplicationComponentStrategiesResponse$: StaticStructureSchema = [
 export var GetAssessmentRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAssessmentResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -507,7 +507,7 @@ export var GetAssessmentResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetImportFileTaskRequest$: StaticStructureSchema = [3, n0, _GIFTR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetImportFileTaskResponse$: StaticStructureSchema = [3, n0, _GIFTRe,
   0,
@@ -547,7 +547,7 @@ export var GetPortfolioSummaryResponse$: StaticStructureSchema = [3, n0, _GPSRe,
 export var GetRecommendationReportDetailsRequest$: StaticStructureSchema = [3, n0, _GRRDR,
   0,
   [_i],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetRecommendationReportDetailsResponse$: StaticStructureSchema = [3, n0, _GRRDRe,
   0,
@@ -557,7 +557,7 @@ export var GetRecommendationReportDetailsResponse$: StaticStructureSchema = [3, 
 export var GetServerDetailsRequest$: StaticStructureSchema = [3, n0, _GSDR,
   0,
   [_sI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var GetServerDetailsResponse$: StaticStructureSchema = [3, n0, _GSDRe,
   0,
@@ -567,7 +567,7 @@ export var GetServerDetailsResponse$: StaticStructureSchema = [3, n0, _GSDRe,
 export var GetServerStrategiesRequest$: StaticStructureSchema = [3, n0, _GSSR,
   0,
   [_sI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetServerStrategiesResponse$: StaticStructureSchema = [3, n0, _GSSRe,
   0,
@@ -582,7 +582,7 @@ export var Group$: StaticStructureSchema = [3, n0, _G,
 export var Heterogeneous$: StaticStructureSchema = [3, n0, _H,
   0,
   [_tDE],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var Homogeneous$: StaticStructureSchema = [3, n0, _Ho,
   0,
@@ -658,17 +658,17 @@ export var ListServersResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var NetworkInfo$: StaticStructureSchema = [3, n0, _NI,
   0,
   [_iNn, _iA, _mA, _nM],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var NoDatabaseMigrationPreference$: StaticStructureSchema = [3, n0, _NDMP,
   0,
   [_tDE],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var NoManagementPreference$: StaticStructureSchema = [3, n0, _NMP,
   0,
   [_tD],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var OSInfo$: StaticStructureSchema = [3, n0, _OSI,
   0,
@@ -729,7 +729,7 @@ export var S3Object$: StaticStructureSchema = [3, n0, _SO,
 export var SelfManageResources$: StaticStructureSchema = [3, n0, _SMR,
   0,
   [_tD],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var ServerDetail$: StaticStructureSchema = [3, n0, _SD,
   0,
@@ -765,7 +765,7 @@ TypeRegistry.for(n0).registerError(ServiceLinkedRoleLockClientException$, Servic
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SourceCode$: StaticStructureSchema = [3, n0, _SC,
@@ -791,7 +791,7 @@ export var StartAssessmentResponse$: StaticStructureSchema = [3, n0, _SARt,
 export var StartImportFileTaskRequest$: StaticStructureSchema = [3, n0, _SIFTR,
   0,
   [_n, _SB, _sk, _dST, _gI, _sFRD],
-  [0, 0, 0, 0, () => GroupIds, 0]
+  [0, 0, 0, 0, () => GroupIds, 0], 3
 ];
 export var StartImportFileTaskResponse$: StaticStructureSchema = [3, n0, _SIFTRt,
   0,
@@ -811,7 +811,7 @@ export var StartRecommendationReportGenerationResponse$: StaticStructureSchema =
 export var StopAssessmentRequest$: StaticStructureSchema = [3, n0, _SARto,
   0,
   [_aI],
-  [0]
+  [0], 1
 ];
 export var StopAssessmentResponse$: StaticStructureSchema = [3, n0, _SARtop,
   0,
@@ -847,7 +847,7 @@ export var TransformationTool$: StaticStructureSchema = [3, n0, _TT,
 export var UpdateApplicationComponentConfigRequest$: StaticStructureSchema = [3, n0, _UACCR,
   0,
   [_aCI, _iS, _sO, _sCL, _sMK, _cO, _aT],
-  [0, 0, () => StrategyOption$, () => SourceCodeList, [() => SecretsManagerKey, 0], 2, 0]
+  [0, 0, () => StrategyOption$, () => SourceCodeList, [() => SecretsManagerKey, 0], 2, 0], 1
 ];
 export var UpdateApplicationComponentConfigResponse$: StaticStructureSchema = [3, n0, _UACCRp,
   0,
@@ -857,7 +857,7 @@ export var UpdateApplicationComponentConfigResponse$: StaticStructureSchema = [3
 export var UpdateServerConfigRequest$: StaticStructureSchema = [3, n0, _USCR,
   0,
   [_sI, _sO],
-  [0, () => StrategyOption$]
+  [0, () => StrategyOption$], 1
 ];
 export var UpdateServerConfigResponse$: StaticStructureSchema = [3, n0, _USCRp,
   0,

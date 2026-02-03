@@ -74,22 +74,22 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU,
   0,
   [_a, _aRI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssumeRoleForPodIdentityRequest$: StaticStructureSchema = [3, n0, _ARFPIR,
   0,
   [_cN, _t],
-  [[0, 1], [() => JwtToken, 0]]
+  [[0, 1], [() => JwtToken, 0]], 2
 ];
 export var AssumeRoleForPodIdentityResponse$: StaticStructureSchema = [3, n0, _ARFPIRs,
   0,
   [_s, _au, _pIA, _aRU, _cr],
-  [() => Subject$, 0, () => PodIdentityAssociation$, () => AssumedRoleUser$, [() => Credentials$, 0]]
+  [() => Subject$, 0, () => PodIdentityAssociation$, () => AssumedRoleUser$, [() => Credentials$, 0]], 5
 ];
 export var Credentials$: StaticStructureSchema = [3, n0, _C,
   8,
   [_sT, _sAK, _aKI, _ex],
-  [0, 0, 0, 4]
+  [0, 0, 0, 4], 4
 ];
 export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE,
   { [_e]: _c, [_hE]: 400 },
@@ -124,7 +124,7 @@ TypeRegistry.for(n0).registerError(InvalidTokenException$, InvalidTokenException
 export var PodIdentityAssociation$: StaticStructureSchema = [3, n0, _PIA,
   0,
   [_aA, _aI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -141,7 +141,7 @@ TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavaila
 export var Subject$: StaticStructureSchema = [3, n0, _S,
   0,
   [_n, _sA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },

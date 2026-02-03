@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptQualificationRequestCommand,
@@ -178,6 +178,16 @@ import {
   UpdateQualificationTypeCommandOutput,
 } from "./commands/UpdateQualificationTypeCommand";
 import { MTurkClient } from "./MTurkClient";
+import { paginateListAssignmentsForHIT } from "./pagination/ListAssignmentsForHITPaginator";
+import { paginateListBonusPayments } from "./pagination/ListBonusPaymentsPaginator";
+import { paginateListHITsForQualificationType } from "./pagination/ListHITsForQualificationTypePaginator";
+import { paginateListHITs } from "./pagination/ListHITsPaginator";
+import { paginateListQualificationRequests } from "./pagination/ListQualificationRequestsPaginator";
+import { paginateListQualificationTypes } from "./pagination/ListQualificationTypesPaginator";
+import { paginateListReviewableHITs } from "./pagination/ListReviewableHITsPaginator";
+import { paginateListReviewPolicyResultsForHIT } from "./pagination/ListReviewPolicyResultsForHITPaginator";
+import { paginateListWorkerBlocks } from "./pagination/ListWorkerBlocksPaginator";
+import { paginateListWorkersWithQualificationType } from "./pagination/ListWorkersWithQualificationTypePaginator";
 
 const commands = {
   AcceptQualificationRequestCommand,
@@ -219,6 +229,18 @@ const commands = {
   UpdateHITTypeOfHITCommand,
   UpdateNotificationSettingsCommand,
   UpdateQualificationTypeCommand,
+};
+const paginators = {
+  paginateListAssignmentsForHIT,
+  paginateListBonusPayments,
+  paginateListHITs,
+  paginateListHITsForQualificationType,
+  paginateListQualificationRequests,
+  paginateListQualificationTypes,
+  paginateListReviewableHITs,
+  paginateListReviewPolicyResultsForHIT,
+  paginateListWorkerBlocks,
+  paginateListWorkersWithQualificationType,
 };
 
 export interface MTurk {
@@ -890,6 +912,116 @@ export interface MTurk {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQualificationTypeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAssignmentsForHITCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssignmentsForHITCommandOutput}.
+   */
+  paginateListAssignmentsForHIT(
+    args: ListAssignmentsForHITCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssignmentsForHITCommandOutput>;
+
+  /**
+   * @see {@link ListBonusPaymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBonusPaymentsCommandOutput}.
+   */
+  paginateListBonusPayments(
+    args?: ListBonusPaymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBonusPaymentsCommandOutput>;
+
+  /**
+   * @see {@link ListHITsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHITsCommandOutput}.
+   */
+  paginateListHITs(
+    args?: ListHITsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHITsCommandOutput>;
+
+  /**
+   * @see {@link ListHITsForQualificationTypeCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHITsForQualificationTypeCommandOutput}.
+   */
+  paginateListHITsForQualificationType(
+    args: ListHITsForQualificationTypeCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHITsForQualificationTypeCommandOutput>;
+
+  /**
+   * @see {@link ListQualificationRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQualificationRequestsCommandOutput}.
+   */
+  paginateListQualificationRequests(
+    args?: ListQualificationRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQualificationRequestsCommandOutput>;
+
+  /**
+   * @see {@link ListQualificationTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQualificationTypesCommandOutput}.
+   */
+  paginateListQualificationTypes(
+    args: ListQualificationTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQualificationTypesCommandOutput>;
+
+  /**
+   * @see {@link ListReviewableHITsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReviewableHITsCommandOutput}.
+   */
+  paginateListReviewableHITs(
+    args?: ListReviewableHITsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReviewableHITsCommandOutput>;
+
+  /**
+   * @see {@link ListReviewPolicyResultsForHITCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReviewPolicyResultsForHITCommandOutput}.
+   */
+  paginateListReviewPolicyResultsForHIT(
+    args: ListReviewPolicyResultsForHITCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReviewPolicyResultsForHITCommandOutput>;
+
+  /**
+   * @see {@link ListWorkerBlocksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkerBlocksCommandOutput}.
+   */
+  paginateListWorkerBlocks(
+    args?: ListWorkerBlocksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkerBlocksCommandOutput>;
+
+  /**
+   * @see {@link ListWorkersWithQualificationTypeCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkersWithQualificationTypeCommandOutput}.
+   */
+  paginateListWorkersWithQualificationType(
+    args: ListWorkersWithQualificationTypeCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkersWithQualificationTypeCommandOutput>;
 }
 
 /**
@@ -897,4 +1029,4 @@ export interface MTurk {
  * @public
  */
 export class MTurk extends MTurkClient implements MTurk {}
-createAggregatedClient(commands, MTurk);
+createAggregatedClient(commands, MTurk, { paginators });

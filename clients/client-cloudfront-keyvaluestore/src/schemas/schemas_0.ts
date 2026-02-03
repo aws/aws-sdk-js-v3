@@ -93,37 +93,37 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DeleteKeyRequest$: StaticStructureSchema = [3, n0, _DKR,
   0,
   [_KARN, _K, _IM],
-  [[0, 1], [0, 1], [0, { [_hH]: _IM_ }]]
+  [[0, 1], [0, 1], [0, { [_hH]: _IM_ }]], 3
 ];
 export var DeleteKeyRequestListItem$: StaticStructureSchema = [3, n0, _DKRLI,
   0,
   [_K],
-  [0]
+  [0], 1
 ];
 export var DeleteKeyResponse$: StaticStructureSchema = [3, n0, _DKRe,
   0,
   [_IC, _TSIB, _ET],
-  [1, 1, [0, { [_hH]: _ET }]]
+  [1, 1, [0, { [_hH]: _ET }]], 3
 ];
 export var DescribeKeyValueStoreRequest$: StaticStructureSchema = [3, n0, _DKVSR,
   0,
   [_KARN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeKeyValueStoreResponse$: StaticStructureSchema = [3, n0, _DKVSRe,
   0,
   [_IC, _TSIB, _KARN, _C, _ET, _LM, _S, _FR],
-  [1, 1, 0, 4, [0, { [_hH]: _ET }], 4, 0, 0]
+  [1, 1, 0, 4, [0, { [_hH]: _ET }], 4, 0, 0], 5
 ];
 export var GetKeyRequest$: StaticStructureSchema = [3, n0, _GKR,
   0,
   [_KARN, _K],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetKeyResponse$: StaticStructureSchema = [3, n0, _GKRe,
   0,
   [_K, _V, _IC, _TSIB],
-  [0, [() => Value, 0], 1, 1]
+  [0, [() => Value, 0], 1, 1], 4
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -134,7 +134,7 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var ListKeysRequest$: StaticStructureSchema = [3, n0, _LKR,
   0,
   [_KARN, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+  [[0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var ListKeysResponse$: StaticStructureSchema = [3, n0, _LKRi,
   0,
@@ -144,22 +144,22 @@ export var ListKeysResponse$: StaticStructureSchema = [3, n0, _LKRi,
 export var ListKeysResponseListItem$: StaticStructureSchema = [3, n0, _LKRLI,
   0,
   [_K, _V],
-  [0, [() => Value, 0]]
+  [0, [() => Value, 0]], 2
 ];
 export var PutKeyRequest$: StaticStructureSchema = [3, n0, _PKR,
   0,
   [_K, _V, _KARN, _IM],
-  [[0, 1], [() => Value, 0], [0, 1], [0, { [_hH]: _IM_ }]]
+  [[0, 1], [() => Value, 0], [0, 1], [0, { [_hH]: _IM_ }]], 4
 ];
 export var PutKeyRequestListItem$: StaticStructureSchema = [3, n0, _PKRLI,
   0,
   [_K, _V],
-  [0, [() => Value, 0]]
+  [0, [() => Value, 0]], 2
 ];
 export var PutKeyResponse$: StaticStructureSchema = [3, n0, _PKRu,
   0,
   [_IC, _TSIB, _ET],
-  [1, 1, [0, { [_hH]: _ET }]]
+  [1, 1, [0, { [_hH]: _ET }]], 3
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -176,12 +176,12 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var UpdateKeysRequest$: StaticStructureSchema = [3, n0, _UKR,
   0,
   [_KARN, _IM, _P, _D],
-  [[0, 1], [0, { [_hH]: _IM_ }], [() => PutKeyRequestsList, 0], () => DeleteKeyRequestsList]
+  [[0, 1], [0, { [_hH]: _IM_ }], [() => PutKeyRequestsList, 0], () => DeleteKeyRequestsList], 2
 ];
 export var UpdateKeysResponse$: StaticStructureSchema = [3, n0, _UKRp,
   0,
   [_IC, _TSIB, _ET],
-  [1, 1, [0, { [_hH]: _ET }]]
+  [1, 1, [0, { [_hH]: _ET }]], 3
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

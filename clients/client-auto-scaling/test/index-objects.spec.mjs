@@ -102,6 +102,7 @@ import {
   DeleteWarmPoolAnswer$,
   DeleteWarmPoolCommand,
   DeleteWarmPoolType$,
+  DeletionProtection,
   DescribeAccountLimits$,
   DescribeAccountLimitsAnswer$,
   DescribeAccountLimitsCommand,
@@ -736,6 +737,7 @@ assert(typeof BurstablePerformance === "object");
 assert(typeof CapacityDistributionStrategy === "object");
 assert(typeof CapacityReservationPreference === "object");
 assert(typeof CpuManufacturer === "object");
+assert(typeof DeletionProtection === "object");
 assert(typeof ImpairedZoneHealthCheckBehavior === "object");
 assert(typeof InstanceGeneration === "object");
 assert(typeof InstanceMetadataEndpointState === "object");

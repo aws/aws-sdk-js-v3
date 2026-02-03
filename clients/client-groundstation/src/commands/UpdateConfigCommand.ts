@@ -39,7 +39,7 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const input = { // UpdateConfigRequest
  *   configId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
- *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording", // required
+ *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording" || "telemetry-sink", // required
  *   configData: { // ConfigTypeData Union: only one key present
  *     antennaDownlinkConfig: { // AntennaDownlinkConfig
  *       spectrumConfig: { // SpectrumConfig
@@ -103,13 +103,22 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *       roleArn: "STRING_VALUE", // required
  *       prefix: "STRING_VALUE",
  *     },
+ *     telemetrySinkConfig: { // TelemetrySinkConfig
+ *       telemetrySinkType: "KINESIS_DATA_STREAM", // required
+ *       telemetrySinkData: { // TelemetrySinkData Union: only one key present
+ *         kinesisDataStreamData: { // KinesisDataStreamData
+ *           kinesisRoleArn: "STRING_VALUE", // required
+ *           kinesisDataStreamArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
  *   },
  * };
  * const command = new UpdateConfigCommand(input);
  * const response = await client.send(command);
  * // { // ConfigIdResponse
  * //   configId: "STRING_VALUE",
- * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
+ * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording" || "telemetry-sink",
  * //   configArn: "STRING_VALUE",
  * // };
  *

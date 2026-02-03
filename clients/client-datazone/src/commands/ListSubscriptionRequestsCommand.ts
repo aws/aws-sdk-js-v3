@@ -41,6 +41,7 @@ export interface ListSubscriptionRequestsCommandOutput extends ListSubscriptionR
  *   status: "PENDING" || "ACCEPTED" || "REJECTED",
  *   subscribedListingId: "STRING_VALUE",
  *   owningProjectId: "STRING_VALUE",
+ *   owningIamPrincipalArn: "STRING_VALUE",
  *   approverProjectId: "STRING_VALUE",
  *   owningUserId: "STRING_VALUE",
  *   owningGroupId: "STRING_VALUE",
@@ -85,6 +86,9 @@ export interface ListSubscriptionRequestsCommandOutput extends ListSubscriptionR
  * //           group: { // SubscribedGroup
  * //             id: "STRING_VALUE",
  * //             name: "STRING_VALUE",
+ * //           },
+ * //           iam: { // SubscribedIamPrincipal
+ * //             principalArn: "STRING_VALUE",
  * //           },
  * //         },
  * //       ],

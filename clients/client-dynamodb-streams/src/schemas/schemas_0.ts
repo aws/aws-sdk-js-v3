@@ -111,7 +111,7 @@ import {
 export var DescribeStreamInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_SA, _L, _ESSI, _SF],
-  [0, 1, 0, () => ShardFilter$]
+  [0, 1, 0, () => ShardFilter$], 1
 ];
 export var DescribeStreamOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
@@ -127,7 +127,7 @@ TypeRegistry.for(n0).registerError(ExpiredIteratorException$, ExpiredIteratorExc
 export var GetRecordsInput$: StaticStructureSchema = [3, n0, _GRI,
   0,
   [_SI, _L],
-  [0, 1]
+  [0, 1], 1
 ];
 export var GetRecordsOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
@@ -137,7 +137,7 @@ export var GetRecordsOutput$: StaticStructureSchema = [3, n0, _GRO,
 export var GetShardIteratorInput$: StaticStructureSchema = [3, n0, _GSII,
   0,
   [_SA, _SIh, _SIT, _SN],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var GetShardIteratorOutput$: StaticStructureSchema = [3, n0, _GSIO,
   0,
@@ -158,7 +158,7 @@ TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
 export var KeySchemaElement$: StaticStructureSchema = [3, n0, _KSE,
   0,
   [_AN, _KT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _c },

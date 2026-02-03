@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelJobRunCommand,
@@ -67,6 +67,9 @@ import {
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import { EMRServerlessClient } from "./EMRServerlessClient";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
+import { paginateListJobRunAttempts } from "./pagination/ListJobRunAttemptsPaginator";
+import { paginateListJobRuns } from "./pagination/ListJobRunsPaginator";
 
 const commands = {
   CancelJobRunCommand,
@@ -85,6 +88,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApplicationCommand,
+};
+const paginators = {
+  paginateListApplications,
+  paginateListJobRunAttempts,
+  paginateListJobRuns,
 };
 
 export interface EMRServerless {
@@ -360,6 +368,39 @@ export interface EMRServerless {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListJobRunAttemptsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobRunAttemptsCommandOutput}.
+   */
+  paginateListJobRunAttempts(
+    args: ListJobRunAttemptsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobRunAttemptsCommandOutput>;
+
+  /**
+   * @see {@link ListJobRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobRunsCommandOutput}.
+   */
+  paginateListJobRuns(
+    args: ListJobRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobRunsCommandOutput>;
 }
 
 /**
@@ -367,4 +408,4 @@ export interface EMRServerless {
  * @public
  */
 export class EMRServerless extends EMRServerlessClient implements EMRServerless {}
-createAggregatedClient(commands, EMRServerless);
+createAggregatedClient(commands, EMRServerless, { paginators });

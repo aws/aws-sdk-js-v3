@@ -333,8 +333,8 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Adapter$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_AI, _P, _V],
-  [0, 64 | 0, 0]
+  [_AI, _V, _P],
+  [0, 0, 64 | 0], 2
 ];
 export var AdapterOverview$: StaticStructureSchema = [3, n0, _AO,
   0,
@@ -344,7 +344,7 @@ export var AdapterOverview$: StaticStructureSchema = [3, n0, _AO,
 export var AdaptersConfig$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_Ad],
-  [() => Adapters]
+  [() => Adapters], 1
 ];
 export var AdapterVersionDatasetConfig$: StaticStructureSchema = [3, n0, _AVDC,
   0,
@@ -364,7 +364,7 @@ export var AdapterVersionOverview$: StaticStructureSchema = [3, n0, _AVO,
 export var AnalyzeDocumentRequest$: StaticStructureSchema = [3, n0, _ADR,
   0,
   [_D, _FT, _HLC, _QC, _AC],
-  [() => Document$, 64 | 0, () => HumanLoopConfig$, () => QueriesConfig$, () => AdaptersConfig$]
+  [() => Document$, 64 | 0, () => HumanLoopConfig$, () => QueriesConfig$, () => AdaptersConfig$], 2
 ];
 export var AnalyzeDocumentResponse$: StaticStructureSchema = [3, n0, _ADRn,
   0,
@@ -374,7 +374,7 @@ export var AnalyzeDocumentResponse$: StaticStructureSchema = [3, n0, _ADRn,
 export var AnalyzeExpenseRequest$: StaticStructureSchema = [3, n0, _AER,
   0,
   [_D],
-  [() => Document$]
+  [() => Document$], 1
 ];
 export var AnalyzeExpenseResponse$: StaticStructureSchema = [3, n0, _AERn,
   0,
@@ -384,12 +384,12 @@ export var AnalyzeExpenseResponse$: StaticStructureSchema = [3, n0, _AERn,
 export var AnalyzeIDDetections$: StaticStructureSchema = [3, n0, _AIDD,
   0,
   [_T, _NV, _Co],
-  [0, () => NormalizedValue$, 1]
+  [0, () => NormalizedValue$, 1], 1
 ];
 export var AnalyzeIDRequest$: StaticStructureSchema = [3, n0, _AIDR,
   0,
   [_DP],
-  [() => DocumentPages]
+  [() => DocumentPages], 1
 ];
 export var AnalyzeIDResponse$: StaticStructureSchema = [3, n0, _AIDRn,
   0,
@@ -420,8 +420,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAdapterRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_AN, _CRT, _De, _FT, _AU, _Ta],
-  [0, [0, 4], 0, 64 | 0, 0, 128 | 0]
+  [_AN, _FT, _CRT, _De, _AU, _Ta],
+  [0, 64 | 0, [0, 4], 0, 0, 128 | 0], 2
 ];
 export var CreateAdapterResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -430,8 +430,8 @@ export var CreateAdapterResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateAdapterVersionRequest$: StaticStructureSchema = [3, n0, _CAVR,
   0,
-  [_AI, _CRT, _DC, _KMSKI, _OC, _Ta],
-  [0, [0, 4], () => AdapterVersionDatasetConfig$, 0, () => OutputConfig$, 128 | 0]
+  [_AI, _DC, _OC, _CRT, _KMSKI, _Ta],
+  [0, () => AdapterVersionDatasetConfig$, () => OutputConfig$, [0, 4], 0, 128 | 0], 3
 ];
 export var CreateAdapterVersionResponse$: StaticStructureSchema = [3, n0, _CAVRr,
   0,
@@ -441,7 +441,7 @@ export var CreateAdapterVersionResponse$: StaticStructureSchema = [3, n0, _CAVRr
 export var DeleteAdapterRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var DeleteAdapterResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -451,7 +451,7 @@ export var DeleteAdapterResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteAdapterVersionRequest$: StaticStructureSchema = [3, n0, _DAVR,
   0,
   [_AI, _AV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteAdapterVersionResponse$: StaticStructureSchema = [3, n0, _DAVRe,
   0,
@@ -461,7 +461,7 @@ export var DeleteAdapterVersionResponse$: StaticStructureSchema = [3, n0, _DAVRe
 export var DetectDocumentTextRequest$: StaticStructureSchema = [3, n0, _DDTR,
   0,
   [_D],
-  [() => Document$]
+  [() => Document$], 1
 ];
 export var DetectDocumentTextResponse$: StaticStructureSchema = [3, n0, _DDTRe,
   0,
@@ -547,7 +547,7 @@ export var Geometry$: StaticStructureSchema = [3, n0, _G,
 export var GetAdapterRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var GetAdapterResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -557,7 +557,7 @@ export var GetAdapterResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetAdapterVersionRequest$: StaticStructureSchema = [3, n0, _GAVR,
   0,
   [_AI, _AV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetAdapterVersionResponse$: StaticStructureSchema = [3, n0, _GAVRe,
   0,
@@ -567,7 +567,7 @@ export var GetAdapterVersionResponse$: StaticStructureSchema = [3, n0, _GAVRe,
 export var GetDocumentAnalysisRequest$: StaticStructureSchema = [3, n0, _GDAR,
   0,
   [_JI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetDocumentAnalysisResponse$: StaticStructureSchema = [3, n0, _GDARe,
   0,
@@ -577,7 +577,7 @@ export var GetDocumentAnalysisResponse$: StaticStructureSchema = [3, n0, _GDARe,
 export var GetDocumentTextDetectionRequest$: StaticStructureSchema = [3, n0, _GDTDR,
   0,
   [_JI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetDocumentTextDetectionResponse$: StaticStructureSchema = [3, n0, _GDTDRe,
   0,
@@ -587,7 +587,7 @@ export var GetDocumentTextDetectionResponse$: StaticStructureSchema = [3, n0, _G
 export var GetExpenseAnalysisRequest$: StaticStructureSchema = [3, n0, _GEAR,
   0,
   [_JI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetExpenseAnalysisResponse$: StaticStructureSchema = [3, n0, _GEARe,
   0,
@@ -597,7 +597,7 @@ export var GetExpenseAnalysisResponse$: StaticStructureSchema = [3, n0, _GEARe,
 export var GetLendingAnalysisRequest$: StaticStructureSchema = [3, n0, _GLAR,
   0,
   [_JI, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var GetLendingAnalysisResponse$: StaticStructureSchema = [3, n0, _GLARe,
   0,
@@ -607,7 +607,7 @@ export var GetLendingAnalysisResponse$: StaticStructureSchema = [3, n0, _GLARe,
 export var GetLendingAnalysisSummaryRequest$: StaticStructureSchema = [3, n0, _GLASR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var GetLendingAnalysisSummaryResponse$: StaticStructureSchema = [3, n0, _GLASRe,
   0,
@@ -622,7 +622,7 @@ export var HumanLoopActivationOutput$: StaticStructureSchema = [3, n0, _HLAO,
 export var HumanLoopConfig$: StaticStructureSchema = [3, n0, _HLC,
   0,
   [_HLN, _FDA, _DA],
-  [0, 0, () => HumanLoopDataAttributes$]
+  [0, 0, () => HumanLoopDataAttributes$], 2
 ];
 export var HumanLoopDataAttributes$: StaticStructureSchema = [3, n0, _HLDA,
   0,
@@ -745,7 +745,7 @@ export var ListAdapterVersionsResponse$: StaticStructureSchema = [3, n0, _LAVRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -760,17 +760,17 @@ export var NormalizedValue$: StaticStructureSchema = [3, n0, _NV,
 export var NotificationChannel$: StaticStructureSchema = [3, n0, _NC,
   0,
   [_SNSTA, _RAo],
-  [0, 0]
+  [0, 0], 2
 ];
 export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_SB, _SP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PageClassification$: StaticStructureSchema = [3, n0, _PC,
   0,
   [_PT, _PN],
-  [() => PredictionList, () => PredictionList]
+  [() => PredictionList, () => PredictionList], 2
 ];
 export var Point$: StaticStructureSchema = [3, n0, _Poi,
   0,
@@ -791,12 +791,12 @@ TypeRegistry.for(n0).registerError(ProvisionedThroughputExceededException$, Prov
 export var QueriesConfig$: StaticStructureSchema = [3, n0, _QC,
   0,
   [_Qu],
-  [() => Queries]
+  [() => Queries], 1
 ];
 export var Query$: StaticStructureSchema = [3, n0, _Q,
   0,
   [_T, _Al, _P],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 1
 ];
 export var Relationship$: StaticStructureSchema = [3, n0, _Rel,
   0,
@@ -833,7 +833,7 @@ export var SplitDocument$: StaticStructureSchema = [3, n0, _SDp,
 export var StartDocumentAnalysisRequest$: StaticStructureSchema = [3, n0, _SDAR,
   0,
   [_DL, _FT, _CRT, _JT, _NC, _OC, _KMSKI, _QC, _AC],
-  [() => DocumentLocation$, 64 | 0, 0, 0, () => NotificationChannel$, () => OutputConfig$, 0, () => QueriesConfig$, () => AdaptersConfig$]
+  [() => DocumentLocation$, 64 | 0, 0, 0, () => NotificationChannel$, () => OutputConfig$, 0, () => QueriesConfig$, () => AdaptersConfig$], 2
 ];
 export var StartDocumentAnalysisResponse$: StaticStructureSchema = [3, n0, _SDARt,
   0,
@@ -843,7 +843,7 @@ export var StartDocumentAnalysisResponse$: StaticStructureSchema = [3, n0, _SDAR
 export var StartDocumentTextDetectionRequest$: StaticStructureSchema = [3, n0, _SDTDR,
   0,
   [_DL, _CRT, _JT, _NC, _OC, _KMSKI],
-  [() => DocumentLocation$, 0, 0, () => NotificationChannel$, () => OutputConfig$, 0]
+  [() => DocumentLocation$, 0, 0, () => NotificationChannel$, () => OutputConfig$, 0], 1
 ];
 export var StartDocumentTextDetectionResponse$: StaticStructureSchema = [3, n0, _SDTDRt,
   0,
@@ -853,7 +853,7 @@ export var StartDocumentTextDetectionResponse$: StaticStructureSchema = [3, n0, 
 export var StartExpenseAnalysisRequest$: StaticStructureSchema = [3, n0, _SEAR,
   0,
   [_DL, _CRT, _JT, _NC, _OC, _KMSKI],
-  [() => DocumentLocation$, 0, 0, () => NotificationChannel$, () => OutputConfig$, 0]
+  [() => DocumentLocation$, 0, 0, () => NotificationChannel$, () => OutputConfig$, 0], 1
 ];
 export var StartExpenseAnalysisResponse$: StaticStructureSchema = [3, n0, _SEARt,
   0,
@@ -863,7 +863,7 @@ export var StartExpenseAnalysisResponse$: StaticStructureSchema = [3, n0, _SEARt
 export var StartLendingAnalysisRequest$: StaticStructureSchema = [3, n0, _SLAR,
   0,
   [_DL, _CRT, _JT, _NC, _OC, _KMSKI],
-  [() => DocumentLocation$, 0, 0, () => NotificationChannel$, () => OutputConfig$, 0]
+  [() => DocumentLocation$, 0, 0, () => NotificationChannel$, () => OutputConfig$, 0], 1
 ];
 export var StartLendingAnalysisResponse$: StaticStructureSchema = [3, n0, _SLARt,
   0,
@@ -873,7 +873,7 @@ export var StartLendingAnalysisResponse$: StaticStructureSchema = [3, n0, _SLARt
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -900,7 +900,7 @@ TypeRegistry.for(n0).registerError(UnsupportedDocumentException$, UnsupportedDoc
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -910,7 +910,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAdapterRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_AI, _De, _AN, _AU],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var UpdateAdapterResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,

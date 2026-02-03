@@ -277,7 +277,7 @@ var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var Authorization$: StaticStructureSchema = [3, n0, _A,
   0,
   [_CIS, _SRA],
-  [[0, { [_jN]: _cIS }], [0, { [_jN]: _sRA }]]
+  [[0, { [_jN]: _cIS }], [0, { [_jN]: _sRA }]], 2
 ];
 export var Channel$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -286,8 +286,8 @@ export var Channel$: StaticStructureSchema = [3, n0, _C,
 ];
 export var CmafEncryption$: StaticStructureSchema = [3, n0, _CE,
   0,
-  [_CIV, _EM, _KRIS, _SKP],
-  [[0, { [_jN]: _cIV }], [0, { [_jN]: _eM }], [1, { [_jN]: _kRIS }], [() => SpekeKeyProvider$, { [_jN]: _sKP }]]
+  [_SKP, _CIV, _EM, _KRIS],
+  [[() => SpekeKeyProvider$, { [_jN]: _sKP }], [0, { [_jN]: _cIV }], [0, { [_jN]: _eM }], [1, { [_jN]: _kRIS }]], 1
 ];
 export var CmafPackage$: StaticStructureSchema = [3, n0, _CP,
   0,
@@ -301,8 +301,8 @@ export var CmafPackageCreateOrUpdateParameters$: StaticStructureSchema = [3, n0,
 ];
 export var ConfigureLogsRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
-  [_EAL, _I, _IAL],
-  [[() => EgressAccessLogs$, { [_jN]: _eAL }], [0, 1], [() => IngressAccessLogs$, { [_jN]: _iAL }]]
+  [_I, _EAL, _IAL],
+  [[0, 1], [() => EgressAccessLogs$, { [_jN]: _eAL }], [() => IngressAccessLogs$, { [_jN]: _iAL }]], 1
 ];
 export var ConfigureLogsResponse$: StaticStructureSchema = [3, n0, _CLRo,
   0,
@@ -311,8 +311,8 @@ export var ConfigureLogsResponse$: StaticStructureSchema = [3, n0, _CLRo,
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_D, _I, _T],
-  [[0, { [_jN]: _d }], [0, { [_jN]: _i }], [128 | 0, { [_jN]: _t }]]
+  [_I, _D, _T],
+  [[0, { [_jN]: _i }], [0, { [_jN]: _d }], [128 | 0, { [_jN]: _t }]], 1
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -322,7 +322,7 @@ export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateHarvestJobRequest$: StaticStructureSchema = [3, n0, _CHJR,
   0,
   [_ET, _I, _OEI, _SD, _ST],
-  [[0, { [_jN]: _eT }], [0, { [_jN]: _i }], [0, { [_jN]: _oEI }], [() => S3Destination$, { [_jN]: _sD }], [0, { [_jN]: _sT }]]
+  [[0, { [_jN]: _eT }], [0, { [_jN]: _i }], [0, { [_jN]: _oEI }], [() => S3Destination$, { [_jN]: _sD }], [0, { [_jN]: _sT }]], 5
 ];
 export var CreateHarvestJobResponse$: StaticStructureSchema = [3, n0, _CHJRr,
   0,
@@ -331,8 +331,8 @@ export var CreateHarvestJobResponse$: StaticStructureSchema = [3, n0, _CHJRr,
 ];
 export var CreateOriginEndpointRequest$: StaticStructureSchema = [3, n0, _COER,
   0,
-  [_A, _CI, _CP, _DP, _D, _HP, _I, _MN, _MP, _O, _SWS, _T, _TDS, _W],
-  [[() => Authorization$, { [_jN]: _au }], [0, { [_jN]: _cI }], [() => CmafPackageCreateOrUpdateParameters$, { [_jN]: _cP }], [() => DashPackage$, { [_jN]: _dP }], [0, { [_jN]: _d }], [() => HlsPackage$, { [_jN]: _hP }], [0, { [_jN]: _i }], [0, { [_jN]: _mN }], [() => MssPackage$, { [_jN]: _mP }], [0, { [_jN]: _o }], [1, { [_jN]: _sWS }], [128 | 0, { [_jN]: _t }], [1, { [_jN]: _tDS }], [64 | 0, { [_jN]: _w }]]
+  [_CI, _I, _A, _CP, _DP, _D, _HP, _MN, _MP, _O, _SWS, _T, _TDS, _W],
+  [[0, { [_jN]: _cI }], [0, { [_jN]: _i }], [() => Authorization$, { [_jN]: _au }], [() => CmafPackageCreateOrUpdateParameters$, { [_jN]: _cP }], [() => DashPackage$, { [_jN]: _dP }], [0, { [_jN]: _d }], [() => HlsPackage$, { [_jN]: _hP }], [0, { [_jN]: _mN }], [() => MssPackage$, { [_jN]: _mP }], [0, { [_jN]: _o }], [1, { [_jN]: _sWS }], [128 | 0, { [_jN]: _t }], [1, { [_jN]: _tDS }], [64 | 0, { [_jN]: _w }]], 2
 ];
 export var CreateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _COERr,
   0,
@@ -341,8 +341,8 @@ export var CreateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _COERr
 ];
 export var DashEncryption$: StaticStructureSchema = [3, n0, _DE,
   0,
-  [_KRIS, _SKP],
-  [[1, { [_jN]: _kRIS }], [() => SpekeKeyProvider$, { [_jN]: _sKP }]]
+  [_SKP, _KRIS],
+  [[() => SpekeKeyProvider$, { [_jN]: _sKP }], [1, { [_jN]: _kRIS }]], 1
 ];
 export var DashPackage$: StaticStructureSchema = [3, n0, _DP,
   0,
@@ -352,7 +352,7 @@ export var DashPackage$: StaticStructureSchema = [3, n0, _DP,
 export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -362,7 +362,7 @@ export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteOriginEndpointRequest$: StaticStructureSchema = [3, n0, _DOER,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteOriginEndpointResponse$: StaticStructureSchema = [3, n0, _DOERe,
   0,
@@ -372,7 +372,7 @@ export var DeleteOriginEndpointResponse$: StaticStructureSchema = [3, n0, _DOERe
 export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeChannelResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
@@ -382,7 +382,7 @@ export var DescribeChannelResponse$: StaticStructureSchema = [3, n0, _DCResc,
 export var DescribeHarvestJobRequest$: StaticStructureSchema = [3, n0, _DHJR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeHarvestJobResponse$: StaticStructureSchema = [3, n0, _DHJRe,
   0,
@@ -392,7 +392,7 @@ export var DescribeHarvestJobResponse$: StaticStructureSchema = [3, n0, _DHJRe,
 export var DescribeOriginEndpointRequest$: StaticStructureSchema = [3, n0, _DOERes,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeOriginEndpointResponse$: StaticStructureSchema = [3, n0, _DOEResc,
   0,
@@ -407,7 +407,7 @@ export var EgressAccessLogs$: StaticStructureSchema = [3, n0, _EAL,
 export var EncryptionContractConfiguration$: StaticStructureSchema = [3, n0, _ECC,
   0,
   [_PSA, _PSV],
-  [[0, { [_jN]: _pSA }], [0, { [_jN]: _pSV }]]
+  [[0, { [_jN]: _pSA }], [0, { [_jN]: _pSV }]], 2
 ];
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_er]: _c, [_hE]: 403 },
@@ -422,8 +422,8 @@ export var HarvestJob$: StaticStructureSchema = [3, n0, _HJ,
 ];
 export var HlsEncryption$: StaticStructureSchema = [3, n0, _HE,
   0,
-  [_CIV, _EM, _KRIS, _REXK, _SKP],
-  [[0, { [_jN]: _cIV }], [0, { [_jN]: _eM }], [1, { [_jN]: _kRIS }], [2, { [_jN]: _rEXK }], [() => SpekeKeyProvider$, { [_jN]: _sKP }]]
+  [_SKP, _CIV, _EM, _KRIS, _REXK],
+  [[() => SpekeKeyProvider$, { [_jN]: _sKP }], [0, { [_jN]: _cIV }], [0, { [_jN]: _eM }], [1, { [_jN]: _kRIS }], [2, { [_jN]: _rEXK }]], 1
 ];
 export var HlsIngest$: StaticStructureSchema = [3, n0, _HI,
   0,
@@ -432,13 +432,13 @@ export var HlsIngest$: StaticStructureSchema = [3, n0, _HI,
 ];
 export var HlsManifest$: StaticStructureSchema = [3, n0, _HMl,
   0,
-  [_AM, _I, _IIOS, _MN, _PTl, _PWS, _PDTIS, _U, _AT, _AODR],
-  [[0, { [_jN]: _aM }], [0, { [_jN]: _i }], [2, { [_jN]: _iIOS }], [0, { [_jN]: _mN }], [0, { [_jN]: _pTl }], [1, { [_jN]: _pWS }], [1, { [_jN]: _pDTIS }], [0, { [_jN]: _u }], [64 | 0, { [_jN]: _aT }], [0, { [_jN]: _aODR }]]
+  [_I, _AM, _IIOS, _MN, _PTl, _PWS, _PDTIS, _U, _AT, _AODR],
+  [[0, { [_jN]: _i }], [0, { [_jN]: _aM }], [2, { [_jN]: _iIOS }], [0, { [_jN]: _mN }], [0, { [_jN]: _pTl }], [1, { [_jN]: _pWS }], [1, { [_jN]: _pDTIS }], [0, { [_jN]: _u }], [64 | 0, { [_jN]: _aT }], [0, { [_jN]: _aODR }]], 1
 ];
 export var HlsManifestCreateOrUpdateParameters$: StaticStructureSchema = [3, n0, _HMCOUP,
   0,
-  [_AM, _AT, _AODR, _I, _IIOS, _MN, _PTl, _PWS, _PDTIS],
-  [[0, { [_jN]: _aM }], [64 | 0, { [_jN]: _aT }], [0, { [_jN]: _aODR }], [0, { [_jN]: _i }], [2, { [_jN]: _iIOS }], [0, { [_jN]: _mN }], [0, { [_jN]: _pTl }], [1, { [_jN]: _pWS }], [1, { [_jN]: _pDTIS }]]
+  [_I, _AM, _AT, _AODR, _IIOS, _MN, _PTl, _PWS, _PDTIS],
+  [[0, { [_jN]: _i }], [0, { [_jN]: _aM }], [64 | 0, { [_jN]: _aT }], [0, { [_jN]: _aODR }], [2, { [_jN]: _iIOS }], [0, { [_jN]: _mN }], [0, { [_jN]: _pTl }], [1, { [_jN]: _pWS }], [1, { [_jN]: _pDTIS }]], 1
 ];
 export var HlsPackage$: StaticStructureSchema = [3, n0, _HP,
   0,
@@ -494,7 +494,7 @@ export var ListOriginEndpointsResponse$: StaticStructureSchema = [3, n0, _LOERi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -504,7 +504,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var MssEncryption$: StaticStructureSchema = [3, n0, _ME,
   0,
   [_SKP],
-  [[() => SpekeKeyProvider$, { [_jN]: _sKP }]]
+  [[() => SpekeKeyProvider$, { [_jN]: _sKP }]], 1
 ];
 export var MssPackage$: StaticStructureSchema = [3, n0, _MP,
   0,
@@ -525,7 +525,7 @@ export var OriginEndpoint$: StaticStructureSchema = [3, n0, _OEr,
 export var RotateChannelCredentialsRequest$: StaticStructureSchema = [3, n0, _RCCR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var RotateChannelCredentialsResponse$: StaticStructureSchema = [3, n0, _RCCRo,
   0,
@@ -535,7 +535,7 @@ export var RotateChannelCredentialsResponse$: StaticStructureSchema = [3, n0, _R
 export var RotateIngestEndpointCredentialsRequest$: StaticStructureSchema = [3, n0, _RIECR,
   0,
   [_I, _IEI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var RotateIngestEndpointCredentialsResponse$: StaticStructureSchema = [3, n0, _RIECRo,
   0,
@@ -545,7 +545,7 @@ export var RotateIngestEndpointCredentialsResponse$: StaticStructureSchema = [3,
 export var S3Destination$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_BN, _MK, _RAo],
-  [[0, { [_jN]: _bN }], [0, { [_jN]: _mK }], [0, { [_jN]: _rA }]]
+  [[0, { [_jN]: _bN }], [0, { [_jN]: _mK }], [0, { [_jN]: _rA }]], 3
 ];
 export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
   { [_er]: _se, [_hE]: 503 },
@@ -555,8 +555,8 @@ export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
 TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SpekeKeyProvider$: StaticStructureSchema = [3, n0, _SKP,
   0,
-  [_CAe, _ECC, _RI, _RAo, _SI, _U],
-  [[0, { [_jN]: _cAe }], [() => EncryptionContractConfiguration$, { [_jN]: _eCC }], [0, { [_jN]: _rI }], [0, { [_jN]: _rA }], [64 | 0, { [_jN]: _sI }], [0, { [_jN]: _u }]]
+  [_RI, _RAo, _SI, _U, _CAe, _ECC],
+  [[0, { [_jN]: _rI }], [0, { [_jN]: _rA }], [64 | 0, { [_jN]: _sI }], [0, { [_jN]: _u }], [0, { [_jN]: _cAe }], [() => EncryptionContractConfiguration$, { [_jN]: _eCC }]], 4
 ];
 export var StreamSelection$: StaticStructureSchema = [3, n0, _SSt,
   0,
@@ -566,7 +566,7 @@ export var StreamSelection$: StaticStructureSchema = [3, n0, _SSt,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], [128 | 0, { [_jN]: _t }]]
+  [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
 export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_er]: _c, [_hE]: 429 },
@@ -583,12 +583,12 @@ TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableE
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_D, _I],
-  [[0, { [_jN]: _d }], [0, 1]]
+  [_I, _D],
+  [[0, 1], [0, { [_jN]: _d }]], 1
 ];
 export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -597,8 +597,8 @@ export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateOriginEndpointRequest$: StaticStructureSchema = [3, n0, _UOER,
   0,
-  [_A, _CP, _DP, _D, _HP, _I, _MN, _MP, _O, _SWS, _TDS, _W],
-  [[() => Authorization$, { [_jN]: _au }], [() => CmafPackageCreateOrUpdateParameters$, { [_jN]: _cP }], [() => DashPackage$, { [_jN]: _dP }], [0, { [_jN]: _d }], [() => HlsPackage$, { [_jN]: _hP }], [0, 1], [0, { [_jN]: _mN }], [() => MssPackage$, { [_jN]: _mP }], [0, { [_jN]: _o }], [1, { [_jN]: _sWS }], [1, { [_jN]: _tDS }], [64 | 0, { [_jN]: _w }]]
+  [_I, _A, _CP, _DP, _D, _HP, _MN, _MP, _O, _SWS, _TDS, _W],
+  [[0, 1], [() => Authorization$, { [_jN]: _au }], [() => CmafPackageCreateOrUpdateParameters$, { [_jN]: _cP }], [() => DashPackage$, { [_jN]: _dP }], [0, { [_jN]: _d }], [() => HlsPackage$, { [_jN]: _hP }], [0, { [_jN]: _mN }], [() => MssPackage$, { [_jN]: _mP }], [0, { [_jN]: _o }], [1, { [_jN]: _sWS }], [1, { [_jN]: _tDS }], [64 | 0, { [_jN]: _w }]], 1
 ];
 export var UpdateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _UOERp,
   0,

@@ -74,6 +74,7 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * //       },
  * //       failureCode: "STRING_VALUE",
  * //       failureMessage: "STRING_VALUE",
+ * //       collectionGroupName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   collectionErrorDetails: [ // CollectionErrorDetails

@@ -1,11 +1,11 @@
 // smithy-typescript generated code
-import { GetItemCommand as __GetItemCommand } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@smithy/smithy-client";
 import { type HttpHandlerOptions as __HttpHandlerOptions, Handler, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { ALL_VALUES } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
+import { GetItemCommand as __GetItemCommand } from "@aws-sdk/client-dynamodb";
 
 /**
  * @public
@@ -15,15 +15,25 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
-export type GetCommandInput = Omit<__GetItemCommandInput, "Key"> & {
-  Key: Record<string, NativeAttributeValue> | undefined;
+export type GetCommandInput = Omit<__GetItemCommandInput, 'Key'> & {
+  Key:
+    Record<string,
+      NativeAttributeValue
+    >
+     | undefined
+  ;
 };
 
 /**
  * @public
  */
-export type GetCommandOutput = Omit<__GetItemCommandOutput, "Item"> & {
-  Item?: Record<string, NativeAttributeValue> | undefined;
+export type GetCommandOutput = Omit<__GetItemCommandOutput, 'Item'> & {
+  Item?:
+    Record<string,
+      NativeAttributeValue
+    >
+     | undefined
+  ;
 };
 
 /**
@@ -35,25 +45,21 @@ export type GetCommandOutput = Omit<__GetItemCommandOutput, "Item"> & {
  *
  * @public
  */
-export class GetCommand extends DynamoDBDocumentClientCommand<
-  GetCommandInput,
-  GetCommandOutput,
-  __GetItemCommandInput,
-  __GetItemCommandOutput,
-  DynamoDBDocumentClientResolvedConfig
-> {
+export class GetCommand extends DynamoDBDocumentClientCommand<GetCommandInput, GetCommandOutput, __GetItemCommandInput, __GetItemCommandOutput, DynamoDBDocumentClientResolvedConfig> {
   protected readonly inputKeyNodes = {
-    Key: ALL_VALUES, // map with AttributeValue
+    'Key':
+      ALL_VALUES // map with AttributeValue
+    ,
   };
   protected readonly outputKeyNodes = {
-    Item: ALL_VALUES, // map with AttributeValue
+    'Item':
+      ALL_VALUES // map with AttributeValue
+    ,
   };
 
   protected readonly clientCommand: __GetItemCommand;
-  public readonly middlewareStack: MiddlewareStack<
-    GetCommandInput | __GetItemCommandInput,
-    GetCommandOutput | __GetItemCommandOutput
-  >;
+  public readonly middlewareStack: MiddlewareStack<GetCommandInput | __GetItemCommandInput,
+  GetCommandOutput | __GetItemCommandOutput>;
 
   constructor(readonly input: GetCommandInput) {
     super();
@@ -69,16 +75,23 @@ export class GetCommand extends DynamoDBDocumentClientCommand<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCommandInput, GetCommandOutput> {
-    this.addMarshallingMiddleware(configuration);
+    this.addMarshallingMiddleware(
+      configuration
+    );
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand)
   }
 }
 
 import type {
   GetItemCommandInput as __GetItemCommandInput,
+
   GetItemCommandOutput as __GetItemCommandOutput,
+
 } from "@aws-sdk/client-dynamodb";
-import type { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import type {
+  NativeAttributeValue,
+} from "@aws-sdk/util-dynamodb";

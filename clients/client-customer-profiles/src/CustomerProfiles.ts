@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddProfileKeyCommand,
@@ -473,6 +473,17 @@ import {
   UpdateRecommenderCommandOutput,
 } from "./commands/UpdateRecommenderCommand";
 import { CustomerProfilesClient } from "./CustomerProfilesClient";
+import { paginateGetSimilarProfiles } from "./pagination/GetSimilarProfilesPaginator";
+import { paginateListDomainLayouts } from "./pagination/ListDomainLayoutsPaginator";
+import { paginateListDomainObjectTypes } from "./pagination/ListDomainObjectTypesPaginator";
+import { paginateListEventStreams } from "./pagination/ListEventStreamsPaginator";
+import { paginateListEventTriggers } from "./pagination/ListEventTriggersPaginator";
+import { paginateListObjectTypeAttributes } from "./pagination/ListObjectTypeAttributesPaginator";
+import { paginateListRecommenderRecipes } from "./pagination/ListRecommenderRecipesPaginator";
+import { paginateListRecommenders } from "./pagination/ListRecommendersPaginator";
+import { paginateListRuleBasedMatches } from "./pagination/ListRuleBasedMatchesPaginator";
+import { paginateListSegmentDefinitions } from "./pagination/ListSegmentDefinitionsPaginator";
+import { paginateListUploadJobs } from "./pagination/ListUploadJobsPaginator";
 
 const commands = {
   AddProfileKeyCommand,
@@ -573,6 +584,19 @@ const commands = {
   UpdateEventTriggerCommand,
   UpdateProfileCommand,
   UpdateRecommenderCommand,
+};
+const paginators = {
+  paginateGetSimilarProfiles,
+  paginateListDomainLayouts,
+  paginateListDomainObjectTypes,
+  paginateListEventStreams,
+  paginateListEventTriggers,
+  paginateListObjectTypeAttributes,
+  paginateListRecommenderRecipes,
+  paginateListRecommenders,
+  paginateListRuleBasedMatches,
+  paginateListSegmentDefinitions,
+  paginateListUploadJobs,
 };
 
 export interface CustomerProfiles {
@@ -2244,6 +2268,127 @@ export interface CustomerProfiles {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRecommenderCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetSimilarProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSimilarProfilesCommandOutput}.
+   */
+  paginateGetSimilarProfiles(
+    args: GetSimilarProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSimilarProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListDomainLayoutsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainLayoutsCommandOutput}.
+   */
+  paginateListDomainLayouts(
+    args: ListDomainLayoutsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainLayoutsCommandOutput>;
+
+  /**
+   * @see {@link ListDomainObjectTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainObjectTypesCommandOutput}.
+   */
+  paginateListDomainObjectTypes(
+    args: ListDomainObjectTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainObjectTypesCommandOutput>;
+
+  /**
+   * @see {@link ListEventStreamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventStreamsCommandOutput}.
+   */
+  paginateListEventStreams(
+    args: ListEventStreamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventStreamsCommandOutput>;
+
+  /**
+   * @see {@link ListEventTriggersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventTriggersCommandOutput}.
+   */
+  paginateListEventTriggers(
+    args: ListEventTriggersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventTriggersCommandOutput>;
+
+  /**
+   * @see {@link ListObjectTypeAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListObjectTypeAttributesCommandOutput}.
+   */
+  paginateListObjectTypeAttributes(
+    args: ListObjectTypeAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListObjectTypeAttributesCommandOutput>;
+
+  /**
+   * @see {@link ListRecommenderRecipesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommenderRecipesCommandOutput}.
+   */
+  paginateListRecommenderRecipes(
+    args?: ListRecommenderRecipesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommenderRecipesCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendersCommandOutput}.
+   */
+  paginateListRecommenders(
+    args: ListRecommendersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendersCommandOutput>;
+
+  /**
+   * @see {@link ListRuleBasedMatchesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRuleBasedMatchesCommandOutput}.
+   */
+  paginateListRuleBasedMatches(
+    args: ListRuleBasedMatchesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRuleBasedMatchesCommandOutput>;
+
+  /**
+   * @see {@link ListSegmentDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSegmentDefinitionsCommandOutput}.
+   */
+  paginateListSegmentDefinitions(
+    args: ListSegmentDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSegmentDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListUploadJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUploadJobsCommandOutput}.
+   */
+  paginateListUploadJobs(
+    args: ListUploadJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUploadJobsCommandOutput>;
 }
 
 /**
@@ -2269,4 +2414,4 @@ export interface CustomerProfiles {
  * @public
  */
 export class CustomerProfiles extends CustomerProfilesClient implements CustomerProfiles {}
-createAggregatedClient(commands, CustomerProfiles);
+createAggregatedClient(commands, CustomerProfiles, { paginators });

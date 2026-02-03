@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import type { StopRouterInputRequest, StopRouterInputResponse } from "../models/models_0";
+import type { StopRouterInputRequest, StopRouterInputResponse } from "../models/models_1";
 import { StopRouterInput$ } from "../schemas/schemas_0";
 
 /**

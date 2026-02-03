@@ -188,7 +188,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AssociateRepositoryRequest$: StaticStructureSchema = [3, n0, _ARR,
   0,
   [_R, _CRT, _T, _KMSKD],
-  [() => Repository$, [0, 4], 128 | 0, () => KMSKeyDetails$]
+  [() => Repository$, [0, 4], 128 | 0, () => KMSKeyDetails$], 1
 ];
 export var AssociateRepositoryResponse$: StaticStructureSchema = [3, n0, _ARRs,
   0,
@@ -198,17 +198,17 @@ export var AssociateRepositoryResponse$: StaticStructureSchema = [3, n0, _ARRs,
 export var BranchDiffSourceCodeType$: StaticStructureSchema = [3, n0, _BDSCT,
   0,
   [_SBN, _DBN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CodeArtifacts$: StaticStructureSchema = [3, n0, _CA,
   0,
   [_SCAOK, _BAOK],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CodeCommitRepository$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var CodeReview$: StaticStructureSchema = [3, n0, _CR,
   0,
@@ -223,7 +223,7 @@ export var CodeReviewSummary$: StaticStructureSchema = [3, n0, _CRS,
 export var CodeReviewType$: StaticStructureSchema = [3, n0, _CRTo,
   0,
   [_RAe, _AT],
-  [() => RepositoryAnalysis$, 64 | 0]
+  [() => RepositoryAnalysis$, 64 | 0], 1
 ];
 export var CommitDiffSourceCodeType$: StaticStructureSchema = [3, n0, _CDSCT,
   0,
@@ -239,7 +239,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCodeReviewRequest$: StaticStructureSchema = [3, n0, _CCRR,
   0,
   [_N, _RAA, _Ty, _CRT],
-  [0, 0, () => CodeReviewType$, [0, 4]]
+  [0, 0, () => CodeReviewType$, [0, 4]], 3
 ];
 export var CreateCodeReviewResponse$: StaticStructureSchema = [3, n0, _CCRRr,
   0,
@@ -249,7 +249,7 @@ export var CreateCodeReviewResponse$: StaticStructureSchema = [3, n0, _CCRRr,
 export var DescribeCodeReviewRequest$: StaticStructureSchema = [3, n0, _DCRR,
   0,
   [_CRA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeCodeReviewResponse$: StaticStructureSchema = [3, n0, _DCRRe,
   0,
@@ -259,7 +259,7 @@ export var DescribeCodeReviewResponse$: StaticStructureSchema = [3, n0, _DCRRe,
 export var DescribeRecommendationFeedbackRequest$: StaticStructureSchema = [3, n0, _DRFR,
   0,
   [_CRA, _RI, _UI],
-  [[0, 1], [0, { [_hQ]: _RI }], [0, { [_hQ]: _UI }]]
+  [[0, 1], [0, { [_hQ]: _RI }], [0, { [_hQ]: _UI }]], 2
 ];
 export var DescribeRecommendationFeedbackResponse$: StaticStructureSchema = [3, n0, _DRFRe,
   0,
@@ -269,7 +269,7 @@ export var DescribeRecommendationFeedbackResponse$: StaticStructureSchema = [3, 
 export var DescribeRepositoryAssociationRequest$: StaticStructureSchema = [3, n0, _DRAR,
   0,
   [_AA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeRepositoryAssociationResponse$: StaticStructureSchema = [3, n0, _DRARe,
   0,
@@ -279,7 +279,7 @@ export var DescribeRepositoryAssociationResponse$: StaticStructureSchema = [3, n
 export var DisassociateRepositoryRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_AA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateRepositoryResponse$: StaticStructureSchema = [3, n0, _DRRi,
   0,
@@ -304,8 +304,8 @@ export var KMSKeyDetails$: StaticStructureSchema = [3, n0, _KMSKD,
 ];
 export var ListCodeReviewsRequest$: StaticStructureSchema = [3, n0, _LCRR,
   0,
-  [_PTr, _St, _RNe, _Ty, _MR, _NT],
-  [[64 | 0, { [_hQ]: _PTr }], [64 | 0, { [_hQ]: _St }], [64 | 0, { [_hQ]: _RNe }], [0, { [_hQ]: _Ty }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [_Ty, _PTr, _St, _RNe, _MR, _NT],
+  [[0, { [_hQ]: _Ty }], [64 | 0, { [_hQ]: _PTr }], [64 | 0, { [_hQ]: _St }], [64 | 0, { [_hQ]: _RNe }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListCodeReviewsResponse$: StaticStructureSchema = [3, n0, _LCRRi,
   0,
@@ -314,8 +314,8 @@ export var ListCodeReviewsResponse$: StaticStructureSchema = [3, n0, _LCRRi,
 ];
 export var ListRecommendationFeedbackRequest$: StaticStructureSchema = [3, n0, _LRFR,
   0,
-  [_NT, _MR, _CRA, _UIs, _RIe],
-  [[0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, 1], [64 | 0, { [_hQ]: _UIs }], [64 | 0, { [_hQ]: _RIe }]]
+  [_CRA, _NT, _MR, _UIs, _RIe],
+  [[0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [64 | 0, { [_hQ]: _UIs }], [64 | 0, { [_hQ]: _RIe }]], 1
 ];
 export var ListRecommendationFeedbackResponse$: StaticStructureSchema = [3, n0, _LRFRi,
   0,
@@ -324,8 +324,8 @@ export var ListRecommendationFeedbackResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
-  [_NT, _MR, _CRA],
-  [[0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, 1]]
+  [_CRA, _NT, _MR],
+  [[0, 1], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var ListRecommendationsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
@@ -345,7 +345,7 @@ export var ListRepositoryAssociationsResponse$: StaticStructureSchema = [3, n0, 
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -371,7 +371,7 @@ TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PutRecommendationFeedbackRequest$: StaticStructureSchema = [3, n0, _PRFR,
   0,
   [_CRA, _RI, _Re],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var PutRecommendationFeedbackResponse$: StaticStructureSchema = [3, n0, _PRFRu,
   0,
@@ -416,7 +416,7 @@ export var RepositoryAssociationSummary$: StaticStructureSchema = [3, n0, _RASe,
 export var RepositoryHeadSourceCodeType$: StaticStructureSchema = [3, n0, _RHSCT,
   0,
   [_BN],
-  [0]
+  [0], 1
 ];
 export var RequestMetadata$: StaticStructureSchema = [3, n0, _RMe,
   0,
@@ -437,12 +437,12 @@ export var RuleMetadata$: StaticStructureSchema = [3, n0, _RM,
 export var S3BucketRepository$: StaticStructureSchema = [3, n0, _SBR,
   0,
   [_N, _De],
-  [0, () => S3RepositoryDetails$]
+  [0, () => S3RepositoryDetails$], 1
 ];
 export var S3Repository$: StaticStructureSchema = [3, n0, _SRe,
   0,
   [_N, _BNu],
-  [0, 0]
+  [0, 0], 2
 ];
 export var S3RepositoryDetails$: StaticStructureSchema = [3, n0, _SRD,
   0,
@@ -457,7 +457,7 @@ export var SourceCodeType$: StaticStructureSchema = [3, n0, _SCT,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -467,7 +467,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThirdPartySourceRepository$: StaticStructureSchema = [3, n0, _TPSR,
   0,
   [_N, _CAo, _O],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
@@ -478,7 +478,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,

@@ -2077,6 +2077,13 @@ XmlAttributes
 </details>
 <details>
 <summary>
+XmlAttributesInMiddle
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/XmlAttributesInMiddleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/XmlAttributesInMiddleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/XmlAttributesInMiddleCommandOutput/)
+</details>
+<details>
+<summary>
 XmlAttributesOnPayload
 </summary>
 

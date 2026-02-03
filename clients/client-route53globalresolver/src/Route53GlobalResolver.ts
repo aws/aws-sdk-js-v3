@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateHostedZoneCommand,
@@ -229,6 +229,15 @@ import {
   UpdateHostedZoneAssociationCommandInput,
   UpdateHostedZoneAssociationCommandOutput,
 } from "./commands/UpdateHostedZoneAssociationCommand";
+import { paginateListAccessSources } from "./pagination/ListAccessSourcesPaginator";
+import { paginateListAccessTokens } from "./pagination/ListAccessTokensPaginator";
+import { paginateListDNSViews } from "./pagination/ListDNSViewsPaginator";
+import { paginateListFirewallDomainLists } from "./pagination/ListFirewallDomainListsPaginator";
+import { paginateListFirewallDomains } from "./pagination/ListFirewallDomainsPaginator";
+import { paginateListFirewallRules } from "./pagination/ListFirewallRulesPaginator";
+import { paginateListGlobalResolvers } from "./pagination/ListGlobalResolversPaginator";
+import { paginateListHostedZoneAssociations } from "./pagination/ListHostedZoneAssociationsPaginator";
+import { paginateListManagedFirewallDomainLists } from "./pagination/ListManagedFirewallDomainListsPaginator";
 import { Route53GlobalResolverClient } from "./Route53GlobalResolverClient";
 
 const commands = {
@@ -279,6 +288,17 @@ const commands = {
   UpdateFirewallRuleCommand,
   UpdateGlobalResolverCommand,
   UpdateHostedZoneAssociationCommand,
+};
+const paginators = {
+  paginateListAccessSources,
+  paginateListAccessTokens,
+  paginateListDNSViews,
+  paginateListFirewallDomainLists,
+  paginateListFirewallDomains,
+  paginateListFirewallRules,
+  paginateListGlobalResolvers,
+  paginateListHostedZoneAssociations,
+  paginateListManagedFirewallDomainLists,
 };
 
 export interface Route53GlobalResolver {
@@ -1083,6 +1103,105 @@ export interface Route53GlobalResolver {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateHostedZoneAssociationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccessSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessSourcesCommandOutput}.
+   */
+  paginateListAccessSources(
+    args?: ListAccessSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListAccessTokensCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessTokensCommandOutput}.
+   */
+  paginateListAccessTokens(
+    args: ListAccessTokensCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessTokensCommandOutput>;
+
+  /**
+   * @see {@link ListDNSViewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDNSViewsCommandOutput}.
+   */
+  paginateListDNSViews(
+    args: ListDNSViewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDNSViewsCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallDomainListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallDomainListsCommandOutput}.
+   */
+  paginateListFirewallDomainLists(
+    args?: ListFirewallDomainListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallDomainListsCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallDomainsCommandOutput}.
+   */
+  paginateListFirewallDomains(
+    args: ListFirewallDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListFirewallRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFirewallRulesCommandOutput}.
+   */
+  paginateListFirewallRules(
+    args: ListFirewallRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFirewallRulesCommandOutput>;
+
+  /**
+   * @see {@link ListGlobalResolversCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGlobalResolversCommandOutput}.
+   */
+  paginateListGlobalResolvers(
+    args?: ListGlobalResolversCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGlobalResolversCommandOutput>;
+
+  /**
+   * @see {@link ListHostedZoneAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHostedZoneAssociationsCommandOutput}.
+   */
+  paginateListHostedZoneAssociations(
+    args: ListHostedZoneAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHostedZoneAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListManagedFirewallDomainListsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedFirewallDomainListsCommandOutput}.
+   */
+  paginateListManagedFirewallDomainLists(
+    args: ListManagedFirewallDomainListsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedFirewallDomainListsCommandOutput>;
 }
 
 /**
@@ -1090,4 +1209,4 @@ export interface Route53GlobalResolver {
  * @public
  */
 export class Route53GlobalResolver extends Route53GlobalResolverClient implements Route53GlobalResolver {}
-createAggregatedClient(commands, Route53GlobalResolver);
+createAggregatedClient(commands, Route53GlobalResolver, { paginators });

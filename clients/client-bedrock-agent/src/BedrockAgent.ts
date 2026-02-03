@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BedrockAgentClient } from "./BedrockAgentClient";
 import {
@@ -307,6 +307,20 @@ import {
   ValidateFlowDefinitionCommandInput,
   ValidateFlowDefinitionCommandOutput,
 } from "./commands/ValidateFlowDefinitionCommand";
+import { paginateListAgentActionGroups } from "./pagination/ListAgentActionGroupsPaginator";
+import { paginateListAgentAliases } from "./pagination/ListAgentAliasesPaginator";
+import { paginateListAgentCollaborators } from "./pagination/ListAgentCollaboratorsPaginator";
+import { paginateListAgentKnowledgeBases } from "./pagination/ListAgentKnowledgeBasesPaginator";
+import { paginateListAgents } from "./pagination/ListAgentsPaginator";
+import { paginateListAgentVersions } from "./pagination/ListAgentVersionsPaginator";
+import { paginateListDataSources } from "./pagination/ListDataSourcesPaginator";
+import { paginateListFlowAliases } from "./pagination/ListFlowAliasesPaginator";
+import { paginateListFlows } from "./pagination/ListFlowsPaginator";
+import { paginateListFlowVersions } from "./pagination/ListFlowVersionsPaginator";
+import { paginateListIngestionJobs } from "./pagination/ListIngestionJobsPaginator";
+import { paginateListKnowledgeBaseDocuments } from "./pagination/ListKnowledgeBaseDocumentsPaginator";
+import { paginateListKnowledgeBases } from "./pagination/ListKnowledgeBasesPaginator";
+import { paginateListPrompts } from "./pagination/ListPromptsPaginator";
 
 const commands = {
   AssociateAgentCollaboratorCommand,
@@ -381,6 +395,22 @@ const commands = {
   UpdateKnowledgeBaseCommand,
   UpdatePromptCommand,
   ValidateFlowDefinitionCommand,
+};
+const paginators = {
+  paginateListAgentActionGroups,
+  paginateListAgentAliases,
+  paginateListAgentCollaborators,
+  paginateListAgentKnowledgeBases,
+  paginateListAgents,
+  paginateListAgentVersions,
+  paginateListDataSources,
+  paginateListFlowAliases,
+  paginateListFlows,
+  paginateListFlowVersions,
+  paginateListIngestionJobs,
+  paginateListKnowledgeBaseDocuments,
+  paginateListKnowledgeBases,
+  paginateListPrompts,
 };
 
 export interface BedrockAgent {
@@ -1611,6 +1641,160 @@ export interface BedrockAgent {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateFlowDefinitionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAgentActionGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentActionGroupsCommandOutput}.
+   */
+  paginateListAgentActionGroups(
+    args: ListAgentActionGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentActionGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListAgentAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentAliasesCommandOutput}.
+   */
+  paginateListAgentAliases(
+    args: ListAgentAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListAgentCollaboratorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentCollaboratorsCommandOutput}.
+   */
+  paginateListAgentCollaborators(
+    args: ListAgentCollaboratorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentCollaboratorsCommandOutput>;
+
+  /**
+   * @see {@link ListAgentKnowledgeBasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentKnowledgeBasesCommandOutput}.
+   */
+  paginateListAgentKnowledgeBases(
+    args: ListAgentKnowledgeBasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentKnowledgeBasesCommandOutput>;
+
+  /**
+   * @see {@link ListAgentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentsCommandOutput}.
+   */
+  paginateListAgents(
+    args?: ListAgentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentsCommandOutput>;
+
+  /**
+   * @see {@link ListAgentVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentVersionsCommandOutput}.
+   */
+  paginateListAgentVersions(
+    args: ListAgentVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListDataSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataSourcesCommandOutput}.
+   */
+  paginateListDataSources(
+    args: ListDataSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListFlowAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowAliasesCommandOutput}.
+   */
+  paginateListFlowAliases(
+    args: ListFlowAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListFlowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowsCommandOutput}.
+   */
+  paginateListFlows(
+    args?: ListFlowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowsCommandOutput>;
+
+  /**
+   * @see {@link ListFlowVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlowVersionsCommandOutput}.
+   */
+  paginateListFlowVersions(
+    args: ListFlowVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlowVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListIngestionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIngestionJobsCommandOutput}.
+   */
+  paginateListIngestionJobs(
+    args: ListIngestionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIngestionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListKnowledgeBaseDocumentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKnowledgeBaseDocumentsCommandOutput}.
+   */
+  paginateListKnowledgeBaseDocuments(
+    args: ListKnowledgeBaseDocumentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKnowledgeBaseDocumentsCommandOutput>;
+
+  /**
+   * @see {@link ListKnowledgeBasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKnowledgeBasesCommandOutput}.
+   */
+  paginateListKnowledgeBases(
+    args?: ListKnowledgeBasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKnowledgeBasesCommandOutput>;
+
+  /**
+   * @see {@link ListPromptsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPromptsCommandOutput}.
+   */
+  paginateListPrompts(
+    args?: ListPromptsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPromptsCommandOutput>;
 }
 
 /**
@@ -1618,4 +1802,4 @@ export interface BedrockAgent {
  * @public
  */
 export class BedrockAgent extends BedrockAgentClient implements BedrockAgent {}
-createAggregatedClient(commands, BedrockAgent);
+createAggregatedClient(commands, BedrockAgent, { paginators });

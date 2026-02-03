@@ -810,7 +810,7 @@ import {
 export var AddTagsToResourceMessage$: StaticStructureSchema = [3, n0, _ATTRM,
   0,
   [_RN, _T],
-  [0, [() => TagList, 0]]
+  [0, [() => TagList, 0]], 2
 ];
 export var AllowedNodeTypeModificationsMessage$: StaticStructureSchema = [3, n0, _ANTMM,
   0,
@@ -848,7 +848,7 @@ TypeRegistry.for(n0).registerError(AuthorizationNotFoundFault$, AuthorizationNot
 export var AuthorizeCacheSecurityGroupIngressMessage$: StaticStructureSchema = [3, n0, _ACSGIM,
   0,
   [_CSGN, _ECSGN, _ECSGOI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var AuthorizeCacheSecurityGroupIngressResult$: StaticStructureSchema = [3, n0, _ACSGIR,
   0,
@@ -862,13 +862,13 @@ export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ,
 ];
 export var BatchApplyUpdateActionMessage$: StaticStructureSchema = [3, n0, _BAUAM,
   0,
-  [_RGI, _CCI, _SUN],
-  [64 | 0, 64 | 0, 0]
+  [_SUN, _RGI, _CCI],
+  [0, 64 | 0, 64 | 0], 1
 ];
 export var BatchStopUpdateActionMessage$: StaticStructureSchema = [3, n0, _BSUAM,
   0,
-  [_RGI, _CCI, _SUN],
-  [64 | 0, 64 | 0, 0]
+  [_SUN, _RGI, _CCI],
+  [0, 64 | 0, 64 | 0], 1
 ];
 export var CacheCluster$: StaticStructureSchema = [3, n0, _CC,
   0,
@@ -1057,7 +1057,7 @@ TypeRegistry.for(n0).registerError(ClusterQuotaForCustomerExceededFault$, Cluste
 export var CompleteMigrationMessage$: StaticStructureSchema = [3, n0, _CMM,
   0,
   [_RGIe, _F],
-  [0, 2]
+  [0, 2], 1
 ];
 export var CompleteMigrationResponse$: StaticStructureSchema = [3, n0, _CMR,
   0,
@@ -1067,12 +1067,12 @@ export var CompleteMigrationResponse$: StaticStructureSchema = [3, n0, _CMR,
 export var ConfigureShard$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_NGI, _NRC, _PAZr, _POAr],
-  [0, 1, [() => PreferredAvailabilityZoneList, 0], [() => PreferredOutpostArnList, 0]]
+  [0, 1, [() => PreferredAvailabilityZoneList, 0], [() => PreferredOutpostArnList, 0]], 2
 ];
 export var CopyServerlessCacheSnapshotRequest$: StaticStructureSchema = [3, n0, _CSCSR,
   0,
   [_SSCSN, _TSCSN, _KKI, _T],
-  [0, 0, 0, [() => TagList, 0]]
+  [0, 0, 0, [() => TagList, 0]], 2
 ];
 export var CopyServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n0, _CSCSRo,
   0,
@@ -1082,7 +1082,7 @@ export var CopyServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n0,
 export var CopySnapshotMessage$: StaticStructureSchema = [3, n0, _CSM,
   0,
   [_SSN, _TSN, _TB, _KKI, _T],
-  [0, 0, 0, 0, [() => TagList, 0]]
+  [0, 0, 0, 0, [() => TagList, 0]], 2
 ];
 export var CopySnapshotResult$: StaticStructureSchema = [3, n0, _CSR,
   0,
@@ -1092,7 +1092,7 @@ export var CopySnapshotResult$: StaticStructureSchema = [3, n0, _CSR,
 export var CreateCacheClusterMessage$: StaticStructureSchema = [3, n0, _CCCM,
   0,
   [_CCIa, _RGIe, _AZM, _PAZ, _PAZr, _NCN, _CNT, _E, _EV, _CPGN, _CSGNa, _CSGNac, _SGI, _T, _SA, _SN, _PMW, _Po, _NTA, _AMVU, _SRL, _SW, _AT, _OM, _POA, _POAr, _LDC, _TEE, _NT, _ID],
-  [0, 0, 0, 0, [() => PreferredAvailabilityZoneList, 0], 1, 0, 0, 0, 0, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], [() => TagList, 0], [() => SnapshotArnsList, 0], 0, 0, 1, 0, 2, 1, 0, 0, 0, 0, [() => PreferredOutpostArnList, 0], [() => LogDeliveryConfigurationRequestList, 0], 2, 0, 0]
+  [0, 0, 0, 0, [() => PreferredAvailabilityZoneList, 0], 1, 0, 0, 0, 0, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], [() => TagList, 0], [() => SnapshotArnsList, 0], 0, 0, 1, 0, 2, 1, 0, 0, 0, 0, [() => PreferredOutpostArnList, 0], [() => LogDeliveryConfigurationRequestList, 0], 2, 0, 0], 1
 ];
 export var CreateCacheClusterResult$: StaticStructureSchema = [3, n0, _CCCR,
   0,
@@ -1102,7 +1102,7 @@ export var CreateCacheClusterResult$: StaticStructureSchema = [3, n0, _CCCR,
 export var CreateCacheParameterGroupMessage$: StaticStructureSchema = [3, n0, _CCPGM,
   0,
   [_CPGN, _CPGF, _D, _T],
-  [0, 0, 0, [() => TagList, 0]]
+  [0, 0, 0, [() => TagList, 0]], 3
 ];
 export var CreateCacheParameterGroupResult$: StaticStructureSchema = [3, n0, _CCPGR,
   0,
@@ -1112,7 +1112,7 @@ export var CreateCacheParameterGroupResult$: StaticStructureSchema = [3, n0, _CC
 export var CreateCacheSecurityGroupMessage$: StaticStructureSchema = [3, n0, _CCSGM,
   0,
   [_CSGN, _D, _T],
-  [0, 0, [() => TagList, 0]]
+  [0, 0, [() => TagList, 0]], 2
 ];
 export var CreateCacheSecurityGroupResult$: StaticStructureSchema = [3, n0, _CCSGR,
   0,
@@ -1122,7 +1122,7 @@ export var CreateCacheSecurityGroupResult$: StaticStructureSchema = [3, n0, _CCS
 export var CreateCacheSubnetGroupMessage$: StaticStructureSchema = [3, n0, _CCSGMr,
   0,
   [_CSGNa, _CSGD, _SI, _T],
-  [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]]
+  [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]], 3
 ];
 export var CreateCacheSubnetGroupResult$: StaticStructureSchema = [3, n0, _CCSGRr,
   0,
@@ -1131,8 +1131,8 @@ export var CreateCacheSubnetGroupResult$: StaticStructureSchema = [3, n0, _CCSGR
 ];
 export var CreateGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _CGRGM,
   0,
-  [_GRGIS, _GRGD, _PRGI],
-  [0, 0, 0]
+  [_GRGIS, _PRGI, _GRGD],
+  [0, 0, 0], 2
 ];
 export var CreateGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _CGRGR,
   0,
@@ -1142,7 +1142,7 @@ export var CreateGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, 
 export var CreateReplicationGroupMessage$: StaticStructureSchema = [3, n0, _CRGM,
   0,
   [_RGIe, _RGD, _GRGI, _PCI, _AFE, _MAZE, _NCC, _PCCAZ, _NNG, _RPNG, _NGC, _CNT, _E, _EV, _CPGN, _CSGNa, _CSGNac, _SGI, _T, _SA, _SN, _PMW, _Po, _NTA, _AMVU, _SRL, _SW, _AT, _TEE, _AREE, _KKI, _UGI, _LDC, _DTE, _NT, _ID, _TEM, _CM, _SCSN],
-  [0, 0, 0, 0, 2, 2, 1, [() => AvailabilityZonesList, 0], 1, 1, [() => NodeGroupConfigurationList, 0], 0, 0, 0, 0, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], [() => TagList, 0], [() => SnapshotArnsList, 0], 0, 0, 1, 0, 2, 1, 0, 0, 2, 2, 0, 64 | 0, [() => LogDeliveryConfigurationRequestList, 0], 2, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 2, 2, 1, [() => AvailabilityZonesList, 0], 1, 1, [() => NodeGroupConfigurationList, 0], 0, 0, 0, 0, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], [() => TagList, 0], [() => SnapshotArnsList, 0], 0, 0, 1, 0, 2, 1, 0, 0, 2, 2, 0, 64 | 0, [() => LogDeliveryConfigurationRequestList, 0], 2, 0, 0, 0, 0, 0], 2
 ];
 export var CreateReplicationGroupResult$: StaticStructureSchema = [3, n0, _CRGR,
   0,
@@ -1151,8 +1151,8 @@ export var CreateReplicationGroupResult$: StaticStructureSchema = [3, n0, _CRGR,
 ];
 export var CreateServerlessCacheRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
-  [_SCN, _D, _E, _MEVa, _CUL, _KKI, _SGI, _SATR, _T, _UGIs, _SI, _SRL, _DST],
-  [0, 0, 0, 0, () => CacheUsageLimits$, 0, [() => SecurityGroupIdsList, 0], [() => SnapshotArnsList, 0], [() => TagList, 0], 0, [() => SubnetIdsList, 0], 1, 0]
+  [_SCN, _E, _D, _MEVa, _CUL, _KKI, _SGI, _SATR, _T, _UGIs, _SI, _SRL, _DST],
+  [0, 0, 0, 0, () => CacheUsageLimits$, 0, [() => SecurityGroupIdsList, 0], [() => SnapshotArnsList, 0], [() => TagList, 0], 0, [() => SubnetIdsList, 0], 1, 0], 2
 ];
 export var CreateServerlessCacheResponse$: StaticStructureSchema = [3, n0, _CSCRr,
   0,
@@ -1162,7 +1162,7 @@ export var CreateServerlessCacheResponse$: StaticStructureSchema = [3, n0, _CSCR
 export var CreateServerlessCacheSnapshotRequest$: StaticStructureSchema = [3, n0, _CSCSRr,
   0,
   [_SCSN, _SCN, _KKI, _T],
-  [0, 0, 0, [() => TagList, 0]]
+  [0, 0, 0, [() => TagList, 0]], 2
 ];
 export var CreateServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n0, _CSCSRre,
   0,
@@ -1171,8 +1171,8 @@ export var CreateServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n
 ];
 export var CreateSnapshotMessage$: StaticStructureSchema = [3, n0, _CSMr,
   0,
-  [_RGIe, _CCIa, _SN, _KKI, _T],
-  [0, 0, 0, 0, [() => TagList, 0]]
+  [_SN, _RGIe, _CCIa, _KKI, _T],
+  [0, 0, 0, 0, [() => TagList, 0]], 1
 ];
 export var CreateSnapshotResult$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -1182,12 +1182,12 @@ export var CreateSnapshotResult$: StaticStructureSchema = [3, n0, _CSRr,
 export var CreateUserGroupMessage$: StaticStructureSchema = [3, n0, _CUGM,
   0,
   [_UGIs, _E, _UI, _T],
-  [0, 0, 64 | 0, [() => TagList, 0]]
+  [0, 0, 64 | 0, [() => TagList, 0]], 2
 ];
 export var CreateUserMessage$: StaticStructureSchema = [3, n0, _CUM,
   0,
-  [_UIs, _UN, _E, _P, _AS, _NPR, _T, _AM],
-  [0, 0, 0, 64 | 0, 0, 2, [() => TagList, 0], () => AuthenticationMode$]
+  [_UIs, _UN, _E, _AS, _P, _NPR, _T, _AM],
+  [0, 0, 0, 0, 64 | 0, 2, [() => TagList, 0], () => AuthenticationMode$], 4
 ];
 export var CustomerNodeEndpoint$: StaticStructureSchema = [3, n0, _CNE,
   0,
@@ -1196,13 +1196,13 @@ export var CustomerNodeEndpoint$: StaticStructureSchema = [3, n0, _CNE,
 ];
 export var DataStorage$: StaticStructureSchema = [3, n0, _DS,
   0,
-  [_Ma, _Mi, _U],
-  [1, 1, 0]
+  [_U, _Ma, _Mi],
+  [0, 1, 1], 1
 ];
 export var DecreaseNodeGroupsInGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _DNGIGRGM,
   0,
-  [_GRGI, _NGCo, _GNGTR, _GNGTRl, _AI],
-  [0, 1, [() => GlobalNodeGroupIdList, 0], [() => GlobalNodeGroupIdList, 0], 2]
+  [_GRGI, _NGCo, _AI, _GNGTR, _GNGTRl],
+  [0, 1, 2, [() => GlobalNodeGroupIdList, 0], [() => GlobalNodeGroupIdList, 0]], 3
 ];
 export var DecreaseNodeGroupsInGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _DNGIGRGR,
   0,
@@ -1211,8 +1211,8 @@ export var DecreaseNodeGroupsInGlobalReplicationGroupResult$: StaticStructureSch
 ];
 export var DecreaseReplicaCountMessage$: StaticStructureSchema = [3, n0, _DRCM,
   0,
-  [_RGIe, _NRC, _RC, _RTR, _AI],
-  [0, 1, [() => ReplicaConfigurationList, 0], 64 | 0, 2]
+  [_RGIe, _AI, _NRC, _RC, _RTR],
+  [0, 2, 1, [() => ReplicaConfigurationList, 0], 64 | 0], 2
 ];
 export var DecreaseReplicaCountResult$: StaticStructureSchema = [3, n0, _DRCR,
   0,
@@ -1234,7 +1234,7 @@ TypeRegistry.for(n0).registerError(DefaultUserRequired$, DefaultUserRequired);
 export var DeleteCacheClusterMessage$: StaticStructureSchema = [3, n0, _DCCM,
   0,
   [_CCIa, _FSI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteCacheClusterResult$: StaticStructureSchema = [3, n0, _DCCR,
   0,
@@ -1244,22 +1244,22 @@ export var DeleteCacheClusterResult$: StaticStructureSchema = [3, n0, _DCCR,
 export var DeleteCacheParameterGroupMessage$: StaticStructureSchema = [3, n0, _DCPGM,
   0,
   [_CPGN],
-  [0]
+  [0], 1
 ];
 export var DeleteCacheSecurityGroupMessage$: StaticStructureSchema = [3, n0, _DCSGM,
   0,
   [_CSGN],
-  [0]
+  [0], 1
 ];
 export var DeleteCacheSubnetGroupMessage$: StaticStructureSchema = [3, n0, _DCSGMe,
   0,
   [_CSGNa],
-  [0]
+  [0], 1
 ];
 export var DeleteGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _DGRGM,
   0,
   [_GRGI, _RPRG],
-  [0, 2]
+  [0, 2], 2
 ];
 export var DeleteGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _DGRGR,
   0,
@@ -1269,7 +1269,7 @@ export var DeleteGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, 
 export var DeleteReplicationGroupMessage$: StaticStructureSchema = [3, n0, _DRGM,
   0,
   [_RGIe, _RPC, _FSI],
-  [0, 2, 0]
+  [0, 2, 0], 1
 ];
 export var DeleteReplicationGroupResult$: StaticStructureSchema = [3, n0, _DRGR,
   0,
@@ -1279,7 +1279,7 @@ export var DeleteReplicationGroupResult$: StaticStructureSchema = [3, n0, _DRGR,
 export var DeleteServerlessCacheRequest$: StaticStructureSchema = [3, n0, _DSCR,
   0,
   [_SCN, _FSN],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteServerlessCacheResponse$: StaticStructureSchema = [3, n0, _DSCRe,
   0,
@@ -1289,7 +1289,7 @@ export var DeleteServerlessCacheResponse$: StaticStructureSchema = [3, n0, _DSCR
 export var DeleteServerlessCacheSnapshotRequest$: StaticStructureSchema = [3, n0, _DSCSR,
   0,
   [_SCSN],
-  [0]
+  [0], 1
 ];
 export var DeleteServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n0, _DSCSRe,
   0,
@@ -1299,7 +1299,7 @@ export var DeleteServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n
 export var DeleteSnapshotMessage$: StaticStructureSchema = [3, n0, _DSM,
   0,
   [_SN],
-  [0]
+  [0], 1
 ];
 export var DeleteSnapshotResult$: StaticStructureSchema = [3, n0, _DSR,
   0,
@@ -1309,12 +1309,12 @@ export var DeleteSnapshotResult$: StaticStructureSchema = [3, n0, _DSR,
 export var DeleteUserGroupMessage$: StaticStructureSchema = [3, n0, _DUGM,
   0,
   [_UGIs],
-  [0]
+  [0], 1
 ];
 export var DeleteUserMessage$: StaticStructureSchema = [3, n0, _DUM,
   0,
   [_UIs],
-  [0]
+  [0], 1
 ];
 export var DescribeCacheClustersMessage$: StaticStructureSchema = [3, n0, _DCCMe,
   0,
@@ -1334,7 +1334,7 @@ export var DescribeCacheParameterGroupsMessage$: StaticStructureSchema = [3, n0,
 export var DescribeCacheParametersMessage$: StaticStructureSchema = [3, n0, _DCPM,
   0,
   [_CPGN, _S, _MR, _M],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var DescribeCacheSecurityGroupsMessage$: StaticStructureSchema = [3, n0, _DCSGMes,
   0,
@@ -1349,7 +1349,7 @@ export var DescribeCacheSubnetGroupsMessage$: StaticStructureSchema = [3, n0, _D
 export var DescribeEngineDefaultParametersMessage$: StaticStructureSchema = [3, n0, _DEDPM,
   0,
   [_CPGF, _MR, _M],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeEngineDefaultParametersResult$: StaticStructureSchema = [3, n0, _DEDPR,
   0,
@@ -1454,7 +1454,7 @@ export var DestinationDetails$: StaticStructureSchema = [3, n0, _DD,
 export var DisassociateGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _DGRGMi,
   0,
   [_GRGI, _RGIe, _RGR],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DisassociateGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _DGRGRi,
   0,
@@ -1500,7 +1500,7 @@ export var EventsMessage$: StaticStructureSchema = [3, n0, _EM,
 export var ExportServerlessCacheSnapshotRequest$: StaticStructureSchema = [3, n0, _ESCSR,
   0,
   [_SCSN, _SBN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ExportServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n0, _ESCSRx,
   0,
@@ -1510,7 +1510,7 @@ export var ExportServerlessCacheSnapshotResponse$: StaticStructureSchema = [3, n
 export var FailoverGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _FGRGM,
   0,
   [_GRGI, _PR, _PRGI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var FailoverGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _FGRGR,
   0,
@@ -1520,7 +1520,7 @@ export var FailoverGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0
 export var Filter$: StaticStructureSchema = [3, n0, _Fil,
   0,
   [_N, _Va],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var GlobalNodeGroup$: StaticStructureSchema = [3, n0, _GNG,
   0,
@@ -1556,8 +1556,8 @@ export var GlobalReplicationGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _G
 TypeRegistry.for(n0).registerError(GlobalReplicationGroupNotFoundFault$, GlobalReplicationGroupNotFoundFault);
 export var IncreaseNodeGroupsInGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _INGIGRGM,
   0,
-  [_GRGI, _NGCo, _RCe, _AI],
-  [0, 1, [() => RegionalConfigurationList, 0], 2]
+  [_GRGI, _NGCo, _AI, _RCe],
+  [0, 1, 2, [() => RegionalConfigurationList, 0]], 3
 ];
 export var IncreaseNodeGroupsInGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _INGIGRGR,
   0,
@@ -1566,8 +1566,8 @@ export var IncreaseNodeGroupsInGlobalReplicationGroupResult$: StaticStructureSch
 ];
 export var IncreaseReplicaCountMessage$: StaticStructureSchema = [3, n0, _IRCM,
   0,
-  [_RGIe, _NRC, _RC, _AI],
-  [0, 1, [() => ReplicaConfigurationList, 0], 2]
+  [_RGIe, _AI, _NRC, _RC],
+  [0, 2, 1, [() => ReplicaConfigurationList, 0]], 2
 ];
 export var IncreaseReplicaCountResult$: StaticStructureSchema = [3, n0, _IRCR,
   0,
@@ -1695,7 +1695,7 @@ export var ListAllowedNodeTypeModificationsMessage$: StaticStructureSchema = [3,
 export var ListTagsForResourceMessage$: StaticStructureSchema = [3, n0, _LTFRM,
   0,
   [_RN],
-  [0]
+  [0], 1
 ];
 export var LogDeliveryConfiguration$: StaticStructureSchema = [3, n0, _LDCo,
   0,
@@ -1710,7 +1710,7 @@ export var LogDeliveryConfigurationRequest$: StaticStructureSchema = [3, n0, _LD
 export var ModifyCacheClusterMessage$: StaticStructureSchema = [3, n0, _MCCM,
   0,
   [_CCIa, _NCN, _CNITRa, _AZM, _NAZ, _CSGNac, _SGI, _PMW, _NTA, _CPGN, _NTS, _AI, _E, _EV, _AMVU, _SRL, _SW, _CNT, _AT, _ATUS, _LDC, _ID, _SCc],
-  [0, 1, [() => CacheNodeIdsList, 0], 0, [() => PreferredAvailabilityZoneList, 0], [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], 0, 0, 0, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, [() => LogDeliveryConfigurationRequestList, 0], 0, () => ScaleConfig$]
+  [0, 1, [() => CacheNodeIdsList, 0], 0, [() => PreferredAvailabilityZoneList, 0], [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], 0, 0, 0, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, [() => LogDeliveryConfigurationRequestList, 0], 0, () => ScaleConfig$], 1
 ];
 export var ModifyCacheClusterResult$: StaticStructureSchema = [3, n0, _MCCR,
   0,
@@ -1720,12 +1720,12 @@ export var ModifyCacheClusterResult$: StaticStructureSchema = [3, n0, _MCCR,
 export var ModifyCacheParameterGroupMessage$: StaticStructureSchema = [3, n0, _MCPGM,
   0,
   [_CPGN, _PNV],
-  [0, [() => ParameterNameValueList, 0]]
+  [0, [() => ParameterNameValueList, 0]], 2
 ];
 export var ModifyCacheSubnetGroupMessage$: StaticStructureSchema = [3, n0, _MCSGM,
   0,
   [_CSGNa, _CSGD, _SI],
-  [0, 0, [() => SubnetIdentifierList, 0]]
+  [0, 0, [() => SubnetIdentifierList, 0]], 1
 ];
 export var ModifyCacheSubnetGroupResult$: StaticStructureSchema = [3, n0, _MCSGR,
   0,
@@ -1735,7 +1735,7 @@ export var ModifyCacheSubnetGroupResult$: StaticStructureSchema = [3, n0, _MCSGR
 export var ModifyGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _MGRGM,
   0,
   [_GRGI, _AI, _CNT, _E, _EV, _CPGN, _GRGD, _AFE],
-  [0, 2, 0, 0, 0, 0, 0, 2]
+  [0, 2, 0, 0, 0, 0, 0, 2], 2
 ];
 export var ModifyGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _MGRGR,
   0,
@@ -1745,7 +1745,7 @@ export var ModifyGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, 
 export var ModifyReplicationGroupMessage$: StaticStructureSchema = [3, n0, _MRGM,
   0,
   [_RGIe, _RGD, _PCI, _SCI, _AFE, _MAZE, _NGI, _CSGNac, _SGI, _PMW, _NTA, _CPGN, _NTS, _AI, _E, _EV, _AMVU, _SRL, _SW, _CNT, _AT, _ATUS, _UGITA, _UGITR, _RUG, _LDC, _ID, _TEE, _TEM, _CM],
-  [0, 0, 0, 0, 2, 2, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], 0, 0, 0, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, 64 | 0, 64 | 0, 2, [() => LogDeliveryConfigurationRequestList, 0], 0, 2, 0, 0]
+  [0, 0, 0, 0, 2, 2, 0, [() => CacheSecurityGroupNameList, 0], [() => SecurityGroupIdsList, 0], 0, 0, 0, 0, 2, 0, 0, 2, 1, 0, 0, 0, 0, 64 | 0, 64 | 0, 2, [() => LogDeliveryConfigurationRequestList, 0], 0, 2, 0, 0], 1
 ];
 export var ModifyReplicationGroupResult$: StaticStructureSchema = [3, n0, _MRGR,
   0,
@@ -1755,7 +1755,7 @@ export var ModifyReplicationGroupResult$: StaticStructureSchema = [3, n0, _MRGR,
 export var ModifyReplicationGroupShardConfigurationMessage$: StaticStructureSchema = [3, n0, _MRGSCM,
   0,
   [_RGIe, _NGCo, _AI, _RCes, _NGTR, _NGTRo],
-  [0, 1, 2, [() => ReshardingConfigurationList, 0], [() => NodeGroupsToRemoveList, 0], [() => NodeGroupsToRetainList, 0]]
+  [0, 1, 2, [() => ReshardingConfigurationList, 0], [() => NodeGroupsToRemoveList, 0], [() => NodeGroupsToRetainList, 0]], 3
 ];
 export var ModifyReplicationGroupShardConfigurationResult$: StaticStructureSchema = [3, n0, _MRGSCR,
   0,
@@ -1765,7 +1765,7 @@ export var ModifyReplicationGroupShardConfigurationResult$: StaticStructureSchem
 export var ModifyServerlessCacheRequest$: StaticStructureSchema = [3, n0, _MSCR,
   0,
   [_SCN, _D, _CUL, _RUGe, _UGIs, _SGI, _SRL, _DST, _E, _MEVa],
-  [0, 0, () => CacheUsageLimits$, 2, 0, [() => SecurityGroupIdsList, 0], 1, 0, 0, 0]
+  [0, 0, () => CacheUsageLimits$, 2, 0, [() => SecurityGroupIdsList, 0], 1, 0, 0, 0], 1
 ];
 export var ModifyServerlessCacheResponse$: StaticStructureSchema = [3, n0, _MSCRo,
   0,
@@ -1775,12 +1775,12 @@ export var ModifyServerlessCacheResponse$: StaticStructureSchema = [3, n0, _MSCR
 export var ModifyUserGroupMessage$: StaticStructureSchema = [3, n0, _MUGM,
   0,
   [_UGIs, _UITA, _UITR, _E],
-  [0, 64 | 0, 64 | 0, 0]
+  [0, 64 | 0, 64 | 0, 0], 1
 ];
 export var ModifyUserMessage$: StaticStructureSchema = [3, n0, _MUM,
   0,
   [_UIs, _AS, _AAS, _P, _NPR, _AM, _E],
-  [0, 0, 0, 64 | 0, 2, () => AuthenticationMode$, 0]
+  [0, 0, 0, 64 | 0, 2, () => AuthenticationMode$, 0], 1
 ];
 export var NodeGroup$: StaticStructureSchema = [3, n0, _NG,
   0,
@@ -1875,7 +1875,7 @@ export var ProcessedUpdateAction$: StaticStructureSchema = [3, n0, _PUA,
 export var PurchaseReservedCacheNodesOfferingMessage$: StaticStructureSchema = [3, n0, _PRCNOM,
   0,
   [_RCNOI, _RCNI, _CNC, _T],
-  [0, 0, 1, [() => TagList, 0]]
+  [0, 0, 1, [() => TagList, 0]], 1
 ];
 export var PurchaseReservedCacheNodesOfferingResult$: StaticStructureSchema = [3, n0, _PRCNOR,
   0,
@@ -1885,7 +1885,7 @@ export var PurchaseReservedCacheNodesOfferingResult$: StaticStructureSchema = [3
 export var RebalanceSlotsInGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _RSIGRGM,
   0,
   [_GRGI, _AI],
-  [0, 2]
+  [0, 2], 2
 ];
 export var RebalanceSlotsInGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _RSIGRGR,
   0,
@@ -1895,7 +1895,7 @@ export var RebalanceSlotsInGlobalReplicationGroupResult$: StaticStructureSchema 
 export var RebootCacheClusterMessage$: StaticStructureSchema = [3, n0, _RCCM,
   0,
   [_CCIa, _CNITR],
-  [0, [() => CacheNodeIdsList, 0]]
+  [0, [() => CacheNodeIdsList, 0]], 2
 ];
 export var RebootCacheClusterResult$: StaticStructureSchema = [3, n0, _RCCR,
   0,
@@ -1910,12 +1910,12 @@ export var RecurringCharge$: StaticStructureSchema = [3, n0, _RCec,
 export var RegionalConfiguration$: StaticStructureSchema = [3, n0, _RCeg,
   0,
   [_RGIe, _RGR, _RCes],
-  [0, 0, [() => ReshardingConfigurationList, 0]]
+  [0, 0, [() => ReshardingConfigurationList, 0]], 3
 ];
 export var RemoveTagsFromResourceMessage$: StaticStructureSchema = [3, n0, _RTFRM,
   0,
   [_RN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var ReplicationGroup$: StaticStructureSchema = [3, n0, _RG,
   0,
@@ -2003,7 +2003,7 @@ TypeRegistry.for(n0).registerError(ReservedCacheNodesOfferingNotFoundFault$, Res
 export var ResetCacheParameterGroupMessage$: StaticStructureSchema = [3, n0, _RCPGM,
   0,
   [_CPGN, _RAP, _PNV],
-  [0, 2, [() => ParameterNameValueList, 0]]
+  [0, 2, [() => ParameterNameValueList, 0]], 1
 ];
 export var ReshardingConfiguration$: StaticStructureSchema = [3, n0, _RCes,
   0,
@@ -2018,7 +2018,7 @@ export var ReshardingStatus$: StaticStructureSchema = [3, n0, _RS,
 export var RevokeCacheSecurityGroupIngressMessage$: StaticStructureSchema = [3, n0, _RCSGIM,
   0,
   [_CSGN, _ECSGN, _ECSGOI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var RevokeCacheSecurityGroupIngressResult$: StaticStructureSchema = [3, n0, _RCSGIR,
   0,
@@ -2145,7 +2145,7 @@ TypeRegistry.for(n0).registerError(SnapshotQuotaExceededFault$, SnapshotQuotaExc
 export var StartMigrationMessage$: StaticStructureSchema = [3, n0, _SMM,
   0,
   [_RGIe, _CNEL],
-  [0, () => CustomerNodeEndpointList]
+  [0, () => CustomerNodeEndpointList], 2
 ];
 export var StartMigrationResponse$: StaticStructureSchema = [3, n0, _SMR,
   0,
@@ -2199,7 +2199,7 @@ TypeRegistry.for(n0).registerError(TagQuotaPerResourceExceeded$, TagQuotaPerReso
 export var TestFailoverMessage$: StaticStructureSchema = [3, n0, _TFM,
   0,
   [_RGIe, _NGI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TestFailoverNotAvailableFault$: StaticErrorSchema = [-3, n0, _TFNAF,
   { [_aQE]: [`TestFailoverNotAvailableFault`, 400], [_e]: _c, [_hE]: 400 },
@@ -2215,7 +2215,7 @@ export var TestFailoverResult$: StaticStructureSchema = [3, n0, _TFR,
 export var TestMigrationMessage$: StaticStructureSchema = [3, n0, _TMM,
   0,
   [_RGIe, _CNEL],
-  [0, () => CustomerNodeEndpointList]
+  [0, () => CustomerNodeEndpointList], 2
 ];
 export var TestMigrationResponse$: StaticStructureSchema = [3, n0, _TMR,
   0,

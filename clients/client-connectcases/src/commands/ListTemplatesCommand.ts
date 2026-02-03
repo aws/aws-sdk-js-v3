@@ -53,6 +53,14 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * //       templateArn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       status: "STRING_VALUE", // required
+ * //       tagPropagationConfigurations: [ // TagPropagationConfigurationList
+ * //         { // TagPropagationConfiguration
+ * //           resourceType: "STRING_VALUE", // required
+ * //           tagMap: { // MutableTags // required
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

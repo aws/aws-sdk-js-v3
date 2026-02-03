@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchDeleteTaxRegistrationCommand,
@@ -82,6 +82,9 @@ import {
   PutTaxRegistrationCommandInput,
   PutTaxRegistrationCommandOutput,
 } from "./commands/PutTaxRegistrationCommand";
+import { paginateListSupplementalTaxRegistrations } from "./pagination/ListSupplementalTaxRegistrationsPaginator";
+import { paginateListTaxExemptions } from "./pagination/ListTaxExemptionsPaginator";
+import { paginateListTaxRegistrations } from "./pagination/ListTaxRegistrationsPaginator";
 import { TaxSettingsClient } from "./TaxSettingsClient";
 
 const commands = {
@@ -101,6 +104,11 @@ const commands = {
   PutTaxExemptionCommand,
   PutTaxInheritanceCommand,
   PutTaxRegistrationCommand,
+};
+const paginators = {
+  paginateListSupplementalTaxRegistrations,
+  paginateListTaxExemptions,
+  paginateListTaxRegistrations,
 };
 
 export interface TaxSettings {
@@ -383,6 +391,39 @@ export interface TaxSettings {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutTaxRegistrationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListSupplementalTaxRegistrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSupplementalTaxRegistrationsCommandOutput}.
+   */
+  paginateListSupplementalTaxRegistrations(
+    args?: ListSupplementalTaxRegistrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSupplementalTaxRegistrationsCommandOutput>;
+
+  /**
+   * @see {@link ListTaxExemptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTaxExemptionsCommandOutput}.
+   */
+  paginateListTaxExemptions(
+    args?: ListTaxExemptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTaxExemptionsCommandOutput>;
+
+  /**
+   * @see {@link ListTaxRegistrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTaxRegistrationsCommandOutput}.
+   */
+  paginateListTaxRegistrations(
+    args?: ListTaxRegistrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTaxRegistrationsCommandOutput>;
 }
 
 /**
@@ -401,4 +442,4 @@ export interface TaxSettings {
  * @public
  */
 export class TaxSettings extends TaxSettingsClient implements TaxSettings {}
-createAggregatedClient(commands, TaxSettings);
+createAggregatedClient(commands, TaxSettings, { paginators });

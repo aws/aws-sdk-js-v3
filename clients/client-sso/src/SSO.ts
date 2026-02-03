@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   GetRoleCredentialsCommand,
@@ -18,6 +18,8 @@ import {
   ListAccountsCommandOutput,
 } from "./commands/ListAccountsCommand";
 import { LogoutCommand, LogoutCommandInput, LogoutCommandOutput } from "./commands/LogoutCommand";
+import { paginateListAccountRoles } from "./pagination/ListAccountRolesPaginator";
+import { paginateListAccounts } from "./pagination/ListAccountsPaginator";
 import { SSOClient } from "./SSOClient";
 
 const commands = {
@@ -25,6 +27,10 @@ const commands = {
   ListAccountRolesCommand,
   ListAccountsCommand,
   LogoutCommand,
+};
+const paginators = {
+  paginateListAccountRoles,
+  paginateListAccounts,
 };
 
 export interface SSO {
@@ -95,6 +101,28 @@ export interface SSO {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: LogoutCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccountRolesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountRolesCommandOutput}.
+   */
+  paginateListAccountRoles(
+    args: ListAccountRolesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountRolesCommandOutput>;
+
+  /**
+   * @see {@link ListAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountsCommandOutput}.
+   */
+  paginateListAccounts(
+    args: ListAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountsCommandOutput>;
 }
 
 /**
@@ -117,4 +145,4 @@ export interface SSO {
  * @public
  */
 export class SSO extends SSOClient implements SSO {}
-createAggregatedClient(commands, SSO);
+createAggregatedClient(commands, SSO, { paginators });

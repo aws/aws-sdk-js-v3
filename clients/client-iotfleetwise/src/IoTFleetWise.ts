@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateVehicleFleetCommand,
@@ -256,6 +256,22 @@ import {
   UpdateVehicleCommandOutput,
 } from "./commands/UpdateVehicleCommand";
 import { IoTFleetWiseClient } from "./IoTFleetWiseClient";
+import { paginateGetVehicleStatus } from "./pagination/GetVehicleStatusPaginator";
+import { paginateListCampaigns } from "./pagination/ListCampaignsPaginator";
+import {
+  paginateListDecoderManifestNetworkInterfaces,
+} from "./pagination/ListDecoderManifestNetworkInterfacesPaginator";
+import { paginateListDecoderManifestSignals } from "./pagination/ListDecoderManifestSignalsPaginator";
+import { paginateListDecoderManifests } from "./pagination/ListDecoderManifestsPaginator";
+import { paginateListFleetsForVehicle } from "./pagination/ListFleetsForVehiclePaginator";
+import { paginateListFleets } from "./pagination/ListFleetsPaginator";
+import { paginateListModelManifestNodes } from "./pagination/ListModelManifestNodesPaginator";
+import { paginateListModelManifests } from "./pagination/ListModelManifestsPaginator";
+import { paginateListSignalCatalogNodes } from "./pagination/ListSignalCatalogNodesPaginator";
+import { paginateListSignalCatalogs } from "./pagination/ListSignalCatalogsPaginator";
+import { paginateListStateTemplates } from "./pagination/ListStateTemplatesPaginator";
+import { paginateListVehiclesInFleet } from "./pagination/ListVehiclesInFleetPaginator";
+import { paginateListVehicles } from "./pagination/ListVehiclesPaginator";
 
 const commands = {
   AssociateVehicleFleetCommand,
@@ -315,6 +331,22 @@ const commands = {
   UpdateSignalCatalogCommand,
   UpdateStateTemplateCommand,
   UpdateVehicleCommand,
+};
+const paginators = {
+  paginateGetVehicleStatus,
+  paginateListCampaigns,
+  paginateListDecoderManifestNetworkInterfaces,
+  paginateListDecoderManifests,
+  paginateListDecoderManifestSignals,
+  paginateListFleets,
+  paginateListFleetsForVehicle,
+  paginateListModelManifestNodes,
+  paginateListModelManifests,
+  paginateListSignalCatalogNodes,
+  paginateListSignalCatalogs,
+  paginateListStateTemplates,
+  paginateListVehicles,
+  paginateListVehiclesInFleet,
 };
 
 export interface IoTFleetWise {
@@ -1297,6 +1329,160 @@ export interface IoTFleetWise {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVehicleCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetVehicleStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetVehicleStatusCommandOutput}.
+   */
+  paginateGetVehicleStatus(
+    args: GetVehicleStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetVehicleStatusCommandOutput>;
+
+  /**
+   * @see {@link ListCampaignsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCampaignsCommandOutput}.
+   */
+  paginateListCampaigns(
+    args?: ListCampaignsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCampaignsCommandOutput>;
+
+  /**
+   * @see {@link ListDecoderManifestNetworkInterfacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDecoderManifestNetworkInterfacesCommandOutput}.
+   */
+  paginateListDecoderManifestNetworkInterfaces(
+    args: ListDecoderManifestNetworkInterfacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDecoderManifestNetworkInterfacesCommandOutput>;
+
+  /**
+   * @see {@link ListDecoderManifestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDecoderManifestsCommandOutput}.
+   */
+  paginateListDecoderManifests(
+    args?: ListDecoderManifestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDecoderManifestsCommandOutput>;
+
+  /**
+   * @see {@link ListDecoderManifestSignalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDecoderManifestSignalsCommandOutput}.
+   */
+  paginateListDecoderManifestSignals(
+    args: ListDecoderManifestSignalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDecoderManifestSignalsCommandOutput>;
+
+  /**
+   * @see {@link ListFleetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFleetsCommandOutput}.
+   */
+  paginateListFleets(
+    args?: ListFleetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFleetsCommandOutput>;
+
+  /**
+   * @see {@link ListFleetsForVehicleCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFleetsForVehicleCommandOutput}.
+   */
+  paginateListFleetsForVehicle(
+    args: ListFleetsForVehicleCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFleetsForVehicleCommandOutput>;
+
+  /**
+   * @see {@link ListModelManifestNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListModelManifestNodesCommandOutput}.
+   */
+  paginateListModelManifestNodes(
+    args: ListModelManifestNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListModelManifestNodesCommandOutput>;
+
+  /**
+   * @see {@link ListModelManifestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListModelManifestsCommandOutput}.
+   */
+  paginateListModelManifests(
+    args?: ListModelManifestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListModelManifestsCommandOutput>;
+
+  /**
+   * @see {@link ListSignalCatalogNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSignalCatalogNodesCommandOutput}.
+   */
+  paginateListSignalCatalogNodes(
+    args: ListSignalCatalogNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSignalCatalogNodesCommandOutput>;
+
+  /**
+   * @see {@link ListSignalCatalogsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSignalCatalogsCommandOutput}.
+   */
+  paginateListSignalCatalogs(
+    args?: ListSignalCatalogsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSignalCatalogsCommandOutput>;
+
+  /**
+   * @see {@link ListStateTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStateTemplatesCommandOutput}.
+   */
+  paginateListStateTemplates(
+    args?: ListStateTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStateTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListVehiclesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVehiclesCommandOutput}.
+   */
+  paginateListVehicles(
+    args?: ListVehiclesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVehiclesCommandOutput>;
+
+  /**
+   * @see {@link ListVehiclesInFleetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVehiclesInFleetCommandOutput}.
+   */
+  paginateListVehiclesInFleet(
+    args: ListVehiclesInFleetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVehiclesInFleetCommandOutput>;
 }
 
 /**
@@ -1313,4 +1499,4 @@ export interface IoTFleetWise {
  * @public
  */
 export class IoTFleetWise extends IoTFleetWiseClient implements IoTFleetWise {}
-createAggregatedClient(commands, IoTFleetWise);
+createAggregatedClient(commands, IoTFleetWise, { paginators });

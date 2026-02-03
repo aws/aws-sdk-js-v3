@@ -3811,6 +3811,7 @@ export type {
   DnsServersOptionsModifyStructure,
   EbsBlockDevice,
   EbsBlockDeviceResponse,
+  EbsCardInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
   EbsInstanceBlockDeviceSpecification,
@@ -5244,4 +5245,5 @@ export type {
   paginateListSnapshotsInRecycleBin,
   paginateSearchLocalGatewayRoutes,
   paginateSearchTransitGatewayMulticastGroups,
+  paginateSearchTransitGatewayRoutes,
 } from "../dist-types/index.d";

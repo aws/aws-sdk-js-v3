@@ -27,19 +27,9 @@ export interface CreateSegmentCommandInput extends CreateSegmentRequest {}
 export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to define a <i>segment</i> of your audience. A segment
- *       is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users,
- *       users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects,
- *       such as age.</p>
- *          <p>Using a segment in an experiment limits that experiment to evaluate only the users who match the segment
- *       criteria. Using one or more segments in a launch allows you to define different traffic splits for the different
- *       audience segments.</p>
- *          <p>For more information about segment pattern syntax, see
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html">
- *         Segment rule pattern syntax</a>.</p>
- *          <p>The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>, which
- *       is passed into Evidently in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation,
- *       when Evidently assigns a feature variation to a user.</p>
+ * <p>Use this operation to define a <i>segment</i> of your audience. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.</p> <p>Using a segment in an experiment limits that experiment to evaluate only the users who match the segment criteria. Using one or more segments in a launch allows you to define different traffic splits for the different audience segments.</p> <p>For more information about segment pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html"> Segment rule pattern syntax</a>.</p> <p>The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>, which is passed into Evidently in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation, when Evidently assigns a feature variation to a user.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

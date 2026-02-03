@@ -59,6 +59,7 @@ import {
   ScalingStatusType,
   SortOrder,
   TerminationMode,
+  ZeroCapacityStrategy,
 } from "./enums";
 
 /**
@@ -352,7 +353,7 @@ export interface Build {
    * <p>Operating system that the game server binaries are built to run on. This value
    *             determines the type of fleet resources that you can use for this build.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in
    *             the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
    *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the
@@ -676,7 +677,7 @@ export interface Compute {
   /**
    * <p>The type of operating system on the compute resource.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in
    *             the <a href="http://aws.amazon.com/aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
    *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the
@@ -1601,7 +1602,7 @@ export interface ContainerGroupDefinition {
   /**
    * <p>The platform that all containers in the container group definition run on.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
    *       servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the game
    *         server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html"> Migrate to
    *           server SDK version 5.</a>
@@ -1921,11 +1922,20 @@ export interface CreateBuildInput {
    *             valid operating system in this request. There is no default value. You can't change a
    *             build's operating system later.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in
    *             the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
    *                 that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the
    *                 game server build to server SDK 5.x, and then deploy to AL2023 instances. See
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
+   *                 Migrate to server SDK version 5.</a>
+   *             </p>
+   *          </note>
+   *          <note>
+   *             <p>Windows Server 2016 will reach end of support on 1/12/2027.
+   *             For game servers
+   *             that are hosted on Windows Server 2016 and use server SDK version 4.x for Amazon GameLift Servers, first update the
+   *             game server build to server SDK 5.x, and then deploy to Windows Server 2022 instances. See
    *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
    *                 Migrate to server SDK version 5.</a>
    *             </p>
@@ -2532,7 +2542,7 @@ export interface CreateContainerGroupDefinitionInput {
    *          <p>Default value: <code>AMAZON_LINUX_2023</code>
    *          </p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
    *     servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the game
    *         server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html"> Migrate to
    *           server SDK version 5.</a>
@@ -3129,7 +3139,7 @@ export interface FleetAttributes {
    *             attribute is used with fleets where <code>ComputeType</code> is
    *             <code>EC2</code>.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in
    *             the <a href="http://aws.amazon.com/aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
    *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the
@@ -3777,6 +3787,9 @@ export interface CreateGameServerGroupOutput {
 export interface GameProperty {
   /**
    * <p>The game property identifier.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   Key: string | undefined;
@@ -3824,6 +3837,9 @@ export interface CreateGameSessionInput {
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.
    *           For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-create">Create a game session with custom properties</a>.
    *         </p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -3984,6 +4000,9 @@ export interface GameSession {
   /**
    * <p>A set of key-value pairs that can store custom data in a game session.
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -4204,6 +4223,9 @@ export interface CreateGameSessionQueueInput {
 
   /**
    * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status. If you don't specify a request timeout, the queue uses a default value.</p>
+   *          <note>
+   *             <p>The minimum value is 10 and the maximum value is 600.</p>
+   *          </note>
    * @public
    */
   TimeoutInSeconds?: number | undefined;
@@ -4286,6 +4308,9 @@ export interface GameSessionQueue {
 
   /**
    * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status.</p>
+   *          <note>
+   *             <p>The minimum value is 10 and the maximum value is 600.</p>
+   *          </note>
    * @public
    */
   TimeoutInSeconds?: number | undefined;
@@ -4523,6 +4548,9 @@ export interface CreateMatchmakingConfigurationInput {
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
    *             is set to <code>STANDALONE</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -4681,6 +4709,9 @@ export interface MatchmakingConfiguration {
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used when
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -5096,6 +5127,15 @@ export interface CreateScriptInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Node.js version used for execution of your Realtime script. The valid values are
+   *             <code>10.x | 24.x</code>. By default, <code>NodeJsVersion</code> is <code>10.x</code>.
+   *             This value cannot be updated later.
+   *         </p>
+   * @public
+   */
+  NodeJsVersion?: string | undefined;
 }
 
 /**
@@ -5158,6 +5198,15 @@ export interface Script {
    * @public
    */
   StorageLocation?: S3Location | undefined;
+
+  /**
+   * <p>The Node.js version used for execution of your Realtime script. The valid values are
+   *             <code>10.x | 24.x</code>. By default, <code>NodeJsVersion</code> is <code>10.x</code>.
+   *             This value cannot be updated later.
+   *         </p>
+   * @public
+   */
+  NodeJsVersion?: string | undefined;
 }
 
 /**
@@ -6042,6 +6091,54 @@ export interface EC2InstanceCounts {
 }
 
 /**
+ * <p>Use ManagedCapacityConfiguration with the "SCALE_TO_AND_FROM_ZERO" ZeroCapacityStrategy to enable Amazon
+ *             GameLift Servers to fully manage the MinSize value, switching between 0 and 1 based on game session
+ *             activity. This is ideal for eliminating compute costs during periods of no game activity.
+ *             It is particularly beneficial during development when you're away from your desk, iterating on builds
+ *             for extended periods, in production environments serving low-traffic locations, or for games with long,
+ *             predictable downtime windows. By automatically managing capacity between 0 and 1 instances, you avoid paying
+ *             for idle instances while maintaining the ability to serve game sessions when demand arrives. Note that while
+ *             scale-out is triggered immediately upon receiving a game session request, actual game session availability
+ *             depends on your server process startup time, so this approach works best with multi-location Fleets where
+ *             cold-start latency is tolerable. With a "MANUAL" ZeroCapacityStrategy Amazon GameLift Servers will not
+ *             modify Fleet MinSize values automatically and will not scale out from zero instances in response to game
+ *             sessions.
+ *         </p>
+ * @public
+ */
+export interface ManagedCapacityConfiguration {
+  /**
+   * <p>The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero
+   *             instances in response to game session activity. Game session activity refers to any active running sessions
+   *             or game session requests.</p>
+   *          <p>Possible ZeroCapacityStrategy types include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>MANUAL</b> -- (default value) Amazon GameLift Servers will not update
+   *                 capacity to and from zero on your behalf.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SCALE_TO_AND_FROM_ZERO</b> --  Amazon GameLift Servers will automatically
+   *                 scale out MinSize and DesiredInstances from 0 to 1 in response to a game session request, and will scale
+   *                 in MinSize and DesiredInstances to 0 after a period with no game session activity. The duration of
+   *                 this scale in period can be configured using ScaleInAfterInactivityMinutes. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ZeroCapacityStrategy?: ZeroCapacityStrategy | undefined;
+
+  /**
+   * <p>Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and
+   *             DesiredInstances to 0 after a period with no game session activity. Default: 30 minutes.</p>
+   * @public
+   */
+  ScaleInAfterInactivityMinutes?: number | undefined;
+}
+
+/**
  * <p>Current resource capacity settings for managed EC2 fleets and managed container fleets. For
  *             multi-location fleets, location values might refer to a fleet's remote location or its
  *             home Region. </p>
@@ -6093,6 +6190,12 @@ export interface FleetCapacity {
    * @public
    */
   GameServerContainerGroupCounts?: GameServerContainerGroupCounts | undefined;
+
+  /**
+   * <p>Configuration settings for managed capacity scaling.</p>
+   * @public
+   */
+  ManagedCapacityConfiguration?: ManagedCapacityConfiguration | undefined;
 }
 
 /**
@@ -7341,6 +7444,9 @@ export interface GameSessionPlacement {
   /**
    * <p>A set of key-value pairs that can store custom data in a game session.
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -7675,7 +7781,7 @@ export interface Instance {
   /**
    * <p>Operating system that is running on this EC2 instance. </p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in
    *             the <a href="http://aws.amazon.com/aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
    *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the
@@ -10164,6 +10270,9 @@ export interface StartGameSessionPlacementInput {
   /**
    * <p>A set of key-value pairs that can store custom data in a game session.
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
+   *          <note>
+   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *          </note>
    * @public
    */
   GameProperties?: GameProperty[] | undefined;
@@ -10836,7 +10945,7 @@ export interface UpdateContainerGroupDefinitionInput {
    * <p>The platform that all containers in the group use. Containers in a group must run on the
    *       same operating system.</p>
    *          <note>
-   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2026. See more details in the <a href="http://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
    *       servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift Servers, first update the game
    *         server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html"> Migrate to
    *           server SDK version 5.</a>
@@ -10964,7 +11073,8 @@ export interface UpdateFleetCapacityInput {
 
   /**
    * <p>The minimum number of instances that are allowed in the specified fleet location. If
-   *             this parameter is not set, the default is 0.</p>
+   *             this parameter is not set, the default is 0. This parameter cannot be set when using a
+   *             ManagedCapacityConfiguration where ZeroCapacityStrategy has a value of SCALE_TO_AND_FROM_ZERO.</p>
    * @public
    */
   MinSize?: number | undefined;
@@ -10982,6 +11092,12 @@ export interface UpdateFleetCapacityInput {
    * @public
    */
   Location?: string | undefined;
+
+  /**
+   * <p>Configuration for Amazon GameLift Servers-managed capacity scaling options.</p>
+   * @public
+   */
+  ManagedCapacityConfiguration?: ManagedCapacityConfiguration | undefined;
 }
 
 /**
@@ -11006,6 +11122,12 @@ export interface UpdateFleetCapacityOutput {
    * @public
    */
   Location?: string | undefined;
+
+  /**
+   * <p>Configuration for Amazon GameLift Servers-managed capacity scaling options.</p>
+   * @public
+   */
+  ManagedCapacityConfiguration?: ManagedCapacityConfiguration | undefined;
 }
 
 /**
@@ -11030,21 +11152,4 @@ export interface UpdateFleetPortSettingsInput {
    * @public
    */
   InboundPermissionRevocations?: IpPermission[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFleetPortSettingsOutput {
-  /**
-   * <p>A unique identifier for the fleet that was updated.</p>
-   * @public
-   */
-  FleetId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
-   * @public
-   */
-  FleetArn?: string | undefined;
 }

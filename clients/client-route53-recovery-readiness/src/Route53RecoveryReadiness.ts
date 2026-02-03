@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CreateCellCommand, CreateCellCommandInput, CreateCellCommandOutput } from "./commands/CreateCellCommand";
 import {
@@ -134,6 +134,16 @@ import {
   UpdateResourceSetCommandInput,
   UpdateResourceSetCommandOutput,
 } from "./commands/UpdateResourceSetCommand";
+import { paginateGetCellReadinessSummary } from "./pagination/GetCellReadinessSummaryPaginator";
+import { paginateGetReadinessCheckResourceStatus } from "./pagination/GetReadinessCheckResourceStatusPaginator";
+import { paginateGetReadinessCheckStatus } from "./pagination/GetReadinessCheckStatusPaginator";
+import { paginateGetRecoveryGroupReadinessSummary } from "./pagination/GetRecoveryGroupReadinessSummaryPaginator";
+import { paginateListCells } from "./pagination/ListCellsPaginator";
+import { paginateListCrossAccountAuthorizations } from "./pagination/ListCrossAccountAuthorizationsPaginator";
+import { paginateListReadinessChecks } from "./pagination/ListReadinessChecksPaginator";
+import { paginateListRecoveryGroups } from "./pagination/ListRecoveryGroupsPaginator";
+import { paginateListResourceSets } from "./pagination/ListResourceSetsPaginator";
+import { paginateListRules } from "./pagination/ListRulesPaginator";
 import { Route53RecoveryReadinessClient } from "./Route53RecoveryReadinessClient";
 
 const commands = {
@@ -169,6 +179,18 @@ const commands = {
   UpdateReadinessCheckCommand,
   UpdateRecoveryGroupCommand,
   UpdateResourceSetCommand,
+};
+const paginators = {
+  paginateGetCellReadinessSummary,
+  paginateGetReadinessCheckResourceStatus,
+  paginateGetReadinessCheckStatus,
+  paginateGetRecoveryGroupReadinessSummary,
+  paginateListCells,
+  paginateListCrossAccountAuthorizations,
+  paginateListReadinessChecks,
+  paginateListRecoveryGroups,
+  paginateListResourceSets,
+  paginateListRules,
 };
 
 export interface Route53RecoveryReadiness {
@@ -721,6 +743,116 @@ export interface Route53RecoveryReadiness {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateResourceSetCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetCellReadinessSummaryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCellReadinessSummaryCommandOutput}.
+   */
+  paginateGetCellReadinessSummary(
+    args: GetCellReadinessSummaryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCellReadinessSummaryCommandOutput>;
+
+  /**
+   * @see {@link GetReadinessCheckResourceStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetReadinessCheckResourceStatusCommandOutput}.
+   */
+  paginateGetReadinessCheckResourceStatus(
+    args: GetReadinessCheckResourceStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetReadinessCheckResourceStatusCommandOutput>;
+
+  /**
+   * @see {@link GetReadinessCheckStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetReadinessCheckStatusCommandOutput}.
+   */
+  paginateGetReadinessCheckStatus(
+    args: GetReadinessCheckStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetReadinessCheckStatusCommandOutput>;
+
+  /**
+   * @see {@link GetRecoveryGroupReadinessSummaryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetRecoveryGroupReadinessSummaryCommandOutput}.
+   */
+  paginateGetRecoveryGroupReadinessSummary(
+    args: GetRecoveryGroupReadinessSummaryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetRecoveryGroupReadinessSummaryCommandOutput>;
+
+  /**
+   * @see {@link ListCellsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCellsCommandOutput}.
+   */
+  paginateListCells(
+    args?: ListCellsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCellsCommandOutput>;
+
+  /**
+   * @see {@link ListCrossAccountAuthorizationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCrossAccountAuthorizationsCommandOutput}.
+   */
+  paginateListCrossAccountAuthorizations(
+    args?: ListCrossAccountAuthorizationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCrossAccountAuthorizationsCommandOutput>;
+
+  /**
+   * @see {@link ListReadinessChecksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListReadinessChecksCommandOutput}.
+   */
+  paginateListReadinessChecks(
+    args?: ListReadinessChecksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListReadinessChecksCommandOutput>;
+
+  /**
+   * @see {@link ListRecoveryGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecoveryGroupsCommandOutput}.
+   */
+  paginateListRecoveryGroups(
+    args?: ListRecoveryGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecoveryGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListResourceSetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceSetsCommandOutput}.
+   */
+  paginateListResourceSets(
+    args?: ListResourceSetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceSetsCommandOutput>;
+
+  /**
+   * @see {@link ListRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRulesCommandOutput}.
+   */
+  paginateListRules(
+    args?: ListRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRulesCommandOutput>;
 }
 
 /**
@@ -728,4 +860,4 @@ export interface Route53RecoveryReadiness {
  * @public
  */
 export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient implements Route53RecoveryReadiness {}
-createAggregatedClient(commands, Route53RecoveryReadiness);
+createAggregatedClient(commands, Route53RecoveryReadiness, { paginators });

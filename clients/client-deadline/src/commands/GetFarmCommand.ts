@@ -45,7 +45,7 @@ export interface GetFarmCommandOutput extends GetFarmResponse, __MetadataBearer 
  * //   farmId: "STRING_VALUE", // required
  * //   displayName: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   kmsKeyArn: "STRING_VALUE", // required
+ * //   kmsKeyArn: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   createdBy: "STRING_VALUE", // required
  * //   updatedAt: new Date("TIMESTAMP"),
@@ -73,8 +73,7 @@ export interface GetFarmCommandOutput extends GetFarmResponse, __MetadataBearer 
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>

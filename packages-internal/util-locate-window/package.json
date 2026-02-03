@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-locate-window",
-  "version": "3.965.1",
+  "version": "3.965.4",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline util-locate-window",
@@ -8,7 +8,7 @@
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },
@@ -23,17 +23,17 @@
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^18.19.69",
+    "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "rimraf": "5.0.10",
+    "premove": "4.0.0",
     "typescript": "~5.8.3"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "typesVersions": {
     "<4.0": {
@@ -45,10 +45,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-locate-window",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/util-locate-window",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/util-locate-window"
+    "directory": "packages-internal/util-locate-window"
   }
 }

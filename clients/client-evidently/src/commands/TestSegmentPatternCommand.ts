@@ -27,8 +27,9 @@ export interface TestSegmentPatternCommandInput extends TestSegmentPatternReques
 export interface TestSegmentPatternCommandOutput extends TestSegmentPatternResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to test a rules pattern that you plan to use to create an audience segment.
- *       For more information about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>.</p>
+ * <p>Use this operation to test a rules pattern that you plan to use to create an audience segment. For more information about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -304,12 +304,12 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var AttributeFilter$: StaticStructureSchema = [3, n0, _AF,
   0,
   [_AFN, _AFV],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AuditFinding$: StaticStructureSchema = [3, n0, _AFu,
   0,
   [_KA, _AR, _O, _MG, _DG, _T],
-  [128 | 0, () => AuditorResults, 0, () => MetricGraph$, () => DependencyGraph$, 0]
+  [128 | 0, () => AuditorResults, 0, () => MetricGraph$, () => DependencyGraph$, 0], 1
 ];
 export var AuditorResult$: StaticStructureSchema = [3, n0, _ARu,
   0,
@@ -319,68 +319,68 @@ export var AuditorResult$: StaticStructureSchema = [3, n0, _ARu,
 export var AuditTarget$: StaticStructureSchema = [3, n0, _AT,
   0,
   [_T, _Da],
-  [0, () => AuditTargetEntity$]
+  [0, () => AuditTargetEntity$], 2
 ];
 export var BatchGetServiceLevelObjectiveBudgetReportInput$: StaticStructureSchema = [3, n0, _BGSLOBRI,
   0,
   [_Ti, _SI],
-  [4, 64 | 0]
+  [4, 64 | 0], 2
 ];
 export var BatchGetServiceLevelObjectiveBudgetReportOutput$: StaticStructureSchema = [3, n0, _BGSLOBRO,
   0,
   [_Ti, _R, _E],
-  [4, () => ServiceLevelObjectiveBudgetReports, () => ServiceLevelObjectiveBudgetReportErrors]
+  [4, () => ServiceLevelObjectiveBudgetReports, () => ServiceLevelObjectiveBudgetReportErrors], 3
 ];
 export var BatchUpdateExclusionWindowsError$: StaticStructureSchema = [3, n0, _BUEWE,
   0,
   [_SIl, _EC, _EM],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var BatchUpdateExclusionWindowsInput$: StaticStructureSchema = [3, n0, _BUEWI,
   0,
   [_SI, _AEW, _REW],
-  [64 | 0, () => ExclusionWindows, () => ExclusionWindows]
+  [64 | 0, () => ExclusionWindows, () => ExclusionWindows], 1
 ];
 export var BatchUpdateExclusionWindowsOutput$: StaticStructureSchema = [3, n0, _BUEWO,
   0,
   [_SI, _E],
-  [64 | 0, () => BatchUpdateExclusionWindowsErrors]
+  [64 | 0, () => BatchUpdateExclusionWindowsErrors], 2
 ];
 export var BurnRateConfiguration$: StaticStructureSchema = [3, n0, _BRC,
   0,
   [_LBWM],
-  [1]
+  [1], 1
 ];
 export var CalendarInterval$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_ST, _DU, _Du],
-  [4, 0, 1]
+  [4, 0, 1], 3
 ];
 export var CanaryEntity$: StaticStructureSchema = [3, n0, _CE,
   0,
   [_CN],
-  [0]
+  [0], 1
 ];
 export var ChangeEvent$: StaticStructureSchema = [3, n0, _CEh,
   0,
   [_Ti, _AI, _Re, _En, _CET, _EI, _UN, _EN],
-  [4, 0, 0, 128 | 0, 0, 0, 0, 0]
+  [4, 0, 0, 128 | 0, 0, 0, 0, 0], 6
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
   { [_e]: _c, [_hE]: 409 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateServiceLevelObjectiveInput$: StaticStructureSchema = [3, n0, _CSLOI,
   0,
   [_N, _D, _SC, _RBSC, _G, _Ta, _BRCu],
-  [0, 0, () => ServiceLevelIndicatorConfig$, () => RequestBasedServiceLevelIndicatorConfig$, () => Goal$, () => TagList, () => BurnRateConfigurations]
+  [0, 0, () => ServiceLevelIndicatorConfig$, () => RequestBasedServiceLevelIndicatorConfig$, () => Goal$, () => TagList, () => BurnRateConfigurations], 1
 ];
 export var CreateServiceLevelObjectiveOutput$: StaticStructureSchema = [3, n0, _CSLOO,
   0,
   [_Sl],
-  [() => ServiceLevelObjective$]
+  [() => ServiceLevelObjective$], 1
 ];
 export var DeleteGroupingConfigurationOutput$: StaticStructureSchema = [3, n0, _DGCO,
   0,
@@ -390,7 +390,7 @@ export var DeleteGroupingConfigurationOutput$: StaticStructureSchema = [3, n0, _
 export var DeleteServiceLevelObjectiveInput$: StaticStructureSchema = [3, n0, _DSLOI,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteServiceLevelObjectiveOutput$: StaticStructureSchema = [3, n0, _DSLOO,
   0,
@@ -400,7 +400,7 @@ export var DeleteServiceLevelObjectiveOutput$: StaticStructureSchema = [3, n0, _
 export var DependencyConfig$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_DKA, _DON],
-  [128 | 0, 0]
+  [128 | 0, 0], 2
 ];
 export var DependencyGraph$: StaticStructureSchema = [3, n0, _DG,
   0,
@@ -410,7 +410,7 @@ export var DependencyGraph$: StaticStructureSchema = [3, n0, _DG,
 export var Dimension$: StaticStructureSchema = [3, n0, _Di,
   0,
   [_N, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Edge$: StaticStructureSchema = [3, n0, _Edg,
   0,
@@ -420,27 +420,27 @@ export var Edge$: StaticStructureSchema = [3, n0, _Edg,
 export var ExclusionWindow$: StaticStructureSchema = [3, n0, _EW,
   0,
   [_W, _ST, _RR, _Rea],
-  [() => Window$, 4, () => RecurrenceRule$, 0]
+  [() => Window$, 4, () => RecurrenceRule$, 0], 1
 ];
 export var GetServiceInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
   [_ST, _ET, _KA],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0]
+  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0], 3
 ];
 export var GetServiceLevelObjectiveInput$: StaticStructureSchema = [3, n0, _GSLOI,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetServiceLevelObjectiveOutput$: StaticStructureSchema = [3, n0, _GSLOO,
   0,
   [_Sl],
-  [() => ServiceLevelObjective$]
+  [() => ServiceLevelObjective$], 1
 ];
 export var GetServiceOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
   [_Se, _ST, _ET, _LGR],
-  [() => Service$, 4, 4, [1, n0, _LGR, 0, 128 | 0]]
+  [() => Service$, 4, 4, [1, n0, _LGR, 0, 128 | 0]], 3
 ];
 export var Goal$: StaticStructureSchema = [3, n0, _G,
   0,
@@ -450,32 +450,32 @@ export var Goal$: StaticStructureSchema = [3, n0, _G,
 export var GroupingAttributeDefinition$: StaticStructureSchema = [3, n0, _GAD,
   0,
   [_GN, _GSK, _DGV],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 1
 ];
 export var GroupingConfiguration$: StaticStructureSchema = [3, n0, _GC,
   0,
   [_GADr, _UA],
-  [() => GroupingAttributeDefinitions, 4]
+  [() => GroupingAttributeDefinitions, 4], 2
 ];
 export var ListAuditFindingsInput$: StaticStructureSchema = [3, n0, _LAFI,
   0,
-  [_ST, _ET, _Au, _ATu, _DL, _NT, _MR],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 64 | 0, () => AuditTargets, 0, 0, 1]
+  [_ST, _ET, _ATu, _Au, _DL, _NT, _MR],
+  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], () => AuditTargets, 64 | 0, 0, 0, 1], 3
 ];
 export var ListAuditFindingsOutput$: StaticStructureSchema = [3, n0, _LAFO,
   0,
-  [_ST, _ET, _AFud, _NT],
-  [4, 4, () => AuditFindings, 0]
+  [_AFud, _ST, _ET, _NT],
+  [() => AuditFindings, 4, 4, 0], 1
 ];
 export var ListEntityEventsInput$: StaticStructureSchema = [3, n0, _LEEI,
   0,
   [_En, _ST, _ET, _MR, _NT],
-  [128 | 0, 4, 4, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [128 | 0, 4, 4, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 3
 ];
 export var ListEntityEventsOutput$: StaticStructureSchema = [3, n0, _LEEO,
   0,
   [_ST, _ET, _CEha, _NT],
-  [4, 4, () => ChangeEvents, 0]
+  [4, 4, () => ChangeEvents, 0], 3
 ];
 export var ListGroupingAttributeDefinitionsInput$: StaticStructureSchema = [3, n0, _LGADI,
   0,
@@ -485,37 +485,37 @@ export var ListGroupingAttributeDefinitionsInput$: StaticStructureSchema = [3, n
 export var ListGroupingAttributeDefinitionsOutput$: StaticStructureSchema = [3, n0, _LGADO,
   0,
   [_GADr, _UA, _NT],
-  [() => GroupingAttributeDefinitions, 4, 0]
+  [() => GroupingAttributeDefinitions, 4, 0], 1
 ];
 export var ListServiceDependenciesInput$: StaticStructureSchema = [3, n0, _LSDI,
   0,
   [_ST, _ET, _KA, _MR, _NT],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 3
 ];
 export var ListServiceDependenciesOutput$: StaticStructureSchema = [3, n0, _LSDO,
   0,
   [_ST, _ET, _SD, _NT],
-  [4, 4, () => ServiceDependencies, 0]
+  [4, 4, () => ServiceDependencies, 0], 3
 ];
 export var ListServiceDependentsInput$: StaticStructureSchema = [3, n0, _LSDIi,
   0,
   [_ST, _ET, _KA, _MR, _NT],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 3
 ];
 export var ListServiceDependentsOutput$: StaticStructureSchema = [3, n0, _LSDOi,
   0,
   [_ST, _ET, _SDe, _NT],
-  [4, 4, () => ServiceDependents, 0]
+  [4, 4, () => ServiceDependents, 0], 3
 ];
 export var ListServiceLevelObjectiveExclusionWindowsInput$: StaticStructureSchema = [3, n0, _LSLOEWI,
   0,
   [_I, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListServiceLevelObjectiveExclusionWindowsOutput$: StaticStructureSchema = [3, n0, _LSLOEWO,
   0,
   [_EWx, _NT],
-  [() => ExclusionWindows, 0]
+  [() => ExclusionWindows, 0], 1
 ];
 export var ListServiceLevelObjectivesInput$: StaticStructureSchema = [3, n0, _LSLOI,
   0,
@@ -530,37 +530,37 @@ export var ListServiceLevelObjectivesOutput$: StaticStructureSchema = [3, n0, _L
 export var ListServiceOperationsInput$: StaticStructureSchema = [3, n0, _LSOI,
   0,
   [_ST, _ET, _KA, _MR, _NT],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], 128 | 0, [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 3
 ];
 export var ListServiceOperationsOutput$: StaticStructureSchema = [3, n0, _LSOO,
   0,
   [_ST, _ET, _SO, _NT],
-  [4, 4, () => ServiceOperations, 0]
+  [4, 4, () => ServiceOperations, 0], 3
 ];
 export var ListServicesInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
   [_ST, _ET, _MR, _NT, _ILA, _AAI],
-  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [2, { [_hQ]: _ILA }], [0, { [_hQ]: _AAI }]]
+  [[4, { [_hQ]: _ST }], [4, { [_hQ]: _ET }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [2, { [_hQ]: _ILA }], [0, { [_hQ]: _AAI }]], 2
 ];
 export var ListServicesOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
   [_ST, _ET, _SSe, _NT],
-  [4, 4, () => ServiceSummaries, 0]
+  [4, 4, () => ServiceSummaries, 0], 3
 ];
 export var ListServiceStatesInput$: StaticStructureSchema = [3, n0, _LSSI,
   0,
   [_ST, _ET, _MR, _NT, _ILA, _AAI, _AFt],
-  [4, 4, 1, 0, 2, 0, () => AttributeFilters]
+  [4, 4, 1, 0, 2, 0, () => AttributeFilters], 2
 ];
 export var ListServiceStatesOutput$: StaticStructureSchema = [3, n0, _LSSO,
   0,
   [_ST, _ET, _SSer, _NT],
-  [4, 4, () => ServiceStates, 0]
+  [4, 4, () => ServiceStates, 0], 3
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, { [_hQ]: _RA }]]
+  [[0, { [_hQ]: _RA }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -575,7 +575,7 @@ export var Metric$: StaticStructureSchema = [3, n0, _Me,
 export var MetricDataQuery$: StaticStructureSchema = [3, n0, _MDQ,
   0,
   [_I, _MS, _Ex, _L, _RD, _P, _AI],
-  [0, () => MetricStat$, 0, 0, 2, 1, 0]
+  [0, () => MetricStat$, 0, 0, 2, 1, 0], 1
 ];
 export var MetricGraph$: StaticStructureSchema = [3, n0, _MG,
   0,
@@ -584,48 +584,48 @@ export var MetricGraph$: StaticStructureSchema = [3, n0, _MG,
 ];
 export var MetricReference$: StaticStructureSchema = [3, n0, _MRe,
   0,
-  [_Na, _MT, _Dim, _MN, _AI],
-  [0, 0, () => Dimensions, 0, 0]
+  [_Na, _MT, _MN, _Dim, _AI],
+  [0, 0, 0, () => Dimensions, 0], 3
 ];
 export var MetricStat$: StaticStructureSchema = [3, n0, _MS,
   0,
   [_Me, _P, _St, _U],
-  [() => Metric$, 1, 0, 0]
+  [() => Metric$, 1, 0, 0], 3
 ];
 export var Node$: StaticStructureSchema = [3, n0, _Nod,
   0,
   [_KA, _N, _NI, _O, _T, _Du, _Sta],
-  [128 | 0, 0, 0, 0, 0, 1, 0]
+  [128 | 0, 0, 0, 0, 0, 1, 0], 3
 ];
 export var PutGroupingConfigurationInput$: StaticStructureSchema = [3, n0, _PGCI,
   0,
   [_GADr],
-  [() => GroupingAttributeDefinitions]
+  [() => GroupingAttributeDefinitions], 1
 ];
 export var PutGroupingConfigurationOutput$: StaticStructureSchema = [3, n0, _PGCO,
   0,
   [_GC],
-  [() => GroupingConfiguration$]
+  [() => GroupingConfiguration$], 1
 ];
 export var RecurrenceRule$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_Ex],
-  [0]
+  [0], 1
 ];
 export var RequestBasedServiceLevelIndicator$: StaticStructureSchema = [3, n0, _RBSLI,
   0,
   [_RBSM, _MTe, _CO],
-  [() => RequestBasedServiceLevelIndicatorMetric$, 1, 0]
+  [() => RequestBasedServiceLevelIndicatorMetric$, 1, 0], 1
 ];
 export var RequestBasedServiceLevelIndicatorConfig$: StaticStructureSchema = [3, n0, _RBSLIC,
   0,
   [_RBSMC, _MTe, _CO],
-  [() => RequestBasedServiceLevelIndicatorMetricConfig$, 1, 0]
+  [() => RequestBasedServiceLevelIndicatorMetricConfig$, 1, 0], 1
 ];
 export var RequestBasedServiceLevelIndicatorMetric$: StaticStructureSchema = [3, n0, _RBSLIM,
   0,
-  [_KA, _ON, _MT, _TRCM, _MRCM, _DC],
-  [128 | 0, 0, 0, () => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, () => DependencyConfig$]
+  [_TRCM, _MRCM, _KA, _ON, _MT, _DC],
+  [() => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, 128 | 0, 0, 0, () => DependencyConfig$], 2
 ];
 export var RequestBasedServiceLevelIndicatorMetricConfig$: StaticStructureSchema = [3, n0, _RBSLIMC,
   0,
@@ -635,28 +635,28 @@ export var RequestBasedServiceLevelIndicatorMetricConfig$: StaticStructureSchema
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_RT, _RI, _M],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RollingInterval$: StaticStructureSchema = [3, n0, _RIo,
   0,
   [_DU, _Du],
-  [0, 1]
+  [0, 1], 2
 ];
 export var Service$: StaticStructureSchema = [3, n0, _Se,
   0,
-  [_KA, _AM, _SG, _MRet, _LGR],
-  [128 | 0, [1, n0, _AM, 0, 128 | 0], () => ServiceGroups, () => MetricReferences, [1, n0, _LGR, 0, 128 | 0]]
+  [_KA, _MRet, _AM, _SG, _LGR],
+  [128 | 0, () => MetricReferences, [1, n0, _AM, 0, 128 | 0], () => ServiceGroups, [1, n0, _LGR, 0, 128 | 0]], 2
 ];
 export var ServiceDependency$: StaticStructureSchema = [3, n0, _SDer,
   0,
   [_ON, _DKA, _DON, _MRet],
-  [0, 128 | 0, 0, () => MetricReferences]
+  [0, 128 | 0, 0, () => MetricReferences], 4
 ];
 export var ServiceDependent$: StaticStructureSchema = [3, n0, _SDerv,
   0,
-  [_ON, _DKAe, _DONe, _MRet],
-  [0, 128 | 0, 0, () => MetricReferences]
+  [_DKAe, _MRet, _ON, _DONe],
+  [128 | 0, () => MetricReferences, 0, 0], 2
 ];
 export var ServiceEntity$: StaticStructureSchema = [3, n0, _SE,
   0,
@@ -666,22 +666,22 @@ export var ServiceEntity$: StaticStructureSchema = [3, n0, _SE,
 export var ServiceGroup$: StaticStructureSchema = [3, n0, _SGe,
   0,
   [_GNr, _GV, _GS, _GI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ServiceLevelIndicator$: StaticStructureSchema = [3, n0, _SLI,
   0,
   [_SM, _MTe, _CO],
-  [() => ServiceLevelIndicatorMetric$, 1, 0]
+  [() => ServiceLevelIndicatorMetric$, 1, 0], 3
 ];
 export var ServiceLevelIndicatorConfig$: StaticStructureSchema = [3, n0, _SLIC,
   0,
   [_SMC, _MTe, _CO],
-  [() => ServiceLevelIndicatorMetricConfig$, 1, 0]
+  [() => ServiceLevelIndicatorMetricConfig$, 1, 0], 3
 ];
 export var ServiceLevelIndicatorMetric$: StaticStructureSchema = [3, n0, _SLIM,
   0,
-  [_KA, _ON, _MT, _MDQe, _DC],
-  [128 | 0, 0, 0, () => MetricDataQueries, () => DependencyConfig$]
+  [_MDQe, _KA, _ON, _MT, _DC],
+  [() => MetricDataQueries, 128 | 0, 0, 0, () => DependencyConfig$], 1
 ];
 export var ServiceLevelIndicatorMetricConfig$: StaticStructureSchema = [3, n0, _SLIMC,
   0,
@@ -690,18 +690,18 @@ export var ServiceLevelIndicatorMetricConfig$: StaticStructureSchema = [3, n0, _
 ];
 export var ServiceLevelObjective$: StaticStructureSchema = [3, n0, _SLO,
   0,
-  [_Ar, _N, _D, _CTr, _LUT, _Sli, _RBS, _ETv, _G, _BRCu, _MSTe],
-  [0, 0, 0, 4, 4, () => ServiceLevelIndicator$, () => RequestBasedServiceLevelIndicator$, 0, () => Goal$, () => BurnRateConfigurations, 0]
+  [_Ar, _N, _CTr, _LUT, _G, _D, _Sli, _RBS, _ETv, _BRCu, _MSTe],
+  [0, 0, 4, 4, () => Goal$, 0, () => ServiceLevelIndicator$, () => RequestBasedServiceLevelIndicator$, 0, () => BurnRateConfigurations, 0], 5
 ];
 export var ServiceLevelObjectiveBudgetReport$: StaticStructureSchema = [3, n0, _SLOBR,
   0,
-  [_Ar, _N, _ETv, _BS, _At, _TBS, _BSR, _TBR, _BRR, _Sli, _RBS, _G],
-  [0, 0, 0, 0, 1, 1, 1, 1, 1, () => ServiceLevelIndicator$, () => RequestBasedServiceLevelIndicator$, () => Goal$]
+  [_Ar, _N, _BS, _ETv, _At, _TBS, _BSR, _TBR, _BRR, _Sli, _RBS, _G],
+  [0, 0, 0, 0, 1, 1, 1, 1, 1, () => ServiceLevelIndicator$, () => RequestBasedServiceLevelIndicator$, () => Goal$], 3
 ];
 export var ServiceLevelObjectiveBudgetReportError$: StaticStructureSchema = [3, n0, _SLOBRE,
   0,
   [_N, _Ar, _EC, _EM],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ServiceLevelObjectiveEntity$: StaticStructureSchema = [3, n0, _SLOE,
   0,
@@ -711,12 +711,12 @@ export var ServiceLevelObjectiveEntity$: StaticStructureSchema = [3, n0, _SLOE,
 export var ServiceLevelObjectiveSummary$: StaticStructureSchema = [3, n0, _SLOS,
   0,
   [_Ar, _N, _KA, _ON, _DC, _CTr, _ETv, _MSTe],
-  [0, 0, 128 | 0, 0, () => DependencyConfig$, 4, 0, 0]
+  [0, 0, 128 | 0, 0, () => DependencyConfig$, 4, 0, 0], 2
 ];
 export var ServiceOperation$: StaticStructureSchema = [3, n0, _SOe,
   0,
   [_N, _MRet],
-  [0, () => MetricReferences]
+  [0, () => MetricReferences], 2
 ];
 export var ServiceOperationEntity$: StaticStructureSchema = [3, n0, _SOE,
   0,
@@ -726,18 +726,18 @@ export var ServiceOperationEntity$: StaticStructureSchema = [3, n0, _SOE,
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceState$: StaticStructureSchema = [3, n0, _SServ,
   0,
-  [_AFt, _Se, _LCE],
-  [() => AttributeFilters, 128 | 0, () => LatestChangeEvents]
+  [_Se, _LCE, _AFt],
+  [128 | 0, () => LatestChangeEvents, () => AttributeFilters], 2
 ];
 export var ServiceSummary$: StaticStructureSchema = [3, n0, _SServi,
   0,
-  [_KA, _AM, _MRet, _SG],
-  [128 | 0, [1, n0, _AM, 0, 128 | 0], () => MetricReferences, () => ServiceGroups]
+  [_KA, _MRet, _AM, _SG],
+  [128 | 0, () => MetricReferences, [1, n0, _AM, 0, 128 | 0], () => ServiceGroups], 2
 ];
 export var StartDiscoveryInput$: StaticStructureSchema = [3, n0, _SDI,
   0,
@@ -752,12 +752,12 @@ export var StartDiscoveryOutput$: StaticStructureSchema = [3, n0, _SDO,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -767,13 +767,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -783,12 +783,12 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateServiceLevelObjectiveInput$: StaticStructureSchema = [3, n0, _USLOI,
   0,
   [_I, _D, _SC, _RBSC, _G, _BRCu],
-  [[0, 1], 0, () => ServiceLevelIndicatorConfig$, () => RequestBasedServiceLevelIndicatorConfig$, () => Goal$, () => BurnRateConfigurations]
+  [[0, 1], 0, () => ServiceLevelIndicatorConfig$, () => RequestBasedServiceLevelIndicatorConfig$, () => Goal$, () => BurnRateConfigurations], 1
 ];
 export var UpdateServiceLevelObjectiveOutput$: StaticStructureSchema = [3, n0, _USLOO,
   0,
   [_Sl],
-  [() => ServiceLevelObjective$]
+  [() => ServiceLevelObjective$], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_aQE]: [`ValidationError`, 400], [_e]: _c, [_hE]: 400 },
@@ -799,7 +799,7 @@ TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Window$: StaticStructureSchema = [3, n0, _W,
   0,
   [_DU, _Du],
-  [0, 1]
+  [0, 1], 2
 ];
 var __Unit = "unit" as const;
 export var ApplicationSignalsServiceException$: StaticErrorSchema = [-3, _s, "ApplicationSignalsServiceException", 0, [], []];

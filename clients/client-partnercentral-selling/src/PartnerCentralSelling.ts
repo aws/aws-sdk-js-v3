@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptEngagementInvitationCommand,
@@ -208,6 +208,19 @@ import {
   UpdateOpportunityCommandInput,
   UpdateOpportunityCommandOutput,
 } from "./commands/UpdateOpportunityCommand";
+import {
+  paginateListEngagementByAcceptingInvitationTasks,
+} from "./pagination/ListEngagementByAcceptingInvitationTasksPaginator";
+import { paginateListEngagementFromOpportunityTasks } from "./pagination/ListEngagementFromOpportunityTasksPaginator";
+import { paginateListEngagementInvitations } from "./pagination/ListEngagementInvitationsPaginator";
+import { paginateListEngagementMembers } from "./pagination/ListEngagementMembersPaginator";
+import { paginateListEngagementResourceAssociations } from "./pagination/ListEngagementResourceAssociationsPaginator";
+import { paginateListEngagements } from "./pagination/ListEngagementsPaginator";
+import { paginateListOpportunities } from "./pagination/ListOpportunitiesPaginator";
+import { paginateListOpportunityFromEngagementTasks } from "./pagination/ListOpportunityFromEngagementTasksPaginator";
+import { paginateListResourceSnapshotJobs } from "./pagination/ListResourceSnapshotJobsPaginator";
+import { paginateListResourceSnapshots } from "./pagination/ListResourceSnapshotsPaginator";
+import { paginateListSolutions } from "./pagination/ListSolutionsPaginator";
 import { PartnerCentralSellingClient } from "./PartnerCentralSellingClient";
 
 const commands = {
@@ -253,6 +266,19 @@ const commands = {
   UntagResourceCommand,
   UpdateEngagementContextCommand,
   UpdateOpportunityCommand,
+};
+const paginators = {
+  paginateListEngagementByAcceptingInvitationTasks,
+  paginateListEngagementFromOpportunityTasks,
+  paginateListEngagementInvitations,
+  paginateListEngagementMembers,
+  paginateListEngagementResourceAssociations,
+  paginateListEngagements,
+  paginateListOpportunities,
+  paginateListOpportunityFromEngagementTasks,
+  paginateListResourceSnapshotJobs,
+  paginateListResourceSnapshots,
+  paginateListSolutions,
 };
 
 export interface PartnerCentralSelling {
@@ -969,6 +995,127 @@ export interface PartnerCentralSelling {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOpportunityCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListEngagementByAcceptingInvitationTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEngagementByAcceptingInvitationTasksCommandOutput}.
+   */
+  paginateListEngagementByAcceptingInvitationTasks(
+    args: ListEngagementByAcceptingInvitationTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEngagementByAcceptingInvitationTasksCommandOutput>;
+
+  /**
+   * @see {@link ListEngagementFromOpportunityTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEngagementFromOpportunityTasksCommandOutput}.
+   */
+  paginateListEngagementFromOpportunityTasks(
+    args: ListEngagementFromOpportunityTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEngagementFromOpportunityTasksCommandOutput>;
+
+  /**
+   * @see {@link ListEngagementInvitationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEngagementInvitationsCommandOutput}.
+   */
+  paginateListEngagementInvitations(
+    args: ListEngagementInvitationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEngagementInvitationsCommandOutput>;
+
+  /**
+   * @see {@link ListEngagementMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEngagementMembersCommandOutput}.
+   */
+  paginateListEngagementMembers(
+    args: ListEngagementMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEngagementMembersCommandOutput>;
+
+  /**
+   * @see {@link ListEngagementResourceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEngagementResourceAssociationsCommandOutput}.
+   */
+  paginateListEngagementResourceAssociations(
+    args: ListEngagementResourceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEngagementResourceAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListEngagementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEngagementsCommandOutput}.
+   */
+  paginateListEngagements(
+    args: ListEngagementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEngagementsCommandOutput>;
+
+  /**
+   * @see {@link ListOpportunitiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOpportunitiesCommandOutput}.
+   */
+  paginateListOpportunities(
+    args: ListOpportunitiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOpportunitiesCommandOutput>;
+
+  /**
+   * @see {@link ListOpportunityFromEngagementTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOpportunityFromEngagementTasksCommandOutput}.
+   */
+  paginateListOpportunityFromEngagementTasks(
+    args: ListOpportunityFromEngagementTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOpportunityFromEngagementTasksCommandOutput>;
+
+  /**
+   * @see {@link ListResourceSnapshotJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceSnapshotJobsCommandOutput}.
+   */
+  paginateListResourceSnapshotJobs(
+    args: ListResourceSnapshotJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceSnapshotJobsCommandOutput>;
+
+  /**
+   * @see {@link ListResourceSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceSnapshotsCommandOutput}.
+   */
+  paginateListResourceSnapshots(
+    args: ListResourceSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link ListSolutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSolutionsCommandOutput}.
+   */
+  paginateListSolutions(
+    args: ListSolutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSolutionsCommandOutput>;
 }
 
 /**
@@ -976,4 +1123,4 @@ export interface PartnerCentralSelling {
  * @public
  */
 export class PartnerCentralSelling extends PartnerCentralSellingClient implements PartnerCentralSelling {}
-createAggregatedClient(commands, PartnerCentralSelling);
+createAggregatedClient(commands, PartnerCentralSelling, { paginators });

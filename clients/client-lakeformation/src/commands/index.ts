@@ -31,6 +31,7 @@ export * from "./GetQueryStateCommand";
 export * from "./GetQueryStatisticsCommand";
 export * from "./GetResourceLFTagsCommand";
 export * from "./GetTableObjectsCommand";
+export * from "./GetTemporaryDataLocationCredentialsCommand";
 export * from "./GetTemporaryGluePartitionCredentialsCommand";
 export * from "./GetTemporaryGlueTableCredentialsCommand";
 export * from "./GetWorkUnitResultsCommand";

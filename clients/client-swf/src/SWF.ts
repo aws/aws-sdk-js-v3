@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CountClosedWorkflowExecutionsCommand,
@@ -189,6 +189,13 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateGetWorkflowExecutionHistory } from "./pagination/GetWorkflowExecutionHistoryPaginator";
+import { paginateListActivityTypes } from "./pagination/ListActivityTypesPaginator";
+import { paginateListClosedWorkflowExecutions } from "./pagination/ListClosedWorkflowExecutionsPaginator";
+import { paginateListDomains } from "./pagination/ListDomainsPaginator";
+import { paginateListOpenWorkflowExecutions } from "./pagination/ListOpenWorkflowExecutionsPaginator";
+import { paginateListWorkflowTypes } from "./pagination/ListWorkflowTypesPaginator";
+import { paginatePollForDecisionTask } from "./pagination/PollForDecisionTaskPaginator";
 import { SWFClient } from "./SWFClient";
 
 const commands = {
@@ -231,6 +238,15 @@ const commands = {
   UndeprecateDomainCommand,
   UndeprecateWorkflowTypeCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateGetWorkflowExecutionHistory,
+  paginateListActivityTypes,
+  paginateListClosedWorkflowExecutions,
+  paginateListDomains,
+  paginateListOpenWorkflowExecutions,
+  paginateListWorkflowTypes,
+  paginatePollForDecisionTask,
 };
 
 export interface SWF {
@@ -896,6 +912,83 @@ export interface SWF {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetWorkflowExecutionHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetWorkflowExecutionHistoryCommandOutput}.
+   */
+  paginateGetWorkflowExecutionHistory(
+    args: GetWorkflowExecutionHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetWorkflowExecutionHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListActivityTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActivityTypesCommandOutput}.
+   */
+  paginateListActivityTypes(
+    args: ListActivityTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActivityTypesCommandOutput>;
+
+  /**
+   * @see {@link ListClosedWorkflowExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClosedWorkflowExecutionsCommandOutput}.
+   */
+  paginateListClosedWorkflowExecutions(
+    args: ListClosedWorkflowExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClosedWorkflowExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDomainsCommandOutput}.
+   */
+  paginateListDomains(
+    args: ListDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListOpenWorkflowExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOpenWorkflowExecutionsCommandOutput}.
+   */
+  paginateListOpenWorkflowExecutions(
+    args: ListOpenWorkflowExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOpenWorkflowExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowTypesCommandOutput}.
+   */
+  paginateListWorkflowTypes(
+    args: ListWorkflowTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowTypesCommandOutput>;
+
+  /**
+   * @see {@link PollForDecisionTaskCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link PollForDecisionTaskCommandOutput}.
+   */
+  paginatePollForDecisionTask(
+    args: PollForDecisionTaskCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<PollForDecisionTaskCommandOutput>;
 }
 
 /**
@@ -915,4 +1008,4 @@ export interface SWF {
  * @public
  */
 export class SWF extends SWFClient implements SWF {}
-createAggregatedClient(commands, SWF);
+createAggregatedClient(commands, SWF, { paginators });

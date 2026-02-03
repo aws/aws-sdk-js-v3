@@ -179,13 +179,13 @@ import { SnowDeviceManagementServiceException } from "../models/SnowDeviceManage
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var CancelTaskInput$: StaticStructureSchema = [3, n0, _CTI,
   0,
   [_tI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CancelTaskOutput$: StaticStructureSchema = [3, n0, _CTO,
   0,
@@ -205,7 +205,7 @@ export var CpuOptions$: StaticStructureSchema = [3, n0, _CO,
 export var CreateTaskInput$: StaticStructureSchema = [3, n0, _CTIr,
   0,
   [_ta, _co, _d, _tag, _cT],
-  [64 | 0, () => Command$, 0, 128 | 0, [0, 4]]
+  [64 | 0, () => Command$, 0, 128 | 0, [0, 4]], 2
 ];
 export var CreateTaskOutput$: StaticStructureSchema = [3, n0, _CTOr,
   0,
@@ -215,7 +215,7 @@ export var CreateTaskOutput$: StaticStructureSchema = [3, n0, _CTOr,
 export var DescribeDeviceEc2Input$: StaticStructureSchema = [3, n0, _DDEI,
   0,
   [_mDI, _iI],
-  [[0, 1], 64 | 0]
+  [[0, 1], 64 | 0], 2
 ];
 export var DescribeDeviceEc2Output$: StaticStructureSchema = [3, n0, _DDEO,
   0,
@@ -225,7 +225,7 @@ export var DescribeDeviceEc2Output$: StaticStructureSchema = [3, n0, _DDEO,
 export var DescribeDeviceInput$: StaticStructureSchema = [3, n0, _DDI,
   0,
   [_mDI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeDeviceOutput$: StaticStructureSchema = [3, n0, _DDO,
   0,
@@ -235,7 +235,7 @@ export var DescribeDeviceOutput$: StaticStructureSchema = [3, n0, _DDO,
 export var DescribeExecutionInput$: StaticStructureSchema = [3, n0, _DEI,
   0,
   [_tI, _mDI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeExecutionOutput$: StaticStructureSchema = [3, n0, _DEO,
   0,
@@ -245,7 +245,7 @@ export var DescribeExecutionOutput$: StaticStructureSchema = [3, n0, _DEO,
 export var DescribeTaskInput$: StaticStructureSchema = [3, n0, _DTI,
   0,
   [_tI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeTaskOutput$: StaticStructureSchema = [3, n0, _DTO,
   0,
@@ -290,13 +290,13 @@ export var InstanceSummary$: StaticStructureSchema = [3, n0, _ISn,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListDeviceResourcesInput$: StaticStructureSchema = [3, n0, _LDRI,
   0,
   [_mDI, _ty, _mR, _nT],
-  [[0, 1], [0, { [_hQ]: _ty }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _ty }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListDeviceResourcesOutput$: StaticStructureSchema = [3, n0, _LDRO,
   0,
@@ -316,7 +316,7 @@ export var ListDevicesOutput$: StaticStructureSchema = [3, n0, _LDO,
 export var ListExecutionsInput$: StaticStructureSchema = [3, n0, _LEI,
   0,
   [_tI, _st, _mR, _nT],
-  [[0, { [_hQ]: _tI }], [0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, { [_hQ]: _tI }], [0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListExecutionsOutput$: StaticStructureSchema = [3, n0, _LEO,
   0,
@@ -326,7 +326,7 @@ export var ListExecutionsOutput$: StaticStructureSchema = [3, n0, _LEO,
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -356,13 +356,13 @@ export var Reboot$: StaticStructureSchema = [3, n0, _R,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_rT, _ar, _id],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var SecurityGroupIdentifier$: StaticStructureSchema = [3, n0, _SGI,
   0,
@@ -372,7 +372,7 @@ export var SecurityGroupIdentifier$: StaticStructureSchema = [3, n0, _SGI,
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SoftwareInformation$: StaticStructureSchema = [3, n0, _SI,
@@ -383,17 +383,17 @@ export var SoftwareInformation$: StaticStructureSchema = [3, n0, _SI,
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _tag],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TaskSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_tI, _tA, _st, _tag],
-  [0, 0, 0, 128 | 0]
+  [0, 0, 0, 128 | 0], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Unlock$: StaticStructureSchema = [3, n0, _U,
@@ -404,12 +404,12 @@ export var Unlock$: StaticStructureSchema = [3, n0, _U,
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;

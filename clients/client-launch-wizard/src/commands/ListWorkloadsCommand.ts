@@ -47,6 +47,7 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * //     { // WorkloadDataSummary
  * //       workloadName: "STRING_VALUE",
  * //       displayName: "STRING_VALUE",
+ * //       status: "ACTIVE" || "INACTIVE" || "DISABLED" || "DELETED",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -61,8 +62,7 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact
- *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
@@ -82,10 +82,12 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  *   workloads: [
  *     {
  *       displayName: "SAP",
+ *       status: "ACTIVE",
  *       workloadName: "SAP"
  *     },
  *     {
  *       displayName: "MS SQL Server",
+ *       status: "ACTIVE",
  *       workloadName: "SQL"
  *     }
  *   ]

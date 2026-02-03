@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { GetClipCommand, GetClipCommandInput, GetClipCommandOutput } from "./commands/GetClipCommand";
 import {
@@ -25,6 +25,8 @@ import {
   ListFragmentsCommandOutput,
 } from "./commands/ListFragmentsCommand";
 import { KinesisVideoArchivedMediaClient } from "./KinesisVideoArchivedMediaClient";
+import { paginateGetImages } from "./pagination/GetImagesPaginator";
+import { paginateListFragments } from "./pagination/ListFragmentsPaginator";
 
 const commands = {
   GetClipCommand,
@@ -33,6 +35,10 @@ const commands = {
   GetImagesCommand,
   GetMediaForFragmentListCommand,
   ListFragmentsCommand,
+};
+const paginators = {
+  paginateGetImages,
+  paginateListFragments,
 };
 
 export interface KinesisVideoArchivedMedia {
@@ -140,6 +146,28 @@ export interface KinesisVideoArchivedMedia {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFragmentsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetImagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetImagesCommandOutput}.
+   */
+  paginateGetImages(
+    args: GetImagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetImagesCommandOutput>;
+
+  /**
+   * @see {@link ListFragmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFragmentsCommandOutput}.
+   */
+  paginateListFragments(
+    args?: ListFragmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFragmentsCommandOutput>;
 }
 
 /**
@@ -147,4 +175,4 @@ export interface KinesisVideoArchivedMedia {
  * @public
  */
 export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient implements KinesisVideoArchivedMedia {}
-createAggregatedClient(commands, KinesisVideoArchivedMedia);
+createAggregatedClient(commands, KinesisVideoArchivedMedia, { paginators });

@@ -31,7 +31,7 @@ buildscript {
 
 dependencies {
     // Smithy TypeScript
-    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.41.1")
+    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.43.1")
 
     // Smithy generic dependencies
     api("software.amazon.smithy:smithy-model:$smithyVersion")
@@ -54,6 +54,9 @@ abstract class SetAwsSdkVersionsTask : DefaultTask() {
     abstract val packagesDir: DirectoryProperty
 
     @get:InputDirectory
+    abstract val packagesInternalDir: DirectoryProperty
+
+    @get:InputDirectory
     abstract val clientsDir: DirectoryProperty
 
     @get:OutputFile
@@ -65,7 +68,7 @@ abstract class SetAwsSdkVersionsTask : DefaultTask() {
         outputFile.parentFile.mkdirs()
         outputFile.printWriter().close()
 
-        val roots = dirToList(libDir) + dirToList(packagesDir) + dirToList(clientsDir)
+        val roots = dirToList(libDir) + dirToList(packagesDir) + dirToList(packagesInternalDir) + dirToList(clientsDir)
         roots.forEach { packageDir ->
             val packageJsonFile = File(packageDir, "package.json")
             if (packageJsonFile.isFile()) {
@@ -92,6 +95,7 @@ abstract class SetAwsSdkVersionsTask : DefaultTask() {
 tasks.register<SetAwsSdkVersionsTask>("set-aws-sdk-versions") {
     libDir.set(layout.projectDirectory.dir("../../lib"))
     packagesDir.set(layout.projectDirectory.dir("../../packages"))
+    packagesInternalDir.set(layout.projectDirectory.dir("../../packages-internal"))
     clientsDir.set(layout.projectDirectory.dir("../../clients"))
     versionsFile.set(layout.buildDirectory.file("generated/resources/software/amazon/smithy/aws/typescript/codegen/sdkVersions.properties"))
 }

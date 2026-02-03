@@ -90,6 +90,7 @@ import {
   RetentionType,
   RootAccess,
   RuleEvaluationStatus,
+  SchedulerConfigComponent,
   SchedulerResourceStatus,
   ScheduleStatus,
   ServerlessJobType,
@@ -3750,6 +3751,12 @@ export interface DescribeClusterSchedulerConfigResponse {
    * @public
    */
   FailureReason?: string | undefined;
+
+  /**
+   * <p>Additional details about the status of the cluster policy. This field provides context when the policy is in a non-active state, such as during creation, updates, or if failures occur.</p>
+   * @public
+   */
+  StatusDetails?: Partial<Record<SchedulerConfigComponent, SchedulerResourceStatus>> | undefined;
 
   /**
    * <p>ARN of the cluster where the cluster policy is applied.</p>

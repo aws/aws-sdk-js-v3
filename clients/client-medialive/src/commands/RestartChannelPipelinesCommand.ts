@@ -362,6 +362,10 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //         },
  * //         PipelineLockingSettings: { // PipelineLockingSettings
  * //           PipelineLockingMethod: "SOURCE_TIMECODE" || "VIDEO_ALIGNMENT",
+ * //           CustomEpoch: "STRING_VALUE",
+ * //         },
+ * //         DisabledLockingSettings: { // DisabledLockingSettings
+ * //           CustomEpoch: "STRING_VALUE",
  * //         },
  * //       },
  * //     },
@@ -1116,6 +1120,7 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //             MinBitrate: Number("int"),
  * //             SpatialAq: "DISABLED" || "ENABLED",
  * //             TemporalAq: "DISABLED" || "ENABLED",
+ * //             TimecodeInsertion: "DISABLED" || "METADATA_OBU",
  * //           },
  * //         },
  * //         Height: Number("int"),

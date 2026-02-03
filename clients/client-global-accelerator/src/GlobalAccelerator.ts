@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddCustomRoutingEndpointsCommand,
@@ -279,6 +279,19 @@ import {
   WithdrawByoipCidrCommandOutput,
 } from "./commands/WithdrawByoipCidrCommand";
 import { GlobalAcceleratorClient } from "./GlobalAcceleratorClient";
+import { paginateListAccelerators } from "./pagination/ListAcceleratorsPaginator";
+import { paginateListByoipCidrs } from "./pagination/ListByoipCidrsPaginator";
+import { paginateListCrossAccountAttachments } from "./pagination/ListCrossAccountAttachmentsPaginator";
+import { paginateListCrossAccountResources } from "./pagination/ListCrossAccountResourcesPaginator";
+import { paginateListCustomRoutingAccelerators } from "./pagination/ListCustomRoutingAcceleratorsPaginator";
+import { paginateListCustomRoutingEndpointGroups } from "./pagination/ListCustomRoutingEndpointGroupsPaginator";
+import { paginateListCustomRoutingListeners } from "./pagination/ListCustomRoutingListenersPaginator";
+import {
+  paginateListCustomRoutingPortMappingsByDestination,
+} from "./pagination/ListCustomRoutingPortMappingsByDestinationPaginator";
+import { paginateListCustomRoutingPortMappings } from "./pagination/ListCustomRoutingPortMappingsPaginator";
+import { paginateListEndpointGroups } from "./pagination/ListEndpointGroupsPaginator";
+import { paginateListListeners } from "./pagination/ListListenersPaginator";
 
 const commands = {
   AddCustomRoutingEndpointsCommand,
@@ -337,6 +350,19 @@ const commands = {
   UpdateEndpointGroupCommand,
   UpdateListenerCommand,
   WithdrawByoipCidrCommand,
+};
+const paginators = {
+  paginateListAccelerators,
+  paginateListByoipCidrs,
+  paginateListCrossAccountAttachments,
+  paginateListCrossAccountResources,
+  paginateListCustomRoutingAccelerators,
+  paginateListCustomRoutingEndpointGroups,
+  paginateListCustomRoutingListeners,
+  paginateListCustomRoutingPortMappings,
+  paginateListCustomRoutingPortMappingsByDestination,
+  paginateListEndpointGroups,
+  paginateListListeners,
 };
 
 export interface GlobalAccelerator {
@@ -1296,6 +1322,127 @@ export interface GlobalAccelerator {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: WithdrawByoipCidrCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAcceleratorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAcceleratorsCommandOutput}.
+   */
+  paginateListAccelerators(
+    args?: ListAcceleratorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAcceleratorsCommandOutput>;
+
+  /**
+   * @see {@link ListByoipCidrsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListByoipCidrsCommandOutput}.
+   */
+  paginateListByoipCidrs(
+    args?: ListByoipCidrsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListByoipCidrsCommandOutput>;
+
+  /**
+   * @see {@link ListCrossAccountAttachmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCrossAccountAttachmentsCommandOutput}.
+   */
+  paginateListCrossAccountAttachments(
+    args?: ListCrossAccountAttachmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCrossAccountAttachmentsCommandOutput>;
+
+  /**
+   * @see {@link ListCrossAccountResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCrossAccountResourcesCommandOutput}.
+   */
+  paginateListCrossAccountResources(
+    args: ListCrossAccountResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCrossAccountResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListCustomRoutingAcceleratorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomRoutingAcceleratorsCommandOutput}.
+   */
+  paginateListCustomRoutingAccelerators(
+    args?: ListCustomRoutingAcceleratorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomRoutingAcceleratorsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomRoutingEndpointGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomRoutingEndpointGroupsCommandOutput}.
+   */
+  paginateListCustomRoutingEndpointGroups(
+    args: ListCustomRoutingEndpointGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomRoutingEndpointGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomRoutingListenersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomRoutingListenersCommandOutput}.
+   */
+  paginateListCustomRoutingListeners(
+    args: ListCustomRoutingListenersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomRoutingListenersCommandOutput>;
+
+  /**
+   * @see {@link ListCustomRoutingPortMappingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomRoutingPortMappingsCommandOutput}.
+   */
+  paginateListCustomRoutingPortMappings(
+    args: ListCustomRoutingPortMappingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomRoutingPortMappingsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomRoutingPortMappingsByDestinationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomRoutingPortMappingsByDestinationCommandOutput}.
+   */
+  paginateListCustomRoutingPortMappingsByDestination(
+    args: ListCustomRoutingPortMappingsByDestinationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomRoutingPortMappingsByDestinationCommandOutput>;
+
+  /**
+   * @see {@link ListEndpointGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEndpointGroupsCommandOutput}.
+   */
+  paginateListEndpointGroups(
+    args: ListEndpointGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEndpointGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListListenersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListListenersCommandOutput}.
+   */
+  paginateListListeners(
+    args: ListListenersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListListenersCommandOutput>;
 }
 
 /**
@@ -1350,4 +1497,4 @@ export interface GlobalAccelerator {
  * @public
  */
 export class GlobalAccelerator extends GlobalAcceleratorClient implements GlobalAccelerator {}
-createAggregatedClient(commands, GlobalAccelerator);
+createAggregatedClient(commands, GlobalAccelerator, { paginators });

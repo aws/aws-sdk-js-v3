@@ -238,8 +238,8 @@ export var ContactHandling$: StaticStructureSchema = [3, n0, _CH,
 ];
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_N, _Na, _D, _ASC, _Su, _P, _CTl, _T, _Pe, _IS, _IT, _AC, _IC, _AT],
-  [0, 0, 0, () => ApplicationSourceConfig$, () => SubscriptionList, () => PublicationList, [0, 4], 128 | 0, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0]
+  [_N, _Na, _ASC, _D, _Su, _P, _CTl, _T, _Pe, _IS, _IT, _AC, _IC, _AT],
+  [0, 0, () => ApplicationSourceConfig$, 0, () => SubscriptionList, () => PublicationList, [0, 4], 128 | 0, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0], 3
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -249,7 +249,7 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateDataIntegrationAssociationRequest$: StaticStructureSchema = [3, n0, _CDIAR,
   0,
   [_DII, _CI, _OC, _DURI, _CAM, _CTl, _EC],
-  [[0, 1], 0, [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]], 0, 128 | 0, [0, 4], () => ExecutionConfiguration$]
+  [[0, 1], 0, [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]], 0, 128 | 0, [0, 4], () => ExecutionConfiguration$], 1
 ];
 export var CreateDataIntegrationAssociationResponse$: StaticStructureSchema = [3, n0, _CDIARr,
   0,
@@ -258,8 +258,8 @@ export var CreateDataIntegrationAssociationResponse$: StaticStructureSchema = [3
 ];
 export var CreateDataIntegrationRequest$: StaticStructureSchema = [3, n0, _CDIR,
   0,
-  [_N, _D, _KK, _SURI, _SC, _T, _CTl, _FC, _OC],
-  [0, 0, 0, 0, () => ScheduleConfiguration$, 128 | 0, [0, 4], () => FileConfiguration$, [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]]]
+  [_N, _KK, _D, _SURI, _SC, _T, _CTl, _FC, _OC],
+  [0, 0, 0, 0, () => ScheduleConfiguration$, 128 | 0, [0, 4], () => FileConfiguration$, [2, n0, _OC, 0, 0, [2, n0, _FM, 0, 0, 64 | 0]]], 2
 ];
 export var CreateDataIntegrationResponse$: StaticStructureSchema = [3, n0, _CDIRr,
   0,
@@ -268,8 +268,8 @@ export var CreateDataIntegrationResponse$: StaticStructureSchema = [3, n0, _CDIR
 ];
 export var CreateEventIntegrationRequest$: StaticStructureSchema = [3, n0, _CEIR,
   0,
-  [_N, _D, _EF, _EBB, _CTl, _T],
-  [0, 0, () => EventFilter$, 0, [0, 4], 128 | 0]
+  [_N, _EF, _EBB, _D, _CTl, _T],
+  [0, () => EventFilter$, 0, 0, [0, 4], 128 | 0], 3
 ];
 export var CreateEventIntegrationResponse$: StaticStructureSchema = [3, n0, _CEIRr,
   0,
@@ -289,7 +289,7 @@ export var DataIntegrationSummary$: StaticStructureSchema = [3, n0, _DIS,
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_A],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -299,7 +299,7 @@ export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteDataIntegrationRequest$: StaticStructureSchema = [3, n0, _DDIR,
   0,
   [_DII],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDataIntegrationResponse$: StaticStructureSchema = [3, n0, _DDIRe,
   0,
@@ -309,7 +309,7 @@ export var DeleteDataIntegrationResponse$: StaticStructureSchema = [3, n0, _DDIR
 export var DeleteEventIntegrationRequest$: StaticStructureSchema = [3, n0, _DEIR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteEventIntegrationResponse$: StaticStructureSchema = [3, n0, _DEIRe,
   0,
@@ -325,7 +325,7 @@ TypeRegistry.for(n0).registerError(DuplicateResourceException$, DuplicateResourc
 export var EventFilter$: StaticStructureSchema = [3, n0, _EF,
   0,
   [_So],
-  [0]
+  [0], 1
 ];
 export var EventIntegration$: StaticStructureSchema = [3, n0, _EI,
   0,
@@ -340,22 +340,22 @@ export var EventIntegrationAssociation$: StaticStructureSchema = [3, n0, _EIAv,
 export var ExecutionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_EM, _ODC, _SCc],
-  [0, () => OnDemandConfiguration$, () => ScheduleConfiguration$]
+  [0, () => OnDemandConfiguration$, () => ScheduleConfiguration$], 1
 ];
 export var ExternalUrlConfig$: StaticStructureSchema = [3, n0, _EUC,
   0,
   [_AU, _AO],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var FileConfiguration$: StaticStructureSchema = [3, n0, _FC,
   0,
   [_F, _Fi],
-  [64 | 0, [2, n0, _FM, 0, 0, 64 | 0]]
+  [64 | 0, [2, n0, _FM, 0, 0, 64 | 0]], 1
 ];
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_A],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -365,7 +365,7 @@ export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetDataIntegrationRequest$: StaticStructureSchema = [3, n0, _GDIR,
   0,
   [_Id],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDataIntegrationResponse$: StaticStructureSchema = [3, n0, _GDIRe,
   0,
@@ -375,7 +375,7 @@ export var GetDataIntegrationResponse$: StaticStructureSchema = [3, n0, _GDIRe,
 export var GetEventIntegrationRequest$: StaticStructureSchema = [3, n0, _GEIR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetEventIntegrationResponse$: StaticStructureSchema = [3, n0, _GEIRe,
   0,
@@ -407,7 +407,7 @@ export var LastExecutionStatus$: StaticStructureSchema = [3, n0, _LES,
 export var ListApplicationAssociationsRequest$: StaticStructureSchema = [3, n0, _LAAR,
   0,
   [_AI, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListApplicationAssociationsResponse$: StaticStructureSchema = [3, n0, _LAARi,
   0,
@@ -427,7 +427,7 @@ export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
 export var ListDataIntegrationAssociationsRequest$: StaticStructureSchema = [3, n0, _LDIAR,
   0,
   [_DII, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListDataIntegrationAssociationsResponse$: StaticStructureSchema = [3, n0, _LDIARi,
   0,
@@ -447,7 +447,7 @@ export var ListDataIntegrationsResponse$: StaticStructureSchema = [3, n0, _LDIRi
 export var ListEventIntegrationAssociationsRequest$: StaticStructureSchema = [3, n0, _LEIAR,
   0,
   [_EIN, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListEventIntegrationAssociationsResponse$: StaticStructureSchema = [3, n0, _LEIARi,
   0,
@@ -467,7 +467,7 @@ export var ListEventIntegrationsResponse$: StaticStructureSchema = [3, n0, _LEIR
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -477,12 +477,12 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var OnDemandConfiguration$: StaticStructureSchema = [3, n0, _ODC,
   0,
   [_ST, _ET],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Publication$: StaticStructureSchema = [3, n0, _Pu,
   0,
   [_E, _Sc, _D],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -498,18 +498,18 @@ export var ResourceQuotaExceededException$: StaticErrorSchema = [-3, n0, _RQEE,
 TypeRegistry.for(n0).registerError(ResourceQuotaExceededException$, ResourceQuotaExceededException);
 export var ScheduleConfiguration$: StaticStructureSchema = [3, n0, _SCc,
   0,
-  [_FEF, _O, _SE],
-  [0, 0, 0]
+  [_SE, _FEF, _O],
+  [0, 0, 0], 1
 ];
 export var Subscription$: StaticStructureSchema = [3, n0, _Sub,
   0,
   [_E, _D],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -531,7 +531,7 @@ TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOp
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -541,7 +541,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_A, _N, _D, _ASC, _Su, _P, _Pe, _IS, _IT, _AC, _IC, _AT],
-  [[0, 1], 0, 0, () => ApplicationSourceConfig$, () => SubscriptionList, () => PublicationList, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0]
+  [[0, 1], 0, 0, () => ApplicationSourceConfig$, () => SubscriptionList, () => PublicationList, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -551,7 +551,7 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateDataIntegrationAssociationRequest$: StaticStructureSchema = [3, n0, _UDIAR,
   0,
   [_DII, _DIAIa, _EC],
-  [[0, 1], [0, 1], () => ExecutionConfiguration$]
+  [[0, 1], [0, 1], () => ExecutionConfiguration$], 3
 ];
 export var UpdateDataIntegrationAssociationResponse$: StaticStructureSchema = [3, n0, _UDIARp,
   0,
@@ -561,7 +561,7 @@ export var UpdateDataIntegrationAssociationResponse$: StaticStructureSchema = [3
 export var UpdateDataIntegrationRequest$: StaticStructureSchema = [3, n0, _UDIR,
   0,
   [_Id, _N, _D],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 1
 ];
 export var UpdateDataIntegrationResponse$: StaticStructureSchema = [3, n0, _UDIRp,
   0,
@@ -571,7 +571,7 @@ export var UpdateDataIntegrationResponse$: StaticStructureSchema = [3, n0, _UDIR
 export var UpdateEventIntegrationRequest$: StaticStructureSchema = [3, n0, _UEIR,
   0,
   [_N, _D],
-  [[0, 1], 0]
+  [[0, 1], 0], 1
 ];
 export var UpdateEventIntegrationResponse$: StaticStructureSchema = [3, n0, _UEIRp,
   0,

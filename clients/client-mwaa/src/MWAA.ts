@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateCliTokenCommand,
@@ -59,6 +59,7 @@ import {
   UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
 import { MWAAClient } from "./MWAAClient";
+import { paginateListEnvironments } from "./pagination/ListEnvironmentsPaginator";
 
 const commands = {
   CreateCliTokenCommand,
@@ -73,6 +74,9 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateEnvironmentCommand,
+};
+const paginators = {
+  paginateListEnvironments,
 };
 
 export interface MWAA {
@@ -280,6 +284,17 @@ export interface MWAA {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnvironmentsCommandOutput}.
+   */
+  paginateListEnvironments(
+    args?: ListEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnvironmentsCommandOutput>;
 }
 
 /**
@@ -364,4 +379,4 @@ export interface MWAA {
  * @public
  */
 export class MWAA extends MWAAClient implements MWAA {}
-createAggregatedClient(commands, MWAA);
+createAggregatedClient(commands, MWAA, { paginators });

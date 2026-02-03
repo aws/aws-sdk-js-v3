@@ -110,7 +110,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var CapacityUnitsConfiguration$: StaticStructureSchema = [3, n0, _CUC,
   0,
   [_RCU],
-  [1]
+  [1], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -121,22 +121,22 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _CREPR,
   0,
   [_N, _D, _CU, _T, _CT],
-  [0, 0, () => CapacityUnitsConfiguration$, () => TagList, [0, 4]]
+  [0, 0, () => CapacityUnitsConfiguration$, () => TagList, [0, 4]], 1
 ];
 export var CreateRescoreExecutionPlanResponse$: StaticStructureSchema = [3, n0, _CREPRr,
   0,
   [_I, _A],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _DREPR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _DREPRe,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeRescoreExecutionPlanResponse$: StaticStructureSchema = [3, n0, _DREPRes,
   0,
@@ -145,8 +145,8 @@ export var DescribeRescoreExecutionPlanResponse$: StaticStructureSchema = [3, n0
 ];
 export var Document$: StaticStructureSchema = [3, n0, _Do,
   0,
-  [_I, _GI, _Ti, _B, _TT, _TB, _OS],
-  [0, 0, 0, 0, 64 | 0, 64 | 0, 1]
+  [_I, _OS, _GI, _Ti, _B, _TT, _TB],
+  [0, 1, 0, 0, 0, 64 | 0, 64 | 0], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -167,7 +167,7 @@ export var ListRescoreExecutionPlansResponse$: StaticStructureSchema = [3, n0, _
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -182,7 +182,7 @@ export var RescoreExecutionPlanSummary$: StaticStructureSchema = [3, n0, _REPS,
 export var RescoreRequest$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_REPI, _SQ, _Doc],
-  [[0, 1], 0, () => DocumentList]
+  [[0, 1], 0, () => DocumentList], 3
 ];
 export var RescoreResult$: StaticStructureSchema = [3, n0, _RRe,
   0,
@@ -215,12 +215,12 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -236,7 +236,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -246,7 +246,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _UREPR,
   0,
   [_I, _N, _D, _CU],
-  [[0, 1], 0, 0, () => CapacityUnitsConfiguration$]
+  [[0, 1], 0, 0, () => CapacityUnitsConfiguration$], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

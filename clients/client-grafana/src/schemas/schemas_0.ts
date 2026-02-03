@@ -267,7 +267,7 @@ var WorkspaceName: StaticSimpleSchema = [0, n0, _WN, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AssertionAttributes$: StaticStructureSchema = [3, n0, _AA,
@@ -278,22 +278,22 @@ export var AssertionAttributes$: StaticStructureSchema = [3, n0, _AA,
 export var AssociateLicenseRequest$: StaticStructureSchema = [3, n0, _ALR,
   0,
   [_wI, _lT, _gT],
-  [[0, 1], [0, 1], [0, { [_hH]: _GT }]]
+  [[0, 1], [0, 1], [0, { [_hH]: _GT }]], 2
 ];
 export var AssociateLicenseResponse$: StaticStructureSchema = [3, n0, _ALRs,
   0,
   [_w],
-  [[() => WorkspaceDescription$, 0]]
+  [[() => WorkspaceDescription$, 0]], 1
 ];
 export var AuthenticationDescription$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_p, _s, _aS],
-  [64 | 0, [() => SamlAuthentication$, 0], () => AwsSsoAuthentication$]
+  [64 | 0, [() => SamlAuthentication$, 0], () => AwsSsoAuthentication$], 1
 ];
 export var AuthenticationSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_p, _sCS],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var AwsSsoAuthentication$: StaticStructureSchema = [3, n0, _ASA,
   0,
@@ -303,149 +303,149 @@ export var AwsSsoAuthentication$: StaticStructureSchema = [3, n0, _ASA,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateWorkspaceApiKeyRequest$: StaticStructureSchema = [3, n0, _CWAKR,
   0,
   [_kN, _kR, _sTL, _wI],
-  [0, 0, 1, [0, 1]]
+  [0, 0, 1, [0, 1]], 4
 ];
 export var CreateWorkspaceApiKeyResponse$: StaticStructureSchema = [3, n0, _CWAKRr,
   0,
   [_kN, _k, _wI],
-  [0, [() => ApiKeyToken, 0], 0]
+  [0, [() => ApiKeyToken, 0], 0], 3
 ];
 export var CreateWorkspaceRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
-  [_aAT, _cT, _oRN, _pT, _sSN, _wDS, _wD, _wN, _wND, _wOU, _wRA, _aP, _t, _vC, _co, _nAC, _gV],
-  [0, [0, 4], [() => OrganizationRoleName, 0], 0, 0, 64 | 0, [() => Description, 0], [() => WorkspaceName, 0], 64 | 0, [() => OrganizationalUnitList, 0], [() => IamRoleArn, 0], 64 | 0, 128 | 0, () => VpcConfiguration$, [() => OverridableConfigurationJson, 0], () => NetworkAccessConfiguration$, 0]
+  [_aAT, _pT, _aP, _cT, _oRN, _sSN, _wDS, _wD, _wN, _wND, _wOU, _wRA, _t, _vC, _co, _nAC, _gV],
+  [0, 0, 64 | 0, [0, 4], [() => OrganizationRoleName, 0], 0, 64 | 0, [() => Description, 0], [() => WorkspaceName, 0], 64 | 0, [() => OrganizationalUnitList, 0], [() => IamRoleArn, 0], 128 | 0, () => VpcConfiguration$, [() => OverridableConfigurationJson, 0], () => NetworkAccessConfiguration$, 0], 3
 ];
 export var CreateWorkspaceResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
   [_w],
-  [[() => WorkspaceDescription$, 0]]
+  [[() => WorkspaceDescription$, 0]], 1
 ];
 export var CreateWorkspaceServiceAccountRequest$: StaticStructureSchema = [3, n0, _CWSAR,
   0,
   [_n, _gR, _wI],
-  [0, 0, [0, 1]]
+  [0, 0, [0, 1]], 3
 ];
 export var CreateWorkspaceServiceAccountResponse$: StaticStructureSchema = [3, n0, _CWSARr,
   0,
   [_i, _n, _gR, _wI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var CreateWorkspaceServiceAccountTokenRequest$: StaticStructureSchema = [3, n0, _CWSATR,
   0,
   [_n, _sTL, _sAI, _wI],
-  [0, 1, [0, 1], [0, 1]]
+  [0, 1, [0, 1], [0, 1]], 4
 ];
 export var CreateWorkspaceServiceAccountTokenResponse$: StaticStructureSchema = [3, n0, _CWSATRr,
   0,
   [_sAT, _sAI, _wI],
-  [[() => ServiceAccountTokenSummaryWithKey$, 0], 0, 0]
+  [[() => ServiceAccountTokenSummaryWithKey$, 0], 0, 0], 3
 ];
 export var DeleteWorkspaceApiKeyRequest$: StaticStructureSchema = [3, n0, _DWAKR,
   0,
   [_kN, _wI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteWorkspaceApiKeyResponse$: StaticStructureSchema = [3, n0, _DWAKRe,
   0,
   [_kN, _wI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteWorkspaceRequest$: StaticStructureSchema = [3, n0, _DWR,
   0,
   [_wI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteWorkspaceResponse$: StaticStructureSchema = [3, n0, _DWRe,
   0,
   [_w],
-  [[() => WorkspaceDescription$, 0]]
+  [[() => WorkspaceDescription$, 0]], 1
 ];
 export var DeleteWorkspaceServiceAccountRequest$: StaticStructureSchema = [3, n0, _DWSAR,
   0,
   [_sAI, _wI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteWorkspaceServiceAccountResponse$: StaticStructureSchema = [3, n0, _DWSARe,
   0,
   [_sAI, _wI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteWorkspaceServiceAccountTokenRequest$: StaticStructureSchema = [3, n0, _DWSATR,
   0,
   [_tI, _sAI, _wI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteWorkspaceServiceAccountTokenResponse$: StaticStructureSchema = [3, n0, _DWSATRe,
   0,
   [_tI, _sAI, _wI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DescribeWorkspaceAuthenticationRequest$: StaticStructureSchema = [3, n0, _DWAR,
   0,
   [_wI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeWorkspaceAuthenticationResponse$: StaticStructureSchema = [3, n0, _DWARe,
   0,
   [_au],
-  [[() => AuthenticationDescription$, 0]]
+  [[() => AuthenticationDescription$, 0]], 1
 ];
 export var DescribeWorkspaceConfigurationRequest$: StaticStructureSchema = [3, n0, _DWCR,
   0,
   [_wI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeWorkspaceConfigurationResponse$: StaticStructureSchema = [3, n0, _DWCRe,
   0,
   [_co, _gV],
-  [[() => OverridableConfigurationJson, 0], 0]
+  [[() => OverridableConfigurationJson, 0], 0], 1
 ];
 export var DescribeWorkspaceRequest$: StaticStructureSchema = [3, n0, _DWRes,
   0,
   [_wI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeWorkspaceResponse$: StaticStructureSchema = [3, n0, _DWResc,
   0,
   [_w],
-  [[() => WorkspaceDescription$, 0]]
+  [[() => WorkspaceDescription$, 0]], 1
 ];
 export var DisassociateLicenseRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_wI, _lT],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DisassociateLicenseResponse$: StaticStructureSchema = [3, n0, _DLRi,
   0,
   [_w],
-  [[() => WorkspaceDescription$, 0]]
+  [[() => WorkspaceDescription$, 0]], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListPermissionsRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
-  [_mR, _nT, _uT, _uI, _gI, _wI],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _uT }], [0, { [_hQ]: _uI }], [0, { [_hQ]: _gI }], [0, 1]]
+  [_wI, _mR, _nT, _uT, _uI, _gI],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _uT }], [0, { [_hQ]: _uI }], [0, { [_hQ]: _gI }]], 1
 ];
 export var ListPermissionsResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
-  [_nT, _pe],
-  [0, () => PermissionEntryList]
+  [_pe, _nT],
+  [() => PermissionEntryList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -464,23 +464,23 @@ export var ListVersionsResponse$: StaticStructureSchema = [3, n0, _LVRi,
 ];
 export var ListWorkspaceServiceAccountsRequest$: StaticStructureSchema = [3, n0, _LWSAR,
   0,
-  [_mR, _nT, _wI],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, 1]]
+  [_wI, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListWorkspaceServiceAccountsResponse$: StaticStructureSchema = [3, n0, _LWSARi,
   0,
-  [_nT, _sA, _wI],
-  [0, () => ServiceAccountList, 0]
+  [_sA, _wI, _nT],
+  [() => ServiceAccountList, 0, 0], 2
 ];
 export var ListWorkspaceServiceAccountTokensRequest$: StaticStructureSchema = [3, n0, _LWSATR,
   0,
-  [_mR, _nT, _sAI, _wI],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, 1], [0, 1]]
+  [_sAI, _wI, _mR, _nT],
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListWorkspaceServiceAccountTokensResponse$: StaticStructureSchema = [3, n0, _LWSATRi,
   0,
-  [_nT, _sATe, _sAI, _wI],
-  [0, () => ServiceAccountTokenList, 0, 0]
+  [_sATe, _sAI, _wI, _nT],
+  [() => ServiceAccountTokenList, 0, 0, 0], 3
 ];
 export var ListWorkspacesRequest$: StaticStructureSchema = [3, n0, _LWR,
   0,
@@ -490,22 +490,22 @@ export var ListWorkspacesRequest$: StaticStructureSchema = [3, n0, _LWR,
 export var ListWorkspacesResponse$: StaticStructureSchema = [3, n0, _LWRi,
   0,
   [_wo, _nT],
-  [[() => WorkspaceList, 0], 0]
+  [[() => WorkspaceList, 0], 0], 1
 ];
 export var NetworkAccessConfiguration$: StaticStructureSchema = [3, n0, _NAC,
   0,
   [_pLI, _vI],
-  [64 | 0, 64 | 0]
+  [64 | 0, 64 | 0], 2
 ];
 export var PermissionEntry$: StaticStructureSchema = [3, n0, _PE,
   0,
   [_u, _r],
-  [() => User$, 0]
+  [() => User$, 0], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RoleValues$: StaticStructureSchema = [3, n0, _RV,
@@ -516,38 +516,38 @@ export var RoleValues$: StaticStructureSchema = [3, n0, _RV,
 export var SamlAuthentication$: StaticStructureSchema = [3, n0, _SA,
   0,
   [_st, _co],
-  [0, [() => SamlConfiguration$, 0]]
+  [0, [() => SamlConfiguration$, 0]], 1
 ];
 export var SamlConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_iM, _aA, _rV, _aO, _lVD],
-  [() => IdpMetadata$, () => AssertionAttributes$, [() => RoleValues$, 0], 64 | 0, 1]
+  [() => IdpMetadata$, () => AssertionAttributes$, [() => RoleValues$, 0], 64 | 0, 1], 1
 ];
 export var ServiceAccountSummary$: StaticStructureSchema = [3, n0, _SAS,
   0,
   [_i, _n, _iD, _gR],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var ServiceAccountTokenSummary$: StaticStructureSchema = [3, n0, _SATS,
   0,
   [_i, _n, _cA, _eA, _lUA],
-  [0, 0, 4, 4, 4]
+  [0, 0, 4, 4, 4], 4
 ];
 export var ServiceAccountTokenSummaryWithKey$: StaticStructureSchema = [3, n0, _SATSWK,
   0,
   [_i, _n, _k],
-  [0, 0, [() => ServiceAccountTokenKey, 0]]
+  [0, 0, [() => ServiceAccountTokenKey, 0]], 3
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -557,13 +557,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -573,37 +573,37 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateError$: StaticStructureSchema = [3, n0, _UE,
   0,
   [_cod, _m, _cB],
-  [1, 0, () => UpdateInstruction$]
+  [1, 0, () => UpdateInstruction$], 3
 ];
 export var UpdateInstruction$: StaticStructureSchema = [3, n0, _UI,
   0,
   [_ac, _r, _us],
-  [0, 0, () => UserList]
+  [0, 0, () => UserList], 3
 ];
 export var UpdatePermissionsRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_uIB, _wI],
-  [() => UpdateInstructionBatch, [0, 1]]
+  [() => UpdateInstructionBatch, [0, 1]], 2
 ];
 export var UpdatePermissionsResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
   [_er],
-  [() => UpdateErrorList]
+  [() => UpdateErrorList], 1
 ];
 export var UpdateWorkspaceAuthenticationRequest$: StaticStructureSchema = [3, n0, _UWAR,
   0,
   [_wI, _aP, _sCa],
-  [[0, 1], 64 | 0, [() => SamlConfiguration$, 0]]
+  [[0, 1], 64 | 0, [() => SamlConfiguration$, 0]], 2
 ];
 export var UpdateWorkspaceAuthenticationResponse$: StaticStructureSchema = [3, n0, _UWARp,
   0,
   [_au],
-  [[() => AuthenticationDescription$, 0]]
+  [[() => AuthenticationDescription$, 0]], 1
 ];
 export var UpdateWorkspaceConfigurationRequest$: StaticStructureSchema = [3, n0, _UWCR,
   0,
   [_co, _wI, _gV],
-  [[() => OverridableConfigurationJson, 0], [0, 1], 0]
+  [[() => OverridableConfigurationJson, 0], [0, 1], 0], 2
 ];
 export var UpdateWorkspaceConfigurationResponse$: StaticStructureSchema = [3, n0, _UWCRp,
   0,
@@ -612,44 +612,44 @@ export var UpdateWorkspaceConfigurationResponse$: StaticStructureSchema = [3, n0
 ];
 export var UpdateWorkspaceRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
-  [_aAT, _oRN, _pT, _sSN, _wDS, _wD, _wI, _wN, _wND, _wOU, _wRA, _vC, _rVC, _nAC, _rNAC],
-  [0, [() => OrganizationRoleName, 0], 0, 0, 64 | 0, [() => Description, 0], [0, 1], [() => WorkspaceName, 0], 64 | 0, [() => OrganizationalUnitList, 0], [() => IamRoleArn, 0], () => VpcConfiguration$, 2, () => NetworkAccessConfiguration$, 2]
+  [_wI, _aAT, _oRN, _pT, _sSN, _wDS, _wD, _wN, _wND, _wOU, _wRA, _vC, _rVC, _nAC, _rNAC],
+  [[0, 1], 0, [() => OrganizationRoleName, 0], 0, 0, 64 | 0, [() => Description, 0], [() => WorkspaceName, 0], 64 | 0, [() => OrganizationalUnitList, 0], [() => IamRoleArn, 0], () => VpcConfiguration$, 2, () => NetworkAccessConfiguration$, 2], 1
 ];
 export var UpdateWorkspaceResponse$: StaticStructureSchema = [3, n0, _UWRp,
   0,
   [_w],
-  [[() => WorkspaceDescription$, 0]]
+  [[() => WorkspaceDescription$, 0]], 1
 ];
 export var User$: StaticStructureSchema = [3, n0, _U,
   0,
   [_i, _ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_sGI, _sI],
-  [64 | 0, 64 | 0]
+  [64 | 0, 64 | 0], 2
 ];
 export var WorkspaceDescription$: StaticStructureSchema = [3, n0, _WD,
   0,
-  [_aAT, _cr, _dS, _d, _en, _gV, _i, _mo, _n, _oRN, _nD, _oU, _pT, _sSN, _st, _wRA, _lT, _fTC, _lE, _fTE, _au, _t, _vC, _nAC, _gT],
-  [0, 4, 64 | 0, [() => Description, 0], 0, 0, 0, 4, [() => WorkspaceName, 0], [() => OrganizationRoleName, 0], 64 | 0, [() => OrganizationalUnitList, 0], 0, 0, 0, [() => IamRoleArn, 0], 0, 2, 4, 4, () => AuthenticationSummary$, 128 | 0, () => VpcConfiguration$, () => NetworkAccessConfiguration$, 0]
+  [_cr, _dS, _en, _gV, _i, _mo, _st, _au, _aAT, _d, _n, _oRN, _nD, _oU, _pT, _sSN, _wRA, _lT, _fTC, _lE, _fTE, _t, _vC, _nAC, _gT],
+  [4, 64 | 0, 0, 0, 0, 4, 0, () => AuthenticationSummary$, 0, [() => Description, 0], [() => WorkspaceName, 0], [() => OrganizationRoleName, 0], 64 | 0, [() => OrganizationalUnitList, 0], 0, 0, [() => IamRoleArn, 0], 0, 2, 4, 4, 128 | 0, () => VpcConfiguration$, () => NetworkAccessConfiguration$, 0], 8
 ];
 export var WorkspaceSummary$: StaticStructureSchema = [3, n0, _WS,
   0,
-  [_cr, _d, _en, _gV, _i, _mo, _n, _nD, _st, _au, _t, _lT, _gT],
-  [4, [() => Description, 0], 0, 0, 0, 4, [() => WorkspaceName, 0], 64 | 0, 0, () => AuthenticationSummary$, 128 | 0, 0, 0]
+  [_cr, _en, _gV, _i, _mo, _st, _au, _d, _n, _nD, _t, _lT, _gT],
+  [4, 0, 0, 0, 4, 0, () => AuthenticationSummary$, [() => Description, 0], [() => WorkspaceName, 0], 64 | 0, 128 | 0, 0, 0], 7
 ];
 export var GrafanaServiceException$: StaticErrorSchema = [-3, _sm, "GrafanaServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(GrafanaServiceException$, GrafanaServiceException);

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateEndpointCommand,
@@ -27,6 +27,9 @@ import {
   ListSharedEndpointsCommandInput,
   ListSharedEndpointsCommandOutput,
 } from "./commands/ListSharedEndpointsCommand";
+import { paginateListEndpoints } from "./pagination/ListEndpointsPaginator";
+import { paginateListOutpostsWithS3 } from "./pagination/ListOutpostsWithS3Paginator";
+import { paginateListSharedEndpoints } from "./pagination/ListSharedEndpointsPaginator";
 import { S3OutpostsClient } from "./S3OutpostsClient";
 
 const commands = {
@@ -35,6 +38,11 @@ const commands = {
   ListEndpointsCommand,
   ListOutpostsWithS3Command,
   ListSharedEndpointsCommand,
+};
+const paginators = {
+  paginateListEndpoints,
+  paginateListOutpostsWithS3,
+  paginateListSharedEndpoints,
 };
 
 export interface S3Outposts {
@@ -124,6 +132,39 @@ export interface S3Outposts {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSharedEndpointsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEndpointsCommandOutput}.
+   */
+  paginateListEndpoints(
+    args?: ListEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListOutpostsWithS3Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOutpostsWithS3CommandOutput}.
+   */
+  paginateListOutpostsWithS3(
+    args?: ListOutpostsWithS3CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOutpostsWithS3CommandOutput>;
+
+  /**
+   * @see {@link ListSharedEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSharedEndpointsCommandOutput}.
+   */
+  paginateListSharedEndpoints(
+    args: ListSharedEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSharedEndpointsCommandOutput>;
 }
 
 /**
@@ -131,4 +172,4 @@ export interface S3Outposts {
  * @public
  */
 export class S3Outposts extends S3OutpostsClient implements S3Outposts {}
-createAggregatedClient(commands, S3Outposts);
+createAggregatedClient(commands, S3Outposts, { paginators });

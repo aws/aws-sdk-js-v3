@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateEnvironmentCommand,
@@ -237,6 +237,12 @@ import {
   UpdateKxVolumeCommandOutput,
 } from "./commands/UpdateKxVolumeCommand";
 import { FinspaceClient } from "./FinspaceClient";
+import { paginateListKxChangesets } from "./pagination/ListKxChangesetsPaginator";
+import { paginateListKxClusterNodes } from "./pagination/ListKxClusterNodesPaginator";
+import { paginateListKxDatabases } from "./pagination/ListKxDatabasesPaginator";
+import { paginateListKxDataviews } from "./pagination/ListKxDataviewsPaginator";
+import { paginateListKxEnvironments } from "./pagination/ListKxEnvironmentsPaginator";
+import { paginateListKxScalingGroups } from "./pagination/ListKxScalingGroupsPaginator";
 
 const commands = {
   CreateEnvironmentCommand,
@@ -289,6 +295,14 @@ const commands = {
   UpdateKxEnvironmentNetworkCommand,
   UpdateKxUserCommand,
   UpdateKxVolumeCommand,
+};
+const paginators = {
+  paginateListKxChangesets,
+  paginateListKxClusterNodes,
+  paginateListKxDatabases,
+  paginateListKxDataviews,
+  paginateListKxEnvironments,
+  paginateListKxScalingGroups,
 };
 
 export interface Finspace {
@@ -1143,6 +1157,72 @@ export interface Finspace {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateKxVolumeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListKxChangesetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKxChangesetsCommandOutput}.
+   */
+  paginateListKxChangesets(
+    args: ListKxChangesetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKxChangesetsCommandOutput>;
+
+  /**
+   * @see {@link ListKxClusterNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKxClusterNodesCommandOutput}.
+   */
+  paginateListKxClusterNodes(
+    args: ListKxClusterNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKxClusterNodesCommandOutput>;
+
+  /**
+   * @see {@link ListKxDatabasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKxDatabasesCommandOutput}.
+   */
+  paginateListKxDatabases(
+    args: ListKxDatabasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKxDatabasesCommandOutput>;
+
+  /**
+   * @see {@link ListKxDataviewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKxDataviewsCommandOutput}.
+   */
+  paginateListKxDataviews(
+    args: ListKxDataviewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKxDataviewsCommandOutput>;
+
+  /**
+   * @see {@link ListKxEnvironmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKxEnvironmentsCommandOutput}.
+   */
+  paginateListKxEnvironments(
+    args?: ListKxEnvironmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKxEnvironmentsCommandOutput>;
+
+  /**
+   * @see {@link ListKxScalingGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKxScalingGroupsCommandOutput}.
+   */
+  paginateListKxScalingGroups(
+    args: ListKxScalingGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKxScalingGroupsCommandOutput>;
 }
 
 /**
@@ -1150,4 +1230,4 @@ export interface Finspace {
  * @public
  */
 export class Finspace extends FinspaceClient implements Finspace {}
-createAggregatedClient(commands, Finspace);
+createAggregatedClient(commands, Finspace, { paginators });

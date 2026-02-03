@@ -250,6 +250,13 @@ GetEnvironment
 </details>
 <details>
 <summary>
+GetVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/evs/command/GetVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evs/Interface/GetVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-evs/Interface/GetVersionsCommandOutput/)
+</details>
+<details>
+<summary>
 ListEnvironmentHosts
 </summary>
 

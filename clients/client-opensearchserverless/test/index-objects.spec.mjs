@@ -6,6 +6,10 @@ import {
   AccountSettingsDetail$,
   BatchGetCollection$,
   BatchGetCollectionCommand,
+  BatchGetCollectionGroup$,
+  BatchGetCollectionGroupCommand,
+  BatchGetCollectionGroupRequest$,
+  BatchGetCollectionGroupResponse$,
   BatchGetCollectionRequest$,
   BatchGetCollectionResponse$,
   BatchGetEffectiveLifecyclePolicy$,
@@ -24,6 +28,10 @@ import {
   CollectionDetail$,
   CollectionErrorDetail$,
   CollectionFilters$,
+  CollectionGroupCapacityLimits$,
+  CollectionGroupDetail$,
+  CollectionGroupErrorDetail$,
+  CollectionGroupSummary$,
   CollectionStatus,
   CollectionSummary$,
   CollectionType,
@@ -36,6 +44,11 @@ import {
   CreateCollection$,
   CreateCollectionCommand,
   CreateCollectionDetail$,
+  CreateCollectionGroup$,
+  CreateCollectionGroupCommand,
+  CreateCollectionGroupDetail$,
+  CreateCollectionGroupRequest$,
+  CreateCollectionGroupResponse$,
   CreateCollectionRequest$,
   CreateCollectionResponse$,
   CreateIamIdentityCenterConfigOptions$,
@@ -67,6 +80,10 @@ import {
   DeleteCollection$,
   DeleteCollectionCommand,
   DeleteCollectionDetail$,
+  DeleteCollectionGroup$,
+  DeleteCollectionGroupCommand,
+  DeleteCollectionGroupRequest$,
+  DeleteCollectionGroupResponse$,
   DeleteCollectionRequest$,
   DeleteCollectionResponse$,
   DeleteIndex$,
@@ -92,6 +109,7 @@ import {
   DeleteVpcEndpointResponse$,
   EffectiveLifecyclePolicyDetail$,
   EffectiveLifecyclePolicyErrorDetail$,
+  EncryptionConfig$,
   FipsEndpoints$,
   GetAccessPolicy$,
   GetAccessPolicyCommand,
@@ -134,6 +152,10 @@ import {
   ListAccessPoliciesCommand,
   ListAccessPoliciesRequest$,
   ListAccessPoliciesResponse$,
+  ListCollectionGroups$,
+  ListCollectionGroupsCommand,
+  ListCollectionGroupsRequest$,
+  ListCollectionGroupsResponse$,
   ListCollections$,
   ListCollectionsCommand,
   ListCollectionsRequest$,
@@ -164,6 +186,7 @@ import {
   OpenSearchServerlessClient,
   OpenSearchServerlessServiceException,
   paginateListAccessPolicies,
+  paginateListCollectionGroups,
   paginateListCollections,
   paginateListLifecyclePolicies,
   paginateListSecurityConfigs,
@@ -205,6 +228,11 @@ import {
   UpdateCollection$,
   UpdateCollectionCommand,
   UpdateCollectionDetail$,
+  UpdateCollectionGroup$,
+  UpdateCollectionGroupCommand,
+  UpdateCollectionGroupDetail$,
+  UpdateCollectionGroupRequest$,
+  UpdateCollectionGroupResponse$,
   UpdateCollectionRequest$,
   UpdateCollectionResponse$,
   UpdateIamIdentityCenterConfigOptions$,
@@ -245,6 +273,8 @@ assert(typeof OpenSearchServerless === "function");
 // commands
 assert(typeof BatchGetCollectionCommand === "function");
 assert(typeof BatchGetCollection$ === "object");
+assert(typeof BatchGetCollectionGroupCommand === "function");
+assert(typeof BatchGetCollectionGroup$ === "object");
 assert(typeof BatchGetEffectiveLifecyclePolicyCommand === "function");
 assert(typeof BatchGetEffectiveLifecyclePolicy$ === "object");
 assert(typeof BatchGetLifecyclePolicyCommand === "function");
@@ -255,6 +285,8 @@ assert(typeof CreateAccessPolicyCommand === "function");
 assert(typeof CreateAccessPolicy$ === "object");
 assert(typeof CreateCollectionCommand === "function");
 assert(typeof CreateCollection$ === "object");
+assert(typeof CreateCollectionGroupCommand === "function");
+assert(typeof CreateCollectionGroup$ === "object");
 assert(typeof CreateIndexCommand === "function");
 assert(typeof CreateIndex$ === "object");
 assert(typeof CreateLifecyclePolicyCommand === "function");
@@ -269,6 +301,8 @@ assert(typeof DeleteAccessPolicyCommand === "function");
 assert(typeof DeleteAccessPolicy$ === "object");
 assert(typeof DeleteCollectionCommand === "function");
 assert(typeof DeleteCollection$ === "object");
+assert(typeof DeleteCollectionGroupCommand === "function");
+assert(typeof DeleteCollectionGroup$ === "object");
 assert(typeof DeleteIndexCommand === "function");
 assert(typeof DeleteIndex$ === "object");
 assert(typeof DeleteLifecyclePolicyCommand === "function");
@@ -293,6 +327,8 @@ assert(typeof GetSecurityPolicyCommand === "function");
 assert(typeof GetSecurityPolicy$ === "object");
 assert(typeof ListAccessPoliciesCommand === "function");
 assert(typeof ListAccessPolicies$ === "object");
+assert(typeof ListCollectionGroupsCommand === "function");
+assert(typeof ListCollectionGroups$ === "object");
 assert(typeof ListCollectionsCommand === "function");
 assert(typeof ListCollections$ === "object");
 assert(typeof ListLifecyclePoliciesCommand === "function");
@@ -315,6 +351,8 @@ assert(typeof UpdateAccountSettingsCommand === "function");
 assert(typeof UpdateAccountSettings$ === "object");
 assert(typeof UpdateCollectionCommand === "function");
 assert(typeof UpdateCollection$ === "object");
+assert(typeof UpdateCollectionGroupCommand === "function");
+assert(typeof UpdateCollectionGroup$ === "object");
 assert(typeof UpdateIndexCommand === "function");
 assert(typeof UpdateIndex$ === "object");
 assert(typeof UpdateLifecyclePolicyCommand === "function");
@@ -330,6 +368,8 @@ assert(typeof AccessPolicyDetail$ === "object");
 assert(typeof AccessPolicyStats$ === "object");
 assert(typeof AccessPolicySummary$ === "object");
 assert(typeof AccountSettingsDetail$ === "object");
+assert(typeof BatchGetCollectionGroupRequest$ === "object");
+assert(typeof BatchGetCollectionGroupResponse$ === "object");
 assert(typeof BatchGetCollectionRequest$ === "object");
 assert(typeof BatchGetCollectionResponse$ === "object");
 assert(typeof BatchGetEffectiveLifecyclePolicyRequest$ === "object");
@@ -342,10 +382,17 @@ assert(typeof CapacityLimits$ === "object");
 assert(typeof CollectionDetail$ === "object");
 assert(typeof CollectionErrorDetail$ === "object");
 assert(typeof CollectionFilters$ === "object");
+assert(typeof CollectionGroupCapacityLimits$ === "object");
+assert(typeof CollectionGroupDetail$ === "object");
+assert(typeof CollectionGroupErrorDetail$ === "object");
+assert(typeof CollectionGroupSummary$ === "object");
 assert(typeof CollectionSummary$ === "object");
 assert(typeof CreateAccessPolicyRequest$ === "object");
 assert(typeof CreateAccessPolicyResponse$ === "object");
 assert(typeof CreateCollectionDetail$ === "object");
+assert(typeof CreateCollectionGroupDetail$ === "object");
+assert(typeof CreateCollectionGroupRequest$ === "object");
+assert(typeof CreateCollectionGroupResponse$ === "object");
 assert(typeof CreateCollectionRequest$ === "object");
 assert(typeof CreateCollectionResponse$ === "object");
 assert(typeof CreateIamIdentityCenterConfigOptions$ === "object");
@@ -363,6 +410,8 @@ assert(typeof CreateVpcEndpointResponse$ === "object");
 assert(typeof DeleteAccessPolicyRequest$ === "object");
 assert(typeof DeleteAccessPolicyResponse$ === "object");
 assert(typeof DeleteCollectionDetail$ === "object");
+assert(typeof DeleteCollectionGroupRequest$ === "object");
+assert(typeof DeleteCollectionGroupResponse$ === "object");
 assert(typeof DeleteCollectionRequest$ === "object");
 assert(typeof DeleteCollectionResponse$ === "object");
 assert(typeof DeleteIndexRequest$ === "object");
@@ -378,6 +427,7 @@ assert(typeof DeleteVpcEndpointRequest$ === "object");
 assert(typeof DeleteVpcEndpointResponse$ === "object");
 assert(typeof EffectiveLifecyclePolicyDetail$ === "object");
 assert(typeof EffectiveLifecyclePolicyErrorDetail$ === "object");
+assert(typeof EncryptionConfig$ === "object");
 assert(typeof FipsEndpoints$ === "object");
 assert(typeof GetAccessPolicyRequest$ === "object");
 assert(typeof GetAccessPolicyResponse$ === "object");
@@ -401,6 +451,8 @@ assert(typeof LifecyclePolicyStats$ === "object");
 assert(typeof LifecyclePolicySummary$ === "object");
 assert(typeof ListAccessPoliciesRequest$ === "object");
 assert(typeof ListAccessPoliciesResponse$ === "object");
+assert(typeof ListCollectionGroupsRequest$ === "object");
+assert(typeof ListCollectionGroupsResponse$ === "object");
 assert(typeof ListCollectionsRequest$ === "object");
 assert(typeof ListCollectionsResponse$ === "object");
 assert(typeof ListLifecyclePoliciesRequest$ === "object");
@@ -430,6 +482,9 @@ assert(typeof UpdateAccessPolicyResponse$ === "object");
 assert(typeof UpdateAccountSettingsRequest$ === "object");
 assert(typeof UpdateAccountSettingsResponse$ === "object");
 assert(typeof UpdateCollectionDetail$ === "object");
+assert(typeof UpdateCollectionGroupDetail$ === "object");
+assert(typeof UpdateCollectionGroupRequest$ === "object");
+assert(typeof UpdateCollectionGroupResponse$ === "object");
 assert(typeof UpdateCollectionRequest$ === "object");
 assert(typeof UpdateCollectionResponse$ === "object");
 assert(typeof UpdateIamIdentityCenterConfigOptions$ === "object");
@@ -478,6 +533,7 @@ assert(typeof ValidationException$ === "object");
 assert(OpenSearchServerlessServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListAccessPolicies === "function");
+assert(typeof paginateListCollectionGroups === "function");
 assert(typeof paginateListCollections === "function");
 assert(typeof paginateListLifecyclePolicies === "function");
 assert(typeof paginateListSecurityConfigs === "function");

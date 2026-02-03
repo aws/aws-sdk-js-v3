@@ -149,6 +149,10 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *     ],
  *     propagateTags: "STRING_VALUE",
  *   },
+ *   warmThroughputSpecification: { // WarmThroughputSpecification
+ *     readUnitsPerSecond: Number("long"),
+ *     writeUnitsPerSecond: Number("long"),
+ *   },
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);

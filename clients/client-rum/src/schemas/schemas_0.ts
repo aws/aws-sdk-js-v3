@@ -215,7 +215,7 @@ var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AppMonitor$: StaticStructureSchema = [3, n0, _AM,
@@ -241,37 +241,37 @@ export var AppMonitorSummary$: StaticStructureSchema = [3, n0, _AMS,
 export var BatchCreateRumMetricDefinitionsError$: StaticStructureSchema = [3, n0, _BCRMDE,
   0,
   [_MD, _EC, _EM],
-  [() => MetricDefinitionRequest$, 0, 0]
+  [() => MetricDefinitionRequest$, 0, 0], 3
 ];
 export var BatchCreateRumMetricDefinitionsRequest$: StaticStructureSchema = [3, n0, _BCRMDR,
   0,
-  [_AMN, _De, _DA, _MDe],
-  [[0, 1], 0, 0, () => MetricDefinitionsRequest]
+  [_AMN, _De, _MDe, _DA],
+  [[0, 1], 0, () => MetricDefinitionsRequest, 0], 3
 ];
 export var BatchCreateRumMetricDefinitionsResponse$: StaticStructureSchema = [3, n0, _BCRMDRa,
   0,
   [_E, _MDe],
-  [() => BatchCreateRumMetricDefinitionsErrors, () => MetricDefinitions]
+  [() => BatchCreateRumMetricDefinitionsErrors, () => MetricDefinitions], 1
 ];
 export var BatchDeleteRumMetricDefinitionsError$: StaticStructureSchema = [3, n0, _BDRMDE,
   0,
   [_MDI, _EC, _EM],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var BatchDeleteRumMetricDefinitionsRequest$: StaticStructureSchema = [3, n0, _BDRMDR,
   0,
-  [_AMN, _De, _DA, _MDIe],
-  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _dA }], [64 | 0, { [_hQ]: _mDI }]]
+  [_AMN, _De, _MDIe, _DA],
+  [[0, 1], [0, { [_hQ]: _d }], [64 | 0, { [_hQ]: _mDI }], [0, { [_hQ]: _dA }]], 3
 ];
 export var BatchDeleteRumMetricDefinitionsResponse$: StaticStructureSchema = [3, n0, _BDRMDRa,
   0,
   [_E, _MDIe],
-  [() => BatchDeleteRumMetricDefinitionsErrors, 64 | 0]
+  [() => BatchDeleteRumMetricDefinitionsErrors, 64 | 0], 1
 ];
 export var BatchGetRumMetricDefinitionsRequest$: StaticStructureSchema = [3, n0, _BGRMDR,
   0,
   [_AMN, _De, _DA, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _dA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _dA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var BatchGetRumMetricDefinitionsResponse$: StaticStructureSchema = [3, n0, _BGRMDRa,
   0,
@@ -281,13 +281,13 @@ export var BatchGetRumMetricDefinitionsResponse$: StaticStructureSchema = [3, n0
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rN, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAppMonitorRequest$: StaticStructureSchema = [3, n0, _CAMR,
   0,
   [_N, _D, _DL, _T, _AMC, _CLE, _CE, _DC, _P],
-  [0, 0, 64 | 0, 128 | 0, () => AppMonitorConfiguration$, 2, () => CustomEvents$, () => DeobfuscationConfiguration$, 0]
+  [0, 0, 64 | 0, 128 | 0, () => AppMonitorConfiguration$, 2, () => CustomEvents$, () => DeobfuscationConfiguration$, 0], 1
 ];
 export var CreateAppMonitorResponse$: StaticStructureSchema = [3, n0, _CAMRr,
   0,
@@ -312,7 +312,7 @@ export var DataStorage$: StaticStructureSchema = [3, n0, _DS,
 export var DeleteAppMonitorRequest$: StaticStructureSchema = [3, n0, _DAMR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteAppMonitorResponse$: StaticStructureSchema = [3, n0, _DAMRe,
   0,
@@ -322,7 +322,7 @@ export var DeleteAppMonitorResponse$: StaticStructureSchema = [3, n0, _DAMRe,
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_N, _PRI],
-  [[0, 1], [0, { [_hQ]: _pRI }]]
+  [[0, 1], [0, { [_hQ]: _pRI }]], 1
 ];
 export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -332,7 +332,7 @@ export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
 export var DeleteRumMetricsDestinationRequest$: StaticStructureSchema = [3, n0, _DRMDR,
   0,
   [_AMN, _De, _DA],
-  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _dA }]]
+  [[0, 1], [0, { [_hQ]: _d }], [0, { [_hQ]: _dA }]], 2
 ];
 export var DeleteRumMetricsDestinationResponse$: StaticStructureSchema = [3, n0, _DRMDRe,
   0,
@@ -347,7 +347,7 @@ export var DeobfuscationConfiguration$: StaticStructureSchema = [3, n0, _DC,
 export var GetAppMonitorDataRequest$: StaticStructureSchema = [3, n0, _GAMDR,
   0,
   [_N, _TR, _F, _MR, _NT],
-  [[0, 1], () => TimeRange$, () => QueryFilters, 1, 0]
+  [[0, 1], () => TimeRange$, () => QueryFilters, 1, 0], 2
 ];
 export var GetAppMonitorDataResponse$: StaticStructureSchema = [3, n0, _GAMDRe,
   0,
@@ -357,7 +357,7 @@ export var GetAppMonitorDataResponse$: StaticStructureSchema = [3, n0, _GAMDRe,
 export var GetAppMonitorRequest$: StaticStructureSchema = [3, n0, _GAMR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetAppMonitorResponse$: StaticStructureSchema = [3, n0, _GAMRe,
   0,
@@ -367,7 +367,7 @@ export var GetAppMonitorResponse$: StaticStructureSchema = [3, n0, _GAMRe,
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
@@ -377,19 +377,19 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidPolicyRevisionIdException$: StaticErrorSchema = [-3, n0, _IPRIE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidPolicyRevisionIdException$, InvalidPolicyRevisionIdException);
 export var JavaScriptSourceMaps$: StaticStructureSchema = [3, n0, _JSSM,
   0,
   [_St, _SU],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListAppMonitorsRequest$: StaticStructureSchema = [3, n0, _LAMR,
   0,
@@ -404,7 +404,7 @@ export var ListAppMonitorsResponse$: StaticStructureSchema = [3, n0, _LAMRi,
 export var ListRumMetricsDestinationsRequest$: StaticStructureSchema = [3, n0, _LRMDR,
   0,
   [_AMN, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListRumMetricsDestinationsResponse$: StaticStructureSchema = [3, n0, _LRMDRi,
   0,
@@ -414,28 +414,28 @@ export var ListRumMetricsDestinationsResponse$: StaticStructureSchema = [3, n0, 
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_RAe, _T],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
 export var MetricDefinition$: StaticStructureSchema = [3, n0, _MD,
   0,
   [_MDI, _N, _VK, _UL, _DK, _EPv, _Na],
-  [0, 0, 0, 0, 128 | 0, 0, 0]
+  [0, 0, 0, 0, 128 | 0, 0, 0], 2
 ];
 export var MetricDefinitionRequest$: StaticStructureSchema = [3, n0, _MDR,
   0,
   [_N, _VK, _UL, _DK, _EPv, _Na],
-  [0, 0, 0, 128 | 0, 0, 0]
+  [0, 0, 0, 128 | 0, 0, 0], 1
 ];
 export var MetricDestinationSummary$: StaticStructureSchema = [3, n0, _MDS,
   0,
@@ -445,19 +445,19 @@ export var MetricDestinationSummary$: StaticStructureSchema = [3, n0, _MDS,
 export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(PolicyNotFoundException$, PolicyNotFoundException);
 export var PolicySizeLimitExceededException$: StaticErrorSchema = [-3, n0, _PSLEE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(PolicySizeLimitExceededException$, PolicySizeLimitExceededException);
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_N, _PD, _PRI],
-  [[0, 1], 0, 0]
+  [[0, 1], 0, 0], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -467,7 +467,7 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
 export var PutRumEventsRequest$: StaticStructureSchema = [3, n0, _PRER,
   0,
   [_I, _BI, _AMD, _UD, _RE, _A],
-  [[0, 1], 0, () => AppMonitorDetails$, () => UserDetails$, [() => RumEventList, 0], 0]
+  [[0, 1], 0, () => AppMonitorDetails$, () => UserDetails$, [() => RumEventList, 0], 0], 5
 ];
 export var PutRumEventsResponse$: StaticStructureSchema = [3, n0, _PRERu,
   0,
@@ -477,7 +477,7 @@ export var PutRumEventsResponse$: StaticStructureSchema = [3, n0, _PRERu,
 export var PutRumMetricsDestinationRequest$: StaticStructureSchema = [3, n0, _PRMDR,
   0,
   [_AMN, _De, _DA, _IRA],
-  [[0, 1], 0, 0, 0]
+  [[0, 1], 0, 0, 0], 2
 ];
 export var PutRumMetricsDestinationResponse$: StaticStructureSchema = [3, n0, _PRMDRu,
   0,
@@ -492,24 +492,24 @@ export var QueryFilter$: StaticStructureSchema = [3, n0, _QF,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rN, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RumEvent$: StaticStructureSchema = [3, n0, _REu,
   0,
-  [_i, _t, _ty, _me, _de],
-  [0, 4, 0, [() => JsonValue, 0], [() => JsonValue, 0]]
+  [_i, _t, _ty, _de, _me],
+  [0, 4, 0, [() => JsonValue, 0], [() => JsonValue, 0]], 4
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -519,18 +519,18 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeRange$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_Af, _B],
-  [1, 1]
+  [1, 1], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -540,7 +540,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAppMonitorRequest$: StaticStructureSchema = [3, n0, _UAMR,
   0,
   [_N, _D, _DL, _AMC, _CLE, _CE, _DC],
-  [[0, 1], 0, 64 | 0, () => AppMonitorConfiguration$, 2, () => CustomEvents$, () => DeobfuscationConfiguration$]
+  [[0, 1], 0, 64 | 0, () => AppMonitorConfiguration$, 2, () => CustomEvents$, () => DeobfuscationConfiguration$], 1
 ];
 export var UpdateAppMonitorResponse$: StaticStructureSchema = [3, n0, _UAMRp,
   0,
@@ -549,8 +549,8 @@ export var UpdateAppMonitorResponse$: StaticStructureSchema = [3, n0, _UAMRp,
 ];
 export var UpdateRumMetricDefinitionRequest$: StaticStructureSchema = [3, n0, _URMDR,
   0,
-  [_AMN, _De, _DA, _MD, _MDI],
-  [[0, 1], 0, 0, () => MetricDefinitionRequest$, 0]
+  [_AMN, _De, _MD, _MDI, _DA],
+  [[0, 1], 0, () => MetricDefinitionRequest$, 0, 0], 4
 ];
 export var UpdateRumMetricDefinitionResponse$: StaticStructureSchema = [3, n0, _URMDRp,
   0,
@@ -565,7 +565,7 @@ export var UserDetails$: StaticStructureSchema = [3, n0, _UD,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var RUMServiceException$: StaticErrorSchema = [-3, _sm, "RUMServiceException", 0, [], []];

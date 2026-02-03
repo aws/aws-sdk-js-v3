@@ -41,6 +41,9 @@ export interface StartProtectedJobCommandOutput extends StartProtectedJobOutput,
  *   membershipIdentifier: "STRING_VALUE", // required
  *   jobParameters: { // ProtectedJobParameters
  *     analysisTemplateArn: "STRING_VALUE", // required
+ *     parameters: { // JobParameterMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
  *   },
  *   resultConfiguration: { // ProtectedJobResultConfigurationInput
  *     outputConfiguration: { // ProtectedJobOutputConfigurationInput Union: only one key present
@@ -66,6 +69,9 @@ export interface StartProtectedJobCommandOutput extends StartProtectedJobOutput,
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     jobParameters: { // ProtectedJobParameters
  * //       analysisTemplateArn: "STRING_VALUE", // required
+ * //       parameters: { // JobParameterMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //     status: "SUBMITTED" || "STARTED" || "CANCELLED" || "CANCELLING" || "FAILED" || "SUCCESS", // required
  * //     resultConfiguration: { // ProtectedJobResultConfigurationOutput

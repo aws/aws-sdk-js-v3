@@ -95,6 +95,10 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  * //           LambdaArn: "STRING_VALUE", // required
  * //         },
  * //         KMSKeyID: "STRING_VALUE",
+ * //         InboundFederation: { // InboundFederationLambdaType
+ * //           LambdaVersion: "V1_0", // required
+ * //           LambdaArn: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       Status: "Enabled" || "Disabled",
  * //       LastModifiedDate: new Date("TIMESTAMP"),

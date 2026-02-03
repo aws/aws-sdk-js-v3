@@ -620,7 +620,7 @@ export var AttemptTaskContainerDetails$: StaticStructureSchema = [3, n0, _ATCD,
 export var CancelJobRequest$: StaticStructureSchema = [3, n0, _CJR,
   0,
   [_jI, _r],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CancelJobResponse$: StaticStructureSchema = [3, n0, _CJRa,
   0,
@@ -641,17 +641,17 @@ TypeRegistry.for(n0).registerError(ClientException$, ClientException);
 export var ComputeEnvironmentDetail$: StaticStructureSchema = [3, n0, _CED,
   0,
   [_cEN, _cEA, _uC, _eCA, _t, _ty, _st, _sta, _sR, _cR, _sRe, _uP, _eCk, _cOT, _u, _con],
-  [0, 0, 1, 0, 128 | 0, 0, 0, 0, 0, () => ComputeResource$, 0, () => UpdatePolicy$, () => EksConfiguration$, 0, 0, 0]
+  [0, 0, 1, 0, 128 | 0, 0, 0, 0, 0, () => ComputeResource$, 0, () => UpdatePolicy$, () => EksConfiguration$, 0, 0, 0], 2
 ];
 export var ComputeEnvironmentOrder$: StaticStructureSchema = [3, n0, _CEO,
   0,
   [_o, _cE],
-  [1, 0]
+  [1, 0], 2
 ];
 export var ComputeResource$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_ty, _aS, _mCi, _mCa, _dC, _iT, _iI, _su, _sGI, _eKP, _iR, _t, _pG, _bP, _sIFR, _lT, _eCc],
-  [0, 0, 1, 1, 1, 64 | 0, 0, 64 | 0, 64 | 0, 0, 0, 128 | 0, 0, 1, 0, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList]
+  [_ty, _mCa, _su, _aS, _mCi, _dC, _iT, _iI, _sGI, _eKP, _iR, _t, _pG, _bP, _sIFR, _lT, _eCc],
+  [0, 1, 64 | 0, 0, 1, 1, 64 | 0, 0, 64 | 0, 0, 0, 128 | 0, 0, 1, 0, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList], 3
 ];
 export var ComputeResourceUpdate$: StaticStructureSchema = [3, n0, _CRU,
   0,
@@ -671,7 +671,7 @@ export var ConsumableResourceRequirement$: StaticStructureSchema = [3, n0, _CRR,
 export var ConsumableResourceSummary$: StaticStructureSchema = [3, n0, _CRS,
   0,
   [_cRA, _cRN, _tQ, _iUQ, _rT],
-  [0, 0, 1, 1, 0]
+  [0, 0, 1, 1, 0], 2
 ];
 export var ContainerDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
@@ -696,7 +696,7 @@ export var ContainerSummary$: StaticStructureSchema = [3, n0, _CS,
 export var CreateComputeEnvironmentRequest$: StaticStructureSchema = [3, n0, _CCER,
   0,
   [_cEN, _ty, _st, _uC, _cR, _sRe, _t, _eCk, _con],
-  [0, 0, 0, 1, () => ComputeResource$, 0, 128 | 0, () => EksConfiguration$, 0]
+  [0, 0, 0, 1, () => ComputeResource$, 0, 128 | 0, () => EksConfiguration$, 0], 2
 ];
 export var CreateComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _CCERr,
   0,
@@ -706,47 +706,47 @@ export var CreateComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _C
 export var CreateConsumableResourceRequest$: StaticStructureSchema = [3, n0, _CCRR,
   0,
   [_cRN, _tQ, _rT, _t],
-  [0, 1, 0, 128 | 0]
+  [0, 1, 0, 128 | 0], 1
 ];
 export var CreateConsumableResourceResponse$: StaticStructureSchema = [3, n0, _CCRRr,
   0,
   [_cRN, _cRA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateJobQueueRequest$: StaticStructureSchema = [3, n0, _CJQR,
   0,
-  [_jQN, _st, _sPA, _pr, _cEO, _sEO, _jQT, _t, _jSTLA],
-  [0, 0, 0, 1, () => ComputeEnvironmentOrders, () => ServiceEnvironmentOrders, 0, 128 | 0, () => JobStateTimeLimitActions]
+  [_jQN, _pr, _st, _sPA, _cEO, _sEO, _jQT, _t, _jSTLA],
+  [0, 1, 0, 0, () => ComputeEnvironmentOrders, () => ServiceEnvironmentOrders, 0, 128 | 0, () => JobStateTimeLimitActions], 2
 ];
 export var CreateJobQueueResponse$: StaticStructureSchema = [3, n0, _CJQRr,
   0,
   [_jQN, _jQA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateSchedulingPolicyRequest$: StaticStructureSchema = [3, n0, _CSPR,
   0,
   [_n, _fP, _t],
-  [0, () => FairsharePolicy$, 128 | 0]
+  [0, () => FairsharePolicy$, 128 | 0], 1
 ];
 export var CreateSchedulingPolicyResponse$: StaticStructureSchema = [3, n0, _CSPRr,
   0,
   [_n, _a],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CreateServiceEnvironmentRequest$: StaticStructureSchema = [3, n0, _CSER,
   0,
-  [_sEN, _sET, _st, _cL, _t],
-  [0, 0, 0, () => CapacityLimits, 128 | 0]
+  [_sEN, _sET, _cL, _st, _t],
+  [0, 0, () => CapacityLimits, 0, 128 | 0], 3
 ];
 export var CreateServiceEnvironmentResponse$: StaticStructureSchema = [3, n0, _CSERr,
   0,
   [_sEN, _sEA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteComputeEnvironmentRequest$: StaticStructureSchema = [3, n0, _DCER,
   0,
   [_cE],
-  [0]
+  [0], 1
 ];
 export var DeleteComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _DCERe,
   0,
@@ -756,7 +756,7 @@ export var DeleteComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _D
 export var DeleteConsumableResourceRequest$: StaticStructureSchema = [3, n0, _DCRR,
   0,
   [_cRo],
-  [0]
+  [0], 1
 ];
 export var DeleteConsumableResourceResponse$: StaticStructureSchema = [3, n0, _DCRRe,
   0,
@@ -766,7 +766,7 @@ export var DeleteConsumableResourceResponse$: StaticStructureSchema = [3, n0, _D
 export var DeleteJobQueueRequest$: StaticStructureSchema = [3, n0, _DJQR,
   0,
   [_jQ],
-  [0]
+  [0], 1
 ];
 export var DeleteJobQueueResponse$: StaticStructureSchema = [3, n0, _DJQRe,
   0,
@@ -776,7 +776,7 @@ export var DeleteJobQueueResponse$: StaticStructureSchema = [3, n0, _DJQRe,
 export var DeleteSchedulingPolicyRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteSchedulingPolicyResponse$: StaticStructureSchema = [3, n0, _DSPRe,
   0,
@@ -786,7 +786,7 @@ export var DeleteSchedulingPolicyResponse$: StaticStructureSchema = [3, n0, _DSP
 export var DeleteServiceEnvironmentRequest$: StaticStructureSchema = [3, n0, _DSER,
   0,
   [_sE],
-  [0]
+  [0], 1
 ];
 export var DeleteServiceEnvironmentResponse$: StaticStructureSchema = [3, n0, _DSERe,
   0,
@@ -796,7 +796,7 @@ export var DeleteServiceEnvironmentResponse$: StaticStructureSchema = [3, n0, _D
 export var DeregisterJobDefinitionRequest$: StaticStructureSchema = [3, n0, _DJDR,
   0,
   [_jD],
-  [0]
+  [0], 1
 ];
 export var DeregisterJobDefinitionResponse$: StaticStructureSchema = [3, n0, _DJDRe,
   0,
@@ -816,12 +816,12 @@ export var DescribeComputeEnvironmentsResponse$: StaticStructureSchema = [3, n0,
 export var DescribeConsumableResourceRequest$: StaticStructureSchema = [3, n0, _DCRRes,
   0,
   [_cRo],
-  [0]
+  [0], 1
 ];
 export var DescribeConsumableResourceResponse$: StaticStructureSchema = [3, n0, _DCRResc,
   0,
   [_cRN, _cRA, _tQ, _iUQ, _aQ, _rT, _cA, _t],
-  [0, 0, 1, 1, 1, 0, 1, 128 | 0]
+  [0, 0, 1, 1, 1, 0, 1, 128 | 0], 2
 ];
 export var DescribeJobDefinitionsRequest$: StaticStructureSchema = [3, n0, _DJDRes,
   0,
@@ -846,7 +846,7 @@ export var DescribeJobQueuesResponse$: StaticStructureSchema = [3, n0, _DJQResc,
 export var DescribeJobsRequest$: StaticStructureSchema = [3, n0, _DJR,
   0,
   [_j],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeJobsResponse$: StaticStructureSchema = [3, n0, _DJRe,
   0,
@@ -856,7 +856,7 @@ export var DescribeJobsResponse$: StaticStructureSchema = [3, n0, _DJRe,
 export var DescribeSchedulingPoliciesRequest$: StaticStructureSchema = [3, n0, _DSPRes,
   0,
   [_ar],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeSchedulingPoliciesResponse$: StaticStructureSchema = [3, n0, _DSPResc,
   0,
@@ -876,27 +876,27 @@ export var DescribeServiceEnvironmentsResponse$: StaticStructureSchema = [3, n0,
 export var DescribeServiceJobRequest$: StaticStructureSchema = [3, n0, _DSJR,
   0,
   [_jI],
-  [0]
+  [0], 1
 ];
 export var DescribeServiceJobResponse$: StaticStructureSchema = [3, n0, _DSJRe,
   0,
-  [_at, _cA, _iTs, _jA, _jI, _jN, _jQ, _lA, _rS, _sPc, _sRP, _sJT, _sI, _sA, _sta, _sR, _sAt, _t, _tC],
-  [() => ServiceJobAttemptDetails, 1, 2, 0, 0, 0, 0, () => LatestServiceJobAttempt$, () => ServiceJobRetryStrategy$, 1, 0, 0, 0, 1, 0, 0, 1, 128 | 0, () => ServiceJobTimeout$]
+  [_jI, _jN, _jQ, _sJT, _sA, _sta, _at, _cA, _iTs, _jA, _lA, _rS, _sPc, _sRP, _sI, _sR, _sAt, _t, _tC],
+  [0, 0, 0, 0, 1, 0, () => ServiceJobAttemptDetails, 1, 2, 0, () => LatestServiceJobAttempt$, () => ServiceJobRetryStrategy$, 1, 0, 0, 0, 1, 128 | 0, () => ServiceJobTimeout$], 6
 ];
 export var Device$: StaticStructureSchema = [3, n0, _D,
   0,
   [_hP, _cP, _pe],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 1
 ];
 export var Ec2Configuration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_iTm, _iIO, _iKV],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var EcsProperties$: StaticStructureSchema = [3, n0, _EP,
   0,
   [_tP],
-  [() => ListEcsTaskProperties]
+  [() => ListEcsTaskProperties], 1
 ];
 export var EcsPropertiesDetail$: StaticStructureSchema = [3, n0, _EPD,
   0,
@@ -916,7 +916,7 @@ export var EcsTaskDetails$: StaticStructureSchema = [3, n0, _ETD,
 export var EcsTaskProperties$: StaticStructureSchema = [3, n0, _ETP,
   0,
   [_co, _eS, _eRA, _pV, _iM, _tRA, _pM, _nC, _rP, _vo, _eEC],
-  [() => ListTaskContainerProperties, () => EphemeralStorage$, 0, 0, 0, 0, 0, () => NetworkConfiguration$, () => RuntimePlatform$, () => Volumes, 2]
+  [() => ListTaskContainerProperties, () => EphemeralStorage$, 0, 0, 0, 0, 0, () => NetworkConfiguration$, () => RuntimePlatform$, () => Volumes, 2], 1
 ];
 export var EFSAuthorizationConfig$: StaticStructureSchema = [3, n0, _EFSAC,
   0,
@@ -926,7 +926,7 @@ export var EFSAuthorizationConfig$: StaticStructureSchema = [3, n0, _EFSAC,
 export var EFSVolumeConfiguration$: StaticStructureSchema = [3, n0, _EFSVC,
   0,
   [_fSI, _rD, _tE, _tEP, _aC],
-  [0, 0, 0, 1, () => EFSAuthorizationConfig$]
+  [0, 0, 0, 1, () => EFSAuthorizationConfig$], 1
 ];
 export var EksAttemptContainerDetail$: StaticStructureSchema = [3, n0, _EACD,
   0,
@@ -941,12 +941,12 @@ export var EksAttemptDetail$: StaticStructureSchema = [3, n0, _EAD,
 export var EksConfiguration$: StaticStructureSchema = [3, n0, _ECk,
   0,
   [_eCAk, _kN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EksContainer$: StaticStructureSchema = [3, n0, _ECks,
   0,
-  [_n, _im, _iPP, _com, _arg, _env, _re, _vM, _sC],
-  [0, 0, 0, 64 | 0, 64 | 0, () => EksContainerEnvironmentVariables, () => EksContainerResourceRequirements$, () => EksContainerVolumeMounts, () => EksContainerSecurityContext$]
+  [_im, _n, _iPP, _com, _arg, _env, _re, _vM, _sC],
+  [0, 0, 0, 64 | 0, 64 | 0, () => EksContainerEnvironmentVariables, () => EksContainerResourceRequirements$, () => EksContainerVolumeMounts, () => EksContainerSecurityContext$], 1
 ];
 export var EksContainerDetail$: StaticStructureSchema = [3, n0, _ECD,
   0,
@@ -956,7 +956,7 @@ export var EksContainerDetail$: StaticStructureSchema = [3, n0, _ECD,
 export var EksContainerEnvironmentVariable$: StaticStructureSchema = [3, n0, _ECEV,
   0,
   [_n, _va],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EksContainerOverride$: StaticStructureSchema = [3, n0, _ECO,
   0,
@@ -996,7 +996,7 @@ export var EksMetadata$: StaticStructureSchema = [3, n0, _EM,
 export var EksPersistentVolumeClaim$: StaticStructureSchema = [3, n0, _EPVC,
   0,
   [_cN, _rO],
-  [0, 2]
+  [0, 2], 1
 ];
 export var EksPodProperties$: StaticStructureSchema = [3, n0, _EPP,
   0,
@@ -1031,22 +1031,22 @@ export var EksPropertiesOverride$: StaticStructureSchema = [3, n0, _EPOk,
 export var EksSecret$: StaticStructureSchema = [3, n0, _ES,
   0,
   [_sN, _op],
-  [0, 2]
+  [0, 2], 1
 ];
 export var EksVolume$: StaticStructureSchema = [3, n0, _EV,
   0,
   [_n, _hP, _eD, _sec, _pVC],
-  [0, () => EksHostPath$, () => EksEmptyDir$, () => EksSecret$, () => EksPersistentVolumeClaim$]
+  [0, () => EksHostPath$, () => EksEmptyDir$, () => EksSecret$, () => EksPersistentVolumeClaim$], 1
 ];
 export var EphemeralStorage$: StaticStructureSchema = [3, n0, _ESp,
   0,
   [_sIGB],
-  [1]
+  [1], 1
 ];
 export var EvaluateOnExit$: StaticStructureSchema = [3, n0, _EOE,
   0,
-  [_oSR, _oR, _oEC, _ac],
-  [0, 0, 0, 0]
+  [_ac, _oSR, _oR, _oEC],
+  [0, 0, 0, 0], 1
 ];
 export var FairsharePolicy$: StaticStructureSchema = [3, n0, _FP,
   0,
@@ -1061,7 +1061,7 @@ export var FargatePlatformConfiguration$: StaticStructureSchema = [3, n0, _FPC,
 export var FirelensConfiguration$: StaticStructureSchema = [3, n0, _FC,
   0,
   [_ty, _opt],
-  [0, 128 | 0]
+  [0, 128 | 0], 1
 ];
 export var FrontOfQueueDetail$: StaticStructureSchema = [3, n0, _FOQD,
   0,
@@ -1076,7 +1076,7 @@ export var FrontOfQueueJobSummary$: StaticStructureSchema = [3, n0, _FOQJS,
 export var GetJobQueueSnapshotRequest$: StaticStructureSchema = [3, n0, _GJQSR,
   0,
   [_jQ],
-  [0]
+  [0], 1
 ];
 export var GetJobQueueSnapshotResponse$: StaticStructureSchema = [3, n0, _GJQSRe,
   0,
@@ -1091,12 +1091,12 @@ export var Host$: StaticStructureSchema = [3, n0, _H,
 export var ImagePullSecret$: StaticStructureSchema = [3, n0, _IPS,
   0,
   [_n],
-  [0]
+  [0], 1
 ];
 export var JobDefinition$: StaticStructureSchema = [3, n0, _JD,
   0,
-  [_jDN, _jDA, _rev, _sta, _ty, _sPc, _par, _rS, _cPo, _ti, _nP, _t, _pT, _pC, _eP, _ePk, _cOT, _cRP],
-  [0, 0, 1, 0, 0, 1, 128 | 0, () => RetryStrategy$, () => ContainerProperties$, () => JobTimeout$, () => NodeProperties$, 128 | 0, 2, 64 | 0, () => EcsProperties$, () => EksProperties$, 0, () => ConsumableResourceProperties$]
+  [_jDN, _jDA, _rev, _ty, _sta, _sPc, _par, _rS, _cPo, _ti, _nP, _t, _pT, _pC, _eP, _ePk, _cOT, _cRP],
+  [0, 0, 1, 0, 0, 1, 128 | 0, () => RetryStrategy$, () => ContainerProperties$, () => JobTimeout$, () => NodeProperties$, 128 | 0, 2, 64 | 0, () => EcsProperties$, () => EksProperties$, 0, () => ConsumableResourceProperties$], 4
 ];
 export var JobDependency$: StaticStructureSchema = [3, n0, _JDo,
   0,
@@ -1105,23 +1105,23 @@ export var JobDependency$: StaticStructureSchema = [3, n0, _JDo,
 ];
 export var JobDetail$: StaticStructureSchema = [3, n0, _JDob,
   0,
-  [_jA, _jN, _jI, _jQ, _sta, _sI, _sPc, _at, _sR, _cA, _rS, _sA, _sAt, _dO, _jD, _par, _c, _nD, _nP, _aP, _ti, _t, _pT, _pC, _ePk, _eA, _eP, _iCs, _iTs, _cRP],
-  [0, 0, 0, 0, 0, 0, 1, () => AttemptDetails, 0, 1, () => RetryStrategy$, 1, 1, () => JobDependencyList, 0, 128 | 0, () => ContainerDetail$, () => NodeDetails$, () => NodeProperties$, () => ArrayPropertiesDetail$, () => JobTimeout$, 128 | 0, 2, 64 | 0, () => EksPropertiesDetail$, () => EksAttemptDetails, () => EcsPropertiesDetail$, 2, 2, () => ConsumableResourceProperties$]
+  [_jN, _jI, _jQ, _sta, _sA, _jD, _jA, _sI, _sPc, _at, _sR, _cA, _rS, _sAt, _dO, _par, _c, _nD, _nP, _aP, _ti, _t, _pT, _pC, _ePk, _eA, _eP, _iCs, _iTs, _cRP],
+  [0, 0, 0, 0, 1, 0, 0, 0, 1, () => AttemptDetails, 0, 1, () => RetryStrategy$, 1, () => JobDependencyList, 128 | 0, () => ContainerDetail$, () => NodeDetails$, () => NodeProperties$, () => ArrayPropertiesDetail$, () => JobTimeout$, 128 | 0, 2, 64 | 0, () => EksPropertiesDetail$, () => EksAttemptDetails, () => EcsPropertiesDetail$, 2, 2, () => ConsumableResourceProperties$], 6
 ];
 export var JobQueueDetail$: StaticStructureSchema = [3, n0, _JQD,
   0,
-  [_jQN, _jQA, _st, _sPA, _sta, _sR, _pr, _cEO, _sEO, _jQT, _t, _jSTLA],
-  [0, 0, 0, 0, 0, 0, 1, () => ComputeEnvironmentOrders, () => ServiceEnvironmentOrders, 0, 128 | 0, () => JobStateTimeLimitActions]
+  [_jQN, _jQA, _st, _pr, _cEO, _sPA, _sta, _sR, _sEO, _jQT, _t, _jSTLA],
+  [0, 0, 0, 1, () => ComputeEnvironmentOrders, 0, 0, 0, () => ServiceEnvironmentOrders, 0, 128 | 0, () => JobStateTimeLimitActions], 5
 ];
 export var JobStateTimeLimitAction$: StaticStructureSchema = [3, n0, _JSTLA,
   0,
   [_r, _st, _mTS, _ac],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 4
 ];
 export var JobSummary$: StaticStructureSchema = [3, n0, _JS,
   0,
-  [_jA, _jI, _jN, _cA, _sta, _sR, _sA, _sAt, _c, _aP, _nP, _jD],
-  [0, 0, 0, 1, 0, 0, 1, 1, () => ContainerSummary$, () => ArrayPropertiesSummary$, () => NodePropertiesSummary$, 0]
+  [_jI, _jN, _jA, _cA, _sta, _sR, _sA, _sAt, _c, _aP, _nP, _jD],
+  [0, 0, 0, 1, 0, 0, 1, 1, () => ContainerSummary$, () => ArrayPropertiesSummary$, () => NodePropertiesSummary$, 0], 2
 ];
 export var JobTimeout$: StaticStructureSchema = [3, n0, _JT,
   0,
@@ -1166,22 +1166,22 @@ export var ListConsumableResourcesRequest$: StaticStructureSchema = [3, n0, _LCR
 export var ListConsumableResourcesResponse$: StaticStructureSchema = [3, n0, _LCRRi,
   0,
   [_cRon, _nT],
-  [() => ConsumableResourceSummaryList, 0]
+  [() => ConsumableResourceSummaryList, 0], 1
 ];
 export var ListJobsByConsumableResourceRequest$: StaticStructureSchema = [3, n0, _LJBCRR,
   0,
   [_cRo, _f, _mR, _nT],
-  [0, () => ListJobsByConsumableResourceFilterList, 1, 0]
+  [0, () => ListJobsByConsumableResourceFilterList, 1, 0], 1
 ];
 export var ListJobsByConsumableResourceResponse$: StaticStructureSchema = [3, n0, _LJBCRRi,
   0,
   [_j, _nT],
-  [() => ListJobsByConsumableResourceSummaryList, 0]
+  [() => ListJobsByConsumableResourceSummaryList, 0], 1
 ];
 export var ListJobsByConsumableResourceSummary$: StaticStructureSchema = [3, n0, _LJBCRS,
   0,
-  [_jA, _jQA, _jN, _jDA, _sI, _jS, _q, _sR, _sA, _cA, _cRP],
-  [0, 0, 0, 0, 0, 0, 1, 0, 1, 1, () => ConsumableResourceProperties$]
+  [_jA, _jQA, _jN, _jS, _q, _cA, _cRP, _jDA, _sI, _sR, _sA],
+  [0, 0, 0, 0, 1, 1, () => ConsumableResourceProperties$, 0, 0, 0, 1], 7
 ];
 export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
   0,
@@ -1191,7 +1191,7 @@ export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
 export var ListJobsResponse$: StaticStructureSchema = [3, n0, _LJRi,
   0,
   [_jSL, _nT],
-  [() => JobSummaryList, 0]
+  [() => JobSummaryList, 0], 1
 ];
 export var ListSchedulingPoliciesRequest$: StaticStructureSchema = [3, n0, _LSPR,
   0,
@@ -1211,12 +1211,12 @@ export var ListServiceJobsRequest$: StaticStructureSchema = [3, n0, _LSJR,
 export var ListServiceJobsResponse$: StaticStructureSchema = [3, n0, _LSJRi,
   0,
   [_jSL, _nT],
-  [() => ServiceJobSummaryList, 0]
+  [() => ServiceJobSummaryList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1226,7 +1226,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_lD, _opt, _sO],
-  [0, 128 | 0, () => SecretList]
+  [0, 128 | 0, () => SecretList], 1
 ];
 export var MountPoint$: StaticStructureSchema = [3, n0, _MP,
   0,
@@ -1256,7 +1256,7 @@ export var NodeOverrides$: StaticStructureSchema = [3, n0, _NO,
 export var NodeProperties$: StaticStructureSchema = [3, n0, _NP,
   0,
   [_nNu, _mN, _nRP],
-  [1, 1, () => NodeRangeProperties]
+  [1, 1, () => NodeRangeProperties], 3
 ];
 export var NodePropertiesSummary$: StaticStructureSchema = [3, n0, _NPS,
   0,
@@ -1266,32 +1266,32 @@ export var NodePropertiesSummary$: StaticStructureSchema = [3, n0, _NPS,
 export var NodePropertyOverride$: StaticStructureSchema = [3, n0, _NPO,
   0,
   [_tN, _cO, _ePO, _iT, _ePOk, _cRPO],
-  [0, () => ContainerOverrides$, () => EcsPropertiesOverride$, 64 | 0, () => EksPropertiesOverride$, () => ConsumableResourceProperties$]
+  [0, () => ContainerOverrides$, () => EcsPropertiesOverride$, 64 | 0, () => EksPropertiesOverride$, () => ConsumableResourceProperties$], 1
 ];
 export var NodeRangeProperty$: StaticStructureSchema = [3, n0, _NRP,
   0,
   [_tN, _c, _iT, _eP, _ePk, _cRP],
-  [0, () => ContainerProperties$, 64 | 0, () => EcsProperties$, () => EksProperties$, () => ConsumableResourceProperties$]
+  [0, () => ContainerProperties$, 64 | 0, () => EcsProperties$, () => EksProperties$, () => ConsumableResourceProperties$], 1
 ];
 export var RegisterJobDefinitionRequest$: StaticStructureSchema = [3, n0, _RJDR,
   0,
   [_jDN, _ty, _par, _sPc, _cPo, _nP, _rS, _pT, _ti, _t, _pC, _ePk, _eP, _cRP],
-  [0, 0, 128 | 0, 1, () => ContainerProperties$, () => NodeProperties$, () => RetryStrategy$, 2, () => JobTimeout$, 128 | 0, 64 | 0, () => EksProperties$, () => EcsProperties$, () => ConsumableResourceProperties$]
+  [0, 0, 128 | 0, 1, () => ContainerProperties$, () => NodeProperties$, () => RetryStrategy$, 2, () => JobTimeout$, 128 | 0, 64 | 0, () => EksProperties$, () => EcsProperties$, () => ConsumableResourceProperties$], 2
 ];
 export var RegisterJobDefinitionResponse$: StaticStructureSchema = [3, n0, _RJDRe,
   0,
   [_jDN, _jDA, _rev],
-  [0, 0, 1]
+  [0, 0, 1], 3
 ];
 export var RepositoryCredentials$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_cPr],
-  [0]
+  [0], 1
 ];
 export var ResourceRequirement$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_va, _ty],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RetryStrategy$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -1306,17 +1306,17 @@ export var RuntimePlatform$: StaticStructureSchema = [3, n0, _RP,
 export var SchedulingPolicyDetail$: StaticStructureSchema = [3, n0, _SPD,
   0,
   [_n, _a, _fP, _t],
-  [0, 0, () => FairsharePolicy$, 128 | 0]
+  [0, 0, () => FairsharePolicy$, 128 | 0], 2
 ];
 export var SchedulingPolicyListingDetail$: StaticStructureSchema = [3, n0, _SPLD,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var Secret$: StaticStructureSchema = [3, n0, _S,
   0,
   [_n, _vF],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ServerException$: StaticErrorSchema = [-3, n0, _SE,
   { [_e]: _ser, [_hE]: 500 },
@@ -1326,13 +1326,13 @@ export var ServerException$: StaticErrorSchema = [-3, n0, _SE,
 TypeRegistry.for(n0).registerError(ServerException$, ServerException);
 export var ServiceEnvironmentDetail$: StaticStructureSchema = [3, n0, _SED,
   0,
-  [_sEN, _sEA, _sET, _st, _sta, _cL, _t],
-  [0, 0, 0, 0, 0, () => CapacityLimits, 128 | 0]
+  [_sEN, _sEA, _sET, _cL, _st, _sta, _t],
+  [0, 0, 0, () => CapacityLimits, 0, 0, 128 | 0], 4
 ];
 export var ServiceEnvironmentOrder$: StaticStructureSchema = [3, n0, _SEO,
   0,
   [_o, _sE],
-  [1, 0]
+  [1, 0], 2
 ];
 export var ServiceJobAttemptDetail$: StaticStructureSchema = [3, n0, _SJAD,
   0,
@@ -1347,12 +1347,12 @@ export var ServiceJobEvaluateOnExit$: StaticStructureSchema = [3, n0, _SJEOE,
 export var ServiceJobRetryStrategy$: StaticStructureSchema = [3, n0, _SJRS,
   0,
   [_at, _eOE],
-  [1, () => ServiceJobEvaluateOnExitList]
+  [1, () => ServiceJobEvaluateOnExitList], 1
 ];
 export var ServiceJobSummary$: StaticStructureSchema = [3, n0, _SJS,
   0,
-  [_lA, _cA, _jA, _jI, _jN, _sJT, _sI, _sta, _sR, _sA, _sAt],
-  [() => LatestServiceJobAttempt$, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1]
+  [_jI, _jN, _sJT, _lA, _cA, _jA, _sI, _sta, _sR, _sA, _sAt],
+  [0, 0, 0, () => LatestServiceJobAttempt$, 1, 0, 0, 0, 0, 1, 1], 3
 ];
 export var ServiceJobTimeout$: StaticStructureSchema = [3, n0, _SJT,
   0,
@@ -1362,37 +1362,37 @@ export var ServiceJobTimeout$: StaticStructureSchema = [3, n0, _SJT,
 export var ServiceResourceId$: StaticStructureSchema = [3, n0, _SRI,
   0,
   [_n, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ShareAttributes$: StaticStructureSchema = [3, n0, _SA,
   0,
   [_sI, _wF],
-  [0, 1]
+  [0, 1], 1
 ];
 export var SubmitJobRequest$: StaticStructureSchema = [3, n0, _SJR,
   0,
-  [_jN, _jQ, _sI, _sPO, _aP, _dO, _jD, _par, _cO, _nO, _rS, _pT, _ti, _t, _ePOk, _ePO, _cRPO],
-  [0, 0, 0, 1, () => ArrayProperties$, () => JobDependencyList, 0, 128 | 0, () => ContainerOverrides$, () => NodeOverrides$, () => RetryStrategy$, 2, () => JobTimeout$, 128 | 0, () => EksPropertiesOverride$, () => EcsPropertiesOverride$, () => ConsumableResourceProperties$]
+  [_jN, _jQ, _jD, _sI, _sPO, _aP, _dO, _par, _cO, _nO, _rS, _pT, _ti, _t, _ePOk, _ePO, _cRPO],
+  [0, 0, 0, 0, 1, () => ArrayProperties$, () => JobDependencyList, 128 | 0, () => ContainerOverrides$, () => NodeOverrides$, () => RetryStrategy$, 2, () => JobTimeout$, 128 | 0, () => EksPropertiesOverride$, () => EcsPropertiesOverride$, () => ConsumableResourceProperties$], 3
 ];
 export var SubmitJobResponse$: StaticStructureSchema = [3, n0, _SJRu,
   0,
-  [_jA, _jN, _jI],
-  [0, 0, 0]
+  [_jN, _jI, _jA],
+  [0, 0, 0], 2
 ];
 export var SubmitServiceJobRequest$: StaticStructureSchema = [3, n0, _SSJR,
   0,
-  [_jN, _jQ, _rS, _sPc, _sRP, _sJT, _sI, _tC, _t, _cT],
-  [0, 0, () => ServiceJobRetryStrategy$, 1, 0, 0, 0, () => ServiceJobTimeout$, 128 | 0, [0, 4]]
+  [_jN, _jQ, _sRP, _sJT, _rS, _sPc, _sI, _tC, _t, _cT],
+  [0, 0, 0, 0, () => ServiceJobRetryStrategy$, 1, 0, () => ServiceJobTimeout$, 128 | 0, [0, 4]], 4
 ];
 export var SubmitServiceJobResponse$: StaticStructureSchema = [3, n0, _SSJRu,
   0,
-  [_jA, _jN, _jI],
-  [0, 0, 0]
+  [_jN, _jI, _jA],
+  [0, 0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1416,8 +1416,8 @@ export var TaskContainerOverrides$: StaticStructureSchema = [3, n0, _TCO,
 ];
 export var TaskContainerProperties$: StaticStructureSchema = [3, n0, _TCP,
   0,
-  [_com, _dO, _en, _es, _fC, _im, _lP, _lC, _mP, _n, _p, _rRF, _rC, _rR, _se, _ul, _us],
-  [64 | 0, () => TaskContainerDependencyList, () => EnvironmentVariables, 2, () => FirelensConfiguration$, 0, () => LinuxParameters$, () => LogConfiguration$, () => MountPoints, 0, 2, 2, () => RepositoryCredentials$, () => ResourceRequirements, () => SecretList, () => Ulimits, 0]
+  [_im, _com, _dO, _en, _es, _fC, _lP, _lC, _mP, _n, _p, _rRF, _rC, _rR, _se, _ul, _us],
+  [0, 64 | 0, () => TaskContainerDependencyList, () => EnvironmentVariables, 2, () => FirelensConfiguration$, () => LinuxParameters$, () => LogConfiguration$, () => MountPoints, 0, 2, 2, () => RepositoryCredentials$, () => ResourceRequirements, () => SecretList, () => Ulimits, 0], 1
 ];
 export var TaskPropertiesOverride$: StaticStructureSchema = [3, n0, _TPO,
   0,
@@ -1427,7 +1427,7 @@ export var TaskPropertiesOverride$: StaticStructureSchema = [3, n0, _TPO,
 export var TerminateJobRequest$: StaticStructureSchema = [3, n0, _TJR,
   0,
   [_jI, _r],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TerminateJobResponse$: StaticStructureSchema = [3, n0, _TJRe,
   0,
@@ -1437,7 +1437,7 @@ export var TerminateJobResponse$: StaticStructureSchema = [3, n0, _TJRe,
 export var TerminateServiceJobRequest$: StaticStructureSchema = [3, n0, _TSJR,
   0,
   [_jI, _r],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TerminateServiceJobResponse$: StaticStructureSchema = [3, n0, _TSJRe,
   0,
@@ -1447,17 +1447,17 @@ export var TerminateServiceJobResponse$: StaticStructureSchema = [3, n0, _TSJRe,
 export var Tmpfs$: StaticStructureSchema = [3, n0, _T,
   0,
   [_cP, _s, _mO],
-  [0, 1, 64 | 0]
+  [0, 1, 64 | 0], 2
 ];
 export var Ulimit$: StaticStructureSchema = [3, n0, _U,
   0,
   [_hL, _n, _sLo],
-  [1, 0, 1]
+  [1, 0, 1], 3
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1467,7 +1467,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateComputeEnvironmentRequest$: StaticStructureSchema = [3, n0, _UCER,
   0,
   [_cE, _st, _uC, _cR, _sRe, _uP, _con],
-  [0, 0, 1, () => ComputeResourceUpdate$, 0, () => UpdatePolicy$, 0]
+  [0, 0, 1, () => ComputeResourceUpdate$, 0, () => UpdatePolicy$, 0], 1
 ];
 export var UpdateComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _UCERp,
   0,
@@ -1477,17 +1477,17 @@ export var UpdateComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _U
 export var UpdateConsumableResourceRequest$: StaticStructureSchema = [3, n0, _UCRR,
   0,
   [_cRo, _ope, _q, _cT],
-  [0, 0, 1, [0, 4]]
+  [0, 0, 1, [0, 4]], 1
 ];
 export var UpdateConsumableResourceResponse$: StaticStructureSchema = [3, n0, _UCRRp,
   0,
   [_cRN, _cRA, _tQ],
-  [0, 0, 1]
+  [0, 0, 1], 2
 ];
 export var UpdateJobQueueRequest$: StaticStructureSchema = [3, n0, _UJQR,
   0,
   [_jQ, _st, _sPA, _pr, _cEO, _sEO, _jSTLA],
-  [0, 0, 0, 1, () => ComputeEnvironmentOrders, () => ServiceEnvironmentOrders, () => JobStateTimeLimitActions]
+  [0, 0, 0, 1, () => ComputeEnvironmentOrders, () => ServiceEnvironmentOrders, () => JobStateTimeLimitActions], 1
 ];
 export var UpdateJobQueueResponse$: StaticStructureSchema = [3, n0, _UJQRp,
   0,
@@ -1502,7 +1502,7 @@ export var UpdatePolicy$: StaticStructureSchema = [3, n0, _UP,
 export var UpdateSchedulingPolicyRequest$: StaticStructureSchema = [3, n0, _USPR,
   0,
   [_a, _fP],
-  [0, () => FairsharePolicy$]
+  [0, () => FairsharePolicy$], 1
 ];
 export var UpdateSchedulingPolicyResponse$: StaticStructureSchema = [3, n0, _USPRp,
   0,
@@ -1512,12 +1512,12 @@ export var UpdateSchedulingPolicyResponse$: StaticStructureSchema = [3, n0, _USP
 export var UpdateServiceEnvironmentRequest$: StaticStructureSchema = [3, n0, _USER,
   0,
   [_sE, _st, _cL],
-  [0, 0, () => CapacityLimits]
+  [0, 0, () => CapacityLimits], 1
 ];
 export var UpdateServiceEnvironmentResponse$: StaticStructureSchema = [3, n0, _USERp,
   0,
   [_sEN, _sEA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Volume$: StaticStructureSchema = [3, n0, _V,
   0,

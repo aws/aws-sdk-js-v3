@@ -164,6 +164,9 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * //       StreamId: "STRING_VALUE",
  * //       NdiSpeedHqQuality: Number("int"),
  * //       NdiProgramName: "STRING_VALUE",
+ * //       NdiSourceSettings: { // NdiSourceSettings
+ * //         SourceName: "STRING_VALUE",
+ * //       },
  * //     },
  * //     VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //       VpcInterfaceName: "STRING_VALUE",

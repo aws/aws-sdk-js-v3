@@ -594,12 +594,12 @@ import { WAFV2ServiceException } from "../models/WAFV2ServiceException";
 export var ActionCondition$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var AddressField$: StaticStructureSchema = [3, n0, _AF,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var All$: StaticStructureSchema = [3, n0, _Al,
   0,
@@ -619,7 +619,7 @@ export var AllQueryArguments$: StaticStructureSchema = [3, n0, _AQA,
 export var AndStatement$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_S],
-  [() => Statements]
+  [() => Statements], 1
 ];
 export var APIKeySummary$: StaticStructureSchema = [3, n0, _APIKS,
   0,
@@ -639,12 +639,12 @@ export var ApplicationConfig$: StaticStructureSchema = [3, n0, _ACp,
 export var AsnMatchStatement$: StaticStructureSchema = [3, n0, _AMS,
   0,
   [_AL, _FIPC],
-  [64 | 1, () => ForwardedIPConfig$]
+  [64 | 1, () => ForwardedIPConfig$], 1
 ];
 export var AssociateWebACLRequest$: StaticStructureSchema = [3, n0, _AWACLR,
   0,
   [_WACLA, _RA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateWebACLResponse$: StaticStructureSchema = [3, n0, _AWACLRs,
   0,
@@ -659,22 +659,22 @@ export var AssociationConfig$: StaticStructureSchema = [3, n0, _ACs,
 export var AWSManagedRulesACFPRuleSet$: StaticStructureSchema = [3, n0, _AWSMRACFPRS,
   0,
   [_CP, _RPP, _RI, _RIe, _ERIP],
-  [0, 0, () => RequestInspectionACFP$, () => ResponseInspection$, 2]
+  [0, 0, () => RequestInspectionACFP$, () => ResponseInspection$, 2], 3
 ];
 export var AWSManagedRulesAntiDDoSRuleSet$: StaticStructureSchema = [3, n0, _AWSMRADDSRS,
   0,
   [_CSAC, _STB],
-  [() => ClientSideActionConfig$, 0]
+  [() => ClientSideActionConfig$, 0], 1
 ];
 export var AWSManagedRulesATPRuleSet$: StaticStructureSchema = [3, n0, _AWSMRATPRS,
   0,
   [_LP, _RI, _RIe, _ERIP],
-  [0, () => RequestInspection$, () => ResponseInspection$, 2]
+  [0, () => RequestInspection$, () => ResponseInspection$, 2], 1
 ];
 export var AWSManagedRulesBotControlRuleSet$: StaticStructureSchema = [3, n0, _AWSMRBCRS,
   0,
   [_IL, _EML],
-  [0, 2]
+  [0, 2], 1
 ];
 export var BlockAction$: StaticStructureSchema = [3, n0, _BA,
   0,
@@ -689,7 +689,7 @@ export var Body$: StaticStructureSchema = [3, n0, _B,
 export var ByteMatchStatement$: StaticStructureSchema = [3, n0, _BMS,
   0,
   [_SS, _FTM, _TT, _PC],
-  [21, () => FieldToMatch$, () => TextTransformations, 0]
+  [21, () => FieldToMatch$, () => TextTransformations, 0], 4
 ];
 export var CaptchaAction$: StaticStructureSchema = [3, n0, _CA,
   0,
@@ -724,7 +724,7 @@ export var ChallengeResponse$: StaticStructureSchema = [3, n0, _CRh,
 export var CheckCapacityRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_Sc, _R],
-  [0, () => Rules]
+  [0, () => Rules], 2
 ];
 export var CheckCapacityResponse$: StaticStructureSchema = [3, n0, _CCRh,
   0,
@@ -734,12 +734,12 @@ export var CheckCapacityResponse$: StaticStructureSchema = [3, n0, _CCRh,
 export var ClientSideAction$: StaticStructureSchema = [3, n0, _CSA,
   0,
   [_UOA, _Se, _EURE],
-  [0, 0, () => RegularExpressionList]
+  [0, 0, () => RegularExpressionList], 1
 ];
 export var ClientSideActionConfig$: StaticStructureSchema = [3, n0, _CSAC,
   0,
   [_Ch],
-  [() => ClientSideAction$]
+  [() => ClientSideAction$], 1
 ];
 export var Condition$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -754,7 +754,7 @@ export var CookieMatchPattern$: StaticStructureSchema = [3, n0, _CMP,
 export var Cookies$: StaticStructureSchema = [3, n0, _Coo,
   0,
   [_MP, _MS, _OH],
-  [() => CookieMatchPattern$, 0, 0]
+  [() => CookieMatchPattern$, 0, 0], 3
 ];
 export var CountAction$: StaticStructureSchema = [3, n0, _CAo,
   0,
@@ -764,7 +764,7 @@ export var CountAction$: StaticStructureSchema = [3, n0, _CAo,
 export var CreateAPIKeyRequest$: StaticStructureSchema = [3, n0, _CAPIKR,
   0,
   [_Sc, _TD],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var CreateAPIKeyResponse$: StaticStructureSchema = [3, n0, _CAPIKRr,
   0,
@@ -773,8 +773,8 @@ export var CreateAPIKeyResponse$: StaticStructureSchema = [3, n0, _CAPIKRr,
 ];
 export var CreateIPSetRequest$: StaticStructureSchema = [3, n0, _CIPSR,
   0,
-  [_N, _Sc, _D, _IPAV, _Ad, _T],
-  [0, 0, 0, 0, 64 | 0, () => TagList]
+  [_N, _Sc, _IPAV, _Ad, _D, _T],
+  [0, 0, 0, 64 | 0, 0, () => TagList], 4
 ];
 export var CreateIPSetResponse$: StaticStructureSchema = [3, n0, _CIPSRr,
   0,
@@ -783,8 +783,8 @@ export var CreateIPSetResponse$: StaticStructureSchema = [3, n0, _CIPSRr,
 ];
 export var CreateRegexPatternSetRequest$: StaticStructureSchema = [3, n0, _CRPSR,
   0,
-  [_N, _Sc, _D, _REL, _T],
-  [0, 0, 0, () => RegularExpressionList, () => TagList]
+  [_N, _Sc, _REL, _D, _T],
+  [0, 0, () => RegularExpressionList, 0, () => TagList], 3
 ];
 export var CreateRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _CRPSRr,
   0,
@@ -793,8 +793,8 @@ export var CreateRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _CRPS
 ];
 export var CreateRuleGroupRequest$: StaticStructureSchema = [3, n0, _CRGR,
   0,
-  [_N, _Sc, _C, _D, _R, _VC, _T, _CRB],
-  [0, 0, 1, 0, () => Rules, () => VisibilityConfig$, () => TagList, () => CustomResponseBodies]
+  [_N, _Sc, _C, _VC, _D, _R, _T, _CRB],
+  [0, 0, 1, () => VisibilityConfig$, 0, () => Rules, () => TagList, () => CustomResponseBodies], 4
 ];
 export var CreateRuleGroupResponse$: StaticStructureSchema = [3, n0, _CRGRr,
   0,
@@ -803,8 +803,8 @@ export var CreateRuleGroupResponse$: StaticStructureSchema = [3, n0, _CRGRr,
 ];
 export var CreateWebACLRequest$: StaticStructureSchema = [3, n0, _CWACLR,
   0,
-  [_N, _Sc, _DA, _D, _R, _VC, _DPC, _T, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp],
-  [0, 0, () => DefaultAction$, 0, () => Rules, () => VisibilityConfig$, () => DataProtectionConfig$, () => TagList, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$]
+  [_N, _Sc, _DA, _VC, _D, _R, _DPC, _T, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp],
+  [0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, () => Rules, () => DataProtectionConfig$, () => TagList, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$], 4
 ];
 export var CreateWebACLResponse$: StaticStructureSchema = [3, n0, _CWACLRr,
   0,
@@ -814,32 +814,32 @@ export var CreateWebACLResponse$: StaticStructureSchema = [3, n0, _CWACLRr,
 export var CustomHTTPHeader$: StaticStructureSchema = [3, n0, _CHTTPH,
   0,
   [_N, _Val],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CustomRequestHandling$: StaticStructureSchema = [3, n0, _CRH,
   0,
   [_IH],
-  [() => CustomHTTPHeaders]
+  [() => CustomHTTPHeaders], 1
 ];
 export var CustomResponse$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_RC, _CRBK, _RH],
-  [1, 0, () => CustomHTTPHeaders]
+  [1, 0, () => CustomHTTPHeaders], 1
 ];
 export var CustomResponseBody$: StaticStructureSchema = [3, n0, _CRBu,
   0,
   [_CTo, _Con],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DataProtection$: StaticStructureSchema = [3, n0, _DP,
   0,
   [_F, _A, _ERMD, _ERBD],
-  [() => FieldToProtect$, 0, 2, 2]
+  [() => FieldToProtect$, 0, 2, 2], 2
 ];
 export var DataProtectionConfig$: StaticStructureSchema = [3, n0, _DPC,
   0,
   [_DPa],
-  [() => DataProtections]
+  [() => DataProtections], 1
 ];
 export var DefaultAction$: StaticStructureSchema = [3, n0, _DA,
   0,
@@ -849,7 +849,7 @@ export var DefaultAction$: StaticStructureSchema = [3, n0, _DA,
 export var DeleteAPIKeyRequest$: StaticStructureSchema = [3, n0, _DAPIKR,
   0,
   [_Sc, _APIK],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteAPIKeyResponse$: StaticStructureSchema = [3, n0, _DAPIKRe,
   0,
@@ -859,7 +859,7 @@ export var DeleteAPIKeyResponse$: StaticStructureSchema = [3, n0, _DAPIKRe,
 export var DeleteFirewallManagerRuleGroupsRequest$: StaticStructureSchema = [3, n0, _DFMRGR,
   0,
   [_WACLA, _WACLLT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteFirewallManagerRuleGroupsResponse$: StaticStructureSchema = [3, n0, _DFMRGRe,
   0,
@@ -869,7 +869,7 @@ export var DeleteFirewallManagerRuleGroupsResponse$: StaticStructureSchema = [3,
 export var DeleteIPSetRequest$: StaticStructureSchema = [3, n0, _DIPSR,
   0,
   [_N, _Sc, _Id, _LT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var DeleteIPSetResponse$: StaticStructureSchema = [3, n0, _DIPSRe,
   0,
@@ -879,7 +879,7 @@ export var DeleteIPSetResponse$: StaticStructureSchema = [3, n0, _DIPSRe,
 export var DeleteLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _DLCR,
   0,
   [_RA, _LTo, _LS],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var DeleteLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _DLCRe,
   0,
@@ -889,7 +889,7 @@ export var DeleteLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, 
 export var DeletePermissionPolicyRequest$: StaticStructureSchema = [3, n0, _DPPR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var DeletePermissionPolicyResponse$: StaticStructureSchema = [3, n0, _DPPRe,
   0,
@@ -899,7 +899,7 @@ export var DeletePermissionPolicyResponse$: StaticStructureSchema = [3, n0, _DPP
 export var DeleteRegexPatternSetRequest$: StaticStructureSchema = [3, n0, _DRPSR,
   0,
   [_N, _Sc, _Id, _LT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var DeleteRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _DRPSRe,
   0,
@@ -909,7 +909,7 @@ export var DeleteRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _DRPS
 export var DeleteRuleGroupRequest$: StaticStructureSchema = [3, n0, _DRGR,
   0,
   [_N, _Sc, _Id, _LT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var DeleteRuleGroupResponse$: StaticStructureSchema = [3, n0, _DRGRe,
   0,
@@ -919,7 +919,7 @@ export var DeleteRuleGroupResponse$: StaticStructureSchema = [3, n0, _DRGRe,
 export var DeleteWebACLRequest$: StaticStructureSchema = [3, n0, _DWACLR,
   0,
   [_N, _Sc, _Id, _LT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var DeleteWebACLResponse$: StaticStructureSchema = [3, n0, _DWACLRe,
   0,
@@ -929,7 +929,7 @@ export var DeleteWebACLResponse$: StaticStructureSchema = [3, n0, _DWACLRe,
 export var DescribeAllManagedProductsRequest$: StaticStructureSchema = [3, n0, _DAMPR,
   0,
   [_Sc],
-  [0]
+  [0], 1
 ];
 export var DescribeAllManagedProductsResponse$: StaticStructureSchema = [3, n0, _DAMPRe,
   0,
@@ -939,7 +939,7 @@ export var DescribeAllManagedProductsResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeManagedProductsByVendorRequest$: StaticStructureSchema = [3, n0, _DMPBVR,
   0,
   [_VN, _Sc],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeManagedProductsByVendorResponse$: StaticStructureSchema = [3, n0, _DMPBVRe,
   0,
@@ -949,7 +949,7 @@ export var DescribeManagedProductsByVendorResponse$: StaticStructureSchema = [3,
 export var DescribeManagedRuleGroupRequest$: StaticStructureSchema = [3, n0, _DMRGR,
   0,
   [_VN, _N, _Sc, _VNe],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var DescribeManagedRuleGroupResponse$: StaticStructureSchema = [3, n0, _DMRGRe,
   0,
@@ -964,7 +964,7 @@ export var DisallowedFeature$: StaticStructureSchema = [3, n0, _DF,
 export var DisassociateWebACLRequest$: StaticStructureSchema = [3, n0, _DWACLRi,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var DisassociateWebACLResponse$: StaticStructureSchema = [3, n0, _DWACLRis,
   0,
@@ -974,12 +974,12 @@ export var DisassociateWebACLResponse$: StaticStructureSchema = [3, n0, _DWACLRi
 export var EmailField$: StaticStructureSchema = [3, n0, _EF,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var ExcludedRule$: StaticStructureSchema = [3, n0, _ER,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var FieldToMatch$: StaticStructureSchema = [3, n0, _FTM,
   0,
@@ -989,17 +989,17 @@ export var FieldToMatch$: StaticStructureSchema = [3, n0, _FTM,
 export var FieldToProtect$: StaticStructureSchema = [3, n0, _FTP,
   0,
   [_FT, _FK],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_Be, _Re, _Cond],
-  [0, 0, () => Conditions]
+  [0, 0, () => Conditions], 3
 ];
 export var FirewallManagerRuleGroup$: StaticStructureSchema = [3, n0, _FMRG,
   0,
   [_N, _P, _FMS, _OA, _VC],
-  [0, 1, () => FirewallManagerStatement$, () => OverrideAction$, () => VisibilityConfig$]
+  [0, 1, () => FirewallManagerStatement$, () => OverrideAction$, () => VisibilityConfig$], 5
 ];
 export var FirewallManagerStatement$: StaticStructureSchema = [3, n0, _FMS,
   0,
@@ -1009,12 +1009,12 @@ export var FirewallManagerStatement$: StaticStructureSchema = [3, n0, _FMS,
 export var ForwardedIPConfig$: StaticStructureSchema = [3, n0, _FIPC,
   0,
   [_HN, _FB],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GenerateMobileSdkReleaseUrlRequest$: StaticStructureSchema = [3, n0, _GMSRUR,
   0,
   [_Pl, _RV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GenerateMobileSdkReleaseUrlResponse$: StaticStructureSchema = [3, n0, _GMSRURe,
   0,
@@ -1029,7 +1029,7 @@ export var GeoMatchStatement$: StaticStructureSchema = [3, n0, _GMS,
 export var GetDecryptedAPIKeyRequest$: StaticStructureSchema = [3, n0, _GDAPIKR,
   0,
   [_Sc, _APIK],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetDecryptedAPIKeyResponse$: StaticStructureSchema = [3, n0, _GDAPIKRe,
   0,
@@ -1039,7 +1039,7 @@ export var GetDecryptedAPIKeyResponse$: StaticStructureSchema = [3, n0, _GDAPIKR
 export var GetIPSetRequest$: StaticStructureSchema = [3, n0, _GIPSR,
   0,
   [_N, _Sc, _Id],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetIPSetResponse$: StaticStructureSchema = [3, n0, _GIPSRe,
   0,
@@ -1049,7 +1049,7 @@ export var GetIPSetResponse$: StaticStructureSchema = [3, n0, _GIPSRe,
 export var GetLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR,
   0,
   [_RA, _LTo, _LS],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var GetLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _GLCRe,
   0,
@@ -1059,7 +1059,7 @@ export var GetLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _GL
 export var GetManagedRuleSetRequest$: StaticStructureSchema = [3, n0, _GMRSR,
   0,
   [_N, _Sc, _Id],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetManagedRuleSetResponse$: StaticStructureSchema = [3, n0, _GMRSRe,
   0,
@@ -1069,7 +1069,7 @@ export var GetManagedRuleSetResponse$: StaticStructureSchema = [3, n0, _GMRSRe,
 export var GetMobileSdkReleaseRequest$: StaticStructureSchema = [3, n0, _GMSRR,
   0,
   [_Pl, _RV],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetMobileSdkReleaseResponse$: StaticStructureSchema = [3, n0, _GMSRRe,
   0,
@@ -1079,7 +1079,7 @@ export var GetMobileSdkReleaseResponse$: StaticStructureSchema = [3, n0, _GMSRRe
 export var GetPermissionPolicyRequest$: StaticStructureSchema = [3, n0, _GPPR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var GetPermissionPolicyResponse$: StaticStructureSchema = [3, n0, _GPPRe,
   0,
@@ -1088,8 +1088,8 @@ export var GetPermissionPolicyResponse$: StaticStructureSchema = [3, n0, _GPPRe,
 ];
 export var GetRateBasedStatementManagedKeysRequest$: StaticStructureSchema = [3, n0, _GRBSMKR,
   0,
-  [_Sc, _WACLN, _WACLI, _RGRN, _RN],
-  [0, 0, 0, 0, 0]
+  [_Sc, _WACLN, _WACLI, _RN, _RGRN],
+  [0, 0, 0, 0, 0], 4
 ];
 export var GetRateBasedStatementManagedKeysResponse$: StaticStructureSchema = [3, n0, _GRBSMKRe,
   0,
@@ -1099,7 +1099,7 @@ export var GetRateBasedStatementManagedKeysResponse$: StaticStructureSchema = [3
 export var GetRegexPatternSetRequest$: StaticStructureSchema = [3, n0, _GRPSR,
   0,
   [_N, _Sc, _Id],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _GRPSRe,
   0,
@@ -1119,7 +1119,7 @@ export var GetRuleGroupResponse$: StaticStructureSchema = [3, n0, _GRGRe,
 export var GetSampledRequestsRequest$: StaticStructureSchema = [3, n0, _GSRR,
   0,
   [_WAA, _RMN, _Sc, _TW, _MI],
-  [0, 0, 0, () => TimeWindow$, 1]
+  [0, 0, 0, () => TimeWindow$, 1], 5
 ];
 export var GetSampledRequestsResponse$: StaticStructureSchema = [3, n0, _GSRRe,
   0,
@@ -1129,7 +1129,7 @@ export var GetSampledRequestsResponse$: StaticStructureSchema = [3, n0, _GSRRe,
 export var GetWebACLForResourceRequest$: StaticStructureSchema = [3, n0, _GWACLFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var GetWebACLForResourceResponse$: StaticStructureSchema = [3, n0, _GWACLFRRe,
   0,
@@ -1154,12 +1154,12 @@ export var HeaderMatchPattern$: StaticStructureSchema = [3, n0, _HMP,
 export var HeaderOrder$: StaticStructureSchema = [3, n0, _HO,
   0,
   [_OH],
-  [0]
+  [0], 1
 ];
 export var Headers$: StaticStructureSchema = [3, n0, _H,
   0,
   [_MP, _MS, _OH],
-  [() => HeaderMatchPattern$, 0, 0]
+  [() => HeaderMatchPattern$, 0, 0], 3
 ];
 export var HTTPHeader$: StaticStructureSchema = [3, n0, _HTTPH,
   0,
@@ -1174,22 +1174,22 @@ export var HTTPRequest$: StaticStructureSchema = [3, n0, _HTTPR,
 export var ImmunityTimeProperty$: StaticStructureSchema = [3, n0, _ITP,
   0,
   [_IT],
-  [1]
+  [1], 1
 ];
 export var IPSet$: StaticStructureSchema = [3, n0, _IPS,
   0,
-  [_N, _Id, _ARN, _D, _IPAV, _Ad],
-  [0, 0, 0, 0, 0, 64 | 0]
+  [_N, _Id, _ARN, _IPAV, _Ad, _D],
+  [0, 0, 0, 0, 64 | 0, 0], 5
 ];
 export var IPSetForwardedIPConfig$: StaticStructureSchema = [3, n0, _IPSFIPC,
   0,
   [_HN, _FB, _Pos],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var IPSetReferenceStatement$: StaticStructureSchema = [3, n0, _IPSRS,
   0,
   [_ARN, _IPSFIPC],
-  [0, () => IPSetForwardedIPConfig$]
+  [0, () => IPSetForwardedIPConfig$], 1
 ];
 export var IPSetSummary$: StaticStructureSchema = [3, n0, _IPSS,
   0,
@@ -1199,17 +1199,17 @@ export var IPSetSummary$: StaticStructureSchema = [3, n0, _IPSS,
 export var JA3Fingerprint$: StaticStructureSchema = [3, n0, _JAF,
   0,
   [_FB],
-  [0]
+  [0], 1
 ];
 export var JA4Fingerprint$: StaticStructureSchema = [3, n0, _JAFi,
   0,
   [_FB],
-  [0]
+  [0], 1
 ];
 export var JsonBody$: StaticStructureSchema = [3, n0, _JB,
   0,
   [_MP, _MS, _IFB, _OH],
-  [() => JsonMatchPattern$, 0, 0, 0]
+  [() => JsonMatchPattern$, 0, 0, 0], 2
 ];
 export var JsonMatchPattern$: StaticStructureSchema = [3, n0, _JMP,
   0,
@@ -1219,17 +1219,17 @@ export var JsonMatchPattern$: StaticStructureSchema = [3, n0, _JMP,
 export var Label$: StaticStructureSchema = [3, n0, _L,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var LabelMatchStatement$: StaticStructureSchema = [3, n0, _LMS,
   0,
   [_Sc, _K],
-  [0, 0]
+  [0, 0], 2
 ];
 export var LabelNameCondition$: StaticStructureSchema = [3, n0, _LNC,
   0,
   [_LNa],
-  [0]
+  [0], 1
 ];
 export var LabelSummary$: StaticStructureSchema = [3, n0, _LSa,
   0,
@@ -1239,7 +1239,7 @@ export var LabelSummary$: StaticStructureSchema = [3, n0, _LSa,
 export var ListAPIKeysRequest$: StaticStructureSchema = [3, n0, _LAPIKR,
   0,
   [_Sc, _NM, _Li],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAPIKeysResponse$: StaticStructureSchema = [3, n0, _LAPIKRi,
   0,
@@ -1249,7 +1249,7 @@ export var ListAPIKeysResponse$: StaticStructureSchema = [3, n0, _LAPIKRi,
 export var ListAvailableManagedRuleGroupsRequest$: StaticStructureSchema = [3, n0, _LAMRGR,
   0,
   [_Sc, _NM, _Li],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListAvailableManagedRuleGroupsResponse$: StaticStructureSchema = [3, n0, _LAMRGRi,
   0,
@@ -1259,7 +1259,7 @@ export var ListAvailableManagedRuleGroupsResponse$: StaticStructureSchema = [3, 
 export var ListAvailableManagedRuleGroupVersionsRequest$: StaticStructureSchema = [3, n0, _LAMRGVR,
   0,
   [_VN, _N, _Sc, _NM, _Li],
-  [0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 1], 3
 ];
 export var ListAvailableManagedRuleGroupVersionsResponse$: StaticStructureSchema = [3, n0, _LAMRGVRi,
   0,
@@ -1269,7 +1269,7 @@ export var ListAvailableManagedRuleGroupVersionsResponse$: StaticStructureSchema
 export var ListIPSetsRequest$: StaticStructureSchema = [3, n0, _LIPSR,
   0,
   [_Sc, _NM, _Li],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListIPSetsResponse$: StaticStructureSchema = [3, n0, _LIPSRi,
   0,
@@ -1279,7 +1279,7 @@ export var ListIPSetsResponse$: StaticStructureSchema = [3, n0, _LIPSRi,
 export var ListLoggingConfigurationsRequest$: StaticStructureSchema = [3, n0, _LLCR,
   0,
   [_Sc, _NM, _Li, _LS],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListLoggingConfigurationsResponse$: StaticStructureSchema = [3, n0, _LLCRi,
   0,
@@ -1289,7 +1289,7 @@ export var ListLoggingConfigurationsResponse$: StaticStructureSchema = [3, n0, _
 export var ListManagedRuleSetsRequest$: StaticStructureSchema = [3, n0, _LMRSR,
   0,
   [_Sc, _NM, _Li],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListManagedRuleSetsResponse$: StaticStructureSchema = [3, n0, _LMRSRi,
   0,
@@ -1299,7 +1299,7 @@ export var ListManagedRuleSetsResponse$: StaticStructureSchema = [3, n0, _LMRSRi
 export var ListMobileSdkReleasesRequest$: StaticStructureSchema = [3, n0, _LMSRR,
   0,
   [_Pl, _NM, _Li],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListMobileSdkReleasesResponse$: StaticStructureSchema = [3, n0, _LMSRRi,
   0,
@@ -1309,7 +1309,7 @@ export var ListMobileSdkReleasesResponse$: StaticStructureSchema = [3, n0, _LMSR
 export var ListRegexPatternSetsRequest$: StaticStructureSchema = [3, n0, _LRPSR,
   0,
   [_Sc, _NM, _Li],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListRegexPatternSetsResponse$: StaticStructureSchema = [3, n0, _LRPSRi,
   0,
@@ -1319,7 +1319,7 @@ export var ListRegexPatternSetsResponse$: StaticStructureSchema = [3, n0, _LRPSR
 export var ListResourcesForWebACLRequest$: StaticStructureSchema = [3, n0, _LRFWACLR,
   0,
   [_WACLA, _RT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListResourcesForWebACLResponse$: StaticStructureSchema = [3, n0, _LRFWACLRi,
   0,
@@ -1329,7 +1329,7 @@ export var ListResourcesForWebACLResponse$: StaticStructureSchema = [3, n0, _LRF
 export var ListRuleGroupsRequest$: StaticStructureSchema = [3, n0, _LRGR,
   0,
   [_Sc, _NM, _Li],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListRuleGroupsResponse$: StaticStructureSchema = [3, n0, _LRGRi,
   0,
@@ -1338,8 +1338,8 @@ export var ListRuleGroupsResponse$: StaticStructureSchema = [3, n0, _LRGRi,
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_NM, _Li, _RARN],
-  [0, 1, 0]
+  [_RARN, _NM, _Li],
+  [0, 0, 1], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1349,7 +1349,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ListWebACLsRequest$: StaticStructureSchema = [3, n0, _LWACLR,
   0,
   [_Sc, _NM, _Li],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListWebACLsResponse$: StaticStructureSchema = [3, n0, _LWACLRi,
   0,
@@ -1359,12 +1359,12 @@ export var ListWebACLsResponse$: StaticStructureSchema = [3, n0, _LWACLRi,
 export var LoggingConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_RA, _LDC, _RF, _MBFM, _LF, _LTo, _LS],
-  [0, 64 | 0, () => RedactedFields, 2, () => LoggingFilter$, 0, 0]
+  [0, 64 | 0, () => RedactedFields, 2, () => LoggingFilter$, 0, 0], 2
 ];
 export var LoggingFilter$: StaticStructureSchema = [3, n0, _LF,
   0,
   [_Fil, _DB],
-  [() => Filters, 0]
+  [() => Filters, 0], 2
 ];
 export var ManagedProductDescriptor$: StaticStructureSchema = [3, n0, _MPD,
   0,
@@ -1379,7 +1379,7 @@ export var ManagedRuleGroupConfig$: StaticStructureSchema = [3, n0, _MRGC,
 export var ManagedRuleGroupStatement$: StaticStructureSchema = [3, n0, _MRGS,
   0,
   [_VN, _N, _V, _ERx, _SDS, _MRGCa, _RAO],
-  [0, 0, 0, () => ExcludedRules, () => Statement$, () => ManagedRuleGroupConfigs, () => RuleActionOverrides]
+  [0, 0, 0, () => ExcludedRules, () => Statement$, () => ManagedRuleGroupConfigs, () => RuleActionOverrides], 2
 ];
 export var ManagedRuleGroupSummary$: StaticStructureSchema = [3, n0, _MRGSa,
   0,
@@ -1394,7 +1394,7 @@ export var ManagedRuleGroupVersion$: StaticStructureSchema = [3, n0, _MRGV,
 export var ManagedRuleSet$: StaticStructureSchema = [3, n0, _MRS,
   0,
   [_N, _Id, _ARN, _D, _PV, _RVe, _LN],
-  [0, 0, 0, 0, () => PublishedVersions, 0, 0]
+  [0, 0, 0, 0, () => PublishedVersions, 0, 0], 3
 ];
 export var ManagedRuleSetSummary$: StaticStructureSchema = [3, n0, _MRSS,
   0,
@@ -1424,17 +1424,17 @@ export var NoneAction$: StaticStructureSchema = [3, n0, _NA,
 export var NotStatement$: StaticStructureSchema = [3, n0, _NS,
   0,
   [_St],
-  [() => Statement$]
+  [() => Statement$], 1
 ];
 export var OnSourceDDoSProtectionConfig$: StaticStructureSchema = [3, n0, _OSDDSPC,
   0,
   [_ALBLRM],
-  [0]
+  [0], 1
 ];
 export var OrStatement$: StaticStructureSchema = [3, n0, _OS,
   0,
   [_S],
-  [() => Statements]
+  [() => Statements], 1
 ];
 export var OverrideAction$: StaticStructureSchema = [3, n0, _OA,
   0,
@@ -1444,17 +1444,17 @@ export var OverrideAction$: StaticStructureSchema = [3, n0, _OA,
 export var PasswordField$: StaticStructureSchema = [3, n0, _PF,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var PhoneNumberField$: StaticStructureSchema = [3, n0, _PNF,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var PutLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _PLCR,
   0,
   [_LC],
-  [() => LoggingConfiguration$]
+  [() => LoggingConfiguration$], 1
 ];
 export var PutLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _PLCRu,
   0,
@@ -1464,7 +1464,7 @@ export var PutLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _PL
 export var PutManagedRuleSetVersionsRequest$: StaticStructureSchema = [3, n0, _PMRSVR,
   0,
   [_N, _Sc, _Id, _LT, _RVe, _VTP],
-  [0, 0, 0, 0, 0, () => VersionsToPublish]
+  [0, 0, 0, 0, 0, () => VersionsToPublish], 4
 ];
 export var PutManagedRuleSetVersionsResponse$: StaticStructureSchema = [3, n0, _PMRSVRu,
   0,
@@ -1474,7 +1474,7 @@ export var PutManagedRuleSetVersionsResponse$: StaticStructureSchema = [3, n0, _
 export var PutPermissionPolicyRequest$: StaticStructureSchema = [3, n0, _PPPR,
   0,
   [_RA, _Po],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutPermissionPolicyResponse$: StaticStructureSchema = [3, n0, _PPPRu,
   0,
@@ -1488,8 +1488,8 @@ export var QueryString$: StaticStructureSchema = [3, n0, _QS,
 ];
 export var RateBasedStatement$: StaticStructureSchema = [3, n0, _RBS,
   0,
-  [_Li, _EWS, _AKT, _SDS, _FIPC, _CK],
-  [1, 1, 0, () => Statement$, () => ForwardedIPConfig$, () => RateBasedStatementCustomKeys]
+  [_Li, _AKT, _EWS, _SDS, _FIPC, _CK],
+  [1, 0, 1, () => Statement$, () => ForwardedIPConfig$, () => RateBasedStatementCustomKeys], 2
 ];
 export var RateBasedStatementCustomKey$: StaticStructureSchema = [3, n0, _RBSCK,
   0,
@@ -1509,7 +1509,7 @@ export var RateLimitAsn$: StaticStructureSchema = [3, n0, _RLA,
 export var RateLimitCookie$: StaticStructureSchema = [3, n0, _RLC,
   0,
   [_N, _TT],
-  [0, () => TextTransformations]
+  [0, () => TextTransformations], 2
 ];
 export var RateLimitForwardedIP$: StaticStructureSchema = [3, n0, _RLFIP,
   0,
@@ -1519,7 +1519,7 @@ export var RateLimitForwardedIP$: StaticStructureSchema = [3, n0, _RLFIP,
 export var RateLimitHeader$: StaticStructureSchema = [3, n0, _RLH,
   0,
   [_N, _TT],
-  [0, () => TextTransformations]
+  [0, () => TextTransformations], 2
 ];
 export var RateLimitHTTPMethod$: StaticStructureSchema = [3, n0, _RLHTTPM,
   0,
@@ -1534,32 +1534,32 @@ export var RateLimitIP$: StaticStructureSchema = [3, n0, _RLIP,
 export var RateLimitJA3Fingerprint$: StaticStructureSchema = [3, n0, _RLJAF,
   0,
   [_FB],
-  [0]
+  [0], 1
 ];
 export var RateLimitJA4Fingerprint$: StaticStructureSchema = [3, n0, _RLJAFa,
   0,
   [_FB],
-  [0]
+  [0], 1
 ];
 export var RateLimitLabelNamespace$: StaticStructureSchema = [3, n0, _RLLN,
   0,
   [_Na],
-  [0]
+  [0], 1
 ];
 export var RateLimitQueryArgument$: StaticStructureSchema = [3, n0, _RLQA,
   0,
   [_N, _TT],
-  [0, () => TextTransformations]
+  [0, () => TextTransformations], 2
 ];
 export var RateLimitQueryString$: StaticStructureSchema = [3, n0, _RLQS,
   0,
   [_TT],
-  [() => TextTransformations]
+  [() => TextTransformations], 1
 ];
 export var RateLimitUriPath$: StaticStructureSchema = [3, n0, _RLUP,
   0,
   [_TT],
-  [() => TextTransformations]
+  [() => TextTransformations], 1
 ];
 export var Regex$: StaticStructureSchema = [3, n0, _Reg,
   0,
@@ -1569,7 +1569,7 @@ export var Regex$: StaticStructureSchema = [3, n0, _Reg,
 export var RegexMatchStatement$: StaticStructureSchema = [3, n0, _RMS,
   0,
   [_RSe, _FTM, _TT],
-  [0, () => FieldToMatch$, () => TextTransformations]
+  [0, () => FieldToMatch$, () => TextTransformations], 3
 ];
 export var RegexPatternSet$: StaticStructureSchema = [3, n0, _RPS,
   0,
@@ -1579,7 +1579,7 @@ export var RegexPatternSet$: StaticStructureSchema = [3, n0, _RPS,
 export var RegexPatternSetReferenceStatement$: StaticStructureSchema = [3, n0, _RPSRS,
   0,
   [_ARN, _FTM, _TT],
-  [0, () => FieldToMatch$, () => TextTransformations]
+  [0, () => FieldToMatch$, () => TextTransformations], 3
 ];
 export var RegexPatternSetSummary$: StaticStructureSchema = [3, n0, _RPSS,
   0,
@@ -1594,17 +1594,17 @@ export var ReleaseSummary$: StaticStructureSchema = [3, n0, _RSel,
 export var RequestBodyAssociatedResourceTypeConfig$: StaticStructureSchema = [3, n0, _RBARTC,
   0,
   [_DSIL],
-  [0]
+  [0], 1
 ];
 export var RequestInspection$: StaticStructureSchema = [3, n0, _RI,
   0,
   [_PTa, _UFs, _PF],
-  [0, () => UsernameField$, () => PasswordField$]
+  [0, () => UsernameField$, () => PasswordField$], 3
 ];
 export var RequestInspectionACFP$: StaticStructureSchema = [3, n0, _RIACFP,
   0,
   [_PTa, _UFs, _PF, _EF, _PNFh, _AFd],
-  [0, () => UsernameField$, () => PasswordField$, () => EmailField$, () => PhoneNumberFields, () => AddressFields]
+  [0, () => UsernameField$, () => PasswordField$, () => EmailField$, () => PhoneNumberFields, () => AddressFields], 1
 ];
 export var ResponseInspection$: StaticStructureSchema = [3, n0, _RIe,
   0,
@@ -1614,27 +1614,27 @@ export var ResponseInspection$: StaticStructureSchema = [3, n0, _RIe,
 export var ResponseInspectionBodyContains$: StaticStructureSchema = [3, n0, _RIBC,
   0,
   [_SSu, _FS],
-  [64 | 0, 64 | 0]
+  [64 | 0, 64 | 0], 2
 ];
 export var ResponseInspectionHeader$: StaticStructureSchema = [3, n0, _RIH,
   0,
   [_N, _SV, _FV],
-  [0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0], 3
 ];
 export var ResponseInspectionJson$: StaticStructureSchema = [3, n0, _RIJ,
   0,
   [_I, _SV, _FV],
-  [0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0], 3
 ];
 export var ResponseInspectionStatusCode$: StaticStructureSchema = [3, n0, _RISC,
   0,
   [_SCu, _FC],
-  [64 | 1, 64 | 1]
+  [64 | 1, 64 | 1], 2
 ];
 export var Rule$: StaticStructureSchema = [3, n0, _Ru,
   0,
-  [_N, _P, _St, _A, _OA, _RL, _VC, _CC, _CCh],
-  [0, 1, () => Statement$, () => RuleAction$, () => OverrideAction$, () => Labels, () => VisibilityConfig$, () => CaptchaConfig$, () => ChallengeConfig$]
+  [_N, _P, _St, _VC, _A, _OA, _RL, _CC, _CCh],
+  [0, 1, () => Statement$, () => VisibilityConfig$, () => RuleAction$, () => OverrideAction$, () => Labels, () => CaptchaConfig$, () => ChallengeConfig$], 4
 ];
 export var RuleAction$: StaticStructureSchema = [3, n0, _RAu,
   0,
@@ -1644,17 +1644,17 @@ export var RuleAction$: StaticStructureSchema = [3, n0, _RAu,
 export var RuleActionOverride$: StaticStructureSchema = [3, n0, _RAOu,
   0,
   [_N, _ATU],
-  [0, () => RuleAction$]
+  [0, () => RuleAction$], 2
 ];
 export var RuleGroup$: StaticStructureSchema = [3, n0, _RG,
   0,
-  [_N, _Id, _C, _ARN, _D, _R, _VC, _LN, _CRB, _ALv, _CL],
-  [0, 0, 1, 0, 0, () => Rules, () => VisibilityConfig$, 0, () => CustomResponseBodies, () => LabelSummaries, () => LabelSummaries]
+  [_N, _Id, _C, _ARN, _VC, _D, _R, _LN, _CRB, _ALv, _CL],
+  [0, 0, 1, 0, () => VisibilityConfig$, 0, () => Rules, 0, () => CustomResponseBodies, () => LabelSummaries, () => LabelSummaries], 5
 ];
 export var RuleGroupReferenceStatement$: StaticStructureSchema = [3, n0, _RGRS,
   0,
   [_ARN, _ERx, _RAO],
-  [0, () => ExcludedRules, () => RuleActionOverrides]
+  [0, () => ExcludedRules, () => RuleActionOverrides], 1
 ];
 export var RuleGroupSummary$: StaticStructureSchema = [3, n0, _RGS,
   0,
@@ -1669,27 +1669,27 @@ export var RuleSummary$: StaticStructureSchema = [3, n0, _RSu,
 export var SampledHTTPRequest$: StaticStructureSchema = [3, n0, _SHTTPR,
   0,
   [_Req, _W, _Ti, _A, _RNWRG, _RHI, _RCS, _La, _CRa, _CRh, _OAv],
-  [() => HTTPRequest$, 1, 4, 0, 0, () => HTTPHeaders, 1, () => Labels, () => CaptchaResponse$, () => ChallengeResponse$, 0]
+  [() => HTTPRequest$, 1, 4, 0, 0, () => HTTPHeaders, 1, () => Labels, () => CaptchaResponse$, () => ChallengeResponse$, 0], 2
 ];
 export var SingleHeader$: StaticStructureSchema = [3, n0, _SH,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var SingleQueryArgument$: StaticStructureSchema = [3, n0, _SQA,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var SizeConstraintStatement$: StaticStructureSchema = [3, n0, _SCS,
   0,
   [_FTM, _CO, _Si, _TT],
-  [() => FieldToMatch$, 0, 1, () => TextTransformations]
+  [() => FieldToMatch$, 0, 1, () => TextTransformations], 4
 ];
 export var SqliMatchStatement$: StaticStructureSchema = [3, n0, _SMS,
   0,
   [_FTM, _TT, _SL],
-  [() => FieldToMatch$, () => TextTransformations, 0]
+  [() => FieldToMatch$, () => TextTransformations, 0], 2
 ];
 export var Statement$: StaticStructureSchema = [3, n0, _St,
   0,
@@ -1699,7 +1699,7 @@ export var Statement$: StaticStructureSchema = [3, n0, _St,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _Val],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagInfoForResource$: StaticStructureSchema = [3, n0, _TIFR,
   0,
@@ -1709,7 +1709,7 @@ export var TagInfoForResource$: StaticStructureSchema = [3, n0, _TIFR,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1719,17 +1719,17 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TextTransformation$: StaticStructureSchema = [3, n0, _TTe,
   0,
   [_P, _Ty],
-  [1, 0]
+  [1, 0], 2
 ];
 export var TimeWindow$: StaticStructureSchema = [3, n0, _TW,
   0,
   [_STt, _ETn],
-  [4, 4]
+  [4, 4], 2
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1738,8 +1738,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateIPSetRequest$: StaticStructureSchema = [3, n0, _UIPSR,
   0,
-  [_N, _Sc, _Id, _D, _Ad, _LT],
-  [0, 0, 0, 0, 64 | 0, 0]
+  [_N, _Sc, _Id, _Ad, _LT, _D],
+  [0, 0, 0, 64 | 0, 0, 0], 5
 ];
 export var UpdateIPSetResponse$: StaticStructureSchema = [3, n0, _UIPSRp,
   0,
@@ -1749,7 +1749,7 @@ export var UpdateIPSetResponse$: StaticStructureSchema = [3, n0, _UIPSRp,
 export var UpdateManagedRuleSetVersionExpiryDateRequest$: StaticStructureSchema = [3, n0, _UMRSVEDR,
   0,
   [_N, _Sc, _Id, _LT, _VTE, _ET],
-  [0, 0, 0, 0, 0, 4]
+  [0, 0, 0, 0, 0, 4], 6
 ];
 export var UpdateManagedRuleSetVersionExpiryDateResponse$: StaticStructureSchema = [3, n0, _UMRSVEDRp,
   0,
@@ -1758,8 +1758,8 @@ export var UpdateManagedRuleSetVersionExpiryDateResponse$: StaticStructureSchema
 ];
 export var UpdateRegexPatternSetRequest$: StaticStructureSchema = [3, n0, _URPSR,
   0,
-  [_N, _Sc, _Id, _D, _REL, _LT],
-  [0, 0, 0, 0, () => RegularExpressionList, 0]
+  [_N, _Sc, _Id, _REL, _LT, _D],
+  [0, 0, 0, () => RegularExpressionList, 0, 0], 5
 ];
 export var UpdateRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _URPSRp,
   0,
@@ -1768,8 +1768,8 @@ export var UpdateRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _URPS
 ];
 export var UpdateRuleGroupRequest$: StaticStructureSchema = [3, n0, _URGR,
   0,
-  [_N, _Sc, _Id, _D, _R, _VC, _LT, _CRB],
-  [0, 0, 0, 0, () => Rules, () => VisibilityConfig$, 0, () => CustomResponseBodies]
+  [_N, _Sc, _Id, _VC, _LT, _D, _R, _CRB],
+  [0, 0, 0, () => VisibilityConfig$, 0, 0, () => Rules, () => CustomResponseBodies], 5
 ];
 export var UpdateRuleGroupResponse$: StaticStructureSchema = [3, n0, _URGRp,
   0,
@@ -1778,8 +1778,8 @@ export var UpdateRuleGroupResponse$: StaticStructureSchema = [3, n0, _URGRp,
 ];
 export var UpdateWebACLRequest$: StaticStructureSchema = [3, n0, _UWACLR,
   0,
-  [_N, _Sc, _Id, _DA, _D, _R, _VC, _DPC, _LT, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp],
-  [0, 0, 0, () => DefaultAction$, 0, () => Rules, () => VisibilityConfig$, () => DataProtectionConfig$, 0, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$]
+  [_N, _Sc, _Id, _DA, _VC, _LT, _D, _R, _DPC, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp],
+  [0, 0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, 0, () => Rules, () => DataProtectionConfig$, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$], 6
 ];
 export var UpdateWebACLResponse$: StaticStructureSchema = [3, n0, _UWACLRp,
   0,
@@ -1799,7 +1799,7 @@ export var UriPath$: StaticStructureSchema = [3, n0, _UP,
 export var UsernameField$: StaticStructureSchema = [3, n0, _UFs,
   0,
   [_I],
-  [0]
+  [0], 1
 ];
 export var VersionToPublish$: StaticStructureSchema = [3, n0, _VTPe,
   0,
@@ -1809,7 +1809,7 @@ export var VersionToPublish$: StaticStructureSchema = [3, n0, _VTPe,
 export var VisibilityConfig$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_SRE, _CWME, _MN],
-  [2, 2, 0]
+  [2, 2, 0], 3
 ];
 export var WAFAssociatedItemException$: StaticErrorSchema = [-3, n0, _WAFAIE,
   { [_e]: _c },
@@ -1933,8 +1933,8 @@ export var WAFUnsupportedAggregateKeyTypeException$: StaticErrorSchema = [-3, n0
 TypeRegistry.for(n0).registerError(WAFUnsupportedAggregateKeyTypeException$, WAFUnsupportedAggregateKeyTypeException);
 export var WebACL$: StaticStructureSchema = [3, n0, _WACL,
   0,
-  [_N, _Id, _ARN, _DA, _D, _R, _VC, _DPC, _C, _PPFMRG, _PPFMRGo, _MBFM, _LN, _CRB, _CC, _CCh, _TD, _ACs, _RBFM, _OSDDSPC, _ACp],
-  [0, 0, 0, () => DefaultAction$, 0, () => Rules, () => VisibilityConfig$, () => DataProtectionConfig$, 1, () => FirewallManagerRuleGroups, () => FirewallManagerRuleGroups, 2, 0, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, 2, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$]
+  [_N, _Id, _ARN, _DA, _VC, _D, _R, _DPC, _C, _PPFMRG, _PPFMRGo, _MBFM, _LN, _CRB, _CC, _CCh, _TD, _ACs, _RBFM, _OSDDSPC, _ACp],
+  [0, 0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, () => Rules, () => DataProtectionConfig$, 1, () => FirewallManagerRuleGroups, () => FirewallManagerRuleGroups, 2, 0, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, 2, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$], 5
 ];
 export var WebACLSummary$: StaticStructureSchema = [3, n0, _WACLS,
   0,
@@ -1944,7 +1944,7 @@ export var WebACLSummary$: StaticStructureSchema = [3, n0, _WACLS,
 export var XssMatchStatement$: StaticStructureSchema = [3, n0, _XMS,
   0,
   [_FTM, _TT],
-  [() => FieldToMatch$, () => TextTransformations]
+  [() => FieldToMatch$, () => TextTransformations], 2
 ];
 export var WAFV2ServiceException$: StaticErrorSchema = [-3, _sm, "WAFV2ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WAFV2ServiceException$, WAFV2ServiceException);

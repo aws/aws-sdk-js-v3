@@ -27,31 +27,9 @@ export interface EvaluateFeatureCommandInput extends EvaluateFeatureRequest {}
 export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, __MetadataBearer {}
 
 /**
- * <p>This operation assigns a feature variation to one given user session. You pass in an
- *         <code>entityID</code> that represents the user. Evidently then checks the evaluation rules
- *       and assigns the variation.</p>
- *          <p>The first rules that are evaluated are the override rules. If the user's
- *         <code>entityID</code> matches an override rule, the user is served the variation specified
- *       by that rule.</p>
- *          <p>If there is a current launch with this feature that uses segment overrides, and
- *       if the user session's <code>evaluationContext</code> matches a segment rule defined in a
- *       segment override, the configuration in the segment overrides is used. For more information
- *       about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>
- *       and
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use segments to focus your
- *         audience</a>.</p>
- *          <p>If there is a launch with no segment overrides, the user might be assigned to a variation in
- *       the launch. The chance of this depends on the percentage of users that are allocated to that
- *       launch. If the user is enrolled in the launch, the variation they are served depends on the
- *       allocation of the various feature variations used for the launch.</p>
- *          <p>If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might
- *       be assigned to a variation in the experiment. The chance of this
- *       depends on the percentage of users that are allocated to that experiment.</p>
- *          <p>If the experiment uses a segment, then only
- *       user sessions with <code>evaluationContext</code> values that match the segment rule are used in the experiment.</p>
- *          <p>If the user is enrolled in the experiment,
- *       the variation they are served depends on the allocation of the various feature variations used for the experiment. </p>
- *          <p>If the user is not assigned to a launch or experiment, they are served the default variation.</p>
+ * <p>This operation assigns a feature variation to one given user session. You pass in an <code>entityID</code> that represents the user. Evidently then checks the evaluation rules and assigns the variation.</p> <p>The first rules that are evaluated are the override rules. If the user's <code>entityID</code> matches an override rule, the user is served the variation specified by that rule.</p> <p>If there is a current launch with this feature that uses segment overrides, and if the user session's <code>evaluationContext</code> matches a segment rule defined in a segment override, the configuration in the segment overrides is used. For more information about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a> and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use segments to focus your audience</a>.</p> <p>If there is a launch with no segment overrides, the user might be assigned to a variation in the launch. The chance of this depends on the percentage of users that are allocated to that launch. If the user is enrolled in the launch, the variation they are served depends on the allocation of the various feature variations used for the launch.</p> <p>If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might be assigned to a variation in the experiment. The chance of this depends on the percentage of users that are allocated to that experiment.</p> <p>If the experiment uses a segment, then only user sessions with <code>evaluationContext</code> values that match the segment rule are used in the experiment.</p> <p>If the user is enrolled in the experiment, the variation they are served depends on the allocation of the various feature variations used for the experiment. </p> <p>If the user is not assigned to a launch or experiment, they are served the default variation.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

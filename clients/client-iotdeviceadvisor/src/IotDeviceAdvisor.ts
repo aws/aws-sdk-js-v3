@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateSuiteDefinitionCommand,
@@ -61,6 +61,8 @@ import {
   UpdateSuiteDefinitionCommandOutput,
 } from "./commands/UpdateSuiteDefinitionCommand";
 import { IotDeviceAdvisorClient } from "./IotDeviceAdvisorClient";
+import { paginateListSuiteDefinitions } from "./pagination/ListSuiteDefinitionsPaginator";
+import { paginateListSuiteRuns } from "./pagination/ListSuiteRunsPaginator";
 
 const commands = {
   CreateSuiteDefinitionCommand,
@@ -77,6 +79,10 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateSuiteDefinitionCommand,
+};
+const paginators = {
+  paginateListSuiteDefinitions,
+  paginateListSuiteRuns,
 };
 
 export interface IotDeviceAdvisor {
@@ -320,6 +326,28 @@ export interface IotDeviceAdvisor {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSuiteDefinitionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListSuiteDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSuiteDefinitionsCommandOutput}.
+   */
+  paginateListSuiteDefinitions(
+    args?: ListSuiteDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSuiteDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListSuiteRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSuiteRunsCommandOutput}.
+   */
+  paginateListSuiteRuns(
+    args?: ListSuiteRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSuiteRunsCommandOutput>;
 }
 
 /**
@@ -335,4 +363,4 @@ export interface IotDeviceAdvisor {
  * @public
  */
 export class IotDeviceAdvisor extends IotDeviceAdvisorClient implements IotDeviceAdvisor {}
-createAggregatedClient(commands, IotDeviceAdvisor);
+createAggregatedClient(commands, IotDeviceAdvisor, { paginators });

@@ -28,6 +28,8 @@ export interface ListSegmentsCommandOutput extends ListSegmentsResponse, __Metad
 
 /**
  * <p>Returns a list of audience segments that you have created in your account in this Region.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

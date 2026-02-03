@@ -105,6 +105,10 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  * //         IDLE: Number("int"),
  * //         TERMINATING: Number("int"),
  * //       },
+ * //       ManagedCapacityConfiguration: { // ManagedCapacityConfiguration
+ * //         ZeroCapacityStrategy: "MANUAL" || "SCALE_TO_AND_FROM_ZERO",
+ * //         ScaleInAfterInactivityMinutes: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

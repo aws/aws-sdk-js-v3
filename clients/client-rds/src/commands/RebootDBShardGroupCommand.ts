@@ -28,9 +28,7 @@ export interface RebootDBShardGroupCommandInput extends RebootDBShardGroupMessag
 export interface RebootDBShardGroupCommandOutput extends DBShardGroup, __MetadataBearer {}
 
 /**
- * <p>You might need to reboot your DB shard group, usually for maintenance reasons. For example, if you make certain modifications, reboot
- *             the DB shard group for the changes to take effect.</p>
- *          <p>This operation applies only to Aurora Limitless Database DBb shard groups.</p>
+ * <p>You might need to reboot your DB shard group, usually for maintenance reasons. For example, if you make certain modifications, reboot the DB shard group for the changes to take effect.</p> <p>This operation applies only to Aurora Limitless Database DBb shard groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

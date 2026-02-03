@@ -208,6 +208,7 @@ export type {
   CapacityDistributionStrategy,
   CapacityReservationPreference,
   CpuManufacturer,
+  DeletionProtection,
   ImpairedZoneHealthCheckBehavior,
   InstanceGeneration,
   InstanceMetadataEndpointState,

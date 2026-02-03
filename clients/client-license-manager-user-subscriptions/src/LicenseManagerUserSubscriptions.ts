@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateUserCommand,
@@ -84,6 +84,11 @@ import {
   UpdateIdentityProviderSettingsCommandOutput,
 } from "./commands/UpdateIdentityProviderSettingsCommand";
 import { LicenseManagerUserSubscriptionsClient } from "./LicenseManagerUserSubscriptionsClient";
+import { paginateListIdentityProviders } from "./pagination/ListIdentityProvidersPaginator";
+import { paginateListInstances } from "./pagination/ListInstancesPaginator";
+import { paginateListLicenseServerEndpoints } from "./pagination/ListLicenseServerEndpointsPaginator";
+import { paginateListProductSubscriptions } from "./pagination/ListProductSubscriptionsPaginator";
+import { paginateListUserAssociations } from "./pagination/ListUserAssociationsPaginator";
 
 const commands = {
   AssociateUserCommand,
@@ -103,6 +108,13 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateIdentityProviderSettingsCommand,
+};
+const paginators = {
+  paginateListIdentityProviders,
+  paginateListInstances,
+  paginateListLicenseServerEndpoints,
+  paginateListProductSubscriptions,
+  paginateListUserAssociations,
 };
 
 export interface LicenseManagerUserSubscriptions {
@@ -400,6 +412,61 @@ export interface LicenseManagerUserSubscriptions {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIdentityProviderSettingsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListIdentityProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIdentityProvidersCommandOutput}.
+   */
+  paginateListIdentityProviders(
+    args?: ListIdentityProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIdentityProvidersCommandOutput>;
+
+  /**
+   * @see {@link ListInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstancesCommandOutput}.
+   */
+  paginateListInstances(
+    args?: ListInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListLicenseServerEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLicenseServerEndpointsCommandOutput}.
+   */
+  paginateListLicenseServerEndpoints(
+    args?: ListLicenseServerEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLicenseServerEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListProductSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProductSubscriptionsCommandOutput}.
+   */
+  paginateListProductSubscriptions(
+    args: ListProductSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProductSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link ListUserAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUserAssociationsCommandOutput}.
+   */
+  paginateListUserAssociations(
+    args: ListUserAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUserAssociationsCommandOutput>;
 }
 
 /**
@@ -407,4 +474,4 @@ export interface LicenseManagerUserSubscriptions {
  * @public
  */
 export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscriptionsClient implements LicenseManagerUserSubscriptions {}
-createAggregatedClient(commands, LicenseManagerUserSubscriptions);
+createAggregatedClient(commands, LicenseManagerUserSubscriptions, { paginators });

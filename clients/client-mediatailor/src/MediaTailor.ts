@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   ConfigureLogsForChannelCommand,
@@ -211,6 +211,14 @@ import {
   UpdateVodSourceCommandOutput,
 } from "./commands/UpdateVodSourceCommand";
 import { MediaTailorClient } from "./MediaTailorClient";
+import { paginateGetChannelSchedule } from "./pagination/GetChannelSchedulePaginator";
+import { paginateListAlerts } from "./pagination/ListAlertsPaginator";
+import { paginateListChannels } from "./pagination/ListChannelsPaginator";
+import { paginateListLiveSources } from "./pagination/ListLiveSourcesPaginator";
+import { paginateListPlaybackConfigurations } from "./pagination/ListPlaybackConfigurationsPaginator";
+import { paginateListPrefetchSchedules } from "./pagination/ListPrefetchSchedulesPaginator";
+import { paginateListSourceLocations } from "./pagination/ListSourceLocationsPaginator";
+import { paginateListVodSources } from "./pagination/ListVodSourcesPaginator";
 
 const commands = {
   ConfigureLogsForChannelCommand,
@@ -257,6 +265,16 @@ const commands = {
   UpdateProgramCommand,
   UpdateSourceLocationCommand,
   UpdateVodSourceCommand,
+};
+const paginators = {
+  paginateGetChannelSchedule,
+  paginateListAlerts,
+  paginateListChannels,
+  paginateListLiveSources,
+  paginateListPlaybackConfigurations,
+  paginateListPrefetchSchedules,
+  paginateListSourceLocations,
+  paginateListVodSources,
 };
 
 export interface MediaTailor {
@@ -1010,6 +1028,94 @@ export interface MediaTailor {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVodSourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetChannelScheduleCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetChannelScheduleCommandOutput}.
+   */
+  paginateGetChannelSchedule(
+    args: GetChannelScheduleCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetChannelScheduleCommandOutput>;
+
+  /**
+   * @see {@link ListAlertsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAlertsCommandOutput}.
+   */
+  paginateListAlerts(
+    args: ListAlertsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAlertsCommandOutput>;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsCommandOutput}.
+   */
+  paginateListChannels(
+    args?: ListChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsCommandOutput>;
+
+  /**
+   * @see {@link ListLiveSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLiveSourcesCommandOutput}.
+   */
+  paginateListLiveSources(
+    args: ListLiveSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLiveSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListPlaybackConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPlaybackConfigurationsCommandOutput}.
+   */
+  paginateListPlaybackConfigurations(
+    args?: ListPlaybackConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPlaybackConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListPrefetchSchedulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPrefetchSchedulesCommandOutput}.
+   */
+  paginateListPrefetchSchedules(
+    args: ListPrefetchSchedulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPrefetchSchedulesCommandOutput>;
+
+  /**
+   * @see {@link ListSourceLocationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSourceLocationsCommandOutput}.
+   */
+  paginateListSourceLocations(
+    args?: ListSourceLocationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSourceLocationsCommandOutput>;
+
+  /**
+   * @see {@link ListVodSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVodSourcesCommandOutput}.
+   */
+  paginateListVodSources(
+    args: ListVodSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVodSourcesCommandOutput>;
 }
 
 /**
@@ -1017,4 +1123,4 @@ export interface MediaTailor {
  * @public
  */
 export class MediaTailor extends MediaTailorClient implements MediaTailor {}
-createAggregatedClient(commands, MediaTailor);
+createAggregatedClient(commands, MediaTailor, { paginators });

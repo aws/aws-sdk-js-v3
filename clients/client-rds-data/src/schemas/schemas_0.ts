@@ -176,7 +176,7 @@ TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BatchExecuteStatementRequest$: StaticStructureSchema = [3, n0, _BESR,
   0,
   [_rA, _sA, _s, _d, _sc, _pS, _tI],
-  [0, 0, 0, 0, 0, () => SqlParameterSets, 0]
+  [0, 0, 0, 0, 0, () => SqlParameterSets, 0], 3
 ];
 export var BatchExecuteStatementResponse$: StaticStructureSchema = [3, n0, _BESRa,
   0,
@@ -186,7 +186,7 @@ export var BatchExecuteStatementResponse$: StaticStructureSchema = [3, n0, _BESR
 export var BeginTransactionRequest$: StaticStructureSchema = [3, n0, _BTR,
   0,
   [_rA, _sA, _d, _sc],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var BeginTransactionResponse$: StaticStructureSchema = [3, n0, _BTRe,
   0,
@@ -201,7 +201,7 @@ export var ColumnMetadata$: StaticStructureSchema = [3, n0, _CM,
 export var CommitTransactionRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_rA, _sA, _tI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CommitTransactionResponse$: StaticStructureSchema = [3, n0, _CTRo,
   0,
@@ -235,7 +235,7 @@ TypeRegistry.for(n0).registerError(DatabaseUnavailableException$, DatabaseUnavai
 export var ExecuteSqlRequest$: StaticStructureSchema = [3, n0, _ESR,
   0,
   [_dCOIA, _aSSA, _sS, _d, _sc],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 3
 ];
 export var ExecuteSqlResponse$: StaticStructureSchema = [3, n0, _ESRx,
   0,
@@ -245,7 +245,7 @@ export var ExecuteSqlResponse$: StaticStructureSchema = [3, n0, _ESRx,
 export var ExecuteStatementRequest$: StaticStructureSchema = [3, n0, _ESRxe,
   0,
   [_rA, _sA, _s, _d, _sc, _pa, _tI, _iRM, _cAT, _rSO, _fRA],
-  [0, 0, 0, 0, 0, () => SqlParametersList, 0, 2, 2, () => ResultSetOptions$, 0]
+  [0, 0, 0, 0, 0, () => SqlParametersList, 0, 2, 2, () => ResultSetOptions$, 0], 3
 ];
 export var ExecuteStatementResponse$: StaticStructureSchema = [3, n0, _ESRxec,
   0,
@@ -311,7 +311,7 @@ export var ResultSetOptions$: StaticStructureSchema = [3, n0, _RSO,
 export var RollbackTransactionRequest$: StaticStructureSchema = [3, n0, _RTR,
   0,
   [_rA, _sA, _tI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var RollbackTransactionResponse$: StaticStructureSchema = [3, n0, _RTRo,
   0,

@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AcceptReservedNodeExchangeCommand,
@@ -695,7 +701,50 @@ import {
   UpdatePartnerStatusCommandInput,
   UpdatePartnerStatusCommandOutput,
 } from "./commands/UpdatePartnerStatusCommand";
+import { paginateDescribeClusterDbRevisions } from "./pagination/DescribeClusterDbRevisionsPaginator";
+import { paginateDescribeClusterParameterGroups } from "./pagination/DescribeClusterParameterGroupsPaginator";
+import { paginateDescribeClusterParameters } from "./pagination/DescribeClusterParametersPaginator";
+import { paginateDescribeClusterSecurityGroups } from "./pagination/DescribeClusterSecurityGroupsPaginator";
+import { paginateDescribeClusterSnapshots } from "./pagination/DescribeClusterSnapshotsPaginator";
+import { paginateDescribeClusters } from "./pagination/DescribeClustersPaginator";
+import { paginateDescribeClusterSubnetGroups } from "./pagination/DescribeClusterSubnetGroupsPaginator";
+import { paginateDescribeClusterTracks } from "./pagination/DescribeClusterTracksPaginator";
+import { paginateDescribeClusterVersions } from "./pagination/DescribeClusterVersionsPaginator";
+import { paginateDescribeCustomDomainAssociations } from "./pagination/DescribeCustomDomainAssociationsPaginator";
+import { paginateDescribeDataSharesForConsumer } from "./pagination/DescribeDataSharesForConsumerPaginator";
+import { paginateDescribeDataSharesForProducer } from "./pagination/DescribeDataSharesForProducerPaginator";
+import { paginateDescribeDataShares } from "./pagination/DescribeDataSharesPaginator";
+import { paginateDescribeDefaultClusterParameters } from "./pagination/DescribeDefaultClusterParametersPaginator";
+import { paginateDescribeEndpointAccess } from "./pagination/DescribeEndpointAccessPaginator";
+import { paginateDescribeEndpointAuthorization } from "./pagination/DescribeEndpointAuthorizationPaginator";
+import { paginateDescribeEvents } from "./pagination/DescribeEventsPaginator";
+import { paginateDescribeEventSubscriptions } from "./pagination/DescribeEventSubscriptionsPaginator";
+import { paginateDescribeHsmClientCertificates } from "./pagination/DescribeHsmClientCertificatesPaginator";
+import { paginateDescribeHsmConfigurations } from "./pagination/DescribeHsmConfigurationsPaginator";
+import { paginateDescribeInboundIntegrations } from "./pagination/DescribeInboundIntegrationsPaginator";
+import { paginateDescribeIntegrations } from "./pagination/DescribeIntegrationsPaginator";
+import { paginateDescribeNodeConfigurationOptions } from "./pagination/DescribeNodeConfigurationOptionsPaginator";
+import { paginateDescribeOrderableClusterOptions } from "./pagination/DescribeOrderableClusterOptionsPaginator";
+import { paginateDescribeRedshiftIdcApplications } from "./pagination/DescribeRedshiftIdcApplicationsPaginator";
+import { paginateDescribeReservedNodeExchangeStatus } from "./pagination/DescribeReservedNodeExchangeStatusPaginator";
+import { paginateDescribeReservedNodeOfferings } from "./pagination/DescribeReservedNodeOfferingsPaginator";
+import { paginateDescribeReservedNodes } from "./pagination/DescribeReservedNodesPaginator";
+import { paginateDescribeScheduledActions } from "./pagination/DescribeScheduledActionsPaginator";
+import { paginateDescribeSnapshotCopyGrants } from "./pagination/DescribeSnapshotCopyGrantsPaginator";
+import { paginateDescribeSnapshotSchedules } from "./pagination/DescribeSnapshotSchedulesPaginator";
+import { paginateDescribeTableRestoreStatus } from "./pagination/DescribeTableRestoreStatusPaginator";
+import { paginateDescribeTags } from "./pagination/DescribeTagsPaginator";
+import { paginateDescribeUsageLimits } from "./pagination/DescribeUsageLimitsPaginator";
+import {
+  paginateGetReservedNodeExchangeConfigurationOptions,
+} from "./pagination/GetReservedNodeExchangeConfigurationOptionsPaginator";
+import { paginateGetReservedNodeExchangeOfferings } from "./pagination/GetReservedNodeExchangeOfferingsPaginator";
+import { paginateListRecommendations } from "./pagination/ListRecommendationsPaginator";
 import { RedshiftClient } from "./RedshiftClient";
+import { waitUntilClusterAvailable } from "./waiters/waitForClusterAvailable";
+import { waitUntilClusterDeleted } from "./waiters/waitForClusterDeleted";
+import { waitUntilClusterRestored } from "./waiters/waitForClusterRestored";
+import { waitUntilSnapshotAvailable } from "./waiters/waitForSnapshotAvailable";
 
 const commands = {
   AcceptReservedNodeExchangeCommand,
@@ -839,6 +888,51 @@ const commands = {
   RevokeSnapshotAccessCommand,
   RotateEncryptionKeyCommand,
   UpdatePartnerStatusCommand,
+};
+const paginators = {
+  paginateDescribeClusterDbRevisions,
+  paginateDescribeClusterParameterGroups,
+  paginateDescribeClusterParameters,
+  paginateDescribeClusters,
+  paginateDescribeClusterSecurityGroups,
+  paginateDescribeClusterSnapshots,
+  paginateDescribeClusterSubnetGroups,
+  paginateDescribeClusterTracks,
+  paginateDescribeClusterVersions,
+  paginateDescribeCustomDomainAssociations,
+  paginateDescribeDataShares,
+  paginateDescribeDataSharesForConsumer,
+  paginateDescribeDataSharesForProducer,
+  paginateDescribeDefaultClusterParameters,
+  paginateDescribeEndpointAccess,
+  paginateDescribeEndpointAuthorization,
+  paginateDescribeEvents,
+  paginateDescribeEventSubscriptions,
+  paginateDescribeHsmClientCertificates,
+  paginateDescribeHsmConfigurations,
+  paginateDescribeInboundIntegrations,
+  paginateDescribeIntegrations,
+  paginateDescribeNodeConfigurationOptions,
+  paginateDescribeOrderableClusterOptions,
+  paginateDescribeRedshiftIdcApplications,
+  paginateDescribeReservedNodeExchangeStatus,
+  paginateDescribeReservedNodeOfferings,
+  paginateDescribeReservedNodes,
+  paginateDescribeScheduledActions,
+  paginateDescribeSnapshotCopyGrants,
+  paginateDescribeSnapshotSchedules,
+  paginateDescribeTableRestoreStatus,
+  paginateDescribeTags,
+  paginateDescribeUsageLimits,
+  paginateGetReservedNodeExchangeConfigurationOptions,
+  paginateGetReservedNodeExchangeOfferings,
+  paginateListRecommendations,
+};
+const waiters = {
+  waitUntilClusterAvailable,
+  waitUntilClusterDeleted,
+  waitUntilClusterRestored,
+  waitUntilSnapshotAvailable,
 };
 
 export interface Redshift {
@@ -3277,6 +3371,453 @@ export interface Redshift {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePartnerStatusCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeClusterDbRevisionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClusterDbRevisionsCommandOutput}.
+   */
+  paginateDescribeClusterDbRevisions(
+    args?: DescribeClusterDbRevisionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClusterDbRevisionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClusterParameterGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClusterParameterGroupsCommandOutput}.
+   */
+  paginateDescribeClusterParameterGroups(
+    args?: DescribeClusterParameterGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClusterParameterGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClusterParametersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClusterParametersCommandOutput}.
+   */
+  paginateDescribeClusterParameters(
+    args: DescribeClusterParametersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClusterParametersCommandOutput>;
+
+  /**
+   * @see {@link DescribeClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClustersCommandOutput}.
+   */
+  paginateDescribeClusters(
+    args?: DescribeClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClustersCommandOutput>;
+
+  /**
+   * @see {@link DescribeClusterSecurityGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClusterSecurityGroupsCommandOutput}.
+   */
+  paginateDescribeClusterSecurityGroups(
+    args?: DescribeClusterSecurityGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClusterSecurityGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClusterSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClusterSnapshotsCommandOutput}.
+   */
+  paginateDescribeClusterSnapshots(
+    args?: DescribeClusterSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClusterSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClusterSubnetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClusterSubnetGroupsCommandOutput}.
+   */
+  paginateDescribeClusterSubnetGroups(
+    args?: DescribeClusterSubnetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClusterSubnetGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClusterTracksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClusterTracksCommandOutput}.
+   */
+  paginateDescribeClusterTracks(
+    args?: DescribeClusterTracksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClusterTracksCommandOutput>;
+
+  /**
+   * @see {@link DescribeClusterVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClusterVersionsCommandOutput}.
+   */
+  paginateDescribeClusterVersions(
+    args?: DescribeClusterVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClusterVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCustomDomainAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCustomDomainAssociationsCommandOutput}.
+   */
+  paginateDescribeCustomDomainAssociations(
+    args?: DescribeCustomDomainAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCustomDomainAssociationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDataSharesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDataSharesCommandOutput}.
+   */
+  paginateDescribeDataShares(
+    args?: DescribeDataSharesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDataSharesCommandOutput>;
+
+  /**
+   * @see {@link DescribeDataSharesForConsumerCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDataSharesForConsumerCommandOutput}.
+   */
+  paginateDescribeDataSharesForConsumer(
+    args?: DescribeDataSharesForConsumerCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDataSharesForConsumerCommandOutput>;
+
+  /**
+   * @see {@link DescribeDataSharesForProducerCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDataSharesForProducerCommandOutput}.
+   */
+  paginateDescribeDataSharesForProducer(
+    args?: DescribeDataSharesForProducerCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDataSharesForProducerCommandOutput>;
+
+  /**
+   * @see {@link DescribeDefaultClusterParametersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeDefaultClusterParametersCommandOutput}.
+   */
+  paginateDescribeDefaultClusterParameters(
+    args: DescribeDefaultClusterParametersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeDefaultClusterParametersCommandOutput>;
+
+  /**
+   * @see {@link DescribeEndpointAccessCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEndpointAccessCommandOutput}.
+   */
+  paginateDescribeEndpointAccess(
+    args?: DescribeEndpointAccessCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEndpointAccessCommandOutput>;
+
+  /**
+   * @see {@link DescribeEndpointAuthorizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEndpointAuthorizationCommandOutput}.
+   */
+  paginateDescribeEndpointAuthorization(
+    args?: DescribeEndpointAuthorizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEndpointAuthorizationCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventsCommandOutput}.
+   */
+  paginateDescribeEvents(
+    args?: DescribeEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventSubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventSubscriptionsCommandOutput}.
+   */
+  paginateDescribeEventSubscriptions(
+    args?: DescribeEventSubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventSubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeHsmClientCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeHsmClientCertificatesCommandOutput}.
+   */
+  paginateDescribeHsmClientCertificates(
+    args?: DescribeHsmClientCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeHsmClientCertificatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeHsmConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeHsmConfigurationsCommandOutput}.
+   */
+  paginateDescribeHsmConfigurations(
+    args?: DescribeHsmConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeHsmConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeInboundIntegrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeInboundIntegrationsCommandOutput}.
+   */
+  paginateDescribeInboundIntegrations(
+    args?: DescribeInboundIntegrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeInboundIntegrationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeIntegrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeIntegrationsCommandOutput}.
+   */
+  paginateDescribeIntegrations(
+    args?: DescribeIntegrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeIntegrationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeNodeConfigurationOptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNodeConfigurationOptionsCommandOutput}.
+   */
+  paginateDescribeNodeConfigurationOptions(
+    args: DescribeNodeConfigurationOptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNodeConfigurationOptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeOrderableClusterOptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOrderableClusterOptionsCommandOutput}.
+   */
+  paginateDescribeOrderableClusterOptions(
+    args?: DescribeOrderableClusterOptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOrderableClusterOptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRedshiftIdcApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRedshiftIdcApplicationsCommandOutput}.
+   */
+  paginateDescribeRedshiftIdcApplications(
+    args?: DescribeRedshiftIdcApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRedshiftIdcApplicationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedNodeExchangeStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedNodeExchangeStatusCommandOutput}.
+   */
+  paginateDescribeReservedNodeExchangeStatus(
+    args?: DescribeReservedNodeExchangeStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedNodeExchangeStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedNodeOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedNodeOfferingsCommandOutput}.
+   */
+  paginateDescribeReservedNodeOfferings(
+    args?: DescribeReservedNodeOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedNodeOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedNodesCommandOutput}.
+   */
+  paginateDescribeReservedNodes(
+    args?: DescribeReservedNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedNodesCommandOutput>;
+
+  /**
+   * @see {@link DescribeScheduledActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeScheduledActionsCommandOutput}.
+   */
+  paginateDescribeScheduledActions(
+    args?: DescribeScheduledActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeScheduledActionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSnapshotCopyGrantsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSnapshotCopyGrantsCommandOutput}.
+   */
+  paginateDescribeSnapshotCopyGrants(
+    args?: DescribeSnapshotCopyGrantsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSnapshotCopyGrantsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSnapshotSchedulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSnapshotSchedulesCommandOutput}.
+   */
+  paginateDescribeSnapshotSchedules(
+    args?: DescribeSnapshotSchedulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSnapshotSchedulesCommandOutput>;
+
+  /**
+   * @see {@link DescribeTableRestoreStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTableRestoreStatusCommandOutput}.
+   */
+  paginateDescribeTableRestoreStatus(
+    args?: DescribeTableRestoreStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTableRestoreStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTagsCommandOutput}.
+   */
+  paginateDescribeTags(
+    args?: DescribeTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTagsCommandOutput>;
+
+  /**
+   * @see {@link DescribeUsageLimitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeUsageLimitsCommandOutput}.
+   */
+  paginateDescribeUsageLimits(
+    args?: DescribeUsageLimitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeUsageLimitsCommandOutput>;
+
+  /**
+   * @see {@link GetReservedNodeExchangeConfigurationOptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetReservedNodeExchangeConfigurationOptionsCommandOutput}.
+   */
+  paginateGetReservedNodeExchangeConfigurationOptions(
+    args: GetReservedNodeExchangeConfigurationOptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetReservedNodeExchangeConfigurationOptionsCommandOutput>;
+
+  /**
+   * @see {@link GetReservedNodeExchangeOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetReservedNodeExchangeOfferingsCommandOutput}.
+   */
+  paginateGetReservedNodeExchangeOfferings(
+    args: GetReservedNodeExchangeOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetReservedNodeExchangeOfferingsCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationsCommandOutput}.
+   */
+  paginateListRecommendations(
+    args?: ListRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClustersCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterAvailable(
+    args: DescribeClustersCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Redshift>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeClustersCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterDeleted(
+    args: DescribeClustersCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Redshift>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeClustersCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilClusterRestored(
+    args: DescribeClustersCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Redshift>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeClusterSnapshotsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilSnapshotAvailable(
+    args: DescribeClusterSnapshotsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Redshift>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -3304,4 +3845,4 @@ export interface Redshift {
  * @public
  */
 export class Redshift extends RedshiftClient implements Redshift {}
-createAggregatedClient(commands, Redshift);
+createAggregatedClient(commands, Redshift, { paginators, waiters });

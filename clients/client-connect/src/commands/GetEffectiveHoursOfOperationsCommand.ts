@@ -62,6 +62,25 @@ export interface GetEffectiveHoursOfOperationsCommandOutput extends GetEffective
  * //       ],
  * //     },
  * //   ],
+ * //   EffectiveOverrideHoursList: [ // EffectiveOverrideHoursList
+ * //     { // EffectiveOverrideHours
+ * //       Date: "STRING_VALUE",
+ * //       OverrideHours: [ // OverrideHours
+ * //         { // OverrideHour
+ * //           Start: {
+ * //             Hours: Number("int"), // required
+ * //             Minutes: Number("int"), // required
+ * //           },
+ * //           End: {
+ * //             Hours: Number("int"), // required
+ * //             Minutes: Number("int"), // required
+ * //           },
+ * //           OverrideName: "STRING_VALUE",
+ * //           OperationalStatus: "OPEN" || "CLOSED",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
  * //   TimeZone: "STRING_VALUE",
  * // };
  *

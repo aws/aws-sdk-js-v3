@@ -3754,6 +3754,12 @@ export interface EbsBlockDevice {
    * @public
    */
   AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.</p>
+   * @public
+   */
+  EbsCardIndex?: number | undefined;
 }
 
 /**
@@ -6725,6 +6731,12 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
    * @public
    */
   VolumeInitializationRate?: number | undefined;
+
+  /**
+   * <p>The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.</p>
+   * @public
+   */
+  EbsCardIndex?: number | undefined;
 }
 
 /**
@@ -8303,6 +8315,12 @@ export interface LaunchTemplateEbsBlockDevice {
    * @public
    */
   VolumeInitializationRate?: number | undefined;
+
+  /**
+   * <p>The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.</p>
+   * @public
+   */
+  EbsCardIndex?: number | undefined;
 }
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchUpdateClusterCommand,
@@ -196,6 +196,19 @@ import {
 } from "./commands/UpdateSubnetGroupCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { MemoryDBClient } from "./MemoryDBClient";
+import { paginateDescribeACLs } from "./pagination/DescribeACLsPaginator";
+import { paginateDescribeClusters } from "./pagination/DescribeClustersPaginator";
+import { paginateDescribeEngineVersions } from "./pagination/DescribeEngineVersionsPaginator";
+import { paginateDescribeEvents } from "./pagination/DescribeEventsPaginator";
+import { paginateDescribeMultiRegionClusters } from "./pagination/DescribeMultiRegionClustersPaginator";
+import { paginateDescribeParameterGroups } from "./pagination/DescribeParameterGroupsPaginator";
+import { paginateDescribeParameters } from "./pagination/DescribeParametersPaginator";
+import { paginateDescribeReservedNodesOfferings } from "./pagination/DescribeReservedNodesOfferingsPaginator";
+import { paginateDescribeReservedNodes } from "./pagination/DescribeReservedNodesPaginator";
+import { paginateDescribeServiceUpdates } from "./pagination/DescribeServiceUpdatesPaginator";
+import { paginateDescribeSnapshots } from "./pagination/DescribeSnapshotsPaginator";
+import { paginateDescribeSubnetGroups } from "./pagination/DescribeSubnetGroupsPaginator";
+import { paginateDescribeUsers } from "./pagination/DescribeUsersPaginator";
 
 const commands = {
   BatchUpdateClusterCommand,
@@ -243,6 +256,21 @@ const commands = {
   UpdateParameterGroupCommand,
   UpdateSubnetGroupCommand,
   UpdateUserCommand,
+};
+const paginators = {
+  paginateDescribeACLs,
+  paginateDescribeClusters,
+  paginateDescribeEngineVersions,
+  paginateDescribeEvents,
+  paginateDescribeMultiRegionClusters,
+  paginateDescribeParameterGroups,
+  paginateDescribeParameters,
+  paginateDescribeReservedNodes,
+  paginateDescribeReservedNodesOfferings,
+  paginateDescribeServiceUpdates,
+  paginateDescribeSnapshots,
+  paginateDescribeSubnetGroups,
+  paginateDescribeUsers,
 };
 
 export interface MemoryDB {
@@ -1023,6 +1051,149 @@ export interface MemoryDB {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeACLsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeACLsCommandOutput}.
+   */
+  paginateDescribeACLs(
+    args?: DescribeACLsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeACLsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClustersCommandOutput}.
+   */
+  paginateDescribeClusters(
+    args?: DescribeClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClustersCommandOutput>;
+
+  /**
+   * @see {@link DescribeEngineVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEngineVersionsCommandOutput}.
+   */
+  paginateDescribeEngineVersions(
+    args?: DescribeEngineVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEngineVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventsCommandOutput}.
+   */
+  paginateDescribeEvents(
+    args?: DescribeEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventsCommandOutput>;
+
+  /**
+   * @see {@link DescribeMultiRegionClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeMultiRegionClustersCommandOutput}.
+   */
+  paginateDescribeMultiRegionClusters(
+    args?: DescribeMultiRegionClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeMultiRegionClustersCommandOutput>;
+
+  /**
+   * @see {@link DescribeParameterGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeParameterGroupsCommandOutput}.
+   */
+  paginateDescribeParameterGroups(
+    args?: DescribeParameterGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeParameterGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeParametersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeParametersCommandOutput}.
+   */
+  paginateDescribeParameters(
+    args: DescribeParametersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeParametersCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedNodesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedNodesCommandOutput}.
+   */
+  paginateDescribeReservedNodes(
+    args?: DescribeReservedNodesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedNodesCommandOutput>;
+
+  /**
+   * @see {@link DescribeReservedNodesOfferingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeReservedNodesOfferingsCommandOutput}.
+   */
+  paginateDescribeReservedNodesOfferings(
+    args?: DescribeReservedNodesOfferingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeReservedNodesOfferingsCommandOutput>;
+
+  /**
+   * @see {@link DescribeServiceUpdatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeServiceUpdatesCommandOutput}.
+   */
+  paginateDescribeServiceUpdates(
+    args?: DescribeServiceUpdatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeServiceUpdatesCommandOutput>;
+
+  /**
+   * @see {@link DescribeSnapshotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSnapshotsCommandOutput}.
+   */
+  paginateDescribeSnapshots(
+    args?: DescribeSnapshotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSubnetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSubnetGroupsCommandOutput}.
+   */
+  paginateDescribeSubnetGroups(
+    args?: DescribeSubnetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSubnetGroupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeUsersCommandOutput}.
+   */
+  paginateDescribeUsers(
+    args?: DescribeUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeUsersCommandOutput>;
 }
 
 /**
@@ -1032,4 +1203,4 @@ export interface MemoryDB {
  * @public
  */
 export class MemoryDB extends MemoryDBClient implements MemoryDB {}
-createAggregatedClient(commands, MemoryDB);
+createAggregatedClient(commands, MemoryDB, { paginators });

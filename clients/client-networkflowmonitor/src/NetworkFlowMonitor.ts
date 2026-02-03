@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateMonitorCommand,
@@ -100,6 +100,17 @@ import {
 } from "./commands/UpdateMonitorCommand";
 import { UpdateScopeCommand, UpdateScopeCommandInput, UpdateScopeCommandOutput } from "./commands/UpdateScopeCommand";
 import { NetworkFlowMonitorClient } from "./NetworkFlowMonitorClient";
+import {
+  paginateGetQueryResultsMonitorTopContributors,
+} from "./pagination/GetQueryResultsMonitorTopContributorsPaginator";
+import {
+  paginateGetQueryResultsWorkloadInsightsTopContributorsData,
+} from "./pagination/GetQueryResultsWorkloadInsightsTopContributorsDataPaginator";
+import {
+  paginateGetQueryResultsWorkloadInsightsTopContributors,
+} from "./pagination/GetQueryResultsWorkloadInsightsTopContributorsPaginator";
+import { paginateListMonitors } from "./pagination/ListMonitorsPaginator";
+import { paginateListScopes } from "./pagination/ListScopesPaginator";
 
 const commands = {
   CreateMonitorCommand,
@@ -127,6 +138,13 @@ const commands = {
   UntagResourceCommand,
   UpdateMonitorCommand,
   UpdateScopeCommand,
+};
+const paginators = {
+  paginateGetQueryResultsMonitorTopContributors,
+  paginateGetQueryResultsWorkloadInsightsTopContributors,
+  paginateGetQueryResultsWorkloadInsightsTopContributorsData,
+  paginateListMonitors,
+  paginateListScopes,
 };
 
 export interface NetworkFlowMonitor {
@@ -556,6 +574,61 @@ export interface NetworkFlowMonitor {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateScopeCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetQueryResultsMonitorTopContributorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetQueryResultsMonitorTopContributorsCommandOutput}.
+   */
+  paginateGetQueryResultsMonitorTopContributors(
+    args: GetQueryResultsMonitorTopContributorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetQueryResultsMonitorTopContributorsCommandOutput>;
+
+  /**
+   * @see {@link GetQueryResultsWorkloadInsightsTopContributorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetQueryResultsWorkloadInsightsTopContributorsCommandOutput}.
+   */
+  paginateGetQueryResultsWorkloadInsightsTopContributors(
+    args: GetQueryResultsWorkloadInsightsTopContributorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetQueryResultsWorkloadInsightsTopContributorsCommandOutput>;
+
+  /**
+   * @see {@link GetQueryResultsWorkloadInsightsTopContributorsDataCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput}.
+   */
+  paginateGetQueryResultsWorkloadInsightsTopContributorsData(
+    args: GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput>;
+
+  /**
+   * @see {@link ListMonitorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMonitorsCommandOutput}.
+   */
+  paginateListMonitors(
+    args?: ListMonitorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMonitorsCommandOutput>;
+
+  /**
+   * @see {@link ListScopesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScopesCommandOutput}.
+   */
+  paginateListScopes(
+    args?: ListScopesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScopesCommandOutput>;
 }
 
 /**
@@ -563,4 +636,4 @@ export interface NetworkFlowMonitor {
  * @public
  */
 export class NetworkFlowMonitor extends NetworkFlowMonitorClient implements NetworkFlowMonitor {}
-createAggregatedClient(commands, NetworkFlowMonitor);
+createAggregatedClient(commands, NetworkFlowMonitor, { paginators });

@@ -98,7 +98,7 @@ export var EdgeMetric$: StaticStructureSchema = [3, n0, _EM,
 export var GetDeploymentsRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_DNe, _DFN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetDeploymentsResult$: StaticStructureSchema = [3, n0, _GDRe,
   0,
@@ -108,7 +108,7 @@ export var GetDeploymentsResult$: StaticStructureSchema = [3, n0, _GDRe,
 export var GetDeviceRegistrationRequest$: StaticStructureSchema = [3, n0, _GDRR,
   0,
   [_DNe, _DFN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetDeviceRegistrationResult$: StaticStructureSchema = [3, n0, _GDRRe,
   0,
@@ -128,8 +128,8 @@ export var Model$: StaticStructureSchema = [3, n0, _Mo,
 ];
 export var SendHeartbeatRequest$: StaticStructureSchema = [3, n0, _SHR,
   0,
-  [_AM, _Mod, _AV, _DNe, _DFN, _DR],
-  [() => EdgeMetrics, () => Models, 0, 0, 0, () => DeploymentResult$]
+  [_AV, _DNe, _DFN, _AM, _Mod, _DR],
+  [0, 0, 0, () => EdgeMetrics, () => Models, () => DeploymentResult$], 3
 ];
 var __Unit = "unit" as const;
 export var SagemakerEdgeServiceException$: StaticErrorSchema = [-3, _s, "SagemakerEdgeServiceException", 0, [], []];

@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   CreateDiscovererCommand,
@@ -149,7 +155,13 @@ import {
   UpdateSchemaCommandInput,
   UpdateSchemaCommandOutput,
 } from "./commands/UpdateSchemaCommand";
+import { paginateListDiscoverers } from "./pagination/ListDiscoverersPaginator";
+import { paginateListRegistries } from "./pagination/ListRegistriesPaginator";
+import { paginateListSchemas } from "./pagination/ListSchemasPaginator";
+import { paginateListSchemaVersions } from "./pagination/ListSchemaVersionsPaginator";
+import { paginateSearchSchemas } from "./pagination/SearchSchemasPaginator";
 import { SchemasClient } from "./SchemasClient";
+import { waitUntilCodeBindingExists } from "./waiters/waitForCodeBindingExists";
 
 const commands = {
   CreateDiscovererCommand,
@@ -183,6 +195,16 @@ const commands = {
   UpdateDiscovererCommand,
   UpdateRegistryCommand,
   UpdateSchemaCommand,
+};
+const paginators = {
+  paginateListDiscoverers,
+  paginateListRegistries,
+  paginateListSchemas,
+  paginateListSchemaVersions,
+  paginateSearchSchemas,
+};
+const waiters = {
+  waitUntilCodeBindingExists,
 };
 
 export interface Schemas {
@@ -716,6 +738,71 @@ export interface Schemas {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSchemaCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDiscoverersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDiscoverersCommandOutput}.
+   */
+  paginateListDiscoverers(
+    args?: ListDiscoverersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDiscoverersCommandOutput>;
+
+  /**
+   * @see {@link ListRegistriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRegistriesCommandOutput}.
+   */
+  paginateListRegistries(
+    args?: ListRegistriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRegistriesCommandOutput>;
+
+  /**
+   * @see {@link ListSchemasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchemasCommandOutput}.
+   */
+  paginateListSchemas(
+    args: ListSchemasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchemasCommandOutput>;
+
+  /**
+   * @see {@link ListSchemaVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSchemaVersionsCommandOutput}.
+   */
+  paginateListSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSchemaVersionsCommandOutput>;
+
+  /**
+   * @see {@link SearchSchemasCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchSchemasCommandOutput}.
+   */
+  paginateSearchSchemas(
+    args: SearchSchemasCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchSchemasCommandOutput>;
+
+  /**
+   * @see {@link DescribeCodeBindingCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCodeBindingExists(
+    args: DescribeCodeBindingCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Schemas>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -723,4 +810,4 @@ export interface Schemas {
  * @public
  */
 export class Schemas extends SchemasClient implements Schemas {}
-createAggregatedClient(commands, Schemas);
+createAggregatedClient(commands, Schemas, { paginators, waiters });

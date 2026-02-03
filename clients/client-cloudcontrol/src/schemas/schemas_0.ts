@@ -135,7 +135,7 @@ TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsExcepti
 export var CancelResourceRequestInput$: StaticStructureSchema = [3, n0, _CRRI,
   0,
   [_RT],
-  [0]
+  [0], 1
 ];
 export var CancelResourceRequestOutput$: StaticStructureSchema = [3, n0, _CRRO,
   0,
@@ -162,8 +162,8 @@ export var ConcurrentOperationException$: StaticErrorSchema = [-3, n0, _COE,
 TypeRegistry.for(n0).registerError(ConcurrentOperationException$, ConcurrentOperationException);
 export var CreateResourceInput$: StaticStructureSchema = [3, n0, _CRI,
   0,
-  [_TN, _TVI, _RA, _CT, _DS],
-  [0, 0, 0, [0, 4], [() => Properties, 0]]
+  [_TN, _DS, _TVI, _RA, _CT],
+  [0, [() => Properties, 0], 0, 0, [0, 4]], 2
 ];
 export var CreateResourceOutput$: StaticStructureSchema = [3, n0, _CRO,
   0,
@@ -172,8 +172,8 @@ export var CreateResourceOutput$: StaticStructureSchema = [3, n0, _CRO,
 ];
 export var DeleteResourceInput$: StaticStructureSchema = [3, n0, _DRI,
   0,
-  [_TN, _TVI, _RA, _CT, _I],
-  [0, 0, 0, [0, 4], 0]
+  [_TN, _I, _TVI, _RA, _CT],
+  [0, 0, 0, 0, [0, 4]], 2
 ];
 export var DeleteResourceOutput$: StaticStructureSchema = [3, n0, _DRO,
   0,
@@ -188,8 +188,8 @@ export var GeneralServiceException$: StaticErrorSchema = [-3, n0, _GSE,
 TypeRegistry.for(n0).registerError(GeneralServiceException$, GeneralServiceException);
 export var GetResourceInput$: StaticStructureSchema = [3, n0, _GRI,
   0,
-  [_TN, _TVI, _RA, _I],
-  [0, 0, 0, 0]
+  [_TN, _I, _TVI, _RA],
+  [0, 0, 0, 0], 2
 ];
 export var GetResourceOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
@@ -199,7 +199,7 @@ export var GetResourceOutput$: StaticStructureSchema = [3, n0, _GRO,
 export var GetResourceRequestStatusInput$: StaticStructureSchema = [3, n0, _GRRSI,
   0,
   [_RT],
-  [0]
+  [0], 1
 ];
 export var GetResourceRequestStatusOutput$: StaticStructureSchema = [3, n0, _GRRSO,
   0,
@@ -248,7 +248,7 @@ export var ListResourceRequestsOutput$: StaticStructureSchema = [3, n0, _LRRO,
 export var ListResourcesInput$: StaticStructureSchema = [3, n0, _LRI,
   0,
   [_TN, _TVI, _RA, _NT, _MR, _RM],
-  [0, 0, 0, 0, 1, [() => Properties, 0]]
+  [0, 0, 0, 0, 1, [() => Properties, 0]], 1
 ];
 export var ListResourcesOutput$: StaticStructureSchema = [3, n0, _LRO,
   0,
@@ -344,8 +344,8 @@ export var UnsupportedActionException$: StaticErrorSchema = [-3, n0, _UAE,
 TypeRegistry.for(n0).registerError(UnsupportedActionException$, UnsupportedActionException);
 export var UpdateResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
-  [_TN, _TVI, _RA, _CT, _I, _PD],
-  [0, 0, 0, [0, 4], 0, [() => PatchDocument, 0]]
+  [_TN, _I, _PD, _TVI, _RA, _CT],
+  [0, 0, [() => PatchDocument, 0], 0, 0, [0, 4]], 3
 ];
 export var UpdateResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,

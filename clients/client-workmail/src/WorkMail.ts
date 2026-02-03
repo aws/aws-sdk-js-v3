@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateDelegateToResourceCommand,
@@ -414,6 +414,21 @@ import {
   UpdateResourceCommandOutput,
 } from "./commands/UpdateResourceCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import { paginateListAliases } from "./pagination/ListAliasesPaginator";
+import { paginateListAvailabilityConfigurations } from "./pagination/ListAvailabilityConfigurationsPaginator";
+import { paginateListGroupMembers } from "./pagination/ListGroupMembersPaginator";
+import { paginateListGroupsForEntity } from "./pagination/ListGroupsForEntityPaginator";
+import { paginateListGroups } from "./pagination/ListGroupsPaginator";
+import { paginateListImpersonationRoles } from "./pagination/ListImpersonationRolesPaginator";
+import { paginateListMailboxExportJobs } from "./pagination/ListMailboxExportJobsPaginator";
+import { paginateListMailboxPermissions } from "./pagination/ListMailboxPermissionsPaginator";
+import { paginateListMailDomains } from "./pagination/ListMailDomainsPaginator";
+import { paginateListMobileDeviceAccessOverrides } from "./pagination/ListMobileDeviceAccessOverridesPaginator";
+import { paginateListOrganizations } from "./pagination/ListOrganizationsPaginator";
+import { paginateListPersonalAccessTokens } from "./pagination/ListPersonalAccessTokensPaginator";
+import { paginateListResourceDelegates } from "./pagination/ListResourceDelegatesPaginator";
+import { paginateListResources } from "./pagination/ListResourcesPaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
 import { WorkMailClient } from "./WorkMailClient";
 
 const commands = {
@@ -509,6 +524,23 @@ const commands = {
   UpdatePrimaryEmailAddressCommand,
   UpdateResourceCommand,
   UpdateUserCommand,
+};
+const paginators = {
+  paginateListAliases,
+  paginateListAvailabilityConfigurations,
+  paginateListGroupMembers,
+  paginateListGroups,
+  paginateListGroupsForEntity,
+  paginateListImpersonationRoles,
+  paginateListMailboxExportJobs,
+  paginateListMailboxPermissions,
+  paginateListMailDomains,
+  paginateListMobileDeviceAccessOverrides,
+  paginateListOrganizations,
+  paginateListPersonalAccessTokens,
+  paginateListResourceDelegates,
+  paginateListResources,
+  paginateListUsers,
 };
 
 export interface WorkMail {
@@ -2076,6 +2108,171 @@ export interface WorkMail {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAliasesCommandOutput}.
+   */
+  paginateListAliases(
+    args: ListAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListAvailabilityConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAvailabilityConfigurationsCommandOutput}.
+   */
+  paginateListAvailabilityConfigurations(
+    args: ListAvailabilityConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAvailabilityConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListGroupMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupMembersCommandOutput}.
+   */
+  paginateListGroupMembers(
+    args: ListGroupMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupMembersCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsCommandOutput}.
+   */
+  paginateListGroups(
+    args: ListGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsForEntityCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsForEntityCommandOutput}.
+   */
+  paginateListGroupsForEntity(
+    args: ListGroupsForEntityCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsForEntityCommandOutput>;
+
+  /**
+   * @see {@link ListImpersonationRolesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImpersonationRolesCommandOutput}.
+   */
+  paginateListImpersonationRoles(
+    args: ListImpersonationRolesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImpersonationRolesCommandOutput>;
+
+  /**
+   * @see {@link ListMailboxExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMailboxExportJobsCommandOutput}.
+   */
+  paginateListMailboxExportJobs(
+    args: ListMailboxExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMailboxExportJobsCommandOutput>;
+
+  /**
+   * @see {@link ListMailboxPermissionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMailboxPermissionsCommandOutput}.
+   */
+  paginateListMailboxPermissions(
+    args: ListMailboxPermissionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMailboxPermissionsCommandOutput>;
+
+  /**
+   * @see {@link ListMailDomainsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMailDomainsCommandOutput}.
+   */
+  paginateListMailDomains(
+    args: ListMailDomainsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMailDomainsCommandOutput>;
+
+  /**
+   * @see {@link ListMobileDeviceAccessOverridesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMobileDeviceAccessOverridesCommandOutput}.
+   */
+  paginateListMobileDeviceAccessOverrides(
+    args: ListMobileDeviceAccessOverridesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMobileDeviceAccessOverridesCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationsCommandOutput}.
+   */
+  paginateListOrganizations(
+    args?: ListOrganizationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationsCommandOutput>;
+
+  /**
+   * @see {@link ListPersonalAccessTokensCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPersonalAccessTokensCommandOutput}.
+   */
+  paginateListPersonalAccessTokens(
+    args: ListPersonalAccessTokensCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPersonalAccessTokensCommandOutput>;
+
+  /**
+   * @see {@link ListResourceDelegatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceDelegatesCommandOutput}.
+   */
+  paginateListResourceDelegates(
+    args: ListResourceDelegatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceDelegatesCommandOutput>;
+
+  /**
+   * @see {@link ListResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcesCommandOutput}.
+   */
+  paginateListResources(
+    args: ListResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
 }
 
 /**
@@ -2118,4 +2315,4 @@ export interface WorkMail {
  * @public
  */
 export class WorkMail extends WorkMailClient implements WorkMail {}
-createAggregatedClient(commands, WorkMail);
+createAggregatedClient(commands, WorkMail, { paginators });

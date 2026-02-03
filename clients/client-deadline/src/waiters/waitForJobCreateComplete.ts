@@ -63,7 +63,7 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
   return { state: WaiterState.RETRY, reason };
 };
 /**
- * Wait until a Job is created. Use this after invoking CreateJob.
+ * Wait until a job is created. Use this after invoking CreateJob.
  *  @deprecated Use waitUntilJobCreateComplete instead. waitForJobCreateComplete does not throw error in non-success cases.
  */
 export const waitForJobCreateComplete = async (
@@ -74,7 +74,7 @@ export const waitForJobCreateComplete = async (
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
- * Wait until a Job is created. Use this after invoking CreateJob.
+ * Wait until a job is created. Use this after invoking CreateJob.
  *  @param params - Waiter configuration options.
  *  @param input - The input to GetJobCommand for polling.
  */

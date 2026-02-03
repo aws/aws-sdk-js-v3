@@ -92,6 +92,7 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   NodeJsVersion: "STRING_VALUE",
  * };
  * const command = new CreateScriptCommand(input);
  * const response = await client.send(command);
@@ -109,6 +110,7 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * //       RoleArn: "STRING_VALUE",
  * //       ObjectVersion: "STRING_VALUE",
  * //     },
+ * //     NodeJsVersion: "STRING_VALUE",
  * //   },
  * // };
  *

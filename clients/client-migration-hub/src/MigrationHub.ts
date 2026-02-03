@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateCreatedArtifactCommand,
@@ -108,6 +108,13 @@ import {
   PutResourceAttributesCommandOutput,
 } from "./commands/PutResourceAttributesCommand";
 import { MigrationHubClient } from "./MigrationHubClient";
+import { paginateListApplicationStates } from "./pagination/ListApplicationStatesPaginator";
+import { paginateListCreatedArtifacts } from "./pagination/ListCreatedArtifactsPaginator";
+import { paginateListDiscoveredResources } from "./pagination/ListDiscoveredResourcesPaginator";
+import { paginateListMigrationTasks } from "./pagination/ListMigrationTasksPaginator";
+import { paginateListMigrationTaskUpdates } from "./pagination/ListMigrationTaskUpdatesPaginator";
+import { paginateListProgressUpdateStreams } from "./pagination/ListProgressUpdateStreamsPaginator";
+import { paginateListSourceResources } from "./pagination/ListSourceResourcesPaginator";
 
 const commands = {
   AssociateCreatedArtifactCommand,
@@ -131,6 +138,15 @@ const commands = {
   NotifyApplicationStateCommand,
   NotifyMigrationTaskStateCommand,
   PutResourceAttributesCommand,
+};
+const paginators = {
+  paginateListApplicationStates,
+  paginateListCreatedArtifacts,
+  paginateListDiscoveredResources,
+  paginateListMigrationTasks,
+  paginateListMigrationTaskUpdates,
+  paginateListProgressUpdateStreams,
+  paginateListSourceResources,
 };
 
 export interface MigrationHub {
@@ -493,6 +509,83 @@ export interface MigrationHub {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutResourceAttributesCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListApplicationStatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationStatesCommandOutput}.
+   */
+  paginateListApplicationStates(
+    args?: ListApplicationStatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationStatesCommandOutput>;
+
+  /**
+   * @see {@link ListCreatedArtifactsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCreatedArtifactsCommandOutput}.
+   */
+  paginateListCreatedArtifacts(
+    args: ListCreatedArtifactsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCreatedArtifactsCommandOutput>;
+
+  /**
+   * @see {@link ListDiscoveredResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDiscoveredResourcesCommandOutput}.
+   */
+  paginateListDiscoveredResources(
+    args: ListDiscoveredResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDiscoveredResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListMigrationTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMigrationTasksCommandOutput}.
+   */
+  paginateListMigrationTasks(
+    args?: ListMigrationTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMigrationTasksCommandOutput>;
+
+  /**
+   * @see {@link ListMigrationTaskUpdatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMigrationTaskUpdatesCommandOutput}.
+   */
+  paginateListMigrationTaskUpdates(
+    args: ListMigrationTaskUpdatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMigrationTaskUpdatesCommandOutput>;
+
+  /**
+   * @see {@link ListProgressUpdateStreamsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProgressUpdateStreamsCommandOutput}.
+   */
+  paginateListProgressUpdateStreams(
+    args?: ListProgressUpdateStreamsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProgressUpdateStreamsCommandOutput>;
+
+  /**
+   * @see {@link ListSourceResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSourceResourcesCommandOutput}.
+   */
+  paginateListSourceResources(
+    args: ListSourceResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSourceResourcesCommandOutput>;
 }
 
 /**
@@ -505,4 +598,4 @@ export interface MigrationHub {
  * @public
  */
 export class MigrationHub extends MigrationHubClient implements MigrationHub {}
-createAggregatedClient(commands, MigrationHub);
+createAggregatedClient(commands, MigrationHub, { paginators });

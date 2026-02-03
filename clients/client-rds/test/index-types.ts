@@ -1145,6 +1145,7 @@ export type {
   paginateDescribeDBSnapshotTenantDatabases,
   paginateDescribeDBSnapshots,
   paginateDescribeDBSubnetGroups,
+  paginateDescribeEngineDefaultClusterParameters,
   paginateDescribeEngineDefaultParameters,
   paginateDescribeEventSubscriptions,
   paginateDescribeEvents,

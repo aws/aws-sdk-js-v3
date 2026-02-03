@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declarationDir": "dist-types",
+    "rootDir": "src",
+    "paths": {
+      "@aws-sdk/config/credentials": ["./src/submodules/credentials/index.ts"],
+      "@aws-sdk/config/protocol": ["./src/submodules/protocol/index.ts"],
+      "@aws-sdk/config/requestHandler": ["./src/submodules/requestHandler/index.ts"],
+      "@aws-sdk/config/retryStrategy": ["./src/submodules/retryStrategy/index.ts"],
+      "@aws-sdk/config/typecheck": ["./src/submodules/typecheck/index.ts"],
+      "@aws-sdk/config/logger": ["./src/submodules/logger/index.ts"]
+    }
+  },
+  "extends": "../../tsconfig.types.json",
+  "include": ["src/"]
+}

@@ -28,8 +28,7 @@ export interface DescribeTenantDatabasesCommandInput extends DescribeTenantDatab
 export interface DescribeTenantDatabasesCommandOutput extends TenantDatabasesMessage, __MetadataBearer {}
 
 /**
- * <p>Describes the tenant databases in a DB instance that uses the multi-tenant
- *             configuration. Only RDS for Oracle CDB instances are supported.</p>
+ * <p>Describes the tenant databases in a DB instance that uses the multi-tenant configuration. Only RDS for Oracle CDB instances are supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,8 +96,7 @@ export interface DescribeTenantDatabasesCommandOutput extends TenantDatabasesMes
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

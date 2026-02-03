@@ -181,130 +181,130 @@ var SpaceName: StaticSimpleSchema = [0, n0, _SN, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var BatchAddChannelRoleToAccessorsInput$: StaticStructureSchema = [3, n0, _BACRTAI,
   0,
   [_sI, _cI, _aI, _cR],
-  [[0, 1], [0, 1], 64 | 0, 0]
+  [[0, 1], [0, 1], 64 | 0, 0], 4
 ];
 export var BatchAddChannelRoleToAccessorsOutput$: StaticStructureSchema = [3, n0, _BACRTAO,
   0,
   [_aAI, _er],
-  [64 | 0, () => BatchErrorList]
+  [64 | 0, () => BatchErrorList], 2
 ];
 export var BatchAddRoleInput$: StaticStructureSchema = [3, n0, _BARI,
   0,
   [_sI, _aI, _r],
-  [[0, 1], 64 | 0, 0]
+  [[0, 1], 64 | 0, 0], 3
 ];
 export var BatchAddRoleOutput$: StaticStructureSchema = [3, n0, _BARO,
   0,
   [_aAI, _er],
-  [64 | 0, () => BatchErrorList]
+  [64 | 0, () => BatchErrorList], 2
 ];
 export var BatchError$: StaticStructureSchema = [3, n0, _BE,
   0,
   [_aIc, _e, _m],
-  [0, 1, 0]
+  [0, 1, 0], 3
 ];
 export var BatchRemoveChannelRoleFromAccessorsInput$: StaticStructureSchema = [3, n0, _BRCRFAI,
   0,
   [_sI, _cI, _aI, _cR],
-  [[0, 1], [0, 1], 64 | 0, 0]
+  [[0, 1], [0, 1], 64 | 0, 0], 4
 ];
 export var BatchRemoveChannelRoleFromAccessorsOutput$: StaticStructureSchema = [3, n0, _BRCRFAO,
   0,
   [_rAI, _er],
-  [64 | 0, () => BatchErrorList]
+  [64 | 0, () => BatchErrorList], 2
 ];
 export var BatchRemoveRoleInput$: StaticStructureSchema = [3, n0, _BRRI,
   0,
   [_sI, _aI, _r],
-  [[0, 1], 64 | 0, 0]
+  [[0, 1], 64 | 0, 0], 3
 ];
 export var BatchRemoveRoleOutput$: StaticStructureSchema = [3, n0, _BRRO,
   0,
   [_rAI, _er],
-  [64 | 0, () => BatchErrorList]
+  [64 | 0, () => BatchErrorList], 2
 ];
 export var ChannelData$: StaticStructureSchema = [3, n0, _CDh,
   0,
-  [_sI, _cI, _cN, _cD, _cDT, _dDT, _cS, _uC, _gC],
-  [0, 0, [() => ChannelName, 0], [() => ChannelDescription, 0], 5, 5, 0, 1, 1]
+  [_sI, _cI, _cN, _cDT, _cS, _uC, _gC, _cD, _dDT],
+  [0, 0, [() => ChannelName, 0], 5, 0, 1, 1, [() => ChannelDescription, 0], 5], 7
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateChannelInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
   [_sI, _cN, _cD],
-  [[0, 1], [() => ChannelName, 0], [() => ChannelDescription, 0]]
+  [[0, 1], [() => ChannelName, 0], [() => ChannelDescription, 0]], 2
 ];
 export var CreateChannelOutput$: StaticStructureSchema = [3, n0, _CCO,
   0,
   [_cI],
-  [0]
+  [0], 1
 ];
 export var CreateSpaceInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_n, _s, _t, _d, _uKMSK, _ta, _rA, _sED],
-  [[() => SpaceName, 0], 0, 0, [() => SpaceDescription, 0], 0, [() => Tags, 0], 0, [() => SupportedEmailDomainsParameters$, 0]]
+  [[() => SpaceName, 0], 0, 0, [() => SpaceDescription, 0], 0, [() => Tags, 0], 0, [() => SupportedEmailDomainsParameters$, 0]], 3
 ];
 export var CreateSpaceOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
   [_sI],
-  [0]
+  [0], 1
 ];
 export var DeleteSpaceInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_sI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeregisterAdminInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_sI, _aId],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetChannelInput$: StaticStructureSchema = [3, n0, _GCI,
   0,
   [_sI, _cI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetChannelOutput$: StaticStructureSchema = [3, n0, _GCO,
   0,
-  [_sI, _cI, _cN, _cD, _cDT, _dDT, _cRh, _cS],
-  [0, 0, [() => ChannelName, 0], [() => ChannelDescription, 0], 5, 5, [2, n0, _CR, 0, 0, 64 | 0], 0]
+  [_sI, _cI, _cN, _cDT, _cS, _cD, _dDT, _cRh],
+  [0, 0, [() => ChannelName, 0], 5, 0, [() => ChannelDescription, 0], 5, [2, n0, _CR, 0, 0, 64 | 0]], 5
 ];
 export var GetSpaceInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
   [_sI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSpaceOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
-  [_sI, _a, _n, _st, _cSo, _cIl, _iSI, _aA, _d, _vDS, _vD, _rD, _cRA, _cDT, _dDT, _t, _sL, _uA, _gA, _ro, _uKMSK, _uC, _cSon, _sED],
-  [0, 0, [() => SpaceName, 0], 0, 0, 0, 0, 0, [() => SpaceDescription, 0], 0, 0, 0, 0, 5, 5, 0, 1, 64 | 0, 64 | 0, [2, n0, _R, 0, 0, 64 | 0], 0, 1, 1, [() => SupportedEmailDomainsStatus$, 0]]
+  [_sI, _a, _n, _st, _cSo, _cIl, _vDS, _vD, _rD, _cDT, _t, _sL, _iSI, _aA, _d, _cRA, _dDT, _uA, _gA, _ro, _uKMSK, _uC, _cSon, _sED],
+  [0, 0, [() => SpaceName, 0], 0, 0, 0, 0, 0, 0, 5, 0, 1, 0, 0, [() => SpaceDescription, 0], 0, 5, 64 | 0, 64 | 0, [2, n0, _R, 0, 0, 64 | 0], 0, 1, 1, [() => SupportedEmailDomainsStatus$, 0]], 12
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
+  [0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListChannelsInput$: StaticStructureSchema = [3, n0, _LCI,
   0,
   [_sI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListChannelsOutput$: StaticStructureSchema = [3, n0, _LCO,
   0,
   [_ch, _nT],
-  [[() => ChannelsList, 0], 0]
+  [[() => ChannelsList, 0], 0], 1
 ];
 export var ListSpacesInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
@@ -314,12 +314,12 @@ export var ListSpacesInput$: StaticStructureSchema = [3, n0, _LSI,
 export var ListSpacesOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
   [_sp, _nT],
-  [[() => SpacesList, 0], 0]
+  [[() => SpacesList, 0], 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rAe],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -329,29 +329,29 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var RegisterAdminInput$: StaticStructureSchema = [3, n0, _RAI,
   0,
   [_sI, _aId],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m, _rI, _rT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SendInvitesInput$: StaticStructureSchema = [3, n0, _SII,
   0,
   [_sI, _aI, _ti, _b],
-  [[0, 1], 64 | 0, [() => InviteTitle, 0], [() => InviteBody, 0]]
+  [[0, 1], 64 | 0, [() => InviteTitle, 0], [() => InviteBody, 0]], 4
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0], 5
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SpaceData$: StaticStructureSchema = [3, n0, _SDp,
   0,
-  [_sI, _a, _n, _d, _st, _cSo, _vDS, _vD, _rD, _t, _sL, _cDT, _dDT, _uKMSK, _uC, _cSon, _sED],
-  [0, 0, [() => SpaceName, 0], [() => SpaceDescription, 0], 0, 0, 0, 0, 0, 0, 1, 5, 5, 0, 1, 1, [() => SupportedEmailDomainsStatus$, 0]]
+  [_sI, _a, _n, _st, _cSo, _vDS, _vD, _rD, _t, _sL, _cDT, _d, _dDT, _uKMSK, _uC, _cSon, _sED],
+  [0, 0, [() => SpaceName, 0], 0, 0, 0, 0, 0, 0, 1, 5, [() => SpaceDescription, 0], 5, 0, 1, 1, [() => SupportedEmailDomainsStatus$, 0]], 11
 ];
 export var SupportedEmailDomainsParameters$: StaticStructureSchema = [3, n0, _SEDP,
   0,
@@ -366,7 +366,7 @@ export var SupportedEmailDomainsStatus$: StaticStructureSchema = [3, n0, _SEDS,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAe, _ta],
-  [[0, 1], [() => Tags, 0]]
+  [[0, 1], [() => Tags, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -376,13 +376,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -392,7 +392,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateChannelInput$: StaticStructureSchema = [3, n0, _UCI,
   0,
   [_sI, _cI, _cN, _cD],
-  [[0, 1], [0, 1], [() => ChannelName, 0], [() => ChannelDescription, 0]]
+  [[0, 1], [0, 1], [() => ChannelName, 0], [() => ChannelDescription, 0]], 3
 ];
 export var UpdateChannelOutput$: StaticStructureSchema = [3, n0, _UCO,
   0,
@@ -402,18 +402,18 @@ export var UpdateChannelOutput$: StaticStructureSchema = [3, n0, _UCO,
 export var UpdateSpaceInput$: StaticStructureSchema = [3, n0, _USI,
   0,
   [_sI, _d, _t, _rA, _sED],
-  [[0, 1], [() => SpaceDescription, 0], 0, 0, [() => SupportedEmailDomainsParameters$, 0]]
+  [[0, 1], [() => SpaceDescription, 0], 0, 0, [() => SupportedEmailDomainsParameters$, 0]], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 2
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
-  [0, 0]
+  [0, 0], 2
 ];
 var __Unit = "unit" as const;
 export var RepostspaceServiceException$: StaticErrorSchema = [-3, _sm, "RepostspaceServiceException", 0, [], []];

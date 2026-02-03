@@ -674,7 +674,7 @@ import {
 export var AddTagsToOnPremisesInstancesInput$: StaticStructureSchema = [3, n0, _ATTOPII,
   0,
   [_t, _iN],
-  [() => TagList, 64 | 0]
+  [() => TagList, 64 | 0], 2
 ];
 export var Alarm$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -745,7 +745,7 @@ export var AutoScalingGroup$: StaticStructureSchema = [3, n0, _ASG,
 export var BatchGetApplicationRevisionsInput$: StaticStructureSchema = [3, n0, _BGARI,
   0,
   [_aN, _r],
-  [0, () => RevisionLocationList]
+  [0, () => RevisionLocationList], 2
 ];
 export var BatchGetApplicationRevisionsOutput$: StaticStructureSchema = [3, n0, _BGARO,
   0,
@@ -755,7 +755,7 @@ export var BatchGetApplicationRevisionsOutput$: StaticStructureSchema = [3, n0, 
 export var BatchGetApplicationsInput$: StaticStructureSchema = [3, n0, _BGAI,
   0,
   [_aNp],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetApplicationsOutput$: StaticStructureSchema = [3, n0, _BGAO,
   0,
@@ -765,7 +765,7 @@ export var BatchGetApplicationsOutput$: StaticStructureSchema = [3, n0, _BGAO,
 export var BatchGetDeploymentGroupsInput$: StaticStructureSchema = [3, n0, _BGDGI,
   0,
   [_aN, _dGN],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var BatchGetDeploymentGroupsOutput$: StaticStructureSchema = [3, n0, _BGDGO,
   0,
@@ -775,7 +775,7 @@ export var BatchGetDeploymentGroupsOutput$: StaticStructureSchema = [3, n0, _BGD
 export var BatchGetDeploymentInstancesInput$: StaticStructureSchema = [3, n0, _BGDII,
   0,
   [_dI, _iI],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var BatchGetDeploymentInstancesOutput$: StaticStructureSchema = [3, n0, _BGDIO,
   0,
@@ -785,7 +785,7 @@ export var BatchGetDeploymentInstancesOutput$: StaticStructureSchema = [3, n0, _
 export var BatchGetDeploymentsInput$: StaticStructureSchema = [3, n0, _BGDI,
   0,
   [_dIe],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetDeploymentsOutput$: StaticStructureSchema = [3, n0, _BGDO,
   0,
@@ -795,7 +795,7 @@ export var BatchGetDeploymentsOutput$: StaticStructureSchema = [3, n0, _BGDO,
 export var BatchGetDeploymentTargetsInput$: StaticStructureSchema = [3, n0, _BGDTI,
   0,
   [_dI, _tI],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var BatchGetDeploymentTargetsOutput$: StaticStructureSchema = [3, n0, _BGDTO,
   0,
@@ -805,7 +805,7 @@ export var BatchGetDeploymentTargetsOutput$: StaticStructureSchema = [3, n0, _BG
 export var BatchGetOnPremisesInstancesInput$: StaticStructureSchema = [3, n0, _BGOPII,
   0,
   [_iN],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var BatchGetOnPremisesInstancesOutput$: StaticStructureSchema = [3, n0, _BGOPIO,
   0,
@@ -847,7 +847,7 @@ export var ContinueDeploymentInput$: StaticStructureSchema = [3, n0, _CDI,
 export var CreateApplicationInput$: StaticStructureSchema = [3, n0, _CAI,
   0,
   [_aN, _cP, _t],
-  [0, 0, () => TagList]
+  [0, 0, () => TagList], 1
 ];
 export var CreateApplicationOutput$: StaticStructureSchema = [3, n0, _CAO,
   0,
@@ -857,7 +857,7 @@ export var CreateApplicationOutput$: StaticStructureSchema = [3, n0, _CAO,
 export var CreateDeploymentConfigInput$: StaticStructureSchema = [3, n0, _CDCI,
   0,
   [_dCN, _mHH, _tRC, _cP, _zC],
-  [0, () => MinimumHealthyHosts$, () => TrafficRoutingConfig$, 0, () => ZonalConfig$]
+  [0, () => MinimumHealthyHosts$, () => TrafficRoutingConfig$, 0, () => ZonalConfig$], 1
 ];
 export var CreateDeploymentConfigOutput$: StaticStructureSchema = [3, n0, _CDCO,
   0,
@@ -866,8 +866,8 @@ export var CreateDeploymentConfigOutput$: StaticStructureSchema = [3, n0, _CDCO,
 ];
 export var CreateDeploymentGroupInput$: StaticStructureSchema = [3, n0, _CDGI,
   0,
-  [_aN, _dGNe, _dCN, _eTF, _oPITF, _aSG, _sRA, _tC, _aC, _aRC, _oIS, _dS, _bGDC, _lBI, _eTS, _eS, _oPTS, _t, _tHE],
-  [0, 0, 0, () => EC2TagFilterList, () => TagFilterList, 64 | 0, 0, () => TriggerConfigList, () => AlarmConfiguration$, () => AutoRollbackConfiguration$, 0, () => DeploymentStyle$, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, () => EC2TagSet$, () => ECSServiceList, () => OnPremisesTagSet$, () => TagList, 2]
+  [_aN, _dGNe, _sRA, _dCN, _eTF, _oPITF, _aSG, _tC, _aC, _aRC, _oIS, _dS, _bGDC, _lBI, _eTS, _eS, _oPTS, _t, _tHE],
+  [0, 0, 0, 0, () => EC2TagFilterList, () => TagFilterList, 64 | 0, () => TriggerConfigList, () => AlarmConfiguration$, () => AutoRollbackConfiguration$, 0, () => DeploymentStyle$, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, () => EC2TagSet$, () => ECSServiceList, () => OnPremisesTagSet$, () => TagList, 2], 3
 ];
 export var CreateDeploymentGroupOutput$: StaticStructureSchema = [3, n0, _CDGO,
   0,
@@ -877,7 +877,7 @@ export var CreateDeploymentGroupOutput$: StaticStructureSchema = [3, n0, _CDGO,
 export var CreateDeploymentInput$: StaticStructureSchema = [3, n0, _CDIr,
   0,
   [_aN, _dGNe, _re, _dCN, _d, _iASF, _tIar, _aRC, _uOIO, _fEB, _oAC],
-  [0, 0, () => RevisionLocation$, 0, 0, 2, () => TargetInstances$, () => AutoRollbackConfiguration$, 2, 0, () => AlarmConfiguration$]
+  [0, 0, () => RevisionLocation$, 0, 0, 2, () => TargetInstances$, () => AutoRollbackConfiguration$, 2, 0, () => AlarmConfiguration$], 1
 ];
 export var CreateDeploymentOutput$: StaticStructureSchema = [3, n0, _CDO,
   0,
@@ -887,17 +887,17 @@ export var CreateDeploymentOutput$: StaticStructureSchema = [3, n0, _CDO,
 export var DeleteApplicationInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_aN],
-  [0]
+  [0], 1
 ];
 export var DeleteDeploymentConfigInput$: StaticStructureSchema = [3, n0, _DDCI,
   0,
   [_dCN],
-  [0]
+  [0], 1
 ];
 export var DeleteDeploymentGroupInput$: StaticStructureSchema = [3, n0, _DDGI,
   0,
   [_aN, _dGNe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteDeploymentGroupOutput$: StaticStructureSchema = [3, n0, _DDGO,
   0,
@@ -1070,7 +1070,7 @@ TypeRegistry.for(n0).registerError(DeploymentTargetListSizeExceededException$, D
 export var DeregisterOnPremisesInstanceInput$: StaticStructureSchema = [3, n0, _DOPII,
   0,
   [_iNn],
-  [0]
+  [0], 1
 ];
 export var DescriptionTooLongException$: StaticErrorSchema = [-3, n0, _DTLE,
   { [_er]: _c },
@@ -1132,7 +1132,7 @@ export var GenericRevisionInfo$: StaticStructureSchema = [3, n0, _GRI,
 export var GetApplicationInput$: StaticStructureSchema = [3, n0, _GAI,
   0,
   [_aN],
-  [0]
+  [0], 1
 ];
 export var GetApplicationOutput$: StaticStructureSchema = [3, n0, _GAO,
   0,
@@ -1142,7 +1142,7 @@ export var GetApplicationOutput$: StaticStructureSchema = [3, n0, _GAO,
 export var GetApplicationRevisionInput$: StaticStructureSchema = [3, n0, _GARI,
   0,
   [_aN, _re],
-  [0, () => RevisionLocation$]
+  [0, () => RevisionLocation$], 2
 ];
 export var GetApplicationRevisionOutput$: StaticStructureSchema = [3, n0, _GARO,
   0,
@@ -1152,7 +1152,7 @@ export var GetApplicationRevisionOutput$: StaticStructureSchema = [3, n0, _GARO,
 export var GetDeploymentConfigInput$: StaticStructureSchema = [3, n0, _GDCI,
   0,
   [_dCN],
-  [0]
+  [0], 1
 ];
 export var GetDeploymentConfigOutput$: StaticStructureSchema = [3, n0, _GDCO,
   0,
@@ -1162,7 +1162,7 @@ export var GetDeploymentConfigOutput$: StaticStructureSchema = [3, n0, _GDCO,
 export var GetDeploymentGroupInput$: StaticStructureSchema = [3, n0, _GDGI,
   0,
   [_aN, _dGNe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetDeploymentGroupOutput$: StaticStructureSchema = [3, n0, _GDGO,
   0,
@@ -1172,12 +1172,12 @@ export var GetDeploymentGroupOutput$: StaticStructureSchema = [3, n0, _GDGO,
 export var GetDeploymentInput$: StaticStructureSchema = [3, n0, _GDI,
   0,
   [_dI],
-  [0]
+  [0], 1
 ];
 export var GetDeploymentInstanceInput$: StaticStructureSchema = [3, n0, _GDII,
   0,
   [_dI, _iIns],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetDeploymentInstanceOutput$: StaticStructureSchema = [3, n0, _GDIO,
   0,
@@ -1192,7 +1192,7 @@ export var GetDeploymentOutput$: StaticStructureSchema = [3, n0, _GDO,
 export var GetDeploymentTargetInput$: StaticStructureSchema = [3, n0, _GDTI,
   0,
   [_dI, _tIa],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GetDeploymentTargetOutput$: StaticStructureSchema = [3, n0, _GDTO,
   0,
@@ -1202,7 +1202,7 @@ export var GetDeploymentTargetOutput$: StaticStructureSchema = [3, n0, _GDTO,
 export var GetOnPremisesInstanceInput$: StaticStructureSchema = [3, n0, _GOPII,
   0,
   [_iNn],
-  [0]
+  [0], 1
 ];
 export var GetOnPremisesInstanceOutput$: StaticStructureSchema = [3, n0, _GOPIO,
   0,
@@ -1671,7 +1671,7 @@ TypeRegistry.for(n0).registerError(LifecycleHookLimitExceededException$, Lifecyc
 export var ListApplicationRevisionsInput$: StaticStructureSchema = [3, n0, _LARI,
   0,
   [_aN, _sB, _sO, _sBu, _sKP, _de, _nT],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var ListApplicationRevisionsOutput$: StaticStructureSchema = [3, n0, _LARO,
   0,
@@ -1701,7 +1701,7 @@ export var ListDeploymentConfigsOutput$: StaticStructureSchema = [3, n0, _LDCO,
 export var ListDeploymentGroupsInput$: StaticStructureSchema = [3, n0, _LDGI,
   0,
   [_aN, _nT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListDeploymentGroupsOutput$: StaticStructureSchema = [3, n0, _LDGO,
   0,
@@ -1711,7 +1711,7 @@ export var ListDeploymentGroupsOutput$: StaticStructureSchema = [3, n0, _LDGO,
 export var ListDeploymentInstancesInput$: StaticStructureSchema = [3, n0, _LDII,
   0,
   [_dI, _nT, _iSF, _iTF],
-  [0, 0, 64 | 0, 64 | 0]
+  [0, 0, 64 | 0, 64 | 0], 1
 ];
 export var ListDeploymentInstancesOutput$: StaticStructureSchema = [3, n0, _LDIO,
   0,
@@ -1731,7 +1731,7 @@ export var ListDeploymentsOutput$: StaticStructureSchema = [3, n0, _LDO,
 export var ListDeploymentTargetsInput$: StaticStructureSchema = [3, n0, _LDTI,
   0,
   [_dI, _nT, _tF],
-  [0, 0, [2, n0, _TF, 0, 0, 64 | 0]]
+  [0, 0, [2, n0, _TF, 0, 0, 64 | 0]], 1
 ];
 export var ListDeploymentTargetsOutput$: StaticStructureSchema = [3, n0, _LDTO,
   0,
@@ -1761,7 +1761,7 @@ export var ListOnPremisesInstancesOutput$: StaticStructureSchema = [3, n0, _LOPI
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RA, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -1817,13 +1817,13 @@ export var RawString$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var RegisterApplicationRevisionInput$: StaticStructureSchema = [3, n0, _RARI,
   0,
-  [_aN, _d, _re],
-  [0, 0, () => RevisionLocation$]
+  [_aN, _re, _d],
+  [0, () => RevisionLocation$, 0], 2
 ];
 export var RegisterOnPremisesInstanceInput$: StaticStructureSchema = [3, n0, _ROPII,
   0,
   [_iNn, _iSA, _iUA],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var RelatedDeployments$: StaticStructureSchema = [3, n0, _RD,
   0,
@@ -1833,7 +1833,7 @@ export var RelatedDeployments$: StaticStructureSchema = [3, n0, _RD,
 export var RemoveTagsFromOnPremisesInstancesInput$: StaticStructureSchema = [3, n0, _RTFOPII,
   0,
   [_t, _iN],
-  [() => TagList, 64 | 0]
+  [() => TagList, 64 | 0], 2
 ];
 export var ResourceArnRequiredException$: StaticErrorSchema = [-3, n0, _RARE,
   { [_er]: _c },
@@ -1893,7 +1893,7 @@ export var SkipWaitTimeForInstanceTerminationInput$: StaticStructureSchema = [3,
 export var StopDeploymentInput$: StaticStructureSchema = [3, n0, _SDI,
   0,
   [_dI, _aRE],
-  [0, 2]
+  [0, 2], 1
 ];
 export var StopDeploymentOutput$: StaticStructureSchema = [3, n0, _SDO,
   0,
@@ -1925,7 +1925,7 @@ TypeRegistry.for(n0).registerError(TagRequiredException$, TagRequiredException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -2004,7 +2004,7 @@ TypeRegistry.for(n0).registerError(UnsupportedActionForDeploymentTypeException$,
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -2019,7 +2019,7 @@ export var UpdateApplicationInput$: StaticStructureSchema = [3, n0, _UAI,
 export var UpdateDeploymentGroupInput$: StaticStructureSchema = [3, n0, _UDGI,
   0,
   [_aN, _cDGN, _nDGN, _dCN, _eTF, _oPITF, _aSG, _sRA, _tC, _aC, _aRC, _oIS, _dS, _bGDC, _lBI, _eTS, _eS, _oPTS, _tHE],
-  [0, 0, 0, 0, () => EC2TagFilterList, () => TagFilterList, 64 | 0, 0, () => TriggerConfigList, () => AlarmConfiguration$, () => AutoRollbackConfiguration$, 0, () => DeploymentStyle$, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, () => EC2TagSet$, () => ECSServiceList, () => OnPremisesTagSet$, 2]
+  [0, 0, 0, 0, () => EC2TagFilterList, () => TagFilterList, 64 | 0, 0, () => TriggerConfigList, () => AlarmConfiguration$, () => AutoRollbackConfiguration$, 0, () => DeploymentStyle$, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, () => EC2TagSet$, () => ECSServiceList, () => OnPremisesTagSet$, 2], 2
 ];
 export var UpdateDeploymentGroupOutput$: StaticStructureSchema = [3, n0, _UDGO,
   0,

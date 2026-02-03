@@ -160,38 +160,38 @@ import { SchedulerServiceException } from "../models/SchedulerServiceException";
 export var AwsVpcConfiguration$: StaticStructureSchema = [3, n0, _AVC,
   0,
   [_S, _SG, _API],
-  [64 | 0, 64 | 0, 0]
+  [64 | 0, 64 | 0, 0], 1
 ];
 export var CapacityProviderStrategyItem$: StaticStructureSchema = [3, n0, _CPSI,
   0,
   [_cP, _w, _b],
-  [0, 1, 1]
+  [0, 1, 1], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateScheduleGroupInput$: StaticStructureSchema = [3, n0, _CSGI,
   0,
   [_N, _T, _CT],
-  [[0, 1], () => TagList, [0, 4]]
+  [[0, 1], () => TagList, [0, 4]], 1
 ];
 export var CreateScheduleGroupOutput$: StaticStructureSchema = [3, n0, _CSGO,
   0,
   [_SGA],
-  [0]
+  [0], 1
 ];
 export var CreateScheduleInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
-  [_N, _GN, _SE, _SD, _ED, _D, _SET, _St, _KKA, _Ta, _FTW, _CT, _AAC],
-  [[0, 1], 0, 0, 4, 4, 0, 0, 0, 0, () => Target$, () => FlexibleTimeWindow$, [0, 4], 0]
+  [_N, _SE, _Ta, _FTW, _GN, _SD, _ED, _D, _SET, _St, _KKA, _CT, _AAC],
+  [[0, 1], 0, () => Target$, () => FlexibleTimeWindow$, 0, 4, 4, 0, 0, 0, 0, [0, 4], 0], 4
 ];
 export var CreateScheduleOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var DeadLetterConfig$: StaticStructureSchema = [3, n0, _DLC,
   0,
@@ -201,7 +201,7 @@ export var DeadLetterConfig$: StaticStructureSchema = [3, n0, _DLC,
 export var DeleteScheduleGroupInput$: StaticStructureSchema = [3, n0, _DSGI,
   0,
   [_N, _CT],
-  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]]
+  [[0, 1], [0, { [_hQ]: _cT, [_iT]: 1 }]], 1
 ];
 export var DeleteScheduleGroupOutput$: StaticStructureSchema = [3, n0, _DSGO,
   0,
@@ -211,7 +211,7 @@ export var DeleteScheduleGroupOutput$: StaticStructureSchema = [3, n0, _DSGO,
 export var DeleteScheduleInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_N, _GN, _CT],
-  [[0, 1], [0, { [_hQ]: _gN }], [0, { [_hQ]: _cT, [_iT]: 1 }]]
+  [[0, 1], [0, { [_hQ]: _gN }], [0, { [_hQ]: _cT, [_iT]: 1 }]], 1
 ];
 export var DeleteScheduleOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
@@ -221,22 +221,22 @@ export var DeleteScheduleOutput$: StaticStructureSchema = [3, n0, _DSO,
 export var EcsParameters$: StaticStructureSchema = [3, n0, _EP,
   0,
   [_TDA, _TC, _LT, _NC, _PV, _G, _CPS, _EECSMT, _EEC, _PC, _PS, _PT, _RI, _T],
-  [0, 1, 0, () => NetworkConfiguration$, 0, 0, () => CapacityProviderStrategy, 2, 2, () => PlacementConstraints, () => PlacementStrategies, 0, 0, [1, n0, _T, 0, 128 | 0]]
+  [0, 1, 0, () => NetworkConfiguration$, 0, 0, () => CapacityProviderStrategy, 2, 2, () => PlacementConstraints, () => PlacementStrategies, 0, 0, [1, n0, _T, 0, 128 | 0]], 1
 ];
 export var EventBridgeParameters$: StaticStructureSchema = [3, n0, _EBP,
   0,
   [_DT, _So],
-  [0, 0]
+  [0, 0], 2
 ];
 export var FlexibleTimeWindow$: StaticStructureSchema = [3, n0, _FTW,
   0,
   [_Mo, _MWIM],
-  [0, 1]
+  [0, 1], 1
 ];
 export var GetScheduleGroupInput$: StaticStructureSchema = [3, n0, _GSGI,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetScheduleGroupOutput$: StaticStructureSchema = [3, n0, _GSGO,
   0,
@@ -246,7 +246,7 @@ export var GetScheduleGroupOutput$: StaticStructureSchema = [3, n0, _GSGO,
 export var GetScheduleInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
   [_N, _GN],
-  [[0, 1], [0, { [_hQ]: _gN }]]
+  [[0, 1], [0, { [_hQ]: _gN }]], 1
 ];
 export var GetScheduleOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
@@ -256,13 +256,13 @@ export var GetScheduleOutput$: StaticStructureSchema = [3, n0, _GSO,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KinesisParameters$: StaticStructureSchema = [3, n0, _KP,
   0,
   [_PK],
-  [0]
+  [0], 1
 ];
 export var ListScheduleGroupsInput$: StaticStructureSchema = [3, n0, _LSGI,
   0,
@@ -271,8 +271,8 @@ export var ListScheduleGroupsInput$: StaticStructureSchema = [3, n0, _LSGI,
 ];
 export var ListScheduleGroupsOutput$: StaticStructureSchema = [3, n0, _LSGO,
   0,
-  [_NT, _SGc],
-  [0, () => ScheduleGroupList]
+  [_SGc, _NT],
+  [() => ScheduleGroupList, 0], 1
 ];
 export var ListSchedulesInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
@@ -281,13 +281,13 @@ export var ListSchedulesInput$: StaticStructureSchema = [3, n0, _LSI,
 ];
 export var ListSchedulesOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
-  [_NT, _Sc],
-  [0, () => ScheduleList]
+  [_Sc, _NT],
+  [() => ScheduleList, 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -312,7 +312,7 @@ export var PlacementStrategy$: StaticStructureSchema = [3, n0, _PS,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetryPolicy$: StaticStructureSchema = [3, n0, _RP,
@@ -323,7 +323,7 @@ export var RetryPolicy$: StaticStructureSchema = [3, n0, _RP,
 export var SageMakerPipelineParameter$: StaticStructureSchema = [3, n0, _SMPP,
   0,
   [_N, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SageMakerPipelineParameters$: StaticStructureSchema = [3, n0, _SMPPa,
   0,
@@ -343,7 +343,7 @@ export var ScheduleSummary$: StaticStructureSchema = [3, n0, _SS,
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SqsParameters$: StaticStructureSchema = [3, n0, _SP,
@@ -354,12 +354,12 @@ export var SqsParameters$: StaticStructureSchema = [3, n0, _SP,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RA, _T],
-  [[0, 1], () => TagList]
+  [[0, 1], () => TagList], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -369,23 +369,23 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 export var Target$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_A, _RAo, _DLC, _RP, _I, _EP, _EBP, _KP, _SMPPa, _SP],
-  [0, 0, () => DeadLetterConfig$, () => RetryPolicy$, 0, () => EcsParameters$, () => EventBridgeParameters$, () => KinesisParameters$, () => SageMakerPipelineParameters$, () => SqsParameters$]
+  [0, 0, () => DeadLetterConfig$, () => RetryPolicy$, 0, () => EcsParameters$, () => EventBridgeParameters$, () => KinesisParameters$, () => SageMakerPipelineParameters$, () => SqsParameters$], 2
 ];
 export var TargetSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _TK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _TK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -394,18 +394,18 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateScheduleInput$: StaticStructureSchema = [3, n0, _USI,
   0,
-  [_N, _GN, _SE, _SD, _ED, _D, _SET, _St, _KKA, _Ta, _FTW, _CT, _AAC],
-  [[0, 1], 0, 0, 4, 4, 0, 0, 0, 0, () => Target$, () => FlexibleTimeWindow$, [0, 4], 0]
+  [_N, _SE, _Ta, _FTW, _GN, _SD, _ED, _D, _SET, _St, _KKA, _CT, _AAC],
+  [[0, 1], 0, () => Target$, () => FlexibleTimeWindow$, 0, 4, 4, 0, 0, 0, 0, [0, 4], 0], 4
 ];
 export var UpdateScheduleOutput$: StaticStructureSchema = [3, n0, _USO,
   0,
   [_SA],
-  [0]
+  [0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var SchedulerServiceException$: StaticErrorSchema = [-3, _sm, "SchedulerServiceException", 0, [], []];

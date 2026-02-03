@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptInvitationCommand,
@@ -124,6 +124,11 @@ import {
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
 import { DetectiveClient } from "./DetectiveClient";
+import { paginateListDatasourcePackages } from "./pagination/ListDatasourcePackagesPaginator";
+import { paginateListGraphs } from "./pagination/ListGraphsPaginator";
+import { paginateListInvitations } from "./pagination/ListInvitationsPaginator";
+import { paginateListMembers } from "./pagination/ListMembersPaginator";
+import { paginateListOrganizationAdminAccounts } from "./pagination/ListOrganizationAdminAccountsPaginator";
 
 const commands = {
   AcceptInvitationCommand,
@@ -155,6 +160,13 @@ const commands = {
   UpdateDatasourcePackagesCommand,
   UpdateInvestigationStateCommand,
   UpdateOrganizationConfigurationCommand,
+};
+const paginators = {
+  paginateListDatasourcePackages,
+  paginateListGraphs,
+  paginateListInvitations,
+  paginateListMembers,
+  paginateListOrganizationAdminAccounts,
 };
 
 export interface Detective {
@@ -655,6 +667,61 @@ export interface Detective {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDatasourcePackagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasourcePackagesCommandOutput}.
+   */
+  paginateListDatasourcePackages(
+    args: ListDatasourcePackagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasourcePackagesCommandOutput>;
+
+  /**
+   * @see {@link ListGraphsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGraphsCommandOutput}.
+   */
+  paginateListGraphs(
+    args?: ListGraphsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGraphsCommandOutput>;
+
+  /**
+   * @see {@link ListInvitationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInvitationsCommandOutput}.
+   */
+  paginateListInvitations(
+    args?: ListInvitationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInvitationsCommandOutput>;
+
+  /**
+   * @see {@link ListMembersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMembersCommandOutput}.
+   */
+  paginateListMembers(
+    args: ListMembersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMembersCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationAdminAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationAdminAccountsCommandOutput}.
+   */
+  paginateListOrganizationAdminAccounts(
+    args?: ListOrganizationAdminAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationAdminAccountsCommandOutput>;
 }
 
 /**
@@ -737,4 +804,4 @@ export interface Detective {
  * @public
  */
 export class Detective extends DetectiveClient implements Detective {}
-createAggregatedClient(commands, Detective);
+createAggregatedClient(commands, Detective, { paginators });

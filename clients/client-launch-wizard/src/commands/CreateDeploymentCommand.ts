@@ -27,9 +27,7 @@ export interface CreateDeploymentCommandInput extends CreateDeploymentInput {}
 export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a deployment for the given workload. Deployments created by this operation are
- *          not available in the Launch Wizard console to use the <code>Clone deployment</code> action
- *          on.</p>
+ * <p>Creates a deployment for the given workload. Deployments created by this operation are not available in the Launch Wizard console to use the <code>Clone deployment</code> action on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,12 +63,10 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact
- *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
  *
  * @throws {@link ResourceLimitException} (client fault)
- *  <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many
- *          deployments in progress.</p>
+ *  <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified workload or deployment resource can't be found.</p>
@@ -88,18 +84,19 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * const input = {
  *   deploymentPatternName: "SapHanaSingle",
  *   dryRun: false,
- *   name: "SapHanaSingleForTest",
+ *   name: "TestDeployment1",
  *   specifications: {
- *     DisableDeploymentRollback: "true",
- *     Encryption: "Yes",
- *     KeyName: "testLinuxInstance",
- *     SAPTZ: "America/Vancouver",
- *     VPCID: "vpc-1234567",
- *     applicationName: "SapHanaSingleForTest",
- *     deploymentScenario: "SapHanaSingle",
- *     environmentType: "production",
- *     saveArtifactsS3Uri: "s3://testbucket",
- *     saveDeploymentArtifacts: "Yes"
+ *     CreateSecurityGroup: "No",
+ *     DisableDeploymentRollback: "Yes",
+ *     EnableEbsVolumeEncryption: "Yes",
+ *     KeyPairName: "keyName",
+ *     ProxyServerAddress: "http://xyz.abc.com:8080",
+ *     SapSysGroupId: "5003",
+ *     SapVirtualIPOptIn: "No",
+ *     SaveDeploymentArtifacts: "No",
+ *     SnsTopicArn: "arn:aws:sns:us-east-1:111111222222:snsNameUsEast1.fifo",
+ *     Timezone: "Pacific/Wake",
+ *     VpcId: "vpc-1234566"
  *   },
  *   workloadName: "SAP"
  * };
@@ -118,18 +115,19 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * const input = {
  *   deploymentPatternName: "SapHanaSingle",
  *   dryRun: false,
- *   name: "SapHanaSingleForTest",
+ *   name: "TestDeployment2",
  *   specifications: {
- *     DisableDeploymentRollback: "true",
- *     Encryption: "Yes",
- *     KeyName: "testLinuxInstance",
- *     SAPTZ: "America/Vancouver",
- *     VPCID: "vpc-1234567",
- *     applicationName: "SapHanaSingleForTest",
- *     deploymentScenario: "SapHanaSingle",
- *     environmentType: "production",
- *     saveArtifactsS3Uri: "s3://testbucket",
- *     saveDeploymentArtifacts: "Yes"
+ *     CreateSecurityGroup: "No",
+ *     DisableDeploymentRollback: "Yes",
+ *     EnableEbsVolumeEncryption: "Yes",
+ *     KeyPairName: "keyName",
+ *     ProxyServerAddress: "http://xyz.abc.com:8080",
+ *     SapSysGroupId: "5003",
+ *     SapVirtualIPOptIn: "No",
+ *     SaveDeploymentArtifacts: "No",
+ *     SnsTopicArn: "arn:aws:sns:us-east-1:111111222222:snsNameUsEast1.fifo",
+ *     Timezone: "Pacific/Wake",
+ *     VpcId: "vpc-1234566"
  *   },
  *   tags: {
  *     key1: "val1",

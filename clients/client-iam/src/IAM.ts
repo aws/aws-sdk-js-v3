@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AcceptDelegationRequestCommand,
@@ -795,6 +801,44 @@ import {
   UploadSSHPublicKeyCommandOutput,
 } from "./commands/UploadSSHPublicKeyCommand";
 import { IAMClient } from "./IAMClient";
+import { paginateGetAccountAuthorizationDetails } from "./pagination/GetAccountAuthorizationDetailsPaginator";
+import { paginateGetGroup } from "./pagination/GetGroupPaginator";
+import { paginateListAccessKeys } from "./pagination/ListAccessKeysPaginator";
+import { paginateListAccountAliases } from "./pagination/ListAccountAliasesPaginator";
+import { paginateListAttachedGroupPolicies } from "./pagination/ListAttachedGroupPoliciesPaginator";
+import { paginateListAttachedRolePolicies } from "./pagination/ListAttachedRolePoliciesPaginator";
+import { paginateListAttachedUserPolicies } from "./pagination/ListAttachedUserPoliciesPaginator";
+import { paginateListEntitiesForPolicy } from "./pagination/ListEntitiesForPolicyPaginator";
+import { paginateListGroupPolicies } from "./pagination/ListGroupPoliciesPaginator";
+import { paginateListGroupsForUser } from "./pagination/ListGroupsForUserPaginator";
+import { paginateListGroups } from "./pagination/ListGroupsPaginator";
+import { paginateListInstanceProfilesForRole } from "./pagination/ListInstanceProfilesForRolePaginator";
+import { paginateListInstanceProfiles } from "./pagination/ListInstanceProfilesPaginator";
+import { paginateListInstanceProfileTags } from "./pagination/ListInstanceProfileTagsPaginator";
+import { paginateListMFADevices } from "./pagination/ListMFADevicesPaginator";
+import { paginateListMFADeviceTags } from "./pagination/ListMFADeviceTagsPaginator";
+import { paginateListOpenIDConnectProviderTags } from "./pagination/ListOpenIDConnectProviderTagsPaginator";
+import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
+import { paginateListPolicyTags } from "./pagination/ListPolicyTagsPaginator";
+import { paginateListPolicyVersions } from "./pagination/ListPolicyVersionsPaginator";
+import { paginateListRolePolicies } from "./pagination/ListRolePoliciesPaginator";
+import { paginateListRoles } from "./pagination/ListRolesPaginator";
+import { paginateListRoleTags } from "./pagination/ListRoleTagsPaginator";
+import { paginateListSAMLProviderTags } from "./pagination/ListSAMLProviderTagsPaginator";
+import { paginateListServerCertificates } from "./pagination/ListServerCertificatesPaginator";
+import { paginateListServerCertificateTags } from "./pagination/ListServerCertificateTagsPaginator";
+import { paginateListSigningCertificates } from "./pagination/ListSigningCertificatesPaginator";
+import { paginateListSSHPublicKeys } from "./pagination/ListSSHPublicKeysPaginator";
+import { paginateListUserPolicies } from "./pagination/ListUserPoliciesPaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
+import { paginateListUserTags } from "./pagination/ListUserTagsPaginator";
+import { paginateListVirtualMFADevices } from "./pagination/ListVirtualMFADevicesPaginator";
+import { paginateSimulateCustomPolicy } from "./pagination/SimulateCustomPolicyPaginator";
+import { paginateSimulatePrincipalPolicy } from "./pagination/SimulatePrincipalPolicyPaginator";
+import { waitUntilInstanceProfileExists } from "./waiters/waitForInstanceProfileExists";
+import { waitUntilPolicyExists } from "./waiters/waitForPolicyExists";
+import { waitUntilRoleExists } from "./waiters/waitForRoleExists";
+import { waitUntilUserExists } from "./waiters/waitForUserExists";
 
 const commands = {
   AcceptDelegationRequestCommand,
@@ -973,6 +1017,48 @@ const commands = {
   UploadServerCertificateCommand,
   UploadSigningCertificateCommand,
   UploadSSHPublicKeyCommand,
+};
+const paginators = {
+  paginateGetAccountAuthorizationDetails,
+  paginateGetGroup,
+  paginateListAccessKeys,
+  paginateListAccountAliases,
+  paginateListAttachedGroupPolicies,
+  paginateListAttachedRolePolicies,
+  paginateListAttachedUserPolicies,
+  paginateListEntitiesForPolicy,
+  paginateListGroupPolicies,
+  paginateListGroups,
+  paginateListGroupsForUser,
+  paginateListInstanceProfiles,
+  paginateListInstanceProfilesForRole,
+  paginateListInstanceProfileTags,
+  paginateListMFADevices,
+  paginateListMFADeviceTags,
+  paginateListOpenIDConnectProviderTags,
+  paginateListPolicies,
+  paginateListPolicyTags,
+  paginateListPolicyVersions,
+  paginateListRolePolicies,
+  paginateListRoles,
+  paginateListRoleTags,
+  paginateListSAMLProviderTags,
+  paginateListServerCertificates,
+  paginateListServerCertificateTags,
+  paginateListSigningCertificates,
+  paginateListSSHPublicKeys,
+  paginateListUserPolicies,
+  paginateListUsers,
+  paginateListUserTags,
+  paginateListVirtualMFADevices,
+  paginateSimulateCustomPolicy,
+  paginateSimulatePrincipalPolicy,
+};
+const waiters = {
+  waitUntilInstanceProfileExists,
+  waitUntilPolicyExists,
+  waitUntilRoleExists,
+  waitUntilUserExists,
 };
 
 export interface IAM {
@@ -4003,6 +4089,420 @@ export interface IAM {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UploadSSHPublicKeyCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetAccountAuthorizationDetailsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAccountAuthorizationDetailsCommandOutput}.
+   */
+  paginateGetAccountAuthorizationDetails(
+    args?: GetAccountAuthorizationDetailsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAccountAuthorizationDetailsCommandOutput>;
+
+  /**
+   * @see {@link GetGroupCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetGroupCommandOutput}.
+   */
+  paginateGetGroup(
+    args: GetGroupCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetGroupCommandOutput>;
+
+  /**
+   * @see {@link ListAccessKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessKeysCommandOutput}.
+   */
+  paginateListAccessKeys(
+    args?: ListAccessKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessKeysCommandOutput>;
+
+  /**
+   * @see {@link ListAccountAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountAliasesCommandOutput}.
+   */
+  paginateListAccountAliases(
+    args?: ListAccountAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListAttachedGroupPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttachedGroupPoliciesCommandOutput}.
+   */
+  paginateListAttachedGroupPolicies(
+    args: ListAttachedGroupPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttachedGroupPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListAttachedRolePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttachedRolePoliciesCommandOutput}.
+   */
+  paginateListAttachedRolePolicies(
+    args: ListAttachedRolePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttachedRolePoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListAttachedUserPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAttachedUserPoliciesCommandOutput}.
+   */
+  paginateListAttachedUserPolicies(
+    args: ListAttachedUserPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAttachedUserPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListEntitiesForPolicyCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEntitiesForPolicyCommandOutput}.
+   */
+  paginateListEntitiesForPolicy(
+    args: ListEntitiesForPolicyCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEntitiesForPolicyCommandOutput>;
+
+  /**
+   * @see {@link ListGroupPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupPoliciesCommandOutput}.
+   */
+  paginateListGroupPolicies(
+    args: ListGroupPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsCommandOutput}.
+   */
+  paginateListGroups(
+    args?: ListGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsCommandOutput>;
+
+  /**
+   * @see {@link ListGroupsForUserCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGroupsForUserCommandOutput}.
+   */
+  paginateListGroupsForUser(
+    args: ListGroupsForUserCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGroupsForUserCommandOutput>;
+
+  /**
+   * @see {@link ListInstanceProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstanceProfilesCommandOutput}.
+   */
+  paginateListInstanceProfiles(
+    args?: ListInstanceProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstanceProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListInstanceProfilesForRoleCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstanceProfilesForRoleCommandOutput}.
+   */
+  paginateListInstanceProfilesForRole(
+    args: ListInstanceProfilesForRoleCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstanceProfilesForRoleCommandOutput>;
+
+  /**
+   * @see {@link ListInstanceProfileTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstanceProfileTagsCommandOutput}.
+   */
+  paginateListInstanceProfileTags(
+    args: ListInstanceProfileTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstanceProfileTagsCommandOutput>;
+
+  /**
+   * @see {@link ListMFADevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMFADevicesCommandOutput}.
+   */
+  paginateListMFADevices(
+    args?: ListMFADevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMFADevicesCommandOutput>;
+
+  /**
+   * @see {@link ListMFADeviceTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMFADeviceTagsCommandOutput}.
+   */
+  paginateListMFADeviceTags(
+    args: ListMFADeviceTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMFADeviceTagsCommandOutput>;
+
+  /**
+   * @see {@link ListOpenIDConnectProviderTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOpenIDConnectProviderTagsCommandOutput}.
+   */
+  paginateListOpenIDConnectProviderTags(
+    args: ListOpenIDConnectProviderTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOpenIDConnectProviderTagsCommandOutput>;
+
+  /**
+   * @see {@link ListPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPoliciesCommandOutput}.
+   */
+  paginateListPolicies(
+    args?: ListPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyTagsCommandOutput}.
+   */
+  paginateListPolicyTags(
+    args: ListPolicyTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyTagsCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyVersionsCommandOutput}.
+   */
+  paginateListPolicyVersions(
+    args: ListPolicyVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListRolePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRolePoliciesCommandOutput}.
+   */
+  paginateListRolePolicies(
+    args: ListRolePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRolePoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListRolesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRolesCommandOutput}.
+   */
+  paginateListRoles(
+    args?: ListRolesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRolesCommandOutput>;
+
+  /**
+   * @see {@link ListRoleTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoleTagsCommandOutput}.
+   */
+  paginateListRoleTags(
+    args: ListRoleTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoleTagsCommandOutput>;
+
+  /**
+   * @see {@link ListSAMLProviderTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSAMLProviderTagsCommandOutput}.
+   */
+  paginateListSAMLProviderTags(
+    args: ListSAMLProviderTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSAMLProviderTagsCommandOutput>;
+
+  /**
+   * @see {@link ListServerCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServerCertificatesCommandOutput}.
+   */
+  paginateListServerCertificates(
+    args?: ListServerCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServerCertificatesCommandOutput>;
+
+  /**
+   * @see {@link ListServerCertificateTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServerCertificateTagsCommandOutput}.
+   */
+  paginateListServerCertificateTags(
+    args: ListServerCertificateTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServerCertificateTagsCommandOutput>;
+
+  /**
+   * @see {@link ListSigningCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSigningCertificatesCommandOutput}.
+   */
+  paginateListSigningCertificates(
+    args?: ListSigningCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSigningCertificatesCommandOutput>;
+
+  /**
+   * @see {@link ListSSHPublicKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSSHPublicKeysCommandOutput}.
+   */
+  paginateListSSHPublicKeys(
+    args?: ListSSHPublicKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSSHPublicKeysCommandOutput>;
+
+  /**
+   * @see {@link ListUserPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUserPoliciesCommandOutput}.
+   */
+  paginateListUserPolicies(
+    args: ListUserPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUserPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args?: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
+
+  /**
+   * @see {@link ListUserTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUserTagsCommandOutput}.
+   */
+  paginateListUserTags(
+    args: ListUserTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUserTagsCommandOutput>;
+
+  /**
+   * @see {@link ListVirtualMFADevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVirtualMFADevicesCommandOutput}.
+   */
+  paginateListVirtualMFADevices(
+    args?: ListVirtualMFADevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVirtualMFADevicesCommandOutput>;
+
+  /**
+   * @see {@link SimulateCustomPolicyCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SimulateCustomPolicyCommandOutput}.
+   */
+  paginateSimulateCustomPolicy(
+    args: SimulateCustomPolicyCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SimulateCustomPolicyCommandOutput>;
+
+  /**
+   * @see {@link SimulatePrincipalPolicyCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SimulatePrincipalPolicyCommandOutput}.
+   */
+  paginateSimulatePrincipalPolicy(
+    args: SimulatePrincipalPolicyCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SimulatePrincipalPolicyCommandOutput>;
+
+  /**
+   * @see {@link GetInstanceProfileCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilInstanceProfileExists(
+    args: GetInstanceProfileCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<IAM>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetPolicyCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilPolicyExists(
+    args: GetPolicyCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<IAM>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetRoleCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilRoleExists(
+    args: GetRoleCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<IAM>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetUserCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilUserExists(
+    args: GetUserCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<IAM>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -4014,4 +4514,4 @@ export interface IAM {
  * @public
  */
 export class IAM extends IAMClient implements IAM {}
-createAggregatedClient(commands, IAM);
+createAggregatedClient(commands, IAM, { paginators, waiters });

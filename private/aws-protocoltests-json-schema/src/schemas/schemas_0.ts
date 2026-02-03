@@ -215,7 +215,7 @@ export var GreetingWithErrorsOutput$: StaticStructureSchema = [3, n0, _GWEO,
 export var HostLabelInput$: StaticStructureSchema = [3, n0, _HLI,
   0,
   [_l],
-  [[0, { [_hL]: 1 }]]
+  [[0, { [_hL]: 1 }]], 1
 ];
 export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
   { [_e]: _c },

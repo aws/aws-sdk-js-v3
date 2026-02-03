@@ -184,28 +184,28 @@ var SignalResponse: StaticSimpleSchema = [0, n0, _SRi, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AddStreamGroupLocationsInput$: StaticStructureSchema = [3, n0, _ASGLI,
   0,
   [_I, _LC],
-  [[0, 1], () => LocationConfigurations]
+  [[0, 1], () => LocationConfigurations], 2
 ];
 export var AddStreamGroupLocationsOutput$: StaticStructureSchema = [3, n0, _ASGLO,
   0,
   [_I, _L],
-  [0, () => LocationStates]
+  [0, () => LocationStates], 2
 ];
 export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_A, _Id, _D, _S, _CA, _LUA, _RE],
-  [0, 0, 0, 0, 4, 4, () => RuntimeEnvironment$]
+  [0, 0, 0, 0, 4, 4, () => RuntimeEnvironment$], 1
 ];
 export var AssociateApplicationsInput$: StaticStructureSchema = [3, n0, _AAI,
   0,
   [_I, _AI],
-  [[0, 1], 64 | 0]
+  [[0, 1], 64 | 0], 2
 ];
 export var AssociateApplicationsOutput$: StaticStructureSchema = [3, n0, _AAO,
   0,
@@ -215,33 +215,33 @@ export var AssociateApplicationsOutput$: StaticStructureSchema = [3, n0, _AAO,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationInput$: StaticStructureSchema = [3, n0, _CAI,
   0,
   [_D, _RE, _EP, _ASU, _ALP, _ALOU, _T, _CT],
-  [0, () => RuntimeEnvironment$, 0, 0, 64 | 0, 0, 128 | 0, [0, 4]]
+  [0, () => RuntimeEnvironment$, 0, 0, 64 | 0, 0, 128 | 0, [0, 4]], 4
 ];
 export var CreateApplicationOutput$: StaticStructureSchema = [3, n0, _CAO,
   0,
   [_A, _D, _RE, _EP, _ALP, _ALOU, _ASU, _Id, _S, _SRt, _RS, _CA, _LUA, _ASG],
-  [0, 0, () => RuntimeEnvironment$, 0, 64 | 0, 0, 0, 0, 0, 0, () => ReplicationStatuses, 4, 4, 64 | 0]
+  [0, 0, () => RuntimeEnvironment$, 0, 64 | 0, 0, 0, 0, 0, 0, () => ReplicationStatuses, 4, 4, 64 | 0], 1
 ];
 export var CreateStreamGroupInput$: StaticStructureSchema = [3, n0, _CSGI,
   0,
   [_D, _SC, _DAI, _LC, _T, _CT],
-  [0, 0, 0, () => LocationConfigurations, 128 | 0, [0, 4]]
+  [0, 0, 0, () => LocationConfigurations, 128 | 0, [0, 4]], 2
 ];
 export var CreateStreamGroupOutput$: StaticStructureSchema = [3, n0, _CSGO,
   0,
   [_A, _D, _DA, _LS, _SC, _Id, _S, _SRt, _LUA, _CA, _EA, _AAs],
-  [0, 0, () => DefaultApplication$, () => LocationStates, 0, 0, 0, 0, 4, 4, 4, 64 | 0]
+  [0, 0, () => DefaultApplication$, () => LocationStates, 0, 0, 0, 0, 4, 4, 4, 64 | 0], 1
 ];
 export var CreateStreamSessionConnectionInput$: StaticStructureSchema = [3, n0, _CSSCI,
   0,
-  [_CT, _I, _SSI, _SR],
-  [[0, 4], [0, 1], [0, 1], [() => SignalRequest, 0]]
+  [_I, _SSI, _SR, _CT],
+  [[0, 1], [0, 1], [() => SignalRequest, 0], [0, 4]], 3
 ];
 export var CreateStreamSessionConnectionOutput$: StaticStructureSchema = [3, n0, _CSSCO,
   0,
@@ -256,17 +256,17 @@ export var DefaultApplication$: StaticStructureSchema = [3, n0, _DA,
 export var DeleteApplicationInput$: StaticStructureSchema = [3, n0, _DAIe,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteStreamGroupInput$: StaticStructureSchema = [3, n0, _DSGI,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DisassociateApplicationsInput$: StaticStructureSchema = [3, n0, _DAIi,
   0,
   [_I, _AI],
-  [[0, 1], 64 | 0]
+  [[0, 1], 64 | 0], 2
 ];
 export var DisassociateApplicationsOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
@@ -281,7 +281,7 @@ export var ExportFilesMetadata$: StaticStructureSchema = [3, n0, _EFM,
 export var ExportStreamSessionFilesInput$: StaticStructureSchema = [3, n0, _ESSFI,
   0,
   [_I, _SSI, _OU],
-  [[0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], 0], 3
 ];
 export var ExportStreamSessionFilesOutput$: StaticStructureSchema = [3, n0, _ESSFO,
   0,
@@ -291,27 +291,27 @@ export var ExportStreamSessionFilesOutput$: StaticStructureSchema = [3, n0, _ESS
 export var GetApplicationInput$: StaticStructureSchema = [3, n0, _GAI,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApplicationOutput$: StaticStructureSchema = [3, n0, _GAO,
   0,
   [_A, _D, _RE, _EP, _ALP, _ALOU, _ASU, _Id, _S, _SRt, _RS, _CA, _LUA, _ASG],
-  [0, 0, () => RuntimeEnvironment$, 0, 64 | 0, 0, 0, 0, 0, 0, () => ReplicationStatuses, 4, 4, 64 | 0]
+  [0, 0, () => RuntimeEnvironment$, 0, 64 | 0, 0, 0, 0, 0, 0, () => ReplicationStatuses, 4, 4, 64 | 0], 1
 ];
 export var GetStreamGroupInput$: StaticStructureSchema = [3, n0, _GSGI,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetStreamGroupOutput$: StaticStructureSchema = [3, n0, _GSGO,
   0,
   [_A, _D, _DA, _LS, _SC, _Id, _S, _SRt, _LUA, _CA, _EA, _AAs],
-  [0, 0, () => DefaultApplication$, () => LocationStates, 0, 0, 0, 0, 4, 4, 4, 64 | 0]
+  [0, 0, () => DefaultApplication$, () => LocationStates, 0, 0, 0, 0, 4, 4, 4, 64 | 0], 1
 ];
 export var GetStreamSessionInput$: StaticStructureSchema = [3, n0, _GSSI,
   0,
   [_I, _SSI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetStreamSessionOutput$: StaticStructureSchema = [3, n0, _GSSO,
   0,
@@ -321,7 +321,7 @@ export var GetStreamSessionOutput$: StaticStructureSchema = [3, n0, _GSSO,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListApplicationsInput$: StaticStructureSchema = [3, n0, _LAI,
@@ -356,8 +356,8 @@ export var ListStreamSessionsByAccountOutput$: StaticStructureSchema = [3, n0, _
 ];
 export var ListStreamSessionsInput$: StaticStructureSchema = [3, n0, _LSSI,
   0,
-  [_S, _EFS, _NT, _MR, _I],
-  [[0, { [_hQ]: _S }], [0, { [_hQ]: _EFS }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, 1]]
+  [_I, _S, _EFS, _NT, _MR],
+  [[0, 1], [0, { [_hQ]: _S }], [0, { [_hQ]: _EFS }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var ListStreamSessionsOutput$: StaticStructureSchema = [3, n0, _LSSO,
   0,
@@ -367,7 +367,7 @@ export var ListStreamSessionsOutput$: StaticStructureSchema = [3, n0, _LSSO,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -377,7 +377,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var LocationConfiguration$: StaticStructureSchema = [3, n0, _LCo,
   0,
   [_LN, _AOC, _ODC, _TIC, _MC],
-  [0, 1, 1, 1, 1]
+  [0, 1, 1, 1, 1], 1
 ];
 export var LocationState$: StaticStructureSchema = [3, n0, _LSo,
   0,
@@ -392,7 +392,7 @@ export var PerformanceStatsConfiguration$: StaticStructureSchema = [3, n0, _PSC,
 export var RemoveStreamGroupLocationsInput$: StaticStructureSchema = [3, n0, _RSGLI,
   0,
   [_I, _L],
-  [[0, 1], [64 | 0, { [_hQ]: _l }]]
+  [[0, 1], [64 | 0, { [_hQ]: _l }]], 2
 ];
 export var ReplicationStatus$: StaticStructureSchema = [3, n0, _RSe,
   0,
@@ -402,24 +402,24 @@ export var ReplicationStatus$: StaticStructureSchema = [3, n0, _RSe,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RuntimeEnvironment$: StaticStructureSchema = [3, n0, _RE,
   0,
   [_Ty, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartStreamSessionInput$: StaticStructureSchema = [3, n0, _SSSI,
   0,
-  [_CT, _D, _I, _P, _SR, _AIp, _UI, _L, _CTS, _SLS, _ALA, _AEV, _PSC],
-  [[0, 4], 0, [0, 1], 0, [() => SignalRequest, 0], 0, 0, 64 | 0, 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$]
+  [_I, _P, _SR, _AIp, _CT, _D, _UI, _L, _CTS, _SLS, _ALA, _AEV, _PSC],
+  [[0, 1], 0, [() => SignalRequest, 0], 0, [0, 4], 0, 0, 64 | 0, 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$], 4
 ];
 export var StartStreamSessionOutput$: StaticStructureSchema = [3, n0, _SSSO,
   0,
@@ -429,7 +429,7 @@ export var StartStreamSessionOutput$: StaticStructureSchema = [3, n0, _SSSO,
 export var StreamGroupSummary$: StaticStructureSchema = [3, n0, _SGS,
   0,
   [_A, _Id, _D, _DA, _SC, _S, _CA, _LUA, _EA],
-  [0, 0, 0, () => DefaultApplication$, 0, 0, 4, 4, 4]
+  [0, 0, 0, () => DefaultApplication$, 0, 0, 4, 4, 4], 1
 ];
 export var StreamSessionSummary$: StaticStructureSchema = [3, n0, _SSS,
   0,
@@ -439,7 +439,7 @@ export var StreamSessionSummary$: StaticStructureSchema = [3, n0, _SSS,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -449,18 +449,18 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var TerminateStreamSessionInput$: StaticStructureSchema = [3, n0, _TSSI,
   0,
   [_I, _SSI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -470,27 +470,27 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateApplicationInput$: StaticStructureSchema = [3, n0, _UAI,
   0,
   [_I, _D, _ALP, _ALOU],
-  [[0, 1], 0, 64 | 0, 0]
+  [[0, 1], 0, 64 | 0, 0], 1
 ];
 export var UpdateApplicationOutput$: StaticStructureSchema = [3, n0, _UAO,
   0,
   [_A, _D, _RE, _EP, _ALP, _ALOU, _ASU, _Id, _S, _SRt, _RS, _CA, _LUA, _ASG],
-  [0, 0, () => RuntimeEnvironment$, 0, 64 | 0, 0, 0, 0, 0, 0, () => ReplicationStatuses, 4, 4, 64 | 0]
+  [0, 0, () => RuntimeEnvironment$, 0, 64 | 0, 0, 0, 0, 0, 0, () => ReplicationStatuses, 4, 4, 64 | 0], 1
 ];
 export var UpdateStreamGroupInput$: StaticStructureSchema = [3, n0, _USGI,
   0,
   [_I, _LC, _D, _DAI],
-  [[0, 1], () => LocationConfigurations, 0, 0]
+  [[0, 1], () => LocationConfigurations, 0, 0], 1
 ];
 export var UpdateStreamGroupOutput$: StaticStructureSchema = [3, n0, _USGO,
   0,
   [_A, _D, _DA, _LS, _SC, _Id, _S, _SRt, _LUA, _CA, _EA, _AAs],
-  [0, 0, () => DefaultApplication$, () => LocationStates, 0, 0, 0, 0, 4, 4, 4, 64 | 0]
+  [0, 0, () => DefaultApplication$, () => LocationStates, 0, 0, 0, 0, 4, 4, 4, 64 | 0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;

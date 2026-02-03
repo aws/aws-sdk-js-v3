@@ -495,6 +495,12 @@ export interface CollectionDetail {
    * @public
    */
   failureMessage?: string | undefined;
+
+  /**
+   * <p>The name of the collection group that contains this collection.</p>
+   * @public
+   */
+  collectionGroupName?: string | undefined;
 }
 
 /**
@@ -542,6 +548,178 @@ export interface BatchGetCollectionResponse {
    * @public
    */
   collectionErrorDetails?: CollectionErrorDetail[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCollectionGroupRequest {
+  /**
+   * <p>A list of collection group IDs. You can't provide names and IDs in the same request.</p>
+   * @public
+   */
+  ids?: string[] | undefined;
+
+  /**
+   * <p>A list of collection group names. You can't provide names and IDs in the same request.</p>
+   * @public
+   */
+  names?: string[] | undefined;
+}
+
+/**
+ * <p>Capacity limits for a collection group. These limits define the minimum and maximum OpenSearch Compute Units (OCUs) for indexing and search operations that can be used by collections in the group.</p>
+ * @public
+ */
+export interface CollectionGroupCapacityLimits {
+  /**
+   * <p>The maximum indexing capacity for collections in the group.</p>
+   * @public
+   */
+  maxIndexingCapacityInOCU?: number | undefined;
+
+  /**
+   * <p>The maximum search capacity for collections in the group.</p>
+   * @public
+   */
+  maxSearchCapacityInOCU?: number | undefined;
+
+  /**
+   * <p>The minimum indexing capacity for collections in the group.</p>
+   * @public
+   */
+  minIndexingCapacityInOCU?: number | undefined;
+
+  /**
+   * <p>The minimum search capacity for collections in the group.</p>
+   * @public
+   */
+  minSearchCapacityInOCU?: number | undefined;
+}
+
+/**
+ * <p>A map of key-value pairs associated to an OpenSearch Serverless resource.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The key to use in the tag.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of the tag.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * <p>Details about a collection group.</p>
+ * @public
+ */
+export interface CollectionGroupDetail {
+  /**
+   * <p>The unique identifier of the collection group.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the collection group.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the collection group.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Indicates whether standby replicas are used for the collection group.</p>
+   * @public
+   */
+  standbyReplicas?: StandbyReplicas | undefined;
+
+  /**
+   * <p>The description of the collection group.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A map of key-value pairs associated with the collection group.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Epoch time when the collection group was created.</p>
+   * @public
+   */
+  createdDate?: number | undefined;
+
+  /**
+   * <p>The capacity limits for the collection group, in OpenSearch Compute Units (OCUs).</p>
+   * @public
+   */
+  capacityLimits?: CollectionGroupCapacityLimits | undefined;
+
+  /**
+   * <p>The number of collections associated with the collection group.</p>
+   * @public
+   */
+  numberOfCollections?: number | undefined;
+}
+
+/**
+ * <p>Error details for a collection group operation.</p>
+ * @public
+ */
+export interface CollectionGroupErrorDetail {
+  /**
+   * <p>If the request contains collection group IDs, the response includes the IDs provided in the request.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>If the request contains collection group names, the response includes the names provided in the request.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the error. For example, <code>The specified Collection Group is not found.</code> </p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p>The error code for the request. For example, <code>NOT_FOUND</code>.</p>
+   * @public
+   */
+  errorCode?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCollectionGroupResponse {
+  /**
+   * <p>Details about each collection group.</p>
+   * @public
+   */
+  collectionGroupDetails?: CollectionGroupDetail[] | undefined;
+
+  /**
+   * <p>Error information for the request.</p>
+   * @public
+   */
+  collectionGroupErrorDetails?: CollectionGroupErrorDetail[] | undefined;
 }
 
 /**
@@ -899,21 +1077,21 @@ export interface BatchGetVpcEndpointResponse {
 }
 
 /**
- * <p>A map of key-value pairs associated to an OpenSearch Serverless resource.</p>
+ * <p>Encryption settings for a collection.</p>
  * @public
  */
-export interface Tag {
+export interface EncryptionConfig {
   /**
-   * <p>The key to use in the tag.</p>
+   * <p>Indicates whether to use an Amazon Web Services-owned key for encryption.</p>
    * @public
    */
-  key: string | undefined;
+  aWSOwnedKey?: boolean | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * <p>The ARN of the Amazon Web Services Key Management Service key used to encrypt the collection.</p>
    * @public
    */
-  value: string | undefined;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -955,6 +1133,18 @@ export interface CreateCollectionRequest {
    * @public
    */
   vectorOptions?: VectorOptions | undefined;
+
+  /**
+   * <p>The name of the collection group to associate with the collection.</p>
+   * @public
+   */
+  collectionGroupName?: string | undefined;
+
+  /**
+   * <p>Encryption settings for the collection.</p>
+   * @public
+   */
+  encryptionConfig?: EncryptionConfig | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
@@ -1033,6 +1223,12 @@ export interface CreateCollectionDetail {
    * @public
    */
   lastModifiedDate?: number | undefined;
+
+  /**
+   * <p>The name of the collection group that contains this collection.</p>
+   * @public
+   */
+  collectionGroupName?: string | undefined;
 }
 
 /**
@@ -1114,6 +1310,12 @@ export interface CollectionFilters {
    * @public
    */
   status?: CollectionStatus | undefined;
+
+  /**
+   * <p>The name of the collection group to filter by.</p>
+   * @public
+   */
+  collectionGroupName?: string | undefined;
 }
 
 /**
@@ -1167,6 +1369,18 @@ export interface CollectionSummary {
    * @public
    */
   arn?: string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Web Services Key Management Service key used to encrypt the collection.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The name of the collection group that contains this collection.</p>
+   * @public
+   */
+  collectionGroupName?: string | undefined;
 }
 
 /**
@@ -1272,6 +1486,298 @@ export interface UpdateCollectionResponse {
    * @public
    */
   updateCollectionDetail?: UpdateCollectionDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCollectionGroupRequest {
+  /**
+   * <p>The name of the collection group.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Indicates whether standby replicas should be used for a collection group.</p>
+   * @public
+   */
+  standbyReplicas: StandbyReplicas | undefined;
+
+  /**
+   * <p>A description of the collection group.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Serverless collection group.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>The capacity limits for the collection group, in OpenSearch Compute Units (OCUs). These limits control the maximum and minimum capacity for collections within the group.</p>
+   * @public
+   */
+  capacityLimits?: CollectionGroupCapacityLimits | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Details about the created collection group.</p>
+ * @public
+ */
+export interface CreateCollectionGroupDetail {
+  /**
+   * <p>The unique identifier of the collection group.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the collection group.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the collection group.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Indicates whether standby replicas are used for the collection group.</p>
+   * @public
+   */
+  standbyReplicas?: StandbyReplicas | undefined;
+
+  /**
+   * <p>The description of the collection group.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A map of key-value pairs associated with the collection group.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Epoch time when the collection group was created.</p>
+   * @public
+   */
+  createdDate?: number | undefined;
+
+  /**
+   * <p>The capacity limits for the collection group, in OpenSearch Compute Units (OCUs).</p>
+   * @public
+   */
+  capacityLimits?: CollectionGroupCapacityLimits | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCollectionGroupResponse {
+  /**
+   * <p>Details about the created collection group.</p>
+   * @public
+   */
+  createCollectionGroupDetail?: CreateCollectionGroupDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCollectionGroupRequest {
+  /**
+   * <p>The unique identifier of the collection group to delete.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCollectionGroupResponse {}
+
+/**
+ * @public
+ */
+export interface ListCollectionGroupsRequest {
+  /**
+   * <p>If your initial <code>ListCollectionGroups</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListCollectionGroups</code> operations, which returns results in the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Default is 20. You can use <code>nextToken</code> to get the next page of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about a collection group.</p>
+ * @public
+ */
+export interface CollectionGroupSummary {
+  /**
+   * <p>The unique identifier of the collection group.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the collection group.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the collection group.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The number of collections within the collection group.</p>
+   * @public
+   */
+  numberOfCollections?: number | undefined;
+
+  /**
+   * <p>The Epoch time when the collection group was created.</p>
+   * @public
+   */
+  createdDate?: number | undefined;
+
+  /**
+   * <p>Capacity limits for a collection group. These limits define the minimum and maximum OpenSearch Compute Units (OCUs) for indexing and search operations that can be used by collections in the group.</p>
+   * @public
+   */
+  capacityLimits?: CollectionGroupCapacityLimits | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCollectionGroupsResponse {
+  /**
+   * <p>Details about each collection group.</p>
+   * @public
+   */
+  collectionGroupSummaries?: CollectionGroupSummary[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCollectionGroupRequest {
+  /**
+   * <p>The unique identifier of the collection group to update.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>A new description for the collection group.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Updated capacity limits for the collection group, in OpenSearch Compute Units (OCUs).</p>
+   * @public
+   */
+  capacityLimits?: CollectionGroupCapacityLimits | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Details about the updated collection group.</p>
+ * @public
+ */
+export interface UpdateCollectionGroupDetail {
+  /**
+   * <p>The unique identifier of the collection group.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the collection group.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The name of the collection group.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the collection group.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The capacity limits for the collection group, in OpenSearch Compute Units (OCUs).</p>
+   * @public
+   */
+  capacityLimits?: CollectionGroupCapacityLimits | undefined;
+
+  /**
+   * <p>The Epoch time when the collection group was created.</p>
+   * @public
+   */
+  createdDate?: number | undefined;
+
+  /**
+   * <p>The date and time when the collection group was last modified.</p>
+   * @public
+   */
+  lastModifiedDate?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCollectionGroupResponse {
+  /**
+   * <p>Details about the updated collection group.</p>
+   * @public
+   */
+  updateCollectionGroupDetail?: UpdateCollectionGroupDetail | undefined;
 }
 
 /**
@@ -1449,13 +1955,13 @@ export interface CreateSecurityConfigRequest {
   description?: string | undefined;
 
   /**
-   * <p>Describes SAML options in in the form of a key-value map. This field is required if you specify <code>SAML</code> for the <code>type</code> parameter.</p>
+   * <p>Describes SAML options in the form of a key-value map. This field is required if you specify <code>SAML</code> for the <code>type</code> parameter.</p>
    * @public
    */
   samlOptions?: SamlConfigOptions | undefined;
 
   /**
-   * <p>Describes IAM Identity Center options in the form of a key-value map. This field is required if you specify iamidentitycenter for the type parameter.</p>
+   * <p>Describes IAM Identity Center options in the form of a key-value map. This field is required if you specify <code>iamidentitycenter</code> for the <code>type</code> parameter.</p>
    * @public
    */
   iamIdentityCenterOptions?: CreateIamIdentityCenterConfigOptions | undefined;

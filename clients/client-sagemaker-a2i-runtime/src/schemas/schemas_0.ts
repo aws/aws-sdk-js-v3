@@ -74,7 +74,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DeleteHumanLoopRequest$: StaticStructureSchema = [3, n0, _DHLR,
   0,
   [_HLN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteHumanLoopResponse$: StaticStructureSchema = [3, n0, _DHLRe,
   0,
@@ -84,27 +84,27 @@ export var DeleteHumanLoopResponse$: StaticStructureSchema = [3, n0, _DHLRe,
 export var DescribeHumanLoopRequest$: StaticStructureSchema = [3, n0, _DHLRes,
   0,
   [_HLN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeHumanLoopResponse$: StaticStructureSchema = [3, n0, _DHLResc,
   0,
-  [_CT, _FR, _FC, _HLS, _HLN, _HLA, _FDA, _HLO],
-  [5, 0, 0, 0, 0, 0, 0, () => HumanLoopOutput$]
+  [_CT, _HLS, _HLN, _HLA, _FDA, _FR, _FC, _HLO],
+  [5, 0, 0, 0, 0, 0, 0, () => HumanLoopOutput$], 5
 ];
 export var HumanLoopDataAttributes$: StaticStructureSchema = [3, n0, _HLDA,
   0,
   [_CC],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var HumanLoopInput$: StaticStructureSchema = [3, n0, _HLI,
   0,
   [_IC],
-  [0]
+  [0], 1
 ];
 export var HumanLoopOutput$: StaticStructureSchema = [3, n0, _HLO,
   0,
   [_OSU],
-  [0]
+  [0], 1
 ];
 export var HumanLoopSummary$: StaticStructureSchema = [3, n0, _HLSu,
   0,
@@ -119,13 +119,13 @@ export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListHumanLoopsRequest$: StaticStructureSchema = [3, n0, _LHLR,
   0,
-  [_CTA, _CTB, _FDA, _SO, _NT, _MR],
-  [[5, { [_hQ]: _CTA }], [5, { [_hQ]: _CTB }], [0, { [_hQ]: _FDA }], [0, { [_hQ]: _SO }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+  [_FDA, _CTA, _CTB, _SO, _NT, _MR],
+  [[0, { [_hQ]: _FDA }], [5, { [_hQ]: _CTA }], [5, { [_hQ]: _CTB }], [0, { [_hQ]: _SO }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var ListHumanLoopsResponse$: StaticStructureSchema = [3, n0, _LHLRi,
   0,
   [_HLSum, _NT],
-  [() => HumanLoopSummaries, 0]
+  [() => HumanLoopSummaries, 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -142,7 +142,7 @@ TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaE
 export var StartHumanLoopRequest$: StaticStructureSchema = [3, n0, _SHLR,
   0,
   [_HLN, _FDA, _HLI, _DA],
-  [0, 0, () => HumanLoopInput$, () => HumanLoopDataAttributes$]
+  [0, 0, () => HumanLoopInput$, () => HumanLoopDataAttributes$], 3
 ];
 export var StartHumanLoopResponse$: StaticStructureSchema = [3, n0, _SHLRt,
   0,
@@ -152,7 +152,7 @@ export var StartHumanLoopResponse$: StaticStructureSchema = [3, n0, _SHLRt,
 export var StopHumanLoopRequest$: StaticStructureSchema = [3, n0, _SHLRto,
   0,
   [_HLN],
-  [0]
+  [0], 1
 ];
 export var StopHumanLoopResponse$: StaticStructureSchema = [3, n0, _SHLRtop,
   0,

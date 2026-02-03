@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateAccountsCommand,
@@ -114,6 +114,15 @@ import {
   UpdateEnrollmentConfigurationCommandOutput,
 } from "./commands/UpdateEnrollmentConfigurationCommand";
 import { ComputeOptimizerAutomationClient } from "./ComputeOptimizerAutomationClient";
+import { paginateListAccounts } from "./pagination/ListAccountsPaginator";
+import { paginateListAutomationEvents } from "./pagination/ListAutomationEventsPaginator";
+import { paginateListAutomationEventSteps } from "./pagination/ListAutomationEventStepsPaginator";
+import { paginateListAutomationEventSummaries } from "./pagination/ListAutomationEventSummariesPaginator";
+import { paginateListAutomationRulePreview } from "./pagination/ListAutomationRulePreviewPaginator";
+import { paginateListAutomationRulePreviewSummaries } from "./pagination/ListAutomationRulePreviewSummariesPaginator";
+import { paginateListAutomationRules } from "./pagination/ListAutomationRulesPaginator";
+import { paginateListRecommendedActions } from "./pagination/ListRecommendedActionsPaginator";
+import { paginateListRecommendedActionSummaries } from "./pagination/ListRecommendedActionSummariesPaginator";
 
 const commands = {
   AssociateAccountsCommand,
@@ -139,6 +148,17 @@ const commands = {
   UntagResourceCommand,
   UpdateAutomationRuleCommand,
   UpdateEnrollmentConfigurationCommand,
+};
+const paginators = {
+  paginateListAccounts,
+  paginateListAutomationEvents,
+  paginateListAutomationEventSteps,
+  paginateListAutomationEventSummaries,
+  paginateListAutomationRulePreview,
+  paginateListAutomationRulePreviewSummaries,
+  paginateListAutomationRules,
+  paginateListRecommendedActions,
+  paginateListRecommendedActionSummaries,
 };
 
 export interface ComputeOptimizerAutomation {
@@ -539,6 +559,105 @@ export interface ComputeOptimizerAutomation {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnrollmentConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountsCommandOutput}.
+   */
+  paginateListAccounts(
+    args?: ListAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListAutomationEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutomationEventsCommandOutput}.
+   */
+  paginateListAutomationEvents(
+    args?: ListAutomationEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutomationEventsCommandOutput>;
+
+  /**
+   * @see {@link ListAutomationEventStepsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutomationEventStepsCommandOutput}.
+   */
+  paginateListAutomationEventSteps(
+    args: ListAutomationEventStepsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutomationEventStepsCommandOutput>;
+
+  /**
+   * @see {@link ListAutomationEventSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutomationEventSummariesCommandOutput}.
+   */
+  paginateListAutomationEventSummaries(
+    args?: ListAutomationEventSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutomationEventSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListAutomationRulePreviewCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutomationRulePreviewCommandOutput}.
+   */
+  paginateListAutomationRulePreview(
+    args: ListAutomationRulePreviewCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutomationRulePreviewCommandOutput>;
+
+  /**
+   * @see {@link ListAutomationRulePreviewSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutomationRulePreviewSummariesCommandOutput}.
+   */
+  paginateListAutomationRulePreviewSummaries(
+    args: ListAutomationRulePreviewSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutomationRulePreviewSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListAutomationRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAutomationRulesCommandOutput}.
+   */
+  paginateListAutomationRules(
+    args?: ListAutomationRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAutomationRulesCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendedActionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendedActionsCommandOutput}.
+   */
+  paginateListRecommendedActions(
+    args?: ListRecommendedActionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendedActionsCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendedActionSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendedActionSummariesCommandOutput}.
+   */
+  paginateListRecommendedActionSummaries(
+    args?: ListRecommendedActionSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendedActionSummariesCommandOutput>;
 }
 
 /**
@@ -546,4 +665,4 @@ export interface ComputeOptimizerAutomation {
  * @public
  */
 export class ComputeOptimizerAutomation extends ComputeOptimizerAutomationClient implements ComputeOptimizerAutomation {}
-createAggregatedClient(commands, ComputeOptimizerAutomation);
+createAggregatedClient(commands, ComputeOptimizerAutomation, { paginators });

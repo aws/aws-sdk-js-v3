@@ -67,6 +67,7 @@ import {
   Av1Settings$,
   Av1SpatialAq,
   Av1TemporalAq,
+  Av1TimecodeInsertionBehavior,
   AvailBlanking$,
   AvailBlankingState,
   AvailConfiguration$,
@@ -384,6 +385,7 @@ import {
   DescribeThumbnailsResponse$,
   DeviceSettingsSyncState,
   DeviceUpdateStatus,
+  DisabledLockingSettings$,
   DolbyEProgramSelection,
   DolbyVision81Settings$,
   DvbDashAccessibility,
@@ -1687,6 +1689,7 @@ assert(typeof DescribeSdiSourceRequest$ === "object");
 assert(typeof DescribeSdiSourceResponse$ === "object");
 assert(typeof DescribeThumbnailsRequest$ === "object");
 assert(typeof DescribeThumbnailsResponse$ === "object");
+assert(typeof DisabledLockingSettings$ === "object");
 assert(typeof DolbyVision81Settings$ === "object");
 assert(typeof DvbNitSettings$ === "object");
 assert(typeof DvbSdtSettings$ === "object");
@@ -2108,6 +2111,7 @@ assert(typeof Av1RateControlMode === "object");
 assert(typeof Av1SceneChangeDetect === "object");
 assert(typeof Av1SpatialAq === "object");
 assert(typeof Av1TemporalAq === "object");
+assert(typeof Av1TimecodeInsertionBehavior === "object");
 assert(typeof AvailBlankingState === "object");
 assert(typeof BandwidthReductionFilterStrength === "object");
 assert(typeof BandwidthReductionPostFilterSharpening === "object");

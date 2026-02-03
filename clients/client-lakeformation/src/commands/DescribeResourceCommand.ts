@@ -49,6 +49,8 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * //     WithFederation: true || false,
  * //     HybridAccessEnabled: true || false,
  * //     WithPrivilegedAccess: true || false,
+ * //     VerificationStatus: "VERIFIED" || "VERIFICATION_FAILED" || "NOT_VERIFIED",
+ * //     ExpectedResourceOwnerAccount: "STRING_VALUE",
  * //   },
  * // };
  *

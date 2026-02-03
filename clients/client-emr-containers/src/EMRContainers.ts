@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CancelJobRunCommand,
@@ -106,6 +106,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { EMRContainersClient } from "./EMRContainersClient";
+import { paginateListJobRuns } from "./pagination/ListJobRunsPaginator";
+import { paginateListJobTemplates } from "./pagination/ListJobTemplatesPaginator";
+import { paginateListManagedEndpoints } from "./pagination/ListManagedEndpointsPaginator";
+import { paginateListSecurityConfigurations } from "./pagination/ListSecurityConfigurationsPaginator";
+import { paginateListVirtualClusters } from "./pagination/ListVirtualClustersPaginator";
 
 const commands = {
   CancelJobRunCommand,
@@ -131,6 +136,13 @@ const commands = {
   StartJobRunCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListJobRuns,
+  paginateListJobTemplates,
+  paginateListManagedEndpoints,
+  paginateListSecurityConfigurations,
+  paginateListVirtualClusters,
 };
 
 export interface EMRContainers {
@@ -527,6 +539,61 @@ export interface EMRContainers {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListJobRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobRunsCommandOutput}.
+   */
+  paginateListJobRuns(
+    args: ListJobRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobRunsCommandOutput>;
+
+  /**
+   * @see {@link ListJobTemplatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListJobTemplatesCommandOutput}.
+   */
+  paginateListJobTemplates(
+    args?: ListJobTemplatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListJobTemplatesCommandOutput>;
+
+  /**
+   * @see {@link ListManagedEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListManagedEndpointsCommandOutput}.
+   */
+  paginateListManagedEndpoints(
+    args: ListManagedEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListManagedEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityConfigurationsCommandOutput}.
+   */
+  paginateListSecurityConfigurations(
+    args?: ListSecurityConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListVirtualClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVirtualClustersCommandOutput}.
+   */
+  paginateListVirtualClusters(
+    args?: ListVirtualClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVirtualClustersCommandOutput>;
 }
 
 /**
@@ -557,4 +624,4 @@ export interface EMRContainers {
  * @public
  */
 export class EMRContainers extends EMRContainersClient implements EMRContainers {}
-createAggregatedClient(commands, EMRContainers);
+createAggregatedClient(commands, EMRContainers, { paginators });

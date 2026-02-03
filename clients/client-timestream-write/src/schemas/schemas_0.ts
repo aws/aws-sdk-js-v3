@@ -215,7 +215,7 @@ var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var BatchLoadProgressReport$: StaticStructureSchema = [3, n0, _BLPR,
@@ -236,23 +236,23 @@ export var BatchLoadTaskDescription$: StaticStructureSchema = [3, n0, _BLTD,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateBatchLoadTaskRequest$: StaticStructureSchema = [3, n0, _CBLTR,
   0,
-  [_CTl, _DMC, _DSC, _RC, _TDN, _TTN, _RV],
-  [[() => ClientRequestToken, 4], () => DataModelConfiguration$, () => DataSourceConfiguration$, () => ReportConfiguration$, 0, 0, 1]
+  [_DSC, _RC, _TDN, _TTN, _CTl, _DMC, _RV],
+  [() => DataSourceConfiguration$, () => ReportConfiguration$, 0, 0, [() => ClientRequestToken, 4], () => DataModelConfiguration$, 1], 4
 ];
 export var CreateBatchLoadTaskResponse$: StaticStructureSchema = [3, n0, _CBLTRr,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var CreateDatabaseRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_DN, _KKI, _T],
-  [0, 0, () => TagList]
+  [0, 0, () => TagList], 1
 ];
 export var CreateDatabaseResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -262,7 +262,7 @@ export var CreateDatabaseResponse$: StaticStructureSchema = [3, n0, _CDRr,
 export var CreateTableRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_DN, _TN, _RPe, _T, _MSWP, _S],
-  [0, 0, () => RetentionProperties$, () => TagList, () => MagneticStoreWriteProperties$, () => Schema$]
+  [0, 0, () => RetentionProperties$, () => TagList, () => MagneticStoreWriteProperties$, () => Schema$], 2
 ];
 export var CreateTableResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -281,8 +281,8 @@ export var Database$: StaticStructureSchema = [3, n0, _D,
 ];
 export var DataModel$: StaticStructureSchema = [3, n0, _DM,
   0,
-  [_TCi, _TU, _DMi, _MMM, _MMMi, _MNC],
-  [0, 0, () => DimensionMappings, () => MultiMeasureMappings$, () => MixedMeasureMappingList, 0]
+  [_DMi, _TCi, _TU, _MMM, _MMMi, _MNC],
+  [() => DimensionMappings, 0, 0, () => MultiMeasureMappings$, () => MixedMeasureMappingList, 0], 1
 ];
 export var DataModelConfiguration$: StaticStructureSchema = [3, n0, _DMC,
   0,
@@ -296,38 +296,38 @@ export var DataModelS3Configuration$: StaticStructureSchema = [3, n0, _DMSC,
 ];
 export var DataSourceConfiguration$: StaticStructureSchema = [3, n0, _DSC,
   0,
-  [_DSSC, _CC, _DF],
-  [() => DataSourceS3Configuration$, () => CsvConfiguration$, 0]
+  [_DSSC, _DF, _CC],
+  [() => DataSourceS3Configuration$, 0, () => CsvConfiguration$], 2
 ];
 export var DataSourceS3Configuration$: StaticStructureSchema = [3, n0, _DSSC,
   0,
   [_BN, _OKP],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteDatabaseRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var DeleteTableRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_DN, _TN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeBatchLoadTaskRequest$: StaticStructureSchema = [3, n0, _DBLTR,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var DescribeBatchLoadTaskResponse$: StaticStructureSchema = [3, n0, _DBLTRe,
   0,
   [_BLTD],
-  [() => BatchLoadTaskDescription$]
+  [() => BatchLoadTaskDescription$], 1
 ];
 export var DescribeDatabaseRequest$: StaticStructureSchema = [3, n0, _DDRe,
   0,
   [_DN],
-  [0]
+  [0], 1
 ];
 export var DescribeDatabaseResponse$: StaticStructureSchema = [3, n0, _DDRes,
   0,
@@ -342,12 +342,12 @@ export var DescribeEndpointsRequest$: StaticStructureSchema = [3, n0, _DER,
 export var DescribeEndpointsResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
   [_E],
-  [() => Endpoints]
+  [() => Endpoints], 1
 ];
 export var DescribeTableRequest$: StaticStructureSchema = [3, n0, _DTRe,
   0,
   [_DN, _TN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeTableResponse$: StaticStructureSchema = [3, n0, _DTRes,
   0,
@@ -357,7 +357,7 @@ export var DescribeTableResponse$: StaticStructureSchema = [3, n0, _DTRes,
 export var Dimension$: StaticStructureSchema = [3, n0, _Di,
   0,
   [_N, _V, _DVT],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DimensionMapping$: StaticStructureSchema = [3, n0, _DMim,
   0,
@@ -367,12 +367,12 @@ export var DimensionMapping$: StaticStructureSchema = [3, n0, _DMim,
 export var Endpoint$: StaticStructureSchema = [3, n0, _En,
   0,
   [_Ad, _CPIM],
-  [0, 1]
+  [0, 1], 2
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidEndpointException$: StaticErrorSchema = [-3, n0, _IEE,
@@ -414,7 +414,7 @@ export var ListTablesResponse$: StaticStructureSchema = [3, n0, _LTRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -429,32 +429,32 @@ export var MagneticStoreRejectedDataLocation$: StaticStructureSchema = [3, n0, _
 export var MagneticStoreWriteProperties$: StaticStructureSchema = [3, n0, _MSWP,
   0,
   [_EMSW, _MSRDL],
-  [2, () => MagneticStoreRejectedDataLocation$]
+  [2, () => MagneticStoreRejectedDataLocation$], 1
 ];
 export var MeasureValue$: StaticStructureSchema = [3, n0, _MV,
   0,
   [_N, _V, _Ty],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var MixedMeasureMapping$: StaticStructureSchema = [3, n0, _MMMix,
   0,
-  [_MN, _SC, _TMN, _MVT, _MMAM],
-  [0, 0, 0, 0, () => MultiMeasureAttributeMappingList]
+  [_MVT, _MN, _SC, _TMN, _MMAM],
+  [0, 0, 0, 0, () => MultiMeasureAttributeMappingList], 1
 ];
 export var MultiMeasureAttributeMapping$: StaticStructureSchema = [3, n0, _MMAMu,
   0,
   [_SC, _TMMAN, _MVT],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var MultiMeasureMappings$: StaticStructureSchema = [3, n0, _MMM,
   0,
-  [_TMMN, _MMAM],
-  [0, () => MultiMeasureAttributeMappingList]
+  [_MMAM, _TMMN],
+  [() => MultiMeasureAttributeMappingList, 0], 1
 ];
 export var PartitionKey$: StaticStructureSchema = [3, n0, _PK,
   0,
   [_Ty, _N, _EIR],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var _Record$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -485,7 +485,7 @@ export var ReportConfiguration$: StaticStructureSchema = [3, n0, _RC,
 export var ReportS3Configuration$: StaticStructureSchema = [3, n0, _RSC,
   0,
   [_BN, _OKP, _EO, _KKI],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -496,7 +496,7 @@ TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundE
 export var ResumeBatchLoadTaskRequest$: StaticStructureSchema = [3, n0, _RBLTR,
   0,
   [_TI],
-  [0]
+  [0], 1
 ];
 export var ResumeBatchLoadTaskResponse$: StaticStructureSchema = [3, n0, _RBLTRe,
   0,
@@ -506,7 +506,7 @@ export var ResumeBatchLoadTaskResponse$: StaticStructureSchema = [3, n0, _RBLTRe
 export var RetentionProperties$: StaticStructureSchema = [3, n0, _RPe,
   0,
   [_MSRPIH, _MSRPID],
-  [1, 1]
+  [1, 1], 2
 ];
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SCo,
   0,
@@ -532,12 +532,12 @@ export var Table$: StaticStructureSchema = [3, n0, _Ta,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -547,13 +547,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -563,7 +563,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDatabaseRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_DN, _KKI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var UpdateDatabaseResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -573,7 +573,7 @@ export var UpdateDatabaseResponse$: StaticStructureSchema = [3, n0, _UDRp,
 export var UpdateTableRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
   [_DN, _TN, _RPe, _MSWP, _S],
-  [0, 0, () => RetentionProperties$, () => MagneticStoreWriteProperties$, () => Schema$]
+  [0, 0, () => RetentionProperties$, () => MagneticStoreWriteProperties$, () => Schema$], 2
 ];
 export var UpdateTableResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
@@ -583,13 +583,13 @@ export var UpdateTableResponse$: StaticStructureSchema = [3, n0, _UTRp,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WriteRecordsRequest$: StaticStructureSchema = [3, n0, _WRR,
   0,
-  [_DN, _TN, _CA, _Rec],
-  [0, 0, () => _Record$, () => Records]
+  [_DN, _TN, _Rec, _CA],
+  [0, 0, () => Records, () => _Record$], 3
 ];
 export var WriteRecordsResponse$: StaticStructureSchema = [3, n0, _WRRr,
   0,

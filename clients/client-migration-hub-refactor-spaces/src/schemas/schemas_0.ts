@@ -208,7 +208,7 @@ import { MigrationHubRefactorSpacesServiceException } from "../models/MigrationH
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ApiGatewayProxyConfig$: StaticStructureSchema = [3, n0, _AGPC,
@@ -234,13 +234,13 @@ export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_N, _EIn, _VI, _PT, _AGP, _T, _CTl],
-  [0, [0, 1], 0, 0, () => ApiGatewayProxyInput$, [() => TagMap, 0], [0, 4]]
+  [0, [0, 1], 0, 0, () => ApiGatewayProxyInput$, [() => TagMap, 0], [0, 4]], 4
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -249,8 +249,8 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateEnvironmentRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
-  [_N, _D, _NFT, _T, _CTl],
-  [0, 0, 0, [() => TagMap, 0], [0, 4]]
+  [_N, _NFT, _D, _T, _CTl],
+  [0, 0, 0, [() => TagMap, 0], [0, 4]], 2
 ];
 export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
@@ -260,7 +260,7 @@ export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERr,
 export var CreateRouteRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
   [_EIn, _AIp, _SI, _RTo, _DR, _UPR, _T, _CTl],
-  [[0, 1], [0, 1], 0, 0, () => DefaultRouteInput$, () => UriPathRouteInput$, [() => TagMap, 0], [0, 4]]
+  [[0, 1], [0, 1], 0, 0, () => DefaultRouteInput$, () => UriPathRouteInput$, [() => TagMap, 0], [0, 4]], 4
 ];
 export var CreateRouteResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -269,8 +269,8 @@ export var CreateRouteResponse$: StaticStructureSchema = [3, n0, _CRRr,
 ];
 export var CreateServiceRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_N, _D, _EIn, _AIp, _VI, _ET, _UE, _LE, _T, _CTl],
-  [0, 0, [0, 1], [0, 1], 0, 0, () => UrlEndpointInput$, () => LambdaEndpointInput$, [() => TagMap, 0], [0, 4]]
+  [_N, _EIn, _AIp, _ET, _D, _VI, _UE, _LE, _T, _CTl],
+  [0, [0, 1], [0, 1], 0, 0, 0, () => UrlEndpointInput$, () => LambdaEndpointInput$, [() => TagMap, 0], [0, 4]], 4
 ];
 export var CreateServiceResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -285,7 +285,7 @@ export var DefaultRouteInput$: StaticStructureSchema = [3, n0, _DRI,
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_EIn, _AIp],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -295,7 +295,7 @@ export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteEnvironmentRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_EIn],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -305,7 +305,7 @@ export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe,
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -315,7 +315,7 @@ export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
 export var DeleteRouteRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_EIn, _AIp, _RIou],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteRouteResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
@@ -325,7 +325,7 @@ export var DeleteRouteResponse$: StaticStructureSchema = [3, n0, _DRRe,
 export var DeleteServiceRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_EIn, _AIp, _SI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteServiceResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -350,7 +350,7 @@ export var ErrorResponse$: StaticStructureSchema = [3, n0, _ER,
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_EIn, _AIp],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
@@ -360,7 +360,7 @@ export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
 export var GetEnvironmentRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_EIn],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetEnvironmentResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
@@ -370,7 +370,7 @@ export var GetEnvironmentResponse$: StaticStructureSchema = [3, n0, _GERe,
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_I],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
@@ -380,7 +380,7 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
 export var GetRouteRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_EIn, _AIp, _RIou],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetRouteResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
@@ -390,7 +390,7 @@ export var GetRouteResponse$: StaticStructureSchema = [3, n0, _GRRe,
 export var GetServiceRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_EIn, _AIp, _SI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetServiceResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
@@ -400,13 +400,13 @@ export var GetServiceResponse$: StaticStructureSchema = [3, n0, _GSRe,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidResourcePolicyException$: StaticErrorSchema = [-3, n0, _IRPE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidResourcePolicyException$, InvalidResourcePolicyException);
 export var LambdaEndpointConfig$: StaticStructureSchema = [3, n0, _LEC,
@@ -417,7 +417,7 @@ export var LambdaEndpointConfig$: StaticStructureSchema = [3, n0, _LEC,
 export var LambdaEndpointInput$: StaticStructureSchema = [3, n0, _LEI,
   0,
   [_A],
-  [0]
+  [0], 1
 ];
 export var LambdaEndpointSummary$: StaticStructureSchema = [3, n0, _LES,
   0,
@@ -427,7 +427,7 @@ export var LambdaEndpointSummary$: StaticStructureSchema = [3, n0, _LES,
 export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_EIn, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -447,7 +447,7 @@ export var ListEnvironmentsResponse$: StaticStructureSchema = [3, n0, _LERi,
 export var ListEnvironmentVpcsRequest$: StaticStructureSchema = [3, n0, _LEVR,
   0,
   [_EIn, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListEnvironmentVpcsResponse$: StaticStructureSchema = [3, n0, _LEVRi,
   0,
@@ -457,7 +457,7 @@ export var ListEnvironmentVpcsResponse$: StaticStructureSchema = [3, n0, _LEVRi,
 export var ListRoutesRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_EIn, _AIp, _NT, _MR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListRoutesResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
@@ -467,7 +467,7 @@ export var ListRoutesResponse$: StaticStructureSchema = [3, n0, _LRRi,
 export var ListServicesRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_EIn, _AIp, _NT, _MR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListServicesResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
@@ -477,7 +477,7 @@ export var ListServicesResponse$: StaticStructureSchema = [3, n0, _LSRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -487,7 +487,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_RA, _P],
-  [0, 0]
+  [0, 0], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -497,7 +497,7 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RouteSummary$: StaticStructureSchema = [3, n0, _RS,
@@ -507,8 +507,8 @@ export var RouteSummary$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
-  [_M, _RI, _RT, _QC, _SC],
-  [0, 0, 0, 0, 0]
+  [_M, _RI, _RT, _SC, _QC],
+  [0, 0, 0, 0, 0], 4
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceSummary$: StaticStructureSchema = [3, n0, _SS,
@@ -519,7 +519,7 @@ export var ServiceSummary$: StaticStructureSchema = [3, n0, _SS,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], [() => TagMap, 0]]
+  [[0, 1], [() => TagMap, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -529,13 +529,13 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M, _QC, _SC, _RAS],
-  [0, 0, 0, [1, { [_hH]: _RA_ }]]
+  [0, 0, 0, [1, { [_hH]: _RA_ }]], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [() => TagKeys, { [_hQ]: _tK }]]
+  [[0, 1], [() => TagKeys, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -545,7 +545,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateRouteRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
   [_EIn, _AIp, _RIou, _ASc],
-  [[0, 1], [0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], [0, 1], 0], 4
 ];
 export var UpdateRouteResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -555,7 +555,7 @@ export var UpdateRouteResponse$: StaticStructureSchema = [3, n0, _URRpd,
 export var UriPathRouteInput$: StaticStructureSchema = [3, n0, _UPRI,
   0,
   [_SP, _ASc, _Me, _ICP, _ASP],
-  [0, 0, 64 | 0, 2, 2]
+  [0, 0, 64 | 0, 2, 2], 2
 ];
 export var UrlEndpointConfig$: StaticStructureSchema = [3, n0, _UEC,
   0,
@@ -565,7 +565,7 @@ export var UrlEndpointConfig$: StaticStructureSchema = [3, n0, _UEC,
 export var UrlEndpointInput$: StaticStructureSchema = [3, n0, _UEI,
   0,
   [_U, _HU],
-  [0, 0]
+  [0, 0], 1
 ];
 export var UrlEndpointSummary$: StaticStructureSchema = [3, n0, _UES,
   0,
@@ -575,7 +575,7 @@ export var UrlEndpointSummary$: StaticStructureSchema = [3, n0, _UES,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var MigrationHubRefactorSpacesServiceException$: StaticErrorSchema = [-3, _sm, "MigrationHubRefactorSpacesServiceException", 0, [], []];

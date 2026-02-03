@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CancelQueryCommand, CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
 import {
@@ -65,6 +65,9 @@ import {
   UpdateScheduledQueryCommandInput,
   UpdateScheduledQueryCommandOutput,
 } from "./commands/UpdateScheduledQueryCommand";
+import { paginateListScheduledQueries } from "./pagination/ListScheduledQueriesPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateQuery } from "./pagination/QueryPaginator";
 import { TimestreamQueryClient } from "./TimestreamQueryClient";
 
 const commands = {
@@ -83,6 +86,11 @@ const commands = {
   UntagResourceCommand,
   UpdateAccountSettingsCommand,
   UpdateScheduledQueryCommand,
+};
+const paginators = {
+  paginateListScheduledQueries,
+  paginateListTagsForResource,
+  paginateQuery,
 };
 
 export interface TimestreamQuery {
@@ -344,6 +352,39 @@ export interface TimestreamQuery {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateScheduledQueryCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListScheduledQueriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListScheduledQueriesCommandOutput}.
+   */
+  paginateListScheduledQueries(
+    args?: ListScheduledQueriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListScheduledQueriesCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link QueryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link QueryCommandOutput}.
+   */
+  paginateQuery(
+    args: QueryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<QueryCommandOutput>;
 }
 
 /**
@@ -353,4 +394,4 @@ export interface TimestreamQuery {
  * @public
  */
 export class TimestreamQuery extends TimestreamQueryClient implements TimestreamQuery {}
-createAggregatedClient(commands, TimestreamQuery);
+createAggregatedClient(commands, TimestreamQuery, { paginators });

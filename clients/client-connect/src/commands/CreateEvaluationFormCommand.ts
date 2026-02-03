@@ -312,6 +312,17 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   ReviewConfiguration: { // EvaluationReviewConfiguration
+ *     ReviewNotificationRecipients: [ // EvaluationReviewNotificationRecipientList // required
+ *       { // EvaluationReviewNotificationRecipient
+ *         Type: "USER_ID", // required
+ *         Value: { // EvaluationReviewNotificationRecipientValue
+ *           UserId: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     EligibilityDays: Number("int"),
+ *   },
  *   TargetConfiguration: { // EvaluationFormTargetConfiguration
  *     ContactInteractionType: "AGENT" || "AUTOMATED", // required
  *   },

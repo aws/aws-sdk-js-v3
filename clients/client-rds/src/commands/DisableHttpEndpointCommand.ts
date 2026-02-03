@@ -27,13 +27,7 @@ export interface DisableHttpEndpointCommandInput extends DisableHttpEndpointRequ
 export interface DisableHttpEndpointCommandOutput extends DisableHttpEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Disables the HTTP endpoint for the specified DB cluster. Disabling this endpoint disables RDS Data API.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using RDS Data API</a> in the
- *             <i>Amazon Aurora User Guide</i>.</p>
- *          <note>
- *             <p>This operation applies only to Aurora Serverless v2 and provisioned DB clusters. To disable the HTTP endpoint for Aurora Serverless v1 DB clusters,
- *         use the <code>EnableHttpEndpoint</code> parameter of the <code>ModifyDBCluster</code> operation.</p>
- *          </note>
+ * <p>Disables the HTTP endpoint for the specified DB cluster. Disabling this endpoint disables RDS Data API.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using RDS Data API</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation applies only to Aurora Serverless v2 and provisioned DB clusters. To disable the HTTP endpoint for Aurora Serverless v1 DB clusters, use the <code>EnableHttpEndpoint</code> parameter of the <code>ModifyDBCluster</code> operation.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

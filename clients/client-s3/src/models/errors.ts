@@ -25,6 +25,28 @@ export class NoSuchUpload extends __BaseException {
 }
 
 /**
+ * <p>
+ *       You might receive this error for several reasons. For details, see the description of this API
+ *       operation.</p>
+ * @public
+ */
+export class AccessDenied extends __BaseException {
+  readonly name = "AccessDenied" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDenied, __BaseException>) {
+    super({
+      name: "AccessDenied",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDenied.prototype);
+  }
+}
+
+/**
  * <p>The source object of the COPY action is not in the active tier and is only stored in Amazon S3
  *       Glacier.</p>
  * @public
@@ -201,21 +223,8 @@ export class EncryptionTypeMismatch extends __BaseException {
 }
 
 /**
- * <p>You may receive this error in multiple cases. Depending on the reason for the error, you may receive
- *       one of the messages below:</p>
- *          <ul>
- *             <li>
- *                <p>Cannot specify both a write offset value and user-defined object metadata for existing
- *           objects.</p>
- *             </li>
- *             <li>
- *                <p>Checksum Type mismatch occurred, expected checksum Type: sha1, actual checksum Type:
- *           crc32c.</p>
- *             </li>
- *             <li>
- *                <p>Request body cannot be empty when 'write offset' is specified.</p>
- *             </li>
- *          </ul>
+ * <p>A parameter or header in your request isn't valid. For details, see the description of this API
+ *       operation.</p>
  * @public
  */
 export class InvalidRequest extends __BaseException {

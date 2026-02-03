@@ -102,8 +102,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
- *          maximum number of service resources or operations for your Amazon Web Services account.</p>
+ * <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -216,8 +215,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ * <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -258,8 +256,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *          than one operation on the same resource at the same time.</p>
+ * <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
  * @public
  */
 export class ConflictException extends __BaseException {

@@ -159,6 +159,7 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * //           ],
  * //           maxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //         },
+ * //         fipsEnabled: true || false,
  * //       },
  * //       propagateTags: "CAPACITY_PROVIDER" || "NONE",
  * //       infrastructureOptimization: { // InfrastructureOptimization

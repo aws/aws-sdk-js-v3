@@ -137,13 +137,13 @@ import {
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var CostAndUsageQuery$: StaticStructureSchema = [3, n0, _CAUQ,
   0,
   [_me, _tR, _g, _gB, _f],
-  [64 | 0, () => DateTimeRange$, 0, () => GroupDefinitions, () => Expression$]
+  [64 | 0, () => DateTimeRange$, 0, () => GroupDefinitions, () => Expression$], 3
 ];
 export var CostCategoryValues$: StaticStructureSchema = [3, n0, _CCV,
   0,
@@ -152,43 +152,43 @@ export var CostCategoryValues$: StaticStructureSchema = [3, n0, _CCV,
 ];
 export var CreateDashboardRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_n, _d, _w, _rT],
-  [0, 0, () => WidgetList, () => ResourceTagList]
+  [_n, _w, _d, _rT],
+  [0, () => WidgetList, 0, () => ResourceTagList], 2
 ];
 export var CreateDashboardResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DashboardReference$: StaticStructureSchema = [3, n0, _DR,
   0,
-  [_a, _n, _d, _t, _cA, _uA],
-  [0, 0, 0, 0, 4, 4]
+  [_a, _n, _t, _cA, _uA, _d],
+  [0, 0, 0, 4, 4, 0], 5
 ];
 export var DateTimeRange$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_sT, _eT],
-  [() => DateTimeValue$, () => DateTimeValue$]
+  [() => DateTimeValue$, () => DateTimeValue$], 2
 ];
 export var DateTimeValue$: StaticStructureSchema = [3, n0, _DTV,
   0,
   [_t, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteDashboardRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DeleteDashboardResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var DimensionValues$: StaticStructureSchema = [3, n0, _DV,
   0,
   [_k, _v, _mO],
-  [0, 64 | 0, 64 | 0]
+  [0, 64 | 0, 64 | 0], 2
 ];
 export var Expression$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -198,37 +198,37 @@ export var Expression$: StaticStructureSchema = [3, n0, _E,
 export var GetDashboardRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var GetDashboardResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
-  [_a, _n, _d, _t, _w, _cA, _uA],
-  [0, 0, 0, 0, () => WidgetList, 4, 4]
+  [_a, _n, _t, _w, _cA, _uA, _d],
+  [0, 0, 0, () => WidgetList, 4, 4, 0], 6
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
   [_rA, _pD],
-  [0, 0]
+  [0, 0], 2
 ];
 export var GraphDisplayConfig$: StaticStructureSchema = [3, n0, _GDC,
   0,
   [_vT],
-  [0]
+  [0], 1
 ];
 export var GroupDefinition$: StaticStructureSchema = [3, n0, _GD,
   0,
   [_k, _t],
-  [0, 0]
+  [0, 0], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListDashboardsRequest$: StaticStructureSchema = [3, n0, _LDR,
@@ -239,12 +239,12 @@ export var ListDashboardsRequest$: StaticStructureSchema = [3, n0, _LDR,
 export var ListDashboardsResponse$: StaticStructureSchema = [3, n0, _LDRi,
   0,
   [_da, _nT],
-  [() => DashboardReferenceList, 0]
+  [() => DashboardReferenceList, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -254,38 +254,38 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 export var ReservationCoverageQuery$: StaticStructureSchema = [3, n0, _RCQ,
   0,
   [_tR, _gB, _g, _f, _me],
-  [() => DateTimeRange$, () => GroupDefinitions, 0, () => Expression$, 64 | 0]
+  [() => DateTimeRange$, () => GroupDefinitions, 0, () => Expression$, 64 | 0], 1
 ];
 export var ReservationUtilizationQuery$: StaticStructureSchema = [3, n0, _RUQ,
   0,
   [_tR, _gB, _g, _f],
-  [() => DateTimeRange$, () => GroupDefinitions, 0, () => Expression$]
+  [() => DateTimeRange$, () => GroupDefinitions, 0, () => Expression$], 1
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RT,
   0,
   [_k, _va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SavingsPlansCoverageQuery$: StaticStructureSchema = [3, n0, _SPCQ,
   0,
   [_tR, _me, _g, _gB, _f],
-  [() => DateTimeRange$, 64 | 0, 0, () => GroupDefinitions, () => Expression$]
+  [() => DateTimeRange$, 64 | 0, 0, () => GroupDefinitions, () => Expression$], 1
 ];
 export var SavingsPlansUtilizationQuery$: StaticStructureSchema = [3, n0, _SPUQ,
   0,
   [_tR, _g, _f],
-  [() => DateTimeRange$, 0, () => Expression$]
+  [() => DateTimeRange$, 0, () => Expression$], 1
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TableDisplayConfigStruct$: StaticStructureSchema = [3, n0, _TDCS,
@@ -296,7 +296,7 @@ export var TableDisplayConfigStruct$: StaticStructureSchema = [3, n0, _TDCS,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _rT],
-  [0, () => ResourceTagList]
+  [0, () => ResourceTagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -311,13 +311,13 @@ export var TagValues$: StaticStructureSchema = [3, n0, _TV,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _rTK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -327,28 +327,28 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateDashboardRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_a, _n, _d, _w],
-  [0, 0, 0, () => WidgetList]
+  [0, 0, 0, () => WidgetList], 1
 ];
 export var UpdateDashboardResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
   [_a],
-  [0]
+  [0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Widget$: StaticStructureSchema = [3, n0, _W,
   0,
-  [_ti, _d, _wi, _h, _hO, _co],
-  [0, 0, 1, 1, 1, () => WidgetConfigList]
+  [_ti, _co, _d, _wi, _h, _hO],
+  [0, () => WidgetConfigList, 0, 1, 1, 1], 2
 ];
 export var WidgetConfig$: StaticStructureSchema = [3, n0, _WC,
   0,
   [_qP, _dC],
-  [() => QueryParameters$, () => DisplayConfig$]
+  [() => QueryParameters$, () => DisplayConfig$], 2
 ];
 export var BCMDashboardsServiceException$: StaticErrorSchema = [-3, _sm, "BCMDashboardsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BCMDashboardsServiceException$, BCMDashboardsServiceException);

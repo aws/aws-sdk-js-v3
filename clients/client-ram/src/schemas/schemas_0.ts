@@ -286,7 +286,7 @@ import { RAMServiceException } from "../models/RAMServiceException";
 export var AcceptResourceShareInvitationRequest$: StaticStructureSchema = [3, n0, _ARSIR,
   0,
   [_rSIA, _cT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var AcceptResourceShareInvitationResponse$: StaticStructureSchema = [3, n0, _ARSIRc,
   0,
@@ -301,7 +301,7 @@ export var AssociatedPermission$: StaticStructureSchema = [3, n0, _AP,
 export var AssociateResourceSharePermissionRequest$: StaticStructureSchema = [3, n0, _ARSPR,
   0,
   [_rSA, _pA, _r, _cT, _pV],
-  [0, 0, 2, 0, 1]
+  [0, 0, 2, 0, 1], 2
 ];
 export var AssociateResourceSharePermissionResponse$: StaticStructureSchema = [3, n0, _ARSPRs,
   0,
@@ -311,7 +311,7 @@ export var AssociateResourceSharePermissionResponse$: StaticStructureSchema = [3
 export var AssociateResourceShareRequest$: StaticStructureSchema = [3, n0, _ARSR,
   0,
   [_rSA, _rA, _p, _cT, _so],
-  [0, [() => ResourceArnList, 0], [() => PrincipalArnOrIdList, 0], 0, [() => SourceArnOrAccountList, 0]]
+  [0, [() => ResourceArnList, 0], [() => PrincipalArnOrIdList, 0], 0, [() => SourceArnOrAccountList, 0]], 1
 ];
 export var AssociateResourceShareResponse$: StaticStructureSchema = [3, n0, _ARSRs,
   0,
@@ -321,7 +321,7 @@ export var AssociateResourceShareResponse$: StaticStructureSchema = [3, n0, _ARS
 export var CreatePermissionRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_n, _rT, _pT, _cT, _t],
-  [0, 0, 0, 0, () => TagList]
+  [0, 0, 0, 0, () => TagList], 3
 ];
 export var CreatePermissionResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -331,7 +331,7 @@ export var CreatePermissionResponse$: StaticStructureSchema = [3, n0, _CPRr,
 export var CreatePermissionVersionRequest$: StaticStructureSchema = [3, n0, _CPVR,
   0,
   [_pA, _pT, _cT],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var CreatePermissionVersionResponse$: StaticStructureSchema = [3, n0, _CPVRr,
   0,
@@ -341,7 +341,7 @@ export var CreatePermissionVersionResponse$: StaticStructureSchema = [3, n0, _CP
 export var CreateResourceShareRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
   [_n, _rA, _p, _t, _aEP, _cT, _pAe, _so],
-  [0, [() => ResourceArnList, 0], [() => PrincipalArnOrIdList, 0], () => TagList, 2, 0, [() => PermissionArnList, 0], [() => SourceArnOrAccountList, 0]]
+  [0, [() => ResourceArnList, 0], [() => PrincipalArnOrIdList, 0], () => TagList, 2, 0, [() => PermissionArnList, 0], [() => SourceArnOrAccountList, 0]], 1
 ];
 export var CreateResourceShareResponse$: StaticStructureSchema = [3, n0, _CRSRr,
   0,
@@ -351,7 +351,7 @@ export var CreateResourceShareResponse$: StaticStructureSchema = [3, n0, _CRSRr,
 export var DeletePermissionRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
   [_pA, _cT],
-  [[0, { [_hQ]: _pA }], [0, { [_hQ]: _cT }]]
+  [[0, { [_hQ]: _pA }], [0, { [_hQ]: _cT }]], 1
 ];
 export var DeletePermissionResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
@@ -361,7 +361,7 @@ export var DeletePermissionResponse$: StaticStructureSchema = [3, n0, _DPRe,
 export var DeletePermissionVersionRequest$: StaticStructureSchema = [3, n0, _DPVR,
   0,
   [_pA, _pV, _cT],
-  [[0, { [_hQ]: _pA }], [1, { [_hQ]: _pV }], [0, { [_hQ]: _cT }]]
+  [[0, { [_hQ]: _pA }], [1, { [_hQ]: _pV }], [0, { [_hQ]: _cT }]], 2
 ];
 export var DeletePermissionVersionResponse$: StaticStructureSchema = [3, n0, _DPVRe,
   0,
@@ -371,7 +371,7 @@ export var DeletePermissionVersionResponse$: StaticStructureSchema = [3, n0, _DP
 export var DeleteResourceShareRequest$: StaticStructureSchema = [3, n0, _DRSR,
   0,
   [_rSA, _cT],
-  [[0, { [_hQ]: _rSA }], [0, { [_hQ]: _cT }]]
+  [[0, { [_hQ]: _rSA }], [0, { [_hQ]: _cT }]], 1
 ];
 export var DeleteResourceShareResponse$: StaticStructureSchema = [3, n0, _DRSRe,
   0,
@@ -381,7 +381,7 @@ export var DeleteResourceShareResponse$: StaticStructureSchema = [3, n0, _DRSRe,
 export var DisassociateResourceSharePermissionRequest$: StaticStructureSchema = [3, n0, _DRSPR,
   0,
   [_rSA, _pA, _cT],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var DisassociateResourceSharePermissionResponse$: StaticStructureSchema = [3, n0, _DRSPRi,
   0,
@@ -391,7 +391,7 @@ export var DisassociateResourceSharePermissionResponse$: StaticStructureSchema =
 export var DisassociateResourceShareRequest$: StaticStructureSchema = [3, n0, _DRSRi,
   0,
   [_rSA, _rA, _p, _cT, _so],
-  [0, [() => ResourceArnList, 0], [() => PrincipalArnOrIdList, 0], 0, [() => SourceArnOrAccountList, 0]]
+  [0, [() => ResourceArnList, 0], [() => PrincipalArnOrIdList, 0], 0, [() => SourceArnOrAccountList, 0]], 1
 ];
 export var DisassociateResourceShareResponse$: StaticStructureSchema = [3, n0, _DRSRis,
   0,
@@ -411,7 +411,7 @@ export var EnableSharingWithAwsOrganizationResponse$: StaticStructureSchema = [3
 export var GetPermissionRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_pA, _pV],
-  [0, 1]
+  [0, 1], 1
 ];
 export var GetPermissionResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
@@ -421,7 +421,7 @@ export var GetPermissionResponse$: StaticStructureSchema = [3, n0, _GPRe,
 export var GetResourcePoliciesRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_rA, _pr, _nT, _mR],
-  [[() => ResourceArnList, 0], 0, 0, 1]
+  [[() => ResourceArnList, 0], 0, 0, 1], 1
 ];
 export var GetResourcePoliciesResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
@@ -431,7 +431,7 @@ export var GetResourcePoliciesResponse$: StaticStructureSchema = [3, n0, _GRPRe,
 export var GetResourceShareAssociationsRequest$: StaticStructureSchema = [3, n0, _GRSAR,
   0,
   [_aT, _rSAes, _rAe, _pr, _aS, _nT, _mR],
-  [0, [() => ResourceShareArnList, 0], 0, 0, 0, 0, 1]
+  [0, [() => ResourceShareArnList, 0], 0, 0, 0, 0, 1], 1
 ];
 export var GetResourceShareAssociationsResponse$: StaticStructureSchema = [3, n0, _GRSARe,
   0,
@@ -450,8 +450,8 @@ export var GetResourceShareInvitationsResponse$: StaticStructureSchema = [3, n0,
 ];
 export var GetResourceSharesRequest$: StaticStructureSchema = [3, n0, _GRSR,
   0,
-  [_rSAes, _rSS, _rO, _n, _tF, _nT, _mR, _pA, _pV],
-  [[() => ResourceShareArnList, 0], 0, 0, 0, () => TagFilters, 0, 1, 0, 1]
+  [_rO, _rSAes, _rSS, _n, _tF, _nT, _mR, _pA, _pV],
+  [0, [() => ResourceShareArnList, 0], 0, 0, () => TagFilters, 0, 1, 0, 1], 1
 ];
 export var GetResourceSharesResponse$: StaticStructureSchema = [3, n0, _GRSRe,
   0,
@@ -461,55 +461,55 @@ export var GetResourceSharesResponse$: StaticStructureSchema = [3, n0, _GRSRe,
 export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
   { [_aQE]: [`IdempotentParameterMismatch`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
 export var InvalidClientTokenException$: StaticErrorSchema = [-3, n0, _ICTE,
   { [_aQE]: [`InvalidClientToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidClientTokenException$, InvalidClientTokenException);
 export var InvalidMaxResultsException$: StaticErrorSchema = [-3, n0, _IMRE,
   { [_aQE]: [`InvalidMaxResults`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidMaxResultsException$, InvalidMaxResultsException);
 export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
   { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
 export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
   { [_aQE]: [`InvalidParameter`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var InvalidPolicyException$: StaticErrorSchema = [-3, n0, _IPEn,
   { [_aQE]: [`InvalidPolicy`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidPolicyException$, InvalidPolicyException);
 export var InvalidResourceTypeException$: StaticErrorSchema = [-3, n0, _IRTE,
   { [_aQE]: [`InvalidResourceType.Unknown`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidResourceTypeException$, InvalidResourceTypeException);
 export var InvalidStateTransitionException$: StaticErrorSchema = [-3, n0, _ISTE,
   { [_aQE]: [`InvalidStateTransitionException.Unknown`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidStateTransitionException$, InvalidStateTransitionException);
 export var ListPendingInvitationResourcesRequest$: StaticStructureSchema = [3, n0, _LPIRR,
   0,
   [_rSIA, _nT, _mR, _rRS],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var ListPendingInvitationResourcesResponse$: StaticStructureSchema = [3, n0, _LPIRRi,
   0,
@@ -539,7 +539,7 @@ export var ListPermissionsResponse$: StaticStructureSchema = [3, n0, _LPRi,
 export var ListPermissionVersionsRequest$: StaticStructureSchema = [3, n0, _LPVR,
   0,
   [_pA, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListPermissionVersionsResponse$: StaticStructureSchema = [3, n0, _LPVRi,
   0,
@@ -549,7 +549,7 @@ export var ListPermissionVersionsResponse$: StaticStructureSchema = [3, n0, _LPV
 export var ListPrincipalsRequest$: StaticStructureSchema = [3, n0, _LPRis,
   0,
   [_rO, _rAe, _p, _rT, _rSAes, _nT, _mR],
-  [0, 0, [() => PrincipalArnOrIdList, 0], 0, [() => ResourceShareArnList, 0], 0, 1]
+  [0, 0, [() => PrincipalArnOrIdList, 0], 0, [() => ResourceShareArnList, 0], 0, 1], 1
 ];
 export var ListPrincipalsResponse$: StaticStructureSchema = [3, n0, _LPRist,
   0,
@@ -569,7 +569,7 @@ export var ListReplacePermissionAssociationsWorkResponse$: StaticStructureSchema
 export var ListResourceSharePermissionsRequest$: StaticStructureSchema = [3, n0, _LRSPR,
   0,
   [_rSA, _nT, _mR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var ListResourceSharePermissionsResponse$: StaticStructureSchema = [3, n0, _LRSPRi,
   0,
@@ -579,7 +579,7 @@ export var ListResourceSharePermissionsResponse$: StaticStructureSchema = [3, n0
 export var ListResourcesRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_rO, _pr, _rT, _rA, _rSAes, _nT, _mR, _rRS],
-  [0, 0, 0, [() => ResourceArnList, 0], [() => ResourceShareArnList, 0], 0, 1, 0]
+  [0, 0, 0, [() => ResourceArnList, 0], [() => ResourceShareArnList, 0], 0, 1, 0], 1
 ];
 export var ListResourcesResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
@@ -599,43 +599,43 @@ export var ListResourceTypesResponse$: StaticStructureSchema = [3, n0, _LRTRi,
 export var MalformedArnException$: StaticErrorSchema = [-3, n0, _MAE,
   { [_aQE]: [`InvalidArn.Malformed`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(MalformedArnException$, MalformedArnException);
 export var MalformedPolicyTemplateException$: StaticErrorSchema = [-3, n0, _MPTE,
   { [_aQE]: [`MalformedPolicyTemplateException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(MalformedPolicyTemplateException$, MalformedPolicyTemplateException);
 export var MissingRequiredParameterException$: StaticErrorSchema = [-3, n0, _MRPE,
   { [_aQE]: [`MissingRequiredParameter`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(MissingRequiredParameterException$, MissingRequiredParameterException);
 export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
   { [_aQE]: [`OperationNotPermitted`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(OperationNotPermittedException$, OperationNotPermittedException);
 export var PermissionAlreadyExistsException$: StaticErrorSchema = [-3, n0, _PAEE,
   { [_aQE]: [`PermissionAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(PermissionAlreadyExistsException$, PermissionAlreadyExistsException);
 export var PermissionLimitExceededException$: StaticErrorSchema = [-3, n0, _PLEE,
   { [_aQE]: [`PermissionLimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(PermissionLimitExceededException$, PermissionLimitExceededException);
 export var PermissionVersionsLimitExceededException$: StaticErrorSchema = [-3, n0, _PVLEE,
   { [_aQE]: [`PermissionVersionsLimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(PermissionVersionsLimitExceededException$, PermissionVersionsLimitExceededException);
 export var Principal$: StaticStructureSchema = [3, n0, _P,
@@ -646,7 +646,7 @@ export var Principal$: StaticStructureSchema = [3, n0, _P,
 export var PromotePermissionCreatedFromPolicyRequest$: StaticStructureSchema = [3, n0, _PPCFPR,
   0,
   [_pA, _n, _cT],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var PromotePermissionCreatedFromPolicyResponse$: StaticStructureSchema = [3, n0, _PPCFPRr,
   0,
@@ -656,7 +656,7 @@ export var PromotePermissionCreatedFromPolicyResponse$: StaticStructureSchema = 
 export var PromoteResourceShareCreatedFromPolicyRequest$: StaticStructureSchema = [3, n0, _PRSCFPR,
   0,
   [_rSA],
-  [[0, { [_hQ]: _rSA }]]
+  [[0, { [_hQ]: _rSA }]], 1
 ];
 export var PromoteResourceShareCreatedFromPolicyResponse$: StaticStructureSchema = [3, n0, _PRSCFPRr,
   0,
@@ -666,7 +666,7 @@ export var PromoteResourceShareCreatedFromPolicyResponse$: StaticStructureSchema
 export var RejectResourceShareInvitationRequest$: StaticStructureSchema = [3, n0, _RRSIR,
   0,
   [_rSIA, _cT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RejectResourceShareInvitationResponse$: StaticStructureSchema = [3, n0, _RRSIRe,
   0,
@@ -675,8 +675,8 @@ export var RejectResourceShareInvitationResponse$: StaticStructureSchema = [3, n
 ];
 export var ReplacePermissionAssociationsRequest$: StaticStructureSchema = [3, n0, _RPAR,
   0,
-  [_fPA, _fPV, _tPA, _cT],
-  [0, 1, 0, 0]
+  [_fPA, _tPA, _fPV, _cT],
+  [0, 0, 1, 0], 2
 ];
 export var ReplacePermissionAssociationsResponse$: StaticStructureSchema = [3, n0, _RPARe,
   0,
@@ -696,7 +696,7 @@ export var Resource$: StaticStructureSchema = [3, n0, _R,
 export var ResourceArnNotFoundException$: StaticErrorSchema = [-3, n0, _RANFE,
   { [_aQE]: [`InvalidResourceArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceArnNotFoundException$, ResourceArnNotFoundException);
 export var ResourceShare$: StaticStructureSchema = [3, n0, _RS,
@@ -717,31 +717,31 @@ export var ResourceShareInvitation$: StaticStructureSchema = [3, n0, _RSI,
 export var ResourceShareInvitationAlreadyAcceptedException$: StaticErrorSchema = [-3, n0, _RSIAAE,
   { [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyAccepted`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceShareInvitationAlreadyAcceptedException$, ResourceShareInvitationAlreadyAcceptedException);
 export var ResourceShareInvitationAlreadyRejectedException$: StaticErrorSchema = [-3, n0, _RSIARE,
   { [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyRejected`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceShareInvitationAlreadyRejectedException$, ResourceShareInvitationAlreadyRejectedException);
 export var ResourceShareInvitationArnNotFoundException$: StaticErrorSchema = [-3, n0, _RSIANFE,
   { [_aQE]: [`InvalidResourceShareInvitationArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceShareInvitationArnNotFoundException$, ResourceShareInvitationArnNotFoundException);
 export var ResourceShareInvitationExpiredException$: StaticErrorSchema = [-3, n0, _RSIEE,
   { [_aQE]: [`InvalidResourceShareInvitationArn.Expired`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceShareInvitationExpiredException$, ResourceShareInvitationExpiredException);
 export var ResourceShareLimitExceededException$: StaticErrorSchema = [-3, n0, _RSLEE,
   { [_aQE]: [`ResourceShareLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceShareLimitExceededException$, ResourceShareLimitExceededException);
 export var ResourceSharePermissionDetail$: StaticStructureSchema = [3, n0, _RSPD,
@@ -757,7 +757,7 @@ export var ResourceSharePermissionSummary$: StaticStructureSchema = [3, n0, _RSP
 export var ServerInternalException$: StaticErrorSchema = [-3, n0, _SIE,
   { [_aQE]: [`InternalError`, 500], [_e]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServerInternalException$, ServerInternalException);
 export var ServiceNameAndResourceType$: StaticStructureSchema = [3, n0, _SNART,
@@ -768,13 +768,13 @@ export var ServiceNameAndResourceType$: StaticStructureSchema = [3, n0, _SNART,
 export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
   { [_aQE]: [`Unavailable`, 503], [_e]: _se, [_hE]: 503 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SetDefaultPermissionVersionRequest$: StaticStructureSchema = [3, n0, _SDPVR,
   0,
   [_pA, _pV, _cT],
-  [0, 1, 0]
+  [0, 1, 0], 2
 ];
 export var SetDefaultPermissionVersionResponse$: StaticStructureSchema = [3, n0, _SDPVRe,
   0,
@@ -794,19 +794,19 @@ export var TagFilter$: StaticStructureSchema = [3, n0, _TF,
 export var TagLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
   { [_aQE]: [`TagLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(TagLimitExceededException$, TagLimitExceededException);
 export var TagPolicyViolationException$: StaticErrorSchema = [-3, n0, _TPVE,
   { [_aQE]: [`TagPolicyViolation`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(TagPolicyViolationException$, TagPolicyViolationException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_rSA, _t, _rAe],
-  [0, () => TagList, 0]
+  [_t, _rSA, _rAe],
+  [() => TagList, 0, 0], 1
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -816,25 +816,25 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_aQE]: [`ThrottlingException`, 429], [_e]: _c, [_hE]: 429 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UnknownResourceException$: StaticErrorSchema = [-3, n0, _URE,
   { [_aQE]: [`InvalidResourceShareArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(UnknownResourceException$, UnknownResourceException);
 export var UnmatchedPolicyPermissionException$: StaticErrorSchema = [-3, n0, _UPPE,
   { [_aQE]: [`UnmatchedPolicyPermissionException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(UnmatchedPolicyPermissionException$, UnmatchedPolicyPermissionException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_rSA, _tKa, _rAe],
-  [0, 64 | 0, 0]
+  [_tKa, _rSA, _rAe],
+  [64 | 0, 0, 0], 1
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -844,7 +844,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateResourceShareRequest$: StaticStructureSchema = [3, n0, _URSR,
   0,
   [_rSA, _n, _aEP, _cT],
-  [0, 0, 2, 0]
+  [0, 0, 2, 0], 1
 ];
 export var UpdateResourceShareResponse$: StaticStructureSchema = [3, n0, _URSRp,
   0,

@@ -64,8 +64,8 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
   field of the `NodeHttpHandler` constructor input.
 
   ```javascript
-  const { Agent } = require("https");
-  const { NodeHttpHandler } = require("@smithy/node-http-handler");
+  const { Agent } = require("node:https");
+  const { NodeHttpHandler } = require("@aws-sdk/config/requestHandler");
 
   const dynamodbClient = new DynamoDBClient({
     requestHandler: new NodeHttpHandler({
@@ -127,7 +127,7 @@ reference for FetchHttpHandler](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/
 Note that the `FetchHttpHandler` does not have the `connectionTimeout` or `socketTimeout` options found in Node.js.
 
 ```javascript
-const { FetchHttpHandler } = require("@smithy/fetch-http-handler");
+const { FetchHttpHandler } = require("@aws-sdk/config/requestHandler");
 
 const dynamodbClient = new DynamoDBClient({
   requestHandler: new FetchHttpHandler({

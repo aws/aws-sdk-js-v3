@@ -65,23 +65,6 @@ import {
 /**
  * @public
  */
-export interface DeleteImportJobRequest {
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The identifier of the import job to be deleted.</p>
-   * @public
-   */
-  importJobId: string | undefined;
-}
-
-/**
- * @public
- */
 export interface DeleteImportJobResponse {}
 
 /**

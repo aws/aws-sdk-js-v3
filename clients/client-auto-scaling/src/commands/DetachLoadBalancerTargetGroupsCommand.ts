@@ -28,7 +28,7 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput extends DetachLoadB
 
 /**
  * <note>
- *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DetachTrafficSources</a>, which
+ *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html">DetachTrafficSources</a>, which
  *                 can detach multiple traffic sources types. We recommend using
  *                     <code>DetachTrafficSources</code> to simplify how you manage traffic sources.
  *                 However, we continue to support <code>DetachLoadBalancerTargetGroups</code>. You can

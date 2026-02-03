@@ -715,6 +715,7 @@ export const OperationName = {
   S3PutObjectRetention: "S3PutObjectRetention",
   S3PutObjectTagging: "S3PutObjectTagging",
   S3ReplicateObject: "S3ReplicateObject",
+  S3UpdateObjectEncryption: "S3UpdateObjectEncryption",
 } as const;
 /**
  * @public

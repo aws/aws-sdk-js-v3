@@ -134,12 +134,12 @@ import { CloudHsmInternalException, CloudHsmServiceException, InvalidRequestExce
 export var AddTagsToResourceRequest$: StaticStructureSchema = [3, n0, _ATTRR,
   0,
   [_RA, _TL],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var AddTagsToResourceResponse$: StaticStructureSchema = [3, n0, _ATTRRd,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var CloudHsmInternalException$: StaticErrorSchema = [-3, n0, _CHIE,
   { [_e]: _s },
@@ -156,7 +156,7 @@ TypeRegistry.for(n0).registerError(CloudHsmServiceException$, CloudHsmServiceExc
 export var CreateHapgRequest$: StaticStructureSchema = [3, n0, _CHR,
   0,
   [_L],
-  [0]
+  [0], 1
 ];
 export var CreateHapgResponse$: StaticStructureSchema = [3, n0, _CHRr,
   0,
@@ -165,8 +165,8 @@ export var CreateHapgResponse$: StaticStructureSchema = [3, n0, _CHRr,
 ];
 export var CreateHsmRequest$: StaticStructureSchema = [3, n0, _CHRre,
   { [_xN]: _CHRre },
-  [_SI, _SK, _EI, _IRA, _EIx, _ST, _CT, _SIy],
-  [[0, { [_xN]: _SI }], [0, { [_xN]: _SK }], [0, { [_xN]: _EI }], [0, { [_xN]: _IRA }], [0, { [_xN]: _EIx }], [0, { [_xN]: _ST }], [0, { [_xN]: _CT }], [0, { [_xN]: _SIy }]]
+  [_SI, _SK, _IRA, _ST, _EI, _EIx, _CT, _SIy],
+  [[0, { [_xN]: _SI }], [0, { [_xN]: _SK }], [0, { [_xN]: _IRA }], [0, { [_xN]: _ST }], [0, { [_xN]: _EI }], [0, { [_xN]: _EIx }], [0, { [_xN]: _CT }], [0, { [_xN]: _SIy }]], 4
 ];
 export var CreateHsmResponse$: StaticStructureSchema = [3, n0, _CHRrea,
   0,
@@ -175,8 +175,8 @@ export var CreateHsmResponse$: StaticStructureSchema = [3, n0, _CHRrea,
 ];
 export var CreateLunaClientRequest$: StaticStructureSchema = [3, n0, _CLCR,
   0,
-  [_L, _C],
-  [0, 0]
+  [_C, _L],
+  [0, 0], 1
 ];
 export var CreateLunaClientResponse$: StaticStructureSchema = [3, n0, _CLCRr,
   0,
@@ -186,37 +186,37 @@ export var CreateLunaClientResponse$: StaticStructureSchema = [3, n0, _CLCRr,
 export var DeleteHapgRequest$: StaticStructureSchema = [3, n0, _DHR,
   0,
   [_HA],
-  [0]
+  [0], 1
 ];
 export var DeleteHapgResponse$: StaticStructureSchema = [3, n0, _DHRe,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var DeleteHsmRequest$: StaticStructureSchema = [3, n0, _DHRel,
   { [_xN]: _DHRel },
   [_HAs],
-  [[0, { [_xN]: _HAs }]]
+  [[0, { [_xN]: _HAs }]], 1
 ];
 export var DeleteHsmResponse$: StaticStructureSchema = [3, n0, _DHRele,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var DeleteLunaClientRequest$: StaticStructureSchema = [3, n0, _DLCR,
   0,
   [_CA],
-  [0]
+  [0], 1
 ];
 export var DeleteLunaClientResponse$: StaticStructureSchema = [3, n0, _DLCRe,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var DescribeHapgRequest$: StaticStructureSchema = [3, n0, _DHRes,
   0,
   [_HA],
-  [0]
+  [0], 1
 ];
 export var DescribeHapgResponse$: StaticStructureSchema = [3, n0, _DHResc,
   0,
@@ -246,7 +246,7 @@ export var DescribeLunaClientResponse$: StaticStructureSchema = [3, n0, _DLCResc
 export var GetConfigRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_CA, _CV, _HL],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var GetConfigResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -277,7 +277,7 @@ export var ListHapgsRequest$: StaticStructureSchema = [3, n0, _LHR,
 export var ListHapgsResponse$: StaticStructureSchema = [3, n0, _LHRi,
   0,
   [_HL, _NT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var ListHsmsRequest$: StaticStructureSchema = [3, n0, _LHRis,
   0,
@@ -297,22 +297,22 @@ export var ListLunaClientsRequest$: StaticStructureSchema = [3, n0, _LLCR,
 export var ListLunaClientsResponse$: StaticStructureSchema = [3, n0, _LLCRi,
   0,
   [_CL, _NT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_TL],
-  [() => TagList]
+  [() => TagList], 1
 ];
 export var ModifyHapgRequest$: StaticStructureSchema = [3, n0, _MHR,
   0,
   [_HA, _L, _PSL],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 1
 ];
 export var ModifyHapgResponse$: StaticStructureSchema = [3, n0, _MHRo,
   0,
@@ -322,7 +322,7 @@ export var ModifyHapgResponse$: StaticStructureSchema = [3, n0, _MHRo,
 export var ModifyHsmRequest$: StaticStructureSchema = [3, n0, _MHRod,
   { [_xN]: _MHRod },
   [_HAs, _SI, _EI, _IRA, _EIx, _SIy],
-  [[0, { [_xN]: _HAs }], [0, { [_xN]: _SI }], [0, { [_xN]: _EI }], [0, { [_xN]: _IRA }], [0, { [_xN]: _EIx }], [0, { [_xN]: _SIy }]]
+  [[0, { [_xN]: _HAs }], [0, { [_xN]: _SI }], [0, { [_xN]: _EI }], [0, { [_xN]: _IRA }], [0, { [_xN]: _EIx }], [0, { [_xN]: _SIy }]], 1
 ];
 export var ModifyHsmResponse$: StaticStructureSchema = [3, n0, _MHRodi,
   0,
@@ -332,7 +332,7 @@ export var ModifyHsmResponse$: StaticStructureSchema = [3, n0, _MHRodi,
 export var ModifyLunaClientRequest$: StaticStructureSchema = [3, n0, _MLCR,
   0,
   [_CA, _C],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ModifyLunaClientResponse$: StaticStructureSchema = [3, n0, _MLCRo,
   0,
@@ -342,17 +342,17 @@ export var ModifyLunaClientResponse$: StaticStructureSchema = [3, n0, _MLCRo,
 export var RemoveTagsFromResourceRequest$: StaticStructureSchema = [3, n0, _RTFRR,
   0,
   [_RA, _TKL],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RemoveTagsFromResourceResponse$: StaticStructureSchema = [3, n0, _RTFRRe,
   0,
   [_S],
-  [0]
+  [0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CloudHSMServiceException$: StaticErrorSchema = [-3, _sm, "CloudHSMServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudHSMServiceException$, CloudHSMServiceException);

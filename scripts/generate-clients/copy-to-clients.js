@@ -26,6 +26,12 @@ const getOverwritableDirectories = (subDirectories, packageName) => {
   });
 };
 
+const defaultVersions = import("../update-versions/getDepToDefaultVersionHash.mjs").then(
+  ({ getDepToDefaultVersionHash }) => {
+    return getDepToDefaultVersionHash();
+  }
+);
+
 /**
  * Copy the keys from newly-generated package.json to
  * existing package.json. For each keys in new package.json
@@ -36,7 +42,7 @@ const getOverwritableDirectories = (subDirectories, packageName) => {
  * from codegen, but maintain the newer dependency versions
  * in existing package.json
  */
-const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => {
+const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root") => {
   const merged = {};
   for (const name of Object.keys(fromContent)) {
     if (fromContent[name].constructor.name === "Object") {
@@ -48,7 +54,7 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
           "@tsconfig/node18": "18.2.4",
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
-          rimraf: "5.0.10",
+          premove: "4.0.0",
           typescript: "~5.8.3",
         };
 
@@ -69,7 +75,7 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
         fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="${fromContent.name}"`;
       }
 
-      merged[name] = mergeManifest(fromContent[name], toContent[name], name);
+      merged[name] = await mergeManifest(fromContent[name], toContent[name], name);
 
       if (name === "scripts" || name === "devDependencies") {
         // Allow target package.json(toContent) has its own special script or
@@ -84,7 +90,7 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
     } else if (name.indexOf("@aws-sdk/") === 0) {
       // If it's internal dependency, use current version in the repo if not
       // present in package.json
-      merged[name] = toContent[name] || "*";
+      merged[name] = toContent[name] || (await defaultVersions)[name];
     } else {
       // If key (say dependency) is present in both codegen and
       // package.json, we prefer latter
@@ -99,10 +105,6 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
           if (useToContentVersion) {
             merged[name] = toContent[name];
           } else {
-            merged[name] = fromContent[name];
-          }
-        } else {
-          if (toContent[name] === "*" && fromContent[name] !== "*") {
             merged[name] = fromContent[name];
           }
         }
@@ -169,7 +171,7 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
         //copy manifest file
         const destManifest = existsSync(destSubPath) ? JSON.parse(readFileSync(destSubPath).toString()) : {};
         const mergedManifest = {
-          ...mergeManifest(packageManifest, destManifest),
+          ...(await mergeManifest(packageManifest, destManifest)),
           homepage: `https://github.com/aws/aws-sdk-js-v3/tree/main/clients/${clientName}`,
           repository: {
             type: "git",
@@ -239,7 +241,7 @@ const copyServerTests = async (sourceDir, destinationDir) => {
         //copy manifest file
         const destManifest = existsSync(destSubPath) ? JSON.parse(readFileSync(destSubPath).toString()) : {};
         const mergedManifest = {
-          ...mergeManifest(packageManifest, destManifest),
+          ...(await mergeManifest(packageManifest, destManifest)),
           homepage: `https://github.com/aws/aws-sdk-js-v3/tree/main/private/${testName}`,
           repository: {
             type: "git",

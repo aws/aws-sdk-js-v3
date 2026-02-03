@@ -6,10 +6,7 @@
 
 AWS SDK for JavaScript LaunchWizard Client for Node.js, Browser and React Native.
 
-<p>Launch Wizard offers a guided way of sizing, configuring, and deploying Amazon Web Services resources for
-third party applications, such as Microsoft SQL Server Always On and HANA based SAP
-systems, without the need to manually identify and provision individual Amazon Web Services
-resources.</p>
+<p>Launch Wizard offers a guided way of sizing, configuring, and deploying Amazon Web Services resources for third party applications, such as Microsoft SQL Server Always On and HANA based SAP systems, without the need to manually identify and provision individual Amazon Web Services resources.</p>
 
 ## Installing
 To install this package, simply type add or install @aws-sdk/client-launch-wizard
@@ -225,6 +222,13 @@ GetDeployment
 </details>
 <details>
 <summary>
+GetDeploymentPatternVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/GetDeploymentPatternVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/GetDeploymentPatternVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/GetDeploymentPatternVersionCommandOutput/)
+</details>
+<details>
+<summary>
 GetWorkload
 </summary>
 
@@ -243,6 +247,13 @@ ListDeploymentEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/ListDeploymentEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListDeploymentEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListDeploymentEventsCommandOutput/)
+</details>
+<details>
+<summary>
+ListDeploymentPatternVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/ListDeploymentPatternVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListDeploymentPatternVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/ListDeploymentPatternVersionsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -285,4 +296,11 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/UntagResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateDeployment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/launch-wizard/command/UpdateDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/UpdateDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-launch-wizard/Interface/UpdateDeploymentCommandOutput/)
 </details>

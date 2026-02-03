@@ -1,5 +1,4 @@
 // smithy-typescript generated code
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
@@ -32,6 +31,7 @@ import {
 } from "./commands/TransactWriteCommand";
 import { UpdateCommand, UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
 import { DynamoDBDocumentClient, TranslateConfig } from "./DynamoDBDocumentClient";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 
 /**
  * The document client simplifies working with items in Amazon DynamoDB by
@@ -93,7 +93,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    */
   public batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<BatchExecuteStatementCommandOutput>;
   public batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
@@ -109,17 +109,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchExecuteStatementCommandOutput) => void),
     cb?: (err: any, data?: BatchExecuteStatementCommandOutput) => void
   ): Promise<BatchExecuteStatementCommandOutput> | void {
-    const command = new BatchExecuteStatementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new BatchExecuteStatementCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -129,8 +129,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public batchGet(args: BatchGetCommandInput, options?: __HttpHandlerOptions): Promise<BatchGetCommandOutput>;
-  public batchGet(args: BatchGetCommandInput, cb: (err: any, data?: BatchGetCommandOutput) => void): void;
+  public batchGet(
+    args: BatchGetCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<BatchGetCommandOutput>;
+  public batchGet(
+    args: BatchGetCommandInput,
+    cb: (err: any, data?: BatchGetCommandOutput) => void
+  ): void;
   public batchGet(
     args: BatchGetCommandInput,
     options: __HttpHandlerOptions,
@@ -141,17 +147,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetCommandOutput) => void),
     cb?: (err: any, data?: BatchGetCommandOutput) => void
   ): Promise<BatchGetCommandOutput> | void {
-    const command = new BatchGetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new BatchGetCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -161,8 +167,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public batchWrite(args: BatchWriteCommandInput, options?: __HttpHandlerOptions): Promise<BatchWriteCommandOutput>;
-  public batchWrite(args: BatchWriteCommandInput, cb: (err: any, data?: BatchWriteCommandOutput) => void): void;
+  public batchWrite(
+    args: BatchWriteCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<BatchWriteCommandOutput>;
+  public batchWrite(
+    args: BatchWriteCommandInput,
+    cb: (err: any, data?: BatchWriteCommandOutput) => void
+  ): void;
   public batchWrite(
     args: BatchWriteCommandInput,
     options: __HttpHandlerOptions,
@@ -173,17 +185,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchWriteCommandOutput) => void),
     cb?: (err: any, data?: BatchWriteCommandOutput) => void
   ): Promise<BatchWriteCommandOutput> | void {
-    const command = new BatchWriteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new BatchWriteCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -193,8 +205,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public delete(args: DeleteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCommandOutput>;
-  public delete(args: DeleteCommandInput, cb: (err: any, data?: DeleteCommandOutput) => void): void;
+  public delete(
+    args: DeleteCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<DeleteCommandOutput>;
+  public delete(
+    args: DeleteCommandInput,
+    cb: (err: any, data?: DeleteCommandOutput) => void
+  ): void;
   public delete(
     args: DeleteCommandInput,
     options: __HttpHandlerOptions,
@@ -205,17 +223,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCommandOutput) => void),
     cb?: (err: any, data?: DeleteCommandOutput) => void
   ): Promise<DeleteCommandOutput> | void {
-    const command = new DeleteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new DeleteCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -227,7 +245,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    */
   public executeStatement(
     args: ExecuteStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ExecuteStatementCommandOutput>;
   public executeStatement(
     args: ExecuteStatementCommandInput,
@@ -243,17 +261,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteStatementCommandOutput) => void),
     cb?: (err: any, data?: ExecuteStatementCommandOutput) => void
   ): Promise<ExecuteStatementCommandOutput> | void {
-    const command = new ExecuteStatementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new ExecuteStatementCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -265,7 +283,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    */
   public executeTransaction(
     args: ExecuteTransactionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ExecuteTransactionCommandOutput>;
   public executeTransaction(
     args: ExecuteTransactionCommandInput,
@@ -281,17 +299,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteTransactionCommandOutput) => void),
     cb?: (err: any, data?: ExecuteTransactionCommandOutput) => void
   ): Promise<ExecuteTransactionCommandOutput> | void {
-    const command = new ExecuteTransactionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new ExecuteTransactionCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -301,8 +319,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public get(args: GetCommandInput, options?: __HttpHandlerOptions): Promise<GetCommandOutput>;
-  public get(args: GetCommandInput, cb: (err: any, data?: GetCommandOutput) => void): void;
+  public get(
+    args: GetCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<GetCommandOutput>;
+  public get(
+    args: GetCommandInput,
+    cb: (err: any, data?: GetCommandOutput) => void
+  ): void;
   public get(
     args: GetCommandInput,
     options: __HttpHandlerOptions,
@@ -313,17 +337,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCommandOutput) => void),
     cb?: (err: any, data?: GetCommandOutput) => void
   ): Promise<GetCommandOutput> | void {
-    const command = new GetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new GetCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -333,8 +357,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public put(args: PutCommandInput, options?: __HttpHandlerOptions): Promise<PutCommandOutput>;
-  public put(args: PutCommandInput, cb: (err: any, data?: PutCommandOutput) => void): void;
+  public put(
+    args: PutCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<PutCommandOutput>;
+  public put(
+    args: PutCommandInput,
+    cb: (err: any, data?: PutCommandOutput) => void
+  ): void;
   public put(
     args: PutCommandInput,
     options: __HttpHandlerOptions,
@@ -345,17 +375,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutCommandOutput) => void),
     cb?: (err: any, data?: PutCommandOutput) => void
   ): Promise<PutCommandOutput> | void {
-    const command = new PutCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new PutCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -365,8 +395,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public query(args: QueryCommandInput, options?: __HttpHandlerOptions): Promise<QueryCommandOutput>;
-  public query(args: QueryCommandInput, cb: (err: any, data?: QueryCommandOutput) => void): void;
+  public query(
+    args: QueryCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<QueryCommandOutput>;
+  public query(
+    args: QueryCommandInput,
+    cb: (err: any, data?: QueryCommandOutput) => void
+  ): void;
   public query(
     args: QueryCommandInput,
     options: __HttpHandlerOptions,
@@ -377,17 +413,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryCommandOutput) => void),
     cb?: (err: any, data?: QueryCommandOutput) => void
   ): Promise<QueryCommandOutput> | void {
-    const command = new QueryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new QueryCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -397,8 +433,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public scan(args: ScanCommandInput, options?: __HttpHandlerOptions): Promise<ScanCommandOutput>;
-  public scan(args: ScanCommandInput, cb: (err: any, data?: ScanCommandOutput) => void): void;
+  public scan(
+    args: ScanCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<ScanCommandOutput>;
+  public scan(
+    args: ScanCommandInput,
+    cb: (err: any, data?: ScanCommandOutput) => void
+  ): void;
   public scan(
     args: ScanCommandInput,
     options: __HttpHandlerOptions,
@@ -409,17 +451,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ScanCommandOutput) => void),
     cb?: (err: any, data?: ScanCommandOutput) => void
   ): Promise<ScanCommandOutput> | void {
-    const command = new ScanCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new ScanCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -429,8 +471,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public transactGet(args: TransactGetCommandInput, options?: __HttpHandlerOptions): Promise<TransactGetCommandOutput>;
-  public transactGet(args: TransactGetCommandInput, cb: (err: any, data?: TransactGetCommandOutput) => void): void;
+  public transactGet(
+    args: TransactGetCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<TransactGetCommandOutput>;
+  public transactGet(
+    args: TransactGetCommandInput,
+    cb: (err: any, data?: TransactGetCommandOutput) => void
+  ): void;
   public transactGet(
     args: TransactGetCommandInput,
     options: __HttpHandlerOptions,
@@ -441,17 +489,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TransactGetCommandOutput) => void),
     cb?: (err: any, data?: TransactGetCommandOutput) => void
   ): Promise<TransactGetCommandOutput> | void {
-    const command = new TransactGetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new TransactGetCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -463,7 +511,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    */
   public transactWrite(
     args: TransactWriteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TransactWriteCommandOutput>;
   public transactWrite(
     args: TransactWriteCommandInput,
@@ -479,17 +527,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TransactWriteCommandOutput) => void),
     cb?: (err: any, data?: TransactWriteCommandOutput) => void
   ): Promise<TransactWriteCommandOutput> | void {
-    const command = new TransactWriteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new TransactWriteCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
 
   /**
@@ -499,8 +547,14 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
    * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
    * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
    */
-  public update(args: UpdateCommandInput, options?: __HttpHandlerOptions): Promise<UpdateCommandOutput>;
-  public update(args: UpdateCommandInput, cb: (err: any, data?: UpdateCommandOutput) => void): void;
+  public update(
+    args: UpdateCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<UpdateCommandOutput>;
+  public update(
+    args: UpdateCommandInput,
+    cb: (err: any, data?: UpdateCommandOutput) => void
+  ): void;
   public update(
     args: UpdateCommandInput,
     options: __HttpHandlerOptions,
@@ -511,16 +565,17 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCommandOutput) => void),
     cb?: (err: any, data?: UpdateCommandOutput) => void
   ): Promise<UpdateCommandOutput> | void {
-    const command = new UpdateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") {
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      const command = new UpdateCommand(args);
+      if (typeof optionsOrCb === "function") {
+        this.send(command, optionsOrCb);
+      } else if (typeof cb === "function") {
+        if (typeof optionsOrCb !== "object") {
+          throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+        }
+        this.send(command, optionsOrCb || {}, cb);
+      } else {
+        return this.send(command, optionsOrCb);
       }
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
   }
+
 }

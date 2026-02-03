@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   CreateAccessCommand,
@@ -321,7 +327,22 @@ import {
   UpdateWebAppCustomizationCommandInput,
   UpdateWebAppCustomizationCommandOutput,
 } from "./commands/UpdateWebAppCustomizationCommand";
+import { paginateListAccesses } from "./pagination/ListAccessesPaginator";
+import { paginateListAgreements } from "./pagination/ListAgreementsPaginator";
+import { paginateListCertificates } from "./pagination/ListCertificatesPaginator";
+import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";
+import { paginateListExecutions } from "./pagination/ListExecutionsPaginator";
+import { paginateListFileTransferResults } from "./pagination/ListFileTransferResultsPaginator";
+import { paginateListProfiles } from "./pagination/ListProfilesPaginator";
+import { paginateListSecurityPolicies } from "./pagination/ListSecurityPoliciesPaginator";
+import { paginateListServers } from "./pagination/ListServersPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListUsers } from "./pagination/ListUsersPaginator";
+import { paginateListWebApps } from "./pagination/ListWebAppsPaginator";
+import { paginateListWorkflows } from "./pagination/ListWorkflowsPaginator";
 import { TransferClient } from "./TransferClient";
+import { waitUntilServerOffline } from "./waiters/waitForServerOffline";
+import { waitUntilServerOnline } from "./waiters/waitForServerOnline";
 
 const commands = {
   CreateAccessCommand,
@@ -395,6 +416,25 @@ const commands = {
   UpdateUserCommand,
   UpdateWebAppCommand,
   UpdateWebAppCustomizationCommand,
+};
+const paginators = {
+  paginateListAccesses,
+  paginateListAgreements,
+  paginateListCertificates,
+  paginateListConnectors,
+  paginateListExecutions,
+  paginateListFileTransferResults,
+  paginateListProfiles,
+  paginateListSecurityPolicies,
+  paginateListServers,
+  paginateListTagsForResource,
+  paginateListUsers,
+  paginateListWebApps,
+  paginateListWorkflows,
+};
+const waiters = {
+  waitUntilServerOffline,
+  waitUntilServerOnline,
 };
 
 export interface Transfer {
@@ -1612,6 +1652,169 @@ export interface Transfer {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWebAppCustomizationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccessesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessesCommandOutput}.
+   */
+  paginateListAccesses(
+    args: ListAccessesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessesCommandOutput>;
+
+  /**
+   * @see {@link ListAgreementsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgreementsCommandOutput}.
+   */
+  paginateListAgreements(
+    args: ListAgreementsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgreementsCommandOutput>;
+
+  /**
+   * @see {@link ListCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCertificatesCommandOutput}.
+   */
+  paginateListCertificates(
+    args?: ListCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCertificatesCommandOutput>;
+
+  /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorsCommandOutput}.
+   */
+  paginateListConnectors(
+    args?: ListConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorsCommandOutput>;
+
+  /**
+   * @see {@link ListExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExecutionsCommandOutput}.
+   */
+  paginateListExecutions(
+    args: ListExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListFileTransferResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFileTransferResultsCommandOutput}.
+   */
+  paginateListFileTransferResults(
+    args: ListFileTransferResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFileTransferResultsCommandOutput>;
+
+  /**
+   * @see {@link ListProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProfilesCommandOutput}.
+   */
+  paginateListProfiles(
+    args?: ListProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityPoliciesCommandOutput}.
+   */
+  paginateListSecurityPolicies(
+    args?: ListSecurityPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListServersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServersCommandOutput}.
+   */
+  paginateListServers(
+    args?: ListServersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServersCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListUsersCommandOutput}.
+   */
+  paginateListUsers(
+    args: ListUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListUsersCommandOutput>;
+
+  /**
+   * @see {@link ListWebAppsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWebAppsCommandOutput}.
+   */
+  paginateListWebApps(
+    args?: ListWebAppsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWebAppsCommandOutput>;
+
+  /**
+   * @see {@link ListWorkflowsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkflowsCommandOutput}.
+   */
+  paginateListWorkflows(
+    args?: ListWorkflowsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkflowsCommandOutput>;
+
+  /**
+   * @see {@link DescribeServerCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilServerOffline(
+    args: DescribeServerCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Transfer>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeServerCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilServerOnline(
+    args: DescribeServerCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Transfer>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1619,4 +1822,4 @@ export interface Transfer {
  * @public
  */
 export class Transfer extends TransferClient implements Transfer {}
-createAggregatedClient(commands, Transfer);
+createAggregatedClient(commands, Transfer, { paginators, waiters });

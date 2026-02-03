@@ -27,7 +27,7 @@ export interface UpdateFlowSourceCommandInput extends UpdateFlowSourceRequest {}
 export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse, __MetadataBearer {}
 
 /**
- * <p> Updates the source of a flow.</p>
+ * <p> Updates the source of a flow.</p> <note> <p> Because <code>UpdateFlowSources</code> and <code>UpdateFlow</code> are separate operations, you can't change both the source type AND the flow size in a single request. </p> <ul> <li> <p>If you have a <code>MEDIUM</code> flow and you want to change the flow source to NDI®:</p> <ul> <li> <p>First, use the <code>UpdateFlow</code> operation to upgrade the flow size to <code>LARGE</code>. </p> </li> <li> <p>After that, you can then use the <code>UpdateFlowSource</code> operation to configure the NDI source. </p> </li> </ul> </li> <li> <p>If you're switching from an NDI source to a transport stream (TS) source and want to downgrade the flow size: </p> <ul> <li> <p>First, use the <code>UpdateFlowSource</code> operation to change the flow source type. </p> </li> <li> <p>After that, you can then use the <code>UpdateFlow</code> operation to downgrade the flow size to <code>MEDIUM</code>.</p> </li> </ul> </li> </ul> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,6 +84,9 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  *     VpcInterfaceAttachment: { // VpcInterfaceAttachment
  *       VpcInterfaceName: "STRING_VALUE",
  *     },
+ *   },
+ *   NdiSourceSettings: { // NdiSourceSettings
+ *     SourceName: "STRING_VALUE",
  *   },
  *   RouterIntegrationState: "ENABLED" || "DISABLED",
  *   RouterIntegrationTransitDecryption: { // FlowTransitEncryption
@@ -155,6 +158,9 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  * //       StreamId: "STRING_VALUE",
  * //       NdiSpeedHqQuality: Number("int"),
  * //       NdiProgramName: "STRING_VALUE",
+ * //       NdiSourceSettings: { // NdiSourceSettings
+ * //         SourceName: "STRING_VALUE",
+ * //       },
  * //     },
  * //     VpcInterfaceName: "STRING_VALUE",
  * //     WhitelistCidr: "STRING_VALUE",

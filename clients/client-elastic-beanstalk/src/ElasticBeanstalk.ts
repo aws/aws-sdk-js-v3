@@ -1,6 +1,12 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
+import type { WaiterResult } from "@smithy/util-waiter";
 
 import {
   AbortEnvironmentUpdateCommand,
@@ -238,6 +244,15 @@ import {
   ValidateConfigurationSettingsCommandOutput,
 } from "./commands/ValidateConfigurationSettingsCommand";
 import { ElasticBeanstalkClient } from "./ElasticBeanstalkClient";
+import {
+  paginateDescribeEnvironmentManagedActionHistory,
+} from "./pagination/DescribeEnvironmentManagedActionHistoryPaginator";
+import { paginateDescribeEvents } from "./pagination/DescribeEventsPaginator";
+import { paginateListPlatformBranches } from "./pagination/ListPlatformBranchesPaginator";
+import { paginateListPlatformVersions } from "./pagination/ListPlatformVersionsPaginator";
+import { waitUntilEnvironmentExists } from "./waiters/waitForEnvironmentExists";
+import { waitUntilEnvironmentTerminated } from "./waiters/waitForEnvironmentTerminated";
+import { waitUntilEnvironmentUpdated } from "./waiters/waitForEnvironmentUpdated";
 
 const commands = {
   AbortEnvironmentUpdateCommand,
@@ -287,6 +302,17 @@ const commands = {
   UpdateEnvironmentCommand,
   UpdateTagsForResourceCommand,
   ValidateConfigurationSettingsCommand,
+};
+const paginators = {
+  paginateDescribeEnvironmentManagedActionHistory,
+  paginateDescribeEvents,
+  paginateListPlatformBranches,
+  paginateListPlatformVersions,
+};
+const waiters = {
+  waitUntilEnvironmentExists,
+  waitUntilEnvironmentTerminated,
+  waitUntilEnvironmentUpdated,
 };
 
 export interface ElasticBeanstalk {
@@ -1112,6 +1138,80 @@ export interface ElasticBeanstalk {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ValidateConfigurationSettingsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeEnvironmentManagedActionHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEnvironmentManagedActionHistoryCommandOutput}.
+   */
+  paginateDescribeEnvironmentManagedActionHistory(
+    args?: DescribeEnvironmentManagedActionHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEnvironmentManagedActionHistoryCommandOutput>;
+
+  /**
+   * @see {@link DescribeEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeEventsCommandOutput}.
+   */
+  paginateDescribeEvents(
+    args?: DescribeEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeEventsCommandOutput>;
+
+  /**
+   * @see {@link ListPlatformBranchesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPlatformBranchesCommandOutput}.
+   */
+  paginateListPlatformBranches(
+    args?: ListPlatformBranchesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPlatformBranchesCommandOutput>;
+
+  /**
+   * @see {@link ListPlatformVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPlatformVersionsCommandOutput}.
+   */
+  paginateListPlatformVersions(
+    args?: ListPlatformVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPlatformVersionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeEnvironmentsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilEnvironmentExists(
+    args: DescribeEnvironmentsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElasticBeanstalk>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeEnvironmentsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilEnvironmentTerminated(
+    args: DescribeEnvironmentsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElasticBeanstalk>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link DescribeEnvironmentsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilEnvironmentUpdated(
+    args: DescribeEnvironmentsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<ElasticBeanstalk>, "client">
+  ): Promise<WaiterResult>;
 }
 
 /**
@@ -1131,4 +1231,4 @@ export interface ElasticBeanstalk {
  * @public
  */
 export class ElasticBeanstalk extends ElasticBeanstalkClient implements ElasticBeanstalk {}
-createAggregatedClient(commands, ElasticBeanstalk);
+createAggregatedClient(commands, ElasticBeanstalk, { paginators, waiters });

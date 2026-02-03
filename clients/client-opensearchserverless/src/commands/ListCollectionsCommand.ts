@@ -44,6 +44,7 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  *   collectionFilters: { // CollectionFilters
  *     name: "STRING_VALUE",
  *     status: "STRING_VALUE",
+ *     collectionGroupName: "STRING_VALUE",
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -57,6 +58,8 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * //       name: "STRING_VALUE",
  * //       status: "STRING_VALUE",
  * //       arn: "STRING_VALUE",
+ * //       kmsKeyArn: "STRING_VALUE",
+ * //       collectionGroupName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

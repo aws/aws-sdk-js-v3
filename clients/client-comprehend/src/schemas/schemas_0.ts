@@ -640,8 +640,8 @@ import {
 var CustomerInputString: StaticSimpleSchema = [0, n0, _CIS, 8, 0];
 export var AugmentedManifestsListItem$: StaticStructureSchema = [3, n0, _AMLI,
   0,
-  [_SU, _S, _AN, _ADSU, _SDSU, _DT],
-  [0, 0, 64 | 0, 0, 0, 0]
+  [_SU, _AN, _S, _ADSU, _SDSU, _DT],
+  [0, 64 | 0, 0, 0, 0, 0], 2
 ];
 export var BatchDetectDominantLanguageItemResult$: StaticStructureSchema = [3, n0, _BDDLIR,
   0,
@@ -651,12 +651,12 @@ export var BatchDetectDominantLanguageItemResult$: StaticStructureSchema = [3, n
 export var BatchDetectDominantLanguageRequest$: StaticStructureSchema = [3, n0, _BDDLR,
   0,
   [_TL],
-  [[() => CustomerInputStringList, 0]]
+  [[() => CustomerInputStringList, 0]], 1
 ];
 export var BatchDetectDominantLanguageResponse$: StaticStructureSchema = [3, n0, _BDDLRa,
   8,
   [_RL, _EL],
-  [() => ListOfDetectDominantLanguageResult, () => BatchItemErrorList]
+  [() => ListOfDetectDominantLanguageResult, () => BatchItemErrorList], 2
 ];
 export var BatchDetectEntitiesItemResult$: StaticStructureSchema = [3, n0, _BDEIR,
   0,
@@ -666,12 +666,12 @@ export var BatchDetectEntitiesItemResult$: StaticStructureSchema = [3, n0, _BDEI
 export var BatchDetectEntitiesRequest$: StaticStructureSchema = [3, n0, _BDER,
   0,
   [_TL, _LC],
-  [[() => CustomerInputStringList, 0], 0]
+  [[() => CustomerInputStringList, 0], 0], 2
 ];
 export var BatchDetectEntitiesResponse$: StaticStructureSchema = [3, n0, _BDERa,
   8,
   [_RL, _EL],
-  [() => ListOfDetectEntitiesResult, () => BatchItemErrorList]
+  [() => ListOfDetectEntitiesResult, () => BatchItemErrorList], 2
 ];
 export var BatchDetectKeyPhrasesItemResult$: StaticStructureSchema = [3, n0, _BDKPIR,
   0,
@@ -681,12 +681,12 @@ export var BatchDetectKeyPhrasesItemResult$: StaticStructureSchema = [3, n0, _BD
 export var BatchDetectKeyPhrasesRequest$: StaticStructureSchema = [3, n0, _BDKPR,
   0,
   [_TL, _LC],
-  [[() => CustomerInputStringList, 0], 0]
+  [[() => CustomerInputStringList, 0], 0], 2
 ];
 export var BatchDetectKeyPhrasesResponse$: StaticStructureSchema = [3, n0, _BDKPRa,
   8,
   [_RL, _EL],
-  [() => ListOfDetectKeyPhrasesResult, () => BatchItemErrorList]
+  [() => ListOfDetectKeyPhrasesResult, () => BatchItemErrorList], 2
 ];
 export var BatchDetectSentimentItemResult$: StaticStructureSchema = [3, n0, _BDSIR,
   0,
@@ -696,12 +696,12 @@ export var BatchDetectSentimentItemResult$: StaticStructureSchema = [3, n0, _BDS
 export var BatchDetectSentimentRequest$: StaticStructureSchema = [3, n0, _BDSR,
   0,
   [_TL, _LC],
-  [[() => CustomerInputStringList, 0], 0]
+  [[() => CustomerInputStringList, 0], 0], 2
 ];
 export var BatchDetectSentimentResponse$: StaticStructureSchema = [3, n0, _BDSRa,
   8,
   [_RL, _EL],
-  [() => ListOfDetectSentimentResult, () => BatchItemErrorList]
+  [() => ListOfDetectSentimentResult, () => BatchItemErrorList], 2
 ];
 export var BatchDetectSyntaxItemResult$: StaticStructureSchema = [3, n0, _BDSIRa,
   0,
@@ -711,12 +711,12 @@ export var BatchDetectSyntaxItemResult$: StaticStructureSchema = [3, n0, _BDSIRa
 export var BatchDetectSyntaxRequest$: StaticStructureSchema = [3, n0, _BDSRat,
   0,
   [_TL, _LC],
-  [[() => CustomerInputStringList, 0], 0]
+  [[() => CustomerInputStringList, 0], 0], 2
 ];
 export var BatchDetectSyntaxResponse$: StaticStructureSchema = [3, n0, _BDSRatc,
   8,
   [_RL, _EL],
-  [() => ListOfDetectSyntaxResult, () => BatchItemErrorList]
+  [() => ListOfDetectSyntaxResult, () => BatchItemErrorList], 2
 ];
 export var BatchDetectTargetedSentimentItemResult$: StaticStructureSchema = [3, n0, _BDTSIR,
   0,
@@ -726,12 +726,12 @@ export var BatchDetectTargetedSentimentItemResult$: StaticStructureSchema = [3, 
 export var BatchDetectTargetedSentimentRequest$: StaticStructureSchema = [3, n0, _BDTSR,
   0,
   [_TL, _LC],
-  [[() => CustomerInputStringList, 0], 0]
+  [[() => CustomerInputStringList, 0], 0], 2
 ];
 export var BatchDetectTargetedSentimentResponse$: StaticStructureSchema = [3, n0, _BDTSRa,
   8,
   [_RL, _EL],
-  [() => ListOfDetectTargetedSentimentResult, () => BatchItemErrorList]
+  [() => ListOfDetectTargetedSentimentResult, () => BatchItemErrorList], 2
 ];
 export var BatchItemError$: StaticStructureSchema = [3, n0, _BIE,
   0,
@@ -776,8 +776,8 @@ export var ClassifierMetadata$: StaticStructureSchema = [3, n0, _CM,
 ];
 export var ClassifyDocumentRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_T, _EA, _By, _DRC],
-  [[() => CustomerInputString, 0], 0, 21, () => DocumentReaderConfig$]
+  [_EA, _T, _By, _DRC],
+  [0, [() => CustomerInputString, 0], 21, () => DocumentReaderConfig$], 1
 ];
 export var ClassifyDocumentResponse$: StaticStructureSchema = [3, n0, _CDRl,
   8,
@@ -793,7 +793,7 @@ TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentM
 export var ContainsPiiEntitiesRequest$: StaticStructureSchema = [3, n0, _CPER,
   0,
   [_T, _LC],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ContainsPiiEntitiesResponse$: StaticStructureSchema = [3, n0, _CPERo,
   0,
@@ -802,8 +802,8 @@ export var ContainsPiiEntitiesResponse$: StaticStructureSchema = [3, n0, _CPERo,
 ];
 export var CreateDatasetRequest$: StaticStructureSchema = [3, n0, _CDRr,
   0,
-  [_FA, _DN, _DTa, _D, _IDC, _CRT, _Ta],
-  [0, 0, 0, 0, () => DatasetInputDataConfig$, [0, 4], () => TagList]
+  [_FA, _DN, _IDC, _DTa, _D, _CRT, _Ta],
+  [0, 0, () => DatasetInputDataConfig$, 0, 0, [0, 4], () => TagList], 3
 ];
 export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRre,
   0,
@@ -812,8 +812,8 @@ export var CreateDatasetResponse$: StaticStructureSchema = [3, n0, _CDRre,
 ];
 export var CreateDocumentClassifierRequest$: StaticStructureSchema = [3, n0, _CDCR,
   0,
-  [_DCN, _VN, _DARA, _Ta, _IDC, _ODC, _CRT, _LC, _VKKI, _VC, _Mo, _MKKI, _MPo],
-  [0, 0, 0, () => TagList, () => DocumentClassifierInputDataConfig$, () => DocumentClassifierOutputDataConfig$, [0, 4], 0, 0, () => VpcConfig$, 0, 0, 0]
+  [_DCN, _DARA, _IDC, _LC, _VN, _Ta, _ODC, _CRT, _VKKI, _VC, _Mo, _MKKI, _MPo],
+  [0, 0, () => DocumentClassifierInputDataConfig$, 0, 0, () => TagList, () => DocumentClassifierOutputDataConfig$, [0, 4], 0, () => VpcConfig$, 0, 0, 0], 4
 ];
 export var CreateDocumentClassifierResponse$: StaticStructureSchema = [3, n0, _CDCRr,
   0,
@@ -822,8 +822,8 @@ export var CreateDocumentClassifierResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateEndpointRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
-  [_EN, _MA, _DIU, _CRT, _Ta, _DARA, _FA],
-  [0, 0, 1, [0, 4], () => TagList, 0, 0]
+  [_EN, _DIU, _MA, _CRT, _Ta, _DARA, _FA],
+  [0, 1, 0, [0, 4], () => TagList, 0, 0], 2
 ];
 export var CreateEndpointResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
@@ -832,8 +832,8 @@ export var CreateEndpointResponse$: StaticStructureSchema = [3, n0, _CERr,
 ];
 export var CreateEntityRecognizerRequest$: StaticStructureSchema = [3, n0, _CERR,
   0,
-  [_RN, _VN, _DARA, _Ta, _IDC, _CRT, _LC, _VKKI, _VC, _MKKI, _MPo],
-  [0, 0, 0, () => TagList, () => EntityRecognizerInputDataConfig$, [0, 4], 0, 0, () => VpcConfig$, 0, 0]
+  [_RN, _DARA, _IDC, _LC, _VN, _Ta, _CRT, _VKKI, _VC, _MKKI, _MPo],
+  [0, 0, () => EntityRecognizerInputDataConfig$, 0, 0, () => TagList, [0, 4], 0, () => VpcConfig$, 0, 0], 4
 ];
 export var CreateEntityRecognizerResponse$: StaticStructureSchema = [3, n0, _CERRr,
   0,
@@ -842,8 +842,8 @@ export var CreateEntityRecognizerResponse$: StaticStructureSchema = [3, n0, _CER
 ];
 export var CreateFlywheelRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_FN, _AMA, _DARA, _TC, _MT, _DLSU, _DSC, _CRT, _Ta],
-  [0, 0, 0, () => TaskConfig$, 0, 0, () => DataSecurityConfig$, [0, 4], () => TagList]
+  [_FN, _DARA, _DLSU, _AMA, _TC, _MT, _DSC, _CRT, _Ta],
+  [0, 0, 0, 0, () => TaskConfig$, 0, () => DataSecurityConfig$, [0, 4], () => TagList], 3
 ];
 export var CreateFlywheelResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -858,32 +858,32 @@ export var DataSecurityConfig$: StaticStructureSchema = [3, n0, _DSC,
 export var DatasetAugmentedManifestsListItem$: StaticStructureSchema = [3, n0, _DAMLI,
   0,
   [_AN, _SU, _ADSU, _SDSU, _DT],
-  [64 | 0, 0, 0, 0, 0]
+  [64 | 0, 0, 0, 0, 0], 2
 ];
 export var DatasetDocumentClassifierInputDataConfig$: StaticStructureSchema = [3, n0, _DDCIDC,
   0,
   [_SU, _LD],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DatasetEntityRecognizerAnnotations$: StaticStructureSchema = [3, n0, _DERA,
   0,
   [_SU],
-  [0]
+  [0], 1
 ];
 export var DatasetEntityRecognizerDocuments$: StaticStructureSchema = [3, n0, _DERD,
   0,
   [_SU, _IF],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DatasetEntityRecognizerEntityList$: StaticStructureSchema = [3, n0, _DEREL,
   0,
   [_SU],
-  [0]
+  [0], 1
 ];
 export var DatasetEntityRecognizerInputDataConfig$: StaticStructureSchema = [3, n0, _DERIDC,
   0,
-  [_An, _Do, _ELn],
-  [() => DatasetEntityRecognizerAnnotations$, () => DatasetEntityRecognizerDocuments$, () => DatasetEntityRecognizerEntityList$]
+  [_Do, _An, _ELn],
+  [() => DatasetEntityRecognizerDocuments$, () => DatasetEntityRecognizerAnnotations$, () => DatasetEntityRecognizerEntityList$], 1
 ];
 export var DatasetFilter$: StaticStructureSchema = [3, n0, _DF,
   0,
@@ -903,7 +903,7 @@ export var DatasetProperties$: StaticStructureSchema = [3, n0, _DP,
 export var DeleteDocumentClassifierRequest$: StaticStructureSchema = [3, n0, _DDCR,
   0,
   [_DCA],
-  [0]
+  [0], 1
 ];
 export var DeleteDocumentClassifierResponse$: StaticStructureSchema = [3, n0, _DDCRe,
   0,
@@ -913,7 +913,7 @@ export var DeleteDocumentClassifierResponse$: StaticStructureSchema = [3, n0, _D
 export var DeleteEndpointRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_EA],
-  [0]
+  [0], 1
 ];
 export var DeleteEndpointResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -923,7 +923,7 @@ export var DeleteEndpointResponse$: StaticStructureSchema = [3, n0, _DERe,
 export var DeleteEntityRecognizerRequest$: StaticStructureSchema = [3, n0, _DERR,
   0,
   [_ERA],
-  [0]
+  [0], 1
 ];
 export var DeleteEntityRecognizerResponse$: StaticStructureSchema = [3, n0, _DERRe,
   0,
@@ -933,7 +933,7 @@ export var DeleteEntityRecognizerResponse$: StaticStructureSchema = [3, n0, _DER
 export var DeleteFlywheelRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_FA],
-  [0]
+  [0], 1
 ];
 export var DeleteFlywheelResponse$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -943,7 +943,7 @@ export var DeleteFlywheelResponse$: StaticStructureSchema = [3, n0, _DFRe,
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_RA, _PRI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
   0,
@@ -953,7 +953,7 @@ export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
 export var DescribeDatasetRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_DA],
-  [0]
+  [0], 1
 ];
 export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
@@ -963,7 +963,7 @@ export var DescribeDatasetResponse$: StaticStructureSchema = [3, n0, _DDRe,
 export var DescribeDocumentClassificationJobRequest$: StaticStructureSchema = [3, n0, _DDCJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeDocumentClassificationJobResponse$: StaticStructureSchema = [3, n0, _DDCJRe,
   0,
@@ -973,7 +973,7 @@ export var DescribeDocumentClassificationJobResponse$: StaticStructureSchema = [
 export var DescribeDocumentClassifierRequest$: StaticStructureSchema = [3, n0, _DDCRes,
   0,
   [_DCA],
-  [0]
+  [0], 1
 ];
 export var DescribeDocumentClassifierResponse$: StaticStructureSchema = [3, n0, _DDCResc,
   0,
@@ -983,7 +983,7 @@ export var DescribeDocumentClassifierResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeDominantLanguageDetectionJobRequest$: StaticStructureSchema = [3, n0, _DDLDJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeDominantLanguageDetectionJobResponse$: StaticStructureSchema = [3, n0, _DDLDJRe,
   0,
@@ -993,7 +993,7 @@ export var DescribeDominantLanguageDetectionJobResponse$: StaticStructureSchema 
 export var DescribeEndpointRequest$: StaticStructureSchema = [3, n0, _DERes,
   0,
   [_EA],
-  [0]
+  [0], 1
 ];
 export var DescribeEndpointResponse$: StaticStructureSchema = [3, n0, _DEResc,
   0,
@@ -1003,7 +1003,7 @@ export var DescribeEndpointResponse$: StaticStructureSchema = [3, n0, _DEResc,
 export var DescribeEntitiesDetectionJobRequest$: StaticStructureSchema = [3, n0, _DEDJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeEntitiesDetectionJobResponse$: StaticStructureSchema = [3, n0, _DEDJRe,
   0,
@@ -1013,7 +1013,7 @@ export var DescribeEntitiesDetectionJobResponse$: StaticStructureSchema = [3, n0
 export var DescribeEntityRecognizerRequest$: StaticStructureSchema = [3, n0, _DERRes,
   0,
   [_ERA],
-  [0]
+  [0], 1
 ];
 export var DescribeEntityRecognizerResponse$: StaticStructureSchema = [3, n0, _DERResc,
   0,
@@ -1023,7 +1023,7 @@ export var DescribeEntityRecognizerResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeEventsDetectionJobRequest$: StaticStructureSchema = [3, n0, _DEDJRes,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeEventsDetectionJobResponse$: StaticStructureSchema = [3, n0, _DEDJResc,
   0,
@@ -1033,7 +1033,7 @@ export var DescribeEventsDetectionJobResponse$: StaticStructureSchema = [3, n0, 
 export var DescribeFlywheelIterationRequest$: StaticStructureSchema = [3, n0, _DFIR,
   0,
   [_FA, _FII],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DescribeFlywheelIterationResponse$: StaticStructureSchema = [3, n0, _DFIRe,
   0,
@@ -1043,7 +1043,7 @@ export var DescribeFlywheelIterationResponse$: StaticStructureSchema = [3, n0, _
 export var DescribeFlywheelRequest$: StaticStructureSchema = [3, n0, _DFRes,
   0,
   [_FA],
-  [0]
+  [0], 1
 ];
 export var DescribeFlywheelResponse$: StaticStructureSchema = [3, n0, _DFResc,
   0,
@@ -1053,7 +1053,7 @@ export var DescribeFlywheelResponse$: StaticStructureSchema = [3, n0, _DFResc,
 export var DescribeKeyPhrasesDetectionJobRequest$: StaticStructureSchema = [3, n0, _DKPDJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeKeyPhrasesDetectionJobResponse$: StaticStructureSchema = [3, n0, _DKPDJRe,
   0,
@@ -1063,7 +1063,7 @@ export var DescribeKeyPhrasesDetectionJobResponse$: StaticStructureSchema = [3, 
 export var DescribePiiEntitiesDetectionJobRequest$: StaticStructureSchema = [3, n0, _DPEDJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribePiiEntitiesDetectionJobResponse$: StaticStructureSchema = [3, n0, _DPEDJRe,
   0,
@@ -1073,7 +1073,7 @@ export var DescribePiiEntitiesDetectionJobResponse$: StaticStructureSchema = [3,
 export var DescribeResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPRes,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var DescribeResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPResc,
   0,
@@ -1083,7 +1083,7 @@ export var DescribeResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRP
 export var DescribeSentimentDetectionJobRequest$: StaticStructureSchema = [3, n0, _DSDJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeSentimentDetectionJobResponse$: StaticStructureSchema = [3, n0, _DSDJRe,
   0,
@@ -1093,7 +1093,7 @@ export var DescribeSentimentDetectionJobResponse$: StaticStructureSchema = [3, n
 export var DescribeTargetedSentimentDetectionJobRequest$: StaticStructureSchema = [3, n0, _DTSDJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeTargetedSentimentDetectionJobResponse$: StaticStructureSchema = [3, n0, _DTSDJRe,
   0,
@@ -1103,7 +1103,7 @@ export var DescribeTargetedSentimentDetectionJobResponse$: StaticStructureSchema
 export var DescribeTopicsDetectionJobRequest$: StaticStructureSchema = [3, n0, _DTDJR,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var DescribeTopicsDetectionJobResponse$: StaticStructureSchema = [3, n0, _DTDJRe,
   0,
@@ -1113,7 +1113,7 @@ export var DescribeTopicsDetectionJobResponse$: StaticStructureSchema = [3, n0, 
 export var DetectDominantLanguageRequest$: StaticStructureSchema = [3, n0, _DDLR,
   0,
   [_T],
-  [[() => CustomerInputString, 0]]
+  [[() => CustomerInputString, 0]], 1
 ];
 export var DetectDominantLanguageResponse$: StaticStructureSchema = [3, n0, _DDLRe,
   8,
@@ -1133,7 +1133,7 @@ export var DetectEntitiesResponse$: StaticStructureSchema = [3, n0, _DERete,
 export var DetectKeyPhrasesRequest$: StaticStructureSchema = [3, n0, _DKPR,
   0,
   [_T, _LC],
-  [[() => CustomerInputString, 0], 0]
+  [[() => CustomerInputString, 0], 0], 2
 ];
 export var DetectKeyPhrasesResponse$: StaticStructureSchema = [3, n0, _DKPRe,
   8,
@@ -1143,7 +1143,7 @@ export var DetectKeyPhrasesResponse$: StaticStructureSchema = [3, n0, _DKPRe,
 export var DetectPiiEntitiesRequest$: StaticStructureSchema = [3, n0, _DPER,
   0,
   [_T, _LC],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DetectPiiEntitiesResponse$: StaticStructureSchema = [3, n0, _DPERe,
   0,
@@ -1153,7 +1153,7 @@ export var DetectPiiEntitiesResponse$: StaticStructureSchema = [3, n0, _DPERe,
 export var DetectSentimentRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_T, _LC],
-  [[() => CustomerInputString, 0], 0]
+  [[() => CustomerInputString, 0], 0], 2
 ];
 export var DetectSentimentResponse$: StaticStructureSchema = [3, n0, _DSRe,
   8,
@@ -1163,7 +1163,7 @@ export var DetectSentimentResponse$: StaticStructureSchema = [3, n0, _DSRe,
 export var DetectSyntaxRequest$: StaticStructureSchema = [3, n0, _DSRet,
   0,
   [_T, _LC],
-  [[() => CustomerInputString, 0], 0]
+  [[() => CustomerInputString, 0], 0], 2
 ];
 export var DetectSyntaxResponse$: StaticStructureSchema = [3, n0, _DSRete,
   8,
@@ -1173,7 +1173,7 @@ export var DetectSyntaxResponse$: StaticStructureSchema = [3, n0, _DSRete,
 export var DetectTargetedSentimentRequest$: StaticStructureSchema = [3, n0, _DTSR,
   0,
   [_T, _LC],
-  [[() => CustomerInputString, 0], 0]
+  [[() => CustomerInputString, 0], 0], 2
 ];
 export var DetectTargetedSentimentResponse$: StaticStructureSchema = [3, n0, _DTSRe,
   8,
@@ -1183,7 +1183,7 @@ export var DetectTargetedSentimentResponse$: StaticStructureSchema = [3, n0, _DT
 export var DetectToxicContentRequest$: StaticStructureSchema = [3, n0, _DTCR,
   0,
   [_TS, _LC],
-  [[() => ListOfTextSegments, 0], 0]
+  [[() => ListOfTextSegments, 0], 0], 2
 ];
 export var DetectToxicContentResponse$: StaticStructureSchema = [3, n0, _DTCRe,
   0,
@@ -1198,7 +1198,7 @@ export var DocumentClass$: StaticStructureSchema = [3, n0, _DC,
 export var DocumentClassificationConfig$: StaticStructureSchema = [3, n0, _DCC,
   0,
   [_Mo, _La],
-  [0, 64 | 0]
+  [0, 64 | 0], 1
 ];
 export var DocumentClassificationJobFilter$: StaticStructureSchema = [3, n0, _DCJF,
   0,
@@ -1213,7 +1213,7 @@ export var DocumentClassificationJobProperties$: StaticStructureSchema = [3, n0,
 export var DocumentClassifierDocuments$: StaticStructureSchema = [3, n0, _DCD,
   0,
   [_SU, _TSU],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DocumentClassifierFilter$: StaticStructureSchema = [3, n0, _DCF,
   0,
@@ -1253,7 +1253,7 @@ export var DocumentMetadata$: StaticStructureSchema = [3, n0, _DM,
 export var DocumentReaderConfig$: StaticStructureSchema = [3, n0, _DRC,
   0,
   [_DRA, _DRM, _FT],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 1
 ];
 export var DocumentTypeListItem$: StaticStructureSchema = [3, n0, _DTLI,
   0,
@@ -1308,22 +1308,22 @@ export var EntityLabel$: StaticStructureSchema = [3, n0, _ELnt,
 export var EntityRecognitionConfig$: StaticStructureSchema = [3, n0, _ERC,
   0,
   [_ETn],
-  [() => EntityTypesList]
+  [() => EntityTypesList], 1
 ];
 export var EntityRecognizerAnnotations$: StaticStructureSchema = [3, n0, _ERAn,
   0,
   [_SU, _TSU],
-  [0, 0]
+  [0, 0], 1
 ];
 export var EntityRecognizerDocuments$: StaticStructureSchema = [3, n0, _ERD,
   0,
   [_SU, _TSU, _IF],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var EntityRecognizerEntityList$: StaticStructureSchema = [3, n0, _EREL,
   0,
   [_SU],
-  [0]
+  [0], 1
 ];
 export var EntityRecognizerEvaluationMetrics$: StaticStructureSchema = [3, n0, _EREM,
   0,
@@ -1337,8 +1337,8 @@ export var EntityRecognizerFilter$: StaticStructureSchema = [3, n0, _ERF,
 ];
 export var EntityRecognizerInputDataConfig$: StaticStructureSchema = [3, n0, _ERIDC,
   0,
-  [_DFa, _ETn, _Do, _An, _ELn, _AM],
-  [0, () => EntityTypesList, () => EntityRecognizerDocuments$, () => EntityRecognizerAnnotations$, () => EntityRecognizerEntityList$, () => EntityRecognizerAugmentedManifestsList]
+  [_ETn, _DFa, _Do, _An, _ELn, _AM],
+  [() => EntityTypesList, 0, () => EntityRecognizerDocuments$, () => EntityRecognizerAnnotations$, () => EntityRecognizerEntityList$, () => EntityRecognizerAugmentedManifestsList], 1
 ];
 export var EntityRecognizerMetadata$: StaticStructureSchema = [3, n0, _ERM,
   8,
@@ -1373,7 +1373,7 @@ export var EntityTypesEvaluationMetrics$: StaticStructureSchema = [3, n0, _ETEM,
 export var EntityTypesListItem$: StaticStructureSchema = [3, n0, _ETLI,
   0,
   [_Ty],
-  [0]
+  [0], 1
 ];
 export var ErrorsListItem$: StaticStructureSchema = [3, n0, _ELI,
   0,
@@ -1433,7 +1433,7 @@ export var Geometry$: StaticStructureSchema = [3, n0, _G,
 export var ImportModelRequest$: StaticStructureSchema = [3, n0, _IMR,
   0,
   [_SMA, _MN, _VN, _MKKI, _DARA, _Ta],
-  [0, 0, 0, 0, 0, () => TagList]
+  [0, 0, 0, 0, 0, () => TagList], 1
 ];
 export var ImportModelResponse$: StaticStructureSchema = [3, n0, _IMRm,
   0,
@@ -1443,7 +1443,7 @@ export var ImportModelResponse$: StaticStructureSchema = [3, n0, _IMRm,
 export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC,
   0,
   [_SU, _IF, _DRC],
-  [0, 0, () => DocumentReaderConfig$]
+  [0, 0, () => DocumentReaderConfig$], 1
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
@@ -1598,7 +1598,7 @@ export var ListEventsDetectionJobsResponse$: StaticStructureSchema = [3, n0, _LE
 export var ListFlywheelIterationHistoryRequest$: StaticStructureSchema = [3, n0, _LFIHR,
   0,
   [_FA, _F, _NT, _MRa],
-  [0, () => FlywheelIterationFilter$, 0, 1]
+  [0, () => FlywheelIterationFilter$, 0, 1], 1
 ];
 export var ListFlywheelIterationHistoryResponse$: StaticStructureSchema = [3, n0, _LFIHRi,
   0,
@@ -1648,7 +1648,7 @@ export var ListSentimentDetectionJobsResponse$: StaticStructureSchema = [3, n0, 
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1683,7 +1683,7 @@ export var MentionSentiment$: StaticStructureSchema = [3, n0, _MS,
 export var OutputDataConfig$: StaticStructureSchema = [3, n0, _ODC,
   0,
   [_SU, _KKI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var PartOfSpeechTag$: StaticStructureSchema = [3, n0, _POST,
   0,
@@ -1708,7 +1708,7 @@ export var PiiEntity$: StaticStructureSchema = [3, n0, _PE,
 export var PiiOutputDataConfig$: StaticStructureSchema = [3, n0, _PODC,
   0,
   [_SU, _KKI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var Point$: StaticStructureSchema = [3, n0, _Poi,
   0,
@@ -1718,7 +1718,7 @@ export var Point$: StaticStructureSchema = [3, n0, _Poi,
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_RA, _RP, _PRI],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
@@ -1776,8 +1776,8 @@ export var SentimentScore$: StaticStructureSchema = [3, n0, _SS,
 ];
 export var StartDocumentClassificationJobRequest$: StaticStructureSchema = [3, n0, _SDCJR,
   0,
-  [_JN, _DCA, _IDC, _ODC, _DARA, _CRT, _VKKI, _VC, _Ta, _FA],
-  [0, 0, () => InputDataConfig$, () => OutputDataConfig$, 0, [0, 4], 0, () => VpcConfig$, () => TagList, 0]
+  [_IDC, _ODC, _DARA, _JN, _DCA, _CRT, _VKKI, _VC, _Ta, _FA],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0, () => VpcConfig$, () => TagList, 0], 3
 ];
 export var StartDocumentClassificationJobResponse$: StaticStructureSchema = [3, n0, _SDCJRt,
   0,
@@ -1787,7 +1787,7 @@ export var StartDocumentClassificationJobResponse$: StaticStructureSchema = [3, 
 export var StartDominantLanguageDetectionJobRequest$: StaticStructureSchema = [3, n0, _SDLDJR,
   0,
   [_IDC, _ODC, _DARA, _JN, _CRT, _VKKI, _VC, _Ta],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, [0, 4], 0, () => VpcConfig$, () => TagList]
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, [0, 4], 0, () => VpcConfig$, () => TagList], 3
 ];
 export var StartDominantLanguageDetectionJobResponse$: StaticStructureSchema = [3, n0, _SDLDJRt,
   0,
@@ -1796,8 +1796,8 @@ export var StartDominantLanguageDetectionJobResponse$: StaticStructureSchema = [
 ];
 export var StartEntitiesDetectionJobRequest$: StaticStructureSchema = [3, n0, _SEDJR,
   0,
-  [_IDC, _ODC, _DARA, _JN, _ERA, _LC, _CRT, _VKKI, _VC, _Ta, _FA],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, 0, [0, 4], 0, () => VpcConfig$, () => TagList, 0]
+  [_IDC, _ODC, _DARA, _LC, _JN, _ERA, _CRT, _VKKI, _VC, _Ta, _FA],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, 0, [0, 4], 0, () => VpcConfig$, () => TagList, 0], 4
 ];
 export var StartEntitiesDetectionJobResponse$: StaticStructureSchema = [3, n0, _SEDJRt,
   0,
@@ -1806,8 +1806,8 @@ export var StartEntitiesDetectionJobResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var StartEventsDetectionJobRequest$: StaticStructureSchema = [3, n0, _SEDJRta,
   0,
-  [_IDC, _ODC, _DARA, _JN, _LC, _CRT, _TETa, _Ta],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 64 | 0, () => TagList]
+  [_IDC, _ODC, _DARA, _LC, _TETa, _JN, _CRT, _Ta],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 64 | 0, 0, [0, 4], () => TagList], 5
 ];
 export var StartEventsDetectionJobResponse$: StaticStructureSchema = [3, n0, _SEDJRtar,
   0,
@@ -1817,7 +1817,7 @@ export var StartEventsDetectionJobResponse$: StaticStructureSchema = [3, n0, _SE
 export var StartFlywheelIterationRequest$: StaticStructureSchema = [3, n0, _SFIR,
   0,
   [_FA, _CRT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var StartFlywheelIterationResponse$: StaticStructureSchema = [3, n0, _SFIRt,
   0,
@@ -1826,8 +1826,8 @@ export var StartFlywheelIterationResponse$: StaticStructureSchema = [3, n0, _SFI
 ];
 export var StartKeyPhrasesDetectionJobRequest$: StaticStructureSchema = [3, n0, _SKPDJR,
   0,
-  [_IDC, _ODC, _DARA, _JN, _LC, _CRT, _VKKI, _VC, _Ta],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0, () => VpcConfig$, () => TagList]
+  [_IDC, _ODC, _DARA, _LC, _JN, _CRT, _VKKI, _VC, _Ta],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0, () => VpcConfig$, () => TagList], 4
 ];
 export var StartKeyPhrasesDetectionJobResponse$: StaticStructureSchema = [3, n0, _SKPDJRt,
   0,
@@ -1836,8 +1836,8 @@ export var StartKeyPhrasesDetectionJobResponse$: StaticStructureSchema = [3, n0,
 ];
 export var StartPiiEntitiesDetectionJobRequest$: StaticStructureSchema = [3, n0, _SPEDJR,
   0,
-  [_IDC, _ODC, _Mo, _RC, _DARA, _JN, _LC, _CRT, _Ta],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, () => RedactionConfig$, 0, 0, 0, [0, 4], () => TagList]
+  [_IDC, _ODC, _Mo, _DARA, _LC, _RC, _JN, _CRT, _Ta],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, () => RedactionConfig$, 0, [0, 4], () => TagList], 5
 ];
 export var StartPiiEntitiesDetectionJobResponse$: StaticStructureSchema = [3, n0, _SPEDJRt,
   0,
@@ -1846,8 +1846,8 @@ export var StartPiiEntitiesDetectionJobResponse$: StaticStructureSchema = [3, n0
 ];
 export var StartSentimentDetectionJobRequest$: StaticStructureSchema = [3, n0, _SSDJR,
   0,
-  [_IDC, _ODC, _DARA, _JN, _LC, _CRT, _VKKI, _VC, _Ta],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0, () => VpcConfig$, () => TagList]
+  [_IDC, _ODC, _DARA, _LC, _JN, _CRT, _VKKI, _VC, _Ta],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0, () => VpcConfig$, () => TagList], 4
 ];
 export var StartSentimentDetectionJobResponse$: StaticStructureSchema = [3, n0, _SSDJRt,
   0,
@@ -1856,8 +1856,8 @@ export var StartSentimentDetectionJobResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var StartTargetedSentimentDetectionJobRequest$: StaticStructureSchema = [3, n0, _STSDJR,
   0,
-  [_IDC, _ODC, _DARA, _JN, _LC, _CRT, _VKKI, _VC, _Ta],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0, () => VpcConfig$, () => TagList]
+  [_IDC, _ODC, _DARA, _LC, _JN, _CRT, _VKKI, _VC, _Ta],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0, () => VpcConfig$, () => TagList], 4
 ];
 export var StartTargetedSentimentDetectionJobResponse$: StaticStructureSchema = [3, n0, _STSDJRt,
   0,
@@ -1867,7 +1867,7 @@ export var StartTargetedSentimentDetectionJobResponse$: StaticStructureSchema = 
 export var StartTopicsDetectionJobRequest$: StaticStructureSchema = [3, n0, _STDJR,
   0,
   [_IDC, _ODC, _DARA, _JN, _NOT, _CRT, _VKKI, _VC, _Ta],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 1, [0, 4], 0, () => VpcConfig$, () => TagList]
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 1, [0, 4], 0, () => VpcConfig$, () => TagList], 3
 ];
 export var StartTopicsDetectionJobResponse$: StaticStructureSchema = [3, n0, _STDJRt,
   0,
@@ -1877,7 +1877,7 @@ export var StartTopicsDetectionJobResponse$: StaticStructureSchema = [3, n0, _ST
 export var StopDominantLanguageDetectionJobRequest$: StaticStructureSchema = [3, n0, _SDLDJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopDominantLanguageDetectionJobResponse$: StaticStructureSchema = [3, n0, _SDLDJRtop,
   0,
@@ -1887,7 +1887,7 @@ export var StopDominantLanguageDetectionJobResponse$: StaticStructureSchema = [3
 export var StopEntitiesDetectionJobRequest$: StaticStructureSchema = [3, n0, _SEDJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopEntitiesDetectionJobResponse$: StaticStructureSchema = [3, n0, _SEDJRtop,
   0,
@@ -1897,7 +1897,7 @@ export var StopEntitiesDetectionJobResponse$: StaticStructureSchema = [3, n0, _S
 export var StopEventsDetectionJobRequest$: StaticStructureSchema = [3, n0, _SEDJRtopv,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopEventsDetectionJobResponse$: StaticStructureSchema = [3, n0, _SEDJRtopve,
   0,
@@ -1907,7 +1907,7 @@ export var StopEventsDetectionJobResponse$: StaticStructureSchema = [3, n0, _SED
 export var StopKeyPhrasesDetectionJobRequest$: StaticStructureSchema = [3, n0, _SKPDJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopKeyPhrasesDetectionJobResponse$: StaticStructureSchema = [3, n0, _SKPDJRtop,
   0,
@@ -1917,7 +1917,7 @@ export var StopKeyPhrasesDetectionJobResponse$: StaticStructureSchema = [3, n0, 
 export var StopPiiEntitiesDetectionJobRequest$: StaticStructureSchema = [3, n0, _SPEDJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopPiiEntitiesDetectionJobResponse$: StaticStructureSchema = [3, n0, _SPEDJRtop,
   0,
@@ -1927,7 +1927,7 @@ export var StopPiiEntitiesDetectionJobResponse$: StaticStructureSchema = [3, n0,
 export var StopSentimentDetectionJobRequest$: StaticStructureSchema = [3, n0, _SSDJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopSentimentDetectionJobResponse$: StaticStructureSchema = [3, n0, _SSDJRtop,
   0,
@@ -1937,7 +1937,7 @@ export var StopSentimentDetectionJobResponse$: StaticStructureSchema = [3, n0, _
 export var StopTargetedSentimentDetectionJobRequest$: StaticStructureSchema = [3, n0, _STSDJRto,
   0,
   [_JI],
-  [0]
+  [0], 1
 ];
 export var StopTargetedSentimentDetectionJobResponse$: StaticStructureSchema = [3, n0, _STSDJRtop,
   0,
@@ -1947,7 +1947,7 @@ export var StopTargetedSentimentDetectionJobResponse$: StaticStructureSchema = [
 export var StopTrainingDocumentClassifierRequest$: StaticStructureSchema = [3, n0, _STDCR,
   0,
   [_DCA],
-  [0]
+  [0], 1
 ];
 export var StopTrainingDocumentClassifierResponse$: StaticStructureSchema = [3, n0, _STDCRt,
   0,
@@ -1957,7 +1957,7 @@ export var StopTrainingDocumentClassifierResponse$: StaticStructureSchema = [3, 
 export var StopTrainingEntityRecognizerRequest$: StaticStructureSchema = [3, n0, _STERR,
   0,
   [_ERA],
-  [0]
+  [0], 1
 ];
 export var StopTrainingEntityRecognizerResponse$: StaticStructureSchema = [3, n0, _STERRt,
   0,
@@ -1972,12 +1972,12 @@ export var SyntaxToken$: StaticStructureSchema = [3, n0, _STy,
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -2007,12 +2007,12 @@ export var TargetedSentimentMention$: StaticStructureSchema = [3, n0, _TSM,
 export var TaskConfig$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_LC, _DCC, _ERC],
-  [0, () => DocumentClassificationConfig$, () => EntityRecognitionConfig$]
+  [0, () => DocumentClassificationConfig$, () => EntityRecognitionConfig$], 1
 ];
 export var TextSegment$: StaticStructureSchema = [3, n0, _TSe,
   0,
   [_T],
-  [[() => CustomerInputString, 0]]
+  [[() => CustomerInputString, 0]], 1
 ];
 export var TextSizeLimitExceededException$: StaticErrorSchema = [-3, n0, _TSLEE,
   { [_e]: _c, [_hE]: 400 },
@@ -2067,7 +2067,7 @@ TypeRegistry.for(n0).registerError(UnsupportedLanguageException$, UnsupportedLan
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -2082,7 +2082,7 @@ export var UpdateDataSecurityConfig$: StaticStructureSchema = [3, n0, _UDSC,
 export var UpdateEndpointRequest$: StaticStructureSchema = [3, n0, _UER,
   0,
   [_EA, _DMA, _DIU, _DDARA, _FA],
-  [0, 0, 1, 0, 0]
+  [0, 0, 1, 0, 0], 1
 ];
 export var UpdateEndpointResponse$: StaticStructureSchema = [3, n0, _UERp,
   0,
@@ -2092,7 +2092,7 @@ export var UpdateEndpointResponse$: StaticStructureSchema = [3, n0, _UERp,
 export var UpdateFlywheelRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
   [_FA, _AMA, _DARA, _DSC],
-  [0, 0, 0, () => UpdateDataSecurityConfig$]
+  [0, 0, 0, () => UpdateDataSecurityConfig$], 1
 ];
 export var UpdateFlywheelResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
@@ -2102,7 +2102,7 @@ export var UpdateFlywheelResponse$: StaticStructureSchema = [3, n0, _UFRp,
 export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_SGI, _Su],
-  [64 | 0, 64 | 0]
+  [64 | 0, 64 | 0], 2
 ];
 export var WarningsListItem$: StaticStructureSchema = [3, n0, _WLI,
   0,

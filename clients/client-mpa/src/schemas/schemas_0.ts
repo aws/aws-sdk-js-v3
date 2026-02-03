@@ -6,7 +6,8 @@ const _AN = "ActionName";
 const _APU = "ApprovalPortalUrl";
 const _AR = "ApproverResponses";
 const _AS = "ApprovalStrategy";
-const _ASR = "ApprovalStrategyResponse";
+const _ASR = "AdditionalSecurityRequirements";
+const _ASRp = "ApprovalStrategyResponse";
 const _AT = "ApprovalTeams";
 const _ATA = "ApprovalTeamArn";
 const _ATN = "ApprovalTeamName";
@@ -107,6 +108,8 @@ const _LUT = "LastUpdateTime";
 const _LUTa = "LastUpdatedTime";
 const _M = "Message";
 const _MAR = "MinApprovalsRequired";
+const _MM = "MfaMethods";
+const _MMf = "MfaMethod";
 const _MN = "MofN";
 const _MNAS = "MofNApprovalStrategy";
 const _MR = "MaxResults";
@@ -155,6 +158,7 @@ const _SK = "SessionKey";
 const _SM = "StatusMessage";
 const _SMe = "SessionMetadata";
 const _SQEE = "ServiceQuotaExceededException";
+const _SS = "SyncStatus";
 const _SV = "SessionValue";
 const _Se = "Sessions";
 const _T = "Tags";
@@ -167,6 +171,8 @@ const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TV = "TagValue";
+const _Ty = "Type";
+const _UA = "UpdateActions";
 const _UAT = "UpdateApprovalTeam";
 const _UATR = "UpdateApprovalTeamRequest";
 const _UATRp = "UpdateApprovalTeamResponse";
@@ -223,18 +229,18 @@ var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ApprovalTeamRequestApprover$: StaticStructureSchema = [3, n0, _ATRA,
   0,
   [_PII, _PISA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CancelSessionRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_SA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CancelSessionResponse$: StaticStructureSchema = [3, n0, _CSRa,
   0,
@@ -244,13 +250,13 @@ export var CancelSessionResponse$: StaticStructureSchema = [3, n0, _CSRa,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApprovalTeamRequest$: StaticStructureSchema = [3, n0, _CATR,
   0,
-  [_CT, _AS, _A, _D, _P, _N, _T],
-  [[0, 4], () => ApprovalStrategy$, () => ApprovalTeamRequestApprovers, [() => Description, 0], () => PoliciesReferences, 0, [() => Tags, 0]]
+  [_AS, _A, _D, _P, _N, _CT, _T],
+  [() => ApprovalStrategy$, () => ApprovalTeamRequestApprovers, [() => Description, 0], () => PoliciesReferences, 0, [0, 4], [() => Tags, 0]], 5
 ];
 export var CreateApprovalTeamResponse$: StaticStructureSchema = [3, n0, _CATRr,
   0,
@@ -260,7 +266,7 @@ export var CreateApprovalTeamResponse$: StaticStructureSchema = [3, n0, _CATRr,
 export var CreateIdentitySourceRequest$: StaticStructureSchema = [3, n0, _CISR,
   0,
   [_ISP, _CT, _T],
-  [() => IdentitySourceParameters$, [0, 4], [() => Tags, 0]]
+  [() => IdentitySourceParameters$, [0, 4], [() => Tags, 0]], 1
 ];
 export var CreateIdentitySourceResponse$: StaticStructureSchema = [3, n0, _CISRr,
   0,
@@ -270,12 +276,12 @@ export var CreateIdentitySourceResponse$: StaticStructureSchema = [3, n0, _CISRr
 export var DeleteIdentitySourceRequest$: StaticStructureSchema = [3, n0, _DISR,
   0,
   [_ISA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteInactiveApprovalTeamVersionRequest$: StaticStructureSchema = [3, n0, _DIATVR,
   0,
   [_Ar, _VI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteInactiveApprovalTeamVersionResponse$: StaticStructureSchema = [3, n0, _DIATVRe,
   0,
@@ -290,7 +296,7 @@ export var Filter$: StaticStructureSchema = [3, n0, _F,
 export var GetApprovalTeamRequest$: StaticStructureSchema = [3, n0, _GATR,
   0,
   [_Ar],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApprovalTeamResponse$: StaticStructureSchema = [3, n0, _GATRe,
   0,
@@ -299,13 +305,13 @@ export var GetApprovalTeamResponse$: StaticStructureSchema = [3, n0, _GATRe,
 ];
 export var GetApprovalTeamResponseApprover$: StaticStructureSchema = [3, n0, _GATRA,
   0,
-  [_AI, _RT, _PII, _PISA, _PIS],
-  [0, 5, 0, 0, 0]
+  [_AI, _RT, _PII, _PISA, _PIS, _MM],
+  [0, 5, 0, 0, 0, () => MfaMethods]
 ];
 export var GetIdentitySourceRequest$: StaticStructureSchema = [3, n0, _GISR,
   0,
   [_ISA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetIdentitySourceResponse$: StaticStructureSchema = [3, n0, _GISRe,
   0,
@@ -315,32 +321,32 @@ export var GetIdentitySourceResponse$: StaticStructureSchema = [3, n0, _GISRe,
 export var GetPolicyVersionRequest$: StaticStructureSchema = [3, n0, _GPVR,
   0,
   [_PVA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetPolicyVersionResponse$: StaticStructureSchema = [3, n0, _GPVRe,
   0,
   [_PV],
-  [[() => PolicyVersion$, 0]]
+  [[() => PolicyVersion$, 0]], 1
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
   [_RA, _PN, _PT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
-  [_RA, _PT, _PVA, _PN, _PD],
-  [0, 0, 0, 0, [() => PolicyDocument, 0]]
+  [_RA, _PT, _PN, _PD, _PVA],
+  [0, 0, 0, [() => PolicyDocument, 0], 0], 4
 ];
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
   [_SA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
-  [_SA, _ATA, _ATN, _PRA, _AS, _NOA, _IT, _ET, _CTo, _D, _Me, _S, _SC, _SM, _ES, _AN, _RSP, _RPA, _RAI, _RR, _RC, _ACS, _AR],
-  [0, 0, 0, 0, () => ApprovalStrategyResponse$, 1, 5, 5, 5, [() => Description, 0], [() => SessionMetadata, 0], 0, 0, 0, 0, 0, 0, 0, 0, 0, [() => RequesterComment, 0], 0, () => GetSessionResponseApproverResponses]
+  [_SA, _ATA, _ATN, _PRA, _AS, _NOA, _IT, _ET, _CTo, _D, _Me, _S, _SC, _SM, _ES, _AN, _RSP, _RPA, _RAI, _RR, _RC, _ACS, _AR, _ASR],
+  [0, 0, 0, 0, () => ApprovalStrategyResponse$, 1, 5, 5, 5, [() => Description, 0], [() => SessionMetadata, 0], 0, 0, 0, 0, 0, 0, 0, 0, 0, [() => RequesterComment, 0], 0, () => GetSessionResponseApproverResponses, 64 | 0]
 ];
 export var GetSessionResponseApproverResponse$: StaticStructureSchema = [3, n0, _GSRAR,
   0,
@@ -350,7 +356,7 @@ export var GetSessionResponseApproverResponse$: StaticStructureSchema = [3, n0, 
 export var IamIdentityCenter$: StaticStructureSchema = [3, n0, _IIC,
   0,
   [_IA, _Re],
-  [0, 0]
+  [0, 0], 2
 ];
 export var IamIdentityCenterForGet$: StaticStructureSchema = [3, n0, _IICFG,
   0,
@@ -375,13 +381,13 @@ export var IdentitySourceParameters$: StaticStructureSchema = [3, n0, _ISP,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var ListApprovalTeamsRequest$: StaticStructureSchema = [3, n0, _LATR,
@@ -421,8 +427,8 @@ export var ListPoliciesResponse$: StaticStructureSchema = [3, n0, _LPRi,
 ];
 export var ListPolicyVersionsRequest$: StaticStructureSchema = [3, n0, _LPVR,
   0,
-  [_MR, _NT, _PA],
-  [[1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }], [0, 1]]
+  [_PA, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListPolicyVersionsResponse$: StaticStructureSchema = [3, n0, _LPVRi,
   0,
@@ -432,7 +438,7 @@ export var ListPolicyVersionsResponse$: StaticStructureSchema = [3, n0, _LPVRi,
 export var ListResourcePoliciesRequest$: StaticStructureSchema = [3, n0, _LRPR,
   0,
   [_RA, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
 ];
 export var ListResourcePoliciesResponse$: StaticStructureSchema = [3, n0, _LRPRi,
   0,
@@ -447,7 +453,7 @@ export var ListResourcePoliciesResponseResourcePolicy$: StaticStructureSchema = 
 export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_ATA, _MR, _NT, _Fi],
-  [[0, 1], 1, 0, () => Filters]
+  [[0, 1], 1, 0, () => Filters], 1
 ];
 export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
@@ -456,23 +462,28 @@ export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
 ];
 export var ListSessionsResponseSession$: StaticStructureSchema = [3, n0, _LSRS,
   0,
-  [_SA, _ATN, _ATA, _IT, _ET, _CTo, _D, _AN, _PRA, _RSP, _RPA, _RR, _RAI, _S, _SC, _SM, _ACS],
-  [0, 0, 0, 5, 5, 5, [() => Description, 0], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_SA, _ATN, _ATA, _IT, _ET, _CTo, _D, _AN, _PRA, _RSP, _RPA, _RR, _RAI, _S, _SC, _SM, _ACS, _ASR],
+  [0, 0, 0, 5, 5, 5, [() => Description, 0], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0]
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_T],
   [[() => Tags, 0]]
 ];
+export var MfaMethod$: StaticStructureSchema = [3, n0, _MMf,
+  0,
+  [_Ty, _SS],
+  [0, 0], 2
+];
 export var MofNApprovalStrategy$: StaticStructureSchema = [3, n0, _MNAS,
   0,
   [_MAR],
-  [1]
+  [1], 1
 ];
 export var PendingUpdate$: StaticStructureSchema = [3, n0, _PU,
   0,
@@ -482,39 +493,39 @@ export var PendingUpdate$: StaticStructureSchema = [3, n0, _PU,
 export var Policy$: StaticStructureSchema = [3, n0, _Po,
   0,
   [_Ar, _DV, _PT, _N],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0], 4
 ];
 export var PolicyReference$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_PA],
-  [0]
+  [0], 1
 ];
 export var PolicyVersion$: StaticStructureSchema = [3, n0, _PV,
   0,
   [_Ar, _PA, _VI, _PT, _ID, _N, _S, _CTr, _LUTa, _Do],
-  [0, 0, 1, 0, 2, 0, 0, 5, 5, [() => PolicyDocument, 0]]
+  [0, 0, 1, 0, 2, 0, 0, 5, 5, [() => PolicyDocument, 0]], 10
 ];
 export var PolicyVersionSummary$: StaticStructureSchema = [3, n0, _PVS,
   0,
   [_Ar, _PA, _VI, _PT, _ID, _N, _S, _CTr, _LUTa],
-  [0, 0, 1, 0, 2, 0, 0, 5, 5]
+  [0, 0, 1, 0, 2, 0, 0, 5, 5], 9
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartActiveApprovalTeamDeletionRequest$: StaticStructureSchema = [3, n0, _SAATDR,
   0,
-  [_PWD, _Ar],
-  [1, [0, 1]]
+  [_Ar, _PWD],
+  [[0, 1], 1], 1
 ];
 export var StartActiveApprovalTeamDeletionResponse$: StaticStructureSchema = [3, n0, _SAATDRt,
   0,
@@ -524,7 +535,7 @@ export var StartActiveApprovalTeamDeletionResponse$: StaticStructureSchema = [3,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], [() => Tags, 0]]
+  [[0, 1], [() => Tags, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -534,19 +545,19 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _RN],
-  [0, 0]
+  [0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TKa],
-  [[0, 1], [() => TagKeyList, 0]]
+  [[0, 1], [() => TagKeyList, 0]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -555,8 +566,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateApprovalTeamRequest$: StaticStructureSchema = [3, n0, _UATR,
   0,
-  [_AS, _A, _D, _Ar],
-  [() => ApprovalStrategy$, () => ApprovalTeamRequestApprovers, [() => Description, 0], [0, 1]]
+  [_Ar, _AS, _A, _D, _UA],
+  [[0, 1], () => ApprovalStrategy$, () => ApprovalTeamRequestApprovers, [() => Description, 0], 64 | 0], 1
 ];
 export var UpdateApprovalTeamResponse$: StaticStructureSchema = [3, n0, _UATRp,
   0,
@@ -566,12 +577,13 @@ export var UpdateApprovalTeamResponse$: StaticStructureSchema = [3, n0, _UATRp,
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
 export var MPAServiceException$: StaticErrorSchema = [-3, _sm, "MPAServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MPAServiceException$, MPAServiceException);
+var AdditionalSecurityRequirements = 64 | 0;
 var ApprovalTeamRequestApprovers: StaticListSchema = [1, n0, _ATRAp,
   0, () => ApprovalTeamRequestApprover$
 ];
@@ -598,6 +610,9 @@ var ListSessionsResponseSessions: StaticListSchema = [1, n0, _LSRSi,
   0, [() => ListSessionsResponseSession$,
     0]
 ];
+var MfaMethods: StaticListSchema = [1, n0, _MM,
+  0, () => MfaMethod$
+];
 var Policies: StaticListSchema = [1, n0, _P,
   0, () => Policy$
 ];
@@ -611,6 +626,7 @@ var TagKeyList: StaticListSchema = [1, n0, _TKL,
   8, [() => TagKey,
     0]
 ];
+var UpdateActions = 64 | 0;
 var SessionMetadata: StaticMapSchema = [2, n0, _SMe,
   8, [() => SessionKey,
     0]
@@ -628,7 +644,7 @@ export var ApprovalStrategy$: StaticUnionSchema = [4, n0, _AS,
   [_MN],
   [() => MofNApprovalStrategy$]
 ];
-export var ApprovalStrategyResponse$: StaticUnionSchema = [4, n0, _ASR,
+export var ApprovalStrategyResponse$: StaticUnionSchema = [4, n0, _ASRp,
   0,
   [_MN],
   [() => MofNApprovalStrategy$]

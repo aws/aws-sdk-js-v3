@@ -27,14 +27,9 @@ export interface GetExperimentResultsCommandInput extends GetExperimentResultsRe
 export interface GetExperimentResultsCommandOutput extends GetExperimentResultsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the results of a running or completed experiment. No results are available until
- *        there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment.
- *        To increase the statistical power, Evidently performs an additional offline p-value analysis at the end of the experiment.
- *        Offline p-value analysis can detect statistical significance in some cases where the anytime p-values used during
- *        the experiment do not find statistical significance.</p>
- *          <p>Experiment
- *        results are available up to 63 days after the start of the experiment. They are not available after that because
- *        of CloudWatch data retention policies.</p>
+ * <p>Retrieves the results of a running or completed experiment. No results are available until there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment. To increase the statistical power, Evidently performs an additional offline p-value analysis at the end of the experiment. Offline p-value analysis can detect statistical significance in some cases where the anytime p-values used during the experiment do not find statistical significance.</p> <p>Experiment results are available up to 63 days after the start of the experiment. They are not available after that because of CloudWatch data retention policies.</p>
+ *
+ * @deprecated AWS CloudWatch Evidently has been deprecated since 11/17/2025.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

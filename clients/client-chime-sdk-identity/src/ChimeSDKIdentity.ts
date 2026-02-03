@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ChimeSDKIdentityClient } from "./ChimeSDKIdentityClient";
 import {
@@ -149,6 +149,11 @@ import {
   UpdateAppInstanceUserEndpointCommandInput,
   UpdateAppInstanceUserEndpointCommandOutput,
 } from "./commands/UpdateAppInstanceUserEndpointCommand";
+import { paginateListAppInstanceAdmins } from "./pagination/ListAppInstanceAdminsPaginator";
+import { paginateListAppInstanceBots } from "./pagination/ListAppInstanceBotsPaginator";
+import { paginateListAppInstances } from "./pagination/ListAppInstancesPaginator";
+import { paginateListAppInstanceUserEndpoints } from "./pagination/ListAppInstanceUserEndpointsPaginator";
+import { paginateListAppInstanceUsers } from "./pagination/ListAppInstanceUsersPaginator";
 
 const commands = {
   CreateAppInstanceCommand,
@@ -181,6 +186,13 @@ const commands = {
   UpdateAppInstanceBotCommand,
   UpdateAppInstanceUserCommand,
   UpdateAppInstanceUserEndpointCommand,
+};
+const paginators = {
+  paginateListAppInstanceAdmins,
+  paginateListAppInstanceBots,
+  paginateListAppInstances,
+  paginateListAppInstanceUserEndpoints,
+  paginateListAppInstanceUsers,
 };
 
 export interface ChimeSDKIdentity {
@@ -694,6 +706,61 @@ export interface ChimeSDKIdentity {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAppInstanceUserEndpointCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAppInstanceAdminsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppInstanceAdminsCommandOutput}.
+   */
+  paginateListAppInstanceAdmins(
+    args: ListAppInstanceAdminsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppInstanceAdminsCommandOutput>;
+
+  /**
+   * @see {@link ListAppInstanceBotsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppInstanceBotsCommandOutput}.
+   */
+  paginateListAppInstanceBots(
+    args: ListAppInstanceBotsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppInstanceBotsCommandOutput>;
+
+  /**
+   * @see {@link ListAppInstancesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppInstancesCommandOutput}.
+   */
+  paginateListAppInstances(
+    args?: ListAppInstancesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppInstancesCommandOutput>;
+
+  /**
+   * @see {@link ListAppInstanceUserEndpointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppInstanceUserEndpointsCommandOutput}.
+   */
+  paginateListAppInstanceUserEndpoints(
+    args: ListAppInstanceUserEndpointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppInstanceUserEndpointsCommandOutput>;
+
+  /**
+   * @see {@link ListAppInstanceUsersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppInstanceUsersCommandOutput}.
+   */
+  paginateListAppInstanceUsers(
+    args: ListAppInstanceUsersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppInstanceUsersCommandOutput>;
 }
 
 /**
@@ -704,4 +771,4 @@ export interface ChimeSDKIdentity {
  * @public
  */
 export class ChimeSDKIdentity extends ChimeSDKIdentityClient implements ChimeSDKIdentity {}
-createAggregatedClient(commands, ChimeSDKIdentity);
+createAggregatedClient(commands, ChimeSDKIdentity, { paginators });

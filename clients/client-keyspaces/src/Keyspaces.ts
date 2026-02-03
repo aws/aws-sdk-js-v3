@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateKeyspaceCommand,
@@ -54,6 +54,10 @@ import {
 } from "./commands/UpdateKeyspaceCommand";
 import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import { KeyspacesClient } from "./KeyspacesClient";
+import { paginateListKeyspaces } from "./pagination/ListKeyspacesPaginator";
+import { paginateListTables } from "./pagination/ListTablesPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListTypes } from "./pagination/ListTypesPaginator";
 
 const commands = {
   CreateKeyspaceCommand,
@@ -75,6 +79,12 @@ const commands = {
   UntagResourceCommand,
   UpdateKeyspaceCommand,
   UpdateTableCommand,
+};
+const paginators = {
+  paginateListKeyspaces,
+  paginateListTables,
+  paginateListTagsForResource,
+  paginateListTypes,
 };
 
 export interface Keyspaces {
@@ -401,6 +411,50 @@ export interface Keyspaces {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTableCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListKeyspacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKeyspacesCommandOutput}.
+   */
+  paginateListKeyspaces(
+    args?: ListKeyspacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKeyspacesCommandOutput>;
+
+  /**
+   * @see {@link ListTablesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTablesCommandOutput}.
+   */
+  paginateListTables(
+    args: ListTablesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTablesCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListTypesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTypesCommandOutput}.
+   */
+  paginateListTypes(
+    args: ListTypesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTypesCommandOutput>;
 }
 
 /**
@@ -408,4 +462,4 @@ export interface Keyspaces {
  * @public
  */
 export class Keyspaces extends KeyspacesClient implements Keyspaces {}
-createAggregatedClient(commands, Keyspaces);
+createAggregatedClient(commands, Keyspaces, { paginators });

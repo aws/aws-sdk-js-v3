@@ -56,7 +56,7 @@ export var EntitlementValue$: StaticStructureSchema = [3, n0, _EV,
 export var GetEntitlementsRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
   [_PC, _F, _NT, _MR],
-  [0, [2, n0, _GEF, 0, 0, 64 | 0], 0, 1]
+  [0, [2, n0, _GEF, 0, 0, 64 | 0], 0, 1], 1
 ];
 export var GetEntitlementsResult$: StaticStructureSchema = [3, n0, _GERe,
   0,

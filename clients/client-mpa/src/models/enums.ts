@@ -15,6 +15,44 @@ export type ActionCompletionStrategy = (typeof ActionCompletionStrategy)[keyof t
  * @public
  * @enum
  */
+export const AdditionalSecurityRequirement = {
+  APPROVER_VERIFICATION_REQUIRED: "APPROVER_VERIFICATION_REQUIRED",
+} as const;
+/**
+ * @public
+ */
+export type AdditionalSecurityRequirement =
+  (typeof AdditionalSecurityRequirement)[keyof typeof AdditionalSecurityRequirement];
+
+/**
+ * @public
+ * @enum
+ */
+export const MfaSyncStatus = {
+  IN_SYNC: "IN_SYNC",
+  OUT_OF_SYNC: "OUT_OF_SYNC",
+} as const;
+/**
+ * @public
+ */
+export type MfaSyncStatus = (typeof MfaSyncStatus)[keyof typeof MfaSyncStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MfaType = {
+  EMAIL_OTP: "EMAIL_OTP",
+} as const;
+/**
+ * @public
+ */
+export type MfaType = (typeof MfaType)[keyof typeof MfaType];
+
+/**
+ * @public
+ * @enum
+ */
 export const IdentityStatus = {
   ACCEPTED: "ACCEPTED",
   INVALID: "INVALID",
@@ -63,6 +101,18 @@ export const ApprovalTeamStatusCode = {
  * @public
  */
 export type ApprovalTeamStatusCode = (typeof ApprovalTeamStatusCode)[keyof typeof ApprovalTeamStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateAction = {
+  SYNCHRONIZE_MFA_DEVICES: "SYNCHRONIZE_MFA_DEVICES",
+} as const;
+/**
+ * @public
+ */
+export type UpdateAction = (typeof UpdateAction)[keyof typeof UpdateAction];
 
 /**
  * @public

@@ -68,6 +68,22 @@ export interface DescribeHoursOfOperationOverrideCommandOutput extends DescribeH
  * //     ],
  * //     EffectiveFrom: "STRING_VALUE",
  * //     EffectiveTill: "STRING_VALUE",
+ * //     RecurrenceConfig: { // RecurrenceConfig
+ * //       RecurrencePattern: { // RecurrencePattern
+ * //         Frequency: "WEEKLY" || "MONTHLY" || "YEARLY", // required
+ * //         Interval: Number("int"), // required
+ * //         ByMonth: [ // MonthList
+ * //           Number("int"),
+ * //         ],
+ * //         ByMonthDay: [ // MonthDayList
+ * //           Number("int"),
+ * //         ],
+ * //         ByWeekdayOccurrence: [ // WeekdayOccurrenceList
+ * //           Number("int"),
+ * //         ],
+ * //       },
+ * //     },
+ * //     OverrideType: "STANDARD" || "OPEN" || "CLOSED",
  * //   },
  * // };
  *

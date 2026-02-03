@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CodeConnectionsClient } from "./CodeConnectionsClient";
 import {
@@ -114,6 +114,10 @@ import {
   UpdateSyncConfigurationCommandInput,
   UpdateSyncConfigurationCommandOutput,
 } from "./commands/UpdateSyncConfigurationCommand";
+import { paginateListConnections } from "./pagination/ListConnectionsPaginator";
+import { paginateListHosts } from "./pagination/ListHostsPaginator";
+import { paginateListRepositoryLinks } from "./pagination/ListRepositoryLinksPaginator";
+import { paginateListSyncConfigurations } from "./pagination/ListSyncConfigurationsPaginator";
 
 const commands = {
   CreateConnectionCommand,
@@ -143,6 +147,12 @@ const commands = {
   UpdateRepositoryLinkCommand,
   UpdateSyncBlockerCommand,
   UpdateSyncConfigurationCommand,
+};
+const paginators = {
+  paginateListConnections,
+  paginateListHosts,
+  paginateListRepositoryLinks,
+  paginateListSyncConfigurations,
 };
 
 export interface CodeConnections {
@@ -607,6 +617,50 @@ export interface CodeConnections {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSyncConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListConnectionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectionsCommandOutput}.
+   */
+  paginateListConnections(
+    args?: ListConnectionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectionsCommandOutput>;
+
+  /**
+   * @see {@link ListHostsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHostsCommandOutput}.
+   */
+  paginateListHosts(
+    args?: ListHostsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHostsCommandOutput>;
+
+  /**
+   * @see {@link ListRepositoryLinksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRepositoryLinksCommandOutput}.
+   */
+  paginateListRepositoryLinks(
+    args?: ListRepositoryLinksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRepositoryLinksCommandOutput>;
+
+  /**
+   * @see {@link ListSyncConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSyncConfigurationsCommandOutput}.
+   */
+  paginateListSyncConfigurations(
+    args: ListSyncConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSyncConfigurationsCommandOutput>;
 }
 
 /**
@@ -692,4 +746,4 @@ export interface CodeConnections {
  * @public
  */
 export class CodeConnections extends CodeConnectionsClient implements CodeConnections {}
-createAggregatedClient(commands, CodeConnections);
+createAggregatedClient(commands, CodeConnections, { paginators });

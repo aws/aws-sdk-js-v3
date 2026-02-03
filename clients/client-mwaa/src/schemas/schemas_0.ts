@@ -176,7 +176,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var CreateCliTokenRequest$: StaticStructureSchema = [3, n0, _CCTR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CreateCliTokenResponse$: StaticStructureSchema = [3, n0, _CCTRr,
   0,
@@ -186,7 +186,7 @@ export var CreateCliTokenResponse$: StaticStructureSchema = [3, n0, _CCTRr,
 export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
   0,
   [_N, _ERA, _SBA, _DSP, _NC, _PSP, _PSOV, _RSP, _RSOV, _SSSP, _SSSOV, _ACO, _EC, _MW, _KK, _AV, _LC, _WMWS, _Ta, _WAM, _MWi, _S, _EM, _MWin, _MWa],
-  [[0, 1], 0, 0, 0, () => NetworkConfiguration$, 0, 0, 0, 0, 0, 0, [() => AirflowConfigurationOptions, 0], 0, 1, 0, 0, () => LoggingConfigurationInput$, 0, 128 | 0, 0, 1, 1, 0, 1, 1]
+  [[0, 1], 0, 0, 0, () => NetworkConfiguration$, 0, 0, 0, 0, 0, 0, [() => AirflowConfigurationOptions, 0], 0, 1, 0, 0, () => LoggingConfigurationInput$, 0, 128 | 0, 0, 1, 1, 0, 1, 1], 5
 ];
 export var CreateEnvironmentOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
@@ -196,7 +196,7 @@ export var CreateEnvironmentOutput$: StaticStructureSchema = [3, n0, _CEO,
 export var CreateWebLoginTokenRequest$: StaticStructureSchema = [3, n0, _CWLTR,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CreateWebLoginTokenResponse$: StaticStructureSchema = [3, n0, _CWLTRr,
   0,
@@ -206,7 +206,7 @@ export var CreateWebLoginTokenResponse$: StaticStructureSchema = [3, n0, _CWLTRr
 export var DeleteEnvironmentInput$: StaticStructureSchema = [3, n0, _DEI,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteEnvironmentOutput$: StaticStructureSchema = [3, n0, _DEO,
   0,
@@ -216,7 +216,7 @@ export var DeleteEnvironmentOutput$: StaticStructureSchema = [3, n0, _DEO,
 export var Dimension$: StaticStructureSchema = [3, n0, _D,
   0,
   [_N, _V],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Environment$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -226,7 +226,7 @@ export var Environment$: StaticStructureSchema = [3, n0, _E,
 export var GetEnvironmentInput$: StaticStructureSchema = [3, n0, _GEI,
   0,
   [_N],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetEnvironmentOutput$: StaticStructureSchema = [3, n0, _GEO,
   0,
@@ -242,7 +242,7 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var InvokeRestApiRequest$: StaticStructureSchema = [3, n0, _IRAR,
   0,
   [_N, _P, _Me, _QP, _B],
-  [[0, 1], 0, 0, 15, [() => RestApiRequestBody, 0]]
+  [[0, 1], 0, 0, 15, [() => RestApiRequestBody, 0]], 3
 ];
 export var InvokeRestApiResponse$: StaticStructureSchema = [3, n0, _IRARn,
   0,
@@ -262,12 +262,12 @@ export var ListEnvironmentsInput$: StaticStructureSchema = [3, n0, _LEI,
 export var ListEnvironmentsOutput$: StaticStructureSchema = [3, n0, _LEO,
   0,
   [_En, _NT],
-  [64 | 0, 0]
+  [64 | 0, 0], 1
 ];
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -287,7 +287,7 @@ export var LoggingConfigurationInput$: StaticStructureSchema = [3, n0, _LCI,
 export var MetricDatum$: StaticStructureSchema = [3, n0, _MD,
   0,
   [_MN, _Ti, _Di, _V, _U, _SV],
-  [0, 4, () => Dimensions, 1, 0, () => StatisticSet$]
+  [0, 4, () => Dimensions, 1, 0, () => StatisticSet$], 2
 ];
 export var ModuleLoggingConfiguration$: StaticStructureSchema = [3, n0, _MLC,
   0,
@@ -297,7 +297,7 @@ export var ModuleLoggingConfiguration$: StaticStructureSchema = [3, n0, _MLC,
 export var ModuleLoggingConfigurationInput$: StaticStructureSchema = [3, n0, _MLCI,
   0,
   [_Ena, _LL],
-  [2, 0]
+  [2, 0], 2
 ];
 export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
@@ -307,7 +307,7 @@ export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
 export var PublishMetricsInput$: StaticStructureSchema = [3, n0, _PMI,
   0,
   [_EN, _MDe],
-  [[0, 1], () => MetricData]
+  [[0, 1], () => MetricData], 2
 ];
 export var PublishMetricsOutput$: StaticStructureSchema = [3, n0, _PMO,
   0,
@@ -340,7 +340,7 @@ export var StatisticSet$: StaticStructureSchema = [3, n0, _SS,
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RA, _Ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -350,7 +350,7 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -360,7 +360,7 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
   0,
   [_N, _ERA, _ACO, _AV, _DSP, _EC, _LC, _MW, _MWi, _MWa, _MWin, _WRS, _NC, _PSP, _PSOV, _RSP, _RSOV, _S, _SBA, _SSSP, _SSSOV, _WAM, _WMWS],
-  [[0, 1], 0, [() => AirflowConfigurationOptions, 0], 0, 0, 0, () => LoggingConfigurationInput$, 1, 1, 1, 1, 0, () => UpdateNetworkConfigurationInput$, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+  [[0, 1], 0, [() => AirflowConfigurationOptions, 0], 0, 0, 0, () => LoggingConfigurationInput$, 1, 1, 1, 1, 0, () => UpdateNetworkConfigurationInput$, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0], 1
 ];
 export var UpdateEnvironmentOutput$: StaticStructureSchema = [3, n0, _UEO,
   0,
@@ -375,7 +375,7 @@ export var UpdateError$: StaticStructureSchema = [3, n0, _UE,
 export var UpdateNetworkConfigurationInput$: StaticStructureSchema = [3, n0, _UNCI,
   0,
   [_SGI],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },

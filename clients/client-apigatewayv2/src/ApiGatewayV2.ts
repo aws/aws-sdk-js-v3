@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { ApiGatewayV2Client } from "./ApiGatewayV2Client";
 import { CreateApiCommand, CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
@@ -402,6 +402,7 @@ import {
   UpdateVpcLinkCommandInput,
   UpdateVpcLinkCommandOutput,
 } from "./commands/UpdateVpcLinkCommand";
+import { paginateListRoutingRules } from "./pagination/ListRoutingRulesPaginator";
 
 const commands = {
   CreateApiCommand,
@@ -507,6 +508,9 @@ const commands = {
   UpdateRouteResponseCommand,
   UpdateStageCommand,
   UpdateVpcLinkCommand,
+};
+const paginators = {
+  paginateListRoutingRules,
 };
 
 export interface ApiGatewayV2 {
@@ -2265,6 +2269,17 @@ export interface ApiGatewayV2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVpcLinkCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListRoutingRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRoutingRulesCommandOutput}.
+   */
+  paginateListRoutingRules(
+    args: ListRoutingRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRoutingRulesCommandOutput>;
 }
 
 /**
@@ -2272,4 +2287,4 @@ export interface ApiGatewayV2 {
  * @public
  */
 export class ApiGatewayV2 extends ApiGatewayV2Client implements ApiGatewayV2 {}
-createAggregatedClient(commands, ApiGatewayV2);
+createAggregatedClient(commands, ApiGatewayV2, { paginators });

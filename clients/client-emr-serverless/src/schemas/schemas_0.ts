@@ -253,13 +253,13 @@ var Query: StaticSimpleSchema = [0, n0, _Q, 8, 0];
 var SparkSubmitParameters: StaticSimpleSchema = [0, n0, _SSP, 8, 0];
 export var Application$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_aI, _n, _a, _rL, _t, _s, _sD, _iC, _mC, _cA, _uA, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _dEC, _iCn, _sC, _iCC, _jLCAC],
-  [0, 0, 0, 0, 0, 0, 0, () => InitialCapacityConfigMap, () => MaximumAllowedResources$, 4, 4, 128 | 0, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfiguration$, () => WorkerTypeSpecificationMap, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$, () => InteractiveConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfiguration$, () => JobLevelCostAllocationConfiguration$]
+  [_aI, _a, _rL, _t, _s, _cA, _uA, _n, _sD, _iC, _mC, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _dEC, _iCn, _sC, _iCC, _jLCAC],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, () => InitialCapacityConfigMap, () => MaximumAllowedResources$, 128 | 0, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfiguration$, () => WorkerTypeSpecificationMap, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$, () => InteractiveConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfiguration$, () => JobLevelCostAllocationConfiguration$], 7
 ];
 export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_i, _n, _a, _rL, _t, _s, _sD, _cA, _uA, _ar],
-  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0]
+  [_i, _a, _rL, _t, _s, _cA, _uA, _n, _sD, _ar],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, 0], 7
 ];
 export var AutoStartConfig$: StaticStructureSchema = [3, n0, _ASC,
   0,
@@ -274,22 +274,22 @@ export var AutoStopConfig$: StaticStructureSchema = [3, n0, _ASCu,
 export var CancelJobRunRequest$: StaticStructureSchema = [3, n0, _CJRR,
   0,
   [_aI, _jRI, _sGPIS],
-  [[0, 1], [0, 1], [1, { [_hQ]: _sGPIS }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _sGPIS }]], 2
 ];
 export var CancelJobRunResponse$: StaticStructureSchema = [3, n0, _CJRRa,
   0,
   [_aI, _jRI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var CloudWatchLoggingConfiguration$: StaticStructureSchema = [3, n0, _CWLC,
   0,
   [_e, _lGN, _lSNP, _eKA, _lT],
-  [2, 0, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]]
+  [2, 0, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]], 1
 ];
 export var Configuration$: StaticStructureSchema = [3, n0, _C,
   0,
   [_c, _p, _co],
-  [0, [() => SensitivePropertiesMap, 0], [() => ConfigurationList, 0]]
+  [0, [() => SensitivePropertiesMap, 0], [() => ConfigurationList, 0]], 1
 ];
 export var ConfigurationOverrides$: StaticStructureSchema = [3, n0, _CO,
   0,
@@ -299,23 +299,23 @@ export var ConfigurationOverrides$: StaticStructureSchema = [3, n0, _CO,
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_er]: _cl, [_hE]: 409 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_n, _rL, _t, _cT, _iC, _mC, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _dEC, _iCn, _sC, _iCC, _jLCAC],
-  [0, 0, 0, [0, 4], () => InitialCapacityConfigMap, () => MaximumAllowedResources$, 128 | 0, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfigurationInput$, () => WorkerTypeSpecificationInputMap, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$, () => InteractiveConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfigurationInput$, () => JobLevelCostAllocationConfiguration$]
+  [_rL, _t, _n, _cT, _iC, _mC, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _dEC, _iCn, _sC, _iCC, _jLCAC],
+  [0, 0, 0, [0, 4], () => InitialCapacityConfigMap, () => MaximumAllowedResources$, 128 | 0, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfigurationInput$, () => WorkerTypeSpecificationInputMap, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$, () => InteractiveConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfigurationInput$, () => JobLevelCostAllocationConfiguration$], 2
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
-  [_aI, _n, _a],
-  [0, 0, 0]
+  [_aI, _a, _n],
+  [0, 0, 0], 2
 ];
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -330,17 +330,17 @@ export var DiskEncryptionConfiguration$: StaticStructureSchema = [3, n0, _DEC,
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
   [_ap],
-  [[() => Application$, 0]]
+  [[() => Application$, 0]], 1
 ];
 export var GetDashboardForJobRunRequest$: StaticStructureSchema = [3, n0, _GDFJRR,
   0,
   [_aI, _jRI, _at, _aSPL],
-  [[0, 1], [0, 1], [1, { [_hQ]: _at }], [2, { [_hQ]: _aSPL }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _at }], [2, { [_hQ]: _aSPL }]], 2
 ];
 export var GetDashboardForJobRunResponse$: StaticStructureSchema = [3, n0, _GDFJRRe,
   0,
@@ -350,17 +350,17 @@ export var GetDashboardForJobRunResponse$: StaticStructureSchema = [3, n0, _GDFJ
 export var GetJobRunRequest$: StaticStructureSchema = [3, n0, _GJRR,
   0,
   [_aI, _jRI, _at],
-  [[0, 1], [0, 1], [1, { [_hQ]: _at }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _at }]], 2
 ];
 export var GetJobRunResponse$: StaticStructureSchema = [3, n0, _GJRRe,
   0,
   [_jR],
-  [[() => JobRun$, 0]]
+  [[() => JobRun$, 0]], 1
 ];
 export var Hive$: StaticStructureSchema = [3, n0, _H,
   0,
   [_q, _iQF, _pa],
-  [[() => Query, 0], [() => InitScriptPath, 0], [() => HiveCliParameters, 0]]
+  [[() => Query, 0], [() => InitScriptPath, 0], [() => HiveCliParameters, 0]], 1
 ];
 export var IdentityCenterConfiguration$: StaticStructureSchema = [3, n0, _ICC,
   0,
@@ -375,7 +375,7 @@ export var IdentityCenterConfigurationInput$: StaticStructureSchema = [3, n0, _I
 export var ImageConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_iU, _rID],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ImageConfigurationInput$: StaticStructureSchema = [3, n0, _ICI,
   0,
@@ -385,7 +385,7 @@ export var ImageConfigurationInput$: StaticStructureSchema = [3, n0, _ICI,
 export var InitialCapacityConfig$: StaticStructureSchema = [3, n0, _ICCn,
   0,
   [_wC, _wCo],
-  [1, () => WorkerResourceConfig$]
+  [1, () => WorkerResourceConfig$], 1
 ];
 export var InteractiveConfiguration$: StaticStructureSchema = [3, n0, _ICn,
   0,
@@ -395,7 +395,7 @@ export var InteractiveConfiguration$: StaticStructureSchema = [3, n0, _ICn,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_er]: _se, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JobLevelCostAllocationConfiguration$: StaticStructureSchema = [3, n0, _JLCAC,
@@ -405,13 +405,13 @@ export var JobLevelCostAllocationConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var JobRun$: StaticStructureSchema = [3, n0, _JR,
   0,
-  [_aI, _jRI, _n, _a, _cB, _cA, _uA, _eR, _eIP, _s, _sD, _rL, _cO, _jD, _ta, _tRU, _nC, _tEDS, _eTM, _bRU, _mo, _rP, _at, _aCA, _aUA, _sA, _eA, _qDM],
-  [0, 0, 0, 0, 0, 4, 4, 0, () => JobRunExecutionIamPolicy$, 0, 0, 0, [() => ConfigurationOverrides$, 0], [() => JobDriver$, 0], 128 | 0, () => TotalResourceUtilization$, () => NetworkConfiguration$, 1, 1, () => ResourceUtilization$, 0, () => RetryPolicy$, 1, 4, 4, 4, 4, 1]
+  [_aI, _jRI, _a, _cB, _cA, _uA, _eR, _s, _sD, _rL, _jD, _n, _eIP, _cO, _ta, _tRU, _nC, _tEDS, _eTM, _bRU, _mo, _rP, _at, _aCA, _aUA, _sA, _eA, _qDM],
+  [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, [() => JobDriver$, 0], 0, () => JobRunExecutionIamPolicy$, [() => ConfigurationOverrides$, 0], 128 | 0, () => TotalResourceUtilization$, () => NetworkConfiguration$, 1, 1, () => ResourceUtilization$, 0, () => RetryPolicy$, 1, 4, 4, 4, 4, 1], 11
 ];
 export var JobRunAttemptSummary$: StaticStructureSchema = [3, n0, _JRAS,
   0,
-  [_aI, _i, _n, _mo, _a, _cB, _jCA, _cA, _uA, _eR, _s, _sD, _rL, _t, _at],
-  [0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 1]
+  [_aI, _i, _a, _cB, _jCA, _cA, _uA, _eR, _s, _sD, _rL, _n, _mo, _t, _at],
+  [0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1], 11
 ];
 export var JobRunExecutionIamPolicy$: StaticStructureSchema = [3, n0, _JREIP,
   0,
@@ -420,8 +420,8 @@ export var JobRunExecutionIamPolicy$: StaticStructureSchema = [3, n0, _JREIP,
 ];
 export var JobRunSummary$: StaticStructureSchema = [3, n0, _JRS,
   0,
-  [_aI, _i, _n, _mo, _a, _cB, _cA, _uA, _eR, _s, _sD, _rL, _t, _at, _aCA, _aUA],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 1, 4, 4]
+  [_aI, _i, _a, _cB, _cA, _uA, _eR, _s, _sD, _rL, _n, _mo, _t, _at, _aCA, _aUA],
+  [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1, 4, 4], 10
 ];
 export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
@@ -431,32 +431,32 @@ export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
 export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
   [_app, _nT],
-  [() => ApplicationList, 0]
+  [() => ApplicationList, 0], 1
 ];
 export var ListJobRunAttemptsRequest$: StaticStructureSchema = [3, n0, _LJRAR,
   0,
   [_aI, _jRI, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListJobRunAttemptsResponse$: StaticStructureSchema = [3, n0, _LJRARi,
   0,
   [_jRA, _nT],
-  [() => JobRunAttempts, 0]
+  [() => JobRunAttempts, 0], 1
 ];
 export var ListJobRunsRequest$: StaticStructureSchema = [3, n0, _LJRR,
   0,
   [_aI, _nT, _mR, _cAA, _cAB, _st, _mo],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [4, { [_hQ]: _cAA }], [4, { [_hQ]: _cAB }], [64 | 0, { [_hQ]: _st }], [0, { [_hQ]: _mo }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [4, { [_hQ]: _cAA }], [4, { [_hQ]: _cAB }], [64 | 0, { [_hQ]: _st }], [0, { [_hQ]: _mo }]], 1
 ];
 export var ListJobRunsResponse$: StaticStructureSchema = [3, n0, _LJRRi,
   0,
   [_jRo, _nT],
-  [() => JobRuns, 0]
+  [() => JobRuns, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -471,7 +471,7 @@ export var ManagedPersistenceMonitoringConfiguration$: StaticStructureSchema = [
 export var MaximumAllowedResources$: StaticStructureSchema = [3, n0, _MAR,
   0,
   [_cp, _me, _d],
-  [0, 0, 0]
+  [0, 0, 0], 2
 ];
 export var MonitoringConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
@@ -491,7 +491,7 @@ export var PrometheusMonitoringConfiguration$: StaticStructureSchema = [3, n0, _
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_er]: _cl, [_hE]: 404 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceUtilization$: StaticStructureSchema = [3, n0, _RU,
@@ -517,18 +517,18 @@ export var SchedulerConfiguration$: StaticStructureSchema = [3, n0, _SC,
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_er]: _cl, [_hE]: 402 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SparkSubmit$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_eP, _ePA, _sSP],
-  [[() => EntryPointPath, 0], [() => EntryPointArguments, 0], [() => SparkSubmitParameters, 0]]
+  [[() => EntryPointPath, 0], [() => EntryPointArguments, 0], [() => SparkSubmitParameters, 0]], 1
 ];
 export var StartApplicationRequest$: StaticStructureSchema = [3, n0, _SAR,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StartApplicationResponse$: StaticStructureSchema = [3, n0, _SARt,
   0,
@@ -537,18 +537,18 @@ export var StartApplicationResponse$: StaticStructureSchema = [3, n0, _SARt,
 ];
 export var StartJobRunRequest$: StaticStructureSchema = [3, n0, _SJRR,
   0,
-  [_aI, _cT, _eRA, _eIP, _jD, _cO, _ta, _eTM, _n, _mo, _rP],
-  [[0, 1], [0, 4], 0, () => JobRunExecutionIamPolicy$, [() => JobDriver$, 0], [() => ConfigurationOverrides$, 0], 128 | 0, 1, 0, 0, () => RetryPolicy$]
+  [_aI, _eRA, _cT, _eIP, _jD, _cO, _ta, _eTM, _n, _mo, _rP],
+  [[0, 1], 0, [0, 4], () => JobRunExecutionIamPolicy$, [() => JobDriver$, 0], [() => ConfigurationOverrides$, 0], 128 | 0, 1, 0, 0, () => RetryPolicy$], 2
 ];
 export var StartJobRunResponse$: StaticStructureSchema = [3, n0, _SJRRt,
   0,
   [_aI, _jRI, _a],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var StopApplicationRequest$: StaticStructureSchema = [3, n0, _SARto,
   0,
   [_aI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var StopApplicationResponse$: StaticStructureSchema = [3, n0, _SARtop,
   0,
@@ -558,7 +558,7 @@ export var StopApplicationResponse$: StaticStructureSchema = [3, n0, _SARtop,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -573,7 +573,7 @@ export var TotalResourceUtilization$: StaticStructureSchema = [3, n0, _TRU,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -583,23 +583,23 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_aI, _cT, _iC, _mC, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _iCn, _rL, _rC, _mCo, _dEC, _sC, _iCC, _jLCAC],
-  [[0, 1], [0, 4], () => InitialCapacityConfigMap, () => MaximumAllowedResources$, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfigurationInput$, () => WorkerTypeSpecificationInputMap, () => InteractiveConfiguration$, 0, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfigurationInput$, () => JobLevelCostAllocationConfiguration$]
+  [[0, 1], [0, 4], () => InitialCapacityConfigMap, () => MaximumAllowedResources$, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfigurationInput$, () => WorkerTypeSpecificationInputMap, () => InteractiveConfiguration$, 0, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfigurationInput$, () => JobLevelCostAllocationConfiguration$], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
   [_ap],
-  [[() => Application$, 0]]
+  [[() => Application$, 0]], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_er]: _cl, [_hE]: 400 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WorkerResourceConfig$: StaticStructureSchema = [3, n0, _WRC,
   0,
   [_cp, _me, _d, _dT],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var WorkerTypeSpecification$: StaticStructureSchema = [3, n0, _WTS,
   0,

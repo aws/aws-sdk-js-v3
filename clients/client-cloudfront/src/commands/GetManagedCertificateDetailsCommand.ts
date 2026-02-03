@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetManagedCertificateDetailsRequest } from "../models/models_0";
-import type { GetManagedCertificateDetailsResult } from "../models/models_1";
+import type { GetManagedCertificateDetailsRequest, GetManagedCertificateDetailsResult } from "../models/models_1";
 import { GetManagedCertificateDetails$ } from "../schemas/schemas_0";
 
 /**

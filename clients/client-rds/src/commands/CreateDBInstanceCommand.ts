@@ -27,15 +27,7 @@ export interface CreateDBInstanceCommandInput extends CreateDBInstanceMessage {}
 export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB instance.</p>
- *          <p>The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster.
- *            For an Aurora DB cluster, you can call this operation multiple times to add more than one DB instance
- *            to the cluster.</p>
- *          <p>For more information about creating an RDS DB instance, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateDBInstance.html">
- *             Creating an Amazon RDS DB instance</a> in the <i>Amazon RDS User Guide</i>.</p>
- *          <p>For more information about creating a DB instance in an Aurora DB cluster, see
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html">
- *             Creating an Amazon Aurora DB cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ * <p>Creates a new DB instance.</p> <p>The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster. For an Aurora DB cluster, you can call this operation multiple times to add more than one DB instance to the cluster.</p> <p>For more information about creating an RDS DB instance, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateDBInstance.html"> Creating an Amazon RDS DB instance</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For more information about creating a DB instance in an Aurora DB cluster, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html"> Creating an Amazon Aurora DB cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -127,6 +119,16 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   MultiTenant: true || false,
  *   DedicatedLogVolume: true || false,
  *   EngineLifecycleSupport: "STRING_VALUE",
+ *   AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
+ *     { // AdditionalStorageVolume
+ *       VolumeName: "STRING_VALUE", // required
+ *       AllocatedStorage: Number("int"),
+ *       IOPS: Number("int"),
+ *       MaxAllocatedStorage: Number("int"),
+ *       StorageThroughput: Number("int"),
+ *       StorageType: "STRING_VALUE",
+ *     },
+ *   ],
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
  *       ResourceType: "STRING_VALUE",
@@ -139,16 +141,6 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *     },
  *   ],
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
- *   AdditionalStorageVolumes: [ // AdditionalStorageVolumesList
- *     { // AdditionalStorageVolume
- *       VolumeName: "STRING_VALUE", // required
- *       AllocatedStorage: Number("int"),
- *       IOPS: Number("int"),
- *       MaxAllocatedStorage: Number("int"),
- *       StorageThroughput: Number("int"),
- *       StorageType: "STRING_VALUE",
- *     },
- *   ],
  * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);
@@ -412,52 +404,40 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized
- *             for the specified DB security group.</p>
- *          <p>Or, RDS might not be authorized to perform necessary actions using IAM on your
- *             behalf.</p>
+ *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized for the specified DB security group.</p> <p>Or, RDS might not be authorized to perform necessary actions using IAM on your behalf.</p>
  *
  * @throws {@link BackupPolicyNotFoundFault} (client fault)
  *
+ *
  * @throws {@link CertificateNotFoundFault} (client fault)
- *  <p>
- *             <code>CertificateIdentifier</code> doesn't refer to an
- *         existing certificate.</p>
+ *  <p> <code>CertificateIdentifier</code> doesn't refer to an existing certificate.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
  *  <p>The user already has a DB instance with the given identifier.</p>
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an
- *         existing DB parameter group.</p>
+ *  <p> <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.</p>
  *
  * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *  <p> <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
  *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
  *
  * @throws {@link DomainNotFoundFault} (client fault)
- *  <p>
- *             <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+ *  <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
  *
  * @throws {@link InstanceQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB
- *             instances.</p>
+ *  <p>The request would result in the user exceeding the allowed number of DB instances.</p>
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified DB instance class isn't available in the specified Availability
- *             Zone.</p>
+ *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
@@ -466,8 +446,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The DB subnet group doesn't cover all Availability Zones after it's
- *             created because of users' change.</p>
+ *  <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
@@ -482,20 +461,16 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *  <p>Provisioned IOPS not available in the specified Availability Zone.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed amount of storage
- *             available across all DB instances.</p>
+ *  <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
  *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
  *
  * @throws {@link TenantDatabaseQuotaExceededFault} (client fault)
- *  <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services
- *             account.</p>
+ *  <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services account.</p>
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB
- *             instance type supports the Nitro encryption-in-transit capability,
- *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

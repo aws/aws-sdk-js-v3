@@ -5,6 +5,7 @@ import {
   AsyncInvokeStatus,
   AudioFormat,
   CachePointType,
+  CacheTTL,
   ConversationRole,
   DocumentFormat,
   GuardrailAction,
@@ -1716,6 +1717,12 @@ export interface CachePointBlock {
    * @public
    */
   type: CachePointType | undefined;
+
+  /**
+   * <p>Optional TTL duration for cache entries. When specified, enables extended TTL caching with the specified duration. When omitted, uses <code>type</code> value for caching behavior.</p>
+   * @public
+   */
+  ttl?: CacheTTL | undefined;
 }
 
 /**
@@ -3714,6 +3721,24 @@ export interface ConverseTrace {
 }
 
 /**
+ * <p>Cache creation metrics for a specific TTL duration</p>
+ * @public
+ */
+export interface CacheDetail {
+  /**
+   * <p>TTL duration for these cached tokens</p>
+   * @public
+   */
+  ttl: CacheTTL | undefined;
+
+  /**
+   * <p>Number of tokens written to cache with this TTL (cache creation tokens)</p>
+   * @public
+   */
+  inputTokens: number | undefined;
+}
+
+/**
  * <p>The tokens used in a message API inference call. </p>
  * @public
  */
@@ -3747,6 +3772,12 @@ export interface TokenUsage {
    * @public
    */
   cacheWriteInputTokens?: number | undefined;
+
+  /**
+   * <p>Detailed breakdown of cache writes by TTL. Empty if no cache creation occurred. Sorted by TTL duration (1h before 5m).</p>
+   * @public
+   */
+  cacheDetails?: CacheDetail[] | undefined;
 }
 
 /**

@@ -490,7 +490,7 @@ import { WellArchitectedServiceException } from "../models/WellArchitectedServic
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountJiraConfigurationInput$: StaticStructureSchema = [3, n0, _AJCI,
@@ -521,12 +521,12 @@ export var AnswerSummary$: StaticStructureSchema = [3, n0, _AS,
 export var AssociateLensesInput$: StaticStructureSchema = [3, n0, _ALI,
   0,
   [_WI, _LA],
-  [[0, 1], 64 | 0]
+  [[0, 1], 64 | 0], 2
 ];
 export var AssociateProfilesInput$: StaticStructureSchema = [3, n0, _API,
   0,
   [_WI, _PA],
-  [[0, 1], 64 | 0]
+  [[0, 1], 64 | 0], 2
 ];
 export var BestPractice$: StaticStructureSchema = [3, n0, _BP,
   0,
@@ -571,12 +571,12 @@ export var ChoiceImprovementPlan$: StaticStructureSchema = [3, n0, _CIP,
 export var ChoiceUpdate$: StaticStructureSchema = [3, n0, _CU,
   0,
   [_St, _Re, _N],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConsolidatedReportMetric$: StaticStructureSchema = [3, n0, _CRM,
@@ -587,7 +587,7 @@ export var ConsolidatedReportMetric$: StaticStructureSchema = [3, n0, _CRM,
 export var CreateLensShareInput$: StaticStructureSchema = [3, n0, _CLSI,
   0,
   [_LAen, _SW, _CRT],
-  [[0, 1], 0, [0, 4]]
+  [[0, 1], 0, [0, 4]], 2
 ];
 export var CreateLensShareOutput$: StaticStructureSchema = [3, n0, _CLSO,
   0,
@@ -597,7 +597,7 @@ export var CreateLensShareOutput$: StaticStructureSchema = [3, n0, _CLSO,
 export var CreateLensVersionInput$: StaticStructureSchema = [3, n0, _CLVI,
   0,
   [_LAen, _LV, _IMV, _CRT],
-  [[0, 1], 0, 2, [0, 4]]
+  [[0, 1], 0, 2, [0, 4]], 2
 ];
 export var CreateLensVersionOutput$: StaticStructureSchema = [3, n0, _CLVO,
   0,
@@ -607,7 +607,7 @@ export var CreateLensVersionOutput$: StaticStructureSchema = [3, n0, _CLVO,
 export var CreateMilestoneInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
   [_WI, _MN, _CRT],
-  [[0, 1], 0, [0, 4]]
+  [[0, 1], 0, [0, 4]], 2
 ];
 export var CreateMilestoneOutput$: StaticStructureSchema = [3, n0, _CMO,
   0,
@@ -617,7 +617,7 @@ export var CreateMilestoneOutput$: StaticStructureSchema = [3, n0, _CMO,
 export var CreateProfileInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
   [_PN, _PD, _PQ, _CRT, _Ta],
-  [0, 0, () => ProfileQuestionUpdates, [0, 4], 128 | 0]
+  [0, 0, () => ProfileQuestionUpdates, [0, 4], 128 | 0], 3
 ];
 export var CreateProfileOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
@@ -627,7 +627,7 @@ export var CreateProfileOutput$: StaticStructureSchema = [3, n0, _CPO,
 export var CreateProfileShareInput$: StaticStructureSchema = [3, n0, _CPSI,
   0,
   [_PAr, _SW, _CRT],
-  [[0, 1], 0, [0, 4]]
+  [[0, 1], 0, [0, 4]], 2
 ];
 export var CreateProfileShareOutput$: StaticStructureSchema = [3, n0, _CPSO,
   0,
@@ -637,7 +637,7 @@ export var CreateProfileShareOutput$: StaticStructureSchema = [3, n0, _CPSO,
 export var CreateReviewTemplateInput$: StaticStructureSchema = [3, n0, _CRTI,
   0,
   [_TN, _D, _L, _N, _Ta, _CRT],
-  [0, 0, 64 | 0, 0, 128 | 0, [0, 4]]
+  [0, 0, 64 | 0, 0, 128 | 0, [0, 4]], 3
 ];
 export var CreateReviewTemplateOutput$: StaticStructureSchema = [3, n0, _CRTO,
   0,
@@ -647,7 +647,7 @@ export var CreateReviewTemplateOutput$: StaticStructureSchema = [3, n0, _CRTO,
 export var CreateTemplateShareInput$: StaticStructureSchema = [3, n0, _CTSI,
   0,
   [_TA, _SW, _CRT],
-  [[0, 1], 0, [0, 4]]
+  [[0, 1], 0, [0, 4]], 2
 ];
 export var CreateTemplateShareOutput$: StaticStructureSchema = [3, n0, _CTSO,
   0,
@@ -656,8 +656,8 @@ export var CreateTemplateShareOutput$: StaticStructureSchema = [3, n0, _CTSO,
 ];
 export var CreateWorkloadInput$: StaticStructureSchema = [3, n0, _CWI,
   0,
-  [_WN, _D, _E, _AIc, _ARw, _NAR, _PP, _AD, _RO, _IT, _In, _L, _N, _CRT, _Ta, _DC, _Ap, _PA, _RTA, _JC],
-  [0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 64 | 0, 0, [0, 4], 128 | 0, () => WorkloadDiscoveryConfig$, 64 | 0, 64 | 0, 64 | 0, () => WorkloadJiraConfigurationInput$]
+  [_WN, _D, _E, _L, _AIc, _ARw, _NAR, _PP, _AD, _RO, _IT, _In, _N, _CRT, _Ta, _DC, _Ap, _PA, _RTA, _JC],
+  [0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 0, [0, 4], 128 | 0, () => WorkloadDiscoveryConfig$, 64 | 0, 64 | 0, 64 | 0, () => WorkloadJiraConfigurationInput$], 4
 ];
 export var CreateWorkloadOutput$: StaticStructureSchema = [3, n0, _CWO,
   0,
@@ -667,7 +667,7 @@ export var CreateWorkloadOutput$: StaticStructureSchema = [3, n0, _CWO,
 export var CreateWorkloadShareInput$: StaticStructureSchema = [3, n0, _CWSI,
   0,
   [_WI, _SW, _PT, _CRT],
-  [[0, 1], 0, 0, [0, 4]]
+  [[0, 1], 0, 0, [0, 4]], 3
 ];
 export var CreateWorkloadShareOutput$: StaticStructureSchema = [3, n0, _CWSO,
   0,
@@ -676,58 +676,58 @@ export var CreateWorkloadShareOutput$: StaticStructureSchema = [3, n0, _CWSO,
 ];
 export var DeleteLensInput$: StaticStructureSchema = [3, n0, _DLI,
   0,
-  [_LAen, _CRT, _LS],
-  [[0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }], [0, { [_hQ]: _LS }]]
+  [_LAen, _LS, _CRT],
+  [[0, 1], [0, { [_hQ]: _LS }], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 2
 ];
 export var DeleteLensShareInput$: StaticStructureSchema = [3, n0, _DLSI,
   0,
   [_SI, _LAen, _CRT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 2
 ];
 export var DeleteProfileInput$: StaticStructureSchema = [3, n0, _DPI,
   0,
   [_PAr, _CRT],
-  [[0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]]
+  [[0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 1
 ];
 export var DeleteProfileShareInput$: StaticStructureSchema = [3, n0, _DPSI,
   0,
   [_SI, _PAr, _CRT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 2
 ];
 export var DeleteReviewTemplateInput$: StaticStructureSchema = [3, n0, _DRTI,
   0,
   [_TA, _CRT],
-  [[0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]]
+  [[0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 1
 ];
 export var DeleteTemplateShareInput$: StaticStructureSchema = [3, n0, _DTSI,
   0,
   [_SI, _TA, _CRT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 2
 ];
 export var DeleteWorkloadInput$: StaticStructureSchema = [3, n0, _DWI,
   0,
   [_WI, _CRT],
-  [[0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]]
+  [[0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 1
 ];
 export var DeleteWorkloadShareInput$: StaticStructureSchema = [3, n0, _DWSI,
   0,
   [_SI, _WI, _CRT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 2
 ];
 export var DisassociateLensesInput$: StaticStructureSchema = [3, n0, _DLIi,
   0,
   [_WI, _LA],
-  [[0, 1], 64 | 0]
+  [[0, 1], 64 | 0], 2
 ];
 export var DisassociateProfilesInput$: StaticStructureSchema = [3, n0, _DPIi,
   0,
   [_WI, _PA],
-  [[0, 1], 64 | 0]
+  [[0, 1], 64 | 0], 2
 ];
 export var ExportLensInput$: StaticStructureSchema = [3, n0, _ELI,
   0,
   [_LAen, _LV],
-  [[0, 1], [0, { [_hQ]: _LV }]]
+  [[0, 1], [0, { [_hQ]: _LV }]], 1
 ];
 export var ExportLensOutput$: StaticStructureSchema = [3, n0, _ELO,
   0,
@@ -737,7 +737,7 @@ export var ExportLensOutput$: StaticStructureSchema = [3, n0, _ELO,
 export var GetAnswerInput$: StaticStructureSchema = [3, n0, _GAI,
   0,
   [_WI, _LAen, _QI, _MNi],
-  [[0, 1], [0, 1], [0, 1], [1, { [_hQ]: _MNi }]]
+  [[0, 1], [0, 1], [0, 1], [1, { [_hQ]: _MNi }]], 3
 ];
 export var GetAnswerOutput$: StaticStructureSchema = [3, n0, _GAO,
   0,
@@ -747,7 +747,7 @@ export var GetAnswerOutput$: StaticStructureSchema = [3, n0, _GAO,
 export var GetConsolidatedReportInput$: StaticStructureSchema = [3, n0, _GCRI,
   0,
   [_F, _ISR, _NT, _MR],
-  [[0, { [_hQ]: _F }], [2, { [_hQ]: _ISR }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+  [[0, { [_hQ]: _F }], [2, { [_hQ]: _ISR }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var GetConsolidatedReportOutput$: StaticStructureSchema = [3, n0, _GCRO,
   0,
@@ -762,7 +762,7 @@ export var GetGlobalSettingsOutput$: StaticStructureSchema = [3, n0, _GGSO,
 export var GetLensInput$: StaticStructureSchema = [3, n0, _GLI,
   0,
   [_LAen, _LV],
-  [[0, 1], [0, { [_hQ]: _LV }]]
+  [[0, 1], [0, { [_hQ]: _LV }]], 1
 ];
 export var GetLensOutput$: StaticStructureSchema = [3, n0, _GLO,
   0,
@@ -772,7 +772,7 @@ export var GetLensOutput$: StaticStructureSchema = [3, n0, _GLO,
 export var GetLensReviewInput$: StaticStructureSchema = [3, n0, _GLRI,
   0,
   [_WI, _LAen, _MNi],
-  [[0, 1], [0, 1], [1, { [_hQ]: _MNi }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _MNi }]], 2
 ];
 export var GetLensReviewOutput$: StaticStructureSchema = [3, n0, _GLRO,
   0,
@@ -782,7 +782,7 @@ export var GetLensReviewOutput$: StaticStructureSchema = [3, n0, _GLRO,
 export var GetLensReviewReportInput$: StaticStructureSchema = [3, n0, _GLRRI,
   0,
   [_WI, _LAen, _MNi],
-  [[0, 1], [0, 1], [1, { [_hQ]: _MNi }]]
+  [[0, 1], [0, 1], [1, { [_hQ]: _MNi }]], 2
 ];
 export var GetLensReviewReportOutput$: StaticStructureSchema = [3, n0, _GLRRO,
   0,
@@ -792,7 +792,7 @@ export var GetLensReviewReportOutput$: StaticStructureSchema = [3, n0, _GLRRO,
 export var GetLensVersionDifferenceInput$: StaticStructureSchema = [3, n0, _GLVDI,
   0,
   [_LAen, _BLV, _TLV],
-  [[0, 1], [0, { [_hQ]: _BLV }], [0, { [_hQ]: _TLV }]]
+  [[0, 1], [0, { [_hQ]: _BLV }], [0, { [_hQ]: _TLV }]], 1
 ];
 export var GetLensVersionDifferenceOutput$: StaticStructureSchema = [3, n0, _GLVDO,
   0,
@@ -802,7 +802,7 @@ export var GetLensVersionDifferenceOutput$: StaticStructureSchema = [3, n0, _GLV
 export var GetMilestoneInput$: StaticStructureSchema = [3, n0, _GMI,
   0,
   [_WI, _MNi],
-  [[0, 1], [1, 1]]
+  [[0, 1], [1, 1]], 2
 ];
 export var GetMilestoneOutput$: StaticStructureSchema = [3, n0, _GMO,
   0,
@@ -812,7 +812,7 @@ export var GetMilestoneOutput$: StaticStructureSchema = [3, n0, _GMO,
 export var GetProfileInput$: StaticStructureSchema = [3, n0, _GPI,
   0,
   [_PAr, _PV],
-  [[0, 1], [0, { [_hQ]: _PV }]]
+  [[0, 1], [0, { [_hQ]: _PV }]], 1
 ];
 export var GetProfileOutput$: StaticStructureSchema = [3, n0, _GPO,
   0,
@@ -832,7 +832,7 @@ export var GetProfileTemplateOutput$: StaticStructureSchema = [3, n0, _GPTO,
 export var GetReviewTemplateAnswerInput$: StaticStructureSchema = [3, n0, _GRTAI,
   0,
   [_TA, _LAen, _QI],
-  [[0, 1], [0, 1], [0, 1]]
+  [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetReviewTemplateAnswerOutput$: StaticStructureSchema = [3, n0, _GRTAO,
   0,
@@ -842,12 +842,12 @@ export var GetReviewTemplateAnswerOutput$: StaticStructureSchema = [3, n0, _GRTA
 export var GetReviewTemplateInput$: StaticStructureSchema = [3, n0, _GRTI,
   0,
   [_TA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetReviewTemplateLensReviewInput$: StaticStructureSchema = [3, n0, _GRTLRI,
   0,
   [_TA, _LAen],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetReviewTemplateLensReviewOutput$: StaticStructureSchema = [3, n0, _GRTLRO,
   0,
@@ -862,7 +862,7 @@ export var GetReviewTemplateOutput$: StaticStructureSchema = [3, n0, _GRTO,
 export var GetWorkloadInput$: StaticStructureSchema = [3, n0, _GWI,
   0,
   [_WI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetWorkloadOutput$: StaticStructureSchema = [3, n0, _GWO,
   0,
@@ -871,8 +871,8 @@ export var GetWorkloadOutput$: StaticStructureSchema = [3, n0, _GWO,
 ];
 export var ImportLensInput$: StaticStructureSchema = [3, n0, _ILI,
   0,
-  [_LAen, _JSONS, _CRT, _Ta],
-  [0, 0, [0, 4], 128 | 0]
+  [_JSONS, _LAen, _CRT, _Ta],
+  [0, 0, [0, 4], 128 | 0], 1
 ];
 export var ImportLensOutput$: StaticStructureSchema = [3, n0, _ILO,
   0,
@@ -887,7 +887,7 @@ export var ImprovementSummary$: StaticStructureSchema = [3, n0, _ISm,
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _s, [_hE]: 500 },
   [_M],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JiraConfiguration$: StaticStructureSchema = [3, n0, _JC,
@@ -943,7 +943,7 @@ export var LensUpgradeSummary$: StaticStructureSchema = [3, n0, _LUS,
 export var ListAnswersInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
   [_WI, _LAen, _PI, _MNi, _NT, _MR, _QP],
-  [[0, 1], [0, 1], [0, { [_hQ]: _PI }], [1, { [_hQ]: _MNi }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _QP }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _PI }], [1, { [_hQ]: _MNi }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _QP }]], 2
 ];
 export var ListAnswersOutput$: StaticStructureSchema = [3, n0, _LAO,
   0,
@@ -952,8 +952,8 @@ export var ListAnswersOutput$: StaticStructureSchema = [3, n0, _LAO,
 ];
 export var ListCheckDetailsInput$: StaticStructureSchema = [3, n0, _LCDI,
   0,
-  [_WI, _NT, _MR, _LAe, _PI, _QI, _CI],
-  [[0, 1], 0, 1, 0, 0, 0, 0]
+  [_WI, _LAe, _PI, _QI, _CI, _NT, _MR],
+  [[0, 1], 0, 0, 0, 0, 0, 1], 5
 ];
 export var ListCheckDetailsOutput$: StaticStructureSchema = [3, n0, _LCDO,
   0,
@@ -962,8 +962,8 @@ export var ListCheckDetailsOutput$: StaticStructureSchema = [3, n0, _LCDO,
 ];
 export var ListCheckSummariesInput$: StaticStructureSchema = [3, n0, _LCSI,
   0,
-  [_WI, _NT, _MR, _LAe, _PI, _QI, _CI],
-  [[0, 1], 0, 1, 0, 0, 0, 0]
+  [_WI, _LAe, _PI, _QI, _CI, _NT, _MR],
+  [[0, 1], 0, 0, 0, 0, 0, 1], 5
 ];
 export var ListCheckSummariesOutput$: StaticStructureSchema = [3, n0, _LCSO,
   0,
@@ -983,7 +983,7 @@ export var ListLensesOutput$: StaticStructureSchema = [3, n0, _LLO,
 export var ListLensReviewImprovementsInput$: StaticStructureSchema = [3, n0, _LLRII,
   0,
   [_WI, _LAen, _PI, _MNi, _NT, _MR, _QP],
-  [[0, 1], [0, 1], [0, { [_hQ]: _PI }], [1, { [_hQ]: _MNi }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _QP }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _PI }], [1, { [_hQ]: _MNi }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _QP }]], 2
 ];
 export var ListLensReviewImprovementsOutput$: StaticStructureSchema = [3, n0, _LLRIO,
   0,
@@ -993,7 +993,7 @@ export var ListLensReviewImprovementsOutput$: StaticStructureSchema = [3, n0, _L
 export var ListLensReviewsInput$: StaticStructureSchema = [3, n0, _LLRI,
   0,
   [_WI, _MNi, _NT, _MR],
-  [[0, 1], [1, { [_hQ]: _MNi }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+  [[0, 1], [1, { [_hQ]: _MNi }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var ListLensReviewsOutput$: StaticStructureSchema = [3, n0, _LLRO,
   0,
@@ -1003,7 +1003,7 @@ export var ListLensReviewsOutput$: StaticStructureSchema = [3, n0, _LLRO,
 export var ListLensSharesInput$: StaticStructureSchema = [3, n0, _LLSI,
   0,
   [_LAen, _SWP, _NT, _MR, _St],
-  [[0, 1], [0, { [_hQ]: _SWP }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _St }]]
+  [[0, 1], [0, { [_hQ]: _SWP }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _St }]], 1
 ];
 export var ListLensSharesOutput$: StaticStructureSchema = [3, n0, _LLSO,
   0,
@@ -1013,7 +1013,7 @@ export var ListLensSharesOutput$: StaticStructureSchema = [3, n0, _LLSO,
 export var ListMilestonesInput$: StaticStructureSchema = [3, n0, _LMI,
   0,
   [_WI, _NT, _MR],
-  [[0, 1], 0, 1]
+  [[0, 1], 0, 1], 1
 ];
 export var ListMilestonesOutput$: StaticStructureSchema = [3, n0, _LMO,
   0,
@@ -1043,7 +1043,7 @@ export var ListProfileNotificationsOutput$: StaticStructureSchema = [3, n0, _LPN
 export var ListProfileSharesInput$: StaticStructureSchema = [3, n0, _LPSI,
   0,
   [_PAr, _SWP, _NT, _MR, _St],
-  [[0, 1], [0, { [_hQ]: _SWP }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _St }]]
+  [[0, 1], [0, { [_hQ]: _SWP }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _St }]], 1
 ];
 export var ListProfileSharesOutput$: StaticStructureSchema = [3, n0, _LPSO,
   0,
@@ -1063,7 +1063,7 @@ export var ListProfilesOutput$: StaticStructureSchema = [3, n0, _LPO,
 export var ListReviewTemplateAnswersInput$: StaticStructureSchema = [3, n0, _LRTAI,
   0,
   [_TA, _LAen, _PI, _NT, _MR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _PI }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _PI }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 2
 ];
 export var ListReviewTemplateAnswersOutput$: StaticStructureSchema = [3, n0, _LRTAO,
   0,
@@ -1093,7 +1093,7 @@ export var ListShareInvitationsOutput$: StaticStructureSchema = [3, n0, _LSIO,
 export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI,
   0,
   [_WA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
   0,
@@ -1103,7 +1103,7 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 export var ListTemplateSharesInput$: StaticStructureSchema = [3, n0, _LTSI,
   0,
   [_TA, _SWP, _NT, _MR, _St],
-  [[0, 1], [0, { [_hQ]: _SWP }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _St }]]
+  [[0, 1], [0, { [_hQ]: _SWP }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _St }]], 1
 ];
 export var ListTemplateSharesOutput$: StaticStructureSchema = [3, n0, _LTSO,
   0,
@@ -1113,7 +1113,7 @@ export var ListTemplateSharesOutput$: StaticStructureSchema = [3, n0, _LTSO,
 export var ListWorkloadSharesInput$: StaticStructureSchema = [3, n0, _LWSI,
   0,
   [_WI, _SWP, _NT, _MR, _St],
-  [[0, 1], [0, { [_hQ]: _SWP }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _St }]]
+  [[0, 1], [0, { [_hQ]: _SWP }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _St }]], 1
 ];
 export var ListWorkloadSharesOutput$: StaticStructureSchema = [3, n0, _LWSO,
   0,
@@ -1223,7 +1223,7 @@ export var QuestionMetric$: StaticStructureSchema = [3, n0, _QM,
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M, _RI, _RT],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ReviewTemplate$: StaticStructureSchema = [3, n0, _RTe,
@@ -1263,8 +1263,8 @@ export var SelectedPillar$: StaticStructureSchema = [3, n0, _SPe,
 ];
 export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_e]: _c, [_hE]: 402 },
-  [_M, _RI, _RT, _QCuo, _SCe],
-  [0, 0, 0, 0, 0]
+  [_M, _QCuo, _SCe, _RI, _RT],
+  [0, 0, 0, 0, 0], 3
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ShareInvitation$: StaticStructureSchema = [3, n0, _SIh,
@@ -1280,7 +1280,7 @@ export var ShareInvitationSummary$: StaticStructureSchema = [3, n0, _SISh,
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_WA, _Ta],
-  [[0, 1], 128 | 0]
+  [[0, 1], 128 | 0], 2
 ];
 export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   0,
@@ -1295,13 +1295,13 @@ export var TemplateShareSummary$: StaticStructureSchema = [3, n0, _TSSe,
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_M, _QCuo, _SCe],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_WA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
@@ -1311,7 +1311,7 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 export var UpdateAnswerInput$: StaticStructureSchema = [3, n0, _UAI,
   0,
   [_WI, _LAen, _QI, _SC, _CUh, _N, _IA, _Re],
-  [[0, 1], [0, 1], [0, 1], 64 | 0, () => ChoiceUpdates, 0, 2, 0]
+  [[0, 1], [0, 1], [0, 1], 64 | 0, () => ChoiceUpdates, 0, 2, 0], 3
 ];
 export var UpdateAnswerOutput$: StaticStructureSchema = [3, n0, _UAO,
   0,
@@ -1325,13 +1325,13 @@ export var UpdateGlobalSettingsInput$: StaticStructureSchema = [3, n0, _UGSI,
 ];
 export var UpdateIntegrationInput$: StaticStructureSchema = [3, n0, _UII,
   0,
-  [_WI, _CRT, _ISn],
-  [[0, 1], [0, 4], 0]
+  [_WI, _ISn, _CRT],
+  [[0, 1], 0, [0, 4]], 2
 ];
 export var UpdateLensReviewInput$: StaticStructureSchema = [3, n0, _ULRI,
   0,
   [_WI, _LAen, _LNe, _PNil, _JC],
-  [[0, 1], [0, 1], 0, 128 | 0, () => JiraSelectedQuestionConfiguration$]
+  [[0, 1], [0, 1], 0, 128 | 0, () => JiraSelectedQuestionConfiguration$], 2
 ];
 export var UpdateLensReviewOutput$: StaticStructureSchema = [3, n0, _ULRO,
   0,
@@ -1341,7 +1341,7 @@ export var UpdateLensReviewOutput$: StaticStructureSchema = [3, n0, _ULRO,
 export var UpdateProfileInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
   [_PAr, _PD, _PQ],
-  [[0, 1], 0, () => ProfileQuestionUpdates]
+  [[0, 1], 0, () => ProfileQuestionUpdates], 1
 ];
 export var UpdateProfileOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
@@ -1351,7 +1351,7 @@ export var UpdateProfileOutput$: StaticStructureSchema = [3, n0, _UPO,
 export var UpdateReviewTemplateAnswerInput$: StaticStructureSchema = [3, n0, _URTAI,
   0,
   [_TA, _LAen, _QI, _SC, _CUh, _N, _IA, _Re],
-  [[0, 1], [0, 1], [0, 1], 64 | 0, () => ChoiceUpdates, 0, 2, 0]
+  [[0, 1], [0, 1], [0, 1], 64 | 0, () => ChoiceUpdates, 0, 2, 0], 3
 ];
 export var UpdateReviewTemplateAnswerOutput$: StaticStructureSchema = [3, n0, _URTAO,
   0,
@@ -1361,12 +1361,12 @@ export var UpdateReviewTemplateAnswerOutput$: StaticStructureSchema = [3, n0, _U
 export var UpdateReviewTemplateInput$: StaticStructureSchema = [3, n0, _URTI,
   0,
   [_TA, _TN, _D, _N, _LTA, _LTD],
-  [[0, 1], 0, 0, 0, 64 | 0, 64 | 0]
+  [[0, 1], 0, 0, 0, 64 | 0, 64 | 0], 1
 ];
 export var UpdateReviewTemplateLensReviewInput$: StaticStructureSchema = [3, n0, _URTLRI,
   0,
   [_TA, _LAen, _LNe, _PNil],
-  [[0, 1], [0, 1], 0, 128 | 0]
+  [[0, 1], [0, 1], 0, 128 | 0], 2
 ];
 export var UpdateReviewTemplateLensReviewOutput$: StaticStructureSchema = [3, n0, _URTLRO,
   0,
@@ -1381,7 +1381,7 @@ export var UpdateReviewTemplateOutput$: StaticStructureSchema = [3, n0, _URTO,
 export var UpdateShareInvitationInput$: StaticStructureSchema = [3, n0, _USII,
   0,
   [_SII, _SIA],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateShareInvitationOutput$: StaticStructureSchema = [3, n0, _USIO,
   0,
@@ -1391,7 +1391,7 @@ export var UpdateShareInvitationOutput$: StaticStructureSchema = [3, n0, _USIO,
 export var UpdateWorkloadInput$: StaticStructureSchema = [3, n0, _UWI,
   0,
   [_WI, _WN, _D, _E, _AIc, _ARw, _NAR, _PP, _AD, _RO, _IROUA, _IT, _In, _N, _ISmpr, _DC, _Ap, _JC],
-  [[0, 1], 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 2, 0, 0, 0, 0, () => WorkloadDiscoveryConfig$, 64 | 0, () => WorkloadJiraConfigurationInput$]
+  [[0, 1], 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 2, 0, 0, 0, 0, () => WorkloadDiscoveryConfig$, 64 | 0, () => WorkloadJiraConfigurationInput$], 1
 ];
 export var UpdateWorkloadOutput$: StaticStructureSchema = [3, n0, _UWO,
   0,
@@ -1401,7 +1401,7 @@ export var UpdateWorkloadOutput$: StaticStructureSchema = [3, n0, _UWO,
 export var UpdateWorkloadShareInput$: StaticStructureSchema = [3, n0, _UWSI,
   0,
   [_SI, _WI, _PT],
-  [[0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], 0], 3
 ];
 export var UpdateWorkloadShareOutput$: StaticStructureSchema = [3, n0, _UWSO,
   0,
@@ -1411,28 +1411,28 @@ export var UpdateWorkloadShareOutput$: StaticStructureSchema = [3, n0, _UWSO,
 export var UpgradeLensReviewInput$: StaticStructureSchema = [3, n0, _ULRIp,
   0,
   [_WI, _LAen, _MN, _CRT],
-  [[0, 1], [0, 1], 0, 0]
+  [[0, 1], [0, 1], 0, 0], 3
 ];
 export var UpgradeProfileVersionInput$: StaticStructureSchema = [3, n0, _UPVI,
   0,
   [_WI, _PAr, _MN, _CRT],
-  [[0, 1], [0, 1], 0, [0, 4]]
+  [[0, 1], [0, 1], 0, [0, 4]], 2
 ];
 export var UpgradeReviewTemplateLensReviewInput$: StaticStructureSchema = [3, n0, _URTLRIp,
   0,
   [_TA, _LAen, _CRT],
-  [[0, 1], [0, 1], 0]
+  [[0, 1], [0, 1], 0], 2
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _Re, _Fi],
-  [0, 0, () => ValidationExceptionFieldList]
+  [0, 0, () => ValidationExceptionFieldList], 1
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_Na, _M],
-  [0, 0]
+  [0, 0], 2
 ];
 export var VersionDifferences$: StaticStructureSchema = [3, n0, _VD,
   0,

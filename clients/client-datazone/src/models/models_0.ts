@@ -51,6 +51,7 @@ import {
   RuleType,
   S3Permission,
   Status,
+  SubscriptionGrantCreationMode,
   SubscriptionGrantOverallStatus,
   SubscriptionGrantStatus,
   SubscriptionRequestStatus,
@@ -592,6 +593,18 @@ export interface SubscribedGroup {
 }
 
 /**
+ * <p>The IAM principal that subscribes to the asset.</p>
+ * @public
+ */
+export interface SubscribedIamPrincipal {
+  /**
+   * <p>The ARN of the subscribed IAM principal.</p>
+   * @public
+   */
+  principalArn?: string | undefined;
+}
+
+/**
  * <p>The project that has the subscription grant.</p>
  * @public
  */
@@ -728,6 +741,7 @@ export interface SubscribedUser {
  */
 export type SubscribedPrincipal =
   | SubscribedPrincipal.GroupMember
+  | SubscribedPrincipal.IamMember
   | SubscribedPrincipal.ProjectMember
   | SubscribedPrincipal.UserMember
   | SubscribedPrincipal.$UnknownMember;
@@ -744,6 +758,7 @@ export namespace SubscribedPrincipal {
     project: SubscribedProject;
     user?: never;
     group?: never;
+    iam?: never;
     $unknown?: never;
   }
 
@@ -755,6 +770,7 @@ export namespace SubscribedPrincipal {
     project?: never;
     user: SubscribedUser;
     group?: never;
+    iam?: never;
     $unknown?: never;
   }
 
@@ -766,6 +782,19 @@ export namespace SubscribedPrincipal {
     project?: never;
     user?: never;
     group: SubscribedGroup;
+    iam?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The subscribed IAM principal.</p>
+   * @public
+   */
+  export interface IamMember {
+    project?: never;
+    user?: never;
+    group?: never;
+    iam: SubscribedIamPrincipal;
     $unknown?: never;
   }
 
@@ -776,6 +805,7 @@ export namespace SubscribedPrincipal {
     project?: never;
     user?: never;
     group?: never;
+    iam?: never;
     $unknown: [string, any];
   }
 
@@ -787,6 +817,7 @@ export namespace SubscribedPrincipal {
     project: (value: SubscribedProject) => T;
     user: (value: SubscribedUser) => T;
     group: (value: SubscribedGroup) => T;
+    iam: (value: SubscribedIamPrincipal) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -11094,6 +11125,18 @@ export interface SubscribedGroupInput {
 }
 
 /**
+ * <p>The details of the subscribed IAM principal.</p>
+ * @public
+ */
+export interface SubscribedIamPrincipalInput {
+  /**
+   * <p>The ARN of the subscribed IAM principal.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+}
+
+/**
  * <p>The project that is to be given a subscription grant.</p>
  * @public
  */
@@ -11123,6 +11166,7 @@ export interface SubscribedUserInput {
  */
 export type SubscribedPrincipalInput =
   | SubscribedPrincipalInput.GroupMember
+  | SubscribedPrincipalInput.IamMember
   | SubscribedPrincipalInput.ProjectMember
   | SubscribedPrincipalInput.UserMember
   | SubscribedPrincipalInput.$UnknownMember;
@@ -11139,6 +11183,7 @@ export namespace SubscribedPrincipalInput {
     project: SubscribedProjectInput;
     user?: never;
     group?: never;
+    iam?: never;
     $unknown?: never;
   }
 
@@ -11150,6 +11195,7 @@ export namespace SubscribedPrincipalInput {
     project?: never;
     user: SubscribedUserInput;
     group?: never;
+    iam?: never;
     $unknown?: never;
   }
 
@@ -11161,6 +11207,19 @@ export namespace SubscribedPrincipalInput {
     project?: never;
     user?: never;
     group: SubscribedGroupInput;
+    iam?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The subscribed IAM principal.</p>
+   * @public
+   */
+  export interface IamMember {
+    project?: never;
+    user?: never;
+    group?: never;
+    iam: SubscribedIamPrincipalInput;
     $unknown?: never;
   }
 
@@ -11171,6 +11230,7 @@ export namespace SubscribedPrincipalInput {
     project?: never;
     user?: never;
     group?: never;
+    iam?: never;
     $unknown: [string, any];
   }
 
@@ -11182,6 +11242,7 @@ export namespace SubscribedPrincipalInput {
     project: (value: SubscribedProjectInput) => T;
     user: (value: SubscribedUserInput) => T;
     group: (value: SubscribedGroupInput) => T;
+    iam: (value: SubscribedIamPrincipalInput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -11409,6 +11470,12 @@ export interface CreateSubscriptionTargetInput {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
+   * @public
+   */
+  subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
 }
 
 /**
@@ -11504,6 +11571,12 @@ export interface CreateSubscriptionTargetOutput {
    * @public
    */
   provider: string | undefined;
+
+  /**
+   * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
+   * @public
+   */
+  subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
 }
 
 /**
@@ -11591,115 +11664,3 @@ export interface DeleteDataProductInput {
  * @public
  */
 export interface DeleteDataProductOutput {}
-
-/**
- * @public
- */
-export interface GetDataProductInput {
-  /**
-   * <p>The ID of the domain where the data product lives.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the data product.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The revision of the data product.</p>
-   * @public
-   */
-  revision?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataProductOutput {
-  /**
-   * <p>The ID of the domain where the data product lives.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The ID of the data product.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The revision of the data product.</p>
-   * @public
-   */
-  revision: string | undefined;
-
-  /**
-   * <p>The ID of the owning project of the data product.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The name of the data product.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The status of the data product.</p>
-   * @public
-   */
-  status: DataProductStatus | undefined;
-
-  /**
-   * <p>The description of the data product.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The glossary terms of the data product.</p>
-   * @public
-   */
-  glossaryTerms?: string[] | undefined;
-
-  /**
-   * <p>The data assets of the data product.</p>
-   * @public
-   */
-  items?: DataProductItem[] | undefined;
-
-  /**
-   * <p>The metadata forms of the data product.</p>
-   * @public
-   */
-  formsOutput?: FormOutput[] | undefined;
-
-  /**
-   * <p>The timestamp at which the data product is created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The user who created the data product.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the first revision of the data product is created.</p>
-   * @public
-   */
-  firstRevisionCreatedAt?: Date | undefined;
-
-  /**
-   * <p>The user who created the first revision of the data product.</p>
-   * @public
-   */
-  firstRevisionCreatedBy?: string | undefined;
-}

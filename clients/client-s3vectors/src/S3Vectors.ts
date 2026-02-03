@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
 import {
@@ -65,6 +65,9 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import { paginateListIndexes } from "./pagination/ListIndexesPaginator";
+import { paginateListVectorBuckets } from "./pagination/ListVectorBucketsPaginator";
+import { paginateListVectors } from "./pagination/ListVectorsPaginator";
 import { S3VectorsClient } from "./S3VectorsClient";
 
 const commands = {
@@ -87,6 +90,11 @@ const commands = {
   QueryVectorsCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateListIndexes,
+  paginateListVectorBuckets,
+  paginateListVectors,
 };
 
 export interface S3Vectors {
@@ -421,6 +429,39 @@ export interface S3Vectors {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListIndexesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListIndexesCommandOutput}.
+   */
+  paginateListIndexes(
+    args?: ListIndexesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListIndexesCommandOutput>;
+
+  /**
+   * @see {@link ListVectorBucketsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVectorBucketsCommandOutput}.
+   */
+  paginateListVectorBuckets(
+    args?: ListVectorBucketsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVectorBucketsCommandOutput>;
+
+  /**
+   * @see {@link ListVectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVectorsCommandOutput}.
+   */
+  paginateListVectors(
+    args?: ListVectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVectorsCommandOutput>;
 }
 
 /**
@@ -428,4 +469,4 @@ export interface S3Vectors {
  * @public
  */
 export class S3Vectors extends S3VectorsClient implements S3Vectors {}
-createAggregatedClient(commands, S3Vectors);
+createAggregatedClient(commands, S3Vectors, { paginators });

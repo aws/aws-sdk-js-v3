@@ -40,7 +40,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The operation couldn't be performed because the service is throttling requests. This exception is thrown when there are too many requests accepted concurrently from the service endpoint.</p>
+ * <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -98,6 +98,27 @@ export class ValidationException extends __BaseException {
     Object.setPrototypeOf(this, ValidationException.prototype);
     this.reason = opts.reason;
     this.fieldList = opts.fieldList;
+  }
+}
+
+/**
+ * <p>An internal server error occurred. Retry your request.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name = "InternalServerException" as const;
+  readonly $fault = "server" as const;
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
   }
 }
 

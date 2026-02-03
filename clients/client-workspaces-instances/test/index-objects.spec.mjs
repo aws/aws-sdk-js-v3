@@ -8,6 +8,8 @@ import {
   AssociateVolumeResponse$,
   AutoRecoveryEnum,
   BandwidthWeightingEnum,
+  BillingConfiguration$,
+  BillingMode,
   BlockDeviceMappingRequest$,
   CapacityReservationPreferenceEnum,
   CapacityReservationSpecification$,
@@ -55,6 +57,8 @@ import {
   HttpProtocolIpv6Enum,
   HttpTokensEnum,
   IamInstanceProfileSpecification$,
+  InstanceConfigurationFilter$,
+  InstanceConfigurationTenancyEnum,
   InstanceInterruptionBehaviorEnum,
   InstanceIpv6Address$,
   InstanceMaintenanceOptionsRequest$,
@@ -92,6 +96,7 @@ import {
   paginateListRegions,
   paginateListWorkspaceInstances,
   Placement$,
+  PlatformTypeEnum,
   PrivateDnsNameOptionsRequest$,
   PrivateIpAddressSpecification$,
   ProvisionStateEnum,
@@ -104,6 +109,7 @@ import {
   ServiceQuotaExceededException$,
   SpotInstanceTypeEnum,
   SpotMarketOptions$,
+  SupportedInstanceConfiguration$,
   Tag$,
   TagResource$,
   TagResourceCommand,
@@ -162,6 +168,7 @@ assert(typeof UntagResource$ === "object");
 // structural schemas
 assert(typeof AssociateVolumeRequest$ === "object");
 assert(typeof AssociateVolumeResponse$ === "object");
+assert(typeof BillingConfiguration$ === "object");
 assert(typeof BlockDeviceMappingRequest$ === "object");
 assert(typeof CapacityReservationSpecification$ === "object");
 assert(typeof CapacityReservationTarget$ === "object");
@@ -188,6 +195,7 @@ assert(typeof GetWorkspaceInstanceRequest$ === "object");
 assert(typeof GetWorkspaceInstanceResponse$ === "object");
 assert(typeof HibernationOptionsRequest$ === "object");
 assert(typeof IamInstanceProfileSpecification$ === "object");
+assert(typeof InstanceConfigurationFilter$ === "object");
 assert(typeof InstanceIpv6Address$ === "object");
 assert(typeof InstanceMaintenanceOptionsRequest$ === "object");
 assert(typeof InstanceMarketOptionsRequest$ === "object");
@@ -213,6 +221,7 @@ assert(typeof PrivateIpAddressSpecification$ === "object");
 assert(typeof Region$ === "object");
 assert(typeof RunInstancesMonitoringEnabled$ === "object");
 assert(typeof SpotMarketOptions$ === "object");
+assert(typeof SupportedInstanceConfiguration$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
@@ -226,6 +235,7 @@ assert(typeof WorkspaceInstanceError$ === "object");
 assert(typeof AmdSevSnpEnum === "object");
 assert(typeof AutoRecoveryEnum === "object");
 assert(typeof BandwidthWeightingEnum === "object");
+assert(typeof BillingMode === "object");
 assert(typeof CapacityReservationPreferenceEnum === "object");
 assert(typeof CpuCreditsEnum === "object");
 assert(typeof DisassociateModeEnum === "object");
@@ -233,10 +243,12 @@ assert(typeof HostnameTypeEnum === "object");
 assert(typeof HttpEndpointEnum === "object");
 assert(typeof HttpProtocolIpv6Enum === "object");
 assert(typeof HttpTokensEnum === "object");
+assert(typeof InstanceConfigurationTenancyEnum === "object");
 assert(typeof InstanceInterruptionBehaviorEnum === "object");
 assert(typeof InstanceMetadataTagsEnum === "object");
 assert(typeof InterfaceTypeEnum === "object");
 assert(typeof MarketTypeEnum === "object");
+assert(typeof PlatformTypeEnum === "object");
 assert(typeof ProvisionStateEnum === "object");
 assert(typeof ResourceTypeEnum === "object");
 assert(typeof SpotInstanceTypeEnum === "object");

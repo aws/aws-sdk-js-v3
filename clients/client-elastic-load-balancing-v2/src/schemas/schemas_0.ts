@@ -539,12 +539,12 @@ import {
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
   [_T, _TGA, _AOC, _ACC, _O, _RC, _FRC, _FC, _JVC],
-  [0, 0, () => AuthenticateOidcActionConfig$, () => AuthenticateCognitoActionConfig$, 1, () => RedirectActionConfig$, () => FixedResponseActionConfig$, () => ForwardActionConfig$, () => JwtValidationActionConfig$]
+  [0, 0, () => AuthenticateOidcActionConfig$, () => AuthenticateCognitoActionConfig$, 1, () => RedirectActionConfig$, () => FixedResponseActionConfig$, () => ForwardActionConfig$, () => JwtValidationActionConfig$], 1
 ];
 export var AddListenerCertificatesInput$: StaticStructureSchema = [3, n0, _ALCI,
   0,
   [_LA, _C],
-  [0, () => CertificateList]
+  [0, () => CertificateList], 2
 ];
 export var AddListenerCertificatesOutput$: StaticStructureSchema = [3, n0, _ALCO,
   0,
@@ -554,7 +554,7 @@ export var AddListenerCertificatesOutput$: StaticStructureSchema = [3, n0, _ALCO
 export var AddTagsInput$: StaticStructureSchema = [3, n0, _ATI,
   0,
   [_RA, _Ta],
-  [64 | 0, () => TagList]
+  [64 | 0, () => TagList], 2
 ];
 export var AddTagsOutput$: StaticStructureSchema = [3, n0, _ATO,
   0,
@@ -564,7 +564,7 @@ export var AddTagsOutput$: StaticStructureSchema = [3, n0, _ATO,
 export var AddTrustStoreRevocationsInput$: StaticStructureSchema = [3, n0, _ATSRI,
   0,
   [_TSA, _RCe],
-  [0, () => RevocationContents]
+  [0, () => RevocationContents], 1
 ];
 export var AddTrustStoreRevocationsOutput$: StaticStructureSchema = [3, n0, _ATSRO,
   0,
@@ -596,12 +596,12 @@ export var AnomalyDetection$: StaticStructureSchema = [3, n0, _AD,
 export var AuthenticateCognitoActionConfig$: StaticStructureSchema = [3, n0, _ACAC,
   0,
   [_UPA, _UPCI, _UPD, _SCN, _Sc, _ST, _AREP, _OUR],
-  [0, 0, 0, 0, 0, 1, 128 | 0, 0]
+  [0, 0, 0, 0, 0, 1, 128 | 0, 0], 3
 ];
 export var AuthenticateOidcActionConfig$: StaticStructureSchema = [3, n0, _AOAC,
   0,
   [_I, _AE, _TE, _UIE, _CI, _CS, _SCN, _Sc, _ST, _AREP, _OUR, _UECS],
-  [0, 0, 0, 0, 0, 0, 0, 0, 1, 128 | 0, 0, 2]
+  [0, 0, 0, 0, 0, 0, 0, 0, 1, 128 | 0, 0, 2], 5
 ];
 export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ,
   0,
@@ -661,8 +661,8 @@ export var Cipher$: StaticStructureSchema = [3, n0, _Ci,
 ];
 export var CreateListenerInput$: StaticStructureSchema = [3, n0, _CLI,
   0,
-  [_LBAo, _Pr, _Po, _SP, _C, _DA, _AP, _Ta, _MA],
-  [0, 0, 1, 0, () => CertificateList, () => Actions, 64 | 0, () => TagList, () => MutualAuthenticationAttributes$]
+  [_LBAo, _DA, _Pr, _Po, _SP, _C, _AP, _Ta, _MA],
+  [0, () => Actions, 0, 1, 0, () => CertificateList, 64 | 0, () => TagList, () => MutualAuthenticationAttributes$], 2
 ];
 export var CreateListenerOutput$: StaticStructureSchema = [3, n0, _CLO,
   0,
@@ -672,7 +672,7 @@ export var CreateListenerOutput$: StaticStructureSchema = [3, n0, _CLO,
 export var CreateLoadBalancerInput$: StaticStructureSchema = [3, n0, _CLBI,
   0,
   [_N, _Su, _SM, _SG, _Sch, _Ta, _T, _IAT, _COIP, _EPFISN, _IP],
-  [0, 64 | 0, () => SubnetMappings, 64 | 0, 0, () => TagList, 0, 0, 0, 0, () => IpamPools$]
+  [0, 64 | 0, () => SubnetMappings, 64 | 0, 0, () => TagList, 0, 0, 0, 0, () => IpamPools$], 1
 ];
 export var CreateLoadBalancerOutput$: StaticStructureSchema = [3, n0, _CLBO,
   0,
@@ -682,7 +682,7 @@ export var CreateLoadBalancerOutput$: StaticStructureSchema = [3, n0, _CLBO,
 export var CreateRuleInput$: StaticStructureSchema = [3, n0, _CRI,
   0,
   [_LA, _Con, _P, _Ac, _Ta, _Tr],
-  [0, () => RuleConditionList, 1, () => Actions, () => TagList, () => RuleTransformList]
+  [0, () => RuleConditionList, 1, () => Actions, () => TagList, () => RuleTransformList], 4
 ];
 export var CreateRuleOutput$: StaticStructureSchema = [3, n0, _CRO,
   0,
@@ -692,7 +692,7 @@ export var CreateRuleOutput$: StaticStructureSchema = [3, n0, _CRO,
 export var CreateTargetGroupInput$: StaticStructureSchema = [3, n0, _CTGI,
   0,
   [_N, _Pr, _PV, _Po, _VI, _HCP, _HCPe, _HCE, _HCPea, _HCIS, _HCTS, _HTC, _UTC, _Ma, _TT, _Ta, _IAT, _TCP],
-  [0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 1, 1, 1, () => Matcher$, 0, () => TagList, 0, 1]
+  [0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 1, 1, 1, () => Matcher$, 0, () => TagList, 0, 1], 1
 ];
 export var CreateTargetGroupOutput$: StaticStructureSchema = [3, n0, _CTGO,
   0,
@@ -702,7 +702,7 @@ export var CreateTargetGroupOutput$: StaticStructureSchema = [3, n0, _CTGO,
 export var CreateTrustStoreInput$: StaticStructureSchema = [3, n0, _CTSI,
   0,
   [_N, _CCBSB, _CCBSK, _CCBSOV, _Ta],
-  [0, 0, 0, 0, () => TagList]
+  [0, 0, 0, 0, () => TagList], 3
 ];
 export var CreateTrustStoreOutput$: StaticStructureSchema = [3, n0, _CTSO,
   0,
@@ -718,7 +718,7 @@ TypeRegistry.for(n0).registerError(DeleteAssociationSameAccountException$, Delet
 export var DeleteListenerInput$: StaticStructureSchema = [3, n0, _DLI,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DeleteListenerOutput$: StaticStructureSchema = [3, n0, _DLO,
   0,
@@ -728,7 +728,7 @@ export var DeleteListenerOutput$: StaticStructureSchema = [3, n0, _DLO,
 export var DeleteLoadBalancerInput$: StaticStructureSchema = [3, n0, _DLBI,
   0,
   [_LBAo],
-  [0]
+  [0], 1
 ];
 export var DeleteLoadBalancerOutput$: StaticStructureSchema = [3, n0, _DLBO,
   0,
@@ -738,7 +738,7 @@ export var DeleteLoadBalancerOutput$: StaticStructureSchema = [3, n0, _DLBO,
 export var DeleteRuleInput$: StaticStructureSchema = [3, n0, _DRI,
   0,
   [_RAu],
-  [0]
+  [0], 1
 ];
 export var DeleteRuleOutput$: StaticStructureSchema = [3, n0, _DRO,
   0,
@@ -748,7 +748,7 @@ export var DeleteRuleOutput$: StaticStructureSchema = [3, n0, _DRO,
 export var DeleteSharedTrustStoreAssociationInput$: StaticStructureSchema = [3, n0, _DSTSAI,
   0,
   [_TSA, _RAe],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteSharedTrustStoreAssociationOutput$: StaticStructureSchema = [3, n0, _DSTSAO,
   0,
@@ -758,7 +758,7 @@ export var DeleteSharedTrustStoreAssociationOutput$: StaticStructureSchema = [3,
 export var DeleteTargetGroupInput$: StaticStructureSchema = [3, n0, _DTGI,
   0,
   [_TGA],
-  [0]
+  [0], 1
 ];
 export var DeleteTargetGroupOutput$: StaticStructureSchema = [3, n0, _DTGO,
   0,
@@ -768,7 +768,7 @@ export var DeleteTargetGroupOutput$: StaticStructureSchema = [3, n0, _DTGO,
 export var DeleteTrustStoreInput$: StaticStructureSchema = [3, n0, _DTSI,
   0,
   [_TSA],
-  [0]
+  [0], 1
 ];
 export var DeleteTrustStoreOutput$: StaticStructureSchema = [3, n0, _DTSO,
   0,
@@ -778,7 +778,7 @@ export var DeleteTrustStoreOutput$: StaticStructureSchema = [3, n0, _DTSO,
 export var DeregisterTargetsInput$: StaticStructureSchema = [3, n0, _DTI,
   0,
   [_TGA, _Tar],
-  [0, () => TargetDescriptions]
+  [0, () => TargetDescriptions], 2
 ];
 export var DeregisterTargetsOutput$: StaticStructureSchema = [3, n0, _DTO,
   0,
@@ -798,7 +798,7 @@ export var DescribeAccountLimitsOutput$: StaticStructureSchema = [3, n0, _DALO,
 export var DescribeCapacityReservationInput$: StaticStructureSchema = [3, n0, _DCRI,
   0,
   [_LBAo],
-  [0]
+  [0], 1
 ];
 export var DescribeCapacityReservationOutput$: StaticStructureSchema = [3, n0, _DCRO,
   0,
@@ -808,7 +808,7 @@ export var DescribeCapacityReservationOutput$: StaticStructureSchema = [3, n0, _
 export var DescribeListenerAttributesInput$: StaticStructureSchema = [3, n0, _DLAI,
   0,
   [_LA],
-  [0]
+  [0], 1
 ];
 export var DescribeListenerAttributesOutput$: StaticStructureSchema = [3, n0, _DLAO,
   0,
@@ -818,7 +818,7 @@ export var DescribeListenerAttributesOutput$: StaticStructureSchema = [3, n0, _D
 export var DescribeListenerCertificatesInput$: StaticStructureSchema = [3, n0, _DLCI,
   0,
   [_LA, _Mar, _PS],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var DescribeListenerCertificatesOutput$: StaticStructureSchema = [3, n0, _DLCO,
   0,
@@ -838,7 +838,7 @@ export var DescribeListenersOutput$: StaticStructureSchema = [3, n0, _DLOe,
 export var DescribeLoadBalancerAttributesInput$: StaticStructureSchema = [3, n0, _DLBAI,
   0,
   [_LBAo],
-  [0]
+  [0], 1
 ];
 export var DescribeLoadBalancerAttributesOutput$: StaticStructureSchema = [3, n0, _DLBAO,
   0,
@@ -878,7 +878,7 @@ export var DescribeSSLPoliciesOutput$: StaticStructureSchema = [3, n0, _DSSLPO,
 export var DescribeTagsInput$: StaticStructureSchema = [3, n0, _DTIe,
   0,
   [_RA],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeTagsOutput$: StaticStructureSchema = [3, n0, _DTOe,
   0,
@@ -888,7 +888,7 @@ export var DescribeTagsOutput$: StaticStructureSchema = [3, n0, _DTOe,
 export var DescribeTargetGroupAttributesInput$: StaticStructureSchema = [3, n0, _DTGAI,
   0,
   [_TGA],
-  [0]
+  [0], 1
 ];
 export var DescribeTargetGroupAttributesOutput$: StaticStructureSchema = [3, n0, _DTGAO,
   0,
@@ -908,7 +908,7 @@ export var DescribeTargetGroupsOutput$: StaticStructureSchema = [3, n0, _DTGOe,
 export var DescribeTargetHealthInput$: StaticStructureSchema = [3, n0, _DTHI,
   0,
   [_TGA, _Tar, _In],
-  [0, () => TargetDescriptions, 64 | 0]
+  [0, () => TargetDescriptions, 64 | 0], 1
 ];
 export var DescribeTargetHealthOutput$: StaticStructureSchema = [3, n0, _DTHO,
   0,
@@ -918,7 +918,7 @@ export var DescribeTargetHealthOutput$: StaticStructureSchema = [3, n0, _DTHO,
 export var DescribeTrustStoreAssociationsInput$: StaticStructureSchema = [3, n0, _DTSAI,
   0,
   [_TSA, _Mar, _PS],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var DescribeTrustStoreAssociationsOutput$: StaticStructureSchema = [3, n0, _DTSAO,
   0,
@@ -933,7 +933,7 @@ export var DescribeTrustStoreRevocation$: StaticStructureSchema = [3, n0, _DTSR,
 export var DescribeTrustStoreRevocationsInput$: StaticStructureSchema = [3, n0, _DTSRI,
   0,
   [_TSA, _RIe, _Mar, _PS],
-  [0, 64 | 1, 0, 1]
+  [0, 64 | 1, 0, 1], 1
 ];
 export var DescribeTrustStoreRevocationsOutput$: StaticStructureSchema = [3, n0, _DTSRO,
   0,
@@ -982,8 +982,8 @@ export var DuplicateTrustStoreNameException$: StaticErrorSchema = [-3, n0, _DTSN
 TypeRegistry.for(n0).registerError(DuplicateTrustStoreNameException$, DuplicateTrustStoreNameException);
 export var FixedResponseActionConfig$: StaticStructureSchema = [3, n0, _FRAC,
   0,
-  [_MB, _SC, _CT],
-  [0, 0, 0]
+  [_SC, _MB, _CT],
+  [0, 0, 0], 1
 ];
 export var ForwardActionConfig$: StaticStructureSchema = [3, n0, _FAC,
   0,
@@ -993,7 +993,7 @@ export var ForwardActionConfig$: StaticStructureSchema = [3, n0, _FAC,
 export var GetResourcePolicyInput$: StaticStructureSchema = [3, n0, _GRPI,
   0,
   [_RAe],
-  [0]
+  [0], 1
 ];
 export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO,
   0,
@@ -1003,7 +1003,7 @@ export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO,
 export var GetTrustStoreCaCertificatesBundleInput$: StaticStructureSchema = [3, n0, _GTSCCBI,
   0,
   [_TSA],
-  [0]
+  [0], 1
 ];
 export var GetTrustStoreCaCertificatesBundleOutput$: StaticStructureSchema = [3, n0, _GTSCCBO,
   0,
@@ -1013,7 +1013,7 @@ export var GetTrustStoreCaCertificatesBundleOutput$: StaticStructureSchema = [3,
 export var GetTrustStoreRevocationContentInput$: StaticStructureSchema = [3, n0, _GTSRCI,
   0,
   [_TSA, _RI],
-  [0, 1]
+  [0, 1], 2
 ];
 export var GetTrustStoreRevocationContentOutput$: StaticStructureSchema = [3, n0, _GTSRCO,
   0,
@@ -1114,12 +1114,12 @@ export var IpamPools$: StaticStructureSchema = [3, n0, _IP,
 export var JwtValidationActionAdditionalClaim$: StaticStructureSchema = [3, n0, _JVAAC,
   0,
   [_F, _N, _V],
-  [0, 0, 64 | 0]
+  [0, 0, 64 | 0], 3
 ];
 export var JwtValidationActionConfig$: StaticStructureSchema = [3, n0, _JVAC,
   0,
   [_JE, _I, _AC],
-  [0, 0, () => JwtValidationActionAdditionalClaims]
+  [0, 0, () => JwtValidationActionAdditionalClaims], 2
 ];
 export var Limit$: StaticStructureSchema = [3, n0, _Lim,
   0,
@@ -1181,7 +1181,7 @@ export var MinimumLoadBalancerCapacity$: StaticStructureSchema = [3, n0, _MLBC,
 export var ModifyCapacityReservationInput$: StaticStructureSchema = [3, n0, _MCRI,
   0,
   [_LBAo, _MLBC, _RCR],
-  [0, () => MinimumLoadBalancerCapacity$, 2]
+  [0, () => MinimumLoadBalancerCapacity$, 2], 1
 ];
 export var ModifyCapacityReservationOutput$: StaticStructureSchema = [3, n0, _MCRO,
   0,
@@ -1191,7 +1191,7 @@ export var ModifyCapacityReservationOutput$: StaticStructureSchema = [3, n0, _MC
 export var ModifyIpPoolsInput$: StaticStructureSchema = [3, n0, _MIPI,
   0,
   [_LBAo, _IP, _RIP],
-  [0, () => IpamPools$, 64 | 0]
+  [0, () => IpamPools$, 64 | 0], 1
 ];
 export var ModifyIpPoolsOutput$: StaticStructureSchema = [3, n0, _MIPO,
   0,
@@ -1201,7 +1201,7 @@ export var ModifyIpPoolsOutput$: StaticStructureSchema = [3, n0, _MIPO,
 export var ModifyListenerAttributesInput$: StaticStructureSchema = [3, n0, _MLAI,
   0,
   [_LA, _At],
-  [0, () => ListenerAttributes]
+  [0, () => ListenerAttributes], 2
 ];
 export var ModifyListenerAttributesOutput$: StaticStructureSchema = [3, n0, _MLAO,
   0,
@@ -1211,7 +1211,7 @@ export var ModifyListenerAttributesOutput$: StaticStructureSchema = [3, n0, _MLA
 export var ModifyListenerInput$: StaticStructureSchema = [3, n0, _MLI,
   0,
   [_LA, _Po, _Pr, _SP, _C, _DA, _AP, _MA],
-  [0, 1, 0, 0, () => CertificateList, () => Actions, 64 | 0, () => MutualAuthenticationAttributes$]
+  [0, 1, 0, 0, () => CertificateList, () => Actions, 64 | 0, () => MutualAuthenticationAttributes$], 1
 ];
 export var ModifyListenerOutput$: StaticStructureSchema = [3, n0, _MLO,
   0,
@@ -1221,7 +1221,7 @@ export var ModifyListenerOutput$: StaticStructureSchema = [3, n0, _MLO,
 export var ModifyLoadBalancerAttributesInput$: StaticStructureSchema = [3, n0, _MLBAI,
   0,
   [_LBAo, _At],
-  [0, () => LoadBalancerAttributes]
+  [0, () => LoadBalancerAttributes], 2
 ];
 export var ModifyLoadBalancerAttributesOutput$: StaticStructureSchema = [3, n0, _MLBAO,
   0,
@@ -1231,7 +1231,7 @@ export var ModifyLoadBalancerAttributesOutput$: StaticStructureSchema = [3, n0, 
 export var ModifyRuleInput$: StaticStructureSchema = [3, n0, _MRI,
   0,
   [_RAu, _Con, _Ac, _Tr, _RTe],
-  [0, () => RuleConditionList, () => Actions, () => RuleTransformList, 2]
+  [0, () => RuleConditionList, () => Actions, () => RuleTransformList, 2], 1
 ];
 export var ModifyRuleOutput$: StaticStructureSchema = [3, n0, _MRO,
   0,
@@ -1241,7 +1241,7 @@ export var ModifyRuleOutput$: StaticStructureSchema = [3, n0, _MRO,
 export var ModifyTargetGroupAttributesInput$: StaticStructureSchema = [3, n0, _MTGAI,
   0,
   [_TGA, _At],
-  [0, () => TargetGroupAttributes]
+  [0, () => TargetGroupAttributes], 2
 ];
 export var ModifyTargetGroupAttributesOutput$: StaticStructureSchema = [3, n0, _MTGAO,
   0,
@@ -1251,7 +1251,7 @@ export var ModifyTargetGroupAttributesOutput$: StaticStructureSchema = [3, n0, _
 export var ModifyTargetGroupInput$: StaticStructureSchema = [3, n0, _MTGI,
   0,
   [_TGA, _HCP, _HCPe, _HCPea, _HCE, _HCIS, _HCTS, _HTC, _UTC, _Ma],
-  [0, 0, 0, 0, 2, 1, 1, 1, 1, () => Matcher$]
+  [0, 0, 0, 0, 2, 1, 1, 1, 1, () => Matcher$], 1
 ];
 export var ModifyTargetGroupOutput$: StaticStructureSchema = [3, n0, _MTGO,
   0,
@@ -1261,7 +1261,7 @@ export var ModifyTargetGroupOutput$: StaticStructureSchema = [3, n0, _MTGO,
 export var ModifyTrustStoreInput$: StaticStructureSchema = [3, n0, _MTSI,
   0,
   [_TSA, _CCBSB, _CCBSK, _CCBSOV],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var ModifyTrustStoreOutput$: StaticStructureSchema = [3, n0, _MTSO,
   0,
@@ -1308,13 +1308,13 @@ export var QueryStringKeyValuePair$: StaticStructureSchema = [3, n0, _QSKVP,
 ];
 export var RedirectActionConfig$: StaticStructureSchema = [3, n0, _RAC,
   0,
-  [_Pr, _Po, _H, _Pa, _Q, _SC],
-  [0, 0, 0, 0, 0, 0]
+  [_SC, _Pr, _Po, _H, _Pa, _Q],
+  [0, 0, 0, 0, 0, 0], 1
 ];
 export var RegisterTargetsInput$: StaticStructureSchema = [3, n0, _RTI,
   0,
   [_TGA, _Tar],
-  [0, () => TargetDescriptions]
+  [0, () => TargetDescriptions], 2
 ];
 export var RegisterTargetsOutput$: StaticStructureSchema = [3, n0, _RTO,
   0,
@@ -1324,7 +1324,7 @@ export var RegisterTargetsOutput$: StaticStructureSchema = [3, n0, _RTO,
 export var RemoveListenerCertificatesInput$: StaticStructureSchema = [3, n0, _RLCI,
   0,
   [_LA, _C],
-  [0, () => CertificateList]
+  [0, () => CertificateList], 2
 ];
 export var RemoveListenerCertificatesOutput$: StaticStructureSchema = [3, n0, _RLCO,
   0,
@@ -1334,7 +1334,7 @@ export var RemoveListenerCertificatesOutput$: StaticStructureSchema = [3, n0, _R
 export var RemoveTagsInput$: StaticStructureSchema = [3, n0, _RTIe,
   0,
   [_RA, _TK],
-  [64 | 0, 64 | 0]
+  [64 | 0, 64 | 0], 2
 ];
 export var RemoveTagsOutput$: StaticStructureSchema = [3, n0, _RTOe,
   0,
@@ -1344,7 +1344,7 @@ export var RemoveTagsOutput$: StaticStructureSchema = [3, n0, _RTOe,
 export var RemoveTrustStoreRevocationsInput$: StaticStructureSchema = [3, n0, _RTSRI,
   0,
   [_TSA, _RIe],
-  [0, 64 | 1]
+  [0, 64 | 1], 2
 ];
 export var RemoveTrustStoreRevocationsOutput$: StaticStructureSchema = [3, n0, _RTSRO,
   0,
@@ -1383,7 +1383,7 @@ TypeRegistry.for(n0).registerError(RevocationIdNotFoundException$, RevocationIdN
 export var RewriteConfig$: StaticStructureSchema = [3, n0, _RCew,
   0,
   [_Reg, _Rep],
-  [0, 0]
+  [0, 0], 2
 ];
 export var Rule$: StaticStructureSchema = [3, n0, _Rul,
   0,
@@ -1409,12 +1409,12 @@ export var RulePriorityPair$: StaticStructureSchema = [3, n0, _RPP,
 export var RuleTransform$: StaticStructureSchema = [3, n0, _RTu,
   0,
   [_T, _HHRC, _URC],
-  [0, () => HostHeaderRewriteConfig$, () => UrlRewriteConfig$]
+  [0, () => HostHeaderRewriteConfig$, () => UrlRewriteConfig$], 1
 ];
 export var SetIpAddressTypeInput$: StaticStructureSchema = [3, n0, _SIATI,
   0,
   [_LBAo, _IAT],
-  [0, 0]
+  [0, 0], 2
 ];
 export var SetIpAddressTypeOutput$: StaticStructureSchema = [3, n0, _SIATO,
   0,
@@ -1424,7 +1424,7 @@ export var SetIpAddressTypeOutput$: StaticStructureSchema = [3, n0, _SIATO,
 export var SetRulePrioritiesInput$: StaticStructureSchema = [3, n0, _SRPI,
   0,
   [_RP],
-  [() => RulePriorityList]
+  [() => RulePriorityList], 1
 ];
 export var SetRulePrioritiesOutput$: StaticStructureSchema = [3, n0, _SRPO,
   0,
@@ -1434,7 +1434,7 @@ export var SetRulePrioritiesOutput$: StaticStructureSchema = [3, n0, _SRPO,
 export var SetSecurityGroupsInput$: StaticStructureSchema = [3, n0, _SSGI,
   0,
   [_LBAo, _SG, _ESGIROPLT],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 2
 ];
 export var SetSecurityGroupsOutput$: StaticStructureSchema = [3, n0, _SSGO,
   0,
@@ -1444,7 +1444,7 @@ export var SetSecurityGroupsOutput$: StaticStructureSchema = [3, n0, _SSGO,
 export var SetSubnetsInput$: StaticStructureSchema = [3, n0, _SSI,
   0,
   [_LBAo, _Su, _SM, _IAT, _EPFISN],
-  [0, 64 | 0, () => SubnetMappings, 0, 0]
+  [0, 64 | 0, () => SubnetMappings, 0, 0], 1
 ];
 export var SetSubnetsOutput$: StaticStructureSchema = [3, n0, _SSO,
   0,
@@ -1481,7 +1481,7 @@ TypeRegistry.for(n0).registerError(SubnetNotFoundException$, SubnetNotFoundExcep
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TagDescription$: StaticStructureSchema = [3, n0, _TDa,
   0,
@@ -1491,7 +1491,7 @@ export var TagDescription$: StaticStructureSchema = [3, n0, _TDa,
 export var TargetDescription$: StaticStructureSchema = [3, n0, _TDar,
   0,
   [_Id, _Po, _AZ, _QSI],
-  [0, 1, 0, 0]
+  [0, 1, 0, 0], 1
 ];
 export var TargetGroup$: StaticStructureSchema = [3, n0, _TGa,
   0,

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   CreateAnomalyMonitorCommand,
@@ -230,6 +230,29 @@ import {
   UpdateCostCategoryDefinitionCommandOutput,
 } from "./commands/UpdateCostCategoryDefinitionCommand";
 import { CostExplorerClient } from "./CostExplorerClient";
+import { paginateGetAnomalies } from "./pagination/GetAnomaliesPaginator";
+import { paginateGetAnomalyMonitors } from "./pagination/GetAnomalyMonitorsPaginator";
+import { paginateGetAnomalySubscriptions } from "./pagination/GetAnomalySubscriptionsPaginator";
+import { paginateGetCostAndUsageComparisons } from "./pagination/GetCostAndUsageComparisonsPaginator";
+import { paginateGetCostComparisonDrivers } from "./pagination/GetCostComparisonDriversPaginator";
+import {
+  paginateGetReservationPurchaseRecommendation,
+} from "./pagination/GetReservationPurchaseRecommendationPaginator";
+import { paginateGetRightsizingRecommendation } from "./pagination/GetRightsizingRecommendationPaginator";
+import { paginateGetSavingsPlansCoverage } from "./pagination/GetSavingsPlansCoveragePaginator";
+import { paginateGetSavingsPlansUtilizationDetails } from "./pagination/GetSavingsPlansUtilizationDetailsPaginator";
+import { paginateListCommitmentPurchaseAnalyses } from "./pagination/ListCommitmentPurchaseAnalysesPaginator";
+import {
+  paginateListCostAllocationTagBackfillHistory,
+} from "./pagination/ListCostAllocationTagBackfillHistoryPaginator";
+import { paginateListCostAllocationTags } from "./pagination/ListCostAllocationTagsPaginator";
+import { paginateListCostCategoryDefinitions } from "./pagination/ListCostCategoryDefinitionsPaginator";
+import {
+  paginateListCostCategoryResourceAssociations,
+} from "./pagination/ListCostCategoryResourceAssociationsPaginator";
+import {
+  paginateListSavingsPlansPurchaseRecommendationGeneration,
+} from "./pagination/ListSavingsPlansPurchaseRecommendationGenerationPaginator";
 
 const commands = {
   CreateAnomalyMonitorCommand,
@@ -279,6 +302,23 @@ const commands = {
   UpdateAnomalySubscriptionCommand,
   UpdateCostAllocationTagsStatusCommand,
   UpdateCostCategoryDefinitionCommand,
+};
+const paginators = {
+  paginateGetAnomalies,
+  paginateGetAnomalyMonitors,
+  paginateGetAnomalySubscriptions,
+  paginateGetCostAndUsageComparisons,
+  paginateGetCostComparisonDrivers,
+  paginateGetReservationPurchaseRecommendation,
+  paginateGetRightsizingRecommendation,
+  paginateGetSavingsPlansCoverage,
+  paginateGetSavingsPlansUtilizationDetails,
+  paginateListCommitmentPurchaseAnalyses,
+  paginateListCostAllocationTagBackfillHistory,
+  paginateListCostAllocationTags,
+  paginateListCostCategoryDefinitions,
+  paginateListCostCategoryResourceAssociations,
+  paginateListSavingsPlansPurchaseRecommendationGeneration,
 };
 
 export interface CostExplorer {
@@ -1089,6 +1129,171 @@ export interface CostExplorer {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCostCategoryDefinitionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetAnomaliesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAnomaliesCommandOutput}.
+   */
+  paginateGetAnomalies(
+    args: GetAnomaliesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAnomaliesCommandOutput>;
+
+  /**
+   * @see {@link GetAnomalyMonitorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAnomalyMonitorsCommandOutput}.
+   */
+  paginateGetAnomalyMonitors(
+    args?: GetAnomalyMonitorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAnomalyMonitorsCommandOutput>;
+
+  /**
+   * @see {@link GetAnomalySubscriptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAnomalySubscriptionsCommandOutput}.
+   */
+  paginateGetAnomalySubscriptions(
+    args?: GetAnomalySubscriptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAnomalySubscriptionsCommandOutput>;
+
+  /**
+   * @see {@link GetCostAndUsageComparisonsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCostAndUsageComparisonsCommandOutput}.
+   */
+  paginateGetCostAndUsageComparisons(
+    args: GetCostAndUsageComparisonsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCostAndUsageComparisonsCommandOutput>;
+
+  /**
+   * @see {@link GetCostComparisonDriversCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCostComparisonDriversCommandOutput}.
+   */
+  paginateGetCostComparisonDrivers(
+    args: GetCostComparisonDriversCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCostComparisonDriversCommandOutput>;
+
+  /**
+   * @see {@link GetReservationPurchaseRecommendationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetReservationPurchaseRecommendationCommandOutput}.
+   */
+  paginateGetReservationPurchaseRecommendation(
+    args: GetReservationPurchaseRecommendationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetReservationPurchaseRecommendationCommandOutput>;
+
+  /**
+   * @see {@link GetRightsizingRecommendationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetRightsizingRecommendationCommandOutput}.
+   */
+  paginateGetRightsizingRecommendation(
+    args: GetRightsizingRecommendationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetRightsizingRecommendationCommandOutput>;
+
+  /**
+   * @see {@link GetSavingsPlansCoverageCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSavingsPlansCoverageCommandOutput}.
+   */
+  paginateGetSavingsPlansCoverage(
+    args: GetSavingsPlansCoverageCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSavingsPlansCoverageCommandOutput>;
+
+  /**
+   * @see {@link GetSavingsPlansUtilizationDetailsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSavingsPlansUtilizationDetailsCommandOutput}.
+   */
+  paginateGetSavingsPlansUtilizationDetails(
+    args: GetSavingsPlansUtilizationDetailsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSavingsPlansUtilizationDetailsCommandOutput>;
+
+  /**
+   * @see {@link ListCommitmentPurchaseAnalysesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCommitmentPurchaseAnalysesCommandOutput}.
+   */
+  paginateListCommitmentPurchaseAnalyses(
+    args?: ListCommitmentPurchaseAnalysesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCommitmentPurchaseAnalysesCommandOutput>;
+
+  /**
+   * @see {@link ListCostAllocationTagBackfillHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCostAllocationTagBackfillHistoryCommandOutput}.
+   */
+  paginateListCostAllocationTagBackfillHistory(
+    args?: ListCostAllocationTagBackfillHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCostAllocationTagBackfillHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListCostAllocationTagsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCostAllocationTagsCommandOutput}.
+   */
+  paginateListCostAllocationTags(
+    args?: ListCostAllocationTagsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCostAllocationTagsCommandOutput>;
+
+  /**
+   * @see {@link ListCostCategoryDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCostCategoryDefinitionsCommandOutput}.
+   */
+  paginateListCostCategoryDefinitions(
+    args?: ListCostCategoryDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCostCategoryDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListCostCategoryResourceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCostCategoryResourceAssociationsCommandOutput}.
+   */
+  paginateListCostCategoryResourceAssociations(
+    args?: ListCostCategoryResourceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCostCategoryResourceAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSavingsPlansPurchaseRecommendationGenerationCommandOutput}.
+   */
+  paginateListSavingsPlansPurchaseRecommendationGeneration(
+    args?: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
 }
 
 /**
@@ -1111,4 +1316,4 @@ export interface CostExplorer {
  * @public
  */
 export class CostExplorer extends CostExplorerClient implements CostExplorer {}
-createAggregatedClient(commands, CostExplorer);
+createAggregatedClient(commands, CostExplorer, { paginators });

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   BatchGetTracesCommand,
@@ -164,6 +164,18 @@ import {
   UpdateTraceSegmentDestinationCommandInput,
   UpdateTraceSegmentDestinationCommandOutput,
 } from "./commands/UpdateTraceSegmentDestinationCommand";
+import { paginateBatchGetTraces } from "./pagination/BatchGetTracesPaginator";
+import { paginateGetGroups } from "./pagination/GetGroupsPaginator";
+import { paginateGetInsightEvents } from "./pagination/GetInsightEventsPaginator";
+import { paginateGetInsightSummaries } from "./pagination/GetInsightSummariesPaginator";
+import { paginateGetSamplingRules } from "./pagination/GetSamplingRulesPaginator";
+import { paginateGetSamplingStatisticSummaries } from "./pagination/GetSamplingStatisticSummariesPaginator";
+import { paginateGetServiceGraph } from "./pagination/GetServiceGraphPaginator";
+import { paginateGetTimeSeriesServiceStatistics } from "./pagination/GetTimeSeriesServiceStatisticsPaginator";
+import { paginateGetTraceGraph } from "./pagination/GetTraceGraphPaginator";
+import { paginateGetTraceSummaries } from "./pagination/GetTraceSummariesPaginator";
+import { paginateListResourcePolicies } from "./pagination/ListResourcePoliciesPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 import { XRayClient } from "./XRayClient";
 
 const commands = {
@@ -205,6 +217,20 @@ const commands = {
   UpdateIndexingRuleCommand,
   UpdateSamplingRuleCommand,
   UpdateTraceSegmentDestinationCommand,
+};
+const paginators = {
+  paginateBatchGetTraces,
+  paginateGetGroups,
+  paginateGetInsightEvents,
+  paginateGetInsightSummaries,
+  paginateGetSamplingRules,
+  paginateGetSamplingStatisticSummaries,
+  paginateGetServiceGraph,
+  paginateGetTimeSeriesServiceStatistics,
+  paginateGetTraceGraph,
+  paginateGetTraceSummaries,
+  paginateListResourcePolicies,
+  paginateListTagsForResource,
 };
 
 export interface XRay {
@@ -865,6 +891,138 @@ export interface XRay {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTraceSegmentDestinationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link BatchGetTracesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link BatchGetTracesCommandOutput}.
+   */
+  paginateBatchGetTraces(
+    args: BatchGetTracesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<BatchGetTracesCommandOutput>;
+
+  /**
+   * @see {@link GetGroupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetGroupsCommandOutput}.
+   */
+  paginateGetGroups(
+    args?: GetGroupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetGroupsCommandOutput>;
+
+  /**
+   * @see {@link GetInsightEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetInsightEventsCommandOutput}.
+   */
+  paginateGetInsightEvents(
+    args: GetInsightEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetInsightEventsCommandOutput>;
+
+  /**
+   * @see {@link GetInsightSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetInsightSummariesCommandOutput}.
+   */
+  paginateGetInsightSummaries(
+    args: GetInsightSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetInsightSummariesCommandOutput>;
+
+  /**
+   * @see {@link GetSamplingRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSamplingRulesCommandOutput}.
+   */
+  paginateGetSamplingRules(
+    args?: GetSamplingRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSamplingRulesCommandOutput>;
+
+  /**
+   * @see {@link GetSamplingStatisticSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSamplingStatisticSummariesCommandOutput}.
+   */
+  paginateGetSamplingStatisticSummaries(
+    args?: GetSamplingStatisticSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSamplingStatisticSummariesCommandOutput>;
+
+  /**
+   * @see {@link GetServiceGraphCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetServiceGraphCommandOutput}.
+   */
+  paginateGetServiceGraph(
+    args: GetServiceGraphCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetServiceGraphCommandOutput>;
+
+  /**
+   * @see {@link GetTimeSeriesServiceStatisticsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTimeSeriesServiceStatisticsCommandOutput}.
+   */
+  paginateGetTimeSeriesServiceStatistics(
+    args: GetTimeSeriesServiceStatisticsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTimeSeriesServiceStatisticsCommandOutput>;
+
+  /**
+   * @see {@link GetTraceGraphCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTraceGraphCommandOutput}.
+   */
+  paginateGetTraceGraph(
+    args: GetTraceGraphCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTraceGraphCommandOutput>;
+
+  /**
+   * @see {@link GetTraceSummariesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTraceSummariesCommandOutput}.
+   */
+  paginateGetTraceSummaries(
+    args: GetTraceSummariesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTraceSummariesCommandOutput>;
+
+  /**
+   * @see {@link ListResourcePoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourcePoliciesCommandOutput}.
+   */
+  paginateListResourcePolicies(
+    args?: ListResourcePoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourcePoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
 }
 
 /**
@@ -873,4 +1031,4 @@ export interface XRay {
  * @public
  */
 export class XRay extends XRayClient implements XRay {}
-createAggregatedClient(commands, XRay);
+createAggregatedClient(commands, XRay, { paginators });

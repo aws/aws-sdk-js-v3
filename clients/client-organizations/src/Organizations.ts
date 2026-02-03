@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AcceptHandshakeCommand,
@@ -302,6 +302,26 @@ import {
   UpdateResponsibilityTransferCommandOutput,
 } from "./commands/UpdateResponsibilityTransferCommand";
 import { OrganizationsClient } from "./OrganizationsClient";
+import { paginateListAccountsForParent } from "./pagination/ListAccountsForParentPaginator";
+import { paginateListAccounts } from "./pagination/ListAccountsPaginator";
+import {
+  paginateListAccountsWithInvalidEffectivePolicy,
+} from "./pagination/ListAccountsWithInvalidEffectivePolicyPaginator";
+import { paginateListAWSServiceAccessForOrganization } from "./pagination/ListAWSServiceAccessForOrganizationPaginator";
+import { paginateListChildren } from "./pagination/ListChildrenPaginator";
+import { paginateListCreateAccountStatus } from "./pagination/ListCreateAccountStatusPaginator";
+import { paginateListDelegatedAdministrators } from "./pagination/ListDelegatedAdministratorsPaginator";
+import { paginateListDelegatedServicesForAccount } from "./pagination/ListDelegatedServicesForAccountPaginator";
+import { paginateListEffectivePolicyValidationErrors } from "./pagination/ListEffectivePolicyValidationErrorsPaginator";
+import { paginateListHandshakesForAccount } from "./pagination/ListHandshakesForAccountPaginator";
+import { paginateListHandshakesForOrganization } from "./pagination/ListHandshakesForOrganizationPaginator";
+import { paginateListOrganizationalUnitsForParent } from "./pagination/ListOrganizationalUnitsForParentPaginator";
+import { paginateListParents } from "./pagination/ListParentsPaginator";
+import { paginateListPoliciesForTarget } from "./pagination/ListPoliciesForTargetPaginator";
+import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
+import { paginateListRoots } from "./pagination/ListRootsPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateListTargetsForPolicy } from "./pagination/ListTargetsForPolicyPaginator";
 
 const commands = {
   AcceptHandshakeCommand,
@@ -367,6 +387,26 @@ const commands = {
   UpdateOrganizationalUnitCommand,
   UpdatePolicyCommand,
   UpdateResponsibilityTransferCommand,
+};
+const paginators = {
+  paginateListAccounts,
+  paginateListAccountsForParent,
+  paginateListAccountsWithInvalidEffectivePolicy,
+  paginateListAWSServiceAccessForOrganization,
+  paginateListChildren,
+  paginateListCreateAccountStatus,
+  paginateListDelegatedAdministrators,
+  paginateListDelegatedServicesForAccount,
+  paginateListEffectivePolicyValidationErrors,
+  paginateListHandshakesForAccount,
+  paginateListHandshakesForOrganization,
+  paginateListOrganizationalUnitsForParent,
+  paginateListParents,
+  paginateListPolicies,
+  paginateListPoliciesForTarget,
+  paginateListRoots,
+  paginateListTagsForResource,
+  paginateListTargetsForPolicy,
 };
 
 export interface Organizations {
@@ -1454,6 +1494,204 @@ export interface Organizations {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateResponsibilityTransferCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAccountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountsCommandOutput}.
+   */
+  paginateListAccounts(
+    args?: ListAccountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListAccountsForParentCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountsForParentCommandOutput}.
+   */
+  paginateListAccountsForParent(
+    args: ListAccountsForParentCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountsForParentCommandOutput>;
+
+  /**
+   * @see {@link ListAccountsWithInvalidEffectivePolicyCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccountsWithInvalidEffectivePolicyCommandOutput}.
+   */
+  paginateListAccountsWithInvalidEffectivePolicy(
+    args: ListAccountsWithInvalidEffectivePolicyCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccountsWithInvalidEffectivePolicyCommandOutput>;
+
+  /**
+   * @see {@link ListAWSServiceAccessForOrganizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAWSServiceAccessForOrganizationCommandOutput}.
+   */
+  paginateListAWSServiceAccessForOrganization(
+    args?: ListAWSServiceAccessForOrganizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAWSServiceAccessForOrganizationCommandOutput>;
+
+  /**
+   * @see {@link ListChildrenCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChildrenCommandOutput}.
+   */
+  paginateListChildren(
+    args: ListChildrenCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChildrenCommandOutput>;
+
+  /**
+   * @see {@link ListCreateAccountStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCreateAccountStatusCommandOutput}.
+   */
+  paginateListCreateAccountStatus(
+    args?: ListCreateAccountStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCreateAccountStatusCommandOutput>;
+
+  /**
+   * @see {@link ListDelegatedAdministratorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDelegatedAdministratorsCommandOutput}.
+   */
+  paginateListDelegatedAdministrators(
+    args?: ListDelegatedAdministratorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDelegatedAdministratorsCommandOutput>;
+
+  /**
+   * @see {@link ListDelegatedServicesForAccountCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDelegatedServicesForAccountCommandOutput}.
+   */
+  paginateListDelegatedServicesForAccount(
+    args: ListDelegatedServicesForAccountCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDelegatedServicesForAccountCommandOutput>;
+
+  /**
+   * @see {@link ListEffectivePolicyValidationErrorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEffectivePolicyValidationErrorsCommandOutput}.
+   */
+  paginateListEffectivePolicyValidationErrors(
+    args: ListEffectivePolicyValidationErrorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEffectivePolicyValidationErrorsCommandOutput>;
+
+  /**
+   * @see {@link ListHandshakesForAccountCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHandshakesForAccountCommandOutput}.
+   */
+  paginateListHandshakesForAccount(
+    args?: ListHandshakesForAccountCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHandshakesForAccountCommandOutput>;
+
+  /**
+   * @see {@link ListHandshakesForOrganizationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListHandshakesForOrganizationCommandOutput}.
+   */
+  paginateListHandshakesForOrganization(
+    args?: ListHandshakesForOrganizationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListHandshakesForOrganizationCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationalUnitsForParentCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationalUnitsForParentCommandOutput}.
+   */
+  paginateListOrganizationalUnitsForParent(
+    args: ListOrganizationalUnitsForParentCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationalUnitsForParentCommandOutput>;
+
+  /**
+   * @see {@link ListParentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListParentsCommandOutput}.
+   */
+  paginateListParents(
+    args: ListParentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListParentsCommandOutput>;
+
+  /**
+   * @see {@link ListPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPoliciesCommandOutput}.
+   */
+  paginateListPolicies(
+    args: ListPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListPoliciesForTargetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPoliciesForTargetCommandOutput}.
+   */
+  paginateListPoliciesForTarget(
+    args: ListPoliciesForTargetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPoliciesForTargetCommandOutput>;
+
+  /**
+   * @see {@link ListRootsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRootsCommandOutput}.
+   */
+  paginateListRoots(
+    args?: ListRootsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRootsCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link ListTargetsForPolicyCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTargetsForPolicyCommandOutput}.
+   */
+  paginateListTargetsForPolicy(
+    args: ListTargetsForPolicyCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTargetsForPolicyCommandOutput>;
 }
 
 /**
@@ -1531,4 +1769,4 @@ export interface Organizations {
  * @public
  */
 export class Organizations extends OrganizationsClient implements Organizations {}
-createAggregatedClient(commands, Organizations);
+createAggregatedClient(commands, Organizations, { paginators });

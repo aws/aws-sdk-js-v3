@@ -729,7 +729,7 @@ import { WorkSpacesServiceException } from "../models/WorkSpacesServiceException
 export var AcceptAccountLinkInvitationRequest$: StaticStructureSchema = [3, n0, _AALIR,
   0,
   [_LI, _CT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var AcceptAccountLinkInvitationResult$: StaticStructureSchema = [3, n0, _AALIRc,
   0,
@@ -750,7 +750,7 @@ export var AccessEndpoint$: StaticStructureSchema = [3, n0, _AE,
 export var AccessEndpointConfig$: StaticStructureSchema = [3, n0, _AEC,
   0,
   [_AEc, _IFP],
-  [() => AccessEndpointList, 64 | 0]
+  [() => AccessEndpointList, 64 | 0], 1
 ];
 export var AccountLink$: StaticStructureSchema = [3, n0, _AL,
   0,
@@ -765,7 +765,7 @@ export var AccountModification$: StaticStructureSchema = [3, n0, _AM,
 export var ActiveDirectoryConfig$: StaticStructureSchema = [3, n0, _ADC,
   0,
   [_DN, _SASA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ApplicationNotSupportedException$: StaticErrorSchema = [-3, n0, _ANSE,
   { [_e]: _c },
@@ -781,17 +781,17 @@ export var ApplicationResourceAssociation$: StaticStructureSchema = [3, n0, _ARA
 export var ApplicationSettingsRequest$: StaticStructureSchema = [3, n0, _ASR,
   0,
   [_St, _SG],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ApplicationSettingsResponse$: StaticStructureSchema = [3, n0, _ASRp,
   0,
   [_St, _SG, _SBN],
-  [0, 0, 0]
+  [0, 0, 0], 1
 ];
 export var AssociateConnectionAliasRequest$: StaticStructureSchema = [3, n0, _ACAR,
   0,
   [_AIl, _RI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateConnectionAliasResult$: StaticStructureSchema = [3, n0, _ACARs,
   0,
@@ -801,7 +801,7 @@ export var AssociateConnectionAliasResult$: StaticStructureSchema = [3, n0, _ACA
 export var AssociateIpGroupsRequest$: StaticStructureSchema = [3, n0, _AIGR,
   0,
   [_DI, _GI],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AssociateIpGroupsResult$: StaticStructureSchema = [3, n0, _AIGRs,
   0,
@@ -811,7 +811,7 @@ export var AssociateIpGroupsResult$: StaticStructureSchema = [3, n0, _AIGRs,
 export var AssociateWorkspaceApplicationRequest$: StaticStructureSchema = [3, n0, _AWAR,
   0,
   [_WI, _AI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateWorkspaceApplicationResult$: StaticStructureSchema = [3, n0, _AWARs,
   0,
@@ -826,7 +826,7 @@ export var AssociationStateReason$: StaticStructureSchema = [3, n0, _ASRs,
 export var AuthorizeIpRulesRequest$: StaticStructureSchema = [3, n0, _AIRR,
   0,
   [_GIr, _UR],
-  [0, () => IpRuleList]
+  [0, () => IpRuleList], 2
 ];
 export var AuthorizeIpRulesResult$: StaticStructureSchema = [3, n0, _AIRRu,
   0,
@@ -841,12 +841,12 @@ export var BundleResourceAssociation$: StaticStructureSchema = [3, n0, _BRA,
 export var Capacity$: StaticStructureSchema = [3, n0, _Ca,
   0,
   [_DUS],
-  [1]
+  [1], 1
 ];
 export var CapacityStatus$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_AUS, _DUS, _AUSc, _AUSct],
-  [1, 1, 1, 1]
+  [1, 1, 1, 1], 4
 ];
 export var CertificateBasedAuthProperties$: StaticStructureSchema = [3, n0, _CBAP,
   0,
@@ -898,12 +898,12 @@ export var ConnectionAliasAssociation$: StaticStructureSchema = [3, n0, _CAAo,
 export var ConnectionAliasPermission$: StaticStructureSchema = [3, n0, _CAP,
   0,
   [_SAIh, _AA],
-  [0, 2]
+  [0, 2], 2
 ];
 export var CopyWorkspaceImageRequest$: StaticStructureSchema = [3, n0, _CWIR,
   0,
-  [_N, _D, _SII, _SRo, _T],
-  [0, 0, 0, 0, () => TagList]
+  [_N, _SII, _SRo, _D, _T],
+  [0, 0, 0, 0, () => TagList], 3
 ];
 export var CopyWorkspaceImageResult$: StaticStructureSchema = [3, n0, _CWIRo,
   0,
@@ -913,7 +913,7 @@ export var CopyWorkspaceImageResult$: StaticStructureSchema = [3, n0, _CWIRo,
 export var CreateAccountLinkInvitationRequest$: StaticStructureSchema = [3, n0, _CALIR,
   0,
   [_TAI, _CT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var CreateAccountLinkInvitationResult$: StaticStructureSchema = [3, n0, _CALIRr,
   0,
@@ -923,7 +923,7 @@ export var CreateAccountLinkInvitationResult$: StaticStructureSchema = [3, n0, _
 export var CreateConnectClientAddInRequest$: StaticStructureSchema = [3, n0, _CCCAIR,
   0,
   [_RI, _N, _URL],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var CreateConnectClientAddInResult$: StaticStructureSchema = [3, n0, _CCCAIRr,
   0,
@@ -933,7 +933,7 @@ export var CreateConnectClientAddInResult$: StaticStructureSchema = [3, n0, _CCC
 export var CreateConnectionAliasRequest$: StaticStructureSchema = [3, n0, _CCAR,
   0,
   [_CSo, _T],
-  [0, () => TagList]
+  [0, () => TagList], 1
 ];
 export var CreateConnectionAliasResult$: StaticStructureSchema = [3, n0, _CCARr,
   0,
@@ -943,7 +943,7 @@ export var CreateConnectionAliasResult$: StaticStructureSchema = [3, n0, _CCARr,
 export var CreateIpGroupRequest$: StaticStructureSchema = [3, n0, _CIGR,
   0,
   [_GN, _GD, _UR, _T],
-  [0, 0, () => IpRuleList, () => TagList]
+  [0, 0, () => IpRuleList, () => TagList], 1
 ];
 export var CreateIpGroupResult$: StaticStructureSchema = [3, n0, _CIGRr,
   0,
@@ -953,7 +953,7 @@ export var CreateIpGroupResult$: StaticStructureSchema = [3, n0, _CIGRr,
 export var CreateStandbyWorkspacesRequest$: StaticStructureSchema = [3, n0, _CSWR,
   0,
   [_PR, _SW],
-  [0, () => StandbyWorkspacesList]
+  [0, () => StandbyWorkspacesList], 2
 ];
 export var CreateStandbyWorkspacesResult$: StaticStructureSchema = [3, n0, _CSWRr,
   0,
@@ -963,7 +963,7 @@ export var CreateStandbyWorkspacesResult$: StaticStructureSchema = [3, n0, _CSWR
 export var CreateTagsRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_RI, _T],
-  [0, () => TagList]
+  [0, () => TagList], 2
 ];
 export var CreateTagsResult$: StaticStructureSchema = [3, n0, _CTRr,
   0,
@@ -973,7 +973,7 @@ export var CreateTagsResult$: StaticStructureSchema = [3, n0, _CTRr,
 export var CreateUpdatedWorkspaceImageRequest$: StaticStructureSchema = [3, n0, _CUWIR,
   0,
   [_N, _D, _SII, _T],
-  [0, 0, 0, () => TagList]
+  [0, 0, 0, () => TagList], 3
 ];
 export var CreateUpdatedWorkspaceImageResult$: StaticStructureSchema = [3, n0, _CUWIRr,
   0,
@@ -983,7 +983,7 @@ export var CreateUpdatedWorkspaceImageResult$: StaticStructureSchema = [3, n0, _
 export var CreateWorkspaceBundleRequest$: StaticStructureSchema = [3, n0, _CWBR,
   0,
   [_BN, _BD, _II, _CTo, _US, _RS, _T],
-  [0, 0, 0, () => ComputeType$, () => UserStorage$, () => RootStorage$, () => TagList]
+  [0, 0, 0, () => ComputeType$, () => UserStorage$, () => RootStorage$, () => TagList], 5
 ];
 export var CreateWorkspaceBundleResult$: StaticStructureSchema = [3, n0, _CWBRr,
   0,
@@ -993,7 +993,7 @@ export var CreateWorkspaceBundleResult$: StaticStructureSchema = [3, n0, _CWBRr,
 export var CreateWorkspaceImageRequest$: StaticStructureSchema = [3, n0, _CWIRr,
   0,
   [_N, _D, _WI, _T],
-  [0, 0, 0, () => TagList]
+  [0, 0, 0, () => TagList], 3
 ];
 export var CreateWorkspaceImageResult$: StaticStructureSchema = [3, n0, _CWIRre,
   0,
@@ -1003,7 +1003,7 @@ export var CreateWorkspaceImageResult$: StaticStructureSchema = [3, n0, _CWIRre,
 export var CreateWorkspacesPoolRequest$: StaticStructureSchema = [3, n0, _CWPR,
   0,
   [_PN, _D, _BI, _DI, _Ca, _T, _ASp, _TS, _RM],
-  [0, 0, 0, 0, () => Capacity$, () => TagList, () => ApplicationSettingsRequest$, () => TimeoutSettings$, 0]
+  [0, 0, 0, 0, () => Capacity$, () => TagList, () => ApplicationSettingsRequest$, () => TimeoutSettings$, 0], 5
 ];
 export var CreateWorkspacesPoolResult$: StaticStructureSchema = [3, n0, _CWPRr,
   0,
@@ -1013,7 +1013,7 @@ export var CreateWorkspacesPoolResult$: StaticStructureSchema = [3, n0, _CWPRr,
 export var CreateWorkspacesRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
   [_W],
-  [() => WorkspaceRequestList]
+  [() => WorkspaceRequestList], 1
 ];
 export var CreateWorkspacesResult$: StaticStructureSchema = [3, n0, _CWRr,
   0,
@@ -1048,7 +1048,7 @@ export var DefaultWorkspaceCreationProperties$: StaticStructureSchema = [3, n0, 
 export var DeleteAccountLinkInvitationRequest$: StaticStructureSchema = [3, n0, _DALIR,
   0,
   [_LI, _CT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var DeleteAccountLinkInvitationResult$: StaticStructureSchema = [3, n0, _DALIRe,
   0,
@@ -1058,7 +1058,7 @@ export var DeleteAccountLinkInvitationResult$: StaticStructureSchema = [3, n0, _
 export var DeleteClientBrandingRequest$: StaticStructureSchema = [3, n0, _DCBR,
   0,
   [_RI, _P],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DeleteClientBrandingResult$: StaticStructureSchema = [3, n0, _DCBRe,
   0,
@@ -1068,7 +1068,7 @@ export var DeleteClientBrandingResult$: StaticStructureSchema = [3, n0, _DCBRe,
 export var DeleteConnectClientAddInRequest$: StaticStructureSchema = [3, n0, _DCCAIR,
   0,
   [_AII, _RI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteConnectClientAddInResult$: StaticStructureSchema = [3, n0, _DCCAIRe,
   0,
@@ -1078,7 +1078,7 @@ export var DeleteConnectClientAddInResult$: StaticStructureSchema = [3, n0, _DCC
 export var DeleteConnectionAliasRequest$: StaticStructureSchema = [3, n0, _DCAR,
   0,
   [_AIl],
-  [0]
+  [0], 1
 ];
 export var DeleteConnectionAliasResult$: StaticStructureSchema = [3, n0, _DCARe,
   0,
@@ -1088,7 +1088,7 @@ export var DeleteConnectionAliasResult$: StaticStructureSchema = [3, n0, _DCARe,
 export var DeleteIpGroupRequest$: StaticStructureSchema = [3, n0, _DIGR,
   0,
   [_GIr],
-  [0]
+  [0], 1
 ];
 export var DeleteIpGroupResult$: StaticStructureSchema = [3, n0, _DIGRe,
   0,
@@ -1098,7 +1098,7 @@ export var DeleteIpGroupResult$: StaticStructureSchema = [3, n0, _DIGRe,
 export var DeleteTagsRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_RI, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DeleteTagsResult$: StaticStructureSchema = [3, n0, _DTRe,
   0,
@@ -1118,7 +1118,7 @@ export var DeleteWorkspaceBundleResult$: StaticStructureSchema = [3, n0, _DWBRe,
 export var DeleteWorkspaceImageRequest$: StaticStructureSchema = [3, n0, _DWIR,
   0,
   [_II],
-  [0]
+  [0], 1
 ];
 export var DeleteWorkspaceImageResult$: StaticStructureSchema = [3, n0, _DWIRe,
   0,
@@ -1128,7 +1128,7 @@ export var DeleteWorkspaceImageResult$: StaticStructureSchema = [3, n0, _DWIRe,
 export var DeployWorkspaceApplicationsRequest$: StaticStructureSchema = [3, n0, _DWAR,
   0,
   [_WI, _F],
-  [0, 2]
+  [0, 2], 1
 ];
 export var DeployWorkspaceApplicationsResult$: StaticStructureSchema = [3, n0, _DWARe,
   0,
@@ -1138,7 +1138,7 @@ export var DeployWorkspaceApplicationsResult$: StaticStructureSchema = [3, n0, _
 export var DeregisterWorkspaceDirectoryRequest$: StaticStructureSchema = [3, n0, _DWDR,
   0,
   [_DI],
-  [0]
+  [0], 1
 ];
 export var DeregisterWorkspaceDirectoryResult$: StaticStructureSchema = [3, n0, _DWDRe,
   0,
@@ -1167,8 +1167,8 @@ export var DescribeAccountResult$: StaticStructureSchema = [3, n0, _DARe,
 ];
 export var DescribeApplicationAssociationsRequest$: StaticStructureSchema = [3, n0, _DAAR,
   0,
-  [_MR, _NT, _AI, _ARTs],
-  [1, 0, 0, 64 | 0]
+  [_AI, _ARTs, _MR, _NT],
+  [0, 64 | 0, 1, 0], 2
 ];
 export var DescribeApplicationAssociationsResult$: StaticStructureSchema = [3, n0, _DAARe,
   0,
@@ -1188,7 +1188,7 @@ export var DescribeApplicationsResult$: StaticStructureSchema = [3, n0, _DAResc,
 export var DescribeBundleAssociationsRequest$: StaticStructureSchema = [3, n0, _DBAR,
   0,
   [_BI, _ARTs],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DescribeBundleAssociationsResult$: StaticStructureSchema = [3, n0, _DBARe,
   0,
@@ -1198,7 +1198,7 @@ export var DescribeBundleAssociationsResult$: StaticStructureSchema = [3, n0, _D
 export var DescribeClientBrandingRequest$: StaticStructureSchema = [3, n0, _DCBRes,
   0,
   [_RI],
-  [0]
+  [0], 1
 ];
 export var DescribeClientBrandingResult$: StaticStructureSchema = [3, n0, _DCBResc,
   0,
@@ -1208,7 +1208,7 @@ export var DescribeClientBrandingResult$: StaticStructureSchema = [3, n0, _DCBRe
 export var DescribeClientPropertiesRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
   [_RIe],
-  [64 | 0]
+  [64 | 0], 1
 ];
 export var DescribeClientPropertiesResult$: StaticStructureSchema = [3, n0, _DCPRe,
   0,
@@ -1218,7 +1218,7 @@ export var DescribeClientPropertiesResult$: StaticStructureSchema = [3, n0, _DCP
 export var DescribeConnectClientAddInsRequest$: StaticStructureSchema = [3, n0, _DCCAIRes,
   0,
   [_RI, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var DescribeConnectClientAddInsResult$: StaticStructureSchema = [3, n0, _DCCAIResc,
   0,
@@ -1238,7 +1238,7 @@ export var DescribeConnectionAliasesResult$: StaticStructureSchema = [3, n0, _DC
 export var DescribeConnectionAliasPermissionsRequest$: StaticStructureSchema = [3, n0, _DCAPR,
   0,
   [_AIl, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var DescribeConnectionAliasPermissionsResult$: StaticStructureSchema = [3, n0, _DCAPRe,
   0,
@@ -1248,7 +1248,7 @@ export var DescribeConnectionAliasPermissionsResult$: StaticStructureSchema = [3
 export var DescribeCustomWorkspaceImageImportRequest$: StaticStructureSchema = [3, n0, _DCWIIR,
   0,
   [_II],
-  [0]
+  [0], 1
 ];
 export var DescribeCustomWorkspaceImageImportResult$: StaticStructureSchema = [3, n0, _DCWIIRe,
   0,
@@ -1258,7 +1258,7 @@ export var DescribeCustomWorkspaceImageImportResult$: StaticStructureSchema = [3
 export var DescribeImageAssociationsRequest$: StaticStructureSchema = [3, n0, _DIAR,
   0,
   [_II, _ARTs],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DescribeImageAssociationsResult$: StaticStructureSchema = [3, n0, _DIARe,
   0,
@@ -1278,7 +1278,7 @@ export var DescribeIpGroupsResult$: StaticStructureSchema = [3, n0, _DIGResc,
 export var DescribeTagsRequest$: StaticStructureSchema = [3, n0, _DTRes,
   0,
   [_RI],
-  [0]
+  [0], 1
 ];
 export var DescribeTagsResult$: StaticStructureSchema = [3, n0, _DTResc,
   0,
@@ -1288,7 +1288,7 @@ export var DescribeTagsResult$: StaticStructureSchema = [3, n0, _DTResc,
 export var DescribeWorkspaceAssociationsRequest$: StaticStructureSchema = [3, n0, _DWARes,
   0,
   [_WI, _ARTs],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DescribeWorkspaceAssociationsResult$: StaticStructureSchema = [3, n0, _DWAResc,
   0,
@@ -1308,7 +1308,7 @@ export var DescribeWorkspaceBundlesResult$: StaticStructureSchema = [3, n0, _DWB
 export var DescribeWorkspaceDirectoriesFilter$: StaticStructureSchema = [3, n0, _DWDF,
   0,
   [_N, _V],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DescribeWorkspaceDirectoriesRequest$: StaticStructureSchema = [3, n0, _DWDRes,
   0,
@@ -1323,7 +1323,7 @@ export var DescribeWorkspaceDirectoriesResult$: StaticStructureSchema = [3, n0, 
 export var DescribeWorkspaceImagePermissionsRequest$: StaticStructureSchema = [3, n0, _DWIPR,
   0,
   [_II, _NT, _MR],
-  [0, 0, 1]
+  [0, 0, 1], 1
 ];
 export var DescribeWorkspaceImagePermissionsResult$: StaticStructureSchema = [3, n0, _DWIPRe,
   0,
@@ -1353,7 +1353,7 @@ export var DescribeWorkspacesConnectionStatusResult$: StaticStructureSchema = [3
 export var DescribeWorkspaceSnapshotsRequest$: StaticStructureSchema = [3, n0, _DWSR,
   0,
   [_WI],
-  [0]
+  [0], 1
 ];
 export var DescribeWorkspaceSnapshotsResult$: StaticStructureSchema = [3, n0, _DWSRe,
   0,
@@ -1363,7 +1363,7 @@ export var DescribeWorkspaceSnapshotsResult$: StaticStructureSchema = [3, n0, _D
 export var DescribeWorkspacesPoolSessionsRequest$: StaticStructureSchema = [3, n0, _DWPSR,
   0,
   [_PI, _UI, _Li, _NT],
-  [0, 0, 1, 0]
+  [0, 0, 1, 0], 1
 ];
 export var DescribeWorkspacesPoolSessionsResult$: StaticStructureSchema = [3, n0, _DWPSRe,
   0,
@@ -1373,7 +1373,7 @@ export var DescribeWorkspacesPoolSessionsResult$: StaticStructureSchema = [3, n0
 export var DescribeWorkspacesPoolsFilter$: StaticStructureSchema = [3, n0, _DWPF,
   0,
   [_N, _V, _Op],
-  [0, 64 | 0, 0]
+  [0, 64 | 0, 0], 3
 ];
 export var DescribeWorkspacesPoolsRequest$: StaticStructureSchema = [3, n0, _DWPR,
   0,
@@ -1398,7 +1398,7 @@ export var DescribeWorkspacesResult$: StaticStructureSchema = [3, n0, _DWRe,
 export var DisassociateConnectionAliasRequest$: StaticStructureSchema = [3, n0, _DCARi,
   0,
   [_AIl],
-  [0]
+  [0], 1
 ];
 export var DisassociateConnectionAliasResult$: StaticStructureSchema = [3, n0, _DCARis,
   0,
@@ -1408,7 +1408,7 @@ export var DisassociateConnectionAliasResult$: StaticStructureSchema = [3, n0, _
 export var DisassociateIpGroupsRequest$: StaticStructureSchema = [3, n0, _DIGRi,
   0,
   [_DI, _GI],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DisassociateIpGroupsResult$: StaticStructureSchema = [3, n0, _DIGRis,
   0,
@@ -1418,7 +1418,7 @@ export var DisassociateIpGroupsResult$: StaticStructureSchema = [3, n0, _DIGRis,
 export var DisassociateWorkspaceApplicationRequest$: StaticStructureSchema = [3, n0, _DWARi,
   0,
   [_WI, _AI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateWorkspaceApplicationResult$: StaticStructureSchema = [3, n0, _DWARis,
   0,
@@ -1458,12 +1458,12 @@ export var GetAccountLinkResult$: StaticStructureSchema = [3, n0, _GALRe,
 export var GlobalAcceleratorForDirectory$: StaticStructureSchema = [3, n0, _GAFD,
   0,
   [_Mo, _PPr],
-  [0, 0]
+  [0, 0], 1
 ];
 export var GlobalAcceleratorForWorkSpace$: StaticStructureSchema = [3, n0, _GAFWS,
   0,
   [_Mo, _PPr],
-  [0, 0]
+  [0, 0], 1
 ];
 export var IDCConfig$: StaticStructureSchema = [3, n0, _IDCC,
   0,
@@ -1483,7 +1483,7 @@ export var ImageResourceAssociation$: StaticStructureSchema = [3, n0, _IRA,
 export var ImportClientBrandingRequest$: StaticStructureSchema = [3, n0, _ICBR,
   0,
   [_RI, _DTW, _DTO, _DTA, _DTI, _DTL, _DTWe],
-  [0, () => DefaultImportClientBrandingAttributes$, () => DefaultImportClientBrandingAttributes$, () => DefaultImportClientBrandingAttributes$, () => IosImportClientBrandingAttributes$, () => DefaultImportClientBrandingAttributes$, () => DefaultImportClientBrandingAttributes$]
+  [0, () => DefaultImportClientBrandingAttributes$, () => DefaultImportClientBrandingAttributes$, () => DefaultImportClientBrandingAttributes$, () => IosImportClientBrandingAttributes$, () => DefaultImportClientBrandingAttributes$, () => DefaultImportClientBrandingAttributes$], 1
 ];
 export var ImportClientBrandingResult$: StaticStructureSchema = [3, n0, _ICBRm,
   0,
@@ -1493,7 +1493,7 @@ export var ImportClientBrandingResult$: StaticStructureSchema = [3, n0, _ICBRm,
 export var ImportCustomWorkspaceImageRequest$: StaticStructureSchema = [3, n0, _ICWIR,
   0,
   [_IN, _ID, _CTo, _Pr, _IS, _ICA, _Pl, _OV, _T],
-  [0, 0, 0, 0, () => ImageSourceIdentifier$, 0, 0, 0, () => TagList]
+  [0, 0, 0, 0, () => ImageSourceIdentifier$, 0, 0, 0, () => TagList], 8
 ];
 export var ImportCustomWorkspaceImageResult$: StaticStructureSchema = [3, n0, _ICWIRm,
   0,
@@ -1503,7 +1503,7 @@ export var ImportCustomWorkspaceImageResult$: StaticStructureSchema = [3, n0, _I
 export var ImportWorkspaceImageRequest$: StaticStructureSchema = [3, n0, _IWIR,
   0,
   [_EII, _IPn, _IN, _ID, _T, _Ap],
-  [0, 0, 0, 0, () => TagList, 64 | 0]
+  [0, 0, 0, 0, () => TagList, 64 | 0], 4
 ];
 export var ImportWorkspaceImageResult$: StaticStructureSchema = [3, n0, _IWIRm,
   0,
@@ -1568,7 +1568,7 @@ export var ListAccountLinksResult$: StaticStructureSchema = [3, n0, _LALRi,
 export var ListAvailableManagementCidrRangesRequest$: StaticStructureSchema = [3, n0, _LAMCRR,
   0,
   [_MCRC, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var ListAvailableManagementCidrRangesResult$: StaticStructureSchema = [3, n0, _LAMCRRi,
   0,
@@ -1583,7 +1583,7 @@ export var MicrosoftEntraConfig$: StaticStructureSchema = [3, n0, _MEC,
 export var MigrateWorkspaceRequest$: StaticStructureSchema = [3, n0, _MWR,
   0,
   [_SWI, _BI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var MigrateWorkspaceResult$: StaticStructureSchema = [3, n0, _MWRi,
   0,
@@ -1608,7 +1608,7 @@ export var ModifyAccountResult$: StaticStructureSchema = [3, n0, _MARo,
 export var ModifyCertificateBasedAuthPropertiesRequest$: StaticStructureSchema = [3, n0, _MCBAPR,
   0,
   [_RI, _CBAP, _PTD],
-  [0, () => CertificateBasedAuthProperties$, 64 | 0]
+  [0, () => CertificateBasedAuthProperties$, 64 | 0], 1
 ];
 export var ModifyCertificateBasedAuthPropertiesResult$: StaticStructureSchema = [3, n0, _MCBAPRo,
   0,
@@ -1618,7 +1618,7 @@ export var ModifyCertificateBasedAuthPropertiesResult$: StaticStructureSchema = 
 export var ModifyClientPropertiesRequest$: StaticStructureSchema = [3, n0, _MCPR,
   0,
   [_RI, _CP],
-  [0, () => ClientProperties$]
+  [0, () => ClientProperties$], 2
 ];
 export var ModifyClientPropertiesResult$: StaticStructureSchema = [3, n0, _MCPRo,
   0,
@@ -1628,7 +1628,7 @@ export var ModifyClientPropertiesResult$: StaticStructureSchema = [3, n0, _MCPRo
 export var ModifyEndpointEncryptionModeRequest$: StaticStructureSchema = [3, n0, _MEEMR,
   0,
   [_DI, _EEM],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ModifyEndpointEncryptionModeResponse$: StaticStructureSchema = [3, n0, _MEEMRo,
   0,
@@ -1638,7 +1638,7 @@ export var ModifyEndpointEncryptionModeResponse$: StaticStructureSchema = [3, n0
 export var ModifySamlPropertiesRequest$: StaticStructureSchema = [3, n0, _MSPR,
   0,
   [_RI, _SP, _PTD],
-  [0, () => SamlProperties$, 64 | 0]
+  [0, () => SamlProperties$, 64 | 0], 1
 ];
 export var ModifySamlPropertiesResult$: StaticStructureSchema = [3, n0, _MSPRo,
   0,
@@ -1648,7 +1648,7 @@ export var ModifySamlPropertiesResult$: StaticStructureSchema = [3, n0, _MSPRo,
 export var ModifySelfservicePermissionsRequest$: StaticStructureSchema = [3, n0, _MSPRod,
   0,
   [_RI, _SPe],
-  [0, () => SelfservicePermissions$]
+  [0, () => SelfservicePermissions$], 2
 ];
 export var ModifySelfservicePermissionsResult$: StaticStructureSchema = [3, n0, _MSPRodi,
   0,
@@ -1658,7 +1658,7 @@ export var ModifySelfservicePermissionsResult$: StaticStructureSchema = [3, n0, 
 export var ModifyStreamingPropertiesRequest$: StaticStructureSchema = [3, n0, _MSPRodif,
   0,
   [_RI, _SPt],
-  [0, () => StreamingProperties$]
+  [0, () => StreamingProperties$], 1
 ];
 export var ModifyStreamingPropertiesResult$: StaticStructureSchema = [3, n0, _MSPRodify,
   0,
@@ -1668,7 +1668,7 @@ export var ModifyStreamingPropertiesResult$: StaticStructureSchema = [3, n0, _MS
 export var ModifyWorkspaceAccessPropertiesRequest$: StaticStructureSchema = [3, n0, _MWAPR,
   0,
   [_RI, _WAP],
-  [0, () => WorkspaceAccessProperties$]
+  [0, () => WorkspaceAccessProperties$], 2
 ];
 export var ModifyWorkspaceAccessPropertiesResult$: StaticStructureSchema = [3, n0, _MWAPRo,
   0,
@@ -1678,7 +1678,7 @@ export var ModifyWorkspaceAccessPropertiesResult$: StaticStructureSchema = [3, n
 export var ModifyWorkspaceCreationPropertiesRequest$: StaticStructureSchema = [3, n0, _MWCPR,
   0,
   [_RI, _WCP],
-  [0, () => WorkspaceCreationProperties$]
+  [0, () => WorkspaceCreationProperties$], 2
 ];
 export var ModifyWorkspaceCreationPropertiesResult$: StaticStructureSchema = [3, n0, _MWCPRo,
   0,
@@ -1688,7 +1688,7 @@ export var ModifyWorkspaceCreationPropertiesResult$: StaticStructureSchema = [3,
 export var ModifyWorkspacePropertiesRequest$: StaticStructureSchema = [3, n0, _MWPR,
   0,
   [_WI, _WPor, _DR],
-  [0, () => WorkspaceProperties$, 0]
+  [0, () => WorkspaceProperties$, 0], 1
 ];
 export var ModifyWorkspacePropertiesResult$: StaticStructureSchema = [3, n0, _MWPRo,
   0,
@@ -1698,7 +1698,7 @@ export var ModifyWorkspacePropertiesResult$: StaticStructureSchema = [3, n0, _MW
 export var ModifyWorkspaceStateRequest$: StaticStructureSchema = [3, n0, _MWSR,
   0,
   [_WI, _WS],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ModifyWorkspaceStateResult$: StaticStructureSchema = [3, n0, _MWSRo,
   0,
@@ -1741,12 +1741,12 @@ export var PendingCreateStandbyWorkspacesRequest$: StaticStructureSchema = [3, n
 export var RebootRequest$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_WI],
-  [0]
+  [0], 1
 ];
 export var RebootWorkspacesRequest$: StaticStructureSchema = [3, n0, _RWR,
   0,
   [_RWRe],
-  [() => RebootWorkspaceRequests]
+  [() => RebootWorkspaceRequests], 1
 ];
 export var RebootWorkspacesResult$: StaticStructureSchema = [3, n0, _RWReb,
   0,
@@ -1756,12 +1756,12 @@ export var RebootWorkspacesResult$: StaticStructureSchema = [3, n0, _RWReb,
 export var RebuildRequest$: StaticStructureSchema = [3, n0, _RRe,
   0,
   [_WI],
-  [0]
+  [0], 1
 ];
 export var RebuildWorkspacesRequest$: StaticStructureSchema = [3, n0, _RWRebu,
   0,
   [_RWRebui],
-  [() => RebuildWorkspaceRequests]
+  [() => RebuildWorkspaceRequests], 1
 ];
 export var RebuildWorkspacesResult$: StaticStructureSchema = [3, n0, _RWRebuil,
   0,
@@ -1781,7 +1781,7 @@ export var RegisterWorkspaceDirectoryResult$: StaticStructureSchema = [3, n0, _R
 export var RejectAccountLinkInvitationRequest$: StaticStructureSchema = [3, n0, _RALIR,
   0,
   [_LI, _CT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var RejectAccountLinkInvitationResult$: StaticStructureSchema = [3, n0, _RALIRe,
   0,
@@ -1838,7 +1838,7 @@ TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavai
 export var RestoreWorkspaceRequest$: StaticStructureSchema = [3, n0, _RWRes,
   0,
   [_WI],
-  [0]
+  [0], 1
 ];
 export var RestoreWorkspaceResult$: StaticStructureSchema = [3, n0, _RWRest,
   0,
@@ -1848,7 +1848,7 @@ export var RestoreWorkspaceResult$: StaticStructureSchema = [3, n0, _RWRest,
 export var RevokeIpRulesRequest$: StaticStructureSchema = [3, n0, _RIRR,
   0,
   [_GIr, _UR],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var RevokeIpRulesResult$: StaticStructureSchema = [3, n0, _RIRRe,
   0,
@@ -1858,7 +1858,7 @@ export var RevokeIpRulesResult$: StaticStructureSchema = [3, n0, _RIRRe,
 export var RootStorage$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_Ca],
-  [0]
+  [0], 1
 ];
 export var SamlProperties$: StaticStructureSchema = [3, n0, _SP,
   0,
@@ -1877,8 +1877,8 @@ export var Snapshot$: StaticStructureSchema = [3, n0, _Sn,
 ];
 export var StandbyWorkspace$: StaticStructureSchema = [3, n0, _SWt,
   0,
-  [_PWI, _VEK, _DI, _T, _DR],
-  [0, 0, 0, () => TagList, 0]
+  [_PWI, _DI, _VEK, _T, _DR],
+  [0, 0, 0, () => TagList, 0], 2
 ];
 export var StandbyWorkspacesProperties$: StaticStructureSchema = [3, n0, _SWP,
   0,
@@ -1893,7 +1893,7 @@ export var StartRequest$: StaticStructureSchema = [3, n0, _SRt,
 export var StartWorkspacesPoolRequest$: StaticStructureSchema = [3, n0, _SWPR,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var StartWorkspacesPoolResult$: StaticStructureSchema = [3, n0, _SWPRt,
   0,
@@ -1903,7 +1903,7 @@ export var StartWorkspacesPoolResult$: StaticStructureSchema = [3, n0, _SWPRt,
 export var StartWorkspacesRequest$: StaticStructureSchema = [3, n0, _SWRt,
   0,
   [_SWRta],
-  [() => StartWorkspaceRequests]
+  [() => StartWorkspaceRequests], 1
 ];
 export var StartWorkspacesResult$: StaticStructureSchema = [3, n0, _SWRtar,
   0,
@@ -1918,7 +1918,7 @@ export var StopRequest$: StaticStructureSchema = [3, n0, _SRto,
 export var StopWorkspacesPoolRequest$: StaticStructureSchema = [3, n0, _SWPRto,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var StopWorkspacesPoolResult$: StaticStructureSchema = [3, n0, _SWPRtop,
   0,
@@ -1928,7 +1928,7 @@ export var StopWorkspacesPoolResult$: StaticStructureSchema = [3, n0, _SWPRtop,
 export var StopWorkspacesRequest$: StaticStructureSchema = [3, n0, _SWRto,
   0,
   [_SWRtop],
-  [() => StopWorkspaceRequests]
+  [() => StopWorkspaceRequests], 1
 ];
 export var StopWorkspacesResult$: StaticStructureSchema = [3, n0, _SWRtopo,
   0,
@@ -1938,7 +1938,7 @@ export var StopWorkspacesResult$: StaticStructureSchema = [3, n0, _SWRtopo,
 export var StorageConnector$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_CTon, _St],
-  [0, 0]
+  [0, 0], 2
 ];
 export var StreamingProperties$: StaticStructureSchema = [3, n0, _SPt,
   0,
@@ -1948,17 +1948,17 @@ export var StreamingProperties$: StaticStructureSchema = [3, n0, _SPt,
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _Va],
-  [0, 0]
+  [0, 0], 1
 ];
 export var TerminateRequest$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_WI],
-  [0]
+  [0], 1
 ];
 export var TerminateWorkspacesPoolRequest$: StaticStructureSchema = [3, n0, _TWPR,
   0,
   [_PI],
-  [0]
+  [0], 1
 ];
 export var TerminateWorkspacesPoolResult$: StaticStructureSchema = [3, n0, _TWPRe,
   0,
@@ -1968,7 +1968,7 @@ export var TerminateWorkspacesPoolResult$: StaticStructureSchema = [3, n0, _TWPR
 export var TerminateWorkspacesPoolSessionRequest$: StaticStructureSchema = [3, n0, _TWPSR,
   0,
   [_SIe],
-  [0]
+  [0], 1
 ];
 export var TerminateWorkspacesPoolSessionResult$: StaticStructureSchema = [3, n0, _TWPSRe,
   0,
@@ -1978,7 +1978,7 @@ export var TerminateWorkspacesPoolSessionResult$: StaticStructureSchema = [3, n0
 export var TerminateWorkspacesRequest$: StaticStructureSchema = [3, n0, _TWR,
   0,
   [_TWRe],
-  [() => TerminateWorkspaceRequests]
+  [() => TerminateWorkspaceRequests], 1
 ];
 export var TerminateWorkspacesResult$: StaticStructureSchema = [3, n0, _TWRer,
   0,
@@ -2005,7 +2005,7 @@ TypeRegistry.for(n0).registerError(UnsupportedWorkspaceConfigurationException$, 
 export var UpdateConnectClientAddInRequest$: StaticStructureSchema = [3, n0, _UCCAIR,
   0,
   [_AII, _RI, _N, _URL],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 2
 ];
 export var UpdateConnectClientAddInResult$: StaticStructureSchema = [3, n0, _UCCAIRp,
   0,
@@ -2015,7 +2015,7 @@ export var UpdateConnectClientAddInResult$: StaticStructureSchema = [3, n0, _UCC
 export var UpdateConnectionAliasPermissionRequest$: StaticStructureSchema = [3, n0, _UCAPR,
   0,
   [_AIl, _CAP],
-  [0, () => ConnectionAliasPermission$]
+  [0, () => ConnectionAliasPermission$], 2
 ];
 export var UpdateConnectionAliasPermissionResult$: StaticStructureSchema = [3, n0, _UCAPRp,
   0,
@@ -2030,7 +2030,7 @@ export var UpdateResult$: StaticStructureSchema = [3, n0, _URp,
 export var UpdateRulesOfIpGroupRequest$: StaticStructureSchema = [3, n0, _UROIGR,
   0,
   [_GIr, _UR],
-  [0, () => IpRuleList]
+  [0, () => IpRuleList], 2
 ];
 export var UpdateRulesOfIpGroupResult$: StaticStructureSchema = [3, n0, _UROIGRp,
   0,
@@ -2050,7 +2050,7 @@ export var UpdateWorkspaceBundleResult$: StaticStructureSchema = [3, n0, _UWBRp,
 export var UpdateWorkspaceImagePermissionRequest$: StaticStructureSchema = [3, n0, _UWIPR,
   0,
   [_II, _ACI, _SAIh],
-  [0, 2, 0]
+  [0, 2, 0], 3
 ];
 export var UpdateWorkspaceImagePermissionResult$: StaticStructureSchema = [3, n0, _UWIPRp,
   0,
@@ -2060,7 +2060,7 @@ export var UpdateWorkspaceImagePermissionResult$: StaticStructureSchema = [3, n0
 export var UpdateWorkspacesPoolRequest$: StaticStructureSchema = [3, n0, _UWPR,
   0,
   [_PI, _D, _BI, _DI, _Ca, _ASp, _TS, _RM],
-  [0, 0, 0, 0, () => Capacity$, () => ApplicationSettingsRequest$, () => TimeoutSettings$, 0]
+  [0, 0, 0, 0, () => Capacity$, () => ApplicationSettingsRequest$, () => TimeoutSettings$, 0], 1
 ];
 export var UpdateWorkspacesPoolResult$: StaticStructureSchema = [3, n0, _UWPRp,
   0,
@@ -2070,12 +2070,12 @@ export var UpdateWorkspacesPoolResult$: StaticStructureSchema = [3, n0, _UWPRp,
 export var UserSetting$: StaticStructureSchema = [3, n0, _USse,
   0,
   [_Ac, _Pe, _ML],
-  [0, 0, 1]
+  [0, 0, 1], 2
 ];
 export var UserStorage$: StaticStructureSchema = [3, n0, _US,
   0,
   [_Ca],
-  [0]
+  [0], 1
 ];
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c },
@@ -2136,7 +2136,7 @@ export var WorkspaceProperties$: StaticStructureSchema = [3, n0, _WPor,
 export var WorkspaceRequest$: StaticStructureSchema = [3, n0, _WR,
   0,
   [_DI, _UN, _BI, _VEK, _UVEE, _RVEE, _WPor, _T, _WN, _IApv],
-  [0, 0, 0, 0, 2, 2, () => WorkspaceProperties$, () => TagList, 0, 0]
+  [0, 0, 0, 0, 2, 2, () => WorkspaceProperties$, () => TagList, 0, 0], 3
 ];
 export var WorkspaceResourceAssociation$: StaticStructureSchema = [3, n0, _WRA,
   0,
@@ -2156,8 +2156,8 @@ export var WorkspacesIpGroup$: StaticStructureSchema = [3, n0, _WIG,
 ];
 export var WorkspacesPool$: StaticStructureSchema = [3, n0, _WP,
   0,
-  [_PI, _PA, _CS, _PN, _D, _S, _CAr, _BI, _DI, _E, _ASp, _TS, _RM],
-  [0, 0, () => CapacityStatus$, 0, 0, 0, 4, 0, 0, () => WorkspacesPoolErrors, () => ApplicationSettingsResponse$, () => TimeoutSettings$, 0]
+  [_PI, _PA, _CS, _PN, _S, _CAr, _BI, _DI, _RM, _D, _E, _ASp, _TS],
+  [0, 0, () => CapacityStatus$, 0, 0, 4, 0, 0, 0, 0, () => WorkspacesPoolErrors, () => ApplicationSettingsResponse$, () => TimeoutSettings$], 9
 ];
 export var WorkspacesPoolError$: StaticStructureSchema = [3, n0, _WPE,
   0,
@@ -2166,8 +2166,8 @@ export var WorkspacesPoolError$: StaticStructureSchema = [3, n0, _WPE,
 ];
 export var WorkspacesPoolSession$: StaticStructureSchema = [3, n0, _WPS,
   0,
-  [_AT, _CSon, _SIe, _IIn, _PI, _ET, _NAC, _ST, _UI],
-  [0, 0, 0, 0, 0, 4, () => NetworkAccessConfiguration$, 4, 0]
+  [_SIe, _PI, _UI, _AT, _CSon, _IIn, _ET, _NAC, _ST],
+  [0, 0, 0, 0, 0, 0, 4, () => NetworkAccessConfiguration$, 4], 3
 ];
 export var WorkSpacesServiceException$: StaticErrorSchema = [-3, _s, "WorkSpacesServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(WorkSpacesServiceException$, WorkSpacesServiceException);

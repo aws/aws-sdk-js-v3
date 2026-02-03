@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-dynamodb",
-  "version": "3.967.0",
+  "version": "3.981.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline util-dynamodb",
@@ -8,7 +8,7 @@
     "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
@@ -26,18 +26,18 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-dynamodb": "*",
+    "@aws-sdk/client-dynamodb": "workspace:3.981.0",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "rimraf": "5.0.10",
+    "premove": "4.0.0",
     "typescript": "~5.8.3"
   },
   "peerDependencies": {
-    "@aws-sdk/client-dynamodb": "*"
+    "@aws-sdk/client-dynamodb": "workspace:3.981.0"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "typesVersions": {
     "<4.0": {

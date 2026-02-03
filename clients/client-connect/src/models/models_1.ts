@@ -10,7 +10,6 @@ import {
   ContactFlowState,
   ContactFlowStatus,
   ContactFlowType,
-  ContactInitiationMethod,
   ContactMetricName,
   ContactParticipantRole,
   ContactState,
@@ -37,10 +36,11 @@ import {
   InstanceStatus,
   InstanceStorageResourceType,
   IntervalPeriod,
-  LexVersion,
   MediaStreamType,
   MediaType,
   NextContactType,
+  OperationalStatus,
+  OverrideType,
   ParticipantType,
   PhoneNumberCountryCode,
   PhoneNumberType,
@@ -55,6 +55,8 @@ import {
   Status,
   StorageType,
   TaskTemplateStatus,
+  TestCaseExecutionStatus,
+  TestCaseStatus,
   TrafficDistributionGroupStatus,
   Unit,
   Visibility,
@@ -84,9 +86,11 @@ import {
   type PredefinedAttributeValues,
   type QueueReference,
   type QuickConnectConfig,
+  type RecurrenceConfig,
   type RuleTriggerEventSource,
   type TaskTemplateConstraints,
   type TaskTemplateDefaults,
+  type TestCaseEntryPoint,
   type UserIdentityInfo,
   type UserPhoneConfig,
   type Validation,
@@ -109,6 +113,196 @@ import {
   SuccessfulBatchAssociationSummary,
   TaskTemplateField,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateWorkspacePageRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the workspace.</p>
+   * @public
+   */
+  WorkspaceId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the view to associate with the page.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The page identifier. Valid system pages include <code>HOME</code> and <code>AGENT_EXPERIENCE</code>. Custom
+   *    pages cannot use the <code>aws:</code> or <code>connect:</code> prefixes.</p>
+   * @public
+   */
+  Page: string | undefined;
+
+  /**
+   * <p>The URL-friendly identifier for the page.</p>
+   * @public
+   */
+  Slug?: string | undefined;
+
+  /**
+   * <p>A JSON string containing input parameters for the view, validated against the view's input schema.</p>
+   * @public
+   */
+  InputData?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkspacePageResponse {}
+
+/**
+ * @public
+ */
+export interface DeactivateEvaluationFormRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>A version of the evaluation form. If the version property is not provided, the latest version of the evaluation form is
+   *    deactivated.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateEvaluationFormResponse {
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * <p>The version of the deactivated evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+}
+
+/**
+ * Request to DeleteAttachedFile API
+ * @public
+ */
+export interface DeleteAttachedFileRequest {
+  /**
+   * <p>The unique identifier of the Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId: string | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported
+   *    resource.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn: string | undefined;
+}
+
+/**
+ * Response from DeleteAttachedFile API
+ * @public
+ */
+export interface DeleteAttachedFileResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteContactEvaluationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowModuleRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow module.</p>
+   * @public
+   */
+  ContactFlowModuleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowModuleResponse {}
 
 /**
  * @public
@@ -543,6 +737,28 @@ export interface DeleteTaskTemplateRequest {
  * @public
  */
 export interface DeleteTaskTemplateResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteTestCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case to delete.</p>
+   * @public
+   */
+  TestCaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTestCaseResponse {}
 
 /**
  * @public
@@ -2036,6 +2252,60 @@ export interface EvaluationContactParticipant {
 }
 
 /**
+ * <p>A comment provided when requesting an evaluation review.</p>
+ * @public
+ */
+export interface EvaluationReviewRequestComment {
+  /**
+   * <p>The text content of the review request comment.</p>
+   * @public
+   */
+  Comment?: string | undefined;
+
+  /**
+   * <p>The timestamp when the review request comment was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The user who created the review request comment.</p>
+   * @public
+   */
+  CreatedBy?: string | undefined;
+}
+
+/**
+ * <p>Metadata information about an evaluation review.</p>
+ * @public
+ */
+export interface EvaluationReviewMetadata {
+  /**
+   * <p>The unique identifier for the evaluation review.</p>
+   * @public
+   */
+  ReviewId?: string | undefined;
+
+  /**
+   * <p>The timestamp when the evaluation review was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The user who created the evaluation review.</p>
+   * @public
+   */
+  CreatedBy: string | undefined;
+
+  /**
+   * <p>Comments provided when requesting the evaluation review.</p>
+   * @public
+   */
+  ReviewRequestComments: EvaluationReviewRequestComment[] | undefined;
+}
+
+/**
  * <p>Information about scores of a contact evaluation item (section or question).</p>
  * @public
  */
@@ -2112,6 +2382,12 @@ export interface EvaluationMetadata {
    * @public
    */
   Acknowledgement?: EvaluationAcknowledgement | undefined;
+
+  /**
+   * <p>Information about reviews of this evaluation.</p>
+   * @public
+   */
+  Review?: EvaluationReviewMetadata | undefined;
 
   /**
    * <p>Information about a contact participant in this evaluation.</p>
@@ -2901,6 +3177,30 @@ export interface DescribeHoursOfOperationRequest {
 }
 
 /**
+ * <p>Identifier for a hours of operations resource: ARN, ID, Name</p>
+ * @public
+ */
+export interface HoursOfOperationsIdentifier {
+  /**
+   * <p>Name of the hours of operation</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Unique identifier of the hours of operation.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the hours of operations.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
  * <p>Information about of the hours of operation.</p>
  * @public
  */
@@ -2940,6 +3240,12 @@ export interface HoursOfOperation {
    * @public
    */
   Config?: HoursOfOperationConfig[] | undefined;
+
+  /**
+   * <p>Information about parent hours of operations.</p>
+   * @public
+   */
+  ParentHoursOfOperations?: HoursOfOperationsIdentifier[] | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
@@ -3046,6 +3352,18 @@ export interface HoursOfOperationOverride {
    * @public
    */
   EffectiveTill?: string | undefined;
+
+  /**
+   * <p>Configuration for a recurring event.</p>
+   * @public
+   */
+  RecurrenceConfig?: RecurrenceConfig | undefined;
+
+  /**
+   * <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
+   * @public
+   */
+  OverrideType?: OverrideType | undefined;
 }
 
 /**
@@ -4195,6 +4513,118 @@ export interface DescribeSecurityProfileResponse {
 /**
  * @public
  */
+export interface DescribeTestCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case.</p>
+   * @public
+   */
+  TestCaseId: string | undefined;
+
+  /**
+   * <p>The status of the test case version to retrieve. If not specified, returns the published version if available, otherwise returns the saved version.</p>
+   * @public
+   */
+  Status?: TestCaseStatus | undefined;
+}
+
+/**
+ * <p>Contains information about a test case.</p>
+ * @public
+ */
+export interface TestCase {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the test case.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The identifier of the test case.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the test case.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The JSON string that represents the content of the test.</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>Defines the starting point for the test, including channel type and parameters.</p>
+   * @public
+   */
+  EntryPoint?: TestCaseEntryPoint | undefined;
+
+  /**
+   * <p>Defines the test attributes for precise data representation.</p>
+   * @public
+   */
+  InitializationData?: string | undefined;
+
+  /**
+   * <p>The description of the test case.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates the test status as either SAVED or PUBLISHED.</p>
+   * @public
+   */
+  Status?: TestCaseStatus | undefined;
+
+  /**
+   * <p>The time at which the test case was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The region in which the test case was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The SHA256 hash of the test case content.</p>
+   * @public
+   */
+  TestCaseSha256?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTestCaseResponse {
+  /**
+   * <p>The test case object containing all test case information.</p>
+   * @public
+   */
+  TestCase?: TestCase | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeTrafficDistributionGroupRequest {
   /**
    * <p>The identifier of the traffic distribution group.
@@ -5052,6 +5482,30 @@ export interface DisassociateFlowResponse {}
 /**
  * @public
  */
+export interface DisassociateHoursOfOperationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
+   *    the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the child hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the parent hours of operation resources to disassociate with the child hours of operation resource.</p>
+   * @public
+   */
+  ParentHoursOfOperationIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisassociateInstanceStorageConfigRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -5685,12 +6139,14 @@ export interface GetContactAttributesResponse {
 }
 
 /**
- * <p>The object that contains information about metric being requested.</p>
+ * <p>Contains the details of a metric to be retrieved for a contact. Use this object to specify which
+ *    contact level metrics you want to include in your GetContactMetrics request.</p>
  * @public
  */
 export interface ContactMetricInfo {
   /**
-   * <p>The name of the metric being retrieved in type String.</p>
+   * <p>The name of the metric to retrieve. Supported values are POSITION_IN_QUEUE (returns the contact's
+   *    current position in the queue) and ESTIMATED_WAIT_TIME (returns the predicted wait time in seconds).</p>
    * @public
    */
   Name: ContactMetricName | undefined;
@@ -5713,14 +6169,16 @@ export interface GetContactMetricsRequest {
   ContactId: string | undefined;
 
   /**
-   * <p>A list of contact-level metrics to retrieve.</p>
+   * <p>A list of contact level metrics to retrieve.Supported metrics include POSITION_IN_QUEUE (the contact's
+   *    current position in the queue) and ESTIMATED_WAIT_TIME (the predicted time in seconds until the contact is
+   *    connected to an agent)</p>
    * @public
    */
   Metrics: ContactMetricInfo[] | undefined;
 }
 
 /**
- * <p>Object which contains the number.</p>
+ * <p>Contains the numeric value of a contact metric result.</p>
  * @public
  */
 export type ContactMetricValue =
@@ -5732,7 +6190,9 @@ export type ContactMetricValue =
  */
 export namespace ContactMetricValue {
   /**
-   * <p>The number of type Double. This number is the contact's position in queue.</p>
+   * <p>The numeric value of the metric result. For POSITION_IN_QUEUE, this represents the contact's
+   *    current position in the queue (e.g., 3.00 means third in line). For ESTIMATED_WAIT_TIME, this represents
+   *    the predicted wait time in seconds (e.g., 120.00 means approximately 2 minutes).</p>
    * @public
    */
   export interface NumberMember {
@@ -5759,18 +6219,21 @@ export namespace ContactMetricValue {
 }
 
 /**
- * <p>Object containing information about metric requested for the contact.</p>
+ * <p>Contains the result of a requested metric for the contact. This object is returned as part of the
+ *    GetContactMetrics response and includes both the metric name and its calculated value.</p>
  * @public
  */
 export interface ContactMetricResult {
   /**
-   * <p>The name of the metric being retrieved in type String.</p>
+   * <p>The name of the metric that was retrieved. This corresponds to the metric name specified in the
+   *    request, such as POSITION_IN_QUEUE or ESTIMATED_WAIT_TIME.</p>
    * @public
    */
   Name: ContactMetricName | undefined;
 
   /**
-   * <p>Object result associated with the metric received.</p>
+   * <p>The calculated value for the requested metric. This object contains the numeric result based on
+   *    the contact's current state in the queue.</p>
    * @public
    */
   Value: ContactMetricValue | undefined;
@@ -5781,14 +6244,16 @@ export interface ContactMetricResult {
  */
 export interface GetContactMetricsResponse {
   /**
-   * <p>A list of metric results containing the calculated values for each requested metric. Each result includes the
-   *    metric name and its corresponding calculated value.</p>
+   * <p>A list of metric results containing the calculated values for each requested metric. Each result includes
+   *    the metric name and its corresponding value. For example, POSITION_IN_QUEUE returns a numeric value representing
+   *    the contact's position in queue, and ESTIMATED_WAIT_TIME returns the predicted wait time in seconds.</p>
    * @public
    */
   MetricResults?: ContactMetricResult[] | undefined;
 
   /**
-   * <p>The unique identifier of the contact for which metrics were retrieved.</p>
+   * <p>The unique identifier of the contact for which metrics were retrieved. This matches the ContactId provided
+   *    in the request.</p>
    * @public
    */
   Id?: string | undefined;
@@ -6049,6 +6514,21 @@ export interface GetCurrentMetricDataRequest {
    *                <p>Unit: COUNT</p>
    *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#scheduled-real-time">Scheduled</a>
    *                </p>
+   *             </dd>
+   *             <dt>ESTIMATED_WAIT_TIME</dt>
+   *             <dd>
+   *                <p>Unit: SECONDS</p>
+   *                <p>This metric supports filter and grouping combination only used for core routing purpose.
+   *               Valid filter and grouping use cases:
+   *           </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Filter by a list of [Queues] and a list of [Channels], group by [“QUEUE”, “CHANNEL”]</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Filter by a singleton list of [Queue], a singleton list of [Channel], a list of [RoutingStepExpression], group by [“ROUTING_STEP_EXPRESSION”].</p>
+   *                   </li>
+   *                </ul>
    *             </dd>
    *             <dt>OLDEST_CONTACT_AGE</dt>
    *             <dd>
@@ -6573,6 +7053,54 @@ export interface EffectiveHoursOfOperations {
 }
 
 /**
+ * <p>Information about hours of operation override</p>
+ * @public
+ */
+export interface OverrideHour {
+  /**
+   * <p>The start time or end time for an hours of operation override.</p>
+   * @public
+   */
+  Start?: OverrideTimeSlice | undefined;
+
+  /**
+   * <p>The start time or end time for an hours of operation override.</p>
+   * @public
+   */
+  End?: OverrideTimeSlice | undefined;
+
+  /**
+   * <p>Unique identifier name for the override.</p>
+   * @public
+   */
+  OverrideName?: string | undefined;
+
+  /**
+   * <p>Indicates whether the status is open or closed during the override period. This status determines how the override modifies the base hours of operation schedule.</p>
+   * @public
+   */
+  OperationalStatus?: OperationalStatus | undefined;
+}
+
+/**
+ * <p>Information about the hours of operation overrides which contribute to effective hours of operations.</p>
+ * @public
+ */
+export interface EffectiveOverrideHours {
+  /**
+   * <p>The date that the hours of operation override applies to.</p>
+   * @public
+   */
+  Date?: string | undefined;
+
+  /**
+   * <p>Information about the hours of operation overrides that apply to a specific date.</p>
+   * @public
+   */
+  OverrideHours?: OverrideHour[] | undefined;
+}
+
+/**
  * @public
  */
 export interface GetEffectiveHoursOfOperationsResponse {
@@ -6581,6 +7109,14 @@ export interface GetEffectiveHoursOfOperationsResponse {
    * @public
    */
   EffectiveHoursOfOperationList?: EffectiveHoursOfOperations[] | undefined;
+
+  /**
+   * <p>Information about override configurations applied to the base hours of operation to calculate the effective hours.</p>
+   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
+   *      <i> Administrator Guide</i>.</p>
+   * @public
+   */
+  EffectiveOverrideHoursList?: EffectiveOverrideHours[] | undefined;
 
   /**
    * <p>The time zone for the hours of operation.</p>
@@ -9339,6 +9875,82 @@ export interface GetTaskTemplateResponse {
 /**
  * @public
  */
+export interface GetTestCaseExecutionSummaryRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case.</p>
+   * @public
+   */
+  TestCaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case execution.</p>
+   * @public
+   */
+  TestCaseExecutionId: string | undefined;
+}
+
+/**
+ * <p>Contains summary statistics about a test case execution.</p>
+ * @public
+ */
+export interface ObservationSummary {
+  /**
+   * <p>The total number of observations in the test case.</p>
+   * @public
+   */
+  TotalObservations?: number | undefined;
+
+  /**
+   * <p>The number of observations that passed during execution.</p>
+   * @public
+   */
+  ObservationsPassed?: number | undefined;
+
+  /**
+   * <p>The number of observations that failed during execution.</p>
+   * @public
+   */
+  ObservationsFailed?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTestCaseExecutionSummaryResponse {
+  /**
+   * <p>The timestamp when the test case execution started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the test case execution ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The status of the test case execution.</p>
+   * @public
+   */
+  Status?: TestCaseExecutionStatus | undefined;
+
+  /**
+   * <p>Summary statistics for the test case execution.</p>
+   * @public
+   */
+  ObservationSummary?: ObservationSummary | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTrafficDistributionRequest {
   /**
    * <p>The identifier of the traffic distribution group.
@@ -9660,729 +10272,4 @@ export interface AnalyticsDataSetsResult {
    * @public
    */
   DataSetName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAnalyticsDataLakeDataSetsResponse {
-  /**
-   * <p>An array of successful results: <code>DataSetId</code>, <code>DataSetName</code>. This is a paginated API, so
-   *     <code>nextToken</code> is given if there are more results to be returned.</p>
-   * @public
-   */
-  Results?: AnalyticsDataSetsResult[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListApprovedOriginsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListApprovedOriginsResponse {
-  /**
-   * <p>The approved origins.</p>
-   * @public
-   */
-  Origins?: string[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssociatedContactsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Contact summary of a contact in contact tree associated with unique identifier.</p>
- * @public
- */
-export interface AssociatedContactSummary {
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the contact</p>
-   * @public
-   */
-  ContactArn?: string | undefined;
-
-  /**
-   * <p>The date and time this contact was initiated, in UTC time.</p>
-   * @public
-   */
-  InitiationTimestamp?: Date | undefined;
-
-  /**
-   * <p>The date and time that the customer endpoint disconnected from the current contact, in UTC time. In transfer
-   *    scenarios, the DisconnectTimestamp of the previous contact indicates the date and time when that contact
-   *    ended.</p>
-   * @public
-   */
-  DisconnectTimestamp?: Date | undefined;
-
-  /**
-   * <p>If this contact is related to other contacts, this is the ID of the initial contact.</p>
-   * @public
-   */
-  InitialContactId?: string | undefined;
-
-  /**
-   * <p>If this contact is not the first contact, this is the ID of the previous contact.</p>
-   * @public
-   */
-  PreviousContactId?: string | undefined;
-
-  /**
-   * <p>The contactId that is related to this contact.</p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>Indicates how the contact was initiated.</p>
-   * @public
-   */
-  InitiationMethod?: ContactInitiationMethod | undefined;
-
-  /**
-   * <p>How the contact reached your contact center.</p>
-   * @public
-   */
-  Channel?: Channel | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssociatedContactsResponse {
-  /**
-   * <p>List of the contact summary for all the contacts in contact tree associated with unique identifier.</p>
-   * @public
-   */
-  ContactSummaryList?: AssociatedContactSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAuthenticationProfilesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web Services Support.</p>
- *          <p>A summary of a given authentication profile.</p>
- * @public
- */
-export interface AuthenticationProfileSummary {
-  /**
-   * <p>The unique identifier of the authentication profile.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the authentication profile summary.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the authentication profile summary.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Shows whether the authentication profile is the default authentication profile for the Amazon Connect
-   *    instance. The default authentication profile applies to all agents in an Amazon Connect instance, unless
-   *    overridden by another authentication profile.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
-
-  /**
-   * <p>The timestamp when the authentication profile summary was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region when the authentication profile summary was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAuthenticationProfilesResponse {
-  /**
-   * <p>A summary of a given authentication profile.</p>
-   * @public
-   */
-  AuthenticationProfileSummaryList?: AuthenticationProfileSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListBotsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The version of Amazon Lex or Amazon Lex V2.</p>
-   * @public
-   */
-  LexVersion: LexVersion | undefined;
-}
-
-/**
- * <p>Configuration information of an Amazon Lex or Amazon Lex V2 bot.</p>
- * @public
- */
-export interface LexBotConfig {
-  /**
-   * <p>Configuration information of an Amazon Lex bot.</p>
-   * @public
-   */
-  LexBot?: LexBot | undefined;
-
-  /**
-   * <p>Configuration information of an Amazon Lex V2 bot.</p>
-   * @public
-   */
-  LexV2Bot?: LexV2Bot | undefined;
-}
-
-/**
- * @public
- */
-export interface ListBotsResponse {
-  /**
-   * <p>The names and Amazon Web Services Regions of the Amazon Lex or Amazon Lex V2 bots associated with the specified
-   *    instance.</p>
-   * @public
-   */
-  LexBots?: LexBotConfig[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactEvaluationsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   *          <important>
-   *             <p>This is not expected to be set because the value returned in the previous response is always null.</p>
-   *          </important>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Summary information about an evaluation acknowledgement.</p>
- * @public
- */
-export interface EvaluationAcknowledgementSummary {
-  /**
-   * <p>The time when an agent acknowledged the evaluation.</p>
-   * @public
-   */
-  AcknowledgedTime?: Date | undefined;
-
-  /**
-   * <p>The agent who acknowledged the evaluation.</p>
-   * @public
-   */
-  AcknowledgedBy?: string | undefined;
-
-  /**
-   * <p>A comment from the agent when they confirmed they acknowledged the evaluation.</p>
-   * @public
-   */
-  AcknowledgerComment?: string | undefined;
-}
-
-/**
- * <p>Summary information about a contact evaluation.</p>
- * @public
- */
-export interface EvaluationSummary {
-  /**
-   * <p>A unique identifier for the contact evaluation.</p>
-   * @public
-   */
-  EvaluationId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
-   * @public
-   */
-  EvaluationArn: string | undefined;
-
-  /**
-   * <p>A title of the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormTitle: string | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>The calibration session ID that this evaluation belongs to.</p>
-   * @public
-   */
-  CalibrationSessionId?: string | undefined;
-
-  /**
-   * <p>The status of the contact evaluation.</p>
-   * @public
-   */
-  Status: EvaluationStatus | undefined;
-
-  /**
-   * <p>Whether automated evaluation is enabled.</p>
-   * @public
-   */
-  AutoEvaluationEnabled?: boolean | undefined;
-
-  /**
-   * <p>The status of the contact auto evaluation. </p>
-   * @public
-   */
-  AutoEvaluationStatus?: AutoEvaluationStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation.</p>
-   * @public
-   */
-  EvaluatorArn: string | undefined;
-
-  /**
-   * <p>The overall score of the contact evaluation.</p>
-   * @public
-   */
-  Score?: EvaluationScore | undefined;
-
-  /**
-   * <p>Information related to evaluation acknowledgement.</p>
-   * @public
-   */
-  Acknowledgement?: EvaluationAcknowledgementSummary | undefined;
-
-  /**
-   * <p>Type of the evaluation. </p>
-   * @public
-   */
-  EvaluationType?: EvaluationType | undefined;
-
-  /**
-   * <p>The timestamp for when the evaluation was created.</p>
-   * @public
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * <p>The timestamp for when the evaluation was last updated.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>Information about a contact participant in the evaluation.</p>
-   * @public
-   */
-  ContactParticipant?: EvaluationContactParticipant | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactEvaluationsResponse {
-  /**
-   * <p>Provides details about a list of contact evaluations belonging to an instance.</p>
-   * @public
-   */
-  EvaluationSummaryList: EvaluationSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   *          <important>
-   *             <p>This is always returned as null in the response.</p>
-   *          </important>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModuleAliasesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow module.</p>
-   * @public
-   */
-  ContactFlowModuleId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains information about an alias.</p>
- * @public
- */
-export interface ContactFlowModuleAliasSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow module alias.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The identifier of the alias.</p>
-   * @public
-   */
-  AliasId?: string | undefined;
-
-  /**
-   * <p>The version of the flow module.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>The name of the alias.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-
-  /**
-   * <p>The description of the alias.</p>
-   * @public
-   */
-  AliasDescription?: string | undefined;
-
-  /**
-   * <p>The timestamp when this resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModuleAliasesResponse {
-  /**
-   * <p>Information about the flow module aliases.</p>
-   * @public
-   */
-  ContactFlowModuleAliasSummaryList?: ContactFlowModuleAliasSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModulesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The state of the flow module.</p>
-   * @public
-   */
-  ContactFlowModuleState?: ContactFlowModuleState | undefined;
-}
-
-/**
- * <p>Contains summary information about a flow.</p>
- * @public
- */
-export interface ContactFlowModuleSummary {
-  /**
-   * <p>The identifier of the flow module.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow module.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the flow module.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The type of flow module.</p>
-   * @public
-   */
-  State?: ContactFlowModuleState | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModulesResponse {
-  /**
-   * <p>Information about the flow module.</p>
-   * @public
-   */
-  ContactFlowModulesSummaryList?: ContactFlowModuleSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModuleVersionsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow module.</p>
-   * @public
-   */
-  ContactFlowModuleId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains information about a version.</p>
- * @public
- */
-export interface ContactFlowModuleVersionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow module version.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The description of the flow module version.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>The version of the flow module.</p>
-   * @public
-   */
-  Version?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListContactFlowModuleVersionsResponse {
-  /**
-   * <p>Information about the flow module versions.</p>
-   * @public
-   */
-  ContactFlowModuleVersionSummaryList?: ContactFlowModuleVersionSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

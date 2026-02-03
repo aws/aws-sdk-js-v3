@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateResourceTypesCommand,
@@ -484,6 +484,71 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { ConfigServiceClient } from "./ConfigServiceClient";
+import {
+  paginateDescribeAggregateComplianceByConfigRules,
+} from "./pagination/DescribeAggregateComplianceByConfigRulesPaginator";
+import {
+  paginateDescribeAggregateComplianceByConformancePacks,
+} from "./pagination/DescribeAggregateComplianceByConformancePacksPaginator";
+import { paginateDescribeAggregationAuthorizations } from "./pagination/DescribeAggregationAuthorizationsPaginator";
+import { paginateDescribeComplianceByConfigRule } from "./pagination/DescribeComplianceByConfigRulePaginator";
+import { paginateDescribeComplianceByResource } from "./pagination/DescribeComplianceByResourcePaginator";
+import { paginateDescribeConfigRuleEvaluationStatus } from "./pagination/DescribeConfigRuleEvaluationStatusPaginator";
+import { paginateDescribeConfigRules } from "./pagination/DescribeConfigRulesPaginator";
+import {
+  paginateDescribeConfigurationAggregatorSourcesStatus,
+} from "./pagination/DescribeConfigurationAggregatorSourcesStatusPaginator";
+import { paginateDescribeConfigurationAggregators } from "./pagination/DescribeConfigurationAggregatorsPaginator";
+import { paginateDescribeConformancePackCompliance } from "./pagination/DescribeConformancePackCompliancePaginator";
+import { paginateDescribeConformancePacks } from "./pagination/DescribeConformancePacksPaginator";
+import { paginateDescribeConformancePackStatus } from "./pagination/DescribeConformancePackStatusPaginator";
+import { paginateDescribeOrganizationConfigRules } from "./pagination/DescribeOrganizationConfigRulesPaginator";
+import {
+  paginateDescribeOrganizationConfigRuleStatuses,
+} from "./pagination/DescribeOrganizationConfigRuleStatusesPaginator";
+import {
+  paginateDescribeOrganizationConformancePacks,
+} from "./pagination/DescribeOrganizationConformancePacksPaginator";
+import {
+  paginateDescribeOrganizationConformancePackStatuses,
+} from "./pagination/DescribeOrganizationConformancePackStatusesPaginator";
+import { paginateDescribePendingAggregationRequests } from "./pagination/DescribePendingAggregationRequestsPaginator";
+import { paginateDescribeRemediationExceptions } from "./pagination/DescribeRemediationExceptionsPaginator";
+import { paginateDescribeRemediationExecutionStatus } from "./pagination/DescribeRemediationExecutionStatusPaginator";
+import { paginateDescribeRetentionConfigurations } from "./pagination/DescribeRetentionConfigurationsPaginator";
+import {
+  paginateGetAggregateComplianceDetailsByConfigRule,
+} from "./pagination/GetAggregateComplianceDetailsByConfigRulePaginator";
+import {
+  paginateGetAggregateConfigRuleComplianceSummary,
+} from "./pagination/GetAggregateConfigRuleComplianceSummaryPaginator";
+import {
+  paginateGetAggregateConformancePackComplianceSummary,
+} from "./pagination/GetAggregateConformancePackComplianceSummaryPaginator";
+import {
+  paginateGetAggregateDiscoveredResourceCounts,
+} from "./pagination/GetAggregateDiscoveredResourceCountsPaginator";
+import { paginateGetComplianceDetailsByConfigRule } from "./pagination/GetComplianceDetailsByConfigRulePaginator";
+import { paginateGetComplianceDetailsByResource } from "./pagination/GetComplianceDetailsByResourcePaginator";
+import { paginateGetConformancePackComplianceDetails } from "./pagination/GetConformancePackComplianceDetailsPaginator";
+import { paginateGetConformancePackComplianceSummary } from "./pagination/GetConformancePackComplianceSummaryPaginator";
+import { paginateGetDiscoveredResourceCounts } from "./pagination/GetDiscoveredResourceCountsPaginator";
+import {
+  paginateGetOrganizationConfigRuleDetailedStatus,
+} from "./pagination/GetOrganizationConfigRuleDetailedStatusPaginator";
+import {
+  paginateGetOrganizationConformancePackDetailedStatus,
+} from "./pagination/GetOrganizationConformancePackDetailedStatusPaginator";
+import { paginateGetResourceConfigHistory } from "./pagination/GetResourceConfigHistoryPaginator";
+import { paginateListAggregateDiscoveredResources } from "./pagination/ListAggregateDiscoveredResourcesPaginator";
+import { paginateListConfigurationRecorders } from "./pagination/ListConfigurationRecordersPaginator";
+import { paginateListConformancePackComplianceScores } from "./pagination/ListConformancePackComplianceScoresPaginator";
+import { paginateListDiscoveredResources } from "./pagination/ListDiscoveredResourcesPaginator";
+import { paginateListResourceEvaluations } from "./pagination/ListResourceEvaluationsPaginator";
+import { paginateListStoredQueries } from "./pagination/ListStoredQueriesPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
+import { paginateSelectAggregateResourceConfig } from "./pagination/SelectAggregateResourceConfigPaginator";
+import { paginateSelectResourceConfig } from "./pagination/SelectResourceConfigPaginator";
 
 const commands = {
   AssociateResourceTypesCommand,
@@ -583,6 +648,49 @@ const commands = {
   StopConfigurationRecorderCommand,
   TagResourceCommand,
   UntagResourceCommand,
+};
+const paginators = {
+  paginateDescribeAggregateComplianceByConfigRules,
+  paginateDescribeAggregateComplianceByConformancePacks,
+  paginateDescribeAggregationAuthorizations,
+  paginateDescribeComplianceByConfigRule,
+  paginateDescribeComplianceByResource,
+  paginateDescribeConfigRuleEvaluationStatus,
+  paginateDescribeConfigRules,
+  paginateDescribeConfigurationAggregators,
+  paginateDescribeConfigurationAggregatorSourcesStatus,
+  paginateDescribeConformancePackCompliance,
+  paginateDescribeConformancePacks,
+  paginateDescribeConformancePackStatus,
+  paginateDescribeOrganizationConfigRules,
+  paginateDescribeOrganizationConfigRuleStatuses,
+  paginateDescribeOrganizationConformancePacks,
+  paginateDescribeOrganizationConformancePackStatuses,
+  paginateDescribePendingAggregationRequests,
+  paginateDescribeRemediationExceptions,
+  paginateDescribeRemediationExecutionStatus,
+  paginateDescribeRetentionConfigurations,
+  paginateGetAggregateComplianceDetailsByConfigRule,
+  paginateGetAggregateConfigRuleComplianceSummary,
+  paginateGetAggregateConformancePackComplianceSummary,
+  paginateGetAggregateDiscoveredResourceCounts,
+  paginateGetComplianceDetailsByConfigRule,
+  paginateGetComplianceDetailsByResource,
+  paginateGetConformancePackComplianceDetails,
+  paginateGetConformancePackComplianceSummary,
+  paginateGetDiscoveredResourceCounts,
+  paginateGetOrganizationConfigRuleDetailedStatus,
+  paginateGetOrganizationConformancePackDetailedStatus,
+  paginateGetResourceConfigHistory,
+  paginateListAggregateDiscoveredResources,
+  paginateListConfigurationRecorders,
+  paginateListConformancePackComplianceScores,
+  paginateListDiscoveredResources,
+  paginateListResourceEvaluations,
+  paginateListStoredQueries,
+  paginateListTagsForResource,
+  paginateSelectAggregateResourceConfig,
+  paginateSelectResourceConfig,
 };
 
 export interface ConfigService {
@@ -2262,6 +2370,457 @@ export interface ConfigService {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAggregateComplianceByConfigRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAggregateComplianceByConfigRulesCommandOutput}.
+   */
+  paginateDescribeAggregateComplianceByConfigRules(
+    args: DescribeAggregateComplianceByConfigRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAggregateComplianceByConfigRulesCommandOutput>;
+
+  /**
+   * @see {@link DescribeAggregateComplianceByConformancePacksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAggregateComplianceByConformancePacksCommandOutput}.
+   */
+  paginateDescribeAggregateComplianceByConformancePacks(
+    args: DescribeAggregateComplianceByConformancePacksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAggregateComplianceByConformancePacksCommandOutput>;
+
+  /**
+   * @see {@link DescribeAggregationAuthorizationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAggregationAuthorizationsCommandOutput}.
+   */
+  paginateDescribeAggregationAuthorizations(
+    args?: DescribeAggregationAuthorizationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAggregationAuthorizationsCommandOutput>;
+
+  /**
+   * @see {@link DescribeComplianceByConfigRuleCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeComplianceByConfigRuleCommandOutput}.
+   */
+  paginateDescribeComplianceByConfigRule(
+    args?: DescribeComplianceByConfigRuleCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeComplianceByConfigRuleCommandOutput>;
+
+  /**
+   * @see {@link DescribeComplianceByResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeComplianceByResourceCommandOutput}.
+   */
+  paginateDescribeComplianceByResource(
+    args?: DescribeComplianceByResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeComplianceByResourceCommandOutput>;
+
+  /**
+   * @see {@link DescribeConfigRuleEvaluationStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConfigRuleEvaluationStatusCommandOutput}.
+   */
+  paginateDescribeConfigRuleEvaluationStatus(
+    args?: DescribeConfigRuleEvaluationStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConfigRuleEvaluationStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeConfigRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConfigRulesCommandOutput}.
+   */
+  paginateDescribeConfigRules(
+    args?: DescribeConfigRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConfigRulesCommandOutput>;
+
+  /**
+   * @see {@link DescribeConfigurationAggregatorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConfigurationAggregatorsCommandOutput}.
+   */
+  paginateDescribeConfigurationAggregators(
+    args?: DescribeConfigurationAggregatorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConfigurationAggregatorsCommandOutput>;
+
+  /**
+   * @see {@link DescribeConfigurationAggregatorSourcesStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConfigurationAggregatorSourcesStatusCommandOutput}.
+   */
+  paginateDescribeConfigurationAggregatorSourcesStatus(
+    args: DescribeConfigurationAggregatorSourcesStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConfigurationAggregatorSourcesStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeConformancePackComplianceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConformancePackComplianceCommandOutput}.
+   */
+  paginateDescribeConformancePackCompliance(
+    args: DescribeConformancePackComplianceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConformancePackComplianceCommandOutput>;
+
+  /**
+   * @see {@link DescribeConformancePacksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConformancePacksCommandOutput}.
+   */
+  paginateDescribeConformancePacks(
+    args?: DescribeConformancePacksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConformancePacksCommandOutput>;
+
+  /**
+   * @see {@link DescribeConformancePackStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeConformancePackStatusCommandOutput}.
+   */
+  paginateDescribeConformancePackStatus(
+    args?: DescribeConformancePackStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeConformancePackStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeOrganizationConfigRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOrganizationConfigRulesCommandOutput}.
+   */
+  paginateDescribeOrganizationConfigRules(
+    args?: DescribeOrganizationConfigRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOrganizationConfigRulesCommandOutput>;
+
+  /**
+   * @see {@link DescribeOrganizationConfigRuleStatusesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOrganizationConfigRuleStatusesCommandOutput}.
+   */
+  paginateDescribeOrganizationConfigRuleStatuses(
+    args?: DescribeOrganizationConfigRuleStatusesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOrganizationConfigRuleStatusesCommandOutput>;
+
+  /**
+   * @see {@link DescribeOrganizationConformancePacksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOrganizationConformancePacksCommandOutput}.
+   */
+  paginateDescribeOrganizationConformancePacks(
+    args?: DescribeOrganizationConformancePacksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOrganizationConformancePacksCommandOutput>;
+
+  /**
+   * @see {@link DescribeOrganizationConformancePackStatusesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeOrganizationConformancePackStatusesCommandOutput}.
+   */
+  paginateDescribeOrganizationConformancePackStatuses(
+    args?: DescribeOrganizationConformancePackStatusesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeOrganizationConformancePackStatusesCommandOutput>;
+
+  /**
+   * @see {@link DescribePendingAggregationRequestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePendingAggregationRequestsCommandOutput}.
+   */
+  paginateDescribePendingAggregationRequests(
+    args?: DescribePendingAggregationRequestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePendingAggregationRequestsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRemediationExceptionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRemediationExceptionsCommandOutput}.
+   */
+  paginateDescribeRemediationExceptions(
+    args: DescribeRemediationExceptionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRemediationExceptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeRemediationExecutionStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRemediationExecutionStatusCommandOutput}.
+   */
+  paginateDescribeRemediationExecutionStatus(
+    args: DescribeRemediationExecutionStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRemediationExecutionStatusCommandOutput>;
+
+  /**
+   * @see {@link DescribeRetentionConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeRetentionConfigurationsCommandOutput}.
+   */
+  paginateDescribeRetentionConfigurations(
+    args?: DescribeRetentionConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeRetentionConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link GetAggregateComplianceDetailsByConfigRuleCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAggregateComplianceDetailsByConfigRuleCommandOutput}.
+   */
+  paginateGetAggregateComplianceDetailsByConfigRule(
+    args: GetAggregateComplianceDetailsByConfigRuleCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAggregateComplianceDetailsByConfigRuleCommandOutput>;
+
+  /**
+   * @see {@link GetAggregateConfigRuleComplianceSummaryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAggregateConfigRuleComplianceSummaryCommandOutput}.
+   */
+  paginateGetAggregateConfigRuleComplianceSummary(
+    args: GetAggregateConfigRuleComplianceSummaryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAggregateConfigRuleComplianceSummaryCommandOutput>;
+
+  /**
+   * @see {@link GetAggregateConformancePackComplianceSummaryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAggregateConformancePackComplianceSummaryCommandOutput}.
+   */
+  paginateGetAggregateConformancePackComplianceSummary(
+    args: GetAggregateConformancePackComplianceSummaryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAggregateConformancePackComplianceSummaryCommandOutput>;
+
+  /**
+   * @see {@link GetAggregateDiscoveredResourceCountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetAggregateDiscoveredResourceCountsCommandOutput}.
+   */
+  paginateGetAggregateDiscoveredResourceCounts(
+    args: GetAggregateDiscoveredResourceCountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetAggregateDiscoveredResourceCountsCommandOutput>;
+
+  /**
+   * @see {@link GetComplianceDetailsByConfigRuleCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetComplianceDetailsByConfigRuleCommandOutput}.
+   */
+  paginateGetComplianceDetailsByConfigRule(
+    args: GetComplianceDetailsByConfigRuleCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetComplianceDetailsByConfigRuleCommandOutput>;
+
+  /**
+   * @see {@link GetComplianceDetailsByResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetComplianceDetailsByResourceCommandOutput}.
+   */
+  paginateGetComplianceDetailsByResource(
+    args?: GetComplianceDetailsByResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetComplianceDetailsByResourceCommandOutput>;
+
+  /**
+   * @see {@link GetConformancePackComplianceDetailsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetConformancePackComplianceDetailsCommandOutput}.
+   */
+  paginateGetConformancePackComplianceDetails(
+    args: GetConformancePackComplianceDetailsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetConformancePackComplianceDetailsCommandOutput>;
+
+  /**
+   * @see {@link GetConformancePackComplianceSummaryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetConformancePackComplianceSummaryCommandOutput}.
+   */
+  paginateGetConformancePackComplianceSummary(
+    args: GetConformancePackComplianceSummaryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetConformancePackComplianceSummaryCommandOutput>;
+
+  /**
+   * @see {@link GetDiscoveredResourceCountsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetDiscoveredResourceCountsCommandOutput}.
+   */
+  paginateGetDiscoveredResourceCounts(
+    args?: GetDiscoveredResourceCountsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetDiscoveredResourceCountsCommandOutput>;
+
+  /**
+   * @see {@link GetOrganizationConfigRuleDetailedStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetOrganizationConfigRuleDetailedStatusCommandOutput}.
+   */
+  paginateGetOrganizationConfigRuleDetailedStatus(
+    args: GetOrganizationConfigRuleDetailedStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetOrganizationConfigRuleDetailedStatusCommandOutput>;
+
+  /**
+   * @see {@link GetOrganizationConformancePackDetailedStatusCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetOrganizationConformancePackDetailedStatusCommandOutput}.
+   */
+  paginateGetOrganizationConformancePackDetailedStatus(
+    args: GetOrganizationConformancePackDetailedStatusCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetOrganizationConformancePackDetailedStatusCommandOutput>;
+
+  /**
+   * @see {@link GetResourceConfigHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetResourceConfigHistoryCommandOutput}.
+   */
+  paginateGetResourceConfigHistory(
+    args: GetResourceConfigHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetResourceConfigHistoryCommandOutput>;
+
+  /**
+   * @see {@link ListAggregateDiscoveredResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAggregateDiscoveredResourcesCommandOutput}.
+   */
+  paginateListAggregateDiscoveredResources(
+    args: ListAggregateDiscoveredResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAggregateDiscoveredResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListConfigurationRecordersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConfigurationRecordersCommandOutput}.
+   */
+  paginateListConfigurationRecorders(
+    args?: ListConfigurationRecordersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConfigurationRecordersCommandOutput>;
+
+  /**
+   * @see {@link ListConformancePackComplianceScoresCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConformancePackComplianceScoresCommandOutput}.
+   */
+  paginateListConformancePackComplianceScores(
+    args?: ListConformancePackComplianceScoresCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConformancePackComplianceScoresCommandOutput>;
+
+  /**
+   * @see {@link ListDiscoveredResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDiscoveredResourcesCommandOutput}.
+   */
+  paginateListDiscoveredResources(
+    args: ListDiscoveredResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDiscoveredResourcesCommandOutput>;
+
+  /**
+   * @see {@link ListResourceEvaluationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResourceEvaluationsCommandOutput}.
+   */
+  paginateListResourceEvaluations(
+    args?: ListResourceEvaluationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResourceEvaluationsCommandOutput>;
+
+  /**
+   * @see {@link ListStoredQueriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStoredQueriesCommandOutput}.
+   */
+  paginateListStoredQueries(
+    args?: ListStoredQueriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStoredQueriesCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
+
+  /**
+   * @see {@link SelectAggregateResourceConfigCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SelectAggregateResourceConfigCommandOutput}.
+   */
+  paginateSelectAggregateResourceConfig(
+    args: SelectAggregateResourceConfigCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SelectAggregateResourceConfigCommandOutput>;
+
+  /**
+   * @see {@link SelectResourceConfigCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SelectResourceConfigCommandOutput}.
+   */
+  paginateSelectResourceConfig(
+    args: SelectResourceConfigCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SelectResourceConfigCommandOutput>;
 }
 
 /**
@@ -2289,4 +2848,4 @@ export interface ConfigService {
  * @public
  */
 export class ConfigService extends ConfigServiceClient implements ConfigService {}
-createAggregatedClient(commands, ConfigService);
+createAggregatedClient(commands, ConfigService, { paginators });

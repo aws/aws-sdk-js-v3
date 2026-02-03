@@ -368,23 +368,23 @@ export var BrokerInstanceOption$: StaticStructureSchema = [3, n0, _BIO,
 ];
 export var BrokerSummary$: StaticStructureSchema = [3, n0, _BS,
   0,
-  [_BA, _BIr, _BN, _BSr, _C, _DM, _ET, _HIT],
-  [[0, { [_jN]: _bA }], [0, { [_jN]: _bI }], [0, { [_jN]: _bN }], [0, { [_jN]: _bS }], [5, { [_jN]: _cr }], [0, { [_jN]: _dM }], [0, { [_jN]: _eT }], [0, { [_jN]: _hIT }]]
+  [_DM, _ET, _BA, _BIr, _BN, _BSr, _C, _HIT],
+  [[0, { [_jN]: _dM }], [0, { [_jN]: _eT }], [0, { [_jN]: _bA }], [0, { [_jN]: _bI }], [0, { [_jN]: _bN }], [0, { [_jN]: _bS }], [5, { [_jN]: _cr }], [0, { [_jN]: _hIT }]], 2
 ];
 export var Configuration$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_A, _AS, _C, _D, _ET, _EVn, _I, _LR, _N, _T],
-  [[0, { [_jN]: _a }], [0, { [_jN]: _aS }], [5, { [_jN]: _cr }], [0, { [_jN]: _d }], [0, { [_jN]: _eT }], [0, { [_jN]: _eVn }], [0, { [_jN]: _i }], [() => ConfigurationRevision$, { [_jN]: _lR }], [0, { [_jN]: _n }], [128 | 0, { [_jN]: _t }]]
+  [[0, { [_jN]: _a }], [0, { [_jN]: _aS }], [5, { [_jN]: _cr }], [0, { [_jN]: _d }], [0, { [_jN]: _eT }], [0, { [_jN]: _eVn }], [0, { [_jN]: _i }], [() => ConfigurationRevision$, { [_jN]: _lR }], [0, { [_jN]: _n }], [128 | 0, { [_jN]: _t }]], 9
 ];
 export var ConfigurationId$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_I, _R],
-  [[0, { [_jN]: _i }], [1, { [_jN]: _r }]]
+  [[0, { [_jN]: _i }], [1, { [_jN]: _r }]], 1
 ];
 export var ConfigurationRevision$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_C, _D, _R],
-  [[5, { [_jN]: _cr }], [0, { [_jN]: _d }], [1, { [_jN]: _r }]]
+  [_C, _R, _D],
+  [[5, { [_jN]: _cr }], [1, { [_jN]: _r }], [0, { [_jN]: _d }]], 2
 ];
 export var Configurations$: StaticStructureSchema = [3, n0, _Con,
   0,
@@ -399,8 +399,8 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateBrokerRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_AS, _AMVU, _BN, _Co, _CRI, _DM, _EO, _ET, _EVn, _HIT, _LSM, _L, _MWST, _PA, _SG, _ST, _SI, _T, _U, _DRM, _DRPBA],
-  [[0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [0, { [_jN]: _bN }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_iT]: 1, [_jN]: _cRI }], [0, { [_jN]: _dM }], [() => EncryptionOptions$, { [_jN]: _eO }], [0, { [_jN]: _eT }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataInput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [2, { [_jN]: _pA }], [64 | 0, { [_jN]: _sG }], [0, { [_jN]: _sT }], [64 | 0, { [_jN]: _sI }], [128 | 0, { [_jN]: _t }], [() => __listOfUser, { [_jN]: _u }], [0, { [_jN]: _dRM }], [0, { [_jN]: _dRPBA }]]
+  [_BN, _DM, _ET, _HIT, _PA, _AS, _AMVU, _Co, _CRI, _EO, _EVn, _LSM, _L, _MWST, _SG, _ST, _SI, _T, _U, _DRM, _DRPBA],
+  [[0, { [_jN]: _bN }], [0, { [_jN]: _dM }], [0, { [_jN]: _eT }], [0, { [_jN]: _hIT }], [2, { [_jN]: _pA }], [0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_iT]: 1, [_jN]: _cRI }], [() => EncryptionOptions$, { [_jN]: _eO }], [0, { [_jN]: _eVn }], [() => LdapServerMetadataInput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _sG }], [0, { [_jN]: _sT }], [64 | 0, { [_jN]: _sI }], [128 | 0, { [_jN]: _t }], [() => __listOfUser, { [_jN]: _u }], [0, { [_jN]: _dRM }], [0, { [_jN]: _dRPBA }]], 5
 ];
 export var CreateBrokerResponse$: StaticStructureSchema = [3, n0, _CBRr,
   0,
@@ -409,8 +409,8 @@ export var CreateBrokerResponse$: StaticStructureSchema = [3, n0, _CBRr,
 ];
 export var CreateConfigurationRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_AS, _ET, _EVn, _N, _T],
-  [[0, { [_jN]: _aS }], [0, { [_jN]: _eT }], [0, { [_jN]: _eVn }], [0, { [_jN]: _n }], [128 | 0, { [_jN]: _t }]]
+  [_ET, _N, _AS, _EVn, _T],
+  [[0, { [_jN]: _eT }], [0, { [_jN]: _n }], [0, { [_jN]: _aS }], [0, { [_jN]: _eVn }], [128 | 0, { [_jN]: _t }]], 2
 ];
 export var CreateConfigurationResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -420,12 +420,12 @@ export var CreateConfigurationResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateTagsRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
   [_RA, _T],
-  [[0, 1], [128 | 0, { [_jN]: _t }]]
+  [[0, 1], [128 | 0, { [_jN]: _t }]], 1
 ];
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
-  [_BIr, _CA, _G, _Pa, _Us, _RU],
-  [[0, 1], [2, { [_jN]: _cA }], [64 | 0, { [_jN]: _g }], [0, { [_jN]: _pa }], [0, 1], [2, { [_jN]: _rU }]]
+  [_BIr, _Pa, _Us, _CA, _G, _RU],
+  [[0, 1], [0, { [_jN]: _pa }], [0, 1], [2, { [_jN]: _cA }], [64 | 0, { [_jN]: _g }], [2, { [_jN]: _rU }]], 3
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   0,
@@ -435,17 +435,17 @@ export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
 export var DataReplicationCounterpart$: StaticStructureSchema = [3, n0, _DRC,
   0,
   [_BIr, _Re],
-  [[0, { [_jN]: _bI }], [0, { [_jN]: _re }]]
+  [[0, { [_jN]: _bI }], [0, { [_jN]: _re }]], 2
 ];
 export var DataReplicationMetadataOutput$: StaticStructureSchema = [3, n0, _DRMO,
   0,
-  [_DRC, _DRR],
-  [[() => DataReplicationCounterpart$, { [_jN]: _dRC }], [0, { [_jN]: _dRR }]]
+  [_DRR, _DRC],
+  [[0, { [_jN]: _dRR }], [() => DataReplicationCounterpart$, { [_jN]: _dRC }]], 1
 ];
 export var DeleteBrokerRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
   [_BIr],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteBrokerResponse$: StaticStructureSchema = [3, n0, _DBRe,
   0,
@@ -455,7 +455,7 @@ export var DeleteBrokerResponse$: StaticStructureSchema = [3, n0, _DBRe,
 export var DeleteConfigurationRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -465,12 +465,12 @@ export var DeleteConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRe,
 export var DeleteTagsRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_BIr, _Us],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteUserResponse$: StaticStructureSchema = [3, n0, _DURe,
   0,
@@ -500,7 +500,7 @@ export var DescribeBrokerInstanceOptionsResponse$: StaticStructureSchema = [3, n
 export var DescribeBrokerRequest$: StaticStructureSchema = [3, n0, _DBRes,
   0,
   [_BIr],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeBrokerResponse$: StaticStructureSchema = [3, n0, _DBResc,
   0,
@@ -510,7 +510,7 @@ export var DescribeBrokerResponse$: StaticStructureSchema = [3, n0, _DBResc,
 export var DescribeConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
   [_CI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DescribeConfigurationResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
@@ -520,7 +520,7 @@ export var DescribeConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRe
 export var DescribeConfigurationRevisionRequest$: StaticStructureSchema = [3, n0, _DCRR,
   0,
   [_CI, _CR],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeConfigurationRevisionResponse$: StaticStructureSchema = [3, n0, _DCRRe,
   0,
@@ -530,7 +530,7 @@ export var DescribeConfigurationRevisionResponse$: StaticStructureSchema = [3, n
 export var DescribeUserRequest$: StaticStructureSchema = [3, n0, _DURes,
   0,
   [_BIr, _Us],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DescribeUserResponse$: StaticStructureSchema = [3, n0, _DUResc,
   0,
@@ -539,8 +539,8 @@ export var DescribeUserResponse$: StaticStructureSchema = [3, n0, _DUResc,
 ];
 export var EncryptionOptions$: StaticStructureSchema = [3, n0, _EO,
   0,
-  [_KKI, _UAOK],
-  [[0, { [_jN]: _kKI }], [2, { [_jN]: _uAOK }]]
+  [_UAOK, _KKI],
+  [[2, { [_jN]: _uAOK }], [0, { [_jN]: _kKI }]], 1
 ];
 export var EngineVersion$: StaticStructureSchema = [3, n0, _EVn,
   0,
@@ -561,13 +561,13 @@ export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
 TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var LdapServerMetadataInput$: StaticStructureSchema = [3, n0, _LSMI,
   0,
-  [_Ho, _RB, _RN, _RSM, _RSS, _SAP, _SAU, _UB, _URN, _USM, _USS],
-  [[64 | 0, { [_jN]: _ho }], [0, { [_jN]: _rB }], [0, { [_jN]: _rN }], [0, { [_jN]: _rSM }], [2, { [_jN]: _rSS }], [0, { [_jN]: _sAP }], [0, { [_jN]: _sAU }], [0, { [_jN]: _uB }], [0, { [_jN]: _uRN }], [0, { [_jN]: _uSM }], [2, { [_jN]: _uSS }]]
+  [_Ho, _RB, _RSM, _SAP, _SAU, _UB, _USM, _RN, _RSS, _URN, _USS],
+  [[64 | 0, { [_jN]: _ho }], [0, { [_jN]: _rB }], [0, { [_jN]: _rSM }], [0, { [_jN]: _sAP }], [0, { [_jN]: _sAU }], [0, { [_jN]: _uB }], [0, { [_jN]: _uSM }], [0, { [_jN]: _rN }], [2, { [_jN]: _rSS }], [0, { [_jN]: _uRN }], [2, { [_jN]: _uSS }]], 7
 ];
 export var LdapServerMetadataOutput$: StaticStructureSchema = [3, n0, _LSMO,
   0,
-  [_Ho, _RB, _RN, _RSM, _RSS, _SAU, _UB, _URN, _USM, _USS],
-  [[64 | 0, { [_jN]: _ho }], [0, { [_jN]: _rB }], [0, { [_jN]: _rN }], [0, { [_jN]: _rSM }], [2, { [_jN]: _rSS }], [0, { [_jN]: _sAU }], [0, { [_jN]: _uB }], [0, { [_jN]: _uRN }], [0, { [_jN]: _uSM }], [2, { [_jN]: _uSS }]]
+  [_Ho, _RB, _RSM, _SAU, _UB, _USM, _RN, _RSS, _URN, _USS],
+  [[64 | 0, { [_jN]: _ho }], [0, { [_jN]: _rB }], [0, { [_jN]: _rSM }], [0, { [_jN]: _sAU }], [0, { [_jN]: _uB }], [0, { [_jN]: _uSM }], [0, { [_jN]: _rN }], [2, { [_jN]: _rSS }], [0, { [_jN]: _uRN }], [2, { [_jN]: _uSS }]], 6
 ];
 export var ListBrokersRequest$: StaticStructureSchema = [3, n0, _LBR,
   0,
@@ -582,7 +582,7 @@ export var ListBrokersResponse$: StaticStructureSchema = [3, n0, _LBRi,
 export var ListConfigurationRevisionsRequest$: StaticStructureSchema = [3, n0, _LCRR,
   0,
   [_CI, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListConfigurationRevisionsResponse$: StaticStructureSchema = [3, n0, _LCRRi,
   0,
@@ -602,7 +602,7 @@ export var ListConfigurationsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 export var ListTagsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -612,7 +612,7 @@ export var ListTagsResponse$: StaticStructureSchema = [3, n0, _LTRi,
 export var ListUsersRequest$: StaticStructureSchema = [3, n0, _LUR,
   0,
   [_BIr, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
   0,
@@ -626,8 +626,8 @@ export var Logs$: StaticStructureSchema = [3, n0, _L,
 ];
 export var LogsSummary$: StaticStructureSchema = [3, n0, _LS,
   0,
-  [_Au, _ALG, _Ge, _GLG, _P],
-  [[2, { [_jN]: _au }], [0, { [_jN]: _aLG }], [2, { [_jN]: _ge }], [0, { [_jN]: _gLG }], [() => PendingLogs$, { [_jN]: _p }]]
+  [_Ge, _GLG, _Au, _ALG, _P],
+  [[2, { [_jN]: _ge }], [0, { [_jN]: _gLG }], [2, { [_jN]: _au }], [0, { [_jN]: _aLG }], [() => PendingLogs$, { [_jN]: _p }]], 2
 ];
 export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
   { [_e]: _c, [_hE]: 404 },
@@ -643,7 +643,7 @@ export var PendingLogs$: StaticStructureSchema = [3, n0, _PL,
 export var PromoteRequest$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_BIr, _Mo],
-  [[0, 1], [0, { [_jN]: _mo }]]
+  [[0, 1], [0, { [_jN]: _mo }]], 2
 ];
 export var PromoteResponse$: StaticStructureSchema = [3, n0, _PRr,
   0,
@@ -653,7 +653,7 @@ export var PromoteResponse$: StaticStructureSchema = [3, n0, _PRr,
 export var RebootBrokerRequest$: StaticStructureSchema = [3, n0, _RBR,
   0,
   [_BIr],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var RebootBrokerResponse$: StaticStructureSchema = [3, n0, _RBRe,
   0,
@@ -662,8 +662,8 @@ export var RebootBrokerResponse$: StaticStructureSchema = [3, n0, _RBRe,
 ];
 export var SanitizationWarning$: StaticStructureSchema = [3, n0, _SW,
   0,
-  [_AN, _EN, _Rea],
-  [[0, { [_jN]: _aN }], [0, { [_jN]: _eN }], [0, { [_jN]: _rea }]]
+  [_Rea, _AN, _EN],
+  [[0, { [_jN]: _rea }], [0, { [_jN]: _aN }], [0, { [_jN]: _eN }]], 1
 ];
 export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
   { [_e]: _c, [_hE]: 401 },
@@ -673,8 +673,8 @@ export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
 TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UpdateBrokerRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
-  [_AS, _AMVU, _BIr, _Co, _EVn, _HIT, _LSM, _L, _MWST, _SG, _DRM],
-  [[0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [0, 1], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataInput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _sG }], [0, { [_jN]: _dRM }]]
+  [_BIr, _AS, _AMVU, _Co, _EVn, _HIT, _LSM, _L, _MWST, _SG, _DRM],
+  [[0, 1], [0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataInput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _sG }], [0, { [_jN]: _dRM }]], 1
 ];
 export var UpdateBrokerResponse$: StaticStructureSchema = [3, n0, _UBRp,
   0,
@@ -684,7 +684,7 @@ export var UpdateBrokerResponse$: StaticStructureSchema = [3, n0, _UBRp,
 export var UpdateConfigurationRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_CI, _Da, _D],
-  [[0, 1], [0, { [_jN]: _da }], [0, { [_jN]: _d }]]
+  [[0, 1], [0, { [_jN]: _da }], [0, { [_jN]: _d }]], 2
 ];
 export var UpdateConfigurationResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -693,8 +693,8 @@ export var UpdateConfigurationResponse$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
-  [_BIr, _CA, _G, _Pa, _Us, _RU],
-  [[0, 1], [2, { [_jN]: _cA }], [64 | 0, { [_jN]: _g }], [0, { [_jN]: _pa }], [0, 1], [2, { [_jN]: _rU }]]
+  [_BIr, _Us, _CA, _G, _Pa, _RU],
+  [[0, 1], [0, 1], [2, { [_jN]: _cA }], [64 | 0, { [_jN]: _g }], [0, { [_jN]: _pa }], [2, { [_jN]: _rU }]], 2
 ];
 export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
   0,
@@ -703,23 +703,23 @@ export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
 ];
 export var User$: StaticStructureSchema = [3, n0, _Use,
   0,
-  [_CA, _G, _Pa, _Us, _RU],
-  [[2, { [_jN]: _cA }], [64 | 0, { [_jN]: _g }], [0, { [_jN]: _pa }], [0, { [_jN]: _us }], [2, { [_jN]: _rU }]]
+  [_Pa, _Us, _CA, _G, _RU],
+  [[0, { [_jN]: _pa }], [0, { [_jN]: _us }], [2, { [_jN]: _cA }], [64 | 0, { [_jN]: _g }], [2, { [_jN]: _rU }]], 2
 ];
 export var UserPendingChanges$: StaticStructureSchema = [3, n0, _UPC,
   0,
-  [_CA, _G, _PC],
-  [[2, { [_jN]: _cA }], [64 | 0, { [_jN]: _g }], [0, { [_jN]: _pC }]]
+  [_PC, _CA, _G],
+  [[0, { [_jN]: _pC }], [2, { [_jN]: _cA }], [64 | 0, { [_jN]: _g }]], 1
 ];
 export var UserSummary$: StaticStructureSchema = [3, n0, _US,
   0,
-  [_PC, _Us],
-  [[0, { [_jN]: _pC }], [0, { [_jN]: _us }]]
+  [_Us, _PC],
+  [[0, { [_jN]: _us }], [0, { [_jN]: _pC }]], 1
 ];
 export var WeeklyStartTime$: StaticStructureSchema = [3, n0, _WST,
   0,
   [_DOW, _TOD, _TZ],
-  [[0, { [_jN]: _dOW }], [0, { [_jN]: _tOD }], [0, { [_jN]: _tZ }]]
+  [[0, { [_jN]: _dOW }], [0, { [_jN]: _tOD }], [0, { [_jN]: _tZ }]], 2
 ];
 var __Unit = "unit" as const;
 export var MqServiceException$: StaticErrorSchema = [-3, _sm, "MqServiceException", 0, [], []];

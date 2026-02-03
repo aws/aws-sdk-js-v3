@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   DeleteLexiconCommand,
@@ -39,6 +39,7 @@ import {
   SynthesizeSpeechCommandInput,
   SynthesizeSpeechCommandOutput,
 } from "./commands/SynthesizeSpeechCommand";
+import { paginateListSpeechSynthesisTasks } from "./pagination/ListSpeechSynthesisTasksPaginator";
 import { PollyClient } from "./PollyClient";
 
 const commands = {
@@ -51,6 +52,9 @@ const commands = {
   PutLexiconCommand,
   StartSpeechSynthesisTaskCommand,
   SynthesizeSpeechCommand,
+};
+const paginators = {
+  paginateListSpeechSynthesisTasks,
 };
 
 export interface Polly {
@@ -209,6 +213,17 @@ export interface Polly {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SynthesizeSpeechCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListSpeechSynthesisTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSpeechSynthesisTasksCommandOutput}.
+   */
+  paginateListSpeechSynthesisTasks(
+    args?: ListSpeechSynthesisTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSpeechSynthesisTasksCommandOutput>;
 }
 
 /**
@@ -221,4 +236,4 @@ export interface Polly {
  * @public
  */
 export class Polly extends PollyClient implements Polly {}
-createAggregatedClient(commands, Polly);
+createAggregatedClient(commands, Polly, { paginators });

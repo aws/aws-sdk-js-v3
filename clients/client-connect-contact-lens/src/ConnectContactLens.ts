@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   ListRealtimeContactAnalysisSegmentsCommand,
@@ -8,9 +8,13 @@ import {
   ListRealtimeContactAnalysisSegmentsCommandOutput,
 } from "./commands/ListRealtimeContactAnalysisSegmentsCommand";
 import { ConnectContactLensClient } from "./ConnectContactLensClient";
+import { paginateListRealtimeContactAnalysisSegments } from "./pagination/ListRealtimeContactAnalysisSegmentsPaginator";
 
 const commands = {
   ListRealtimeContactAnalysisSegmentsCommand,
+};
+const paginators = {
+  paginateListRealtimeContactAnalysisSegments,
 };
 
 export interface ConnectContactLens {
@@ -30,6 +34,17 @@ export interface ConnectContactLens {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRealtimeContactAnalysisSegmentsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListRealtimeContactAnalysisSegmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRealtimeContactAnalysisSegmentsCommandOutput}.
+   */
+  paginateListRealtimeContactAnalysisSegments(
+    args: ListRealtimeContactAnalysisSegmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRealtimeContactAnalysisSegmentsCommandOutput>;
 }
 
 /**
@@ -56,4 +71,4 @@ export interface ConnectContactLens {
  * @public
  */
 export class ConnectContactLens extends ConnectContactLensClient implements ConnectContactLens {}
-createAggregatedClient(commands, ConnectContactLens);
+createAggregatedClient(commands, ConnectContactLens, { paginators });

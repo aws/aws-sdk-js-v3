@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AddKeyReplicationRegionsCommand,
@@ -80,6 +80,9 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
+import { paginateListAliases } from "./pagination/ListAliasesPaginator";
+import { paginateListKeys } from "./pagination/ListKeysPaginator";
+import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 import { PaymentCryptographyClient } from "./PaymentCryptographyClient";
 
 const commands = {
@@ -109,6 +112,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAliasCommand,
+};
+const paginators = {
+  paginateListAliases,
+  paginateListKeys,
+  paginateListTagsForResource,
 };
 
 export interface PaymentCryptography {
@@ -556,6 +564,39 @@ export interface PaymentCryptography {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAliasCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAliasesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAliasesCommandOutput}.
+   */
+  paginateListAliases(
+    args?: ListAliasesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAliasesCommandOutput>;
+
+  /**
+   * @see {@link ListKeysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKeysCommandOutput}.
+   */
+  paginateListKeys(
+    args?: ListKeysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKeysCommandOutput>;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTagsForResourceCommandOutput}.
+   */
+  paginateListTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTagsForResourceCommandOutput>;
 }
 
 /**
@@ -563,4 +604,4 @@ export interface PaymentCryptography {
  * @public
  */
 export class PaymentCryptography extends PaymentCryptographyClient implements PaymentCryptography {}
-createAggregatedClient(commands, PaymentCryptography);
+createAggregatedClient(commands, PaymentCryptography, { paginators });

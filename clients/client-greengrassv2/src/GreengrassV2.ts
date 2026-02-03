@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
   AssociateServiceRoleToAccountCommand,
@@ -144,6 +144,15 @@ import {
   UpdateConnectivityInfoCommandOutput,
 } from "./commands/UpdateConnectivityInfoCommand";
 import { GreengrassV2Client } from "./GreengrassV2Client";
+import {
+  paginateListClientDevicesAssociatedWithCoreDevice,
+} from "./pagination/ListClientDevicesAssociatedWithCoreDevicePaginator";
+import { paginateListComponents } from "./pagination/ListComponentsPaginator";
+import { paginateListComponentVersions } from "./pagination/ListComponentVersionsPaginator";
+import { paginateListCoreDevices } from "./pagination/ListCoreDevicesPaginator";
+import { paginateListDeployments } from "./pagination/ListDeploymentsPaginator";
+import { paginateListEffectiveDeployments } from "./pagination/ListEffectiveDeploymentsPaginator";
+import { paginateListInstalledComponents } from "./pagination/ListInstalledComponentsPaginator";
 
 const commands = {
   AssociateServiceRoleToAccountCommand,
@@ -175,6 +184,15 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConnectivityInfoCommand,
+};
+const paginators = {
+  paginateListClientDevicesAssociatedWithCoreDevice,
+  paginateListComponents,
+  paginateListComponentVersions,
+  paginateListCoreDevices,
+  paginateListDeployments,
+  paginateListEffectiveDeployments,
+  paginateListInstalledComponents,
 };
 
 export interface GreengrassV2 {
@@ -677,6 +695,83 @@ export interface GreengrassV2 {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateConnectivityInfoCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListClientDevicesAssociatedWithCoreDeviceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListClientDevicesAssociatedWithCoreDeviceCommandOutput}.
+   */
+  paginateListClientDevicesAssociatedWithCoreDevice(
+    args: ListClientDevicesAssociatedWithCoreDeviceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListClientDevicesAssociatedWithCoreDeviceCommandOutput>;
+
+  /**
+   * @see {@link ListComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentsCommandOutput}.
+   */
+  paginateListComponents(
+    args?: ListComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentsCommandOutput>;
+
+  /**
+   * @see {@link ListComponentVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComponentVersionsCommandOutput}.
+   */
+  paginateListComponentVersions(
+    args: ListComponentVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComponentVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListCoreDevicesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCoreDevicesCommandOutput}.
+   */
+  paginateListCoreDevices(
+    args?: ListCoreDevicesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCoreDevicesCommandOutput>;
+
+  /**
+   * @see {@link ListDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDeploymentsCommandOutput}.
+   */
+  paginateListDeployments(
+    args?: ListDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link ListEffectiveDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEffectiveDeploymentsCommandOutput}.
+   */
+  paginateListEffectiveDeployments(
+    args: ListEffectiveDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEffectiveDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link ListInstalledComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInstalledComponentsCommandOutput}.
+   */
+  paginateListInstalledComponents(
+    args: ListInstalledComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInstalledComponentsCommandOutput>;
 }
 
 /**
@@ -694,4 +789,4 @@ export interface GreengrassV2 {
  * @public
  */
 export class GreengrassV2 extends GreengrassV2Client implements GreengrassV2 {}
-createAggregatedClient(commands, GreengrassV2);
+createAggregatedClient(commands, GreengrassV2, { paginators });

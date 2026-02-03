@@ -121,7 +121,7 @@ import {
 export var DeregisterSubscriptionProviderRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_SPA],
-  [0]
+  [0], 1
 ];
 export var DeregisterSubscriptionProviderResponse$: StaticStructureSchema = [3, n0, _DSPRe,
   0,
@@ -136,7 +136,7 @@ export var Filter$: StaticStructureSchema = [3, n0, _F,
 export var GetRegisteredSubscriptionProviderRequest$: StaticStructureSchema = [3, n0, _GRSPR,
   0,
   [_SPA],
-  [0]
+  [0], 1
 ];
 export var GetRegisteredSubscriptionProviderResponse$: StaticStructureSchema = [3, n0, _GRSPRe,
   0,
@@ -167,7 +167,7 @@ TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerExcep
 export var LinuxSubscriptionsDiscoverySettings$: StaticStructureSchema = [3, n0, _LSDS,
   0,
   [_SR, _OI],
-  [64 | 0, 0]
+  [64 | 0, 0], 2
 ];
 export var ListLinuxSubscriptionInstancesRequest$: StaticStructureSchema = [3, n0, _LLSIR,
   0,
@@ -202,7 +202,7 @@ export var ListRegisteredSubscriptionProvidersResponse$: StaticStructureSchema =
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -217,7 +217,7 @@ export var RegisteredSubscriptionProvider$: StaticStructureSchema = [3, n0, _RSP
 export var RegisterSubscriptionProviderRequest$: StaticStructureSchema = [3, n0, _RSPR,
   0,
   [_SPS, _SA, _T],
-  [0, 0, [() => Tags, 0]]
+  [0, 0, [() => Tags, 0]], 2
 ];
 export var RegisterSubscriptionProviderResponse$: StaticStructureSchema = [3, n0, _RSPRe,
   0,
@@ -238,7 +238,7 @@ export var Subscription$: StaticStructureSchema = [3, n0, _Sub,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
-  [[0, 1], [() => Tags, 0]]
+  [[0, 1], [() => Tags, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -254,7 +254,7 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
-  [[0, 1], [() => TagKeyList, { [_hQ]: _tK }]]
+  [[0, 1], [() => TagKeyList, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -264,7 +264,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateServiceSettingsRequest$: StaticStructureSchema = [3, n0, _USSR,
   0,
   [_LSD, _LSDS, _AU],
-  [0, () => LinuxSubscriptionsDiscoverySettings$, 2]
+  [0, () => LinuxSubscriptionsDiscoverySettings$, 2], 2
 ];
 export var UpdateServiceSettingsResponse$: StaticStructureSchema = [3, n0, _USSRp,
   0,

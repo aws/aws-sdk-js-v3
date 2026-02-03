@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BedrockAgentCoreClient } from "./BedrockAgentCoreClient";
 import {
@@ -154,6 +154,12 @@ import {
   UpdateBrowserStreamCommandInput,
   UpdateBrowserStreamCommandOutput,
 } from "./commands/UpdateBrowserStreamCommand";
+import { paginateListActors } from "./pagination/ListActorsPaginator";
+import { paginateListEvents } from "./pagination/ListEventsPaginator";
+import { paginateListMemoryExtractionJobs } from "./pagination/ListMemoryExtractionJobsPaginator";
+import { paginateListMemoryRecords } from "./pagination/ListMemoryRecordsPaginator";
+import { paginateListSessions } from "./pagination/ListSessionsPaginator";
+import { paginateRetrieveMemoryRecords } from "./pagination/RetrieveMemoryRecordsPaginator";
 
 const commands = {
   BatchCreateMemoryRecordsCommand,
@@ -191,6 +197,14 @@ const commands = {
   StopCodeInterpreterSessionCommand,
   StopRuntimeSessionCommand,
   UpdateBrowserStreamCommand,
+};
+const paginators = {
+  paginateListActors,
+  paginateListEvents,
+  paginateListMemoryExtractionJobs,
+  paginateListMemoryRecords,
+  paginateListSessions,
+  paginateRetrieveMemoryRecords,
 };
 
 export interface BedrockAgentCore {
@@ -788,6 +802,72 @@ export interface BedrockAgentCore {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateBrowserStreamCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListActorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActorsCommandOutput}.
+   */
+  paginateListActors(
+    args: ListActorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActorsCommandOutput>;
+
+  /**
+   * @see {@link ListEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEventsCommandOutput}.
+   */
+  paginateListEvents(
+    args: ListEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEventsCommandOutput>;
+
+  /**
+   * @see {@link ListMemoryExtractionJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMemoryExtractionJobsCommandOutput}.
+   */
+  paginateListMemoryExtractionJobs(
+    args: ListMemoryExtractionJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMemoryExtractionJobsCommandOutput>;
+
+  /**
+   * @see {@link ListMemoryRecordsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMemoryRecordsCommandOutput}.
+   */
+  paginateListMemoryRecords(
+    args: ListMemoryRecordsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMemoryRecordsCommandOutput>;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionsCommandOutput}.
+   */
+  paginateListSessions(
+    args: ListSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionsCommandOutput>;
+
+  /**
+   * @see {@link RetrieveMemoryRecordsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link RetrieveMemoryRecordsCommandOutput}.
+   */
+  paginateRetrieveMemoryRecords(
+    args: RetrieveMemoryRecordsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<RetrieveMemoryRecordsCommandOutput>;
 }
 
 /**
@@ -795,4 +875,4 @@ export interface BedrockAgentCore {
  * @public
  */
 export class BedrockAgentCore extends BedrockAgentCoreClient implements BedrockAgentCore {}
-createAggregatedClient(commands, BedrockAgentCore);
+createAggregatedClient(commands, BedrockAgentCore, { paginators });

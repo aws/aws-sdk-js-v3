@@ -28,20 +28,7 @@ export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
 export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
- *          <p>If you create an Aurora DB cluster, the request creates an empty cluster. You must
- *             explicitly create the writer instance for your DB cluster using the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a> operation. If you create a Multi-AZ DB cluster, the
- *             request creates a writer and two reader DB instances for you, each in a different
- *             Availability Zone.</p>
- *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
- *             Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL or
- *             PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What is Amazon Aurora?</a> in the <i>Amazon Aurora User
- *             Guide</i>.</p>
- *          <p>You can also use the <code>ReplicationSourceIdentifier</code> parameter to create a
- *             Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the
- *             source. For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB
- *                 cluster deployments</a> in the <i>Amazon RDS User
- *             Guide</i>.</p>
+ * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p> <p>If you create an Aurora DB cluster, the request creates an empty cluster. You must explicitly create the writer instance for your DB cluster using the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a> operation. If you create a Multi-AZ DB cluster, the request creates a writer and two reader DB instances for you, each in a different Availability Zone.</p> <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL or PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>You can also use the <code>ReplicationSourceIdentifier</code> parameter to create a Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the source. For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -356,44 +343,34 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *  <p>The user already has a DB cluster with the given identifier.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link DBClusterParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB
- *             cluster parameter group.</p>
+ *  <p> <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster parameter group.</p>
  *
  * @throws {@link DBClusterQuotaExceededFault} (client fault)
- *  <p>The user attempted to create a new DB cluster and the user has already reached the
- *             maximum allowed DB cluster quota.</p>
+ *  <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
  * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
  *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
  *
  * @throws {@link DomainNotFoundFault} (client fault)
- *  <p>
- *             <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+ *  <p> <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified DB instance class isn't available in the specified Availability
- *             Zone.</p>
+ *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
  *
  * @throws {@link InsufficientStorageClusterCapacityFault} (client fault)
- *  <p>There is insufficient storage available for the current action. You might be able to
- *             resolve this error by updating your subnet group to use different Availability Zones
- *             that have more storage available.</p>
+ *  <p>There is insufficient storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.</p>
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
  *  <p>The requested operation can't be performed while the cluster is in this state.</p>
@@ -402,8 +379,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *  <p>The DB instance isn't in a valid state.</p>
  *
  * @throws {@link InvalidDBSubnetGroupFault} (client fault)
- *  <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing
- *             cross-region read replica of the same source instance.</p>
+ *  <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing cross-region read replica of the same source instance.</p>
  *
  * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
  *  <p>The DB subnet group cannot be deleted because it's in use.</p>
@@ -415,8 +391,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The DB subnet group doesn't cover all Availability Zones after it's
- *             created because of users' change.</p>
+ *  <p>The DB subnet group doesn't cover all Availability Zones after it's created because of users' change.</p>
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
@@ -428,16 +403,13 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *  <p>The specified option group could not be found.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed amount of storage
- *             available across all DB instances.</p>
+ *  <p>The request would result in the user exceeding the allowed amount of storage available across all DB instances.</p>
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
  *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
  *
  * @throws {@link VpcEncryptionControlViolationException} (client fault)
- *  <p>The operation violates VPC encryption control settings. Make sure that your DB
- *             instance type supports the Nitro encryption-in-transit capability,
- *             or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
+ *  <p>The operation violates VPC encryption control settings. Make sure that your DB instance type supports the Nitro encryption-in-transit capability, or modify your VPC's encryption controls to not enforce encryption-in-transit.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>

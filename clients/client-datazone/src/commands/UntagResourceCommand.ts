@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UntagResourceRequest, UntagResourceResponse } from "../models/models_1";
+import type { UntagResourceRequest, UntagResourceResponse } from "../models/models_2";
 import { UntagResource$ } from "../schemas/schemas_0";
 
 /**

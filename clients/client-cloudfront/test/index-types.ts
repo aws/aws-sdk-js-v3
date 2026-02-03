@@ -924,6 +924,7 @@ export type {
   OriginGroupMember,
   OriginGroupMembers,
   OriginGroups,
+  OriginMtlsConfig,
   OriginRequestPolicy,
   OriginRequestPolicyConfig,
   OriginRequestPolicyCookiesConfig,

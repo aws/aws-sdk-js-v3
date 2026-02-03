@@ -179,6 +179,23 @@ import {
 /**
  * @public
  */
+export interface GetInstanceUefiDataResult {
+  /**
+   * <p>The ID of the instance from which to retrieve the UEFI data.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>Base64 representation of the non-volatile UEFI variable store.</p>
+   * @public
+   */
+  UefiData?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetIpamAddressHistoryRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -1033,7 +1050,8 @@ export interface GetIpamPolicyOrganizationTargetsRequest {
  */
 export interface IpamPolicyOrganizationTarget {
   /**
-   * <p>The ID of a Amazon Web Services Organizations target for an IPAM policy.</p>
+   * <p>The ID of the Amazon Web Services Organizations target.</p>
+   *          <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
    * @public
    */
   OrganizationTargetId?: string | undefined;
@@ -1044,7 +1062,8 @@ export interface IpamPolicyOrganizationTarget {
  */
 export interface GetIpamPolicyOrganizationTargetsResult {
   /**
-   * <p>The Amazon Web Services Organizations targets for an IPAM policy.</p>
+   * <p>The IDs of the Amazon Web Services Organizations targets.</p>
+   *          <p>A target can be an individual Amazon Web Services account or an entity within an Amazon Web Services Organization to which an IPAM policy can be applied.</p>
    * @public
    */
   OrganizationTargets?: IpamPolicyOrganizationTarget[] | undefined;
@@ -10132,54 +10151,6 @@ export interface ModifyVerifiedAccessNativeApplicationOidcOptions {
 
   /**
    * <p>The set of user claims to be requested from the IdP.</p>
-   * @public
-   */
-  Scope?: string | undefined;
-}
-
-/**
- * <p>Options for an OpenID Connect-compatible user-identity trust provider.</p>
- * @public
- */
-export interface ModifyVerifiedAccessTrustProviderOidcOptions {
-  /**
-   * <p>The OIDC issuer.</p>
-   * @public
-   */
-  Issuer?: string | undefined;
-
-  /**
-   * <p>The OIDC authorization endpoint.</p>
-   * @public
-   */
-  AuthorizationEndpoint?: string | undefined;
-
-  /**
-   * <p>The OIDC token endpoint.</p>
-   * @public
-   */
-  TokenEndpoint?: string | undefined;
-
-  /**
-   * <p>The OIDC user info endpoint.</p>
-   * @public
-   */
-  UserInfoEndpoint?: string | undefined;
-
-  /**
-   * <p>The client identifier.</p>
-   * @public
-   */
-  ClientId?: string | undefined;
-
-  /**
-   * <p>The client secret.</p>
-   * @public
-   */
-  ClientSecret?: string | undefined;
-
-  /**
-   * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
    * @public
    */
   Scope?: string | undefined;

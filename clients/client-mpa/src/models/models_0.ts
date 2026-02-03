@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import {
   ActionCompletionStrategy,
+  AdditionalSecurityRequirement,
   ApprovalTeamStatus,
   ApprovalTeamStatusCode,
   FilterField,
@@ -8,6 +9,8 @@ import {
   IdentitySourceStatusCode,
   IdentitySourceType,
   IdentityStatus,
+  MfaSyncStatus,
+  MfaType,
   Operator,
   PolicyStatus,
   PolicyType,
@@ -15,6 +18,7 @@ import {
   SessionResponse,
   SessionStatus,
   SessionStatusCode,
+  UpdateAction,
 } from "./enums";
 
 /**
@@ -126,7 +130,7 @@ export interface ApprovalTeamRequestApprover {
 }
 
 /**
- * <p>Contains the Amazon Resource Name (ARN) for a policy. Policies define what operations a team that define the permissions for team resources.</p> <p>The protected operation for a service integration might require specific permissions. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How other services work with Multi-party approval</a> in the <i>Multi-party approval User Guide</i>.</p>
+ * <p>Contains the Amazon Resource Name (ARN) for a policy. Policies define what operations a team that define the permissions for team resources.</p>
  * @public
  */
 export interface PolicyReference {
@@ -166,7 +170,7 @@ export interface CreateApprovalTeamRequest {
   Description: string | undefined;
 
   /**
-   * <p>An array of <code>PolicyReference</code> objects. Contains a list of policies that define the permissions for team resources.</p> <p>The protected operation for a service integration might require specific permissions. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How other services work with Multi-party approval</a> in the <i>Multi-party approval User Guide</i>.</p>
+   * <p>An array of <code>PolicyReference</code> objects. Contains a list of policies that define the permissions for team resources.</p>
    * @public
    */
   Policies: PolicyReference[] | undefined;
@@ -247,6 +251,24 @@ export interface GetApprovalTeamRequest {
 }
 
 /**
+ * <p>MFA configuration and sycnronization status for an approver</p>
+ * @public
+ */
+export interface MfaMethod {
+  /**
+   * <p>The type of MFA configuration used by the approver</p>
+   * @public
+   */
+  Type: MfaType | undefined;
+
+  /**
+   * <p>Indicates if the approver's MFA device is in-sync with the Identity Source</p>
+   * @public
+   */
+  SyncStatus: MfaSyncStatus | undefined;
+}
+
+/**
  * <p>Contains details for an approver.</p>
  * @public
  */
@@ -280,6 +302,12 @@ export interface GetApprovalTeamResponseApprover {
    * @public
    */
   PrimaryIdentityStatus?: IdentityStatus | undefined;
+
+  /**
+   * <p>Multi-factor authentication configuration for the approver</p>
+   * @public
+   */
+  MfaMethods?: MfaMethod[] | undefined;
 }
 
 /**
@@ -419,7 +447,7 @@ export interface GetApprovalTeamResponse {
   VersionId?: string | undefined;
 
   /**
-   * <p>An array of <code>PolicyReference</code> objects. Contains a list of policies that define the permissions for team resources.</p> <p>The protected operation for a service integration might require specific permissions. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How other services work with Multi-party approval</a> in the <i>Multi-party approval User Guide</i>.</p>
+   * <p>An array of <code>PolicyReference</code> objects. Contains a list of policies that define the permissions for team resources.</p>
    * @public
    */
   Policies?: PolicyReference[] | undefined;
@@ -592,6 +620,12 @@ export interface UpdateApprovalTeamRequest {
    * @public
    */
   Arn: string | undefined;
+
+  /**
+   * <p>A list of <code>UpdateAction</code> to perform when updating the team.</p>
+   * @public
+   */
+  UpdateActions?: UpdateAction[] | undefined;
 }
 
 /**
@@ -617,7 +651,7 @@ export interface GetPolicyVersionRequest {
 }
 
 /**
- * <p>Contains details for the version of a policy. Policies define what operations a team that define the permissions for team resources.</p> <p>The protected operation for a service integration might require specific permissions. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How other services work with Multi-party approval</a> in the <i>Multi-party approval User Guide</i>.</p>
+ * <p>Contains details for the version of a policy. Policies define what operations a team that define the permissions for team resources.</p>
  * @public
  */
 export interface PolicyVersion {
@@ -658,7 +692,7 @@ export interface PolicyVersion {
   Name: string | undefined;
 
   /**
-   * <p>Status for the policy. For example, if the policy is <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html">attachable</a> or <a href="https://docs.aws.amazon.com/access_policies_managed-deprecated.html">deprecated</a>.</p>
+   * <p>Status for the policy. For example, if the policy is <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html">attachable</a> or <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-deprecated.html">deprecated</a>.</p>
    * @public
    */
   Status: PolicyStatus | undefined;
@@ -687,7 +721,7 @@ export interface PolicyVersion {
  */
 export interface GetPolicyVersionResponse {
   /**
-   * <p>A <code>PolicyVersion</code> object. Contains details for the version of the policy. Policies define the permissions for team resources.</p> <p>The protected operation for a service integration might require specific permissions. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How other services work with Multi-party approval</a> in the <i>Multi-party approval User Guide</i>.</p>
+   * <p>A <code>PolicyVersion</code> object. Contains details for the version of the policy. Policies define the permissions for team resources.</p>
    * @public
    */
   PolicyVersion: PolicyVersion | undefined;
@@ -1122,7 +1156,7 @@ export interface ListPoliciesRequest {
 }
 
 /**
- * <p>Contains details for a policy. Policies define what operations a team that define the permissions for team resources.</p> <p>The protected operation for a service integration might require specific permissions. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How other services work with Multi-party approval</a> in the <i>Multi-party approval User Guide</i>.</p>
+ * <p>Contains details for a policy. Policies define what operations a team that define the permissions for team resources.</p>
  * @public
  */
 export interface Policy {
@@ -1162,7 +1196,7 @@ export interface ListPoliciesResponse {
   NextToken?: string | undefined;
 
   /**
-   * <p>An array of <code>Policy</code> objects. Contains a list of policies that define the permissions for team resources.</p> <p>The protected operation for a service integration might require specific permissions. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How other services work with Multi-party approval</a> in the <i>Multi-party approval User Guide</i>.</p>
+   * <p>An array of <code>Policy</code> objects. Contains a list of policies that define the permissions for team resources.</p>
    * @public
    */
   Policies?: Policy[] | undefined;
@@ -1192,7 +1226,7 @@ export interface ListPolicyVersionsRequest {
 }
 
 /**
- * <p>Contains details for the version of a policy. Policies define what operations a team that define the permissions for team resources.</p> <p>The protected operation for a service integration might require specific permissions. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How other services work with Multi-party approval</a> in the <i>Multi-party approval User Guide</i>.</p>
+ * <p>Contains details for the version of a policy. Policies define what operations a team that define the permissions for team resources.</p>
  * @public
  */
 export interface PolicyVersionSummary {
@@ -1233,7 +1267,7 @@ export interface PolicyVersionSummary {
   Name: string | undefined;
 
   /**
-   * <p>Status for the policy. For example, if the policy is <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html">attachable</a> or <a href="https://docs.aws.amazon.com/access_policies_managed-deprecated.html">deprecated</a>.</p>
+   * <p>Status for the policy. For example, if the policy is <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html">attachable</a> or <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-deprecated.html">deprecated</a>.</p>
    * @public
    */
   Status: PolicyStatus | undefined;
@@ -1262,7 +1296,7 @@ export interface ListPolicyVersionsResponse {
   NextToken?: string | undefined;
 
   /**
-   * <p>An array of <code>PolicyVersionSummary</code> objects. Contains details for the version of the policies that define the permissions for team resources.</p> <p>The protected operation for a service integration might require specific permissions. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html">How other services work with Multi-party approval</a> in the <i>Multi-party approval User Guide</i>.</p>
+   * <p>An array of <code>PolicyVersionSummary</code> objects. Contains details for the version of the policies that define the permissions for team resources.</p>
    * @public
    */
   PolicyVersions?: PolicyVersionSummary[] | undefined;
@@ -1558,6 +1592,12 @@ export interface GetSessionResponse {
    * @public
    */
   ApproverResponses?: GetSessionResponseApproverResponse[] | undefined;
+
+  /**
+   * <p>A list of <code>AdditionalSecurityRequirement</code> applied to the session.</p>
+   * @public
+   */
+  AdditionalSecurityRequirements?: AdditionalSecurityRequirement[] | undefined;
 }
 
 /**
@@ -1719,6 +1759,12 @@ export interface ListSessionsResponseSession {
    * @public
    */
   ActionCompletionStrategy?: ActionCompletionStrategy | undefined;
+
+  /**
+   * <p>A list of <code>AdditionalSecurityRequirement</code> applied to the session.</p>
+   * @public
+   */
+  AdditionalSecurityRequirements?: AdditionalSecurityRequirement[] | undefined;
 }
 
 /**

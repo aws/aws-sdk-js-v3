@@ -630,27 +630,27 @@ var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
 export var AccessEndpoint$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_ET, _VI],
-  [0, 0]
+  [0, 0], 1
 ];
 export var AdminAppLicenseUsageRecord$: StaticStructureSchema = [3, n0, _AALUR,
   0,
   [_UA, _BP, _OAWSAI, _SFUD, _SLUD, _LT, _UI],
-  [0, 0, 0, 4, 4, 0, 0]
+  [0, 0, 0, 4, 4, 0, 0], 7
 ];
 export var AppBlock$: StaticStructureSchema = [3, n0, _AB,
   0,
   [_N, _A, _D, _DN, _SSL, _SSD, _CT, _PSSD, _PT, _S, _ABE],
-  [0, 0, 0, 0, () => S3Location$, () => ScriptDetails$, 4, () => ScriptDetails$, 0, 0, () => ErrorDetailsList]
+  [0, 0, 0, 0, () => S3Location$, () => ScriptDetails$, 4, () => ScriptDetails$, 0, 0, () => ErrorDetailsList], 2
 ];
 export var AppBlockBuilder$: StaticStructureSchema = [3, n0, _ABB,
   0,
-  [_A, _N, _DN, _D, _P, _IT, _EDIA, _IRA, _VC, _S, _CT, _ABBE, _SCR, _AEc],
-  [0, 0, 0, 0, 0, 0, 2, 0, () => VpcConfig$, 0, 4, () => ResourceErrors, () => AppBlockBuilderStateChangeReason$, () => AccessEndpointList]
+  [_A, _N, _P, _IT, _VC, _S, _DN, _D, _EDIA, _IRA, _CT, _ABBE, _SCR, _AEc],
+  [0, 0, 0, 0, () => VpcConfig$, 0, 0, 0, 2, 0, 4, () => ResourceErrors, () => AppBlockBuilderStateChangeReason$, () => AccessEndpointList], 6
 ];
 export var AppBlockBuilderAppBlockAssociation$: StaticStructureSchema = [3, n0, _ABBABA,
   0,
   [_ABA, _ABBN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AppBlockBuilderStateChangeReason$: StaticStructureSchema = [3, n0, _ABBSCR,
   0,
@@ -664,18 +664,18 @@ export var Application$: StaticStructureSchema = [3, n0, _Ap,
 ];
 export var ApplicationConfig$: StaticStructureSchema = [3, n0, _AC,
   8,
-  [_N, _DN, _AAP, _AIP, _AMP, _WD, _LP],
-  [0, 0, [() => FilePath, 0], [() => FilePath, 0], [() => FilePath, 0], [() => FilePath, 0], [() => LaunchParameters, 0]]
+  [_N, _AAP, _DN, _AIP, _AMP, _WD, _LP],
+  [0, [() => FilePath, 0], 0, [() => FilePath, 0], [() => FilePath, 0], [() => FilePath, 0], [() => LaunchParameters, 0]], 2
 ];
 export var ApplicationFleetAssociation$: StaticStructureSchema = [3, n0, _AFA,
   0,
   [_FN, _AA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var ApplicationSettings$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_E, _SG],
-  [2, 0]
+  [2, 0], 1
 ];
 export var ApplicationSettingsResponse$: StaticStructureSchema = [3, n0, _ASR,
   0,
@@ -685,7 +685,7 @@ export var ApplicationSettingsResponse$: StaticStructureSchema = [3, n0, _ASR,
 export var AssociateAppBlockBuilderAppBlockRequest$: StaticStructureSchema = [3, n0, _AABBABR,
   0,
   [_ABA, _ABBN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateAppBlockBuilderAppBlockResult$: StaticStructureSchema = [3, n0, _AABBABRs,
   0,
@@ -695,7 +695,7 @@ export var AssociateAppBlockBuilderAppBlockResult$: StaticStructureSchema = [3, 
 export var AssociateApplicationFleetRequest$: StaticStructureSchema = [3, n0, _AAFR,
   0,
   [_FN, _AA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateApplicationFleetResult$: StaticStructureSchema = [3, n0, _AAFRs,
   0,
@@ -705,7 +705,7 @@ export var AssociateApplicationFleetResult$: StaticStructureSchema = [3, n0, _AA
 export var AssociateApplicationToEntitlementRequest$: StaticStructureSchema = [3, n0, _AATER,
   0,
   [_SN, _EN, _AI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var AssociateApplicationToEntitlementResult$: StaticStructureSchema = [3, n0, _AATERs,
   0,
@@ -715,7 +715,7 @@ export var AssociateApplicationToEntitlementResult$: StaticStructureSchema = [3,
 export var AssociateFleetRequest$: StaticStructureSchema = [3, n0, _AFR,
   0,
   [_FN, _SN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var AssociateFleetResult$: StaticStructureSchema = [3, n0, _AFRs,
   0,
@@ -725,7 +725,7 @@ export var AssociateFleetResult$: StaticStructureSchema = [3, n0, _AFRs,
 export var AssociateSoftwareToImageBuilderRequest$: StaticStructureSchema = [3, n0, _ASTIBR,
   0,
   [_IBN, _SNo],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var AssociateSoftwareToImageBuilderResult$: StaticStructureSchema = [3, n0, _ASTIBRs,
   0,
@@ -735,7 +735,7 @@ export var AssociateSoftwareToImageBuilderResult$: StaticStructureSchema = [3, n
 export var BatchAssociateUserStackRequest$: StaticStructureSchema = [3, n0, _BAUSR,
   0,
   [_USA],
-  [[() => UserStackAssociationList, 0]]
+  [[() => UserStackAssociationList, 0]], 1
 ];
 export var BatchAssociateUserStackResult$: StaticStructureSchema = [3, n0, _BAUSRa,
   0,
@@ -745,7 +745,7 @@ export var BatchAssociateUserStackResult$: StaticStructureSchema = [3, n0, _BAUS
 export var BatchDisassociateUserStackRequest$: StaticStructureSchema = [3, n0, _BDUSR,
   0,
   [_USA],
-  [[() => UserStackAssociationList, 0]]
+  [[() => UserStackAssociationList, 0]], 1
 ];
 export var BatchDisassociateUserStackResult$: StaticStructureSchema = [3, n0, _BDUSRa,
   0,
@@ -765,7 +765,7 @@ export var ComputeCapacity$: StaticStructureSchema = [3, n0, _CC,
 export var ComputeCapacityStatus$: StaticStructureSchema = [3, n0, _CCS,
   0,
   [_De, _R, _IU, _Av, _DUS, _AUS, _AUSc, _AUSct],
-  [1, 1, 1, 1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1, 1, 1, 1], 1
 ];
 export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
   { [_er]: _c, [_hE]: 400 },
@@ -776,7 +776,7 @@ TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentM
 export var CopyImageRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_SIN, _DIN, _DR, _DID],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 3
 ];
 export var CopyImageResponse$: StaticStructureSchema = [3, n0, _CIRo,
   0,
@@ -785,8 +785,8 @@ export var CopyImageResponse$: StaticStructureSchema = [3, n0, _CIRo,
 ];
 export var CreateAppBlockBuilderRequest$: StaticStructureSchema = [3, n0, _CABBR,
   0,
-  [_N, _D, _DN, _T, _P, _IT, _VC, _EDIA, _IRA, _AEc],
-  [0, 0, 0, 128 | 0, 0, 0, () => VpcConfig$, 2, 0, () => AccessEndpointList]
+  [_N, _P, _IT, _VC, _D, _DN, _T, _EDIA, _IRA, _AEc],
+  [0, 0, 0, () => VpcConfig$, 0, 0, 128 | 0, 2, 0, () => AccessEndpointList], 4
 ];
 export var CreateAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _CABBRr,
   0,
@@ -796,7 +796,7 @@ export var CreateAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _CABBRr
 export var CreateAppBlockBuilderStreamingURLRequest$: StaticStructureSchema = [3, n0, _CABBSURLR,
   0,
   [_ABBN, _V],
-  [0, 1]
+  [0, 1], 1
 ];
 export var CreateAppBlockBuilderStreamingURLResult$: StaticStructureSchema = [3, n0, _CABBSURLRr,
   0,
@@ -805,8 +805,8 @@ export var CreateAppBlockBuilderStreamingURLResult$: StaticStructureSchema = [3,
 ];
 export var CreateAppBlockRequest$: StaticStructureSchema = [3, n0, _CABR,
   0,
-  [_N, _D, _DN, _SSL, _SSD, _T, _PSSD, _PT],
-  [0, 0, 0, () => S3Location$, () => ScriptDetails$, 128 | 0, () => ScriptDetails$, 0]
+  [_N, _SSL, _D, _DN, _SSD, _T, _PSSD, _PT],
+  [0, () => S3Location$, 0, 0, () => ScriptDetails$, 128 | 0, () => ScriptDetails$, 0], 2
 ];
 export var CreateAppBlockResult$: StaticStructureSchema = [3, n0, _CABRr,
   0,
@@ -815,8 +815,8 @@ export var CreateAppBlockResult$: StaticStructureSchema = [3, n0, _CABRr,
 ];
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_N, _DN, _D, _ISL, _LPa, _WD, _LP, _Pl, _IF, _ABA, _T],
-  [0, 0, 0, () => S3Location$, 0, 0, 0, 64 | 0, 64 | 0, 0, 128 | 0]
+  [_N, _ISL, _LPa, _Pl, _IF, _ABA, _DN, _D, _WD, _LP, _T],
+  [0, () => S3Location$, 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 0, 128 | 0], 6
 ];
 export var CreateApplicationResult$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -826,7 +826,7 @@ export var CreateApplicationResult$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateDirectoryConfigRequest$: StaticStructureSchema = [3, n0, _CDCR,
   0,
   [_DNi, _OUDN, _SAC, _CBAP],
-  [0, 64 | 0, [() => ServiceAccountCredentials$, 0], () => CertificateBasedAuthProperties$]
+  [0, 64 | 0, [() => ServiceAccountCredentials$, 0], () => CertificateBasedAuthProperties$], 2
 ];
 export var CreateDirectoryConfigResult$: StaticStructureSchema = [3, n0, _CDCRr,
   0,
@@ -835,8 +835,8 @@ export var CreateDirectoryConfigResult$: StaticStructureSchema = [3, n0, _CDCRr,
 ];
 export var CreateEntitlementRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
-  [_N, _SN, _D, _AV, _At],
-  [0, 0, 0, 0, () => EntitlementAttributeList]
+  [_N, _SN, _AV, _At, _D],
+  [0, 0, 0, () => EntitlementAttributeList, 0], 4
 ];
 export var CreateEntitlementResult$: StaticStructureSchema = [3, n0, _CERr,
   0,
@@ -846,7 +846,7 @@ export var CreateEntitlementResult$: StaticStructureSchema = [3, n0, _CERr,
 export var CreateExportImageTaskRequest$: StaticStructureSchema = [3, n0, _CEITR,
   0,
   [_IN, _ANm, _IRA, _TS, _AD],
-  [0, 0, 0, 128 | 0, 0]
+  [0, 0, 0, 128 | 0, 0], 3
 ];
 export var CreateExportImageTaskResult$: StaticStructureSchema = [3, n0, _CEITRr,
   0,
@@ -855,8 +855,8 @@ export var CreateExportImageTaskResult$: StaticStructureSchema = [3, n0, _CEITRr
 ];
 export var CreateFleetRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_N, _IN, _IA, _IT, _FT, _CC, _VC, _MUDIS, _DTIS, _D, _DN, _EDIA, _DJI, _T, _IDTIS, _IRA, _SV, _P, _MCS, _UDFS, _SSSL, _MSPI, _RVC],
-  [0, 0, 0, 0, 0, () => ComputeCapacity$, () => VpcConfig$, 1, 1, 0, 0, 2, () => DomainJoinInfo$, 128 | 0, 1, 0, 0, 0, 1, 64 | 0, () => S3Location$, 1, () => VolumeConfig$]
+  [_N, _IT, _IN, _IA, _FT, _CC, _VC, _MUDIS, _DTIS, _D, _DN, _EDIA, _DJI, _T, _IDTIS, _IRA, _SV, _P, _MCS, _UDFS, _SSSL, _MSPI, _RVC],
+  [0, 0, 0, 0, 0, () => ComputeCapacity$, () => VpcConfig$, 1, 1, 0, 0, 2, () => DomainJoinInfo$, 128 | 0, 1, 0, 0, 0, 1, 64 | 0, () => S3Location$, 1, () => VolumeConfig$], 2
 ];
 export var CreateFleetResult$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -865,8 +865,8 @@ export var CreateFleetResult$: StaticStructureSchema = [3, n0, _CFRr,
 ];
 export var CreateImageBuilderRequest$: StaticStructureSchema = [3, n0, _CIBR,
   0,
-  [_N, _IN, _IA, _IT, _D, _DN, _VC, _IRA, _EDIA, _DJI, _AAV, _T, _AEc, _RVC, _STI, _STU],
-  [0, 0, 0, 0, 0, 0, () => VpcConfig$, 0, 2, () => DomainJoinInfo$, 0, 128 | 0, () => AccessEndpointList, () => VolumeConfig$, 64 | 0, 64 | 0]
+  [_N, _IT, _IN, _IA, _D, _DN, _VC, _IRA, _EDIA, _DJI, _AAV, _T, _AEc, _RVC, _STI, _STU],
+  [0, 0, 0, 0, 0, 0, () => VpcConfig$, 0, 2, () => DomainJoinInfo$, 0, 128 | 0, () => AccessEndpointList, () => VolumeConfig$, 64 | 0, 64 | 0], 2
 ];
 export var CreateImageBuilderResult$: StaticStructureSchema = [3, n0, _CIBRr,
   0,
@@ -876,7 +876,7 @@ export var CreateImageBuilderResult$: StaticStructureSchema = [3, n0, _CIBRr,
 export var CreateImageBuilderStreamingURLRequest$: StaticStructureSchema = [3, n0, _CIBSURLR,
   0,
   [_N, _V],
-  [0, 1]
+  [0, 1], 1
 ];
 export var CreateImageBuilderStreamingURLResult$: StaticStructureSchema = [3, n0, _CIBSURLRr,
   0,
@@ -886,7 +886,7 @@ export var CreateImageBuilderStreamingURLResult$: StaticStructureSchema = [3, n0
 export var CreateImportedImageRequest$: StaticStructureSchema = [3, n0, _CIIR,
   0,
   [_N, _SAI, _IRA, _D, _DN, _T, _RVCu, _ASV, _ACC, _DRr],
-  [0, 0, 0, 0, 0, 128 | 0, () => RuntimeValidationConfig$, 0, [() => AppCatalogConfig, 0], 2]
+  [0, 0, 0, 0, 0, 128 | 0, () => RuntimeValidationConfig$, 0, [() => AppCatalogConfig, 0], 2], 3
 ];
 export var CreateImportedImageResult$: StaticStructureSchema = [3, n0, _CIIRr,
   0,
@@ -896,7 +896,7 @@ export var CreateImportedImageResult$: StaticStructureSchema = [3, n0, _CIIRr,
 export var CreateStackRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
   [_N, _D, _DN, _SC, _RURL, _FURL, _US, _AS, _T, _AEc, _EHD, _SES],
-  [0, 0, 0, () => StorageConnectorList, 0, 0, () => UserSettingList, () => ApplicationSettings$, 128 | 0, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$]
+  [0, 0, 0, () => StorageConnectorList, 0, 0, () => UserSettingList, () => ApplicationSettings$, 128 | 0, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$], 1
 ];
 export var CreateStackResult$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -906,7 +906,7 @@ export var CreateStackResult$: StaticStructureSchema = [3, n0, _CSRr,
 export var CreateStreamingURLRequest$: StaticStructureSchema = [3, n0, _CSURLR,
   0,
   [_SN, _FN, _UI, _AIp, _V, _SCe],
-  [0, 0, 0, 0, 1, 0]
+  [0, 0, 0, 0, 1, 0], 3
 ];
 export var CreateStreamingURLResult$: StaticStructureSchema = [3, n0, _CSURLRr,
   0,
@@ -915,8 +915,8 @@ export var CreateStreamingURLResult$: StaticStructureSchema = [3, n0, _CSURLRr,
 ];
 export var CreateThemeForStackRequest$: StaticStructureSchema = [3, n0, _CTFSR,
   0,
-  [_SN, _FL, _TT, _TSh, _OLSL, _FSL],
-  [0, () => ThemeFooterLinks, 0, 0, () => S3Location$, () => S3Location$]
+  [_SN, _TT, _TSh, _OLSL, _FSL, _FL],
+  [0, 0, 0, () => S3Location$, () => S3Location$, () => ThemeFooterLinks], 5
 ];
 export var CreateThemeForStackResult$: StaticStructureSchema = [3, n0, _CTFSRr,
   0,
@@ -926,7 +926,7 @@ export var CreateThemeForStackResult$: StaticStructureSchema = [3, n0, _CTFSRr,
 export var CreateUpdatedImageRequest$: StaticStructureSchema = [3, n0, _CUIR,
   0,
   [_eIN, _nIN, _nID, _nIDN, _nIT, _dR],
-  [0, 0, 0, 0, 128 | 0, 2]
+  [0, 0, 0, 0, 128 | 0, 2], 2
 ];
 export var CreateUpdatedImageResult$: StaticStructureSchema = [3, n0, _CUIRr,
   0,
@@ -945,8 +945,8 @@ export var CreateUsageReportSubscriptionResult$: StaticStructureSchema = [3, n0,
 ];
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
-  [_UN, _MA, _FNi, _LN, _AT],
-  [[() => Username, 0], 0, [() => UserAttributeValue, 0], [() => UserAttributeValue, 0], 0]
+  [_UN, _AT, _MA, _FNi, _LN],
+  [[() => Username, 0], 0, 0, [() => UserAttributeValue, 0], [() => UserAttributeValue, 0]], 2
 ];
 export var CreateUserResult$: StaticStructureSchema = [3, n0, _CURr,
   0,
@@ -956,7 +956,7 @@ export var CreateUserResult$: StaticStructureSchema = [3, n0, _CURr,
 export var DeleteAppBlockBuilderRequest$: StaticStructureSchema = [3, n0, _DABBR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _DABBRe,
   0,
@@ -966,7 +966,7 @@ export var DeleteAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _DABBRe
 export var DeleteAppBlockRequest$: StaticStructureSchema = [3, n0, _DABR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteAppBlockResult$: StaticStructureSchema = [3, n0, _DABRe,
   0,
@@ -976,7 +976,7 @@ export var DeleteAppBlockResult$: StaticStructureSchema = [3, n0, _DABRe,
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteApplicationResult$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -986,7 +986,7 @@ export var DeleteApplicationResult$: StaticStructureSchema = [3, n0, _DARe,
 export var DeleteDirectoryConfigRequest$: StaticStructureSchema = [3, n0, _DDCR,
   0,
   [_DNi],
-  [0]
+  [0], 1
 ];
 export var DeleteDirectoryConfigResult$: StaticStructureSchema = [3, n0, _DDCRe,
   0,
@@ -996,7 +996,7 @@ export var DeleteDirectoryConfigResult$: StaticStructureSchema = [3, n0, _DDCRe,
 export var DeleteEntitlementRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
   [_N, _SN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteEntitlementResult$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -1006,7 +1006,7 @@ export var DeleteEntitlementResult$: StaticStructureSchema = [3, n0, _DERe,
 export var DeleteFleetRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteFleetResult$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -1016,7 +1016,7 @@ export var DeleteFleetResult$: StaticStructureSchema = [3, n0, _DFRe,
 export var DeleteImageBuilderRequest$: StaticStructureSchema = [3, n0, _DIBR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteImageBuilderResult$: StaticStructureSchema = [3, n0, _DIBRe,
   0,
@@ -1026,7 +1026,7 @@ export var DeleteImageBuilderResult$: StaticStructureSchema = [3, n0, _DIBRe,
 export var DeleteImagePermissionsRequest$: StaticStructureSchema = [3, n0, _DIPR,
   0,
   [_N, _SAIh],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DeleteImagePermissionsResult$: StaticStructureSchema = [3, n0, _DIPRe,
   0,
@@ -1036,7 +1036,7 @@ export var DeleteImagePermissionsResult$: StaticStructureSchema = [3, n0, _DIPRe
 export var DeleteImageRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteImageResult$: StaticStructureSchema = [3, n0, _DIRe,
   0,
@@ -1046,7 +1046,7 @@ export var DeleteImageResult$: StaticStructureSchema = [3, n0, _DIRe,
 export var DeleteStackRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var DeleteStackResult$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -1056,7 +1056,7 @@ export var DeleteStackResult$: StaticStructureSchema = [3, n0, _DSRe,
 export var DeleteThemeForStackRequest$: StaticStructureSchema = [3, n0, _DTFSR,
   0,
   [_SN],
-  [0]
+  [0], 1
 ];
 export var DeleteThemeForStackResult$: StaticStructureSchema = [3, n0, _DTFSRe,
   0,
@@ -1076,7 +1076,7 @@ export var DeleteUsageReportSubscriptionResult$: StaticStructureSchema = [3, n0,
 export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   0,
   [_UN, _AT],
-  [[() => Username, 0], 0]
+  [[() => Username, 0], 0], 2
 ];
 export var DeleteUserResult$: StaticStructureSchema = [3, n0, _DURe,
   0,
@@ -1136,7 +1136,7 @@ export var DescribeApplicationsResult$: StaticStructureSchema = [3, n0, _DAResc,
 export var DescribeAppLicenseUsageRequest$: StaticStructureSchema = [3, n0, _DALUR,
   0,
   [_BP, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeAppLicenseUsageResult$: StaticStructureSchema = [3, n0, _DALURe,
   0,
@@ -1155,8 +1155,8 @@ export var DescribeDirectoryConfigsResult$: StaticStructureSchema = [3, n0, _DDC
 ];
 export var DescribeEntitlementsRequest$: StaticStructureSchema = [3, n0, _DERes,
   0,
-  [_N, _SN, _NT, _MR],
-  [0, 0, 0, 1]
+  [_SN, _N, _NT, _MR],
+  [0, 0, 0, 1], 1
 ];
 export var DescribeEntitlementsResult$: StaticStructureSchema = [3, n0, _DEResc,
   0,
@@ -1186,7 +1186,7 @@ export var DescribeImageBuildersResult$: StaticStructureSchema = [3, n0, _DIBRes
 export var DescribeImagePermissionsRequest$: StaticStructureSchema = [3, n0, _DIPRes,
   0,
   [_N, _MR, _SAAI, _NT],
-  [0, 1, 64 | 0, 0]
+  [0, 1, 64 | 0, 0], 1
 ];
 export var DescribeImagePermissionsResult$: StaticStructureSchema = [3, n0, _DIPResc,
   0,
@@ -1206,7 +1206,7 @@ export var DescribeImagesResult$: StaticStructureSchema = [3, n0, _DIResc,
 export var DescribeSessionsRequest$: StaticStructureSchema = [3, n0, _DSRes,
   0,
   [_SN, _FN, _UI, _NT, _L, _AT, _II],
-  [0, 0, 0, 0, 1, 0, 0]
+  [0, 0, 0, 0, 1, 0, 0], 2
 ];
 export var DescribeSessionsResult$: StaticStructureSchema = [3, n0, _DSResc,
   0,
@@ -1216,7 +1216,7 @@ export var DescribeSessionsResult$: StaticStructureSchema = [3, n0, _DSResc,
 export var DescribeSoftwareAssociationsRequest$: StaticStructureSchema = [3, n0, _DSAR,
   0,
   [_AR, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeSoftwareAssociationsResult$: StaticStructureSchema = [3, n0, _DSARe,
   0,
@@ -1236,7 +1236,7 @@ export var DescribeStacksResult$: StaticStructureSchema = [3, n0, _DSRescri,
 export var DescribeThemeForStackRequest$: StaticStructureSchema = [3, n0, _DTFSRes,
   0,
   [_SN],
-  [0]
+  [0], 1
 ];
 export var DescribeThemeForStackResult$: StaticStructureSchema = [3, n0, _DTFSResc,
   0,
@@ -1256,7 +1256,7 @@ export var DescribeUsageReportSubscriptionsResult$: StaticStructureSchema = [3, 
 export var DescribeUsersRequest$: StaticStructureSchema = [3, n0, _DURes,
   0,
   [_AT, _MR, _NT],
-  [0, 1, 0]
+  [0, 1, 0], 1
 ];
 export var DescribeUsersResult$: StaticStructureSchema = [3, n0, _DUResc,
   0,
@@ -1276,12 +1276,12 @@ export var DescribeUserStackAssociationsResult$: StaticStructureSchema = [3, n0,
 export var DirectoryConfig$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_DNi, _OUDN, _SAC, _CT, _CBAP],
-  [0, 64 | 0, [() => ServiceAccountCredentials$, 0], 4, () => CertificateBasedAuthProperties$]
+  [0, 64 | 0, [() => ServiceAccountCredentials$, 0], 4, () => CertificateBasedAuthProperties$], 1
 ];
 export var DisableUserRequest$: StaticStructureSchema = [3, n0, _DURi,
   0,
   [_UN, _AT],
-  [[() => Username, 0], 0]
+  [[() => Username, 0], 0], 2
 ];
 export var DisableUserResult$: StaticStructureSchema = [3, n0, _DURis,
   0,
@@ -1291,7 +1291,7 @@ export var DisableUserResult$: StaticStructureSchema = [3, n0, _DURis,
 export var DisassociateAppBlockBuilderAppBlockRequest$: StaticStructureSchema = [3, n0, _DABBABR,
   0,
   [_ABA, _ABBN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateAppBlockBuilderAppBlockResult$: StaticStructureSchema = [3, n0, _DABBABRi,
   0,
@@ -1301,7 +1301,7 @@ export var DisassociateAppBlockBuilderAppBlockResult$: StaticStructureSchema = [
 export var DisassociateApplicationFleetRequest$: StaticStructureSchema = [3, n0, _DAFR,
   0,
   [_FN, _AA],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateApplicationFleetResult$: StaticStructureSchema = [3, n0, _DAFRi,
   0,
@@ -1311,7 +1311,7 @@ export var DisassociateApplicationFleetResult$: StaticStructureSchema = [3, n0, 
 export var DisassociateApplicationFromEntitlementRequest$: StaticStructureSchema = [3, n0, _DAFER,
   0,
   [_SN, _EN, _AI],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var DisassociateApplicationFromEntitlementResult$: StaticStructureSchema = [3, n0, _DAFERi,
   0,
@@ -1321,7 +1321,7 @@ export var DisassociateApplicationFromEntitlementResult$: StaticStructureSchema 
 export var DisassociateFleetRequest$: StaticStructureSchema = [3, n0, _DFRi,
   0,
   [_FN, _SN],
-  [0, 0]
+  [0, 0], 2
 ];
 export var DisassociateFleetResult$: StaticStructureSchema = [3, n0, _DFRis,
   0,
@@ -1331,7 +1331,7 @@ export var DisassociateFleetResult$: StaticStructureSchema = [3, n0, _DFRis,
 export var DisassociateSoftwareFromImageBuilderRequest$: StaticStructureSchema = [3, n0, _DSFIBR,
   0,
   [_IBN, _SNo],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var DisassociateSoftwareFromImageBuilderResult$: StaticStructureSchema = [3, n0, _DSFIBRi,
   0,
@@ -1352,7 +1352,7 @@ TypeRegistry.for(n0).registerError(DryRunOperationException$, DryRunOperationExc
 export var EnableUserRequest$: StaticStructureSchema = [3, n0, _EUR,
   0,
   [_UN, _AT],
-  [[() => Username, 0], 0]
+  [[() => Username, 0], 0], 2
 ];
 export var EnableUserResult$: StaticStructureSchema = [3, n0, _EURn,
   0,
@@ -1362,12 +1362,12 @@ export var EnableUserResult$: StaticStructureSchema = [3, n0, _EURn,
 export var EntitledApplication$: StaticStructureSchema = [3, n0, _EA,
   0,
   [_AI],
-  [0]
+  [0], 1
 ];
 export var Entitlement$: StaticStructureSchema = [3, n0, _En,
   0,
-  [_N, _SN, _D, _AV, _At, _CT, _LMT],
-  [0, 0, 0, 0, () => EntitlementAttributeList, 4, 4]
+  [_N, _SN, _AV, _At, _D, _CT, _LMT],
+  [0, 0, 0, () => EntitlementAttributeList, 0, 4, 4], 4
 ];
 export var EntitlementAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE,
   { [_er]: _c, [_hE]: 400 },
@@ -1378,7 +1378,7 @@ TypeRegistry.for(n0).registerError(EntitlementAlreadyExistsException$, Entitleme
 export var EntitlementAttribute$: StaticStructureSchema = [3, n0, _EAn,
   0,
   [_N, _Va],
-  [0, 0]
+  [0, 0], 2
 ];
 export var EntitlementNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE,
   { [_er]: _c, [_hE]: 400 },
@@ -1394,7 +1394,7 @@ export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
 export var ExpireSessionRequest$: StaticStructureSchema = [3, n0, _ESR,
   0,
   [_SI],
-  [0]
+  [0], 1
 ];
 export var ExpireSessionResult$: StaticStructureSchema = [3, n0, _ESRx,
   0,
@@ -1404,17 +1404,17 @@ export var ExpireSessionResult$: StaticStructureSchema = [3, n0, _ESRx,
 export var ExportImageTask$: StaticStructureSchema = [3, n0, _EIT,
   0,
   [_TI, _IA, _ANm, _CD, _AD, _S, _AIm, _TS, _ED],
-  [0, 0, 0, 4, 0, 0, 0, 128 | 0, () => ErrorDetailsList]
+  [0, 0, 0, 4, 0, 0, 0, 128 | 0, () => ErrorDetailsList], 4
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_N, _Val],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var Fleet$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_A, _N, _DN, _D, _IN, _IA, _IT, _FT, _CCS, _MUDIS, _DTIS, _S, _VC, _CT, _FE, _EDIA, _DJI, _IDTIS, _IRA, _SV, _P, _MCS, _UDFS, _SSSL, _MSPI, _RVC],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => ComputeCapacityStatus$, 1, 1, 0, () => VpcConfig$, 4, () => FleetErrors, 2, () => DomainJoinInfo$, 1, 0, 0, 0, 1, 64 | 0, () => S3Location$, 1, () => VolumeConfig$]
+  [_A, _N, _IT, _CCS, _S, _DN, _D, _IN, _IA, _FT, _MUDIS, _DTIS, _VC, _CT, _FE, _EDIA, _DJI, _IDTIS, _IRA, _SV, _P, _MCS, _UDFS, _SSSL, _MSPI, _RVC],
+  [0, 0, 0, () => ComputeCapacityStatus$, 0, 0, 0, 0, 0, 0, 1, 1, () => VpcConfig$, 4, () => FleetErrors, 2, () => DomainJoinInfo$, 1, 0, 0, 0, 1, 64 | 0, () => S3Location$, 1, () => VolumeConfig$], 5
 ];
 export var FleetError$: StaticStructureSchema = [3, n0, _FEl,
   0,
@@ -1434,12 +1434,12 @@ export var GetExportImageTaskResult$: StaticStructureSchema = [3, n0, _GEITRe,
 export var Image$: StaticStructureSchema = [3, n0, _I,
   0,
   [_N, _A, _BIA, _DN, _S, _Vi, _IBS, _IBN, _P, _D, _SCR, _App, _CT, _PBIRD, _AAV, _IP, _IE, _LAAV, _SIF, _DAPE, _ISWO, _MSI, _ITm],
-  [0, 0, 0, 0, 0, 0, 2, 0, 0, 0, () => ImageStateChangeReason$, () => Applications, 4, 4, 0, () => ImagePermissions$, () => ResourceErrors, 0, 64 | 0, 0, 0, 2, 0]
+  [0, 0, 0, 0, 0, 0, 2, 0, 0, 0, () => ImageStateChangeReason$, () => Applications, 4, 4, 0, () => ImagePermissions$, () => ResourceErrors, 0, 64 | 0, 0, 0, 2, 0], 1
 ];
 export var ImageBuilder$: StaticStructureSchema = [3, n0, _IB,
   0,
   [_N, _A, _IA, _D, _DN, _VC, _IT, _P, _IRA, _S, _SCR, _CT, _EDIA, _DJI, _NAC, _IBE, _AAV, _AEc, _RVC, _LAAV],
-  [0, 0, 0, 0, 0, () => VpcConfig$, 0, 0, 0, 0, () => ImageBuilderStateChangeReason$, 4, 2, () => DomainJoinInfo$, () => NetworkAccessConfiguration$, () => ResourceErrors, 0, () => AccessEndpointList, () => VolumeConfig$, 0]
+  [0, 0, 0, 0, 0, () => VpcConfig$, 0, 0, 0, 0, () => ImageBuilderStateChangeReason$, 4, 2, () => DomainJoinInfo$, () => NetworkAccessConfiguration$, () => ResourceErrors, 0, () => AccessEndpointList, () => VolumeConfig$, 0], 1
 ];
 export var ImageBuilderStateChangeReason$: StaticStructureSchema = [3, n0, _IBSCR,
   0,
@@ -1494,7 +1494,7 @@ TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededExcepti
 export var ListAssociatedFleetsRequest$: StaticStructureSchema = [3, n0, _LAFR,
   0,
   [_SN, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListAssociatedFleetsResult$: StaticStructureSchema = [3, n0, _LAFRi,
   0,
@@ -1504,7 +1504,7 @@ export var ListAssociatedFleetsResult$: StaticStructureSchema = [3, n0, _LAFRi,
 export var ListAssociatedStacksRequest$: StaticStructureSchema = [3, n0, _LASR,
   0,
   [_FN, _NT],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ListAssociatedStacksResult$: StaticStructureSchema = [3, n0, _LASRi,
   0,
@@ -1514,7 +1514,7 @@ export var ListAssociatedStacksResult$: StaticStructureSchema = [3, n0, _LASRi,
 export var ListEntitledApplicationsRequest$: StaticStructureSchema = [3, n0, _LEAR,
   0,
   [_SN, _EN, _NT, _MR],
-  [0, 0, 0, 1]
+  [0, 0, 0, 1], 2
 ];
 export var ListEntitledApplicationsResult$: StaticStructureSchema = [3, n0, _LEARi,
   0,
@@ -1534,7 +1534,7 @@ export var ListExportImageTasksResult$: StaticStructureSchema = [3, n0, _LEITRi,
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [0]
+  [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -1595,27 +1595,27 @@ export var RuntimeValidationConfig$: StaticStructureSchema = [3, n0, _RVCu,
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_SB, _SK],
-  [0, 0]
+  [0, 0], 1
 ];
 export var ScriptDetails$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_SSLc, _EP, _EPx, _TIS],
-  [() => S3Location$, 0, 0, 1]
+  [_SSLc, _EP, _TIS, _EPx],
+  [() => S3Location$, 0, 1, 0], 3
 ];
 export var ServiceAccountCredentials$: StaticStructureSchema = [3, n0, _SAC,
   0,
   [_AN, _AP],
-  [[() => AccountName, 0], [() => AccountPassword, 0]]
+  [[() => AccountName, 0], [() => AccountPassword, 0]], 2
 ];
 export var Session$: StaticStructureSchema = [3, n0, _Ses,
   0,
   [_Id, _UI, _SN, _FN, _S, _CS, _ST, _MET, _AT, _NAC, _II],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, () => NetworkAccessConfiguration$, 0]
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, () => NetworkAccessConfiguration$, 0], 5
 ];
 export var SharedImagePermissions$: StaticStructureSchema = [3, n0, _SIP,
   0,
   [_sAI, _iP],
-  [0, () => ImagePermissions$]
+  [0, () => ImagePermissions$], 2
 ];
 export var SoftwareAssociations$: StaticStructureSchema = [3, n0, _SA,
   0,
@@ -1624,8 +1624,8 @@ export var SoftwareAssociations$: StaticStructureSchema = [3, n0, _SA,
 ];
 export var Stack$: StaticStructureSchema = [3, n0, _Sta,
   0,
-  [_A, _N, _D, _DN, _CT, _SC, _RURL, _FURL, _SE, _US, _AS, _AEc, _EHD, _SES],
-  [0, 0, 0, 0, 4, () => StorageConnectorList, 0, 0, () => StackErrors, () => UserSettingList, () => ApplicationSettingsResponse$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$]
+  [_N, _A, _D, _DN, _CT, _SC, _RURL, _FURL, _SE, _US, _AS, _AEc, _EHD, _SES],
+  [0, 0, 0, 0, 4, () => StorageConnectorList, 0, 0, () => StackErrors, () => UserSettingList, () => ApplicationSettingsResponse$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$], 1
 ];
 export var StackError$: StaticStructureSchema = [3, n0, _SEt,
   0,
@@ -1635,7 +1635,7 @@ export var StackError$: StaticStructureSchema = [3, n0, _SEt,
 export var StartAppBlockBuilderRequest$: StaticStructureSchema = [3, n0, _SABBR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var StartAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _SABBRt,
   0,
@@ -1645,7 +1645,7 @@ export var StartAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _SABBRt,
 export var StartFleetRequest$: StaticStructureSchema = [3, n0, _SFR,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var StartFleetResult$: StaticStructureSchema = [3, n0, _SFRt,
   0,
@@ -1655,7 +1655,7 @@ export var StartFleetResult$: StaticStructureSchema = [3, n0, _SFRt,
 export var StartImageBuilderRequest$: StaticStructureSchema = [3, n0, _SIBR,
   0,
   [_N, _AAV],
-  [0, 0]
+  [0, 0], 1
 ];
 export var StartImageBuilderResult$: StaticStructureSchema = [3, n0, _SIBRt,
   0,
@@ -1665,7 +1665,7 @@ export var StartImageBuilderResult$: StaticStructureSchema = [3, n0, _SIBRt,
 export var StartSoftwareDeploymentToImageBuilderRequest$: StaticStructureSchema = [3, n0, _SSDTIBR,
   0,
   [_IBN, _RFD],
-  [0, 2]
+  [0, 2], 1
 ];
 export var StartSoftwareDeploymentToImageBuilderResult$: StaticStructureSchema = [3, n0, _SSDTIBRt,
   0,
@@ -1675,7 +1675,7 @@ export var StartSoftwareDeploymentToImageBuilderResult$: StaticStructureSchema =
 export var StopAppBlockBuilderRequest$: StaticStructureSchema = [3, n0, _SABBRto,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var StopAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _SABBRtop,
   0,
@@ -1685,7 +1685,7 @@ export var StopAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _SABBRtop
 export var StopFleetRequest$: StaticStructureSchema = [3, n0, _SFRto,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var StopFleetResult$: StaticStructureSchema = [3, n0, _SFRtop,
   0,
@@ -1695,7 +1695,7 @@ export var StopFleetResult$: StaticStructureSchema = [3, n0, _SFRtop,
 export var StopImageBuilderRequest$: StaticStructureSchema = [3, n0, _SIBRto,
   0,
   [_N],
-  [0]
+  [0], 1
 ];
 export var StopImageBuilderResult$: StaticStructureSchema = [3, n0, _SIBRtop,
   0,
@@ -1705,7 +1705,7 @@ export var StopImageBuilderResult$: StaticStructureSchema = [3, n0, _SIBRtop,
 export var StorageConnector$: StaticStructureSchema = [3, n0, _SCt,
   0,
   [_CTo, _RI, _Do, _DRAC],
-  [0, 0, 64 | 0, 64 | 0]
+  [0, 0, 64 | 0, 64 | 0], 1
 ];
 export var StreamingExperienceSettings$: StaticStructureSchema = [3, n0, _SES,
   0,
@@ -1715,7 +1715,7 @@ export var StreamingExperienceSettings$: StaticStructureSchema = [3, n0, _SES,
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [0, 128 | 0]
+  [0, 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -1735,7 +1735,7 @@ export var ThemeFooterLink$: StaticStructureSchema = [3, n0, _TFLh,
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [0, 64 | 0]
+  [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -1745,7 +1745,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateAppBlockBuilderRequest$: StaticStructureSchema = [3, n0, _UABBR,
   0,
   [_N, _D, _DN, _P, _IT, _VC, _EDIA, _IRA, _AEc, _ATD],
-  [0, 0, 0, 0, 0, () => VpcConfig$, 2, 0, () => AccessEndpointList, 64 | 0]
+  [0, 0, 0, 0, 0, () => VpcConfig$, 2, 0, () => AccessEndpointList, 64 | 0], 1
 ];
 export var UpdateAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _UABBRp,
   0,
@@ -1755,7 +1755,7 @@ export var UpdateAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _UABBRp
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_N, _DN, _D, _ISL, _LPa, _WD, _LP, _ABA, _ATD],
-  [0, 0, 0, () => S3Location$, 0, 0, 0, 0, 64 | 0]
+  [0, 0, 0, () => S3Location$, 0, 0, 0, 0, 64 | 0], 1
 ];
 export var UpdateApplicationResult$: StaticStructureSchema = [3, n0, _UARp,
   0,
@@ -1765,7 +1765,7 @@ export var UpdateApplicationResult$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateDirectoryConfigRequest$: StaticStructureSchema = [3, n0, _UDCR,
   0,
   [_DNi, _OUDN, _SAC, _CBAP],
-  [0, 64 | 0, [() => ServiceAccountCredentials$, 0], () => CertificateBasedAuthProperties$]
+  [0, 64 | 0, [() => ServiceAccountCredentials$, 0], () => CertificateBasedAuthProperties$], 1
 ];
 export var UpdateDirectoryConfigResult$: StaticStructureSchema = [3, n0, _UDCRp,
   0,
@@ -1775,7 +1775,7 @@ export var UpdateDirectoryConfigResult$: StaticStructureSchema = [3, n0, _UDCRp,
 export var UpdateEntitlementRequest$: StaticStructureSchema = [3, n0, _UER,
   0,
   [_N, _SN, _D, _AV, _At],
-  [0, 0, 0, 0, () => EntitlementAttributeList]
+  [0, 0, 0, 0, () => EntitlementAttributeList], 2
 ];
 export var UpdateEntitlementResult$: StaticStructureSchema = [3, n0, _UERp,
   0,
@@ -1795,7 +1795,7 @@ export var UpdateFleetResult$: StaticStructureSchema = [3, n0, _UFRp,
 export var UpdateImagePermissionsRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
   [_N, _SAIh, _IP],
-  [0, 0, () => ImagePermissions$]
+  [0, 0, () => ImagePermissions$], 3
 ];
 export var UpdateImagePermissionsResult$: StaticStructureSchema = [3, n0, _UIPRp,
   0,
@@ -1804,8 +1804,8 @@ export var UpdateImagePermissionsResult$: StaticStructureSchema = [3, n0, _UIPRp
 ];
 export var UpdateStackRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_DN, _D, _N, _SC, _DSC, _RURL, _FURL, _ATD, _US, _AS, _AEc, _EHD, _SES],
-  [0, 0, 0, () => StorageConnectorList, 2, 0, 0, 64 | 0, () => UserSettingList, () => ApplicationSettings$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$]
+  [_N, _DN, _D, _SC, _DSC, _RURL, _FURL, _ATD, _US, _AS, _AEc, _EHD, _SES],
+  [0, 0, 0, () => StorageConnectorList, 2, 0, 0, 64 | 0, () => UserSettingList, () => ApplicationSettings$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$], 1
 ];
 export var UpdateStackResult$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -1815,7 +1815,7 @@ export var UpdateStackResult$: StaticStructureSchema = [3, n0, _USRp,
 export var UpdateThemeForStackRequest$: StaticStructureSchema = [3, n0, _UTFSR,
   0,
   [_SN, _FL, _TT, _TSh, _OLSL, _FSL, _S, _ATD],
-  [0, () => ThemeFooterLinks, 0, 0, () => S3Location$, () => S3Location$, 0, 64 | 0]
+  [0, () => ThemeFooterLinks, 0, 0, () => S3Location$, () => S3Location$, 0, 64 | 0], 1
 ];
 export var UpdateThemeForStackResult$: StaticStructureSchema = [3, n0, _UTFSRp,
   0,
@@ -1829,18 +1829,18 @@ export var UsageReportSubscription$: StaticStructureSchema = [3, n0, _URSs,
 ];
 export var User$: StaticStructureSchema = [3, n0, _Use,
   0,
-  [_A, _UN, _E, _St, _FNi, _LN, _CT, _AT],
-  [0, [() => Username, 0], 2, 0, [() => UserAttributeValue, 0], [() => UserAttributeValue, 0], 4, 0]
+  [_AT, _A, _UN, _E, _St, _FNi, _LN, _CT],
+  [0, 0, [() => Username, 0], 2, 0, [() => UserAttributeValue, 0], [() => UserAttributeValue, 0], 4], 1
 ];
 export var UserSetting$: StaticStructureSchema = [3, n0, _USs,
   0,
   [_Ac, _Pe, _ML],
-  [0, 0, 1]
+  [0, 0, 1], 2
 ];
 export var UserStackAssociation$: StaticStructureSchema = [3, n0, _USAs,
   0,
   [_SN, _UN, _AT, _SEN],
-  [0, [() => Username, 0], 0, 2]
+  [0, [() => Username, 0], 0, 2], 3
 ];
 export var UserStackAssociationError$: StaticStructureSchema = [3, n0, _USAE,
   0,

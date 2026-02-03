@@ -102,6 +102,7 @@ export * from "./RestoreObjectCommand";
 export * from "./SelectObjectContentCommand";
 export * from "./UpdateBucketMetadataInventoryTableConfigurationCommand";
 export * from "./UpdateBucketMetadataJournalTableConfigurationCommand";
+export * from "./UpdateObjectEncryptionCommand";
 export * from "./UploadPartCommand";
 export * from "./UploadPartCopyCommand";
 export * from "./WriteGetObjectResponseCommand";

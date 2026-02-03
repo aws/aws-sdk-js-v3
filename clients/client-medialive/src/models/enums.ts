@@ -3676,6 +3676,20 @@ export type TimecodeBurninPosition = (typeof TimecodeBurninPosition)[keyof typeo
  * @public
  * @enum
  */
+export const Av1TimecodeInsertionBehavior = {
+  DISABLED: "DISABLED",
+  METADATA_OBU: "METADATA_OBU",
+} as const;
+/**
+ * @public
+ */
+export type Av1TimecodeInsertionBehavior =
+  (typeof Av1TimecodeInsertionBehavior)[keyof typeof Av1TimecodeInsertionBehavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const FrameCaptureIntervalUnit = {
   MILLISECONDS: "MILLISECONDS",
   SECONDS: "SECONDS",

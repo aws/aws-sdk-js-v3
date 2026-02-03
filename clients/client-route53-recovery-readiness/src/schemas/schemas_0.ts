@@ -251,7 +251,7 @@ TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException
 export var CellOutput$: StaticStructureSchema = [3, n0, _CO,
   0,
   [_CA, _CN, _C, _PRS, _T],
-  [[0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [64 | 0, { [_jN]: _ce }], [64 | 0, { [_jN]: _pRS }], [128 | 0, { [_jN]: _t }]]
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [64 | 0, { [_jN]: _ce }], [64 | 0, { [_jN]: _pRS }], [128 | 0, { [_jN]: _t }]], 4
 ];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
@@ -262,7 +262,7 @@ TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCellRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_CN, _C, _T],
-  [[0, { [_jN]: _cN }], [64 | 0, { [_jN]: _ce }], [128 | 0, { [_jN]: _t }]]
+  [[0, { [_jN]: _cN }], [64 | 0, { [_jN]: _ce }], [128 | 0, { [_jN]: _t }]], 1
 ];
 export var CreateCellResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -272,7 +272,7 @@ export var CreateCellResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateCrossAccountAuthorizationRequest$: StaticStructureSchema = [3, n0, _CCAAR,
   0,
   [_CAA],
-  [[0, { [_jN]: _cAA }]]
+  [[0, { [_jN]: _cAA }]], 1
 ];
 export var CreateCrossAccountAuthorizationResponse$: StaticStructureSchema = [3, n0, _CCAARr,
   0,
@@ -282,7 +282,7 @@ export var CreateCrossAccountAuthorizationResponse$: StaticStructureSchema = [3,
 export var CreateReadinessCheckRequest$: StaticStructureSchema = [3, n0, _CRCR,
   0,
   [_RCN, _RSN, _T],
-  [[0, { [_jN]: _rCN }], [0, { [_jN]: _rSN }], [128 | 0, { [_jN]: _t }]]
+  [[0, { [_jN]: _rCN }], [0, { [_jN]: _rSN }], [128 | 0, { [_jN]: _t }]], 2
 ];
 export var CreateReadinessCheckResponse$: StaticStructureSchema = [3, n0, _CRCRr,
   0,
@@ -291,8 +291,8 @@ export var CreateReadinessCheckResponse$: StaticStructureSchema = [3, n0, _CRCRr
 ];
 export var CreateRecoveryGroupRequest$: StaticStructureSchema = [3, n0, _CRGR,
   0,
-  [_C, _RGN, _T],
-  [[64 | 0, { [_jN]: _ce }], [0, { [_jN]: _rGN }], [128 | 0, { [_jN]: _t }]]
+  [_RGN, _C, _T],
+  [[0, { [_jN]: _rGN }], [64 | 0, { [_jN]: _ce }], [128 | 0, { [_jN]: _t }]], 1
 ];
 export var CreateRecoveryGroupResponse$: StaticStructureSchema = [3, n0, _CRGRr,
   0,
@@ -302,7 +302,7 @@ export var CreateRecoveryGroupResponse$: StaticStructureSchema = [3, n0, _CRGRr,
 export var CreateResourceSetRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
   [_RSN, _RST, _R, _T],
-  [[0, { [_jN]: _rSN }], [0, { [_jN]: _rST }], [() => __listOfResource, { [_jN]: _r }], [128 | 0, { [_jN]: _t }]]
+  [[0, { [_jN]: _rSN }], [0, { [_jN]: _rST }], [() => __listOfResource, { [_jN]: _r }], [128 | 0, { [_jN]: _t }]], 3
 ];
 export var CreateResourceSetResponse$: StaticStructureSchema = [3, n0, _CRSRr,
   0,
@@ -312,12 +312,12 @@ export var CreateResourceSetResponse$: StaticStructureSchema = [3, n0, _CRSRr,
 export var DeleteCellRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteCrossAccountAuthorizationRequest$: StaticStructureSchema = [3, n0, _DCAAR,
   0,
   [_CAA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteCrossAccountAuthorizationResponse$: StaticStructureSchema = [3, n0, _DCAARe,
   0,
@@ -327,17 +327,17 @@ export var DeleteCrossAccountAuthorizationResponse$: StaticStructureSchema = [3,
 export var DeleteReadinessCheckRequest$: StaticStructureSchema = [3, n0, _DRCR,
   0,
   [_RCN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteRecoveryGroupRequest$: StaticStructureSchema = [3, n0, _DRGR,
   0,
   [_RGN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteResourceSetRequest$: StaticStructureSchema = [3, n0, _DRSR,
   0,
   [_RSN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DNSTargetResource$: StaticStructureSchema = [3, n0, _DNSTR,
   0,
@@ -346,8 +346,8 @@ export var DNSTargetResource$: StaticStructureSchema = [3, n0, _DNSTR,
 ];
 export var GetArchitectureRecommendationsRequest$: StaticStructureSchema = [3, n0, _GARR,
   0,
-  [_MR, _NT, _RGN],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, 1]]
+  [_RGN, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var GetArchitectureRecommendationsResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
@@ -357,7 +357,7 @@ export var GetArchitectureRecommendationsResponse$: StaticStructureSchema = [3, 
 export var GetCellReadinessSummaryRequest$: StaticStructureSchema = [3, n0, _GCRSR,
   0,
   [_CN, _MR, _NT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var GetCellReadinessSummaryResponse$: StaticStructureSchema = [3, n0, _GCRSRe,
   0,
@@ -367,7 +367,7 @@ export var GetCellReadinessSummaryResponse$: StaticStructureSchema = [3, n0, _GC
 export var GetCellRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_CN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetCellResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -377,12 +377,12 @@ export var GetCellResponse$: StaticStructureSchema = [3, n0, _GCRe,
 export var GetReadinessCheckRequest$: StaticStructureSchema = [3, n0, _GRCR,
   0,
   [_RCN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetReadinessCheckResourceStatusRequest$: StaticStructureSchema = [3, n0, _GRCRSR,
   0,
-  [_MR, _NT, _RCN, _RI],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, 1], [0, 1]]
+  [_RCN, _RI, _MR, _NT],
+  [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var GetReadinessCheckResourceStatusResponse$: StaticStructureSchema = [3, n0, _GRCRSRe,
   0,
@@ -396,8 +396,8 @@ export var GetReadinessCheckResponse$: StaticStructureSchema = [3, n0, _GRCRe,
 ];
 export var GetReadinessCheckStatusRequest$: StaticStructureSchema = [3, n0, _GRCSR,
   0,
-  [_MR, _NT, _RCN],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, 1]]
+  [_RCN, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var GetReadinessCheckStatusResponse$: StaticStructureSchema = [3, n0, _GRCSRe,
   0,
@@ -406,8 +406,8 @@ export var GetReadinessCheckStatusResponse$: StaticStructureSchema = [3, n0, _GR
 ];
 export var GetRecoveryGroupReadinessSummaryRequest$: StaticStructureSchema = [3, n0, _GRGRSR,
   0,
-  [_MR, _NT, _RGN],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, 1]]
+  [_RGN, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var GetRecoveryGroupReadinessSummaryResponse$: StaticStructureSchema = [3, n0, _GRGRSRe,
   0,
@@ -417,7 +417,7 @@ export var GetRecoveryGroupReadinessSummaryResponse$: StaticStructureSchema = [3
 export var GetRecoveryGroupRequest$: StaticStructureSchema = [3, n0, _GRGR,
   0,
   [_RGN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetRecoveryGroupResponse$: StaticStructureSchema = [3, n0, _GRGRe,
   0,
@@ -427,7 +427,7 @@ export var GetRecoveryGroupResponse$: StaticStructureSchema = [3, n0, _GRGRe,
 export var GetResourceSetRequest$: StaticStructureSchema = [3, n0, _GRSR,
   0,
   [_RSN],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetResourceSetResponse$: StaticStructureSchema = [3, n0, _GRSRe,
   0,
@@ -493,7 +493,7 @@ export var ListResourceSetsResponse$: StaticStructureSchema = [3, n0, _LRSRi,
 export var ListRulesOutput$: StaticStructureSchema = [3, n0, _LRO,
   0,
   [_RTe, _RD, _RIu],
-  [[0, { [_jN]: _rTe }], [0, { [_jN]: _rD }], [0, { [_jN]: _rI }]]
+  [[0, { [_jN]: _rTe }], [0, { [_jN]: _rD }], [0, { [_jN]: _rI }]], 3
 ];
 export var ListRulesRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
@@ -508,7 +508,7 @@ export var ListRulesResponse$: StaticStructureSchema = [3, n0, _LRRi,
 export var ListTagsForResourcesRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var ListTagsForResourcesResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -532,8 +532,8 @@ export var R53ResourceRecord$: StaticStructureSchema = [3, n0, _RRR,
 ];
 export var ReadinessCheckOutput$: StaticStructureSchema = [3, n0, _RCO,
   0,
-  [_RCA, _RCN, _RS, _T],
-  [[0, { [_jN]: _rCA }], [0, { [_jN]: _rCN }], [0, { [_jN]: _rS }], [128 | 0, { [_jN]: _t }]]
+  [_RCA, _RS, _RCN, _T],
+  [[0, { [_jN]: _rCA }], [0, { [_jN]: _rS }], [0, { [_jN]: _rCN }], [128 | 0, { [_jN]: _t }]], 2
 ];
 export var ReadinessCheckSummary$: StaticStructureSchema = [3, n0, _RCS,
   0,
@@ -543,12 +543,12 @@ export var ReadinessCheckSummary$: StaticStructureSchema = [3, n0, _RCS,
 export var Recommendation$: StaticStructureSchema = [3, n0, _Rec,
   0,
   [_RTec],
-  [[0, { [_jN]: _rTec }]]
+  [[0, { [_jN]: _rTec }]], 1
 ];
 export var RecoveryGroupOutput$: StaticStructureSchema = [3, n0, _RGO,
   0,
   [_C, _RGA, _RGN, _T],
-  [[64 | 0, { [_jN]: _ce }], [0, { [_jN]: _rGA }], [0, { [_jN]: _rGN }], [128 | 0, { [_jN]: _t }]]
+  [[64 | 0, { [_jN]: _ce }], [0, { [_jN]: _rGA }], [0, { [_jN]: _rGN }], [128 | 0, { [_jN]: _t }]], 3
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _Res,
   0,
@@ -563,23 +563,23 @@ export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceResult$: StaticStructureSchema = [3, n0, _RR,
   0,
-  [_CI, _LCT, _Rea, _RA],
-  [[0, { [_jN]: _cI }], [5, { [_jN]: _lCT }], [0, { [_jN]: _rea }], [0, { [_jN]: _rA }]]
+  [_LCT, _Rea, _CI, _RA],
+  [[5, { [_jN]: _lCT }], [0, { [_jN]: _rea }], [0, { [_jN]: _cI }], [0, { [_jN]: _rA }]], 2
 ];
 export var ResourceSetOutput$: StaticStructureSchema = [3, n0, _RSO,
   0,
   [_RSA, _RSN, _RST, _R, _T],
-  [[0, { [_jN]: _rSA }], [0, { [_jN]: _rSN }], [0, { [_jN]: _rST }], [() => __listOfResource, { [_jN]: _r }], [128 | 0, { [_jN]: _t }]]
+  [[0, { [_jN]: _rSA }], [0, { [_jN]: _rSN }], [0, { [_jN]: _rST }], [() => __listOfResource, { [_jN]: _r }], [128 | 0, { [_jN]: _t }]], 4
 ];
 export var RuleResult$: StaticStructureSchema = [3, n0, _RRu,
   0,
   [_LCT, _Me, _Rea, _RIu],
-  [[5, { [_jN]: _lCT }], [() => __listOfMessage, { [_jN]: _me }], [0, { [_jN]: _rea }], [0, { [_jN]: _rI }]]
+  [[5, { [_jN]: _lCT }], [() => __listOfMessage, { [_jN]: _me }], [0, { [_jN]: _rea }], [0, { [_jN]: _rI }]], 4
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
-  [[0, 1], [128 | 0, { [_jN]: _t }]]
+  [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
@@ -600,12 +600,12 @@ TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
-  [[0, 1], [64 | 0, { [_hQ]: _tK }]]
+  [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UpdateCellRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_CN, _C],
-  [[0, 1], [64 | 0, { [_jN]: _ce }]]
+  [[0, 1], [64 | 0, { [_jN]: _ce }]], 2
 ];
 export var UpdateCellResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
@@ -615,7 +615,7 @@ export var UpdateCellResponse$: StaticStructureSchema = [3, n0, _UCRp,
 export var UpdateReadinessCheckRequest$: StaticStructureSchema = [3, n0, _URCR,
   0,
   [_RCN, _RSN],
-  [[0, 1], [0, { [_jN]: _rSN }]]
+  [[0, 1], [0, { [_jN]: _rSN }]], 2
 ];
 export var UpdateReadinessCheckResponse$: StaticStructureSchema = [3, n0, _URCRp,
   0,
@@ -625,7 +625,7 @@ export var UpdateReadinessCheckResponse$: StaticStructureSchema = [3, n0, _URCRp
 export var UpdateRecoveryGroupRequest$: StaticStructureSchema = [3, n0, _URGR,
   0,
   [_C, _RGN],
-  [[64 | 0, { [_jN]: _ce }], [0, 1]]
+  [[64 | 0, { [_jN]: _ce }], [0, 1]], 2
 ];
 export var UpdateRecoveryGroupResponse$: StaticStructureSchema = [3, n0, _URGRp,
   0,
@@ -635,7 +635,7 @@ export var UpdateRecoveryGroupResponse$: StaticStructureSchema = [3, n0, _URGRp,
 export var UpdateResourceSetRequest$: StaticStructureSchema = [3, n0, _URSR,
   0,
   [_RSN, _RST, _R],
-  [[0, 1], [0, { [_jN]: _rST }], [() => __listOfResource, { [_jN]: _r }]]
+  [[0, 1], [0, { [_jN]: _rST }], [() => __listOfResource, { [_jN]: _r }]], 3
 ];
 export var UpdateResourceSetResponse$: StaticStructureSchema = [3, n0, _URSRp,
   0,

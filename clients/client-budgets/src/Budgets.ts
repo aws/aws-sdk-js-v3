@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/smithy-client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import { BudgetsClient } from "./BudgetsClient";
 import {
@@ -129,6 +129,16 @@ import {
   UpdateSubscriberCommandInput,
   UpdateSubscriberCommandOutput,
 } from "./commands/UpdateSubscriberCommand";
+import { paginateDescribeBudgetActionHistories } from "./pagination/DescribeBudgetActionHistoriesPaginator";
+import { paginateDescribeBudgetActionsForAccount } from "./pagination/DescribeBudgetActionsForAccountPaginator";
+import { paginateDescribeBudgetActionsForBudget } from "./pagination/DescribeBudgetActionsForBudgetPaginator";
+import {
+  paginateDescribeBudgetNotificationsForAccount,
+} from "./pagination/DescribeBudgetNotificationsForAccountPaginator";
+import { paginateDescribeBudgetPerformanceHistory } from "./pagination/DescribeBudgetPerformanceHistoryPaginator";
+import { paginateDescribeBudgets } from "./pagination/DescribeBudgetsPaginator";
+import { paginateDescribeNotificationsForBudget } from "./pagination/DescribeNotificationsForBudgetPaginator";
+import { paginateDescribeSubscribersForNotification } from "./pagination/DescribeSubscribersForNotificationPaginator";
 
 const commands = {
   CreateBudgetCommand,
@@ -157,6 +167,16 @@ const commands = {
   UpdateBudgetActionCommand,
   UpdateNotificationCommand,
   UpdateSubscriberCommand,
+};
+const paginators = {
+  paginateDescribeBudgetActionHistories,
+  paginateDescribeBudgetActionsForAccount,
+  paginateDescribeBudgetActionsForBudget,
+  paginateDescribeBudgetNotificationsForAccount,
+  paginateDescribeBudgetPerformanceHistory,
+  paginateDescribeBudgets,
+  paginateDescribeNotificationsForBudget,
+  paginateDescribeSubscribersForNotification,
 };
 
 export interface Budgets {
@@ -601,6 +621,94 @@ export interface Budgets {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSubscriberCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeBudgetActionHistoriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBudgetActionHistoriesCommandOutput}.
+   */
+  paginateDescribeBudgetActionHistories(
+    args: DescribeBudgetActionHistoriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBudgetActionHistoriesCommandOutput>;
+
+  /**
+   * @see {@link DescribeBudgetActionsForAccountCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBudgetActionsForAccountCommandOutput}.
+   */
+  paginateDescribeBudgetActionsForAccount(
+    args: DescribeBudgetActionsForAccountCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBudgetActionsForAccountCommandOutput>;
+
+  /**
+   * @see {@link DescribeBudgetActionsForBudgetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBudgetActionsForBudgetCommandOutput}.
+   */
+  paginateDescribeBudgetActionsForBudget(
+    args: DescribeBudgetActionsForBudgetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBudgetActionsForBudgetCommandOutput>;
+
+  /**
+   * @see {@link DescribeBudgetNotificationsForAccountCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBudgetNotificationsForAccountCommandOutput}.
+   */
+  paginateDescribeBudgetNotificationsForAccount(
+    args: DescribeBudgetNotificationsForAccountCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBudgetNotificationsForAccountCommandOutput>;
+
+  /**
+   * @see {@link DescribeBudgetPerformanceHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBudgetPerformanceHistoryCommandOutput}.
+   */
+  paginateDescribeBudgetPerformanceHistory(
+    args: DescribeBudgetPerformanceHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBudgetPerformanceHistoryCommandOutput>;
+
+  /**
+   * @see {@link DescribeBudgetsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBudgetsCommandOutput}.
+   */
+  paginateDescribeBudgets(
+    args: DescribeBudgetsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBudgetsCommandOutput>;
+
+  /**
+   * @see {@link DescribeNotificationsForBudgetCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeNotificationsForBudgetCommandOutput}.
+   */
+  paginateDescribeNotificationsForBudget(
+    args: DescribeNotificationsForBudgetCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeNotificationsForBudgetCommandOutput>;
+
+  /**
+   * @see {@link DescribeSubscribersForNotificationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSubscribersForNotificationCommandOutput}.
+   */
+  paginateDescribeSubscribersForNotification(
+    args: DescribeSubscribersForNotificationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSubscribersForNotificationCommandOutput>;
 }
 
 /**
@@ -650,4 +758,4 @@ export interface Budgets {
  * @public
  */
 export class Budgets extends BudgetsClient implements Budgets {}
-createAggregatedClient(commands, Budgets);
+createAggregatedClient(commands, Budgets, { paginators });

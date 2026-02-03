@@ -205,6 +205,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *         VpcInterfaceName: "STRING_VALUE",
  *       },
  *     },
+ *     NdiSourceSettings: { // NdiSourceSettings
+ *       SourceName: "STRING_VALUE",
+ *     },
  *     SourceTags: {
  *       "<keys>": "STRING_VALUE",
  *     },
@@ -277,6 +280,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *           VpcInterfaceName: "STRING_VALUE",
  *         },
  *       },
+ *       NdiSourceSettings: {
+ *         SourceName: "STRING_VALUE",
+ *       },
  *       SourceTags: {
  *         "<keys>": "STRING_VALUE",
  *       },
@@ -333,7 +339,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       },
  *     ],
  *   },
- *   FlowSize: "MEDIUM" || "LARGE",
+ *   FlowSize: "MEDIUM" || "LARGE" || "LARGE_4X",
  *   NdiConfig: { // NdiConfig
  *     NdiState: "ENABLED" || "DISABLED",
  *     MachineName: "STRING_VALUE",
@@ -344,6 +350,10 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *         VpcInterfaceAdapter: "STRING_VALUE", // required
  *       },
  *     ],
+ *   },
+ *   EncodingConfig: { // EncodingConfig
+ *     EncodingProfile: "DISTRIBUTION_H264_DEFAULT" || "CONTRIBUTION_H264_DEFAULT",
+ *     VideoMaxBitrate: Number("int"),
  *   },
  *   FlowTags: "<__mapOfString>",
  * };
@@ -462,6 +472,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //           StreamId: "STRING_VALUE",
  * //           NdiSpeedHqQuality: Number("int"),
  * //           NdiProgramName: "STRING_VALUE",
+ * //           NdiSourceSettings: { // NdiSourceSettings
+ * //             SourceName: "STRING_VALUE",
+ * //           },
  * //         },
  * //         VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //           VpcInterfaceName: "STRING_VALUE",
@@ -540,6 +553,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //         StreamId: "STRING_VALUE",
  * //         NdiSpeedHqQuality: Number("int"),
  * //         NdiProgramName: "STRING_VALUE",
+ * //         NdiSourceSettings: {
+ * //           SourceName: "STRING_VALUE",
+ * //         },
  * //       },
  * //       VpcInterfaceName: "STRING_VALUE",
  * //       WhitelistCidr: "STRING_VALUE",
@@ -626,6 +642,9 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //           StreamId: "STRING_VALUE",
  * //           NdiSpeedHqQuality: Number("int"),
  * //           NdiProgramName: "STRING_VALUE",
+ * //           NdiSourceSettings: {
+ * //             SourceName: "STRING_VALUE",
+ * //           },
  * //         },
  * //         VpcInterfaceName: "STRING_VALUE",
  * //         WhitelistCidr: "STRING_VALUE",
@@ -693,7 +712,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //         },
  * //       ],
  * //     },
- * //     FlowSize: "MEDIUM" || "LARGE",
+ * //     FlowSize: "MEDIUM" || "LARGE" || "LARGE_4X",
  * //     NdiConfig: { // NdiConfig
  * //       NdiState: "ENABLED" || "DISABLED",
  * //       MachineName: "STRING_VALUE",
@@ -704,6 +723,10 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //           VpcInterfaceAdapter: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //     },
+ * //     EncodingConfig: { // EncodingConfig
+ * //       EncodingProfile: "DISTRIBUTION_H264_DEFAULT" || "CONTRIBUTION_H264_DEFAULT",
+ * //       VideoMaxBitrate: Number("int"),
  * //     },
  * //   },
  * // };

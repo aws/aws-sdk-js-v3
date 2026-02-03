@@ -416,12 +416,12 @@ export var BasicDeviceObject$: StaticStructureSchema = [3, n0, _BDO,
 export var BatchCreateUserRequest$: StaticStructureSchema = [3, n0, _BCUR,
   0,
   [_nI, _u, _cT],
-  [[0, 1], [() => BatchCreateUserRequestItems, 0], [0, { [_hH]: _XCT, [_iT]: 1 }]]
+  [[0, 1], [() => BatchCreateUserRequestItems, 0], [0, { [_hH]: _XCT, [_iT]: 1 }]], 2
 ];
 export var BatchCreateUserRequestItem$: StaticStructureSchema = [3, n0, _BCURI,
   0,
-  [_fN, _lN, _sGI, _us, _iC, _iCT, _cV],
-  [[() => SensitiveString, 0], [() => SensitiveString, 0], 64 | 0, 0, 0, 1, 2]
+  [_sGI, _us, _fN, _lN, _iC, _iCT, _cV],
+  [64 | 0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 1, 2], 2
 ];
 export var BatchCreateUserResponse$: StaticStructureSchema = [3, n0, _BCURa,
   0,
@@ -431,7 +431,7 @@ export var BatchCreateUserResponse$: StaticStructureSchema = [3, n0, _BCURa,
 export var BatchDeleteUserRequest$: StaticStructureSchema = [3, n0, _BDUR,
   0,
   [_nI, _uI, _cT],
-  [[0, 1], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]]
+  [[0, 1], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]], 2
 ];
 export var BatchDeleteUserResponse$: StaticStructureSchema = [3, n0, _BDURa,
   0,
@@ -440,18 +440,18 @@ export var BatchDeleteUserResponse$: StaticStructureSchema = [3, n0, _BDURa,
 ];
 export var BatchDeviceErrorResponseItem$: StaticStructureSchema = [3, n0, _BDERI,
   0,
-  [_fi, _r, _aI],
-  [0, 0, 0]
+  [_aI, _fi, _r],
+  [0, 0, 0], 1
 ];
 export var BatchDeviceSuccessResponseItem$: StaticStructureSchema = [3, n0, _BDSRI,
   0,
   [_aI],
-  [0]
+  [0], 1
 ];
 export var BatchLookupUserUnameRequest$: StaticStructureSchema = [3, n0, _BLUUR,
   0,
   [_nI, _un, _cT],
-  [[0, 1], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]]
+  [[0, 1], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]], 2
 ];
 export var BatchLookupUserUnameResponse$: StaticStructureSchema = [3, n0, _BLUURa,
   0,
@@ -461,7 +461,7 @@ export var BatchLookupUserUnameResponse$: StaticStructureSchema = [3, n0, _BLUUR
 export var BatchReinviteUserRequest$: StaticStructureSchema = [3, n0, _BRUR,
   0,
   [_nI, _uI, _cT],
-  [[0, 1], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]]
+  [[0, 1], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]], 2
 ];
 export var BatchReinviteUserResponse$: StaticStructureSchema = [3, n0, _BRURa,
   0,
@@ -471,7 +471,7 @@ export var BatchReinviteUserResponse$: StaticStructureSchema = [3, n0, _BRURa,
 export var BatchResetDevicesForUserRequest$: StaticStructureSchema = [3, n0, _BRDFUR,
   0,
   [_nI, _uIs, _aIp, _cT],
-  [[0, 1], [0, 1], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]]
+  [[0, 1], [0, 1], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]], 3
 ];
 export var BatchResetDevicesForUserResponse$: StaticStructureSchema = [3, n0, _BRDFURa,
   0,
@@ -481,7 +481,7 @@ export var BatchResetDevicesForUserResponse$: StaticStructureSchema = [3, n0, _B
 export var BatchToggleUserSuspendStatusRequest$: StaticStructureSchema = [3, n0, _BTUSSR,
   0,
   [_nI, _s, _uI, _cT],
-  [[0, 1], [2, { [_hQ]: _s }], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]]
+  [[0, 1], [2, { [_hQ]: _s }], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]], 3
 ];
 export var BatchToggleUserSuspendStatusResponse$: StaticStructureSchema = [3, n0, _BTUSSRa,
   0,
@@ -490,28 +490,28 @@ export var BatchToggleUserSuspendStatusResponse$: StaticStructureSchema = [3, n0
 ];
 export var BatchUnameErrorResponseItem$: StaticStructureSchema = [3, n0, _BUERI,
   0,
-  [_fi, _r, _una],
-  [0, 0, 0]
+  [_una, _fi, _r],
+  [0, 0, 0], 1
 ];
 export var BatchUnameSuccessResponseItem$: StaticStructureSchema = [3, n0, _BUSRI,
   0,
   [_una, _us],
-  [0, 0]
+  [0, 0], 2
 ];
 export var BatchUserErrorResponseItem$: StaticStructureSchema = [3, n0, _BUERIa,
   0,
-  [_fi, _r, _uIs],
-  [0, 0, 0]
+  [_uIs, _fi, _r],
+  [0, 0, 0], 1
 ];
 export var BatchUserSuccessResponseItem$: StaticStructureSchema = [3, n0, _BUSRIa,
   0,
   [_uIs],
-  [0]
+  [0], 1
 ];
 export var BlockedGuestUser$: StaticStructureSchema = [3, n0, _BGU,
   0,
   [_us, _a, _mo, _uH],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0], 4
 ];
 export var Bot$: StaticStructureSchema = [3, n0, _B,
   0,
@@ -525,28 +525,28 @@ export var CallingSettings$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var CreateBotRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_nI, _us, _dN, _gI, _ch],
-  [[0, 1], 0, 0, 0, [() => SensitiveString, 0]]
+  [_nI, _us, _gI, _ch, _dN],
+  [[0, 1], 0, 0, [() => SensitiveString, 0], 0], 4
 ];
 export var CreateBotResponse$: StaticStructureSchema = [3, n0, _CBRr,
   0,
-  [_m, _bI, _nI, _us, _dN, _gI],
-  [0, 0, 0, 0, 0, 0]
+  [_bI, _m, _nI, _us, _dN, _gI],
+  [0, 0, 0, 0, 0, 0], 1
 ];
 export var CreateDataRetentionBotChallengeRequest$: StaticStructureSchema = [3, n0, _CDRBCR,
   0,
   [_nI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CreateDataRetentionBotChallengeResponse$: StaticStructureSchema = [3, n0, _CDRBCRr,
   0,
   [_ch],
-  [[() => SensitiveString, 0]]
+  [[() => SensitiveString, 0]], 1
 ];
 export var CreateDataRetentionBotRequest$: StaticStructureSchema = [3, n0, _CDRBR,
   0,
   [_nI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var CreateDataRetentionBotResponse$: StaticStructureSchema = [3, n0, _CDRBRr,
   0,
@@ -556,7 +556,7 @@ export var CreateDataRetentionBotResponse$: StaticStructureSchema = [3, n0, _CDR
 export var CreateNetworkRequest$: StaticStructureSchema = [3, n0, _CNR,
   0,
   [_nN, _aL, _ePFT, _eKA],
-  [0, 0, 2, 0]
+  [0, 0, 2, 0], 2
 ];
 export var CreateNetworkResponse$: StaticStructureSchema = [3, n0, _CNRr,
   0,
@@ -566,17 +566,17 @@ export var CreateNetworkResponse$: StaticStructureSchema = [3, n0, _CNRr,
 export var CreateSecurityGroupRequest$: StaticStructureSchema = [3, n0, _CSGR,
   0,
   [_nI, _n, _sGS, _cT],
-  [[0, 1], 0, () => SecurityGroupSettingsRequest$, [0, { [_hH]: _XCT, [_iT]: 1 }]]
+  [[0, 1], 0, () => SecurityGroupSettingsRequest$, [0, { [_hH]: _XCT, [_iT]: 1 }]], 3
 ];
 export var CreateSecurityGroupResponse$: StaticStructureSchema = [3, n0, _CSGRr,
   0,
   [_sG],
-  [() => SecurityGroup$]
+  [() => SecurityGroup$], 1
 ];
 export var DeleteBotRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
   [_nI, _bI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteBotResponse$: StaticStructureSchema = [3, n0, _DBRe,
   0,
@@ -586,7 +586,7 @@ export var DeleteBotResponse$: StaticStructureSchema = [3, n0, _DBRe,
 export var DeleteDataRetentionBotRequest$: StaticStructureSchema = [3, n0, _DDRBR,
   0,
   [_nI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var DeleteDataRetentionBotResponse$: StaticStructureSchema = [3, n0, _DDRBRe,
   0,
@@ -596,7 +596,7 @@ export var DeleteDataRetentionBotResponse$: StaticStructureSchema = [3, n0, _DDR
 export var DeleteNetworkRequest$: StaticStructureSchema = [3, n0, _DNR,
   0,
   [_nI, _cT],
-  [[0, 1], [0, { [_hH]: _XCT, [_iT]: 1 }]]
+  [[0, 1], [0, { [_hH]: _XCT, [_iT]: 1 }]], 1
 ];
 export var DeleteNetworkResponse$: StaticStructureSchema = [3, n0, _DNRe,
   0,
@@ -606,7 +606,7 @@ export var DeleteNetworkResponse$: StaticStructureSchema = [3, n0, _DNRe,
 export var DeleteSecurityGroupRequest$: StaticStructureSchema = [3, n0, _DSGR,
   0,
   [_nI, _gI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var DeleteSecurityGroupResponse$: StaticStructureSchema = [3, n0, _DSGRe,
   0,
@@ -627,7 +627,7 @@ TypeRegistry.for(n0).registerError(ForbiddenError$, ForbiddenError);
 export var GetBotRequest$: StaticStructureSchema = [3, n0, _GBR,
   0,
   [_nI, _bI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetBotResponse$: StaticStructureSchema = [3, n0, _GBRe,
   0,
@@ -637,17 +637,17 @@ export var GetBotResponse$: StaticStructureSchema = [3, n0, _GBRe,
 export var GetBotsCountRequest$: StaticStructureSchema = [3, n0, _GBCR,
   0,
   [_nI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetBotsCountResponse$: StaticStructureSchema = [3, n0, _GBCRe,
   0,
   [_pe, _ac, _to],
-  [1, 1, 1]
+  [1, 1, 1], 3
 ];
 export var GetDataRetentionBotRequest$: StaticStructureSchema = [3, n0, _GDRBR,
   0,
   [_nI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetDataRetentionBotResponse$: StaticStructureSchema = [3, n0, _GDRBRe,
   0,
@@ -657,37 +657,37 @@ export var GetDataRetentionBotResponse$: StaticStructureSchema = [3, n0, _GDRBRe
 export var GetGuestUserHistoryCountRequest$: StaticStructureSchema = [3, n0, _GGUHCR,
   0,
   [_nI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetGuestUserHistoryCountResponse$: StaticStructureSchema = [3, n0, _GGUHCRe,
   0,
   [_h],
-  [() => GuestUserHistoryCountList]
+  [() => GuestUserHistoryCountList], 1
 ];
 export var GetNetworkRequest$: StaticStructureSchema = [3, n0, _GNR,
   0,
   [_nI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetNetworkResponse$: StaticStructureSchema = [3, n0, _GNRe,
   0,
   [_nI, _nN, _aL, _aAI, _nA, _sta, _fTE, _mS, _eKA],
-  [0, 0, 0, 0, 0, 1, 0, 1, 0]
+  [0, 0, 0, 0, 0, 1, 0, 1, 0], 5
 ];
 export var GetNetworkSettingsRequest$: StaticStructureSchema = [3, n0, _GNSR,
   0,
   [_nI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _GNSRe,
   0,
   [_se],
-  [() => SettingsList]
+  [() => SettingsList], 1
 ];
 export var GetOidcInfoRequest$: StaticStructureSchema = [3, n0, _GOIR,
   0,
   [_nI, _cI, _co, _gT, _rU, _ur, _cS, _cVo, _ce],
-  [[0, 1], [0, { [_hQ]: _cI }], [0, { [_hQ]: _co }], [0, { [_hQ]: _gT }], [0, { [_hQ]: _rU }], [0, { [_hQ]: _ur }], [() => SensitiveString, { [_hQ]: _cS }], [0, { [_hQ]: _cVo }], [0, { [_hQ]: _ce }]]
+  [[0, 1], [0, { [_hQ]: _cI }], [0, { [_hQ]: _co }], [0, { [_hQ]: _gT }], [0, { [_hQ]: _rU }], [0, { [_hQ]: _ur }], [() => SensitiveString, { [_hQ]: _cS }], [0, { [_hQ]: _cVo }], [0, { [_hQ]: _ce }]], 1
 ];
 export var GetOidcInfoResponse$: StaticStructureSchema = [3, n0, _GOIRe,
   0,
@@ -697,88 +697,88 @@ export var GetOidcInfoResponse$: StaticStructureSchema = [3, n0, _GOIRe,
 export var GetSecurityGroupRequest$: StaticStructureSchema = [3, n0, _GSGR,
   0,
   [_nI, _gI],
-  [[0, 1], [0, 1]]
+  [[0, 1], [0, 1]], 2
 ];
 export var GetSecurityGroupResponse$: StaticStructureSchema = [3, n0, _GSGRe,
   0,
   [_sG],
-  [() => SecurityGroup$]
+  [() => SecurityGroup$], 1
 ];
 export var GetUserRequest$: StaticStructureSchema = [3, n0, _GUR,
   0,
   [_nI, _uIs, _sTt, _eT],
-  [[0, 1], [0, 1], [7, { [_hQ]: _sTt }], [7, { [_hQ]: _eT }]]
+  [[0, 1], [0, 1], [7, { [_hQ]: _sTt }], [7, { [_hQ]: _eT }]], 2
 ];
 export var GetUserResponse$: StaticStructureSchema = [3, n0, _GURe,
   0,
   [_uIs, _fN, _lN, _us, _iA, _sus, _st, _lA, _lL, _sGI],
-  [0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 2, 2, 1, 1, 1, 64 | 0]
+  [0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 2, 2, 1, 1, 1, 64 | 0], 1
 ];
 export var GetUsersCountRequest$: StaticStructureSchema = [3, n0, _GUCR,
   0,
   [_nI],
-  [[0, 1]]
+  [[0, 1]], 1
 ];
 export var GetUsersCountResponse$: StaticStructureSchema = [3, n0, _GUCRe,
   0,
   [_pe, _ac, _re, _rem, _to],
-  [1, 1, 1, 1, 1]
+  [1, 1, 1, 1, 1], 5
 ];
 export var GuestUser$: StaticStructureSchema = [3, n0, _GU,
   0,
   [_bP, _us, _uH],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var GuestUserHistoryCount$: StaticStructureSchema = [3, n0, _GUHC,
   0,
   [_mon, _cou],
-  [0, 0]
+  [0, 0], 2
 ];
 export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _ser, [_hE]: 500 },
   [_m],
-  [0]
+  [0], 1
 ];
 TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
 export var ListBlockedGuestUsersRequest$: StaticStructureSchema = [3, n0, _LBGUR,
   0,
   [_nI, _mR, _sD, _sF, _us, _a, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sD }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _us }], [0, { [_hQ]: _a }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sD }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _us }], [0, { [_hQ]: _a }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListBlockedGuestUsersResponse$: StaticStructureSchema = [3, n0, _LBGURi,
   0,
-  [_nT, _b],
-  [0, () => BlockedGuestUserList]
+  [_b, _nT],
+  [() => BlockedGuestUserList, 0], 1
 ];
 export var ListBotsRequest$: StaticStructureSchema = [3, n0, _LBR,
   0,
   [_nI, _nT, _mR, _sF, _sD, _dN, _us, _st, _gI],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _sD }], [0, { [_hQ]: _dN }], [0, { [_hQ]: _us }], [1, { [_hQ]: _st }], [0, { [_hQ]: _gI }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _sD }], [0, { [_hQ]: _dN }], [0, { [_hQ]: _us }], [1, { [_hQ]: _st }], [0, { [_hQ]: _gI }]], 1
 ];
 export var ListBotsResponse$: StaticStructureSchema = [3, n0, _LBRi,
   0,
   [_bo, _nT],
-  [() => Bots, 0]
+  [() => Bots, 0], 1
 ];
 export var ListDevicesForUserRequest$: StaticStructureSchema = [3, n0, _LDFUR,
   0,
   [_nI, _uIs, _nT, _mR, _sF, _sD],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _sD }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _sD }]], 2
 ];
 export var ListDevicesForUserResponse$: StaticStructureSchema = [3, n0, _LDFURi,
   0,
-  [_nT, _d],
-  [0, () => Devices]
+  [_d, _nT],
+  [() => Devices, 0], 1
 ];
 export var ListGuestUsersRequest$: StaticStructureSchema = [3, n0, _LGUR,
   0,
   [_nI, _mR, _sD, _sF, _us, _bP, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sD }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _us }], [0, { [_hQ]: _bP }], [0, { [_hQ]: _nT }]]
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sD }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _us }], [0, { [_hQ]: _bP }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListGuestUsersResponse$: StaticStructureSchema = [3, n0, _LGURi,
   0,
-  [_nT, _g],
-  [0, () => GuestUserList]
+  [_g, _nT],
+  [() => GuestUserList, 0], 1
 ];
 export var ListNetworksRequest$: StaticStructureSchema = [3, n0, _LNR,
   0,
@@ -788,12 +788,12 @@ export var ListNetworksRequest$: StaticStructureSchema = [3, n0, _LNR,
 export var ListNetworksResponse$: StaticStructureSchema = [3, n0, _LNRi,
   0,
   [_ne, _nT],
-  [() => NetworkList, 0]
+  [() => NetworkList, 0], 1
 ];
 export var ListSecurityGroupsRequest$: StaticStructureSchema = [3, n0, _LSGR,
   0,
   [_nI, _nT, _mR, _sF, _sD],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _sD }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _sD }]], 1
 ];
 export var ListSecurityGroupsResponse$: StaticStructureSchema = [3, n0, _LSGRi,
   0,
@@ -803,17 +803,17 @@ export var ListSecurityGroupsResponse$: StaticStructureSchema = [3, n0, _LSGRi,
 export var ListSecurityGroupUsersRequest$: StaticStructureSchema = [3, n0, _LSGUR,
   0,
   [_nI, _gI, _nT, _mR, _sF, _sD],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _sD }]]
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _sD }]], 2
 ];
 export var ListSecurityGroupUsersResponse$: StaticStructureSchema = [3, n0, _LSGURi,
   0,
   [_u, _nT],
-  [[() => Users, 0], 0]
+  [[() => Users, 0], 0], 1
 ];
 export var ListUsersRequest$: StaticStructureSchema = [3, n0, _LUR,
   0,
   [_nI, _nT, _mR, _sF, _sD, _fN, _lN, _us, _st, _gI],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _sD }], [() => SensitiveString, { [_hQ]: _fN }], [() => SensitiveString, { [_hQ]: _lN }], [0, { [_hQ]: _us }], [1, { [_hQ]: _st }], [0, { [_hQ]: _gI }]]
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sF }], [0, { [_hQ]: _sD }], [() => SensitiveString, { [_hQ]: _fN }], [() => SensitiveString, { [_hQ]: _lN }], [0, { [_hQ]: _us }], [1, { [_hQ]: _st }], [0, { [_hQ]: _gI }]], 1
 ];
 export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
   0,
@@ -823,7 +823,7 @@ export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
 export var Network$: StaticStructureSchema = [3, n0, _N,
   0,
   [_nI, _nN, _aL, _aAI, _nA, _sta, _fTE, _mS, _eKA],
-  [0, 0, 0, 0, 0, 1, 0, 1, 0]
+  [0, 0, 0, 0, 0, 1, 0, 1, 0], 5
 ];
 export var NetworkSettings$: StaticStructureSchema = [3, n0, _NS,
   0,
@@ -832,8 +832,8 @@ export var NetworkSettings$: StaticStructureSchema = [3, n0, _NS,
 ];
 export var OidcConfigInfo$: StaticStructureSchema = [3, n0, _OCI,
   0,
-  [_aN, _cI, _cIo, _sc, _i, _cS, _sec, _rUe, _uIs, _cU, _cC, _aIpp, _sTBM, _eAP],
-  [0, 0, 0, 0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 1, 1, 0]
+  [_cIo, _sc, _i, _aN, _cI, _cS, _sec, _rUe, _uIs, _cU, _cC, _aIpp, _sTBM, _eAP],
+  [0, 0, 0, 0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 1, 1, 0], 3
 ];
 export var OidcTokenInfo$: StaticStructureSchema = [3, n0, _OTI,
   0,
@@ -848,7 +848,7 @@ export var PasswordRequirements$: StaticStructureSchema = [3, n0, _PR,
 export var PermittedWickrEnterpriseNetwork$: StaticStructureSchema = [3, n0, _PWEN,
   0,
   [_do, _nI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var RateLimitError$: StaticErrorSchema = [-3, n0, _RLE,
   { [_e]: _c, [_hE]: 429 },
@@ -863,18 +863,18 @@ export var ReadReceiptConfig$: StaticStructureSchema = [3, n0, _RRC,
 ];
 export var RegisterOidcConfigRequest$: StaticStructureSchema = [3, n0, _ROCR,
   0,
-  [_nI, _cIo, _cU, _eAP, _i, _sc, _sec, _sTBM, _uIs],
-  [[0, 1], 0, 0, 0, 0, 0, [() => SensitiveString, 0], 1, 0]
+  [_nI, _cIo, _i, _sc, _cU, _eAP, _sec, _sTBM, _uIs],
+  [[0, 1], 0, 0, 0, 0, 0, [() => SensitiveString, 0], 1, 0], 4
 ];
 export var RegisterOidcConfigResponse$: StaticStructureSchema = [3, n0, _ROCRe,
   0,
-  [_aN, _cI, _cIo, _sc, _i, _cS, _sec, _rUe, _uIs, _cU, _cC, _aIpp, _sTBM, _eAP],
-  [0, 0, 0, 0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 1, 1, 0]
+  [_cIo, _sc, _i, _aN, _cI, _cS, _sec, _rUe, _uIs, _cU, _cC, _aIpp, _sTBM, _eAP],
+  [0, 0, 0, 0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 1, 1, 0], 3
 ];
 export var RegisterOidcConfigTestRequest$: StaticStructureSchema = [3, n0, _ROCTR,
   0,
-  [_nI, _eAP, _i, _sc, _ce],
-  [[0, 1], 0, 0, 0, 0]
+  [_nI, _i, _sc, _eAP, _ce],
+  [[0, 1], 0, 0, 0, 0], 3
 ];
 export var RegisterOidcConfigTestResponse$: StaticStructureSchema = [3, n0, _ROCTRe,
   0,
@@ -889,8 +889,8 @@ export var ResourceNotFoundError$: StaticErrorSchema = [-3, n0, _RNFE,
 TypeRegistry.for(n0).registerError(ResourceNotFoundError$, ResourceNotFoundError);
 export var SecurityGroup$: StaticStructureSchema = [3, n0, _SG,
   0,
-  [_aM, _bM, _aDG, _id, _iD, _n, _mo, _sGS],
-  [1, 1, 0, 0, 2, 0, 1, () => SecurityGroupSettings$]
+  [_aM, _bM, _id, _iD, _n, _mo, _sGS, _aDG],
+  [1, 1, 0, 2, 0, 1, () => SecurityGroupSettings$, 0], 7
 ];
 export var SecurityGroupSettings$: StaticStructureSchema = [3, n0, _SGS,
   0,
@@ -905,7 +905,7 @@ export var SecurityGroupSettingsRequest$: StaticStructureSchema = [3, n0, _SGSR,
 export var Setting$: StaticStructureSchema = [3, n0, _S,
   0,
   [_oN, _v, _t],
-  [0, 0, 0]
+  [0, 0, 0], 3
 ];
 export var ShredderSettings$: StaticStructureSchema = [3, n0, _SSh,
   0,
@@ -921,7 +921,7 @@ TypeRegistry.for(n0).registerError(UnauthorizedError$, UnauthorizedError);
 export var UpdateBotRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
   [_nI, _bI, _dN, _gI, _ch, _s],
-  [[0, 1], [0, 1], 0, 0, [() => SensitiveString, 0], 2]
+  [[0, 1], [0, 1], 0, 0, [() => SensitiveString, 0], 2], 2
 ];
 export var UpdateBotResponse$: StaticStructureSchema = [3, n0, _UBRp,
   0,
@@ -931,7 +931,7 @@ export var UpdateBotResponse$: StaticStructureSchema = [3, n0, _UBRp,
 export var UpdateDataRetentionRequest$: StaticStructureSchema = [3, n0, _UDRR,
   0,
   [_nI, _aTc],
-  [[0, 1], 0]
+  [[0, 1], 0], 2
 ];
 export var UpdateDataRetentionResponse$: StaticStructureSchema = [3, n0, _UDRRp,
   0,
@@ -941,7 +941,7 @@ export var UpdateDataRetentionResponse$: StaticStructureSchema = [3, n0, _UDRRp,
 export var UpdateGuestUserRequest$: StaticStructureSchema = [3, n0, _UGUR,
   0,
   [_nI, _uH, _bl],
-  [[0, 1], [0, 1], 2]
+  [[0, 1], [0, 1], 2], 3
 ];
 export var UpdateGuestUserResponse$: StaticStructureSchema = [3, n0, _UGURp,
   0,
@@ -951,7 +951,7 @@ export var UpdateGuestUserResponse$: StaticStructureSchema = [3, n0, _UGURp,
 export var UpdateNetworkRequest$: StaticStructureSchema = [3, n0, _UNR,
   0,
   [_nI, _nN, _cT, _eKA],
-  [[0, 1], 0, [0, { [_hH]: _XCT, [_iT]: 1 }], 0]
+  [[0, 1], 0, [0, { [_hH]: _XCT, [_iT]: 1 }], 0], 2
 ];
 export var UpdateNetworkResponse$: StaticStructureSchema = [3, n0, _UNRp,
   0,
@@ -961,22 +961,22 @@ export var UpdateNetworkResponse$: StaticStructureSchema = [3, n0, _UNRp,
 export var UpdateNetworkSettingsRequest$: StaticStructureSchema = [3, n0, _UNSR,
   0,
   [_nI, _se],
-  [[0, 1], () => NetworkSettings$]
+  [[0, 1], () => NetworkSettings$], 2
 ];
 export var UpdateNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _UNSRp,
   0,
   [_se],
-  [() => SettingsList]
+  [() => SettingsList], 1
 ];
 export var UpdateSecurityGroupRequest$: StaticStructureSchema = [3, n0, _USGR,
   0,
   [_nI, _gI, _n, _sGS],
-  [[0, 1], [0, 1], 0, () => SecurityGroupSettings$]
+  [[0, 1], [0, 1], 0, () => SecurityGroupSettings$], 2
 ];
 export var UpdateSecurityGroupResponse$: StaticStructureSchema = [3, n0, _USGRp,
   0,
   [_sG],
-  [() => SecurityGroup$]
+  [() => SecurityGroup$], 1
 ];
 export var UpdateUserDetails$: StaticStructureSchema = [3, n0, _UUD,
   0,
@@ -986,12 +986,12 @@ export var UpdateUserDetails$: StaticStructureSchema = [3, n0, _UUD,
 export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
   [_nI, _uIs, _uD],
-  [[0, 1], 0, [() => UpdateUserDetails$, 0]]
+  [[0, 1], 0, [() => UpdateUserDetails$, 0]], 2
 ];
 export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
   0,
-  [_uIs, _nI, _sGI, _fN, _lN, _mN, _sus, _mo, _st, _iC, _iE, _cV],
-  [0, 0, 64 | 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 2, 1, 1, 0, 1, 2]
+  [_uIs, _nI, _sus, _sGI, _fN, _lN, _mN, _mo, _st, _iC, _iE, _cV],
+  [0, 0, 2, 64 | 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 1, 1, 0, 1, 2], 3
 ];
 export var User$: StaticStructureSchema = [3, n0, _U,
   0,
@@ -1007,7 +1007,7 @@ TypeRegistry.for(n0).registerError(ValidationError$, ValidationError);
 export var WickrAwsNetworks$: StaticStructureSchema = [3, n0, _WAN,
   0,
   [_reg, _nI],
-  [0, 0]
+  [0, 0], 2
 ];
 export var WickrServiceException$: StaticErrorSchema = [-3, _sm, "WickrServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(WickrServiceException$, WickrServiceException);

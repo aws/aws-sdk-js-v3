@@ -115,6 +115,7 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *         Encrypted: true || false,
  *         VolumeInitializationRate: Number("int"),
  *         AvailabilityZoneId: "STRING_VALUE",
+ *         EbsCardIndex: Number("int"),
  *       },
  *       NoDevice: "STRING_VALUE",
  *       DeviceName: "STRING_VALUE",
