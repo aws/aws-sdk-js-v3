@@ -74,17 +74,14 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       systemClockOffsetProvider: this.systemClockOffsetProvider,
     });
 
-    // this promise only rejects on error, never resolves on success
-    // this is used in a race against the http layer's response below
-    const pipelineError = new Promise<never>((_, reject) => {
+    // this promise is used in a race against the http layer's response below
+    const pipelineError = new Promise<FinalizeHandlerOutput<any>>((resolve, reject) => {
       pipeline(payloadStream, signingStream, request.body, (err: NodeJS.ErrnoException | null) => {
         if (err) {
-          // metadata to identify pipeline errors
-          const pipelineErr = err as any;
-          pipelineErr.$source = "@aws-sdk/eventstream-handler-node";
-          reject(err);
+          reject(new Error(`Pipeline error in @aws-sdk/eventstream-handler-node: ${err.message}`, { cause: err }));
+        } else {
+          resolve(undefined as any); // won't win race, but prevents GC issues
         }
-        // don't resolve on success - let the http request complete naturally
       });
     });
 

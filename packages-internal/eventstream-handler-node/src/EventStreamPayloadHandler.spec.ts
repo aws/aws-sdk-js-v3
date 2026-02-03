@@ -238,7 +238,7 @@ describe(EventStreamPayloadHandler.name, () => {
       return Promise.resolve({ output: {} });
     });
 
-    // Expect the pipeline error to be caught and propagated with metadata
+    // Expect the pipeline error to be caught and wrapped
     try {
       await handler.handle(mockNextHandler, {
         request: mockRequest,
@@ -246,8 +246,8 @@ describe(EventStreamPayloadHandler.name, () => {
       });
       expect.fail("Expected error to be thrown");
     } catch (error: any) {
-      expect(error).toBe(pipelineError);
-      expect(error.$source).toBe("@aws-sdk/eventstream-handler-node");
+      expect(error.message).toContain("Pipeline error in @aws-sdk/eventstream-handler-node");
+      expect(error.cause).toBe(pipelineError);
     }
   });
 });
