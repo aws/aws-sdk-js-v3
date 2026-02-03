@@ -39,7 +39,7 @@
     "tslib": "^2.6.2"
   },
   "peerDependencies": {
-    "@aws-sdk/client-s3": "workspace:3.982.0"
+    "@aws-sdk/client-s3": "workspace:^3.982.0"
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "workspace:3.982.0",

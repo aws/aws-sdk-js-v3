@@ -36,9 +36,6 @@
     "premove": "4.0.0",
     "typescript": "~5.8.3"
   },
-  "peerDependencies": {
-    "@aws-sdk/client-dynamodb": "workspace:3.982.0"
-  },
   "engines": {
     "node": ">=20.0.0"
   },

@@ -23752,8 +23752,6 @@ __metadata:
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
-  peerDependencies:
-    "@aws-sdk/client-dynamodb": "workspace:3.982.0"
   languageName: unknown
   linkType: soft
 
@@ -23845,7 +23843,7 @@ __metadata:
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   peerDependencies:
-    "@aws-sdk/client-dynamodb": "workspace:3.982.0"
+    "@aws-sdk/client-dynamodb": "workspace:^3.982.0"
   languageName: unknown
   linkType: soft
 
@@ -23870,7 +23868,7 @@ __metadata:
     typescript: "npm:~5.8.3"
     web-streams-polyfill: "npm:3.2.1"
   peerDependencies:
-    "@aws-sdk/client-s3": "workspace:3.982.0"
+    "@aws-sdk/client-s3": "workspace:^3.982.0"
   languageName: unknown
   linkType: soft
 
@@ -24728,7 +24726,7 @@ __metadata:
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
   peerDependencies:
-    "@aws-sdk/client-dynamodb": "workspace:3.982.0"
+    "@aws-sdk/client-dynamodb": "workspace:^3.982.0"
   languageName: unknown
   linkType: soft
 
