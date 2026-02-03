@@ -3,7 +3,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import semver from "semver";
 
+import { listFolders } from "../../utils/list-folders.js";
 import { spawnProcessReturnValue } from "../../utils/spawn-process.js";
+import { Graph } from "./Graph.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..", "..", "..");
@@ -30,6 +32,40 @@ const sampleChangelog = [
 void sampleChangelog;
 
 /**
+ * Generates changelogs for all packages in packages-internal, using
+ * commits since last tag. Includes transitive dependencies.
+ *
+ * @returns {Promise<void>} when complete.
+ */
+export async function generateInternalPackageChangelogs() {
+  const [cmd, args] = ["git", ["describe", "--tags", "--abbrev=0"]];
+  const since = (
+    await spawnProcessReturnValue(cmd, args, {
+      cwd: root,
+    })
+  ).trim();
+
+  const graph = new Graph();
+  const changed = [];
+  for (const packagePath of listFolders(path.join(root, "packages-internal"), false)) {
+    const pkgJson = JSON.parse(fs.readFileSync(path.join(packagePath, "package.json"), "utf-8"));
+    graph.register(pkgJson);
+
+    const pkgName = await generateChangelog(packagePath, since);
+    if (pkgName) {
+      changed.push(pkgName);
+    }
+  }
+
+  const transitiveDeps = [...graph.getTransitiveDependencySet(changed)].filter((p) => !changed.includes(p));
+
+  for (const pkg of transitiveDeps) {
+    const location = path.join(root, "packages-internal", pkg.replace("@aws-sdk/", ""));
+    await generateTransitiveChangelog(location);
+  }
+}
+
+/**
  * Format git log:
  * git log --pretty=format:'{"commit":"%H","date":"%ad","message":"%s"}' --max-count=10 --date=format:'%Y-%m-%d'
  *
@@ -41,22 +77,13 @@ void sampleChangelog;
  *
  * @param since - tag or hash of commit used as start of the change. Defaults to last tag.
  * @param packagePath - path to package to generate changelog for.
- * @returns changelog entries.
+ * @returns package name if changelog generated.
  */
-export async function generateChangelog(packagePath, since) {
+async function generateChangelog(packagePath, since) {
   const pkg_json = path.join(packagePath, "package.json");
   const pkgJson = JSON.parse(fs.readFileSync(pkg_json, "utf-8"));
 
   const changelog_md = path.join(packagePath, "CHANGELOG.md");
-
-  if (since === undefined) {
-    const [cmd, args] = ["git", ["describe", "--tags", "--abbrev=0"]];
-    since = (
-      await spawnProcessReturnValue(cmd, args, {
-        cwd: root,
-      })
-    ).trim();
-  }
 
   const [cmd, args] = [
     "git",
@@ -110,9 +137,58 @@ export async function generateChangelog(packagePath, since) {
 
     writeToManifest(JSON.parse(fs.readFileSync(pkg_json, "utf-8")));
     console.info(pkgJson.name, `${pkgJson.version} -> ${newVersion}`, "changelog written.");
+    return pkgJson.name;
   } else {
     console.info(pkgJson.name, "no changes.");
   }
+  return void 0;
+}
+
+/**
+ * @param packagePath - path to package to generate changelog for.
+ */
+async function generateTransitiveChangelog(packagePath) {
+  const pkg_json = path.join(packagePath, "package.json");
+  const pkgJson = JSON.parse(fs.readFileSync(pkg_json, "utf-8"));
+
+  const changelog_md = path.join(packagePath, "CHANGELOG.md");
+
+  const date = new Date();
+  const YYYY = date.getFullYear();
+  const MM = (date.getMonth() + 1).toString().padStart(2, "0");
+  const DD = date.getDate().toString().padStart(2, "0");
+
+  const changelog = [
+    {
+      type: "chore",
+      module: pkgJson.name.replace("@aws-sdk/", ""),
+      message: "update dependencies.",
+      commit: undefined,
+      date: `${YYYY}-${MM}-${DD}`,
+    },
+  ];
+
+  const newVersion = writeNewVersion("patch", pkg_json);
+  const md = createChangelogEntryMarkdown(changelog, newVersion);
+  if (!fs.existsSync(changelog_md)) {
+    fs.writeFileSync(changelog_md, `# Change Log\n\n`, "utf-8");
+  }
+  const changelogContents = fs.readFileSync(changelog_md, "utf-8").split("\n");
+  const sliceIndex = changelogContents
+    .slice(1)
+    .indexOf(changelogContents.slice(1).find((line) => line.startsWith("#")));
+
+  const newContents = [
+    ...changelogContents.slice(0, sliceIndex),
+    "\n",
+    md,
+    "\n",
+    ...changelogContents.slice(sliceIndex),
+  ].join("\n");
+  fs.writeFileSync(changelog_md, newContents, "utf-8");
+
+  writeToManifest(JSON.parse(fs.readFileSync(pkg_json, "utf-8")));
+  console.info(pkgJson.name, `${pkgJson.version} -> ${newVersion}`, "(transitive) changelog written.");
 }
 
 /**
@@ -166,10 +242,13 @@ function createChangelogEntryMarkdown(entries, newVersion) {
   }
 
   const line = (entry) => {
-    return `*${entry.module ? ` **${entry.module}:**` : ``} ${entry.message.replace(
-      /\(#(\d+)\)/,
-      `([#$1](https://github.com/aws/aws-sdk-js-v3/issues/$1))`
-    )} ([${entry.commit.slice(0, 7)}](https://github.com/aws/aws-sdk-js-v3/commit/${entry.commit}))`;
+    if (entry.commit) {
+      return `*${entry.module ? ` **${entry.module}:**` : ``} ${entry.message.replace(
+        /\(#(\d+)\)/,
+        `([#$1](https://github.com/aws/aws-sdk-js-v3/issues/$1))`
+      )} ([${entry.commit.slice(0, 7)}](https://github.com/aws/aws-sdk-js-v3/commit/${entry.commit}))`;
+    }
+    return `*${entry.module ? ` **${entry.module}:**` : ``} ${entry.message}`;
   };
 
   return [

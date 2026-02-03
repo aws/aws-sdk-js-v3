@@ -7,16 +7,13 @@
 /////////////////////////////////////////////////////////////
 
 import fs from "node:fs";
-import path from "node:path";
 
-import { listFolders } from "../utils/list-folders.js";
-import { generateChangelog, manifestPath } from "./lib/generateChangelog.mjs";
-import { linkedPackagesConfig, overwriteLerna, root, runLernaVersion } from "./lib/release.mjs";
+import { generateInternalPackageChangelogs, manifestPath } from "./lib/generateChangelog.mjs";
+import { linkedPackagesConfig, overwriteLerna, runLernaVersion } from "./lib/release.mjs";
 
 overwriteLerna(linkedPackagesConfig);
 await runLernaVersion(true);
 
 fs.writeFileSync(manifestPath, "{}\n");
-for await (const pkg of listFolders(path.join(root, "packages-internal"), false)) {
-  await generateChangelog(pkg);
-}
+
+await generateInternalPackageChangelogs();

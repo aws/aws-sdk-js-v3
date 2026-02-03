@@ -55,5 +55,11 @@ module.exports = {
         ],
       },
     },
+    {
+      files: ["**/*.js"],
+      rules: {
+        "tsdoc/syntax": "off",
+      },
+    },
   ],
 };
