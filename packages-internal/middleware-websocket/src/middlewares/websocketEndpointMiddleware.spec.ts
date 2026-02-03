@@ -1,8 +1,8 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { BuildHandlerArguments, RequestHandler } from "@smithy/types";
+import type { BuildHandlerArguments, RequestHandler } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { websocketEndpointMiddleware } from "./middleware-websocket-endpoint";
+import { websocketEndpointMiddleware } from "./websocketEndpointMiddleware";
 
 describe(websocketEndpointMiddleware.name, () => {
   const config = { requestHandler: { metadata: { handlerProtocol: "websocket/h1.1" } } as RequestHandler<any, any> };

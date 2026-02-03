@@ -1,15 +1,10 @@
-import {
-  Decoder,
-  Encoder,
-  EventSigner,
-  EventStreamPayloadHandlerProvider,
-  MessageSigner,
-  Provider,
-} from "@smithy/types";
+import type { Decoder, Encoder, EventStreamPayloadHandlerProvider, MessageSigner, Provider } from "@smithy/types";
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 
-/** NodeJS event stream utils provider */
+/**
+ * @internal
+ */
 export const eventStreamPayloadHandlerProvider: EventStreamPayloadHandlerProvider = (options: {
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;

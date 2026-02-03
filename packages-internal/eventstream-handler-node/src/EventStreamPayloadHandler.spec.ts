@@ -1,12 +1,19 @@
 import { EventStreamCodec } from "@smithy/eventstream-codec";
-import { Decoder, Encoder, FinalizeHandler, FinalizeHandlerArguments, HttpRequest, MessageSigner } from "@smithy/types";
-import { PassThrough, Readable } from "stream";
+import type {
+  Decoder,
+  Encoder,
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  HttpRequest,
+  MessageSigner,
+} from "@smithy/types";
+import { type Readable, PassThrough } from "node:stream";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { EventSigningStream } from "./EventSigningStream";
+import { EventSigningTransformStream } from "./EventSigningTransformStream";
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 
-vi.mock("./EventSigningStream");
+vi.mock("./EventSigningTransformStream");
 vi.mock("@smithy/eventstream-codec");
 
 describe(EventStreamPayloadHandler.name, () => {
@@ -28,7 +35,7 @@ describe(EventStreamPayloadHandler.name, () => {
   const mockNextHandler: FinalizeHandler<any, any> = vi.fn();
 
   beforeEach(() => {
-    (EventSigningStream as unknown as any).mockImplementation(function () {
+    (EventSigningTransformStream as unknown as any).mockImplementation(function () {
       return new PassThrough();
     });
     vi.mocked(EventStreamCodec).mockImplementation(function () {} as any);
@@ -97,8 +104,8 @@ describe(EventStreamPayloadHandler.name, () => {
       input: {},
     });
 
-    expect(EventSigningStream).toHaveBeenCalledTimes(1);
-    expect(EventSigningStream).toHaveBeenCalledWith({
+    expect(EventSigningTransformStream).toHaveBeenCalledTimes(1);
+    expect(EventSigningTransformStream).toHaveBeenCalledWith({
       priorSignature,
       eventStreamCodec: expect.anything(),
       messageSigner: expect.anything(),
@@ -129,8 +136,8 @@ describe(EventStreamPayloadHandler.name, () => {
       input: {},
     });
 
-    expect(EventSigningStream).toHaveBeenCalledTimes(1);
-    expect(EventSigningStream).toHaveBeenCalledWith({
+    expect(EventSigningTransformStream).toHaveBeenCalledTimes(1);
+    expect(EventSigningTransformStream).toHaveBeenCalledWith({
       priorSignature,
       eventStreamCodec: expect.anything(),
       messageSigner: expect.anything(),
@@ -224,7 +231,7 @@ describe(EventStreamPayloadHandler.name, () => {
 
     const pipelineError = new Error("ERR_STREAM_PREMATURE_CLOSE");
 
-    (EventSigningStream as unknown as any).mockImplementationOnce(function () {
+    (EventSigningTransformStream as unknown as any).mockImplementationOnce(function () {
       const stream = new PassThrough();
       // destroy stream after a short delay to simulate premature close
       setTimeout(() => stream.destroy(pipelineError), 10);

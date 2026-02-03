@@ -1,12 +1,15 @@
 import { formatUrl } from "@aws-sdk/util-format-url";
 import { iterableToReadableStream, readableStreamtoIterable } from "@smithy/eventstream-serde-browser";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
-import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { Provider, RequestHandler, RequestHandlerMetadata } from "@smithy/types";
+import type { HttpRequest } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/protocol-http";
+import type { Logger, Provider, RequestHandler, RequestHandlerMetadata } from "@smithy/types";
+import { fromBase64 } from "@smithy/util-base64";
+import { fromUtf8 } from "@smithy/util-utf8";
 
 import { isWebSocketRequest } from "./utils";
 
-const DEFAULT_WS_CONNECTION_TIMEOUT_MS = 2000;
+const DEFAULT_WS_CONNECTION_TIMEOUT_MS = 3000;
 
 export interface WebSocketFetchHandlerOptions {
   /**
@@ -14,6 +17,11 @@ export interface WebSocketFetchHandlerOptions {
    * may take before the connection attempt is abandoned.
    */
   connectionTimeout?: number;
+
+  /**
+   * Optional logger.
+   */
+  logger?: Logger;
 }
 
 /**
@@ -26,7 +34,7 @@ export class WebSocketFetchHandler {
   public readonly metadata: RequestHandlerMetadata = {
     handlerProtocol: "websocket/h1.1",
   };
-  private config: WebSocketFetchHandlerOptions;
+  private config: WebSocketFetchHandlerOptions = {};
   private configPromise: Promise<WebSocketFetchHandlerOptions>;
   private readonly httpHandler: RequestHandler<any, any>;
   private readonly sockets: Record<string, WebSocket[]> = {};
@@ -53,17 +61,24 @@ export class WebSocketFetchHandler {
     );
   }
 
-  constructor(
+  public constructor(
     options?: WebSocketFetchHandlerOptions | Provider<WebSocketFetchHandlerOptions>,
     httpHandler: RequestHandler<any, any> = new FetchHttpHandler()
   ) {
     this.httpHandler = httpHandler;
+    const setConfig = (opts: WebSocketFetchHandlerOptions | undefined) => {
+      this.config = {
+        ...(opts ?? {}),
+      };
+      return this.config;
+    };
     if (typeof options === "function") {
       this.config = {};
-      this.configPromise = options().then((opts) => (this.config = opts ?? {}));
+      this.configPromise = options().then((opts) => {
+        return setConfig(opts);
+      });
     } else {
-      this.config = options ?? {};
-      this.configPromise = Promise.resolve(this.config);
+      this.configPromise = Promise.resolve(setConfig(options));
     }
   }
 
@@ -71,7 +86,7 @@ export class WebSocketFetchHandler {
    * Destroys the WebSocketHandler.
    * Closes all sockets from the socket pool.
    */
-  destroy(): void {
+  public destroy(): void {
     for (const [key, sockets] of Object.entries(this.sockets)) {
       for (const socket of sockets) {
         socket.close(1000, `Socket closed through destroy() call`);
@@ -80,11 +95,17 @@ export class WebSocketFetchHandler {
     }
   }
 
-  async handle(request: HttpRequest): Promise<{ response: HttpResponse }> {
+  public async handle(request: HttpRequest): Promise<{ response: HttpResponse }> {
+    this.config = await this.configPromise;
+    const { logger } = this.config;
+
     if (!isWebSocketRequest(request)) {
+      logger?.debug?.(`@aws-sdk - ws fetching ${request.protocol}${request.hostname}${request.path}`);
       return this.httpHandler.handle(request);
     }
+
     const url = formatUrl(request);
+    logger?.debug?.(`@aws-sdk - ws connecting ${url.split("?")[0]}`);
     const socket: WebSocket = new WebSocket(url);
 
     // Add socket to sockets pool
@@ -94,22 +115,29 @@ export class WebSocketFetchHandler {
     this.sockets[url].push(socket);
 
     socket.binaryType = "arraybuffer";
-    this.config = await this.configPromise;
     const { connectionTimeout = DEFAULT_WS_CONNECTION_TIMEOUT_MS } = this.config;
     await this.waitForReady(socket, connectionTimeout);
     const { body } = request;
     const bodyStream = getIterator(body);
     const asyncIterable = this.connect(socket, bodyStream);
     const outputPayload = toReadableStream(asyncIterable);
+
     return {
+      /**
+       * This is synthesized here because the event stream spec still
+       * expects an HTTP response.
+       *
+       * We do not have the ability to read headers from the initial connection,
+       * so initial-response type messages are not supported when in websocket mode.
+       */
       response: new HttpResponse({
-        statusCode: 200, // indicates connection success
+        statusCode: 200,
         body: outputPayload,
       }),
     };
   }
 
-  updateHttpClientConfig(
+  public updateHttpClientConfig(
     key: keyof WebSocketFetchHandlerOptions,
     value: WebSocketFetchHandlerOptions[typeof key]
   ): void {
@@ -119,7 +147,7 @@ export class WebSocketFetchHandler {
     });
   }
 
-  httpHandlerConfigs(): WebSocketFetchHandlerOptions {
+  public httpHandlerConfigs(): WebSocketFetchHandlerOptions {
     return this.config ?? {};
   }
 
@@ -139,6 +167,13 @@ export class WebSocketFetchHandler {
         reject({
           $metadata: {
             httpStatusCode: 500,
+            /**
+             * Imitating a server response code is misleading, but
+             * I left it there for backwards compatibility.
+             *
+             * I have added a marker below to indicate the 500 is not from a server.
+             */
+            websocketSynthetic500Error: true,
           },
         });
       }, connectionTimeout);
@@ -151,50 +186,76 @@ export class WebSocketFetchHandler {
   }
 
   private connect(socket: WebSocket, data: AsyncIterable<Uint8Array>): AsyncIterable<Uint8Array> {
-    // To notify output stream any error thrown after response
-    // is returned while data keeps streaming.
-    let streamError: Error | undefined = undefined;
+    const messageQueue: Array<{ done: boolean; value?: Uint8Array; error?: unknown }> = [];
+    let pendingResolve: ((result: IteratorResult<Uint8Array>) => void) | null = null;
+    let pendingReject: ((err: unknown) => void) | null = null;
 
-    // To notify onclose event that error has occurred.
-    let socketErrorOccurred = false;
-
-    // initialize as no-op.
-    let reject: (err?: unknown) => void = () => {};
-    let resolve: ({ done, value }: { done: boolean; value: Uint8Array }) => void = () => {};
-
-    socket.onmessage = (event) => {
-      resolve({
-        done: false,
-        value: new Uint8Array(event.data),
-      });
-    };
-
-    socket.onerror = (error) => {
-      socketErrorOccurred = true;
-      socket.close();
-      reject(error);
-    };
-
-    socket.onclose = () => {
-      this.removeNotUsableSockets(socket.url);
-      if (socketErrorOccurred) return;
-
-      if (streamError) {
-        reject(streamError);
+    /**
+     * Loads the next item into the queue.
+     * If the consumer is waiting, give the item to them directly.
+     */
+    const push = (item: { done: boolean; value?: Uint8Array; error?: unknown }) => {
+      if (pendingResolve) {
+        if (item.error) {
+          pendingReject!(item.error);
+        } else {
+          pendingResolve({ done: item.done, value: item.value! });
+        }
+        pendingResolve = null;
+        pendingReject = null;
       } else {
-        resolve({
-          done: true,
-          value: undefined as any, // unchecked because done=true.
+        messageQueue.push(item);
+      }
+    };
+
+    /**
+     * The expected data type is ArrayBuffer because
+     * of having set binaryType on the socket.
+     */
+    socket.onmessage = (event: { data: ArrayBuffer }) => {
+      const { data } = event;
+
+      if (typeof data === "string") {
+        // This branch is only expected in testing.
+        push({
+          done: false,
+          value: fromBase64(data),
+        });
+      } else {
+        push({
+          done: false,
+          value: new Uint8Array(data as ArrayBuffer),
         });
       }
     };
 
+    socket.onerror = (event) => {
+      socket.close();
+      push({ done: true, error: event });
+    };
+
+    socket.onclose = () => {
+      this.removeNotUsableSockets(socket.url);
+      push({ done: true });
+    };
+
     const outputStream: AsyncIterable<Uint8Array> = {
       [Symbol.asyncIterator]: () => ({
-        next: () => {
-          return new Promise((_resolve, _reject) => {
-            resolve = _resolve;
-            reject = _reject;
+        /**
+         * This will supply the next enqueued item to the iteration
+         * or wait for the next item to arrive.
+         */
+        async next() {
+          if (messageQueue.length > 0) {
+            const item = messageQueue.shift()!;
+            if (item.error) {
+              throw item.error;
+            }
+            return { done: item.done, value: item.value! };
+          }
+          return new Promise((resolve, reject) => {
+            pendingResolve = resolve;
+            pendingReject = reject;
           });
         },
       }),
@@ -214,7 +275,10 @@ export class WebSocketFetchHandler {
         // would already be settled by the time sending chunk throws error.
         // Instead, the notify the output stream to throw if there's
         // exceptions
-        streamError = err;
+        push({
+          done: true,
+          error: err,
+        });
       } finally {
         // WS status code: https://tools.ietf.org/html/rfc6455#section-7.4
         socket.close(1000);
@@ -240,11 +304,11 @@ const getIterator = (stream: any): AsyncIterable<any> => {
   }
 
   if (isReadableStream(stream)) {
-    //If stream is a ReadableStream, transfer the ReadableStream to async iterable.
+    // If stream is a ReadableStream, transfer the ReadableStream to async iterable.
     return readableStreamtoIterable(stream);
   }
 
-  //For other types, just wrap them with an async iterable.
+  // For other types, just wrap them with an async iterable.
   return {
     [Symbol.asyncIterator]: async function* () {
       yield stream;

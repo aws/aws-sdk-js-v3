@@ -1,5 +1,5 @@
 import { EventStreamCodec } from "@smithy/eventstream-codec";
-import {
+import type {
   Decoder,
   Encoder,
   EventStreamPayloadHandler as IEventStreamPayloadHandler,
@@ -13,7 +13,7 @@ import {
   Provider,
 } from "@smithy/types";
 
-import { getEventSigningTransformStream } from "./get-event-signing-stream";
+import { EventSigningTransformStream } from "./EventSigningTransformStream";
 
 /**
  * @internal
@@ -26,12 +26,6 @@ export interface EventStreamPayloadHandlerOptions {
 }
 
 /**
- * A handler that control the eventstream payload flow:
- * 1. Pause stream for initial request.
- * 2. Close the stream if initial request fails.
- * 3. Start piping payload when connection is established.
- * 4. Sign the payload after payload stream starting to flow.
- *
  * @internal
  */
 export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
@@ -64,7 +58,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     const match = (headers?.authorization ?? "").match(/Signature=(\w+)$/);
     // Sign the eventstream based on the signature from initial request.
     const priorSignature = (match ?? [])[1] ?? (query && (query["X-Amz-Signature"] as string)) ?? "";
-    const signingStream = getEventSigningTransformStream(
+    const signingStream = new EventSigningTransformStream(
       priorSignature,
       await this.messageSigner(),
       this.eventStreamCodec,

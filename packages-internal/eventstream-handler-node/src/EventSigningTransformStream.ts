@@ -1,6 +1,6 @@
-import { EventStreamCodec } from "@smithy/eventstream-codec";
-import { MessageHeaders, MessageSigner, Provider } from "@smithy/types";
-import { Transform, TransformCallback, TransformOptions } from "stream";
+import type { EventStreamCodec } from "@smithy/eventstream-codec";
+import type { MessageHeaders, MessageSigner, Provider } from "@smithy/types";
+import { type TransformCallback, type TransformOptions, Transform } from "node:stream";
 
 /**
  * @internal
@@ -13,11 +13,10 @@ export interface EventSigningStreamOptions extends TransformOptions {
 }
 
 /**
+ * A transform stream that signs the eventstream.
  * @internal
- *
- * A transform stream that signs the eventstream
  */
-export class EventSigningStream extends Transform {
+export class EventSigningTransformStream extends Transform {
   private priorSignature: string;
   private messageSigner: MessageSigner;
   private eventStreamCodec: EventStreamCodec;

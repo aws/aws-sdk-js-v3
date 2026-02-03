@@ -1,6 +1,6 @@
 import { describe, expect, test as it, vi } from "vitest";
 
-import { resolveWebSocketConfig } from "./websocket-configuration";
+import { resolveWebSocketConfig } from "./resolveWebSocketConfig";
 
 describe(resolveWebSocketConfig.name, () => {
   it("maintains object custody", () => {

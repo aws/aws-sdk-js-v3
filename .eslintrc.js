@@ -28,6 +28,7 @@ module.exports = {
     /** Errors */
     "simple-import-sort/imports": "error",
     "sort-export-all/sort-export-all": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
   },
   ignorePatterns: [
     "packages/nested-clients/src/submodules/**/protocols/*.ts",
@@ -35,11 +36,18 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ["lib/*/src/**/*.ts", "clients/*/src/**/*.ts", "packages/*/src/**/*.ts", "private/*/src/**/*.ts"],
+      files: [
+        "lib/*/src/**/*.ts",
+        "clients/*/src/**/*.ts",
+        "packages/*/src/**/*.ts",
+        "packages-internal/*/src/**/*.ts",
+        "private/*/src/**/*.ts",
+      ],
       excludedFiles: [
         "lib/*/src/**/*.spec.ts",
         "clients/*/src/**/*.spec.ts",
         "packages/*/src/**/*.spec.ts",
+        "packages-internal/*/src/**/*.spec.ts",
         "private/*/src/**/*.spec.ts",
       ],
       rules: {

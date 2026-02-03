@@ -1,6 +1,6 @@
 import { describe, expect, test as it, vi } from "vitest";
 
-import { injectSessionIdMiddleware } from "./middleware-session-id";
+import { injectSessionIdMiddleware } from "./websocketInjectSessionIdMiddleware";
 
 describe(injectSessionIdMiddleware.name, () => {
   const mockNextHandler = vi.fn().mockResolvedValue({ output: {} });

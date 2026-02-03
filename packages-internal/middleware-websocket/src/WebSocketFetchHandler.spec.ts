@@ -1,11 +1,11 @@
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import { HttpRequest } from "@smithy/protocol-http";
 import { WebSocket } from "mock-socket";
-import { PassThrough } from "stream";
+import { PassThrough } from "node:stream";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 import WS from "vitest-websocket-mock";
 
-import { WebSocketFetchHandler } from "./websocket-fetch-handler";
+import { WebSocketFetchHandler } from "./WebSocketFetchHandler";
 
 vi.mock("@smithy/fetch-http-handler");
 

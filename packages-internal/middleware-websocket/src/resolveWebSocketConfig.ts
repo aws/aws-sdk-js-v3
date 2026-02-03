@@ -1,5 +1,5 @@
-import { SignatureV4 as BaseSignatureV4 } from "@smithy/signature-v4";
-import { AuthScheme, RequestHandler, RequestSigner } from "@smithy/types";
+import type { SignatureV4 as BaseSignatureV4 } from "@smithy/signature-v4";
+import type { AuthScheme, RequestHandler, RequestSigner } from "@smithy/types";
 
 import { WebsocketSignatureV4 } from "./WebsocketSignatureV4";
 

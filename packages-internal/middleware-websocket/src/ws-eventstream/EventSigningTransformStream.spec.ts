@@ -1,20 +1,15 @@
 import { EventStreamCodec } from "@smithy/eventstream-codec";
-import { Message, MessageHeaders, SignedMessage } from "@smithy/types";
+import type { Message, MessageHeaders, SignedMessage } from "@smithy/types";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
-import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+import { afterEach, describe, expect, test as it, vi } from "vitest";
 
-import { getEventSigningTransformStream } from "./get-event-signing-stream";
+import { EventSigningTransformStream } from "./EventSigningTransformStream";
 
-describe(getEventSigningTransformStream.name, () => {
+describe(EventSigningTransformStream.name, () => {
   const originalDate = Date;
-  const originalTransformStreamCtor = window.TransformStream;
 
-  beforeEach(() => {
-    window.TransformStream = TransformStream;
-  });
   afterEach(() => {
     window.Date = originalDate;
-    window.TransformStream = originalTransformStreamCtor;
   });
 
   it("should sign a eventstream payload properly", async () => {
@@ -67,7 +62,7 @@ describe(getEventSigningTransformStream.name, () => {
     MockDate.now = () => MockDate().getTime();
     window.Date = MockDate as any;
 
-    const signingStream = getEventSigningTransformStream(
+    const signingStream = new EventSigningTransformStream(
       "initial",
       {
         sign: mockMessageSigner,
