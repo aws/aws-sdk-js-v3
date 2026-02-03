@@ -238,7 +238,6 @@ describe(EventStreamPayloadHandler.name, () => {
       return Promise.resolve({ output: {} });
     });
 
-    // Expect the pipeline error to be caught and wrapped
     try {
       await handler.handle(mockNextHandler, {
         request: mockRequest,

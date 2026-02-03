@@ -74,14 +74,16 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       systemClockOffsetProvider: this.systemClockOffsetProvider,
     });
 
-    // this promise is used in a race against the http layer's response below
+    // this promise rejects on pipeline error, resolves after http layer completes
+    // this is used in a race against the http layer's response below
+    let resolvePipeline: () => void;
     const pipelineError = new Promise<FinalizeHandlerOutput<any>>((resolve, reject) => {
+      resolvePipeline = () => resolve(undefined as any);
       pipeline(payloadStream, signingStream, request.body, (err: NodeJS.ErrnoException | null) => {
         if (err) {
           reject(new Error(`Pipeline error in @aws-sdk/eventstream-handler-node: ${err.message}`, { cause: err }));
-        } else {
-          resolve(undefined as any); // won't win race, but prevents GC issues
         }
+        // it resolves after next(args) completes
       });
     });
 
@@ -95,6 +97,9 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       // because of the previous connection.
       request.body.end();
       throw e;
+    } finally {
+      // for stream pipeline promise
+      resolvePipeline!();
     }
 
     return result;
