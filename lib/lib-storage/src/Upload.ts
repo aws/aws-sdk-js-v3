@@ -26,9 +26,11 @@ import { HttpRequest } from "@smithy/protocol-http";
 import { extendedEncodeURIComponent } from "@smithy/smithy-client";
 import type { AbortController as IAbortController, AbortSignal as IAbortSignal, Endpoint } from "@smithy/types";
 import { EventEmitter } from "events";
+import { Readable } from "stream";
 
 import { byteLength } from "./byteLength";
 import { BYTE_LENGTH_SOURCE, byteLengthSource } from "./byteLengthSource";
+import { runtimeConfig } from "./runtimeConfig";
 import { getChunk } from "./chunker";
 import { BodyDataTypes, Options, Progress } from "./types";
 
@@ -139,7 +141,26 @@ export class Upload extends EventEmitter {
 
   private async __uploadUsingPut(dataPart: RawDataPart): Promise<void> {
     this.isMultiPart = false;
-    const params = { ...this.params, Body: dataPart.data };
+
+    let body: BodyDataTypes | Readable = dataPart.data;
+    if (
+      typeof body === "object" &&
+      (body as Uint8Array).byteLength === 0 &&
+      (runtimeConfig as any).runtime === "node"
+    ) {
+      /**
+       * Workaround for Node.js bug where req.end(emptyBuffer) hangs
+       * when multiple requests are sent concurrently.
+       * See: https://github.com/nodejs/node/issues/60001
+       */
+      body = Readable.from([]);
+    }
+
+    const params = {
+      ...this.params,
+      Body: body,
+      ContentLength: this.params.ContentLength ?? byteLength(dataPart.data),
+    };
 
     const clientConfig = this.client.config;
     const requestHandler = clientConfig.requestHandler;
