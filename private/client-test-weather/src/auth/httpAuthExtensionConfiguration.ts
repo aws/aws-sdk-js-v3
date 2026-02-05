@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { HttpAuthScheme } from "@smithy/types";
+import { type HttpAuthScheme, AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
 import type { WeatherHttpAuthSchemeProvider } from "./httpAuthSchemeProvider";
 
@@ -11,6 +11,8 @@ export interface HttpAuthExtensionConfiguration {
   httpAuthSchemes(): HttpAuthScheme[];
   setHttpAuthSchemeProvider(httpAuthSchemeProvider: WeatherHttpAuthSchemeProvider): void;
   httpAuthSchemeProvider(): WeatherHttpAuthSchemeProvider;
+  setCredentials(credentials: AwsCredentialIdentity | AwsCredentialIdentityProvider): void;
+  credentials(): AwsCredentialIdentity | AwsCredentialIdentityProvider | undefined;
 }
 
 /**
@@ -19,6 +21,7 @@ export interface HttpAuthExtensionConfiguration {
 export type HttpAuthRuntimeConfig = Partial<{
   httpAuthSchemes: HttpAuthScheme[];
   httpAuthSchemeProvider: WeatherHttpAuthSchemeProvider;
+  credentials: AwsCredentialIdentity | AwsCredentialIdentityProvider;
 }>;
 
 /**
@@ -29,6 +32,7 @@ export const getHttpAuthExtensionConfiguration = (
 ): HttpAuthExtensionConfiguration => {
   const _httpAuthSchemes = runtimeConfig.httpAuthSchemes!;
   let _httpAuthSchemeProvider = runtimeConfig.httpAuthSchemeProvider!;
+  let _credentials = runtimeConfig.credentials;
   return {
     setHttpAuthScheme(httpAuthScheme: HttpAuthScheme): void {
       const index = _httpAuthSchemes.findIndex((scheme) => scheme.schemeId === httpAuthScheme.schemeId);
@@ -47,6 +51,12 @@ export const getHttpAuthExtensionConfiguration = (
     httpAuthSchemeProvider(): WeatherHttpAuthSchemeProvider {
       return _httpAuthSchemeProvider;
     },
+    setCredentials(credentials: AwsCredentialIdentity | AwsCredentialIdentityProvider): void {
+      _credentials = credentials;
+    },
+    credentials(): AwsCredentialIdentity | AwsCredentialIdentityProvider | undefined {
+      return _credentials;
+    },
   };
 };
 
@@ -57,5 +67,6 @@ export const resolveHttpAuthRuntimeConfig = (config: HttpAuthExtensionConfigurat
   return {
     httpAuthSchemes: config.httpAuthSchemes(),
     httpAuthSchemeProvider: config.httpAuthSchemeProvider(),
+    credentials: config.credentials(),
   };
 };

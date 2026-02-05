@@ -5,6 +5,9 @@ import type { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, 
  * @public
  */
 export interface ClientInputEndpointParameters {
+  region?: string | undefined | Provider<string | undefined>;
+  useDualstackEndpoint?: boolean | undefined | Provider<boolean | undefined>;
+  useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
 }
 
@@ -22,7 +25,9 @@ export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
   return Object.assign(options, {
-    defaultSigningName: "",
+    useDualstackEndpoint: options.useDualstackEndpoint ?? false,
+    useFipsEndpoint: options.useFipsEndpoint ?? false,
+    defaultSigningName: "weather",
   });
 };
 
@@ -30,12 +35,18 @@ export const resolveClientEndpointParameters = <T>(
  * @internal
  */
 export const commonParams = {
-  endpoint: { type: "builtInParams", name: "endpoint" },
+  UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+  Endpoint: { type: "builtInParams", name: "endpoint" },
+  Region: { type: "builtInParams", name: "region" },
+  UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
 } as const;
 
 /**
  * @internal
  */
 export interface EndpointParameters extends __EndpointParameters {
-  endpoint?: string | undefined;
+  Region?: string | undefined;
+  UseDualStack?: boolean | undefined;
+  UseFIPS?: boolean | undefined;
+  Endpoint?: string | undefined;
 }

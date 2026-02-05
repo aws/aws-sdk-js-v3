@@ -1,13 +1,14 @@
 // smithy-typescript generated code
+import { awsEndpointFunctions } from "@aws-sdk/util-endpoints";
 import type { EndpointV2, Logger } from "@smithy/types";
-import { type EndpointParams, EndpointCache, resolveEndpoint } from "@smithy/util-endpoints";
+import { type EndpointParams, customEndpointFunctions, EndpointCache, resolveEndpoint } from "@smithy/util-endpoints";
 
 import type { EndpointParameters } from "./EndpointParameters";
 import { ruleSet } from "./ruleset";
 
 const cache = new EndpointCache({
   size: 50,
-  params: ["endpoint"],
+  params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
 });
 
 /**
@@ -24,3 +25,5 @@ export const defaultEndpointResolver = (
     })
   );
 };
+
+customEndpointFunctions.aws = awsEndpointFunctions;

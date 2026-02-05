@@ -1,4 +1,8 @@
 // smithy-typescript generated code
+import {
+  getAwsRegionExtensionConfiguration,
+  resolveAwsRegionExtensionConfiguration,
+} from "@aws-sdk/region-config-resolver";
 import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
@@ -24,6 +28,7 @@ export interface RuntimeExtensionsConfig {
  */
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
   const extensionConfiguration: WeatherExtensionConfiguration = Object.assign(
+    getAwsRegionExtensionConfiguration(runtimeConfig),
     getDefaultExtensionConfiguration(runtimeConfig),
     getHttpHandlerExtensionConfiguration(runtimeConfig),
     getHttpAuthExtensionConfiguration(runtimeConfig)
@@ -33,6 +38,7 @@ export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: Runtime
 
   return Object.assign(
     runtimeConfig,
+    resolveAwsRegionExtensionConfiguration(extensionConfiguration),
     resolveDefaultRuntimeConfig(extensionConfiguration),
     resolveHttpHandlerRuntimeConfig(extensionConfiguration),
     resolveHttpAuthRuntimeConfig(extensionConfiguration)

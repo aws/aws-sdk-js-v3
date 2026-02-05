@@ -2,8 +2,21 @@ $version: "2"
 
 namespace example.weather
 
+use aws.api#service
+use aws.auth#sigv4
+
 /// Provides weather forecasts.
 @paginated(inputToken: "nextToken", outputToken: "nextToken", pageSize: "pageSize")
+@service(
+    "sdkId": "Weather"
+    "arnNamespace": "weather"
+    "cloudFormationName": "Weather"
+    "cloudTrailEventSource": "weather.amazonaws.com"
+    "endpointPrefix": "weather"
+)
+@sigv4(
+    name: "weather"
+)
 service Weather {
     version: "2006-03-01"
     resources: [

@@ -21913,10 +21913,15 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "workspace:^3.973.6"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.5"
     "@aws-sdk/middleware-host-header": "workspace:^3.972.3"
     "@aws-sdk/middleware-logger": "workspace:^3.972.3"
     "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.3"
     "@aws-sdk/middleware-user-agent": "workspace:^3.972.6"
+    "@aws-sdk/region-config-resolver": "workspace:^3.972.3"
+    "@aws-sdk/types": "workspace:^3.973.1"
+    "@aws-sdk/util-endpoints": "workspace:3.984.0"
     "@aws-sdk/util-user-agent-browser": "workspace:^3.972.3"
     "@aws-sdk/util-user-agent-node": "workspace:^3.972.4"
     "@smithy/config-resolver": "npm:^4.4.6"
@@ -23825,15 +23830,9 @@ __metadata:
   dependencies:
     "@aws-sdk/client-dynamodb": "workspace:3.984.0"
     "@aws-sdk/core": "workspace:^3.973.6"
-<<<<<<< HEAD
     "@aws-sdk/util-dynamodb": "workspace:3.984.0"
-    "@smithy/core": "npm:^3.22.0"
-    "@smithy/smithy-client": "npm:^4.11.1"
-=======
-    "@aws-sdk/util-dynamodb": "workspace:3.983.0"
     "@smithy/core": "npm:^3.22.1"
     "@smithy/smithy-client": "npm:^4.11.2"
->>>>>>> a7dc3e04f10 (chore: codegen)
     "@smithy/types": "npm:^4.12.0"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
@@ -24330,13 +24329,8 @@ __metadata:
   dependencies:
     "@aws-sdk/core": "workspace:^3.973.6"
     "@aws-sdk/types": "workspace:^3.973.1"
-<<<<<<< HEAD
     "@aws-sdk/util-endpoints": "workspace:3.984.0"
-    "@smithy/core": "npm:^3.22.0"
-=======
-    "@aws-sdk/util-endpoints": "workspace:3.983.0"
     "@smithy/core": "npm:^3.22.1"
->>>>>>> a7dc3e04f10 (chore: codegen)
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/types": "npm:^4.12.0"
     "@tsconfig/recommended": "npm:1.0.1"

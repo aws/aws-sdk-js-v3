@@ -14,6 +14,12 @@ import {
   resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import {
+  type DefaultAwsRegionalEndpointsInputConfig,
+  type DefaultAwsRegionalEndpointsResolvedConfig,
+  resolveDefaultAwsRegionalEndpointsConfig,
+} from "@aws-sdk/util-endpoints";
+import { type RegionInputConfig, type RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,
   getHttpSigningPlugin,
@@ -21,11 +27,8 @@ import {
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import {
   type EndpointInputConfig,
-  type EndpointRequiredInputConfig,
-  type EndpointRequiredResolvedConfig,
   type EndpointResolvedConfig,
   resolveEndpointConfig,
-  resolveEndpointRequiredConfig,
 } from "@smithy/middleware-endpoint";
 import {
   type RetryInputConfig,
@@ -52,6 +55,8 @@ import {
   type Provider as __Provider,
   type StreamCollector as __StreamCollector,
   type UrlParser as __UrlParser,
+  AwsCredentialIdentityProvider,
+  EndpointV2 as __EndpointV2,
   Provider,
   UserAgent as __UserAgent,
 } from "@smithy/types";
@@ -67,9 +72,9 @@ import { GetCurrentTimeCommandInput, GetCurrentTimeCommandOutput } from "./comma
 import { GetForecastCommandInput, GetForecastCommandOutput } from "./commands/GetForecastCommand";
 import { ListCitiesCommandInput, ListCitiesCommandOutput } from "./commands/ListCitiesCommand";
 import {
-  type ClientInputEndpointParameters,
-  type ClientResolvedEndpointParameters,
-  type EndpointParameters,
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
   resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -166,6 +171,27 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   disableHostPrefix?: boolean;
 
   /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
    * Setting a client profile is similar to setting a value for the
    * AWS_PROFILE environment variable. Setting a profile on a client
    * in code only affects the single client instance, unlike AWS_PROFILE.
@@ -189,6 +215,13 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @deprecated
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -225,9 +258,10 @@ export type WeatherClientConfigType = Partial<__SmithyConfiguration<__HttpHandle
   ClientDefaults &
   UserAgentInputConfig &
   RetryInputConfig &
+  RegionInputConfig &
   HostHeaderInputConfig &
   EndpointInputConfig<EndpointParameters> &
-  EndpointRequiredInputConfig &
+  DefaultAwsRegionalEndpointsInputConfig &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -245,9 +279,10 @@ export type WeatherClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
   RuntimeExtensionsConfig &
   UserAgentResolvedConfig &
   RetryResolvedConfig &
+  RegionResolvedConfig &
   HostHeaderResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
-  EndpointRequiredResolvedConfig &
+  DefaultAwsRegionalEndpointsResolvedConfig &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -279,12 +314,13 @@ export class WeatherClient extends __Client<
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveUserAgentConfig(_config_1);
     const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveEndpointConfig(_config_4);
-    const _config_6 = resolveEndpointRequiredConfig(_config_5);
-    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    this.config = _config_8;
+    const _config_4 = resolveRegionConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveEndpointConfig(_config_5);
+    const _config_7 = resolveDefaultAwsRegionalEndpointsConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
+    this.config = _config_9;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
@@ -295,7 +331,9 @@ export class WeatherClient extends __Client<
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
         httpAuthSchemeParametersProvider: defaultWeatherHttpAuthSchemeParametersProvider,
         identityProviderConfigProvider: async (config: WeatherClientResolvedConfig) =>
-          new DefaultIdentityProviderConfig({}),
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));

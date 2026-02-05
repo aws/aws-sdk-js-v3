@@ -1,4 +1,10 @@
 // smithy-typescript generated code
+import {
+  AwsSdkSigV4AuthInputConfig,
+  AwsSdkSigV4AuthResolvedConfig,
+  AwsSdkSigV4PreviouslyResolved,
+  resolveAwsSdkSigV4Config,
+} from "@aws-sdk/core";
 import type {
   HandlerExecutionContext,
   HttpAuthOption,
@@ -10,12 +16,14 @@ import type {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import type { WeatherClientResolvedConfig } from "../WeatherClient";
+import { type WeatherClientResolvedConfig, WeatherClientConfig } from "../WeatherClient";
 
 /**
  * @internal
  */
-export interface WeatherHttpAuthSchemeParameters extends HttpAuthSchemeParameters {}
+export interface WeatherHttpAuthSchemeParameters extends HttpAuthSchemeParameters {
+  region?: string;
+}
 
 /**
  * @internal
@@ -38,12 +46,28 @@ export const defaultWeatherHttpAuthSchemeParametersProvider = async (
 ): Promise<WeatherHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createSmithyApiNoAuthHttpAuthOption(authParameters: WeatherHttpAuthSchemeParameters): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: WeatherHttpAuthSchemeParameters): HttpAuthOption {
   return {
-    schemeId: "smithy.api#noAuth",
+    schemeId: "aws.auth#sigv4",
+    signingProperties: {
+      name: "weather",
+      region: authParameters.region,
+    },
+    propertiesExtractor: (config: Partial<WeatherClientConfig>, context) => ({
+      /**
+       * @internal
+       */
+      signingProperties: {
+        config,
+        context,
+      },
+    }),
   };
 }
 
@@ -59,7 +83,7 @@ export const defaultWeatherHttpAuthSchemeProvider: WeatherHttpAuthSchemeProvider
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {
-      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }
   }
   return options;
@@ -68,7 +92,7 @@ export const defaultWeatherHttpAuthSchemeProvider: WeatherHttpAuthSchemeProvider
 /**
  * @public
  */
-export interface HttpAuthSchemeInputConfig {
+export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**
    * A comma-separated list of case-sensitive auth scheme names.
    * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
@@ -93,7 +117,7 @@ export interface HttpAuthSchemeInputConfig {
 /**
  * @internal
  */
-export interface HttpAuthSchemeResolvedConfig {
+export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {
   /**
    * A comma-separated list of case-sensitive auth scheme names.
    * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
@@ -119,9 +143,10 @@ export interface HttpAuthSchemeResolvedConfig {
  * @internal
  */
 export const resolveHttpAuthSchemeConfig = <T>(
-  config: T & HttpAuthSchemeInputConfig
+  config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
-  return Object.assign(config, {
+  const config_0 = resolveAwsSdkSigV4Config(config);
+  return Object.assign(config_0, {
     authSchemePreference: normalizeProvider(config.authSchemePreference ?? []),
   }) as T & HttpAuthSchemeResolvedConfig;
 };
