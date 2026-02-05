@@ -39,6 +39,7 @@ import {
   type SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
   Client as __Client,
 } from "@smithy/smithy-client";
+import type { AwsCredentialIdentityProvider, Provider, UserAgent as __UserAgent } from "@smithy/types";
 import {
   type BodyLengthCalculator as __BodyLengthCalculator,
   type CheckOptionalClientConfig as __CheckOptionalClientConfig,
@@ -51,10 +52,7 @@ import {
   type Provider as __Provider,
   type StreamCollector as __StreamCollector,
   type UrlParser as __UrlParser,
-  AwsCredentialIdentityProvider,
   EndpointV2 as __EndpointV2,
-  Provider,
-  UserAgent as __UserAgent,
 } from "@smithy/types";
 
 import {
@@ -63,17 +61,17 @@ import {
   defaultSTSHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AssumeRoleCommandInput, AssumeRoleCommandOutput } from "./commands/AssumeRoleCommand";
-import {
+import type { AssumeRoleCommandInput, AssumeRoleCommandOutput } from "./commands/AssumeRoleCommand";
+import type {
   AssumeRoleWithWebIdentityCommandInput,
   AssumeRoleWithWebIdentityCommandOutput,
 } from "./commands/AssumeRoleWithWebIdentityCommand";
-import {
+import type {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
-  resolveClientEndpointParameters,
 } from "./endpoint/EndpointParameters";
+import { resolveClientEndpointParameters } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import { type RuntimeExtension, type RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
 

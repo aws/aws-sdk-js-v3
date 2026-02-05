@@ -1,10 +1,10 @@
 // smithy-typescript generated code
-import {
+import type {
   AwsSdkSigV4AuthInputConfig,
   AwsSdkSigV4AuthResolvedConfig,
   AwsSdkSigV4PreviouslyResolved,
-  resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
+import { resolveAwsSdkSigV4Config } from "@aws-sdk/core";
 import type {
   HandlerExecutionContext,
   HttpAuthOption,
@@ -16,7 +16,8 @@ import type {
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
-import { type SigninClientResolvedConfig, SigninClientConfig } from "../SigninClient";
+import type { SigninClientConfig } from "../SigninClient";
+import { type SigninClientResolvedConfig } from "../SigninClient";
 
 /**
  * @internal

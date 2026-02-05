@@ -31,9 +31,15 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.973.6",
+<<<<<<< HEAD
     "@aws-sdk/util-dynamodb": "workspace:3.984.0",
     "@smithy/core": "^3.22.0",
     "@smithy/smithy-client": "^4.11.1",
+=======
+    "@aws-sdk/util-dynamodb": "workspace:3.983.0",
+    "@smithy/core": "^3.22.1",
+    "@smithy/smithy-client": "^4.11.2",
+>>>>>>> a7dc3e04f10 (chore: codegen)
     "@smithy/types": "^4.12.0",
     "tslib": "^2.6.2"
   },

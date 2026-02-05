@@ -2,12 +2,13 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { AssumeRoleCommand, AssumeRoleCommandInput, AssumeRoleCommandOutput } from "./commands/AssumeRoleCommand";
-import {
-  AssumeRoleWithWebIdentityCommand,
+import type { AssumeRoleCommandInput, AssumeRoleCommandOutput } from "./commands/AssumeRoleCommand";
+import { AssumeRoleCommand } from "./commands/AssumeRoleCommand";
+import type {
   AssumeRoleWithWebIdentityCommandInput,
   AssumeRoleWithWebIdentityCommandOutput,
 } from "./commands/AssumeRoleWithWebIdentityCommand";
+import { AssumeRoleWithWebIdentityCommand } from "./commands/AssumeRoleWithWebIdentityCommand";
 import { STSClient } from "./STSClient";
 
 const commands = {

@@ -4,6 +4,7 @@ import packageInfo from "../package.json"; // eslint-disable-line
 
 import { emitWarningIfUnsupportedVersion as awsCheckVersion, NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
+import { ChecksumConstructor as __ChecksumConstructor, HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
@@ -16,7 +17,6 @@ import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from 
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
 import { emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode } from "@smithy/smithy-client";
-import { ChecksumConstructor as __ChecksumConstructor, HashConstructor as __HashConstructor } from "@smithy/types";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-node";
 import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
