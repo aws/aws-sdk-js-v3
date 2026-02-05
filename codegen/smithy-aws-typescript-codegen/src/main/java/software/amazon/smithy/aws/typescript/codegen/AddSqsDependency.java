@@ -115,16 +115,15 @@ public class AddSqsDependency implements TypeScriptIntegration {
         switch (target) {
             case NODE:
                 return MapUtils.of("md5", writer -> {
-                    writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
                     writer.addImport(
                         "HashConstructor",
                         "__HashConstructor",
-                        TypeScriptDependency.SMITHY_TYPES
+                        AwsDependency.TYPES
                     );
                     writer.addImport(
                         "ChecksumConstructor",
                         "__ChecksumConstructor",
-                        TypeScriptDependency.SMITHY_TYPES
+                        AwsDependency.TYPES
                     );
                     writer.write("Hash.bind(null, \"md5\")");
                 });

@@ -178,11 +178,11 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writeEndpointProviderFunction() {
-        writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES);
+        writer.addImport("RegionInfoProvider", "RegionInfoProvider", AwsDependency.TYPES);
         writer.addImport(
             "RegionInfoProviderOptions",
             "RegionInfoProviderOptions",
-            TypeScriptDependency.AWS_SDK_TYPES
+            AwsDependency.TYPES
         );
         writer.addImport("getRegionInfo", "getRegionInfo", TypeScriptDependency.CONFIG_RESOLVER);
         writer.openBlock(
