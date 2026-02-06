@@ -1,5 +1,15 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.44.0 (2026-02-06)
+
+### Features
+
+- Generated package.json will now contain `@aws-sdk/*` dependencies with a caret `^` instead of pinned version ([#7714](https://github.com/aws/aws-sdk-js-v3/pull/7714))
+
+### Chores
+
+- Upgraded to smithy-typescript 0.44.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0440-2026-02-06))
+
 ## 0.43.1 (2026-01-30)
 
 ### Bug Fixes
