@@ -5,7 +5,6 @@ import type { HttpRequest } from "@smithy/protocol-http";
 import { HttpResponse } from "@smithy/protocol-http";
 import type { Logger, Provider, RequestHandler, RequestHandlerMetadata } from "@smithy/types";
 import { fromBase64 } from "@smithy/util-base64";
-import { fromUtf8 } from "@smithy/util-utf8";
 
 import { isWebSocketRequest } from "./utils";
 

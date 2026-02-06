@@ -72,13 +72,6 @@ describe("middleware-websocket", () => {
     const logSink = vi.fn();
     const eventStreamCodec = new EventStreamCodec(toUtf8, fromUtf8);
 
-    function toInt32(n: number): number[] {
-      const uint32 = new Uint8Array(4);
-      const dv = new DataView(uint32.buffer, 0, 4);
-      dv.setUint32(0, n);
-      return Array.from(uint32);
-    }
-
     const flintstone = new BedrockRuntime({
       credentials: {
         accessKeyId: "INTEG",
@@ -118,6 +111,41 @@ describe("middleware-websocket", () => {
     it("should transform user input asyncIterable to socket events", async () => {
       const server = new WS(mockUrl);
 
+      const body: Uint8Array = fromUtf8(
+        JSON.stringify({
+          bytes: Buffer.from(new Uint8Array([48, 49, 50, 51, 52, 56, 57, 57, 57])).toString("base64"),
+        })
+      );
+
+      const event = {
+        headers: {
+          ":event-type": {
+            type: "string",
+            value: "chunk",
+          },
+          ":content-type": {
+            type: "string",
+            value: "application/json",
+          },
+          ":message-type": {
+            type: "string",
+            value: "event",
+          },
+        },
+        body,
+      } as const;
+
+      /**
+       * Byte alignment:
+       * 4 - message size
+       * 4 - header size
+       * 4 - prelude crc32
+       * variable - headers
+       * variable - body
+       * 4 message crc32
+       */
+      const bytes = eventStreamCodec.encode(event);
+
       let receiveCount = 0;
       const [serverConfirmation, resolve, reject] = (() => {
         let resolve: (value?: unknown) => void;
@@ -129,47 +157,15 @@ describe("middleware-websocket", () => {
         return [p, resolve, reject];
       })();
 
-      server.on("connection", (socket) => {
+      server.on("connection", async (socket) => {
+        await server.connected;
+
+        socket.send(toBase64(bytes));
+        socket.send(toBase64(bytes));
+        socket.send(toBase64(bytes));
+
         socket.on("message", async (data) => {
-          {
-            const body: Uint8Array = fromUtf8(
-              JSON.stringify({
-                chunk: {
-                  bytes: Buffer.from("012345678999").toString("base64"),
-                },
-              })
-            );
-
-            const event = {
-              headers: {
-                ":event-type": {
-                  type: "string",
-                  value: "chunk",
-                },
-                ":content-type": {
-                  type: "string",
-                  value: "application/json",
-                },
-                ":message-type": {
-                  type: "string",
-                  value: "event",
-                },
-              },
-              body,
-            } as const;
-
-            /**
-             * Byte alignment:
-             * 4 - message size
-             * 4 - header size
-             * 4 - prelude crc32
-             * variable - headers
-             * variable - body
-             * 4 message crc32
-             */
-            const bytes = eventStreamCodec.encode(event);
-            server.send(toBase64(bytes));
-          }
+          socket.send(toBase64(bytes));
 
           try {
             const decoded = eventStreamCodec.decode(data as any);
@@ -238,24 +234,33 @@ describe("middleware-websocket", () => {
                 bytes: new Uint8Array([8, 9, 10, 11]),
               },
             };
+
+            // holds socket open for a bit after final input.
+            // to receive server events.
+            await new Promise((r) => setTimeout(r, 2000));
           },
         },
       });
 
-      await server.connected;
+      server.send(toBase64(bytes));
 
       expect(logSink).toHaveBeenCalledWith("@aws-sdk - ws connecting ws://localhost:6855/mock-websocket");
       await serverConfirmation;
 
+      server.send(toBase64(bytes));
+      server.send(toBase64(bytes));
+
       const responseChunks = [];
       for await (const event of websocketResponse.body) {
         responseChunks.push(event);
+        expect(event).toEqual({
+          chunk: {
+            bytes: new Uint8Array([48, 49, 50, 51, 52, 56, 57, 57, 57]),
+          },
+        });
       }
 
-      expect(responseChunks).toHaveLength(4);
-
-      // TODO: fix mock WS server response format.
-      // expect(responseChunks).toEqual([{ bytes: new Uint8Array([]) }]);
+      expect(responseChunks.length).toBe(10);
     });
   });
 });
