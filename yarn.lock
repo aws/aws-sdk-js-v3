@@ -9361,58 +9361,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-evidently@workspace:clients/client-evidently":
-  version: 0.0.0-use.local
-  resolution: "@aws-sdk/client-evidently@workspace:clients/client-evidently"
-  dependencies:
-    "@aws-crypto/sha256-browser": "npm:5.2.0"
-    "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/core": "workspace:^3.973.7"
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.6"
-    "@aws-sdk/middleware-host-header": "workspace:^3.972.3"
-    "@aws-sdk/middleware-logger": "workspace:^3.972.3"
-    "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.3"
-    "@aws-sdk/middleware-user-agent": "workspace:^3.972.7"
-    "@aws-sdk/region-config-resolver": "workspace:^3.972.3"
-    "@aws-sdk/types": "workspace:^3.973.1"
-    "@aws-sdk/util-endpoints": "workspace:3.986.0"
-    "@aws-sdk/util-user-agent-browser": "workspace:^3.972.3"
-    "@aws-sdk/util-user-agent-node": "workspace:^3.972.5"
-    "@smithy/config-resolver": "npm:^4.4.6"
-    "@smithy/core": "npm:^3.22.1"
-    "@smithy/fetch-http-handler": "npm:^5.3.9"
-    "@smithy/hash-node": "npm:^4.2.8"
-    "@smithy/invalid-dependency": "npm:^4.2.8"
-    "@smithy/middleware-content-length": "npm:^4.2.8"
-    "@smithy/middleware-endpoint": "npm:^4.4.13"
-    "@smithy/middleware-retry": "npm:^4.4.30"
-    "@smithy/middleware-serde": "npm:^4.2.9"
-    "@smithy/middleware-stack": "npm:^4.2.8"
-    "@smithy/node-config-provider": "npm:^4.3.8"
-    "@smithy/node-http-handler": "npm:^4.4.9"
-    "@smithy/protocol-http": "npm:^5.3.8"
-    "@smithy/smithy-client": "npm:^4.11.2"
-    "@smithy/types": "npm:^4.12.0"
-    "@smithy/url-parser": "npm:^4.2.8"
-    "@smithy/util-base64": "npm:^4.3.0"
-    "@smithy/util-body-length-browser": "npm:^4.2.0"
-    "@smithy/util-body-length-node": "npm:^4.2.1"
-    "@smithy/util-defaults-mode-browser": "npm:^4.3.29"
-    "@smithy/util-defaults-mode-node": "npm:^4.2.32"
-    "@smithy/util-endpoints": "npm:^3.2.8"
-    "@smithy/util-middleware": "npm:^4.2.8"
-    "@smithy/util-retry": "npm:^4.2.8"
-    "@smithy/util-utf8": "npm:^4.2.0"
-    "@tsconfig/node20": "npm:20.1.8"
-    "@types/node": "npm:^20.14.8"
-    concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
-    premove: "npm:4.0.0"
-    tslib: "npm:^2.6.2"
-    typescript: "npm:~5.8.3"
-  languageName: unknown
-  linkType: soft
-
 "@aws-sdk/client-evs@workspace:clients/client-evs":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-evs@workspace:clients/client-evs"
