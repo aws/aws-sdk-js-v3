@@ -297,6 +297,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *           inputSchema: { // ToolInputSchema Union: only one key present
  *             json: "DOCUMENT_VALUE",
  *           },
+ *           strict: true || false,
  *         },
  *         systemTool: { // SystemTool
  *           name: "STRING_VALUE", // required
@@ -335,6 +336,18 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *   },
  *   serviceTier: { // ServiceTier
  *     type: "priority" || "default" || "flex" || "reserved", // required
+ *   },
+ *   outputConfig: { // OutputConfig
+ *     textFormat: { // OutputFormat
+ *       type: "json_schema", // required
+ *       structure: { // OutputFormatStructure Union: only one key present
+ *         jsonSchema: { // JsonSchemaDefinition
+ *           schema: "STRING_VALUE", // required
+ *           name: "STRING_VALUE",
+ *           description: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
  *   },
  * };
  * const command = new ConverseStreamCommand(input);

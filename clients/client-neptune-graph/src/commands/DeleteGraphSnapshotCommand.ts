@@ -27,7 +27,7 @@ export interface DeleteGraphSnapshotCommandInput extends DeleteGraphSnapshotInpu
 export interface DeleteGraphSnapshotCommandOutput extends DeleteGraphSnapshotOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specifed graph snapshot.</p>
+ * <p>Deletes the specified graph snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

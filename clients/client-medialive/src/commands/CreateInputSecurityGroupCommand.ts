@@ -64,6 +64,9 @@ export interface CreateInputSecurityGroupCommandOutput extends CreateInputSecuri
  * //         Cidr: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     Channels: [
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

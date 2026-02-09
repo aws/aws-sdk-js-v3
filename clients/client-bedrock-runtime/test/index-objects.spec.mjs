@@ -167,6 +167,7 @@ import {
   InvokeModelWithResponseStreamCommand,
   InvokeModelWithResponseStreamRequest$,
   InvokeModelWithResponseStreamResponse$,
+  JsonSchemaDefinition$,
   ListAsyncInvokes$,
   ListAsyncInvokesCommand,
   ListAsyncInvokesRequest$,
@@ -182,6 +183,10 @@ import {
   ModelStreamErrorException$,
   ModelTimeoutException,
   ModelTimeoutException$,
+  OutputConfig$,
+  OutputFormat$,
+  OutputFormatStructure$,
+  OutputFormatType,
   paginateListAsyncInvokes,
   PayloadPart$,
   PerformanceConfigLatency,
@@ -378,11 +383,15 @@ assert(typeof InvokeModelWithBidirectionalStreamRequest$ === "object");
 assert(typeof InvokeModelWithBidirectionalStreamResponse$ === "object");
 assert(typeof InvokeModelWithResponseStreamRequest$ === "object");
 assert(typeof InvokeModelWithResponseStreamResponse$ === "object");
+assert(typeof JsonSchemaDefinition$ === "object");
 assert(typeof ListAsyncInvokesRequest$ === "object");
 assert(typeof ListAsyncInvokesResponse$ === "object");
 assert(typeof Message$ === "object");
 assert(typeof MessageStartEvent$ === "object");
 assert(typeof MessageStopEvent$ === "object");
+assert(typeof OutputConfig$ === "object");
+assert(typeof OutputFormat$ === "object");
+assert(typeof OutputFormatStructure$ === "object");
 assert(typeof PayloadPart$ === "object");
 assert(typeof PerformanceConfiguration$ === "object");
 assert(typeof PromptRouterTrace$ === "object");
@@ -450,6 +459,7 @@ assert(typeof GuardrailTopicType === "object");
 assert(typeof GuardrailTrace === "object");
 assert(typeof GuardrailWordPolicyAction === "object");
 assert(typeof ImageFormat === "object");
+assert(typeof OutputFormatType === "object");
 assert(typeof PerformanceConfigLatency === "object");
 assert(typeof ServiceTierType === "object");
 assert(typeof SortAsyncInvocationBy === "object");

@@ -21,6 +21,7 @@ import {
   EventType,
   HubNetworkMode,
   LogLevel,
+  ManagedThingAssociationStatus,
   OtaMechanism,
   OtaProtocol,
   OtaStatus,
@@ -117,6 +118,18 @@ export interface AccountAssociationItem {
 }
 
 /**
+ * <p>The General Authorization reference by authorization material name.</p>
+ * @public
+ */
+export interface GeneralAuthorizationName {
+  /**
+   * <p>The name of the authorization material.</p>
+   * @public
+   */
+  AuthMaterialName?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateAccountAssociationRequest {
@@ -149,6 +162,12 @@ export interface CreateAccountAssociationRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The General Authorization reference by authorization material name.</p>
+   * @public
+   */
+  GeneralAuthorization?: GeneralAuthorizationName | undefined;
 }
 
 /**
@@ -156,7 +175,7 @@ export interface CreateAccountAssociationRequest {
  */
 export interface CreateAccountAssociationResponse {
   /**
-   * <p>Third-party IoT platform OAuth authorization server URL backed with all the required parameters to perform end-user authentication.</p>
+   * <p>Third-party IoT platform OAuth authorization server URL backed with all the required parameters to perform end-user authentication. This field will be empty when using General Authorization flows that do not require OAuth.</p>
    * @public
    */
   OAuthAuthorizationUrl: string | undefined;
@@ -249,7 +268,7 @@ export interface GetAccountAssociationResponse {
   Arn?: string | undefined;
 
   /**
-   * <p>Third party IoT platform OAuth authorization server URL backed with all the required parameters to perform end-user authentication.</p>
+   * <p>Third party IoT platform OAuth authorization server URL backed with all the required parameters to perform end-user authentication. This field will be empty when using General Authorization flows that do not require OAuth.</p>
    * @public
    */
   OAuthAuthorizationUrl: string | undefined;
@@ -259,6 +278,12 @@ export interface GetAccountAssociationResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The General Authorization reference by authorization material name.</p>
+   * @public
+   */
+  GeneralAuthorization?: GeneralAuthorizationName | undefined;
 }
 
 /**
@@ -317,7 +342,7 @@ export interface StartAccountAssociationRefreshRequest {
  */
 export interface StartAccountAssociationRefreshResponse {
   /**
-   * <p>Third-party IoT platform OAuth authorization server URL with all required parameters to perform end-user authentication during the refresh process.</p>
+   * <p>Third-party IoT platform OAuth authorization server URL with all required parameters to perform end-user authentication during the refresh process. This field will be empty when using General Authorization flows that do not require OAuth.</p>
    * @public
    */
   OAuthAuthorizationUrl: string | undefined;
@@ -344,6 +369,42 @@ export interface UpdateAccountAssociationRequest {
    * @public
    */
   Description?: string | undefined;
+}
+
+/**
+ * <p>Configuration for AWS Secrets Manager, used to securely store and manage sensitive information for connector destinations.</p>
+ * @public
+ */
+export interface SecretsManager {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The version ID of the AWS Secrets Manager secret.</p>
+   * @public
+   */
+  versionId: string | undefined;
+}
+
+/**
+ * <p>The authorization material containing the Secrets Manager arn and version.</p>
+ * @public
+ */
+export interface AuthMaterial {
+  /**
+   * <p>Configuration for AWS Secrets Manager, used to securely store and manage sensitive information for connector destinations.</p>
+   * @public
+   */
+  SecretsManager: SecretsManager | undefined;
+
+  /**
+   * <p>The name of the authorization material.</p>
+   * @public
+   */
+  AuthMaterialName: string | undefined;
 }
 
 /**
@@ -416,6 +477,30 @@ export interface AuthConfig {
    * @public
    */
   oAuth?: OAuthConfig | undefined;
+
+  /**
+   * <p>The authorization materials for General Authorization.</p>
+   * @public
+   */
+  GeneralAuthorization?: AuthMaterial[] | undefined;
+}
+
+/**
+ * <p>The General Authorization update information containing authorization materials to add or update.</p>
+ * @public
+ */
+export interface GeneralAuthorizationUpdate {
+  /**
+   * <p>The authorization materials to add.</p>
+   * @public
+   */
+  AuthMaterialsToAdd?: AuthMaterial[] | undefined;
+
+  /**
+   * <p>The authorization materials to update.</p>
+   * @public
+   */
+  AuthMaterialsToUpdate?: AuthMaterial[] | undefined;
 }
 
 /**
@@ -446,6 +531,12 @@ export interface AuthConfigUpdate {
    * @public
    */
   oAuthUpdate?: OAuthUpdate | undefined;
+
+  /**
+   * <p>The General Authorization update information containing authorization materials to add or update in Kinesis Data Streams.</p>
+   * @public
+   */
+  GeneralAuthorizationUpdate?: GeneralAuthorizationUpdate | undefined;
 }
 
 /**
@@ -963,24 +1054,6 @@ export interface ConnectorDestinationSummary {
 }
 
 /**
- * <p>Configuration for AWS Secrets Manager, used to securely store and manage sensitive information for connector destinations.</p>
- * @public
- */
-export interface SecretsManager {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The version ID of the AWS Secrets Manager secret.</p>
-   * @public
-   */
-  versionId: string | undefined;
-}
-
-/**
  * @public
  */
 export interface CreateConnectorDestinationRequest {
@@ -1006,7 +1079,7 @@ export interface CreateConnectorDestinationRequest {
    * <p>The authentication type used for the connector destination, which determines how credentials and access are managed.</p>
    * @public
    */
-  AuthType: AuthType | undefined;
+  AuthType?: AuthType | undefined;
 
   /**
    * <p>The authentication configuration details for the connector destination, including OAuth settings and other authentication parameters.</p>
@@ -1018,7 +1091,7 @@ export interface CreateConnectorDestinationRequest {
    * <p>The AWS Secrets Manager configuration used to securely store and manage sensitive information for the connector destination.</p>
    * @public
    */
-  SecretsManager: SecretsManager | undefined;
+  SecretsManager?: SecretsManager | undefined;
 
   /**
    * <p>An idempotency token. If you retry a request that completed successfully initially using the same client token and parameters, then the retry attempt will succeed without performing any further actions.</p>
@@ -1387,7 +1460,7 @@ export interface CreateManagedThingRequest {
   CredentialLockerId?: string | undefined;
 
   /**
-   * <p>The authentication material defining the device connectivity setup requests. The authentication materials used are the device bar code.</p>
+   * <p>The authentication material defining the device connectivity setup requests. The authorization materials used are the device bar code.</p>
    * @public
    */
   AuthenticationMaterial: string | undefined;
@@ -1877,6 +1950,12 @@ export interface CreateProvisioningProfileRequest {
    * @public
    */
   CaCertificate?: string | undefined;
+
+  /**
+   * <p>The claim certificate.</p>
+   * @public
+   */
+  ClaimCertificate?: string | undefined;
 
   /**
    * <p>The name of the provisioning template.</p>
@@ -2840,6 +2919,12 @@ export interface StartDeviceDiscoveryRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Used as a filter for PLA discoveries.</p>
+   * @public
+   */
+  ConnectorDeviceIdList?: string[] | undefined;
 
   /**
    * <p>The protocol type for capability rediscovery (ZWAVE, ZIGBEE, or CUSTOM).</p> <note> <p>This parameter is only available when the discovery type is CONTROLLER_CAPABILITY_REDISCOVERY.</p> </note>
@@ -3981,7 +4066,7 @@ export interface PutDefaultEncryptionConfigurationResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * The ARN of the resource for which to list tags.
+   * <p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -3992,7 +4077,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * A set of key/value pairs that are used to manage the resource.
+   * <p>A set of key/value pairs that are used to manage the resource.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4043,6 +4128,12 @@ export interface ManagedThingAssociation {
    * @public
    */
   AccountAssociationId?: string | undefined;
+
+  /**
+   * <p>The status of the registration between the managed thing and the account association. Indicates whether the device is pre-associated or fully associated with the account association.</p>
+   * @public
+   */
+  ManagedThingAssociationStatus?: ManagedThingAssociationStatus | undefined;
 }
 
 /**
@@ -5202,13 +5293,13 @@ export interface SendConnectorEventResponse {
  */
 export interface TagResourceRequest {
   /**
-   * The ARN of the resource to which to add tags.
+   * <p>The Amazon Resource Name (ARN) of the resource to which to add tags.</p>
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * A set of key/value pairs that are used to manage the resource
+   * <p>A set of key/value pairs that are used to manage the resource.</p>
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -5224,13 +5315,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * The ARN of the resource to which to add tags.
+   * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * A list of tag keys to remove from the resource.
+   * <p>A list of tag keys to remove from the resource.</p>
    * @public
    */
   TagKeys: string[] | undefined;

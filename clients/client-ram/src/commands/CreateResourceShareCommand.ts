@@ -28,8 +28,8 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
 
 /**
  * <p>Creates a resource share. You can provide a list of the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> for the resources that you
- *             want to share, a list of principals you want to share the resources with, and the
- *             permissions to grant those principals.</p>
+ *             want to share, a list of principals you want to share the resources with, the
+ *             permissions to grant those principals, and optionally source constraints to enhance security for service principal sharing.</p>
  *          <note>
  *             <p>Sharing a resource makes it available for use by principals outside of the
  *                 Amazon Web Services account that created the resource. Sharing doesn't change any permissions or
@@ -120,9 +120,10 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
  * @throws {@link ResourceShareLimitExceededException} (client fault)
- *  <p>The operation failed because it would exceed the limit for resource shares for your account. To
- *             view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the Service Quotas
- *                 console</a>.</p>
+ *  <p>The operation failed because it would exceed the limit for resource shares for your account. You
+ *             can associate up to 100 resources per call. To view the limits for your Amazon Web Services account,
+ *             see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in
+ *                 the Service Quotas console</a>.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The operation failed because the service could not respond to the request due to an
@@ -138,6 +139,10 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * @throws {@link TagPolicyViolationException} (client fault)
  *  <p>The operation failed because the specified tag key is a reserved word and can't be
  *             used.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The operation failed because it exceeded the rate at which you are allowed to perform
+ *             this operation. Please try again later.</p>
  *
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>

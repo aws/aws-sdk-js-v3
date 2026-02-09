@@ -46,7 +46,7 @@ export interface ListOpportunitiesCommandOutput extends ListOpportunitiesRespons
  *   NextToken: "STRING_VALUE",
  *   Sort: { // OpportunitySort
  *     SortOrder: "ASCENDING" || "DESCENDING", // required
- *     SortBy: "LastModifiedDate" || "Identifier" || "CustomerCompanyName", // required
+ *     SortBy: "LastModifiedDate" || "Identifier" || "CustomerCompanyName" || "CreatedDate", // required
  *   },
  *   LastModifiedDate: { // LastModifiedDate
  *     AfterLastModifiedDate: new Date("TIMESTAMP"),
@@ -64,6 +64,10 @@ export interface ListOpportunitiesCommandOutput extends ListOpportunitiesRespons
  *   CustomerCompanyName: [ // StringList
  *     "STRING_VALUE",
  *   ],
+ *   CreatedDate: { // CreatedDateFilter
+ *     AfterCreatedDate: new Date("TIMESTAMP"),
+ *     BeforeCreatedDate: new Date("TIMESTAMP"),
+ *   },
  * };
  * const command = new ListOpportunitiesCommand(input);
  * const response = await client.send(command);

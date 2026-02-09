@@ -57,6 +57,9 @@ export interface GetAccountAssociationCommandOutput extends GetAccountAssociatio
  * //   Tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   GeneralAuthorization: { // GeneralAuthorizationName
+ * //     AuthMaterialName: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

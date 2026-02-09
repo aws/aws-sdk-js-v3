@@ -394,132 +394,132 @@ export interface AwsOpportunityCustomer {
 }
 
 /**
- * Details for a specific optimization recommendation
+ * <p>Specific optimization strategies partners can implement to reduce costs.</p>
  * @public
  */
 export interface AwsProductOptimization {
   /**
-   * Human-readable explanation of the optimization strategy
+   * <p>Human-readable explanation of the optimization strategy.</p>
    * @public
    */
   Description: string | undefined;
 
   /**
-   * Quantified cost savings achievable by implementing this optimization
+   * <p>Quantified cost savings achievable by implementing this optimization.</p>
    * @public
    */
   SavingsAmount: string | undefined;
 }
 
 /**
- * AWS services with program eligibility indicators (MAP, modernization pathways), cost estimates, and optimization recommendations.
+ * <p>List of AWS services with program eligibility indicators (MAP, modernization pathways), cost estimates, and optimization recommendations.</p>
  * @public
  */
 export interface AwsProductDetails {
   /**
-   * AWS Partner Central product identifier used for opportunity association
+   * <p>AWS Partner Central product identifier used for opportunity association.</p>
    * @public
    */
   ProductCode: string | undefined;
 
   /**
-   * Pricing Calculator service code (links to original calculator URL)
+   * <p>Pricing Calculator service code.</p>
    * @public
    */
   ServiceCode?: string | undefined;
 
   /**
-   * List of program and pathway categories this product is eligible for
+   * <p>List of program and pathway categories this product is eligible for.</p>
    * @public
    */
   Categories: string[] | undefined;
 
   /**
-   * Baseline service cost before optimizations (may be null for AWS-sourced predictions)
+   * <p>Baseline service cost before optimizations.</p>
    * @public
    */
   Amount?: string | undefined;
 
   /**
-   * Service cost after applying optimizations (may be null for AWS-sourced predictions)
+   * <p>Service cost after applying optimizations.</p>
    * @public
    */
   OptimizedAmount?: string | undefined;
 
   /**
-   * Service-specific cost reduction through optimizations (may be null for AWS-sourced predictions)
+   * <p>Service-specific cost reduction through optimizations.</p>
    * @public
    */
   PotentialSavingsAmount?: string | undefined;
 
   /**
-   * List of specific optimization recommendations for this product
+   * <p>List of specific optimization recommendations for this product.</p>
    * @public
    */
   Optimizations: AwsProductOptimization[] | undefined;
 }
 
 /**
- * Comprehensive spend analysis for a single source (AWS or Partner) including total amounts, optimization savings, program category breakdowns, and detailed product-level insights.
+ * <p>Comprehensive spend analysis for a single source (AWS or Partner) including total amounts, optimization savings, program category breakdowns, and detailed product-level insights.</p>
  * @public
  */
 export interface AwsProductInsights {
   /**
-   * ISO 4217 currency code (e.g., "USD") ensuring consistent representation across calculations
+   * <p>ISO 4217 currency code.</p>
    * @public
    */
   CurrencyCode: CurrencyCode | undefined;
 
   /**
-   * Time period for spend amounts: "Monthly" or "Annually"
+   * <p>Time period for spend amounts.</p>
    * @public
    */
   Frequency: PaymentFrequency | undefined;
 
   /**
-   * Total estimated spend for this source before optimizations
+   * <p>Total estimated spend for this source before optimizations.</p>
    * @public
    */
   TotalAmount?: string | undefined;
 
   /**
-   * Total estimated spend after applying recommended optimizations
+   * <p>Total estimated spend after applying recommended optimizations.</p>
    * @public
    */
   TotalOptimizedAmount?: string | undefined;
 
   /**
-   * Quantified savings achievable through implementing optimizations
+   * <p>Quantified savings achievable through implementing optimizations.</p>
    * @public
    */
   TotalPotentialSavingsAmount?: string | undefined;
 
   /**
-   * Spend amounts mapped to AWS programs and modernization pathways
+   * <p>Spend amounts mapped to AWS programs and modernization pathways.</p>
    * @public
    */
   TotalAmountByCategory: Record<string, string> | undefined;
 
   /**
-   * Product-level details including costs and optimization recommendations
+   * <p>Product-level details including costs and optimization recommendations.</p>
    * @public
    */
   AwsProducts: AwsProductDetails[] | undefined;
 }
 
 /**
- * Source-separated spend insights that provide independent analysis for AWS predictions and partner estimates
+ * <p>Source-separated spend insights that provide independent analysis for AWS recommendations and partner estimates.</p>
  * @public
  */
 export interface AwsProductsSpendInsightsBySource {
   /**
-   * Partner-sourced insights derived from Pricing Calculator URLs including detailed service costs and optimizations
+   * <p>Partner-sourced insights derived from Pricing Calculator URLs.</p>
    * @public
    */
   Partner?: AwsProductInsights | undefined;
 
   /**
-   * AI-generated insights including recommended products from AWS
+   * <p>AI-generated insights including recommended products from AWS.</p>
    * @public
    */
   AWS?: AwsProductInsights | undefined;
@@ -543,7 +543,7 @@ export interface AwsOpportunityInsights {
   EngagementScore?: EngagementScore | undefined;
 
   /**
-   * Source-separated spend insights that provide independent analysis for AWS predictions and partner estimates
+   * <p>Source-separated spend insights that provide independent analysis for AWS recommendations and partner estimates.</p>
    * @public
    */
   AwsProductsSpendInsightsBySource?: AwsProductsSpendInsightsBySource | undefined;
@@ -651,7 +651,7 @@ export interface AwsOpportunityProject {
   ExpectedCustomerSpend?: ExpectedCustomerSpend[] | undefined;
 
   /**
-   * AWS partition where the opportunity will be deployed. Possible values: 'aws-eusc' for AWS European Sovereign Cloud, `null` for all other partitions
+   * <p>AWS partition where the opportunity will be deployed. Possible values: <code>aws-eusc</code> for AWS European Sovereign Cloud, <code>null</code> for all other partitions.</p>
    * @public
    */
   AwsPartition?: AwsPartition | undefined;
@@ -703,6 +703,78 @@ export interface AwsTeamMember {
    * @public
    */
   BusinessTitle?: AwsMemberBusinessTitle | undefined;
+}
+
+/**
+ * <p>Provides a comprehensive view of AwsOpportunitySummaryFullView template.</p>
+ * @public
+ */
+export interface AwsOpportunitySummaryFullView {
+  /**
+   * <p>Identifier of the related partner opportunity.</p>
+   * @public
+   */
+  RelatedOpportunityId?: string | undefined;
+
+  /**
+   * <p>Source origin of the AWS opportunity.</p>
+   * @public
+   */
+  Origin?: OpportunityOrigin | undefined;
+
+  /**
+   * <p>Type of AWS involvement in the opportunity.</p>
+   * @public
+   */
+  InvolvementType?: SalesInvolvementType | undefined;
+
+  /**
+   * <p>Visibility level for the AWS opportunity.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>Tracks the lifecycle of the AWS opportunity, including stages such as qualification, validation, and closure. This field helps partners understand the current status and progression of the opportunity.</p>
+   * @public
+   */
+  LifeCycle?: AwsOpportunityLifeCycle | undefined;
+
+  /**
+   * <p>AWS team members involved in the opportunity.</p>
+   * @public
+   */
+  OpportunityTeam?: AwsTeamMember[] | undefined;
+
+  /**
+   * <p>Contains insights provided by AWS for the opportunity, offering recommendations and analysis that can help the partner optimize their engagement and strategy.</p>
+   * @public
+   */
+  Insights?: AwsOpportunityInsights | undefined;
+
+  /**
+   * <p>Reason for changes in AWS involvement type for the opportunity.</p>
+   * @public
+   */
+  InvolvementTypeChangeReason?: InvolvementTypeChangeReason | undefined;
+
+  /**
+   * <p>Represents other entities related to the AWS opportunity, such as AWS products, partner solutions, and marketplace offers. These associations help build a complete picture of the solution being sold.</p>
+   * @public
+   */
+  RelatedEntityIds?: AwsOpportunityRelatedEntities | undefined;
+
+  /**
+   * <p>Represents the customer associated with the AWS opportunity. This field captures key details about the customer that are necessary for managing the opportunity.</p>
+   * @public
+   */
+  Customer?: AwsOpportunityCustomer | undefined;
+
+  /**
+   * <p>Captures details about the project associated with the opportunity, including objectives, scope, and customer requirements.</p>
+   * @public
+   */
+  Project?: AwsOpportunityProject | undefined;
 }
 
 /**
@@ -2897,7 +2969,7 @@ export interface Project {
   AdditionalComments?: string | undefined;
 
   /**
-   * AWS partition where the opportunity will be deployed. Possible values: 'aws-eusc' for AWS European Sovereign Cloud, `null` for all other partitions
+   * <p>AWS partition where the opportunity will be deployed. Possible values: <code>aws-eusc</code> for AWS European Sovereign Cloud, <code>null</code> for all other partitions.</p>
    * @public
    */
   AwsPartition?: AwsPartition | undefined;
@@ -3335,6 +3407,24 @@ export interface GetOpportunityResponse {
 }
 
 /**
+ * <p>Filter for opportunities based on creation date range.</p>
+ * @public
+ */
+export interface CreatedDateFilter {
+  /**
+   * <p>Filter opportunities created after this date.</p>
+   * @public
+   */
+  AfterCreatedDate?: Date | undefined;
+
+  /**
+   * <p>Filter opportunities created before this date.</p>
+   * @public
+   */
+  BeforeCreatedDate?: Date | undefined;
+}
+
+/**
  * <p>Defines a filter to retrieve opportunities based on the last modified date. This filter is useful for tracking changes or updates to opportunities over time.</p>
  * @public
  */
@@ -3427,6 +3517,12 @@ export interface ListOpportunitiesRequest {
    * @public
    */
   CustomerCompanyName?: string[] | undefined;
+
+  /**
+   * <p>Filter opportunities by creation date criteria.</p>
+   * @public
+   */
+  CreatedDate?: CreatedDateFilter | undefined;
 }
 
 /**
@@ -4207,6 +4303,7 @@ export interface OpportunitySummaryView {
  * @public
  */
 export type ResourceSnapshotPayload =
+  | ResourceSnapshotPayload.AwsOpportunitySummaryFullViewMember
   | ResourceSnapshotPayload.OpportunitySummaryMember
   | ResourceSnapshotPayload.$UnknownMember;
 
@@ -4220,6 +4317,17 @@ export namespace ResourceSnapshotPayload {
    */
   export interface OpportunitySummaryMember {
     OpportunitySummary: OpportunitySummaryView;
+    AwsOpportunitySummaryFullView?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Provides a comprehensive view of AwsOpportunitySummaryFullView template.</p>
+   * @public
+   */
+  export interface AwsOpportunitySummaryFullViewMember {
+    OpportunitySummary?: never;
+    AwsOpportunitySummaryFullView: AwsOpportunitySummaryFullView;
     $unknown?: never;
   }
 
@@ -4228,6 +4336,7 @@ export namespace ResourceSnapshotPayload {
    */
   export interface $UnknownMember {
     OpportunitySummary?: never;
+    AwsOpportunitySummaryFullView?: never;
     $unknown: [string, any];
   }
 
@@ -4237,6 +4346,7 @@ export namespace ResourceSnapshotPayload {
    */
   export interface Visitor<T> {
     OpportunitySummary: (value: OpportunitySummaryView) => T;
+    AwsOpportunitySummaryFullView: (value: AwsOpportunitySummaryFullView) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4304,6 +4414,12 @@ export interface GetResourceSnapshotResponse {
    * @public
    */
   Payload?: ResourceSnapshotPayload | undefined;
+
+  /**
+   * <p>Target member accounts associated with the resource snapshot.</p>
+   * @public
+   */
+  TargetMemberAccounts?: string[] | undefined;
 }
 
 /**

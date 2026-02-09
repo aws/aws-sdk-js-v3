@@ -148,7 +148,13 @@ public enum AwsDependency implements Dependency {
             if (!VERSIONS.containsKey(packageName)) {
                 throw new IllegalArgumentException("No version for " + packageName);
             }
-            return VERSIONS.get(packageName);
+            String version = VERSIONS.get(packageName);
+            if (packageName.startsWith("@smithy/") || packageName.startsWith("@aws-sdk/")) {
+                if (!version.startsWith("^") && version.matches("^\\d+\\.\\d+\\.\\d+$")) {
+                    version = "^" + version;
+                }
+            }
+            return version;
         }
     }
 }

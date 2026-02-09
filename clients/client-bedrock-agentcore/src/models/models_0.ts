@@ -168,13 +168,13 @@ export interface InvokeAgentRuntimeRequest {
   baggage?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Resource Name (ARN) of the agent runtime to invoke. The ARN uniquely identifies the agent runtime resource in Amazon Bedrock.</p>
+   * <p>The Amazon Web Services Resource Name (ARN) of the agent runtime to invoke. The ARN uniquely identifies the agent runtime resource in Amazon Bedrock AgentCore.</p>
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The qualifier to use for the agent runtime. This can be a version number or an endpoint name that points to a specific version. If not specified, Amazon Bedrock uses the default version of the agent runtime.</p>
+   * <p>The qualifier to use for the agent runtime. This can be a version number or an endpoint name that points to a specific version. If not specified, Amazon Bedrock AgentCore uses the default version of the agent runtime.</p>
    * @public
    */
   qualifier?: string | undefined;
@@ -306,6 +306,76 @@ export interface StopRuntimeSessionResponse {
 /**
  * @public
  */
+export interface SaveBrowserSessionProfileRequest {
+  /**
+   * <p>The trace identifier for request tracking.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The parent trace information for distributed tracing.</p>
+   * @public
+   */
+  traceParent?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the browser profile. This identifier is used to reference the profile when starting new browser sessions. The identifier must follow the pattern of an alphanumeric name (up to 48 characters) followed by a hyphen and a 10-character alphanumeric suffix.</p>
+   * @public
+   */
+  profileIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the browser associated with the session from which to save the profile.</p>
+   * @public
+   */
+  browserIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the browser session from which to save the profile. The session must be active when saving the profile.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SaveBrowserSessionProfileResponse {
+  /**
+   * <p>The unique identifier of the saved browser profile.</p>
+   * @public
+   */
+  profileIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the browser associated with the session from which the profile was saved.</p>
+   * @public
+   */
+  browserIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the browser session from which the profile was saved.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The timestamp when the browser profile was last updated. This value is in ISO 8601 format.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetBrowserSessionRequest {
   /**
    * <p>The unique identifier of the browser associated with the session.</p>
@@ -396,7 +466,19 @@ export interface BrowserExtension {
 }
 
 /**
- * <p>The configuration for a stream that enables programmatic control of a browser session in Amazon Bedrock. This stream provides a bidirectional communication channel for sending commands to the browser and receiving responses, allowing agents to automate web interactions such as navigation, form filling, and element clicking.</p>
+ * <p>The configuration for a browser profile in Amazon Bedrock AgentCore. A browser profile contains persistent browser data such as cookies and local storage that can be saved from one browser session and reused in subsequent sessions. Browser profiles enable continuity for tasks that require authentication, maintain user preferences, or depend on previously stored browser state.</p>
+ * @public
+ */
+export interface BrowserProfileConfiguration {
+  /**
+   * <p>The unique identifier of the browser profile. This identifier is used to reference the profile when starting new browser sessions or saving session data to the profile.</p>
+   * @public
+   */
+  profileIdentifier: string | undefined;
+}
+
+/**
+ * <p>The configuration for a stream that enables programmatic control of a browser session in Amazon Bedrock AgentCore. This stream provides a bidirectional communication channel for sending commands to the browser and receiving responses, allowing agents to automate web interactions such as navigation, form filling, and element clicking.</p>
  * @public
  */
 export interface AutomationStream {
@@ -414,7 +496,7 @@ export interface AutomationStream {
 }
 
 /**
- * <p>The configuration for a stream that provides a visual representation of a browser session in Amazon Bedrock. This stream enables agents to observe the current state of the browser, including rendered web pages, visual elements, and the results of interactions.</p>
+ * <p>The configuration for a stream that provides a visual representation of a browser session in Amazon Bedrock AgentCore. This stream enables agents to observe the current state of the browser, including rendered web pages, visual elements, and the results of interactions.</p>
  * @public
  */
 export interface LiveViewStream {
@@ -426,7 +508,7 @@ export interface LiveViewStream {
 }
 
 /**
- * <p>The collection of streams associated with a browser session in Amazon Bedrock. These streams provide different ways to interact with and observe the browser session, including programmatic control and visual representation of the browser content.</p>
+ * <p>The collection of streams associated with a browser session in Amazon Bedrock AgentCore. These streams provide different ways to interact with and observe the browser session, including programmatic control and visual representation of the browser content.</p>
  * @public
  */
 export interface BrowserSessionStream {
@@ -502,6 +584,12 @@ export interface GetBrowserSessionResponse {
   extensions?: BrowserExtension[] | undefined;
 
   /**
+   * <p>The browser profile configuration associated with this session. Contains the profile identifier that links to persistent browser data such as cookies and local storage.</p>
+   * @public
+   */
+  profileConfiguration?: BrowserProfileConfiguration | undefined;
+
+  /**
    * <p>The timeout period for the browser session in seconds.</p>
    * @public
    */
@@ -549,7 +637,7 @@ export interface ListBrowserSessionsRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. If not specified, Amazon Bedrock returns the first page of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. If not specified, Amazon Bedrock AgentCore returns the first page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -562,7 +650,7 @@ export interface ListBrowserSessionsRequest {
 }
 
 /**
- * <p>A condensed representation of a browser session in Amazon Bedrock. This structure contains key information about a browser session, including identifiers, status, and timestamps, without the full details of the session configuration and streams.</p>
+ * <p>A condensed representation of a browser session in Amazon Bedrock AgentCore. This structure contains key information about a browser session, including identifiers, status, and timestamps, without the full details of the session configuration and streams.</p>
  * @public
  */
 export interface BrowserSessionSummary {
@@ -655,7 +743,7 @@ export interface StartBrowserSessionRequest {
   sessionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The dimensions of the browser viewport for this session. This determines the visible area of the web content and affects how web pages are rendered. If not specified, Amazon Bedrock uses a default viewport size.</p>
+   * <p>The dimensions of the browser viewport for this session. This determines the visible area of the web content and affects how web pages are rendered. If not specified, Amazon Bedrock AgentCore uses a default viewport size.</p>
    * @public
    */
   viewPort?: ViewPort | undefined;
@@ -667,7 +755,13 @@ export interface StartBrowserSessionRequest {
   extensions?: BrowserExtension[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.</p>
+   * <p>The browser profile configuration to use for this session. A browser profile contains persistent data such as cookies and local storage that can be reused across multiple browser sessions. If specified, the session initializes with the profile's stored data, enabling continuity for tasks that require authentication or personalized settings.</p>
+   * @public
+   */
+  profileConfiguration?: BrowserProfileConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -731,7 +825,7 @@ export interface StopBrowserSessionRequest {
   sessionId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -857,7 +951,7 @@ export interface UpdateBrowserStreamResponse {
   sessionId: string | undefined;
 
   /**
-   * <p>The collection of streams associated with a browser session in Amazon Bedrock. These streams provide different ways to interact with and observe the browser session, including programmatic control and visual representation of the browser content.</p>
+   * <p>The collection of streams associated with a browser session in Amazon Bedrock AgentCore. These streams provide different ways to interact with and observe the browser session, including programmatic control and visual representation of the browser content.</p>
    * @public
    */
   streams: BrowserSessionStream | undefined;
@@ -944,7 +1038,7 @@ export interface ListCodeInterpreterSessionsRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. If not specified, Amazon Bedrock returns the first page of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. If not specified, Amazon Bedrock AgentCore returns the first page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -957,7 +1051,7 @@ export interface ListCodeInterpreterSessionsRequest {
 }
 
 /**
- * <p>A condensed representation of a code interpreter session in Amazon Bedrock. This structure contains key information about a code interpreter session, including identifiers, status, and timestamps, without the full details of the session configuration.</p>
+ * <p>A condensed representation of a code interpreter session in Amazon Bedrock AgentCore. This structure contains key information about a code interpreter session, including identifiers, status, and timestamps, without the full details of the session configuration.</p>
  * @public
  */
 export interface CodeInterpreterSessionSummary {
@@ -1050,7 +1144,7 @@ export interface StartCodeInterpreterSessionRequest {
   sessionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1108,7 +1202,7 @@ export interface StopCodeInterpreterSessionRequest {
   sessionId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1710,7 +1804,7 @@ export interface InputContentBlock {
 }
 
 /**
- * <p>The collection of arguments that specify the operation to perform and its parameters when invoking a tool in Amazon Bedrock. Different tools require different arguments, and this structure provides a flexible way to pass the appropriate arguments to each tool type.</p>
+ * <p>The collection of arguments that specify the operation to perform and its parameters when invoking a tool in Amazon Bedrock AgentCore. Different tools require different arguments, and this structure provides a flexible way to pass the appropriate arguments to each tool type.</p>
  * @public
  */
 export interface ToolArguments {
@@ -1949,7 +2043,7 @@ export interface ToolResultStructuredContent {
 }
 
 /**
- * <p>The output produced by executing code in a code interpreter session in Amazon Bedrock. This structure contains the results of code execution, including textual output, structured data, and error information. Agents use these results to generate responses that incorporate computation, data analysis, and visualization.</p>
+ * <p>The output produced by executing code in a code interpreter session in Amazon Bedrock AgentCore. This structure contains the results of code execution, including textual output, structured data, and error information. Agents use these results to generate responses that incorporate computation, data analysis, and visualization.</p>
  * @public
  */
 export interface CodeInterpreterResult {
@@ -1992,7 +2086,7 @@ export type CodeInterpreterStreamOutput =
  */
 export namespace CodeInterpreterStreamOutput {
   /**
-   * <p>The output produced by executing code in a code interpreter session in Amazon Bedrock. This structure contains the results of code execution, including textual output, structured data, and error information. Agents use these results to generate responses that incorporate computation, data analysis, and visualization.</p>
+   * <p>The output produced by executing code in a code interpreter session in Amazon Bedrock AgentCore. This structure contains the results of code execution, including textual output, structured data, and error information. Agents use these results to generate responses that incorporate computation, data analysis, and visualization.</p>
    * @public
    */
   export interface ResultMember {
@@ -3332,7 +3426,7 @@ export interface ListMemoryRecordsInput {
   memoryId: string | undefined;
 
   /**
-   * <p>The namespace to filter memory records by. If specified, only memory records in this namespace are returned.</p>
+   * <p>The namespace prefix to filter memory records by. Returns all memory records in namespaces that start with the provided prefix.</p>
    * @public
    */
   namespace: string | undefined;
@@ -3556,7 +3650,7 @@ export interface RetrieveMemoryRecordsInput {
   memoryId: string | undefined;
 
   /**
-   * <p>The namespace to filter memory records by.</p>
+   * <p>The namespace prefix to filter memory records by. Searches for memory records in namespaces that start with the provided prefix.</p>
    * @public
    */
   namespace: string | undefined;

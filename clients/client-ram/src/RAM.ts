@@ -133,6 +133,11 @@ import {
   ListResourceTypesCommandOutput,
 } from "./commands/ListResourceTypesCommand";
 import {
+  ListSourceAssociationsCommand,
+  ListSourceAssociationsCommandInput,
+  ListSourceAssociationsCommandOutput,
+} from "./commands/ListSourceAssociationsCommand";
+import {
   PromotePermissionCreatedFromPolicyCommand,
   PromotePermissionCreatedFromPolicyCommandInput,
   PromotePermissionCreatedFromPolicyCommandOutput,
@@ -183,6 +188,7 @@ import {
 import { paginateListResourceSharePermissions } from "./pagination/ListResourceSharePermissionsPaginator";
 import { paginateListResources } from "./pagination/ListResourcesPaginator";
 import { paginateListResourceTypes } from "./pagination/ListResourceTypesPaginator";
+import { paginateListSourceAssociations } from "./pagination/ListSourceAssociationsPaginator";
 import { RAMClient } from "./RAMClient";
 
 const commands = {
@@ -212,6 +218,7 @@ const commands = {
   ListResourcesCommand,
   ListResourceSharePermissionsCommand,
   ListResourceTypesCommand,
+  ListSourceAssociationsCommand,
   PromotePermissionCreatedFromPolicyCommand,
   PromoteResourceShareCreatedFromPolicyCommand,
   RejectResourceShareInvitationCommand,
@@ -235,6 +242,7 @@ const paginators = {
   paginateListResources,
   paginateListResourceSharePermissions,
   paginateListResourceTypes,
+  paginateListSourceAssociations,
 };
 
 export interface RAM {
@@ -687,6 +695,24 @@ export interface RAM {
   ): void;
 
   /**
+   * @see {@link ListSourceAssociationsCommand}
+   */
+  listSourceAssociations(): Promise<ListSourceAssociationsCommandOutput>;
+  listSourceAssociations(
+    args: ListSourceAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSourceAssociationsCommandOutput>;
+  listSourceAssociations(
+    args: ListSourceAssociationsCommandInput,
+    cb: (err: any, data?: ListSourceAssociationsCommandOutput) => void
+  ): void;
+  listSourceAssociations(
+    args: ListSourceAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSourceAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PromotePermissionCreatedFromPolicyCommand}
    */
   promotePermissionCreatedFromPolicy(
@@ -964,6 +990,17 @@ export interface RAM {
     args?: ListResourceTypesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListResourceTypesCommandOutput>;
+
+  /**
+   * @see {@link ListSourceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSourceAssociationsCommandOutput}.
+   */
+  paginateListSourceAssociations(
+    args?: ListSourceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSourceAssociationsCommandOutput>;
 }
 
 /**

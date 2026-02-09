@@ -44,7 +44,7 @@ export interface CreateConnectorDestinationCommandOutput extends CreateConnector
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   CloudConnectorId: "STRING_VALUE", // required
- *   AuthType: "OAUTH", // required
+ *   AuthType: "OAUTH",
  *   AuthConfig: { // AuthConfig
  *     oAuth: { // OAuthConfig
  *       authUrl: "STRING_VALUE", // required
@@ -57,8 +57,17 @@ export interface CreateConnectorDestinationCommandOutput extends CreateConnector
  *         DaysBeforeRenewal: Number("int"),
  *       },
  *     },
+ *     GeneralAuthorization: [ // AuthMaterials
+ *       { // AuthMaterial
+ *         SecretsManager: { // SecretsManager
+ *           arn: "STRING_VALUE", // required
+ *           versionId: "STRING_VALUE", // required
+ *         },
+ *         AuthMaterialName: "STRING_VALUE", // required
+ *       },
+ *     ],
  *   },
- *   SecretsManager: { // SecretsManager
+ *   SecretsManager: {
  *     arn: "STRING_VALUE", // required
  *     versionId: "STRING_VALUE", // required
  *   },

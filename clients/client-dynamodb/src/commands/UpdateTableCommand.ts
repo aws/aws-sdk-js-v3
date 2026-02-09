@@ -339,6 +339,7 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //           TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  * //           LastUpdateDateTime: new Date("TIMESTAMP"),
  * //         },
+ * //         GlobalTableSettingsReplicationMode: "ENABLED" || "DISABLED" || "ENABLED_WITH_OVERRIDES",
  * //       },
  * //     ],
  * //     GlobalTableWitnesses: [ // GlobalTableWitnessDescriptionList
@@ -347,6 +348,7 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //         WitnessStatus: "CREATING" || "DELETING" || "ACTIVE",
  * //       },
  * //     ],
+ * //     GlobalTableSettingsReplicationMode: "ENABLED" || "DISABLED" || "ENABLED_WITH_OVERRIDES",
  * //     RestoreSummary: { // RestoreSummary
  * //       SourceBackupArn: "STRING_VALUE",
  * //       SourceTableArn: "STRING_VALUE",

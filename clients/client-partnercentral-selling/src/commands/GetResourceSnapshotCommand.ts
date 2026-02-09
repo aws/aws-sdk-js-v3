@@ -141,7 +141,130 @@ export interface GetResourceSnapshotCommandOutput extends GetResourceSnapshotRes
  * //         ],
  * //       },
  * //     },
+ * //     AwsOpportunitySummaryFullView: { // AwsOpportunitySummaryFullView
+ * //       RelatedOpportunityId: "STRING_VALUE",
+ * //       Origin: "AWS Referral" || "Partner Referral",
+ * //       InvolvementType: "For Visibility Only" || "Co-Sell",
+ * //       Visibility: "Full" || "Limited",
+ * //       LifeCycle: { // AwsOpportunityLifeCycle
+ * //         TargetCloseDate: "STRING_VALUE",
+ * //         ClosedLostReason: "Administrative" || "Business Associate Agreement" || "Company Acquired/Dissolved" || "Competitive Offering" || "Customer Data Requirement" || "Customer Deficiency" || "Customer Experience" || "Delay / Cancellation of Project" || "Duplicate" || "Duplicate Opportunity" || "Executive Blocker" || "Failed Vetting" || "Feature Limitation" || "Financial/Commercial" || "Insufficient Amazon Value" || "Insufficient AWS Value" || "International Constraints" || "Legal / Tax / Regulatory" || "Legal Terms and Conditions" || "Lost to Competitor" || "Lost to Competitor - Google" || "Lost to Competitor - Microsoft" || "Lost to Competitor - Other" || "Lost to Competitor - Rackspace" || "Lost to Competitor - SoftLayer" || "Lost to Competitor - VMWare" || "No Customer Reference" || "No Integration Resources" || "No Opportunity" || "No Perceived Value of MP" || "No Response" || "Not Committed to AWS" || "No Update" || "On Premises Deployment" || "Other" || "Other (Details in Description)" || "Partner Gap" || "Past Due" || "People/Relationship/Governance" || "Platform Technology Limitation" || "Preference for Competitor" || "Price" || "Product/Technology" || "Product Not on AWS" || "Security / Compliance" || "Self-Service" || "Technical Limitations" || "Term Sheet Impasse",
+ * //         Stage: "Not Started" || "In Progress" || "Prospect" || "Engaged" || "Identified" || "Qualify" || "Research" || "Seller Engaged" || "Evaluating" || "Seller Registered" || "Term Sheet Negotiation" || "Contract Negotiation" || "Onboarding" || "Building Integration" || "Qualified" || "On-hold" || "Technical Validation" || "Business Validation" || "Committed" || "Launched" || "Deferred to Partner" || "Closed Lost" || "Completed" || "Closed Incomplete",
+ * //         NextSteps: "STRING_VALUE",
+ * //         NextStepsHistory: [ // ProfileNextStepsHistories
+ * //           { // ProfileNextStepsHistory
+ * //             Value: "STRING_VALUE", // required
+ * //             Time: new Date("TIMESTAMP"), // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       OpportunityTeam: [ // AwsOpportunityTeamMembersList
+ * //         { // AwsTeamMember
+ * //           Email: "STRING_VALUE",
+ * //           FirstName: "STRING_VALUE",
+ * //           LastName: "STRING_VALUE",
+ * //           BusinessTitle: "AWSSalesRep" || "AWSAccountOwner" || "WWPSPDM" || "PDM" || "PSM" || "ISVSM",
+ * //         },
+ * //       ],
+ * //       Insights: { // AwsOpportunityInsights
+ * //         NextBestActions: "STRING_VALUE",
+ * //         EngagementScore: "High" || "Medium" || "Low",
+ * //         AwsProductsSpendInsightsBySource: { // AwsProductsSpendInsightsBySource
+ * //           Partner: { // AwsProductInsights
+ * //             CurrencyCode: "USD" || "EUR" || "GBP" || "AUD" || "CAD" || "CNY" || "NZD" || "INR" || "JPY" || "CHF" || "SEK" || "AED" || "AFN" || "ALL" || "AMD" || "ANG" || "AOA" || "ARS" || "AWG" || "AZN" || "BAM" || "BBD" || "BDT" || "BGN" || "BHD" || "BIF" || "BMD" || "BND" || "BOB" || "BOV" || "BRL" || "BSD" || "BTN" || "BWP" || "BYN" || "BZD" || "CDF" || "CHE" || "CHW" || "CLF" || "CLP" || "COP" || "COU" || "CRC" || "CUC" || "CUP" || "CVE" || "CZK" || "DJF" || "DKK" || "DOP" || "DZD" || "EGP" || "ERN" || "ETB" || "FJD" || "FKP" || "GEL" || "GHS" || "GIP" || "GMD" || "GNF" || "GTQ" || "GYD" || "HKD" || "HNL" || "HRK" || "HTG" || "HUF" || "IDR" || "ILS" || "IQD" || "IRR" || "ISK" || "JMD" || "JOD" || "KES" || "KGS" || "KHR" || "KMF" || "KPW" || "KRW" || "KWD" || "KYD" || "KZT" || "LAK" || "LBP" || "LKR" || "LRD" || "LSL" || "LYD" || "MAD" || "MDL" || "MGA" || "MKD" || "MMK" || "MNT" || "MOP" || "MRU" || "MUR" || "MVR" || "MWK" || "MXN" || "MXV" || "MYR" || "MZN" || "NAD" || "NGN" || "NIO" || "NOK" || "NPR" || "OMR" || "PAB" || "PEN" || "PGK" || "PHP" || "PKR" || "PLN" || "PYG" || "QAR" || "RON" || "RSD" || "RUB" || "RWF" || "SAR" || "SBD" || "SCR" || "SDG" || "SGD" || "SHP" || "SLL" || "SOS" || "SRD" || "SSP" || "STN" || "SVC" || "SYP" || "SZL" || "THB" || "TJS" || "TMT" || "TND" || "TOP" || "TRY" || "TTD" || "TWD" || "TZS" || "UAH" || "UGX" || "USN" || "UYI" || "UYU" || "UZS" || "VEF" || "VND" || "VUV" || "WST" || "XAF" || "XCD" || "XDR" || "XOF" || "XPF" || "XSU" || "XUA" || "YER" || "ZAR" || "ZMW" || "ZWL", // required
+ * //             Frequency: "Monthly", // required
+ * //             TotalAmount: "STRING_VALUE",
+ * //             TotalOptimizedAmount: "STRING_VALUE",
+ * //             TotalPotentialSavingsAmount: "STRING_VALUE",
+ * //             TotalAmountByCategory: { // AmountMap // required
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             AwsProducts: [ // AwsProductsList // required
+ * //               { // AwsProductDetails
+ * //                 ProductCode: "STRING_VALUE", // required
+ * //                 ServiceCode: "STRING_VALUE",
+ * //                 Categories: [ // StringList // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 Amount: "STRING_VALUE",
+ * //                 OptimizedAmount: "STRING_VALUE",
+ * //                 PotentialSavingsAmount: "STRING_VALUE",
+ * //                 Optimizations: [ // AwsProductOptimizationsList // required
+ * //                   { // AwsProductOptimization
+ * //                     Description: "STRING_VALUE", // required
+ * //                     SavingsAmount: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //           },
+ * //           AWS: {
+ * //             CurrencyCode: "USD" || "EUR" || "GBP" || "AUD" || "CAD" || "CNY" || "NZD" || "INR" || "JPY" || "CHF" || "SEK" || "AED" || "AFN" || "ALL" || "AMD" || "ANG" || "AOA" || "ARS" || "AWG" || "AZN" || "BAM" || "BBD" || "BDT" || "BGN" || "BHD" || "BIF" || "BMD" || "BND" || "BOB" || "BOV" || "BRL" || "BSD" || "BTN" || "BWP" || "BYN" || "BZD" || "CDF" || "CHE" || "CHW" || "CLF" || "CLP" || "COP" || "COU" || "CRC" || "CUC" || "CUP" || "CVE" || "CZK" || "DJF" || "DKK" || "DOP" || "DZD" || "EGP" || "ERN" || "ETB" || "FJD" || "FKP" || "GEL" || "GHS" || "GIP" || "GMD" || "GNF" || "GTQ" || "GYD" || "HKD" || "HNL" || "HRK" || "HTG" || "HUF" || "IDR" || "ILS" || "IQD" || "IRR" || "ISK" || "JMD" || "JOD" || "KES" || "KGS" || "KHR" || "KMF" || "KPW" || "KRW" || "KWD" || "KYD" || "KZT" || "LAK" || "LBP" || "LKR" || "LRD" || "LSL" || "LYD" || "MAD" || "MDL" || "MGA" || "MKD" || "MMK" || "MNT" || "MOP" || "MRU" || "MUR" || "MVR" || "MWK" || "MXN" || "MXV" || "MYR" || "MZN" || "NAD" || "NGN" || "NIO" || "NOK" || "NPR" || "OMR" || "PAB" || "PEN" || "PGK" || "PHP" || "PKR" || "PLN" || "PYG" || "QAR" || "RON" || "RSD" || "RUB" || "RWF" || "SAR" || "SBD" || "SCR" || "SDG" || "SGD" || "SHP" || "SLL" || "SOS" || "SRD" || "SSP" || "STN" || "SVC" || "SYP" || "SZL" || "THB" || "TJS" || "TMT" || "TND" || "TOP" || "TRY" || "TTD" || "TWD" || "TZS" || "UAH" || "UGX" || "USN" || "UYI" || "UYU" || "UZS" || "VEF" || "VND" || "VUV" || "WST" || "XAF" || "XCD" || "XDR" || "XOF" || "XPF" || "XSU" || "XUA" || "YER" || "ZAR" || "ZMW" || "ZWL", // required
+ * //             Frequency: "Monthly", // required
+ * //             TotalAmount: "STRING_VALUE",
+ * //             TotalOptimizedAmount: "STRING_VALUE",
+ * //             TotalPotentialSavingsAmount: "STRING_VALUE",
+ * //             TotalAmountByCategory: { // required
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             AwsProducts: [ // required
+ * //               {
+ * //                 ProductCode: "STRING_VALUE", // required
+ * //                 ServiceCode: "STRING_VALUE",
+ * //                 Categories: [ // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 Amount: "STRING_VALUE",
+ * //                 OptimizedAmount: "STRING_VALUE",
+ * //                 PotentialSavingsAmount: "STRING_VALUE",
+ * //                 Optimizations: [ // required
+ * //                   {
+ * //                     Description: "STRING_VALUE", // required
+ * //                     SavingsAmount: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       },
+ * //       InvolvementTypeChangeReason: "Expansion Opportunity" || "Change in Deal Information" || "Customer Requested" || "Technical Complexity" || "Risk Mitigation",
+ * //       RelatedEntityIds: { // AwsOpportunityRelatedEntities
+ * //         AwsProducts: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Solutions: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Customer: { // AwsOpportunityCustomer
+ * //         Contacts: [
+ * //           {
+ * //             Email: "STRING_VALUE",
+ * //             FirstName: "STRING_VALUE",
+ * //             LastName: "STRING_VALUE",
+ * //             BusinessTitle: "STRING_VALUE",
+ * //             Phone: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       Project: { // AwsOpportunityProject
+ * //         ExpectedCustomerSpend: [
+ * //           {
+ * //             Amount: "STRING_VALUE",
+ * //             CurrencyCode: "USD" || "EUR" || "GBP" || "AUD" || "CAD" || "CNY" || "NZD" || "INR" || "JPY" || "CHF" || "SEK" || "AED" || "AFN" || "ALL" || "AMD" || "ANG" || "AOA" || "ARS" || "AWG" || "AZN" || "BAM" || "BBD" || "BDT" || "BGN" || "BHD" || "BIF" || "BMD" || "BND" || "BOB" || "BOV" || "BRL" || "BSD" || "BTN" || "BWP" || "BYN" || "BZD" || "CDF" || "CHE" || "CHW" || "CLF" || "CLP" || "COP" || "COU" || "CRC" || "CUC" || "CUP" || "CVE" || "CZK" || "DJF" || "DKK" || "DOP" || "DZD" || "EGP" || "ERN" || "ETB" || "FJD" || "FKP" || "GEL" || "GHS" || "GIP" || "GMD" || "GNF" || "GTQ" || "GYD" || "HKD" || "HNL" || "HRK" || "HTG" || "HUF" || "IDR" || "ILS" || "IQD" || "IRR" || "ISK" || "JMD" || "JOD" || "KES" || "KGS" || "KHR" || "KMF" || "KPW" || "KRW" || "KWD" || "KYD" || "KZT" || "LAK" || "LBP" || "LKR" || "LRD" || "LSL" || "LYD" || "MAD" || "MDL" || "MGA" || "MKD" || "MMK" || "MNT" || "MOP" || "MRU" || "MUR" || "MVR" || "MWK" || "MXN" || "MXV" || "MYR" || "MZN" || "NAD" || "NGN" || "NIO" || "NOK" || "NPR" || "OMR" || "PAB" || "PEN" || "PGK" || "PHP" || "PKR" || "PLN" || "PYG" || "QAR" || "RON" || "RSD" || "RUB" || "RWF" || "SAR" || "SBD" || "SCR" || "SDG" || "SGD" || "SHP" || "SLL" || "SOS" || "SRD" || "SSP" || "STN" || "SVC" || "SYP" || "SZL" || "THB" || "TJS" || "TMT" || "TND" || "TOP" || "TRY" || "TTD" || "TWD" || "TZS" || "UAH" || "UGX" || "USN" || "UYI" || "UYU" || "UZS" || "VEF" || "VND" || "VUV" || "WST" || "XAF" || "XCD" || "XDR" || "XOF" || "XPF" || "XSU" || "XUA" || "YER" || "ZAR" || "ZMW" || "ZWL", // required
+ * //             Frequency: "Monthly", // required
+ * //             TargetCompany: "STRING_VALUE", // required
+ * //             EstimationUrl: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         AwsPartition: "aws-eusc",
+ * //       },
+ * //     },
  * //   },
+ * //   TargetMemberAccounts: [ // AwsAccountIdOrAliasList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```

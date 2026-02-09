@@ -25,6 +25,8 @@ import {
   BedrockEvaluatorModelConfig$,
   BrowserNetworkConfiguration$,
   BrowserNetworkMode,
+  BrowserProfileStatus,
+  BrowserProfileSummary$,
   BrowserSigningConfigInput$,
   BrowserSigningConfigOutput$,
   BrowserStatus,
@@ -62,6 +64,10 @@ import {
   CreateApiKeyCredentialProviderResponse$,
   CreateBrowser$,
   CreateBrowserCommand,
+  CreateBrowserProfile$,
+  CreateBrowserProfileCommand,
+  CreateBrowserProfileRequest$,
+  CreateBrowserProfileResponse$,
   CreateBrowserRequest$,
   CreateBrowserResponse$,
   CreateCodeInterpreter$,
@@ -137,6 +143,10 @@ import {
   DeleteApiKeyCredentialProviderResponse$,
   DeleteBrowser$,
   DeleteBrowserCommand,
+  DeleteBrowserProfile$,
+  DeleteBrowserProfileCommand,
+  DeleteBrowserProfileRequest$,
+  DeleteBrowserProfileResponse$,
   DeleteBrowserRequest$,
   DeleteBrowserResponse$,
   DeleteCodeInterpreter$,
@@ -234,6 +244,10 @@ import {
   GetApiKeyCredentialProviderResponse$,
   GetBrowser$,
   GetBrowserCommand,
+  GetBrowserProfile$,
+  GetBrowserProfileCommand,
+  GetBrowserProfileRequest$,
+  GetBrowserProfileResponse$,
   GetBrowserRequest$,
   GetBrowserResponse$,
   GetCodeInterpreter$,
@@ -324,6 +338,10 @@ import {
   ListApiKeyCredentialProvidersCommand,
   ListApiKeyCredentialProvidersRequest$,
   ListApiKeyCredentialProvidersResponse$,
+  ListBrowserProfiles$,
+  ListBrowserProfilesCommand,
+  ListBrowserProfilesRequest$,
+  ListBrowserProfilesResponse$,
   ListBrowsers$,
   ListBrowsersCommand,
   ListBrowsersRequest$,
@@ -425,6 +443,7 @@ import {
   paginateListAgentRuntimes,
   paginateListAgentRuntimeVersions,
   paginateListApiKeyCredentialProviders,
+  paginateListBrowserProfiles,
   paginateListBrowsers,
   paginateListCodeInterpreters,
   paginateListEvaluators,
@@ -618,6 +637,8 @@ assert(typeof CreateApiKeyCredentialProviderCommand === "function");
 assert(typeof CreateApiKeyCredentialProvider$ === "object");
 assert(typeof CreateBrowserCommand === "function");
 assert(typeof CreateBrowser$ === "object");
+assert(typeof CreateBrowserProfileCommand === "function");
+assert(typeof CreateBrowserProfile$ === "object");
 assert(typeof CreateCodeInterpreterCommand === "function");
 assert(typeof CreateCodeInterpreter$ === "object");
 assert(typeof CreateEvaluatorCommand === "function");
@@ -646,6 +667,8 @@ assert(typeof DeleteApiKeyCredentialProviderCommand === "function");
 assert(typeof DeleteApiKeyCredentialProvider$ === "object");
 assert(typeof DeleteBrowserCommand === "function");
 assert(typeof DeleteBrowser$ === "object");
+assert(typeof DeleteBrowserProfileCommand === "function");
+assert(typeof DeleteBrowserProfile$ === "object");
 assert(typeof DeleteCodeInterpreterCommand === "function");
 assert(typeof DeleteCodeInterpreter$ === "object");
 assert(typeof DeleteEvaluatorCommand === "function");
@@ -676,6 +699,8 @@ assert(typeof GetApiKeyCredentialProviderCommand === "function");
 assert(typeof GetApiKeyCredentialProvider$ === "object");
 assert(typeof GetBrowserCommand === "function");
 assert(typeof GetBrowser$ === "object");
+assert(typeof GetBrowserProfileCommand === "function");
+assert(typeof GetBrowserProfile$ === "object");
 assert(typeof GetCodeInterpreterCommand === "function");
 assert(typeof GetCodeInterpreter$ === "object");
 assert(typeof GetEvaluatorCommand === "function");
@@ -710,6 +735,8 @@ assert(typeof ListAgentRuntimeVersionsCommand === "function");
 assert(typeof ListAgentRuntimeVersions$ === "object");
 assert(typeof ListApiKeyCredentialProvidersCommand === "function");
 assert(typeof ListApiKeyCredentialProviders$ === "object");
+assert(typeof ListBrowserProfilesCommand === "function");
+assert(typeof ListBrowserProfiles$ === "object");
 assert(typeof ListBrowsersCommand === "function");
 assert(typeof ListBrowsers$ === "object");
 assert(typeof ListCodeInterpretersCommand === "function");
@@ -790,6 +817,7 @@ assert(typeof AuthorizerConfiguration$ === "object");
 assert(typeof AuthorizingClaimMatchValueType$ === "object");
 assert(typeof BedrockEvaluatorModelConfig$ === "object");
 assert(typeof BrowserNetworkConfiguration$ === "object");
+assert(typeof BrowserProfileSummary$ === "object");
 assert(typeof BrowserSigningConfigInput$ === "object");
 assert(typeof BrowserSigningConfigOutput$ === "object");
 assert(typeof BrowserSummary$ === "object");
@@ -811,6 +839,8 @@ assert(typeof CreateAgentRuntimeRequest$ === "object");
 assert(typeof CreateAgentRuntimeResponse$ === "object");
 assert(typeof CreateApiKeyCredentialProviderRequest$ === "object");
 assert(typeof CreateApiKeyCredentialProviderResponse$ === "object");
+assert(typeof CreateBrowserProfileRequest$ === "object");
+assert(typeof CreateBrowserProfileResponse$ === "object");
 assert(typeof CreateBrowserRequest$ === "object");
 assert(typeof CreateBrowserResponse$ === "object");
 assert(typeof CreateCodeInterpreterRequest$ === "object");
@@ -854,6 +884,8 @@ assert(typeof DeleteAgentRuntimeRequest$ === "object");
 assert(typeof DeleteAgentRuntimeResponse$ === "object");
 assert(typeof DeleteApiKeyCredentialProviderRequest$ === "object");
 assert(typeof DeleteApiKeyCredentialProviderResponse$ === "object");
+assert(typeof DeleteBrowserProfileRequest$ === "object");
+assert(typeof DeleteBrowserProfileResponse$ === "object");
 assert(typeof DeleteBrowserRequest$ === "object");
 assert(typeof DeleteBrowserResponse$ === "object");
 assert(typeof DeleteCodeInterpreterRequest$ === "object");
@@ -909,6 +941,8 @@ assert(typeof GetAgentRuntimeRequest$ === "object");
 assert(typeof GetAgentRuntimeResponse$ === "object");
 assert(typeof GetApiKeyCredentialProviderRequest$ === "object");
 assert(typeof GetApiKeyCredentialProviderResponse$ === "object");
+assert(typeof GetBrowserProfileRequest$ === "object");
+assert(typeof GetBrowserProfileResponse$ === "object");
 assert(typeof GetBrowserRequest$ === "object");
 assert(typeof GetBrowserResponse$ === "object");
 assert(typeof GetCodeInterpreterRequest$ === "object");
@@ -961,6 +995,8 @@ assert(typeof ListAgentRuntimeVersionsRequest$ === "object");
 assert(typeof ListAgentRuntimeVersionsResponse$ === "object");
 assert(typeof ListApiKeyCredentialProvidersRequest$ === "object");
 assert(typeof ListApiKeyCredentialProvidersResponse$ === "object");
+assert(typeof ListBrowserProfilesRequest$ === "object");
+assert(typeof ListBrowserProfilesResponse$ === "object");
 assert(typeof ListBrowsersRequest$ === "object");
 assert(typeof ListBrowsersResponse$ === "object");
 assert(typeof ListCodeInterpretersRequest$ === "object");
@@ -1119,6 +1155,7 @@ assert(typeof AgentRuntimeStatus === "object");
 assert(typeof ApiKeyCredentialLocation === "object");
 assert(typeof AuthorizerType === "object");
 assert(typeof BrowserNetworkMode === "object");
+assert(typeof BrowserProfileStatus === "object");
 assert(typeof BrowserStatus === "object");
 assert(typeof ClaimMatchOperatorType === "object");
 assert(typeof CodeInterpreterNetworkMode === "object");
@@ -1205,6 +1242,7 @@ assert(typeof paginateListAgentRuntimeEndpoints === "function");
 assert(typeof paginateListAgentRuntimeVersions === "function");
 assert(typeof paginateListAgentRuntimes === "function");
 assert(typeof paginateListApiKeyCredentialProviders === "function");
+assert(typeof paginateListBrowserProfiles === "function");
 assert(typeof paginateListBrowsers === "function");
 assert(typeof paginateListCodeInterpreters === "function");
 assert(typeof paginateListEvaluators === "function");

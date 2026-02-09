@@ -163,7 +163,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains information about an agent runtime. An agent runtime is the execution environment for a Amazon Bedrock Agent.</p>"
+        "smithy.api#documentation": "<p>Contains information about an agent runtime. An agent runtime is the execution environment for a Amazon Bedrock AgentCore Agent.</p>"
       }
     },
     "com.amazonaws.bedrockagentcorecontrol#AgentRuntimeArn": {
@@ -527,6 +527,9 @@
         },
         {
           "target": "com.amazonaws.bedrockagentcorecontrol#ApiKeyCredentialProvider"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileResource"
         },
         {
           "target": "com.amazonaws.bedrockagentcorecontrol#BrowserResource"
@@ -1695,6 +1698,159 @@
         }
       }
     },
+    "com.amazonaws.bedrockagentcorecontrol#BrowserProfileArn": {
+      "type": "string",
+      "traits": {
+        "aws.api#arnReference": {
+          "type": "AWS::BedrockAgentCore::BrowserProfile"
+        },
+        "smithy.api#pattern": "^arn:(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:browser-profile/[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}$"
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#BrowserProfileId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}$"
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#BrowserProfileName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-zA-Z][a-zA-Z0-9_]{0,47}$"
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#BrowserProfileResource": {
+      "type": "resource",
+      "identifiers": {
+        "profileId": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileId"
+        }
+      },
+      "create": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#CreateBrowserProfile"
+      },
+      "read": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#GetBrowserProfile"
+      },
+      "delete": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#DeleteBrowserProfile"
+      },
+      "list": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#ListBrowserProfiles"
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#BrowserProfileStatus": {
+      "type": "enum",
+      "members": {
+        "READY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "READY"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETED"
+          }
+        },
+        "SAVING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SAVING"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The status of a browser profile.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#BrowserProfileSummaries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileSummary"
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#BrowserProfileSummary": {
+      "type": "structure",
+      "members": {
+        "profileId": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "profileArn": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the browser profile.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the browser profile. Possible values include READY, SAVING, DELETING, and DELETED.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#DateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the browser profile was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#DateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the browser profile was last updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lastSavedAt": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#DateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when browser session data was last saved to this profile.</p>"
+          }
+        },
+        "lastSavedBrowserSessionId": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserSessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the browser session from which data was last saved to this profile.</p>"
+          }
+        },
+        "lastSavedBrowserId": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the browser from which data was last saved to this profile.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains summary information about a browser profile. A browser profile stores persistent browser data that can be reused across browser sessions.</p>"
+      }
+    },
     "com.amazonaws.bedrockagentcorecontrol#BrowserResource": {
       "type": "resource",
       "identifiers": {
@@ -1713,6 +1869,12 @@
       },
       "list": {
         "target": "com.amazonaws.bedrockagentcorecontrol#ListBrowsers"
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#BrowserSessionId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[0-9a-zA-Z]{1,40}$"
       }
     },
     "com.amazonaws.bedrockagentcorecontrol#BrowserSigningConfigInput": {
@@ -1845,7 +2007,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains summary information about a browser. A browser enables Amazon Bedrock Agent to interact with web content.</p>"
+        "smithy.api#documentation": "<p>Contains summary information about a browser. A browser enables Amazon Bedrock AgentCore Agent to interact with web content.</p>"
       }
     },
     "com.amazonaws.bedrockagentcorecontrol#CategoricalScaleDefinition": {
@@ -2234,7 +2396,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains summary information about a code interpreter. A code interpreter enables Amazon Bedrock Agent to execute code.</p>"
+        "smithy.api#documentation": "<p>Contains summary information about a code interpreter. A code interpreter enables Amazon Bedrock AgentCore Agent to execute code.</p>"
       }
     },
     "com.amazonaws.bedrockagentcorecontrol#ConcurrentModificationException": {
@@ -2773,6 +2935,114 @@
         "smithy.api#idempotent": {}
       }
     },
+    "com.amazonaws.bedrockagentcorecontrol#CreateBrowserProfile": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#CreateBrowserProfileRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#CreateBrowserProfileResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a browser profile in Amazon Bedrock AgentCore. A browser profile stores persistent browser data such as cookies, local storage, session storage, and browsing history that can be saved from browser sessions and reused in subsequent sessions.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "PUT",
+          "uri": "/browser-profiles"
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#CreateBrowserProfileRequest": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the browser profile. The name must be unique within your account and can contain alphanumeric characters and underscores.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the browser profile. Use this field to describe the purpose or contents of the profile.</p>"
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>A map of tag keys and values to assign to the browser profile. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#CreateBrowserProfileResponse": {
+      "type": "structure",
+      "members": {
+        "profileId": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the created browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "profileArn": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the created browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#DateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the browser profile was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.bedrockagentcorecontrol#CreateBrowserRequest": {
       "type": "structure",
       "members": {
@@ -2817,7 +3087,7 @@
         "clientToken": {
           "target": "com.amazonaws.bedrockagentcorecontrol#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>",
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>",
             "smithy.api#idempotencyToken": {}
           }
         },
@@ -2938,7 +3208,7 @@
         "clientToken": {
           "target": "com.amazonaws.bedrockagentcorecontrol#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>",
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>",
             "smithy.api#idempotencyToken": {}
           }
         },
@@ -5283,6 +5553,110 @@
           "uri": "/browsers/{browserId}"
         },
         "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#DeleteBrowserProfile": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#DeleteBrowserProfileRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#DeleteBrowserProfileResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a browser profile.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "DELETE",
+          "uri": "/browser-profiles/{profileId}"
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#DeleteBrowserProfileRequest": {
+      "type": "structure",
+      "members": {
+        "profileId": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the browser profile to delete.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>",
+            "smithy.api#httpQuery": "clientToken",
+            "smithy.api#idempotencyToken": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#DeleteBrowserProfileResponse": {
+      "type": "structure",
+      "members": {
+        "profileId": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the deleted browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "profileArn": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the deleted browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the browser profile deletion.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#DateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the browser profile was last updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lastSavedAt": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#DateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when browser session data was last saved to this profile before deletion.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.bedrockagentcorecontrol#DeleteBrowserRequest": {
@@ -8111,6 +8485,131 @@
         "smithy.api#readonly": {}
       }
     },
+    "com.amazonaws.bedrockagentcorecontrol#GetBrowserProfile": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#GetBrowserProfileRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#GetBrowserProfileResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about a browser profile.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "GET",
+          "uri": "/browser-profiles/{profileId}"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#GetBrowserProfileRequest": {
+      "type": "structure",
+      "members": {
+        "profileId": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the browser profile to retrieve.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#GetBrowserProfileResponse": {
+      "type": "structure",
+      "members": {
+        "profileId": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "profileArn": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the browser profile.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the browser profile.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#DateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the browser profile was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#DateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the browser profile was last updated.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "lastSavedAt": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#DateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when browser session data was last saved to this profile.</p>"
+          }
+        },
+        "lastSavedBrowserSessionId": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserSessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the browser session from which data was last saved to this profile.</p>"
+          }
+        },
+        "lastSavedBrowserId": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the browser from which data was last saved to this profile.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.bedrockagentcorecontrol#GetBrowserRequest": {
       "type": "structure",
       "members": {
@@ -10860,6 +11359,87 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.bedrockagentcorecontrol#ListBrowserProfiles": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#ListBrowserProfilesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.bedrockagentcorecontrol#ListBrowserProfilesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.bedrockagentcorecontrol#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists all browser profiles in your account.</p>",
+        "smithy.api#http": {
+          "code": 200,
+          "method": "POST",
+          "uri": "/browser-profiles"
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults",
+          "items": "profileSummaries"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#ListBrowserProfilesRequest": {
+      "type": "structure",
+      "members": {
+        "maxResults": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in the response.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.bedrockagentcorecontrol#ListBrowserProfilesResponse": {
+      "type": "structure",
+      "members": {
+        "profileSummaries": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#BrowserProfileSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of browser profile summaries.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to retrieve the next page of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.bedrockagentcorecontrol#ListBrowsers": {
       "type": "operation",
       "input": {
@@ -11963,7 +12543,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the tags associated with the specified resource.</p> <note> <p>This feature is currently available only for AgentCore Runtime, Browser, Code Interpreter tool, and Gateway.</p> </note>",
+        "smithy.api#documentation": "<p>Lists the tags associated with the specified resource.</p> <note> <p>This feature is currently available only for AgentCore Runtime, Browser, Browser Profile, Code Interpreter tool, and Gateway.</p> </note>",
         "smithy.api#http": {
           "code": 200,
           "method": "GET",
@@ -15946,7 +16526,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are also deleted.</p> <note> <p>This feature is currently available only for AgentCore Runtime, Browser, Code Interpreter tool, and Gateway.</p> </note>",
+        "smithy.api#documentation": "<p>Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are also deleted.</p> <note> <p>This feature is currently available only for AgentCore Runtime, Browser, Browser Profile, Code Interpreter tool, and Gateway.</p> </note>",
         "smithy.api#http": {
           "code": 204,
           "method": "POST",
@@ -16502,7 +17082,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes the specified tags from the specified resource.</p> <note> <p>This feature is currently available only for AgentCore Runtime, Browser, Code Interpreter tool, and Gateway.</p> </note>",
+        "smithy.api#documentation": "<p>Removes the specified tags from the specified resource.</p> <note> <p>This feature is currently available only for AgentCore Runtime, Browser, Browser Profile, Code Interpreter tool, and Gateway.</p> </note>",
         "smithy.api#http": {
           "code": 204,
           "method": "DELETE",

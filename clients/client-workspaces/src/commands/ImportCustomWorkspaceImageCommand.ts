@@ -44,7 +44,7 @@ export interface ImportCustomWorkspaceImageCommandOutput extends ImportCustomWor
  * const input = { // ImportCustomWorkspaceImageRequest
  *   ImageName: "STRING_VALUE", // required
  *   ImageDescription: "STRING_VALUE", // required
- *   ComputeType: "BASE" || "GRAPHICS_G4DN", // required
+ *   ComputeType: "BASE" || "GRAPHICS_G4DN" || "GRAPHICS_G6", // required
  *   Protocol: "PCOIP" || "DCV" || "BYOP", // required
  *   ImageSource: { // ImageSourceIdentifier Union: only one key present
  *     Ec2ImportTaskId: "STRING_VALUE",

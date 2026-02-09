@@ -74,6 +74,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *   sourceJobId: "STRING_VALUE",
  *   nameOverride: "STRING_VALUE",
  *   descriptionOverride: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);

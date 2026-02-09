@@ -1144,8 +1144,8 @@ export var CreateFleetResponse$: StaticStructureSchema = [3, n0, _CFRrea,
 ];
 export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJR,
   0,
-  [_fI, _qI, _pr, _cT, _te, _tT, _p, _at, _sPI, _tTRS, _mFTC, _mRPT, _mWC, _sJI, _nO, _dO],
-  [[0, 1], [0, 1], 1, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => JobTemplate, 0], 0, [() => JobParameters, 0], [() => Attachments$, 0], 0, 0, 1, 1, 1, 0, 0, [() => JobDescriptionOverride, 0]], 3
+  [_fI, _qI, _pr, _cT, _te, _tT, _p, _at, _sPI, _tTRS, _mFTC, _mRPT, _mWC, _sJI, _nO, _dO, _ta],
+  [[0, 1], [0, 1], 1, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => JobTemplate, 0], 0, [() => JobParameters, 0], [() => Attachments$, 0], 0, 0, 1, 1, 1, 0, 0, [() => JobDescriptionOverride, 0], 128 | 0], 3
 ];
 export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRr,
   0,

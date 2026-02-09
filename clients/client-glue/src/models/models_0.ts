@@ -49,6 +49,7 @@ import {
   ParquetCompressionType,
   Permission,
   PiiType,
+  PropertyLocation,
   PropertyType,
   QuoteChar,
   RecrawlBehavior,
@@ -675,6 +676,18 @@ export interface Property {
    * @public
    */
   DataOperationScopes?: DataOperation[] | undefined;
+
+  /**
+   * <p>A key name to use when sending this property in API requests, if different from the display name.</p>
+   * @public
+   */
+  KeyOverride?: string | undefined;
+
+  /**
+   * <p>Specifies where this property should be included in REST requests, such as in headers, query parameters, or request body.</p>
+   * @public
+   */
+  PropertyLocation?: PropertyLocation | undefined;
 }
 
 /**

@@ -1,4 +1,4 @@
 /**
  * @internal
  */
-export { eventStreamPayloadHandlerProvider } from "./provider";
+export { eventStreamPayloadHandlerProvider } from "./eventStreamPayloadHandlerProvider";

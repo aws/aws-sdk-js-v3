@@ -1,10 +1,14 @@
 // smithy-typescript generated code
 import {
+  Compatibility,
   ExecutionClass,
+  IcebergUpdateAction,
   JobMode,
   Permission,
   ResourceAction,
   ResourceState,
+  SourceControlAuthStrategy,
+  SourceControlProvider,
   TableOptimizerType,
   ViewUpdateAction,
   WorkerType,
@@ -55,6 +59,7 @@ import {
   type NotificationProperty,
   type OracleSQLCatalogSource,
   type OracleSQLCatalogTarget,
+  type PartitionInput,
   type PIIDetection,
   type PostgreSQLCatalogSource,
   type PostgreSQLCatalogTarget,
@@ -85,6 +90,7 @@ import {
   type S3IcebergDirectTarget,
   type S3JsonSource,
   type S3ParquetSource,
+  type SchemaId,
   type SelectFields,
   type SelectFromCollection,
   type SnowflakeSource,
@@ -102,14 +108,692 @@ import {
   Action,
   Column,
 } from "./models_0";
-import type { ProfileConfiguration, TableIdentifier, TableInput, UserDefinedFunctionInput } from "./models_1";
+import type {
+  IcebergPartitionSpec,
+  IcebergSchema,
+  IcebergSortOrder,
+  ProfileConfiguration,
+  RegistryId,
+  SourceProcessingProperties,
+  SourceTableConfig,
+  TableIdentifier,
+  TableInput,
+  TargetProcessingProperties,
+  TargetTableConfig,
+  TransformParameters,
+  UserDefinedFunctionInput,
+} from "./models_1";
 import {
+  type DevEndpointCustomLibraries,
   type FederatedTable,
+  type SchemaVersionNumber,
   type ViewDefinition,
   ColumnRowFilter,
-  IcebergTableUpdate,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface UpdateDevEndpointRequest {
+  /**
+   * <p>The name of the <code>DevEndpoint</code> to be updated.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The public key for the <code>DevEndpoint</code> to use.</p>
+   * @public
+   */
+  PublicKey?: string | undefined;
+
+  /**
+   * <p>The list of public keys for the <code>DevEndpoint</code> to use.</p>
+   * @public
+   */
+  AddPublicKeys?: string[] | undefined;
+
+  /**
+   * <p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>
+   * @public
+   */
+  DeletePublicKeys?: string[] | undefined;
+
+  /**
+   * <p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>
+   * @public
+   */
+  CustomLibraries?: DevEndpointCustomLibraries | undefined;
+
+  /**
+   * <p>
+   *             <code>True</code> if the list of custom libraries to be loaded in the development endpoint
+   *       needs to be updated, or <code>False</code> if otherwise.</p>
+   * @public
+   */
+  UpdateEtlLibraries?: boolean | undefined;
+
+  /**
+   * <p>The list of argument keys to be deleted from the map of arguments used to configure the
+   *         <code>DevEndpoint</code>.</p>
+   * @public
+   */
+  DeleteArguments?: string[] | undefined;
+
+  /**
+   * <p>The map of arguments to add the map of arguments used to configure the
+   *         <code>DevEndpoint</code>.</p>
+   *          <p>Valid arguments are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"--enable-glue-datacatalog": ""</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+   * @public
+   */
+  AddArguments?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDevEndpointResponse {}
+
+/**
+ * <p>Request to update an existing Glue Identity Center configuration.</p>
+ * @public
+ */
+export interface UpdateGlueIdentityCenterConfigurationRequest {
+  /**
+   * <p>A list of Identity Center scopes that define the updated permissions and access levels for the Glue configuration.</p>
+   * @public
+   */
+  Scopes?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether users can run background sessions when using Identity Center authentication with Glue services.</p>
+   * @public
+   */
+  UserBackgroundSessionsEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>Response from updating an existing Glue Identity Center configuration.</p>
+ * @public
+ */
+export interface UpdateGlueIdentityCenterConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateIntegrationResourcePropertyRequest {
+  /**
+   * <p>The connection ARN of the source, or the database ARN of the target.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The resource properties associated with the integration source.</p>
+   * @public
+   */
+  SourceProcessingProperties?: SourceProcessingProperties | undefined;
+
+  /**
+   * <p>The resource properties associated with the integration target.</p>
+   * @public
+   */
+  TargetProcessingProperties?: TargetProcessingProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIntegrationResourcePropertyResponse {
+  /**
+   * <p>The connection ARN of the source, or the database ARN of the target.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The resource ARN created through this create API. The format is something like arn:aws:glue:<region>:<account_id>:integrationresourceproperty/*</p>
+   * @public
+   */
+  ResourcePropertyArn?: string | undefined;
+
+  /**
+   * <p>The resource properties associated with the integration source.</p>
+   * @public
+   */
+  SourceProcessingProperties?: SourceProcessingProperties | undefined;
+
+  /**
+   * <p>The resource properties associated with the integration target.</p>
+   * @public
+   */
+  TargetProcessingProperties?: TargetProcessingProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIntegrationTablePropertiesRequest {
+  /**
+   * <p>The connection ARN of the source, or the database ARN of the target.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The name of the table to be replicated.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A structure for the source table configuration.</p>
+   * @public
+   */
+  SourceTableConfig?: SourceTableConfig | undefined;
+
+  /**
+   * <p>A structure for the target table configuration.</p>
+   * @public
+   */
+  TargetTableConfig?: TargetTableConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIntegrationTablePropertiesResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateJobResponse {
+  /**
+   * <p>Returns the name of the updated job definition.</p>
+   * @public
+   */
+  JobName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateJobFromSourceControlRequest {
+  /**
+   * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
+   * @public
+   */
+  JobName?: string | undefined;
+
+  /**
+   * <p>
+   *       The provider for the remote repository. Possible values: GITHUB, AWS_CODE_COMMIT, GITLAB, BITBUCKET.
+   *     </p>
+   * @public
+   */
+  Provider?: SourceControlProvider | undefined;
+
+  /**
+   * <p>The name of the remote repository that contains the job artifacts.
+   *       For BitBucket providers, <code>RepositoryName</code> should include <code>WorkspaceName</code>.
+   *       Use the format <code><WorkspaceName>/<RepositoryName></code>.
+   *     </p>
+   * @public
+   */
+  RepositoryName?: string | undefined;
+
+  /**
+   * <p>The owner of the remote repository that contains the job artifacts.</p>
+   * @public
+   */
+  RepositoryOwner?: string | undefined;
+
+  /**
+   * <p>An optional branch in the remote repository.</p>
+   * @public
+   */
+  BranchName?: string | undefined;
+
+  /**
+   * <p>An optional folder in the remote repository.</p>
+   * @public
+   */
+  Folder?: string | undefined;
+
+  /**
+   * <p>A commit ID for a commit in the remote repository.</p>
+   * @public
+   */
+  CommitId?: string | undefined;
+
+  /**
+   * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
+   * @public
+   */
+  AuthStrategy?: SourceControlAuthStrategy | undefined;
+
+  /**
+   * <p>The value of the authorization token.</p>
+   * @public
+   */
+  AuthToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateJobFromSourceControlResponse {
+  /**
+   * <p>The name of the Glue job.</p>
+   * @public
+   */
+  JobName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMLTransformRequest {
+  /**
+   * <p>A unique identifier that was generated when the transform was created.</p>
+   * @public
+   */
+  TransformId: string | undefined;
+
+  /**
+   * <p>The unique name that you gave the transform when you created it.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the transform. The default is an empty string.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration parameters that are specific to the transform type (algorithm) used.
+   *       Conditionally dependent on the transform type.</p>
+   * @public
+   */
+  Parameters?: TransformParameters | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
+   *       permissions.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
+   * @public
+   */
+  GlueVersion?: string | undefined;
+
+  /**
+   * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
+   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
+   *         page</a>. </p>
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   * @public
+   */
+  MaxCapacity?: number | undefined;
+
+  /**
+   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  WorkerType?: WorkerType | undefined;
+
+  /**
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
+   * @public
+   */
+  NumberOfWorkers?: number | undefined;
+
+  /**
+   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+
+  /**
+   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
+   * @public
+   */
+  MaxRetries?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMLTransformResponse {
+  /**
+   * <p>The unique identifier for the transform that was updated.</p>
+   * @public
+   */
+  TransformId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePartitionRequest {
+  /**
+   * <p>The ID of the Data Catalog where the partition to be updated resides. If none is provided,
+   *       the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the catalog database in which the table in question
+   *       resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table in which the partition to be updated is located.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>List of partition key values that define the partition to update.</p>
+   * @public
+   */
+  PartitionValueList: string[] | undefined;
+
+  /**
+   * <p>The new partition object to update the partition to.</p>
+   *          <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
+   * @public
+   */
+  PartitionInput: PartitionInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePartitionResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateRegistryInput {
+  /**
+   * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  RegistryId: RegistryId | undefined;
+
+  /**
+   * <p>A description of the registry. If description is not provided, this field will not be updated.</p>
+   * @public
+   */
+  Description: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRegistryResponse {
+  /**
+   * <p>The name of the updated registry.</p>
+   * @public
+   */
+  RegistryName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource name (ARN) of the updated registry.</p>
+   * @public
+   */
+  RegistryArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSchemaInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   *          <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
+   * @public
+   */
+  SchemaVersionNumber?: SchemaVersionNumber | undefined;
+
+  /**
+   * <p>The new compatibility setting for the schema.</p>
+   * @public
+   */
+  Compatibility?: Compatibility | undefined;
+
+  /**
+   * <p>The new description for the schema.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSchemaResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   * @public
+   */
+  SchemaArn?: string | undefined;
+
+  /**
+   * <p>The name of the schema.</p>
+   * @public
+   */
+  SchemaName?: string | undefined;
+
+  /**
+   * <p>The name of the registry that contains the schema.</p>
+   * @public
+   */
+  RegistryName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSourceControlFromJobRequest {
+  /**
+   * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
+   * @public
+   */
+  JobName?: string | undefined;
+
+  /**
+   * <p>
+   *       The provider for the remote repository. Possible values: GITHUB, AWS_CODE_COMMIT, GITLAB, BITBUCKET.
+   *     </p>
+   * @public
+   */
+  Provider?: SourceControlProvider | undefined;
+
+  /**
+   * <p>The name of the remote repository that contains the job artifacts.
+   *       For BitBucket providers, <code>RepositoryName</code> should include <code>WorkspaceName</code>.
+   *       Use the format <code><WorkspaceName>/<RepositoryName></code>.
+   *     </p>
+   * @public
+   */
+  RepositoryName?: string | undefined;
+
+  /**
+   * <p>The owner of the remote repository that contains the job artifacts.</p>
+   * @public
+   */
+  RepositoryOwner?: string | undefined;
+
+  /**
+   * <p>An optional branch in the remote repository.</p>
+   * @public
+   */
+  BranchName?: string | undefined;
+
+  /**
+   * <p>An optional folder in the remote repository.</p>
+   * @public
+   */
+  Folder?: string | undefined;
+
+  /**
+   * <p>A commit ID for a commit in the remote repository.</p>
+   * @public
+   */
+  CommitId?: string | undefined;
+
+  /**
+   * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
+   * @public
+   */
+  AuthStrategy?: SourceControlAuthStrategy | undefined;
+
+  /**
+   * <p>The value of the authorization token.</p>
+   * @public
+   */
+  AuthToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSourceControlFromJobResponse {
+  /**
+   * <p>The name of the Glue job.</p>
+   * @public
+   */
+  JobName?: string | undefined;
+}
+
+/**
+ * <p>Encryption key structure used for Iceberg table encryption. Contains the key ID, encrypted key metadata, optional reference to the encrypting key, and additional properties for the table's encryption scheme.</p>
+ * @public
+ */
+export interface IcebergEncryptedKey {
+  /**
+   * <p>Unique identifier of the encryption key used for Iceberg table encryption. This ID is used to reference the key in table metadata and track which key was used to encrypt specific data.</p>
+   * @public
+   */
+  KeyId: string | undefined;
+
+  /**
+   * <p>Encrypted key and metadata, base64 encoded. The format of encrypted key metadata is determined by the table's encryption scheme and can be a wrapped format specific to the table's KMS provider.</p>
+   * @public
+   */
+  EncryptedKeyMetadata: string | undefined;
+
+  /**
+   * <p>Optional ID of the key used to encrypt or wrap the key metadata in Iceberg table encryption. This field references another encryption key that was used to encrypt the current key's metadata.</p>
+   * @public
+   */
+  EncryptedById?: string | undefined;
+
+  /**
+   * <p>A string to string map of additional metadata used by the table's encryption scheme. These properties provide additional context and configuration for the encryption key implementation.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Defines a complete set of updates to be applied to an Iceberg table, including schema changes, partitioning modifications, sort order
+ *       adjustments, location updates, and property changes.</p>
+ * @public
+ */
+export interface IcebergTableUpdate {
+  /**
+   * <p>The updated schema definition for the Iceberg table, specifying any changes to field structure, data types, or schema metadata.</p>
+   * @public
+   */
+  Schema: IcebergSchema | undefined;
+
+  /**
+   * <p>The updated partitioning specification that defines how the table data should be reorganized and partitioned.</p>
+   * @public
+   */
+  PartitionSpec?: IcebergPartitionSpec | undefined;
+
+  /**
+   * <p>The updated sort order specification that defines how data should be ordered within partitions for optimal query performance.</p>
+   * @public
+   */
+  SortOrder?: IcebergSortOrder | undefined;
+
+  /**
+   * <p>The updated S3 location where the Iceberg table data will be stored.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>Updated key-value pairs of table properties and configuration settings for the Iceberg table.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The type of update action to be performed on the Iceberg table. Defines the specific operation such as adding schema, setting current schema, adding partition spec, or managing encryption keys.</p>
+   * @public
+   */
+  Action?: IcebergUpdateAction | undefined;
+
+  /**
+   * <p>Encryption key information associated with an Iceberg table update operation. Used when adding or removing encryption keys from the table metadata during table evolution.</p>
+   * @public
+   */
+  EncryptionKey?: IcebergEncryptedKey | undefined;
+
+  /**
+   * <p>Identifier of the encryption key involved in an Iceberg table update operation. References the specific key being added to or removed from the table's encryption configuration.</p>
+   * @public
+   */
+  KeyId?: string | undefined;
+}
 
 /**
  * <p>Contains the update operations to be applied to an existing Iceberg table inGlue Data Catalog, defining the new state of the table metadata.

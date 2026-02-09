@@ -8,6 +8,7 @@ import {
   AssociationState,
   AuthConfig$,
   AuthConfigUpdate$,
+  AuthMaterial$,
   AuthMaterialType,
   AuthType,
   CapabilityAction$,
@@ -123,6 +124,8 @@ import {
   EventLogConfigurationSummary$,
   EventType,
   ExponentialRolloutRate$,
+  GeneralAuthorizationName$,
+  GeneralAuthorizationUpdate$,
   GetAccountAssociation$,
   GetAccountAssociationCommand,
   GetAccountAssociationRequest$,
@@ -298,6 +301,7 @@ import {
   ListTagsForResourceResponse$,
   LogLevel,
   ManagedThingAssociation$,
+  ManagedThingAssociationStatus,
   ManagedThingSchemaListItem$,
   ManagedThingSummary$,
   MatterCapabilityReport$,
@@ -622,6 +626,7 @@ assert(typeof AbortConfigCriteria$ === "object");
 assert(typeof AccountAssociationItem$ === "object");
 assert(typeof AuthConfig$ === "object");
 assert(typeof AuthConfigUpdate$ === "object");
+assert(typeof AuthMaterial$ === "object");
 assert(typeof CapabilityAction$ === "object");
 assert(typeof CapabilityReport$ === "object");
 assert(typeof CapabilityReportCapability$ === "object");
@@ -675,6 +680,8 @@ assert(typeof DiscoveredDeviceSummary$ === "object");
 assert(typeof EndpointConfig$ === "object");
 assert(typeof EventLogConfigurationSummary$ === "object");
 assert(typeof ExponentialRolloutRate$ === "object");
+assert(typeof GeneralAuthorizationName$ === "object");
+assert(typeof GeneralAuthorizationUpdate$ === "object");
 assert(typeof GetAccountAssociationRequest$ === "object");
 assert(typeof GetAccountAssociationResponse$ === "object");
 assert(typeof GetCloudConnectorRequest$ === "object");
@@ -840,6 +847,7 @@ assert(typeof EndpointType === "object");
 assert(typeof EventType === "object");
 assert(typeof HubNetworkMode === "object");
 assert(typeof LogLevel === "object");
+assert(typeof ManagedThingAssociationStatus === "object");
 assert(typeof OtaMechanism === "object");
 assert(typeof OtaProtocol === "object");
 assert(typeof OtaStatus === "object");

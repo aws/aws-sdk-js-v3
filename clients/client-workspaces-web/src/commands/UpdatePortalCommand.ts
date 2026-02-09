@@ -42,6 +42,7 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  *   authenticationType: "STRING_VALUE",
  *   instanceType: "STRING_VALUE",
  *   maxConcurrentSessions: Number("int"),
+ *   portalCustomDomain: "STRING_VALUE",
  * };
  * const command = new UpdatePortalCommand(input);
  * const response = await client.send(command);
@@ -70,6 +71,7 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * //     },
  * //     instanceType: "STRING_VALUE",
  * //     maxConcurrentSessions: Number("int"),
+ * //     portalCustomDomain: "STRING_VALUE",
  * //   },
  * // };
  *

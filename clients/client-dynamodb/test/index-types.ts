@@ -191,6 +191,7 @@ export type {
   ExportStatus,
   ExportType,
   ExportViewType,
+  GlobalTableSettingsReplicationMode,
   GlobalTableStatus,
   ImportStatus,
   IndexStatus,

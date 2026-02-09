@@ -1204,6 +1204,12 @@
             "smithy.api#documentation": "<p>A summary of the number of array job children in each available job status. This parameter\n   is returned for parent array jobs.</p>"
           }
         },
+        "statusSummaryLastUpdatedAt": {
+          "target": "com.amazonaws.batch#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The Unix timestamp (in milliseconds) for when the <code>statusSummary</code> was last updated.</p>"
+          }
+        },
         "size": {
           "target": "com.amazonaws.batch#Integer",
           "traits": {
@@ -1234,6 +1240,18 @@
           "target": "com.amazonaws.batch#Integer",
           "traits": {
             "smithy.api#documentation": "<p>The job index within the array that's associated with this job. This parameter is returned\n   for children of array jobs.</p>"
+          }
+        },
+        "statusSummary": {
+          "target": "com.amazonaws.batch#ArrayJobStatusSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>A summary of the number of array job children in each available job status. This parameter\n   is returned for parent array jobs.</p>"
+          }
+        },
+        "statusSummaryLastUpdatedAt": {
+          "target": "com.amazonaws.batch#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The Unix timestamp (in milliseconds) for when the <code>statusSummary</code> was last updated.</p>"
           }
         }
       },
@@ -7379,7 +7397,7 @@
         "jobStatus": {
           "target": "com.amazonaws.batch#JobStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The job status used to filter jobs in the specified queue. If the <code>filters</code>\n      parameter is specified, the <code>jobStatus</code> parameter is ignored and jobs with any\n      status are returned. If you don't specify a status, only <code>RUNNING</code> jobs are\n      returned.</p>"
+            "smithy.api#documentation": "<p>The job status used to filter jobs in the specified queue. If the <code>filters</code>\n      parameter is specified, the <code>jobStatus</code> parameter is ignored and jobs with any\n      status are returned. If you don't specify a status, only <code>RUNNING</code> jobs are\n      returned.</p>\n         <note>\n            <p>Array job parents are updated to <code>PENDING</code> when any child job is updated to <code>RUNNABLE</code> and remain in <code>PENDING</code> status while child jobs are running. To view these jobs, filter by <code>PENDING</code> status until all child jobs reach a terminal state.</p>\n         </note>"
           }
         },
         "maxResults": {

@@ -262,6 +262,7 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * //           TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  * //           LastUpdateDateTime: new Date("TIMESTAMP"),
  * //         },
+ * //         GlobalTableSettingsReplicationMode: "ENABLED" || "DISABLED" || "ENABLED_WITH_OVERRIDES",
  * //       },
  * //     ],
  * //     GlobalTableWitnesses: [ // GlobalTableWitnessDescriptionList
@@ -270,6 +271,7 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * //         WitnessStatus: "CREATING" || "DELETING" || "ACTIVE",
  * //       },
  * //     ],
+ * //     GlobalTableSettingsReplicationMode: "ENABLED" || "DISABLED" || "ENABLED_WITH_OVERRIDES",
  * //     RestoreSummary: { // RestoreSummary
  * //       SourceBackupArn: "STRING_VALUE",
  * //       SourceTableArn: "STRING_VALUE",

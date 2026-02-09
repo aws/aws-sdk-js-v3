@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeletePolicyRequest, DeletePolicyResponse } from "../models/models_0";
+import type { DeletePolicyRequest, DeletePolicyResponse } from "../models/models_1";
 import { DeletePolicy$ } from "../schemas/schemas_0";
 
 /**

@@ -2,6 +2,7 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
+import { AddRegionCommand, AddRegionCommandInput, AddRegionCommandOutput } from "./commands/AddRegionCommand";
 import {
   AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
   AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
@@ -153,6 +154,11 @@ import {
   DescribePermissionSetProvisioningStatusCommandOutput,
 } from "./commands/DescribePermissionSetProvisioningStatusCommand";
 import {
+  DescribeRegionCommand,
+  DescribeRegionCommandInput,
+  DescribeRegionCommandOutput,
+} from "./commands/DescribeRegionCommand";
+import {
   DescribeTrustedTokenIssuerCommand,
   DescribeTrustedTokenIssuerCommandInput,
   DescribeTrustedTokenIssuerCommandOutput,
@@ -292,6 +298,7 @@ import {
   ListPermissionSetsProvisionedToAccountCommandInput,
   ListPermissionSetsProvisionedToAccountCommandOutput,
 } from "./commands/ListPermissionSetsProvisionedToAccountCommand";
+import { ListRegionsCommand, ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -342,6 +349,11 @@ import {
   PutPermissionsBoundaryToPermissionSetCommandInput,
   PutPermissionsBoundaryToPermissionSetCommandOutput,
 } from "./commands/PutPermissionsBoundaryToPermissionSetCommand";
+import {
+  RemoveRegionCommand,
+  RemoveRegionCommandInput,
+  RemoveRegionCommandOutput,
+} from "./commands/RemoveRegionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -401,11 +413,13 @@ import { paginateListPermissionSets } from "./pagination/ListPermissionSetsPagin
 import {
   paginateListPermissionSetsProvisionedToAccount,
 } from "./pagination/ListPermissionSetsProvisionedToAccountPaginator";
+import { paginateListRegions } from "./pagination/ListRegionsPaginator";
 import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
 import { paginateListTrustedTokenIssuers } from "./pagination/ListTrustedTokenIssuersPaginator";
 import { SSOAdminClient } from "./SSOAdminClient";
 
 const commands = {
+  AddRegionCommand,
   AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
   AttachManagedPolicyToPermissionSetCommand,
   CreateAccountAssignmentCommand,
@@ -436,6 +450,7 @@ const commands = {
   DescribeInstanceAccessControlAttributeConfigurationCommand,
   DescribePermissionSetCommand,
   DescribePermissionSetProvisioningStatusCommand,
+  DescribeRegionCommand,
   DescribeTrustedTokenIssuerCommand,
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommand,
   DetachManagedPolicyFromPermissionSetCommand,
@@ -464,6 +479,7 @@ const commands = {
   ListPermissionSetProvisioningStatusCommand,
   ListPermissionSetsCommand,
   ListPermissionSetsProvisionedToAccountCommand,
+  ListRegionsCommand,
   ListTagsForResourceCommand,
   ListTrustedTokenIssuersCommand,
   ProvisionPermissionSetCommand,
@@ -474,6 +490,7 @@ const commands = {
   PutApplicationSessionConfigurationCommand,
   PutInlinePolicyToPermissionSetCommand,
   PutPermissionsBoundaryToPermissionSetCommand,
+  RemoveRegionCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApplicationCommand,
@@ -501,11 +518,29 @@ const paginators = {
   paginateListPermissionSetProvisioningStatus,
   paginateListPermissionSets,
   paginateListPermissionSetsProvisionedToAccount,
+  paginateListRegions,
   paginateListTagsForResource,
   paginateListTrustedTokenIssuers,
 };
 
 export interface SSOAdmin {
+  /**
+   * @see {@link AddRegionCommand}
+   */
+  addRegion(
+    args: AddRegionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddRegionCommandOutput>;
+  addRegion(
+    args: AddRegionCommandInput,
+    cb: (err: any, data?: AddRegionCommandOutput) => void
+  ): void;
+  addRegion(
+    args: AddRegionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddRegionCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AttachCustomerManagedPolicyReferenceToPermissionSetCommand}
    */
@@ -1018,6 +1053,23 @@ export interface SSOAdmin {
   ): void;
 
   /**
+   * @see {@link DescribeRegionCommand}
+   */
+  describeRegion(
+    args: DescribeRegionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegionCommandOutput>;
+  describeRegion(
+    args: DescribeRegionCommandInput,
+    cb: (err: any, data?: DescribeRegionCommandOutput) => void
+  ): void;
+  describeRegion(
+    args: DescribeRegionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeTrustedTokenIssuerCommand}
    */
   describeTrustedTokenIssuer(
@@ -1496,6 +1548,23 @@ export interface SSOAdmin {
   ): void;
 
   /**
+   * @see {@link ListRegionsCommand}
+   */
+  listRegions(
+    args: ListRegionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRegionsCommandOutput>;
+  listRegions(
+    args: ListRegionsCommandInput,
+    cb: (err: any, data?: ListRegionsCommandOutput) => void
+  ): void;
+  listRegions(
+    args: ListRegionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRegionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -1663,6 +1732,23 @@ export interface SSOAdmin {
     args: PutPermissionsBoundaryToPermissionSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutPermissionsBoundaryToPermissionSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveRegionCommand}
+   */
+  removeRegion(
+    args: RemoveRegionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveRegionCommandOutput>;
+  removeRegion(
+    args: RemoveRegionCommandInput,
+    cb: (err: any, data?: RemoveRegionCommandOutput) => void
+  ): void;
+  removeRegion(
+    args: RemoveRegionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveRegionCommandOutput) => void
   ): void;
 
   /**
@@ -1981,6 +2067,17 @@ export interface SSOAdmin {
     args: ListPermissionSetsProvisionedToAccountCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListPermissionSetsProvisionedToAccountCommandOutput>;
+
+  /**
+   * @see {@link ListRegionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRegionsCommandOutput}.
+   */
+  paginateListRegions(
+    args: ListRegionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRegionsCommandOutput>;
 
   /**
    * @see {@link ListTagsForResourceCommand}

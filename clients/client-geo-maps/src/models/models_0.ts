@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import {
+  Buildings,
   ColorScheme,
   ContourDensity,
   LabelSize,
@@ -319,13 +320,13 @@ export interface GetStyleDescriptorRequest {
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Adjusts how physical terrain details are rendered on the map.</p> <p>The following terrain styles are currently supported:</p> <ul> <li> <p> <code>Hillshade</code>: Displays the physical terrain details through shading and highlighting of elevation change and geographic features.</p> </li> </ul> <p>This parameter is valid only for the <code>Standard</code> map style.</p>
+   * <p>Adjusts how physical terrain details are rendered on the map.</p> <p>The following terrain styles are currently supported:</p> <ul> <li> <p> <code>Hillshade</code>: Displays the physical terrain details through shading and highlighting of elevation change and geographic features.</p> </li> <li> <p> <code>Terrain3D</code>: Displays physical terrain details and elevations as a three-dimensional model.</p> </li> </ul> <p> <code>Hillshade</code> is valid only for the <code>Standard</code> and <code>Monochrome</code> map styles.</p>
    * @public
    */
   Terrain?: Terrain | undefined;
 
   /**
-   * <p>Displays the shape and steepness of terrain features using elevation lines. The density value controls how densely the available contour line information is rendered on the map.</p> <p>This parameter is valid only for the <code>Standard</code> map style.</p>
+   * <p>Displays the shape and steepness of terrain features using elevation lines. The density value controls how densely the available contour line information is rendered on the map.</p> <p>This parameter is valid only for the <code>Standard</code>, <code>Monochrome</code>, and <code>Hybrid</code> map styles.</p>
    * @public
    */
   ContourDensity?: ContourDensity | undefined;
@@ -341,6 +342,12 @@ export interface GetStyleDescriptorRequest {
    * @public
    */
   TravelModes?: TravelMode[] | undefined;
+
+  /**
+   * <p>Adjusts how building details are rendered on the map.</p> <p>The following building styles are currently supported:</p> <ul> <li> <p> <code>Buildings3D</code>: Displays buildings as three-dimensional extrusions on the map.</p> </li> </ul> <p> <code>Buildings3D</code> is valid only for the <code>Standard</code> and <code>Monochrome</code> map styles.</p>
+   * @public
+   */
+  Buildings?: Buildings | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request. </p>
@@ -389,7 +396,7 @@ export interface GetTileRequest {
   AdditionalFeatures?: TileAdditionalFeature[] | undefined;
 
   /**
-   * <p>Specifies the desired tile set.</p> <p>Valid Values: <code>raster.satellite | vector.basemap</code> </p>
+   * <p>Specifies the desired tile set.</p> <p>Valid Values: <code>raster.satellite | vector.basemap | vector.traffic | raster.dem</code> </p>
    * @public
    */
   Tileset: string | undefined;

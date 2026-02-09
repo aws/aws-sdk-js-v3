@@ -13,3 +13,4 @@ export * from "./ListReplacePermissionAssociationsWorkPaginator";
 export * from "./ListResourcesPaginator";
 export * from "./ListResourceSharePermissionsPaginator";
 export * from "./ListResourceTypesPaginator";
+export * from "./ListSourceAssociationsPaginator";

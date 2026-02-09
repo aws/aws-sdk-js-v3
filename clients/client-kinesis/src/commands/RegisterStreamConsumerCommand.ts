@@ -53,6 +53,7 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * const input = { // RegisterStreamConsumerInput
  *   StreamARN: "STRING_VALUE", // required
  *   ConsumerName: "STRING_VALUE", // required
+ *   StreamId: "STRING_VALUE",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -109,6 +110,7 @@ export class RegisterStreamConsumerCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

@@ -527,6 +527,7 @@ const _sRI = "serviceResourceId";
 const _sRP = "serviceRequestPayload";
 const _sRe = "serviceRole";
 const _sS = "statusSummary";
+const _sSLUA = "statusSummaryLastUpdatedAt";
 const _sV = "sourceVolume";
 const _se = "secrets";
 const _sec = "secret";
@@ -589,13 +590,13 @@ export var ArrayProperties$: StaticStructureSchema = [3, n0, _AP,
 ];
 export var ArrayPropertiesDetail$: StaticStructureSchema = [3, n0, _APD,
   0,
-  [_sS, _s, _i],
-  [128 | 1, 1, 1]
+  [_sS, _sSLUA, _s, _i],
+  [128 | 1, 1, 1, 1]
 ];
 export var ArrayPropertiesSummary$: StaticStructureSchema = [3, n0, _APS,
   0,
-  [_s, _i],
-  [1, 1]
+  [_s, _i, _sS, _sSLUA],
+  [1, 1, 128 | 1, 1]
 ];
 export var AttemptContainerDetail$: StaticStructureSchema = [3, n0, _ACD,
   0,

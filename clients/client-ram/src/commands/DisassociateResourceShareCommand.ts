@@ -27,7 +27,7 @@ export interface DisassociateResourceShareCommandInput extends DisassociateResou
 export interface DisassociateResourceShareCommandOutput extends DisassociateResourceShareResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified principals or resources from participating in the specified
+ * <p>Removes the specified principals, resources, or source constraints from participating in the specified
  *             resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,8 +58,8 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  * //       resourceShareArn: "STRING_VALUE",
  * //       resourceShareName: "STRING_VALUE",
  * //       associatedEntity: "STRING_VALUE",
- * //       associationType: "PRINCIPAL" || "RESOURCE",
- * //       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ * //       associationType: "PRINCIPAL" || "RESOURCE" || "SOURCE",
+ * //       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED" || "SUSPENDED" || "SUSPENDING" || "RESTORING",
  * //       statusMessage: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdatedTime: new Date("TIMESTAMP"),
@@ -100,9 +100,10 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
  * @throws {@link ResourceShareLimitExceededException} (client fault)
- *  <p>The operation failed because it would exceed the limit for resource shares for your account. To
- *             view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the Service Quotas
- *                 console</a>.</p>
+ *  <p>The operation failed because it would exceed the limit for resource shares for your account. You
+ *             can associate up to 100 resources per call. To view the limits for your Amazon Web Services account,
+ *             see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in
+ *                 the Service Quotas console</a>.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The operation failed because the service could not respond to the request due to an
@@ -110,6 +111,10 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The operation failed because it exceeded the rate at which you are allowed to perform
+ *             this operation. Please try again later.</p>
  *
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>

@@ -83,6 +83,21 @@ export type DataOperation = (typeof DataOperation)[keyof typeof DataOperation];
  * @public
  * @enum
  */
+export const PropertyLocation = {
+  BODY: "BODY",
+  HEADER: "HEADER",
+  PATH: "PATH",
+  QUERY_PARAM: "QUERY_PARAM",
+} as const;
+/**
+ * @public
+ */
+export type PropertyLocation = (typeof PropertyLocation)[keyof typeof PropertyLocation];
+
+/**
+ * @public
+ * @enum
+ */
 export const PropertyType = {
   READ_ONLY: "READ_ONLY",
   SECRET: "SECRET",
@@ -1542,6 +1557,7 @@ export type RegistryStatus = (typeof RegistryStatus)[keyof typeof RegistryStatus
 export const FieldDataType = {
   ARRAY: "ARRAY",
   BIGINT: "BIGINT",
+  BINARY: "BINARY",
   BOOLEAN: "BOOLEAN",
   BYTE: "BYTE",
   DATE: "DATE",
@@ -1556,11 +1572,25 @@ export const FieldDataType = {
   STRING: "STRING",
   STRUCT: "STRUCT",
   TIMESTAMP: "TIMESTAMP",
+  UNION: "UNION",
 } as const;
 /**
  * @public
  */
 export type FieldDataType = (typeof FieldDataType)[keyof typeof FieldDataType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HTTPMethod = {
+  GET: "GET",
+  POST: "POST",
+} as const;
+/**
+ * @public
+ */
+export type HTTPMethod = (typeof HTTPMethod)[keyof typeof HTTPMethod];
 
 /**
  * @public
@@ -2061,6 +2091,45 @@ export const ExistCondition = {
  * @public
  */
 export type ExistCondition = (typeof ExistCondition)[keyof typeof ExistCondition];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentType = {
+  APPLICATION_JSON: "APPLICATION_JSON",
+  URL_ENCODED: "URL_ENCODED",
+} as const;
+/**
+ * @public
+ */
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorOAuth2GrantType = {
+  AUTHORIZATION_CODE: "AUTHORIZATION_CODE",
+  CLIENT_CREDENTIALS: "CLIENT_CREDENTIALS",
+  JWT_BEARER: "JWT_BEARER",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorOAuth2GrantType = (typeof ConnectorOAuth2GrantType)[keyof typeof ConnectorOAuth2GrantType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntegrationType = {
+  REST: "REST",
+} as const;
+/**
+ * @public
+ */
+export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
 
 /**
  * @public

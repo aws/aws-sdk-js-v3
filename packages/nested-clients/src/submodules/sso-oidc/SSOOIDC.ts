@@ -2,7 +2,8 @@
 import { createAggregatedClient } from "@smithy/smithy-client";
 import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { CreateTokenCommand, CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
+import type { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
+import { CreateTokenCommand } from "./commands/CreateTokenCommand";
 import { SSOOIDCClient } from "./SSOOIDCClient";
 
 const commands = {

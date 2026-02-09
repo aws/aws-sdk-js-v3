@@ -66,6 +66,7 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * //     },
  * //     instanceType: "STRING_VALUE",
  * //     maxConcurrentSessions: Number("int"),
+ * //     portalCustomDomain: "STRING_VALUE",
  * //   },
  * // };
  *

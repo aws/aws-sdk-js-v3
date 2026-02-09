@@ -3,6 +3,82 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.985.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.984.0...v3.985.0) (2026-02-06)
+
+
+### Bug Fixes
+
+* **core/protocols:** nested Error objects in REST XML ([#7717](https://github.com/aws/aws-sdk-js-v3/issues/7717)) ([2c0d671](https://github.com/aws/aws-sdk-js-v3/commit/2c0d671fe5ed2505a5825620424a05c8f3b9c2ed))
+
+
+### Features
+
+* **client-bedrock-data-automation-runtime:** Add OutputConfiguration to InvokeDataAutomation input and output to support S3 output ([72c126f](https://github.com/aws/aws-sdk-js-v3/commit/72c126f09b2b346d37168224a901d7fe0afcb44b))
+* **client-deadline:** Adds support for tagging jobs during job creation ([444dcec](https://github.com/aws/aws-sdk-js-v3/commit/444dcec97d3476eb0a568f3a916367fcc08bd86b))
+* **client-iot-managed-integrations:** Adding support for Custom(General) Authorization in managed integrations for AWS IoT Device Management cloud connectors. ([f683f7b](https://github.com/aws/aws-sdk-js-v3/commit/f683f7b94a491f9590f679d680f66909f8900ee0))
+* **client-partnercentral-selling:** Releasing AWS Opportunity Snapshots for SDK release. ([9b27cd2](https://github.com/aws/aws-sdk-js-v3/commit/9b27cd2b691c80f4c7b23826b547d9bc6dacb100))
+* **client-sagemaker:** Adding g7e instance support in Sagemaker Training ([01f57c1](https://github.com/aws/aws-sdk-js-v3/commit/01f57c152554c2195855ebc0bc521faf1543b633))
+
+
+
+
+
+# [3.984.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.983.0...v3.984.0) (2026-02-05)
+
+
+### Features
+
+* **client-arc-region-switch:** Updates documentation for ARC Region switch and provides stronger validation for Amazon Aurora Global Database execution block parameters. ([cb7bcf4](https://github.com/aws/aws-sdk-js-v3/commit/cb7bcf4f8d699ae7bc74c9918fb3b1fa35929212))
+* **client-athena:** Reduces the minimum TargetDpus to create or update capacity reservations from 24 to 4. ([19dc3be](https://github.com/aws/aws-sdk-js-v3/commit/19dc3befa4ff8e5593a22a608656bd84ff443f15))
+* **client-bedrock-agentcore-control:** Support Browser profile persistence (cookies and local storage) across sessions for AgentCore Browser. ([a494454](https://github.com/aws/aws-sdk-js-v3/commit/a49445404f8102874cc09ce7895fd32e0768d178))
+* **client-bedrock-agentcore:** Support Browser profile persistence (cookies and local storage) across sessions for AgentCore Browser. ([ed27353](https://github.com/aws/aws-sdk-js-v3/commit/ed27353946169292c069f2c659dd72333b2eef41))
+* **client-glue:** This release adds the capability to easily create custom AWS Glue connections to data sources with REST APIs. ([a083905](https://github.com/aws/aws-sdk-js-v3/commit/a08390520e8a8bb9e58fff90b0a4f0ba7c456917))
+* **client-medialive:** Outputs using the AV1 codec in CMAF Ingest output groups in MediaLive now have the ability to specify a target bit depth of 8 or 10. ([35dbef6](https://github.com/aws/aws-sdk-js-v3/commit/35dbef6f9cb267592714406bc350eacf697713bd))
+* **client-ram:** Added ListSourceAssociations API. Allows RAM resource share owners to list source associations that determine which sources can access resources through service principal associations. Supports filtering by resource share ARN, source ID, source type, or status, with pagination. ([0e72d32](https://github.com/aws/aws-sdk-js-v3/commit/0e72d32d0394152e5c3bc405af7e40aa33f6cdea))
+* **client-transfer:** Adds support for the customer to send custom HTTP headers and configure an AS2 Connector to receive Asynchronous MDNs from their trading partner ([e14e08b](https://github.com/aws/aws-sdk-js-v3/commit/e14e08b3758a6678dde9e3505dd26f88e80a3f2b))
+* **client-workspaces:** Added support for 12 new graphics-optimized compute types - Graphics.g6 (xlarge, 2xlarge, 4xlarge, 8xlarge, 16xlarge), Graphics.gr6 (4xlarge, 8xlarge), Graphics.g6f (large, xlarge, 2xlarge, 4xlarge), and Graphics.gr6f (4xlarge). ([8ba8054](https://github.com/aws/aws-sdk-js-v3/commit/8ba8054e2fd0ff46bbec10b0d2d72dd46d2fa13f))
+* **clients:** update client endpoints as of 2026-02-05 ([2a007c3](https://github.com/aws/aws-sdk-js-v3/commit/2a007c3a2eb850d8cf01684f80c2196adf30035b))
+
+
+
+
+
+# [3.983.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.982.0...v3.983.0) (2026-02-04)
+
+
+### Features
+
+* **client-bedrock-runtime:** Added support for structured outputs to Converse and ConverseStream APIs. ([ff529d7](https://github.com/aws/aws-sdk-js-v3/commit/ff529d7ec5fd38c5cb2aa682607ce3e924b53b19))
+* **client-connectcases:** Amazon Connect Cases now supports larger, multi-line text fields with up to 4,100 characters. Administrators can use the Admin UI to select the appropriate configuration (single-line or multi-line) on a per-field basis, improving case documentation capabilities. ([69bec69](https://github.com/aws/aws-sdk-js-v3/commit/69bec6943bd9acb429fd05779335e49efe12aef1))
+* **client-medialive:** AWS Elemental MediaLive now supports SRT listener mode for inputs and outputs, in addition to the existing SRT caller mode. ([25287d4](https://github.com/aws/aws-sdk-js-v3/commit/25287d4b47742c81c1d600d3739635e2a07acd74))
+* **client-workspaces-web:** Support for configuring and managing custom domain names for WorkSpaces Secure Browser portals. ([afd41b4](https://github.com/aws/aws-sdk-js-v3/commit/afd41b46460127fba61bde3dc0b894f152bd38fb))
+
+
+
+
+
+# [3.982.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.981.0...v3.982.0) (2026-02-03)
+
+
+### Bug Fixes
+
+* **eventstream-handler-node:** fix uncatchable error in stream pipeline ([#7703](https://github.com/aws/aws-sdk-js-v3/issues/7703)) ([eb4e2dd](https://github.com/aws/aws-sdk-js-v3/commit/eb4e2dd4addb8f58494140b12fbc6561ecdcdb6c))
+* **middleware-websocket:** establish stream pipeline prior to continuing with request ([#7704](https://github.com/aws/aws-sdk-js-v3/issues/7704)) ([52b25e8](https://github.com/aws/aws-sdk-js-v3/commit/52b25e84c2614936c078c3846e03493397a1934f))
+
+
+### Features
+
+* **client-batch:** AWS Batch Array Job Visibility feature support. Includes new statusSummaryLastUpdatedAt for array job parent DescribeJobs responses for the last time the statusSummary was updated. Includes both statusSummary and statusSummaryLastUpdatedAt in ListJobs responses for array job parents. ([08db9eb](https://github.com/aws/aws-sdk-js-v3/commit/08db9ebeff5ec0478f1608cdfa2cbd027dc97120))
+* **client-dynamodb:** This change supports the creation of multi-account global tables. It adds two new arguments to CreateTable, GlobalTableSourceArn and GlobalTableSettingsReplicationMode. DescribeTable is also updated to include information about GlobalTableSettingsReplicationMode. ([4bef08d](https://github.com/aws/aws-sdk-js-v3/commit/4bef08d4b3c14fa2bb9ab0e4382bff58ac3fa6a2))
+* **client-geo-maps:** Added support for optional style parameters in maps, including 3D terrain and 3D Buildings ([59d8232](https://github.com/aws/aws-sdk-js-v3/commit/59d8232aa0563a590d59a84737245bd99938b26a))
+* **client-kinesis:** Adds StreamId parameter to AWS Kinesis Data Streams APIs that is reserved for future use. ([96d7f32](https://github.com/aws/aws-sdk-js-v3/commit/96d7f32bd1a4a85a781a8fdcdaa3bd6d8c988978))
+* **client-marketplace-catalog:** Adds support for Catalog API us-east-1 dualstack endpoint catalog-marketplace.us-east-1.api.aws ([2c5c715](https://github.com/aws/aws-sdk-js-v3/commit/2c5c715ae13610926899fe3b65eff4480af124fa))
+* **client-sso-admin:** Added new Region management APIs to support multi-Region replication in IAM Identity Center. ([c16a6f4](https://github.com/aws/aws-sdk-js-v3/commit/c16a6f465ea3d24f5f4b84c1676ca5020d29cb51))
+
+
+
+
+
 # [3.981.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.980.0...v3.981.0) (2026-02-02)
 
 

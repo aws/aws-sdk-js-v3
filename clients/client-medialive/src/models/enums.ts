@@ -1082,6 +1082,19 @@ export type ChannelClass = (typeof ChannelClass)[keyof typeof ChannelClass];
  * @public
  * @enum
  */
+export const ConnectionMode = {
+  CALLER: "CALLER",
+  LISTENER: "LISTENER",
+} as const;
+/**
+ * @public
+ */
+export type ConnectionMode = (typeof ConnectionMode)[keyof typeof ConnectionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const InputPreference = {
   EQUAL_INPUT_PREFERENCE: "EQUAL_INPUT_PREFERENCE",
   PRIMARY_INPUT_PREFERRED: "PRIMARY_INPUT_PREFERRED",
@@ -1690,6 +1703,7 @@ export const InputType = {
   SDI: "SDI",
   SMPTE_2110_RECEIVER_GROUP: "SMPTE_2110_RECEIVER_GROUP",
   SRT_CALLER: "SRT_CALLER",
+  SRT_LISTENER: "SRT_LISTENER",
   TS_FILE: "TS_FILE",
   UDP_PUSH: "UDP_PUSH",
   URL_PULL: "URL_PULL",
@@ -3509,6 +3523,19 @@ export const AfdSignaling = {
  * @public
  */
 export type AfdSignaling = (typeof AfdSignaling)[keyof typeof AfdSignaling];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1BitDepth = {
+  DEPTH_10: "DEPTH_10",
+  DEPTH_8: "DEPTH_8",
+} as const;
+/**
+ * @public
+ */
+export type Av1BitDepth = (typeof Av1BitDepth)[keyof typeof Av1BitDepth];
 
 /**
  * @public

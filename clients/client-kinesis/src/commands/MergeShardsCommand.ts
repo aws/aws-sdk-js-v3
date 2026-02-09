@@ -82,6 +82,7 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  *   ShardToMerge: "STRING_VALUE", // required
  *   AdjacentShardToMerge: "STRING_VALUE", // required
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new MergeShardsCommand(input);
  * const response = await client.send(command);
@@ -137,6 +138,7 @@ export class MergeShardsCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

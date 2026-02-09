@@ -97,6 +97,7 @@ const _EBC = "EventBridgeConfiguration";
 const _EFV = "EmptyFieldValue";
 const _EID = "EventIncludedData";
 const _EOV = "EmptyOperandValue";
+const _FA = "FieldAttributes";
 const _FC = "FileContent";
 const _FE = "FieldError";
 const _FF = "FileFilter";
@@ -214,6 +215,7 @@ const _SRIRIL = "SearchRelatedItemsResponseItemList";
 const _SRIRe = "SearchRelatedItemsResponse";
 const _Se = "Section";
 const _T = "Tags";
+const _TA = "TextAttributes";
 const _TCRL = "TemplateCaseRuleList";
 const _TE = "ThrottlingException";
 const _TF = "TagFilter";
@@ -244,10 +246,11 @@ const _UTR = "UpdateTemplateRequest";
 const _UTRp = "UpdateTemplateResponse";
 const _UU = "UserUnion";
 const _VE = "ValidationException";
-const _a = "active";
+const _a = "attributes";
 const _aA = "andAll";
 const _aE = "auditEvents";
 const _aT = "associationTime";
+const _ac = "active";
 const _ar = "arn";
 const _b = "body";
 const _bV = "booleanValue";
@@ -315,6 +318,7 @@ const _ht = "http";
 const _i = "id";
 const _iC = "includeContent";
 const _iD = "includedData";
+const _iM = "isMultiline";
 const _iPA = "iamPrincipalArn";
 const _k = "key";
 const _l = "layouts";
@@ -372,6 +376,7 @@ const _so = "sorts";
 const _sp = "sparse";
 const _t = "type";
 const _tA = "templateArn";
+const _tC = "totalCount";
 const _tFV = "targetFieldValues";
 const _tI = "templateId";
 const _tK = "tagKeys";
@@ -383,6 +388,7 @@ const _tT = "targetTime";
 const _ta = "tags";
 const _tag = "tag";
 const _te = "templates";
+const _tex = "text";
 const _u = "user";
 const _uA = "userArn";
 const _uAV = "userArnValue";
@@ -581,8 +587,8 @@ export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRr,
 ];
 export var CreateFieldRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_dI, _n, _t, _d],
-  [[0, 1], 0, 0, 0], 3
+  [_dI, _n, _t, _d, _a],
+  [[0, 1], 0, 0, 0, () => FieldAttributes$], 3
 ];
 export var CreateFieldResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -751,7 +757,7 @@ export var FieldItem$: StaticStructureSchema = [3, n0, _FIi,
 ];
 export var FieldOption$: StaticStructureSchema = [3, n0, _FO,
   0,
-  [_n, _v, _a],
+  [_n, _v, _ac],
   [0, 0, 2], 3
 ];
 export var FieldOptionError$: StaticStructureSchema = [3, n0, _FOE,
@@ -766,8 +772,8 @@ export var FieldOptionsCaseRule$: StaticStructureSchema = [3, n0, _FOCR,
 ];
 export var FieldSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
-  [_fI, _fA, _n, _t, _na],
-  [0, 0, 0, 0, 0], 5
+  [_fI, _fA, _n, _t, _na, _a],
+  [0, 0, 0, 0, 0, () => FieldAttributes$], 5
 ];
 export var FieldValue$: StaticStructureSchema = [3, n0, _FV,
   0,
@@ -831,8 +837,8 @@ export var GetDomainResponse$: StaticStructureSchema = [3, n0, _GDRe,
 ];
 export var GetFieldResponse$: StaticStructureSchema = [3, n0, _GFR,
   0,
-  [_fI, _n, _fA, _t, _na, _d, _ta, _de, _cTr, _lMT],
-  [0, 0, 0, 0, 0, 0, [() => Tags, 0], 2, 5, 5], 5
+  [_fI, _n, _fA, _t, _na, _d, _ta, _de, _cTr, _lMT, _a],
+  [0, 0, 0, 0, 0, 0, [() => Tags, 0], 2, 5, 5, () => FieldAttributes$], 5
 ];
 export var GetLayoutRequest$: StaticStructureSchema = [3, n0, _GLR,
   0,
@@ -1023,8 +1029,8 @@ export var SearchCasesRequest$: StaticStructureSchema = [3, n0, _SCR,
 ];
 export var SearchCasesResponse$: StaticStructureSchema = [3, n0, _SCRe,
   0,
-  [_ca, _nT],
-  [[() => SearchCasesResponseItemList, 0], 0], 1
+  [_ca, _nT, _tC],
+  [[() => SearchCasesResponseItemList, 0], 0, 1], 1
 ];
 export var SearchCasesResponseItem$: StaticStructureSchema = [3, n0, _SCRI,
   0,
@@ -1102,6 +1108,11 @@ export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
   [_tI, _tA, _n, _s, _tPC],
   [0, 0, 0, 0, () => TagPropagationConfigurationList], 4
 ];
+export var TextAttributes$: StaticStructureSchema = [3, n0, _TA,
+  0,
+  [_iM],
+  [2], 1
+];
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
@@ -1135,8 +1146,8 @@ export var UpdateCaseRuleResponse$: StaticStructureSchema = [3, n0, _UCRRp,
 ];
 export var UpdateFieldRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_dI, _fI, _n, _d],
-  [[0, 1], [0, 1], 0, 0], 2
+  [_dI, _fI, _n, _d, _a],
+  [[0, 1], [0, 1], 0, 0, () => FieldAttributes$], 2
 ];
 export var UpdateFieldResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
@@ -1315,6 +1326,11 @@ export var CustomFieldsFilter$: StaticUnionSchema = [4, n0, _CFF,
   0,
   [_fie, _no, _aA, _oA],
   [() => FieldFilter$, () => CustomFieldsFilter$, () => CustomFieldsFilterList, () => CustomFieldsFilterList]
+];
+export var FieldAttributes$: StaticUnionSchema = [4, n0, _FA,
+  0,
+  [_tex],
+  [() => TextAttributes$]
 ];
 export var FieldFilter$: StaticUnionSchema = [4, n0, _FFi,
   0,

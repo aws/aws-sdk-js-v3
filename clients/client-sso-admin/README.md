@@ -201,6 +201,13 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AddRegion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso-admin/command/AddRegionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-admin/Interface/AddRegionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-admin/Interface/AddRegionCommandOutput/)
+</details>
+<details>
+<summary>
 AttachCustomerManagedPolicyReferenceToPermissionSet
 </summary>
 
@@ -411,6 +418,13 @@ DescribePermissionSetProvisioningStatus
 </details>
 <details>
 <summary>
+DescribeRegion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso-admin/command/DescribeRegionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-admin/Interface/DescribeRegionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-admin/Interface/DescribeRegionCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeTrustedTokenIssuer
 </summary>
 
@@ -607,6 +621,13 @@ ListPermissionSetsProvisionedToAccount
 </details>
 <details>
 <summary>
+ListRegions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso-admin/command/ListRegionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-admin/Interface/ListRegionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-admin/Interface/ListRegionsCommandOutput/)
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -674,6 +695,13 @@ PutPermissionsBoundaryToPermissionSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso-admin/command/PutPermissionsBoundaryToPermissionSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-admin/Interface/PutPermissionsBoundaryToPermissionSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-admin/Interface/PutPermissionsBoundaryToPermissionSetCommandOutput/)
+</details>
+<details>
+<summary>
+RemoveRegion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso-admin/command/RemoveRegionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-admin/Interface/RemoveRegionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-admin/Interface/RemoveRegionCommandOutput/)
 </details>
 <details>
 <summary>

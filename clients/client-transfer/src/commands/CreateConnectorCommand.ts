@@ -46,9 +46,15 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *     EncryptionAlgorithm: "AES128_CBC" || "AES192_CBC" || "AES256_CBC" || "DES_EDE3_CBC" || "NONE",
  *     SigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE",
  *     MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
- *     MdnResponse: "SYNC" || "NONE",
+ *     MdnResponse: "SYNC" || "NONE" || "ASYNC",
  *     BasicAuthSecretId: "STRING_VALUE",
  *     PreserveContentType: "ENABLED" || "DISABLED",
+ *     AsyncMdnConfig: { // As2AsyncMdnConnectorConfig
+ *       Url: "STRING_VALUE",
+ *       ServerIds: [ // As2AsyncMdnServerIds
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   AccessRole: "STRING_VALUE", // required
  *   LoggingRole: "STRING_VALUE",

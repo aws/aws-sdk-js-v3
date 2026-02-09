@@ -18,5 +18,6 @@ export * from "./ListManagedPoliciesInPermissionSetPaginator";
 export * from "./ListPermissionSetProvisioningStatusPaginator";
 export * from "./ListPermissionSetsPaginator";
 export * from "./ListPermissionSetsProvisionedToAccountPaginator";
+export * from "./ListRegionsPaginator";
 export * from "./ListTagsForResourcePaginator";
 export * from "./ListTrustedTokenIssuersPaginator";

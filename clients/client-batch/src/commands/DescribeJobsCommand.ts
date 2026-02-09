@@ -541,6 +541,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //         statusSummary: { // ArrayJobStatusSummary
  * //           "<keys>": Number("int"),
  * //         },
+ * //         statusSummaryLastUpdatedAt: Number("long"),
  * //         size: Number("int"),
  * //         index: Number("int"),
  * //       },

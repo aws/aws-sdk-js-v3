@@ -56,6 +56,7 @@ export interface ListManagedThingAccountAssociationsCommandOutput extends ListMa
  * //     { // ManagedThingAssociation
  * //       ManagedThingId: "STRING_VALUE",
  * //       AccountAssociationId: "STRING_VALUE",
+ * //       ManagedThingAssociationStatus: "PRE_ASSOCIATED" || "ASSOCIATED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

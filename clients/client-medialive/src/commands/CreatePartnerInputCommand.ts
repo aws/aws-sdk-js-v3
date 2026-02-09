@@ -101,7 +101,7 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * //     Tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP" || "SDI" || "MEDIACONNECT_ROUTER",
+ * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP" || "SDI" || "MEDIACONNECT_ROUTER" || "SRT_LISTENER",
  * //     SrtSettings: { // SrtSettings
  * //       SrtCallerSources: [ // __listOfSrtCallerSource
  * //         { // SrtCallerSource
@@ -115,6 +115,14 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * //           StreamId: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SrtListenerSettings: { // SrtListenerSettings
+ * //         Decryption: { // SrtListenerDecryption
+ * //           Algorithm: "AES128" || "AES192" || "AES256", // required
+ * //           PassphraseSecretArn: "STRING_VALUE", // required
+ * //         },
+ * //         MinimumLatency: Number("int"),
+ * //         StreamId: "STRING_VALUE",
+ * //       },
  * //     },
  * //     InputNetworkLocation: "AWS" || "ON_PREMISES",
  * //     MulticastSettings: { // MulticastSettings

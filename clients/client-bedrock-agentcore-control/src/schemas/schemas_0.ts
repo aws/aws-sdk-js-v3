@@ -20,6 +20,8 @@ const _ARg = "AgentRuntimes";
 const _ASC = "ApiSchemaConfiguration";
 const _BEMC = "BedrockEvaluatorModelConfig";
 const _BNC = "BrowserNetworkConfiguration";
+const _BPS = "BrowserProfileSummary";
+const _BPSr = "BrowserProfileSummaries";
 const _BS = "BrowserSummary";
 const _BSCI = "BrowserSigningConfigInput";
 const _BSCO = "BrowserSigningConfigOutput";
@@ -35,6 +37,9 @@ const _CARERr = "CreateAgentRuntimeEndpointResponse";
 const _CARR = "CreateAgentRuntimeRequest";
 const _CARRr = "CreateAgentRuntimeResponse";
 const _CB = "CreateBrowser";
+const _CBP = "CreateBrowserProfile";
+const _CBPR = "CreateBrowserProfileRequest";
+const _CBPRr = "CreateBrowserProfileResponse";
 const _CBR = "CreateBrowserRequest";
 const _CBRr = "CreateBrowserResponse";
 const _CC = "CodeConfiguration";
@@ -110,6 +115,9 @@ const _DARERe = "DeleteAgentRuntimeEndpointResponse";
 const _DARR = "DeleteAgentRuntimeRequest";
 const _DARRe = "DeleteAgentRuntimeResponse";
 const _DB = "DeleteBrowser";
+const _DBP = "DeleteBrowserProfile";
+const _DBPR = "DeleteBrowserProfileRequest";
+const _DBPRe = "DeleteBrowserProfileResponse";
 const _DBR = "DeleteBrowserRequest";
 const _DBRe = "DeleteBrowserResponse";
 const _DCI = "DeleteCodeInterpreter";
@@ -188,6 +196,9 @@ const _GARERe = "GetAgentRuntimeEndpointResponse";
 const _GARR = "GetAgentRuntimeRequest";
 const _GARRe = "GetAgentRuntimeResponse";
 const _GB = "GetBrowser";
+const _GBP = "GetBrowserProfile";
+const _GBPR = "GetBrowserProfileRequest";
+const _GBPRe = "GetBrowserProfileResponse";
 const _GBR = "GetBrowserRequest";
 const _GBRe = "GetBrowserResponse";
 const _GCI = "GetCodeInterpreter";
@@ -267,6 +278,9 @@ const _LARV = "ListAgentRuntimeVersions";
 const _LARVR = "ListAgentRuntimeVersionsRequest";
 const _LARVRi = "ListAgentRuntimeVersionsResponse";
 const _LB = "ListBrowsers";
+const _LBP = "ListBrowserProfiles";
+const _LBPR = "ListBrowserProfilesRequest";
+const _LBPRi = "ListBrowserProfilesResponse";
 const _LBR = "ListBrowsersRequest";
 const _LBRi = "ListBrowsersResponse";
 const _LC = "LifecycleConfiguration";
@@ -641,7 +655,10 @@ const _lGN = "logGroupNames";
 const _lGNo = "logGroupName";
 const _lMD = "lastModifiedDate";
 const _lOPC = "linkedinOauth2ProviderConfig";
-const _lSA = "lastSynchronizedAt";
+const _lSA = "lastSavedAt";
+const _lSAa = "lastSynchronizedAt";
+const _lSBI = "lastSavedBrowserId";
+const _lSBSI = "lastSavedBrowserSessionId";
 const _lUA = "lastUpdatedAt";
 const _lUT = "lastUpdatedTime";
 const _lV = "liveVersion";
@@ -691,7 +708,8 @@ const _oPCI = "oauth2ProviderConfigInput";
 const _oPCO = "oauth2ProviderConfigOutput";
 const _oS = "outputSchema";
 const _p = "path";
-const _pA = "policyArn";
+const _pA = "profileArn";
+const _pAo = "policyArn";
 const _pAr = "providerArn";
 const _pC = "protocolConfiguration";
 const _pDBN = "payloadDeliveryBucketName";
@@ -704,8 +722,10 @@ const _pGA = "policyGenerationArn";
 const _pGAI = "policyGenerationAssetId";
 const _pGAo = "policyGenerationAssets";
 const _pGI = "policyGenerationId";
-const _pI = "policyId";
+const _pI = "profileId";
+const _pIo = "policyId";
 const _pRH = "passRequestHeaders";
+const _pS = "profileSummaries";
 const _pT = "protocolType";
 const _po = "policy";
 const _pol = "policies";
@@ -915,6 +935,11 @@ export var BrowserNetworkConfiguration$: StaticStructureSchema = [3, n0, _BNC,
   [_nM, _vC],
   [0, () => VpcConfig$], 1
 ];
+export var BrowserProfileSummary$: StaticStructureSchema = [3, n0, _BPS,
+  0,
+  [_pI, _pA, _n, _s, _cA, _lUA, _d, _lSA, _lSBSI, _lSBI],
+  [0, 0, 0, 0, 5, 5, [() => Description, 0], 5, 0, 0], 6
+];
 export var BrowserSigningConfigInput$: StaticStructureSchema = [3, n0, _BSCI,
   0,
   [_en],
@@ -1012,6 +1037,16 @@ export var CreateApiKeyCredentialProviderResponse$: StaticStructureSchema = [3, 
   [_aKSA, _n, _cPA],
   [() => Secret$, 0, 0], 3
 ];
+export var CreateBrowserProfileRequest$: StaticStructureSchema = [3, n0, _CBPR,
+  0,
+  [_n, _d, _cTl, _t],
+  [0, [() => Description, 0], [0, 4], 128 | 0], 1
+];
+export var CreateBrowserProfileResponse$: StaticStructureSchema = [3, n0, _CBPRr,
+  0,
+  [_pI, _pA, _cA, _s],
+  [0, 0, 5, 0], 4
+];
 export var CreateBrowserRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
   [_n, _nC, _d, _eRA, _re, _bS, _cTl, _t],
@@ -1059,7 +1094,7 @@ export var CreateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _CGTR,
 ];
 export var CreateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _CGTRr,
   0,
-  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSA, _mC],
+  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
 ];
 export var CreateMemoryInput$: StaticStructureSchema = [3, n0, _CMI,
@@ -1109,7 +1144,7 @@ export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
 ];
 export var CreatePolicyResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_pI, _n, _pEI, _de, _cA, _uA, _pA, _s, _sR, _d],
+  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _s, _sR, _d],
   [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
 ];
 export var CreateWorkloadIdentityRequest$: StaticStructureSchema = [3, n0, _CWIR,
@@ -1187,6 +1222,16 @@ export var DeleteApiKeyCredentialProviderResponse$: StaticStructureSchema = [3, 
   0,
   [],
   []
+];
+export var DeleteBrowserProfileRequest$: StaticStructureSchema = [3, n0, _DBPR,
+  0,
+  [_pI, _cTl],
+  [[0, 1], [0, { [_hQ]: _cTl, [_iT]: 1 }]], 1
+];
+export var DeleteBrowserProfileResponse$: StaticStructureSchema = [3, n0, _DBPRe,
+  0,
+  [_pI, _pA, _s, _lUA, _lSA],
+  [0, 0, 0, 5, 5], 4
 ];
 export var DeleteBrowserRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
@@ -1285,12 +1330,12 @@ export var DeletePolicyEngineResponse$: StaticStructureSchema = [3, n0, _DPERe,
 ];
 export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
-  [_pEI, _pI],
+  [_pEI, _pIo],
   [[0, 1], [0, 1]], 2
 ];
 export var DeletePolicyResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
-  [_pI, _n, _pEI, _de, _cA, _uA, _pA, _s, _sR, _d],
+  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _s, _sR, _d],
   [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
 ];
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
@@ -1406,7 +1451,7 @@ export var GatewaySummary$: StaticStructureSchema = [3, n0, _GS,
 ];
 export var GatewayTarget$: StaticStructureSchema = [3, n0, _GT,
   0,
-  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSA, _mC],
+  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
 ];
 export var GetAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _GARER,
@@ -1438,6 +1483,16 @@ export var GetApiKeyCredentialProviderResponse$: StaticStructureSchema = [3, n0,
   0,
   [_aKSA, _n, _cPA, _cT, _lUT],
   [() => Secret$, 0, 0, 4, 4], 5
+];
+export var GetBrowserProfileRequest$: StaticStructureSchema = [3, n0, _GBPR,
+  0,
+  [_pI],
+  [[0, 1]], 1
+];
+export var GetBrowserProfileResponse$: StaticStructureSchema = [3, n0, _GBPRe,
+  0,
+  [_pI, _pA, _n, _s, _cA, _lUA, _d, _lSA, _lSBSI, _lSBI],
+  [0, 0, 0, 0, 5, 5, [() => Description, 0], 5, 0, 0], 6
 ];
 export var GetBrowserRequest$: StaticStructureSchema = [3, n0, _GBR,
   0,
@@ -1486,7 +1541,7 @@ export var GetGatewayTargetRequest$: StaticStructureSchema = [3, n0, _GGTR,
 ];
 export var GetGatewayTargetResponse$: StaticStructureSchema = [3, n0, _GGTRe,
   0,
-  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSA, _mC],
+  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
 ];
 export var GetMemoryInput$: StaticStructureSchema = [3, n0, _GMI,
@@ -1541,12 +1596,12 @@ export var GetPolicyGenerationResponse$: StaticStructureSchema = [3, n0, _GPGRe,
 ];
 export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
-  [_pEI, _pI],
+  [_pEI, _pIo],
   [[0, 1], [0, 1]], 2
 ];
 export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
-  [_pI, _n, _pEI, _de, _cA, _uA, _pA, _s, _sR, _d],
+  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _s, _sR, _d],
   [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
@@ -1699,6 +1754,16 @@ export var ListApiKeyCredentialProvidersResponse$: StaticStructureSchema = [3, n
   0,
   [_cPre, _nT],
   [() => ApiKeyCredentialProviders, 0], 1
+];
+export var ListBrowserProfilesRequest$: StaticStructureSchema = [3, n0, _LBPR,
+  0,
+  [_mR, _nT],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListBrowserProfilesResponse$: StaticStructureSchema = [3, n0, _LBPRi,
+  0,
+  [_pS, _nT],
+  [[() => BrowserProfileSummaries, 0], 0], 1
 ];
 export var ListBrowsersRequest$: StaticStructureSchema = [3, n0, _LBR,
   0,
@@ -1962,7 +2027,7 @@ export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
 ];
 export var Policy$: StaticStructureSchema = [3, n0, _Po,
   0,
-  [_pI, _n, _pEI, _de, _cA, _uA, _pA, _s, _sR, _d],
+  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _s, _sR, _d],
   [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
 ];
 export var PolicyEngine$: StaticStructureSchema = [3, n0, _PE,
@@ -2299,7 +2364,7 @@ export var UpdateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _UGTR,
 ];
 export var UpdateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _UGTRp,
   0,
-  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSA, _mC],
+  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
 ];
 export var UpdateMemoryInput$: StaticStructureSchema = [3, n0, _UMI,
@@ -2344,12 +2409,12 @@ export var UpdatePolicyEngineResponse$: StaticStructureSchema = [3, n0, _UPERp,
 ];
 export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_pEI, _pI, _de, _d, _vM],
+  [_pEI, _pIo, _de, _d, _vM],
   [[0, 1], [0, 1], () => PolicyDefinition$, [() => Description, 0], 0], 3
 ];
 export var UpdatePolicyResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
-  [_pI, _n, _pEI, _de, _cA, _uA, _pA, _s, _sR, _d],
+  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _s, _sR, _d],
   [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
 ];
 export var UpdateWorkloadIdentityRequest$: StaticStructureSchema = [3, n0, _UWIR,
@@ -2442,6 +2507,10 @@ var ApiGatewayToolOverrides: StaticListSchema = [1, n0, _AGTOp,
 ];
 var ApiKeyCredentialProviders: StaticListSchema = [1, n0, _AKCP,
   0, () => ApiKeyCredentialProviderItem$
+];
+var BrowserProfileSummaries: StaticListSchema = [1, n0, _BPSr,
+  0, [() => BrowserProfileSummary$,
+    0]
 ];
 var BrowserSummaries: StaticListSchema = [1, n0, _BSr,
   0, [() => BrowserSummary$,
@@ -2792,6 +2861,9 @@ export var CreateApiKeyCredentialProvider$: StaticOperationSchema = [9, n0, _CAK
 export var CreateBrowser$: StaticOperationSchema = [9, n0, _CB,
   { [_h]: ["PUT", "/browsers", 202] }, () => CreateBrowserRequest$, () => CreateBrowserResponse$
 ];
+export var CreateBrowserProfile$: StaticOperationSchema = [9, n0, _CBP,
+  { [_h]: ["PUT", "/browser-profiles", 200] }, () => CreateBrowserProfileRequest$, () => CreateBrowserProfileResponse$
+];
 export var CreateCodeInterpreter$: StaticOperationSchema = [9, n0, _CCIr,
   { [_h]: ["PUT", "/code-interpreters", 202] }, () => CreateCodeInterpreterRequest$, () => CreateCodeInterpreterResponse$
 ];
@@ -2833,6 +2905,9 @@ export var DeleteApiKeyCredentialProvider$: StaticOperationSchema = [9, n0, _DAK
 ];
 export var DeleteBrowser$: StaticOperationSchema = [9, n0, _DB,
   { [_h]: ["DELETE", "/browsers/{browserId}", 202] }, () => DeleteBrowserRequest$, () => DeleteBrowserResponse$
+];
+export var DeleteBrowserProfile$: StaticOperationSchema = [9, n0, _DBP,
+  { [_h]: ["DELETE", "/browser-profiles/{profileId}", 200] }, () => DeleteBrowserProfileRequest$, () => DeleteBrowserProfileResponse$
 ];
 export var DeleteCodeInterpreter$: StaticOperationSchema = [9, n0, _DCI,
   { [_h]: ["DELETE", "/code-interpreters/{codeInterpreterId}", 202] }, () => DeleteCodeInterpreterRequest$, () => DeleteCodeInterpreterResponse$
@@ -2878,6 +2953,9 @@ export var GetApiKeyCredentialProvider$: StaticOperationSchema = [9, n0, _GAKCPe
 ];
 export var GetBrowser$: StaticOperationSchema = [9, n0, _GB,
   { [_h]: ["GET", "/browsers/{browserId}", 200] }, () => GetBrowserRequest$, () => GetBrowserResponse$
+];
+export var GetBrowserProfile$: StaticOperationSchema = [9, n0, _GBP,
+  { [_h]: ["GET", "/browser-profiles/{profileId}", 200] }, () => GetBrowserProfileRequest$, () => GetBrowserProfileResponse$
 ];
 export var GetCodeInterpreter$: StaticOperationSchema = [9, n0, _GCI,
   { [_h]: ["GET", "/code-interpreters/{codeInterpreterId}", 200] }, () => GetCodeInterpreterRequest$, () => GetCodeInterpreterResponse$
@@ -2929,6 +3007,9 @@ export var ListAgentRuntimeVersions$: StaticOperationSchema = [9, n0, _LARV,
 ];
 export var ListApiKeyCredentialProviders$: StaticOperationSchema = [9, n0, _LAKCP,
   { [_h]: ["POST", "/identities/ListApiKeyCredentialProviders", 200] }, () => ListApiKeyCredentialProvidersRequest$, () => ListApiKeyCredentialProvidersResponse$
+];
+export var ListBrowserProfiles$: StaticOperationSchema = [9, n0, _LBP,
+  { [_h]: ["POST", "/browser-profiles", 200] }, () => ListBrowserProfilesRequest$, () => ListBrowserProfilesResponse$
 ];
 export var ListBrowsers$: StaticOperationSchema = [9, n0, _LB,
   { [_h]: ["POST", "/browsers", 200] }, () => ListBrowsersRequest$, () => ListBrowsersResponse$

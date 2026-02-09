@@ -47,6 +47,7 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  *   StreamARN: "STRING_VALUE",
  *   ConsumerName: "STRING_VALUE",
  *   ConsumerARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new DeregisterStreamConsumerCommand(input);
  * const response = await client.send(command);
@@ -89,6 +90,7 @@ export class DeregisterStreamConsumerCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     ConsumerARN: { type: "contextParams", name: "ConsumerARN" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })

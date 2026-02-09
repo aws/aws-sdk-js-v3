@@ -42,6 +42,7 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * const client = new KinesisClient(config);
  * const input = { // UpdateStreamModeInput
  *   StreamARN: "STRING_VALUE", // required
+ *   StreamId: "STRING_VALUE",
  *   StreamModeDetails: { // StreamModeDetails
  *     StreamMode: "PROVISIONED" || "ON_DEMAND", // required
  *   },
@@ -97,6 +98,7 @@ export class UpdateStreamModeCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

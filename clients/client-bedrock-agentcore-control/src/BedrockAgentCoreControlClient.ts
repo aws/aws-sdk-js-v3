@@ -74,6 +74,10 @@ import {
 } from "./commands/CreateApiKeyCredentialProviderCommand";
 import { CreateBrowserCommandInput, CreateBrowserCommandOutput } from "./commands/CreateBrowserCommand";
 import {
+  CreateBrowserProfileCommandInput,
+  CreateBrowserProfileCommandOutput,
+} from "./commands/CreateBrowserProfileCommand";
+import {
   CreateCodeInterpreterCommandInput,
   CreateCodeInterpreterCommandOutput,
 } from "./commands/CreateCodeInterpreterCommand";
@@ -108,6 +112,10 @@ import {
   DeleteApiKeyCredentialProviderCommandOutput,
 } from "./commands/DeleteApiKeyCredentialProviderCommand";
 import { DeleteBrowserCommandInput, DeleteBrowserCommandOutput } from "./commands/DeleteBrowserCommand";
+import {
+  DeleteBrowserProfileCommandInput,
+  DeleteBrowserProfileCommandOutput,
+} from "./commands/DeleteBrowserProfileCommand";
 import {
   DeleteCodeInterpreterCommandInput,
   DeleteCodeInterpreterCommandOutput,
@@ -147,6 +155,7 @@ import {
   GetApiKeyCredentialProviderCommandOutput,
 } from "./commands/GetApiKeyCredentialProviderCommand";
 import { GetBrowserCommandInput, GetBrowserCommandOutput } from "./commands/GetBrowserCommand";
+import { GetBrowserProfileCommandInput, GetBrowserProfileCommandOutput } from "./commands/GetBrowserProfileCommand";
 import { GetCodeInterpreterCommandInput, GetCodeInterpreterCommandOutput } from "./commands/GetCodeInterpreterCommand";
 import { GetEvaluatorCommandInput, GetEvaluatorCommandOutput } from "./commands/GetEvaluatorCommand";
 import { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
@@ -185,6 +194,10 @@ import {
   ListApiKeyCredentialProvidersCommandInput,
   ListApiKeyCredentialProvidersCommandOutput,
 } from "./commands/ListApiKeyCredentialProvidersCommand";
+import {
+  ListBrowserProfilesCommandInput,
+  ListBrowserProfilesCommandOutput,
+} from "./commands/ListBrowserProfilesCommand";
 import { ListBrowsersCommandInput, ListBrowsersCommandOutput } from "./commands/ListBrowsersCommand";
 import {
   ListCodeInterpretersCommandInput,
@@ -281,6 +294,7 @@ export type ServiceInputTypes =
   | CreateAgentRuntimeEndpointCommandInput
   | CreateApiKeyCredentialProviderCommandInput
   | CreateBrowserCommandInput
+  | CreateBrowserProfileCommandInput
   | CreateCodeInterpreterCommandInput
   | CreateEvaluatorCommandInput
   | CreateGatewayCommandInput
@@ -295,6 +309,7 @@ export type ServiceInputTypes =
   | DeleteAgentRuntimeEndpointCommandInput
   | DeleteApiKeyCredentialProviderCommandInput
   | DeleteBrowserCommandInput
+  | DeleteBrowserProfileCommandInput
   | DeleteCodeInterpreterCommandInput
   | DeleteEvaluatorCommandInput
   | DeleteGatewayCommandInput
@@ -310,6 +325,7 @@ export type ServiceInputTypes =
   | GetAgentRuntimeEndpointCommandInput
   | GetApiKeyCredentialProviderCommandInput
   | GetBrowserCommandInput
+  | GetBrowserProfileCommandInput
   | GetCodeInterpreterCommandInput
   | GetEvaluatorCommandInput
   | GetGatewayCommandInput
@@ -327,6 +343,7 @@ export type ServiceInputTypes =
   | ListAgentRuntimeVersionsCommandInput
   | ListAgentRuntimesCommandInput
   | ListApiKeyCredentialProvidersCommandInput
+  | ListBrowserProfilesCommandInput
   | ListBrowsersCommandInput
   | ListCodeInterpretersCommandInput
   | ListEvaluatorsCommandInput
@@ -368,6 +385,7 @@ export type ServiceOutputTypes =
   | CreateAgentRuntimeEndpointCommandOutput
   | CreateApiKeyCredentialProviderCommandOutput
   | CreateBrowserCommandOutput
+  | CreateBrowserProfileCommandOutput
   | CreateCodeInterpreterCommandOutput
   | CreateEvaluatorCommandOutput
   | CreateGatewayCommandOutput
@@ -382,6 +400,7 @@ export type ServiceOutputTypes =
   | DeleteAgentRuntimeEndpointCommandOutput
   | DeleteApiKeyCredentialProviderCommandOutput
   | DeleteBrowserCommandOutput
+  | DeleteBrowserProfileCommandOutput
   | DeleteCodeInterpreterCommandOutput
   | DeleteEvaluatorCommandOutput
   | DeleteGatewayCommandOutput
@@ -397,6 +416,7 @@ export type ServiceOutputTypes =
   | GetAgentRuntimeEndpointCommandOutput
   | GetApiKeyCredentialProviderCommandOutput
   | GetBrowserCommandOutput
+  | GetBrowserProfileCommandOutput
   | GetCodeInterpreterCommandOutput
   | GetEvaluatorCommandOutput
   | GetGatewayCommandOutput
@@ -414,6 +434,7 @@ export type ServiceOutputTypes =
   | ListAgentRuntimeVersionsCommandOutput
   | ListAgentRuntimesCommandOutput
   | ListApiKeyCredentialProvidersCommandOutput
+  | ListBrowserProfilesCommandOutput
   | ListBrowsersCommandOutput
   | ListCodeInterpretersCommandOutput
   | ListEvaluatorsCommandOutput

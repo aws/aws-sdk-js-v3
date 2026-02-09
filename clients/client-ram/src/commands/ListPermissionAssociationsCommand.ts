@@ -30,6 +30,13 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  * <p>Lists information about the managed permission and its associations to any resource shares that use
  *             this managed permission. This lets you see which resource shares use which versions of the specified
  *             managed permission.</p>
+ *          <note>
+ *             <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value
+ * when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more
+ * results available. The <code>NextToken</code> response parameter value is <code>null</code>
+ *                <i>only</i>
+ * when there are no more results to display.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,7 +48,7 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  * const input = { // ListPermissionAssociationsRequest
  *   permissionArn: "STRING_VALUE",
  *   permissionVersion: Number("int"),
- *   associationStatus: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ *   associationStatus: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED" || "SUSPENDED" || "SUSPENDING" || "RESTORING",
  *   resourceType: "STRING_VALUE",
  *   featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
  *   defaultVersion: true || false,

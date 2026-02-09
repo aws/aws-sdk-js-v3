@@ -51,6 +51,11 @@ export interface ListFieldsCommandOutput extends ListFieldsResponse, __MetadataB
  * //       name: "STRING_VALUE", // required
  * //       type: "STRING_VALUE", // required
  * //       namespace: "STRING_VALUE", // required
+ * //       attributes: { // FieldAttributes Union: only one key present
+ * //         text: { // TextAttributes
+ * //           isMultiline: true || false, // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

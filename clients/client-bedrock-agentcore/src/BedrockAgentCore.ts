@@ -120,6 +120,11 @@ import {
   RetrieveMemoryRecordsCommandOutput,
 } from "./commands/RetrieveMemoryRecordsCommand";
 import {
+  SaveBrowserSessionProfileCommand,
+  SaveBrowserSessionProfileCommandInput,
+  SaveBrowserSessionProfileCommandOutput,
+} from "./commands/SaveBrowserSessionProfileCommand";
+import {
   StartBrowserSessionCommand,
   StartBrowserSessionCommandInput,
   StartBrowserSessionCommandOutput,
@@ -190,6 +195,7 @@ const commands = {
   ListMemoryRecordsCommand,
   ListSessionsCommand,
   RetrieveMemoryRecordsCommand,
+  SaveBrowserSessionProfileCommand,
   StartBrowserSessionCommand,
   StartCodeInterpreterSessionCommand,
   StartMemoryExtractionJobCommand,
@@ -682,6 +688,23 @@ export interface BedrockAgentCore {
     args: RetrieveMemoryRecordsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RetrieveMemoryRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SaveBrowserSessionProfileCommand}
+   */
+  saveBrowserSessionProfile(
+    args: SaveBrowserSessionProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SaveBrowserSessionProfileCommandOutput>;
+  saveBrowserSessionProfile(
+    args: SaveBrowserSessionProfileCommandInput,
+    cb: (err: any, data?: SaveBrowserSessionProfileCommandOutput) => void
+  ): void;
+  saveBrowserSessionProfile(
+    args: SaveBrowserSessionProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SaveBrowserSessionProfileCommandOutput) => void
   ): void;
 
   /**

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-ec2",
-  "version": "3.972.5",
+  "version": "3.972.6",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-ec2",
@@ -28,10 +28,10 @@
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.1",
     "@aws-sdk/util-format-url": "workspace:^3.972.3",
-    "@smithy/middleware-endpoint": "^4.4.12",
+    "@smithy/middleware-endpoint": "^4.4.13",
     "@smithy/protocol-http": "^5.3.8",
     "@smithy/signature-v4": "^5.3.8",
-    "@smithy/smithy-client": "^4.11.1",
+    "@smithy/smithy-client": "^4.11.2",
     "@smithy/types": "^4.12.0",
     "tslib": "^2.6.2"
   },

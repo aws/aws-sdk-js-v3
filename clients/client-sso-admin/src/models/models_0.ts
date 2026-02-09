@@ -15,6 +15,7 @@ import {
   PrincipalType,
   ProvisioningStatus,
   ProvisionTargetType,
+  RegionStatus,
   SignInOrigin,
   StatusValues,
   TargetType,
@@ -197,6 +198,34 @@ export interface AccountAssignmentOperationStatusMetadata {
 }
 
 /**
+ * @public
+ */
+export interface AddRegionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance to replicate to the target Region.</p>
+   * @public
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services Region to add to the IAM Identity Center instance. The Region name must be 1-32 characters long and follow the pattern of Amazon Web Services Region names (for example, us-east-1).</p>
+   * @public
+   */
+  RegionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AddRegionResponse {
+  /**
+   * <p>The status of the Region after the Add operation. The status is ADDING when the asynchronous workflow is in progress and changes to ACTIVE when complete.</p>
+   * @public
+   */
+  Status?: RegionStatus | undefined;
+}
+
+/**
  * <p>A structure that describes the sign-in options for an application portal.</p>
  * @public
  */
@@ -290,6 +319,12 @@ export interface Application {
    * @public
    */
   CreatedDate?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the application was created in IAM Identity Center.</p>
+   * @public
+   */
+  CreatedFrom?: string | undefined;
 }
 
 /**
@@ -1859,6 +1894,12 @@ export interface DescribeApplicationResponse {
    * @public
    */
   CreatedDate?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the application was created in IAM Identity Center.</p>
+   * @public
+   */
+  CreatedFrom?: string | undefined;
 }
 
 /**
@@ -2171,6 +2212,52 @@ export interface DescribePermissionSetProvisioningStatusResponse {
    * @public
    */
   PermissionSetProvisioningStatus?: PermissionSetProvisioningStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
+   * @public
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services Region to retrieve information about. The Region name must be 1-32 characters long and follow the pattern of Amazon Web Services Region names (for example, us-east-1).</p>
+   * @public
+   */
+  RegionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRegionResponse {
+  /**
+   * <p>The Amazon Web Services Region name.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The current status of the Region. Valid values are ACTIVE (Region is operational), ADDING (Region replication workflow is in progress), or REMOVING (Region removal workflow is in progress).</p>
+   * @public
+   */
+  Status?: RegionStatus | undefined;
+
+  /**
+   * <p>The timestamp when the Region was added to the IAM Identity Center instance. For the primary Region, this is the IAM Identity Center instance creation time.</p>
+   * @public
+   */
+  AddedDate?: Date | undefined;
+
+  /**
+   * <p>Indicates whether this is the primary Region where the IAM Identity Center instance was originally enabled. For more information on the difference between the primary Region and additional Regions, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/multi-region-iam-identity-center.html">IAM Identity Center User Guide</a> </p>
+   * @public
+   */
+  IsPrimaryRegion?: boolean | undefined;
 }
 
 /**
@@ -3230,6 +3317,76 @@ export interface ListPermissionSetsProvisionedToAccountResponse {
 /**
  * @public
  */
+export interface ListRegionsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
+   * @public
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Default is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains information about an enabled Region of an IAM Identity Center instance, including the Region name, status, date added, and whether it is the primary Region.</p>
+ * @public
+ */
+export interface RegionMetadata {
+  /**
+   * <p>The Amazon Web Services Region name.</p>
+   * @public
+   */
+  RegionName?: string | undefined;
+
+  /**
+   * <p>The current status of the Region. Valid values are ACTIVE (Region is operational), ADDING (Region extension workflow is in progress), or REMOVING (Region removal workflow is in progress).</p>
+   * @public
+   */
+  Status?: RegionStatus | undefined;
+
+  /**
+   * <p>The timestamp when the Region was added to the IAM Identity Center instance. For the primary Region, this is the instance creation time.</p>
+   * @public
+   */
+  AddedDate?: Date | undefined;
+
+  /**
+   * <p>Indicates whether this is the primary Region where the IAM Identity Center instance was originally enabled. The primary Region cannot be removed.</p>
+   * @public
+   */
+  IsPrimaryRegion?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRegionsResponse {
+  /**
+   * <p>The list of Regions enabled in the IAM Identity Center instance, including Regions with ACTIVE, ADDING, or REMOVING status.</p>
+   * @public
+   */
+  Regions?: RegionMetadata[] | undefined;
+
+  /**
+   * <p>The pagination token to be used in subsequent calls. If the value is null, then there are no more entries.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -3498,6 +3655,34 @@ export interface PutPermissionsBoundaryToPermissionSetResponse {}
 /**
  * @public
  */
+export interface RemoveRegionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>
+   * @public
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services Region to remove from the IAM Identity Center instance. The Region name must be 1-32 characters long and follow the pattern of Amazon Web Services Region names (for example, us-east-1). The primary Region cannot be removed.</p>
+   * @public
+   */
+  RegionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveRegionResponse {
+  /**
+   * <p>The status of the Region after the remove operation. The status is REMOVING when the asynchronous workflow is in progress. The Region record is deleted when the workflow completes.</p>
+   * @public
+   */
+  Status?: RegionStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the IAM Identity Center instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -3620,7 +3805,7 @@ export interface UpdateInstanceRequest {
   InstanceArn: string | undefined;
 
   /**
-   * <p>Specifies the encryption configuration for your IAM Identity Center instance. You can use this to configure customer managed KMS keys (CMK) or Amazon Web Services owned KMS keys for encrypting your instance data.</p>
+   * <p>Specifies the encryption configuration for your IAM Identity Center instance. You can use this to configure customer managed KMS keys or Amazon Web Services owned KMS keys for encrypting your instance data.</p>
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;

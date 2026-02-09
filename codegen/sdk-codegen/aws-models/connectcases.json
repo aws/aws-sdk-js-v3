@@ -824,7 +824,7 @@
           "traits": {
             "smithy.api#documentation": "<p>Can be either null, or have a String value type. Only one value can be provided.</p>",
             "smithy.api#length": {
-              "max": 500
+              "max": 4100
             }
           }
         },
@@ -1349,7 +1349,7 @@
           "traits": {
             "smithy.api#documentation": "<p>List of field identifiers.</p>",
             "smithy.api#length": {
-              "max": 200
+              "max": 400
             },
             "smithy.api#required": {}
           }
@@ -1907,7 +1907,7 @@
           "traits": {
             "smithy.api#documentation": "<p>An array of objects with field ID (matching ListFields/DescribeField) and value union data.</p>",
             "smithy.api#length": {
-              "max": 100
+              "max": 220
             },
             "smithy.api#required": {}
           }
@@ -2194,6 +2194,12 @@
           "target": "com.amazonaws.connectcases#FieldDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of the field.</p>"
+          }
+        },
+        "attributes": {
+          "target": "com.amazonaws.connectcases#FieldAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Union of field attributes.</p>"
           }
         }
       }
@@ -3313,6 +3319,20 @@
         }
       }
     },
+    "com.amazonaws.connectcases#FieldAttributes": {
+      "type": "union",
+      "members": {
+        "text": {
+          "target": "com.amazonaws.connectcases#TextAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Field attributes for Text field type.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Union of field attributes.</p>"
+      }
+    },
     "com.amazonaws.connectcases#FieldDescription": {
       "type": "string",
       "traits": {
@@ -3410,7 +3430,7 @@
           "traits": {
             "smithy.api#documentation": "<p>Represents an ordered list containing field related information.</p>",
             "smithy.api#length": {
-              "max": 100
+              "max": 220
             },
             "smithy.api#required": {}
           }
@@ -3650,6 +3670,12 @@
             "smithy.api#documentation": "<p>The namespace of a field.</p>",
             "smithy.api#required": {}
           }
+        },
+        "attributes": {
+          "target": "com.amazonaws.connectcases#FieldAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Union of field attributes.</p>"
+          }
         }
       },
       "traits": {
@@ -3733,7 +3759,7 @@
           "traits": {
             "smithy.api#documentation": "<p>String value type.</p>",
             "smithy.api#length": {
-              "max": 3000
+              "max": 4100
             }
           }
         },
@@ -4030,7 +4056,7 @@
             "smithy.api#documentation": "<p>A list of unique field identifiers. </p>",
             "smithy.api#length": {
               "min": 1,
-              "max": 100
+              "max": 220
             },
             "smithy.api#required": {}
           }
@@ -4051,7 +4077,7 @@
           "traits": {
             "smithy.api#documentation": "<p>A list of detailed field information. </p>",
             "smithy.api#length": {
-              "max": 100
+              "max": 220
             },
             "smithy.api#required": {}
           }
@@ -4304,6 +4330,12 @@
           "target": "com.amazonaws.connectcases#LastModifiedTime",
           "traits": {
             "smithy.api#documentation": "<p>Timestamp at which the resource was created or last modified.</p>"
+          }
+        },
+        "attributes": {
+          "target": "com.amazonaws.connectcases#FieldAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Union of field attributes.</p>"
           }
         }
       },
@@ -6349,6 +6381,13 @@
             },
             "smithy.api#required": {}
           }
+        },
+        "totalCount": {
+          "target": "com.amazonaws.connectcases#TotalCount",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The total number of cases that matched the search criteria.</p>"
+          }
         }
       }
     },
@@ -7223,6 +7262,21 @@
         "target": "com.amazonaws.connectcases#TemplateSummary"
       }
     },
+    "com.amazonaws.connectcases#TextAttributes": {
+      "type": "structure",
+      "members": {
+        "isMultiline": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Attribute that defines rendering component and validation.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Field attributes for Text field type.</p>"
+      }
+    },
     "com.amazonaws.connectcases#ThrottlingException": {
       "type": "structure",
       "members": {
@@ -7238,6 +7292,15 @@
         "smithy.api#error": "client",
         "smithy.api#httpError": 429,
         "smithy.api#retryable": {}
+      }
+    },
+    "com.amazonaws.connectcases#TotalCount": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0
+        }
       }
     },
     "com.amazonaws.connectcases#UntagResource": {
@@ -7352,7 +7415,7 @@
           "traits": {
             "smithy.api#documentation": "<p>An array of objects with <code>fieldId</code> (matching ListFields/DescribeField) and value union data, structured identical to <code>CreateCase</code>.</p>",
             "smithy.api#length": {
-              "max": 100
+              "max": 220
             },
             "smithy.api#required": {}
           }
@@ -7521,6 +7584,12 @@
           "target": "com.amazonaws.connectcases#FieldDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description of a field.</p>"
+          }
+        },
+        "attributes": {
+          "target": "com.amazonaws.connectcases#FieldAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Union of field attributes.</p>"
           }
         }
       }

@@ -387,6 +387,21 @@ export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
  * @public
  * @enum
  */
+export const GlobalTableSettingsReplicationMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ENABLED_WITH_OVERRIDES: "ENABLED_WITH_OVERRIDES",
+} as const;
+/**
+ * @public
+ */
+export type GlobalTableSettingsReplicationMode =
+  (typeof GlobalTableSettingsReplicationMode)[keyof typeof GlobalTableSettingsReplicationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ReplicaStatus = {
   ACTIVE: "ACTIVE",
   ARCHIVED: "ARCHIVED",

@@ -1502,7 +1502,7 @@ export interface CreatePrivateGraphEndpointInput {
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>Security groups to be attached to the private graph endpoint..</p>
+   * <p>Security groups to be attached to the private graph endpoint.</p>
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
@@ -1531,7 +1531,7 @@ export interface CreatePrivateGraphEndpointOutput {
   status: PrivateGraphEndpointStatus | undefined;
 
   /**
-   * <p>Endpoint ID of the prviate grpah endpoint.</p>
+   * <p>Endpoint ID of the private graph endpoint.</p>
    * @public
    */
   vpcEndpointId?: string | undefined;
@@ -2099,7 +2099,7 @@ export interface CancelImportTaskOutput {
   source: string | undefined;
 
   /**
-   * <p>Specifies the format of S3 data to be imported. Valid values are <code>CSV</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin CSV format</a> or <code>OPENCYPHER</code>, which identies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher load format</a>.</p>
+   * <p>Specifies the format of S3 data to be imported. Valid values are <code>CSV</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin CSV format</a> or <code>OPENCYPHER</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher load format</a>.</p>
    * @public
    */
   format?: Format | undefined;
@@ -2382,7 +2382,7 @@ export interface ExportFilterPropertyAttributes {
 }
 
 /**
- * <p>Specifies whihc properties of that label should be included in the export.</p>
+ * <p>Specifies which properties of that label should be included in the export.</p>
  * @public
  */
 export interface ExportFilterElement {
@@ -2606,7 +2606,7 @@ export interface GetImportTaskOutput {
   source: string | undefined;
 
   /**
-   * <p>Specifies the format of S3 data to be imported. Valid values are <code>CSV</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin CSV format</a> or <code>OPENCYPHER</code>, which identies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher load format</a>.</p>
+   * <p>Specifies the format of S3 data to be imported. Valid values are <code>CSV</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin CSV format</a> or <code>OPENCYPHER</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher load format</a>.</p>
    * @public
    */
   format?: Format | undefined;
@@ -2977,7 +2977,7 @@ export interface StartImportTaskInput {
   source: string | undefined;
 
   /**
-   * <p>Specifies the format of Amazon S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format or OPENCYPHER, which identies the openCypher load format.</p>
+   * <p>Specifies the format of Amazon S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format or OPENCYPHER, which identifies the openCypher load format.</p>
    * @public
    */
   format?: Format | undefined;
@@ -3030,7 +3030,7 @@ export interface StartImportTaskOutput {
   source: string | undefined;
 
   /**
-   * <p>Specifies the format of Amazon S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format or OPENCYPHER, which identies the openCypher load format.</p>
+   * <p>Specifies the format of Amazon S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format or OPENCYPHER, which identifies the openCypher load format.</p>
    * @public
    */
   format?: Format | undefined;

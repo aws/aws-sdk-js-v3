@@ -57,6 +57,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //   },
  * //   Description: "STRING_VALUE",
  * //   CreatedDate: new Date("TIMESTAMP"),
+ * //   CreatedFrom: "STRING_VALUE",
  * // };
  *
  * ```

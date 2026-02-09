@@ -57,6 +57,9 @@ export interface DeleteNodeCommandOutput extends DeleteNodeResponse, __MetadataB
  * //       LogicalInterfaceName: "STRING_VALUE",
  * //       NetworkInterfaceMode: "NAT" || "BRIDGE",
  * //       PhysicalInterfaceName: "STRING_VALUE",
+ * //       PhysicalInterfaceIpAddresses: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   Role: "BACKUP" || "ACTIVE",

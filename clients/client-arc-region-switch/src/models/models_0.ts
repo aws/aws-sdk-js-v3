@@ -77,7 +77,7 @@ export interface AbbreviatedExecution {
   endTime?: Date | undefined;
 
   /**
-   * <p>The plan execution mode. Valid values are <code>Practice</code>, for testing without making actual changes, or <code>Recovery</code>, for actual traffic shifting and application recovery.</p>
+   * <p>The plan execution mode. Valid values are <code>graceful</code>, for graceful executions, or <code>ungraceful</code>, for ungraceful executions.</p>
    * @public
    */
   mode: ExecutionMode | undefined;
@@ -89,7 +89,7 @@ export interface AbbreviatedExecution {
   executionState: ExecutionState | undefined;
 
   /**
-   * <p>The plan execution action. Valid values are <code>Activate</code>, to activate an Amazon Web Services Region, or <code>Deactivate</code>, to deactivate a Region.</p>
+   * <p>The plan execution action. Valid values are <code>activate</code>, to activate an Amazon Web Services Region, or <code>deactivate</code>, to deactivate a Region.</p>
    * @public
    */
   executionAction: ExecutionAction | undefined;
@@ -630,7 +630,7 @@ export interface TriggerCondition {
   associatedAlarmName: string | undefined;
 
   /**
-   * <p>The condition that must be met. Valid values include ALARM and OK.</p>
+   * <p>The condition that must be met. Valid values include <code>green</code> and <code>red</code>.</p>
    * @public
    */
   condition: AlarmCondition | undefined;
@@ -654,7 +654,7 @@ export interface Trigger {
   targetRegion: string | undefined;
 
   /**
-   * <p>The action to perform when the trigger fires. Valid values include ACTIVATE and DEACTIVATE.</p>
+   * <p>The action to perform when the trigger fires. Valid values include <code>activate</code> and <code>deactivate</code>.</p>
    * @public
    */
   action: WorkflowTargetAction | undefined;
@@ -1813,13 +1813,13 @@ export interface StartPlanExecutionRequest {
   targetRegion: string | undefined;
 
   /**
-   * <p>The action to perform. Valid values are ACTIVATE (to shift traffic to the target Region) or DEACTIVATE (to shift traffic away from the target Region).</p>
+   * <p>The action to perform. Valid values are <code>activate</code> (to shift traffic to the target Region) or <code>deactivate</code> (to shift traffic away from the target Region).</p>
    * @public
    */
   action: ExecutionAction | undefined;
 
   /**
-   * <p>The plan execution mode. Valid values are <code>Practice</code>, for testing without making actual changes, or <code>Recovery</code>, for actual traffic shifting and application recovery.</p>
+   * <p>The plan execution mode. Valid values are <code>graceful</code>, for starting the execution in graceful mode, or <code>ungraceful</code>, for starting the execution in ungraceful mode.</p>
    * @public
    */
   mode?: ExecutionMode | undefined;
@@ -2269,7 +2269,7 @@ export interface Workflow {
   steps?: Step[] | undefined;
 
   /**
-   * <p>The action that the workflow performs. Valid values include ACTIVATE and DEACTIVATE.</p>
+   * <p>The action that the workflow performs. Valid values include <code>activate</code> and <code>deactivate</code>.</p>
    * @public
    */
   workflowTargetAction: WorkflowTargetAction | undefined;
@@ -2571,7 +2571,7 @@ export interface GetPlanExecutionResponse {
   endTime?: Date | undefined;
 
   /**
-   * <p>The plan execution mode. Valid values are <code>Practice</code>, for testing without making actual changes, or <code>Recovery</code>, for actual traffic shifting and application recovery.</p>
+   * <p>The plan execution mode. Valid values are <code>graceful</code>, for graceful executions, or <code>ungraceful</code>, for ungraceful executions.</p>
    * @public
    */
   mode: ExecutionMode | undefined;
@@ -2583,7 +2583,7 @@ export interface GetPlanExecutionResponse {
   executionState: ExecutionState | undefined;
 
   /**
-   * <p>The plan execution action. Valid values are <code>Activate</code>, to activate an Amazon Web Services Region, or <code>Deactivate</code>, to deactivate a Region.</p>
+   * <p>The plan execution action. Valid values are <code>activate</code>, to activate an Amazon Web Services Region, or <code>deactivate</code>, to deactivate a Region.</p>
    * @public
    */
   executionAction: ExecutionAction | undefined;

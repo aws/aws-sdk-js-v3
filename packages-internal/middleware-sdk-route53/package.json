@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-route53",
-  "version": "3.972.3",
+  "version": "3.972.4",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-route53",
@@ -12,7 +12,9 @@
     "test": "yarn g:vitest run",
     "test:integration": "yarn g:vitest run -c vitest.config.integ.mts",
     "test:watch": "yarn g:vitest watch",
-    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts",
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

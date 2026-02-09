@@ -4,6 +4,7 @@ import {
   AcceptResourceShareInvitationRequest$,
   AcceptResourceShareInvitationResponse$,
   AssociatedPermission$,
+  AssociatedSource$,
   AssociateResourceShare$,
   AssociateResourceShareCommand,
   AssociateResourceSharePermission$,
@@ -120,6 +121,10 @@ import {
   ListResourceTypesCommand,
   ListResourceTypesRequest$,
   ListResourceTypesResponse$,
+  ListSourceAssociations$,
+  ListSourceAssociationsCommand,
+  ListSourceAssociationsRequest$,
+  ListSourceAssociationsResponse$,
   MalformedArnException,
   MalformedArnException$,
   MalformedPolicyTemplateException,
@@ -141,6 +146,7 @@ import {
   paginateListResources,
   paginateListResourceSharePermissions,
   paginateListResourceTypes,
+  paginateListSourceAssociations,
   PermissionAlreadyExistsException,
   PermissionAlreadyExistsException$,
   PermissionFeatureSet,
@@ -291,6 +297,8 @@ assert(typeof ListResourceSharePermissionsCommand === "function");
 assert(typeof ListResourceSharePermissions$ === "object");
 assert(typeof ListResourceTypesCommand === "function");
 assert(typeof ListResourceTypes$ === "object");
+assert(typeof ListSourceAssociationsCommand === "function");
+assert(typeof ListSourceAssociations$ === "object");
 assert(typeof PromotePermissionCreatedFromPolicyCommand === "function");
 assert(typeof PromotePermissionCreatedFromPolicy$ === "object");
 assert(typeof PromoteResourceShareCreatedFromPolicyCommand === "function");
@@ -311,6 +319,7 @@ assert(typeof UpdateResourceShare$ === "object");
 assert(typeof AcceptResourceShareInvitationRequest$ === "object");
 assert(typeof AcceptResourceShareInvitationResponse$ === "object");
 assert(typeof AssociatedPermission$ === "object");
+assert(typeof AssociatedSource$ === "object");
 assert(typeof AssociateResourceSharePermissionRequest$ === "object");
 assert(typeof AssociateResourceSharePermissionResponse$ === "object");
 assert(typeof AssociateResourceShareRequest$ === "object");
@@ -361,6 +370,8 @@ assert(typeof ListResourcesRequest$ === "object");
 assert(typeof ListResourcesResponse$ === "object");
 assert(typeof ListResourceTypesRequest$ === "object");
 assert(typeof ListResourceTypesResponse$ === "object");
+assert(typeof ListSourceAssociationsRequest$ === "object");
+assert(typeof ListSourceAssociationsResponse$ === "object");
 assert(typeof Principal$ === "object");
 assert(typeof PromotePermissionCreatedFromPolicyRequest$ === "object");
 assert(typeof PromotePermissionCreatedFromPolicyResponse$ === "object");
@@ -475,4 +486,5 @@ assert(typeof paginateListReplacePermissionAssociationsWork === "function");
 assert(typeof paginateListResourceSharePermissions === "function");
 assert(typeof paginateListResourceTypes === "function");
 assert(typeof paginateListResources === "function");
+assert(typeof paginateListSourceAssociations === "function");
 console.log(`RAM index test passed.`);

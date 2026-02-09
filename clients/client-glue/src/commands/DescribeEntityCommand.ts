@@ -52,7 +52,7 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * //       FieldName: "STRING_VALUE",
  * //       Label: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       FieldType: "INT" || "SMALLINT" || "BIGINT" || "FLOAT" || "LONG" || "DATE" || "BOOLEAN" || "MAP" || "ARRAY" || "STRING" || "TIMESTAMP" || "DECIMAL" || "BYTE" || "SHORT" || "DOUBLE" || "STRUCT",
+ * //       FieldType: "INT" || "SMALLINT" || "BIGINT" || "FLOAT" || "LONG" || "DATE" || "BOOLEAN" || "MAP" || "ARRAY" || "STRING" || "TIMESTAMP" || "DECIMAL" || "BYTE" || "SHORT" || "DOUBLE" || "STRUCT" || "BINARY" || "UNION",
  * //       IsPrimaryKey: true || false,
  * //       IsNullable: true || false,
  * //       IsRetrievable: true || false,

@@ -63,8 +63,17 @@ export interface GetConnectorDestinationCommandOutput extends GetConnectorDestin
  * //         DaysBeforeRenewal: Number("int"),
  * //       },
  * //     },
+ * //     GeneralAuthorization: [ // AuthMaterials
+ * //       { // AuthMaterial
+ * //         SecretsManager: { // SecretsManager
+ * //           arn: "STRING_VALUE", // required
+ * //           versionId: "STRING_VALUE", // required
+ * //         },
+ * //         AuthMaterialName: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
- * //   SecretsManager: { // SecretsManager
+ * //   SecretsManager: {
  * //     arn: "STRING_VALUE", // required
  * //     versionId: "STRING_VALUE", // required
  * //   },

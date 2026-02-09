@@ -200,6 +200,10 @@ import {
   DeleteColumnStatisticsTaskSettingsCommandOutput,
 } from "./commands/DeleteColumnStatisticsTaskSettingsCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import {
+  DeleteConnectionTypeCommandInput,
+  DeleteConnectionTypeCommandOutput,
+} from "./commands/DeleteConnectionTypeCommand";
 import { DeleteCrawlerCommandInput, DeleteCrawlerCommandOutput } from "./commands/DeleteCrawlerCommand";
 import {
   DeleteCustomEntityTypeCommandInput,
@@ -531,6 +535,10 @@ import {
   QuerySchemaVersionMetadataCommandOutput,
 } from "./commands/QuerySchemaVersionMetadataCommand";
 import {
+  RegisterConnectionTypeCommandInput,
+  RegisterConnectionTypeCommandOutput,
+} from "./commands/RegisterConnectionTypeCommand";
+import {
   RegisterSchemaVersionCommandInput,
   RegisterSchemaVersionCommandOutput,
 } from "./commands/RegisterSchemaVersionCommand";
@@ -748,6 +756,7 @@ export type ServiceInputTypes =
   | DeleteColumnStatisticsForTableCommandInput
   | DeleteColumnStatisticsTaskSettingsCommandInput
   | DeleteConnectionCommandInput
+  | DeleteConnectionTypeCommandInput
   | DeleteCrawlerCommandInput
   | DeleteCustomEntityTypeCommandInput
   | DeleteDataQualityRulesetCommandInput
@@ -892,6 +901,7 @@ export type ServiceInputTypes =
   | PutSchemaVersionMetadataCommandInput
   | PutWorkflowRunPropertiesCommandInput
   | QuerySchemaVersionMetadataCommandInput
+  | RegisterConnectionTypeCommandInput
   | RegisterSchemaVersionCommandInput
   | RemoveSchemaVersionMetadataCommandInput
   | ResetJobBookmarkCommandInput
@@ -1016,6 +1026,7 @@ export type ServiceOutputTypes =
   | DeleteColumnStatisticsForTableCommandOutput
   | DeleteColumnStatisticsTaskSettingsCommandOutput
   | DeleteConnectionCommandOutput
+  | DeleteConnectionTypeCommandOutput
   | DeleteCrawlerCommandOutput
   | DeleteCustomEntityTypeCommandOutput
   | DeleteDataQualityRulesetCommandOutput
@@ -1160,6 +1171,7 @@ export type ServiceOutputTypes =
   | PutSchemaVersionMetadataCommandOutput
   | PutWorkflowRunPropertiesCommandOutput
   | QuerySchemaVersionMetadataCommandOutput
+  | RegisterConnectionTypeCommandOutput
   | RegisterSchemaVersionCommandOutput
   | RemoveSchemaVersionMetadataCommandOutput
   | ResetJobBookmarkCommandOutput

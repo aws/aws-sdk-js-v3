@@ -53,6 +53,7 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  *   StreamName: "STRING_VALUE",
  *   RetentionPeriodHours: Number("int"), // required
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new IncreaseStreamRetentionPeriodCommand(input);
  * const response = await client.send(command);
@@ -103,6 +104,7 @@ export class IncreaseStreamRetentionPeriodCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

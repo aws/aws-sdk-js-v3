@@ -81,6 +81,7 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *   StartingSequenceNumber: "STRING_VALUE",
  *   Timestamp: new Date("TIMESTAMP"),
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);
@@ -136,6 +137,7 @@ export class GetShardIteratorCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `data` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

@@ -51,6 +51,7 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * const input = { // DescribeStreamSummaryInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new DescribeStreamSummaryCommand(input);
  * const response = await client.send(command);
@@ -58,6 +59,7 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * //   StreamDescriptionSummary: { // StreamDescriptionSummary
  * //     StreamName: "STRING_VALUE", // required
  * //     StreamARN: "STRING_VALUE", // required
+ * //     StreamId: "STRING_VALUE",
  * //     StreamStatus: "CREATING" || "DELETING" || "ACTIVE" || "UPDATING", // required
  * //     StreamModeDetails: { // StreamModeDetails
  * //       StreamMode: "PROVISIONED" || "ON_DEMAND", // required
@@ -124,6 +126,7 @@ export class DescribeStreamSummaryCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

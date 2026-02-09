@@ -69,6 +69,9 @@ export interface CreateNodeCommandOutput extends CreateNodeResponse, __MetadataB
  * //       LogicalInterfaceName: "STRING_VALUE",
  * //       NetworkInterfaceMode: "NAT" || "BRIDGE",
  * //       PhysicalInterfaceName: "STRING_VALUE",
+ * //       PhysicalInterfaceIpAddresses: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   Role: "BACKUP" || "ACTIVE",

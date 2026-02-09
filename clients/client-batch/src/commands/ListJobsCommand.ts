@@ -86,6 +86,10 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //       arrayProperties: { // ArrayPropertiesSummary
  * //         size: Number("int"),
  * //         index: Number("int"),
+ * //         statusSummary: { // ArrayJobStatusSummary
+ * //           "<keys>": Number("int"),
+ * //         },
+ * //         statusSummaryLastUpdatedAt: Number("long"),
  * //       },
  * //       nodeProperties: { // NodePropertiesSummary
  * //         isMainNode: true || false,

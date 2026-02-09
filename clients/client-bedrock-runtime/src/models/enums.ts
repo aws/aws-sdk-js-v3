@@ -534,6 +534,18 @@ export type ConversationRole = (typeof ConversationRole)[keyof typeof Conversati
  * @public
  * @enum
  */
+export const OutputFormatType = {
+  JSON_SCHEMA: "json_schema",
+} as const;
+/**
+ * @public
+ */
+export type OutputFormatType = (typeof OutputFormatType)[keyof typeof OutputFormatType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PerformanceConfigLatency = {
   OPTIMIZED: "optimized",
   STANDARD: "standard",

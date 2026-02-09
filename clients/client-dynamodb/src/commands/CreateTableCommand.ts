@@ -49,14 +49,14 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * const config = {}; // type is DynamoDBClientConfig
  * const client = new DynamoDBClient(config);
  * const input = { // CreateTableInput
- *   AttributeDefinitions: [ // AttributeDefinitions // required
+ *   AttributeDefinitions: [ // AttributeDefinitions
  *     { // AttributeDefinition
  *       AttributeName: "STRING_VALUE", // required
  *       AttributeType: "S" || "N" || "B", // required
  *     },
  *   ],
  *   TableName: "STRING_VALUE", // required
- *   KeySchema: [ // KeySchema // required
+ *   KeySchema: [ // KeySchema
  *     { // KeySchemaElement
  *       AttributeName: "STRING_VALUE", // required
  *       KeyType: "HASH" || "RANGE", // required
@@ -139,6 +139,8 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *     MaxReadRequestUnits: Number("long"),
  *     MaxWriteRequestUnits: Number("long"),
  *   },
+ *   GlobalTableSourceArn: "STRING_VALUE",
+ *   GlobalTableSettingsReplicationMode: "ENABLED" || "DISABLED" || "ENABLED_WITH_OVERRIDES",
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
@@ -278,6 +280,7 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //           TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  * //           LastUpdateDateTime: new Date("TIMESTAMP"),
  * //         },
+ * //         GlobalTableSettingsReplicationMode: "ENABLED" || "DISABLED" || "ENABLED_WITH_OVERRIDES",
  * //       },
  * //     ],
  * //     GlobalTableWitnesses: [ // GlobalTableWitnessDescriptionList
@@ -286,6 +289,7 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //         WitnessStatus: "CREATING" || "DELETING" || "ACTIVE",
  * //       },
  * //     ],
+ * //     GlobalTableSettingsReplicationMode: "ENABLED" || "DISABLED" || "ENABLED_WITH_OVERRIDES",
  * //     RestoreSummary: { // RestoreSummary
  * //       SourceBackupArn: "STRING_VALUE",
  * //       SourceTableArn: "STRING_VALUE",

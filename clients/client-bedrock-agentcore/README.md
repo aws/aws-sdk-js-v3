@@ -397,6 +397,13 @@ RetrieveMemoryRecords
 </details>
 <details>
 <summary>
+SaveBrowserSessionProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/SaveBrowserSessionProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/SaveBrowserSessionProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/SaveBrowserSessionProfileCommandOutput/)
+</details>
+<details>
+<summary>
 StartBrowserSession
 </summary>
 

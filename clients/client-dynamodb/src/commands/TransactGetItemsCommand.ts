@@ -295,9 +295,8 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  *             </li>
  *          </ul>
  *          <note>
- *             <p>If using Java, DynamoDB lists the cancellation reasons on the
- *                     <code>CancellationReasons</code> property. This property is not set for other
- *                 languages. Transaction cancellation reasons are ordered in the order of requested
+ *             <p>DynamoDB lists the cancellation reasons on the
+ *                     <code>CancellationReasons</code> property. Transaction cancellation reasons are ordered in the order of requested
  *                 items, if an item has no error it will have <code>None</code> code and
  *                     <code>Null</code> message.</p>
  *          </note>

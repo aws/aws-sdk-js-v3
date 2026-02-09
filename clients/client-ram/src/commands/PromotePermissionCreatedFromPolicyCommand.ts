@@ -111,6 +111,9 @@ export interface PromotePermissionCreatedFromPolicyCommandOutput extends Promote
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The operation failed because a parameter you specified isn't valid.</p>
  *
+ * @throws {@link InvalidPolicyException} (client fault)
+ *  <p>The operation failed because a policy you specified isn't valid.</p>
+ *
  * @throws {@link MalformedArnException} (client fault)
  *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
  *             valid.</p>

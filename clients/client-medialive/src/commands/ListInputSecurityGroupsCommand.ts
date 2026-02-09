@@ -59,6 +59,9 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
  * //           Cidr: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       Channels: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

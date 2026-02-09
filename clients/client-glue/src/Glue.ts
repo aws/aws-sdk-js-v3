@@ -290,6 +290,11 @@ import {
   DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
+  DeleteConnectionTypeCommand,
+  DeleteConnectionTypeCommandInput,
+  DeleteConnectionTypeCommandOutput,
+} from "./commands/DeleteConnectionTypeCommand";
+import {
   DeleteCrawlerCommand,
   DeleteCrawlerCommandInput,
   DeleteCrawlerCommandOutput,
@@ -910,6 +915,11 @@ import {
   QuerySchemaVersionMetadataCommandOutput,
 } from "./commands/QuerySchemaVersionMetadataCommand";
 import {
+  RegisterConnectionTypeCommand,
+  RegisterConnectionTypeCommandInput,
+  RegisterConnectionTypeCommandOutput,
+} from "./commands/RegisterConnectionTypeCommand";
+import {
   RegisterSchemaVersionCommand,
   RegisterSchemaVersionCommandInput,
   RegisterSchemaVersionCommandOutput,
@@ -1293,6 +1303,7 @@ const commands = {
   DeleteColumnStatisticsForTableCommand,
   DeleteColumnStatisticsTaskSettingsCommand,
   DeleteConnectionCommand,
+  DeleteConnectionTypeCommand,
   DeleteCrawlerCommand,
   DeleteCustomEntityTypeCommand,
   DeleteDatabaseCommand,
@@ -1437,6 +1448,7 @@ const commands = {
   PutSchemaVersionMetadataCommand,
   PutWorkflowRunPropertiesCommand,
   QuerySchemaVersionMetadataCommand,
+  RegisterConnectionTypeCommand,
   RegisterSchemaVersionCommand,
   RemoveSchemaVersionMetadataCommand,
   ResetJobBookmarkCommand,
@@ -2551,6 +2563,23 @@ export interface Glue {
     args: DeleteConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConnectionTypeCommand}
+   */
+  deleteConnectionType(
+    args: DeleteConnectionTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectionTypeCommandOutput>;
+  deleteConnectionType(
+    args: DeleteConnectionTypeCommandInput,
+    cb: (err: any, data?: DeleteConnectionTypeCommandOutput) => void
+  ): void;
+  deleteConnectionType(
+    args: DeleteConnectionTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectionTypeCommandOutput) => void
   ): void;
 
   /**
@@ -5045,6 +5074,23 @@ export interface Glue {
     args: QuerySchemaVersionMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: QuerySchemaVersionMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterConnectionTypeCommand}
+   */
+  registerConnectionType(
+    args: RegisterConnectionTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterConnectionTypeCommandOutput>;
+  registerConnectionType(
+    args: RegisterConnectionTypeCommandInput,
+    cb: (err: any, data?: RegisterConnectionTypeCommandOutput) => void
+  ): void;
+  registerConnectionType(
+    args: RegisterConnectionTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterConnectionTypeCommandOutput) => void
   ): void;
 
   /**

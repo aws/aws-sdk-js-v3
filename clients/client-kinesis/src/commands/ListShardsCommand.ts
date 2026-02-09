@@ -63,6 +63,7 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  *     Timestamp: new Date("TIMESTAMP"),
  *   },
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new ListShardsCommand(input);
  * const response = await client.send(command);
@@ -133,6 +134,7 @@ export class ListShardsCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

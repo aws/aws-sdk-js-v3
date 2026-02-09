@@ -43,6 +43,7 @@ export interface CreateProvisioningProfileCommandOutput extends CreateProvisioni
  * const input = { // CreateProvisioningProfileRequest
  *   ProvisioningType: "FLEET_PROVISIONING" || "JITR", // required
  *   CaCertificate: "STRING_VALUE",
+ *   ClaimCertificate: "STRING_VALUE",
  *   Name: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   Tags: { // TagsMap

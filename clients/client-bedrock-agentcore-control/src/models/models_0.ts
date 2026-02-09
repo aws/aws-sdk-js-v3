@@ -8,6 +8,7 @@ import {
   ApiKeyCredentialLocation,
   AuthorizerType,
   BrowserNetworkMode,
+  BrowserProfileStatus,
   BrowserStatus,
   ClaimMatchOperatorType,
   CodeInterpreterNetworkMode,
@@ -37,8 +38,6 @@ import {
   OverrideType,
   PolicyEngineStatus,
   PolicyGenerationStatus,
-  PolicyStatus,
-  PolicyValidationMode,
   ResourceType,
   RestApiMethod,
   SearchType,
@@ -1213,7 +1212,7 @@ export interface ListAgentRuntimesRequest {
 }
 
 /**
- * <p>Contains information about an agent runtime. An agent runtime is the execution environment for a Amazon Bedrock Agent.</p>
+ * <p>Contains information about an agent runtime. An agent runtime is the execution environment for a Amazon Bedrock AgentCore Agent.</p>
  * @public
  */
 export interface AgentRuntime {
@@ -1672,6 +1671,292 @@ export interface UpdateApiKeyCredentialProviderResponse {
 }
 
 /**
+ * @public
+ */
+export interface CreateBrowserProfileRequest {
+  /**
+   * <p>The name of the browser profile. The name must be unique within your account and can contain alphanumeric characters and underscores.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the browser profile. Use this field to describe the purpose or contents of the profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the browser profile. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBrowserProfileResponse {
+  /**
+   * <p>The unique identifier of the created browser profile.</p>
+   * @public
+   */
+  profileId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created browser profile.</p>
+   * @public
+   */
+  profileArn: string | undefined;
+
+  /**
+   * <p>The timestamp when the browser profile was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The current status of the browser profile.</p>
+   * @public
+   */
+  status: BrowserProfileStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBrowserProfileRequest {
+  /**
+   * <p>The unique identifier of the browser profile to delete.</p>
+   * @public
+   */
+  profileId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBrowserProfileResponse {
+  /**
+   * <p>The unique identifier of the deleted browser profile.</p>
+   * @public
+   */
+  profileId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted browser profile.</p>
+   * @public
+   */
+  profileArn: string | undefined;
+
+  /**
+   * <p>The current status of the browser profile deletion.</p>
+   * @public
+   */
+  status: BrowserProfileStatus | undefined;
+
+  /**
+   * <p>The timestamp when the browser profile was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when browser session data was last saved to this profile before deletion.</p>
+   * @public
+   */
+  lastSavedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBrowserProfileRequest {
+  /**
+   * <p>The unique identifier of the browser profile to retrieve.</p>
+   * @public
+   */
+  profileId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBrowserProfileResponse {
+  /**
+   * <p>The unique identifier of the browser profile.</p>
+   * @public
+   */
+  profileId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the browser profile.</p>
+   * @public
+   */
+  profileArn: string | undefined;
+
+  /**
+   * <p>The name of the browser profile.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the browser profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The current status of the browser profile.</p>
+   * @public
+   */
+  status: BrowserProfileStatus | undefined;
+
+  /**
+   * <p>The timestamp when the browser profile was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the browser profile was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when browser session data was last saved to this profile.</p>
+   * @public
+   */
+  lastSavedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the browser session from which data was last saved to this profile.</p>
+   * @public
+   */
+  lastSavedBrowserSessionId?: string | undefined;
+
+  /**
+   * <p>The identifier of the browser from which data was last saved to this profile.</p>
+   * @public
+   */
+  lastSavedBrowserId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBrowserProfilesRequest {
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a browser profile. A browser profile stores persistent browser data that can be reused across browser sessions.</p>
+ * @public
+ */
+export interface BrowserProfileSummary {
+  /**
+   * <p>The unique identifier of the browser profile.</p>
+   * @public
+   */
+  profileId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the browser profile.</p>
+   * @public
+   */
+  profileArn: string | undefined;
+
+  /**
+   * <p>The name of the browser profile.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the browser profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The current status of the browser profile. Possible values include READY, SAVING, DELETING, and DELETED.</p>
+   * @public
+   */
+  status: BrowserProfileStatus | undefined;
+
+  /**
+   * <p>The timestamp when the browser profile was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the browser profile was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when browser session data was last saved to this profile.</p>
+   * @public
+   */
+  lastSavedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the browser session from which data was last saved to this profile.</p>
+   * @public
+   */
+  lastSavedBrowserSessionId?: string | undefined;
+
+  /**
+   * <p>The identifier of the browser from which data was last saved to this profile.</p>
+   * @public
+   */
+  lastSavedBrowserId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBrowserProfilesResponse {
+  /**
+   * <p>The list of browser profile summaries.</p>
+   * @public
+   */
+  profileSummaries: BrowserProfileSummary[] | undefined;
+
+  /**
+   * <p>A token to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>Configuration for enabling browser signing capabilities that allow agents to cryptographically identify themselves to websites using HTTP message signatures.</p>
  * @public
  */
@@ -1760,7 +2045,7 @@ export interface CreateBrowserRequest {
   browserSigning?: BrowserSigningConfigInput | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1965,7 +2250,7 @@ export interface ListBrowsersRequest {
 }
 
 /**
- * <p>Contains summary information about a browser. A browser enables Amazon Bedrock Agent to interact with web content.</p>
+ * <p>Contains summary information about a browser. A browser enables Amazon Bedrock AgentCore Agent to interact with web content.</p>
  * @public
  */
 export interface BrowserSummary {
@@ -2076,7 +2361,7 @@ export interface CreateCodeInterpreterRequest {
   networkConfiguration: CodeInterpreterNetworkConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2257,7 +2542,7 @@ export interface ListCodeInterpretersRequest {
 }
 
 /**
- * <p>Contains summary information about a code interpreter. A code interpreter enables Amazon Bedrock Agent to execute code.</p>
+ * <p>Contains summary information about a code interpreter. A code interpreter enables Amazon Bedrock AgentCore Agent to execute code.</p>
  * @public
  */
 export interface CodeInterpreterSummary {
@@ -9158,413 +9443,4 @@ export interface ListPolicyGenerationsResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>Represents content input for policy generation operations. This structure encapsulates the natural language descriptions or other content formats that are used as input for AI-powered policy generation.</p>
- * @public
- */
-export type Content =
-  | Content.RawTextMember
-  | Content.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Content {
-  /**
-   * <p>The raw text content containing natural language descriptions of desired policy behavior. This text is processed by AI to generate corresponding Cedar policy statements that match the described intent.</p>
-   * @public
-   */
-  export interface RawTextMember {
-    rawText: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    rawText?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    rawText: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface StartPolicyGenerationRequest {
-  /**
-   * <p>The identifier of the policy engine that provides the context for policy generation. This engine's schema and tool context are used to ensure generated policies are valid and applicable.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The resource information that provides context for policy generation. This helps the AI understand the target resources and generate appropriate access control rules.</p>
-   * @public
-   */
-  resource: Resource | undefined;
-
-  /**
-   * <p>The natural language description of the desired policy behavior. This content is processed by AI to generate corresponding Cedar policy statements that match the described intent.</p>
-   * @public
-   */
-  content: Content | undefined;
-
-  /**
-   * <p>A customer-assigned name for the policy generation request. This helps track and identify generation operations, especially when running multiple generations simultaneously.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure the idempotency of the request. The AWS SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without starting a duplicate generation.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartPolicyGenerationResponse {
-  /**
-   * <p>The identifier of the policy engine associated with the started policy generation. </p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier assigned to the policy generation request for tracking progress. </p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name for the policy generation request.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ARN of the created policy generation request.</p>
-   * @public
-   */
-  policyGenerationArn: string | undefined;
-
-  /**
-   * <p>The resource information associated with the policy generation request.</p>
-   * @public
-   */
-  resource: Resource | undefined;
-
-  /**
-   * <p>The timestamp when the policy generation request was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy generation was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The initial status of the policy generation request.</p>
-   * @public
-   */
-  status: PolicyGenerationStatus | undefined;
-
-  /**
-   * <p>Additional information about the generation status.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
-   * <p>Initial findings from the policy generation process.</p>
-   * @public
-   */
-  findings?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePolicyRequest {
-  /**
-   * <p>The customer-assigned immutable name for the policy. Must be unique within the account. This name is used for policy identification and cannot be changed after creation.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic written in Cedar policy language, specifying effect (permit or forbid), principals, actions, resources, and conditions for agent behavior control.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>A human-readable description of the policy's purpose and functionality (1-4,096 characters). This helps policy administrators understand the policy's intent, business rules, and operational scope. Use this field to document why the policy exists, what business requirement it addresses, and any special considerations for maintenance. Clear descriptions are essential for policy governance, auditing, and troubleshooting.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The validation mode for the policy creation. Determines how Cedar analyzer validation results are handled during policy creation. FAIL_ON_ANY_FINDINGS (default) runs the Cedar analyzer to validate the policy against the Cedar schema and tool context, failing creation if the analyzer detects any validation issues to ensure strict conformance. IGNORE_ALL_FINDINGS runs the Cedar analyzer but allows policy creation even if validation issues are detected, useful for testing or when the policy schema is evolving. Use FAIL_ON_ANY_FINDINGS for production policies to ensure correctness, and IGNORE_ALL_FINDINGS only when you understand and accept the analyzer findings.</p>
-   * @public
-   */
-  validationMode?: PolicyValidationMode | undefined;
-
-  /**
-   * <p>The identifier of the policy engine which contains this policy. Policy engines group related policies and provide the execution context for policy evaluation.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure the idempotency of the request. The AWS SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without creating a duplicate policy.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePolicyResponse {
-  /**
-   * <p>The unique identifier for the created policy. This is a system-generated identifier consisting of the user name plus a 10-character generated suffix, used for all subsequent policy operations.</p>
-   * @public
-   */
-  policyId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the created policy. This matches the name provided in the request and serves as the human-readable identifier for the policy.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine that manages this policy. This confirms the policy engine assignment and is used for policy evaluation routing.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The Cedar policy statement that was created. This is the validated policy definition that will be used for agent behavior control and access decisions.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy was created. This is automatically set by the service and used for auditing and lifecycle management.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy was last updated. For newly created policies, this matches the createdAt timestamp.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created policy. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
-   * @public
-   */
-  policyArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy. A status of <code>ACTIVE</code> indicates the policy is ready for use.</p>
-   * @public
-   */
-  status: PolicyStatus | undefined;
-
-  /**
-   * <p>Additional information about the policy status. This provides details about any failures or the current state of the policy creation process.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePolicyRequest {
-  /**
-   * <p>The identifier of the policy engine that manages the policy to be deleted. This ensures the policy is deleted from the correct policy engine context.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the policy to be deleted. This must be a valid policy ID that exists within the specified policy engine.</p>
-   * @public
-   */
-  policyId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePolicyResponse {
-  /**
-   * <p>The unique identifier of the policy being deleted. This confirms which policy the deletion operation targets.</p>
-   * @public
-   */
-  policyId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the deleted policy. This confirms which policy was successfully removed from the system and matches the name that was originally assigned during policy creation.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine from which the policy was deleted. This confirms the policy engine context for the deletion operation.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>The human-readable description of the deleted policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the deleted policy was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the deleted policy was last modified before deletion. This tracks the final state of the policy before it was removed from the system.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deleted policy. This globally unique identifier confirms which policy resource was successfully removed.</p>
-   * @public
-   */
-  policyArn: string | undefined;
-
-  /**
-   * <p>The status of the policy deletion operation. This provides information about any issues that occurred during the deletion process.</p>
-   * @public
-   */
-  status: PolicyStatus | undefined;
-
-  /**
-   * <p>Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyRequest {
-  /**
-   * <p>The identifier of the policy engine that manages the policy to be retrieved.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the policy to be retrieved. This must be a valid policy ID that exists within the specified policy engine.</p>
-   * @public
-   */
-  policyId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyResponse {
-  /**
-   * <p>The unique identifier of the retrieved policy. This matches the policy ID provided in the request and serves as the system identifier for the policy.</p>
-   * @public
-   */
-  policyId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the policy. This is the human-readable identifier that was specified when the policy was created.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine that manages this policy. This confirms the policy engine context for the retrieved policy.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy was last modified. This tracks the most recent changes to the policy configuration.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
-   * @public
-   */
-  policyArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy.</p>
-   * @public
-   */
-  status: PolicyStatus | undefined;
-
-  /**
-   * <p>Additional information about the policy status. This provides details about any failures or the current state of the policy.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
 }

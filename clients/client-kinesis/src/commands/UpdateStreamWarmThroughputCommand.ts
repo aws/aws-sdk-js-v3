@@ -55,6 +55,7 @@ export interface UpdateStreamWarmThroughputCommandOutput extends UpdateStreamWar
  * const input = { // UpdateStreamWarmThroughputInput
  *   StreamARN: "STRING_VALUE",
  *   StreamName: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  *   WarmThroughputMiBps: Number("int"), // required
  * };
  * const command = new UpdateStreamWarmThroughputCommand(input);
@@ -118,6 +119,7 @@ export class UpdateStreamWarmThroughputCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

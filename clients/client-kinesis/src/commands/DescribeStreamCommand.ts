@@ -65,6 +65,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  *   Limit: Number("int"),
  *   ExclusiveStartShardId: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);
@@ -147,6 +148,7 @@ export class DescribeStreamCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

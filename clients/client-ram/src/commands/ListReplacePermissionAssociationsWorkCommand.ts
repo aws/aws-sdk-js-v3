@@ -32,6 +32,13 @@ export interface ListReplacePermissionAssociationsWorkCommandOutput extends List
 /**
  * <p>Retrieves the current status of the asynchronous tasks performed by RAM when you
  *             perform the <a>ReplacePermissionAssociationsWork</a> operation.</p>
+ *          <note>
+ *             <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value
+ * when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more
+ * results available. The <code>NextToken</code> response parameter value is <code>null</code>
+ *                <i>only</i>
+ * when there are no more results to display.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

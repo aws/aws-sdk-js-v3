@@ -477,6 +477,24 @@ export interface UpdateAgreementResponse {
 }
 
 /**
+ * <p>Contains the configuration details for asynchronous Message Disposition Notification (MDN) responses in AS2 connectors. This configuration specifies where asynchronous MDN responses should be sent and which servers should handle them.</p>
+ * @public
+ */
+export interface As2AsyncMdnConnectorConfig {
+  /**
+   * <p>The URL endpoint where asynchronous MDN responses should be sent.</p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>A list of server identifiers that can handle asynchronous MDN responses. You can specify between 1 and 10 server IDs.</p>
+   * @public
+   */
+  ServerIds?: string[] | undefined;
+}
+
+/**
  * <p>Contains the details for an AS2 connector object. The connector object is used for AS2 outbound processes, to connect the Transfer Family customer with the trading partner.</p>
  * @public
  */
@@ -540,6 +558,12 @@ export interface As2ConnectorConfig {
    * @public
    */
   PreserveContentType?: PreserveContentType | undefined;
+
+  /**
+   * <p>Configuration settings for asynchronous Message Disposition Notification (MDN) responses. This allows you to configure where asynchronous MDN responses should be sent and which servers should handle them.</p>
+   * @public
+   */
+  AsyncMdnConfig?: As2AsyncMdnConnectorConfig | undefined;
 }
 
 /**
@@ -2406,6 +2430,24 @@ export interface CreateWorkflowResponse {
    * @public
    */
   WorkflowId: string | undefined;
+}
+
+/**
+ * <p>Represents a custom HTTP header that can be included in AS2 messages. Each header consists of a key-value pair.</p>
+ * @public
+ */
+export interface CustomHttpHeader {
+  /**
+   * <p>The name of the custom HTTP header.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The value of the custom HTTP header.</p>
+   * @public
+   */
+  Value?: string | undefined;
 }
 
 /**
@@ -4821,6 +4863,12 @@ export interface StartFileTransferRequest {
    * @public
    */
   RemoteDirectoryPath?: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs that represent custom HTTP headers to include in AS2 messages. These headers are added to the AS2 message when sending files to your trading partner.</p>
+   * @public
+   */
+  CustomHttpHeaders?: CustomHttpHeader[] | undefined;
 }
 
 /**

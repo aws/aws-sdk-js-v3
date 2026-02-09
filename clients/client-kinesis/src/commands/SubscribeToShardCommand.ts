@@ -60,6 +60,7 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * const client = new KinesisClient(config);
  * const input = { // SubscribeToShardInput
  *   ConsumerARN: "STRING_VALUE", // required
+ *   StreamId: "STRING_VALUE",
  *   ShardId: "STRING_VALUE", // required
  *   StartingPosition: { // StartingPosition
  *     Type: "AT_SEQUENCE_NUMBER" || "AFTER_SEQUENCE_NUMBER" || "TRIM_HORIZON" || "LATEST" || "AT_TIMESTAMP", // required
@@ -171,6 +172,7 @@ export class SubscribeToShardCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `data` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     ConsumerARN: { type: "contextParams", name: "ConsumerARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

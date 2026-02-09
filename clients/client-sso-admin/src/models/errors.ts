@@ -82,30 +82,24 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a requested resource is not found.</p>
+ * <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
  * @public
  */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name = "ResourceNotFoundException" as const;
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the resource not found exception.</p>
-   * @public
-   */
-  Reason?: ResourceNotFoundExceptionReason | undefined;
-  /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
     super({
-      name: "ResourceNotFoundException",
+      name: "ServiceQuotaExceededException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     this.Message = opts.Message;
-    this.Reason = opts.Reason;
   }
 }
 
@@ -166,23 +160,29 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+ * <p>Indicates that a requested resource is not found.</p>
  * @public
  */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name = "ServiceQuotaExceededException" as const;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
+   * <p>The reason for the resource not found exception.</p>
+   * @public
+   */
+  Reason?: ResourceNotFoundExceptionReason | undefined;
+  /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
     super({
-      name: "ServiceQuotaExceededException",
+      name: "ResourceNotFoundException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.Message = opts.Message;
+    this.Reason = opts.Reason;
   }
 }

@@ -168,6 +168,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * //       },
  * //     },
  * //   ],
+ * //   totalCount: Number("long"),
  * // };
  *
  * ```

@@ -3,6 +3,7 @@ import { StreamingBlobTypes } from "@smithy/types";
 
 import {
   AcceptHeader,
+  Algorithm,
   BlackoutSlateNetworkEndBlackout,
   BlackoutSlateState,
   ChannelClass,
@@ -68,7 +69,9 @@ import {
   type AnywhereSettings,
   type AvailBlanking,
   type AvailConfiguration,
+  type BatchScheduleActionCreateRequest,
   type BatchScheduleActionCreateResult,
+  type BatchScheduleActionDeleteRequest,
   type BatchScheduleActionDeleteResult,
   type CdiInputSpecification,
   type ClusterNetworkSettings,
@@ -88,6 +91,8 @@ import {
   type SrtSettings,
   type VpcOutputSettingsDescription,
   AudioDescription,
+  BatchFailedResultModel,
+  BatchSuccessfulResultModel,
   CaptionDescription,
   ChannelAlert,
   ChannelEgressEndpoint,
@@ -152,6 +157,48 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_0";
+
+/**
+ * Placeholder documentation for BatchStopResponse
+ * @public
+ */
+export interface BatchStopResponse {
+  /**
+   * List of failed operations
+   * @public
+   */
+  Failed?: BatchFailedResultModel[] | undefined;
+
+  /**
+   * List of successful operations
+   * @public
+   */
+  Successful?: BatchSuccessfulResultModel[] | undefined;
+}
+
+/**
+ * List of actions to create and list of actions to delete.
+ * @public
+ */
+export interface BatchUpdateScheduleRequest {
+  /**
+   * Id of the channel whose schedule is being updated.
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * Schedule actions to create in the schedule.
+   * @public
+   */
+  Creates?: BatchScheduleActionCreateRequest | undefined;
+
+  /**
+   * Schedule actions to delete from the schedule.
+   * @public
+   */
+  Deletes?: BatchScheduleActionDeleteRequest | undefined;
+}
 
 /**
  * Placeholder documentation for BatchUpdateScheduleResponse
@@ -726,6 +773,12 @@ export interface Channel {
    * @public
    */
   LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
+
+  /**
+   * A list of IDs for all the Input Security Groups attached to the channel.
+   * @public
+   */
+  ChannelSecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -1003,6 +1056,12 @@ export interface CreateChannelRequest {
    * @public
    */
   LinkedChannelSettings?: LinkedChannelSettings | undefined;
+
+  /**
+   * A list of IDs for all the Input Security Groups attached to the channel.
+   * @public
+   */
+  ChannelSecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -1702,7 +1761,49 @@ export interface RouterSettings {
 }
 
 /**
- * Configures the sources for this SRT input. For a single-pipeline input, include one srtCallerSource in the array. For a standard-pipeline input, include two srtCallerSource.
+ * Decryption settings. If specified, both algorithm and passphraseSecretArn are required.
+ * @public
+ */
+export interface SrtListenerDecryptionRequest {
+  /**
+   * Required. The decryption algorithm.
+   * @public
+   */
+  Algorithm: Algorithm | undefined;
+
+  /**
+   * Required. The ARN for the secret in Secrets Manager that holds the passphrase.
+   * @public
+   */
+  PassphraseSecretArn: string | undefined;
+}
+
+/**
+ * Configuration for SRT Listener input. Encryption is REQUIRED for all SRT Listener inputs for security reasons. You must provide decryption settings including algorithm and passphrase secret ARN.
+ * @public
+ */
+export interface SrtListenerSettingsRequest {
+  /**
+   * Decryption settings. If specified, both algorithm and passphraseSecretArn are required.
+   * @public
+   */
+  Decryption: SrtListenerDecryptionRequest | undefined;
+
+  /**
+   * Required. The preferred latency in milliseconds for packet loss and recovery. Range 120-15000.
+   * @public
+   */
+  MinimumLatency: number | undefined;
+
+  /**
+   * Optional. The stream ID if the upstream system uses this identifier.
+   * @public
+   */
+  StreamId?: string | undefined;
+}
+
+/**
+ * Configures the settings for SRT inputs. Provide either srtCallerSources (for SRT_CALLER type) OR srtListenerSettings (for SRT_LISTENER type), not both.
  * @public
  */
 export interface SrtSettingsRequest {
@@ -1711,6 +1812,12 @@ export interface SrtSettingsRequest {
    * @public
    */
   SrtCallerSources?: SrtCallerSourceRequest[] | undefined;
+
+  /**
+   * Configuration for SRT Listener input. Encryption is REQUIRED for all SRT Listener inputs for security reasons. You must provide decryption settings including algorithm and passphrase secret ARN.
+   * @public
+   */
+  SrtListenerSettings?: SrtListenerSettingsRequest | undefined;
 }
 
 /**
@@ -3094,6 +3201,12 @@ export interface DeleteChannelResponse {
    * @public
    */
   LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
+
+  /**
+   * A list of IDs for all the Input Security Groups attached to the channel.
+   * @public
+   */
+  ChannelSecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -3960,6 +4073,12 @@ export interface DescribeChannelResponse {
    * @public
    */
   LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
+
+  /**
+   * A list of IDs for all the Input Security Groups attached to the channel.
+   * @public
+   */
+  ChannelSecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -4467,6 +4586,12 @@ export interface DescribeInputSecurityGroupResponse {
    * @public
    */
   WhitelistRules?: InputWhitelistRule[] | undefined;
+
+  /**
+   * The list of channels currently using this Input Security Group as their channel security group.
+   * @public
+   */
+  Channels?: string[] | undefined;
 }
 
 /**
@@ -6935,6 +7060,12 @@ export interface RestartChannelPipelinesResponse {
    * @public
    */
   LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
+
+  /**
+   * A list of IDs for all the Input Security Groups attached to the channel.
+   * @public
+   */
+  ChannelSecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -7081,6 +7212,12 @@ export interface StartChannelResponse {
    * @public
    */
   LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
+
+  /**
+   * A list of IDs for all the Input Security Groups attached to the channel.
+   * @public
+   */
+  ChannelSecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -7761,6 +7898,12 @@ export interface StopChannelResponse {
    * @public
    */
   LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
+
+  /**
+   * A list of IDs for all the Input Security Groups attached to the channel.
+   * @public
+   */
+  ChannelSecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -8007,6 +8150,12 @@ export interface UpdateChannelRequest {
    * @public
    */
   LinkedChannelSettings?: LinkedChannelSettings | undefined;
+
+  /**
+   * A list of IDs for all the Input Security Groups attached to the channel.
+   * @public
+   */
+  ChannelSecurityGroups?: string[] | undefined;
 }
 
 /**

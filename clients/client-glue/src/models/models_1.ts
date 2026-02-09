@@ -27,6 +27,7 @@ import {
   FieldDataType,
   FieldFilterOperator,
   FunctionType,
+  HTTPMethod,
   IcebergNullOrder,
   IcebergSortDirection,
   IcebergStructTypeEnum,
@@ -40,6 +41,8 @@ import {
   MetadataOperation,
   MLUserDataEncryptionModeString,
   PrincipalType,
+  PropertyLocation,
+  PropertyType,
   RegistryStatus,
   ResourceShareType,
   ResourceType,
@@ -49,11 +52,8 @@ import {
   SchemaVersionStatus,
   SessionStatus,
   SettingSource,
-  SortDirectionType,
   TableOptimizerType,
-  TaskRunSortColumnType,
   TaskStatusType,
-  TaskType,
   TransformType,
   TriggerType,
   UnnestSpec,
@@ -3134,6 +3134,22 @@ export interface DeleteConnectionResponse {}
 /**
  * @public
  */
+export interface DeleteConnectionTypeRequest {
+  /**
+   * <p>The name of the connection type to delete. Must reference an existing registered connection type.</p>
+   * @public
+   */
+  ConnectionType: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConnectionTypeResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteCrawlerRequest {
   /**
    * <p>The name of the crawler to remove.</p>
@@ -4000,6 +4016,270 @@ export interface ComputeEnvironmentConfiguration {
 }
 
 /**
+ * <p>Defines a field in an entity schema for REST connector data sources, specifying the field name and data type.</p>
+ * @public
+ */
+export interface FieldDefinition {
+  /**
+   * <p>The name of the field in the entity schema.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The data type of the field.</p>
+   * @public
+   */
+  FieldDataType: FieldDataType | undefined;
+}
+
+/**
+ * <p>Configuration that defines how to extract values from HTTP response content or headers for use in subsequent requests or parameter mapping.</p>
+ * @public
+ */
+export interface ResponseExtractionMapping {
+  /**
+   * <p>A JSON path expression that specifies how to extract a value from the response body content.</p>
+   * @public
+   */
+  ContentPath?: string | undefined;
+
+  /**
+   * <p>The name of an HTTP response header from which to extract the value.</p>
+   * @public
+   */
+  HeaderKey?: string | undefined;
+}
+
+/**
+ * <p>Parameter extraction configuration that defines how to extract and map values from API responses to request parameters.</p>
+ * @public
+ */
+export interface ExtractedParameter {
+  /**
+   * <p>The parameter key name that will be used in subsequent requests.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The default value to use if the parameter cannot be extracted from the response.</p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
+
+  /**
+   * <p>Specifies where this extracted parameter should be placed in subsequent requests, such as in headers, query parameters, or request body.</p>
+   * @public
+   */
+  PropertyLocation?: PropertyLocation | undefined;
+
+  /**
+   * <p>The JSON path or extraction mapping that defines how to extract the parameter value from API responses.</p>
+   * @public
+   */
+  Value?: ResponseExtractionMapping | undefined;
+}
+
+/**
+ * <p>Cursor-based pagination configuration that defines how to handle pagination using cursor tokens or next page identifiers.</p>
+ * @public
+ */
+export interface CursorConfiguration {
+  /**
+   * <p>The parameter name or JSON path that contains the cursor or token for retrieving the next page of results.</p>
+   * @public
+   */
+  NextPage: ExtractedParameter | undefined;
+
+  /**
+   * <p>The parameter name used to specify the maximum number of results to return per page.</p>
+   * @public
+   */
+  LimitParameter?: ExtractedParameter | undefined;
+}
+
+/**
+ * <p>Offset-based pagination configuration that defines how to handle pagination using numeric offsets and limits.</p>
+ * @public
+ */
+export interface OffsetConfiguration {
+  /**
+   * <p>The parameter name used to specify the starting position or offset for retrieving results.</p>
+   * @public
+   */
+  OffsetParameter: ExtractedParameter | undefined;
+
+  /**
+   * <p>The parameter name used to specify the maximum number of results to return per page.</p>
+   * @public
+   */
+  LimitParameter: ExtractedParameter | undefined;
+}
+
+/**
+ * <p>Configuration that defines how to handle paginated responses from REST APIs, supporting different pagination strategies used by various services.</p>
+ * @public
+ */
+export interface PaginationConfiguration {
+  /**
+   * <p>Configuration for cursor-based pagination, where the API provides a cursor or token to retrieve the next page of results.</p>
+   * @public
+   */
+  CursorConfiguration?: CursorConfiguration | undefined;
+
+  /**
+   * <p>Configuration for offset-based pagination, where the API uses numeric offsets and limits to control which results are returned.</p>
+   * @public
+   */
+  OffsetConfiguration?: OffsetConfiguration | undefined;
+}
+
+/**
+ * <p>Defines a property configuration for connection types, default values, and where the property should be used in requests.</p>
+ * @public
+ */
+export interface ConnectorProperty {
+  /**
+   * <p>The name of the property.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A key name to use when sending this property in API requests, if different from the display name.</p>
+   * @public
+   */
+  KeyOverride?: string | undefined;
+
+  /**
+   * <p>Indicates whether the property is required.</p>
+   * @public
+   */
+  Required: boolean | undefined;
+
+  /**
+   * <p>The default value for the property.</p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
+
+  /**
+   * <p>A list of <code>AllowedValue</code> objects representing the values allowed for the property.</p>
+   * @public
+   */
+  AllowedValues?: string[] | undefined;
+
+  /**
+   * <p>Specifies where this property should be included in REST requests, such as in headers, query parameters, or request body.</p>
+   * @public
+   */
+  PropertyLocation?: PropertyLocation | undefined;
+
+  /**
+   * <p>The data type of this property</p>
+   * @public
+   */
+  PropertyType: PropertyType | undefined;
+}
+
+/**
+ * <p>Configuration that defines how to parse JSON responses from REST API calls, including paths to result data and error information.</p>
+ * @public
+ */
+export interface ResponseConfiguration {
+  /**
+   * <p>The JSON path expression that identifies where the actual result data is located within the API response.</p>
+   * @public
+   */
+  ResultPath: string | undefined;
+
+  /**
+   * <p>The JSON path expression that identifies where error information is located within API responses when requests fail.</p>
+   * @public
+   */
+  ErrorPath?: string | undefined;
+}
+
+/**
+ * <p>Configuration that defines how to make requests to endpoints, including request methods, paths, parameters, and response handling.</p>
+ * @public
+ */
+export interface SourceConfiguration {
+  /**
+   * <p>The HTTP method to use for requests to this endpoint, such as GET, POST.</p>
+   * @public
+   */
+  RequestMethod?: HTTPMethod | undefined;
+
+  /**
+   * <p>The URL path for the REST endpoint, which may include parameter placeholders that will be replaced with actual values during requests.</p>
+   * @public
+   */
+  RequestPath?: string | undefined;
+
+  /**
+   * <p>Configuration for request parameters that should be included in API calls, such as query parameters, headers, or body content.</p>
+   * @public
+   */
+  RequestParameters?: ConnectorProperty[] | undefined;
+
+  /**
+   * <p>Configuration that defines how to parse and extract data from API responses, including success and error handling.</p>
+   * @public
+   */
+  ResponseConfiguration?: ResponseConfiguration | undefined;
+
+  /**
+   * <p>Configuration for handling paginated responses from the REST API, supporting both cursor-based and offset-based pagination strategies.</p>
+   * @public
+   */
+  PaginationConfiguration?: PaginationConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration that defines how to interact with a specific data entity through the REST API, including its access patterns and schema definition.</p>
+ * @public
+ */
+export interface EntityConfiguration {
+  /**
+   * <p>The source configuration that defines how to make requests to access this entity's data through the REST API.</p>
+   * @public
+   */
+  SourceConfiguration?: SourceConfiguration | undefined;
+
+  /**
+   * <p>The schema definition for this entity, including field names, types, and other metadata that describes the structure of the data.</p>
+   * @public
+   */
+  Schema?: Record<string, FieldDefinition> | undefined;
+}
+
+/**
+ * <p>Configuration that defines HTTP request and response handling, validation endpoints, and entity configurations for REST API interactions.</p>
+ * @public
+ */
+export interface RestConfiguration {
+  /**
+   * <p>Global configuration settings that apply to all REST API requests for this connection type, including common request methods, paths, and parameters.</p>
+   * @public
+   */
+  GlobalSourceConfiguration?: SourceConfiguration | undefined;
+
+  /**
+   * <p>Configuration for the endpoint used to validate connection credentials and test connectivity during connection creation.</p>
+   * @public
+   */
+  ValidationEndpointConfiguration?: SourceConfiguration | undefined;
+
+  /**
+   * <p>A map of entity configurations that define how to interact with different data entities available through the REST API, including their schemas and access patterns.</p>
+   * @public
+   */
+  EntityConfigurations?: Record<string, EntityConfiguration> | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribeConnectionTypeResponse {
@@ -4068,6 +4348,12 @@ export interface DescribeConnectionTypeResponse {
    * @public
    */
   SparkConnectionProperties?: Record<string, Property> | undefined;
+
+  /**
+   * <p>HTTP request and response configuration, validation endpoint, and entity configurations for REST based data source.</p>
+   * @public
+   */
+  RestConfiguration?: RestConfiguration | undefined;
 }
 
 /**
@@ -8264,425 +8550,4 @@ export interface FindMatchesTaskRunProperties {
    * @public
    */
   JobRunId?: string | undefined;
-}
-
-/**
- * <p>Specifies configuration properties for an importing labels task run.</p>
- * @public
- */
-export interface ImportLabelsTaskRunProperties {
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path from where you will import the
-   *       labels.</p>
-   * @public
-   */
-  InputS3Path?: string | undefined;
-
-  /**
-   * <p>Indicates whether to overwrite your existing labels.</p>
-   * @public
-   */
-  Replace?: boolean | undefined;
-}
-
-/**
- * <p>Specifies configuration properties for a labeling set generation task run.</p>
- * @public
- */
-export interface LabelingSetGenerationTaskRunProperties {
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) path where you will generate the labeling
-   *       set.</p>
-   * @public
-   */
-  OutputS3Path?: string | undefined;
-}
-
-/**
- * <p>The configuration properties for the task run.</p>
- * @public
- */
-export interface TaskRunProperties {
-  /**
-   * <p>The type of task run.</p>
-   * @public
-   */
-  TaskType?: TaskType | undefined;
-
-  /**
-   * <p>The configuration properties for an importing labels task run.</p>
-   * @public
-   */
-  ImportLabelsTaskRunProperties?: ImportLabelsTaskRunProperties | undefined;
-
-  /**
-   * <p>The configuration properties for an exporting labels task run.</p>
-   * @public
-   */
-  ExportLabelsTaskRunProperties?: ExportLabelsTaskRunProperties | undefined;
-
-  /**
-   * <p>The configuration properties for a labeling set generation task run.</p>
-   * @public
-   */
-  LabelingSetGenerationTaskRunProperties?: LabelingSetGenerationTaskRunProperties | undefined;
-
-  /**
-   * <p>The configuration properties for a find matches task run.</p>
-   * @public
-   */
-  FindMatchesTaskRunProperties?: FindMatchesTaskRunProperties | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMLTaskRunResponse {
-  /**
-   * <p>The unique identifier of the task run.</p>
-   * @public
-   */
-  TransformId?: string | undefined;
-
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  TaskRunId?: string | undefined;
-
-  /**
-   * <p>The status for this task run.</p>
-   * @public
-   */
-  Status?: TaskStatusType | undefined;
-
-  /**
-   * <p>The names of the log groups that are associated with the task run.</p>
-   * @public
-   */
-  LogGroupName?: string | undefined;
-
-  /**
-   * <p>The list of properties that are associated with the task run.</p>
-   * @public
-   */
-  Properties?: TaskRunProperties | undefined;
-
-  /**
-   * <p>The error strings that are associated with the task run.</p>
-   * @public
-   */
-  ErrorString?: string | undefined;
-
-  /**
-   * <p>The date and time when this task run started.</p>
-   * @public
-   */
-  StartedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when this task run was last modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when this task run was completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>The amount of time (in seconds) that the task run consumed resources.</p>
-   * @public
-   */
-  ExecutionTime?: number | undefined;
-}
-
-/**
- * <p>The criteria that are used to filter the task runs for the machine learning
- *       transform.</p>
- * @public
- */
-export interface TaskRunFilterCriteria {
-  /**
-   * <p>The type of task run.</p>
-   * @public
-   */
-  TaskRunType?: TaskType | undefined;
-
-  /**
-   * <p>The current status of the task run.</p>
-   * @public
-   */
-  Status?: TaskStatusType | undefined;
-
-  /**
-   * <p>Filter on task runs started before this date.</p>
-   * @public
-   */
-  StartedBefore?: Date | undefined;
-
-  /**
-   * <p>Filter on task runs started after this date.</p>
-   * @public
-   */
-  StartedAfter?: Date | undefined;
-}
-
-/**
- * <p>The sorting criteria that are used to sort the list of task runs for the machine learning
- *       transform.</p>
- * @public
- */
-export interface TaskRunSortCriteria {
-  /**
-   * <p>The column to be used to sort the list of task runs for the machine learning
-   *       transform.</p>
-   * @public
-   */
-  Column: TaskRunSortColumnType | undefined;
-
-  /**
-   * <p>The sort direction to be used to sort the list of task runs for the machine learning
-   *       transform.</p>
-   * @public
-   */
-  SortDirection: SortDirectionType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMLTaskRunsRequest {
-  /**
-   * <p>The unique identifier of the machine learning transform.</p>
-   * @public
-   */
-  TransformId: string | undefined;
-
-  /**
-   * <p>A token for pagination of the results. The default is empty.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The filter criteria, in the <code>TaskRunFilterCriteria</code> structure, for the task run.</p>
-   * @public
-   */
-  Filter?: TaskRunFilterCriteria | undefined;
-
-  /**
-   * <p>The sorting criteria, in the <code>TaskRunSortCriteria</code> structure, for the task run.</p>
-   * @public
-   */
-  Sort?: TaskRunSortCriteria | undefined;
-}
-
-/**
- * <p>The sampling parameters that are associated with the machine learning transform.</p>
- * @public
- */
-export interface TaskRun {
-  /**
-   * <p>The unique identifier for the transform.</p>
-   * @public
-   */
-  TransformId?: string | undefined;
-
-  /**
-   * <p>The unique identifier for this task run.</p>
-   * @public
-   */
-  TaskRunId?: string | undefined;
-
-  /**
-   * <p>The current status of the requested task run.</p>
-   * @public
-   */
-  Status?: TaskStatusType | undefined;
-
-  /**
-   * <p>The names of the log group for secure logging, associated with this task run.</p>
-   * @public
-   */
-  LogGroupName?: string | undefined;
-
-  /**
-   * <p>Specifies configuration properties associated with this task run.</p>
-   * @public
-   */
-  Properties?: TaskRunProperties | undefined;
-
-  /**
-   * <p>The list of error strings associated with this task run.</p>
-   * @public
-   */
-  ErrorString?: string | undefined;
-
-  /**
-   * <p>The date and time that this task run started.</p>
-   * @public
-   */
-  StartedOn?: Date | undefined;
-
-  /**
-   * <p>The last point in time that the requested task run was updated.</p>
-   * @public
-   */
-  LastModifiedOn?: Date | undefined;
-
-  /**
-   * <p>The last point in time that the requested task run was completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>The amount of time (in seconds) that the task run consumed resources.</p>
-   * @public
-   */
-  ExecutionTime?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMLTaskRunsResponse {
-  /**
-   * <p>A list of task runs that are associated with the transform.</p>
-   * @public
-   */
-  TaskRuns?: TaskRun[] | undefined;
-
-  /**
-   * <p>A pagination token, if more results are available.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMLTransformRequest {
-  /**
-   * <p>The unique identifier of the transform, generated at the time that the transform was
-   *       created.</p>
-   * @public
-   */
-  TransformId: string | undefined;
-}
-
-/**
- * <p>A structure containing the column name and column importance score for a column. </p>
- *          <p>Column importance helps you understand how columns contribute to your model, by identifying which columns in your records are more important than others.</p>
- * @public
- */
-export interface ColumnImportance {
-  /**
-   * <p>The name of a column.</p>
-   * @public
-   */
-  ColumnName?: string | undefined;
-
-  /**
-   * <p>The column importance score for the column, as a decimal.</p>
-   * @public
-   */
-  Importance?: number | undefined;
-}
-
-/**
- * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
- *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
- * @public
- */
-export interface ConfusionMatrix {
-  /**
-   * <p>The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.</p>
-   * @public
-   */
-  NumTruePositives?: number | undefined;
-
-  /**
-   * <p>The number of nonmatches in the data that the transform incorrectly classified as a match,
-   *       in the confusion matrix for your transform.</p>
-   * @public
-   */
-  NumFalsePositives?: number | undefined;
-
-  /**
-   * <p>The number of nonmatches in the data that the transform correctly rejected, in the
-   *       confusion matrix for your transform.</p>
-   * @public
-   */
-  NumTrueNegatives?: number | undefined;
-
-  /**
-   * <p>The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.</p>
-   * @public
-   */
-  NumFalseNegatives?: number | undefined;
-}
-
-/**
- * <p>The evaluation metrics for the find matches algorithm. The quality of your machine
- *       learning transform is measured by getting your transform to predict some matches and comparing
- *       the results to known matches from the same dataset. The quality metrics are based on a subset
- *       of your data, so they are not precise.</p>
- * @public
- */
-export interface FindMatchesMetrics {
-  /**
-   * <p>The area under the precision/recall curve (AUPRC) is a single number measuring the overall
-   *       quality of the transform, that is independent of the choice made for precision vs. recall.
-   *       Higher values indicate that you have a more attractive precision vs. recall tradeoff.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   * @public
-   */
-  AreaUnderPRCurve?: number | undefined;
-
-  /**
-   * <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   * @public
-   */
-  Precision?: number | undefined;
-
-  /**
-   * <p>The recall metric indicates that for an actual match, how often your transform predicts
-   *       the match. Specifically, it measures how well the transform finds true positives from the
-   *       total records in the source data.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   * @public
-   */
-  Recall?: number | undefined;
-
-  /**
-   * <p>The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a> in Wikipedia.</p>
-   * @public
-   */
-  F1?: number | undefined;
-
-  /**
-   * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
-   * @public
-   */
-  ConfusionMatrix?: ConfusionMatrix | undefined;
-
-  /**
-   * <p>A list of <code>ColumnImportance</code> structures containing column importance metrics, sorted in order of descending importance.</p>
-   * @public
-   */
-  ColumnImportances?: ColumnImportance[] | undefined;
 }

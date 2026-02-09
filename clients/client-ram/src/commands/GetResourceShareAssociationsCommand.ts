@@ -29,6 +29,13 @@ export interface GetResourceShareAssociationsCommandOutput extends GetResourceSh
 /**
  * <p>Retrieves the lists of resources and principals that associated for resource shares that you
  *             own.</p>
+ *          <note>
+ *             <p>Always check the <code>NextToken</code> response parameter for a <code>null</code> value
+ * when calling a paginated operation. These operations can occasionally return an empty set of results even when there are more
+ * results available. The <code>NextToken</code> response parameter value is <code>null</code>
+ *                <i>only</i>
+ * when there are no more results to display.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,13 +45,13 @@ export interface GetResourceShareAssociationsCommandOutput extends GetResourceSh
  * const config = {}; // type is RAMClientConfig
  * const client = new RAMClient(config);
  * const input = { // GetResourceShareAssociationsRequest
- *   associationType: "PRINCIPAL" || "RESOURCE", // required
+ *   associationType: "PRINCIPAL" || "RESOURCE" || "SOURCE", // required
  *   resourceShareArns: [ // ResourceShareArnList
  *     "STRING_VALUE",
  *   ],
  *   resourceArn: "STRING_VALUE",
  *   principal: "STRING_VALUE",
- *   associationStatus: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ *   associationStatus: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED" || "SUSPENDED" || "SUSPENDING" || "RESTORING",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -56,8 +63,8 @@ export interface GetResourceShareAssociationsCommandOutput extends GetResourceSh
  * //       resourceShareArn: "STRING_VALUE",
  * //       resourceShareName: "STRING_VALUE",
  * //       associatedEntity: "STRING_VALUE",
- * //       associationType: "PRINCIPAL" || "RESOURCE",
- * //       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ * //       associationType: "PRINCIPAL" || "RESOURCE" || "SOURCE",
+ * //       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED" || "SUSPENDED" || "SUSPENDING" || "RESTORING",
  * //       statusMessage: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdatedTime: new Date("TIMESTAMP"),

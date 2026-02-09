@@ -55,6 +55,46 @@ export type TargetType = (typeof TargetType)[keyof typeof TargetType];
  * @public
  * @enum
  */
+export const RegionStatus = {
+  ACTIVE: "ACTIVE",
+  ADDING: "ADDING",
+  REMOVING: "REMOVING",
+} as const;
+/**
+ * @public
+ */
+export type RegionStatus = (typeof RegionStatus)[keyof typeof RegionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThrottlingExceptionReason = {
+  KMS_THROTTLING_EXCEPTION: "KMS_ThrottlingException",
+} as const;
+/**
+ * @public
+ */
+export type ThrottlingExceptionReason = (typeof ThrottlingExceptionReason)[keyof typeof ThrottlingExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  KMS_DISABLED_EXCEPTION: "KMS_DisabledException",
+  KMS_INVALID_KEY_USAGE_EXCEPTION: "KMS_InvalidKeyUsageException",
+  KMS_INVALID_STATE_EXCEPTION: "KMS_InvalidStateException",
+} as const;
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const SignInOrigin = {
   APPLICATION: "APPLICATION",
   IDENTITY_CENTER: "IDENTITY_CENTER",
@@ -102,32 +142,6 @@ export const ResourceNotFoundExceptionReason = {
  */
 export type ResourceNotFoundExceptionReason =
   (typeof ResourceNotFoundExceptionReason)[keyof typeof ResourceNotFoundExceptionReason];
-
-/**
- * @public
- * @enum
- */
-export const ThrottlingExceptionReason = {
-  KMS_THROTTLING_EXCEPTION: "KMS_ThrottlingException",
-} as const;
-/**
- * @public
- */
-export type ThrottlingExceptionReason = (typeof ThrottlingExceptionReason)[keyof typeof ThrottlingExceptionReason];
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  KMS_DISABLED_EXCEPTION: "KMS_DisabledException",
-  KMS_INVALID_KEY_USAGE_EXCEPTION: "KMS_InvalidKeyUsageException",
-  KMS_INVALID_STATE_EXCEPTION: "KMS_InvalidStateException",
-} as const;
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
  * @public

@@ -3,6 +3,18 @@
  * @public
  * @enum
  */
+export const Buildings = {
+  BUILDINGS_3D: "Buildings3D",
+} as const;
+/**
+ * @public
+ */
+export type Buildings = (typeof Buildings)[keyof typeof Buildings];
+
+/**
+ * @public
+ * @enum
+ */
 export const ColorScheme = {
   DARK: "Dark",
   LIGHT: "Light",
@@ -150,6 +162,7 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  */
 export const Terrain = {
   HILLSHADE: "Hillshade",
+  TERRAIN_3D: "Terrain3D",
 } as const;
 /**
  * @public

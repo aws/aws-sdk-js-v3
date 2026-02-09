@@ -23,6 +23,7 @@ import {
   Branch$,
   BranchFilter$,
   BrowserExtension$,
+  BrowserProfileConfiguration$,
   BrowserSessionStatus,
   BrowserSessionStream$,
   BrowserSessionSummary$,
@@ -190,6 +191,10 @@ import {
   RuntimeClientError,
   RuntimeClientError$,
   S3Location$,
+  SaveBrowserSessionProfile$,
+  SaveBrowserSessionProfileCommand,
+  SaveBrowserSessionProfileRequest$,
+  SaveBrowserSessionProfileResponse$,
   SearchCriteria$,
   ServiceException,
   ServiceException$,
@@ -306,6 +311,8 @@ assert(typeof ListSessionsCommand === "function");
 assert(typeof ListSessions$ === "object");
 assert(typeof RetrieveMemoryRecordsCommand === "function");
 assert(typeof RetrieveMemoryRecords$ === "object");
+assert(typeof SaveBrowserSessionProfileCommand === "function");
+assert(typeof SaveBrowserSessionProfile$ === "object");
 assert(typeof StartBrowserSessionCommand === "function");
 assert(typeof StartBrowserSession$ === "object");
 assert(typeof StartCodeInterpreterSessionCommand === "function");
@@ -333,6 +340,7 @@ assert(typeof BatchUpdateMemoryRecordsOutput$ === "object");
 assert(typeof Branch$ === "object");
 assert(typeof BranchFilter$ === "object");
 assert(typeof BrowserExtension$ === "object");
+assert(typeof BrowserProfileConfiguration$ === "object");
 assert(typeof BrowserSessionStream$ === "object");
 assert(typeof BrowserSessionSummary$ === "object");
 assert(typeof CodeInterpreterResult$ === "object");
@@ -420,6 +428,8 @@ assert(typeof RetrieveMemoryRecordsInput$ === "object");
 assert(typeof RetrieveMemoryRecordsOutput$ === "object");
 assert(typeof RightExpression$ === "object");
 assert(typeof S3Location$ === "object");
+assert(typeof SaveBrowserSessionProfileRequest$ === "object");
+assert(typeof SaveBrowserSessionProfileResponse$ === "object");
 assert(typeof SearchCriteria$ === "object");
 assert(typeof SessionSummary$ === "object");
 assert(typeof SpanContext$ === "object");

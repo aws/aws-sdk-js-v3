@@ -27,7 +27,9 @@ export interface DescribeConnectionTypeCommandInput extends DescribeConnectionTy
 export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionTypeResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>DescribeConnectionType</code> API provides full details of the supported options for a given connection type in Glue.</p>
+ * <p>The <code>DescribeConnectionType</code> API provides full details of the supported options for a given connection type in Glue. The response includes authentication configuration details that show supported authentication types and properties, and RestConfiguration for custom REST-based connection types registered via <code>RegisterConnectionType</code>.</p>
+ *          <p>See also: <code>ListConnectionTypes</code>, <code>RegisterConnectionType</code>, <code>DeleteConnectionType</code>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +75,8 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //       DataOperationScopes: [
  * //         "READ" || "WRITE",
  * //       ],
+ * //       KeyOverride: "STRING_VALUE",
+ * //       PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
  * //     },
  * //   },
  * //   ConnectionOptions: {
@@ -93,6 +97,8 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //       DataOperationScopes: [
  * //         "READ" || "WRITE",
  * //       ],
+ * //       KeyOverride: "STRING_VALUE",
+ * //       PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
  * //     },
  * //   },
  * //   AuthenticationConfiguration: { // AuthConfiguration
@@ -113,6 +119,8 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //       DataOperationScopes: [
  * //         "READ" || "WRITE",
  * //       ],
+ * //       KeyOverride: "STRING_VALUE",
+ * //       PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
  * //     },
  * //     SecretArn: {
  * //       Name: "STRING_VALUE", // required
@@ -131,6 +139,8 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //       DataOperationScopes: [
  * //         "READ" || "WRITE",
  * //       ],
+ * //       KeyOverride: "STRING_VALUE",
+ * //       PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
  * //     },
  * //     OAuth2Properties: {
  * //       "<keys>": {
@@ -148,6 +158,8 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //           },
  * //         ],
  * //         DataOperationScopes: "<DataOperations>",
+ * //         KeyOverride: "STRING_VALUE",
+ * //         PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
  * //       },
  * //     },
  * //     BasicAuthenticationProperties: {
@@ -182,6 +194,149 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //   AthenaConnectionProperties: "<PropertiesMap>",
  * //   PythonConnectionProperties: "<PropertiesMap>",
  * //   SparkConnectionProperties: "<PropertiesMap>",
+ * //   RestConfiguration: { // RestConfiguration
+ * //     GlobalSourceConfiguration: { // SourceConfiguration
+ * //       RequestMethod: "GET" || "POST",
+ * //       RequestPath: "STRING_VALUE",
+ * //       RequestParameters: [ // ConnectorPropertyList
+ * //         { // ConnectorProperty
+ * //           Name: "STRING_VALUE", // required
+ * //           KeyOverride: "STRING_VALUE",
+ * //           Required: true || false, // required
+ * //           DefaultValue: "STRING_VALUE",
+ * //           AllowedValues: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
+ * //           PropertyType: "USER_INPUT" || "SECRET" || "READ_ONLY" || "UNUSED" || "SECRET_OR_USER_INPUT", // required
+ * //         },
+ * //       ],
+ * //       ResponseConfiguration: { // ResponseConfiguration
+ * //         ResultPath: "STRING_VALUE", // required
+ * //         ErrorPath: "STRING_VALUE",
+ * //       },
+ * //       PaginationConfiguration: { // PaginationConfiguration
+ * //         CursorConfiguration: { // CursorConfiguration
+ * //           NextPage: { // ExtractedParameter
+ * //             Key: "STRING_VALUE",
+ * //             DefaultValue: "STRING_VALUE",
+ * //             PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
+ * //             Value: { // ResponseExtractionMapping
+ * //               ContentPath: "STRING_VALUE",
+ * //               HeaderKey: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           LimitParameter: {
+ * //             Key: "STRING_VALUE",
+ * //             DefaultValue: "STRING_VALUE",
+ * //             PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
+ * //             Value: {
+ * //               ContentPath: "STRING_VALUE",
+ * //               HeaderKey: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //         OffsetConfiguration: { // OffsetConfiguration
+ * //           OffsetParameter: {
+ * //             Key: "STRING_VALUE",
+ * //             DefaultValue: "STRING_VALUE",
+ * //             PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
+ * //             Value: {
+ * //               ContentPath: "STRING_VALUE",
+ * //               HeaderKey: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           LimitParameter: {
+ * //             Key: "STRING_VALUE",
+ * //             DefaultValue: "STRING_VALUE",
+ * //             PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
+ * //             Value: {
+ * //               ContentPath: "STRING_VALUE",
+ * //               HeaderKey: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //     ValidationEndpointConfiguration: {
+ * //       RequestMethod: "GET" || "POST",
+ * //       RequestPath: "STRING_VALUE",
+ * //       RequestParameters: [
+ * //         {
+ * //           Name: "STRING_VALUE", // required
+ * //           KeyOverride: "STRING_VALUE",
+ * //           Required: true || false, // required
+ * //           DefaultValue: "STRING_VALUE",
+ * //           AllowedValues: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
+ * //           PropertyType: "USER_INPUT" || "SECRET" || "READ_ONLY" || "UNUSED" || "SECRET_OR_USER_INPUT", // required
+ * //         },
+ * //       ],
+ * //       ResponseConfiguration: {
+ * //         ResultPath: "STRING_VALUE", // required
+ * //         ErrorPath: "STRING_VALUE",
+ * //       },
+ * //       PaginationConfiguration: {
+ * //         CursorConfiguration: {
+ * //           NextPage: {
+ * //             Key: "STRING_VALUE",
+ * //             DefaultValue: "STRING_VALUE",
+ * //             PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
+ * //             Value: {
+ * //               ContentPath: "STRING_VALUE",
+ * //               HeaderKey: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           LimitParameter: "<ExtractedParameter>",
+ * //         },
+ * //         OffsetConfiguration: {
+ * //           OffsetParameter: "<ExtractedParameter>", // required
+ * //           LimitParameter: "<ExtractedParameter>", // required
+ * //         },
+ * //       },
+ * //     },
+ * //     EntityConfigurations: { // EntityConfigurationMap
+ * //       "<keys>": { // EntityConfiguration
+ * //         SourceConfiguration: {
+ * //           RequestMethod: "GET" || "POST",
+ * //           RequestPath: "STRING_VALUE",
+ * //           RequestParameters: [
+ * //             {
+ * //               Name: "STRING_VALUE", // required
+ * //               KeyOverride: "STRING_VALUE",
+ * //               Required: true || false, // required
+ * //               DefaultValue: "STRING_VALUE",
+ * //               AllowedValues: "<ListOfString>",
+ * //               PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
+ * //               PropertyType: "USER_INPUT" || "SECRET" || "READ_ONLY" || "UNUSED" || "SECRET_OR_USER_INPUT", // required
+ * //             },
+ * //           ],
+ * //           ResponseConfiguration: {
+ * //             ResultPath: "STRING_VALUE", // required
+ * //             ErrorPath: "STRING_VALUE",
+ * //           },
+ * //           PaginationConfiguration: {
+ * //             CursorConfiguration: {
+ * //               NextPage: "<ExtractedParameter>", // required
+ * //               LimitParameter: "<ExtractedParameter>",
+ * //             },
+ * //             OffsetConfiguration: {
+ * //               OffsetParameter: "<ExtractedParameter>", // required
+ * //               LimitParameter: "<ExtractedParameter>", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         Schema: { // FieldDefinitionMap
+ * //           "<keys>": { // FieldDefinition
+ * //             Name: "STRING_VALUE", // required
+ * //             FieldDataType: "INT" || "SMALLINT" || "BIGINT" || "FLOAT" || "LONG" || "DATE" || "BOOLEAN" || "MAP" || "ARRAY" || "STRING" || "TIMESTAMP" || "DECIMAL" || "BYTE" || "SHORT" || "DOUBLE" || "STRUCT" || "BINARY" || "UNION", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```

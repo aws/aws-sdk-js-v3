@@ -63,6 +63,7 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  *   StreamName: "STRING_VALUE",
  *   EnforceConsumerDeletion: true || false,
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new DeleteStreamCommand(input);
  * const response = await client.send(command);
@@ -113,6 +114,7 @@ export class DeleteStreamCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

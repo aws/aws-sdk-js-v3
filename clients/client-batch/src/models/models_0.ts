@@ -59,6 +59,12 @@ export interface ArrayPropertiesDetail {
   statusSummary?: Record<string, number> | undefined;
 
   /**
+   * <p>The Unix timestamp (in milliseconds) for when the <code>statusSummary</code> was last updated.</p>
+   * @public
+   */
+  statusSummaryLastUpdatedAt?: number | undefined;
+
+  /**
    * <p>The size of the array job. This parameter is returned for parent array jobs.</p>
    * @public
    */
@@ -89,6 +95,19 @@ export interface ArrayPropertiesSummary {
    * @public
    */
   index?: number | undefined;
+
+  /**
+   * <p>A summary of the number of array job children in each available job status. This parameter
+   *    is returned for parent array jobs.</p>
+   * @public
+   */
+  statusSummary?: Record<string, number> | undefined;
+
+  /**
+   * <p>The Unix timestamp (in milliseconds) for when the <code>statusSummary</code> was last updated.</p>
+   * @public
+   */
+  statusSummaryLastUpdatedAt?: number | undefined;
 }
 
 /**
@@ -6590,6 +6609,9 @@ export interface ListJobsRequest {
    *       parameter is specified, the <code>jobStatus</code> parameter is ignored and jobs with any
    *       status are returned. If you don't specify a status, only <code>RUNNING</code> jobs are
    *       returned.</p>
+   *          <note>
+   *             <p>Array job parents are updated to <code>PENDING</code> when any child job is updated to <code>RUNNABLE</code> and remain in <code>PENDING</code> status while child jobs are running. To view these jobs, filter by <code>PENDING</code> status until all child jobs reach a terminal state.</p>
+   *          </note>
    * @public
    */
   jobStatus?: JobStatus | undefined;

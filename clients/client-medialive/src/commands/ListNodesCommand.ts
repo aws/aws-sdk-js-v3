@@ -62,6 +62,9 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * //           LogicalInterfaceName: "STRING_VALUE",
  * //           NetworkInterfaceMode: "NAT" || "BRIDGE",
  * //           PhysicalInterfaceName: "STRING_VALUE",
+ * //           PhysicalInterfaceIpAddresses: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       Role: "BACKUP" || "ACTIVE",

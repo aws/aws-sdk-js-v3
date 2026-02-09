@@ -17,6 +17,7 @@ const _BDMRO = "BatchDeleteMemoryRecordsOutput";
 const _BE = "BrowserExtension";
 const _BEr = "BrowserExtensions";
 const _BF = "BranchFilter";
+const _BPC = "BrowserProfileConfiguration";
 const _BSS = "BrowserSessionStream";
 const _BSSr = "BrowserSessionSummary";
 const _BSSro = "BrowserSessionSummaries";
@@ -166,6 +167,9 @@ const _RNFE = "ResourceNotFoundException";
 const _RS = "ResponseStream";
 const _S = "State";
 const _SBS = "StartBrowserSession";
+const _SBSP = "SaveBrowserSessionProfile";
+const _SBSPR = "SaveBrowserSessionProfileRequest";
+const _SBSPRa = "SaveBrowserSessionProfileResponse";
 const _SBSR = "StartBrowserSessionRequest";
 const _SBSRt = "StartBrowserSessionResponse";
 const _SBSRto = "StopBrowserSessionRequest";
@@ -317,6 +321,8 @@ const _o = "operator";
 const _oF = "oauth2Flow";
 const _oT = "outputTokens";
 const _p = "payload";
+const _pC = "profileConfiguration";
+const _pI = "profileIdentifier";
 const _pa = "path";
 const _pat = "paths";
 const _pr = "prefix";
@@ -509,6 +515,11 @@ export var BrowserExtension$: StaticStructureSchema = [3, n0, _BE,
   [_l],
   [() => ResourceLocation$], 1
 ];
+export var BrowserProfileConfiguration$: StaticStructureSchema = [3, n0, _BPC,
+  0,
+  [_pI],
+  [0], 1
+];
 export var BrowserSessionStream$: StaticStructureSchema = [3, n0, _BSS,
   0,
   [_aS, _lVS],
@@ -653,8 +664,8 @@ export var GetBrowserSessionRequest$: StaticStructureSchema = [3, n0, _GBSR,
 ];
 export var GetBrowserSessionResponse$: StaticStructureSchema = [3, n0, _GBSRe,
   0,
-  [_bI, _sI, _cA, _n, _vP, _ext, _sTS, _sta, _str, _sRA, _lUA],
-  [0, 0, 5, 0, () => ViewPort$, () => BrowserExtensions, 1, 0, () => BrowserSessionStream$, 0, 5], 3
+  [_bI, _sI, _cA, _n, _vP, _ext, _pC, _sTS, _sta, _str, _sRA, _lUA],
+  [0, 0, 5, 0, () => ViewPort$, () => BrowserExtensions, () => BrowserProfileConfiguration$, 1, 0, () => BrowserSessionStream$, 0, 5], 3
 ];
 export var GetCodeInterpreterSessionRequest$: StaticStructureSchema = [3, n0, _GCISR,
   0,
@@ -926,6 +937,16 @@ export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   [_bu, _pr, _vI],
   [0, 0, 0], 2
 ];
+export var SaveBrowserSessionProfileRequest$: StaticStructureSchema = [3, n0, _SBSPR,
+  0,
+  [_pI, _bI, _sI, _tI, _tP, _cT],
+  [[0, 1], 0, 0, [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, 4]], 3
+];
+export var SaveBrowserSessionProfileResponse$: StaticStructureSchema = [3, n0, _SBSPRa,
+  0,
+  [_pI, _bI, _sI, _lUA],
+  [0, 0, 0, 5], 4
+];
 export var SearchCriteria$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_sQ, _mSIe, _tK, _mF],
@@ -955,8 +976,8 @@ export var SpanContext$: StaticStructureSchema = [3, n0, _SCp,
 ];
 export var StartBrowserSessionRequest$: StaticStructureSchema = [3, n0, _SBSR,
   0,
-  [_bI, _tI, _tP, _n, _sTS, _vP, _ext, _cT],
-  [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, () => ViewPort$, () => BrowserExtensions, [0, 4]], 1
+  [_bI, _tI, _tP, _n, _sTS, _vP, _ext, _pC, _cT],
+  [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, () => ViewPort$, () => BrowserExtensions, () => BrowserProfileConfiguration$, [0, 4]], 1
 ];
 export var StartBrowserSessionResponse$: StaticStructureSchema = [3, n0, _SBSRt,
   0,
@@ -1311,6 +1332,9 @@ export var ListSessions$: StaticOperationSchema = [9, n0, _LS,
 ];
 export var RetrieveMemoryRecords$: StaticOperationSchema = [9, n0, _RMR,
   { [_ht]: ["POST", "/memories/{memoryId}/retrieve", 200] }, () => RetrieveMemoryRecordsInput$, () => RetrieveMemoryRecordsOutput$
+];
+export var SaveBrowserSessionProfile$: StaticOperationSchema = [9, n0, _SBSP,
+  { [_ht]: ["PUT", "/browser-profiles/{profileIdentifier}/save", 200] }, () => SaveBrowserSessionProfileRequest$, () => SaveBrowserSessionProfileResponse$
 ];
 export var StartBrowserSession$: StaticOperationSchema = [9, n0, _SBS,
   { [_ht]: ["PUT", "/browsers/{browserIdentifier}/sessions/start", 200] }, () => StartBrowserSessionRequest$, () => StartBrowserSessionResponse$

@@ -26,6 +26,7 @@ import {
   AwsOpportunityProject$,
   AwsOpportunityRelatedEntities$,
   AwsOpportunityStage,
+  AwsOpportunitySummaryFullView$,
   AwsPartition,
   AwsProductDetails$,
   AwsProductInsights$,
@@ -40,6 +41,7 @@ import {
   ConflictException$,
   Contact$,
   CountryCode,
+  CreatedDateFilter$,
   CreateEngagement$,
   CreateEngagementCommand,
   CreateEngagementContext$,
@@ -415,6 +417,7 @@ assert(typeof AwsOpportunityInsights$ === "object");
 assert(typeof AwsOpportunityLifeCycle$ === "object");
 assert(typeof AwsOpportunityProject$ === "object");
 assert(typeof AwsOpportunityRelatedEntities$ === "object");
+assert(typeof AwsOpportunitySummaryFullView$ === "object");
 assert(typeof AwsProductDetails$ === "object");
 assert(typeof AwsProductInsights$ === "object");
 assert(typeof AwsProductOptimization$ === "object");
@@ -422,6 +425,7 @@ assert(typeof AwsProductsSpendInsightsBySource$ === "object");
 assert(typeof AwsSubmission$ === "object");
 assert(typeof AwsTeamMember$ === "object");
 assert(typeof Contact$ === "object");
+assert(typeof CreatedDateFilter$ === "object");
 assert(typeof CreateEngagementContextRequest$ === "object");
 assert(typeof CreateEngagementContextResponse$ === "object");
 assert(typeof CreateEngagementInvitationRequest$ === "object");

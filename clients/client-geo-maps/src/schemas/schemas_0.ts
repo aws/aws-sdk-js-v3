@@ -4,6 +4,7 @@ const _AK = "ApiKey";
 const _B = "Blob";
 const _BB = "BoundingBox";
 const _BP = "BoundedPositions";
+const _Bu = "Buildings";
 const _C = "Center";
 const _CC = "CountryCode";
 const _CC_ = "Cache-Control";
@@ -72,6 +73,7 @@ const _Y = "Y";
 const _Z = "Zoom";
 const _Z_ = "Z";
 const _af = "additional-features";
+const _b = "buildings";
 const _bb = "bounding-box";
 const _bp = "bounded-positions";
 const _c = "client";
@@ -179,8 +181,8 @@ export var GetStaticMapResponse$: StaticStructureSchema = [3, n0, _GSMRe,
 ];
 export var GetStyleDescriptorRequest$: StaticStructureSchema = [3, n0, _GSDR,
   0,
-  [_S, _CS, _PV, _T, _CD, _Tr, _TM, _K],
-  [[0, 1], [0, { [_hQ]: _cs }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _t }], [0, { [_hQ]: _cd }], [0, { [_hQ]: _tr }], [64 | 0, { [_hQ]: _tm }], [() => ApiKey, { [_hQ]: _k }]], 1
+  [_S, _CS, _PV, _T, _CD, _Tr, _TM, _Bu, _K],
+  [[0, 1], [0, { [_hQ]: _cs }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _t }], [0, { [_hQ]: _cd }], [0, { [_hQ]: _tr }], [64 | 0, { [_hQ]: _tm }], [0, { [_hQ]: _b }], [() => ApiKey, { [_hQ]: _k }]], 1
 ];
 export var GetStyleDescriptorResponse$: StaticStructureSchema = [3, n0, _GSDRe,
   0,

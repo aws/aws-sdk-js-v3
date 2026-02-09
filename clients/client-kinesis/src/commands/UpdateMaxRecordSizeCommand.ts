@@ -38,6 +38,7 @@ export interface UpdateMaxRecordSizeCommandOutput extends __MetadataBearer {}
  * const client = new KinesisClient(config);
  * const input = { // UpdateMaxRecordSizeInput
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  *   MaxRecordSizeInKiB: Number("int"), // required
  * };
  * const command = new UpdateMaxRecordSizeCommand(input);
@@ -94,6 +95,7 @@ export class UpdateMaxRecordSizeCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

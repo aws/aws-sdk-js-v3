@@ -88,6 +88,10 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The operation failed because it exceeded the rate at which you are allowed to perform
+ *             this operation. Please try again later.</p>
+ *
  * @throws {@link UnknownResourceException} (client fault)
  *  <p>The operation failed because a specified resource couldn't be found.</p>
  *

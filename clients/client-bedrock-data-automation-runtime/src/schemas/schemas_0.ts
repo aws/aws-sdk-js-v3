@@ -176,13 +176,13 @@ export var InvokeDataAutomationAsyncResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var InvokeDataAutomationRequest$: StaticStructureSchema = [3, n0, _IDAR,
   0,
-  [_iC, _dAPAa, _dAC, _b, _eC],
-  [() => SyncInputConfiguration$, 0, () => DataAutomationConfiguration$, () => BlueprintList, () => EncryptionConfiguration$], 2
+  [_iC, _dAPAa, _dAC, _b, _eC, _oC],
+  [() => SyncInputConfiguration$, 0, () => DataAutomationConfiguration$, () => BlueprintList, () => EncryptionConfiguration$, () => OutputConfiguration$], 2
 ];
 export var InvokeDataAutomationResponse$: StaticStructureSchema = [3, n0, _IDARn,
   0,
-  [_sM, _oS],
-  [0, () => OutputSegmentList], 2
+  [_sM, _oC, _oS],
+  [0, () => OutputConfiguration$, () => OutputSegmentList], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,

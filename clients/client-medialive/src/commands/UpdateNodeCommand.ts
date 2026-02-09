@@ -66,6 +66,9 @@ export interface UpdateNodeCommandOutput extends UpdateNodeResponse, __MetadataB
  * //       LogicalInterfaceName: "STRING_VALUE",
  * //       NetworkInterfaceMode: "NAT" || "BRIDGE",
  * //       PhysicalInterfaceName: "STRING_VALUE",
+ * //       PhysicalInterfaceIpAddresses: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   Role: "BACKUP" || "ACTIVE",

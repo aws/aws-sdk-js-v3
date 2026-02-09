@@ -65,6 +65,9 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
  * //         Cidr: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     Channels: [
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

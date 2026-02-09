@@ -54,7 +54,7 @@
         "mode": {
           "target": "com.amazonaws.arcregionswitch#ExecutionMode",
           "traits": {
-            "smithy.api#documentation": "<p>The plan execution mode. Valid values are <code>Practice</code>, for testing without making actual changes, or <code>Recovery</code>, for actual traffic shifting and application recovery.</p>",
+            "smithy.api#documentation": "<p>The plan execution mode. Valid values are <code>graceful</code>, for graceful executions, or <code>ungraceful</code>, for ungraceful executions.</p>",
             "smithy.api#required": {}
           }
         },
@@ -68,7 +68,7 @@
         "executionAction": {
           "target": "com.amazonaws.arcregionswitch#ExecutionAction",
           "traits": {
-            "smithy.api#documentation": "<p>The plan execution action. Valid values are <code>Activate</code>, to activate an Amazon Web Services Region, or <code>Deactivate</code>, to deactivate a Region.</p>",
+            "smithy.api#documentation": "<p>The plan execution action. Valid values are <code>activate</code>, to activate an Amazon Web Services Region, or <code>deactivate</code>, to deactivate a Region.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1346,7 +1346,10 @@
       }
     },
     "com.amazonaws.arcregionswitch#AuroraClusterArn": {
-      "type": "string"
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:aws[a-zA-Z-]*:rds:[a-z0-9-]+:\\d{12}:cluster:[A-Za-z][0-9A-Za-z-:._]*$"
+      }
     },
     "com.amazonaws.arcregionswitch#AuroraClusterArns": {
       "type": "list",
@@ -3037,7 +3040,7 @@
         "mode": {
           "target": "com.amazonaws.arcregionswitch#ExecutionMode",
           "traits": {
-            "smithy.api#documentation": "<p>The plan execution mode. Valid values are <code>Practice</code>, for testing without making actual changes, or <code>Recovery</code>, for actual traffic shifting and application recovery.</p>",
+            "smithy.api#documentation": "<p>The plan execution mode. Valid values are <code>graceful</code>, for graceful executions, or <code>ungraceful</code>, for ungraceful executions.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3051,7 +3054,7 @@
         "executionAction": {
           "target": "com.amazonaws.arcregionswitch#ExecutionAction",
           "traits": {
-            "smithy.api#documentation": "<p>The plan execution action. Valid values are <code>Activate</code>, to activate an Amazon Web Services Region, or <code>Deactivate</code>, to deactivate a Region.</p>",
+            "smithy.api#documentation": "<p>The plan execution action. Valid values are <code>activate</code>, to activate an Amazon Web Services Region, or <code>deactivate</code>, to deactivate a Region.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3290,7 +3293,14 @@
       }
     },
     "com.amazonaws.arcregionswitch#GlobalClusterIdentifier": {
-      "type": "string"
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[A-Za-z][0-9A-Za-z-:._]*$"
+      }
     },
     "com.amazonaws.arcregionswitch#IamRoleArn": {
       "type": "string",
@@ -4961,7 +4971,7 @@
         "action": {
           "target": "com.amazonaws.arcregionswitch#ExecutionAction",
           "traits": {
-            "smithy.api#documentation": "<p>The action to perform. Valid values are ACTIVATE (to shift traffic to the target Region) or DEACTIVATE (to shift traffic away from the target Region).</p>",
+            "smithy.api#documentation": "<p>The action to perform. Valid values are <code>activate</code> (to shift traffic to the target Region) or <code>deactivate</code> (to shift traffic away from the target Region).</p>",
             "smithy.api#required": {}
           }
         },
@@ -4969,7 +4979,7 @@
           "target": "com.amazonaws.arcregionswitch#ExecutionMode",
           "traits": {
             "smithy.api#default": "graceful",
-            "smithy.api#documentation": "<p>The plan execution mode. Valid values are <code>Practice</code>, for testing without making actual changes, or <code>Recovery</code>, for actual traffic shifting and application recovery.</p>"
+            "smithy.api#documentation": "<p>The plan execution mode. Valid values are <code>graceful</code>, for starting the execution in graceful mode, or <code>ungraceful</code>, for starting the execution in ungraceful mode.</p>"
           }
         },
         "comment": {
@@ -5285,7 +5295,7 @@
         "action": {
           "target": "com.amazonaws.arcregionswitch#WorkflowTargetAction",
           "traits": {
-            "smithy.api#documentation": "<p>The action to perform when the trigger fires. Valid values include ACTIVATE and DEACTIVATE.</p>",
+            "smithy.api#documentation": "<p>The action to perform when the trigger fires. Valid values include <code>activate</code> and <code>deactivate</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5321,7 +5331,7 @@
         "condition": {
           "target": "com.amazonaws.arcregionswitch#AlarmCondition",
           "traits": {
-            "smithy.api#documentation": "<p>The condition that must be met. Valid values include ALARM and OK.</p>",
+            "smithy.api#documentation": "<p>The condition that must be met. Valid values include <code>green</code> and <code>red</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5715,7 +5725,7 @@
         "workflowTargetAction": {
           "target": "com.amazonaws.arcregionswitch#WorkflowTargetAction",
           "traits": {
-            "smithy.api#documentation": "<p>The action that the workflow performs. Valid values include ACTIVATE and DEACTIVATE.</p>",
+            "smithy.api#documentation": "<p>The action that the workflow performs. Valid values include <code>activate</code> and <code>deactivate</code>.</p>",
             "smithy.api#required": {}
           }
         },

@@ -63,6 +63,7 @@ import {
   defaultSSOAdminHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { AddRegionCommandInput, AddRegionCommandOutput } from "./commands/AddRegionCommand";
 import {
   AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
   AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput,
@@ -168,6 +169,7 @@ import {
   DescribePermissionSetProvisioningStatusCommandInput,
   DescribePermissionSetProvisioningStatusCommandOutput,
 } from "./commands/DescribePermissionSetProvisioningStatusCommand";
+import { DescribeRegionCommandInput, DescribeRegionCommandOutput } from "./commands/DescribeRegionCommand";
 import {
   DescribeTrustedTokenIssuerCommandInput,
   DescribeTrustedTokenIssuerCommandOutput,
@@ -271,6 +273,7 @@ import {
   ListPermissionSetsProvisionedToAccountCommandInput,
   ListPermissionSetsProvisionedToAccountCommandOutput,
 } from "./commands/ListPermissionSetsProvisionedToAccountCommand";
+import { ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -311,6 +314,7 @@ import {
   PutPermissionsBoundaryToPermissionSetCommandInput,
   PutPermissionsBoundaryToPermissionSetCommandOutput,
 } from "./commands/PutPermissionsBoundaryToPermissionSetCommand";
+import { RemoveRegionCommandInput, RemoveRegionCommandOutput } from "./commands/RemoveRegionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
@@ -342,6 +346,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AddRegionCommandInput
   | AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput
   | AttachManagedPolicyToPermissionSetCommandInput
   | CreateAccountAssignmentCommandInput
@@ -372,6 +377,7 @@ export type ServiceInputTypes =
   | DescribeInstanceCommandInput
   | DescribePermissionSetCommandInput
   | DescribePermissionSetProvisioningStatusCommandInput
+  | DescribeRegionCommandInput
   | DescribeTrustedTokenIssuerCommandInput
   | DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput
   | DetachManagedPolicyFromPermissionSetCommandInput
@@ -400,6 +406,7 @@ export type ServiceInputTypes =
   | ListPermissionSetProvisioningStatusCommandInput
   | ListPermissionSetsCommandInput
   | ListPermissionSetsProvisionedToAccountCommandInput
+  | ListRegionsCommandInput
   | ListTagsForResourceCommandInput
   | ListTrustedTokenIssuersCommandInput
   | ProvisionPermissionSetCommandInput
@@ -410,6 +417,7 @@ export type ServiceInputTypes =
   | PutApplicationSessionConfigurationCommandInput
   | PutInlinePolicyToPermissionSetCommandInput
   | PutPermissionsBoundaryToPermissionSetCommandInput
+  | RemoveRegionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput
@@ -422,6 +430,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AddRegionCommandOutput
   | AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput
   | AttachManagedPolicyToPermissionSetCommandOutput
   | CreateAccountAssignmentCommandOutput
@@ -452,6 +461,7 @@ export type ServiceOutputTypes =
   | DescribeInstanceCommandOutput
   | DescribePermissionSetCommandOutput
   | DescribePermissionSetProvisioningStatusCommandOutput
+  | DescribeRegionCommandOutput
   | DescribeTrustedTokenIssuerCommandOutput
   | DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput
   | DetachManagedPolicyFromPermissionSetCommandOutput
@@ -480,6 +490,7 @@ export type ServiceOutputTypes =
   | ListPermissionSetProvisioningStatusCommandOutput
   | ListPermissionSetsCommandOutput
   | ListPermissionSetsProvisionedToAccountCommandOutput
+  | ListRegionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTrustedTokenIssuersCommandOutput
   | ProvisionPermissionSetCommandOutput
@@ -490,6 +501,7 @@ export type ServiceOutputTypes =
   | PutApplicationSessionConfigurationCommandOutput
   | PutInlinePolicyToPermissionSetCommandOutput
   | PutPermissionsBoundaryToPermissionSetCommandOutput
+  | RemoveRegionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput

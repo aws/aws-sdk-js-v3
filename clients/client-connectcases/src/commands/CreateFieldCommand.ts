@@ -41,6 +41,11 @@ export interface CreateFieldCommandOutput extends CreateFieldResponse, __Metadat
  *   name: "STRING_VALUE", // required
  *   type: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   attributes: { // FieldAttributes Union: only one key present
+ *     text: { // TextAttributes
+ *       isMultiline: true || false, // required
+ *     },
+ *   },
  * };
  * const command = new CreateFieldCommand(input);
  * const response = await client.send(command);

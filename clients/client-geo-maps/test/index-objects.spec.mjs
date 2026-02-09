@@ -1,6 +1,7 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  Buildings,
   ColorScheme,
   ContourDensity,
   GeoMaps,
@@ -75,6 +76,7 @@ assert(typeof GetTileRequest$ === "object");
 assert(typeof GetTileResponse$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 // enums
+assert(typeof Buildings === "object");
 assert(typeof ColorScheme === "object");
 assert(typeof ContourDensity === "object");
 assert(typeof LabelSize === "object");

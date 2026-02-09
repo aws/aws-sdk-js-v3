@@ -402,6 +402,13 @@ ListResourceTypes
 </details>
 <details>
 <summary>
+ListSourceAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ram/command/ListSourceAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListSourceAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ram/Interface/ListSourceAssociationsCommandOutput/)
+</details>
+<details>
+<summary>
 PromotePermissionCreatedFromPolicy
 </summary>
 

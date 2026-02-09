@@ -9,9 +9,14 @@ const _ACCL = "AbortConfigCriteriaList";
 const _ACU = "AuthConfigUpdate";
 const _ACb = "AbortConfig";
 const _ADE = "AccessDeniedException";
-const _AM = "AuthenticationMaterial";
+const _AM = "AuthMaterial";
+const _AMN = "AuthMaterialName";
 const _AMS = "AuthMaterialString";
 const _AMT = "AuthenticationMaterialType";
+const _AMTA = "AuthMaterialsToAdd";
+const _AMTU = "AuthMaterialsToUpdate";
+const _AMu = "AuthenticationMaterial";
+const _AMut = "AuthMaterials";
 const _API = "AdvertisedProductId";
 const _AS = "AssociationState";
 const _AT = "AuthType";
@@ -46,6 +51,7 @@ const _CD = "CreateDestination";
 const _CDI = "ConnectorDeviceId";
 const _CDIF = "ConnectorDestinationIdFilter";
 const _CDIFo = "ConnectorDeviceIdFilter";
+const _CDIL = "ConnectorDeviceIdList";
 const _CDIo = "ConnectorDestinationId";
 const _CDL = "ConnectorDestinationList";
 const _CDLD = "ConnectorDestinationListDefinition";
@@ -58,8 +64,6 @@ const _CELC = "CreateEventLogConfiguration";
 const _CELCR = "CreateEventLogConfigurationRequest";
 const _CELCRr = "CreateEventLogConfigurationResponse";
 const _CEM = "ConnectorEventMessage";
-const _CEOV = "ConnectorEventOperationVersion";
-const _CESC = "ConnectorEventStatusCode";
 const _CEo = "ConfigurationError";
 const _CEom = "CommandEndpoints";
 const _CEon = "ConflictException";
@@ -180,9 +184,12 @@ const _F = "Format";
 const _FA = "FinishedAt";
 const _FT = "FailureType";
 const _Fo = "Force";
+const _GA = "GeneralAuthorization";
 const _GAA = "GetAccountAssociation";
 const _GAAR = "GetAccountAssociationRequest";
 const _GAARe = "GetAccountAssociationResponse";
+const _GAN = "GeneralAuthorizationName";
+const _GAU = "GeneralAuthorizationUpdate";
 const _GCC = "GetCloudConnector";
 const _GCCR = "GetCloudConnectorRequest";
 const _GCCRe = "GetCloudConnectorResponse";
@@ -343,6 +350,7 @@ const _MPM = "MaximumPerMinute";
 const _MR = "MaxResults";
 const _MTA = "ManagedThingAssociation";
 const _MTAL = "ManagedThingAssociationList";
+const _MTAS = "ManagedThingAssociationStatus";
 const _MTI = "ManagedThingId";
 const _MTLD = "ManagedThingListDefinition";
 const _MTS = "ManagedThingSummary";
@@ -363,6 +371,7 @@ const _NT = "NextToken";
 const _Na = "Namespace";
 const _O = "Owner";
 const _OAAU = "OAuthAuthorizationUrl";
+const _OAAUO = "OAuthAuthorizationUrlOutput";
 const _OAC = "OAuthConfig";
 const _OACRU = "OAuthCompleteRedirectUrl";
 const _OAU = "OAuthUpdate";
@@ -614,10 +623,7 @@ var ClaimCertificate: StaticSimpleSchema = [0, n0, _CCl, 8, 0];
 var ClaimCertificatePrivateKey: StaticSimpleSchema = [0, n0, _CCPK, 8, 0];
 var Classification: StaticSimpleSchema = [0, n0, _C, 8, 0];
 var ConnectorDeviceId: StaticSimpleSchema = [0, n0, _CDI, 8, 0];
-var ConnectorDeviceName: StaticSimpleSchema = [0, n0, _CDN, 8, 0];
 var ConnectorEventMessage: StaticSimpleSchema = [0, n0, _CEM, 8, 0];
-var ConnectorEventOperationVersion: StaticSimpleSchema = [0, n0, _CEOV, 8, 0];
-var ConnectorEventStatusCode: StaticSimpleSchema = [0, n0, _CESC, 8, 1];
 var CredentialLockerName: StaticSimpleSchema = [0, n0, _CLN, 8, 0];
 var DeviceSpecificKey: StaticSimpleSchema = [0, n0, _DSK, 8, 0];
 var DiscoveryAuthMaterialString: StaticSimpleSchema = [0, n0, _DAMS, 8, 0];
@@ -626,7 +632,7 @@ var MacAddress: StaticSimpleSchema = [0, n0, _MA, 8, 0];
 var MatterAttributes: StaticSimpleSchema = [0, n0, _MAa, 8, 15];
 var MatterFields: StaticSimpleSchema = [0, n0, _MF, 8, 15];
 var Model: StaticSimpleSchema = [0, n0, _M, 8, 0];
-var OAuthAuthorizationUrl: StaticSimpleSchema = [0, n0, _OAAU, 8, 0];
+var OAuthAuthorizationUrlOutput: StaticSimpleSchema = [0, n0, _OAAUO, 8, 0];
 var OtaTaskConfigurationName: StaticSimpleSchema = [0, n0, _OTCN, 8, 0];
 var Owner: StaticSimpleSchema = [0, n0, _O, 8, 0];
 var SerialNumber: StaticSimpleSchema = [0, n0, _SN, 8, 0];
@@ -650,13 +656,18 @@ export var AccountAssociationItem$: StaticStructureSchema = [3, n0, _AAI,
 ];
 export var AuthConfig$: StaticStructureSchema = [3, n0, _AC,
   0,
-  [_oA],
-  [() => OAuthConfig$]
+  [_oA, _GA],
+  [() => OAuthConfig$, () => AuthMaterials]
 ];
 export var AuthConfigUpdate$: StaticStructureSchema = [3, n0, _ACU,
   0,
-  [_oAU],
-  [() => OAuthUpdate$]
+  [_oAU, _GAU],
+  [() => OAuthUpdate$, () => GeneralAuthorizationUpdate$]
+];
+export var AuthMaterial$: StaticStructureSchema = [3, n0, _AM,
+  0,
+  [_SM, _AMN],
+  [() => SecretsManager$, 0], 2
 ];
 export var CapabilityAction$: StaticStructureSchema = [3, n0, _CA,
   0,
@@ -721,13 +732,13 @@ export var ConnectorItem$: StaticStructureSchema = [3, n0, _CIo,
 ];
 export var CreateAccountAssociationRequest$: StaticStructureSchema = [3, n0, _CAAR,
   0,
-  [_CDIo, _CT, _N, _D, _Ta],
-  [0, [0, 4], 0, 0, [() => TagsMap, 0]], 1
+  [_CDIo, _CT, _N, _D, _Ta, _GA],
+  [0, [0, 4], 0, 0, [() => TagsMap, 0], () => GeneralAuthorizationName$], 1
 ];
 export var CreateAccountAssociationResponse$: StaticStructureSchema = [3, n0, _CAARr,
   0,
   [_OAAU, _AAIc, _AS, _Ar],
-  [[() => OAuthAuthorizationUrl, 0], 0, 0, 0], 3
+  [[() => OAuthAuthorizationUrlOutput, 0], 0, 0, 0], 3
 ];
 export var CreateCloudConnectorRequest$: StaticStructureSchema = [3, n0, _CCCR,
   0,
@@ -741,8 +752,8 @@ export var CreateCloudConnectorResponse$: StaticStructureSchema = [3, n0, _CCCRr
 ];
 export var CreateConnectorDestinationRequest$: StaticStructureSchema = [3, n0, _CCDR,
   0,
-  [_CCI, _AT, _AC, _SM, _N, _D, _CT],
-  [0, 0, () => AuthConfig$, () => SecretsManager$, 0, 0, [0, 4]], 4
+  [_CCI, _AC, _N, _D, _AT, _SM, _CT],
+  [0, () => AuthConfig$, 0, 0, 0, () => SecretsManager$, [0, 4]], 2
 ];
 export var CreateConnectorDestinationResponse$: StaticStructureSchema = [3, n0, _CCDRr,
   0,
@@ -781,7 +792,7 @@ export var CreateEventLogConfigurationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateManagedThingRequest$: StaticStructureSchema = [3, n0, _CMTR,
   0,
-  [_R, _AM, _AMT, _O, _CLI, _WFSSC, _SN, _B, _M, _N, _CR, _CSa, _Ca, _CT, _C, _Ta, _MD],
+  [_R, _AMu, _AMT, _O, _CLI, _WFSSC, _SN, _B, _M, _N, _CR, _CSa, _Ca, _CT, _C, _Ta, _MD],
   [0, [() => AuthMaterialString, 0], 0, [() => Owner, 0], 0, () => WiFiSimpleSetupConfiguration$, [() => SerialNumber, 0], [() => Brand, 0], [() => Model, 0], 0, () => CapabilityReport$, () => CapabilitySchemas, 0, [0, 4], [() => Classification, 0], [() => TagsMap, 0], 128 | 0], 3
 ];
 export var CreateManagedThingResponse$: StaticStructureSchema = [3, n0, _CMTRr,
@@ -821,8 +832,8 @@ export var CreateOtaTaskResponse$: StaticStructureSchema = [3, n0, _COTRr,
 ];
 export var CreateProvisioningProfileRequest$: StaticStructureSchema = [3, n0, _CPPR,
   0,
-  [_PT, _CC, _N, _CT, _Ta],
-  [0, [() => CaCertificate, 0], 0, [0, 4], [() => TagsMap, 0]], 1
+  [_PT, _CC, _CCl, _N, _CT, _Ta],
+  [0, [() => CaCertificate, 0], [() => ClaimCertificate, 0], 0, [0, 4], [() => TagsMap, 0]], 1
 ];
 export var CreateProvisioningProfileResponse$: StaticStructureSchema = [3, n0, _CPPRr,
   0,
@@ -902,7 +913,7 @@ export var DestinationSummary$: StaticStructureSchema = [3, n0, _DS,
 export var Device$: StaticStructureSchema = [3, n0, _De,
   0,
   [_CDI, _CR, _CDN, _CSa, _DM],
-  [[() => ConnectorDeviceId, 0], () => MatterCapabilityReport$, [() => ConnectorDeviceName, 0], () => CapabilitySchemas, 15], 2
+  [[() => ConnectorDeviceId, 0], () => MatterCapabilityReport$, 0, () => CapabilitySchemas, 15], 2
 ];
 export var DeviceDiscoverySummary$: StaticStructureSchema = [3, n0, _DDS,
   0,
@@ -911,8 +922,8 @@ export var DeviceDiscoverySummary$: StaticStructureSchema = [3, n0, _DDS,
 ];
 export var DiscoveredDeviceSummary$: StaticStructureSchema = [3, n0, _DDSi,
   0,
-  [_CDI, _CDN, _DTe, _MTI, _Mo, _DA, _B, _M, _AM],
-  [[() => ConnectorDeviceId, 0], [() => ConnectorDeviceName, 0], 64 | 0, 0, 0, 4, [() => Brand, 0], [() => Model, 0], [() => AuthMaterialString, 0]]
+  [_CDI, _CDN, _DTe, _MTI, _Mo, _DA, _B, _M, _AMu],
+  [[() => ConnectorDeviceId, 0], 0, 64 | 0, 0, 0, 4, [() => Brand, 0], [() => Model, 0], [() => AuthMaterialString, 0]]
 ];
 export var EndpointConfig$: StaticStructureSchema = [3, n0, _EC,
   0,
@@ -929,6 +940,16 @@ export var ExponentialRolloutRate$: StaticStructureSchema = [3, n0, _ERR,
   [_BRPM, _IF, _RIC],
   [1, 1, () => RolloutRateIncreaseCriteria$]
 ];
+export var GeneralAuthorizationName$: StaticStructureSchema = [3, n0, _GAN,
+  0,
+  [_AMN],
+  [0]
+];
+export var GeneralAuthorizationUpdate$: StaticStructureSchema = [3, n0, _GAU,
+  0,
+  [_AMTA, _AMTU],
+  [() => AuthMaterials, () => AuthMaterials]
+];
 export var GetAccountAssociationRequest$: StaticStructureSchema = [3, n0, _GAAR,
   0,
   [_AAIc],
@@ -936,8 +957,8 @@ export var GetAccountAssociationRequest$: StaticStructureSchema = [3, n0, _GAAR,
 ];
 export var GetAccountAssociationResponse$: StaticStructureSchema = [3, n0, _GAARe,
   0,
-  [_AAIc, _AS, _OAAU, _EM, _CDIo, _N, _D, _Ar, _Ta],
-  [0, 0, [() => OAuthAuthorizationUrl, 0], 0, 0, 0, 0, 0, [() => TagsMap, 0]], 3
+  [_AAIc, _AS, _OAAU, _EM, _CDIo, _N, _D, _Ar, _Ta, _GA],
+  [0, 0, [() => OAuthAuthorizationUrlOutput, 0], 0, 0, 0, 0, 0, [() => TagsMap, 0], () => GeneralAuthorizationName$], 3
 ];
 export var GetCloudConnectorRequest$: StaticStructureSchema = [3, n0, _GCCR,
   0,
@@ -1360,8 +1381,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ManagedThingAssociation$: StaticStructureSchema = [3, n0, _MTA,
   0,
-  [_MTI, _AAIc],
-  [0, 0]
+  [_MTI, _AAIc, _MTAS],
+  [0, 0, 0]
 ];
 export var ManagedThingSchemaListItem$: StaticStructureSchema = [3, n0, _MTSLI,
   0,
@@ -1567,7 +1588,7 @@ export var SecretsManager$: StaticStructureSchema = [3, n0, _SM,
 export var SendConnectorEventRequest$: StaticStructureSchema = [3, n0, _SCER,
   0,
   [_CIonn, _Op, _UI, _OV, _SC, _Me, _DDI, _CDI, _TIr, _Dev, _ME],
-  [[0, 1], 0, [() => ThirdPartyUserId, 0], [() => ConnectorEventOperationVersion, 0], [() => ConnectorEventStatusCode, 0], [() => ConnectorEventMessage, 0], 0, [() => ConnectorDeviceId, 0], 0, [() => Devices, 0], [() => MatterEndpoint$, 0]], 2
+  [[0, 1], 0, [() => ThirdPartyUserId, 0], 0, 1, [() => ConnectorEventMessage, 0], 0, [() => ConnectorDeviceId, 0], 0, [() => Devices, 0], [() => MatterEndpoint$, 0]], 2
 ];
 export var SendConnectorEventResponse$: StaticStructureSchema = [3, n0, _SCERe,
   0,
@@ -1604,12 +1625,12 @@ export var StartAccountAssociationRefreshRequest$: StaticStructureSchema = [3, n
 export var StartAccountAssociationRefreshResponse$: StaticStructureSchema = [3, n0, _SAARRt,
   0,
   [_OAAU],
-  [[() => OAuthAuthorizationUrl, 0]], 1
+  [[() => OAuthAuthorizationUrlOutput, 0]], 1
 ];
 export var StartDeviceDiscoveryRequest$: StaticStructureSchema = [3, n0, _SDDR,
   0,
-  [_DT, _CPD, _CIont, _CAIo, _AAIc, _AM, _AMT, _CT, _Ta, _P, _EDI],
-  [0, 128 | 0, 0, 0, 0, [() => DiscoveryAuthMaterialString, 0], 0, 0, [() => TagsMap, 0], 0, 0], 1
+  [_DT, _CPD, _CIont, _CAIo, _AAIc, _AMu, _AMT, _CT, _Ta, _CDIL, _P, _EDI],
+  [0, 128 | 0, 0, 0, 0, [() => DiscoveryAuthMaterialString, 0], 0, 0, [() => TagsMap, 0], [() => ConnectorDeviceIdList, 0], 0, 0], 1
 ];
 export var StartDeviceDiscoveryResponse$: StaticStructureSchema = [3, n0, _SDDRt,
   0,
@@ -1723,6 +1744,9 @@ var AbortConfigCriteriaList: StaticListSchema = [1, n0, _ACCL,
 var AccountAssociationListDefinition: StaticListSchema = [1, n0, _AALD,
   0, () => AccountAssociationItem$
 ];
+var AuthMaterials: StaticListSchema = [1, n0, _AMut,
+  0, () => AuthMaterial$
+];
 var CapabilityActions: StaticListSchema = [1, n0, _CAa,
   0, [() => CapabilityAction$,
     0]
@@ -1749,6 +1773,10 @@ var CommandEndpoints: StaticListSchema = [1, n0, _CEom,
 ];
 var ConnectorDestinationListDefinition: StaticListSchema = [1, n0, _CDLD,
   0, () => ConnectorDestinationSummary$
+];
+var ConnectorDeviceIdList: StaticListSchema = [1, n0, _CDIL,
+  0, [() => ConnectorDeviceId,
+    0]
 ];
 var ConnectorList: StaticListSchema = [1, n0, _CL,
   0, () => ConnectorItem$

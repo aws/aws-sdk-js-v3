@@ -25,6 +25,14 @@
       {
         "id": "Service",
         "namespace": "*"
+      },
+      {
+        "id": "RuleSetAwsBuiltIn.AWS::Auth::AccountIdEndpointMode",
+        "namespace": "*"
+      },
+      {
+        "id": "RuleSetAwsBuiltIn.AWS::Auth::AccountId",
+        "namespace": "*"
       }
     ]
   },
@@ -97,6 +105,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -419,6 +436,15 @@
               "name": "StreamARN"
             }
           }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
         }
       },
       "traits": {
@@ -470,6 +496,15 @@
             "smithy.api#required": {},
             "smithy.rules#contextParam": {
               "name": "ResourceARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -535,6 +570,15 @@
               "name": "StreamARN"
             }
           }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
         }
       },
       "traits": {
@@ -594,6 +638,15 @@
             "smithy.api#documentation": "<p>The ARN returned by Kinesis Data Streams when you registered the consumer. If you\n            don't know the ARN of the consumer that you want to deregister, you can use the\n            ListStreamConsumers operation to get a list of the descriptions of all the consumers\n            that are currently registered with a given data stream. The description of a consumer\n            contains its ARN.</p>",
             "smithy.rules#contextParam": {
               "name": "ConsumerARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -828,6 +881,15 @@
               "name": "ConsumerARN"
             }
           }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
         }
       },
       "traits": {
@@ -876,6 +938,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -958,6 +1029,15 @@
               "name": "StreamARN"
             }
           }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
         }
       },
       "traits": {
@@ -1037,6 +1117,15 @@
               "name": "StreamARN"
             }
           }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
         }
       },
       "traits": {
@@ -1100,6 +1189,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -1290,6 +1388,15 @@
               "name": "StreamARN"
             }
           }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
         }
       },
       "traits": {
@@ -1384,6 +1491,15 @@
             "smithy.api#required": {},
             "smithy.rules#contextParam": {
               "name": "ResourceARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -1482,6 +1598,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -1590,6 +1715,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -1896,6 +2030,11 @@
               "documentation": "Override the endpoint used to send this request",
               "type": "string"
             },
+            "StreamId": {
+              "required": false,
+              "documentation": "The unique identifier of the Kinesis stream",
+              "type": "string"
+            },
             "StreamARN": {
               "required": false,
               "documentation": "The ARN of the Kinesis stream",
@@ -1918,6 +2057,905 @@
             }
           },
           "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "StreamId"
+                    }
+                  ]
+                },
+                {
+                  "fn": "substring",
+                  "argv": [
+                    {
+                      "ref": "StreamId"
+                    },
+                    20,
+                    21,
+                    false
+                  ],
+                  "assign": "StreamIdDelimiterValue"
+                },
+                {
+                  "fn": "stringEquals",
+                  "argv": [
+                    {
+                      "ref": "StreamIdDelimiterValue"
+                    },
+                    "-"
+                  ]
+                },
+                {
+                  "fn": "substring",
+                  "argv": [
+                    {
+                      "ref": "StreamId"
+                    },
+                    3,
+                    4,
+                    true
+                  ],
+                  "assign": "StreamIdDelimiterReversedValue"
+                },
+                {
+                  "fn": "stringEquals",
+                  "argv": [
+                    {
+                      "ref": "StreamIdDelimiterReversedValue"
+                    },
+                    "-"
+                  ]
+                },
+                {
+                  "fn": "substring",
+                  "argv": [
+                    {
+                      "ref": "StreamId"
+                    },
+                    0,
+                    20,
+                    false
+                  ],
+                  "assign": "StreamIdPrefixValue"
+                },
+                {
+                  "fn": "substring",
+                  "argv": [
+                    {
+                      "ref": "StreamId"
+                    },
+                    21,
+                    24,
+                    false
+                  ],
+                  "assign": "StreamIdSuffixValue"
+                },
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                },
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                },
+                {
+                  "fn": "not",
+                  "argv": [
+                    {
+                      "fn": "stringEquals",
+                      "argv": [
+                        {
+                          "fn": "getAttr",
+                          "argv": [
+                            {
+                              "ref": "PartitionResult"
+                            },
+                            "name"
+                          ]
+                        },
+                        "aws-iso"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "fn": "not",
+                  "argv": [
+                    {
+                      "fn": "stringEquals",
+                      "argv": [
+                        {
+                          "fn": "getAttr",
+                          "argv": [
+                            {
+                              "ref": "PartitionResult"
+                            },
+                            "name"
+                          ]
+                        },
+                        "aws-iso-b"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "OperationType"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "isSet",
+                          "argv": [
+                            {
+                              "ref": "Endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "substring",
+                          "argv": [
+                            {
+                              "ref": "Endpoint"
+                            },
+                            15,
+                            16,
+                            false
+                          ],
+                          "assign": "HttpsCustomEndpointDelimiterValue"
+                        },
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "HttpsCustomEndpointDelimiterValue"
+                            },
+                            "-"
+                          ]
+                        },
+                        {
+                          "fn": "substring",
+                          "argv": [
+                            {
+                              "ref": "Endpoint"
+                            },
+                            20,
+                            21,
+                            false
+                          ],
+                          "assign": "HttpsEndpointDelimiterValue"
+                        },
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "HttpsEndpointDelimiterValue"
+                            },
+                            "."
+                          ]
+                        },
+                        {
+                          "fn": "substring",
+                          "argv": [
+                            {
+                              "ref": "Endpoint"
+                            },
+                            15,
+                            20,
+                            false
+                          ],
+                          "assign": "HttpsCustomEndpointSuffixValue"
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    },
+                                    true
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [
+                                    {
+                                      "fn": "booleanEquals",
+                                      "argv": [
+                                        {
+                                          "fn": "getAttr",
+                                          "argv": [
+                                            {
+                                              "ref": "PartitionResult"
+                                            },
+                                            "supportsDualStack"
+                                          ]
+                                        },
+                                        true
+                                      ]
+                                    }
+                                  ],
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis{HttpsCustomEndpointSuffixValue}-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ],
+                                  "type": "tree"
+                                },
+                                {
+                                  "conditions": [],
+                                  "error": "DualStack is enabled, but this partition does not support DualStack.",
+                                  "type": "error"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled, but this partition does not support FIPS.",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    },
+                                    true
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "endpoint": {
+                                    "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis{HttpsCustomEndpointSuffixValue}-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                    "properties": {},
+                                    "headers": {}
+                                  },
+                                  "type": "endpoint"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    },
+                                    true
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "endpoint": {
+                                    "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis{HttpsCustomEndpointSuffixValue}.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                    "properties": {},
+                                    "headers": {}
+                                  },
+                                  "type": "endpoint"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis{HttpsCustomEndpointSuffixValue}.{Region}.{PartitionResult#dnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "isSet",
+                          "argv": [
+                            {
+                              "ref": "Endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "substring",
+                          "argv": [
+                            {
+                              "ref": "Endpoint"
+                            },
+                            7,
+                            8,
+                            false
+                          ],
+                          "assign": "PlainCustomEndpointDelimiterValue"
+                        },
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "PlainCustomEndpointDelimiterValue"
+                            },
+                            "-"
+                          ]
+                        },
+                        {
+                          "fn": "substring",
+                          "argv": [
+                            {
+                              "ref": "Endpoint"
+                            },
+                            12,
+                            13,
+                            false
+                          ],
+                          "assign": "PlainEndpointDelimiterValue"
+                        },
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "PlainEndpointDelimiterValue"
+                            },
+                            "."
+                          ]
+                        },
+                        {
+                          "fn": "substring",
+                          "argv": [
+                            {
+                              "ref": "Endpoint"
+                            },
+                            7,
+                            12,
+                            false
+                          ],
+                          "assign": "PlainCustomEndpointSuffixValue"
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    },
+                                    true
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [
+                                    {
+                                      "fn": "booleanEquals",
+                                      "argv": [
+                                        {
+                                          "fn": "getAttr",
+                                          "argv": [
+                                            {
+                                              "ref": "PartitionResult"
+                                            },
+                                            "supportsDualStack"
+                                          ]
+                                        },
+                                        true
+                                      ]
+                                    }
+                                  ],
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis{PlainCustomEndpointSuffixValue}-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ],
+                                  "type": "tree"
+                                },
+                                {
+                                  "conditions": [],
+                                  "error": "DualStack is enabled, but this partition does not support DualStack.",
+                                  "type": "error"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled, but this partition does not support FIPS.",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    },
+                                    true
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "endpoint": {
+                                    "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis{PlainCustomEndpointSuffixValue}-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                    "properties": {},
+                                    "headers": {}
+                                  },
+                                  "type": "endpoint"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    },
+                                    true
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "endpoint": {
+                                    "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis{PlainCustomEndpointSuffixValue}.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                    "properties": {},
+                                    "headers": {}
+                                  },
+                                  "type": "endpoint"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis{PlainCustomEndpointSuffixValue}.{Region}.{PartitionResult#dnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    },
+                                    true
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "endpoint": {
+                                    "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                    "properties": {},
+                                    "headers": {}
+                                  },
+                                  "type": "endpoint"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled, but this partition does not support DualStack.",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled, but this partition does not support FIPS.",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://{StreamIdPrefixValue}.{StreamIdSuffixValue}.{OperationType}-kinesis.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ],
+                  "type": "tree"
+                },
+                {
+                  "conditions": [],
+                  "error": "Operation Type is not set. Please contact service team for resolution.",
+                  "type": "error"
+                }
+              ],
+              "type": "tree"
+            },
             {
               "conditions": [
                 {
@@ -5803,6 +6841,586 @@
                 "OperationType": "data",
                 "ResourceARN": "arn:aws-iso-b:kinesis:us-isob-east-1:123:stream/test-stream/consumer/test-consumer:1525898737"
               }
+            },
+            {
+              "documentation": "StreamId test: OperationType not set with StreamId",
+              "expect": {
+                "error": "Operation Type is not set. Please contact service team for resolution."
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "StreamId": "af4lwng4k01746835071-xyz"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint targeting control operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "StreamARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint targeting data operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis.us-east-1.amazonaws.com"
+                }
+              },
+              "operationInputs": [
+                {
+                  "builtInParams": {
+                    "AWS::Region": "us-east-1"
+                  },
+                  "operationName": "GetShardIterator",
+                  "operationParams": {
+                    "ShardId": "shardId-000000000001",
+                    "ShardIteratorType": "LATEST",
+                    "StreamId": "af4lwng4k01746835071-xyz"
+                  }
+                }
+              ],
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "StreamARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with fips targeting data operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "StreamARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with fips targeting control operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "StreamARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with Dual Stack and FIPS enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "StreamARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with Dual Stack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis.us-west-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "StreamARN": "arn:aws:kinesis:us-west-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with FIPS and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis.us-west-1.amazonaws.com"
+                }
+              },
+              "operationInputs": [
+                {
+                  "builtInParams": {
+                    "AWS::Region": "us-west-1"
+                  },
+                  "operationName": "ListShards",
+                  "operationParams": {
+                    "StreamId": "af4lwng4k01746835071-xyz"
+                  }
+                }
+              ],
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "StreamARN": "arn:aws:kinesis:us-west-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint FIPS and DualStack disabled with endpoint",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis-pod1.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint targeting data operation type with endpoint",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis-pod1.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with fips targeting data operation type with endpoint",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis-pod1-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with fips targeting control operation type with endpoint",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis-pod1-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with Dual Stack and FIPS enabled with endpoint",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis-pod1-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with Dual Stack enabled with endpoint",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis-pod1.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint targeting data operation type with https endpoint",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis-pod1.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "https://kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: HTTPS endpoint with FIPS enabled targeting control operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis-pod1-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "https://kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: HTTPS endpoint with FIPS enabled targeting data operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis-pod1-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "https://kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: HTTPS endpoint with DualStack enabled targeting control operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis-pod1.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "https://kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: HTTPS endpoint with DualStack enabled targeting data operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis-pod1.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "https://kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: HTTPS endpoint with FIPS and DualStack enabled targeting control operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis-pod1-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "https://kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: HTTPS endpoint with FIPS and DualStack enabled targeting data operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis-pod1-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "https://kinesis-pod1.us-east-1.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: HTTPS endpoint with FIPS enabled in different region",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis-pod2-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "https://kinesis-pod2.us-west-2.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: HTTPS endpoint with DualStack enabled in different region",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis-pod2.us-west-2.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "Endpoint": "https://kinesis-pod2.us-west-2.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with ConsumerARN targeting control operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "ConsumerARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream/consumer/test-consumer:1525898737"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with ConsumerARN targeting data operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "ConsumerARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream/consumer/test-consumer:1525898737"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with ResourceARN targeting control operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.control-kinesis.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "ResourceARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Stream endpoint with ResourceARN targeting data operation type",
+              "expect": {
+                "endpoint": {
+                  "url": "https://af4lwng4k01746835071.xyz.data-kinesis.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071-xyz",
+                "ResourceARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Invalid StreamId with ARN",
+              "expect": {
+                "endpoint": {
+                  "url": "https://123.data-kinesis.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "data",
+                "StreamId": "af4lwng4k01746835071=xyz",
+                "ResourceARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Invalid streamId with custom endpoint",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-pod2.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071=xyz",
+                "Endpoint": "https://kinesis-pod2.us-west-2.amazonaws.com"
+              }
+            },
+            {
+              "documentation": "StreamId test: Invalid streamId",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071=xyz"
+              }
+            },
+            {
+              "documentation": "StreamId test: Invalid streamId with custom endpoint and ARN",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesis-pod2.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071=xyz",
+                "Endpoint": "https://kinesis-pod2.us-west-2.amazonaws.com",
+                "ResourceARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Invalid streamId with longer prefix",
+              "expect": {
+                "endpoint": {
+                  "url": "https://123.control-kinesis.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k0174683507123-xyz",
+                "ResourceARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Invalid streamId with shorter prefix",
+              "expect": {
+                "endpoint": {
+                  "url": "https://123.control-kinesis.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835-xyz",
+                "ResourceARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Invalid streamId with longer suffix",
+              "expect": {
+                "endpoint": {
+                  "url": "https://123.control-kinesis.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-wxyz",
+                "ResourceARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
+            },
+            {
+              "documentation": "StreamId test: Invalid streamId with shorter suffix",
+              "expect": {
+                "endpoint": {
+                  "url": "https://123.control-kinesis.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "OperationType": "control",
+                "StreamId": "af4lwng4k01746835071-yz",
+                "ResourceARN": "arn:aws:kinesis:us-east-1:123:stream/test-stream"
+              }
             }
           ],
           "version": "1.0"
@@ -5908,6 +7526,15 @@
               "name": "StreamARN"
             }
           }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
         }
       },
       "traits": {
@@ -6011,6 +7638,15 @@
           "target": "com.amazonaws.kinesis#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Specify this input parameter to distinguish data streams that have the same name. For\n            example, if you create a data stream and then delete it, and you later create another\n            data stream with the same name, you can use this input parameter to specify which of the\n            two streams you want to list the consumers for. </p>\n         <p>You can't specify this parameter if you specify the NextToken parameter. </p>"
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
           }
         }
       },
@@ -6205,6 +7841,15 @@
               "name": "ResourceARN"
             }
           }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
         }
       },
       "traits": {
@@ -6283,6 +7928,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -6399,6 +8053,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -6703,7 +8366,7 @@
         "Data": {
           "target": "com.amazonaws.kinesis#Data",
           "traits": {
-            "smithy.api#documentation": "<p>The data blob to put into the record, which is base64-encoded when the blob is\n            serialized. When the data blob (the payload before base64-encoding) is added to the\n            partition key size, the total size must not exceed the maximum record size (1\n            MiB).</p>",
+            "smithy.api#documentation": "<p>The data blob to put into the record, which is base64-encoded when the blob is\n            serialized. When the data blob (the payload before base64-encoding) is added to the\n            partition key size, the total size must not exceed the maximum record size (10\n            MiB).</p>",
             "smithy.api#required": {}
           }
         },
@@ -6732,6 +8395,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -6846,6 +8518,15 @@
               "name": "StreamARN"
             }
           }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
         }
       },
       "traits": {
@@ -6887,7 +8568,7 @@
         "Data": {
           "target": "com.amazonaws.kinesis#Data",
           "traits": {
-            "smithy.api#documentation": "<p>The data blob to put into the record, which is base64-encoded when the blob is\n            serialized. When the data blob (the payload before base64-encoding) is added to the\n            partition key size, the total size must not exceed the maximum record size (1\n            MiB).</p>",
+            "smithy.api#documentation": "<p>The data blob to put into the record, which is base64-encoded when the blob is\n            serialized. When the data blob (the payload before base64-encoding) is added to the\n            partition key size, the total size must not exceed the maximum record size (10\n            MiB).</p>",
             "smithy.api#required": {}
           }
         },
@@ -7012,6 +8693,15 @@
             }
           }
         },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
+        },
         "Policy": {
           "target": "com.amazonaws.kinesis#Policy",
           "traits": {
@@ -7122,6 +8812,15 @@
             "smithy.api#required": {}
           }
         },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.kinesis#TagMap",
           "traits": {
@@ -7204,6 +8903,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -7546,6 +9254,15 @@
               "name": "StreamARN"
             }
           }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
         }
       },
       "traits": {
@@ -7634,6 +9351,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -7732,6 +9458,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -7849,6 +9584,12 @@
             "smithy.api#required": {}
           }
         },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>"
+          }
+        },
         "StreamStatus": {
           "target": "com.amazonaws.kinesis#StreamStatus",
           "traits": {
@@ -7923,6 +9664,16 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Represents the output for <a>DescribeStreamSummary</a>\n         </p>"
+      }
+    },
+    "com.amazonaws.kinesis#StreamId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 24
+        },
+        "smithy.api#pattern": "^[a-z0-9]{20}-[a-z0-9]{3}$"
       }
     },
     "com.amazonaws.kinesis#StreamMode": {
@@ -8173,6 +9924,15 @@
             }
           }
         },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
+        },
         "ShardId": {
           "target": "com.amazonaws.kinesis#ShardId",
           "traits": {
@@ -8329,6 +10089,15 @@
               "name": "ResourceARN"
             }
           }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
         }
       },
       "traits": {
@@ -8398,6 +10167,15 @@
             "smithy.api#required": {},
             "smithy.rules#contextParam": {
               "name": "ResourceARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -8507,6 +10285,15 @@
             }
           }
         },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
+        },
         "MaxRecordSizeInKiB": {
           "target": "com.amazonaws.kinesis#MaxRecordSizeInKiB",
           "traits": {
@@ -8585,6 +10372,15 @@
             "smithy.api#documentation": "<p>The ARN of the stream.</p>",
             "smithy.rules#contextParam": {
               "name": "StreamARN"
+            }
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
             }
           }
         }
@@ -8672,6 +10468,15 @@
             }
           }
         },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
+          }
+        },
         "StreamModeDetails": {
           "target": "com.amazonaws.kinesis#StreamModeDetails",
           "traits": {
@@ -8743,6 +10548,15 @@
           "target": "com.amazonaws.kinesis#StreamName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the stream to be updated.</p>"
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.kinesis#StreamId",
+          "traits": {
+            "smithy.api#documentation": "<p>Not Implemented. Reserved for future use.</p>",
+            "smithy.rules#contextParam": {
+              "name": "StreamId"
+            }
           }
         },
         "WarmThroughputMiBps": {

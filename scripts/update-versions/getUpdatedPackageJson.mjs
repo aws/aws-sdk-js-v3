@@ -7,7 +7,7 @@ export const getUpdatedPackageJson = (packageJson, depToVersionHash) =>
     .reduce(
       (acc, sectionName) => ({
         ...acc,
-        [sectionName]: getUpdatedPackageJsonSection(packageJson[sectionName], depToVersionHash),
+        [sectionName]: getUpdatedPackageJsonSection(packageJson[sectionName], depToVersionHash, sectionName),
       }),
       packageJson
     );

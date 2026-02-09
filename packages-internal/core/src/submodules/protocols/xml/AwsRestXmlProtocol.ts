@@ -20,7 +20,8 @@ import type {
 
 import { ProtocolLib } from "../ProtocolLib";
 import { loadRestXmlErrorCode } from "./parseXmlBody";
-import { XmlCodec, XmlSettings } from "./XmlCodec";
+import type { XmlSettings } from "./XmlCodec";
+import { XmlCodec } from "./XmlCodec";
 
 /**
  * @public
@@ -107,6 +108,19 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
     metadata: ResponseMetadata
   ): Promise<never> {
     const errorIdentifier = loadRestXmlErrorCode(response, dataObject) ?? "Unknown";
+
+    // see https://smithy.io/2.0/aws/protocols/aws-restxml-protocol.html#error-response-serialization
+    if (dataObject.Error && typeof dataObject.Error === "object") {
+      for (const key of Object.keys(dataObject.Error)) {
+        dataObject[key] = dataObject.Error[key];
+        if (key.toLowerCase() === "message") {
+          dataObject.message = dataObject.Error[key];
+        }
+      }
+    }
+    if (dataObject.RequestId && !metadata.requestId) {
+      metadata.requestId = dataObject.RequestId;
+    }
 
     const { errorSchema, errorMetadata } = await this.mixin.getErrorSchemaOrThrowBaseException(
       errorIdentifier,

@@ -76843,6 +76843,42 @@
           "traits": {
             "smithy.api#enumValue": "ml.p6-b300.48xlarge"
           }
+        },
+        "ML_G7E_2XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.2xlarge"
+          }
+        },
+        "ML_G7E_4XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.4xlarge"
+          }
+        },
+        "ML_G7E_8XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.8xlarge"
+          }
+        },
+        "ML_G7E_12XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.12xlarge"
+          }
+        },
+        "ML_G7E_24XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.24xlarge"
+          }
+        },
+        "ML_G7E_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.g7e.48xlarge"
+          }
         }
       }
     },

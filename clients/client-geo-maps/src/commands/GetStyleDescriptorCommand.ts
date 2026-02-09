@@ -54,6 +54,7 @@ export interface GetStyleDescriptorCommandOutput extends GetStyleDescriptorComma
  *   TravelModes: [ // TravelModeList
  *     "STRING_VALUE",
  *   ],
+ *   Buildings: "STRING_VALUE",
  *   Key: "STRING_VALUE",
  * };
  * const command = new GetStyleDescriptorCommand(input);

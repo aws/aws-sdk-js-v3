@@ -45,6 +45,12 @@ export interface AddTagsToStreamInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -259,6 +265,12 @@ export interface DecreaseStreamRetentionPeriodInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -270,6 +282,12 @@ export interface DeleteResourcePolicyInput {
    * @public
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -296,6 +314,12 @@ export interface DeleteStreamInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -325,6 +349,12 @@ export interface DeregisterStreamConsumerInput {
    * @public
    */
   ConsumerARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -441,6 +471,12 @@ export interface DescribeStreamInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -738,6 +774,12 @@ export interface DescribeStreamConsumerInput {
    * @public
    */
   ConsumerARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -766,6 +808,12 @@ export interface DescribeStreamSummaryInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -803,6 +851,12 @@ export interface StreamDescriptionSummary {
    * @public
    */
   StreamARN: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 
   /**
    * <p>The current status of the stream being described. The stream status is one of the
@@ -1021,6 +1075,12 @@ export interface DisableEnhancedMonitoringInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1124,6 +1184,12 @@ export interface EnableEnhancedMonitoringInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1152,6 +1218,12 @@ export interface GetRecordsInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1251,6 +1323,12 @@ export interface GetResourcePolicyInput {
    * @public
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1337,6 +1415,12 @@ export interface GetShardIteratorInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1376,6 +1460,12 @@ export interface IncreaseStreamRetentionPeriodInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1548,6 +1638,12 @@ export interface ListShardsInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1639,6 +1735,12 @@ export interface ListStreamConsumersInput {
    * @public
    */
   StreamCreationTimestamp?: Date | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1774,6 +1876,12 @@ export interface ListTagsForResourceInput {
    * @public
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1841,6 +1949,12 @@ export interface ListTagsForStreamInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1892,6 +2006,12 @@ export interface MergeShardsInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1908,7 +2028,7 @@ export interface PutRecordInput {
   /**
    * <p>The data blob to put into the record, which is base64-encoded when the blob is
    *             serialized. When the data blob (the payload before base64-encoding) is added to the
-   *             partition key size, the total size must not exceed the maximum record size (1
+   *             partition key size, the total size must not exceed the maximum record size (10
    *             MiB).</p>
    * @public
    */
@@ -1948,6 +2068,12 @@ export interface PutRecordInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -1996,7 +2122,7 @@ export interface PutRecordsRequestEntry {
   /**
    * <p>The data blob to put into the record, which is base64-encoded when the blob is
    *             serialized. When the data blob (the payload before base64-encoding) is added to the
-   *             partition key size, the total size must not exceed the maximum record size (1
+   *             partition key size, the total size must not exceed the maximum record size (10
    *             MiB).</p>
    * @public
    */
@@ -2044,6 +2170,12 @@ export interface PutRecordsInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -2137,6 +2269,12 @@ export interface PutResourcePolicyInput {
   ResourceARN: string | undefined;
 
   /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
+
+  /**
    * <p>Details of the resource policy. It must include the identity of the principal and the actions allowed on this resource. This is formatted as a JSON string.</p>
    * @public
    */
@@ -2161,6 +2299,12 @@ export interface RegisterStreamConsumerInput {
    * @public
    */
   ConsumerName: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 
   /**
    * <p>A set of up to 50 key-value pairs. A tag consists of a required key and an optional value.</p>
@@ -2203,6 +2347,12 @@ export interface RemoveTagsFromStreamInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -2239,6 +2389,12 @@ export interface SplitShardInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -2298,6 +2454,12 @@ export interface StartStreamEncryptionInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -2357,6 +2519,12 @@ export interface StopStreamEncryptionInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -2415,6 +2583,12 @@ export interface SubscribeToShardInput {
    * @public
    */
   ConsumerARN: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 
   /**
    * <p>The ID of the shard you want to subscribe to. To see a list of all the shards for a
@@ -2746,6 +2920,12 @@ export interface TagResourceInput {
    * @public
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -2763,6 +2943,12 @@ export interface UntagResourceInput {
    * @public
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -2826,6 +3012,12 @@ export interface UpdateMaxRecordSizeInput {
   StreamARN?: string | undefined;
 
   /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
+
+  /**
    * <p>The maximum record size of a single record in KiB that you can write to, and read from a stream. Specify a value between 1024 and 10240 KiB (1 to 10 MiB). If you specify a value that is out of this range, <code>UpdateMaxRecordSize</code> sends back an <code>ValidationException</code> message.</p>
    * @public
    */
@@ -2878,6 +3070,12 @@ export interface UpdateShardCountInput {
    * @public
    */
   StreamARN?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 }
 
 /**
@@ -2920,6 +3118,12 @@ export interface UpdateStreamModeInput {
   StreamARN: string | undefined;
 
   /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
+
+  /**
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
    *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    * @public
@@ -2948,6 +3152,12 @@ export interface UpdateStreamWarmThroughputInput {
    * @public
    */
   StreamName?: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
 
   /**
    * <p>The target warm throughput in MB/s that the stream should be scaled to handle. This represents the throughput capacity that will be immediately available for write operations.</p>

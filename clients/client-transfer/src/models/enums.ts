@@ -72,6 +72,7 @@ export type EncryptionAlg = (typeof EncryptionAlg)[keyof typeof EncryptionAlg];
  * @enum
  */
 export const MdnResponse = {
+  ASYNC: "ASYNC",
   NONE: "NONE",
   SYNC: "SYNC",
 } as const;

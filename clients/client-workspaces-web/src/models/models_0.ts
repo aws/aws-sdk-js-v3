@@ -1956,6 +1956,12 @@ export interface CreatePortalRequest {
    * @public
    */
   maxConcurrentSessions?: number | undefined;
+
+  /**
+   * <p>The custom domain of the web portal that users access in order to start streaming sessions.</p>
+   * @public
+   */
+  portalCustomDomain?: string | undefined;
 }
 
 /**
@@ -2260,6 +2266,12 @@ export interface Portal {
    * @public
    */
   maxConcurrentSessions?: number | undefined;
+
+  /**
+   * <p>The custom domain of the web portal that users access in order to start streaming sessions.</p>
+   * @public
+   */
+  portalCustomDomain?: string | undefined;
 }
 
 /**
@@ -2430,6 +2442,12 @@ export interface PortalSummary {
    * @public
    */
   maxConcurrentSessions?: number | undefined;
+
+  /**
+   * <p>The custom domain of the web portal that users access in order to start streaming sessions.</p>
+   * @public
+   */
+  portalCustomDomain?: string | undefined;
 }
 
 /**
@@ -2482,6 +2500,12 @@ export interface UpdatePortalRequest {
    * @public
    */
   maxConcurrentSessions?: number | undefined;
+
+  /**
+   * <p>The custom domain of the web portal that users access in order to start streaming sessions. </p>
+   * @public
+   */
+  portalCustomDomain?: string | undefined;
 }
 
 /**

@@ -63,6 +63,7 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * //       ipAccessSettingsArn: "STRING_VALUE",
  * //       instanceType: "STRING_VALUE",
  * //       maxConcurrentSessions: Number("int"),
+ * //       portalCustomDomain: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

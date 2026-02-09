@@ -106,6 +106,7 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  *   ],
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new PutRecordsCommand(input);
  * const response = await client.send(command);
@@ -197,6 +198,7 @@ export class PutRecordsCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `data` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

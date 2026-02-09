@@ -33,6 +33,7 @@ import {
   GuardrailTrace,
   GuardrailWordPolicyAction,
   ImageFormat,
+  OutputFormatType,
   PerformanceConfigLatency,
   ServiceTierType,
   SortAsyncInvocationBy,
@@ -3146,6 +3147,99 @@ export interface Message {
 }
 
 /**
+ * <p> JSON schema structured output format options. </p>
+ * @public
+ */
+export interface JsonSchemaDefinition {
+  /**
+   * <p> The JSON schema to constrain the model's output. For more information, see <a href="https://json-schema.org/understanding-json-schema/reference">JSON Schema Reference</a>. </p>
+   * @public
+   */
+  schema: string | undefined;
+
+  /**
+   * <p> The name of the JSON schema. </p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p> A description of the JSON schema. </p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * <p> The structure that the model's output must adhere to. </p>
+ * @public
+ */
+export type OutputFormatStructure =
+  | OutputFormatStructure.JsonSchemaMember
+  | OutputFormatStructure.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OutputFormatStructure {
+  /**
+   * <p> A JSON schema structure that the model's output must adhere to. </p>
+   * @public
+   */
+  export interface JsonSchemaMember {
+    jsonSchema: JsonSchemaDefinition;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    jsonSchema?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    jsonSchema: (value: JsonSchemaDefinition) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> Structured output parameters to control the model's response. </p>
+ * @public
+ */
+export interface OutputFormat {
+  /**
+   * <p> The type of structured output format. </p>
+   * @public
+   */
+  type: OutputFormatType | undefined;
+
+  /**
+   * <p> The structure that the model's output must adhere to. </p>
+   * @public
+   */
+  structure: OutputFormatStructure | undefined;
+}
+
+/**
+ * <p>Output configuration for a model response in a call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a> or <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a>.</p>
+ * @public
+ */
+export interface OutputConfig {
+  /**
+   * <p>Structured output parameters to control the model's text response. </p>
+   * @public
+   */
+  textFormat?: OutputFormat | undefined;
+}
+
+/**
  * <p>Performance settings for a model.</p>
  * @public
  */
@@ -3443,6 +3537,12 @@ export interface ToolSpecification {
    * @public
    */
   inputSchema: ToolInputSchema | undefined;
+
+  /**
+   * <p>Flag to enable structured output enforcement on a tool usage response.</p>
+   * @public
+   */
+  strict?: boolean | undefined;
 }
 
 /**
@@ -3607,6 +3707,12 @@ export interface ConverseRequest {
    * @public
    */
   serviceTier?: ServiceTier | undefined;
+
+  /**
+   * <p>Output configuration for a model response.</p>
+   * @public
+   */
+  outputConfig?: OutputConfig | undefined;
 }
 
 /**
@@ -3938,6 +4044,12 @@ export interface ConverseStreamRequest {
    * @public
    */
   serviceTier?: ServiceTier | undefined;
+
+  /**
+   * <p>Output configuration for a model response.</p>
+   * @public
+   */
+  outputConfig?: OutputConfig | undefined;
 }
 
 /**

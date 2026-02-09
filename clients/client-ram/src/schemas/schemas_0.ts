@@ -9,6 +9,8 @@ const _ARSPR = "AssociateResourceSharePermissionRequest";
 const _ARSPRs = "AssociateResourceSharePermissionResponse";
 const _ARSR = "AssociateResourceShareRequest";
 const _ARSRs = "AssociateResourceShareResponse";
+const _AS = "AssociatedSource";
+const _ASL = "AssociatedSourceList";
 const _CP = "CreatePermission";
 const _CPR = "CreatePermissionRequest";
 const _CPRr = "CreatePermissionResponse";
@@ -86,6 +88,9 @@ const _LRSPRi = "ListResourceSharePermissionsResponse";
 const _LRT = "ListResourceTypes";
 const _LRTR = "ListResourceTypesRequest";
 const _LRTRi = "ListResourceTypesResponse";
+const _LSA = "ListSourceAssociations";
+const _LSAR = "ListSourceAssociationsRequest";
+const _LSARi = "ListSourceAssociationsResponse";
 const _MAE = "MalformedArnException";
 const _MPTE = "MalformedPolicyTemplateException";
 const _MRPE = "MissingRequiredParameterException";
@@ -226,9 +231,12 @@ const _rV = "returnValue";
 const _re = "return";
 const _res = "resources";
 const _s = "status";
+const _sA = "sourceAssociations";
 const _sAI = "senderAccountId";
+const _sI = "sourceId";
 const _sM = "statusMessage";
 const _sN = "serviceName";
+const _sT = "sourceType";
 const _se = "server";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ram";
 const _so = "sources";
@@ -297,6 +305,11 @@ export var AssociatedPermission$: StaticStructureSchema = [3, n0, _AP,
   0,
   [_a, _pV, _dV, _rT, _s, _fS, _lUT, _rSA],
   [0, 0, 2, 0, 0, 0, 4, 0]
+];
+export var AssociatedSource$: StaticStructureSchema = [3, n0, _AS,
+  0,
+  [_rSA, _sI, _sT, _s, _lUT, _cTr, _sM],
+  [0, 0, 0, 0, 4, 4, 0]
 ];
 export var AssociateResourceSharePermissionRequest$: StaticStructureSchema = [3, n0, _ARSPR,
   0,
@@ -596,6 +609,16 @@ export var ListResourceTypesResponse$: StaticStructureSchema = [3, n0, _LRTRi,
   [_rTe, _nT],
   [[() => ServiceNameAndResourceTypeList, 0], 0]
 ];
+export var ListSourceAssociationsRequest$: StaticStructureSchema = [3, n0, _LSAR,
+  0,
+  [_rSAes, _sI, _sT, _aS, _nT, _mR],
+  [[() => ResourceShareArnList, 0], 0, 0, 0, 0, 1]
+];
+export var ListSourceAssociationsResponse$: StaticStructureSchema = [3, n0, _LSARi,
+  0,
+  [_sA, _nT],
+  [[() => AssociatedSourceList, 0], 0]
+];
 export var MalformedArnException$: StaticErrorSchema = [-3, n0, _MAE,
   { [_aQE]: [`InvalidArn.Malformed`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
@@ -857,6 +880,10 @@ var AssociatedPermissionList: StaticListSchema = [1, n0, _APL,
   0, [() => AssociatedPermission$,
     { [_xN]: _it }]
 ];
+var AssociatedSourceList: StaticListSchema = [1, n0, _ASL,
+  0, [() => AssociatedSource$,
+    { [_xN]: _it }]
+];
 var PermissionArnList: StaticListSchema = [1, n0, _PAL,
   0, [0,
     { [_xN]: _it }]
@@ -1006,6 +1033,9 @@ export var ListResourceSharePermissions$: StaticOperationSchema = [9, n0, _LRSP,
 ];
 export var ListResourceTypes$: StaticOperationSchema = [9, n0, _LRT,
   { [_h]: ["POST", "/listresourcetypes", 200] }, () => ListResourceTypesRequest$, () => ListResourceTypesResponse$
+];
+export var ListSourceAssociations$: StaticOperationSchema = [9, n0, _LSA,
+  { [_h]: ["POST", "/listsourceassociations", 200] }, () => ListSourceAssociationsRequest$, () => ListSourceAssociationsResponse$
 ];
 export var PromotePermissionCreatedFromPolicy$: StaticOperationSchema = [9, n0, _PPCFP,
   { [_h]: ["POST", "/promotepermissioncreatedfrompolicy", 200] }, () => PromotePermissionCreatedFromPolicyRequest$, () => PromotePermissionCreatedFromPolicyResponse$

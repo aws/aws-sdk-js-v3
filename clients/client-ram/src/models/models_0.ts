@@ -260,6 +260,10 @@ export interface AssociateResourceShareRequest {
    *                         <code>iam::123456789012user/username</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>A service principal name, for example: <code>service-id.amazonaws.com</code>
+   *                </p>
+   *             </li>
    *          </ul>
    *          <note>
    *             <p>Not all resource types can be shared with IAM roles and users.
@@ -287,8 +291,7 @@ export interface AssociateResourceShareRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>Specifies from which source accounts the service principal
-   *             has access to the resources in this resource share.</p>
+   * <p>Specifies source constraints (accounts, ARNs, organization IDs, or organization paths) that limit when service principals can access resources in this resource share. When a service principal attempts to access a shared resource, validation is performed to ensure the request originates from one of the specified sources. This helps prevent confused deputy attacks by applying constraints on where service principals can access resources from.</p>
    * @public
    */
   sources?: string[] | undefined;
@@ -443,9 +446,10 @@ export interface CreatePermissionRequest {
    *                     <code>
    *                <i><service-code></i>:<i><resource-type></i>
    *             </code>
-   *             and is not case sensitive. For example, to specify an Amazon EC2 Subnet, you can use the
-   *             string <code>ec2:subnet</code>. To see the list of valid values for this parameter,
-   *             query the <a>ListResourceTypes</a> operation.</p>
+   *             and is case sensitive. For example, to specify an Amazon EC2 Subnet, you can use the
+   *             string <code>ec2:Subnet</code>. To see the list of valid values for this parameter,
+   *             query the <a>ListResourceTypes</a> operation. This value must match the display name of the resource
+   *             (available in <code>ListResourceTypes</code>).</p>
    * @public
    */
   resourceType: string | undefined;
@@ -935,6 +939,10 @@ export interface CreateResourceShareRequest {
    *                         <code>iam::123456789012user/username</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>A service principal name, for example: <code>service-id.amazonaws.com</code>
+   *                </p>
+   *             </li>
    *          </ul>
    *          <note>
    *             <p>Not all resource types can be shared with IAM roles and users.
@@ -988,8 +996,7 @@ export interface CreateResourceShareRequest {
   permissionArns?: string[] | undefined;
 
   /**
-   * <p>Specifies from which source accounts the service principal
-   *             has access to the resources in this resource share.</p>
+   * <p>Specifies source constraints (accounts, ARNs, organization IDs, or organization paths) that limit when service principals can access resources in this resource share. When a service principal attempts to access a shared resource, validation is performed to ensure the request originates from one of the specified sources. This helps prevent confused deputy attacks by applying constraints on where service principals can access resources from.</p>
    * @public
    */
   sources?: string[] | undefined;
@@ -1340,6 +1347,10 @@ export interface DisassociateResourceShareRequest {
    *                         <code>iam::123456789012user/username</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>A service principal name, for example: <code>service-id.amazonaws.com</code>
+   *                </p>
+   *             </li>
    *          </ul>
    *          <note>
    *             <p>Not all resource types can be shared with IAM roles and users.
@@ -1367,8 +1378,7 @@ export interface DisassociateResourceShareRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>Specifies from which source accounts the
-   *             service principal no longer has access to the resources in this resource share.</p>
+   * <p>Specifies source constraints (accounts, ARNs, organization IDs, or organization paths) to remove from the resource share. This enables granular management of source constraints while maintaining service principal associations. At least one source must remain when service principals are present.</p>
    * @public
    */
   sources?: string[] | undefined;
@@ -1728,6 +1738,9 @@ export interface GetResourceShareInvitationsResponse {
 /**
  * <p>A tag key and optional list of possible values that you can use to filter results for
  *             tagged resources.</p>
+ *          <note>
+ *             <p>Multiple tag filters are evaluated as an OR condition.</p>
+ *          </note>
  * @public
  */
 export interface TagFilter {
@@ -2421,6 +2434,10 @@ export interface ListPrincipalsRequest {
    *                         <code>iam::123456789012user/username</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>A service principal name, for example: <code>service-id.amazonaws.com</code>
+   *                </p>
+   *             </li>
    *          </ul>
    *          <note>
    *             <p>Not all resource types can be shared with IAM roles and users.
@@ -2985,6 +3002,112 @@ export interface ListResourceTypesResponse {
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSourceAssociationsRequest {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the resource shares for which you want to retrieve source associations.</p>
+   * @public
+   */
+  resourceShareArns?: string[] | undefined;
+
+  /**
+   * <p>The identifier of the source for which you want to retrieve associations. This can be an account ID, Amazon Resource Name (ARN), organization ID, or organization path.</p>
+   * @public
+   */
+  sourceId?: string | undefined;
+
+  /**
+   * <p>The type of source for which you want to retrieve associations.</p>
+   * @public
+   */
+  sourceType?: string | undefined;
+
+  /**
+   * <p>The status of the source associations that you want to retrieve.</p>
+   * @public
+   */
+  associationStatus?: ResourceShareAssociationStatus | undefined;
+
+  /**
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Information about a source association in a resource share. Source associations control which sources can be used with service principals.</p>
+ * @public
+ */
+export interface AssociatedSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource share that contains the source association.</p>
+   * @public
+   */
+  resourceShareArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the source. This can be an account ID, Amazon Resource Name (ARN), organization ID, or organization path.</p>
+   * @public
+   */
+  sourceId?: string | undefined;
+
+  /**
+   * <p>The type of source.</p>
+   * @public
+   */
+  sourceType?: string | undefined;
+
+  /**
+   * <p>The current status of the source association.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>The date and time when the source association was last updated.</p>
+   * @public
+   */
+  lastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the source association was created.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>A message about the status of the source association.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSourceAssociationsResponse {
+  /**
+   * <p>Information about the source associations.</p>
+   * @public
+   */
+  sourceAssociations?: AssociatedSource[] | undefined;
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
   nextToken?: string | undefined;

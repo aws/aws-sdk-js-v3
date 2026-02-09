@@ -435,6 +435,7 @@ const _p = "path";
 const _pA = "portalArn";
 const _pAa = "pasteAllowed";
 const _pAr = "printAllowed";
+const _pCD = "portalCustomDomain";
 const _pD = "patternDescription";
 const _pE = "portalEndpoint";
 const _pI = "portalId";
@@ -737,8 +738,8 @@ export var CreateNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _CNSR
 ];
 export var CreatePortalRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_dN, _ta, _cMK, _aEC, _cTl, _aT, _iT, _mCS],
-  [[() => DisplayName, 0], [() => TagList, 0], 0, 128 | 0, [0, 4], 0, 0, 1]
+  [_dN, _ta, _cMK, _aEC, _cTl, _aT, _iT, _mCS, _pCD],
+  [[() => DisplayName, 0], [() => TagList, 0], 0, 128 | 0, [0, 4], 0, 0, 1, 0]
 ];
 export var CreatePortalResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -1318,13 +1319,13 @@ export var NetworkSettingsSummary$: StaticStructureSchema = [3, n0, _NSS,
 ];
 export var Portal$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_pA, _rTe, _bT, _pS, _pE, _dN, _cD, _bSA, _dPSA, _uSA, _nSA, _sLA, _tSA, _sR, _uALSA, _aT, _iASA, _cMK, _aEC, _iT, _mCS],
-  [0, 0, 0, 0, 0, [() => DisplayName, 0], 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 1], 1
+  [_pA, _rTe, _bT, _pS, _pE, _dN, _cD, _bSA, _dPSA, _uSA, _nSA, _sLA, _tSA, _sR, _uALSA, _aT, _iASA, _cMK, _aEC, _iT, _mCS, _pCD],
+  [0, 0, 0, 0, 0, [() => DisplayName, 0], 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 1, 0], 1
 ];
 export var PortalSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
-  [_pA, _rTe, _bT, _pS, _pE, _dN, _cD, _bSA, _dPSA, _uSA, _nSA, _sLA, _tSA, _uALSA, _aT, _iASA, _iT, _mCS],
-  [0, 0, 0, 0, 0, [() => DisplayName, 0], 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 1
+  [_pA, _rTe, _bT, _pS, _pE, _dN, _cD, _bSA, _dPSA, _uSA, _nSA, _sLA, _tSA, _uALSA, _aT, _iASA, _iT, _mCS, _pCD],
+  [0, 0, 0, 0, 0, [() => DisplayName, 0], 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0], 1
 ];
 export var RedactionPlaceHolder$: StaticStructureSchema = [3, n0, _RPH,
   0,
@@ -1472,8 +1473,8 @@ export var UpdateNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _UNSR
 ];
 export var UpdatePortalRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_pA, _dN, _aT, _iT, _mCS],
-  [[0, 1], [() => DisplayName, 0], 0, 0, 1], 1
+  [_pA, _dN, _aT, _iT, _mCS, _pCD],
+  [[0, 1], [() => DisplayName, 0], 0, 0, 1, 0], 1
 ];
 export var UpdatePortalResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,

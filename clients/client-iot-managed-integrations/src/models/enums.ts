@@ -63,6 +63,7 @@ export type TokenEndpointAuthenticationScheme =
 export const AuthMaterialType = {
   CUSTOM_PROTOCOL_QR_BAR_CODE: "CUSTOM_PROTOCOL_QR_BAR_CODE",
   DISCOVERED_DEVICE: "DISCOVERED_DEVICE",
+  PRE_ONBOARDED_CLOUD: "PRE_ONBOARDED_CLOUD",
   WIFI_SETUP_QR_BAR_CODE: "WIFI_SETUP_QR_BAR_CODE",
   ZIGBEE_QR_BAR_CODE: "ZIGBEE_QR_BAR_CODE",
   ZWAVE_QR_BAR_CODE: "ZWAVE_QR_BAR_CODE",
@@ -475,6 +476,20 @@ export const SchemaVersionVisibility = {
  * @public
  */
 export type SchemaVersionVisibility = (typeof SchemaVersionVisibility)[keyof typeof SchemaVersionVisibility];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedThingAssociationStatus = {
+  ASSOCIATED: "ASSOCIATED",
+  PRE_ASSOCIATED: "PRE_ASSOCIATED",
+} as const;
+/**
+ * @public
+ */
+export type ManagedThingAssociationStatus =
+  (typeof ManagedThingAssociationStatus)[keyof typeof ManagedThingAssociationStatus];
 
 /**
  * @public

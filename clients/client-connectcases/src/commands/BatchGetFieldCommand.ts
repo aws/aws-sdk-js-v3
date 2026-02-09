@@ -61,6 +61,11 @@ export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __Met
  * //       deleted: true || false,
  * //       createdTime: new Date("TIMESTAMP"),
  * //       lastModifiedTime: new Date("TIMESTAMP"),
+ * //       attributes: { // FieldAttributes Union: only one key present
+ * //         text: { // TextAttributes
+ * //           isMultiline: true || false, // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   errors: [ // BatchGetFieldErrorList // required

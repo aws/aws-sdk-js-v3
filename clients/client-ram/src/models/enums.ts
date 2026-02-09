@@ -6,6 +6,7 @@
 export const ResourceShareAssociationType = {
   PRINCIPAL: "PRINCIPAL",
   RESOURCE: "RESOURCE",
+  SOURCE: "SOURCE",
 } as const;
 /**
  * @public
@@ -23,6 +24,9 @@ export const ResourceShareAssociationStatus = {
   DISASSOCIATED: "DISASSOCIATED",
   DISASSOCIATING: "DISASSOCIATING",
   FAILED: "FAILED",
+  RESTORING: "RESTORING",
+  SUSPENDED: "SUSPENDED",
+  SUSPENDING: "SUSPENDING",
 } as const;
 /**
  * @public

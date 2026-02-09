@@ -4,6 +4,7 @@ export * from "./ListAgentRuntimeEndpointsPaginator";
 export * from "./ListAgentRuntimesPaginator";
 export * from "./ListAgentRuntimeVersionsPaginator";
 export * from "./ListApiKeyCredentialProvidersPaginator";
+export * from "./ListBrowserProfilesPaginator";
 export * from "./ListBrowsersPaginator";
 export * from "./ListCodeInterpretersPaginator";
 export * from "./ListEvaluatorsPaginator";

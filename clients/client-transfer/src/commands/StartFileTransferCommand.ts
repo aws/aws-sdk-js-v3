@@ -46,6 +46,12 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  *   ],
  *   LocalDirectoryPath: "STRING_VALUE",
  *   RemoteDirectoryPath: "STRING_VALUE",
+ *   CustomHttpHeaders: [ // CustomHttpHeaders
+ *     { // CustomHttpHeader
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new StartFileTransferCommand(input);
  * const response = await client.send(command);

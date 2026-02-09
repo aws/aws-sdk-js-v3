@@ -1,4 +1,4 @@
-export * from "./eventstream-payload-handler-provider";
+export * from "./WebSocketFetchHandler";
 export * from "./getWebSocketPlugin";
-export * from "./websocket-configuration";
-export * from "./websocket-fetch-handler";
+export * from "./resolveWebSocketConfig";
+export * from "./ws-eventstream/eventStreamPayloadHandlerProvider";

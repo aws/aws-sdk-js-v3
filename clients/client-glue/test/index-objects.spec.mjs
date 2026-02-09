@@ -27,6 +27,7 @@ import {
   BackfillError$,
   BackfillErrorCode,
   BasicAuthenticationCredentials$,
+  BasicAuthenticationProperties$,
   BasicCatalogTarget$,
   BatchCreatePartition$,
   BatchCreatePartitionCommand,
@@ -151,6 +152,7 @@ import {
   CheckSchemaVersionValidityInput$,
   CheckSchemaVersionValidityResponse$,
   Classifier$,
+  ClientCredentialsProperties$,
   CloudWatchEncryption$,
   CloudWatchEncryptionMode,
   CodeGenConfigurationNode$,
@@ -199,14 +201,21 @@ import {
   Connection$,
   ConnectionInput$,
   ConnectionPasswordEncryption$,
+  ConnectionPropertiesConfiguration$,
   ConnectionPropertyKey,
   ConnectionsList$,
   ConnectionStatus,
   ConnectionType,
   ConnectionTypeBrief$,
   ConnectionTypeVariant$,
+  ConnectorAuthenticationConfiguration$,
+  ConnectorAuthorizationCodeProperties$,
   ConnectorDataSource$,
   ConnectorDataTarget$,
+  ConnectorOAuth2GrantType,
+  ConnectorOAuth2Properties$,
+  ConnectorProperty$,
+  ContentType,
   Crawl$,
   Crawler$,
   CrawlerHistory$,
@@ -348,6 +357,8 @@ import {
   CsvClassifier$,
   CsvHeaderOption,
   CsvSerdeOption,
+  CursorConfiguration$,
+  CustomAuthenticationProperties$,
   CustomCode$,
   CustomEntityType$,
   Database$,
@@ -419,6 +430,10 @@ import {
   DeleteConnectionCommand,
   DeleteConnectionRequest$,
   DeleteConnectionResponse$,
+  DeleteConnectionType$,
+  DeleteConnectionTypeCommand,
+  DeleteConnectionTypeRequest$,
+  DeleteConnectionTypeResponse$,
   DeleteCrawler$,
   DeleteCrawlerCommand,
   DeleteCrawlerRequest$,
@@ -565,6 +580,7 @@ import {
   EncryptionAtRest$,
   EncryptionConfiguration$,
   Entity$,
+  EntityConfiguration$,
   EntityNotFoundException,
   EntityNotFoundException$,
   ErrorDetail$,
@@ -579,6 +595,7 @@ import {
   ExecutionStatus,
   ExistCondition,
   ExportLabelsTaskRunProperties$,
+  ExtractedParameter$,
   FederatedCatalog$,
   FederatedDatabase$,
   FederatedResourceAlreadyExistsException,
@@ -591,6 +608,7 @@ import {
   FederationSourceRetryableException$,
   Field$,
   FieldDataType,
+  FieldDefinition$,
   FieldFilterOperator,
   FieldName,
   FillMissingValues$,
@@ -936,6 +954,7 @@ import {
   GovernedCatalogTarget$,
   GrokClassifier$,
   GroupFilters$,
+  HTTPMethod,
   HudiTarget$,
   HudiTargetCompressionType,
   HyperTargetCompressionType,
@@ -991,6 +1010,7 @@ import {
   IntegrationResourceProperty$,
   IntegrationResourcePropertyFilter$,
   IntegrationStatus,
+  IntegrationType,
   InternalServerException,
   InternalServerException$,
   InternalServiceException,
@@ -1022,6 +1042,7 @@ import {
   JoinColumn$,
   JoinType,
   JsonClassifier$,
+  JWTBearerProperties$,
   KafkaStreamingSourceOptions$,
   KeySchemaElement$,
   KinesisStreamingSourceOptions$,
@@ -1189,6 +1210,7 @@ import {
   OAuth2GrantType,
   OAuth2Properties$,
   OAuth2PropertiesInput$,
+  OffsetConfiguration$,
   OpenTableFormatInput$,
   OperationNotSupportedException,
   OperationNotSupportedException$,
@@ -1247,6 +1269,7 @@ import {
   paginateListUsageProfiles,
   paginateListWorkflows,
   paginateSearchTables,
+  PaginationConfiguration$,
   ParamType,
   ParquetCompressionType,
   Partition$,
@@ -1271,6 +1294,7 @@ import {
   PrincipalType,
   ProfileConfiguration$,
   Property$,
+  PropertyLocation,
   PropertyPredicate$,
   PropertyType,
   PutDataCatalogEncryptionSettings$,
@@ -1307,6 +1331,10 @@ import {
   RecrawlPolicy$,
   RedshiftSource$,
   RedshiftTarget$,
+  RegisterConnectionType$,
+  RegisterConnectionTypeCommand,
+  RegisterConnectionTypeRequest$,
+  RegisterConnectionTypeResponse$,
   RegisterSchemaVersion$,
   RegisterSchemaVersionCommand,
   RegisterSchemaVersionInput$,
@@ -1335,6 +1363,9 @@ import {
   ResourceState,
   ResourceType,
   ResourceUri$,
+  ResponseConfiguration$,
+  ResponseExtractionMapping$,
+  RestConfiguration$,
   ResumeWorkflowRun$,
   ResumeWorkflowRunCommand,
   ResumeWorkflowRunRequest$,
@@ -1414,6 +1445,7 @@ import {
   Sort,
   SortCriterion$,
   SortDirectionType,
+  SourceConfiguration$,
   SourceControlAuthStrategy,
   SourceControlDetails$,
   SourceControlProvider,
@@ -1861,6 +1893,8 @@ assert(typeof DeleteColumnStatisticsTaskSettingsCommand === "function");
 assert(typeof DeleteColumnStatisticsTaskSettings$ === "object");
 assert(typeof DeleteConnectionCommand === "function");
 assert(typeof DeleteConnection$ === "object");
+assert(typeof DeleteConnectionTypeCommand === "function");
+assert(typeof DeleteConnectionType$ === "object");
 assert(typeof DeleteCrawlerCommand === "function");
 assert(typeof DeleteCrawler$ === "object");
 assert(typeof DeleteCustomEntityTypeCommand === "function");
@@ -2149,6 +2183,8 @@ assert(typeof PutWorkflowRunPropertiesCommand === "function");
 assert(typeof PutWorkflowRunProperties$ === "object");
 assert(typeof QuerySchemaVersionMetadataCommand === "function");
 assert(typeof QuerySchemaVersionMetadata$ === "object");
+assert(typeof RegisterConnectionTypeCommand === "function");
+assert(typeof RegisterConnectionType$ === "object");
 assert(typeof RegisterSchemaVersionCommand === "function");
 assert(typeof RegisterSchemaVersion$ === "object");
 assert(typeof RemoveSchemaVersionMetadataCommand === "function");
@@ -2289,6 +2325,7 @@ assert(typeof AuthorizationCodeProperties$ === "object");
 assert(typeof AutoDataQuality$ === "object");
 assert(typeof BackfillError$ === "object");
 assert(typeof BasicAuthenticationCredentials$ === "object");
+assert(typeof BasicAuthenticationProperties$ === "object");
 assert(typeof BasicCatalogTarget$ === "object");
 assert(typeof BatchCreatePartitionRequest$ === "object");
 assert(typeof BatchCreatePartitionResponse$ === "object");
@@ -2364,6 +2401,7 @@ assert(typeof CatalogTarget$ === "object");
 assert(typeof CheckSchemaVersionValidityInput$ === "object");
 assert(typeof CheckSchemaVersionValidityResponse$ === "object");
 assert(typeof Classifier$ === "object");
+assert(typeof ClientCredentialsProperties$ === "object");
 assert(typeof CloudWatchEncryption$ === "object");
 assert(typeof CodeGenConfigurationNode$ === "object");
 assert(typeof CodeGenEdge$ === "object");
@@ -2388,11 +2426,16 @@ assert(typeof ConfusionMatrix$ === "object");
 assert(typeof Connection$ === "object");
 assert(typeof ConnectionInput$ === "object");
 assert(typeof ConnectionPasswordEncryption$ === "object");
+assert(typeof ConnectionPropertiesConfiguration$ === "object");
 assert(typeof ConnectionsList$ === "object");
 assert(typeof ConnectionTypeBrief$ === "object");
 assert(typeof ConnectionTypeVariant$ === "object");
+assert(typeof ConnectorAuthenticationConfiguration$ === "object");
+assert(typeof ConnectorAuthorizationCodeProperties$ === "object");
 assert(typeof ConnectorDataSource$ === "object");
 assert(typeof ConnectorDataTarget$ === "object");
+assert(typeof ConnectorOAuth2Properties$ === "object");
+assert(typeof ConnectorProperty$ === "object");
 assert(typeof Crawl$ === "object");
 assert(typeof Crawler$ === "object");
 assert(typeof CrawlerHistory$ === "object");
@@ -2464,6 +2507,8 @@ assert(typeof CreateWorkflowRequest$ === "object");
 assert(typeof CreateWorkflowResponse$ === "object");
 assert(typeof CreateXMLClassifierRequest$ === "object");
 assert(typeof CsvClassifier$ === "object");
+assert(typeof CursorConfiguration$ === "object");
+assert(typeof CustomAuthenticationProperties$ === "object");
 assert(typeof CustomCode$ === "object");
 assert(typeof CustomEntityType$ === "object");
 assert(typeof Database$ === "object");
@@ -2513,6 +2558,8 @@ assert(typeof DeleteColumnStatisticsTaskSettingsRequest$ === "object");
 assert(typeof DeleteColumnStatisticsTaskSettingsResponse$ === "object");
 assert(typeof DeleteConnectionRequest$ === "object");
 assert(typeof DeleteConnectionResponse$ === "object");
+assert(typeof DeleteConnectionTypeRequest$ === "object");
+assert(typeof DeleteConnectionTypeResponse$ === "object");
 assert(typeof DeleteCrawlerRequest$ === "object");
 assert(typeof DeleteCrawlerResponse$ === "object");
 assert(typeof DeleteCustomEntityTypeRequest$ === "object");
@@ -2594,6 +2641,7 @@ assert(typeof Edge$ === "object");
 assert(typeof EncryptionAtRest$ === "object");
 assert(typeof EncryptionConfiguration$ === "object");
 assert(typeof Entity$ === "object");
+assert(typeof EntityConfiguration$ === "object");
 assert(typeof ErrorDetail$ === "object");
 assert(typeof ErrorDetails$ === "object");
 assert(typeof EvaluateDataQuality$ === "object");
@@ -2603,10 +2651,12 @@ assert(typeof EventBatchingCondition$ === "object");
 assert(typeof ExecutionAttempt$ === "object");
 assert(typeof ExecutionProperty$ === "object");
 assert(typeof ExportLabelsTaskRunProperties$ === "object");
+assert(typeof ExtractedParameter$ === "object");
 assert(typeof FederatedCatalog$ === "object");
 assert(typeof FederatedDatabase$ === "object");
 assert(typeof FederatedTable$ === "object");
 assert(typeof Field$ === "object");
+assert(typeof FieldDefinition$ === "object");
 assert(typeof FillMissingValues$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof FilterExpression$ === "object");
@@ -2825,6 +2875,7 @@ assert(typeof JobUpdate$ === "object");
 assert(typeof Join$ === "object");
 assert(typeof JoinColumn$ === "object");
 assert(typeof JsonClassifier$ === "object");
+assert(typeof JWTBearerProperties$ === "object");
 assert(typeof KafkaStreamingSourceOptions$ === "object");
 assert(typeof KeySchemaElement$ === "object");
 assert(typeof KinesisStreamingSourceOptions$ === "object");
@@ -2913,6 +2964,7 @@ assert(typeof OAuth2ClientApplication$ === "object");
 assert(typeof OAuth2Credentials$ === "object");
 assert(typeof OAuth2Properties$ === "object");
 assert(typeof OAuth2PropertiesInput$ === "object");
+assert(typeof OffsetConfiguration$ === "object");
 assert(typeof OpenTableFormatInput$ === "object");
 assert(typeof Option$ === "object");
 assert(typeof OracleSQLCatalogSource$ === "object");
@@ -2921,6 +2973,7 @@ assert(typeof Order$ === "object");
 assert(typeof OrphanFileDeletionConfiguration$ === "object");
 assert(typeof OrphanFileDeletionMetrics$ === "object");
 assert(typeof OtherMetadataValueListItem$ === "object");
+assert(typeof PaginationConfiguration$ === "object");
 assert(typeof Partition$ === "object");
 assert(typeof PartitionError$ === "object");
 assert(typeof PartitionIndex$ === "object");
@@ -2957,6 +3010,8 @@ assert(typeof RecipeStep$ === "object");
 assert(typeof RecrawlPolicy$ === "object");
 assert(typeof RedshiftSource$ === "object");
 assert(typeof RedshiftTarget$ === "object");
+assert(typeof RegisterConnectionTypeRequest$ === "object");
+assert(typeof RegisterConnectionTypeResponse$ === "object");
 assert(typeof RegisterSchemaVersionInput$ === "object");
 assert(typeof RegisterSchemaVersionResponse$ === "object");
 assert(typeof RegistryId$ === "object");
@@ -2968,6 +3023,9 @@ assert(typeof RenameField$ === "object");
 assert(typeof ResetJobBookmarkRequest$ === "object");
 assert(typeof ResetJobBookmarkResponse$ === "object");
 assert(typeof ResourceUri$ === "object");
+assert(typeof ResponseConfiguration$ === "object");
+assert(typeof ResponseExtractionMapping$ === "object");
+assert(typeof RestConfiguration$ === "object");
 assert(typeof ResumeWorkflowRunRequest$ === "object");
 assert(typeof ResumeWorkflowRunResponse$ === "object");
 assert(typeof RetentionConfiguration$ === "object");
@@ -3024,6 +3082,7 @@ assert(typeof SnowflakeNodeData$ === "object");
 assert(typeof SnowflakeSource$ === "object");
 assert(typeof SnowflakeTarget$ === "object");
 assert(typeof SortCriterion$ === "object");
+assert(typeof SourceConfiguration$ === "object");
 assert(typeof SourceControlDetails$ === "object");
 assert(typeof SourceProcessingProperties$ === "object");
 assert(typeof SourceTableConfig$ === "object");
@@ -3228,6 +3287,8 @@ assert(typeof ConfigurationSource === "object");
 assert(typeof ConnectionPropertyKey === "object");
 assert(typeof ConnectionStatus === "object");
 assert(typeof ConnectionType === "object");
+assert(typeof ConnectorOAuth2GrantType === "object");
+assert(typeof ContentType === "object");
 assert(typeof CrawlerHistoryState === "object");
 assert(typeof CrawlerLineageSettings === "object");
 assert(typeof CrawlerState === "object");
@@ -3260,6 +3321,7 @@ assert(typeof FilterOperator === "object");
 assert(typeof FilterValueType === "object");
 assert(typeof FunctionType === "object");
 assert(typeof GlueRecordType === "object");
+assert(typeof HTTPMethod === "object");
 assert(typeof HudiTargetCompressionType === "object");
 assert(typeof HyperTargetCompressionType === "object");
 assert(typeof IcebergNullOrder === "object");
@@ -3269,6 +3331,7 @@ assert(typeof IcebergTargetCompressionType === "object");
 assert(typeof IcebergUpdateAction === "object");
 assert(typeof InclusionAnnotationValue === "object");
 assert(typeof IntegrationStatus === "object");
+assert(typeof IntegrationType === "object");
 assert(typeof JDBCConnectionType === "object");
 assert(typeof JDBCDataType === "object");
 assert(typeof JdbcMetadataEntry === "object");
@@ -3294,6 +3357,7 @@ assert(typeof Permission === "object");
 assert(typeof PermissionType === "object");
 assert(typeof PiiType === "object");
 assert(typeof PrincipalType === "object");
+assert(typeof PropertyLocation === "object");
 assert(typeof PropertyType === "object");
 assert(typeof QuoteChar === "object");
 assert(typeof RecrawlBehavior === "object");

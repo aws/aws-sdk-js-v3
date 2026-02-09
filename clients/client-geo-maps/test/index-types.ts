@@ -17,6 +17,7 @@ export type {
   GetTileCommand,
   GetTileCommandInput,
   GetTileCommandOutput,
+  Buildings,
   ColorScheme,
   ContourDensity,
   LabelSize,

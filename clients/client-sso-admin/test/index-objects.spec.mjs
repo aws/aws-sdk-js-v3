@@ -8,6 +8,10 @@ import {
   AccountAssignmentForPrincipal$,
   AccountAssignmentOperationStatus$,
   AccountAssignmentOperationStatusMetadata$,
+  AddRegion$,
+  AddRegionCommand,
+  AddRegionRequest$,
+  AddRegionResponse$,
   Application$,
   ApplicationAssignment$,
   ApplicationAssignmentForPrincipal$,
@@ -140,6 +144,10 @@ import {
   DescribePermissionSetProvisioningStatusResponse$,
   DescribePermissionSetRequest$,
   DescribePermissionSetResponse$,
+  DescribeRegion$,
+  DescribeRegionCommand,
+  DescribeRegionRequest$,
+  DescribeRegionResponse$,
   DescribeTrustedTokenIssuer$,
   DescribeTrustedTokenIssuerCommand,
   DescribeTrustedTokenIssuerRequest$,
@@ -273,6 +281,10 @@ import {
   ListPermissionSetsProvisionedToAccountResponse$,
   ListPermissionSetsRequest$,
   ListPermissionSetsResponse$,
+  ListRegions$,
+  ListRegionsCommand,
+  ListRegionsRequest$,
+  ListRegionsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -302,6 +314,7 @@ import {
   paginateListPermissionSetProvisioningStatus,
   paginateListPermissionSets,
   paginateListPermissionSetsProvisionedToAccount,
+  paginateListRegions,
   paginateListTagsForResource,
   paginateListTrustedTokenIssuers,
   PermissionsBoundary$,
@@ -342,6 +355,12 @@ import {
   PutPermissionsBoundaryToPermissionSetRequest$,
   PutPermissionsBoundaryToPermissionSetResponse$,
   RefreshTokenGrant$,
+  RegionMetadata$,
+  RegionStatus,
+  RemoveRegion$,
+  RemoveRegionCommand,
+  RemoveRegionRequest$,
+  RemoveRegionResponse$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceNotFoundExceptionReason,
@@ -405,6 +424,8 @@ import assert from "node:assert";
 assert(typeof SSOAdminClient === "function");
 assert(typeof SSOAdmin === "function");
 // commands
+assert(typeof AddRegionCommand === "function");
+assert(typeof AddRegion$ === "object");
 assert(typeof AttachCustomerManagedPolicyReferenceToPermissionSetCommand === "function");
 assert(typeof AttachCustomerManagedPolicyReferenceToPermissionSet$ === "object");
 assert(typeof AttachManagedPolicyToPermissionSetCommand === "function");
@@ -465,6 +486,8 @@ assert(typeof DescribePermissionSetCommand === "function");
 assert(typeof DescribePermissionSet$ === "object");
 assert(typeof DescribePermissionSetProvisioningStatusCommand === "function");
 assert(typeof DescribePermissionSetProvisioningStatus$ === "object");
+assert(typeof DescribeRegionCommand === "function");
+assert(typeof DescribeRegion$ === "object");
 assert(typeof DescribeTrustedTokenIssuerCommand === "function");
 assert(typeof DescribeTrustedTokenIssuer$ === "object");
 assert(typeof DetachCustomerManagedPolicyReferenceFromPermissionSetCommand === "function");
@@ -521,6 +544,8 @@ assert(typeof ListPermissionSetsCommand === "function");
 assert(typeof ListPermissionSets$ === "object");
 assert(typeof ListPermissionSetsProvisionedToAccountCommand === "function");
 assert(typeof ListPermissionSetsProvisionedToAccount$ === "object");
+assert(typeof ListRegionsCommand === "function");
+assert(typeof ListRegions$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListTrustedTokenIssuersCommand === "function");
@@ -541,6 +566,8 @@ assert(typeof PutInlinePolicyToPermissionSetCommand === "function");
 assert(typeof PutInlinePolicyToPermissionSet$ === "object");
 assert(typeof PutPermissionsBoundaryToPermissionSetCommand === "function");
 assert(typeof PutPermissionsBoundaryToPermissionSet$ === "object");
+assert(typeof RemoveRegionCommand === "function");
+assert(typeof RemoveRegion$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -562,6 +589,8 @@ assert(typeof AccountAssignment$ === "object");
 assert(typeof AccountAssignmentForPrincipal$ === "object");
 assert(typeof AccountAssignmentOperationStatus$ === "object");
 assert(typeof AccountAssignmentOperationStatusMetadata$ === "object");
+assert(typeof AddRegionRequest$ === "object");
+assert(typeof AddRegionResponse$ === "object");
 assert(typeof Application$ === "object");
 assert(typeof ApplicationAssignment$ === "object");
 assert(typeof ApplicationAssignmentForPrincipal$ === "object");
@@ -629,6 +658,8 @@ assert(typeof DescribePermissionSetProvisioningStatusRequest$ === "object");
 assert(typeof DescribePermissionSetProvisioningStatusResponse$ === "object");
 assert(typeof DescribePermissionSetRequest$ === "object");
 assert(typeof DescribePermissionSetResponse$ === "object");
+assert(typeof DescribeRegionRequest$ === "object");
+assert(typeof DescribeRegionResponse$ === "object");
 assert(typeof DescribeTrustedTokenIssuerRequest$ === "object");
 assert(typeof DescribeTrustedTokenIssuerResponse$ === "object");
 assert(typeof DetachCustomerManagedPolicyReferenceFromPermissionSetRequest$ === "object");
@@ -697,6 +728,8 @@ assert(typeof ListPermissionSetsProvisionedToAccountRequest$ === "object");
 assert(typeof ListPermissionSetsProvisionedToAccountResponse$ === "object");
 assert(typeof ListPermissionSetsRequest$ === "object");
 assert(typeof ListPermissionSetsResponse$ === "object");
+assert(typeof ListRegionsRequest$ === "object");
+assert(typeof ListRegionsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListTrustedTokenIssuersRequest$ === "object");
@@ -723,6 +756,9 @@ assert(typeof PutInlinePolicyToPermissionSetResponse$ === "object");
 assert(typeof PutPermissionsBoundaryToPermissionSetRequest$ === "object");
 assert(typeof PutPermissionsBoundaryToPermissionSetResponse$ === "object");
 assert(typeof RefreshTokenGrant$ === "object");
+assert(typeof RegionMetadata$ === "object");
+assert(typeof RemoveRegionRequest$ === "object");
+assert(typeof RemoveRegionResponse$ === "object");
 assert(typeof ResourceServerConfig$ === "object");
 assert(typeof ResourceServerScopeDetails$ === "object");
 assert(typeof ScopeDetails$ === "object");
@@ -762,6 +798,7 @@ assert(typeof KmsKeyType === "object");
 assert(typeof PrincipalType === "object");
 assert(typeof ProvisioningStatus === "object");
 assert(typeof ProvisionTargetType === "object");
+assert(typeof RegionStatus === "object");
 assert(typeof ResourceNotFoundExceptionReason === "object");
 assert(typeof SignInOrigin === "object");
 assert(typeof StatusValues === "object");
@@ -805,6 +842,7 @@ assert(typeof paginateListManagedPoliciesInPermissionSet === "function");
 assert(typeof paginateListPermissionSetProvisioningStatus === "function");
 assert(typeof paginateListPermissionSets === "function");
 assert(typeof paginateListPermissionSetsProvisionedToAccount === "function");
+assert(typeof paginateListRegions === "function");
 assert(typeof paginateListTagsForResource === "function");
 assert(typeof paginateListTrustedTokenIssuers === "function");
 console.log(`SSOAdmin index test passed.`);

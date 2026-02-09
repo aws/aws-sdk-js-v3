@@ -1611,6 +1611,12 @@ export interface SearchCasesResponse {
    * @public
    */
   cases: SearchCasesResponseItem[] | undefined;
+
+  /**
+   * <p>The total number of cases that matched the search criteria.</p>
+   * @public
+   */
+  totalCount?: number | undefined;
 }
 
 /**
@@ -2712,6 +2718,57 @@ export interface FieldError {
 }
 
 /**
+ * <p>Field attributes for Text field type.</p>
+ * @public
+ */
+export interface TextAttributes {
+  /**
+   * <p>Attribute that defines rendering component and validation.</p>
+   * @public
+   */
+  isMultiline: boolean | undefined;
+}
+
+/**
+ * <p>Union of field attributes.</p>
+ * @public
+ */
+export type FieldAttributes =
+  | FieldAttributes.TextMember
+  | FieldAttributes.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FieldAttributes {
+  /**
+   * <p>Field attributes for Text field type.</p>
+   * @public
+   */
+  export interface TextMember {
+    text: TextAttributes;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    text: (value: TextAttributes) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Object to store detailed field information.</p>
  * @public
  */
@@ -2775,6 +2832,12 @@ export interface GetFieldResponse {
    * @public
    */
   lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Union of field attributes.</p>
+   * @public
+   */
+  attributes?: FieldAttributes | undefined;
 }
 
 /**
@@ -2903,6 +2966,12 @@ export interface CreateFieldRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>Union of field attributes.</p>
+   * @public
+   */
+  attributes?: FieldAttributes | undefined;
 }
 
 /**
@@ -3053,6 +3122,12 @@ export interface FieldSummary {
    * @public
    */
   namespace: FieldNamespace | undefined;
+
+  /**
+   * <p>Union of field attributes.</p>
+   * @public
+   */
+  attributes?: FieldAttributes | undefined;
 }
 
 /**
@@ -3099,6 +3174,12 @@ export interface UpdateFieldRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>Union of field attributes.</p>
+   * @public
+   */
+  attributes?: FieldAttributes | undefined;
 }
 
 /**

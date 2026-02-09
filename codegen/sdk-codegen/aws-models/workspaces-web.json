@@ -2814,6 +2814,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of concurrent sessions for the portal.</p>"
           }
+        },
+        "portalCustomDomain": {
+          "target": "com.amazonaws.workspacesweb#PortalCustomDomain",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom domain of the web portal that users access in order to start streaming sessions.</p>"
+          }
         }
       },
       "traits": {
@@ -8243,6 +8249,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of concurrent sessions for the portal.</p>"
           }
+        },
+        "portalCustomDomain": {
+          "target": "com.amazonaws.workspacesweb#PortalCustomDomain",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom domain of the web portal that users access in order to start streaming sessions.</p>"
+          }
         }
       },
       "traits": {
@@ -8252,6 +8264,16 @@
             "resource": "com.amazonaws.workspacesweb#SessionLoggerResource"
           }
         ]
+      }
+    },
+    "com.amazonaws.workspacesweb#PortalCustomDomain": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        },
+        "smithy.api#pattern": "^(|[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\\.)+[a-zA-Z0-9]+)$"
       }
     },
     "com.amazonaws.workspacesweb#PortalEndpoint": {
@@ -8353,6 +8375,9 @@
         },
         "maxConcurrentSessions": {
           "target": "com.amazonaws.workspacesweb#MaxConcurrentSessions"
+        },
+        "portalCustomDomain": {
+          "target": "com.amazonaws.workspacesweb#PortalCustomDomain"
         }
       },
       "create": {
@@ -8578,6 +8603,12 @@
           "target": "com.amazonaws.workspacesweb#MaxConcurrentSessions",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of concurrent sessions for the portal.</p>"
+          }
+        },
+        "portalCustomDomain": {
+          "target": "com.amazonaws.workspacesweb#PortalCustomDomain",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom domain of the web portal that users access in order to start streaming sessions.</p>"
           }
         }
       },
@@ -10160,6 +10191,12 @@
           "target": "com.amazonaws.workspacesweb#MaxConcurrentSessions",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of concurrent sessions for the portal.</p>"
+          }
+        },
+        "portalCustomDomain": {
+          "target": "com.amazonaws.workspacesweb#PortalCustomDomain",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom domain of the web portal that users access in order to start streaming sessions. </p>"
           }
         }
       },

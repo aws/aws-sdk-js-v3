@@ -30,6 +30,7 @@ const _ACG = "AuthorizationCodeGrant";
 const _ACMPRTPS = "AttachCustomerManagedPolicyReferenceToPermissionSet";
 const _ACMPRTPSR = "AttachCustomerManagedPolicyReferenceToPermissionSetRequest";
 const _ACMPRTPSRt = "AttachCustomerManagedPolicyReferenceToPermissionSetResponse";
+const _AD = "AddedDate";
 const _ADE = "AccessDeniedException";
 const _AI = "AccountId";
 const _AIc = "AccountIds";
@@ -50,6 +51,9 @@ const _APL = "ApplicationProviderList";
 const _APc = "ActorPolicy";
 const _APp = "ApplicationProviders";
 const _AR = "AssignmentRequired";
+const _ARR = "AddRegionRequest";
+const _ARRd = "AddRegionResponse";
+const _ARd = "AddRegion";
 const _AT = "AuthorizedTargets";
 const _ATI = "AuthorizedTokenIssuer";
 const _ATIu = "AuthorizedTokenIssuers";
@@ -68,6 +72,7 @@ const _CAR = "CreateApplicationRequest";
 const _CARr = "CreateApplicationResponse";
 const _CD = "CreatedDate";
 const _CE = "ConflictException";
+const _CF = "CreatedFrom";
 const _CI = "CreateInstance";
 const _CIACAC = "CreateInstanceAccessControlAttributeConfiguration";
 const _CIACACR = "CreateInstanceAccessControlAttributeConfigurationRequest";
@@ -150,6 +155,9 @@ const _DPSRe = "DeletePermissionSetResponse";
 const _DPSRes = "DescribePermissionSetRequest";
 const _DPSResc = "DescribePermissionSetResponse";
 const _DPSe = "DescribePermissionSet";
+const _DR = "DescribeRegion";
+const _DRR = "DescribeRegionRequest";
+const _DRRe = "DescribeRegionResponse";
 const _DT = "DetailedTitle";
 const _DTTI = "DeleteTrustedTokenIssuer";
 const _DTTIR = "DeleteTrustedTokenIssuerRequest";
@@ -196,6 +204,7 @@ const _IAM = "IamAuthenticationMethod";
 const _IL = "InstanceList";
 const _IM = "InstanceMetadata";
 const _IP = "InlinePolicy";
+const _IPR = "IsPrimaryRegion";
 const _ISAP = "IdentityStoreAttributePath";
 const _ISE = "InternalServerException";
 const _ISI = "IdentityStoreId";
@@ -266,6 +275,9 @@ const _LPSPTAR = "ListPermissionSetsProvisionedToAccountRequest";
 const _LPSPTARi = "ListPermissionSetsProvisionedToAccountResponse";
 const _LPSR = "ListPermissionSetsRequest";
 const _LPSRi = "ListPermissionSetsResponse";
+const _LR = "ListRegions";
+const _LRR = "ListRegionsRequest";
+const _LRRi = "ListRegionsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -320,7 +332,13 @@ const _PT = "PrincipalType";
 const _R = "Reason";
 const _RA = "ResourceArn";
 const _RI = "RequestId";
+const _RM = "RegionMetadata";
+const _RML = "RegionMetadataList";
+const _RN = "RegionName";
 const _RNFE = "ResourceNotFoundException";
+const _RR = "RemoveRegion";
+const _RRR = "RemoveRegionRequest";
+const _RRRe = "RemoveRegionResponse";
 const _RS = "RelayState";
 const _RSC = "ResourceServerConfig";
 const _RSS = "ResourceServerScopes";
@@ -328,6 +346,7 @@ const _RSSD = "ResourceServerScopeDetails";
 const _RT = "RefreshToken";
 const _RTG = "RefreshTokenGrant";
 const _RU = "RedirectUris";
+const _Re = "Regions";
 const _S = "Source";
 const _SD = "SessionDuration";
 const _SDc = "ScopeDetails";
@@ -445,10 +464,20 @@ export var AccountAssignmentOperationStatusMetadata$: StaticStructureSchema = [3
   [_St, _RI, _CD],
   [0, 0, 4]
 ];
+export var AddRegionRequest$: StaticStructureSchema = [3, n0, _ARR,
+  0,
+  [_IA, _RN],
+  [0, 0], 2
+];
+export var AddRegionResponse$: StaticStructureSchema = [3, n0, _ARRd,
+  0,
+  [_St],
+  [0]
+];
 export var Application$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_AAp, _APA, _N, _AApp, _IA, _St, _PO, _D, _CD],
-  [0, 0, 0, 0, 0, 0, () => PortalOptions$, 0, 4]
+  [_AAp, _APA, _N, _AApp, _IA, _St, _PO, _D, _CD, _CF],
+  [0, 0, 0, 0, 0, 0, () => PortalOptions$, 0, 4, 0]
 ];
 export var ApplicationAssignment$: StaticStructureSchema = [3, n0, _AAppl,
   0,
@@ -738,8 +767,8 @@ export var DescribeApplicationRequest$: StaticStructureSchema = [3, n0, _DARes,
 ];
 export var DescribeApplicationResponse$: StaticStructureSchema = [3, n0, _DAResc,
   0,
-  [_AAp, _APA, _N, _AApp, _IA, _St, _PO, _D, _CD],
-  [0, 0, 0, 0, 0, 0, () => PortalOptions$, 0, 4]
+  [_AAp, _APA, _N, _AApp, _IA, _St, _PO, _D, _CD, _CF],
+  [0, 0, 0, 0, 0, 0, () => PortalOptions$, 0, 4, 0]
 ];
 export var DescribeInstanceAccessControlAttributeConfigurationRequest$: StaticStructureSchema = [3, n0, _DIACACRes,
   0,
@@ -780,6 +809,16 @@ export var DescribePermissionSetResponse$: StaticStructureSchema = [3, n0, _DPSR
   0,
   [_PS],
   [() => PermissionSet$]
+];
+export var DescribeRegionRequest$: StaticStructureSchema = [3, n0, _DRR,
+  0,
+  [_IA, _RN],
+  [0, 0], 2
+];
+export var DescribeRegionResponse$: StaticStructureSchema = [3, n0, _DRRe,
+  0,
+  [_RN, _St, _AD, _IPR],
+  [0, 0, 4, 2]
 ];
 export var DescribeTrustedTokenIssuerRequest$: StaticStructureSchema = [3, n0, _DTTIRes,
   0,
@@ -1122,6 +1161,16 @@ export var ListPermissionSetsResponse$: StaticStructureSchema = [3, n0, _LPSRi,
   [_PSe, _NT],
   [64 | 0, 0]
 ];
+export var ListRegionsRequest$: StaticStructureSchema = [3, n0, _LRR,
+  0,
+  [_IA, _MR, _NT],
+  [0, 1, 0], 1
+];
+export var ListRegionsResponse$: StaticStructureSchema = [3, n0, _LRRi,
+  0,
+  [_Re, _NT],
+  [() => RegionMetadataList, 0]
+];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA, _IA, _NT],
@@ -1251,6 +1300,21 @@ export var RefreshTokenGrant$: StaticStructureSchema = [3, n0, _RTG,
   0,
   [],
   []
+];
+export var RegionMetadata$: StaticStructureSchema = [3, n0, _RM,
+  0,
+  [_RN, _St, _AD, _IPR],
+  [0, 0, 4, 2]
+];
+export var RemoveRegionRequest$: StaticStructureSchema = [3, n0, _RRR,
+  0,
+  [_IA, _RN],
+  [0, 0], 2
+];
+export var RemoveRegionResponse$: StaticStructureSchema = [3, n0, _RRRe,
+  0,
+  [_St],
+  [0]
 ];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_e]: _c, [_hE]: 404 },
@@ -1438,6 +1502,9 @@ var PermissionSetProvisioningStatusList: StaticListSchema = [1, n0, _PSPSL,
   0, () => PermissionSetProvisioningStatusMetadata$
 ];
 var RedirectUris = 64 | 0;
+var RegionMetadataList: StaticListSchema = [1, n0, _RML,
+  0, () => RegionMetadata$
+];
 var Scopes: StaticListSchema = [1, n0, _Sco,
   0, () => ScopeDetails$
 ];
@@ -1472,6 +1539,9 @@ export var TrustedTokenIssuerUpdateConfiguration$: StaticUnionSchema = [4, n0, _
   0,
   [_OJC],
   [() => OidcJwtUpdateConfiguration$]
+];
+export var AddRegion$: StaticOperationSchema = [9, n0, _ARd,
+  0, () => AddRegionRequest$, () => AddRegionResponse$
 ];
 export var AttachCustomerManagedPolicyReferenceToPermissionSet$: StaticOperationSchema = [9, n0, _ACMPRTPS,
   0, () => AttachCustomerManagedPolicyReferenceToPermissionSetRequest$, () => AttachCustomerManagedPolicyReferenceToPermissionSetResponse$
@@ -1563,6 +1633,9 @@ export var DescribePermissionSet$: StaticOperationSchema = [9, n0, _DPSe,
 export var DescribePermissionSetProvisioningStatus$: StaticOperationSchema = [9, n0, _DPSPS,
   0, () => DescribePermissionSetProvisioningStatusRequest$, () => DescribePermissionSetProvisioningStatusResponse$
 ];
+export var DescribeRegion$: StaticOperationSchema = [9, n0, _DR,
+  0, () => DescribeRegionRequest$, () => DescribeRegionResponse$
+];
 export var DescribeTrustedTokenIssuer$: StaticOperationSchema = [9, n0, _DTTIe,
   0, () => DescribeTrustedTokenIssuerRequest$, () => DescribeTrustedTokenIssuerResponse$
 ];
@@ -1647,6 +1720,9 @@ export var ListPermissionSets$: StaticOperationSchema = [9, n0, _LPS,
 export var ListPermissionSetsProvisionedToAccount$: StaticOperationSchema = [9, n0, _LPSPTA,
   0, () => ListPermissionSetsProvisionedToAccountRequest$, () => ListPermissionSetsProvisionedToAccountResponse$
 ];
+export var ListRegions$: StaticOperationSchema = [9, n0, _LR,
+  0, () => ListRegionsRequest$, () => ListRegionsResponse$
+];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
@@ -1676,6 +1752,9 @@ export var PutInlinePolicyToPermissionSet$: StaticOperationSchema = [9, n0, _PIP
 ];
 export var PutPermissionsBoundaryToPermissionSet$: StaticOperationSchema = [9, n0, _PPBTPS,
   0, () => PutPermissionsBoundaryToPermissionSetRequest$, () => PutPermissionsBoundaryToPermissionSetResponse$
+];
+export var RemoveRegion$: StaticOperationSchema = [9, n0, _RR,
+  0, () => RemoveRegionRequest$, () => RemoveRegionResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   0, () => TagResourceRequest$, () => TagResourceResponse$

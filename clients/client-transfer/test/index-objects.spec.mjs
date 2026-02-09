@@ -2,6 +2,7 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   AgreementStatusType,
+  As2AsyncMdnConnectorConfig$,
   As2ConnectorConfig$,
   As2Transport,
   CertificateStatusType,
@@ -49,6 +50,7 @@ import {
   CreateWorkflowRequest$,
   CreateWorkflowResponse$,
   CustomDirectoriesType$,
+  CustomHttpHeader$,
   CustomStepDetails$,
   CustomStepStatus,
   DecryptStepDetails$,
@@ -569,6 +571,7 @@ assert(typeof UpdateWebApp$ === "object");
 assert(typeof UpdateWebAppCustomizationCommand === "function");
 assert(typeof UpdateWebAppCustomization$ === "object");
 // structural schemas
+assert(typeof As2AsyncMdnConnectorConfig$ === "object");
 assert(typeof As2ConnectorConfig$ === "object");
 assert(typeof ConnectorEgressConfig$ === "object");
 assert(typeof ConnectorFileTransferResult$ === "object");
@@ -591,6 +594,7 @@ assert(typeof CreateWebAppResponse$ === "object");
 assert(typeof CreateWorkflowRequest$ === "object");
 assert(typeof CreateWorkflowResponse$ === "object");
 assert(typeof CustomDirectoriesType$ === "object");
+assert(typeof CustomHttpHeader$ === "object");
 assert(typeof CustomStepDetails$ === "object");
 assert(typeof DecryptStepDetails$ === "object");
 assert(typeof DeleteAccessRequest$ === "object");

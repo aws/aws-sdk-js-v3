@@ -404,6 +404,12 @@ export interface InvokeDataAutomationRequest {
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * Output configuration.
+   * @public
+   */
+  outputConfiguration?: OutputConfiguration | undefined;
 }
 
 /**
@@ -436,6 +442,12 @@ export interface OutputSegment {
  */
 export interface InvokeDataAutomationResponse {
   /**
+   * Output configuration
+   * @public
+   */
+  outputConfiguration?: OutputConfiguration | undefined;
+
+  /**
    * Detected semantic modality
    * @public
    */
@@ -445,7 +457,7 @@ export interface InvokeDataAutomationResponse {
    * List of outputs for each logical sub-doc
    * @public
    */
-  outputSegments: OutputSegment[] | undefined;
+  outputSegments?: OutputSegment[] | undefined;
 }
 
 /**

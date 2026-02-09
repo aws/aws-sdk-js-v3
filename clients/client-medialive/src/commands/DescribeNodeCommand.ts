@@ -57,6 +57,9 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  * //       LogicalInterfaceName: "STRING_VALUE",
  * //       NetworkInterfaceMode: "NAT" || "BRIDGE",
  * //       PhysicalInterfaceName: "STRING_VALUE",
+ * //       PhysicalInterfaceIpAddresses: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   Role: "BACKUP" || "ACTIVE",

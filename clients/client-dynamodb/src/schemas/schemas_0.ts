@@ -258,6 +258,8 @@ const _GTNFE = "GlobalTableNotFoundException";
 const _GTPWCASSU = "GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate";
 const _GTPWCU = "GlobalTableProvisionedWriteCapacityUnits";
 const _GTS = "GlobalTableStatus";
+const _GTSA = "GlobalTableSourceArn";
+const _GTSRM = "GlobalTableSettingsReplicationMode";
 const _GTV = "GlobalTableVersion";
 const _GTW = "GlobalTableWitnesses";
 const _GTWD = "GlobalTableWitnessDescription";
@@ -915,8 +917,8 @@ export var CreateReplicationGroupMemberAction$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateTableInput$: StaticStructureSchema = [3, n0, _CTI,
   0,
-  [_ADt, _TN, _KS, _LSI, _GSI, _BM, _PT, _SS, _SSES, _Ta, _TC, _DPE, _WT, _RP, _ODT],
-  [() => AttributeDefinitions, 0, () => KeySchema, () => LocalSecondaryIndexList, () => GlobalSecondaryIndexList, 0, () => ProvisionedThroughput$, () => StreamSpecification$, () => SSESpecification$, () => TagList, 0, 2, () => WarmThroughput$, 0, () => OnDemandThroughput$], 3
+  [_TN, _ADt, _KS, _LSI, _GSI, _BM, _PT, _SS, _SSES, _Ta, _TC, _DPE, _WT, _RP, _ODT, _GTSA, _GTSRM],
+  [0, () => AttributeDefinitions, () => KeySchema, () => LocalSecondaryIndexList, () => GlobalSecondaryIndexList, 0, () => ProvisionedThroughput$, () => StreamSpecification$, () => SSESpecification$, () => TagList, 0, 2, () => WarmThroughput$, 0, () => OnDemandThroughput$, 0, 0], 1
 ];
 export var CreateTableOutput$: StaticStructureSchema = [3, n0, _CTO,
   0,
@@ -1634,8 +1636,8 @@ export var ReplicaAutoScalingUpdate$: StaticStructureSchema = [3, n0, _RASU,
 ];
 export var ReplicaDescription$: StaticStructureSchema = [3, n0, _RD,
   0,
-  [_RN, _RSe, _RSD, _RSPP, _KMSMKI, _PTO, _ODTO, _WT, _GSI, _RIDT, _RTCS],
-  [0, 0, 0, 0, 0, () => ProvisionedThroughputOverride$, () => OnDemandThroughputOverride$, () => TableWarmThroughputDescription$, () => ReplicaGlobalSecondaryIndexDescriptionList, 4, () => TableClassSummary$]
+  [_RN, _RSe, _RSD, _RSPP, _KMSMKI, _PTO, _ODTO, _WT, _GSI, _RIDT, _RTCS, _GTSRM],
+  [0, 0, 0, 0, 0, () => ProvisionedThroughputOverride$, () => OnDemandThroughputOverride$, () => TableWarmThroughputDescription$, () => ReplicaGlobalSecondaryIndexDescriptionList, 4, () => TableClassSummary$, 0]
 ];
 export var ReplicaGlobalSecondaryIndex$: StaticStructureSchema = [3, n0, _RGSI,
   0,
@@ -1805,8 +1807,8 @@ export var TableCreationParameters$: StaticStructureSchema = [3, n0, _TCP,
 ];
 export var TableDescription$: StaticStructureSchema = [3, n0, _TD,
   0,
-  [_ADt, _TN, _KS, _TSa, _CDT, _PT, _TSB, _IC, _TA, _TI, _BMS, _LSI, _GSI, _SS, _LSL, _LSA, _GTV, _Rep, _GTW, _RSes, _SSED, _AS, _TCS, _DPE, _ODT, _WT, _MRC],
-  [() => AttributeDefinitions, 0, () => KeySchema, 0, 4, () => ProvisionedThroughputDescription$, 1, 1, 0, 0, () => BillingModeSummary$, () => LocalSecondaryIndexDescriptionList, () => GlobalSecondaryIndexDescriptionList, () => StreamSpecification$, 0, 0, 0, () => ReplicaDescriptionList, () => GlobalTableWitnessDescriptionList, () => RestoreSummary$, () => SSEDescription$, () => ArchivalSummary$, () => TableClassSummary$, 2, () => OnDemandThroughput$, () => TableWarmThroughputDescription$, 0]
+  [_ADt, _TN, _KS, _TSa, _CDT, _PT, _TSB, _IC, _TA, _TI, _BMS, _LSI, _GSI, _SS, _LSL, _LSA, _GTV, _Rep, _GTW, _GTSRM, _RSes, _SSED, _AS, _TCS, _DPE, _ODT, _WT, _MRC],
+  [() => AttributeDefinitions, 0, () => KeySchema, 0, 4, () => ProvisionedThroughputDescription$, 1, 1, 0, 0, () => BillingModeSummary$, () => LocalSecondaryIndexDescriptionList, () => GlobalSecondaryIndexDescriptionList, () => StreamSpecification$, 0, 0, 0, () => ReplicaDescriptionList, () => GlobalTableWitnessDescriptionList, 0, () => RestoreSummary$, () => SSEDescription$, () => ArchivalSummary$, () => TableClassSummary$, 2, () => OnDemandThroughput$, () => TableWarmThroughputDescription$, 0]
 ];
 export var TableInUseException$: StaticErrorSchema = [-3, n0, _TIUE,
   { [_e]: _c },

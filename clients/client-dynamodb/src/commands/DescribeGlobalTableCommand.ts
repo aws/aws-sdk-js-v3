@@ -86,6 +86,7 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  * //           TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  * //           LastUpdateDateTime: new Date("TIMESTAMP"),
  * //         },
+ * //         GlobalTableSettingsReplicationMode: "ENABLED" || "DISABLED" || "ENABLED_WITH_OVERRIDES",
  * //       },
  * //     ],
  * //     GlobalTableArn: "STRING_VALUE",

@@ -92,6 +92,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *   ShardIterator: "STRING_VALUE", // required
  *   Limit: Number("int"),
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new GetRecordsCommand(input);
  * const response = await client.send(command);
@@ -199,6 +200,7 @@ export class GetRecordsCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `data` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

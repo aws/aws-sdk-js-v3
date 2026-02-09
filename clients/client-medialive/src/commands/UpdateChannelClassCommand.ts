@@ -68,6 +68,8 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  *           EncryptionPassphraseSecretArn: "STRING_VALUE",
  *           StreamId: "STRING_VALUE",
  *           Url: "STRING_VALUE",
+ *           ConnectionMode: "CALLER" || "LISTENER",
+ *           ListenerPort: Number("int"),
  *         },
  *       ],
  *       LogicalInterfaceNames: [ // __listOf__string
@@ -114,6 +116,8 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //             EncryptionPassphraseSecretArn: "STRING_VALUE",
  * //             StreamId: "STRING_VALUE",
  * //             Url: "STRING_VALUE",
+ * //             ConnectionMode: "CALLER" || "LISTENER",
+ * //             ListenerPort: Number("int"),
  * //           },
  * //         ],
  * //         LogicalInterfaceNames: [ // __listOf__string
@@ -1156,6 +1160,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //               SpatialAq: "DISABLED" || "ENABLED",
  * //               TemporalAq: "DISABLED" || "ENABLED",
  * //               TimecodeInsertion: "DISABLED" || "METADATA_OBU",
+ * //               BitDepth: "DEPTH_10" || "DEPTH_8",
  * //             },
  * //           },
  * //           Height: Number("int"),
@@ -1374,6 +1379,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //         LinkedChannelType: "FOLLOWING_CHANNEL" || "PRIMARY_CHANNEL",
  * //       },
  * //     },
+ * //     ChannelSecurityGroups: "<__listOf__string>",
  * //   },
  * // };
  *

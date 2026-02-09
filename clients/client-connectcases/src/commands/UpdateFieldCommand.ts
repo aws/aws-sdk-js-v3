@@ -41,6 +41,11 @@ export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __Metadat
  *   fieldId: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   attributes: { // FieldAttributes Union: only one key present
+ *     text: { // TextAttributes
+ *       isMultiline: true || false, // required
+ *     },
+ *   },
  * };
  * const command = new UpdateFieldCommand(input);
  * const response = await client.send(command);

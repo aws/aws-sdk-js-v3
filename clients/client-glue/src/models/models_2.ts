@@ -1,10 +1,13 @@
 // smithy-typescript generated code
 import {
+  AuthenticationType,
   BackfillErrorCode,
   Comparator,
   Compatibility,
   ConnectionPropertyKey,
   ConnectionType,
+  ConnectorOAuth2GrantType,
+  ContentType,
   CrawlerHistoryState,
   CsvHeaderOption,
   CsvSerdeOption,
@@ -15,9 +18,10 @@ import {
   FieldName,
   FilterOperator,
   FunctionType,
-  IcebergUpdateAction,
+  HTTPMethod,
   InclusionAnnotationValue,
   IntegrationStatus,
+  IntegrationType,
   Language,
   LastRefreshType,
   PartitionIndexStatus,
@@ -32,13 +36,13 @@ import {
   SchemaVersionStatus,
   Sort,
   SortDirectionType,
-  SourceControlAuthStrategy,
-  SourceControlProvider,
   StatementState,
   StatisticEvaluationLevel,
   TableAttributes,
   TableOptimizerType,
+  TaskRunSortColumnType,
   TaskStatusType,
+  TaskType,
   TransformSortColumnType,
   TransformStatusType,
   TransformType,
@@ -57,7 +61,6 @@ import {
   type LakeFormationConfiguration,
   type LineageConfiguration,
   type NotificationProperty,
-  type PartitionInput,
   type RecrawlPolicy,
   type SchemaChangePolicy,
   type SchemaId,
@@ -79,23 +82,21 @@ import {
   type DataCatalogEncryptionSettings,
   type DataQualityEvaluationRunAdditionalRunOptions,
   type EncryptionConfiguration,
-  type FindMatchesMetrics,
-  type IcebergPartitionSpec,
-  type IcebergSchema,
-  type IcebergSortOrder,
+  type ExportLabelsTaskRunProperties,
+  type FindMatchesTaskRunProperties,
   type IntegrationConfig,
   type JobBookmarkEntry,
   type Location,
   type ProfileConfiguration,
   type RegistryId,
+  type RestConfiguration,
   type SourceProcessingProperties,
-  type SourceTableConfig,
   type TargetProcessingProperties,
-  type TargetTableConfig,
   type TransformEncryption,
   type TransformParameters,
   CatalogEntry,
   ColumnStatistics,
+  ConnectorProperty,
   IntegrationError,
   MappingEntry,
   MaterializedViewRefreshTaskRun,
@@ -103,6 +104,427 @@ import {
   Session,
   Tag,
 } from "./models_1";
+
+/**
+ * <p>Specifies configuration properties for an importing labels task run.</p>
+ * @public
+ */
+export interface ImportLabelsTaskRunProperties {
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path from where you will import the
+   *       labels.</p>
+   * @public
+   */
+  InputS3Path?: string | undefined;
+
+  /**
+   * <p>Indicates whether to overwrite your existing labels.</p>
+   * @public
+   */
+  Replace?: boolean | undefined;
+}
+
+/**
+ * <p>Specifies configuration properties for a labeling set generation task run.</p>
+ * @public
+ */
+export interface LabelingSetGenerationTaskRunProperties {
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) path where you will generate the labeling
+   *       set.</p>
+   * @public
+   */
+  OutputS3Path?: string | undefined;
+}
+
+/**
+ * <p>The configuration properties for the task run.</p>
+ * @public
+ */
+export interface TaskRunProperties {
+  /**
+   * <p>The type of task run.</p>
+   * @public
+   */
+  TaskType?: TaskType | undefined;
+
+  /**
+   * <p>The configuration properties for an importing labels task run.</p>
+   * @public
+   */
+  ImportLabelsTaskRunProperties?: ImportLabelsTaskRunProperties | undefined;
+
+  /**
+   * <p>The configuration properties for an exporting labels task run.</p>
+   * @public
+   */
+  ExportLabelsTaskRunProperties?: ExportLabelsTaskRunProperties | undefined;
+
+  /**
+   * <p>The configuration properties for a labeling set generation task run.</p>
+   * @public
+   */
+  LabelingSetGenerationTaskRunProperties?: LabelingSetGenerationTaskRunProperties | undefined;
+
+  /**
+   * <p>The configuration properties for a find matches task run.</p>
+   * @public
+   */
+  FindMatchesTaskRunProperties?: FindMatchesTaskRunProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMLTaskRunResponse {
+  /**
+   * <p>The unique identifier of the task run.</p>
+   * @public
+   */
+  TransformId?: string | undefined;
+
+  /**
+   * <p>The unique run identifier associated with this run.</p>
+   * @public
+   */
+  TaskRunId?: string | undefined;
+
+  /**
+   * <p>The status for this task run.</p>
+   * @public
+   */
+  Status?: TaskStatusType | undefined;
+
+  /**
+   * <p>The names of the log groups that are associated with the task run.</p>
+   * @public
+   */
+  LogGroupName?: string | undefined;
+
+  /**
+   * <p>The list of properties that are associated with the task run.</p>
+   * @public
+   */
+  Properties?: TaskRunProperties | undefined;
+
+  /**
+   * <p>The error strings that are associated with the task run.</p>
+   * @public
+   */
+  ErrorString?: string | undefined;
+
+  /**
+   * <p>The date and time when this task run started.</p>
+   * @public
+   */
+  StartedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when this task run was last modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when this task run was completed.</p>
+   * @public
+   */
+  CompletedOn?: Date | undefined;
+
+  /**
+   * <p>The amount of time (in seconds) that the task run consumed resources.</p>
+   * @public
+   */
+  ExecutionTime?: number | undefined;
+}
+
+/**
+ * <p>The criteria that are used to filter the task runs for the machine learning
+ *       transform.</p>
+ * @public
+ */
+export interface TaskRunFilterCriteria {
+  /**
+   * <p>The type of task run.</p>
+   * @public
+   */
+  TaskRunType?: TaskType | undefined;
+
+  /**
+   * <p>The current status of the task run.</p>
+   * @public
+   */
+  Status?: TaskStatusType | undefined;
+
+  /**
+   * <p>Filter on task runs started before this date.</p>
+   * @public
+   */
+  StartedBefore?: Date | undefined;
+
+  /**
+   * <p>Filter on task runs started after this date.</p>
+   * @public
+   */
+  StartedAfter?: Date | undefined;
+}
+
+/**
+ * <p>The sorting criteria that are used to sort the list of task runs for the machine learning
+ *       transform.</p>
+ * @public
+ */
+export interface TaskRunSortCriteria {
+  /**
+   * <p>The column to be used to sort the list of task runs for the machine learning
+   *       transform.</p>
+   * @public
+   */
+  Column: TaskRunSortColumnType | undefined;
+
+  /**
+   * <p>The sort direction to be used to sort the list of task runs for the machine learning
+   *       transform.</p>
+   * @public
+   */
+  SortDirection: SortDirectionType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMLTaskRunsRequest {
+  /**
+   * <p>The unique identifier of the machine learning transform.</p>
+   * @public
+   */
+  TransformId: string | undefined;
+
+  /**
+   * <p>A token for pagination of the results. The default is empty.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The filter criteria, in the <code>TaskRunFilterCriteria</code> structure, for the task run.</p>
+   * @public
+   */
+  Filter?: TaskRunFilterCriteria | undefined;
+
+  /**
+   * <p>The sorting criteria, in the <code>TaskRunSortCriteria</code> structure, for the task run.</p>
+   * @public
+   */
+  Sort?: TaskRunSortCriteria | undefined;
+}
+
+/**
+ * <p>The sampling parameters that are associated with the machine learning transform.</p>
+ * @public
+ */
+export interface TaskRun {
+  /**
+   * <p>The unique identifier for the transform.</p>
+   * @public
+   */
+  TransformId?: string | undefined;
+
+  /**
+   * <p>The unique identifier for this task run.</p>
+   * @public
+   */
+  TaskRunId?: string | undefined;
+
+  /**
+   * <p>The current status of the requested task run.</p>
+   * @public
+   */
+  Status?: TaskStatusType | undefined;
+
+  /**
+   * <p>The names of the log group for secure logging, associated with this task run.</p>
+   * @public
+   */
+  LogGroupName?: string | undefined;
+
+  /**
+   * <p>Specifies configuration properties associated with this task run.</p>
+   * @public
+   */
+  Properties?: TaskRunProperties | undefined;
+
+  /**
+   * <p>The list of error strings associated with this task run.</p>
+   * @public
+   */
+  ErrorString?: string | undefined;
+
+  /**
+   * <p>The date and time that this task run started.</p>
+   * @public
+   */
+  StartedOn?: Date | undefined;
+
+  /**
+   * <p>The last point in time that the requested task run was updated.</p>
+   * @public
+   */
+  LastModifiedOn?: Date | undefined;
+
+  /**
+   * <p>The last point in time that the requested task run was completed.</p>
+   * @public
+   */
+  CompletedOn?: Date | undefined;
+
+  /**
+   * <p>The amount of time (in seconds) that the task run consumed resources.</p>
+   * @public
+   */
+  ExecutionTime?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMLTaskRunsResponse {
+  /**
+   * <p>A list of task runs that are associated with the transform.</p>
+   * @public
+   */
+  TaskRuns?: TaskRun[] | undefined;
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMLTransformRequest {
+  /**
+   * <p>The unique identifier of the transform, generated at the time that the transform was
+   *       created.</p>
+   * @public
+   */
+  TransformId: string | undefined;
+}
+
+/**
+ * <p>A structure containing the column name and column importance score for a column. </p>
+ *          <p>Column importance helps you understand how columns contribute to your model, by identifying which columns in your records are more important than others.</p>
+ * @public
+ */
+export interface ColumnImportance {
+  /**
+   * <p>The name of a column.</p>
+   * @public
+   */
+  ColumnName?: string | undefined;
+
+  /**
+   * <p>The column importance score for the column, as a decimal.</p>
+   * @public
+   */
+  Importance?: number | undefined;
+}
+
+/**
+ * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
+ *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
+ * @public
+ */
+export interface ConfusionMatrix {
+  /**
+   * <p>The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.</p>
+   * @public
+   */
+  NumTruePositives?: number | undefined;
+
+  /**
+   * <p>The number of nonmatches in the data that the transform incorrectly classified as a match,
+   *       in the confusion matrix for your transform.</p>
+   * @public
+   */
+  NumFalsePositives?: number | undefined;
+
+  /**
+   * <p>The number of nonmatches in the data that the transform correctly rejected, in the
+   *       confusion matrix for your transform.</p>
+   * @public
+   */
+  NumTrueNegatives?: number | undefined;
+
+  /**
+   * <p>The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.</p>
+   * @public
+   */
+  NumFalseNegatives?: number | undefined;
+}
+
+/**
+ * <p>The evaluation metrics for the find matches algorithm. The quality of your machine
+ *       learning transform is measured by getting your transform to predict some matches and comparing
+ *       the results to known matches from the same dataset. The quality metrics are based on a subset
+ *       of your data, so they are not precise.</p>
+ * @public
+ */
+export interface FindMatchesMetrics {
+  /**
+   * <p>The area under the precision/recall curve (AUPRC) is a single number measuring the overall
+   *       quality of the transform, that is independent of the choice made for precision vs. recall.
+   *       Higher values indicate that you have a more attractive precision vs. recall tradeoff.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   * @public
+   */
+  AreaUnderPRCurve?: number | undefined;
+
+  /**
+   * <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   * @public
+   */
+  Precision?: number | undefined;
+
+  /**
+   * <p>The recall metric indicates that for an actual match, how often your transform predicts
+   *       the match. Specifically, it measures how well the transform finds true positives from the
+   *       total records in the source data.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   * @public
+   */
+  Recall?: number | undefined;
+
+  /**
+   * <p>The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a> in Wikipedia.</p>
+   * @public
+   */
+  F1?: number | undefined;
+
+  /**
+   * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
+   * @public
+   */
+  ConfusionMatrix?: ConfusionMatrix | undefined;
+
+  /**
+   * <p>A list of <code>ColumnImportance</code> structures containing column importance metrics, sorted in order of descending importance.</p>
+   * @public
+   */
+  ColumnImportances?: ColumnImportance[] | undefined;
+}
 
 /**
  * <p>Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
@@ -3198,7 +3620,7 @@ export interface ListConnectionTypesRequest {
 }
 
 /**
- * <p>Represents a variant of a connection type in Glue Data Catalog. Connection type variants provide specific configurations and behaviors
+ * <p>Represents a variant of a connection type in Glue. Connection type variants provide specific configurations and behaviors
  *       for different implementations of the same general connection type.</p>
  * @public
  */
@@ -5639,6 +6061,329 @@ export interface QuerySchemaVersionMetadataResponse {
 }
 
 /**
+ * <p>Configuration that defines the base URL and additional request parameters needed during connection creation.</p>
+ * @public
+ */
+export interface ConnectionPropertiesConfiguration {
+  /**
+   * <p>The base instance URL for the endpoint that this connection type will connect to.</p>
+   * @public
+   */
+  Url?: ConnectorProperty | undefined;
+
+  /**
+   * <p>Key-value pairs of additional request parameters that may be needed during connection creation, such as API versions or service-specific configuration options.</p>
+   * @public
+   */
+  AdditionalRequestParameters?: ConnectorProperty[] | undefined;
+}
+
+/**
+ * <p>Basic authentication configuration that defines the username and password properties for HTTP Basic authentication.</p>
+ * @public
+ */
+export interface BasicAuthenticationProperties {
+  /**
+   * <p>The username property name to use for Basic authentication credentials.</p>
+   * @public
+   */
+  Username?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The password property name to use for Basic authentication credentials.</p>
+   * @public
+   */
+  Password?: ConnectorProperty | undefined;
+}
+
+/**
+ * <p>Custom authentication configuration that allows for flexible authentication mechanisms beyond standard Basic and OAuth2 flows.</p>
+ * @public
+ */
+export interface CustomAuthenticationProperties {
+  /**
+   * <p>A map of custom authentication parameters that define the specific authentication mechanism and required properties.</p>
+   * @public
+   */
+  AuthenticationParameters: ConnectorProperty[] | undefined;
+}
+
+/**
+ * <p>OAuth2 authorization code configuration that defines the properties needed for the Authorization Code grant type flow.</p>
+ * @public
+ */
+export interface ConnectorAuthorizationCodeProperties {
+  /**
+   * <p>The authorization endpoint URL where users will be redirected to grant authorization.</p>
+   * @public
+   */
+  AuthorizationCodeUrl?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The authorization code received from the authorization server after user consent.</p>
+   * @public
+   */
+  AuthorizationCode?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The redirect URI that must match the URI registered with the authorization server.</p>
+   * @public
+   */
+  RedirectUri?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The token endpoint URL where the authorization code will be exchanged for an access token.</p>
+   * @public
+   */
+  TokenUrl?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The HTTP method to use when making token exchange requests, typically POST.</p>
+   * @public
+   */
+  RequestMethod?: HTTPMethod | undefined;
+
+  /**
+   * <p>The content type to use for token exchange requests, such as application/x-www-form-urlencoded or application/json.</p>
+   * @public
+   */
+  ContentType?: ContentType | undefined;
+
+  /**
+   * <p>The OAuth2 client identifier provided by the authorization server.</p>
+   * @public
+   */
+  ClientId?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The OAuth2 client secret provided by the authorization server.</p>
+   * @public
+   */
+  ClientSecret?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The OAuth2 scope that defines the level of access requested for the authorization code flow.</p>
+   * @public
+   */
+  Scope?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The OAuth2 prompt parameter that controls the authorization server's behavior during user authentication.</p>
+   * @public
+   */
+  Prompt?: ConnectorProperty | undefined;
+
+  /**
+   * <p>Additional parameters to include in token URL requests as key-value pairs.</p>
+   * @public
+   */
+  TokenUrlParameters?: ConnectorProperty[] | undefined;
+}
+
+/**
+ * <p>OAuth2 client credentials configuration that defines the properties needed for the Client Credentials grant type flow.</p>
+ * @public
+ */
+export interface ClientCredentialsProperties {
+  /**
+   * <p>The token endpoint URL where the client will request access tokens using client credentials.</p>
+   * @public
+   */
+  TokenUrl?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The HTTP method to use when making token requests, typically POST.</p>
+   * @public
+   */
+  RequestMethod?: HTTPMethod | undefined;
+
+  /**
+   * <p>The content type to use for token requests, such as application/x-www-form-urlencoded or application/json.</p>
+   * @public
+   */
+  ContentType?: ContentType | undefined;
+
+  /**
+   * <p>The OAuth2 client identifier provided by the authorization server.</p>
+   * @public
+   */
+  ClientId?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The OAuth2 client secret provided by the authorization server.</p>
+   * @public
+   */
+  ClientSecret?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The OAuth2 scope that defines the level of access requested for the client credentials flow.</p>
+   * @public
+   */
+  Scope?: ConnectorProperty | undefined;
+
+  /**
+   * <p>Additional parameters to include in token URL requests as key-value pairs.</p>
+   * @public
+   */
+  TokenUrlParameters?: ConnectorProperty[] | undefined;
+}
+
+/**
+ * <p>JWT bearer token configuration that defines the properties needed for the JWT Bearer grant type flow.</p>
+ * @public
+ */
+export interface JWTBearerProperties {
+  /**
+   * <p>The token endpoint URL where the JWT bearer token will be exchanged for an access token.</p>
+   * @public
+   */
+  TokenUrl?: ConnectorProperty | undefined;
+
+  /**
+   * <p>The HTTP method to use when making JWT bearer token requests, typically POST.</p>
+   * @public
+   */
+  RequestMethod?: HTTPMethod | undefined;
+
+  /**
+   * <p>The content type to use for JWT bearer token requests, such as application/x-www-form-urlencoded or application/json.</p>
+   * @public
+   */
+  ContentType?: ContentType | undefined;
+
+  /**
+   * <p>The JWT token to be used in the bearer token grant flow for authentication.</p>
+   * @public
+   */
+  JwtToken?: ConnectorProperty | undefined;
+
+  /**
+   * <p>Additional parameters to include in token URL requests as key-value pairs.</p>
+   * @public
+   */
+  TokenUrlParameters?: ConnectorProperty[] | undefined;
+}
+
+/**
+ * <p>OAuth2 configuration container that defines the authentication properties and flow-specific configurations for OAuth2-based connections.</p>
+ * @public
+ */
+export interface ConnectorOAuth2Properties {
+  /**
+   * <p>The OAuth2 grant type to use for authentication, such as CLIENT_CREDENTIALS, JWT_BEARER, or AUTHORIZATION_CODE.</p>
+   * @public
+   */
+  OAuth2GrantType: ConnectorOAuth2GrantType | undefined;
+
+  /**
+   * <p>Configuration properties specific to the OAuth2 Client Credentials grant type flow.</p>
+   * @public
+   */
+  ClientCredentialsProperties?: ClientCredentialsProperties | undefined;
+
+  /**
+   * <p>Configuration properties specific to the OAuth2 JWT Bearer grant type flow.</p>
+   * @public
+   */
+  JWTBearerProperties?: JWTBearerProperties | undefined;
+
+  /**
+   * <p>Configuration properties specific to the OAuth2 Authorization Code grant type flow.</p>
+   * @public
+   */
+  AuthorizationCodeProperties?: ConnectorAuthorizationCodeProperties | undefined;
+}
+
+/**
+ * <p>Configuration that defines the supported authentication types and required properties for the connection type.</p>
+ * @public
+ */
+export interface ConnectorAuthenticationConfiguration {
+  /**
+   * <p>A list of authentication types supported by this connection type, such as Basic, OAuth2, or Custom authentication methods.</p>
+   * @public
+   */
+  AuthenticationTypes: AuthenticationType[] | undefined;
+
+  /**
+   * <p>OAuth2 configuration container that defines the authentication properties and flow-specific configurations for OAuth2-based connections.</p>
+   * @public
+   */
+  OAuth2Properties?: ConnectorOAuth2Properties | undefined;
+
+  /**
+   * <p>Basic authentication configuration that defines the username and password properties for HTTP Basic authentication.</p>
+   * @public
+   */
+  BasicAuthenticationProperties?: BasicAuthenticationProperties | undefined;
+
+  /**
+   * <p>Custom authentication configuration that allows for flexible authentication mechanisms beyond standard Basic and OAuth2 flows.</p>
+   * @public
+   */
+  CustomAuthenticationProperties?: CustomAuthenticationProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterConnectionTypeRequest {
+  /**
+   * <p>The name of the connection type. Must be between 1 and 255 characters and must be prefixed with "REST-" to indicate it is a REST-based connector.</p>
+   * @public
+   */
+  ConnectionType: string | undefined;
+
+  /**
+   * <p>The integration type for the connection. Currently only "REST" protocol is supported.</p>
+   * @public
+   */
+  IntegrationType: IntegrationType | undefined;
+
+  /**
+   * <p>A description of the connection type. Can be up to 2048 characters and provides details about the purpose and functionality of the connection type.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Defines the base URL and additional request parameters needed during connection creation for this connection type.</p>
+   * @public
+   */
+  ConnectionProperties: ConnectionPropertiesConfiguration | undefined;
+
+  /**
+   * <p>Defines the supported authentication types and required properties for this connection type, including Basic, OAuth2, and Custom authentication methods.</p>
+   * @public
+   */
+  ConnectorAuthenticationConfiguration: ConnectorAuthenticationConfiguration | undefined;
+
+  /**
+   * <p>Defines the HTTP request and response configuration, validation endpoint, and entity configurations for REST API interactions.</p>
+   * @public
+   */
+  RestConfiguration: RestConfiguration | undefined;
+
+  /**
+   * <p>The tags you assign to the connection type.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains the Amazon Resource Name (ARN) of the newly registered connection type.</p>
+ * @public
+ */
+export interface RegisterConnectionTypeResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registered connection type. This unique identifier can be used to reference the connection type in other Glue operations.</p>
+   * @public
+   */
+  ConnectionTypeArn?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface RegisterSchemaVersionInput {
@@ -7564,667 +8309,4 @@ export interface DevEndpointCustomLibraries {
    * @public
    */
   ExtraJarsS3Path?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDevEndpointRequest {
-  /**
-   * <p>The name of the <code>DevEndpoint</code> to be updated.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The public key for the <code>DevEndpoint</code> to use.</p>
-   * @public
-   */
-  PublicKey?: string | undefined;
-
-  /**
-   * <p>The list of public keys for the <code>DevEndpoint</code> to use.</p>
-   * @public
-   */
-  AddPublicKeys?: string[] | undefined;
-
-  /**
-   * <p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>
-   * @public
-   */
-  DeletePublicKeys?: string[] | undefined;
-
-  /**
-   * <p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>
-   * @public
-   */
-  CustomLibraries?: DevEndpointCustomLibraries | undefined;
-
-  /**
-   * <p>
-   *             <code>True</code> if the list of custom libraries to be loaded in the development endpoint
-   *       needs to be updated, or <code>False</code> if otherwise.</p>
-   * @public
-   */
-  UpdateEtlLibraries?: boolean | undefined;
-
-  /**
-   * <p>The list of argument keys to be deleted from the map of arguments used to configure the
-   *         <code>DevEndpoint</code>.</p>
-   * @public
-   */
-  DeleteArguments?: string[] | undefined;
-
-  /**
-   * <p>The map of arguments to add the map of arguments used to configure the
-   *         <code>DevEndpoint</code>.</p>
-   *          <p>Valid arguments are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"--enable-glue-datacatalog": ""</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-   * @public
-   */
-  AddArguments?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDevEndpointResponse {}
-
-/**
- * <p>Request to update an existing Glue Identity Center configuration.</p>
- * @public
- */
-export interface UpdateGlueIdentityCenterConfigurationRequest {
-  /**
-   * <p>A list of Identity Center scopes that define the updated permissions and access levels for the Glue configuration.</p>
-   * @public
-   */
-  Scopes?: string[] | undefined;
-
-  /**
-   * <p>Specifies whether users can run background sessions when using Identity Center authentication with Glue services.</p>
-   * @public
-   */
-  UserBackgroundSessionsEnabled?: boolean | undefined;
-}
-
-/**
- * <p>Response from updating an existing Glue Identity Center configuration.</p>
- * @public
- */
-export interface UpdateGlueIdentityCenterConfigurationResponse {}
-
-/**
- * @public
- */
-export interface UpdateIntegrationResourcePropertyRequest {
-  /**
-   * <p>The connection ARN of the source, or the database ARN of the target.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The resource properties associated with the integration source.</p>
-   * @public
-   */
-  SourceProcessingProperties?: SourceProcessingProperties | undefined;
-
-  /**
-   * <p>The resource properties associated with the integration target.</p>
-   * @public
-   */
-  TargetProcessingProperties?: TargetProcessingProperties | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIntegrationResourcePropertyResponse {
-  /**
-   * <p>The connection ARN of the source, or the database ARN of the target.</p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-
-  /**
-   * <p>The resource ARN created through this create API. The format is something like arn:aws:glue:<region>:<account_id>:integrationresourceproperty/*</p>
-   * @public
-   */
-  ResourcePropertyArn?: string | undefined;
-
-  /**
-   * <p>The resource properties associated with the integration source.</p>
-   * @public
-   */
-  SourceProcessingProperties?: SourceProcessingProperties | undefined;
-
-  /**
-   * <p>The resource properties associated with the integration target.</p>
-   * @public
-   */
-  TargetProcessingProperties?: TargetProcessingProperties | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIntegrationTablePropertiesRequest {
-  /**
-   * <p>The connection ARN of the source, or the database ARN of the target.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The name of the table to be replicated.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>A structure for the source table configuration.</p>
-   * @public
-   */
-  SourceTableConfig?: SourceTableConfig | undefined;
-
-  /**
-   * <p>A structure for the target table configuration.</p>
-   * @public
-   */
-  TargetTableConfig?: TargetTableConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIntegrationTablePropertiesResponse {}
-
-/**
- * @public
- */
-export interface UpdateJobResponse {
-  /**
-   * <p>Returns the name of the updated job definition.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateJobFromSourceControlRequest {
-  /**
-   * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-
-  /**
-   * <p>
-   *       The provider for the remote repository. Possible values: GITHUB, AWS_CODE_COMMIT, GITLAB, BITBUCKET.
-   *     </p>
-   * @public
-   */
-  Provider?: SourceControlProvider | undefined;
-
-  /**
-   * <p>The name of the remote repository that contains the job artifacts.
-   *       For BitBucket providers, <code>RepositoryName</code> should include <code>WorkspaceName</code>.
-   *       Use the format <code><WorkspaceName>/<RepositoryName></code>.
-   *     </p>
-   * @public
-   */
-  RepositoryName?: string | undefined;
-
-  /**
-   * <p>The owner of the remote repository that contains the job artifacts.</p>
-   * @public
-   */
-  RepositoryOwner?: string | undefined;
-
-  /**
-   * <p>An optional branch in the remote repository.</p>
-   * @public
-   */
-  BranchName?: string | undefined;
-
-  /**
-   * <p>An optional folder in the remote repository.</p>
-   * @public
-   */
-  Folder?: string | undefined;
-
-  /**
-   * <p>A commit ID for a commit in the remote repository.</p>
-   * @public
-   */
-  CommitId?: string | undefined;
-
-  /**
-   * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
-   * @public
-   */
-  AuthStrategy?: SourceControlAuthStrategy | undefined;
-
-  /**
-   * <p>The value of the authorization token.</p>
-   * @public
-   */
-  AuthToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateJobFromSourceControlResponse {
-  /**
-   * <p>The name of the Glue job.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMLTransformRequest {
-  /**
-   * <p>A unique identifier that was generated when the transform was created.</p>
-   * @public
-   */
-  TransformId: string | undefined;
-
-  /**
-   * <p>The unique name that you gave the transform when you created it.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the transform. The default is an empty string.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The configuration parameters that are specific to the transform type (algorithm) used.
-   *       Conditionally dependent on the transform type.</p>
-   * @public
-   */
-  Parameters?: TransformParameters | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
-   *       permissions.</p>
-   * @public
-   */
-  Role?: string | undefined;
-
-  /**
-   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-   * @public
-   */
-  GlueVersion?: string | undefined;
-
-  /**
-   * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
-   *         page</a>. </p>
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   * @public
-   */
-  MaxCapacity?: number | undefined;
-
-  /**
-   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  WorkerType?: WorkerType | undefined;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   * @public
-   */
-  NumberOfWorkers?: number | undefined;
-
-  /**
-   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   * @public
-   */
-  Timeout?: number | undefined;
-
-  /**
-   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-   * @public
-   */
-  MaxRetries?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMLTransformResponse {
-  /**
-   * <p>The unique identifier for the transform that was updated.</p>
-   * @public
-   */
-  TransformId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePartitionRequest {
-  /**
-   * <p>The ID of the Data Catalog where the partition to be updated resides. If none is provided,
-   *       the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>The name of the catalog database in which the table in question
-   *       resides.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table in which the partition to be updated is located.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>List of partition key values that define the partition to update.</p>
-   * @public
-   */
-  PartitionValueList: string[] | undefined;
-
-  /**
-   * <p>The new partition object to update the partition to.</p>
-   *          <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
-   * @public
-   */
-  PartitionInput: PartitionInput | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePartitionResponse {}
-
-/**
- * @public
- */
-export interface UpdateRegistryInput {
-  /**
-   * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  RegistryId: RegistryId | undefined;
-
-  /**
-   * <p>A description of the registry. If description is not provided, this field will not be updated.</p>
-   * @public
-   */
-  Description: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRegistryResponse {
-  /**
-   * <p>The name of the updated registry.</p>
-   * @public
-   */
-  RegistryName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource name (ARN) of the updated registry.</p>
-   * @public
-   */
-  RegistryArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSchemaInput {
-  /**
-   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   *          <ul>
-   *             <li>
-   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-   *             </li>
-   *             <li>
-   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SchemaId: SchemaId | undefined;
-
-  /**
-   * <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
-   * @public
-   */
-  SchemaVersionNumber?: SchemaVersionNumber | undefined;
-
-  /**
-   * <p>The new compatibility setting for the schema.</p>
-   * @public
-   */
-  Compatibility?: Compatibility | undefined;
-
-  /**
-   * <p>The new description for the schema.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSchemaResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
-   * @public
-   */
-  SchemaArn?: string | undefined;
-
-  /**
-   * <p>The name of the schema.</p>
-   * @public
-   */
-  SchemaName?: string | undefined;
-
-  /**
-   * <p>The name of the registry that contains the schema.</p>
-   * @public
-   */
-  RegistryName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSourceControlFromJobRequest {
-  /**
-   * <p>The name of the Glue job to be synchronized to or from the remote repository.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-
-  /**
-   * <p>
-   *       The provider for the remote repository. Possible values: GITHUB, AWS_CODE_COMMIT, GITLAB, BITBUCKET.
-   *     </p>
-   * @public
-   */
-  Provider?: SourceControlProvider | undefined;
-
-  /**
-   * <p>The name of the remote repository that contains the job artifacts.
-   *       For BitBucket providers, <code>RepositoryName</code> should include <code>WorkspaceName</code>.
-   *       Use the format <code><WorkspaceName>/<RepositoryName></code>.
-   *     </p>
-   * @public
-   */
-  RepositoryName?: string | undefined;
-
-  /**
-   * <p>The owner of the remote repository that contains the job artifacts.</p>
-   * @public
-   */
-  RepositoryOwner?: string | undefined;
-
-  /**
-   * <p>An optional branch in the remote repository.</p>
-   * @public
-   */
-  BranchName?: string | undefined;
-
-  /**
-   * <p>An optional folder in the remote repository.</p>
-   * @public
-   */
-  Folder?: string | undefined;
-
-  /**
-   * <p>A commit ID for a commit in the remote repository.</p>
-   * @public
-   */
-  CommitId?: string | undefined;
-
-  /**
-   * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
-   * @public
-   */
-  AuthStrategy?: SourceControlAuthStrategy | undefined;
-
-  /**
-   * <p>The value of the authorization token.</p>
-   * @public
-   */
-  AuthToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSourceControlFromJobResponse {
-  /**
-   * <p>The name of the Glue job.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-}
-
-/**
- * <p>Encryption key structure used for Iceberg table encryption. Contains the key ID, encrypted key metadata, optional reference to the encrypting key, and additional properties for the table's encryption scheme.</p>
- * @public
- */
-export interface IcebergEncryptedKey {
-  /**
-   * <p>Unique identifier of the encryption key used for Iceberg table encryption. This ID is used to reference the key in table metadata and track which key was used to encrypt specific data.</p>
-   * @public
-   */
-  KeyId: string | undefined;
-
-  /**
-   * <p>Encrypted key and metadata, base64 encoded. The format of encrypted key metadata is determined by the table's encryption scheme and can be a wrapped format specific to the table's KMS provider.</p>
-   * @public
-   */
-  EncryptedKeyMetadata: string | undefined;
-
-  /**
-   * <p>Optional ID of the key used to encrypt or wrap the key metadata in Iceberg table encryption. This field references another encryption key that was used to encrypt the current key's metadata.</p>
-   * @public
-   */
-  EncryptedById?: string | undefined;
-
-  /**
-   * <p>A string to string map of additional metadata used by the table's encryption scheme. These properties provide additional context and configuration for the encryption key implementation.</p>
-   * @public
-   */
-  Properties?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Defines a complete set of updates to be applied to an Iceberg table, including schema changes, partitioning modifications, sort order
- *       adjustments, location updates, and property changes.</p>
- * @public
- */
-export interface IcebergTableUpdate {
-  /**
-   * <p>The updated schema definition for the Iceberg table, specifying any changes to field structure, data types, or schema metadata.</p>
-   * @public
-   */
-  Schema: IcebergSchema | undefined;
-
-  /**
-   * <p>The updated partitioning specification that defines how the table data should be reorganized and partitioned.</p>
-   * @public
-   */
-  PartitionSpec?: IcebergPartitionSpec | undefined;
-
-  /**
-   * <p>The updated sort order specification that defines how data should be ordered within partitions for optimal query performance.</p>
-   * @public
-   */
-  SortOrder?: IcebergSortOrder | undefined;
-
-  /**
-   * <p>The updated S3 location where the Iceberg table data will be stored.</p>
-   * @public
-   */
-  Location: string | undefined;
-
-  /**
-   * <p>Updated key-value pairs of table properties and configuration settings for the Iceberg table.</p>
-   * @public
-   */
-  Properties?: Record<string, string> | undefined;
-
-  /**
-   * <p>The type of update action to be performed on the Iceberg table. Defines the specific operation such as adding schema, setting current schema, adding partition spec, or managing encryption keys.</p>
-   * @public
-   */
-  Action?: IcebergUpdateAction | undefined;
-
-  /**
-   * <p>Encryption key information associated with an Iceberg table update operation. Used when adding or removing encryption keys from the table metadata during table evolution.</p>
-   * @public
-   */
-  EncryptionKey?: IcebergEncryptedKey | undefined;
-
-  /**
-   * <p>Identifier of the encryption key involved in an Iceberg table update operation. References the specific key being added to or removed from the table's encryption configuration.</p>
-   * @public
-   */
-  KeyId?: string | undefined;
 }

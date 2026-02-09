@@ -9,6 +9,7 @@ const _ACPt = "AthenaConnectionProperties";
 const _ACR = "AllColumnsRequested";
 const _ACS = "AthenaConnectorSource";
 const _ACT = "AccuracyCostTradeoff";
+const _ACU = "AuthorizationCodeUrl";
 const _ACd = "AdditionalContext";
 const _ACl = "AllocatedCapacity";
 const _ACu = "AuditContext";
@@ -46,12 +47,14 @@ const _AOg = "AggregateOperations";
 const _AP = "AthenaProperties";
 const _APK = "AddPublicKeys";
 const _APOM = "AdditionalPlanOptionsMap";
-const _APu = "AutoPushdown";
+const _APu = "AuthenticationParameters";
+const _APut = "AutoPushdown";
 const _AR = "AnalyzerResults";
 const _ARAO = "AmazonRedshiftAdvancedOption";
 const _ARAOm = "AmazonRedshiftAdvancedOptions";
 const _ARND = "AmazonRedshiftNodeData";
 const _ARO = "AdditionalRunOptions";
+const _ARP = "AdditionalRequestParameters";
 const _ARS = "AmazonRedshiftSource";
 const _ART = "AmazonRedshiftTarget";
 const _ARTd = "AddRecordTimestamp";
@@ -62,7 +65,8 @@ const _ATG = "AttributesToGet";
 const _ATc = "AccessType";
 const _ATn = "AnalyzedTime";
 const _ATu = "AuthenticationType";
-const _ATut = "AuthToken";
+const _ATut = "AuthenticationTypes";
+const _ATuth = "AuthToken";
 const _AUPRC = "AreaUnderPRCurve";
 const _AV = "AllowedValue";
 const _AVc = "ActualValue";
@@ -175,6 +179,8 @@ const _Br = "Branch";
 const _C = "Column";
 const _CA = "CreatedAfter";
 const _CAC = "CustomAuthenticationCredentials";
+const _CACP = "ConnectorAuthorizationCodeProperties";
+const _CACo = "ConnectorAuthenticationConfiguration";
 const _CAP = "CustomAuthenticationProperties";
 const _CAa = "CatalogArn";
 const _CB = "CreatedBefore";
@@ -189,6 +195,7 @@ const _CCET = "CreateCustomEntityType";
 const _CCETR = "CreateCustomEntityTypeRequest";
 const _CCETRr = "CreateCustomEntityTypeResponse";
 const _CCFE = "ConditionCheckFailureException";
+const _CCP = "ClientCredentialsProperties";
 const _CCR = "CreateCatalogRequest";
 const _CCRr = "CreateCatalogResponse";
 const _CCRre = "CreateClassifierRequest";
@@ -208,6 +215,7 @@ const _CCrea = "CreateConnection";
 const _CCreat = "CreateCrawler";
 const _CCs = "CsvClassifier";
 const _CCu = "CustomCode";
+const _CCur = "CursorConfiguration";
 const _CD = "CatalogDatabase";
 const _CDC = "CustomDatatypeConfigured";
 const _CDDP = "CreateDatabaseDefaultPermissions";
@@ -281,7 +289,8 @@ const _CITP = "CreateIntegrationTableProperties";
 const _CITPR = "CreateIntegrationTablePropertiesRequest";
 const _CITPRr = "CreateIntegrationTablePropertiesResponse";
 const _CIa = "CatalogInput";
-const _CIl = "ClusterId";
+const _CIl = "ClientId";
+const _CIlu = "ClusterId";
 const _CIo = "ColumnImportance";
 const _CIol = "ColumnImportances";
 const _CIom = "CommitId";
@@ -333,21 +342,26 @@ const _CNolu = "ColumnNames";
 const _CNon = "ConnectorName";
 const _CNr = "CrawlerNames";
 const _CO = "CreatedOn";
+const _COAP = "ConnectorOAuth2Properties";
 const _CONO = "ConnectionOptionNameOverrides";
 const _COo = "CompletedOn";
 const _COon = "ConnectionOptions";
 const _COonf = "ConfigurationObject";
 const _CP = "CatalogProperties";
+const _CPC = "ConnectionPropertiesConfiguration";
 const _CPE = "ConnectionPasswordEncryption";
 const _CPI = "CreatePartitionIndex";
 const _CPIR = "CreatePartitionIndexRequest";
 const _CPIRr = "CreatePartitionIndexResponse";
+const _CPL = "ConnectorPropertyList";
 const _CPNO = "ConnectionPropertyNameOverrides";
 const _CPO = "CatalogPropertiesOutput";
 const _CPR = "CreatePartitionRequest";
 const _CPRO = "ConnectionPropertiesRequiredOverrides";
 const _CPRr = "CreatePartitionResponse";
 const _CPo = "ConnectionProperties";
+const _CPon = "ConnectorProperty";
+const _CPont = "ContentPath";
 const _CPr = "CreatePartition";
 const _CPu = "CustomProperties";
 const _CPus = "CustomPatterns";
@@ -396,6 +410,7 @@ const _CSVV = "CheckSchemaVersionValidity";
 const _CSVVI = "CheckSchemaVersionValidityInput";
 const _CSVVR = "CheckSchemaVersionValidityResponse";
 const _CSa = "CancelStatement";
+const _CSl = "ClientSecret";
 const _CSo = "ColumnStatistics";
 const _CSon = "ContinuousSync";
 const _CSonv = "ConversionSpec";
@@ -404,6 +419,7 @@ const _CSre = "CreateSchema";
 const _CSrea = "CreateScript";
 const _CSreat = "CreateSession";
 const _CT = "CatalogTable";
+const _CTA = "ConnectionTypeArn";
 const _CTB = "ConnectionTypeBrief";
 const _CTDP = "CreateTableDefaultPermissions";
 const _CTL = "CatalogTargetList";
@@ -430,6 +446,7 @@ const _CTom = "ComputationType";
 const _CTomp = "CompressionType";
 const _CTon = "ConnectionTable";
 const _CTonn = "ConnectionTypes";
+const _CTont = "ContentType";
 const _CTr = "CreateTime";
 const _CTra = "CrawlerTargets";
 const _CTre = "CreationTime";
@@ -509,9 +526,12 @@ const _DCSFTRe = "DeleteColumnStatisticsForTableResponse";
 const _DCSTS = "DeleteColumnStatisticsTaskSettings";
 const _DCSTSR = "DeleteColumnStatisticsTaskSettingsRequest";
 const _DCSTSRe = "DeleteColumnStatisticsTaskSettingsResponse";
-const _DCT = "DescribeConnectionType";
-const _DCTR = "DescribeConnectionTypeRequest";
-const _DCTRe = "DescribeConnectionTypeResponse";
+const _DCT = "DeleteConnectionType";
+const _DCTR = "DeleteConnectionTypeRequest";
+const _DCTRe = "DeleteConnectionTypeResponse";
+const _DCTRes = "DescribeConnectionTypeRequest";
+const _DCTResc = "DescribeConnectionTypeResponse";
+const _DCTe = "DescribeConnectionType";
 const _DCe = "DeleteClassifier";
 const _DCel = "DeleteConnection";
 const _DCele = "DeleteCrawler";
@@ -724,8 +744,11 @@ const _EBI = "EncryptedById";
 const _EBN = "ErrorByName";
 const _EC = "EvaluationContext";
 const _ECLM = "EmitConsumerLagMetrics";
+const _ECM = "EntityConfigurationMap";
 const _ECS = "ExcludeColumnSchema";
 const _ECn = "EncryptionConfiguration";
+const _ECnt = "EntityConfiguration";
+const _ECnti = "EntityConfigurations";
 const _ECr = "ErrorCode";
 const _ECx = "ExecutionClass";
 const _ECxe = "ExecutionCount";
@@ -754,6 +777,8 @@ const _EO = "EndingOffsets";
 const _EP = "ExecutionProperty";
 const _EPL = "EnforceProvidedLabels";
 const _EPLSP = "ExtraPythonLibsS3Path";
+const _EPr = "ErrorPath";
+const _EPx = "ExtractedParameter";
 const _EQA = "EventQueueArn";
 const _ER = "EvaluatedRule";
 const _ERSP = "ExecutionRoleSessionPolicy";
@@ -781,6 +806,9 @@ const _FA = "FailedActions";
 const _FC = "FederatedCatalog";
 const _FCARN = "FanoutConsumerARN";
 const _FD = "FederatedDatabase";
+const _FDM = "FieldDefinitionMap";
+const _FDT = "FieldDataType";
+const _FDi = "FieldDefinition";
 const _FE = "FilterExpression";
 const _FEi = "FilterExpressions";
 const _FFS = "FromFederationSource";
@@ -998,12 +1026,13 @@ const _GS = "GlueSchema";
 const _GSBD = "GetSchemaByDefinition";
 const _GSBDI = "GetSchemaByDefinitionInput";
 const _GSBDR = "GetSchemaByDefinitionResponse";
-const _GSC = "GetSecurityConfiguration";
+const _GSC = "GlobalSourceConfiguration";
 const _GSCR = "GetSecurityConfigurationRequest";
 const _GSCRe = "GetSecurityConfigurationResponse";
 const _GSCRet = "GetSecurityConfigurationsRequest";
 const _GSCRete = "GetSecurityConfigurationsResponse";
-const _GSCe = "GetSecurityConfigurations";
+const _GSCe = "GetSecurityConfiguration";
+const _GSCet = "GetSecurityConfigurations";
 const _GSI = "GetSchemaInput";
 const _GSPL = "GlueStudioPathList";
 const _GSR = "GetSchemaResponse";
@@ -1085,6 +1114,7 @@ const _GWRet = "GetWorkflowRun";
 const _GWReto = "GetWorkflowRuns";
 const _Gr = "Graph";
 const _H = "Header";
+const _HK = "HeaderKey";
 const _HP = "HidePassword";
 const _HT = "HudiTargets";
 const _HTL = "HudiTargetList";
@@ -1192,6 +1222,7 @@ const _ITUL = "IcebergTableUpdateList";
 const _ITc = "IcebergTargets";
 const _ITce = "IcebergTarget";
 const _ITd = "IdleTimeout";
+const _ITn = "IntegrationType";
 const _IU = "IsUpdateable";
 const _IUs = "IsUpsertable";
 const _IWSE = "IllegalWorkflowStateException";
@@ -1240,6 +1271,7 @@ const _JTd = "JdbcTargets";
 const _JTdb = "JdbcTarget";
 const _JTo = "JoinType";
 const _JU = "JobUpdate";
+const _JWTBP = "JWTBearerProperties";
 const _Jd = "Jdbc";
 const _Jo = "Join";
 const _Job = "Job";
@@ -1250,6 +1282,7 @@ const _KK = "KmsKey";
 const _KKA = "KmsKeyArn";
 const _KKI = "KmsKeyId";
 const _KMSKNAF = "KMSKeyNotAccessibleFault";
+const _KO = "KeyOverride";
 const _KSE = "KeySchemaElement";
 const _KSEL = "KeySchemaElementList";
 const _KSSO = "KafkaStreamingSourceOptions";
@@ -1332,6 +1365,7 @@ const _LMVRTRR = "ListMaterializedViewRefreshTaskRunsRequest";
 const _LMVRTRRi = "ListMaterializedViewRefreshTaskRunsResponse";
 const _LN = "LineNumber";
 const _LO = "LogicalOperator";
+const _LP = "LimitParameter";
 const _LPL = "LimitedPathList";
 const _LR = "LastRun";
 const _LRI = "ListRegistriesInput";
@@ -1481,6 +1515,7 @@ const _NOOFD = "NumberOfOrphanFilesDeleted";
 const _NOT = "NumberOfTrues";
 const _NOW = "NumberOfWorkers";
 const _NP = "NotificationProperty";
+const _NPe = "NextPage";
 const _NPu = "NumPartitions";
 const _NR = "NumRetries";
 const _NRCTE = "NumRightCharsToExclude";
@@ -1507,6 +1542,7 @@ const _OAGT = "OAuth2GrantType";
 const _OAP = "OAuth2Properties";
 const _OAPI = "OAuth2PropertiesInput";
 const _OB = "OrderBy";
+const _OC = "OffsetConfiguration";
 const _OCN = "OutputColumnName";
 const _OF = "OutputFormat";
 const _OFD = "OrphanFileDeletion";
@@ -1519,7 +1555,8 @@ const _OMVL = "OtherMetadataValueList";
 const _OMVLI = "OtherMetadataValueListItem";
 const _ON = "OwnerName";
 const _ONSE = "OperationNotSupportedException";
-const _OP = "OptimizePerformance";
+const _OP = "OffsetParameter";
+const _OPp = "OptimizePerformance";
 const _OS = "OutputSchemas";
 const _OSP = "OutputS3Path";
 const _OSQLCS = "OracleSQLCatalogSource";
@@ -1543,6 +1580,7 @@ const _PCI = "ParentCatalogId";
 const _PCP = "PythonConnectionProperties";
 const _PCPR = "PhysicalConnectionPropertiesRequired";
 const _PCR = "PhysicalConnectionRequirements";
+const _PCa = "PaginationConfiguration";
 const _PCr = "ProfileConfiguration";
 const _PDCES = "PutDataCatalogEncryptionSettings";
 const _PDCESR = "PutDataCatalogEncryptionSettingsRequest";
@@ -1575,7 +1613,8 @@ const _PKr = "PrimaryKeys";
 const _PKri = "PrimaryKey";
 const _PKu = "PublicKey";
 const _PKub = "PublicKeys";
-const _PL = "PartitionList";
+const _PL = "PropertyLocation";
+const _PLa = "PartitionList";
 const _PLr = "PredecessorList";
 const _PM = "PropertiesMap";
 const _PN = "ProfileName";
@@ -1601,11 +1640,12 @@ const _PSVMI = "PutSchemaVersionMetadataInput";
 const _PSVMR = "PutSchemaVersionMetadataResponse";
 const _PSa = "PartitionSpec";
 const _PSy = "PythonScript";
-const _PT = "PiiType";
+const _PT = "PropertyType";
 const _PTD = "PartitionsToDelete";
 const _PTG = "PartitionsToGet";
 const _PTM = "PollTimeoutMs";
 const _PTME = "PermissionTypeMismatchException";
+const _PTi = "PiiType";
 const _PTo = "PollingTime";
 const _PTr = "PropertyTypes";
 const _PV = "PartitionValues";
@@ -1623,13 +1663,14 @@ const _Pat = "Paths";
 const _Path = "Path";
 const _Patt = "Pattern";
 const _Pe = "Permissions";
-const _Pr = "Properties";
+const _Pr = "Prompt";
 const _Pre = "Predicate";
 const _Prec = "Precision";
 const _Pred = "Predecessor";
 const _Pri = "Principal";
-const _Pro = "Profiles";
+const _Pro = "Properties";
 const _Prob = "Prob";
+const _Prof = "Profiles";
 const _Prog = "Progress";
 const _Prop = "Property";
 const _Prov = "Provider";
@@ -1659,13 +1700,19 @@ const _RBec = "RecordedBefore";
 const _RC = "RequestedColumns";
 const _RCPE = "ReturnConnectionPasswordEncrypted";
 const _RCS = "RelationalCatalogSource";
-const _RCe = "RedactChar";
+const _RCT = "RegisterConnectionType";
+const _RCTR = "RegisterConnectionTypeRequest";
+const _RCTRe = "RegisterConnectionTypeResponse";
+const _RCe = "RestConfiguration";
+const _RCed = "RedactChar";
 const _RCeq = "RequestedChange";
+const _RCes = "ResponseConfiguration";
 const _RCet = "RetentionConfiguration";
 const _RCu = "RuleCount";
 const _RD = "ReferencedDatasets";
 const _RDN = "RedshiftDatabaseName";
 const _REM = "RollbackErrorMessage";
+const _REMe = "ResponseExtractionMapping";
 const _RERI = "RulesetEvaluationRunId";
 const _RF = "RenameField";
 const _RFE = "RowFilterExpression";
@@ -1682,10 +1729,11 @@ const _RJBR = "ResetJobBookmarkRequest";
 const _RJBRe = "ResetJobBookmarkResponse";
 const _RLD = "RegistryListDefinition";
 const _RLI = "RegistryListItem";
-const _RM = "RuleMetrics";
+const _RM = "RequestMethod";
 const _RMM = "RuleMetricsMap";
 const _RMe = "RetentionMetrics";
-const _RMu = "RunMetrics";
+const _RMu = "RuleMetrics";
+const _RMun = "RunMetrics";
 const _RN = "RegistryName";
 const _RNF = "ResultsNotFound";
 const _RNFE = "ResourceNotFoundException";
@@ -1701,6 +1749,9 @@ const _RP = "RecrawlPolicy";
 const _RPA = "ResourcePropertyArn";
 const _RPE = "ResultsPublishingEnabled";
 const _RPL = "RecordPollingLimit";
+const _RPe = "ResultPath";
+const _RPeq = "RequestPath";
+const _RPequ = "RequestParameters";
 const _RPu = "RunProperties";
 const _RR = "RuleResults";
 const _RRA = "RootResourceArn";
@@ -1829,9 +1880,10 @@ const _SCe = "SelectedColumns";
 const _SCec = "SecurityConfigurations";
 const _SCes = "SessionConfiguration";
 const _SCess = "SessionCommand";
-const _SCo = "SortCriteria";
-const _SCor = "SortCriterion";
-const _SCort = "SortColumns";
+const _SCo = "SourceConfiguration";
+const _SCor = "SortCriteria";
+const _SCort = "SortCriterion";
+const _SCorto = "SortColumns";
 const _SCt = "StartCrawler";
 const _SCto = "StopCrawler";
 const _SD = "SchemaDefinition";
@@ -2006,9 +2058,10 @@ const _SWRRto = "StopWorkflowRunRequest";
 const _SWRRtop = "StopWorkflowRunResponse";
 const _SWRt = "StopWorkflowRun";
 const _S_ = "S3";
-const _Sc = "Schedule";
+const _Sc = "Scope";
 const _Sca = "Scale";
-const _Sch = "Schemas";
+const _Sch = "Schedule";
+const _Sche = "Schemas";
 const _Sco = "Scopes";
 const _Scor = "Score";
 const _Se = "Serde";
@@ -2118,9 +2171,10 @@ const _TTab = "TableType";
 const _TTas = "TaskType";
 const _TTo = "ToType";
 const _TTr = "TransformType";
-const _TU = "TablesUpdated";
+const _TU = "TokenUrl";
+const _TUP = "TokenUrlParameters";
 const _TUPM = "TokenUrlParametersMap";
-const _TUo = "TokenUrl";
+const _TUa = "TablesUpdated";
 const _TUr = "TriggerUpdate";
 const _TV = "TableVersion";
 const _TVE = "TableVersionError";
@@ -2265,7 +2319,8 @@ const _UWRp = "UpdateWorkflowResponse";
 const _UXMLCR = "UpdateXMLClassifierRequest";
 const _Un = "Union";
 const _Up = "Updates";
-const _Ur = "Uri";
+const _Ur = "Url";
+const _Uri = "Uri";
 const _Us = "Username";
 const _V = "Value";
 const _VC = "ValidateCredentials";
@@ -2273,6 +2328,7 @@ const _VCa = "ValidationConnection";
 const _VD = "ViewDefinition";
 const _VDI = "ViewDefinitionInput";
 const _VE = "ValidationException";
+const _VEC = "ValidationEndpointConfiguration";
 const _VET = "ViewExpandedText";
 const _VFCE = "ValidateForComputeEnvironments";
 const _VI = "VersionIds";
@@ -2543,6 +2599,11 @@ export var BasicAuthenticationCredentials$: StaticStructureSchema = [3, n0, _BAC
   0,
   [_Us, _P],
   [0, [() => Password, 0]]
+];
+export var BasicAuthenticationProperties$: StaticStructureSchema = [3, n0, _BAP,
+  0,
+  [_Us, _P],
+  [() => ConnectorProperty$, () => ConnectorProperty$]
 ];
 export var BasicCatalogTarget$: StaticStructureSchema = [3, n0, _BCT,
   0,
@@ -2919,6 +2980,11 @@ export var Classifier$: StaticStructureSchema = [3, n0, _Cl,
   [_GC, _XMLC, _JC, _CCs],
   [() => GrokClassifier$, () => XMLClassifier$, () => JsonClassifier$, () => CsvClassifier$]
 ];
+export var ClientCredentialsProperties$: StaticStructureSchema = [3, n0, _CCP,
+  0,
+  [_TU, _RM, _CTont, _CIl, _CSl, _Sc, _TUP],
+  [() => ConnectorProperty$, 0, 0, () => ConnectorProperty$, () => ConnectorProperty$, () => ConnectorProperty$, () => ConnectorPropertyList]
+];
 export var CloudWatchEncryption$: StaticStructureSchema = [3, n0, _CWE,
   0,
   [_CWEM, _KKA],
@@ -2998,7 +3064,7 @@ export var ColumnStatisticsTaskRunningException$: StaticErrorSchema = [-3, n0, _
 TypeRegistry.for(n0).registerError(ColumnStatisticsTaskRunningException$, ColumnStatisticsTaskRunningException);
 export var ColumnStatisticsTaskSettings$: StaticStructureSchema = [3, n0, _CSTS,
   0,
-  [_DN, _TN, _Sc, _CNLo, _CID, _Rol, _SSa, _SC, _STc, _SSe, _LEA],
+  [_DN, _TN, _Sch, _CNLo, _CID, _Rol, _SSa, _SC, _STc, _SSe, _LEA],
   [0, 0, () => Schedule$, 64 | 0, 0, 0, 1, 0, 0, 0, () => ExecutionAttempt$]
 ];
 export var ColumnStatisticsTaskStoppingException$: StaticErrorSchema = [-3, n0, _CSTSE,
@@ -3081,6 +3147,11 @@ export var ConnectionPasswordEncryption$: StaticStructureSchema = [3, n0, _CPE,
   [_RCPE, _AKKI],
   [2, 0], 1
 ];
+export var ConnectionPropertiesConfiguration$: StaticStructureSchema = [3, n0, _CPC,
+  0,
+  [_Ur, _ARP],
+  [() => ConnectorProperty$, () => ConnectorPropertyList]
+];
 export var ConnectionsList$: StaticStructureSchema = [3, n0, _CL,
   0,
   [_Conn],
@@ -3096,6 +3167,16 @@ export var ConnectionTypeVariant$: StaticStructureSchema = [3, n0, _CTVo,
   [_CTVN, _DNi, _D, _LUo],
   [0, 0, 0, 0]
 ];
+export var ConnectorAuthenticationConfiguration$: StaticStructureSchema = [3, n0, _CACo,
+  0,
+  [_ATut, _OAP, _BAP, _CAP],
+  [64 | 0, () => ConnectorOAuth2Properties$, () => BasicAuthenticationProperties$, () => CustomAuthenticationProperties$], 1
+];
+export var ConnectorAuthorizationCodeProperties$: StaticStructureSchema = [3, n0, _CACP,
+  0,
+  [_ACU, _AC, _RU, _TU, _RM, _CTont, _CIl, _CSl, _Sc, _Pr, _TUP],
+  [() => ConnectorProperty$, () => ConnectorProperty$, () => ConnectorProperty$, () => ConnectorProperty$, 0, 0, () => ConnectorProperty$, () => ConnectorProperty$, () => ConnectorProperty$, () => ConnectorProperty$, () => ConnectorPropertyList]
+];
 export var ConnectorDataSource$: StaticStructureSchema = [3, n0, _CDSo,
   0,
   [_N, _CTo, _Da, _OS],
@@ -3106,6 +3187,16 @@ export var ConnectorDataTarget$: StaticStructureSchema = [3, n0, _CDT,
   [_N, _CTo, _Da, _I],
   [0, 0, 128 | 0, 64 | 0], 3
 ];
+export var ConnectorOAuth2Properties$: StaticStructureSchema = [3, n0, _COAP,
+  0,
+  [_OAGT, _CCP, _JWTBP, _ACP],
+  [0, () => ClientCredentialsProperties$, () => JWTBearerProperties$, () => ConnectorAuthorizationCodeProperties$], 1
+];
+export var ConnectorProperty$: StaticStructureSchema = [3, n0, _CPon,
+  0,
+  [_N, _Req, _PT, _KO, _DV, _AVl, _PL],
+  [0, 2, 0, 0, 0, 64 | 0, 0], 3
+];
 export var Crawl$: StaticStructureSchema = [3, n0, _Cra,
   0,
   [_Sta, _SO, _COo, _EM, _LG, _LS],
@@ -3113,7 +3204,7 @@ export var Crawl$: StaticStructureSchema = [3, n0, _Cra,
 ];
 export var Crawler$: StaticStructureSchema = [3, n0, _Craw,
   0,
-  [_N, _Rol, _Targ, _DN, _D, _Cla, _RP, _SCP, _LC, _Sta, _TP, _Sc, _CETr, _CTre, _LU, _LCa, _Ver, _Conf, _CSC, _LFC],
+  [_N, _Rol, _Targ, _DN, _D, _Cla, _RP, _SCP, _LC, _Sta, _TP, _Sch, _CETr, _CTre, _LU, _LCa, _Ver, _Conf, _CSC, _LFC],
   [0, 0, () => CrawlerTargets$, 0, 0, 64 | 0, () => RecrawlPolicy$, () => SchemaChangePolicy$, () => LineageConfiguration$, 0, 0, () => Schedule$, 1, 4, 4, () => LastCrawlInfo$, 1, 0, 0, () => LakeFormationConfiguration$]
 ];
 export var CrawlerHistory$: StaticStructureSchema = [3, n0, _CH,
@@ -3123,7 +3214,7 @@ export var CrawlerHistory$: StaticStructureSchema = [3, n0, _CH,
 ];
 export var CrawlerMetrics$: StaticStructureSchema = [3, n0, _CMr,
   0,
-  [_CN, _TLS, _SE, _LRS, _MRS, _TCa, _TU, _TDa],
+  [_CN, _TLS, _SE, _LRS, _MRS, _TCa, _TUa, _TDa],
   [0, 1, 2, 1, 1, 1, 1, 1]
 ];
 export var CrawlerNodeDetails$: StaticStructureSchema = [3, n0, _CND,
@@ -3191,7 +3282,7 @@ export var CreateClassifierResponse$: StaticStructureSchema = [3, n0, _CCRrea,
 ];
 export var CreateColumnStatisticsTaskSettingsRequest$: StaticStructureSchema = [3, n0, _CCSTSR,
   0,
-  [_DN, _TN, _Rol, _Sc, _CNLo, _SSa, _CID, _SC, _Tag],
+  [_DN, _TN, _Rol, _Sch, _CNLo, _SSa, _CID, _SC, _Tag],
   [0, 0, 0, 0, 64 | 0, 1, 0, 0, 128 | 0], 3
 ];
 export var CreateColumnStatisticsTaskSettingsResponse$: StaticStructureSchema = [3, n0, _CCSTSRr,
@@ -3211,7 +3302,7 @@ export var CreateConnectionResponse$: StaticStructureSchema = [3, n0, _CCRreate,
 ];
 export var CreateCrawlerRequest$: StaticStructureSchema = [3, n0, _CCRreater,
   0,
-  [_N, _Rol, _Targ, _DN, _D, _Sc, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC, _Tag],
+  [_N, _Rol, _Targ, _DN, _D, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC, _Tag],
   [0, 0, () => CrawlerTargets$, 0, 0, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0, 128 | 0], 3
 ];
 export var CreateCrawlerResponse$: StaticStructureSchema = [3, n0, _CCRreatera,
@@ -3281,7 +3372,7 @@ export var CreateGrokClassifierRequest$: StaticStructureSchema = [3, n0, _CGCR,
 ];
 export var CreateIcebergTableInput$: StaticStructureSchema = [3, n0, _CITI,
   0,
-  [_L, _S, _PSa, _WO, _Pr],
+  [_L, _S, _PSa, _WO, _Pro],
   [0, () => IcebergSchema$, () => IcebergPartitionSpec$, () => IcebergSortOrder$, 128 | 0], 2
 ];
 export var CreateIntegrationRequest$: StaticStructureSchema = [3, n0, _CIR,
@@ -3431,7 +3522,7 @@ export var CreateTableResponse$: StaticStructureSchema = [3, n0, _CTRr,
 ];
 export var CreateTriggerRequest$: StaticStructureSchema = [3, n0, _CTRre,
   0,
-  [_N, _Ty, _Ac, _WN, _Sc, _Pre, _D, _SOC, _Tag, _EBC],
+  [_N, _Ty, _Ac, _WN, _Sch, _Pre, _D, _SOC, _Tag, _EBC],
   [0, 0, () => ActionList, 0, 0, () => Predicate$, 0, 2, 128 | 0, () => EventBatchingCondition$], 3
 ];
 export var CreateTriggerResponse$: StaticStructureSchema = [3, n0, _CTRrea,
@@ -3478,6 +3569,16 @@ export var CsvClassifier$: StaticStructureSchema = [3, n0, _CCs,
   0,
   [_N, _CTre, _LU, _Ver, _De, _QS, _CHo, _H, _DVT, _ASC, _CDC, _CDu, _Se],
   [0, 4, 4, 1, 0, 0, 0, 64 | 0, 2, 2, 2, 64 | 0, 0], 1
+];
+export var CursorConfiguration$: StaticStructureSchema = [3, n0, _CCur,
+  0,
+  [_NPe, _LP],
+  [() => ExtractedParameter$, () => ExtractedParameter$], 1
+];
+export var CustomAuthenticationProperties$: StaticStructureSchema = [3, n0, _CAP,
+  0,
+  [_APu],
+  [() => ConnectorPropertyList], 1
 ];
 export var CustomCode$: StaticStructureSchema = [3, n0, _CCu,
   0,
@@ -3591,7 +3692,7 @@ export var DataQualityRuleRecommendationRunFilter$: StaticStructureSchema = [3, 
 ];
 export var DataQualityRuleResult$: StaticStructureSchema = [3, n0, _DQRR,
   0,
-  [_N, _D, _EMv, _Res, _EMva, _ER, _RM, _Lab],
+  [_N, _D, _EMv, _Res, _EMva, _ER, _RMu, _Lab],
   [0, [() => DataQualityRuleResultDescription, 0], [() => DataQualityRuleResultDescription, 0], 0, [() => EvaluatedMetricsMap, 0], [() => DataQualityRuleResultDescription, 0], [() => RuleMetricsMap, 0], 128 | 0]
 ];
 export var DataQualityRulesetEvaluationRunDescription$: StaticStructureSchema = [3, n0, _DQRERD,
@@ -3720,6 +3821,16 @@ export var DeleteConnectionRequest$: StaticStructureSchema = [3, n0, _DCRelet,
   [0, 0], 1
 ];
 export var DeleteConnectionResponse$: StaticStructureSchema = [3, n0, _DCRelete,
+  0,
+  [],
+  []
+];
+export var DeleteConnectionTypeRequest$: StaticStructureSchema = [3, n0, _DCTR,
+  0,
+  [_CTo],
+  [0], 1
+];
+export var DeleteConnectionTypeResponse$: StaticStructureSchema = [3, n0, _DCTRe,
   0,
   [],
   []
@@ -3989,15 +4100,15 @@ export var DeltaTarget$: StaticStructureSchema = [3, n0, _DTel,
   [_DTelt, _CNo, _WM, _CNDT],
   [64 | 0, 0, 2, 2]
 ];
-export var DescribeConnectionTypeRequest$: StaticStructureSchema = [3, n0, _DCTR,
+export var DescribeConnectionTypeRequest$: StaticStructureSchema = [3, n0, _DCTRes,
   0,
   [_CTo],
   [0], 1
 ];
-export var DescribeConnectionTypeResponse$: StaticStructureSchema = [3, n0, _DCTRe,
+export var DescribeConnectionTypeResponse$: StaticStructureSchema = [3, n0, _DCTResc,
   0,
-  [_CTo, _D, _Ca, _CPo, _COon, _ACuth, _CECo, _PCR, _ACPt, _PCP, _SCPp],
-  [0, 0, () => Capabilities$, () => PropertiesMap, () => PropertiesMap, () => AuthConfiguration$, () => ComputeEnvironmentConfigurationMap, () => PropertiesMap, () => PropertiesMap, () => PropertiesMap, () => PropertiesMap]
+  [_CTo, _D, _Ca, _CPo, _COon, _ACuth, _CECo, _PCR, _ACPt, _PCP, _SCPp, _RCe],
+  [0, 0, () => Capabilities$, () => PropertiesMap, () => PropertiesMap, () => AuthConfiguration$, () => ComputeEnvironmentConfigurationMap, () => PropertiesMap, () => PropertiesMap, () => PropertiesMap, () => PropertiesMap, () => RestConfiguration$]
 ];
 export var DescribeEntityRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
@@ -4129,6 +4240,11 @@ export var Entity$: StaticStructureSchema = [3, n0, _Ent,
   [_ENn, _Labe, _IPE, _D, _Categ, _CPu],
   [0, 0, 2, 0, 0, 128 | 0]
 ];
+export var EntityConfiguration$: StaticStructureSchema = [3, n0, _ECnt,
+  0,
+  [_SCo, _S],
+  [() => SourceConfiguration$, () => FieldDefinitionMap]
+];
 export var EntityNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE,
   { [_e]: _c },
   [_M, _FFS],
@@ -4180,6 +4296,11 @@ export var ExportLabelsTaskRunProperties$: StaticStructureSchema = [3, n0, _ELTR
   [_OSP],
   [0]
 ];
+export var ExtractedParameter$: StaticStructureSchema = [3, n0, _EPx,
+  0,
+  [_K, _DV, _PL, _V],
+  [0, 0, 0, () => ResponseExtractionMapping$]
+];
 export var FederatedCatalog$: StaticStructureSchema = [3, n0, _FC,
   0,
   [_Ide, _CNo, _CTo],
@@ -4217,6 +4338,11 @@ export var Field$: StaticStructureSchema = [3, n0, _Fiel,
   0,
   [_FN, _Labe, _D, _FTi, _IPK, _INs, _IRs, _IF, _IP, _ICs, _IU, _IUs, _IDOC, _SV, _SFO, _PF, _NDT, _CPu],
   [0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 64 | 0, 64 | 0, 0, 0, 128 | 0]
+];
+export var FieldDefinition$: StaticStructureSchema = [3, n0, _FDi,
+  0,
+  [_N, _FDT],
+  [0, 0], 2
 ];
 export var FillMissingValues$: StaticStructureSchema = [3, n0, _FMV,
   0,
@@ -4685,7 +4811,7 @@ export var GetMLTaskRunRequest$: StaticStructureSchema = [3, n0, _GMLTRR,
 ];
 export var GetMLTaskRunResponse$: StaticStructureSchema = [3, n0, _GMLTRRe,
   0,
-  [_TIr, _TRI, _St, _LGN, _Pr, _ES, _SO, _LMO, _COo, _ETxe],
+  [_TIr, _TRI, _St, _LGN, _Pro, _ES, _SO, _LMO, _COo, _ETxe],
   [0, 0, 0, 0, () => TaskRunProperties$, 0, 4, 4, 4, 1]
 ];
 export var GetMLTaskRunsRequest$: StaticStructureSchema = [3, n0, _GMLTRRet,
@@ -5111,7 +5237,7 @@ export var IcebergCompactionMetrics$: StaticStructureSchema = [3, n0, _ICM,
 ];
 export var IcebergEncryptedKey$: StaticStructureSchema = [3, n0, _IEK,
   0,
-  [_KI, _EKM, _EBI, _Pr],
+  [_KI, _EKM, _EBI, _Pro],
   [0, 0, 0, 128 | 0], 2
 ];
 export var IcebergInput$: StaticStructureSchema = [3, n0, _IIc,
@@ -5181,7 +5307,7 @@ export var IcebergStructField$: StaticStructureSchema = [3, n0, _ISFc,
 ];
 export var IcebergTableUpdate$: StaticStructureSchema = [3, n0, _ITU,
   0,
-  [_S, _L, _PSa, _SOo, _Pr, _A, _EK, _KI],
+  [_S, _L, _PSa, _SOo, _Pro, _A, _EK, _KI],
   [() => IcebergSchema$, 0, () => IcebergPartitionSpec$, () => IcebergSortOrder$, 128 | 0, 0, () => IcebergEncryptedKey$, 0], 2
 ];
 export var IcebergTarget$: StaticStructureSchema = [3, n0, _ITce,
@@ -5385,6 +5511,11 @@ export var JsonClassifier$: StaticStructureSchema = [3, n0, _JC,
   0,
   [_N, _JP, _CTre, _LU, _Ver],
   [0, 0, 4, 4, 1], 2
+];
+export var JWTBearerProperties$: StaticStructureSchema = [3, n0, _JWTBP,
+  0,
+  [_TU, _RM, _CTont, _JT, _TUP],
+  [() => ConnectorProperty$, 0, 0, () => ConnectorProperty$, () => ConnectorPropertyList]
 ];
 export var KafkaStreamingSourceOptions$: StaticStructureSchema = [3, n0, _KSSO,
   0,
@@ -5629,7 +5760,7 @@ export var ListSchemasInput$: StaticStructureSchema = [3, n0, _LSI,
 ];
 export var ListSchemasResponse$: StaticStructureSchema = [3, n0, _LSR,
   0,
-  [_Sch, _NTe],
+  [_Sche, _NTe],
   [() => SchemaListDefinition, 0]
 ];
 export var ListSchemaVersionsInput$: StaticStructureSchema = [3, n0, _LSVI,
@@ -5639,7 +5770,7 @@ export var ListSchemaVersionsInput$: StaticStructureSchema = [3, n0, _LSVI,
 ];
 export var ListSchemaVersionsResponse$: StaticStructureSchema = [3, n0, _LSVR,
   0,
-  [_Sch, _NTe],
+  [_Sche, _NTe],
   [() => SchemaVersionList, 0]
 ];
 export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSRi,
@@ -5689,7 +5820,7 @@ export var ListUsageProfilesRequest$: StaticStructureSchema = [3, n0, _LUPR,
 ];
 export var ListUsageProfilesResponse$: StaticStructureSchema = [3, n0, _LUPRi,
   0,
-  [_Pro, _NTe],
+  [_Prof, _NTe],
   [() => UsageProfileDefinitionList, 0]
 ];
 export var ListWorkflowsRequest$: StaticStructureSchema = [3, n0, _LWR,
@@ -5854,13 +5985,18 @@ export var OAuth2Credentials$: StaticStructureSchema = [3, n0, _OAC,
 ];
 export var OAuth2Properties$: StaticStructureSchema = [3, n0, _OAP,
   0,
-  [_OAGT, _OACA, _TUo, _TUPM],
+  [_OAGT, _OACA, _TU, _TUPM],
   [0, () => OAuth2ClientApplication$, 0, 128 | 0]
 ];
 export var OAuth2PropertiesInput$: StaticStructureSchema = [3, n0, _OAPI,
   0,
-  [_OAGT, _OACA, _TUo, _TUPM, _ACP, _OAC],
+  [_OAGT, _OACA, _TU, _TUPM, _ACP, _OAC],
   [0, () => OAuth2ClientApplication$, 0, 128 | 0, [() => AuthorizationCodeProperties$, 0], [() => OAuth2Credentials$, 0]]
+];
+export var OffsetConfiguration$: StaticStructureSchema = [3, n0, _OC,
+  0,
+  [_OP, _LP],
+  [() => ExtractedParameter$, () => ExtractedParameter$], 2
 ];
 export var OpenTableFormatInput$: StaticStructureSchema = [3, n0, _OTFI,
   0,
@@ -5914,6 +6050,11 @@ export var OtherMetadataValueListItem$: StaticStructureSchema = [3, n0, _OMVLI,
   [_MVe, _CTreat],
   [0, 0]
 ];
+export var PaginationConfiguration$: StaticStructureSchema = [3, n0, _PCa,
+  0,
+  [_CCur, _OC],
+  [() => CursorConfiguration$, () => OffsetConfiguration$]
+];
 export var Partition$: StaticStructureSchema = [3, n0, _Part,
   0,
   [_Val, _DN, _TN, _CTre, _LAT, _SDto, _Par, _LATa, _CI],
@@ -5957,7 +6098,7 @@ export var PhysicalConnectionRequirements$: StaticStructureSchema = [3, n0, _PCR
 ];
 export var PIIDetection$: StaticStructureSchema = [3, n0, _PIID,
   0,
-  [_N, _I, _PT, _ETTD, _OCN, _SFa, _TFh, _MVas, _RTed, _RCe, _MPa, _NLCTE, _NRCTE, _DP, _DSe],
+  [_N, _I, _PTi, _ETTD, _OCN, _SFa, _TFh, _MVas, _RTed, _RCed, _MPa, _NLCTE, _NRCTE, _DP, _DSe],
   [0, 64 | 0, 0, 64 | 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0], 4
 ];
 export var PostgreSQLCatalogSource$: StaticStructureSchema = [3, n0, _PSQLCS,
@@ -5992,8 +6133,8 @@ export var ProfileConfiguration$: StaticStructureSchema = [3, n0, _PCr,
 ];
 export var Property$: StaticStructureSchema = [3, n0, _Prop,
   0,
-  [_N, _D, _Req, _PTr, _DV, _AVl, _DOS],
-  [0, 0, 2, 64 | 0, 0, () => AllowedValues, 64 | 0], 4
+  [_N, _D, _Req, _PTr, _DV, _AVl, _DOS, _KO, _PL],
+  [0, 0, 2, 64 | 0, 0, () => AllowedValues, 64 | 0, 0, 0], 4
 ];
 export var PropertyPredicate$: StaticStructureSchema = [3, n0, _PPro,
   0,
@@ -6062,7 +6203,7 @@ export var QuerySchemaVersionMetadataResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var QuerySessionContext$: StaticStructureSchema = [3, n0, _QSC,
   0,
-  [_QI, _QST, _CIl, _QAI, _ACd],
+  [_QI, _QST, _CIlu, _QAI, _ACd],
   [0, 4, 0, 0, 128 | 0]
 ];
 export var Recipe$: StaticStructureSchema = [3, n0, _Rec,
@@ -6099,6 +6240,16 @@ export var RedshiftTarget$: StaticStructureSchema = [3, n0, _RTe,
   0,
   [_N, _I, _Dat, _Ta, _RTD, _TDIAMR, _URO],
   [0, 64 | 0, 0, 0, 0, 0, () => UpsertRedshiftTargetOptions$], 4
+];
+export var RegisterConnectionTypeRequest$: StaticStructureSchema = [3, n0, _RCTR,
+  0,
+  [_CTo, _ITn, _CPo, _CACo, _RCe, _D, _Tag],
+  [0, 0, () => ConnectionPropertiesConfiguration$, () => ConnectorAuthenticationConfiguration$, () => RestConfiguration$, 0, 128 | 0], 5
+];
+export var RegisterConnectionTypeResponse$: StaticStructureSchema = [3, n0, _RCTRe,
+  0,
+  [_CTA],
+  [0]
 ];
 export var RegisterSchemaVersionInput$: StaticStructureSchema = [3, n0, _RSVI,
   0,
@@ -6170,8 +6321,23 @@ export var ResourceNumberLimitExceededException$: StaticErrorSchema = [-3, n0, _
 TypeRegistry.for(n0).registerError(ResourceNumberLimitExceededException$, ResourceNumberLimitExceededException);
 export var ResourceUri$: StaticStructureSchema = [3, n0, _RUe,
   0,
-  [_RTes, _Ur],
+  [_RTes, _Uri],
   [0, 0]
+];
+export var ResponseConfiguration$: StaticStructureSchema = [3, n0, _RCes,
+  0,
+  [_RPe, _EPr],
+  [0, 0], 1
+];
+export var ResponseExtractionMapping$: StaticStructureSchema = [3, n0, _REMe,
+  0,
+  [_CPont, _HK],
+  [0, 0]
+];
+export var RestConfiguration$: StaticStructureSchema = [3, n0, _RCe,
+  0,
+  [_GSC, _VEC, _ECnti],
+  [() => SourceConfiguration$, () => SourceConfiguration$, () => EntityConfigurationMap]
 ];
 export var ResumeWorkflowRunRequest$: StaticStructureSchema = [3, n0, _RWRR,
   0,
@@ -6203,7 +6369,7 @@ export var RunIdentifier$: StaticStructureSchema = [3, n0, _RIun,
   [_RIu, _JRI],
   [0, 0]
 ];
-export var RunMetrics$: StaticStructureSchema = [3, n0, _RMu,
+export var RunMetrics$: StaticStructureSchema = [3, n0, _RMun,
   0,
   [_NOBC, _NOFC, _NOD, _JDIH],
   [0, 0, 0, 0]
@@ -6245,7 +6411,7 @@ export var S3CatalogTarget$: StaticStructureSchema = [3, n0, _SCTa,
 ];
 export var S3CsvSource$: StaticStructureSchema = [3, n0, _SCSs,
   0,
-  [_N, _Pat, _Sep, _QC, _CTomp, _Exc, _GSr, _GFr, _Recur, _MBa, _MFIB, _AOdd, _Es, _Mu, _WH, _WHr, _SFk, _OP, _OS],
+  [_N, _Pat, _Sep, _QC, _CTomp, _Exc, _GSr, _GFr, _Recur, _MBa, _MFIB, _AOdd, _Es, _Mu, _WH, _WHr, _SFk, _OPp, _OS],
   [0, 64 | 0, 0, 0, 0, 64 | 0, 0, 0, 2, 1, 1, () => S3DirectSourceAdditionalOptions$, 0, 2, 2, 2, 2, 2, () => GlueSchemas], 4
 ];
 export var S3DeltaCatalogTarget$: StaticStructureSchema = [3, n0, _SDCT,
@@ -6338,7 +6504,7 @@ export var S3Target$: StaticStructureSchema = [3, n0, _STar,
   [_Path, _Exc, _CNo, _SSa, _EQA, _DEQA],
   [0, 64 | 0, 0, 1, 0, 0]
 ];
-export var Schedule$: StaticStructureSchema = [3, n0, _Sc,
+export var Schedule$: StaticStructureSchema = [3, n0, _Sch,
   0,
   [_SEc, _Sta],
   [0, 0]
@@ -6403,7 +6569,7 @@ export var SchemaVersionNumber$: StaticStructureSchema = [3, n0, _SVN,
 ];
 export var SearchTablesRequest$: StaticStructureSchema = [3, n0, _STR,
   0,
-  [_CI, _NTe, _Fil, _STe, _SCo, _MRax, _RST, _ISD],
+  [_CI, _NTe, _Fil, _STe, _SCor, _MRax, _RST, _ISD],
   [0, 0, () => SearchPropertyPredicates, 0, () => SortCriteria, 1, 0, 2]
 ];
 export var SearchTablesResponse$: StaticStructureSchema = [3, n0, _STRe,
@@ -6453,7 +6619,7 @@ export var SkewedInfo$: StaticStructureSchema = [3, n0, _SIk,
 ];
 export var SnowflakeNodeData$: StaticStructureSchema = [3, n0, _SND,
   0,
-  [_ST, _Co, _S, _Ta, _Dat, _TD, _IR, _AOdd, _SQ, _PA, _PAo, _A, _U, _MA, _MWM, _MWNM, _MC, _STt, _SCe, _APu, _TS],
+  [_ST, _Co, _S, _Ta, _Dat, _TD, _IR, _AOdd, _SQ, _PA, _PAo, _A, _U, _MA, _MWM, _MWNM, _MC, _STt, _SCe, _APut, _TS],
   [0, () => Option$, 0, 0, 0, 0, () => Option$, 128 | 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, () => OptionList, 2, () => OptionList]
 ];
 export var SnowflakeSource$: StaticStructureSchema = [3, n0, _SSn,
@@ -6466,14 +6632,19 @@ export var SnowflakeTarget$: StaticStructureSchema = [3, n0, _STn,
   [_N, _Da, _I],
   [0, () => SnowflakeNodeData$, 64 | 0], 2
 ];
-export var SortCriterion$: StaticStructureSchema = [3, n0, _SCor,
+export var SortCriterion$: StaticStructureSchema = [3, n0, _SCort,
   0,
   [_FN, _Sor],
   [0, 0]
 ];
+export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SCo,
+  0,
+  [_RM, _RPeq, _RPequ, _RCes, _PCa],
+  [0, 0, () => ConnectorPropertyList, () => ResponseConfiguration$, () => PaginationConfiguration$]
+];
 export var SourceControlDetails$: StaticStructureSchema = [3, n0, _SCD,
   0,
-  [_Prov, _Repo, _Ow, _Br, _Fol, _LCIa, _AS, _ATut],
+  [_Prov, _Repo, _Ow, _Br, _Fol, _LCIa, _AS, _ATuth],
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var SourceProcessingProperties$: StaticStructureSchema = [3, n0, _SPP,
@@ -6788,7 +6959,7 @@ export var StopWorkflowRunResponse$: StaticStructureSchema = [3, n0, _SWRRtop,
 ];
 export var StorageDescriptor$: StaticStructureSchema = [3, n0, _SDto,
   0,
-  [_Col, _L, _ALd, _IFnp, _OF, _Compre, _NOB, _SIer, _BC, _SCort, _Par, _SIk, _SASD, _SRc],
+  [_Col, _L, _ALd, _IFnp, _OF, _Compre, _NOB, _SIer, _BC, _SCorto, _Par, _SIk, _SASD, _SRc],
   [() => ColumnList, 0, 64 | 0, 0, 0, 2, 1, () => SerDeInfo$, 64 | 0, () => OrderList, 128 | 0, () => SkewedInfo$, 2, () => SchemaReference$]
 ];
 export var StreamingDataPreviewOptions$: StaticStructureSchema = [3, n0, _SDPO,
@@ -6894,7 +7065,7 @@ export var TargetTableConfig$: StaticStructureSchema = [3, n0, _TTC,
 ];
 export var TaskRun$: StaticStructureSchema = [3, n0, _TRa,
   0,
-  [_TIr, _TRI, _St, _LGN, _Pr, _ES, _SO, _LMO, _COo, _ETxe],
+  [_TIr, _TRI, _St, _LGN, _Pro, _ES, _SO, _LMO, _COo, _ETxe],
   [0, 0, 0, 0, () => TaskRunProperties$, 0, 4, 4, 4, 1]
 ];
 export var TaskRunFilterCriteria$: StaticStructureSchema = [3, n0, _TRFC,
@@ -6970,7 +7141,7 @@ export var TransformSortCriteria$: StaticStructureSchema = [3, n0, _TSC,
 ];
 export var Trigger$: StaticStructureSchema = [3, n0, _Tri,
   0,
-  [_N, _WN, _Id, _Ty, _Sta, _D, _Sc, _Ac, _Pre, _EBC],
+  [_N, _WN, _Id, _Ty, _Sta, _D, _Sch, _Ac, _Pre, _EBC],
   [0, 0, 0, 0, 0, 0, 0, () => ActionList, () => Predicate$, () => EventBatchingCondition$]
 ];
 export var TriggerNodeDetails$: StaticStructureSchema = [3, n0, _TND,
@@ -6980,7 +7151,7 @@ export var TriggerNodeDetails$: StaticStructureSchema = [3, n0, _TND,
 ];
 export var TriggerUpdate$: StaticStructureSchema = [3, n0, _TUr,
   0,
-  [_N, _D, _Sc, _Ac, _Pre, _EBC],
+  [_N, _D, _Sch, _Ac, _Pre, _EBC],
   [0, 0, 0, () => ActionList, () => Predicate$, () => EventBatchingCondition$]
 ];
 export var UnfilteredPartition$: StaticStructureSchema = [3, n0, _UPn,
@@ -7055,7 +7226,7 @@ export var UpdateColumnStatisticsForTableResponse$: StaticStructureSchema = [3, 
 ];
 export var UpdateColumnStatisticsTaskSettingsRequest$: StaticStructureSchema = [3, n0, _UCSTSR,
   0,
-  [_DN, _TN, _Rol, _Sc, _CNLo, _SSa, _CID, _SC],
+  [_DN, _TN, _Rol, _Sch, _CNLo, _SSa, _CID, _SC],
   [0, 0, 0, 0, 64 | 0, 1, 0, 0], 2
 ];
 export var UpdateColumnStatisticsTaskSettingsResponse$: StaticStructureSchema = [3, n0, _UCSTSRp,
@@ -7075,7 +7246,7 @@ export var UpdateConnectionResponse$: StaticStructureSchema = [3, n0, _UCRpdate,
 ];
 export var UpdateCrawlerRequest$: StaticStructureSchema = [3, n0, _UCRpdater,
   0,
-  [_N, _Rol, _DN, _D, _Targ, _Sc, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC],
+  [_N, _Rol, _DN, _D, _Targ, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC],
   [0, 0, 0, 0, () => CrawlerTargets$, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0], 1
 ];
 export var UpdateCrawlerResponse$: StaticStructureSchema = [3, n0, _UCRpdatera,
@@ -7085,7 +7256,7 @@ export var UpdateCrawlerResponse$: StaticStructureSchema = [3, n0, _UCRpdatera,
 ];
 export var UpdateCrawlerScheduleRequest$: StaticStructureSchema = [3, n0, _UCSR,
   0,
-  [_CN, _Sc],
+  [_CN, _Sch],
   [0, 0], 1
 ];
 export var UpdateCrawlerScheduleResponse$: StaticStructureSchema = [3, n0, _UCSRp,
@@ -7175,7 +7346,7 @@ export var UpdateIntegrationTablePropertiesResponse$: StaticStructureSchema = [3
 ];
 export var UpdateJobFromSourceControlRequest$: StaticStructureSchema = [3, n0, _UJFSCR,
   0,
-  [_JN, _Prov, _RNe, _ROep, _BNr, _Fol, _CIom, _AS, _ATut],
+  [_JN, _Prov, _RNe, _ROep, _BNr, _Fol, _CIom, _AS, _ATuth],
   [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var UpdateJobFromSourceControlResponse$: StaticStructureSchema = [3, n0, _UJFSCRp,
@@ -7245,7 +7416,7 @@ export var UpdateSchemaResponse$: StaticStructureSchema = [3, n0, _USR,
 ];
 export var UpdateSourceControlFromJobRequest$: StaticStructureSchema = [3, n0, _USCFJR,
   0,
-  [_JN, _Prov, _RNe, _ROep, _BNr, _Fol, _CIom, _AS, _ATut],
+  [_JN, _Prov, _RNe, _ROep, _BNr, _Fol, _CIom, _AS, _ATuth],
   [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var UpdateSourceControlFromJobResponse$: StaticStructureSchema = [3, n0, _USCFJRp,
@@ -7527,6 +7698,9 @@ var ConnectionTypeList: StaticListSchema = [1, n0, _CTLo,
 var ConnectionTypeVariantList: StaticListSchema = [1, n0, _CTVL,
   0, () => ConnectionTypeVariant$
 ];
+var ConnectorPropertyList: StaticListSchema = [1, n0, _CPL,
+  0, () => ConnectorProperty$
+];
 var ContextWords = 64 | 0;
 var CrawlerHistoryList: StaticListSchema = [1, n0, _CHL,
   0, () => CrawlerHistory$
@@ -7766,7 +7940,7 @@ var PartitionIndexList: StaticListSchema = [1, n0, _PILa,
 var PartitionInputList: StaticListSchema = [1, n0, _PIL,
   0, () => PartitionInput$
 ];
-var PartitionList: StaticListSchema = [1, n0, _PL,
+var PartitionList: StaticListSchema = [1, n0, _PLa,
   0, () => Partition$
 ];
 var PathList = 64 | 0;
@@ -7823,7 +7997,7 @@ var SessionIdList = 64 | 0;
 var SessionList: StaticListSchema = [1, n0, _SLes,
   0, () => Session$
 ];
-var SortCriteria: StaticListSchema = [1, n0, _SCo,
+var SortCriteria: StaticListSchema = [1, n0, _SCor,
   0, () => SortCriterion$
 ];
 var SourceTableFieldsList = 64 | 0;
@@ -7928,11 +8102,17 @@ var DataSourceMap: StaticMapSchema = [2, n0, _DSM,
 ];
 var DQAdditionalOptions = 128 | 0;
 var DQDLAliases = 128 | 0;
+var EntityConfigurationMap: StaticMapSchema = [2, n0, _ECM,
+  0, 0, () => EntityConfiguration$
+];
 var ErrorByName: StaticMapSchema = [2, n0, _EBN,
   0, 0, () => ErrorDetail$
 ];
 var EvaluatedMetricsMap: StaticMapSchema = [2, n0, _EMM,
   8, 0, 1
+];
+var FieldDefinitionMap: StaticMapSchema = [2, n0, _FDM,
+  0, 0, () => FieldDefinition$
 ];
 var GenericMap = 128 | 0;
 var GlueTableAdditionalOptions = 128 | 0;
@@ -8145,6 +8325,9 @@ export var DeleteColumnStatisticsTaskSettings$: StaticOperationSchema = [9, n0, 
 export var DeleteConnection$: StaticOperationSchema = [9, n0, _DCel,
   0, () => DeleteConnectionRequest$, () => DeleteConnectionResponse$
 ];
+export var DeleteConnectionType$: StaticOperationSchema = [9, n0, _DCT,
+  0, () => DeleteConnectionTypeRequest$, () => DeleteConnectionTypeResponse$
+];
 export var DeleteCrawler$: StaticOperationSchema = [9, n0, _DCele,
   0, () => DeleteCrawlerRequest$, () => DeleteCrawlerResponse$
 ];
@@ -8223,7 +8406,7 @@ export var DeleteUserDefinedFunction$: StaticOperationSchema = [9, n0, _DUDF,
 export var DeleteWorkflow$: StaticOperationSchema = [9, n0, _DW,
   0, () => DeleteWorkflowRequest$, () => DeleteWorkflowResponse$
 ];
-export var DescribeConnectionType$: StaticOperationSchema = [9, n0, _DCT,
+export var DescribeConnectionType$: StaticOperationSchema = [9, n0, _DCTe,
   0, () => DescribeConnectionTypeRequest$, () => DescribeConnectionTypeResponse$
 ];
 export var DescribeEntity$: StaticOperationSchema = [9, n0, _DEes,
@@ -8406,10 +8589,10 @@ export var GetSchemaVersion$: StaticOperationSchema = [9, n0, _GSV,
 export var GetSchemaVersionsDiff$: StaticOperationSchema = [9, n0, _GSVD,
   0, () => GetSchemaVersionsDiffInput$, () => GetSchemaVersionsDiffResponse$
 ];
-export var GetSecurityConfiguration$: StaticOperationSchema = [9, n0, _GSC,
+export var GetSecurityConfiguration$: StaticOperationSchema = [9, n0, _GSCe,
   0, () => GetSecurityConfigurationRequest$, () => GetSecurityConfigurationResponse$
 ];
-export var GetSecurityConfigurations$: StaticOperationSchema = [9, n0, _GSCe,
+export var GetSecurityConfigurations$: StaticOperationSchema = [9, n0, _GSCet,
   0, () => GetSecurityConfigurationsRequest$, () => GetSecurityConfigurationsResponse$
 ];
 export var GetSession$: StaticOperationSchema = [9, n0, _GSet,
@@ -8576,6 +8759,9 @@ export var PutWorkflowRunProperties$: StaticOperationSchema = [9, n0, _PWRP,
 ];
 export var QuerySchemaVersionMetadata$: StaticOperationSchema = [9, n0, _QSVM,
   0, () => QuerySchemaVersionMetadataInput$, () => QuerySchemaVersionMetadataResponse$
+];
+export var RegisterConnectionType$: StaticOperationSchema = [9, n0, _RCT,
+  0, () => RegisterConnectionTypeRequest$, () => RegisterConnectionTypeResponse$
 ];
 export var RegisterSchemaVersion$: StaticOperationSchema = [9, n0, _RSV,
   0, () => RegisterSchemaVersionInput$, () => RegisterSchemaVersionResponse$

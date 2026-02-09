@@ -30,6 +30,11 @@ import {
   CreateBrowserCommandOutput,
 } from "./commands/CreateBrowserCommand";
 import {
+  CreateBrowserProfileCommand,
+  CreateBrowserProfileCommandInput,
+  CreateBrowserProfileCommandOutput,
+} from "./commands/CreateBrowserProfileCommand";
+import {
   CreateCodeInterpreterCommand,
   CreateCodeInterpreterCommandInput,
   CreateCodeInterpreterCommandOutput,
@@ -99,6 +104,11 @@ import {
   DeleteBrowserCommandInput,
   DeleteBrowserCommandOutput,
 } from "./commands/DeleteBrowserCommand";
+import {
+  DeleteBrowserProfileCommand,
+  DeleteBrowserProfileCommandInput,
+  DeleteBrowserProfileCommandOutput,
+} from "./commands/DeleteBrowserProfileCommand";
 import {
   DeleteCodeInterpreterCommand,
   DeleteCodeInterpreterCommandInput,
@@ -170,6 +180,11 @@ import {
   GetApiKeyCredentialProviderCommandOutput,
 } from "./commands/GetApiKeyCredentialProviderCommand";
 import { GetBrowserCommand, GetBrowserCommandInput, GetBrowserCommandOutput } from "./commands/GetBrowserCommand";
+import {
+  GetBrowserProfileCommand,
+  GetBrowserProfileCommandInput,
+  GetBrowserProfileCommandOutput,
+} from "./commands/GetBrowserProfileCommand";
 import {
   GetCodeInterpreterCommand,
   GetCodeInterpreterCommandInput,
@@ -243,6 +258,11 @@ import {
   ListApiKeyCredentialProvidersCommandInput,
   ListApiKeyCredentialProvidersCommandOutput,
 } from "./commands/ListApiKeyCredentialProvidersCommand";
+import {
+  ListBrowserProfilesCommand,
+  ListBrowserProfilesCommandInput,
+  ListBrowserProfilesCommandOutput,
+} from "./commands/ListBrowserProfilesCommand";
 import {
   ListBrowsersCommand,
   ListBrowsersCommandInput,
@@ -403,6 +423,7 @@ import { paginateListAgentRuntimeEndpoints } from "./pagination/ListAgentRuntime
 import { paginateListAgentRuntimes } from "./pagination/ListAgentRuntimesPaginator";
 import { paginateListAgentRuntimeVersions } from "./pagination/ListAgentRuntimeVersionsPaginator";
 import { paginateListApiKeyCredentialProviders } from "./pagination/ListApiKeyCredentialProvidersPaginator";
+import { paginateListBrowserProfiles } from "./pagination/ListBrowserProfilesPaginator";
 import { paginateListBrowsers } from "./pagination/ListBrowsersPaginator";
 import { paginateListCodeInterpreters } from "./pagination/ListCodeInterpretersPaginator";
 import { paginateListEvaluators } from "./pagination/ListEvaluatorsPaginator";
@@ -428,6 +449,7 @@ const commands = {
   CreateAgentRuntimeEndpointCommand,
   CreateApiKeyCredentialProviderCommand,
   CreateBrowserCommand,
+  CreateBrowserProfileCommand,
   CreateCodeInterpreterCommand,
   CreateEvaluatorCommand,
   CreateGatewayCommand,
@@ -442,6 +464,7 @@ const commands = {
   DeleteAgentRuntimeEndpointCommand,
   DeleteApiKeyCredentialProviderCommand,
   DeleteBrowserCommand,
+  DeleteBrowserProfileCommand,
   DeleteCodeInterpreterCommand,
   DeleteEvaluatorCommand,
   DeleteGatewayCommand,
@@ -457,6 +480,7 @@ const commands = {
   GetAgentRuntimeEndpointCommand,
   GetApiKeyCredentialProviderCommand,
   GetBrowserCommand,
+  GetBrowserProfileCommand,
   GetCodeInterpreterCommand,
   GetEvaluatorCommand,
   GetGatewayCommand,
@@ -474,6 +498,7 @@ const commands = {
   ListAgentRuntimesCommand,
   ListAgentRuntimeVersionsCommand,
   ListApiKeyCredentialProvidersCommand,
+  ListBrowserProfilesCommand,
   ListBrowsersCommand,
   ListCodeInterpretersCommand,
   ListEvaluatorsCommand,
@@ -512,6 +537,7 @@ const paginators = {
   paginateListAgentRuntimes,
   paginateListAgentRuntimeVersions,
   paginateListApiKeyCredentialProviders,
+  paginateListBrowserProfiles,
   paginateListBrowsers,
   paginateListCodeInterpreters,
   paginateListEvaluators,
@@ -602,6 +628,23 @@ export interface BedrockAgentCoreControl {
     args: CreateBrowserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateBrowserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateBrowserProfileCommand}
+   */
+  createBrowserProfile(
+    args: CreateBrowserProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBrowserProfileCommandOutput>;
+  createBrowserProfile(
+    args: CreateBrowserProfileCommandInput,
+    cb: (err: any, data?: CreateBrowserProfileCommandOutput) => void
+  ): void;
+  createBrowserProfile(
+    args: CreateBrowserProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBrowserProfileCommandOutput) => void
   ): void;
 
   /**
@@ -840,6 +883,23 @@ export interface BedrockAgentCoreControl {
     args: DeleteBrowserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBrowserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteBrowserProfileCommand}
+   */
+  deleteBrowserProfile(
+    args: DeleteBrowserProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBrowserProfileCommandOutput>;
+  deleteBrowserProfile(
+    args: DeleteBrowserProfileCommandInput,
+    cb: (err: any, data?: DeleteBrowserProfileCommandOutput) => void
+  ): void;
+  deleteBrowserProfile(
+    args: DeleteBrowserProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBrowserProfileCommandOutput) => void
   ): void;
 
   /**
@@ -1095,6 +1155,23 @@ export interface BedrockAgentCoreControl {
     args: GetBrowserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetBrowserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetBrowserProfileCommand}
+   */
+  getBrowserProfile(
+    args: GetBrowserProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBrowserProfileCommandOutput>;
+  getBrowserProfile(
+    args: GetBrowserProfileCommandInput,
+    cb: (err: any, data?: GetBrowserProfileCommandOutput) => void
+  ): void;
+  getBrowserProfile(
+    args: GetBrowserProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBrowserProfileCommandOutput) => void
   ): void;
 
   /**
@@ -1387,6 +1464,24 @@ export interface BedrockAgentCoreControl {
     args: ListApiKeyCredentialProvidersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApiKeyCredentialProvidersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBrowserProfilesCommand}
+   */
+  listBrowserProfiles(): Promise<ListBrowserProfilesCommandOutput>;
+  listBrowserProfiles(
+    args: ListBrowserProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBrowserProfilesCommandOutput>;
+  listBrowserProfiles(
+    args: ListBrowserProfilesCommandInput,
+    cb: (err: any, data?: ListBrowserProfilesCommandOutput) => void
+  ): void;
+  listBrowserProfiles(
+    args: ListBrowserProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBrowserProfilesCommandOutput) => void
   ): void;
 
   /**
@@ -1985,6 +2080,17 @@ export interface BedrockAgentCoreControl {
     args?: ListApiKeyCredentialProvidersCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListApiKeyCredentialProvidersCommandOutput>;
+
+  /**
+   * @see {@link ListBrowserProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBrowserProfilesCommandOutput}.
+   */
+  paginateListBrowserProfiles(
+    args?: ListBrowserProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBrowserProfilesCommandOutput>;
 
   /**
    * @see {@link ListBrowsersCommand}

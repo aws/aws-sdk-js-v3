@@ -45,7 +45,7 @@ export interface CreateManagedThingCommandOutput extends CreateManagedThingRespo
  *   Owner: "STRING_VALUE",
  *   CredentialLockerId: "STRING_VALUE",
  *   AuthenticationMaterial: "STRING_VALUE", // required
- *   AuthenticationMaterialType: "CUSTOM_PROTOCOL_QR_BAR_CODE" || "WIFI_SETUP_QR_BAR_CODE" || "ZWAVE_QR_BAR_CODE" || "ZIGBEE_QR_BAR_CODE" || "DISCOVERED_DEVICE", // required
+ *   AuthenticationMaterialType: "CUSTOM_PROTOCOL_QR_BAR_CODE" || "WIFI_SETUP_QR_BAR_CODE" || "ZWAVE_QR_BAR_CODE" || "ZIGBEE_QR_BAR_CODE" || "DISCOVERED_DEVICE" || "PRE_ONBOARDED_CLOUD", // required
  *   WiFiSimpleSetupConfiguration: { // WiFiSimpleSetupConfiguration
  *     EnableAsProvisioner: true || false,
  *     EnableAsProvisionee: true || false,

@@ -92,6 +92,7 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  *   TargetShardCount: Number("int"), // required
  *   ScalingType: "UNIFORM_SCALING", // required
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new UpdateShardCountCommand(input);
  * const response = await client.send(command);
@@ -152,6 +153,7 @@ export class UpdateShardCountCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

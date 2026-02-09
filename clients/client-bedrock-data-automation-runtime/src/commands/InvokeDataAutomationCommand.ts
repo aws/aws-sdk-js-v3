@@ -63,12 +63,18 @@ export interface InvokeDataAutomationCommandOutput extends InvokeDataAutomationR
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
+ *   outputConfiguration: { // OutputConfiguration
+ *     s3Uri: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new InvokeDataAutomationCommand(input);
  * const response = await client.send(command);
  * // { // InvokeDataAutomationResponse
+ * //   outputConfiguration: { // OutputConfiguration
+ * //     s3Uri: "STRING_VALUE", // required
+ * //   },
  * //   semanticModality: "DOCUMENT" || "IMAGE" || "AUDIO" || "VIDEO", // required
- * //   outputSegments: [ // OutputSegmentList // required
+ * //   outputSegments: [ // OutputSegmentList
  * //     { // OutputSegment
  * //       customOutputStatus: "MATCH" || "NO_MATCH",
  * //       customOutput: "STRING_VALUE",

@@ -43,6 +43,7 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   StreamCreationTimestamp: new Date("TIMESTAMP"),
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new ListStreamConsumersCommand(input);
  * const response = await client.send(command);
@@ -102,6 +103,7 @@ export class ListStreamConsumersCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

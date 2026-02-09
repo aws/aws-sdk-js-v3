@@ -76,7 +76,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP" || "SDI" || "MEDIACONNECT_ROUTER",
+ *   Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP" || "SDI" || "MEDIACONNECT_ROUTER" || "SRT_LISTENER",
  *   Vpc: { // InputVpcRequest
  *     SecurityGroupIds: [
  *       "STRING_VALUE",
@@ -98,6 +98,14 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *         StreamId: "STRING_VALUE",
  *       },
  *     ],
+ *     SrtListenerSettings: { // SrtListenerSettingsRequest
+ *       Decryption: { // SrtListenerDecryptionRequest
+ *         Algorithm: "AES128" || "AES192" || "AES256", // required
+ *         PassphraseSecretArn: "STRING_VALUE", // required
+ *       },
+ *       MinimumLatency: Number("int"), // required
+ *       StreamId: "STRING_VALUE",
+ *     },
  *   },
  *   InputNetworkLocation: "AWS" || "ON_PREMISES",
  *   MulticastSettings: { // MulticastSettingsCreateRequest
@@ -203,7 +211,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * //     Tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP" || "SDI" || "MEDIACONNECT_ROUTER",
+ * //     Type: "UDP_PUSH" || "RTP_PUSH" || "RTMP_PUSH" || "RTMP_PULL" || "URL_PULL" || "MP4_FILE" || "MEDIACONNECT" || "INPUT_DEVICE" || "AWS_CDI" || "TS_FILE" || "SRT_CALLER" || "MULTICAST" || "SMPTE_2110_RECEIVER_GROUP" || "SDI" || "MEDIACONNECT_ROUTER" || "SRT_LISTENER",
  * //     SrtSettings: { // SrtSettings
  * //       SrtCallerSources: [ // __listOfSrtCallerSource
  * //         { // SrtCallerSource
@@ -217,6 +225,14 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * //           StreamId: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SrtListenerSettings: { // SrtListenerSettings
+ * //         Decryption: { // SrtListenerDecryption
+ * //           Algorithm: "AES128" || "AES192" || "AES256", // required
+ * //           PassphraseSecretArn: "STRING_VALUE", // required
+ * //         },
+ * //         MinimumLatency: Number("int"),
+ * //         StreamId: "STRING_VALUE",
+ * //       },
  * //     },
  * //     InputNetworkLocation: "AWS" || "ON_PREMISES",
  * //     MulticastSettings: { // MulticastSettings

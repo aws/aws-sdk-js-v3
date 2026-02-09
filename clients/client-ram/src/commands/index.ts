@@ -25,6 +25,7 @@ export * from "./ListReplacePermissionAssociationsWorkCommand";
 export * from "./ListResourceSharePermissionsCommand";
 export * from "./ListResourceTypesCommand";
 export * from "./ListResourcesCommand";
+export * from "./ListSourceAssociationsCommand";
 export * from "./PromotePermissionCreatedFromPolicyCommand";
 export * from "./PromoteResourceShareCreatedFromPolicyCommand";
 export * from "./RejectResourceShareInvitationCommand";

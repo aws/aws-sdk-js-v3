@@ -108,6 +108,7 @@ import {
   EmptyOperandValue$,
   EventBridgeConfiguration$,
   EventIncludedData$,
+  FieldAttributes$,
   FieldError$,
   FieldFilter$,
   FieldGroup$,
@@ -256,6 +257,7 @@ import {
   TemplateRule$,
   TemplateStatus,
   TemplateSummary$,
+  TextAttributes$,
   ThrottlingException,
   ThrottlingException$,
   UntagResource$,
@@ -440,6 +442,7 @@ assert(typeof EmptyFieldValue$ === "object");
 assert(typeof EmptyOperandValue$ === "object");
 assert(typeof EventBridgeConfiguration$ === "object");
 assert(typeof EventIncludedData$ === "object");
+assert(typeof FieldAttributes$ === "object");
 assert(typeof FieldError$ === "object");
 assert(typeof FieldFilter$ === "object");
 assert(typeof FieldGroup$ === "object");
@@ -522,6 +525,7 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagValue$ === "object");
 assert(typeof TemplateRule$ === "object");
 assert(typeof TemplateSummary$ === "object");
+assert(typeof TextAttributes$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UpdateCaseRequest$ === "object");
 assert(typeof UpdateCaseResponse$ === "object");

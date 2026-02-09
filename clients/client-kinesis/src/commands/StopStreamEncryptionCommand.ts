@@ -60,6 +60,7 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  *   EncryptionType: "NONE" || "KMS", // required
  *   KeyId: "STRING_VALUE", // required
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new StopStreamEncryptionCommand(input);
  * const response = await client.send(command);
@@ -110,6 +111,7 @@ export class StopStreamEncryptionCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

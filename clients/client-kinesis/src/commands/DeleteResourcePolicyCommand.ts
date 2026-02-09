@@ -48,6 +48,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * const client = new KinesisClient(config);
  * const input = { // DeleteResourcePolicyInput
  *   ResourceARN: "STRING_VALUE", // required
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
@@ -99,6 +100,7 @@ export class DeleteResourcePolicyCommand extends $Command
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
     ResourceARN: { type: "contextParams", name: "ResourceARN" },
+    StreamId: { type: "contextParams", name: "StreamId" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];

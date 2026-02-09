@@ -6,6 +6,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+# 3.972.5 (2026-02-05)
+### Chores
+* **eventstream-handler-node:** eventstream code maintenance ([#7708](https://github.com/aws/aws-sdk-js-v3/issues/7708)) ([7163f9d](https://github.com/aws/aws-sdk-js-v3/commit/7163f9d847d9306d938cd4542862d35ee2c3ba46))
+
+
+
+# 3.972.4 (2026-02-03)
+### Bug Fixes
+* **eventstream-handler-node:** fix uncatchable error in stream pipeline ([#7703](https://github.com/aws/aws-sdk-js-v3/issues/7703)) ([eb4e2dd](https://github.com/aws/aws-sdk-js-v3/commit/eb4e2dd4addb8f58494140b12fbc6561ecdcdb6c))
+
+
+
 # 3.972.3 (2026-01-30)
 ### Chores
 * use yarn workspace versioning for monorepo packages ([#7693](https://github.com/aws/aws-sdk-js-v3/issues/7693)) ([b951130](https://github.com/aws/aws-sdk-js-v3/commit/b951130e92a694d06656632ec6ccc940cbd8fb3f))

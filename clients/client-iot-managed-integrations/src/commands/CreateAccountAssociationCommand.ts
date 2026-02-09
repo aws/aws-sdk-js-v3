@@ -48,6 +48,9 @@ export interface CreateAccountAssociationCommandOutput extends CreateAccountAsso
  *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   GeneralAuthorization: { // GeneralAuthorizationName
+ *     AuthMaterialName: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateAccountAssociationCommand(input);
  * const response = await client.send(command);

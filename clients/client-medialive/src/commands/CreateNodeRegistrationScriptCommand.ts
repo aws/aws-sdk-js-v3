@@ -45,6 +45,9 @@ export interface CreateNodeRegistrationScriptCommandOutput extends CreateNodeReg
  *       LogicalInterfaceName: "STRING_VALUE",
  *       NetworkInterfaceMode: "NAT" || "BRIDGE",
  *       PhysicalInterfaceName: "STRING_VALUE",
+ *       PhysicalInterfaceIpAddresses: [ // __listOf__string
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   ],
  *   RequestId: "STRING_VALUE",

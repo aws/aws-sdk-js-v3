@@ -49,6 +49,7 @@ export interface EndpointParameters extends __EndpointParameters {
   UseDualStack?: boolean | undefined;
   UseFIPS?: boolean | undefined;
   Endpoint?: string | undefined;
+  StreamId?: string | undefined;
   StreamARN?: string | undefined;
   OperationType?: string | undefined;
   ConsumerARN?: string | undefined;

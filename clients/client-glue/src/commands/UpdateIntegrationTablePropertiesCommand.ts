@@ -8,7 +8,7 @@ import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import type {
   UpdateIntegrationTablePropertiesRequest,
   UpdateIntegrationTablePropertiesResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import { UpdateIntegrationTableProperties$ } from "../schemas/schemas_0";
 
 /**

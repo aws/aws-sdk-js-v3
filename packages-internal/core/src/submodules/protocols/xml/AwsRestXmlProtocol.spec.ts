@@ -1,5 +1,6 @@
+import { TypeRegistry } from "@smithy/core/schema";
 import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import { StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticErrorSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 import { toUtf8 } from "@smithy/util-utf8";
 import { describe, expect, test as it } from "vitest";
 
@@ -221,6 +222,60 @@ describe(AwsRestXmlProtocol.name, () => {
         UnmodeledField: "Oh no",
         $metadata: {
           httpStatusCode: 400,
+        },
+      });
+    });
+
+    it("lifts fields from a nested Error object", async () => {
+      const httpResponse = new HttpResponse({
+        statusCode: 400,
+        headers: {},
+        body: Buffer.from(`<ErrorResponse>
+    <Error>
+        <Type>Sender</Type>
+        <Code>InvalidGreeting</Code>
+        <Message>Hi</Message>
+        <AnotherSetting>setting</AnotherSetting>
+    </Error>
+    <RequestId>foo-id</RequestId>
+</ErrorResponse>`),
+      });
+
+      const InvalidGreeting$: StaticErrorSchema = [-3, "com.amazonaws.s3", "InvalidGreeting", {}, ["message"], [0]];
+      class InvalidGreeting extends Error {}
+      TypeRegistry.for("com.amazonaws.s3").registerError(InvalidGreeting$, InvalidGreeting);
+
+      const output = await protocol
+        .deserializeResponse(
+          {
+            namespace: "ns",
+            name: "Empty",
+            traits: 0,
+            input: "unit" as const,
+            output: [3, "ns", "EmptyOutput", 0, [], []],
+          },
+          context,
+          httpResponse
+        )
+        .catch((e) => {
+          return e;
+        });
+
+      expect(output).toMatchObject({
+        Type: "Sender",
+        Code: "InvalidGreeting",
+        message: "Hi",
+        AnotherSetting: "setting",
+        // duplicate nesting
+        Error: {
+          Type: "Sender",
+          Code: "InvalidGreeting",
+          Message: "Hi",
+          AnotherSetting: "setting",
+        },
+        $metadata: {
+          httpStatusCode: 400,
+          requestId: "foo-id",
         },
       });
     });

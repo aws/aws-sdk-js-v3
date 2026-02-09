@@ -205,6 +205,7 @@ import {
   GlobalTableGlobalSecondaryIndexSettingsUpdate$,
   GlobalTableNotFoundException,
   GlobalTableNotFoundException$,
+  GlobalTableSettingsReplicationMode,
   GlobalTableStatus,
   GlobalTableWitnessDescription$,
   GlobalTableWitnessGroupUpdate$,
@@ -834,6 +835,7 @@ assert(typeof ExportFormat === "object");
 assert(typeof ExportStatus === "object");
 assert(typeof ExportType === "object");
 assert(typeof ExportViewType === "object");
+assert(typeof GlobalTableSettingsReplicationMode === "object");
 assert(typeof GlobalTableStatus === "object");
 assert(typeof ImportStatus === "object");
 assert(typeof IndexStatus === "object");

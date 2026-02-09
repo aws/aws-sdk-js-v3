@@ -83,6 +83,7 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *   ExplicitHashKey: "STRING_VALUE",
  *   SequenceNumberForOrdering: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
+ *   StreamId: "STRING_VALUE",
  * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
@@ -167,6 +168,7 @@ export class PutRecordCommand extends $Command
   .ep({
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `data` },
+    StreamId: { type: "contextParams", name: "StreamId" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {

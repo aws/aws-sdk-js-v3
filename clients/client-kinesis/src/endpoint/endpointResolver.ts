@@ -15,6 +15,7 @@ const cache = new EndpointCache({
     "Region",
     "ResourceARN",
     "StreamARN",
+    "StreamId",
     "UseDualStack",
     "UseFIPS",
   ],

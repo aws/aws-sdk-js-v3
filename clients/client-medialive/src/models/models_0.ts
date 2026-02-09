@@ -25,6 +25,7 @@ import {
   AudioOnlyHlsTrackType,
   AudioType,
   AuthenticationScheme,
+  Av1BitDepth,
   Av1GopSizeUnits,
   Av1Level,
   Av1LookAheadRateControl,
@@ -62,6 +63,7 @@ import {
   CmafTimedMetadataId3Frame,
   CmafTimedMetadataPassthrough,
   ColorSpace,
+  ConnectionMode,
   DashRoleAudio,
   DashRoleCaption,
   DeviceSettingsSyncState,
@@ -2166,6 +2168,18 @@ export interface SrtOutputDestinationSettings {
    * @public
    */
   Url?: string | undefined;
+
+  /**
+   * Specifies the mode the output should use for connection establishment. CALLER mode requires URL, LISTENER mode requires port.
+   * @public
+   */
+  ConnectionMode?: ConnectionMode | undefined;
+
+  /**
+   * Port number for listener mode connections (required when connectionMode is LISTENER, must not be provided when connectionMode is CALLER).
+   * @public
+   */
+  ListenerPort?: number | undefined;
 }
 
 /**
@@ -2882,6 +2896,12 @@ export interface ChannelSummary {
    * @public
    */
   LinkedChannelSettings?: DescribeLinkedChannelSettings | undefined;
+
+  /**
+   * A list of IDs for all the Input Security Groups attached to the channel.
+   * @public
+   */
+  ChannelSecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -3380,6 +3400,12 @@ export interface NodeInterfaceMapping {
    * @public
    */
   PhysicalInterfaceName?: string | undefined;
+
+  /**
+   * The IP addresses associated with the physical interface on the node hardware.
+   * @public
+   */
+  PhysicalInterfaceIpAddresses?: string[] | undefined;
 }
 
 /**
@@ -3940,7 +3966,49 @@ export interface SrtCallerSource {
 }
 
 /**
- * The configured sources for this SRT input.
+ * Decryption settings for SRT listener. If present, both algorithm and passphraseSecretArn are required.
+ * @public
+ */
+export interface SrtListenerDecryption {
+  /**
+   * The algorithm used to decrypt content.
+   * @public
+   */
+  Algorithm: Algorithm | undefined;
+
+  /**
+   * The ARN for the secret in Secrets Manager that holds the passphrase for decryption.
+   * @public
+   */
+  PassphraseSecretArn: string | undefined;
+}
+
+/**
+ * Settings for SRT Listener input.
+ * @public
+ */
+export interface SrtListenerSettings {
+  /**
+   * Decryption settings for SRT listener. If present, both algorithm and passphraseSecretArn are required.
+   * @public
+   */
+  Decryption?: SrtListenerDecryption | undefined;
+
+  /**
+   * The preferred latency (in milliseconds) for implementing packet loss and recovery. Range 120-15000.
+   * @public
+   */
+  MinimumLatency?: number | undefined;
+
+  /**
+   * The stream ID, if the upstream system uses this identifier.
+   * @public
+   */
+  StreamId?: string | undefined;
+}
+
+/**
+ * The configured settings for SRT inputs (caller and listener).
  * @public
  */
 export interface SrtSettings {
@@ -3949,6 +4017,12 @@ export interface SrtSettings {
    * @public
    */
   SrtCallerSources?: SrtCallerSource[] | undefined;
+
+  /**
+   * Settings for SRT Listener input.
+   * @public
+   */
+  SrtListenerSettings?: SrtListenerSettings | undefined;
 }
 
 /**
@@ -4555,6 +4629,12 @@ export interface InputSecurityGroup {
    * @public
    */
   WhitelistRules?: InputWhitelistRule[] | undefined;
+
+  /**
+   * The list of channels currently using this Input Security Group as their channel security group.
+   * @public
+   */
+  Channels?: string[] | undefined;
 }
 
 /**
@@ -8830,6 +8910,12 @@ export interface Av1Settings {
    * @public
    */
   TimecodeInsertion?: Av1TimecodeInsertionBehavior | undefined;
+
+  /**
+   * Specifies the bit depth for the output encode. Choose a value. Or leave the field empty to use the default, which is 8 bit.
+   * @public
+   */
+  BitDepth?: Av1BitDepth | undefined;
 }
 
 /**
@@ -10195,46 +10281,4 @@ export interface BatchStopRequest {
    * @public
    */
   MultiplexIds?: string[] | undefined;
-}
-
-/**
- * Placeholder documentation for BatchStopResponse
- * @public
- */
-export interface BatchStopResponse {
-  /**
-   * List of failed operations
-   * @public
-   */
-  Failed?: BatchFailedResultModel[] | undefined;
-
-  /**
-   * List of successful operations
-   * @public
-   */
-  Successful?: BatchSuccessfulResultModel[] | undefined;
-}
-
-/**
- * List of actions to create and list of actions to delete.
- * @public
- */
-export interface BatchUpdateScheduleRequest {
-  /**
-   * Id of the channel whose schedule is being updated.
-   * @public
-   */
-  ChannelId: string | undefined;
-
-  /**
-   * Schedule actions to create in the schedule.
-   * @public
-   */
-  Creates?: BatchScheduleActionCreateRequest | undefined;
-
-  /**
-   * Schedule actions to delete from the schedule.
-   * @public
-   */
-  Deletes?: BatchScheduleActionDeleteRequest | undefined;
 }

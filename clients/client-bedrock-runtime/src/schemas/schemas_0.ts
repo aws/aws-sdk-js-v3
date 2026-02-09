@@ -154,6 +154,7 @@ const _IMWRSR = "InvokeModelWithResponseStreamRequest";
 const _IMWRSRn = "InvokeModelWithResponseStreamResponse";
 const _IS = "ImageSource";
 const _ISE = "InternalServerException";
+const _JSD = "JsonSchemaDefinition";
 const _LAI = "ListAsyncInvokes";
 const _LAIR = "ListAsyncInvokesRequest";
 const _LAIRi = "ListAsyncInvokesResponse";
@@ -166,6 +167,9 @@ const _MSEE = "ModelStreamErrorException";
 const _MSEe = "MessageStopEvent";
 const _MTE = "ModelTimeoutException";
 const _Me = "Messages";
+const _OC = "OutputConfig";
+const _OF = "OutputFormat";
+const _OFS = "OutputFormatStructure";
 const _PB = "PartBody";
 const _PC = "PerformanceConfiguration";
 const _PP = "PayloadPart";
@@ -321,6 +325,7 @@ const _ima = "image";
 const _imp = "impossible";
 const _in = "invalid";
 const _j = "json";
+const _jS = "jsonSchema";
 const _k = "key";
 const _kKI = "kmsKeyId";
 const _l = "location";
@@ -351,6 +356,7 @@ const _nT = "nextToken";
 const _nTo = "noTranslations";
 const _o = "outputs";
 const _oA = "outputAssessments";
+const _oC = "outputConfig";
 const _oDC = "outputDataConfig";
 const _oM = "originalMessage";
 const _oS = "outputScope";
@@ -400,6 +406,7 @@ const _sU = "s3Uri";
 const _sUE = "serviceUnavailableException";
 const _sa = "satisfiable";
 const _sc = "score";
+const _sch = "schema";
 const _se = "server";
 const _si = "signature";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockruntime";
@@ -408,6 +415,8 @@ const _sta = "start";
 const _stat = "statements";
 const _str = "stream";
 const _stre = "streaming";
+const _stri = "strict";
+const _stru = "structure";
 const _sy = "system";
 const _t = "ttl";
 const _tA = "translationAmbiguous";
@@ -416,6 +425,7 @@ const _tCe = "textCharacters";
 const _tCo = "toolChoice";
 const _tCoo = "tooComplex";
 const _tE = "throttlingException";
+const _tF = "textFormat";
 const _tP = "topicPolicy";
 const _tPU = "topicPolicyUnits";
 const _tPo = "topP";
@@ -605,8 +615,8 @@ export var ConverseMetrics$: StaticStructureSchema = [3, n0, _CM,
 ];
 export var ConverseRequest$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe],
-  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$], 1
+  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe, _oC],
+  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$, [() => OutputConfig$, 0]], 1
 ];
 export var ConverseResponse$: StaticStructureSchema = [3, n0, _CRo,
   0,
@@ -625,8 +635,8 @@ export var ConverseStreamMetrics$: StaticStructureSchema = [3, n0, _CSM,
 ];
 export var ConverseStreamRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe],
-  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailStreamConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$], 1
+  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe, _oC],
+  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailStreamConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$, [() => OutputConfig$, 0]], 1
 ];
 export var ConverseStreamResponse$: StaticStructureSchema = [3, n0, _CSRo,
   0,
@@ -959,6 +969,11 @@ export var InvokeModelWithResponseStreamResponse$: StaticStructureSchema = [3, n
   [_bo, _cT, _pCL, _sTe],
   [[() => ResponseStream$, 16], [0, { [_hH]: _XABCT }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]], 2
 ];
+export var JsonSchemaDefinition$: StaticStructureSchema = [3, n0, _JSD,
+  0,
+  [_sch, _n, _des],
+  [0, 0, 0], 1
+];
 export var ListAsyncInvokesRequest$: StaticStructureSchema = [3, n0, _LAIR,
   0,
   [_sTA, _sTB, _sE, _mR, _nT, _sB, _sO],
@@ -1008,6 +1023,16 @@ export var ModelTimeoutException$: StaticErrorSchema = [-3, n0, _MTE,
   [0]
 ];
 TypeRegistry.for(n0).registerError(ModelTimeoutException$, ModelTimeoutException);
+export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
+  0,
+  [_tF],
+  [[() => OutputFormat$, 0]]
+];
+export var OutputFormat$: StaticStructureSchema = [3, n0, _OF,
+  0,
+  [_ty, _stru],
+  [0, [() => OutputFormatStructure$, 0]], 2
+];
 export var PayloadPart$: StaticStructureSchema = [3, n0, _PP,
   8,
   [_b],
@@ -1124,8 +1149,8 @@ export var ToolResultBlockStart$: StaticStructureSchema = [3, n0, _TRBS,
 ];
 export var ToolSpecification$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_n, _iS, _des],
-  [0, () => ToolInputSchema$, 0], 2
+  [_n, _iS, _des, _stri],
+  [0, () => ToolInputSchema$, 0, 2], 2
 ];
 export var ToolUseBlock$: StaticStructureSchema = [3, n0, _TUB,
   0,
@@ -1397,6 +1422,11 @@ export var InvokeModelWithBidirectionalStreamOutput$: StaticUnionSchema = [4, n0
   { [_stre]: 1 },
   [_ch, _iSE, _mSEE, _vE, _tE, _mTE, _sUE],
   [[() => BidirectionalOutputPayloadPart$, 0], [() => InternalServerException$, 0], [() => ModelStreamErrorException$, 0], [() => ValidationException$, 0], [() => ThrottlingException$, 0], [() => ModelTimeoutException$, 0], [() => ServiceUnavailableException$, 0]]
+];
+export var OutputFormatStructure$: StaticUnionSchema = [4, n0, _OFS,
+  8,
+  [_jS],
+  [() => JsonSchemaDefinition$]
 ];
 export var PromptVariableValues$: StaticUnionSchema = [4, n0, _PVV,
   0,

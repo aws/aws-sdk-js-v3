@@ -27,7 +27,7 @@ export interface AssociateResourceShareCommandInput extends AssociateResourceSha
 export interface AssociateResourceShareCommandOutput extends AssociateResourceShareResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the specified list of principals and list of resources to a resource share. Principals that
+ * <p>Adds the specified list of principals, resources, and source constraints to a resource share. Principals that
  *             already have access to this resource share immediately receive access to the added resources.
  *             Newly added principals immediately receive access to the resources shared in this resource share. </p>
  * @example
@@ -59,8 +59,8 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  * //       resourceShareArn: "STRING_VALUE",
  * //       resourceShareName: "STRING_VALUE",
  * //       associatedEntity: "STRING_VALUE",
- * //       associationType: "PRINCIPAL" || "RESOURCE",
- * //       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ * //       associationType: "PRINCIPAL" || "RESOURCE" || "SOURCE",
+ * //       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED" || "SUSPENDED" || "SUSPENDING" || "RESTORING",
  * //       statusMessage: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdatedTime: new Date("TIMESTAMP"),
@@ -101,9 +101,10 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  *  <p>The operation failed because the requested operation isn't permitted.</p>
  *
  * @throws {@link ResourceShareLimitExceededException} (client fault)
- *  <p>The operation failed because it would exceed the limit for resource shares for your account. To
- *             view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the Service Quotas
- *                 console</a>.</p>
+ *  <p>The operation failed because it would exceed the limit for resource shares for your account. You
+ *             can associate up to 100 resources per call. To view the limits for your Amazon Web Services account,
+ *             see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in
+ *                 the Service Quotas console</a>.</p>
  *
  * @throws {@link ServerInternalException} (server fault)
  *  <p>The operation failed because the service could not respond to the request due to an

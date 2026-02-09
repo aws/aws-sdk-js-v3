@@ -55,6 +55,7 @@ export interface PutResourcePolicyCommandOutput extends __MetadataBearer {}
  * const client = new KinesisClient(config);
  * const input = { // PutResourcePolicyInput
  *   ResourceARN: "STRING_VALUE", // required
+ *   StreamId: "STRING_VALUE",
  *   Policy: "STRING_VALUE", // required
  * };
  * const command = new PutResourcePolicyCommand(input);
@@ -107,6 +108,7 @@ export class PutResourcePolicyCommand extends $Command
     ...commonParams,
     OperationType: { type: "staticContextParams", value: `control` },
     ResourceARN: { type: "contextParams", name: "ResourceARN" },
+    StreamId: { type: "contextParams", name: "StreamId" },
   })
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];

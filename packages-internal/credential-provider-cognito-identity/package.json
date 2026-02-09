@@ -24,7 +24,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-cognito-identity": "workspace:3.981.0",
+    "@aws-sdk/client-cognito-identity": "workspace:3.985.0",
     "@aws-sdk/types": "workspace:^3.973.1",
     "@smithy/property-provider": "^4.2.8",
     "@smithy/types": "^4.12.0",

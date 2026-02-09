@@ -18,6 +18,7 @@ import {
   ExportStatus,
   ExportType,
   ExportViewType,
+  GlobalTableSettingsReplicationMode,
   GlobalTableStatus,
   ImportStatus,
   IndexStatus,
@@ -1348,7 +1349,8 @@ export interface CreateGlobalSecondaryIndexAction {
   IndexName: string | undefined;
 
   /**
-   * <p>The key schema for the global secondary index.</p>
+   * <p>The key schema for the global secondary index.
+   *             Global secondary index supports up to 4 partition and up to 4 sort keys.</p>
    * @public
    */
   KeySchema: KeySchemaElement[] | undefined;
@@ -1663,6 +1665,29 @@ export interface ReplicaDescription {
    * @public
    */
   ReplicaTableClassSummary?: TableClassSummary | undefined;
+
+  /**
+   * <p>Indicates one of the settings synchronization modes for the global table replica:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: Indicates that the settings synchronization mode for the global table
+   *                     replica is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: Indicates that the settings synchronization mode for the global table
+   *                     replica is disabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table.
+   *                     Indicates that certain global table settings can be overridden.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  GlobalTableSettingsReplicationMode?: GlobalTableSettingsReplicationMode | undefined;
 }
 
 /**
@@ -2047,7 +2072,7 @@ export interface CreateTableInput {
    * <p>An array of attributes that describe the key schema for the table and indexes.</p>
    * @public
    */
-  AttributeDefinitions: AttributeDefinition[] | undefined;
+  AttributeDefinitions?: AttributeDefinition[] | undefined;
 
   /**
    * <p>The name of the table to create. You can also provide the Amazon Resource Name (ARN) of the table in
@@ -2102,7 +2127,7 @@ export interface CreateTableInput {
    *                 Guide</i>.</p>
    * @public
    */
-  KeySchema: KeySchemaElement[] | undefined;
+  KeySchema?: KeySchemaElement[] | undefined;
 
   /**
    * <p>One or more local secondary indexes (the maximum is 5) to be created on the table.
@@ -2184,7 +2209,7 @@ export interface CreateTableInput {
    *             <li>
    *                <p>
    *                   <code>KeySchema</code> - Specifies the key schema for the global secondary
-   *                     index.</p>
+   *                     index. Each global secondary index supports up to 4 partition keys and up to 4 sort keys.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2375,6 +2400,22 @@ export interface CreateTableInput {
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source table used for the creation
+   *             of a multi-account global table.</p>
+   * @public
+   */
+  GlobalTableSourceArn?: string | undefined;
+
+  /**
+   * <p>Controls the settings synchronization mode for the global table. For multi-account global tables,
+   *             this parameter is required and the only supported value is ENABLED. For same-account global tables,
+   *             this parameter is set to ENABLED_WITH_OVERRIDES.
+   *         </p>
+   * @public
+   */
+  GlobalTableSettingsReplicationMode?: GlobalTableSettingsReplicationMode | undefined;
 }
 
 /**
@@ -3088,6 +3129,29 @@ export interface TableDescription {
    * @public
    */
   GlobalTableWitnesses?: GlobalTableWitnessDescription[] | undefined;
+
+  /**
+   * <p>Indicates one of the settings synchronization modes for the global table:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: Indicates that the settings synchronization mode for the global table
+   *                     is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: Indicates that the settings synchronization mode for the global table is
+   *                     disabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table.
+   *                     Indicates that certain global table settings can be overridden.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  GlobalTableSettingsReplicationMode?: GlobalTableSettingsReplicationMode | undefined;
 
   /**
    * <p>Contains details for the restore.</p>
@@ -4594,7 +4658,7 @@ export interface ExportTableToPointInTimeInput {
    *             result might not be idempotent.</p>
    *          <p>If you submit a request with the same client token but a change in other parameters
    *             within the 8-hour idempotency window, DynamoDB returns an
-   *                 <code>ImportConflictException</code>.</p>
+   *                 <code>ExportConflictException</code>.</p>
    * @public
    */
   ClientToken?: string | undefined;

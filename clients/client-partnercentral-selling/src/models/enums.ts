@@ -706,6 +706,62 @@ export type AwsPartition = (typeof AwsPartition)[keyof typeof AwsPartition];
  * @public
  * @enum
  */
+export const SalesInvolvementType = {
+  CO_SELL: "Co-Sell",
+  FOR_VISIBILITY_ONLY: "For Visibility Only",
+} as const;
+/**
+ * @public
+ */
+export type SalesInvolvementType = (typeof SalesInvolvementType)[keyof typeof SalesInvolvementType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InvolvementTypeChangeReason = {
+  CHANGE_IN_DEAL_INFORMATION: "Change in Deal Information",
+  CUSTOMER_REQUESTED: "Customer Requested",
+  EXPANSION_OPPORTUNITY: "Expansion Opportunity",
+  RISK_MITIGATION: "Risk Mitigation",
+  TECHNICAL_COMPLEXITY: "Technical Complexity",
+} as const;
+/**
+ * @public
+ */
+export type InvolvementTypeChangeReason =
+  (typeof InvolvementTypeChangeReason)[keyof typeof InvolvementTypeChangeReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const OpportunityOrigin = {
+  AWS_REFERRAL: "AWS Referral",
+  PARTNER_REFERRAL: "Partner Referral",
+} as const;
+/**
+ * @public
+ */
+export type OpportunityOrigin = (typeof OpportunityOrigin)[keyof typeof OpportunityOrigin];
+
+/**
+ * @public
+ * @enum
+ */
+export const Visibility = {
+  FULL: "Full",
+  LIMITED: "Limited",
+} as const;
+/**
+ * @public
+ */
+export type Visibility = (typeof Visibility)[keyof typeof Visibility];
+
+/**
+ * @public
+ * @enum
+ */
 export const MarketSegment = {
   ENTERPRISE: "Enterprise",
   LARGE: "Large",
@@ -814,32 +870,6 @@ export const ReasonCode = {
  * @public
  */
 export type ReasonCode = (typeof ReasonCode)[keyof typeof ReasonCode];
-
-/**
- * @public
- * @enum
- */
-export const SalesInvolvementType = {
-  CO_SELL: "Co-Sell",
-  FOR_VISIBILITY_ONLY: "For Visibility Only",
-} as const;
-/**
- * @public
- */
-export type SalesInvolvementType = (typeof SalesInvolvementType)[keyof typeof SalesInvolvementType];
-
-/**
- * @public
- * @enum
- */
-export const Visibility = {
-  FULL: "Full",
-  LIMITED: "Limited",
-} as const;
-/**
- * @public
- */
-export type Visibility = (typeof Visibility)[keyof typeof Visibility];
 
 /**
  * @public
@@ -1049,19 +1079,6 @@ export type OpportunityType = (typeof OpportunityType)[keyof typeof OpportunityT
  * @public
  * @enum
  */
-export const OpportunityOrigin = {
-  AWS_REFERRAL: "AWS Referral",
-  PARTNER_REFERRAL: "Partner Referral",
-} as const;
-/**
- * @public
- */
-export type OpportunityOrigin = (typeof OpportunityOrigin)[keyof typeof OpportunityOrigin];
-
-/**
- * @public
- * @enum
- */
 export const PrimaryNeedFromAws = {
   CO_SELL_ARCHITECTURAL_VALIDATION: "Co-Sell - Architectural Validation",
   CO_SELL_BUSINESS_PRESENTATION: "Co-Sell - Business Presentation",
@@ -1153,24 +1170,8 @@ export type RevenueModel = (typeof RevenueModel)[keyof typeof RevenueModel];
  * @public
  * @enum
  */
-export const InvolvementTypeChangeReason = {
-  CHANGE_IN_DEAL_INFORMATION: "Change in Deal Information",
-  CUSTOMER_REQUESTED: "Customer Requested",
-  EXPANSION_OPPORTUNITY: "Expansion Opportunity",
-  RISK_MITIGATION: "Risk Mitigation",
-  TECHNICAL_COMPLEXITY: "Technical Complexity",
-} as const;
-/**
- * @public
- */
-export type InvolvementTypeChangeReason =
-  (typeof InvolvementTypeChangeReason)[keyof typeof InvolvementTypeChangeReason];
-
-/**
- * @public
- * @enum
- */
 export const OpportunitySortName = {
+  CREATED_DATE: "CreatedDate",
   CUSTOMER_COMPANY_NAME: "CustomerCompanyName",
   IDENTIFIER: "Identifier",
   LAST_MODIFIEDDATE: "LastModifiedDate",

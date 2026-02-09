@@ -294,6 +294,7 @@ export interface CountTokensCommandOutput extends CountTokensResponse, __Metadat
  *               inputSchema: { // ToolInputSchema Union: only one key present
  *                 json: "DOCUMENT_VALUE",
  *               },
+ *               strict: true || false,
  *             },
  *             systemTool: { // SystemTool
  *               name: "STRING_VALUE", // required

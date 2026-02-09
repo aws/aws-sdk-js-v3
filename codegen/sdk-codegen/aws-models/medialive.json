@@ -1559,6 +1559,26 @@
         "smithy.api#documentation": "The settings for Automatic Input Failover."
       }
     },
+    "com.amazonaws.medialive#Av1BitDepth": {
+      "type": "enum",
+      "members": {
+        "DEPTH_10": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEPTH_10"
+          }
+        },
+        "DEPTH_8": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEPTH_8"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Av1 Bit Depth"
+      }
+    },
     "com.amazonaws.medialive#Av1ColorSpaceSettings": {
       "type": "structure",
       "members": {
@@ -1941,6 +1961,13 @@
           "traits": {
             "smithy.api#documentation": "Controls how MediaLive inserts timecodes into the video output encode.\nDISABLED: Do not insert timecodes.\nMETADATA_OBU: Include timecodes. MediaLive inserts timecode metadata based on the timecode from the source specified in the Timecode Config property. The timecode metadata is a metadata OBU (Open Bitstream Unit) of type METADATA_TYPE_TIMECODE, in accordance with https://aomediacodec.github.io/av1-spec/#metadata-timecode-syntax.",
             "smithy.api#jsonName": "timecodeInsertion"
+          }
+        },
+        "BitDepth": {
+          "target": "com.amazonaws.medialive#Av1BitDepth",
+          "traits": {
+            "smithy.api#documentation": "Specifies the bit depth for the output encode. Choose a value. Or leave the field empty to use the default, which is 8 bit.",
+            "smithy.api#jsonName": "bitDepth"
           }
         }
       },
@@ -3741,6 +3768,13 @@
             "smithy.api#documentation": "Linked Channel Settings for this channel.",
             "smithy.api#jsonName": "linkedChannelSettings"
           }
+        },
+        "ChannelSecurityGroups": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "A list of IDs for all the Input Security Groups attached to the channel.",
+            "smithy.api#jsonName": "channelSecurityGroups"
+          }
         }
       },
       "traits": {
@@ -4180,6 +4214,13 @@
           "traits": {
             "smithy.api#documentation": "Linked Channel Settings for this channel.",
             "smithy.api#jsonName": "linkedChannelSettings"
+          }
+        },
+        "ChannelSecurityGroups": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "A list of IDs for all the Input Security Groups attached to the channel.",
+            "smithy.api#jsonName": "channelSecurityGroups"
           }
         }
       },
@@ -5246,6 +5287,26 @@
         "smithy.api#httpError": 409
       }
     },
+    "com.amazonaws.medialive#ConnectionMode": {
+      "type": "enum",
+      "members": {
+        "CALLER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CALLER"
+          }
+        },
+        "LISTENER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LISTENER"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Placeholder documentation for ConnectionMode"
+      }
+    },
     "com.amazonaws.medialive#ContentType": {
       "type": "enum",
       "members": {
@@ -5573,6 +5634,13 @@
           "traits": {
             "smithy.api#documentation": "The linked channel settings for the channel.",
             "smithy.api#jsonName": "linkedChannelSettings"
+          }
+        },
+        "ChannelSecurityGroups": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "A list of IDs for all the Input Security Groups attached to the channel.",
+            "smithy.api#jsonName": "channelSecurityGroups"
           }
         }
       },
@@ -8306,6 +8374,13 @@
             "smithy.api#documentation": "Linked Channel Settings for this channel.",
             "smithy.api#jsonName": "linkedChannelSettings"
           }
+        },
+        "ChannelSecurityGroups": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "A list of IDs for all the Input Security Groups attached to the channel.",
+            "smithy.api#jsonName": "channelSecurityGroups"
+          }
         }
       },
       "traits": {
@@ -10465,6 +10540,13 @@
             "smithy.api#documentation": "Linked Channel Settings for this channel.",
             "smithy.api#jsonName": "linkedChannelSettings"
           }
+        },
+        "ChannelSecurityGroups": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "A list of IDs for all the Input Security Groups attached to the channel.",
+            "smithy.api#jsonName": "channelSecurityGroups"
+          }
         }
       },
       "traits": {
@@ -11470,6 +11552,13 @@
           "traits": {
             "smithy.api#documentation": "Whitelist rules and their sync status",
             "smithy.api#jsonName": "whitelistRules"
+          }
+        },
+        "Channels": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "The list of channels currently using this Input Security Group as their channel security group.",
+            "smithy.api#jsonName": "channels"
           }
         }
       },
@@ -21636,6 +21725,13 @@
             "smithy.api#documentation": "Whitelist rules and their sync status",
             "smithy.api#jsonName": "whitelistRules"
           }
+        },
+        "Channels": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "The list of channels currently using this Input Security Group as their channel security group.",
+            "smithy.api#jsonName": "channels"
+          }
         }
       },
       "traits": {
@@ -22066,6 +22162,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "MEDIACONNECT_ROUTER"
+          }
+        },
+        "SRT_LISTENER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SRT_LISTENER"
           }
         }
       },
@@ -29415,6 +29517,13 @@
             "smithy.api#documentation": "The name of the physical interface on the hardware that will be running Elemental anywhere.",
             "smithy.api#jsonName": "physicalInterfaceName"
           }
+        },
+        "PhysicalInterfaceIpAddresses": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "The IP addresses associated with the physical interface on the node hardware.",
+            "smithy.api#jsonName": "physicalInterfaceIpAddresses"
+          }
         }
       },
       "traits": {
@@ -31264,6 +31373,13 @@
           "traits": {
             "smithy.api#documentation": "Linked Channel Settings for this channel.",
             "smithy.api#jsonName": "linkedChannelSettings"
+          }
+        },
+        "ChannelSecurityGroups": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "A list of IDs for all the Input Security Groups attached to the channel.",
+            "smithy.api#jsonName": "channelSecurityGroups"
           }
         }
       },
@@ -33449,6 +33565,118 @@
         "smithy.api#documentation": "Srt Group Settings"
       }
     },
+    "com.amazonaws.medialive#SrtListenerDecryption": {
+      "type": "structure",
+      "members": {
+        "Algorithm": {
+          "target": "com.amazonaws.medialive#Algorithm",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "The algorithm used to decrypt content.",
+            "smithy.api#jsonName": "algorithm",
+            "smithy.api#required": {}
+          }
+        },
+        "PassphraseSecretArn": {
+          "target": "com.amazonaws.medialive#__string",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "The ARN for the secret in Secrets Manager that holds the passphrase for decryption.",
+            "smithy.api#jsonName": "passphraseSecretArn",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Decryption settings for SRT listener. If present, both algorithm and passphraseSecretArn are required."
+      }
+    },
+    "com.amazonaws.medialive#SrtListenerDecryptionRequest": {
+      "type": "structure",
+      "members": {
+        "Algorithm": {
+          "target": "com.amazonaws.medialive#Algorithm",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "Required. The decryption algorithm.",
+            "smithy.api#jsonName": "algorithm",
+            "smithy.api#required": {}
+          }
+        },
+        "PassphraseSecretArn": {
+          "target": "com.amazonaws.medialive#__string",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "Required. The ARN for the secret in Secrets Manager that holds the passphrase.",
+            "smithy.api#jsonName": "passphraseSecretArn",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Decryption settings. If specified, both algorithm and passphraseSecretArn are required."
+      }
+    },
+    "com.amazonaws.medialive#SrtListenerSettings": {
+      "type": "structure",
+      "members": {
+        "Decryption": {
+          "target": "com.amazonaws.medialive#SrtListenerDecryption",
+          "traits": {
+            "smithy.api#jsonName": "decryption"
+          }
+        },
+        "MinimumLatency": {
+          "target": "com.amazonaws.medialive#__integer",
+          "traits": {
+            "smithy.api#documentation": "The preferred latency (in milliseconds) for implementing packet loss and recovery. Range 120-15000.",
+            "smithy.api#jsonName": "minimumLatency"
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.medialive#__string",
+          "traits": {
+            "smithy.api#documentation": "The stream ID, if the upstream system uses this identifier.",
+            "smithy.api#jsonName": "streamId"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Settings for SRT Listener input."
+      }
+    },
+    "com.amazonaws.medialive#SrtListenerSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "Decryption": {
+          "target": "com.amazonaws.medialive#SrtListenerDecryptionRequest",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#jsonName": "decryption",
+            "smithy.api#required": {}
+          }
+        },
+        "MinimumLatency": {
+          "target": "com.amazonaws.medialive#__integer",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "Required. The preferred latency in milliseconds for packet loss and recovery. Range 120-15000.",
+            "smithy.api#jsonName": "minimumLatency",
+            "smithy.api#required": {}
+          }
+        },
+        "StreamId": {
+          "target": "com.amazonaws.medialive#__string",
+          "traits": {
+            "smithy.api#documentation": "Optional. The stream ID if the upstream system uses this identifier.",
+            "smithy.api#jsonName": "streamId"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Configuration for SRT Listener input. Encryption is REQUIRED for all SRT Listener inputs for security reasons. You must provide decryption settings including algorithm and passphrase secret ARN."
+      }
+    },
     "com.amazonaws.medialive#SrtOutputDestinationSettings": {
       "type": "structure",
       "members": {
@@ -33471,6 +33699,20 @@
           "traits": {
             "smithy.api#documentation": "A URL specifying a destination",
             "smithy.api#jsonName": "url"
+          }
+        },
+        "ConnectionMode": {
+          "target": "com.amazonaws.medialive#ConnectionMode",
+          "traits": {
+            "smithy.api#documentation": "Specifies the mode the output should use for connection establishment. CALLER mode requires URL, LISTENER mode requires port.",
+            "smithy.api#jsonName": "connectionMode"
+          }
+        },
+        "ListenerPort": {
+          "target": "com.amazonaws.medialive#__integerMin1Max65535",
+          "traits": {
+            "smithy.api#documentation": "Port number for listener mode connections (required when connectionMode is LISTENER, must not be provided when connectionMode is CALLER).",
+            "smithy.api#jsonName": "listenerPort"
           }
         }
       },
@@ -33531,10 +33773,16 @@
           "traits": {
             "smithy.api#jsonName": "srtCallerSources"
           }
+        },
+        "SrtListenerSettings": {
+          "target": "com.amazonaws.medialive#SrtListenerSettings",
+          "traits": {
+            "smithy.api#jsonName": "srtListenerSettings"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "The configured sources for this SRT input."
+        "smithy.api#documentation": "The configured settings for SRT inputs (caller and listener)."
       }
     },
     "com.amazonaws.medialive#SrtSettingsRequest": {
@@ -33545,10 +33793,16 @@
           "traits": {
             "smithy.api#jsonName": "srtCallerSources"
           }
+        },
+        "SrtListenerSettings": {
+          "target": "com.amazonaws.medialive#SrtListenerSettingsRequest",
+          "traits": {
+            "smithy.api#jsonName": "srtListenerSettings"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "Configures the sources for this SRT input. For a single-pipeline input, include one srtCallerSource in the array. For a standard-pipeline input, include two srtCallerSource."
+        "smithy.api#documentation": "Configures the settings for SRT inputs. Provide either srtCallerSources (for SRT_CALLER type) OR srtListenerSettings (for SRT_LISTENER type), not both."
       }
     },
     "com.amazonaws.medialive#StandardHlsSettings": {
@@ -33780,6 +34034,13 @@
           "traits": {
             "smithy.api#documentation": "Linked Channel Settings for this channel.",
             "smithy.api#jsonName": "linkedChannelSettings"
+          }
+        },
+        "ChannelSecurityGroups": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "A list of IDs for all the Input Security Groups attached to the channel.",
+            "smithy.api#jsonName": "channelSecurityGroups"
           }
         }
       },
@@ -35110,6 +35371,13 @@
           "traits": {
             "smithy.api#documentation": "Linked Channel Settings for this channel.",
             "smithy.api#jsonName": "linkedChannelSettings"
+          }
+        },
+        "ChannelSecurityGroups": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "A list of IDs for all the Input Security Groups attached to the channel.",
+            "smithy.api#jsonName": "channelSecurityGroups"
           }
         }
       },
@@ -36645,6 +36913,13 @@
           "traits": {
             "smithy.api#documentation": "The linked channel settings for the channel.",
             "smithy.api#jsonName": "linkedChannelSettings"
+          }
+        },
+        "ChannelSecurityGroups": {
+          "target": "com.amazonaws.medialive#__listOf__string",
+          "traits": {
+            "smithy.api#documentation": "A list of IDs for all the Input Security Groups attached to the channel.",
+            "smithy.api#jsonName": "channelSecurityGroups"
           }
         }
       },
@@ -39593,6 +39868,12 @@
       "type": "integer",
       "traits": {
         "smithy.api#documentation": "Placeholder documentation for __integerMin1Max6"
+      }
+    },
+    "com.amazonaws.medialive#__integerMin1Max65535": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#documentation": "Placeholder documentation for __integerMin1Max65535"
       }
     },
     "com.amazonaws.medialive#__integerMin1Max8": {

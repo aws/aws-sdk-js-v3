@@ -122,6 +122,21 @@ export type AgentRuntimeStatus = (typeof AgentRuntimeStatus)[keyof typeof AgentR
  * @public
  * @enum
  */
+export const BrowserProfileStatus = {
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  READY: "READY",
+  SAVING: "SAVING",
+} as const;
+/**
+ * @public
+ */
+export type BrowserProfileStatus = (typeof BrowserProfileStatus)[keyof typeof BrowserProfileStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const BrowserNetworkMode = {
   PUBLIC: "PUBLIC",
   VPC: "VPC",

@@ -54,6 +54,9 @@ export interface StartDeviceDiscoveryCommandOutput extends StartDeviceDiscoveryR
  *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   ConnectorDeviceIdList: [ // ConnectorDeviceIdList
+ *     "STRING_VALUE",
+ *   ],
  *   Protocol: "ZWAVE" || "ZIGBEE" || "CUSTOM",
  *   EndDeviceIdentifier: "STRING_VALUE",
  * };

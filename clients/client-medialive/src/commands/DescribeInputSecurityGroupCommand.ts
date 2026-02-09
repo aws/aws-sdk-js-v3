@@ -56,6 +56,9 @@ export interface DescribeInputSecurityGroupCommandOutput extends DescribeInputSe
  * //       Cidr: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   Channels: [
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
