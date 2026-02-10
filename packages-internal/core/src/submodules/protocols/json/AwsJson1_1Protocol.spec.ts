@@ -1,4 +1,6 @@
+import { TypeRegistry } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
+import type { StaticErrorSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { context, createNestingWidget, deleteObjects, nestingWidget } from "../test-schema.spec";
@@ -172,5 +174,32 @@ describe(AwsJson1_1Protocol, () => {
        */
       console.log(`${protocol.constructor.name} performance timings`, timings);
     });
+  });
+
+  it("has a composite error registry", () => {
+    const errorSchema = [
+      -3,
+      "smithy.ts.sdk.synthetic.com.amazonaws",
+      "GenericServiceException",
+      0,
+      [],
+      [],
+      0,
+    ] satisfies StaticErrorSchema;
+    const protocol = new AwsJson1_1Protocol({
+      defaultNamespace: "",
+      serviceTarget: "JsonRpc11",
+      errorTypeRegistries: [
+        (() => {
+          const r = TypeRegistry.for("ns");
+          r.registerError(errorSchema, Error);
+          return r;
+        })(),
+      ],
+    });
+
+    const registry = (protocol as any).compositeErrorRegistry;
+    expect(registry).toBeInstanceOf(TypeRegistry);
+    expect(registry.getBaseException()).toEqual(errorSchema);
   });
 });

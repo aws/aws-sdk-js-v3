@@ -1,5 +1,6 @@
 import { NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
-import { decorateServiceException, ServiceException as SDKBaseServiceException } from "@smithy/smithy-client";
+import type { ServiceException as SDKBaseServiceException } from "@smithy/smithy-client";
+import { decorateServiceException } from "@smithy/smithy-client";
 import type { HttpResponse as IHttpResponse, MetadataBearer, ResponseMetadata, StaticErrorSchema } from "@smithy/types";
 
 /**
@@ -16,7 +17,7 @@ type ErrorMetadataBearer = MetadataBearer & {
  * @internal
  */
 export class ProtocolLib {
-  public constructor(private queryCompat = false) {}
+  public constructor(private queryCompat = false, private compositeErrorRegistry?: TypeRegistry) {}
 
   /**
    * This is only for REST protocols.
@@ -80,7 +81,11 @@ export class ProtocolLib {
       $fault: response.statusCode < 500 ? ("client" as const) : ("server" as const),
     };
 
-    const registry = TypeRegistry.for(namespace);
+    const nsRegistry = TypeRegistry.for(namespace);
+    const registry = this.compositeErrorRegistry ?? nsRegistry;
+    // Composition required for backwards compatibility.
+    // Previous generated clients did not export errorTypeRegistries.
+    registry.copyFrom(nsRegistry);
 
     try {
       const errorSchema =
@@ -89,9 +94,13 @@ export class ProtocolLib {
     } catch (e) {
       dataObject.message = dataObject.message ?? dataObject.Message ?? "UnknownError";
       const synthetic = TypeRegistry.for("smithy.ts.sdk.synthetic." + namespace);
-      const baseExceptionSchema = synthetic.getBaseException();
+      // Composition required for backwards compatibility.
+      // Previous generated clients did not export errorTypeRegistries.
+      registry.copyFrom(synthetic);
+
+      const baseExceptionSchema = registry.getBaseException();
       if (baseExceptionSchema) {
-        const ErrorCtor = synthetic.getErrorCtor(baseExceptionSchema) ?? Error;
+        const ErrorCtor = registry.getErrorCtor(baseExceptionSchema) ?? Error;
         throw this.decorateServiceException(
           Object.assign(new ErrorCtor({ name: errorName }), errorMetadata),
           dataObject

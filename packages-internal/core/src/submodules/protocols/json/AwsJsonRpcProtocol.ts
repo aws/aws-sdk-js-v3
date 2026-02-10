@@ -1,5 +1,6 @@
 import { RpcProtocol } from "@smithy/core/protocols";
-import { deref, NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
+import type { TypeRegistry } from "@smithy/core/schema";
+import { deref, NormalizedSchema } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -21,6 +22,10 @@ import { loadRestJsonErrorCode } from "./parseJsonBody";
  * @public
  */
 export abstract class AwsJsonRpcProtocol extends RpcProtocol {
+  /**
+   * @override
+   */
+  protected declare compositeErrorRegistry: TypeRegistry;
   protected serializer: ShapeSerializer<string | Uint8Array>;
   protected deserializer: ShapeDeserializer<string | Uint8Array>;
   protected serviceTarget: string;
@@ -33,14 +38,17 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     serviceTarget,
     awsQueryCompatible,
     jsonCodec,
+    errorTypeRegistries,
   }: {
     defaultNamespace: string;
     serviceTarget: string;
     awsQueryCompatible?: boolean;
     jsonCodec?: JsonCodec;
+    errorTypeRegistries?: TypeRegistry[];
   }) {
     super({
       defaultNamespace,
+      errorTypeRegistries,
     });
     this.serviceTarget = serviceTarget;
     this.codec =
@@ -116,7 +124,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
 
     const ns = NormalizedSchema.of(errorSchema);
     const message = dataObject.message ?? dataObject.Message ?? "Unknown";
-    const ErrorCtor = TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
+    const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
     const exception = new ErrorCtor(message);
 
     const output = {} as any;

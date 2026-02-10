@@ -4,6 +4,7 @@
  */
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,7 @@ import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.traits.Trait;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.protocol.traits.Rpcv2CborTrait;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -33,6 +35,8 @@ import software.amazon.smithy.typescript.codegen.schema.SchemaGenerationAllowlis
 import software.amazon.smithy.typescript.codegen.schema.SchemaTraitExtension;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
+
+import static software.amazon.smithy.typescript.codegen.schema.SchemaGenerator.SCHEMAS_FOLDER;
 
 /**
  * Adds a protocol implementation to the runtime config.
@@ -141,10 +145,16 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
         String awsQueryCompat = settings.getService(model).hasTrait(AwsQueryCompatibleTrait.class) ? "true" : "false";
 
         Consumer<TypeScriptWriter> typeScriptWriterConsumer = (TypeScriptWriter writer) -> {
+            writer.addRelativeImport(
+                "errorTypeRegistries",
+                null,
+                Paths.get(".", CodegenUtils.SOURCE_FOLDER, SCHEMAS_FOLDER, "schemas_0")
+            );
             writer.openBlock(
                 """
                 {
-                  defaultNamespace: $S,""",
+                  defaultNamespace: $S,
+                  errorTypeRegistries,""",
                 """
                 }""",
                 namespace,

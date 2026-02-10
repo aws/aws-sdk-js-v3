@@ -1,9 +1,11 @@
+import { TypeRegistry } from "@smithy/core/schema";
 import type {
   BlobSchema,
   BooleanSchema,
   DocumentSchema,
   NumericSchema,
   OperationSchema,
+  StaticErrorSchema,
   StaticStructureSchema,
   StringSchema,
   TimestampDefaultSchema,
@@ -146,5 +148,32 @@ describe(AwsJson1_0Protocol.name, () => {
       expect(request.query).toEqual({});
       expect(request.body).toEqual(`{"header":"hello","query":"world","headerMap":{"a":1,"b":2}}`);
     });
+  });
+
+  it("has a composite error registry", () => {
+    const errorSchema = [
+      -3,
+      "smithy.ts.sdk.synthetic.com.amazonaws",
+      "GenericServiceException",
+      0,
+      [],
+      [],
+      0,
+    ] satisfies StaticErrorSchema;
+    const protocol = new AwsJson1_0Protocol({
+      defaultNamespace: "namespace",
+      serviceTarget: "JsonRpc10",
+      errorTypeRegistries: [
+        (() => {
+          const r = TypeRegistry.for("ns");
+          r.registerError(errorSchema, Error);
+          return r;
+        })(),
+      ],
+    });
+
+    const registry = (protocol as any).compositeErrorRegistry;
+    expect(registry).toBeInstanceOf(TypeRegistry);
+    expect(registry.getBaseException()).toEqual(errorSchema);
   });
 });
